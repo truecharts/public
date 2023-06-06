@@ -2,14 +2,16 @@
 {{- include "tc.v1.common.loader.init" . }}
 
 {{/* Render secrets for authentik and friends */}}
-{{- $secrets := include "authentik.secrets" . | fromYaml -}}
-{{- if $secrets -}}
+{{- $authentikSecrets := include "authentik.secrets" . | fromYaml -}}
+{{- if $authentikSecrets -}}
+  {{ $secrets := (mustMerge $.Values.secret $authentikSecrets) }}
   {{- $_ := set .Values "secret" $secrets -}}
 {{- end -}}
 
 {{/* Render configmaps for authentik and friends */}}
-{{- $configmaps := include "authentik.configmaps" . | fromYaml -}}
-{{- if $configmaps -}}
+{{- $authentikConfigmaps := include "authentik.configmaps" . | fromYaml -}}
+{{- if $authentikConfigmaps -}}
+  {{ $configmaps := (mustMerge $.Values.configmap $authentikConfigmaps) }}
   {{- $_ := set .Values "configmap" $configmaps -}}
 {{- end -}}
 
