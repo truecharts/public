@@ -18,13 +18,15 @@ workload:
             - /manager
           probes:
             liveness:
-              port: 9443
+              port: webhook
+              type: https
               path: /readyz
             readiness:
-              port: 9443
+              port: webhook
+              type: https
               path: /readyz
             startup:
-              port: 9443
+              port: webhook
               type: tcp
           env:
             OPERATOR_IMAGE_NAME: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
