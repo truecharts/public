@@ -13,7 +13,7 @@ workload:
             - --leader-elect
             - --config-map-name={{ include "tc.v1.common.lib.chart.names.fullname" $ }}-config
             - --secret-name={{ include "tc.v1.common.lib.chart.names.fullname" $ }}-config
-            - --webhook-port={{ $.Values.service.main.ports.main.targetPort }}
+            - --webhook-port={{ $.Values.service.cnpg-webhook-service.ports.webhook.targetPort }}
           command:
             - /manager
           probes:
