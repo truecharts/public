@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/tasmoadmin
-  tag: 2.4.2@sha256:5144a471e58004c129a0d800977e1e31ba4b46c52e37b9258591086161d2d96f
+  tag: v3.0.5@sha256:7fb29077382634fbe08ba81725cb72d06e8c4be5a3b5293d347abac1f07271c0
 
 securityContext:
   container:
@@ -16,7 +16,7 @@ workload:
       containers:
         main:
           env:
-            TASMO_DATADIR: /data
+            TASMO_DATADIR: /data/
             TASMO_DEBUG: 1
 
 service:
