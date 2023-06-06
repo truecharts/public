@@ -18,13 +18,13 @@ workload:
             - /manager
           probes:
             liveness:
-              port: cnpg-webhook-service
+              port: webhook
               path: /readyz
             readiness:
-              port: cnpg-webhook-service
+              port: webhook
               path: /readyz
             startup:
-              port: cnpg-webhook-service
+              port: webhook
               type: tcp
           env:
             OPERATOR_IMAGE_NAME: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -46,7 +46,7 @@ service:
     enabled: true
     expandObjectName: false
     ports:
-      cnpg-webhook-service:
+      webhook:
         enabled: true
         protocol: https
         port: 443
