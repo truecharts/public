@@ -13,18 +13,20 @@ workload:
             - --leader-elect
             - --config-map-name={{ include "tc.v1.common.lib.chart.names.fullname" $ }}-config
             - --secret-name={{ include "tc.v1.common.lib.chart.names.fullname" $ }}-config
-            - --webhook-port={{ $.Values.service.main.ports.main.targetPort }}
+            - --webhook-port=9443
           command:
             - /manager
           probes:
             liveness:
-              port: main
+              port: webhook
+              type: https
               path: /readyz
             readiness:
-              port: main
+              port: webhook
+              type: https
               path: /readyz
             startup:
-              port: main
+              port: webhook
               type: tcp
           env:
             OPERATOR_IMAGE_NAME: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -40,16 +42,17 @@ service:
   main:
     ports:
       main:
+        protocol: http
+        port: 8080
+  cnpg-webhook-service:
+    enabled: true
+    expandObjectName: false
+    ports:
+      webhook:
+        enabled: true
         protocol: https
         port: 443
         targetPort: 9443
-  metrics:
-    enabled: true
-    ports:
-      metrics:
-        enabled: true
-        protocol: http
-        port: 8080
 
 operator:
   register: true
@@ -81,7 +84,7 @@ metrics:
     enabled: false
     type: "podmonitor"
     endpoints:
-      - port: metrics
+      - port: main
         interval: 5s
         scrapeTimeout: 5s
         path: /
