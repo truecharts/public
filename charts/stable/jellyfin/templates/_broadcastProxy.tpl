@@ -4,9 +4,7 @@ enabled: true
 primary: true
 imageSelector: broadcastProxyImage
 securityContext:
-  runAsUser: 0
-  runAsGroup: 0
-  readOnlyRootFilesystem: false
+  readOnlyRootFilesystem: true
 command: ["/bin/sh"]
 # Quite a lot going on here:
 # - Resolve Jellyfin's autodiscovery service IP from its FQDN via getent hosts
