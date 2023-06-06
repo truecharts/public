@@ -4,7 +4,6 @@
 {{- end }}
 {{- include "tc.v1.common.loader.init" . }}
 
-
 {{/* Render configmap for blocky */}}
 {{- $configmapFile := include "blocky.configmap" . | fromYaml -}}
 {{- if $configmapFile -}}
