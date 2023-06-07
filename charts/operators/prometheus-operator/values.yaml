@@ -145,9 +145,11 @@ prometheusOperator:
       enabled: false
       # self-signed root certificate
       rootCert:
-        duration: "" # default to be 5y
+        # default to be 5y
+        duration: ""
       admissionCert:
-        duration: "" # default to be 1y
+        # default to be 1y
+        duration: ""
       # issuerRef:
       #   name: "issuer"
       #   kind: "ClusterIssuer"
