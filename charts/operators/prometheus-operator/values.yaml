@@ -59,6 +59,7 @@ workload:
         main:
           enabled: true
           primary: true
+          imageSelector: patchImage
           args:
             - create
             - --host={{ include "tc.v1.common.lib.chart.names.fullname" $ }},{{ include "tc.v1.common.lib.chart.names.fullname" $ }}.{{ .Release.Namespace }}.svc
@@ -84,6 +85,7 @@ workload:
         main:
           enabled: true
           primary: true
+          mageSelector: patchImage
           args:
             - patch
             - --webhook-name={{ include "tc.v1.common.lib.chart.names.fullname" $ }}-admission
