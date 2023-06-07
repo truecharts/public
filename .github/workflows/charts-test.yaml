@@ -203,6 +203,8 @@ jobs:
 
       - name: Add Dependencies
         run: |
+          ## TODO: Move to our Helm Charts
+          ## TODO: Only add when required
           if [[ "${{ matrix.chart }}" != "charts/operators/metallb" ]]; then
           kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml
           fi
