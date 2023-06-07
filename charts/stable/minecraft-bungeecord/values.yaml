@@ -14,10 +14,6 @@ j8Image:
 tty: true
 stdin: true
 
-securityContext:
-  container:
-    readOnlyRootFilesystem: false
-
 workload:
   main:
     podSpec:
