@@ -25,7 +25,7 @@ webhooks:
       name: cnpg-webhook-service
       namespace: {{ .Release.Namespace }}
       path: /validate-postgresql-cnpg-io-v1-backup
-      port: {{ .Values.service.main.ports.main.port }}
+      port: 9443
   failurePolicy: {{ .Values.webhook.validating.failurePolicy }}
   name: vbackup.kb.io
   rules:
@@ -46,7 +46,7 @@ webhooks:
       name: cnpg-webhook-service
       namespace: {{ .Release.Namespace }}
       path: /validate-postgresql-cnpg-io-v1-cluster
-      port: {{ .Values.service.main.ports.main.port }}
+      port: 443
   failurePolicy: {{ .Values.webhook.validating.failurePolicy }}
   name: vcluster.kb.io
   rules:
@@ -67,7 +67,7 @@ webhooks:
       name: cnpg-webhook-service
       namespace: {{ .Release.Namespace }}
       path: /validate-postgresql-cnpg-io-v1-scheduledbackup
-      port: {{ .Values.service.main.ports.main.port }}
+      port: 443
   failurePolicy: {{ .Values.webhook.validating.failurePolicy }}
   name: vscheduledbackup.kb.io
   rules:
@@ -88,7 +88,7 @@ webhooks:
       name: cnpg-webhook-service
       namespace: {{ .Release.Namespace }}
       path: /validate-postgresql-cnpg-io-v1-pooler
-      port: {{ .Values.service.main.ports.main.port }}
+      port: 443
   failurePolicy: {{ .Values.webhook.validating.failurePolicy }}
   name: vpooler.kb.io
   rules:
