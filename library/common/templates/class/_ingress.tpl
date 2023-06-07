@@ -73,6 +73,7 @@ metadata:
   annotations:
   {{- with $values.certificateIssuer }}
     cert-manager.io/cluster-issuer: {{ tpl ( toYaml . ) $ }}
+    cert-manager.io/private-key-rotation-policy: Always
   {{- end }}
     "traefik.ingress.kubernetes.io/router.entrypoints": {{ $values.entrypoint | default "websecure" }}
     "traefik.ingress.kubernetes.io/router.middlewares": {{ $middlewares | quote }}
