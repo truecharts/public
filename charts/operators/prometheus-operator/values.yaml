@@ -113,6 +113,8 @@ prometheusOperator:
 
   prometheusConfigReloader:
     enabled: false
+    probes:
+      enabled: false
 
   ## Set a Field Selector to filter watched secrets
   ##
