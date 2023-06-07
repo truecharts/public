@@ -274,6 +274,39 @@ rbac:
           - get
           - update
 
+  admission:
+    serviceAccounts:
+      - admission
+    annotations:
+      "helm.sh/hook": pre-install,pre-upgrade
+      "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
+    enabled: true
+    clusterWide: true
+    rules:
+      - apiGroups:
+          - admissionregistration.k8s.io
+        resources:
+          - validatingwebhookconfigurations
+          - mutatingwebhookconfigurations
+        verbs:
+          - get
+          - update
+  admission-role:
+    serviceAccounts:
+      - admission
+    annotations:
+      "helm.sh/hook": pre-install,pre-upgrade
+      "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
+    enabled: true
+    clusterWide: false
+    rules:
+      - apiGroups:
+          - ""
+        resources:
+          - secrets
+        verbs:
+          - get
+          - create
 crds:
   annotations: {}
 
@@ -281,7 +314,14 @@ serviceAccount:
   main:
     enabled: true
     primary: true
-    targetSelectAll: true
+  admission:
+    annotations:
+      "helm.sh/hook": pre-install,pre-upgrade
+      "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
+    enabled: true
+    targetSelector:
+      - createsecret
+      - patchwebhook
 
 manifestManager:
   enabled: true
