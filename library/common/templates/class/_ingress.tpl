@@ -30,8 +30,14 @@ within the common library.
   {{- $defaultServicePort := get $primaryService.ports (include "tc.v1.common.lib.util.service.ports.primary" (dict "svcValues" $primaryService "svcName" $primaryServiceName )) -}}
 
   {{- $mddwrNamespace := "tc-system" -}}
+  {{- if $.Values.operator.traefik -}}
+    {{- if $.Values.operator.traefik.namespace -}}
+      {{- $mddwrNamespace := (printf "ix-%s" $values.ingressClassName) -}}
+    {{- end -}}
+  {{- end -}}
+
   {{- if $values.ingressClassName -}}
-    {{- $mddwrNamespace = ( printf "tc-system-%s" $values.ingressClassName ) -}}
+    {{- $mddwrNamespace = $values.ingressClassName -}}
   {{- end -}}
 
   {{- $fixedMiddlewares := "" -}}

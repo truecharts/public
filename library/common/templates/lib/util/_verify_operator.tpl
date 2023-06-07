@@ -1,7 +1,39 @@
 {{- define "tc.v1.common.lib.util.operator.verifyAll" -}}
   {{- if .Values.operator.verify.enabled -}}
     {{/* Go over all operators that need to be verified */}}
-    {{- range $opName := .Values.operator.verify.additionalOperators -}}
+    {{- $operatorList := .Values.operator.verify.additionalOperators -}}
+
+    {{- $cnpg := false -}}
+    {{- range $opName := .Values.cnpg -}}
+      {{- if .enabled -}}
+        {{- $cnpg := true -}}
+      {{- end -}}
+    {{- end -}}
+    {{- if $cnpg -}}
+      {{- $operatorList = mustAppend $operatorList "cloudnative-pg" -}}
+    {{- end -}}
+
+    {{- $ingress := false -}}
+    {{- range $opName := .Values.ingress -}}
+      {{- if .enabled -}}
+        {{- $ingress := true -}}
+      {{- end -}}
+    {{- end -}}
+    {{- if $ingress -}}
+      {{- $operatorList = mustAppend $operatorList "traefik" -}}
+    {{- end -}}
+
+    {{- $metrics := false -}}
+    {{- range $opName := .Values.metrics -}}
+      {{- if .enabled -}}
+        {{- $metrics := true -}}
+      {{- end -}}
+    {{- end -}}
+    {{- if $metrics -}}
+      {{- $operatorList = mustAppend $operatorList "prometheus-operator" -}}
+    {{- end -}}
+
+    {{- range $opName := $operatorList -}}
       {{- $fetchedOpData := include "tc.v1.common.lib.util.operator.verify" (dict "rootCtx" $ "opName" $opName) -}}
 
       {{/* If the operator was not found */}}
