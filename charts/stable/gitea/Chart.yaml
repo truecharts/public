@@ -7,7 +7,7 @@ dependencies:
   - condition: memcached.enabled
     name: memcached
     repository: https://deps.truecharts.org/
-    version: 6.0.54
+    version: 6.0.55
 deprecated: false
 description: Self hosted GIT repositories
 home: https://truecharts.org/charts/stable/gitea
@@ -30,7 +30,7 @@ sources:
   - https://gitea.com/gitea/helm-chart
   - https://github.com/go-gitea/gitea
 type: application
-version: 13.0.14
+version: 13.0.15
 annotations:
   truecharts.org/catagories: |
     - GIT
