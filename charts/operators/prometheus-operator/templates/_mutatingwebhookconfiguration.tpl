@@ -1,5 +1,5 @@
 {{- define "promop.webhooks.mutating" -}}
-{{- if and .Values.prometheusOperator.enabled .Values.prometheusOperator.admissionWebhooks.enabled }}
+{{- if .Values.prometheusOperator.admissionWebhooks.enabled }}
 {{- $promopLabels := .Values.webhook.validating.labels -}}
 {{- $promopAnnotations := .Values.webhook.validating.annotations -}}
 {{- $labels := (mustMerge ($promopLabels | default dict) (include "tc.v1.common.lib.metadata.allLabels" $ | fromYaml)) }}
