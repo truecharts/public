@@ -60,9 +60,9 @@ workload:
           primary: true
           args:
             - create
-            - --host={{ template "kube-prometheus-stack.operator.fullname" . }},{{ template "kube-prometheus-stack.operator.fullname" . }}.{{ template "kube-prometheus-stack.namespace" . }}.svc
-            - --namespace={{ template "kube-prometheus-stack.namespace" . }}
-            - --secret-name={{ template "kube-prometheus-stack.fullname" . }}-admission
+            - --host={{ include "tc.v1.common.lib.chart.names.fullname" $ }},{{ include "tc.v1.common.lib.chart.names.fullname" $ }}.{{ .Release.Namespace }}.svc
+            - --namespace={{ .Release.Namespace }}
+            - --secret-name={{ include "tc.v1.common.lib.chart.names.fullname" $ }}-admission
           probes:
             liveness:
               enabled: false
