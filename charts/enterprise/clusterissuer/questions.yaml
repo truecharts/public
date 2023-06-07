@@ -238,6 +238,7 @@ questions:
                       schema:
                         type: string
                         required: true
+                        max_length: 10240
                         show_if: [["selfSigned", "=", false]]
                         default: ""
                     - variable: key
@@ -246,6 +247,7 @@ questions:
                       schema:
                         type: string
                         required: true
+                        max_length: 10240
                         show_if: [["selfSigned", "=", false]]
                         default: ""
 
