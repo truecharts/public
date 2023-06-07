@@ -18,13 +18,10 @@ workload:
           probes:
             liveness:
               type: http
-              path: /
             readiness:
               type: http
-              path: /
             startup:
               type: http
-              path: /
           env:
             TASMO_DEBUG: 1
 
