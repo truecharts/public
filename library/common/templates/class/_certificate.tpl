@@ -21,6 +21,7 @@ spec:
   privateKey:
     algorithm: ECDSA
     size: 256
+    rotationPolicy: Always
   issuerRef:
     name: {{ tpl $certificateIssuer $root | quote }}
     kind: ClusterIssuer
