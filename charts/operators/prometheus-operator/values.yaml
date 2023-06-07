@@ -54,6 +54,7 @@ workload:
       "helm.sh/hook": pre-install,pre-upgrade
       "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
     podSpec:
+      restartPolicy: Never
       containers:
         main:
           enabled: true
@@ -78,6 +79,7 @@ workload:
       "helm.sh/hook": pre-install,pre-upgrade
       "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
     podSpec:
+      restartPolicy: Never
       containers:
         main:
           enabled: true
