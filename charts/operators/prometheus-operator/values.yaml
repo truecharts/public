@@ -32,7 +32,7 @@ workload:
             # - --prometheus-default-base-image={{ .Values.global.imageRegistry | default .Values.prometheusOperator.prometheusDefaultBaseImageRegistry }}/{{ .Values.prometheusOperator.prometheusDefaultBaseImage }}
             # - --alertmanager-default-base-image={{ .Values.global.imageRegistry | default .Values.prometheusOperator.alertmanagerDefaultBaseImageRegistry }}/{{ .Values.prometheusOperator.alertmanagerDefaultBaseImage }}
             - --prometheus-config-reloader={{ .Values.configReloaderImage.repository }}:{{ .Values.configReloaderImage.tag }}
-            - --config-reloader-cpu-request={{ .Values..resources.requests.cpu }}
+            - --config-reloader-cpu-request={{ .Values.resources.requests.cpu }}
             - --config-reloader-cpu-limit={{ .Values.resources.limits.cpu }}
             - --config-reloader-memory-request={{ .Values.resources.requests.memory }}
             - --config-reloader-memory-limit={{ .Values.resources.limits.memory }}
