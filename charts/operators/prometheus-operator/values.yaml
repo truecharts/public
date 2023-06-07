@@ -47,7 +47,7 @@ workload:
             # - --thanos-ruler-instance-selector={{ .Values.prometheusOperator.thanosRulerInstanceSelector }}
             - --secret-field-selector={{ tpl (.Values.prometheusOperator.secretFieldSelector) $ }}
             # - --cluster-domain={{ .Values.prometheusOperator.clusterDomain }}
-  createSecret:
+  createsecret:
     type: Job
     enabled: true
     annotations:
@@ -71,7 +71,7 @@ workload:
             startup:
               enabled: false
 
-  patchWebhook:
+  patchwebhook:
     type: Job
     enabled: true
     annotations:
