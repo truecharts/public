@@ -15,13 +15,6 @@ workload:
     podSpec:
       containers:
         main:
-          probes:
-            liveness:
-              type: http
-            readiness:
-              type: http
-            startup:
-              type: http
           env:
             TASMO_DEBUG: 1
 
