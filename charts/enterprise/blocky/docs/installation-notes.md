@@ -55,10 +55,11 @@ However: this negatively affects rollback and high availability, so we _highly_ 
 
 ## k8s-gateway
 
-Our blocky Chart/App, includes build-in compatibility for [k8s_gateway](https://github.com/ori-edge/k8s_gateway), this tool can be used to ensure devices on your local network, connect directly to the LAN IP of any Charts/Apps using Ingress, instead of via the outside world or, in a lot of cases, having a bunch of connectivity issues.
+Our blocky Chart/App includes build-in compatibility for [k8s_gateway](https://github.com/ori-edge/k8s_gateway).
+This tool can be used to achieve [Split DNS](https://en.wikipedia.org/wiki/Split-horizon_DNS) to ensure devices on your local network connect directly to the LAN IP of any Charts/Apps using Ingress, instead of via the outside world or, in a lot of cases, having a bunch of connectivity issues.
 
-The setup of k8s_gateway is simple:
-Just add the domain(s), which will include and subdomains(!), to the k8s_gateway domains list.
+To setup k8s_gateway add **your** root domain(s) to the `k8s_gateway` section domains list, e.g. `mydomain.com`.
 From that point onwards we will take care to automatically apply the required `conditional` settings in `blocky` as well.
+This will automatically include all your app subdomains exposed via Ingress, e.g. `jellyfin.mydomain.com`.
 
-Please be mindfull that using `Blocky Style` configuration using the `blockyConfig` object in `values.yaml`, might override this automatic setup.
+Please be mindfull that using `Blocky Style` configuration, using the `blockyConfig` object in `values.yaml`, might override this automatic setup.
