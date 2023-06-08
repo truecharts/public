@@ -22,19 +22,6 @@ workload:
     podSpec:
       containers:
         main:
-          probes:
-            liveness:
-              enabled: true
-              type: tcp
-              port: 1883
-            readiness:
-              enabled: true
-              type: tcp
-              port: 1883
-            startup:
-              enabled: true
-              type: tcp
-              port: 1883
 
 ingress:
   websockets:
