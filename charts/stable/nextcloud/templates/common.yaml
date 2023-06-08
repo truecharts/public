@@ -11,9 +11,6 @@
 {{- if not (get .Values.workload.main.podSpec "initContainers") -}}
   {{- $_ := set .Values.workload.main.podSpec "initContainers" dict -}}
 {{- end -}}
-{{/* TODO: Remove this and use the one from common after its updated for all persistence types */}}
-{{- $initPerms := (include "nextcloud.init.perms" . | fromYaml) -}}
-{{- $_ := set .Values.workload.main.podSpec.initContainers "init-perms" $initPerms -}}
 
 {{/* Add [wait nextcloud] container to nginx */}}
 {{- if not (get .Values.workload.nginx.podSpec "initContainers") -}}
