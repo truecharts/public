@@ -17,6 +17,20 @@ service:
         port: 9001
         targetPort: 9001
 
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: true
+              type: tcp
+              port: 1883
+            readiness:
+              enabled: true
+              type: tcp
+              port: 1883
 
 ingress:
   websockets:
