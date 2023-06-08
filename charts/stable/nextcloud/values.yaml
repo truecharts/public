@@ -119,6 +119,9 @@ workload:
           env:
             # FIXME: Remove after changing images
             NX_TUNE_FPM: "false"
+          envFrom:
+            - configMapRef:
+                name: nextcloud-config
           probes:
             liveness:
               enabled: true
@@ -130,11 +133,8 @@ workload:
               command: /healthcheck.sh
             startup:
               enabled: true
-              type: exec
-              command: /healthcheck.sh
-          envFrom:
-            - configMapRef:
-                name: nextcloud-config
+              type: tcp
+              port: "{{ .Values.service.nextcloud.ports.nextcloud.targetPort }}"
   nginx:
     enabled: true
     type: Deployment
