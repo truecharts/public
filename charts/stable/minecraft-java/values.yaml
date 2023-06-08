@@ -1,80 +1,63 @@
 image:
   repository: tccr.io/truecharts/minecraft-java
-  tag: 2023.3.0@sha256:93d5eea3990a7272ef33a979cfefccd7600b35205d2fc7ac6567cd5c5bb35775
+  tag: 2023.4.1@sha256:CHANGE
   pullPolicy: Always
-j19Image:
-  repository: tccr.io/truecharts/minecraft-java19
-  tag: latest@sha256:ee7ca67652074e46034ff660ebe29f45465748244302e1e510a033d794c3a247
+j20Image:
+  repository: tccr.io/truecharts/minecraft-java20
+  tag: 2023.4.1@sha256:CHANGE
+  pullPolicy: Always
+j20AlpineImage:
+  repository: tccr.io/truecharts/minecraft-java20-alpine
+  tag: 2023.4.1@sha256:CHANGE
   pullPolicy: Always
 j17j9Image:
   repository: tccr.io/truecharts/minecraft-java17-openj9
-  tag: 2023.3.0@sha256:461c6c1332b797f3723acb1525ebbe910e8107fc845fe22799cce26a1898282b
+  tag: 2023.4.1@sha256:CHANGE
   pullPolicy: Always
 j17jdkImage:
   repository: tccr.io/truecharts/minecraft-java17-jdk
-  tag: 2023.3.0@sha256:80f4eab2f2d8bdeb157aa2b95c7f473acb4b1fd201d161ff99a480be05ec192e
+  tag: 2023.4.1@sha256:CHANGE
   pullPolicy: Always
 j17gceImage:
   repository: tccr.io/truecharts/minecraft-java17-graalvm-ce
-  tag: latest@sha256:ddb682b019b60ba6b22cde7f012d49e4497442040455beca4852a5765a58c032
+  tag: 2023.4.1@sha256:CHANGE
   pullPolicy: Always
 j17alpineImage:
   repository: tccr.io/truecharts/minecraft-java17-alpine
-  tag: 2023.3.0@sha256:f1e1184480e820a7d9301c56648a15bda24dc0b03bbd930fd2a7cbb9c167db14
+  tag: 2023.4.1@sha256:CHANGE
   pullPolicy: Always
 j11Image:
   repository: tccr.io/truecharts/minecraft-java11
-  tag: latest@sha256:afe834e49112633a181037707ca6e625fb0550c73dc126c347bc057ea69fc8e6
+  tag: 2023.4.1@sha256:CHANGE
   pullPolicy: Always
 j11jdkImage:
   repository: tccr.io/truecharts/minecraft-java11-jdk
-  tag: 2023.3.0@sha256:7da12be11fd1958c05084424b2f0975c93445f743ef75ef0af5eab6e84902fcf
+  tag: 2023.4.1@sha256:CHANGE
   pullPolicy: Always
 j11j9Image:
   repository: tccr.io/truecharts/minecraft-java11-openj9
-  tag: 2023.3.0@sha256:10bbed5f553733a8dbce1619d8956490b01f11426f3c8a5f4b0015916bd4ea8f
+  tag: 2023.4.1@sha256:CHANGE
   pullPolicy: Always
 j8Image:
   repository: tccr.io/truecharts/minecraft-java8
-  tag: latest@sha256:a67abc7873e1e2d64f9610f2ec2b8e77fa53252a95ff6ec8237f6841772277bd
+  tag: 2023.4.1@sha256:CHANGE
   pullPolicy: Always
 j8gceImage:
   repository: tccr.io/truecharts/minecraft-java8-graalvm-ce
-  tag: latest@sha256:aedafd0d4ac88c587dbf7e5f21d405f624f99ab6b78035f73a6b1c4f7b9067ce
+  tag: 2023.4.1@sha256:CHANGE
   pullPolicy: Always
 j8jdkImage:
   repository: tccr.io/truecharts/minecraft-java8-jdk
-  tag: 2023.3.0@sha256:135d9fcd78781ead1eab722270f830dbe4eb36caac2972c2f64fd1c74d4bb095
+  tag: 2023.4.1@sha256:CHANGE
   pullPolicy: Always
 j8j9Image:
   repository: tccr.io/truecharts/minecraft-java8-openj9
-  tag: 2023.3.0@sha256:f71de8d5b2206b49fffa47d908b52424520bde8d670752b24aa063b523950369
+  tag: 2023.4.1@sha256:CHANGE
   pullPolicy: Always
-service:
-  main:
-    ports:
-      main:
-        port: 25565
-  rcon:
-    enabled: true
-    ports:
-      rcon:
-        enabled: true
-        port: 25575
-        targetPort: 25575
-persistence:
-  data:
-    enabled: true
-    mountPath: "/data"
-portal:
-  open:
-    enabled: false
-securityContext:
-  container:
-    readOnlyRootFilesystem: false
-    runAsNonRoot: false
-    runAsUser: 0
-    runAsGroup: 0
+
+tty: true
+stdin: true
+
 workload:
   main:
     podSpec:
@@ -99,6 +82,11 @@ workload:
                 - mc-health
           env:
             SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
+            QUERY_PORT: "{{ .Values.service.main.ports.main.query }}"
+            RCON_PORT: "{{ .Values.service.rcon.ports.rcon.port }}"
+            ENABLE_QUERY: true
+            ENABLE_RCON: true
+            SERVER_NAME: "TrueCharts Minecraft Server"
             EULA: "TRUE"
             GUI: "FALSE"
             OVERRIDE_SERVER_PROPERTIES: true
@@ -113,11 +101,13 @@ workload:
             FORCE_GAMEMODE: false
             GENERATE_STRUCTURES: true
             HARDCORE: false
+            SNOOPER_ENABLED: false
             MAX_BUILD_HEIGHT: 256
             MAX_TICK_TIME: 60000
             SPAWN_ANIMALS: true
             SPAWN_MONSTERS: true
             SPAWN_NPCS: true
+            SPAWN_PROTECTION: 0
             VIEW_DISTANCE: 16
             MODE: survival
             MOTD: "Welcome to Minecraft on TrueNAS Scale!"
@@ -126,7 +116,14 @@ workload:
             LEVEL: world
             ONLINE_MODE: true
             MEMORY: 2048M
+            STOP_SERVER_ANNOUNCE_DELAY: 60
+            STOP_DURATION: 60
+            LOG_TIMESTAMP: true
+            # SETUP_ONLY: false
+            # INIT_MEMORY
+            # MAX_MEMORY
             RCON_PASSWORD: "secretrconpass"
+            ENABLE_ROLLING_LOGS: true
             # CUSTOM_SERVER: ""
             # QUILT_LOADER_VERSION: ""
             # QUILT_LAUNCHER: ""
@@ -160,6 +157,7 @@ workload:
             # USE_MODPACK_START_SCRIPT: true
             # FTB_LEGACYJAVAFIXER: false
             # WHITELIST: ""
+            # EXTRA_ARGS
             # OPS: ""
             # ICON: ""
             # SEED: ""
@@ -170,6 +168,7 @@ workload:
             # USE_AIKAR_FLAGS: true
             # USE_SIMD_FLAGS: false
             # JVM_OPTS: ""
+            # JVM_DD_OPTS: ""
             # JVM_XX_OPTS: ""
             # CF_API_KEY
             # CF_PAGE_URL
@@ -181,3 +180,59 @@ workload:
             # CF_OVERRIDES_SKIP_EXISTING
             # CF_PARALLEL_DOWNLOADS
             # CF_SET_LEVEL_FROM
+            # EXEC_DIRECTLY: false
+            # ENABLE_AUTOPAUSE: false
+            # PROXY: proxy:3128
+            # CONSOLE: FALSE
+            # RESOURCE_PACK
+            # RESOURCE_PACK_SHA1
+            # RESOURCE_PACK_ENFORCE: FALSE
+            # ALLOW_FLIGHT: FALSE
+
+            # server properties
+            # PLAYER_IDLE_TIMEOUT
+            # BROADCAST_CONSOLE_TO_OPS
+            # BROADCAST_RCON_TO_OPS
+            # ENABLE_JMX
+            # SYNC_CHUNK_WRITES
+            # ENABLE_STATUS
+            # ENTITY_BROADCAST_RANGE_PERCENTAGE
+            # FUNCTION_PERMISSION_LEVEL
+            # NETWORK_COMPRESSION_THRESHOLD
+            # OP_PERMISSION_LEVEL
+            # PREVENT_PROXY_CONNECTIONS
+            # USE_NATIVE_TRANSPORT
+            # ENFORCE_WHITELIST
+            # ENABLE_WHITELIST
+            # SIMULATION_DISTANCE
+
+            # MISC
+            # REPLACE_ENV_IN_PLACE: false
+            # REPLACE_ENV_VARIABLE_PREFIX: CFG_
+            # REPLACE_ENV_DURING_SYNC: false
+
+service:
+  main:
+    ports:
+      main:
+        type: tcp
+        port: 25565
+      query:
+        enabled: true
+        type: udp
+        port: 25565
+  rcon:
+    enabled: true
+    ports:
+      rcon:
+        enabled: true
+        port: 25575
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+
+portal:
+  open:
+    enabled: false
