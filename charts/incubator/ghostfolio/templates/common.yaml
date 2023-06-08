@@ -1,31 +1,10 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "tc.v1.common.loader.init" . }}
 
-{{/* Render configmap for ghostfolio */}}
-{{- $configmapPaths := include "ghostfolio.configmap.paths" . | fromYaml -}}
-{{- if $configmapPaths -}}
-  {{- $_ := set .Values.configmap "ghostfolio-paths" $configmapPaths -}}
-{{- end -}}
-
-{{- $configmapFile := include "ghostfolio.configmap.configfile" . | fromYaml -}}
-{{- if $configmapFile -}}
-  {{- $_ := set .Values.configmap "ghostfolio-configfile" $configmapFile -}}
-{{- end -}}
-
 {{/* Render secrets for ghostfolio */}}
 {{- $secret := include "ghostfolio.secrets" . | fromYaml -}}
 {{- if $secret -}}
   {{- $_ := set .Values.secret "ghostfolio-secrets" $secret -}}
-{{- end -}}
-
-{{/* Append the general configMap volume to the volumes */}}
-{{- define "ghostfolio.configmapVolume" -}}
-enabled: true
-mountPath: /.env
-subPath: .env
-readOnly: true
-type: "configmap"
-objectName: ghostfolio-configfile
 {{- end -}}
 
 {{/* Append the general secret volumes to the volumes */}}
@@ -46,7 +25,6 @@ items:
     path: REDIS_PASSWORD
 {{- end -}}
 
-{{- $_ := set .Values.persistence "ghostfolio-configfile" (include "ghostfolio.configmapVolume" . | fromYaml) -}}
 {{- $_ := set .Values.persistence "ghostfolio-secrets" (include "ghostfolio.secretVolumes" . | fromYaml) -}}
 
 {{/* Render the templates */}}

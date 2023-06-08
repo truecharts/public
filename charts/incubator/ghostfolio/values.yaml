@@ -18,9 +18,27 @@ workload:
             startup:
               path: "/"
               type: http
-          envFrom:
-            - configMapRef:
-                name: ghostfolio-paths
+          env:
+            ALPHA_VANTAGE_API_KEY: "{{ .Values.ghostfolio.alpha_vantage_api_key }}"
+            ACCESS_TOKEN_SALT:
+              secretKeyRef:
+                name: secrets
+                key: ACCESS_TOKEN_SALT
+            JWT_SECRET_KEY:
+              secretKeyRef:
+                name: secrets
+                key: JWT_SECRET_KEY
+            DATABASE_URL:
+              secretKeyRef:
+                name: secrets
+                key: DATABASE_URL
+            POSTGRES_DB: "{{ .Values.cnpg.main.creds.database }}"
+            REDIS_HOST: "{{ .Values.redis.creds.plainhost }}"
+            REDIS_PASSWORD:
+              secretKeyRef:
+                name: secrets
+                key: REDIS_PASSWORD
+            REDIS_PORT: "6379"
 
 service:
   main:
@@ -28,11 +46,6 @@ service:
       main:
         port: 13000
         targetPort: 3333
-
-persistence:
-  config:
-    enabled: true
-    mountPath: "/.env"
 
 cnpg:
   main:
