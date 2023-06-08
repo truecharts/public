@@ -1,5 +1,11 @@
 # Automatic Split DNS with PiHole
 
+:::danger unrecommended configuration
+
+The below guide is not the recommened DNS solution for TrueCharts. We recommend running Blocky from the Enterprise train in a standalone configuration. Setting up your DNS as outlined below adds complextiy and will reduce reliability.
+
+:::
+
 ## Install Blocky
 
 :::note Blocky
