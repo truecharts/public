@@ -111,6 +111,8 @@ service:
         port: 8080
 
 prometheusOperator:
+  logFormat: logfmt
+  logLevel: all
   kubeletService:
     enabled: true
     namespace: kube-system
