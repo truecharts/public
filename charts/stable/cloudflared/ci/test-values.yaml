@@ -1,0 +1,9 @@
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          args:
+            - tunnel
+            - --no-autoupdate
+            - --hello-world

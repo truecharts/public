@@ -38,7 +38,7 @@ Create the matchable regex from domain
 {{- $fqdn := ( include "tc.v1.common.lib.chart.names.fqdn" . ) }}
 enabled: true
 data:
-  Corefile: |-
+  Corefile: |
     .:{{ .Values.service.k8sgateway.ports.k8sgateway.targetPort }} {
         errors
         log
@@ -48,9 +48,15 @@ data:
         ready
         {{- range .Values.k8sgateway.domains }}
         {{- if .dnsChallenge.enabled }}
+          {{- if not .dnsChallenge.domain -}}
+            {{- fail "DNS01 challenge domain is mandatory" -}}
+          {{- end }}
+
         template IN ANY {{ required "Delegated domain ('domain') is mandatory" .domain }} {
            match "_acme-challenge[.](.*)[.]{{ include "k8sgateway.configmap.regex" . }}"
-           answer "{{ "{{" }} .Name {{ "}}" }} 5 IN CNAME {{ "{{" }}  index .Match 1 {{ "}}" }}.{{ required "DNS01 challenge domain is mandatory" .dnsChallenge.domain }}"
+           {{- $name := "{{ \"{{ .Name }}\" }}" }}
+           {{- $index := "{{ \"{{ index .Match 1 }}\" }}" }}
+           answer "{{ $name }} 5 IN CNAME {{ $index }}.{{ .dnsChallenge.domain }}"
            fallthrough
         }
         {{- end }}

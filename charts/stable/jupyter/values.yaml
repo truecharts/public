@@ -1,35 +1,35 @@
 image:
   repository: tccr.io/truecharts/jupyter-base
   pullPolicy: IfNotPresent
-  tag: v2023-05@sha256:067a19f3e5e3977d59228672096e1d49235db0b0b12634f8385635d02ca37f38
+  tag: v2023-05@sha256:c525c6af572a075ad7d07ec482f35f6f3d422efb40b287315d64e51a09c7117a
 minimalImage:
   repository: tccr.io/truecharts/jupyter-minimal
   pullPolicy: IfNotPresent
-  tag: v2023-05@sha256:340ed197359e2809680d9937807f648093188e4543d65dd4959f1b1106bde0e0
+  tag: v2023-05@sha256:17fb433dea9bbfd1c642fc71b151a9569412309d91731ae1ac297712cabba63d
 rImage:
   repository: tccr.io/truecharts/jupyter-r
   pullPolicy: IfNotPresent
-  tag: v2023-05@sha256:3b94a3b17e2ed4cbfddb1737348a2145f53a29b80a6a7f6feb8d71394f59773e
+  tag: v2023-05@sha256:80de5ec841527e6249298f6d3b10829ff4ac8bea86c9de1749a51f4448feb84a
 scipyImage:
   repository: tccr.io/truecharts/jupyter-scipy
   pullPolicy: IfNotPresent
-  tag: v2023-05@sha256:077d0cb41ae3c966b568ab3798393df950db81fbd7354ffdf1dcee4288f15a7e
+  tag: v2023-05@sha256:85090bf43b79e91023e0455d807a5c2b4e984f43c07b97e1014899b511db21a7
 tensorflowImage:
   repository: tccr.io/truecharts/jupyter-tensorflow
   pullPolicy: IfNotPresent
-  tag: v2023-05@sha256:0131bbce31b63e87d65090334869dfc690657d71fd982b9599d4321cf4dede46
+  tag: v2023-05@sha256:d6a92de6caf89135793193267b358951e5837580677fb6c35469f5db2cb08cd3
 datascienceImage:
   repository: tccr.io/truecharts/jupyter-datascience
   pullPolicy: IfNotPresent
-  tag: v2023-05@sha256:ff598e73eaeed23cccf91a86daa0a91192fd7b361dcb0189b73555f9c9273141
+  tag: v2023-05@sha256:21eadc0a62c4c888ce9f18cfb45c6b78f8d74800e77fd5e69f855150e0018e0f
 pysparkImage:
   repository: tccr.io/truecharts/jupyter-pyspark
   pullPolicy: IfNotPresent
-  tag: v2023-05@sha256:a4e53e58abcc7209fef8939914a22dcf2c8f0d3a953beacc898f22f8ca170f87
+  tag: v2023-05@sha256:d949d566d51a6f1e7db380deea8ddb642b3ff7e930ffbd32dce3e2fb70915240
 allsparkImage:
   repository: tccr.io/truecharts/jupyter-all-spark
   pullPolicy: IfNotPresent
-  tag: v2023-05@sha256:afb8c33435867424c66c6a7e7c28e4a6a8c134c92e42bfa227ab0d4956cda7c0
+  tag: v2023-05@sha256:19d67f286692966e1871aa70aa544d53bc84ca18b70f7a05b33d399ee25f6ff6
 jupyter:
   jupyter_cmd: lab
   restartable: true

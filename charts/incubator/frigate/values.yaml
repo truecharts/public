@@ -1,14 +1,14 @@
 image:
   repository: tccr.io/truecharts/frigate
   pullPolicy: IfNotPresent
-  tag: 0.11.1@sha256:8dd7273eebf396563d7bbc14778fd3d58c624e5063ffcf74b5b0afe63e7cdd7f
+  tag: v0.12.0@sha256:6fac983662fc6095ffdc8dd494f0c918192ddab80602f01d50a3569dab868148
 
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
-    runAsGroup: 0  
+    runAsGroup: 0
 # -- The "render_config" key is only used internally to "render" or not the configuration
 # - Some parts of the config bellow are slightly modified so they can be added on SCALE UI. Mainly lists.
 # - Do not blindly copy paste configuration from upstream. As this won't work on all cases
@@ -16,6 +16,10 @@ securityContext:
 # - Those "nulls" should be replaced with integers (if you want to set a value)
 frigate:
   mqtt:
+    # -- Enable it to add the configuration in the config file
+    render_config: true
+    # -- Enables MQTT
+    enabled: false
     host: mqtt.server.com
     port: 1883
     # -- NOTE: Must be unique if you are running multiple instances
@@ -87,7 +91,7 @@ frigate:
 
   ffmpeg:
     # -- Enable it to add the configuration in the config file
-    render_config: true
+    render_config: false
     # -- Optional: global ffmpeg args
     global_args: ""
     # -- Optional: global input args
@@ -450,21 +454,9 @@ persistence:
   media:
     enabled: true
     mountPath: /media
-    size: 256Gi
   db:
     enabled: true
     mountPath: /db
-    size: 256Gi
-    type: emptyDir
-  cache:
-    enabled: true
-    mountPath: /tmp/cache
-    type: emptyDir
-  shm:
-    enabled: true
-    mountPath: /dev/shm
-    type: emptyDir
-    medium: Memory
   frigate-config:
     enabled: true
     mountPath: /config

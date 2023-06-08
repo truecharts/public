@@ -22,10 +22,10 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: {{ include "tc.v1.common.lib.chart.names.fullname" $ }}
+      name: cnpg-webhook-service
       namespace: {{ .Release.Namespace }}
       path: /mutate-postgresql-cnpg-io-v1-backup
-      port: {{ .Values.service.main.ports.main.port }}
+      port: 443
   failurePolicy: {{ .Values.webhook.mutating.failurePolicy }}
   name: mbackup.kb.io
   rules:
@@ -43,10 +43,10 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: {{ include "tc.v1.common.lib.chart.names.fullname" $ }}
+      name: cnpg-webhook-service
       namespace: {{ .Release.Namespace }}
       path: /mutate-postgresql-cnpg-io-v1-cluster
-      port: {{ .Values.service.main.ports.main.port }}
+      port: 443
   failurePolicy: {{ .Values.webhook.mutating.failurePolicy }}
   name: mcluster.kb.io
   rules:
@@ -64,10 +64,10 @@ webhooks:
   - v1
   clientConfig:
     service:
-      name: {{ include "tc.v1.common.lib.chart.names.fullname" $ }}
+      name: cnpg-webhook-service
       namespace: {{ .Release.Namespace }}
       path: /mutate-postgresql-cnpg-io-v1-scheduledbackup
-      port: {{ .Values.service.main.ports.main.port }}
+      port: 443
   failurePolicy: {{ .Values.webhook.mutating.failurePolicy }}
   name: mscheduledbackup.kb.io
   rules:
