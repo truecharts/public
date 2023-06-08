@@ -1,0 +1,30 @@
+apiVersion: v2
+appVersion: "0.13.9"
+deprecated: false
+description: Prometheus Operator is an operator for prometheus
+home: https://truecharts.org/charts/operators/prometheus-operator
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/prometheus-operator
+keywords:
+  - operator
+  - prometheus
+  - metics
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.13.0
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: prometheus-operator
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/operators/prometheus-operator
+  - https://github.com/prometheus-operator
+type: application
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - operators
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
