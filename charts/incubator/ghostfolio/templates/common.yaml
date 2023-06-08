@@ -2,30 +2,10 @@
 {{- include "tc.v1.common.loader.init" . }}
 
 {{/* Render secrets for ghostfolio */}}
-{{- $secret := include "ghostfolio.secrets" . | fromYaml -}}
-{{- if $secret -}}
-  {{- $_ := set .Values.secret "ghostfolio-secrets" $secret -}}
+{{- $secrets := include "ghostfolio.secrets" . | fromYaml -}}
+{{- if $secrets -}}
+  {{- $_ := set .Values.secret "secrets" $secrets -}}
 {{- end -}}
-
-{{/* Append the general secret volumes to the volumes */}}
-{{- define "ghostfolio.secretVolumes" -}}
-enabled: true
-mountPath: "/secrets"
-readOnly: true
-type: "secret"
-objectName: ghostfolio-secrets
-items:
-  - key: "ACCESS_TOKEN_SALT"
-    path: ACCESS_TOKEN_SALT
-  - key: "JWT_SECRET_KEY"
-    path: JWT_SECRET_KEY
-  - key: "DATABASE_URL"
-    path: DATABASE_URL
-  - key: "REDIS_PASSWORD"
-    path: REDIS_PASSWORD
-{{- end -}}
-
-{{- $_ := set .Values.persistence "ghostfolio-secrets" (include "ghostfolio.secretVolumes" . | fromYaml) -}}
 
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}
