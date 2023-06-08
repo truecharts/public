@@ -23,6 +23,11 @@ workload:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
           args:
             - --kubelet-service={{ .Values.prometheusOperator.kubeletService.namespace }}/{{ include "tc.v1.common.lib.chart.names.fullname" $ }}-kubelet
             - --log-format={{ .Values.prometheusOperator.logFormat }}
@@ -170,9 +175,8 @@ portal:
 metrics:
   main:
     enabled: false
-    type: "podmonitor"
     endpoints:
-      - port: metrics
+      - port: main
         interval: 5s
         scrapeTimeout: 5s
         path: /
