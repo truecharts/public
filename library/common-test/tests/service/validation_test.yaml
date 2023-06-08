@@ -470,3 +470,27 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: Service - Expected <nodePort> to be higher than [10000], but got [9999]
+
+  - it: should fail with empty expandObjectName
+    set:
+      service:
+        service-name1:
+          enabled: true
+          primary: true
+          type: ClusterIP
+          expandObjectName:
+          ports:
+            port-name1:
+              enabled: true
+              primary: true
+              port: 80
+              nodePort: 9999
+      workload:
+        some-pod-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: Service - Expected the defined key [expandObjectName] in <secret.service-name1> to not be empty

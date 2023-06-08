@@ -15,14 +15,27 @@
       {{/* Create a copy of the configmap */}}
       {{- $objectData := (mustDeepCopy $service) -}}
 
-      {{- $objectName := include "tc.v1.common.lib.chart.names.fullname" $ -}}
-      {{- if not $objectData.primary -}}
-        {{- $objectName = (printf "%s-%s" (include "tc.v1.common.lib.chart.names.fullname" $) $name) -}}
-        {{- if hasKey $objectData "expandObjectName" -}}
-          {{- if not $objectData.expandObjectName -}}
-            {{- $objectName = $name -}}
-          {{- end -}}
+      {{/* Init object name */}}
+      {{- $objectName := $name -}}
+
+      {{/* Default expandName to true */}}
+      {{- $expandName := true -}}
+      {{- if (hasKey $objectData "expandObjectName") -}}
+        {{- if not (kindIs "invalid" $objectData.expandObjectName) -}}
+          {{- $expandName = $objectData.expandName -}}
+        {{- else -}}
+          {{- fail (printf "Service - Expected the defined key [expandObjectName] in <secret.%s> to not be empty" $name) -}}
         {{- end -}}
+      {{- end -}}
+
+      {{- if $expandName -}}
+        {{/* Expand the name of the service if expandName resolves to true */}}
+        {{- $objectName = include "tc.v1.common.lib.chart.names.fullname" $ -}}
+      {{- end -}}
+
+      {{- if and $expandName (not $objectData.primary) -}}
+        {{/* If the service is not primary append its name to fullname */}}
+        {{- $objectName = (printf "%s-%s" (include "tc.v1.common.lib.chart.names.fullname" $) $name) -}}
       {{- end -}}
 
       {{/* Perform validations */}}

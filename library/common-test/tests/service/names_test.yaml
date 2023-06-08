@@ -20,6 +20,14 @@ tests:
               enabled: true
               primary: true
               port: 12345
+        my-service3:
+          enabled: true
+          expandObjectName: false
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 12345
       workload:
         my-workload:
           enabled: true
@@ -47,3 +55,13 @@ tests:
         equal:
           path: metadata.name
           value: release-name-common-test-my-service2
+      - documentIndex: &thirdServiceDoc 3
+        isKind:
+          of: Service
+      - documentIndex: *thirdServiceDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *thirdServiceDoc
+        equal:
+          path: metadata.name
+          value: my-service3
