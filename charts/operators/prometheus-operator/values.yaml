@@ -1,20 +1,20 @@
 image:
-  repository: quay.io/prometheus-operator/prometheus-operator
+  repository: tccr.io/truecharts/prometheus-operator
   tag: "v0.65.2"
   pullPolicy:
 
 configReloaderImage:
-  repository: prometheus-operator/prometheus-config-reloader
+  repository: tccr.io/truecharts/prometheus-config-reloader
   tag: "v0.65.2"
   pullPolicy:
 
 thanosImage:
-  repository: prometheus-operator/thanos/thanos
+  repository: tccr.io/truecharts/thanos
   tag: "v0.31.0"
   pullPolicy:
 
 patchImage:
-  repository: registry.k8s.io/ingress-nginx/kube-webhook-certgen
+  repository: tccr.io/truecharts/kube-webhook-certgen
   tag: v20221220-controller-v1.5.1-58-g787ea74b6
   pullPolicy:
 
