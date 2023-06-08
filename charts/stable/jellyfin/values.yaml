@@ -3,9 +3,8 @@ image:
   pullPolicy: IfNotPresent
   tag: v10.8.10@sha256:d2c377ee7ea463110a1dda7eb1b231424ad05245aaf95744e76164bd2e593377
 broadcastProxyImage:
-  repository: alpine/socat
+  repository: tccr.io/truecharts/socat
   pullPolicy: IfNotPresent
-  tag: 1.7.4.4@sha256:8c1b44c58dcc6a63aa231c14b4e7fc237eec6d3b93cc0c88538fa4edba3921f9
 service:
   main:
     ports:
