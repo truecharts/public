@@ -31,6 +31,10 @@ workload:
               enabled: true
               type: tcp
               port: 1883
+            startup:
+              enabled: true
+              type: tcp
+              port: 1883
 
 ingress:
   websockets:
