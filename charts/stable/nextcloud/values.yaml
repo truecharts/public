@@ -161,10 +161,8 @@ workload:
                 Host: kube.internal.healthcheck
             startup:
               enabled: true
-              path: /robots.txt
+              type: tcp
               port: "{{ .Values.service.main.ports.main.port }}"
-              httpHeaders:
-                Host: kube.internal.healthcheck
   notify:
     enabled: true
     type: Deployment
@@ -194,10 +192,8 @@ workload:
                 Host: kube.internal.healthcheck
             startup:
               enabled: true
-              path: /push/test/cookie
+              type: tcp
               port: 7867
-              httpHeaders:
-                Host: kube.internal.healthcheck
   imaginary:
     enabled: true
     type: Deployment
@@ -228,7 +224,7 @@ workload:
               port: "{{ .Values.service.imaginary.ports.imaginary.port }}"
             startup:
               enabled: true
-              path: /health
+              type: tcp
               port: "{{ .Values.service.imaginary.ports.imaginary.port }}"
   clamav:
     enabled: true
@@ -407,6 +403,9 @@ persistence:
           readOnly: true
   data:
     enabled: true
+    autoPermissions:
+      chown: true
+      chmod: 770
     targetSelector:
       main:
         main:
