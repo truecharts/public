@@ -8,6 +8,16 @@ workload:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              path: "/"
+              type: http
+            readiness:
+              path: "/"
+              type: http
+            startup:
+              path: "/"
+              type: http
           envFrom:
             - configMapRef:
                 name: ghostfolio-paths
@@ -16,7 +26,7 @@ service:
   main:
     ports:
       main:
-        port: 3333
+        port: 13000
         targetPort: 3333
 
 persistence:
@@ -35,12 +45,14 @@ redis:
 
 securityContext:
   container:
-    readOnlyRootFilesystem: false
     runAsNonRoot: false
+    readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
+    fsGroup: 568
 
-alpha_vantage_api_key: ""
+ghostfolio:
+  alpha_vantage_api_key: ""
 
 portal:
   open:
