@@ -10,7 +10,6 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-# Include{containerConfig}
 # Include{controllerExpert}
   - variable: tfaAppOptions
     group: App Configuration
@@ -285,6 +284,7 @@ questions:
             type: dict
             attrs:
 # Include{serviceSelector}
+# Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:
@@ -337,7 +337,6 @@ questions:
                                     type: int
                                     default: 4181
 # Include{serviceExpertRoot}
-            default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{ingressRoot}
@@ -349,6 +348,7 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
+# Include{ingressAdvanced}
 # Include{ingressExpert}
 # Include{ingressList}
   - variable: advancedSecurity
@@ -385,23 +385,23 @@ questions:
                   type: boolean
                   default: true
 # Include{securityContextAdvanced}
-# Include{podSecurityContextRoot}
+# Include{securityContextRoot}
               - variable: runAsUser
                 label: "runAsUser"
                 description: "The UserID of the user running the application"
                 schema:
                   type: int
                   default: 568
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 568
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
+                schema:
+                  type: int
+                  default: 568
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-             - variable: fsGroup
+              - variable: fsGroup
                 label: "fsGroup"
                 description: "The group that should own ALL storage."
                 schema:
@@ -414,5 +414,4 @@ questions:
 # Include{codeserver}
 # Include{netshoot}
 # Include{promtail}
-# Include{netshoot}
 # Include{vpn}

@@ -9,359 +9,120 @@ on:
       chartChangesDetected:
         required: true
         type: string
+      modifiedFiles:
+        required: true
+        type: string
+      modifiedCharts:
+        required: true
+        type: string
 
 jobs:
-  generate-lint-matrix:
-    name: Generate matrix for lint
+  lint-and-verify:
+    name: Lint Charts and Verify Dependencies
     runs-on: ubuntu-latest
-    outputs:
-      matrix1: |
-        {
-          "chart": ${{ steps.list-changed.outputs.charts1 }}
-        }
-      matrix2: |
-        {
-          "chart": ${{ steps.list-changed.outputs.charts2 }}
-        }
-      matrix3: |
-        {
-          "chart": ${{ steps.list-changed.outputs.charts3 }}
-        }
-      matrix4: |
-        {
-          "chart": ${{ steps.list-changed.outputs.charts4 }}
-        }
-      matrix5: |
-        {
-          "chart": ${{ steps.list-changed.outputs.charts5 }}
-        }
-      matrix6: |
-        {
-          "chart": ${{ steps.list-changed.outputs.charts6 }}
-        }
-      detected1: ${{ steps.list-changed.outputs.detected1 }}
-      detected2: ${{ steps.list-changed.outputs.detected2 }}
-      detected3: ${{ steps.list-changed.outputs.detected3 }}
-      detected4: ${{ steps.list-changed.outputs.detected4 }}
-      detected5: ${{ steps.list-changed.outputs.detected5 }}
-      detected6: ${{ steps.list-changed.outputs.detected6 }}
     steps:
-      - name: Checkout
+      - name: Checkout [master]
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
         with:
-          fetch-depth: 0
+          fetch-depth: 1
+          ref: master
+
+      - name: Checkout [commit]
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
+        with:
+          fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
 
-      - name: Set up chart-testing
-        uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
+      - name: Setting repo parent dir as safe safe.directory
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
-      - name: Collect changes
+      - name: Install go-yq
+        run: |
+          mkdir -p $HOME/.local/bin
+          wget https://github.com/mikefarah/yq/releases/download/v4.26.1/yq_linux_amd64 -O $HOME/.local/bin/go-yq && \
+          chmod +x $HOME/.local/bin/go-yq
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Install pre-commit, yamale and yamllint
+        run: |
+          pip3 install --no-cache-dir pre-commit yamale yamllint
+
+      - name: Prep Helm
+        run: |
+          helm repo add truecharts https://charts.truecharts.org
+          helm repo add truecharts-deps https://deps.truecharts.org
+          helm repo add truecharts-library https://library-charts.truecharts.org
+          helm repo add truecharts-deps https://deps.truecharts.org
+          helm repo update
+
+      - name: Collect changes (branch-based)
         id: list-changed
         if: inputs.chartChangesDetected == 'true'
         shell: bash
         run: |
-          EXCLUDED=$(yq eval -o=json '.excluded-charts // []' .github/ct-lint.yaml)
-          CHARTS=$(ct list-changed --config .github/ct-lint.yaml)
-          CHARTS_JSON=$(echo "${CHARTS}" | jq -R -s -c 'split("\n")[:-1]')
-          OUTPUT_JSON=$(echo "{\"excluded\": ${EXCLUDED}, \"all\": ${CHARTS_JSON}}" | jq -c '.all-.excluded')
-          OUTPUT_JSON1=$((echo $OUTPUT_JSON | jq -r -c '.[:50]'; echo $OUTPUT_JSON | jq -r -c '.[301:350]'; echo $OUTPUT_JSON | jq -r -c '.[601:650]'; echo $OUTPUT_JSON | jq -r -c '.[901:950]'; echo $OUTPUT_JSON | jq -r -c '.[1201:1250]') | jq -s add)
-          OUTPUT_JSON2=$((echo $OUTPUT_JSON | jq -r -c '.[51:100]'; echo $OUTPUT_JSON | jq -r -c '.[351:400]'; echo $OUTPUT_JSON | jq -r -c '.[651:700]'; echo $OUTPUT_JSON | jq -r -c '.[951:1000]'; echo $OUTPUT_JSON | jq -r -c '.[1251:1300]') | jq -s add)
-          OUTPUT_JSON3=$((echo $OUTPUT_JSON | jq -r -c '.[101:150]'; echo $OUTPUT_JSON | jq -r -c '.[401:450]'; echo $OUTPUT_JSON | jq -r -c '.[701:750]'; echo $OUTPUT_JSON | jq -r -c '.[1001:1050]'; echo $OUTPUT_JSON | jq -r -c '.[1301:1350]') | jq -s add)
-          OUTPUT_JSON4=$((echo $OUTPUT_JSON | jq -r -c '.[151:200]'; echo $OUTPUT_JSON | jq -r -c '.[451:500]'; echo $OUTPUT_JSON | jq -r -c '.[751:800]'; echo $OUTPUT_JSON | jq -r -c '.[1051:1100]'; echo $OUTPUT_JSON | jq -r -c '.[1351:1400]') | jq -s add)
-          OUTPUT_JSON5=$((echo $OUTPUT_JSON | jq -r -c '.[201:250]'; echo $OUTPUT_JSON | jq -r -c '.[501:550]'; echo $OUTPUT_JSON | jq -r -c '.[801:850]'; echo $OUTPUT_JSON | jq -r -c '.[1101:1150]'; echo $OUTPUT_JSON | jq -r -c '.[1401:1450]') | jq -s add)
-          OUTPUT_JSON6=$((echo $OUTPUT_JSON | jq -r -c '.[251:300]'; echo $OUTPUT_JSON | jq -r -c '.[551:600]'; echo $OUTPUT_JSON | jq -r -c '.[851:900]'; echo $OUTPUT_JSON | jq -r -c '.[1151:1200]'; echo $OUTPUT_JSON | jq -r -c '.[1451:1500]') | jq -s add)
-          echo ::set-output name=charts1::${OUTPUT_JSON1}
-          echo ::set-output name=charts2::${OUTPUT_JSON2}
-          echo ::set-output name=charts3::${OUTPUT_JSON3}
-          echo ::set-output name=charts4::${OUTPUT_JSON4}
-          echo ::set-output name=charts5::${OUTPUT_JSON5}
-          echo ::set-output name=charts6::${OUTPUT_JSON6}
-          if [[ $(echo ${OUTPUT_JSON1} | jq -c '. | length') -gt 0 ]]; then
-            echo "::set-output name=detected1::true"
-          fi
-          if [[ $(echo ${OUTPUT_JSON2} | jq -c '. | length') -gt 0 ]]; then
-            echo "::set-output name=detected2::true"
-          fi
-          if [[ $(echo ${OUTPUT_JSON3} | jq -c '. | length') -gt 0 ]]; then
-            echo "::set-output name=detected3::true"
-          fi
-          if [[ $(echo ${OUTPUT_JSON4} | jq -c '. | length') -gt 0 ]]; then
-            echo "::set-output name=detected4::true"
-          fi
-          if [[ $(echo ${OUTPUT_JSON5} | jq -c '. | length') -gt 0 ]]; then
-            echo "::set-output name=detected5::true"
-          fi
-          if [[ $(echo ${OUTPUT_JSON6} | jq -c '. | length') -gt 0 ]]; then
-            echo "::set-output name=detected6::true"
+          CHARTS="${{ inputs.modifiedCharts }}"
+          echo "Modified Charts: ${CHARTS}"
+
+          EXCLUDED_JSON=$(go-yq eval -o=json '.excluded-charts // []' .github/ct-lint.yaml)
+          CHARTS_JSON=$(echo "${CHARTS}" | jq --raw-input '.' | jq --compact-output --slurp '.')
+          OUTPUT_JSON=$(echo "{\"excluded\": ${EXCLUDED_JSON}, \"all\": ${CHARTS_JSON}}" | jq --compact-output '.all-.excluded')
+
+          echo CHANGED_CHARTS=${OUTPUT_JSON} >> "$GITHUB_OUTPUT"
+          if [[ $(echo ${OUTPUT_JSON} | jq --compact-output '. | length') -gt 0 ]]; then
+            echo "detected=true" >> "$GITHUB_OUTPUT"
           fi
 
-  lint-charts1:
-    needs:
-      - generate-lint-matrix
-    if: needs.generate-lint-matrix.outputs.detected1 == 'true'
-    name: Lint charts Part 1
-    strategy:
-      matrix: ${{ fromJson(needs.generate-lint-matrix.outputs.matrix1) }}
-      fail-fast: false
-      max-parallel: 10
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
-        with:
-          fetch-depth: 0
-          ref: ${{ inputs.checkoutCommit }}
-
-      - name: lint Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@af4ebb1af1efd30c5bd84a2e9773355ad6362a33 # v0.9.3
-        with:
-          setup-tools: |
-            helmv3
-          helm: "3.8.0"
-
-      - uses: actions/setup-python@57ded4d7d5e986d7296eab16560982c6dd7c923b # v4
-        with:
-          python-version: "3.10"
-
-      - name: Set up chart-testing
-        uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
-
-      - name: Run chart-testing (lint)
-        run: ct lint --config ".github/ct-lint.yaml" --charts "${{ matrix.chart }}" || ct lint --config ".github/ct-lint.yaml" --charts "${{ matrix.chart }}"
-
-  lint-charts2:
-    needs:
-      - generate-lint-matrix
-    if: needs.generate-lint-matrix.outputs.detected2 == 'true'
-    name: Lint charts Part 2
-    strategy:
-      matrix: ${{ fromJson(needs.generate-lint-matrix.outputs.matrix2) }}
-      fail-fast: false
-      max-parallel: 10
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
-        with:
-          fetch-depth: 0
-          ref: ${{ inputs.checkoutCommit }}
-
-      - name: lint Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@af4ebb1af1efd30c5bd84a2e9773355ad6362a33 # v0.9.3
-        with:
-          setup-tools: |
-            helmv3
-          helm: "3.8.0"
-
-      - uses: actions/setup-python@57ded4d7d5e986d7296eab16560982c6dd7c923b # v4
-        with:
-          python-version: "3.10"
-
-      - name: Set up chart-testing
-        uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
-
-      - name: Run chart-testing (lint)
-        run: ct lint --config ".github/ct-lint.yaml" --charts "${{ matrix.chart }}" || ct lint --config ".github/ct-lint.yaml" --charts "${{ matrix.chart }}"
-
-  lint-charts3:
-    needs:
-      - generate-lint-matrix
-    if: needs.generate-lint-matrix.outputs.detected3 == 'true'
-    name: Lint charts Part 3
-    strategy:
-      matrix: ${{ fromJson(needs.generate-lint-matrix.outputs.matrix3) }}
-      fail-fast: false
-      max-parallel: 10
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
-        with:
-          fetch-depth: 0
-          ref: ${{ inputs.checkoutCommit }}
-
-      - name: lint Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@af4ebb1af1efd30c5bd84a2e9773355ad6362a33 # v0.9.3
-        with:
-          setup-tools: |
-            helmv3
-          helm: "3.8.0"
-
-      - uses: actions/setup-python@57ded4d7d5e986d7296eab16560982c6dd7c923b # v4
-        with:
-          python-version: "3.10"
-
-      - name: Set up chart-testing
-        uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
-
-      - name: Run chart-testing (lint)
-        run: ct lint --config ".github/ct-lint.yaml" --charts "${{ matrix.chart }}" || ct lint --config ".github/ct-lint.yaml" --charts "${{ matrix.chart }}"
-
-  lint-charts4:
-    needs:
-      - generate-lint-matrix
-    if: needs.generate-lint-matrix.outputs.detected4 == 'true'
-    name: Lint charts Part 4
-    strategy:
-      matrix: ${{ fromJson(needs.generate-lint-matrix.outputs.matrix4) }}
-      fail-fast: false
-      max-parallel: 10
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
-        with:
-          fetch-depth: 0
-          ref: ${{ inputs.checkoutCommit }}
-
-      - name: lint Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@af4ebb1af1efd30c5bd84a2e9773355ad6362a33 # v0.9.3
-        with:
-          setup-tools: |
-            helmv3
-          helm: "3.8.0"
-
-      - uses: actions/setup-python@57ded4d7d5e986d7296eab16560982c6dd7c923b # v4
-        with:
-          python-version: "3.10"
-
-      - name: Set up chart-testing
-        uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
-
-      - name: Run chart-testing (lint)
-        run: ct lint --config ".github/ct-lint.yaml" --charts "${{ matrix.chart }}" || ct lint --config ".github/ct-lint.yaml" --charts "${{ matrix.chart }}"
-
-  lint-charts5:
-    needs:
-      - generate-lint-matrix
-    if: needs.generate-lint-matrix.outputs.detected5 == 'true'
-    name: Lint charts Part 5
-    strategy:
-      matrix: ${{ fromJson(needs.generate-lint-matrix.outputs.matrix5) }}
-      fail-fast: false
-      max-parallel: 10
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
-        with:
-          fetch-depth: 0
-          ref: ${{ inputs.checkoutCommit }}
-
-      - name: lint Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@af4ebb1af1efd30c5bd84a2e9773355ad6362a33 # v0.9.3
-        with:
-          setup-tools: |
-            helmv3
-          helm: "3.8.0"
-
-      - uses: actions/setup-python@57ded4d7d5e986d7296eab16560982c6dd7c923b # v4
-        with:
-          python-version: "3.10"
-
-      - name: Set up chart-testing
-        uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
-
-      - name: Run chart-testing (lint)
-        run: ct lint --config ".github/ct-lint.yaml" --charts "${{ matrix.chart }}" || ct lint --config ".github/ct-lint.yaml" --charts "${{ matrix.chart }}"
-
-  lint-charts6:
-    needs:
-      - generate-lint-matrix
-    if: needs.generate-lint-matrix.outputs.detected6 == 'true'
-    name: Lint charts Part 6
-    strategy:
-      matrix: ${{ fromJson(needs.generate-lint-matrix.outputs.matrix6) }}
-      fail-fast: false
-      max-parallel: 10
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
-        with:
-          fetch-depth: 0
-          ref: ${{ inputs.checkoutCommit }}
-
-      - name: lint Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@af4ebb1af1efd30c5bd84a2e9773355ad6362a33 # v0.9.3
-        with:
-          setup-tools: |
-            helmv3
-          helm: "3.8.0"
-
-      - uses: actions/setup-python@57ded4d7d5e986d7296eab16560982c6dd7c923b # v4
-        with:
-          python-version: "3.10"
-
-      - name: Set up chart-testing
-        uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
-
-      - name: Run chart-testing (lint)
-        run: ct lint --config ".github/ct-lint.yaml" --charts "${{ matrix.chart }}" || ct lint --config ".github/ct-lint.yaml" --charts "${{ matrix.chart }}"
-
-  # Summarize matrix https://github.community/t/status-check-for-a-matrix-jobs/127354/7
-  lint_success:
-    needs:
-      - generate-lint-matrix
-      - lint-charts1
-      - lint-charts2
-      - lint-charts3
-      - lint-charts4
-      - lint-charts5
-      - lint-charts6
-    if: |
-      always()
-    name: Lint successful
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check lint matrix status
+      - name: Test and Fix Pre-Commit Issues
+        shell: bash
+        # TODO: Only run pre-commit on changed files
+        if: inputs.chartChangesDetected == 'true'
         run: |
-          res1="${{needs.lint-charts1.result}}"
-          res2="${{needs.lint-charts2.result}}"
-          res3="${{needs.lint-charts3.result}}"
-          res4="${{needs.lint-charts4.result}}"
-          res5="${{needs.lint-charts5.result}}"
-          res6="${{needs.lint-charts6.result}}"
+          echo "Running pre-commit test-and-cleanup..."
+          # Fix sh files to always be executable
+          find . -name '*.sh' | xargs chmod +x
+          pre-commit run --all || pre-commit run --all
 
-          if [[ $res1 == "success" || $res1 == "skipped" ]]; then
-            echo "lint tests 1 successfull..."
-          else
-            echo "lint tests 1 error, stopping due to failure..."
-            exit 1
-          fi
+      - name: Fetch and Verify dependencies
+        shell: bash
+        if: steps.list-changed.outputs.detected == 'true'
+        env:
+          charts_path: "./"
+        run: |
+          CHANGED=$(echo '${{ steps.list-changed.outputs.CHANGED_CHARTS }}' | jq --raw-output '.[]')
+          for changed in ${CHANGED}; do
+            .github/scripts/fetch_helm_deps.sh "${changed}"
+          done
 
-          if [[ $res2 == "success" || $res2 == "skipped" ]]; then
-            echo "lint tests 2 successfull..."
-          else
-            echo "lint tests 2 error, stopping due to failure..."
-            exit 1
-          fi
+      - name: Run Chart Linting
+        continue-on-error: true
+        id: lint
+        if: steps.list-changed.outputs.detected == 'true'
+        env:
+          result_file: /tmp/lint_result.txt
+        run: |
+          CHANGED=$(echo '${{ steps.list-changed.outputs.CHANGED_CHARTS }}' | jq --raw-output '.[]')
+          # If the github.base_ref is empty (eg it runs outside of a PR) it fails back to origin/master
+          .github/scripts/tc-lint.sh '${{ steps.list-changed.outputs.CHANGED_CHARTS }}' "origin/${{ github.base_ref }}"
 
-          if [[ $res3 == "success" || $res3 == "skipped" ]]; then
-            echo "lint tests 3 successfull..."
-          else
-            echo "lint tests 3 error, stopping due to failure..."
-            exit 1
-          fi
+      - name: Create/Update comment
+        if: steps.list-changed.outputs.detected == 'true'
+        continue-on-error: true
+        uses: thollander/actions-comment-pull-request@632cf9ce90574d125be56b5f3405cda41a84e2fd # v2
+        with:
+          filePath: /tmp/lint_result.txt
+          comment_tag: lint_results
+          mode: recreate
+          GITHUB_TOKEN: ${{ github.token }}
 
-          if [[ $res4 == "success" || $res4 == "skipped" ]]; then
-            echo "lint tests 4 successfull..."
-          else
-            echo "lint tests 4 error, stopping due to failure..."
-            exit 1
-          fi
-
-          if [[ $res5 == "success" || $res5 == "skipped" ]]; then
-            echo "lint tests 5 successfull..."
-          else
-            echo "lint tests 5 error, stopping due to failure..."
-            exit 1
-          fi
-
-          if [[ $res6 == "success" || $res6 == "skipped" ]]; then
-            echo "lint tests 6 successfull..."
-          else
-            echo "lint tests 6 error, stopping due to failure..."
+      - name: Lint Result
+        if: steps.list-changed.outputs.detected == 'true'
+        shell: bash
+        run: |
+          if [ "${{ steps.lint.outcome }}" != "success" ]; then
+            echo "❌ Linting failed ❌"
+            echo '###############################################################'
+            echo '## 👀 Expand [Run Chart Linting] step to view the results 👀 ##'
+            echo '###############################################################'
             exit 1
           fi
 

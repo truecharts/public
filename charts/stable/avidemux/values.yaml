@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/avidemux
-  tag: v1.4.0@sha256:38c59d301698c84ac7c3ca6b40af1ccaf32ad6dc80073413e20ac5f3af739281
+  tag: v23.04.1@sha256:cb1f9093704196a2891eef4f587564fe0702e0bf82fec8ec8d611a093505c255
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -48,6 +48,11 @@ workload:
     podSpec:
       containers:
         main:
+          securityContext:
+            capabilities:
+              add:
+                - NET_BIND_SERVICE
+                - KILL
           envFrom:
             - configMapRef:
                 name: "avidemux"

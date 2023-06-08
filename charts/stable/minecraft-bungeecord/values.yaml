@@ -2,10 +2,6 @@ image:
   repository: tccr.io/truecharts/bungeecord
   tag: v2022.4.1@sha256:b21a2b80aa272bb7ae40b4af1256eee5e0129b0ed4a5224424187e083720678d
   pullPolicy: Always
-j17Image:
-  repository: tccr.io/truecharts/bungeecord-java17
-  tag: v2022.4.1@sha256:e566d72347caca3019e7dd7a45feb4efbdd75b190242bd5d2d08b40a3430ea35
-  pullPolicy: Always
 j11Image:
   repository: tccr.io/truecharts/bungeecord-java11
   tag: v2022.4.1@sha256:faad46c04fc6e729e94630fc73a259b5aaea7eae9e5334ccaad2381eb0e0313d
@@ -14,37 +10,10 @@ j8Image:
   repository: tccr.io/truecharts/bungeecord-java8
   tag: v2022.4.1@sha256:240694a8f4028188f11d1ba198f656eedf0ac00cf881535cd97b4f1a86ae3231
   pullPolicy: Always
-service:
-  main:
-    ports:
-      main:
-        port: 25565
-        targetPort: 25577
-  rcon:
-    enabled: true
-    ports:
-      rcon:
-        enabled: true
-        port: 25578
-persistence:
-  config:
-    enabled: true
-    mountPath: "/config"
-  server:
-    enabled: true
-    mountPath: "/server"
-  plugins:
-    enabled: true
-    mountPath: "/plugins"
-portal:
-  open:
-    enabled: false
-securityContext:
-  container:
-    readOnlyRootFilesystem: false
-    runAsNonRoot: false
-    runAsUser: 0
-    runAsGroup: 0
+
+tty: true
+stdin: true
+
 workload:
   main:
     podSpec:
@@ -60,15 +29,46 @@ workload:
               type: tcp
           env:
             RCON_PORT: "{{ .Values.service.rcon.ports.rcon.port }}"
+            RCON_PASSWORD: "secretrconpass"
             TYPE: "BUNGEECORD"
             ONLINE_MODE: false
             MEMORY: 512M
             INIT_MEMORY: 512M
             MAX_MEMORY: 512M
             NETWORKADDRESS_CACHE_TTL: 60
-            REPLACE_ENV_VARIABLES: true
+            REPLACE_ENV_VARIABLES: false
+            ENV_VARIABLE_PREFIX: "CFG_"
+            # GENERIC_PACKS: "configs-v9.0.1,mods-v4.3.6"
+            # GENERIC_PACKS_PREFIX: "https://cdn.example.org/"
+            # GENERIC_PACKS_SUFFIX="".zip"
             # JVM_OPTS: ""
             # JVM_XX_OPTS: ""
             # PLUGINS: ""
 
-            RCON_PASSWORD: "secretrconpass"
+service:
+  main:
+    ports:
+      main:
+        port: 25565
+        targetPort: 25577
+  rcon:
+    enabled: true
+    ports:
+      rcon:
+        enabled: true
+        port: 25578
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  server:
+    enabled: true
+    mountPath: "/server"
+  plugins:
+    enabled: true
+    mountPath: "/plugins"
+
+portal:
+  open:
+    enabled: false

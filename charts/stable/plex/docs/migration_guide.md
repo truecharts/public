@@ -30,14 +30,14 @@ This is our default perms for our plex app. Please make sure to keep plex perms 
 
 ## Migrating Data from PVC
 
-To access the old app's data from **PVC**, we are going to use [**truetool**](https://github.com/truecharts/truetool#how-to-install) `mount` flag.
+To access the old app's data from **PVC**, we are going to use [**heavyscript**](https://github.com/Heavybullets8/heavy_script#how-to-install) `mount` flag.
 
 Go to **System Settings** -> **Shell**.
 
-Make sure truetool is installed and active (refer to the link above for the how to guide) before running the following commands:
+Make sure heavyscript is installed and active (refer to the link above for the how to guide) before running the following commands:
 
 ```console
-truetool --mount
+heavyscript --mount
 ```
 
 ```console
@@ -46,22 +46,28 @@ truetool --mount
 
 You will get list similar like this for example.
 
-![truetool-mount-list](./img/truetool-mount-list.png)
+![heavyscript-mount-list](./img/heavyscript-mount-list.png)
 
-To mount the directory just enter the correct number...so for me I have to enter `51`. Verify the number you are entering is for plex-config.
+To mount the directory just enter the correct number...so for me I have to enter `24`. Verify the number you are entering is for plex-config.
+
+You will get another list similar like this for example.
+
+![heavyscript-mount-pool](./img/heavyscript-mount-pool.png)
+
+To mount the directory to your root pool just enter the correct number...so for me I have to enter `3`. Verify the number you are entering is for root.
 
 you will get a unmount command similar to this:
 
 ```console
-zfs set mountpoint=legacy root/ix-applications/releases/plex-config/volumes/pvc-af2b9242-ecf6-4659-ace4-d601211cf448 && rmdir /mnt/truetool/plex-config
+zfs set mountpoint=legacy "apps/ix-applications/releases/plex/volumes/pvc-97b6d951-7dac-45fa-81fa-76cb5707fb86" && rmdir /mnt/mounted_pvc/plex-config
 ```
 
-The old plex app is mounted in a dir for example `/mnt/truetool/plex-config`.
+The old plex app is mounted in a dir for example `/mnt/mounted_pvc/plex-config`.
 
 The above assumes your app is named `plex`, if its not the dir `name` will be **different**.
 
 ```console
-cd /mnt/truetool/plex-config
+cd /mnt/mounted_pvc/plex-config
 ```
 
 Run this command to verify you see a single dir called **Library**.
@@ -81,7 +87,7 @@ rsync -rav Library /mnt/POOL/DATASET
 Check the dir if it contains a dir called `Library` if it does then unmount the PVC.
 
 ```console
-truetool --mount
+heavyscript --mount
 ```
 
 ```console
@@ -149,7 +155,7 @@ If it works, don't sign in yet, simply turn off the app and then go to **System 
 We're going to mount the new plex app config data. Run the following commands in the shell.
 
 ```console
-truetool --mount
+heavyscript --mount
 ```
 
 ```console
@@ -158,22 +164,22 @@ truetool --mount
 
 You will get list similar like this for example.
 
-![truetool-mount-list](./img/truetool-mount-list.png)
+![heavyscript-mount-list](./img/heavyscript-mount-list.png)
 
-To mount the directory just enter the correct number...so for me I have to enter `51`. Verify the number you are entering is for plex-config.
+To mount the directory just enter the correct number...so for me I have to enter `24`. Verify the number you are entering is for plex-config.
 
 You will get a unmount command similar to this:
 
 ```console
-zfs set mountpoint=legacy root/ix-applications/releases/plex-config/volumes/pvc-af2b9242-ecf6-4659-ace4-d601211cf448 && rmdir /mnt/truetool/plex-config
+zfs set mountpoint=legacy "apps/ix-applications/releases/plex/volumes/pvc-97b6d951-7dac-45fa-81fa-76cb5707fb86" && rmdir /mnt/mounted_pvc/plex-config
 ```
 
-The new plex app is mounted in a dir for example `/mnt/truetool/plex-config`.
+The new plex app is mounted in a dir for example `/mnt/mounted_pvc/plex-config`.
 
 Change the working directory to the mounted dir for the new app:
 
 ```console
-cd /mnt/truetool/plex-config
+cd /mnt/mounted_pvc/plex-config
 ```
 
 Check if you're in the right location by running:
@@ -190,20 +196,22 @@ Delete this dir from the new app.
 rm -r Library
 ```
 
-Now grab the path for your dataset that holds your plex config.
+Change the working directory to the temp dataset.
 
-For example...my path would be `/mnt/tank/configs/plex`.
+```console
+cd /mnt/POOL/DATASET
+```
 
 Run the `ls` command on the dir to verify that its correct and you see a single dir called `Library`.
 
 ```console
-ls /mnt/tank/configs/plex
+ls
 ```
 
 If everything is set you can proceed to run the rsync copy command to the mounted PVC location.
 
 ```console
-rsync -rav Library /mnt/truetool/plex-config
+rsync -rav Library /mnt/mounted_pvc/plex-config
 ```
 
 :::note
@@ -215,7 +223,7 @@ This process can a while to complete depending on how large your config is and h
 If the operation completed successfully you can run the following commands to unmount the PVC.
 
 ```console
-truetool --mount
+heavyscript --mount
 ```
 
 ```console

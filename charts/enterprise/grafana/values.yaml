@@ -1,8 +1,9 @@
 image:
   repository: tccr.io/truecharts/grafana
   pullPolicy: IfNotPresent
-  tag: 9.4.7@sha256:ee16f4551683ae170edabe131216ac39397663306efb5bfba3840b25649f9c64
-
+  tag: v9.5.2@sha256:304f525b95932866808f519ccf76e93f96a38fb018b8dc944531f2088a8a596c
+manifestManager:
+  enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false

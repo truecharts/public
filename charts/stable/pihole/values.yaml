@@ -1,20 +1,46 @@
 image:
   repository: tccr.io/truecharts/pihole
   pullPolicy: IfNotPresent
-  tag: 2023.02.2@sha256:e49fd7cf10284ce200bf86fd5a61f81295014d01c079766a77661dba1b36489e
+  tag: v2023.05.2@sha256:e68b01362425114636a4627ac7e86402a96bc28ba44ed6f07e44cab35ec83702
+
+pihole:
+  webPassword: "somepassword"
+  dnsServers:
+    - "9.9.9.9"
+    - "149.112.112.112"
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-  allowPrivilegeEscalation: true
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    allowPrivilegeEscalation: true
+    runAsUser: 0
+    runAsGroup: 0
+    capabilities:
+      add:
+        - NET_ADMIN
+        - SETFCAP
+        - SETPCAP
+        - KILL
 
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-envFrom:
-  - configMapRef:
-      name: pihole-env
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - configMapRef:
+                name: pihole-env
+          probes:
+            liveness:
+              type: http
+              path: /admin/index.php
+            readiness:
+              type: http
+              path: /admin/index.php
+            startup:
+              type: http
+              path: /admin/index.php
 
 service:
   main:
@@ -34,14 +60,9 @@ service:
     ports:
       dns:
         enabled: true
-        protocol: UDP
+        protocol: udp
         port: 53
         targetPort: 53
-
-pihole:
-  WEBPASSWORD: "somepassword"
-  DNS1: "9.9.9.9"
-  DNS2: "149.112.112.112"
 
 persistence:
   config:
@@ -52,4 +73,5 @@ persistence:
     mountPath: "/etc/dnsmasq.d"
 
 portal:
-  enabled: true
+  open:
+    enabled: true

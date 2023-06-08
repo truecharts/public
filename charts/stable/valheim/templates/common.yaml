@@ -1,4 +1,4 @@
-{{- include "tc.common.loader.init" . }}
+{{- include "tc.v1.common.loader.init" . }}
 
 {{/* Append the hardcoded settings */}}
 {{- define "valheim.hardcodedValues" -}}
@@ -13,4 +13,4 @@ probes:
 {{- $_ := mergeOverwrite .Values (include "valheim.hardcodedValues" . | fromYaml) -}}
 
 {{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}
+{{ include "tc.v1.common.loader.apply" . }}

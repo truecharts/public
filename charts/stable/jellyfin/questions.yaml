@@ -12,23 +12,23 @@ questions:
 # Include{containerMain}
 
 
-                                - variable: env
+                                - variable: autodiscovery
                                   group: "App Configuration"
-                                  label: "Image Environment"
+                                  label: "Autodiscovery"
                                   schema:
                                     additional_attrs: true
                                     type: dict
                                     attrs:
-                                      - variable: JELLYFIN_PublishedServerUrl
-                                        description: "Published Server URL"
-                                        label: "The Server URL to publish in UDP Auto Discovery response."
-                                        schema:
-                                          type: string
-                                          default: ""
+                                    - variable: enabled
+                                      label: "Enable Autodiscovery on LAN"
+                                      schema:
+                                        type: boolean
+                                        default: false
 # Include{containerBasic}
 # Include{containerAdvanced}
 
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
 # Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
@@ -47,7 +47,6 @@ questions:
                               default: 8096
                               required: true
 # Include{serviceExpertRoot}
-            default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
@@ -78,6 +77,7 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
+# Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}
 

@@ -1,8 +1,11 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "tc.common.loader.init" . }}
+{{- include "tc.v1.common.loader.init" . }}
 
 {{/* Render configmap for pihole */}}
-{{- include "pihole.configmap" . }}
+{{- $config := include "pihole.configmap" . | fromYaml -}}
+{{- if $config -}}
+  {{- $_ := mustMergeOverwrite .Values $config -}}
+{{- end -}}
 
 {{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}
+{{ include "tc.v1.common.loader.apply" . }}

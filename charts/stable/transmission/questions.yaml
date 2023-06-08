@@ -84,7 +84,7 @@ questions:
                                         label: TRANSMISSION_BLOCKLIST_URL
                                         schema:
                                           type: string
-                                          default: "http://john.bitsurge.net/public/biglist.p2p.gz"
+                                          default: "https://github.com/Naunter/BT_BlockLists/releases/download/v.1/bt_blocklists.gz"
                                       - variable: TRANSMISSION_CACHE_SIZE_MB
                                         label: TRANSMISSION_CACHE_SIZE_MB
                                         schema:
@@ -334,6 +334,7 @@ questions:
 # Include{containerAdvanced}
 
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
 # Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
@@ -374,7 +375,6 @@ questions:
                               default: 51414
                               required: true
 # Include{serviceExpertRoot}
-            default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
@@ -397,6 +397,7 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
+# Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}
 

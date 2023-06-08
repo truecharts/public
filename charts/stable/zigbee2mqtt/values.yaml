@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/zigbee2mqtt
-  tag: 1.30.1@sha256:173e86807c6fe7ceef3c0716a539dee66d87bbf84303105d860a15a46b5df94f
+  tag: v1.30.4@sha256:65d64fbba69f496df34ea877fc1b69626a428ca68a5408bda7ec6dd49f7eabd6
   pullPolicy: IfNotPresent
 service:
   main:
@@ -41,7 +41,9 @@ workload:
             ZIGBEE2MQTT_CONFIG_SERIAL_PORT: "{{ .Values.workload.main.podSpec.containers.main.env.ZIGBEE2MQTT_CONFIG_SERIAL_PORT }}"
             ZIGBEE2MQTT_CONFIG_SERIAL_ADAPTER: "{{ .Values.workload.main.podSpec.containers.main.env.ZIGBEE2MQTT_CONFIG_SERIAL_ADAPTER }}"
             USE_CUSTOM_CONFIG_FILE: "{{ .Values.workload.main.podSpec.containers.main.env.USE_CUSTOM_CONFIG_FILE }}"
-          command: ["/bin/sh", "-c"]
+          command:
+            - /bin/sh
+            - -c
           args:
             - >
               if [ -f /data/configuration.yaml ] || [ ${USE_CUSTOM_CONFIG_FILE} == true ]; then

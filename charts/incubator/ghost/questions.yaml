@@ -30,12 +30,6 @@ questions:
           schema:
             type: string
             default: "http://localhost:10166"
-        - variable: useMinFiles
-          label: "useMinFiles"
-          description: "Generate assets url with .min notation"
-          schema:
-            type: boolean
-            default: true
         - variable: imageOptimization__resize
           label: "Image Optimization: Resize"
           description: "Automatically process and compress"
@@ -248,7 +242,6 @@ questions:
                               default: 10166
                               required: true
 # Include{serviceExpertRoot}
-            default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
@@ -271,6 +264,7 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
+# Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}
 
@@ -280,16 +274,16 @@ questions:
                 schema:
                   type: int
                   default: 568
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 568
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
+                schema:
+                  type: int
+                  default: 568
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-             - variable: fsGroup
+              - variable: fsGroup
                 label: "fsGroup"
                 description: "The group that should own ALL storage."
                 schema:

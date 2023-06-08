@@ -1,7 +1,11 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "tc.common.loader.init" . }}
+{{- include "tc.v1.common.loader.init" . }}
 
-{{- include "frigate.configmap" . -}}
+{{/* Render configmap for frigate */}}
+{{- $config := include "frigate.configmap" . | fromYaml -}}
+{{- if $config -}}
+  {{- $_ := set .Values.configmap "frigate-config" $config -}}
+{{- end -}}
 
 {{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}
+{{ include "tc.v1.common.loader.apply" . }}

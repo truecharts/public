@@ -7,11 +7,9 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
                                 - variable: env
                                   group: App Configuration
                                   label: Image Environment
@@ -31,11 +29,8 @@ questions:
                                         schema:
                                           type: string
                                           default: ""
-
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-
   - variable: plex
     group: App Configuration
     label: Plex Configuration
@@ -64,8 +59,19 @@ questions:
           schema:
             type: boolean
             default: true
+        - variable: requireHTTPS
+          label: Require HTTPS
+          description: |
+            NOTE: Only enable this setting AFTER you are done with the initial configuration
+            of your Plex Server and verify that remote access is working.</br>
+            Please use this toggle to "Require HTTPS", instead of using the Plex UI,
+            so probes are configured correctly.
+          schema:
+            type: boolean
+            default: false
 
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
 # Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
@@ -84,7 +90,6 @@ questions:
                               default: 32400
                               required: true
 # Include{serviceExpertRoot}
-            default: false
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
@@ -107,9 +112,9 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
+# Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}
-
               - variable: runAsUser
                 label: "runAsUser"
                 description: "The UserID of the user running the application"
@@ -131,7 +136,6 @@ questions:
                 schema:
                   type: int
                   default: 568
-
 # Include{resources}
 # Include{advanced}
 # Include{addons}

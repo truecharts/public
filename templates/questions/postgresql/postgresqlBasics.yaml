@@ -3,6 +3,12 @@
                 schema:
                   type: int
                   default: 2
+              - variable: hibernate
+                label: Hibernate
+                description: "enable to safely hibernate and shutdown the postgresql cluster"
+                schema:
+                  type: boolean
+                  default: false
               - variable: storage
                 label: "Storage"
                 schema:
