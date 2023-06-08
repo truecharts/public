@@ -1,7 +1,7 @@
 {{- define "promop.webhooks.mutating" -}}
 {{- if .Values.prometheusOperator.admissionWebhooks.enabled }}
-{{- $promopLabels := .Values.webhook.validating.labels -}}
-{{- $promopAnnotations := .Values.webhook.validating.annotations -}}
+{{- $promopLabels := .Values.prometheusOperator.admissionWebhooks.labels -}}
+{{- $promopAnnotations := .Values.prometheusOperator.admissionWebhooks.annotations -}}
 {{- $labels := (mustMerge ($promopLabels | default dict) (include "tc.v1.common.lib.metadata.allLabels" $ | fromYaml)) }}
 {{- $annotations := (mustMerge ($promopAnnotations | default dict) (include "tc.v1.common.lib.metadata.allAnnotations" $ | fromYaml)) }}
 ---
@@ -11,7 +11,7 @@ metadata:
   name:  {{ include "tc.v1.common.lib.chart.names.fullname" $ }}-admission
   labels:
   {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $ "labels" $labels) | trim) }}
-    app: {{ template "kube-prometheus-stack.name" $ }}-admission
+    app: {{ include "tc.v1.common.lib.chart.names.fullname" $ }}-admission
     {{- . | nindent 4 }}
   {{- end }}
   {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $ "annotations" $annotations) | trim) }}
@@ -65,7 +65,7 @@ webhooks:
         operator: In
         values:
         {{- if and .Values.prometheusOperator.namespaces.releaseNamespace (default .Values.prometheusOperator.namespaces.releaseNamespace true) }}
-        {{- $namespace := printf "%s" (include "kube-prometheus-stack.namespace" .) }}
+        {{- $namespace := .Release.Namespace }}
         - {{ $namespace }}
         {{- end }}
         {{- range $namespace := mustUniq .Values.prometheusOperator.namespaces.additional }}
