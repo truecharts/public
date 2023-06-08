@@ -257,8 +257,8 @@ workload:
               command: clamdcheck.sh
             startup:
               enabled: true
-              type: exec
-              command: clamdcheck.sh
+              type: tcp
+              port: "{{ .Values.service.clamav.ports.clamav.targetPort }}"
 
 cronjobs:
     # Don't change names, it's used in the persistence
