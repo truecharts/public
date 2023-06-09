@@ -15,8 +15,6 @@ questions:
                                     default: "image"
                                     enum:
                                       - value: "image"
-                                        description: "Default Image"
-                                      - value: "j17Image"
                                         description: "Java 17"
                                       - value: "j11Image"
                                         description: "Java 11"
@@ -76,18 +74,37 @@ questions:
                                         schema:
                                           type: boolean
                                           default: true
-                                      - variable: REPLACE_ENV_VARIABLES
-                                        label: "Replace Env Variables"
-                                        description: "Replace variables that match your defined environment variables in all the files in /server."
-                                        schema:
-                                          type: boolean
-                                          default: false
                                       - variable: ONLINE_MODE
                                         label: "Enable Online Mode"
                                         description: "MUST set to false which is required by bungeecord"
                                         schema:
                                           type: boolean
                                           default: false
+                                      - variable: genericpacks
+                                        label: "Show Generic Packs Settings"
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                          show_subquestions_if: true
+                                          subquestions:
+                                            - variable: GENERIC_PACKS
+                                              label: "Generic Packs"
+                                              description: "Names of generic packs"
+                                              schema:
+                                                type: string
+                                                default: ""
+                                            - variable: GENERIC_PACKS_PREFIX
+                                              label: "Generic Packs Prefix"
+                                              description: "The URL of the service to download from"
+                                              schema:
+                                                type: string
+                                                default: ""
+                                            - variable: GENERIC_PACKS_SUFFIX
+                                              label: "Generic Packs Suffix"
+                                              description: "The file type"
+                                              schema:
+                                                type: string
+                                                default: ".zip"
                                       - variable: advancedenvironment
                                         label: "Show Advanced Server Settings"
                                         schema:
@@ -132,6 +149,18 @@ questions:
                                               schema:
                                                 type: string
                                                 default: ""
+                                            - variable: REPLACE_ENV_VARIABLES
+                                              label: "Replace Env Variables"
+                                              description: "Replace variables that match your defined environment variables in all the files in /server."
+                                              schema:
+                                                type: boolean
+                                                default: false
+                                            - variable: REPLACE_ENV_VARIABLE_PREFIX
+                                              label: "Replace Env Variable Prefix"
+                                              description: "define a prefix"
+                                              schema:
+                                                type: string
+                                                default: "CFG_"
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
@@ -217,13 +246,13 @@ questions:
                 description: "The UserID of the user running the application"
                 schema:
                   type: int
-                  default: 0
+                  default: 568
               - variable: runAsGroup
                 label: "runAsGroup"
                 description: "The groupID of the user running the application"
                 schema:
                   type: int
-                  default: 0
+                  default: 568
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}

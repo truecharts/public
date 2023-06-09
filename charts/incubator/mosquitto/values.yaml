@@ -17,6 +17,25 @@ service:
         port: 9001
         targetPort: 9001
 
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: true
+              type: tcp
+              port: 1883
+            readiness:
+              enabled: true
+              type: tcp
+              port: 1883
+            startup:
+              enabled: true
+              type: tcp
+              port: 1883
+
 ingress:
   websockets:
     autoLink: true
@@ -61,13 +80,12 @@ persistence:
     enabled: true
     mountPath: "/mosquitto/configinc"
   mosquitto-config:
-    enabled: "true"
+    enabled: true
     mountPath: "/mosquitto/config/mosquitto.conf"
     subPath: "mosquitto.conf"
-    type: "custom"
-    volumeSpec:
-      configMap:
-        name: '{{ template "tc.common.names.fullname" . }}-config'
+    type: configmap
+    objectName: config
 
 portal:
-  enabled: false
+  open:
+    enabled: false
