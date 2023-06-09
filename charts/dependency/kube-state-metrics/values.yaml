@@ -48,7 +48,7 @@ workload:
             - --resources=services
             - --resources=statefulsets
             - --resources=storageclasses
-            - --resources=verticalpodautoscalers
+            # - --resources=verticalpodautoscalers
             - --resources=validatingwebhookconfigurations
             - --resources=volumeattachments
 
