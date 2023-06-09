@@ -151,13 +151,13 @@ jobs:
           ## TODO: Move to our Helm Charts
           ## TODO: Only add when required
           if [[ "${{ matrix.chart }}" != "charts/operators/metallb" ]]; then
-            kubectl apply -f --server-side --force-conflicts https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml
+            kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml --server-side --force-conflicts || echo "error fetching metallb manifest"
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/cloudnative-pg" ]]; then
-            kubectl apply -f --server-side --force-conflicts https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.17/releases/cnpg-1.17.5.yaml
+            kubectl apply -f https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.17/releases/cnpg-1.17.5.yaml  --server-side --force-conflicts || echo "error fetching cnpg manifest"
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
-            kubectl apply -f --server-side --force-conflicts https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.65.2/bundle.yaml
+            kubectl apply -f  https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.65.2/bundle.yaml --server-side --force-conflicts || echo "error fetching prometheus operator manifest"
           fi
 
       - name: Run chart-testing (install)
@@ -209,13 +209,13 @@ jobs:
       - name: Add Dependencies
         run: |
           if [[ "${{ matrix.chart }}" != "charts/operators/metallb" ]]; then
-            kubectl apply -f --server-side --force-conflicts https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml
+            kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml --server-side --force-conflicts || echo "error fetching metallb manifest"
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/cloudnative-pg" ]]; then
-            kubectl apply -f --server-side --force-conflicts https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.17/releases/cnpg-1.17.5.yaml
+            kubectl apply -f https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.17/releases/cnpg-1.17.5.yaml  --server-side --force-conflicts || echo "error fetching cnpg manifest"
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
-            kubectl apply -f --server-side --force-conflicts https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.65.2/bundle.yaml
+            kubectl apply -f  https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.65.2/bundle.yaml --server-side --force-conflicts || echo "error fetching prometheus operator manifest"
           fi
 
       - name: Run chart-testing (install)
@@ -267,13 +267,13 @@ jobs:
       - name: Add Dependencies
         run: |
           if [[ "${{ matrix.chart }}" != "charts/operators/metallb" ]]; then
-            kubectl apply -f --server-side --force-conflicts https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml
+            kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml --server-side --force-conflicts || echo "error fetching metallb manifest"
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/cloudnative-pg" ]]; then
-            kubectl apply -f --server-side --force-conflicts https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.17/releases/cnpg-1.17.5.yaml
+            kubectl apply -f https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.17/releases/cnpg-1.17.5.yaml  --server-side --force-conflicts || echo "error fetching cnpg manifest"
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
-            kubectl apply -f --server-side --force-conflicts https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.65.2/bundle.yaml
+            kubectl apply -f  https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.65.2/bundle.yaml --server-side --force-conflicts || echo "error fetching prometheus operator manifest"
           fi
 
       - name: Run chart-testing (install)
@@ -325,13 +325,13 @@ jobs:
       - name: Add Dependencies
         run: |
           if [[ "${{ matrix.chart }}" != "charts/operators/metallb" ]]; then
-            kubectl apply -f --server-side --force-conflicts https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml
+            kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml --server-side --force-conflicts || echo "error fetching metallb manifest"
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/cloudnative-pg" ]]; then
-            kubectl apply -f --server-side --force-conflicts https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.17/releases/cnpg-1.17.5.yaml
+            kubectl apply -f https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.17/releases/cnpg-1.17.5.yaml  --server-side --force-conflicts || echo "error fetching cnpg manifest"
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
-            kubectl apply -f --server-side --force-conflicts https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.65.2/bundle.yaml
+            kubectl apply -f  https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.65.2/bundle.yaml --server-side --force-conflicts || echo "error fetching prometheus operator manifest"
           fi
 
       - name: Run chart-testing (install)
@@ -441,13 +441,13 @@ jobs:
       - name: Add Dependencies
         run: |
           if [[ "${{ matrix.chart }}" != "charts/operators/metallb" ]]; then
-            kubectl apply -f --server-side --force-conflicts https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml
+            kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml --server-side --force-conflicts || echo "error fetching metallb manifest"
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/cloudnative-pg" ]]; then
-            kubectl apply -f --server-side --force-conflicts https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.17/releases/cnpg-1.17.5.yaml
+            kubectl apply -f https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.17/releases/cnpg-1.17.5.yaml  --server-side --force-conflicts || echo "error fetching cnpg manifest"
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
-            kubectl apply -f --server-side --force-conflicts https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.65.2/bundle.yaml
+            kubectl apply -f  https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.65.2/bundle.yaml --server-side --force-conflicts || echo "error fetching prometheus operator manifest"
           fi
 
       - name: Run chart-testing (install)
