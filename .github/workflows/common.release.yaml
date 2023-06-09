@@ -3,13 +3,13 @@ name: "Charts: Release"
 concurrency: helm-release
 
 on:
+  workflow_dispatch:
   push:
     branches:
-    - main
+      - main
     paths:
-    - ".github/*"
-    - "library/*"
-  workflow_dispatch:
+      - ".github/**"
+      - "library/**"
 
 jobs:
   release-charts:
