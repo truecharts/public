@@ -1,12 +1,12 @@
 apiVersion: v2
-appVersion: "109.0.1"
+appVersion: "113.0.2"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 12.13.0
 deprecated: false
 description: a free and open-source web browser developed by the Mozilla Foundation and its subsidiary, the Mozilla Corporation.
-home: https://truecharts.org/charts/incubator/firefox
+home: https://truecharts.org/charts/stable/firefox
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/firefox.png
 keywords:
   - firefox
@@ -18,10 +18,10 @@ maintainers:
     url: https://truecharts.org
 name: firefox
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/firefox
+  - https://github.com/truecharts/charts/tree/master/charts/stable/firefox
   - https://github.com/linuxserver/docker-firefox
 type: application
-version: 6.0.3
+version: 6.0.4
 annotations:
   truecharts.org/catagories: |
     - browser
