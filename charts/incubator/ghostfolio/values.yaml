@@ -19,7 +19,7 @@ workload:
               path: "/"
               type: http
           env:
-            ALPHA_VANTAGE_API_KEY: "{{ .Values.ghostfolio.alpha_vantage_api_key }}"
+            ALPHA_VANTAGE_API_KEY: ""
             ACCESS_TOKEN_SALT:
               secretKeyRef:
                 name: secrets
@@ -63,9 +63,6 @@ securityContext:
     runAsUser: 0
     runAsGroup: 0
     fsGroup: 568
-
-ghostfolio:
-  alpha_vantage_api_key: ""
 
 portal:
   open:
