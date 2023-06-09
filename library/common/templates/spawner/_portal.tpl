@@ -79,7 +79,11 @@
           {{- end -}}
         {{- end -}}
         {{- if $selectedIngress.ingressClassName }}
-          {{- $traefikNamespace = (printf "ix-%s" $selectedIngress.ingressClassName) -}}
+          {{- if $.Values.global.ixChartContext -}}
+            {{- $traefikNamespace = (printf "ix-%s" $selectedIngress.ingressClassName) -}}
+          {{- else -}}
+            {{- $traefikNamespace = $selectedIngress.ingressClassName -}}
+          {{- end -}}
         {{- end -}}
 
         {{- $traefikportalhook := lookup "v1" "ConfigMap" $traefikNamespace "portalhook" }}
