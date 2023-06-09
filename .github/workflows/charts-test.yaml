@@ -50,7 +50,7 @@ jobs:
       detected6: ${{ steps.list-changed.outputs.detected6 }}
     steps:
       - name: Checkout
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
@@ -115,62 +115,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
-        with:
-          fetch-depth: 1
-          ref: ${{ inputs.checkoutCommit }}
-
-      - name: Install Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@af4ebb1af1efd30c5bd84a2e9773355ad6362a33 # v0.9.3
-        with:
-          setup-tools: |
-            helmv3
-          helm: "3.9.4"
-
-      - uses: actions/setup-python@bd6b4b6205c4dbad673328db7b31b7fab9e241c0 # v4
-        with:
-          python-version: "3.11"
-
-      - name: Set up chart-testing
-        uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
-
-      - name: Create k3d cluster
-        uses: nolar/setup-k3d-k3s@v1
-        with:
-          version: v1.24
-          # Flags found here https://github.com/k3d-io/k3d
-          k3d-args: --k3s-arg --disable=metrics-server@server:*
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Remove node taints
-        run: |
-          kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
-
-      - name: Add Dependencies
-        run: |
-          if [[ "${{ matrix.chart }}" != "charts/operators/metallb" ]]; then
-          kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml
-          fi
-          if [[ "${{ matrix.chart }}" != "charts/operators/cloudnative-pg" ]]; then
-          kubectl apply -f https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.17/releases/cnpg-1.17.5.yaml
-          fi
-
-      - name: Run chart-testing (install)
-        run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade
-
-  install-charts2:
-    needs:
-      - generate-install-matrix
-    if: needs.generate-install-matrix.outputs.detected2 == 'true'
-    name: Install charts Part 2
-    strategy:
-      matrix: ${{ fromJson(needs.generate-install-matrix.outputs.matrix2) }}
-      fail-fast: false
-      max-parallel: 10
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
@@ -206,10 +151,71 @@ jobs:
           ## TODO: Move to our Helm Charts
           ## TODO: Only add when required
           if [[ "${{ matrix.chart }}" != "charts/operators/metallb" ]]; then
-          kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml
+            kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml --server-side --force-conflicts || echo "error fetching metallb manifest"
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/cloudnative-pg" ]]; then
-          kubectl apply -f https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.17/releases/cnpg-1.17.5.yaml
+            kubectl apply -f https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.20/releases/cnpg-1.20.0.yaml  --server-side --force-conflicts || echo "error fetching cnpg manifest"
+          fi
+          if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
+            kubectl apply -f  https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.65.2/bundle.yaml --server-side --force-conflicts || echo "error fetching prometheus operator manifest"
+          fi
+
+      - name: Run chart-testing (install)
+        run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade
+
+  install-charts2:
+    needs:
+      - generate-install-matrix
+    if: needs.generate-install-matrix.outputs.detected2 == 'true'
+    name: Install charts Part 2
+    strategy:
+      matrix: ${{ fromJson(needs.generate-install-matrix.outputs.matrix2) }}
+      fail-fast: false
+      max-parallel: 10
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3
+        with:
+          fetch-depth: 1
+          ref: ${{ inputs.checkoutCommit }}
+
+      - name: Install Kubernetes tools
+        uses: yokawasa/action-setup-kube-tools@af4ebb1af1efd30c5bd84a2e9773355ad6362a33 # v0.9.3
+        with:
+          setup-tools: |
+            helmv3
+          helm: "3.9.4"
+
+      - uses: actions/setup-python@bd6b4b6205c4dbad673328db7b31b7fab9e241c0 # v4
+        with:
+          python-version: "3.11"
+
+      - name: Set up chart-testing
+        uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
+
+      - name: Create k3d cluster
+        uses: nolar/setup-k3d-k3s@v1
+        with:
+          version: v1.24
+          # Flags found here https://github.com/k3d-io/k3d
+          k3d-args: --k3s-arg --disable=metrics-server@server:*
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Remove node taints
+        run: |
+          kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
+
+      - name: Add Dependencies
+        run: |
+          if [[ "${{ matrix.chart }}" != "charts/operators/metallb" ]]; then
+            kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml --server-side --force-conflicts || echo "error fetching metallb manifest"
+          fi
+          if [[ "${{ matrix.chart }}" != "charts/operators/cloudnative-pg" ]]; then
+            kubectl apply -f https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.17/releases/cnpg-1.17.5.yaml  --server-side --force-conflicts || echo "error fetching cnpg manifest"
+          fi
+          if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
+            kubectl apply -f  https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.65.2/bundle.yaml --server-side --force-conflicts || echo "error fetching prometheus operator manifest"
           fi
 
       - name: Run chart-testing (install)
@@ -227,7 +233,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
@@ -261,10 +267,13 @@ jobs:
       - name: Add Dependencies
         run: |
           if [[ "${{ matrix.chart }}" != "charts/operators/metallb" ]]; then
-          kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml
+            kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml --server-side --force-conflicts || echo "error fetching metallb manifest"
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/cloudnative-pg" ]]; then
-          kubectl apply -f https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.17/releases/cnpg-1.17.5.yaml
+            kubectl apply -f https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.17/releases/cnpg-1.17.5.yaml  --server-side --force-conflicts || echo "error fetching cnpg manifest"
+          fi
+          if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
+            kubectl apply -f  https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.65.2/bundle.yaml --server-side --force-conflicts || echo "error fetching prometheus operator manifest"
           fi
 
       - name: Run chart-testing (install)
@@ -282,7 +291,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
@@ -316,10 +325,13 @@ jobs:
       - name: Add Dependencies
         run: |
           if [[ "${{ matrix.chart }}" != "charts/operators/metallb" ]]; then
-          kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml
+            kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml --server-side --force-conflicts || echo "error fetching metallb manifest"
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/cloudnative-pg" ]]; then
-          kubectl apply -f https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.17/releases/cnpg-1.17.5.yaml
+            kubectl apply -f https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.17/releases/cnpg-1.17.5.yaml  --server-side --force-conflicts || echo "error fetching cnpg manifest"
+          fi
+          if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
+            kubectl apply -f  https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.65.2/bundle.yaml --server-side --force-conflicts || echo "error fetching prometheus operator manifest"
           fi
 
       - name: Run chart-testing (install)
@@ -337,7 +349,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
@@ -371,10 +383,13 @@ jobs:
       - name: Add Dependencies
         run: |
           if [[ "${{ matrix.chart }}" != "charts/operators/metallb" ]]; then
-          kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml
+            kubectl apply -f --server-side --force-conflicts https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/cloudnative-pg" ]]; then
-          kubectl apply -f https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.17/releases/cnpg-1.17.5.yaml
+            kubectl apply -f --server-side --force-conflicts https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.17/releases/cnpg-1.17.5.yaml
+          fi
+          if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
+            kubectl apply -f --server-side --force-conflicts --server-side --force-conflicts https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.65.2/bundle.yaml
           fi
 
       - name: Run chart-testing (install)
@@ -392,7 +407,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
@@ -426,10 +441,13 @@ jobs:
       - name: Add Dependencies
         run: |
           if [[ "${{ matrix.chart }}" != "charts/operators/metallb" ]]; then
-          kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml
+            kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml --server-side --force-conflicts || echo "error fetching metallb manifest"
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/cloudnative-pg" ]]; then
-          kubectl apply -f https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.17/releases/cnpg-1.17.5.yaml
+            kubectl apply -f https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.17/releases/cnpg-1.17.5.yaml  --server-side --force-conflicts || echo "error fetching cnpg manifest"
+          fi
+          if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
+            kubectl apply -f  https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.65.2/bundle.yaml --server-side --force-conflicts || echo "error fetching prometheus operator manifest"
           fi
 
       - name: Run chart-testing (install)

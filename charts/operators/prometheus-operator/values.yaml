@@ -1,21 +1,21 @@
 image:
   repository: tccr.io/truecharts/prometheus-operator
-  tag: "v0.65.2"
+  tag: "v0.65.2@sha256:4907d522bd1ba4f28568a77affbb6df3f703a6fb35cc0188f0dc4c3b0be6c771"
   pullPolicy:
 
 configReloaderImage:
   repository: tccr.io/truecharts/prometheus-config-reloader
-  tag: "v0.65.2"
+  tag: "v0.65.2@sha256:26d19ec2e1ec4dafaeaf10a37488bdaf30b0177966413f4c26a369f2def6defe"
   pullPolicy:
 
 thanosImage:
   repository: tccr.io/truecharts/thanos
-  tag: "v0.31.0"
+  tag: "v0.31.0@sha256:d1f694ca4040aae878005e15baafdf16ca9e52ce836e5eb64158918f35acd34b"
   pullPolicy:
 
 patchImage:
   repository: tccr.io/truecharts/kube-webhook-certgen
-  tag: latest
+  tag: latest@sha256:28c6de4c7fe7527daafd761e2d33aafe1094004e77248fcc674cc6e092da1017
   pullPolicy:
 
 workload:

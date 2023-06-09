@@ -124,7 +124,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-195-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-196-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -201,7 +201,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/eingemaischt"><img src="https://avatars.githubusercontent.com/u/151498?v=4?s=100" width="100px;" alt="Philipp"/><br /><sub><b>Philipp</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Aeingemaischt" title="Bug reports">🐛</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/j0hnby"><img src="https://avatars.githubusercontent.com/u/18377483?v=4?s=100" width="100px;" alt="John"/><br /><sub><b>John</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Aj0hnby" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/j0hnby"><img src="https://avatars.githubusercontent.com/u/18377483?v=4?s=100" width="100px;" alt="John"/><br /><sub><b>John</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Aj0hnby" title="Bug reports">🐛</a> <a href="https://github.com/truecharts/charts/commits?author=j0hnby" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/john-parton"><img src="https://avatars.githubusercontent.com/u/2071543?v=4?s=100" width="100px;" alt="John Parton"/><br /><sub><b>John Parton</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Ajohn-parton" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Amasis"><img src="https://avatars.githubusercontent.com/u/7325217?v=4?s=100" width="100px;" alt="Marc"/><br /><sub><b>Marc</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3AAmasis" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/fdzaebel"><img src="https://avatars.githubusercontent.com/u/46503230?v=4?s=100" width="100px;" alt="fdzaebel"/><br /><sub><b>fdzaebel</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Afdzaebel" title="Bug reports">🐛</a></td>
@@ -385,6 +385,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Emalton"><img src="https://avatars.githubusercontent.com/u/9328458?v=4?s=100" width="100px;" alt="John P"/><br /><sub><b>John P</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=Emalton" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/kryojenik"><img src="https://avatars.githubusercontent.com/u/845427?v=4?s=100" width="100px;" alt="kryojenik"/><br /><sub><b>kryojenik</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=kryojenik" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/malcolmcdixon"><img src="https://avatars.githubusercontent.com/u/56974882?v=4?s=100" width="100px;" alt="Malcolm"/><br /><sub><b>Malcolm</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=malcolmcdixon" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/depasseg"><img src="https://avatars.githubusercontent.com/u/3201827?v=4?s=100" width="100px;" alt="depasseg"/><br /><sub><b>depasseg</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=depasseg" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/j1mbl3s"><img src="https://avatars.githubusercontent.com/u/44634577?v=4?s=100" width="100px;" alt="j1mbl3s"/><br /><sub><b>j1mbl3s</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=j1mbl3s" title="Documentation">📖</a></td>
     </tr>
   </tbody>
