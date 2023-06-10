@@ -32,8 +32,8 @@ workload:
             - |
               mkdir -p /config
               if [ ! -f /config/config.yml ]; then
-                echo "Config file not found, copying example..."
-                cp /config/config.yml.example /config/config.yml
+                echo "Config file not found, copying dummy..."
+                cp /dummy-config/config.yml.dummy /config/config.yml
                 echo "Config file copied, you can now edit it at /config/config.yml"
               fi
 
