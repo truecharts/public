@@ -1,0 +1,11 @@
+frigateConfig:
+  mqtt:
+    enabled: false
+  cameras:
+    dummy:
+      enabled: false
+      ffmpeg:
+        inputs:
+          - path: rtsp://127.0.0.1:554/rtsp
+            roles:
+              - detect
