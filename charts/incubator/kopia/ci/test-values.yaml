@@ -1,0 +1,10 @@
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          args:
+            - server
+            - start
+            - --address=http://0.0.0.0:10238
+            - --insecure
