@@ -20,6 +20,14 @@ workload:
             - --insecure
             - --server-username={{ .Values.kopia.server_username }}
             - --server-password={{ .Values.kopia.server_password }}
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+
 kopia:
   kopia_user: "user"
   kopia_password: "secret"
