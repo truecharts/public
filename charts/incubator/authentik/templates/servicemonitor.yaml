@@ -3,7 +3,7 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: {{ include "tc.common.names.fullname" . }}
+  name: {{ include "tc.v1.common.lib.chart.names.fullname" . }}
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
     {{- with .Values.metrics.serviceMonitor.labels }}
