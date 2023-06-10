@@ -8,10 +8,10 @@ data:
   {{- else }}
   config.yml.default: |
     mqtt:
-      enabled: False
+      enabled: false
     cameras:
       dummy:
-        enabled: False
+        enabled: false
         ffmpeg:
           inputs:
             - path: rtsp://127.0.0.1:554/rtsp
