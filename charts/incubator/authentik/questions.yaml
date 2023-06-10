@@ -543,6 +543,14 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
+        - variable: templates
+          label: App Templates Storage
+          description: Stores the Application Templates.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
         - variable: certs
           label: App Certs Storage
           description: Stores the Application Certs.

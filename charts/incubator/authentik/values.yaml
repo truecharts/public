@@ -183,6 +183,13 @@ persistence:
       main:
         main: {}
         worker: {}
+  templates:
+    enabled: true
+    mountPath: "/templates"
+    targetSelector:
+      main:
+        main: {}
+        worker: {}
   certs:
     enabled: true
     mountPath: "/certs"
