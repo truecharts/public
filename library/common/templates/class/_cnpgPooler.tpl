@@ -31,4 +31,9 @@ spec:
       max_client_conn: "1000"
       default_pool_size: "10"
 
+  {{- with (include "tc.v1.common.lib.container.resources" (dict "rootCtx" $ "objectData" $values) | trim) }}
+  resources:
+    {{- . | nindent 4 }}
+  {{- end }}
+
 {{- end -}}
