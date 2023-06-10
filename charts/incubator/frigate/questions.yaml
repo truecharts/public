@@ -24,6 +24,7 @@ questions:
             The path to the config file on the host.
             The config file will be mounted into the container at /config/config.yml
             It will be editable from the Frigate UI.
+            Make sure you select a FILE, not a directory.
           schema:
             type: hostpath
             required: true
