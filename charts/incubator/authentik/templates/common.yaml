@@ -1,30 +1,31 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "tc.common.loader.init" . }}
+{{- include "tc.v1.common.loader.init" . }}
 
-{{/* Render secret */}}
-{{- include "authentik.secret" . }}
-
-{{/* Render config */}}
-{{- include "authentik.config" . }}
-
-{{- if hasKey .Values "metrics" -}}
-{{- if .Values.metrics.enabled -}}
-{{- $_ := set .Values.podAnnotations "prometheus.io/scrape" "true" -}}
-{{- $_ := set .Values.podAnnotations "prometheus.io/path" "/metrics" -}}
-{{- $_ := set .Values.podAnnotations "prometheus.io/port" (.Values.service.metrics.ports.metrics.targetPort | default 9301 | quote) -}}
+{{/* Render secrets for authentik and friends */}}
+{{- $authentikSecrets := include "authentik.secrets" . | fromYaml -}}
+{{- if $authentikSecrets -}}
+  {{ $secrets := (mustMerge $.Values.secret $authentikSecrets) }}
+  {{- $_ := set .Values "secret" $secrets -}}
 {{- end -}}
+
+{{/* Render configmaps for authentik and friends */}}
+{{- $authentikConfigmaps := include "authentik.configmaps" . | fromYaml -}}
+{{- if $authentikConfigmaps -}}
+  {{ $configmaps := (mustMerge $.Values.configmap $authentikConfigmaps) }}
+  {{- $_ := set .Values "configmap" $configmaps -}}
 {{- end -}}
+
 
 {{- if .Values.workerContainer.enabled -}}
-{{- $_ := set .Values.additionalContainers "worker" (include "authentik.worker" . | fromYaml) -}}
+{{- $_ := set .Values.workload.main.podSpec.containers "worker" (include "authentik.worker.container" . | fromYaml) -}}
 {{- end -}}
 
 {{- if .Values.geoip.enabled -}}
-{{- $_ := set .Values.additionalContainers "geoip" (include "authentik.geoip" . | fromYaml) -}}
+{{- $_ := set .Values.workload.main.podSpec.containers "geoip" (include "authentik.geoip.container" . | fromYaml) -}}
 {{- end -}}
 
 {{- if .Values.outposts.ldap.enabled -}}
-{{- $_ := set .Values.additionalContainers "ldap-outpost" (include "authentik.ldap" . | fromYaml) -}}
+{{- $_ := set .Values.workload.main.podSpec.containers "ldap-outpost" (include "authentik.ldap.container" . | fromYaml) -}}
 {{/* - if .Values.metrics.enabled - */}}
 {{/* https://github.com/prometheus/prometheus/issues/3756 */}}
 {{/* TODO: Figure how the pipe works to connect it to prometheus operator */}}
@@ -33,7 +34,7 @@
 {{- end -}}
 
 {{- if .Values.outposts.proxy.enabled -}}
-{{- $_ := set .Values.additionalContainers "proxy-outpost" (include "authentik.proxy" . | fromYaml) -}}
+{{- $_ := set .Values.workload.main.podSpec.containers "proxy-outpost" (include "authentik.proxy.container" . | fromYaml) -}}
 {{/* - if .Values.metrics.enabled - */}}
 {{/* https://github.com/prometheus/prometheus/issues/3756 */}}
 {{/* TODO: Figure how the pipe works to connect it to prometheus operator */}}
@@ -42,4 +43,4 @@
 {{- end -}}
 
 {{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}
+{{ include "tc.v1.common.loader.apply" . }}
