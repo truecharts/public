@@ -176,9 +176,9 @@ persistence:
       main:
         main: {}
         worker: {}
-  templates:
+  blueprints:
     enabled: true
-    mountPath: "/templates"
+    mountPath: "/blueprints"
     targetSelector:
       main:
         main: {}
@@ -191,10 +191,15 @@ persistence:
         worker: {}
   geoip:
     enabled: true
-    mountPath: "/usr/share/GeoIP"
+    # Docs: https://goauthentik.io/docs/core/geoip#external-updates
+    mountPath: "/geoip"
     targetSelector:
       main:
-        geoip: {}
+        main: {}
+        worker: {}
+        geoip:
+          mountPath: "/usr/share/GeoIP"
+
 
 cnpg:
   main:

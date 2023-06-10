@@ -535,9 +535,9 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-        - variable: templates
-          label: App Templates Storage
-          description: Stores the Application Templates.
+        - variable: blueprints
+          label: App Blueprints Storage
+          description: Stores the Application Blueprints.
           schema:
             additional_attrs: true
             type: dict
