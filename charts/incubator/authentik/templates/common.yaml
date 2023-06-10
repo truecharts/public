@@ -26,20 +26,10 @@
 
 {{- if .Values.outposts.ldap.enabled -}}
 {{- $_ := set .Values.workload.main.podSpec.containers "ldap-outpost" (include "authentik.ldap.container" . | fromYaml) -}}
-{{/* - if .Values.metrics.enabled - */}}
-{{/* https://github.com/prometheus/prometheus/issues/3756 */}}
-{{/* TODO: Figure how the pipe works to connect it to prometheus operator */}}
-{{/* We can't define multiple ports/endpoints with annotations */}}
-{{/* - end - */}}
 {{- end -}}
 
 {{- if .Values.outposts.proxy.enabled -}}
 {{- $_ := set .Values.workload.main.podSpec.containers "proxy-outpost" (include "authentik.proxy.container" . | fromYaml) -}}
-{{/* - if .Values.metrics.enabled - */}}
-{{/* https://github.com/prometheus/prometheus/issues/3756 */}}
-{{/* TODO: Figure how the pipe works to connect it to prometheus operator */}}
-{{/* We can't define multiple ports/endpoints with annotations */}}
-{{/* - end - */}}
 {{- end -}}
 
 {{/* Render the templates */}}
