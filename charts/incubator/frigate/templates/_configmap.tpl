@@ -2,29 +2,39 @@
 {{- define "frigate.configmap" -}}
 enabled: true
 data:
+  {{- if .Values.frigateConfig }}
   config.yml: |
     {{- .Values.frigateConfig | toYaml | nindent 4 }}
+  {{- else }}
+  config.yml.default: |
+    mqtt:
+      enabled: False
+    cameras:
+      dummy:
+        enabled: False
+        ffmpeg:
+          inputs:
+            - path: rtsp://127.0.0.1:554/rtsp
+              roles:
+                - detect
+  {{- end }}
 {{- end -}}
 
 {{- define "frigate.configVolume" -}}
-  {{- if and (not .Values.frigate.configFileHostPath) (not .Values.frigateConfig) -}}
-    {{- fail "Frigate - Ony one of [configFileHostPath, frigateConfig] can be defined" -}}
-  {{- end }}
-
 enabled: true
-{{- if .Values.frigateConfig }}
 type: configmap
 objectName: frigate-config
 mountPath: /config
+targetSelector:
+  main:
+    main: {}
+    init-config: {}
 items:
+{{- if .Values.frigateConfig }}
   - key: config.yml
     path: config.yml
-{{- else if .Values.frigate.configFileHostPath }}
-type: hostPath
-hostPathType: File
-hostPath: {{ .Values.frigate.configFileHostPath }}
-mountPath: /config/config.yml
-{{- else -}}
-  {{- fail "Frigate - One of [configFileHostPath, frigateConfig] must be defined" -}}
+{{- else  }}
+  - key: config.yml.default
+    path: config.yml.default
 {{- end -}}
 {{- end -}}

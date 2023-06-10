@@ -11,24 +11,6 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
-  - variable: frigate
-    group: App Configuration
-    label: Frigate Configuration
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: configFileHostPath
-          label: Config File Host Path
-          description: |
-            The path to the config file on the host.
-            The config file will be mounted into the container at /config/config.yml
-            It will be editable from the Frigate UI.</br></br>
-            Make sure you select a FILE, not a directory.
-          schema:
-            type: hostpath
-            required: true
-            default: ""
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
@@ -78,15 +60,15 @@ questions:
 # Include{persistenceRoot}
         - variable: media
           label: App Media
-          description: Stores the Application Media
+          description: Stores the Application Media and DB
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
-        - variable: db
-          label: App DB
-          description: Stores the Application DB
+        - variable: config
+          label: App Config
+          description: Stores the Application Configuration
           schema:
             additional_attrs: true
             type: dict
