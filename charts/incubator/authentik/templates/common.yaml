@@ -15,14 +15,6 @@
   {{- $_ := set .Values "configmap" $configmaps -}}
 {{- end -}}
 
-{{/*TODO: I think this is a leftover from an old common that is not needed anymore but I am not sure. */}}
-{{/*{{- if hasKey .Values "metrics" -}}*/}}
-{{/*{{- if .Values.metrics.enabled -}}*/}}
-{{/*{{- $_ := set .Values.podAnnotations "prometheus.io/scrape" "true" -}}*/}}
-{{/*{{- $_ := set .Values.podAnnotations "prometheus.io/path" "/metrics" -}}*/}}
-{{/*{{- $_ := set .Values.podAnnotations "prometheus.io/port" (.Values.service.metrics.ports.metrics.targetPort | default 9301 | quote) -}}*/}}
-{{/*{{- end -}}*/}}
-{{/*{{- end -}}*/}}
 
 {{- if .Values.workerContainer.enabled -}}
 {{- $_ := set .Values.workload.main.podSpec.containers "worker" (include "authentik.worker.container" . | fromYaml) -}}
