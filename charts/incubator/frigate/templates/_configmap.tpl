@@ -542,7 +542,7 @@ tls_client_cert: {{ . }}
 {{- with $mqtt.tls_client_key }}
 tls_client_key: {{ . }}
 {{- end -}}
-tls_insecure: {{ ternary "True" "False" $mqtt.tls_insecure }}
+{{/* tls_insecure: {{ ternary "True" "False" $mqtt.tls_insecure }} */}}
 {{- if not (kindIs "invalid" $mqtt.stats_interval) }}
 stats_interval: {{ $mqtt.stats_interval }}
 {{- end -}}
