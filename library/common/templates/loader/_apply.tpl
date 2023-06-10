@@ -4,6 +4,9 @@
   {{/* Inject custom tpl files, as defined in values.yaml */}}
   {{- include "tc.v1.common.spawner.extraTpl" . | nindent 0 -}}
 
+  {{/* Ensure automatic permissions containers are injected */}}
+  {{- include "tc.v1.common.lib.util.autoperms.job" $ -}}
+
   {{/* Make sure there are not any YAML errors */}}
   {{- include "tc.v1.common.values.validate" .Values -}}
 
@@ -54,9 +57,6 @@
 
   {{/* Render Cert-Manager Certificates(s) */}}
   {{- include "tc.v1.common.spawner.certificate" . | nindent 0 -}}
-
-  {{/* Ensure automatic permissions containers are injected */}}
-  {{- include "tc.v1.common.lib.util.autoperms" . | nindent 0 -}}
 
   {{/* Render/Set portal configmap, .Values.iXPortals and APPURL */}}
   {{- include "tc.v1.common.spawner.portal" . | nindent 0 -}}

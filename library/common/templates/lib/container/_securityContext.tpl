@@ -171,6 +171,10 @@ objectData: The object data to be used to render the container.
         {{- fail (printf "Container - Expected items of <securityContext.capabilities.%s> to be [string], but got [%s]" $key (kindOf .)) -}}
       {{- end -}}
     {{- end -}}
+
+    {{- if not (deepEqual (uniq $item) $item) -}}
+      {{- fail (printf "Container - Expected items of <securityContext.capabilities.%s> to be unique, but got [%s]" $key (join ", " $item)) -}}
+    {{- end -}}
   {{- end -}}
 
   {{- $secContext | toJson -}}

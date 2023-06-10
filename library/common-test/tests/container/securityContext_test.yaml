@@ -1003,3 +1003,51 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: Container - Expected <securityContext.capabilities.disableS6Caps> to be [bool], but got [not-bool] of type [string]
+
+  - it: should fail with duplicate capabilities.add
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                securityContext:
+                  capabilities:
+                    add:
+                      - CHOWN
+                      - CHOWN
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected items of <securityContext.capabilities.add> to be unique, but got [CHOWN, CHOWN]
+
+  - it: should fail with duplicate capabilities.drop
+    set:
+      image: *image
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                securityContext:
+                  capabilities:
+                    drop:
+                      - CHOWN
+                      - CHOWN
+    asserts:
+      - failedTemplate:
+          errorMessage: Container - Expected items of <securityContext.capabilities.drop> to be unique, but got [CHOWN, CHOWN]

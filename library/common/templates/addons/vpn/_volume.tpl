@@ -51,6 +51,10 @@ expandObjectName: true
 type: hostPath
 hostPath: {{ .Values.addons.vpn.configFile | default "/vpn" }}
 hostPathType: "File"
+autoPermissions:
+  chown: true
+  user: 568
+  group: 568
 {{- end }}
 targetSelector:
   {{- range .Values.addons.vpn.targetSelector }}
@@ -68,6 +72,10 @@ The volume (referencing VPN config folder) to be inserted into persistence.
 enabled: true
 type: hostPath
 hostPath: {{ .Values.addons.vpn.configFolder | quote }}
+autoPermissions:
+  chown: true
+  user: 568
+  group: 568
 targetSelector:
   {{- range .Values.addons.vpn.targetSelector }}
   {{ . }}:

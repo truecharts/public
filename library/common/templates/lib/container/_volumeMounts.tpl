@@ -88,6 +88,22 @@ objectData: The object data to be used to render the container.
   {{/* If targetSelectAll is set, means all pods/containers */}} {{/* targetSelectAll does not make sense for vct */}}
   {{- if and $persistenceValues.targetSelectAll (ne $key "volumeClaimTemplates") -}}
     {{- $return = true -}}
+    {{/* Set custom path on autopermissions container */}}
+    {{- if and (eq $objectData.shortName "autopermissions") $persistenceValues.autoPermissions -}}
+      {{- if or $persistenceValues.autoPermissions.chown $persistenceValues.autoPermissions.chmod -}}
+        {{- $return = true -}}
+        {{- $_ := set $volMount "mountPath" (printf "/mounts/%v" $persistenceName) -}}
+      {{- end -}}
+    {{- end -}}
+
+  {{/* If the container is the autopermission */}}
+  {{- else if (eq $objectData.shortName "autopermissions") -}}
+    {{- if $persistenceValues.autoPermissions -}}
+      {{- if or $persistenceValues.autoPermissions.chown $persistenceValues.autoPermissions.chmod -}}
+        {{- $return = true -}}
+        {{- $_ := set $volMount "mountPath" (printf "/mounts/%v" $persistenceName) -}}
+      {{- end -}}
+    {{- end -}}
 
   {{/* Else if selector is defined */}}
   {{- else if $persistenceValues.targetSelector -}}
@@ -114,8 +130,12 @@ objectData: The object data to be used to render the container.
       {{- end -}}
     {{- end -}}
 
+  {{/* if its the codeserver */}}
+  {{- else if (eq $objectData.shortName "codeserver") -}}
+    {{- $return = true -}}
+
   {{/* Else if not selector, but pod and container is primary */}}
-  {{- else if and $objectData.podPrimary (or $objectData.primary (eq $objectData.shortName "codeserver")) -}}
+  {{- else if and $objectData.podPrimary $objectData.primary -}}
     {{- $return = true -}}
   {{- end -}}
 
