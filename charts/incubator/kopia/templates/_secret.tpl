@@ -3,7 +3,8 @@
 
 enabled: true
 data:
+  USER: {{ .Values.kopia.user | default "user" }}
   KOPIA_PASSWORD: {{ .Values.kopia.password | default "secret" }}
-  KOPIA_SERVER_USERNAME: {{ .Values.kopia.server_password | default "user" }}
-  KOPIA_SERVER_PASSWORD: {{ .Values.kopia.server_password | default "password" }}
+  KOPIA_SERVER_USERNAME: {{ .Values.kopia.server_password | default "server_user" }}
+  KOPIA_SERVER_PASSWORD: {{ .Values.kopia.server_password | default "server_password" }}
 {{- end }}
