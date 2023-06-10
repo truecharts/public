@@ -23,7 +23,7 @@ questions:
                                         description: "Repository password"
                                         schema:
                                           type: string
-                                          default: ""
+                                          default: "secret"
                                           required: true
                                           private: true
                                       - variable: KOPIA_SERVER_USERNAME
@@ -31,14 +31,14 @@ questions:
                                         description: "Username for WebUI"
                                         schema:
                                           type: string
-                                          default: ""
+                                          default: "user"
                                           required: true
                                       - variable: KOPIA_SERVER_PASSWORD
                                         label: "KOPIA_SERVER_PASSWORD"
                                         description: "Password for WebUI"
                                         schema:
                                           type: string
-                                          default: ""
+                                          default: "password"
                                           required: true
                                           private: true
 # Include{containerBasic}

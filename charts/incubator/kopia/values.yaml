@@ -14,7 +14,7 @@ workload:
             - secretRef:
                 name: "kopia-secret"
 kopia:
-  kopia_password: ""
+  kopia_password: "secret"
   kopia_server_username: "user"
   kopia_server_password: "password"
 
