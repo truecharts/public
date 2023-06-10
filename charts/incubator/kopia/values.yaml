@@ -3,7 +3,7 @@ image:
   tag: 0.13.0@sha256:72ed1856efdd443be31e23535d24242056639a387587aa3ade5413e75dad0603
   pullPolicy: IfNotPresent
 
-extraArgs: ["server", "--address=http://0.0.0.0:10238", "--ui", "--insecure"]
+
 
 workload:
   main:
@@ -13,6 +13,8 @@ workload:
           envFrom:
             - secretRef:
                 name: "kopia-secret"
+          extraArgs:
+            - ["server", "--address=http://0.0.0.0:10238", "--ui", "--insecure"]
 kopia:
   kopia_password: "secret"
   kopia_server_username: "user"
