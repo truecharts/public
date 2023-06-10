@@ -11,19 +11,26 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-                                - variable: env
+                                - variable: kopia
                                   group: "App Configuration"
                                   label: "Image Environment"
                                   schema:
                                     additional_attrs: true
                                     type: dict
                                     attrs:
+                                      - variable: USER
+                                        label: "Kopia User"
+                                        description: "Repository user"
+                                        schema:
+                                          type: string
+                                          default: "secret"
+                                          required: true
                                       - variable: KOPIA_PASSWORD
                                         label: "KOPIA_PASSWORD"
                                         description: "Repository password"
                                         schema:
                                           type: string
-                                          default: ""
+                                          default: "secret"
                                           required: true
                                           private: true
                                       - variable: KOPIA_SERVER_USERNAME
@@ -31,14 +38,14 @@ questions:
                                         description: "Username for WebUI"
                                         schema:
                                           type: string
-                                          default: ""
+                                          default: "server_user"
                                           required: true
                                       - variable: KOPIA_SERVER_PASSWORD
                                         label: "KOPIA_SERVER_PASSWORD"
                                         description: "Password for WebUI"
                                         schema:
                                           type: string
-                                          default: ""
+                                          default: "server_password"
                                           required: true
                                           private: true
 # Include{containerBasic}

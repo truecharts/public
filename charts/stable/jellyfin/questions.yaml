@@ -12,19 +12,18 @@ questions:
 # Include{containerMain}
 
 
-                                - variable: env
+                                - variable: autodiscovery
                                   group: "App Configuration"
-                                  label: "Image Environment"
+                                  label: "Autodiscovery"
                                   schema:
                                     additional_attrs: true
                                     type: dict
                                     attrs:
-                                      - variable: JELLYFIN_PublishedServerUrl
-                                        description: "Published Server URL"
-                                        label: "The Server URL to publish in UDP Auto Discovery response."
-                                        schema:
-                                          type: string
-                                          default: ""
+                                    - variable: enabled
+                                      label: "Enable Autodiscovery on LAN"
+                                      schema:
+                                        type: boolean
+                                        default: false
 # Include{containerBasic}
 # Include{containerAdvanced}
 
