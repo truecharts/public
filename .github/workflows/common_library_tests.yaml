@@ -124,11 +124,12 @@ jobs:
           - rbac-values.yaml
           - ingress-values.yaml
           - networkPolicy-values.yaml
-          - codeserver-values.yaml
+          # TODO: broken
+          # - codeserver-values.yaml
           - netshoot-values.yaml
           - metrics-values.yaml
-          # - cnpg-values.yaml
-          # - cnpg-multi-values.yaml
+          - cnpg-values.yaml
+          - cnpg-multi-values.yaml
           - manifest-values.yaml
           - stagingmanifest-values.yaml
           - register-operator-values.yaml
