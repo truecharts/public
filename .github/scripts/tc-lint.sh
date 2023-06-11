@@ -119,6 +119,13 @@ function lint_chart(){
         echo "👣 Helm Template - [$chart_path]"
         helm_template "$chart_path"
 
+        for values in $chart_path/ci/*values.yaml; do
+            if [ -f "${values}" ]; then
+                echo "👣 Helm Template - [$values]"
+                helm_template "$values"
+            fi
+        done
+
         echo "👣 Chart Version - [$chart_path] against [$target_branch]"
         check_version "$chart_path" "$target_branch"
 
@@ -135,9 +142,6 @@ function lint_chart(){
             if [ -f "${values}" ]; then
                 echo "👣 YAML Lint - [$values]"
                 yaml_lint "$values"
-
-                echo "👣 Helm Template - [$values]"
-                helm_template "$values"
             fi
         done
 
