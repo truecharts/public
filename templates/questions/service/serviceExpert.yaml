@@ -9,6 +9,7 @@
                 description: Interface Configuration
                 label: Interface Configuration
                 schema:
+                  additional_attrs: true
                   type: dict
                   $ref:
                     - "normalize/interfaceConfiguration"
@@ -25,6 +26,7 @@
                       description: Define how IP Address will be managed
                       label: IP Address Management
                       schema:
+                        additional_attrs: true
                         type: dict
                         required: true
                         attrs:
