@@ -29,7 +29,6 @@ nextcloud:
   general:
     # Custom Nextcloud Scripts
     run_optimize: true
-    fix_data_permissions: false
     default_phone_region: GR
     # IP used for exposing nextcloud,
     # often the loadbalancer IP
@@ -403,9 +402,6 @@ persistence:
           readOnly: true
   data:
     enabled: true
-    autoPermissions:
-      chown: true
-      chmod: 770
     targetSelector:
       main:
         main:

@@ -63,17 +63,6 @@ questions:
                   type: string
                   required: true
                   default: ""
-              - variable: fix_data_permissions
-                label: Fix Data Permissions
-                # TODO: Remove and move this to common and under the fix permissions in storage section
-                description: |
-                  Regardless of the setting here,</br>
-                  on first install will set permissions to [770] for the data directory.</br>
-                  and set ownership to [runAsUser:runAsGroup].</br>
-
-                  If this setting is checked it will also apply the above on each startup.</br>
-                  It's recommended to only check this setting if you have permissions issues.</br>
-                  Please come back and uncheck this setting once the permissions are fixed.
                 schema:
                   type: boolean
                   default: false

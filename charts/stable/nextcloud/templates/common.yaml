@@ -12,6 +12,9 @@
   {{- $_ := set .Values.workload.main.podSpec "initContainers" dict -}}
 {{- end -}}
 
+{{- $initPerms := (include "nextcloud.init.perms" . | fromYaml) -}}
+{{- $_ := set .Values.workload.main.podSpec.initContainers "init-perms" $initPerms -}}
+
 {{/* Add [wait nextcloud] container to nginx */}}
 {{- if not (get .Values.workload.nginx.podSpec "initContainers") -}}
   {{- $_ := set .Values.workload.nginx.podSpec "initContainers" dict -}}
