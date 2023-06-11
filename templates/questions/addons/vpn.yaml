@@ -148,27 +148,27 @@
                   show_if: [["type", "!=", "disabled"]]
                   default: ""
 
-              - variable: envList
-                label: VPN Environment Variables
-                schema:
-                  type: list
-                  show_if: [["type", "!=", "disabled"]]
-                  default: []
-                  items:
-                    - variable: envItem
-                      label: Environment Variable
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: name
-                            label: Name
-                            schema:
-                              type: string
-                              required: true
-                          - variable: value
-                            label: Value
-                            schema:
-                              type: string
-                              required: true
-                              max_length: 10240
+      - variable: envList
+        label: VPN Environment Variables
+        schema:
+          type: list
+          show_if: [["type", "!=", "disabled"]]
+          default: []
+          items:
+            - variable: envItem
+              label: Environment Variable
+              schema:
+                additional_attrs: true
+                type: dict
+                attrs:
+                  - variable: name
+                    label: Name
+                    schema:
+                      type: string
+                      required: true
+                  - variable: value
+                    label: Value
+                    schema:
+                      type: string
+                      required: true
+                      max_length: 10240
