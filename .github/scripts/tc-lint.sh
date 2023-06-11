@@ -4,6 +4,16 @@ function check_version() {
     chart_path=${1:?"No chart path provided to [Version Check]"}
     target_branch=${2:?"No target branch provided to [Version Check]"}
 
+    chart_dir=$(dirname "$chart_path")
+    # If only docs changed, skip version check
+    chart_changes=$(git diff "$target_branch" -- "$chart_dir" :^docs)
+
+    if [[ -z "$chart_changes" ]]; then
+        echo "Looks like only docs needed. Skipping chart version check"
+        echo -e "\t✅ Chart version: No bump required"
+        return
+    fi
+
     new=$(git diff "$target_branch" -- "$chart_path" | sed -nr 's/^\+version: (.*)$/\1/p')
     old=$(git diff "$target_branch" -- "$chart_path" | sed -nr 's/^\-version: (.*)$/\1/p')
 
