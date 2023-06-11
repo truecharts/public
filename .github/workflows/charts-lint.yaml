@@ -75,6 +75,7 @@ jobs:
       - name: Test and Fix Pre-Commit Issues
         shell: bash
         # TODO: Only run pre-commit on changed files
+        # TODO: Commit fixes
         if: inputs.chartChangesDetected == 'true'
         run: |
           echo "Running pre-commit test-and-cleanup..."
