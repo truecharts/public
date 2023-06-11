@@ -43,7 +43,7 @@ server-worker:
     AUTHENTIK_LDAP__TLS__CIPHERS: {{ .Values.authentik.ldap.tlsCiphers | quote }}
 
     {{/* Logging */}}
-    AUTHENTIK_LOG_LEVEL: {{ .Values.authentik.logging.log_level }}
+    AUTHENTIK_LOG_LEVEL: {{ .Values.authentik.logging.logLevel }}
 
     {{/* Error Reporting */}}
     AUTHENTIK_ERROR_REPORTING__ENABLED: {{ .Values.authentik.errorReporting.enabled | quote }}

@@ -32,10 +32,10 @@ authentik:
     disableUpdateCheck: false
     disableStartupAnalytics: true
     allowUserChangeName: true
-    allowUserChangeMail: true
+    allowUserChangeEmail: true
     allowUserChangeUsername: true
     gdprCompliance: true
-    token_length: 128
+    tokenLength: 128
     impersonation: true
     avatars:
       - gravatar
@@ -44,7 +44,7 @@ authentik:
       - name: Authentik
         href: https://goauthentik.io
   geoip:
-    enabled: true
+    enabled: false
     editionID: GeoLite2-City
     frequency: 8
     accountID: ""
