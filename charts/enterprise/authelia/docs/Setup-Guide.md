@@ -10,6 +10,12 @@ This quick guide should take you through the steps necessary to setup `Authelia`
 
 ## Setup LLDAP
 
+:::warning
+
+LLDAP is a `Stable` train chart and therefore isn't supported at the same level as the charts in the `Enterprise` train (Authelia and Traefik).
+
+:::
+
 - Follow the steps included in the [Installation Notes](https://truecharts.org/charts/stable/lldap/installation-notes) for [LLDAP](https://truecharts.org/charts/stable/lldap/). Pretty straightforward. Change `dc=example,dc=com` to your domain, i.e. `dc=MYDOMAIN,dc=net` and then change your password. Also make sure you have the `Operators` train enabled and `CloudnativePG` operator installed, since you'll need it for `LLDAP` and `Authelia`
 
 ![LLDAP Config](img/LLDAPCatalogConfig.png)
