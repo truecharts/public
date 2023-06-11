@@ -132,7 +132,7 @@ function lint_chart(){
         for values in $chart_path/ci/*values.yaml; do
             if [ -f "${values}" ]; then
                 echo "👣 Helm Template - [$values]"
-                helm_template "$values"
+                helm_template "$chart_path "-f "$values"
             fi
         done
 
