@@ -77,7 +77,7 @@ function helm_template(){
     chart_path=${1:?"No chart path provided to [Helm template]"}
 
     # Print only errors and warnings
-    helm_template_output=$(helm template "$chart_path")
+    helm_template_output=$(helm template "$chart_path" 2>&1 >/dev/null)
     helm_template_exit_code=$?
     while IFS= read -r line; do
         echo -e "\t$line"
