@@ -13,5 +13,9 @@
     {{- if not .Values.authentik.geoip.licenseKey -}}
       {{- fail "Authentik - GeoIP is enabled but [licenseKey] was not provided" -}}
     {{- end -}}
+
+    {{- if contains " " .Values.authentik.geoip.editionID -}}
+      {{- fail "Authentik - GeoIP is enabled but [editionID] cannot contain spaces" -}}
+    {{- end -}}
   {{- end -}}
 {{- end -}}
