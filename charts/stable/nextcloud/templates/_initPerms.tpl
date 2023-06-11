@@ -9,6 +9,12 @@ securityContext:
   runAsUser: 0
   runAsGroup: 0
   runAsNonRoot: false
+  capabilities:
+    disableS6Caps: true
+    add:
+      - DAC_OVERRIDE
+      - FOWNER
+      - CHOWN
 command: /bin/sh
 args:
   - -c
