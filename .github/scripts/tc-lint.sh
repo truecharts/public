@@ -135,6 +135,9 @@ function lint_chart(){
             if [ -f "${values}" ]; then
                 echo "👣 YAML Lint - [$values]"
                 yaml_lint "$values"
+
+                echo "👣 Helm Template - [$values]"
+                helm_template "$values"
             fi
         done
 
