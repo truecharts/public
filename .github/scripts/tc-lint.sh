@@ -63,6 +63,25 @@ function helm_lint(){
 }
 export -f helm_lint
 
+function helm_template(){
+    chart_path=${1:?"No chart path provided to [Helm template]"}
+
+    # Print only errors and warnings
+    helm_template_output=$(helm template "$chart_path")
+    helm_template_exit_code=$?
+    while IFS= read -r line; do
+        echo -e "\t$line"
+    done <<< "$helm_template_output"
+
+    if [ $helm_template_exit_code -ne 0 ]; then
+        echo -e "\t❌ Helm template: Failed"
+        curr_result=1
+    else
+        echo -e "\t✅ Helm template: Passed"
+    fi
+}
+export -f helm_template
+
 function yaml_lint(){
     file_path=${1:?"No file path provided to [YAML lint]"}
 
@@ -96,6 +115,9 @@ function lint_chart(){
         echo ''
         echo "👣 Helm Lint - [$chart_path]"
         helm_lint "$chart_path"
+
+        echo "👣 Helm Template - [$chart_path]"
+        helm_template "$chart_path"
 
         echo "👣 Chart Version - [$chart_path] against [$target_branch]"
         check_version "$chart_path" "$target_branch"
