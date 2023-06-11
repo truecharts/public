@@ -69,6 +69,13 @@ authentik:
     sendPII: false
     environment: customer
     sentryDSN: ""
+  outposts:
+    radius:
+      enabled: false
+      token: ""
+    ldap:
+      enabled: false
+      token: ""
 
 # ===== DO NOT EDIT BELOW THIS LINE =====
 workload:
@@ -85,7 +92,7 @@ workload:
           securityContext:
             runAsUser: 1000
             runAsGroup: 1000
-            readOnlyRootFilesystem: false
+            # readOnlyRootFilesystem: false
           envFrom:
             - configMapRef:
                 name: server
@@ -97,16 +104,23 @@ workload:
             - server
           probes:
             liveness:
-              type: http
-              path: /-/health/live/
-              port: "{{ .Values.service.http.ports.http.port }}"
+              enabled: true
+              type: exec
+              command:
+               - /lifecycle/ak
+               - healthcheck
             readiness:
-              type: http
-              path: /-/health/ready/
-              port: "{{ .Values.service.http.ports.http.port }}"
+              enabled: true
+              type: exec
+              command:
+               - /lifecycle/ak
+               - healthcheck
             startup:
-              type: tcp
-              port: "{{ .Values.service.http.ports.http.port }}"
+              enabled: true
+              type: exec
+              command:
+               - /lifecycle/ak
+               - healthcheck
 
   # ===== Worker =====
   worker:
@@ -121,7 +135,7 @@ workload:
           securityContext:
             runAsUser: 1000
             runAsGroup: 1000
-            readOnlyRootFilesystem: false
+            # readOnlyRootFilesystem: false
           envFrom:
             - secretRef:
                 name: server-worker
@@ -147,6 +161,82 @@ workload:
               type: exec
               command:
                - /lifecycle/ak
+               - healthcheck
+
+  # ===== RADIUS =====
+  radius:
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
+        radius:
+          enabled: true
+          primary: true
+          imageSelector: radiusImage
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+          envFrom:
+            - configMapRef:
+                name: radius
+            - secretRef:
+                name: radius
+          probes:
+            liveness:
+              enabled: true
+              type: exec
+              command:
+               - /radius
+               - healthcheck
+            readiness:
+              enabled: true
+              type: exec
+              command:
+               - /radius
+               - healthcheck
+            startup:
+              enabled: true
+              type: exec
+              command:
+               - /radius
+               - healthcheck
+
+  # ===== LDAP =====
+  ldap:
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
+        ldap:
+          enabled: true
+          primary: true
+          imageSelector: ldapImage
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+          envFrom:
+            - configMapRef:
+                name: ldap
+            - secretRef:
+                name: ldap
+          probes:
+            liveness:
+              enabled: true
+              type: exec
+              command:
+               - /ldap
+               - healthcheck
+            readiness:
+              enabled: true
+              type: exec
+              command:
+               - /ldap
+               - healthcheck
+            startup:
+              enabled: true
+              type: exec
+              command:
+               - /ldap
                - healthcheck
 
   # ===== GeoIP Updater =====
@@ -187,37 +277,64 @@ service:
   # Server HTTP
   http:
     enabled: true
-    type: ClusterIP
     ports:
       http:
         enabled: true
         protocol: http
         port: 10230
+  # Radius
+  radius:
+    enabled: true
+    ports:
+      radius:
+        enabled: true
+        protocol: udp
+        port: 1812
+  # LDAP
+  ldap:
+    enabled: true
+    ports:
+      ldap:
+        enabled: true
+        port: 389
+  # LDAPS
+  ldaps:
+    enabled: true
+    ports:
+      ldaps:
+        enabled: true
+        port: 636
   # Server Metrics
-  metrics:
+  servermetrics:
     enabled: true
     type: ClusterIP
     ports:
-      metrics:
+      servermetrics:
         enabled: true
         protocol: http
         port: 10231
+        targetPort: 9300
+  # Radius Metrics
+  radiusmetrics:
+    enabled: true
+    type: ClusterIP
+    ports:
+      radiusmetrics:
+        enabled: true
+        protocol: http
+        port: 10236
+        targetPort: 9300
+  # LDAP Metrics
+  ldapmetrics:
+    enabled: true
+    type: ClusterIP
+    ports:
+      ldapmetrics:
+        enabled: true
+        protocol: http
+        port: 10236
+        targetPort: 9300
 
-  # # LDAP Outpost Services
-  # ldapldaps:
-  #   enabled: true
-  #   ports:
-  #     ldapldaps:
-  #       enabled: true
-  #       port: 636
-  #       targetPort: 6636
-  # ldapldap:
-  #   enabled: true
-  #   ports:
-  #     ldapldap:
-  #       enabled: true
-  #       port: 389
-  #       targetPort: 3389
   # # Proxy Outpost Services
   # proxyhttps:
   #   enabled: true
@@ -236,15 +353,6 @@ service:
   #       port: 10234
   #       protocol: http
   #       targetPort: 9001
-  # ldapmetrics:
-  #   enabled: true
-  #   type: ClusterIP
-  #   ports:
-  #     ldapmetrics:
-  #       enabled: true
-  #       port: 10232
-  #       protocol: http
-  #       targetPort: 9302
   # proxymetrics:
   #   enabled: true
   #   type: ClusterIP

@@ -37,11 +37,27 @@ server-worker:
     AUTHENTIK_EMAIL__FROM: {{ . }}
     {{- end }}
 
+{{- if .Values.authentik.geoip.enabled }}
 geoip:
-  enabled: {{ .Values.authentik.geoip.enabled }}
+  enabled: true
   data:
     GEOIPUPDATE_VERBOSE: "0"
     GEOIPUPDATE_PRESERVE_FILE_TIMES: "1"
     GEOIPUPDATE_ACCOUNT_ID: {{ .Values.authentik.geoip.accountID | quote }}
     GEOIPUPDATE_LICENSE_KEY: {{ .Values.authentik.geoip.licenseKey | quote }}
+{{- end -}}
+
+{{- if .Values.authentik.outposts.radius.enabled }}
+radius:
+  enabled: true
+  data:
+    AUTHENTIK_TOKEN: {{ .Values.authentik.outposts.radius.token | quote }}
+{{- end -}}
+
+{{- if .Values.authentik.outposts.ldap.enabled }}
+ldap:
+  enabled: true
+  data:
+    AUTHENTIK_TOKEN: {{ .Values.authentik.outposts.ldap.token | quote }}
+{{- end -}}
 {{- end -}}
