@@ -27,7 +27,7 @@ server-worker:
     {{/* GeoIP */}}
     {{- $geoipPath := (printf "/geoip/%v.mmdb" .Values.authentik.geoip.editionID) -}}
     {{- if not .Values.authentik.geoip.enabled -}}
-      {{- $geoipPath = "/tmp/non-existent" -}}
+      {{- $geoipPath = "/tmp/non-existent-file" -}}
     {{- end }}
     AUTHENTIK_GEOIP: {{ $geoipPath }}
 
