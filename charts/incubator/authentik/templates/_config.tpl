@@ -2,7 +2,7 @@
 {{- define "authentik.configmaps" -}}
 
   {{- $fullname := include "tc.v1.common.lib.chart.names.fullname" $ -}}
-  {{- $host := "" }}
+  {{- $host := .Values.chartContext.APPURL }}
 server:
   enabled: true
   data:
