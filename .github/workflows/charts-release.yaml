@@ -184,6 +184,7 @@ jobs:
                 mkdir -p website/docs/charts/${train}/${chart} || echo "chart path already exists, continuing..."
                 yes | cp -rf charts/${train}/${chart}/docs/* website/docs/charts/${train}/${chart}/ 2>/dev/null || :
                 yes | cp -rf charts/${train}/${chart}/icon.png website/static/img/hotlink-ok/chart-icons/${chart}.png 2>/dev/null || :
+                yes | cp -rf charts/${train}/${chart}/screenshots/* website/static/img/hotlink-ok/chart-screenshots/${chart}/ 2>/dev/null || :
 
                 # Copy over kept documents
                 mv -f tmp/website/docs/charts/${train}/${chart}/CHANGELOG.md website/docs/charts/${train}/${chart}/CHANGELOG.md 2>/dev/null || :
