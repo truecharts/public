@@ -13,11 +13,6 @@ ldapImage:
   tag: v2023.5.3@sha256:7ac0f5c4ad334c9480548cf2d5978fe0f6105809c9deeb8d40c450486863526f
   pullPolicy: IfNotPresent
 
-proxyImage:
-  repository: tccr.io/truecharts/authentik-proxy
-  tag: v2023.5.3@sha256:d46f4dbc727d5d6f6c91df0f6a2bf98d2c941de908fdc15193552413331e375b
-  pullPolicy: IfNotPresent
-
 radiusImage:
   repository: tccr.io/truecharts/authentik-radius
   tag: v2023.5.3@sha256:d46f4dbc727d5d6f6c91df0f6a2bf98d2c941de908fdc15193552413331e375b
@@ -43,12 +38,6 @@ authentik:
     footerLinks:
       - name: Authentik
         href: https://goauthentik.io
-  geoip:
-    enabled: false
-    editionID: GeoLite2-City
-    frequency: 8
-    accountID: ""
-    licenseKey: ""
   email:
     host: ""
     port: 587
@@ -69,6 +58,12 @@ authentik:
     sendPII: false
     environment: customer
     sentryDSN: ""
+  geoip:
+    enabled: false
+    editionID: GeoLite2-City
+    frequency: 8
+    accountID: ""
+    licenseKey: ""
   outposts:
     radius:
       enabled: false
@@ -277,6 +272,7 @@ service:
   # Server HTTP
   http:
     enabled: true
+    type: ClusterIP
     ports:
       http:
         enabled: true
@@ -313,7 +309,6 @@ service:
         enabled: true
         protocol: http
         port: 10231
-        targetPort: 9300
   # Radius Metrics
   radiusmetrics:
     enabled: true
@@ -322,8 +317,7 @@ service:
       radiusmetrics:
         enabled: true
         protocol: http
-        port: 10236
-        targetPort: 9300
+        port: 10232
   # LDAP Metrics
   ldapmetrics:
     enabled: true
@@ -332,36 +326,7 @@ service:
       ldapmetrics:
         enabled: true
         protocol: http
-        port: 10236
-        targetPort: 9300
-
-  # # Proxy Outpost Services
-  # proxyhttps:
-  #   enabled: true
-  #   ports:
-  #     proxyhttps:
-  #       enabled: true
-  #       port: 10233
-  #       protocol: https
-  #       targetPort: 9444
-  # proxyhttp:
-  #   enabled: true
-  #   type: ClusterIP
-  #   ports:
-  #     proxyhttp:
-  #       enabled: true
-  #       port: 10234
-  #       protocol: http
-  #       targetPort: 9001
-  # proxymetrics:
-  #   enabled: true
-  #   type: ClusterIP
-  #   ports:
-  #     proxymetrics:
-  #       enabled: true
-  #       port: 10235
-  #       protocol: http
-  #       targetPort: 9303
+        port: 10233
 
 persistence:
   media:
@@ -408,30 +373,6 @@ persistence:
         geoip:
           mountPath: /usr/share/GeoIP
 
-# outposts:
-#   ldap:
-#     # -- First you have to create an Outpost in the GUI. Applications > Outposts
-#     enabled: false
-#     # -- Host Browser by default is set to the first ingress host you set
-#     # host_browser: ""
-#     # -- Host should not need to be overridden. Defaults to https://localhost:9443
-#     # host: ""
-#     # -- As we use https://localhost:9443 it's an unsecure connection
-#     # insecure: false
-#     # -- Token is only needed if you accidentally deleted the token within the UI
-#     # token: ""
-#   proxy:
-#     # -- First you have to create an Outpost in the GUI. Applications > Outposts
-#     enabled: false
-#     # -- Host Browser by default is set to the first ingress host you set
-#     # host_browser: ""
-#     # -- As we use https://localhost:9443 it's an unsecure connection
-#     # insecure: false
-#     # -- Host should not need to be overridden. Defaults to https://localhost:9443
-#     # host: ""
-#     # -- Token is only needed if you accidentally deleted the token within the UI
-#     # token: ""
-
 cnpg:
   main:
     enabled: true
@@ -444,3 +385,30 @@ redis:
 portal:
   open:
     enabled: true
+
+metrics:
+  # FIXME: Metris do not work yet
+  servermetrics:
+    enabled: true
+    type: servicemonitor
+    endpoints:
+      - port: "{{ .Values.service.servermetrics.ports.servermetrics.port }}"
+        path: /metrics
+    prometheusRule:
+      enabled: false
+  radiusmetrics:
+    enabled: true
+    type: servicemonitor
+    endpoints:
+      - port: "{{ .Values.service.radiusmetrics.ports.radiusmetrics.port }}"
+        path: /metrics
+    prometheusRule:
+      enabled: false
+  ldapmetrics:
+    enabled: true
+    type: servicemonitor
+    endpoints:
+      - port: "{{ .Values.service.ldapmetrics.ports.ldapmetrics.port }}"
+        path: /metrics
+    prometheusRule:
+      enabled: false

@@ -27,10 +27,12 @@
   {{- $_ := set .Values.workload.radius "enabled" true -}}
   {{- $_ := set .Values.service.radius "enabled" true -}}
   {{- $_ := set .Values.service.radiusmetrics "enabled" true -}}
+  {{- $_ := set .Values.metrics.radiusmetrics "enabled" true -}}
 {{- else -}}
   {{- $_ := set .Values.workload.radius "enabled" false -}}
   {{- $_ := set .Values.service.radius "enabled" false -}}
   {{- $_ := set .Values.service.radiusmetrics "enabled" false -}}
+  {{- $_ := set .Values.metrics.radiusmetrics "enabled" false -}}
 {{- end -}}
 
 {{- if .Values.authentik.outposts.ldap.enabled -}}
@@ -38,12 +40,23 @@
   {{- $_ := set .Values.service.ldap "enabled" true -}}
   {{- $_ := set .Values.service.ldaps "enabled" true -}}
   {{- $_ := set .Values.service.ldapmetrics "enabled" true -}}
+  {{- $_ := set .Values.metrics.ldapmetrics "enabled" true -}}
 {{- else -}}
   {{- $_ := set .Values.workload.ldap "enabled" false -}}
   {{- $_ := set .Values.service.ldap "enabled" false -}}
   {{- $_ := set .Values.service.ldaps "enabled" false -}}
   {{- $_ := set .Values.service.ldapmetrics "enabled" false -}}
+  {{- $_ := set .Values.metrics.ldapmetrics "enabled" false -}}
 {{- end -}}
+
+{{/* FIXME: See values.yaml */}}
+{{- $_ := set .Values.service.servermetrics "enabled" false -}}
+{{- $_ := set .Values.service.radiusmetrics "enabled" false -}}
+{{- $_ := set .Values.service.ldapmetrics "enabled" false -}}
+
+{{- $_ := set .Values.metrics.servermetrics "enabled" false -}}
+{{- $_ := set .Values.metrics.radiusmetrics "enabled" false -}}
+{{- $_ := set .Values.metrics.ldapmetrics "enabled" false -}}
 
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}
