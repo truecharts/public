@@ -9,11 +9,6 @@ securityContext:
   runAsUser: 0
   runAsGroup: 0
   runAsNonRoot: false
-  capabilities:
-    add:
-      - DAC_OVERRIDE
-      - FOWNER
-      - CHOWN
 command: /bin/sh
 args:
   - -c
