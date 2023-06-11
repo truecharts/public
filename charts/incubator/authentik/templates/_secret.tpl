@@ -2,7 +2,7 @@
 {{- define "authentik.secrets" -}}
 
   {{- $fullname := include "tc.v1.common.lib.chart.names.fullname" $ -}}
-  {{- $fetchname := printf "%v-server-worker" -}}
+  {{- $fetchname := printf "%v-server-worker" $fullname -}}
 
   {{- $secretKey := randAlphaNum 32 -}}
   {{- with (lookup "v1" "Secret" .Release.Namespace $fetchname) -}}
