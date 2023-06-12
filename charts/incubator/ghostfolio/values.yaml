@@ -32,7 +32,6 @@ workload:
               secretKeyRef:
                 name: secrets
                 key: DATABASE_URL
-            POSTGRES_DB: "{{ .Values.cnpg.main.creds.database }}"
             REDIS_HOST: "{{ .Values.redis.creds.plainhost }}"
             REDIS_PASSWORD:
               secretKeyRef:
