@@ -1,0 +1,43 @@
+image:
+  repository: tccr.io/truecharts/mc-router
+  pullPolicy: IfNotPresent
+  tag: v1.18.1@sha256:CHANGE_ME
+
+service:
+  main:
+    ports:
+      main:
+        port: 25565
+  api:
+    enabled: true
+    ports:
+      api:
+        enabled: true
+        port: 25564
+
+mcrouter:
+  mapping: []
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+            API_BINDING: "{{ .Values.service.api.ports.api.port }}"
+            MAPPING:
+              secretKeyRef:
+                name: mcrouter-secrets
+                key: MAPPING
+
+portal:
+  open:
+    enabled: false
