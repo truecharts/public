@@ -36,8 +36,8 @@ metadata:
   name: {{ .name }}-ca
   namespace: cert-manager
 data:
-  tls.crt: {{ .crt | b64enc }}
-  tls.key: {{ .key | b64enc }}
+  tls.crt: {{ .crt }}
+  tls.key: {{ .key }}
 {{- end }}
 ---
 apiVersion: cert-manager.io/v1

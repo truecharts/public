@@ -233,8 +233,11 @@ questions:
                         show_if: [["selfSigned", "=", true]]
                         default: "my-selfsigned-ca"
                     - variable: crt
-                      label: "Custom CA cert (experimental)"
-                      description: "certificate for Certiticate Authority"
+                      label: "Base64-encoded string of the PEM-encoded CA certificate (experimental)"
+                      description: >
+                        Note that the certificate must be Base64-encoded. The command `$ cat ca.pem | base64 -w0`
+                        should help you on GNU-based systems (Debian, Ubuntu, etc.) and `$ cat ca.pem | base64 -b0`
+                        on BSD-based systems (most notably macOS).
                       schema:
                         type: string
                         required: true
@@ -242,8 +245,11 @@ questions:
                         show_if: [["selfSigned", "=", false]]
                         default: ""
                     - variable: key
-                      label: "Custom CA key (experimental)"
-                      description: "key Certiticate Authority"
+                      label: "Base64-encoded string of the PEM-encoded CA private key (experimental)"
+                      description: >
+                        Note that the private key must be Base64-encoded. The command `$ cat ca.key | base64 -w0`
+                        should help you on GNU-based systems (Debian, Ubuntu, etc.) and `$ cat ca.key | base64 -b0`
+                        on BSD-based systems (most notably macOS).
                       schema:
                         type: string
                         required: true
