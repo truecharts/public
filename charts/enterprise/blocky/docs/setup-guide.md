@@ -4,6 +4,8 @@ This will guide you through the basic setup of Blocky which is the preferred DNS
 
 ## Upstream DNS
 
+Blocky has multiple DNS entries configured by default these can be overridden to your personal preferences or left as default.
+
 Blocky supports 3 methods for upstream DNS.
 
 UDP - Basic DNS  
@@ -54,6 +56,12 @@ While publicly maintained blocklists usually do a good job of allowing legitimat
 2. Add List entries for each blocklist by URL.
 
 ![blocky-blacklist](./img/blocky-blacklist.png)
+
+3. Add a Clients Group Block and set Client Group Name to `default`
+
+4. Under Groups Entry enter the Group name you used above.
+
+![blocky-blacklist-group](./img/blocky-blacklist-group.png)
 
 ## k8s-Gateway Configuration
 
