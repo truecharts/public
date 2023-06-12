@@ -18,14 +18,200 @@ proxyImage:
   tag: 2023.4.1@sha256:b6e40435836333bdc53afde38f4c4bfb342005b0636d769c641c79348ce1aae4
   pullPolicy: IfNotPresent
 
-args: ["server"]
-
-podSecurityContext:
-  runAsUser: 1000
-  runAsGroup: 1000
-
 securityContext:
-  readOnlyRootFilesystem: false
+  container:
+    runAsUser: 1000
+    runAsGroup: 1000
+    readOnlyRootFilesystem: false
+
+workload:
+  main:
+    replicas: 1
+    strategy: RollingUpdate
+    podSpec:
+      containers:
+        main:
+          args: ["server"]
+          envFrom:
+            - secretRef:
+                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-authentik-secret'
+            - configMapRef:
+                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-authentik-config'
+            - configMapRef:
+                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-authentik-server-config'
+          probes:
+            liveness:
+              type: https
+              path: /-/health/live/
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+            readiness:
+              type: https
+              path: /-/health/ready/
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+            startup:
+              type: https
+              path: /-/health/ready/
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+
+service:
+  main:
+    ports:
+      main:
+        protocol: https
+        port: 10229
+        targetPort: 9443
+  http:
+    enabled: true
+    type: ClusterIP
+    ports:
+      http:
+        enabled: true
+        protocol: http
+        port: 10230
+        targetPort: 9000
+  # LDAP Outpost Services
+  ldapldaps:
+    enabled: true
+    ports:
+      ldapldaps:
+        enabled: true
+        port: 636
+        targetPort: 6636
+  ldapldap:
+    enabled: true
+    ports:
+      ldapldap:
+        enabled: true
+        port: 389
+        targetPort: 3389
+  # Proxy Outpost Services
+  proxyhttps:
+    enabled: true
+    ports:
+      proxyhttps:
+        enabled: true
+        port: 10233
+        protocol: https
+        targetPort: 9444
+  proxyhttp:
+    enabled: true
+    type: ClusterIP
+    ports:
+      proxyhttp:
+        enabled: true
+        port: 10234
+        protocol: http
+        targetPort: 9001
+  # Metrics Services
+  metrics:
+    enabled: true
+    type: ClusterIP
+    ports:
+      metrics:
+        enabled: true
+        protocol: http
+        port: 10231
+        targetPort: 9301
+  ldapmetrics:
+    enabled: true
+    type: ClusterIP
+    ports:
+      ldapmetrics:
+        enabled: true
+        port: 10232
+        protocol: http
+        targetPort: 9302
+  proxymetrics:
+    enabled: true
+    type: ClusterIP
+    ports:
+      proxymetrics:
+        enabled: true
+        port: 10235
+        protocol: http
+        targetPort: 9303
+
+metrics:
+  # TODO
+  main:
+    # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
+    # @default -- See values.yaml
+    enabled: false
+    type: "servicemonitor"
+    endpoints:
+      - port: main
+        path: /metrics
+        interval: 1m
+        scrapeTimeout: 30s
+    # -- Enable and configure Prometheus Rules for the chart under this key.
+    # @default -- See values.yaml
+    prometheusRule:
+      enabled: false
+      labels: {}
+      # -- Configure additionial rules for the chart under this key.
+      # @default -- See prometheusrules.yaml
+      rules:
+        []
+        # - alert: UnifiPollerAbsent
+        #   annotations:
+        #     description: Unifi Poller has disappeared from Prometheus service discovery.
+        #     summary: Unifi Poller is down.
+        #   expr: |
+        #     absent(up{job=~".*unifi-poller.*"} == 1)
+        #   for: 5m
+        #   labels:
+        #     severity: critical
+
+ingress:
+  proxyhttps:
+    autoLink: true
+
+# Target selectors taken from authentik's compose file:
+# See https://github.com/goauthentik/authentik/blob/main/docker-compose.yml
+persistence:
+  media:
+    enabled: true
+    mountPath: "/media"
+    targetSelector:
+      main:
+        main: {}
+        worker: {}
+  templates:
+    enabled: true
+    mountPath: "/templates"
+    targetSelector:
+      main:
+        main: {}
+        worker: {}
+  certs:
+    enabled: true
+    mountPath: "/certs"
+    targetSelector:
+      main:
+        worker: {}
+  geoip:
+    enabled: true
+    mountPath: "/usr/share/GeoIP"
+    targetSelector:
+      main:
+        geoip: {}
+
+cnpg:
+  main:
+    enabled: true
+    user: authentik
+    database: authentik
+
+cnpgProvider:
+  port: 5432
+
+# Enabled redis
+# ... for more options see https://github.com/tccr.io/truecharts/charts/tree/master/tccr.io/truecharts/redis
+redis:
+  enabled: true
+
+redisProvider:
+  port: 6379
 
 workerContainer:
   enabled: true
@@ -62,6 +248,7 @@ authentik:
     log_level: "info"
   ldap:
     tls_ciphers: "null"
+
 geoip:
   enabled: false
   account_id: ""
@@ -98,161 +285,6 @@ outposts:
     # -- Token is only needed if you accidentally deleted the token within the UI
     # token: ""
 
-metrics:
-  # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
-  # @default -- See values.yaml
-  enabled: false
-  serviceMonitor:
-    interval: 1m
-    scrapeTimeout: 30s
-    labels: {}
-  # -- Enable and configure Prometheus Rules for the chart under this key.
-  # @default -- See values.yaml
-  prometheusRule:
-    enabled: false
-    useDefault: true
-    labels: {}
-    # -- Configure additional rules for the chart under this key.
-    # @default -- See prometheusrules.yaml
-    rules:
-      []
-      # - alert: UnifiPollerAbsent
-      #   annotations:
-      #     description: Unifi Poller has disappeared from Prometheus service discovery.
-      #     summary: Unifi Poller is down.
-      #   expr: |
-      #     absent(up{job=~".*unifi-poller.*"} == 1)
-      #   for: 5m
-      #   labels:
-      #     severity: critical
-
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-authentik-secret'
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-authentik-config'
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-authentik-server-config'
-
-probes:
-  liveness:
-    type: HTTPS
-    path: /-/health/live/
-    port: "{{ .Values.service.main.ports.main.targetPort }}"
-  readiness:
-    type: HTTPS
-    path: /-/health/ready/
-    port: "{{ .Values.service.main.ports.main.targetPort }}"
-  startup:
-    type: HTTPS
-    path: /-/health/ready/
-    port: "{{ .Values.service.main.ports.main.targetPort }}"
-
-service:
-  main:
-    ports:
-      main:
-        protocol: HTTPS
-        port: 10229
-        targetPort: 9443
-  http:
-    enabled: true
-    type: ClusterIP
-    ports:
-      http:
-        enabled: true
-        protocol: HTTP
-        port: 10230
-        targetPort: 9000
-  # LDAP Outpost Services
-  ldapldaps:
-    enabled: true
-    ports:
-      ldapldaps:
-        enabled: true
-        port: 636
-        targetPort: 6636
-  ldapldap:
-    enabled: true
-    ports:
-      ldapldap:
-        enabled: true
-        port: 389
-        targetPort: 3389
-  # Proxy Outpost Services
-  proxyhttps:
-    enabled: true
-    ports:
-      proxyhttps:
-        enabled: true
-        port: 10233
-        protocol: HTTPS
-        targetPort: 9444
-  proxyhttp:
-    enabled: true
-    type: ClusterIP
-    ports:
-      proxyhttp:
-        enabled: true
-        port: 10234
-        protocol: HTTP
-        targetPort: 9001
-  # Metrics Services
-  metrics:
-    enabled: true
-    type: ClusterIP
-    ports:
-      metrics:
-        enabled: true
-        protocol: HTTP
-        port: 10231
-        targetPort: 9301
-  ldapmetrics:
-    enabled: true
-    type: ClusterIP
-    ports:
-      ldapmetrics:
-        enabled: true
-        port: 10232
-        protocol: HTTP
-        targetPort: 9302
-  proxymetrics:
-    enabled: true
-    type: ClusterIP
-    ports:
-      proxymetrics:
-        enabled: true
-        port: 10235
-        protocol: HTTP
-        targetPort: 9303
-
-ingress:
-  proxyhttps:
-    autoLink: true
-
-persistence:
-  media:
-    enabled: true
-    mountPath: "/media"
-  templates:
-    enabled: true
-    mountPath: "/templates"
-  certs:
-    enabled: true
-    mountPath: "/certs"
-  geoip:
-    enabled: true
-    mountPath: "/geoip"
-
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: authentik
-  postgresqlDatabase: authentik
-
-redis:
-  enabled: true
-  existingSecret: "rediscreds"
-
 portal:
-  enabled: true
+  open:
+    enabled: true

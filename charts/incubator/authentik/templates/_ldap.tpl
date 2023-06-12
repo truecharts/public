@@ -1,17 +1,16 @@
 {{/* Define the ldap container */}}
-{{- define "authentik.ldap" -}}
-image: {{ .Values.ldapImage.repository }}:{{ .Values.ldapImage.tag }}
-imagePullPolicy: {{ .Values.ldapImage.pullPolicy }}
+{{- define "authentik.ldap.container" -}}
+enabled: true
+primary: false
+imageSelector: ldapImage
 securityContext:
-  runAsUser: {{ .Values.podSecurityContext.runAsUser }}
-  runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
   readOnlyRootFilesystem: true
   runAsNonRoot: true
 envFrom:
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-ldap-secret'
+      name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-ldap-secret'
   - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-ldap-config'
+      name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-ldap-config'
 ports:
   - containerPort: {{ .Values.service.ldapldaps.ports.ldapldaps.targetPort }}
     name: ldapldaps
@@ -21,28 +20,20 @@ ports:
   - containerPort: {{ .Values.service.ldapmetrics.ports.ldapmetrics.targetPort }}
     name: ldapmetrics
 {{- end }}
-readinessProbe:
-  httpGet:
+probes:
+  readiness:
+    enabled: true
+    type: {{ .Values.service.ldapmetrics.ports.ldapmetrics.protocol }}
     path: /outpost.goauthentik.io/ping
     port: {{ .Values.service.ldapmetrics.ports.ldapmetrics.targetPort }}
-  initialDelaySeconds: {{ .Values.probes.readiness.spec.initialDelaySeconds }}
-  timeoutSeconds: {{ .Values.probes.readiness.spec.timeoutSeconds }}
-  periodSeconds: {{ .Values.probes.readiness.spec.periodSeconds }}
-  failureThreshold: {{ .Values.probes.readiness.spec.failureThreshold }}
-livenessProbe:
-  httpGet:
+  liveness:
+    enabled: true
+    type: {{ .Values.service.ldapmetrics.ports.ldapmetrics.protocol }}
     path: /outpost.goauthentik.io/ping
     port: {{ .Values.service.ldapmetrics.ports.ldapmetrics.targetPort }}
-  initialDelaySeconds: {{ .Values.probes.liveness.spec.initialDelaySeconds }}
-  timeoutSeconds: {{ .Values.probes.liveness.spec.timeoutSeconds }}
-  periodSeconds: {{ .Values.probes.liveness.spec.periodSeconds }}
-  failureThreshold: {{ .Values.probes.liveness.spec.failureThreshold }}
-startupProbe:
-  httpGet:
+  startup:
+    enabled: true
+    type: {{ .Values.service.ldapmetrics.ports.ldapmetrics.protocol }}
     path: /outpost.goauthentik.io/ping
     port: {{ .Values.service.ldapmetrics.ports.ldapmetrics.targetPort }}
-  initialDelaySeconds: {{ .Values.probes.startup.spec.initialDelaySeconds }}
-  timeoutSeconds: {{ .Values.probes.startup.spec.timeoutSeconds }}
-  periodSeconds: {{ .Values.probes.startup.spec.periodSeconds }}
-  failureThreshold: {{ .Values.probes.startup.spec.failureThreshold }}
 {{- end -}}
