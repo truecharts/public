@@ -62,6 +62,22 @@ service:
         enabled: true
         port: 1935
         targetPort: 1935
+  rtsp:
+    enabled: true
+    ports:
+      rtsp:
+        port: 8554
+        targetPort: 8554
+  webrtc:
+    enabled: true
+    ports:
+      webrtc-tcp:
+        port: 8555
+        targetPort: 8555
+      webrtc-udp:
+        port: 8555
+        protocol: udp
+        targetPort: 8555
 
 persistence:
   media:
