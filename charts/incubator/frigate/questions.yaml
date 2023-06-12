@@ -29,7 +29,6 @@ questions:
                             schema:
                               type: int
                               default: 10500
-                              editable: true
                               required: true
         - variable: rtmp
           label: RTMP Service
@@ -52,7 +51,6 @@ questions:
                             schema:
                               type: int
                               default: 1935
-                              editable: true
                               required: true
         - variable: rtsp
           label: RTSP Service
