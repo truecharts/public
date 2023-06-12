@@ -55,207 +55,333 @@ questions:
                                           type: boolean
                                           required: true
                                           default: false
-                                      - variable: serverinfo
-                                        label: Server Info
+                                      - variable: OVERRIDE_SERVER_PROPERTIES
+                                        label: Override Server Properties
+                                        description: Enable this to automatically manage the server.properties in the GUI.
                                         schema:
                                           type: boolean
-                                          default: true
+                                          default: false
+                                      - variable: serverproperties
+                                        label: Show Server Properties Settings
+                                        schema:
+                                          type: boolean
+                                          default: show_if: false
                                           show_subquestions_if: true
                                           subquestions:
-                                            - variable: OVERRIDE_SERVER_PROPERTIES
-                                              label: Override Server Properties
-                                              description: Enable this to automatically manage the server.properties in the GUI.
+                                            - variable: PLAYER_IDLE_TIMEOUT
+                                              label: Player Idle TimeOut(in minutes)
                                               schema:
-                                                type: boolean
-                                                default: false
-                                            - variable: RCON_PASSWORD
-                                              label: RCON PASSWORD
-                                              description: This will only have effect in the first installation or always if OVERRIDE_SERVER_PROPERTIES is enabled
-                                              schema:
-                                                type: string
-                                                private: true
-                                                default: ""
-                                            - variable: ICON
-                                              label: URL to Server Icon
-                                              schema:
-                                                type: string
-                                                default: ""
-                                            - variable: MOTD
-                                              label: Server Message of the Day
-                                              schema:
-                                                type: string
-                                                default: Welcome to Minecraft on TrueNAS Scale!
-                                            - variable: VERSION
-                                              label: Minecraft Version
-                                              description: Set the Minecraft Version - LATEST, SNAPSHOT, or specific version.
-                                              schema:
-                                                type: string
-                                                required: true
-                                                default: LATEST
-                                            - variable: MODE
-                                              label: Default Gamemode
-                                              schema:
-                                                type: string
-                                                required: true
-                                                default: survival
-                                                enum:
-                                                  - value: survival
-                                                    description: Survival
-                                                  - value: creative
-                                                    description: Creative
-                                                  - value: adventure
-                                                    description: Adventure
-                                                  - value: spectator
-                                                    description: Spectator
-                                            - variable: FORCE_GAMEMODE
-                                              label: Enable Force Game Mode
-                                              schema:
-                                                type: boolean
-                                                default: false
-                                            - variable: DIFFICULTY
-                                              label: Difficulty
-                                              schema:
-                                                type: string
-                                                required: true
-                                                default: easy
-                                                enum:
-                                                  - value: peaceful
-                                                    description: Peaceful
-                                                  - value: easy
-                                                    description: Easy
-                                                  - value: normal
-                                                    description: Normal
-                                                  - value: hard
-                                                    description: Hard
-                                            - variable: HARDCORE
-                                              label: Enable Hardcore Mode
-                                              description: If set to true, players will be set to spectator mode if they die.
-                                              schema:
-                                                type: boolean
-                                                default: false
-                                            - variable: ONLINE_MODE
-                                              label: Enable Online Mode
+                                                type: int
+                                                default: 0
+                                                min: 0
+                                            - variable: BROADCAST_CONSOLE_TO_OPS
+                                              label: BroadCast Console To OPS
                                               schema:
                                                 type: boolean
                                                 default: true
-                                            - variable: LEVEL
+                                            - variable: BROADCAST_RCON_TO_OPS
+                                              label: BroadCast RCON To OPS
+                                              schema:
+                                                type: boolean
+                                                default: true
+                                            - variable: ENABLE_JMX
+                                              label: Enable JMX
+                                              schema:
+                                                type: boolean
+                                                default: false
+                                            - variable: SYNC_CHUNK_WRITES
+                                              label: Sync Chunk Writes
+                                              schema:
+                                                type: boolean
+                                                default: true
+                                            - variable: ENABLE_STATUS
+                                              label: Enable Status
+                                              schema:
+                                                type: boolean
+                                                default: true
+                                            - variable: ENTITY_BROADCAST_RANGE_PERCENTAGE
+                                              label: Entity BroadCast Range Percentage
+                                              schema:
+                                                type: int
+                                                default: 100
+                                                min: 10
+                                                max: 1000
+                                            - variable: FUNCTION_PERMISSION_LEVEL
+                                              label: Function Permission Level
+                                              schema:
+                                                type: string
+                                                default:     "2"
+                                                enum:
+                                                  - value: "1"
+                                                    description: Level 1 (moderator)
+                                                  - value: "2"
+                                                    description: Level 2 (gamemaster)
+                                                  - value: "3"
+                                                    description: Level 3 (admin)
+                                                  - value: "4"
+                                                    description: Level 4 (owner)
+                                            - variable: NETWORK_COMPRESSION_THRESHOLD
+                                              label: Network Compression Threshold
+                                              schema:
+                                                type: int
+                                                default: 256
+                                                min: -1
+                                                max: 1500
+                                            - variable: OP_PERMISSION_LEVEL
+                                              label: OP Permission Level
+                                              schema:
+                                                type: string
+                                                default:     "4"
+                                                enum:
+                                                  - value: "1"
+                                                    description: Level 1 (moderator)
+                                                  - value: "2"
+                                                    description: Level 2 (gamemaster)
+                                                  - value: "3"
+                                                    description: Level 3 (admin)
+                                                  - value: "4"
+                                                    description: Level 4 (owner)
+                                            - variable: PREVENT_PROXY_CONNECTIONS
+                                              label: Prevent Proxy Connections
+                                              schema:
+                                                type: boolean
+                                                default: false
+                                            - variable: USE_NATIVE_TRANSPORT
+                                              label: Use Native Transport
+                                              schema:
+                                                type: boolean
+                                                default: true
+                                            - variable: ENFORCE_WHITELIST
+                                              label: Enforce Whitelist
+                                              schema:
+                                                type: boolean
+                                                default: false
+                                            - variable: ENABLE_WHITELIST
+                                              label: Enable Whitelist
+                                              schema:
+                                                type: boolean
+                                                default: false
+                                            - variable: SIMULATION_DISTANCE
+                                              label: Simulation Distance
+                                              schema:
+                                                type: int
+                                                default: 10
+                                                min: 3
+                                                max: 32
+                                      - variable: RCON_PASSWORD
+                                        label: RCON_PASSWORD
+                                        description: This will only have effect in the first installation or always if OVERRIDE_SERVER_PROPERTIES is enabled
+                                        schema:
+                                          type: string
+                                          private: true
+                                          default: ""
+                                      - variable: SERVER_NAME
+                                        label: Server Name
+                                        schema:
+                                          type: string
+                                          default: "TrueCharts Minecraft Server"
+                                      - variable: ICON
+                                        label: URL to Server Icon
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: OVERRIDE_ICON
+                                        label: Override Icon
+                                        schema:
+                                          type: string
+                                          default: "FALSE"
+                                          show_if: [["ICON", "!=", ""]]
+                                          enum:
+                                            - value: "FALSE"
+                                              description: "False"
+                                            - value: "TRUE"
+                                              description: "True"
+                                      - variable: MOTD
+                                        label: Server Message of the Day
+                                        schema:
+                                          type: string
+                                          default: Welcome to Minecraft on TrueNAS Scale!
+                                      - variable: VERSION
+                                        label: Minecraft Version
+                                        description: Set the Minecraft Version - LATEST, SNAPSHOT, or specific version.
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: LATEST
+                                      - variable: MODE
+                                        label: Default Game Mode
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: survival
+                                          enum:
+                                            - value: survival
+                                              description: Survival
+                                            - value: creative
+                                              description: Creative
+                                            - value: adventure
+                                              description: Adventure
+                                            - value: spectator
+                                              description: Spectator
+                                      - variable: FORCE_GAMEMODE
+                                        label: Enable Force Game Mode
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: DIFFICULTY
+                                        label: Difficulty
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: easy
+                                          enum:
+                                            - value: peaceful
+                                              description: Peaceful
+                                            - value: easy
+                                              description: Easy
+                                            - value: normal
+                                              description: Normal
+                                            - value: hard
+                                              description: Hard
+                                      - variable: HARDCORE
+                                        label: Enable Hardcore Mode
+                                        description: If set to true, players will be set to spectator mode if they die.
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: ONLINE_MODE
+                                        label: Enable Online Mode
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: LEVEL
                                               label: World Save Name
                                               schema:
                                                 type: string
                                                 required: true
                                                 default: world
-                                            - variable: LEVEL_TYPE
-                                              label: Level Type
-                                              schema:
-                                                type: string
-                                                required: true
-                                                default: DEFAULT
-                                            - variable: WORLD
-                                              label: URL of world download
-                                              schema:
-                                                type: string
-                                                default: ""
-                                            - variable: WHITELIST
-                                              label: Whitelist
-                                              schema:
-                                                type: string
-                                                default: ""
-                                            - variable: OPS
-                                              label: OPs
-                                              schema:
-                                                type: string
-                                                default: ""
-                                            - variable: MAX_PLAYERS
-                                              label: Max Connected Players
-                                              schema:
-                                                type: int
-                                                required: true
-                                                default: 20
-                                            - variable: MAX_WORLD_SIZE
-                                              label: World Border Radius in blocks
-                                              schema:
-                                                type: int
-                                                required: true
-                                                default: 10000
-                                            - variable: ALLOW_NETHER
-                                              label: Enable Nether
-                                              schema:
-                                                type: boolean
-                                                default: true
-                                            - variable: ENABLE_COMMAND_BLOCK
-                                              label: Enable Command Blocks
-                                                schema:
-                                                type: boolean
-                                                default: false
-                                            - variable: GENERATE_STRUCTURES
-                                              label: Enable Generate Structures
-                                              schema:
-                                                type: boolean
-                                                default: true
-                                            - variable: MAX_BUILD_HEIGHT
-                                              label: Max World Build Height
-                                              schema:
-                                                type: int
-                                                required: true
-                                                default: 256
-                                            - variable: MAX_TICK_TIME
-                                              label: Max Tick Time
-                                              schema:
-                                                type: int
-                                                required: true
-                                                default: 60000
-                                            - variable: SPAWN_ANIMALS
-                                              label: Enable Spawning Animals
-                                              schema:
-                                                type: boolean
-                                                default: true
-                                            - variable: SPAWN_MONSTERS
-                                              label: Enable Spawning Monsters
-                                              schema:
-                                                type: boolean
-                                                default: true
-                                            - variable: SPAWN_NPCS
-                                              label: Enable Spawning NPCs
-                                              schema:
-                                                type: boolean
-                                                default: true
-                                            - variable: VIEW_DISTANCE
-                                              label: Server View Distance
-                                              schema:
-                                                type: int
-                                                required: true
-                                                default: 10
-                                            - variable: SEED
-                                              label: Level Seed
-                                              schema:
-                                                type: string
-                                                default: ""
-                                            - variable: PVP
-                                              label: Enable PVP
-                                              schema:
-                                                type: boolean
-                                                default: false
-                                            - variable: GENERATOR_SETTINGS
-                                              label: Generator Settings
-                                              schema:
-                                                type: string
-                                                default: ""
-                                            - variable: FORCE_REDOWNLOAD
-                                              label: Force redownload server files
-                                              description: Force re-download of the server file for VANILLA, FORGE, BUKKIT, SPIGOT, PAPER, CURSEFORGE, SPONGEVANILLA server types.
-                                              schema:
-                                                type: string
-                                                default: "false"
-                                                enum:
-                                                  - value: "false"
-                                                    description: "False"
-                                                  - value: "true"
-                                                    description: "True"
-                                            - variable: ANNOUNCE_PLAYER_ACHIEVEMENTS
-                                              label: Enable Announcing Player Achievements
-                                              schema:
-                                                type: boolean
-                                                default: true
+                                      - variable: LEVEL_TYPE
+                                        label: Level Type
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: DEFAULT
+                                      - variable: WORLD
+                                        label: URL of world download
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: SEED
+                                        label: Level Seed
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: WHITELIST
+                                        label: Whitelist
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: OPS
+                                        label: OPs
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: MAX_PLAYERS
+                                        label: Max Connected Players
+                                        schema:
+                                          type: int
+                                          required: true
+                                          default: 20
+                                      - variable: MAX_WORLD_SIZE
+                                        label: World Border Radius in blocks
+                                        schema:
+                                          type: int
+                                          required: true
+                                          default: 10000
+                                      - variable: ALLOW_NETHER
+                                        label: Enable Nether
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: ALLOW_FLIGHT
+                                        label: Enable Flight
+                                        schema:
+                                          type: string
+                                          default: "FALSE"
+                                          enum:
+                                            - value: "FALSE"
+                                              description: "False"
+                                            - value: "TRUE"
+                                              description: "True"
+                                      - variable: ENABLE_COMMAND_BLOCK
+                                        label: Enable Command Blocks
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: GENERATE_STRUCTURES
+                                        label: Enable Generate Structures
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: MAX_BUILD_HEIGHT
+                                        label: Max World Build Height
+                                        schema:
+                                          type: int
+                                          required: true
+                                          default: 256
+                                      - variable: MAX_TICK_TIME
+                                        label: Max Tick Time
+                                        schema:
+                                          type: int
+                                          required: true
+                                          default: 60000
+                                      - variable: SPAWN_ANIMALS
+                                        label: Enable Spawning Animals
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: SPAWN_MONSTERS
+                                        label: Enable Spawning Monsters
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: SPAWN_NPCS
+                                        label: Enable Spawning NPCs
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: VIEW_DISTANCE
+                                        label: Server View Distance
+                                        schema:
+                                          type: int
+                                          required: true
+                                          default: 10
+                                      - variable: PVP
+                                        label: Enable PVP
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: GENERATOR_SETTINGS
+                                        label: Generator Settings
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: FORCE_REDOWNLOAD
+                                        label: Force redownload server files
+                                        description: Force re-download of the server file for VANILLA, FORGE, BUKKIT, SPIGOT, PAPER, CURSEFORGE, SPONGEVANILLA server types.
+                                        schema:
+                                          type: string
+                                          default: "false"
+                                          enum:
+                                            - value: "false"
+                                              description: "False"
+                                            - value: "true"
+                                              description: "True"
+                                      - variable: ANNOUNCE_PLAYER_ACHIEVEMENTS
+                                        label: Enable Announcing Player Achievements
+                                        schema:
+                                          type: boolean
+                                          default: true
                                       - variable: TYPE
                                         label: Server Type
                                         schema:
@@ -635,6 +761,93 @@ questions:
                                               schema:
                                                 type: boolean
                                                 default: false
+                                            - variable: SPAWN_PROTECTION
+                                              label: Spawn Protection
+                                              description: Sets the area that non-ops can not edit (0 to disable)
+                                              schema:
+                                                type: int
+                                                default: 0
+                                                min: 0
+                                            - variable: STOP_SERVER_ANNOUNCE_DELAY
+                                              label: Stop Server Announce Delay
+                                              schema:
+                                                type: int
+                                                default: 60
+                                            - variable: STOP_DURATION
+                                              label: Stop Duration
+                                              schema:
+                                                type: int
+                                                default: 60
+                                            - variable: LOG_TIMESTAMP
+                                              label: Log TimeStamp
+                                              schema:
+                                                type: string
+                                                default: "TRUE"
+                                                enum:
+                                                  - value: "FALSE"
+                                                    description: "False"
+                                                  - value: "TRUE"
+                                                    description: "True"
+                                            - variable: PROXY
+                                              label: PROXY
+                                              description: Configure the use of an HTTP/HTTPS proxy
+                                              schema:
+                                                type: string
+                                                default: ""
+                                      - variable: misc
+                                        label: Show MISC Settings
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                          show_subquestions_if: true
+                                          subquestions:
+                                            - variable: REPLACE_ENV_IN_PLACE
+                                              label: Replace ENV In Place
+                                              schema:
+                                                type: boolean
+                                                default: false
+                                            - variable: REPLACE_ENV_VARIABLE_PREFIX
+                                              label: Replace ENV Variable Prefix
+                                              schema:
+                                                type: string
+                                                default: CFG_
+                                                show_if: [["REPLACE_ENV_IN_PLACE", "=", true]]
+                                            - variable: REPLACE_ENV_DURING_SYNC
+                                              label: Replace ENV During Sync
+                                              schema:
+                                                type: boolean
+                                                default: false
+                                                show_if: [["REPLACE_ENV_IN_PLACE", "=", true]]
+                                            - variable: SNOOPER_ENABLED
+                                              label: Snooper Enabled
+                                              description: If set to false, the server will not send data to snoop.minecraft.net server.
+                                              schema:
+                                                type: boolean
+                                                default: true
+                                            - variable: RESOURCE_PACK
+                                              label: Resource Pack URL
+                                              description: Set custom resource pack URL
+                                              schema:
+                                                type: string
+                                                default: ""
+                                            - variable: RESOURCE_PACK_SHA1
+                                              label: Resource Pack Sha1
+                                              description: Set checksum on resource pack
+                                              schema:
+                                                type: string
+                                                default: ""
+                                            - variable: RESOURCE_PACK_ENFORCE
+                                              label: Resource Pack Enforce
+                                              description: Enforce the resource pack on clients
+                                              schema:
+                                                type: string
+                                                default: FALSE
+                                                enum:
+                                                  - value: "FALSE"
+                                                    description: "False"
+                                                  - value: "TRUE"
+                                                    description: "True"
+
 
 # Include{containerBasic}
 # Include{containerAdvanced}

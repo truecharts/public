@@ -1,58 +1,58 @@
 image:
   repository: tccr.io/truecharts/minecraft-java
-  tag: 2023.4.1@sha256:CHANGE
+  tag: v2023.4.1@sha256:c176a9bed87e36f89a79d0927e45677ad5b88edf0452d89934714dcce5243cb7
   pullPolicy: Always
 j20Image:
   repository: tccr.io/truecharts/minecraft-java20
-  tag: 2023.4.1@sha256:CHANGE
+  tag: latest@sha256:897e4e94c64d46f68858a291079fb53721a638c58b338f6c38ba85615cf1d736
   pullPolicy: Always
 j20AlpineImage:
   repository: tccr.io/truecharts/minecraft-java20-alpine
-  tag: 2023.4.1@sha256:CHANGE
+  tag: v2023.4.1@sha256:2399cba3c7599b9dd50cba372b5051f01e5e07882dd0258759eb2b721fd41abd
   pullPolicy: Always
 j17j9Image:
   repository: tccr.io/truecharts/minecraft-java17-openj9
-  tag: 2023.4.1@sha256:CHANGE
+  tag: v2023.4.1@sha256:a0c78f26955bdd19117db78f008749345af9fbdce7be4724efddeb4e1aea4495
   pullPolicy: Always
 j17jdkImage:
   repository: tccr.io/truecharts/minecraft-java17-jdk
-  tag: 2023.4.1@sha256:CHANGE
+  tag: v2023.4.1@sha256:b0e951b55d1b91a1bb6a6ae7b7585526b60d95bd34e11281de7e701197b1d34c
   pullPolicy: Always
 j17gceImage:
   repository: tccr.io/truecharts/minecraft-java17-graalvm-ce
-  tag: 2023.4.1@sha256:CHANGE
+  tag: latest@sha256:20e8f1dd890f9ef49a58e865039496a13dd9e46dde723f335cf037122b83a0b2
   pullPolicy: Always
 j17alpineImage:
   repository: tccr.io/truecharts/minecraft-java17-alpine
-  tag: 2023.4.1@sha256:CHANGE
+  tag: v2023.4.1@sha256:f89317c45ae57345d756b5711d348288141248a01de6f9d8b3ba8893ffb2fc59
   pullPolicy: Always
 j11Image:
   repository: tccr.io/truecharts/minecraft-java11
-  tag: 2023.4.1@sha256:CHANGE
+  tag: latest@sha256:de15c958a648cad5a0813a528e36ab8e78e84f95e572c291aa3e4de36aae5556
   pullPolicy: Always
 j11jdkImage:
   repository: tccr.io/truecharts/minecraft-java11-jdk
-  tag: 2023.4.1@sha256:CHANGE
+  tag: v2023.4.1@sha256:b0e951b55d1b91a1bb6a6ae7b7585526b60d95bd34e11281de7e701197b1d34c
   pullPolicy: Always
 j11j9Image:
   repository: tccr.io/truecharts/minecraft-java11-openj9
-  tag: 2023.4.1@sha256:CHANGE
+  tag: v2023.4.1@sha256:1d15fe6df28051934505a0eb52331dfac63dd506bcc9d6f7179a58184aed5028
   pullPolicy: Always
 j8Image:
   repository: tccr.io/truecharts/minecraft-java8
-  tag: 2023.4.1@sha256:CHANGE
+  tag: latest@sha256:59b850aed3a9507932bd8266c8d0d5ff3a3baecb94c43ebec931d6871c497353
   pullPolicy: Always
 j8gceImage:
   repository: tccr.io/truecharts/minecraft-java8-graalvm-ce
-  tag: 2023.4.1@sha256:CHANGE
+  tag: latest@sha256:7564fd2bb91bc84bfa2bfeb2d3f4331329066771716d2d03482a57774ceb3afa
   pullPolicy: Always
 j8jdkImage:
   repository: tccr.io/truecharts/minecraft-java8-jdk
-  tag: 2023.4.1@sha256:CHANGE
+  tag: v2023.4.1@sha256:f9d8a8f43b98977eecd72d234e10d943c8e567ff10aefd425476ddc2633d43aa
   pullPolicy: Always
 j8j9Image:
   repository: tccr.io/truecharts/minecraft-java8-openj9
-  tag: 2023.4.1@sha256:CHANGE
+  tag: v2023.4.1@sha256:8ef5e9d3e25d32a541f89d616289003f5cee8b15cb0569e79b2e778d3b0b68d4
   pullPolicy: Always
 
 tty: true
@@ -86,44 +86,87 @@ workload:
             RCON_PORT: "{{ .Values.service.rcon.ports.rcon.port }}"
             ENABLE_QUERY: true
             ENABLE_RCON: true
-            SERVER_NAME: "TrueCharts Minecraft Server"
-            EULA: "TRUE"
+            CONSOLE: TRUE
             GUI: "FALSE"
+            EULA: "TRUE"
             OVERRIDE_SERVER_PROPERTIES: true
+            # server properties
+            PLAYER_IDLE_TIMEOUT: 0
+            BROADCAST_CONSOLE_TO_OPS: true
+            BROADCAST_RCON_TO_OPS: true
+            ENABLE_JMX: false
+            SYNC_CHUNK_WRITES: true
+            ENABLE_STATUS: true
+            ENTITY_BROADCAST_RANGE_PERCENTAGE: 100
+            FUNCTION_PERMISSION_LEVEL: 2
+            NETWORK_COMPRESSION_THRESHOLD: 256
+            OP_PERMISSION_LEVEL: 4
+            PREVENT_PROXY_CONNECTIONS: false
+            USE_NATIVE_TRANSPORT: true
+            ENFORCE_WHITELIST: false
+            ENABLE_WHITELIST: false
+            SIMULATION_DISTANCE: 10
+
+            RCON_PASSWORD: "secretrconpass"
+            SERVER_NAME: "TrueCharts Minecraft Server"
+            # ICON: ""
+            OVERRIDE_ICON: "FALSE"
+            MOTD: "Welcome to Minecraft on TrueNAS Scale!"
             VERSION: "LATEST"
-            TYPE: "VANILLA"
+            MODE: survival
+            FORCE_GAMEMODE: false
             DIFFICULTY: easy
+            HARDCORE: false
+            ONLINE_MODE: true
+            LEVEL: world
+            LEVEL_TYPE: DEFAULT
+            # WORLD: ""
+            # SEED: ""
+            # WHITELIST: ""
+            # OPS: ""
             MAX_PLAYERS: 20
             MAX_WORLD_SIZE: 10000
             ALLOW_NETHER: true
-            ANNOUNCE_PLAYER_ACHIEVEMENTS: true
+            ALLOW_FLIGHT: FALSE
             ENABLE_COMMAND_BLOCK: false
-            FORCE_GAMEMODE: false
             GENERATE_STRUCTURES: true
-            HARDCORE: false
-            SNOOPER_ENABLED: false
             MAX_BUILD_HEIGHT: 256
             MAX_TICK_TIME: 60000
             SPAWN_ANIMALS: true
             SPAWN_MONSTERS: true
             SPAWN_NPCS: true
-            SPAWN_PROTECTION: 0
             VIEW_DISTANCE: 16
-            MODE: survival
-            MOTD: "Welcome to Minecraft on TrueNAS Scale!"
             PVP: false
-            LEVEL_TYPE: DEFAULT
-            LEVEL: world
-            ONLINE_MODE: true
+            # GENERATOR_SETTINGS: ""
+            FORCE_REDOWNLOAD: false
+            ANNOUNCE_PLAYER_ACHIEVEMENTS: true
+            TYPE: "VANILLA"
+
+            # advanced
+            # JVM_OPTS: ""
+            # JVM_DD_OPTS: ""
+            # JVM_XX_OPTS: ""
             MEMORY: 2048M
+            SPAWN_PROTECTION: 0
+            USE_FLARE_FLAGS: false
+            USE_AIKAR_FLAGS: true
+            USE_SIMD_FLAGS: false
             STOP_SERVER_ANNOUNCE_DELAY: 60
             STOP_DURATION: 60
             LOG_TIMESTAMP: true
-            # SETUP_ONLY: false
-            # INIT_MEMORY
-            # MAX_MEMORY
-            RCON_PASSWORD: "secretrconpass"
+
+            # MISC
+            REPLACE_ENV_IN_PLACE: false
+            REPLACE_ENV_VARIABLE_PREFIX: CFG_
+            REPLACE_ENV_DURING_SYNC: false
+            SNOOPER_ENABLED: true
             ENABLE_ROLLING_LOGS: true
+            RESOURCE_PACK: ""
+            RESOURCE_PACK_SHA1: ""
+            RESOURCE_PACK_ENFORCE: FALSE
+            PROXY: ""
+
+            # SETUP_ONLY: false
             # CUSTOM_SERVER: ""
             # QUILT_LOADER_VERSION: ""
             # QUILT_LAUNCHER: ""
@@ -156,20 +199,8 @@ workload:
             # CF_BASE_DIR: ""
             # USE_MODPACK_START_SCRIPT: true
             # FTB_LEGACYJAVAFIXER: false
-            # WHITELIST: ""
+
             # EXTRA_ARGS
-            # OPS: ""
-            # ICON: ""
-            # SEED: ""
-            # GENERATOR_SETTINGS: ""
-            # WORLD: ""
-            # FORCE_REDOWNLOAD: false
-            # USE_FLARE_FLAGS: false
-            # USE_AIKAR_FLAGS: true
-            # USE_SIMD_FLAGS: false
-            # JVM_OPTS: ""
-            # JVM_DD_OPTS: ""
-            # JVM_XX_OPTS: ""
             # CF_API_KEY
             # CF_PAGE_URL
             # CF_SLUG
@@ -180,36 +211,9 @@ workload:
             # CF_OVERRIDES_SKIP_EXISTING
             # CF_PARALLEL_DOWNLOADS
             # CF_SET_LEVEL_FROM
+
             # EXEC_DIRECTLY: false
             # ENABLE_AUTOPAUSE: false
-            # PROXY: proxy:3128
-            # CONSOLE: FALSE
-            # RESOURCE_PACK
-            # RESOURCE_PACK_SHA1
-            # RESOURCE_PACK_ENFORCE: FALSE
-            # ALLOW_FLIGHT: FALSE
-
-            # server properties
-            # PLAYER_IDLE_TIMEOUT
-            # BROADCAST_CONSOLE_TO_OPS
-            # BROADCAST_RCON_TO_OPS
-            # ENABLE_JMX
-            # SYNC_CHUNK_WRITES
-            # ENABLE_STATUS
-            # ENTITY_BROADCAST_RANGE_PERCENTAGE
-            # FUNCTION_PERMISSION_LEVEL
-            # NETWORK_COMPRESSION_THRESHOLD
-            # OP_PERMISSION_LEVEL
-            # PREVENT_PROXY_CONNECTIONS
-            # USE_NATIVE_TRANSPORT
-            # ENFORCE_WHITELIST
-            # ENABLE_WHITELIST
-            # SIMULATION_DISTANCE
-
-            # MISC
-            # REPLACE_ENV_IN_PLACE: false
-            # REPLACE_ENV_VARIABLE_PREFIX: CFG_
-            # REPLACE_ENV_DURING_SYNC: false
 
 service:
   main:
