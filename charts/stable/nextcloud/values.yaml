@@ -1,24 +1,24 @@
 # TODO: Update images
 image:
-  repository: ghcr.io/stavros-k/nextcloud-fpm
+  repository: tccr.io/truecharts/nextcloud-fpm
   pullPolicy: IfNotPresent
-  tag: 26.0.2-fpm@sha256:417eca0a39033eb02a145fee162d5a6deb708ec9d2af5206d3eaecc54c0e43a6
+  tag: v1.1.0@sha256:d2e29e713a64d8c311539fb370661ce381a2dcaa37692ebdb0da6c6ff396e8f3
 nginxImage:
-  repository: nginxinc/nginx-unprivileged
+  repository: tccr.io/truecharts/nginx-unprivileged
   pullPolicy: IfNotPresent
-  tag: 1.24.0@sha256:86bdcc5a0b2c8efba5147356de9e1562d1091eabe7603502ef6166716d0d315e
+  tag: v1.24.0@sha256:f6386a703b6a0679b6274cc366a6efe7a06b8b5b3391353465d9d1649b4584ef
 imaginaryImage:
-  repository: ghcr.io/stavros-k/nextcloud-imaginary
+  repository: tccr.io/truecharts/nextcloud-imaginary
   pullPolicy: IfNotPresent
-  tag: 20230603@sha256:1b447f66bb6612aebb984a8b3f1e9464cf9542240e3add43ebe96cf0135c4490
+  tag: v20230401@sha256:4f5e3895987a9d12336f772a64a77dd662c6c9bb2b96820b19ffbab58f3ff982
 hpbImage:
-  repository:  ghcr.io/stavros-k/nextcloud-notify_push
+  repository: tccr.io/truecharts/nextcloud-notify-push
   pullPolicy: IfNotPresent
-  tag: 0.6.3@sha256:fd6d92bb879d03606830b1f8d9e3ddd1e2eafd0ee1fd12cca79a9faa563d8ee8
+  tag: v0.6.3@sha256:0419692ba9e21c8eed3135224ea1e50efbd61f381cf328a278dc1970901b903e
 clamavImage:
-  repository: clamav/clamav
+  repository: tccr.io/truecharts/clamav
   pullPolicy: IfNotPresent
-  tag: 1.1.0@sha256:37501c13ada7a67bb28122dce328972acacbede8a5efd27c07da293461e84c77
+  tag: v1.1.0@sha256:ab196d867fcfddedc8dc965d67a2e6824ca65488cf616cc707e9c36efd54e086
 
 nextcloud:
   # Initial Credentials
@@ -115,9 +115,6 @@ workload:
         main:
           enabled: true
           primary: true
-          env:
-            # FIXME: Remove after changing images
-            NX_TUNE_FPM: "false"
           envFrom:
             - configMapRef:
                 name: nextcloud-config
