@@ -32,7 +32,7 @@ workload:
           env:
             # web
             PHOENIX_HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
-            EXTERNAL_URL: "http://localhost:13000"
+            EXTERNAL_URL: "https://app.mydomain.com"
             # PHOENIX_SECURE_COOKIES: true
             # PHOENIX_HTTP_PROTOCOL_OPTIONS: "{}"
             # PHOENIX_EXTERNAL_TRUSTED_PROXIES: "[]"
