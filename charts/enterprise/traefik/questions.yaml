@@ -293,6 +293,7 @@ questions:
                           - variable: tls
                             label: "websecure Entrypoints Configuration"
                             schema:
+                              additional_attrs: true
                               type: dict
                               hidden: true
                               attrs:

@@ -90,8 +90,9 @@ questions:
                   show_subquestions_if: true
                   subquestions:
                     - variable: annotations
-                      label: "annoations"
+                      label: "annotations"
                       schema:
+                        additional_attrs: true
                         type: dict
                         hidden: true
                         attrs:
