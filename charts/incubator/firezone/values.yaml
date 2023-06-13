@@ -19,16 +19,6 @@ workload:
     podSpec:
       containers:
         main:
-          probes:
-            liveness:
-              path: "/"
-              type: "http"
-            readiness:
-              path: "/"
-              type: "http"
-            startup:
-              path: "/"
-              type: "http"
           env:
             # web
             PHOENIX_HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
