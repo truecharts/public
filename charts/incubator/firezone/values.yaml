@@ -19,6 +19,13 @@ workload:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
           env:
             # web
             PHOENIX_HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
