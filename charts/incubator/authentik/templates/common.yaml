@@ -1,46 +1,62 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "tc.v1.common.loader.init" . }}
 
+{{- include "authentik.validation" $ -}}
+
 {{/* Render secrets for authentik and friends */}}
-{{- $authentikSecrets := include "authentik.secrets" . | fromYaml -}}
-{{- if $authentikSecrets -}}
-  {{ $secrets := (mustMerge $.Values.secret $authentikSecrets) }}
+{{- $secrets := include "authentik.secrets" . | fromYaml -}}
+{{- if $secrets -}}
+  {{ $secrets := (mustMergeOverwrite .Values.secret $secrets) }}
   {{- $_ := set .Values "secret" $secrets -}}
 {{- end -}}
 
 {{/* Render configmaps for authentik and friends */}}
-{{- $authentikConfigmaps := include "authentik.configmaps" . | fromYaml -}}
-{{- if $authentikConfigmaps -}}
-  {{ $configmaps := (mustMerge $.Values.configmap $authentikConfigmaps) }}
+{{- $configmaps := include "authentik.configmaps" . | fromYaml -}}
+{{- if $configmaps -}}
+  {{ $configmaps := (mustMergeOverwrite .Values.configmap $configmaps) }}
   {{- $_ := set .Values "configmap" $configmaps -}}
 {{- end -}}
 
-
-{{- if .Values.workerContainer.enabled -}}
-{{- $_ := set .Values.workload.main.podSpec.containers "worker" (include "authentik.worker.container" . | fromYaml) -}}
+{{- if .Values.authentik.geoip.enabled -}}
+  {{- $_ := set .Values.workload.geoip "enabled" true -}}
+{{- else -}}
+  {{- $_ := set .Values.workload.geoip "enabled" false -}}
 {{- end -}}
 
-{{- if .Values.geoip.enabled -}}
-{{- $_ := set .Values.workload.main.podSpec.containers "geoip" (include "authentik.geoip.container" . | fromYaml) -}}
+{{- if .Values.authentik.outposts.radius.enabled -}}
+  {{- $_ := set .Values.workload.radius "enabled" true -}}
+  {{- $_ := set .Values.service.radius "enabled" true -}}
+  {{- $_ := set .Values.service.radiusmetrics "enabled" true -}}
+  {{- $_ := set .Values.metrics.radiusmetrics "enabled" true -}}
+{{- else -}}
+  {{- $_ := set .Values.workload.radius "enabled" false -}}
+  {{- $_ := set .Values.service.radius "enabled" false -}}
+  {{- $_ := set .Values.service.radiusmetrics "enabled" false -}}
+  {{- $_ := set .Values.metrics.radiusmetrics "enabled" false -}}
 {{- end -}}
 
-{{- if .Values.outposts.ldap.enabled -}}
-{{- $_ := set .Values.workload.main.podSpec.containers "ldap-outpost" (include "authentik.ldap.container" . | fromYaml) -}}
-{{/* - if .Values.metrics.enabled - */}}
-{{/* https://github.com/prometheus/prometheus/issues/3756 */}}
-{{/* TODO: Figure how the pipe works to connect it to prometheus operator */}}
-{{/* We can't define multiple ports/endpoints with annotations */}}
-{{/* - end - */}}
+{{- if .Values.authentik.outposts.ldap.enabled -}}
+  {{- $_ := set .Values.workload.ldap "enabled" true -}}
+  {{- $_ := set .Values.service.ldap "enabled" true -}}
+  {{- $_ := set .Values.service.ldaps "enabled" true -}}
+  {{- $_ := set .Values.service.ldapmetrics "enabled" true -}}
+  {{- $_ := set .Values.metrics.ldapmetrics "enabled" true -}}
+{{- else -}}
+  {{- $_ := set .Values.workload.ldap "enabled" false -}}
+  {{- $_ := set .Values.service.ldap "enabled" false -}}
+  {{- $_ := set .Values.service.ldaps "enabled" false -}}
+  {{- $_ := set .Values.service.ldapmetrics "enabled" false -}}
+  {{- $_ := set .Values.metrics.ldapmetrics "enabled" false -}}
 {{- end -}}
 
-{{- if .Values.outposts.proxy.enabled -}}
-{{- $_ := set .Values.workload.main.podSpec.containers "proxy-outpost" (include "authentik.proxy.container" . | fromYaml) -}}
-{{/* - if .Values.metrics.enabled - */}}
-{{/* https://github.com/prometheus/prometheus/issues/3756 */}}
-{{/* TODO: Figure how the pipe works to connect it to prometheus operator */}}
-{{/* We can't define multiple ports/endpoints with annotations */}}
-{{/* - end - */}}
-{{- end -}}
+{{/* FIXME: See values.yaml */}}
+{{- $_ := set .Values.service.servermetrics "enabled" false -}}
+{{- $_ := set .Values.service.radiusmetrics "enabled" false -}}
+{{- $_ := set .Values.service.ldapmetrics "enabled" false -}}
+
+{{- $_ := set .Values.metrics.servermetrics "enabled" false -}}
+{{- $_ := set .Values.metrics.radiusmetrics "enabled" false -}}
+{{- $_ := set .Values.metrics.ldapmetrics "enabled" false -}}
 
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}
