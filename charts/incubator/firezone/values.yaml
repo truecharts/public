@@ -22,14 +22,11 @@ workload:
         main:
           probes:
             liveness:
-              path: "/"
-              type: "https"
+              enabled: false
             readiness:
-              path: "/"
-              type: "https"
+              enabled: false
             startup:
-              path: "/"
-              type: "https"
+              enabled: false
           env:
             # web
             PHOENIX_HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
