@@ -1,8 +1,7 @@
-# TODO: Update images
 image:
   repository: tccr.io/truecharts/nextcloud-fpm
   pullPolicy: IfNotPresent
-  tag: v1.1.0@sha256:d2e29e713a64d8c311539fb370661ce381a2dcaa37692ebdb0da6c6ff396e8f3
+  tag: v2.0.0@sha256:c3ff63fa9613fbad94c7950743482c8bb2a2a659ac42b3daac8963e0bbaf5129
 nginxImage:
   repository: tccr.io/truecharts/nginx-unprivileged
   pullPolicy: IfNotPresent
@@ -14,7 +13,7 @@ imaginaryImage:
 hpbImage:
   repository: tccr.io/truecharts/nextcloud-push-notify
   pullPolicy: IfNotPresent
-  tag: v0.6.3@sha256:0419692ba9e21c8eed3135224ea1e50efbd61f381cf328a278dc1970901b903e
+  tag: v0.6.3@sha256:25c0a2f0c3eeb64e26be102cc3be09d8ce19b8d05397e188f73f94de8359d339
 clamavImage:
   repository: tccr.io/truecharts/clamav
   pullPolicy: IfNotPresent
