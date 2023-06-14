@@ -9,32 +9,6 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-                                - variable: mcrouter
-                                  group: "App Configuration"
-                                  label: "MC-Router Configuration"
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                      - variable: mapping
-                                        label: Mapping
-                                        schema:
-                                          type: list
-                                          default: []
-                                          items:
-                                            - variable: MappingEntry
-                                              label: Mapping Type Entry
-                                              schema:
-                                                type: dict
-                                                additional_attrs: true
-                                                attrs:
-                                                  - variable: domain_ip_port
-                                                    label: Domain and IP and Port
-                                                    schema:
-                                                      type: string
-                                                      required: true
-                                                      default: ""
-
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
