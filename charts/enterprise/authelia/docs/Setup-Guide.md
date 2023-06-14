@@ -96,6 +96,10 @@ Leave the default `one_factor` unless you've setup TOTP above. Then click `Add` 
   - `Remote-Group`
   - `Remote-Name`
   - `Remote-Email`
+ 
+### Use Auth middleware
+
+Now that you have everything setup, you can add the middleware to the apps you want to put authentication in front of. You do this by scrolling down in the configuration of the particular app to the `Main Ingress` section. Then look for the `Traefik Middlewares` section and click `Add`. There you have to fill in the name of the middleware you created above, in this case `auth`.
 
 ### References
 
