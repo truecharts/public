@@ -21,11 +21,11 @@ workload:
         main:
           probes:
             liveness:
-              enabled: false
+              type: "http"
             readiness:
-              enabled: false
+              type: "http"
             startup:
-              enabled: false
+              type: "http"
           env:
             # web
             PHOENIX_HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
