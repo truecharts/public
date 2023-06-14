@@ -1,81 +1,63 @@
 {{/* Define the secrets */}}
 {{- define "authentik.secrets" -}}
 
-{{- $authentikSecretName := printf "%s-authentik-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
-{{- $geoipSecretName := printf "%s-geoip-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
-{{- $ldapSecretName := printf "%s-ldap-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
-{{- $proxySecretName := printf "%s-proxy-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
-{{- $token := randAlphaNum 128 }}
+  {{- $fullname := include "tc.v1.common.lib.chart.names.fullname" $ -}}
+  {{- $fetchname := printf "%v-server-worker" $fullname -}}
 
-{{/* This secret is loaded in both the main authentik container and worker */}}
-{{ $authentikSecretName }}:
+  {{- $secretKey := randAlphaNum 32 -}}
+  {{- with (lookup "v1" "Secret" .Release.Namespace $fetchname) -}}
+    {{ $secretKey = index .data "AUTHENTIK_SECRET_KEY" }}
+  {{- end }}
+
+server-worker:
   enabled: true
   data:
-    {{/* Secret Key */}}
-    {{- with (lookup "v1" "Secret" .Release.Namespace $authentikSecretName) }}
-    AUTHENTIK_SECRET_KEY: {{ index .data "AUTHENTIK_SECRET_KEY" }}
-    {{ $token = index .data "AUTHENTIK_BOOTSTRAP_TOKEN" }}
-    {{- else }}
-    AUTHENTIK_SECRET_KEY: {{ randAlphaNum 32 }}
-    {{- end }}
-    AUTHENTIK_BOOTSTRAP_TOKEN: {{ $token }}
     {{/* Dependencies */}}
     AUTHENTIK_POSTGRESQL__PASSWORD: {{ .Values.cnpg.main.creds.password | trimAll "\"" }}
     AUTHENTIK_REDIS__PASSWORD: {{ .Values.redis.creds.redisPassword | trimAll "\"" }}
-    {{/* Credentials */}}
-    {{- with .Values.authentik.credentials.password }}
-    AUTHENTIK_BOOTSTRAP_PASSWORD: {{ . }}
-    {{- end }}
+
+    {{/* Secret Key */}}
+    AUTHENTIK_SECRET_KEY: {{ $secretKey }}
+
+    {{/* Initial credentials */}}
+    AUTHENTIK_BOOTSTRAP_EMAIL: {{ .Values.authentik.credentials.email | quote }}
+    AUTHENTIK_BOOTSTRAP_PASSWORD: {{ .Values.authentik.credentials.password | quote }}
+
     {{/* Mail */}}
-    {{- with .Values.authentik.mail.host }}
+    {{- with .Values.authentik.email.host }}
     AUTHENTIK_EMAIL__HOST: {{ . }}
-    {{- end }}
-    {{- with .Values.authentik.mail.user }}
+    {{- end -}}
+    {{- with .Values.authentik.email.user }}
     AUTHENTIK_EMAIL__USERNAME: {{ . }}
-    {{- end }}
-    {{- with .Values.authentik.mail.pass }}
+    {{- end -}}
+    {{- with .Values.authentik.email.pass }}
     AUTHENTIK_EMAIL__PASSWORD: {{ . }}
-    {{- end }}
-    {{- with .Values.authentik.mail.from }}
+    {{- end -}}
+    {{- with .Values.authentik.email.from }}
     AUTHENTIK_EMAIL__FROM: {{ . }}
     {{- end }}
 
-{{/* This secret is loaded in the geoip container */}}
-{{ $geoipSecretName }}:
-  enabled: {{ .Values.geoip.enabled }}
+{{- if .Values.authentik.geoip.enabled }}
+geoip:
+  enabled: true
   data:
-    {{/* Credentials */}}
-    {{- with .Values.geoip.account_id }}
-    GEOIPUPDATE_ACCOUNT_ID: {{ . }}
-    {{- end }}
-    {{- with .Values.geoip.license_key }}
-    GEOIPUPDATE_LICENSE_KEY: {{ . }}
-    {{- end }}
-    {{/* Proxy */}}
-    {{- with .Values.geoip.proxy }}
-    GEOIPUPDATE_PROXY: {{ . }}
-    {{- end }}
-    {{- with .Values.geoip.proxy_user_pass }}
-    GEOIPUPDATE_PROXY_USER_PASSWORD: {{ . }}
-    {{- end }}
+    GEOIPUPDATE_VERBOSE: "0"
+    GEOIPUPDATE_PRESERVE_FILE_TIMES: "1"
+    GEOIPUPDATE_ACCOUNT_ID: {{ .Values.authentik.geoip.accountID | quote }}
+    GEOIPUPDATE_LICENSE_KEY: {{ .Values.authentik.geoip.licenseKey | quote }}
+{{- end -}}
 
-{{/* This secret is loaded in the ldap container */}}
-{{ $ldapSecretName }}:
-  enabled: {{ .Values.outposts.ldap.enabled }}
+{{- if .Values.authentik.outposts.radius.enabled }}
+radius:
+  enabled: true
   data:
-    {{- with .Values.outposts.ldap.token }}
-    AUTHENTIK_TOKEN: {{ . }}
-    {{- else }}
-    AUTHENTIK_TOKEN: {{ $token }}
-    {{- end }}
+    AUTHENTIK_TOKEN: {{ .Values.authentik.outposts.radius.token | quote }}
+{{- end -}}
 
-{{/* This secret is loaded in the proxy container */}}
-{{ $proxySecretName }}:
-  enabled: {{ .Values.outposts.proxy.enabled }}
+{{- if .Values.authentik.outposts.ldap.enabled }}
+ldap:
+  enabled: true
   data:
-    {{- with .Values.outposts.proxy.token }}
-    AUTHENTIK_TOKEN: {{ . }}
-    {{- else }}
-    AUTHENTIK_TOKEN: {{ $token }}
-    {{- end }}
-{{- end }}
+    AUTHENTIK_TOKEN: {{ .Values.authentik.outposts.ldap.token | quote }}
+{{- end -}}
+{{- end -}}

@@ -106,6 +106,7 @@
               - variable: gpu
                 label: Select GPU
                 schema:
+                  additional_attrs: true
                   type: dict
                   $ref:
                     - "definitions/gpuConfiguration"
