@@ -7,6 +7,7 @@ securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+    PUID: 0
     runAsUser: 0
     runAsGroup: 0
     capabilities:
@@ -21,10 +22,13 @@ workload:
         main:
           probes:
             liveness:
+              path: "/v0"
               type: "http"
             readiness:
+              path: "/v0"
               type: "http"
             startup:
+              path: "/v0"
               type: "http"
           env:
             # web
