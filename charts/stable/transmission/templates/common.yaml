@@ -12,9 +12,9 @@
 {{- end -}}
 
 {{- with .Values.workload.main.podSpec.containers.main.env.TRANSMISSION_RPC_WHITELIST -}}
-  {{- if not (contains .Values.chartContext.podCIDR .) }}
+  {{- if not (contains $.Values.chartContext.podCIDR .) }}
     {{/* Append CIDR in front */}}
-    {{- $_ := set $.Values.workload.main.podSpec.containers.main.env.TRANSMISSION_RPC_WHITELIST (printf "%v,%v" .Values.chartContext.podCIDR .) }}
+    {{- $_ := set $.Values.workload.main.podSpec.containers.main.env.TRANSMISSION_RPC_WHITELIST (printf "%v,%v" $.Values.chartContext.podCIDR .) }}
   {{- end }}
 {{- end -}}
 
