@@ -12,7 +12,7 @@ Search for clusterissuer in the `Apps` menu | `Available Applications` tab and c
 
 ## Cloudflare DNS-Provider
 
-You can setup multiple domains with a single `clusterissuer` app, all you have to do is either add the global API key (**not recommended**) or `Add` multiple `ACME Issuer` entries for each domain and create an API token for each at [Cloudflare API Tokens](https://dash.cloudflare.com/profile/api-tokens).
+You can setup multiple domains with a single `clusterissuer` app, all you have to do is either add the global API key (**not recommended**) or `Add` multiple `ACME Issuer` entries for each domain and create an API token for each at [Cloudflare API Tokens](https://dash.cloudflare.com/profile/api-tokens). The recommended settings for creating `API Tokens` for use with `clusterissuer` can be found on the upstream [Cert-Manager](https://cert-manager.io/) documentation for [Cloudflare](https://cert-manager.io/docs/configuration/acme/dns01/cloudflare/).
 
 - Give the certificate a name (eg domain or "maincert", etc).
 - Select the correct provider, for example `Cloudflare`.
