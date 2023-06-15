@@ -70,11 +70,6 @@ persistence:
   workspace:
     enabled: true
     mountPath: "/workspace"
-  shm:
-    enabled: true
-    mountPath: "/dev/shm"
-    type: "emptyDir"
-    medium: "Memory"
 
 portal:
   open:
