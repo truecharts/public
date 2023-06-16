@@ -84,8 +84,8 @@ workload:
             SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
             QUERY_PORT: "{{ .Values.service.main.ports.main.query }}"
             RCON_PORT: "{{ .Values.service.rcon.ports.rcon.port }}"
-            ENABLE_QUERY: true
-            ENABLE_RCON: true
+            ENABLE_QUERY: "true"
+            ENABLE_RCON: "true"
             CONSOLE: TRUE
             GUI: "FALSE"
             EULA: "TRUE"
@@ -127,7 +127,7 @@ workload:
             MAX_PLAYERS: 20
             MAX_WORLD_SIZE: 10000
             ALLOW_NETHER: true
-            ALLOW_FLIGHT: FALSE
+            ALLOW_FLIGHT: "FALSE"
             ENABLE_COMMAND_BLOCK: false
             GENERATE_STRUCTURES: true
             MAX_BUILD_HEIGHT: 256
@@ -163,7 +163,7 @@ workload:
             ENABLE_ROLLING_LOGS: true
             RESOURCE_PACK: ""
             RESOURCE_PACK_SHA1: ""
-            RESOURCE_PACK_ENFORCE: FALSE
+            RESOURCE_PACK_ENFORCE: "FALSE"
             PROXY: ""
 
             # SETUP_ONLY: false
