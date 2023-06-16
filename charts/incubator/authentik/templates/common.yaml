@@ -23,6 +23,18 @@
   {{- $_ := set .Values.workload.geoip "enabled" false -}}
 {{- end -}}
 
+{{- if .Values.authentik.outposts.proxy.enabled -}}
+  {{- $_ := set .Values.workload.proxy "enabled" true -}}
+  {{- $_ := set .Values.service.proxy "enabled" true -}}
+  {{- $_ := set .Values.service.proxymetrics "enabled" true -}}
+  {{- $_ := set .Values.metrics.proxymetrics "enabled" true -}}
+{{- else -}}
+  {{- $_ := set .Values.workload.proxy "enabled" false -}}
+  {{- $_ := set .Values.service.proxy "enabled" false -}}
+  {{- $_ := set .Values.service.proxymetrics "enabled" false -}}
+  {{- $_ := set .Values.metrics.proxymetrics "enabled" false -}}
+{{- end -}}
+
 {{- if .Values.authentik.outposts.radius.enabled -}}
   {{- $_ := set .Values.workload.radius "enabled" true -}}
   {{- $_ := set .Values.service.radius "enabled" true -}}
@@ -51,10 +63,12 @@
 
 {{/* FIXME: See values.yaml */}}
 {{- $_ := set .Values.service.servermetrics "enabled" false -}}
+{{- $_ := set .Values.service.proxymetrics "enabled" false -}}
 {{- $_ := set .Values.service.radiusmetrics "enabled" false -}}
 {{- $_ := set .Values.service.ldapmetrics "enabled" false -}}
 
 {{- $_ := set .Values.metrics.servermetrics "enabled" false -}}
+{{- $_ := set .Values.metrics.proxymetrics "enabled" false -}}
 {{- $_ := set .Values.metrics.radiusmetrics "enabled" false -}}
 {{- $_ := set .Values.metrics.ldapmetrics "enabled" false -}}
 

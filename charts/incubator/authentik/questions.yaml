@@ -329,6 +329,40 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
+              - variable: disableEmbeddedOutpost
+                label: EXPERIMENTAL - Disable Embedded Outpost
+                description: |
+                  Disables the embedded outpost.</br>
+                  This will disable the embedded outpost, and will require you to deploy your own outpost.</br>
+                  Only use this for testing, it might be removed without notice.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: proxy
+                label: Proxy
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: Enabled
+                      description: |
+                        Enables and configures the Proxy container.</br>
+                        This will deploy the Proxy container.
+                      schema:
+                        type: boolean
+                        default: false
+                        show_subquestions_if: true
+                        subquestions:
+                          - variable: token
+                            label: Token
+                            description: |
+                              The token used to authenticate with the authentik server.
+                            schema:
+                              type: string
+                              private: true
+                              required: true
+                              default: ""
               - variable: radius
                 label: Radius
                 schema:
@@ -403,6 +437,41 @@ questions:
                             schema:
                               type: int
                               default: 10229
+                              required: true
+        - variable: proxy
+          label: Proxy Service
+          description: The Proxy service.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: http
+                      label: HTTP Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 10227
+                              required: true
+                    - variable: https
+                      label: HTTPS Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 10228
                               required: true
         - variable: radius
           label: RADIUS Service
@@ -518,6 +587,16 @@ questions:
 # Include{ingressRoot}
         - variable: main
           label: Main (HTTPS) Ingress
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+# Include{ingressTLS}
+# Include{ingressTraefik}
+# Include{ingressAdvanced}
+        - variable: proxy
+          label: Proxy (HTTPS) Ingress
           schema:
             additional_attrs: true
             type: dict
