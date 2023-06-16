@@ -63,7 +63,7 @@
 
 {{/* FIXME: See values.yaml */}}
 {{- $_ := set .Values.service.servermetrics "enabled" false -}}
-{{- $_ := set .Values.service.proxyrmetrics "enabled" false -}}
+{{- $_ := set .Values.service.proxymetrics "enabled" false -}}
 {{- $_ := set .Values.service.radiusmetrics "enabled" false -}}
 {{- $_ := set .Values.service.ldapmetrics "enabled" false -}}
 
