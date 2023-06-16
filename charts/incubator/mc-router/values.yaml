@@ -16,7 +16,7 @@ service:
         port: 25564
 
 mcrouter:
-  mapping: []
+  mapping: ["minecraft.local=localhost:25566"]
 
 workload:
   main:
@@ -25,11 +25,14 @@ workload:
         main:
           probes:
             liveness:
-              enabled: false
+              enabled: true
+              type: tcp
             readiness:
-              enabled: false
+              enabled: true
+              type: tcp
             startup:
-              enabled: false
+              enabled: true
+              type: tcp
           envFrom:
             - secretRef:
                 name: "mcrouter-secret"
