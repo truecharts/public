@@ -86,7 +86,7 @@ workload:
             RCON_PORT: "{{ .Values.service.rcon.ports.rcon.port }}"
             ENABLE_QUERY: "true"
             ENABLE_RCON: "true"
-            CONSOLE: TRUE
+            CONSOLE: "TRUE"
             GUI: "FALSE"
             EULA: "TRUE"
             OVERRIDE_SERVER_PROPERTIES: true
