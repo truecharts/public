@@ -13,13 +13,15 @@ configmap:
     enabled: true
     data:
       PORT: {{ .Values.service.web.ports.web.port | quote }}
+      {{- with .Values.immich.public_login_page_message }}
+      PUBLIC_LOGIN_PAGE_MESSAGE: {{ . }}
+      {{- end }}
   server-config:
     enabled: true
     data:
       {{/* User Defined */}}
       DISABLE_REVERSE_GEOCODING: {{ .Values.immich.disable_reverse_geocoding | quote }}
       REVERSE_GEOCODING_PRECISION: {{ .Values.immich.reverse_geocoding_precision | quote }}
-      ENABLE_MAPBOX: {{ .Values.immich.mapbox_enable | quote }}
       SERVER_PORT: {{ .Values.service.server.ports.server.port | quote }}
   micro-config:
     enabled: true
@@ -45,7 +47,6 @@ configmap:
       {{- end }}
       TYPESENSE_ENABLED: {{ .Values.immich.enable_typesense | quote }}
       {{- if .Values.immich.enable_typesense }}
-      TYPESENSE_URL: {{ printf "http://%v-typesense:%v" $fname .Values.service.typesense.ports.typesense.port }}
       TYPESENSE_PROTOCOL: http
       TYPESENSE_HOST: {{ printf "%v-typesense" $fname }}
       TYPESENSE_PORT: {{ .Values.service.typesense.ports.typesense.port | quote }}
@@ -59,9 +60,6 @@ configmap:
       PUBLIC_IMMICH_SERVER_URL: {{ printf "http://%v-server:%v" $fname .Values.service.server.ports.server.port }}
       NODE_ENV: production
       {{/* User Defined */}}
-      {{- with .Values.immich.public_login_page_message }}
-      PUBLIC_LOGIN_PAGE_MESSAGE: {{ . }}
-      {{- end }}
       LOG_LEVEL: {{ .Values.immich.log_level }}
 
 secret:
@@ -74,12 +72,7 @@ secret:
   secret:
     enabled: true
     data:
-      {{/* Secret Key */}}
-      JWT_SECRET: {{ $jwtSecret }}
       TYPESENSE_API_KEY: {{ $typesenseKey }}
-      {{- with .Values.immich.mapbox_key }}
-      MAPBOX_KEY: {{ . }}
-      {{- end }}
   deps-secret:
     enabled: true
     data:
