@@ -4,6 +4,16 @@ function check_version() {
     chart_path=${1:?"No chart path provided to [Version Check]"}
     target_branch=${2:?"No target branch provided to [Version Check]"}
 
+    chart_dir=$(dirname "$chart_path")
+    # If only docs changed, skip version check
+    chart_changes=$(git diff "$target_branch" -- "$chart_dir" :^docs)
+
+    if [[ -z "$chart_changes" ]]; then
+        echo "Looks like only docs changed. Skipping chart version check"
+        echo -e "\t✅ Chart version: No bump required"
+        return
+    fi
+
     new=$(git diff "$target_branch" -- "$chart_path" | sed -nr 's/^\+version: (.*)$/\1/p')
     old=$(git diff "$target_branch" -- "$chart_path" | sed -nr 's/^\-version: (.*)$/\1/p')
 
@@ -63,6 +73,25 @@ function helm_lint(){
 }
 export -f helm_lint
 
+function helm_template(){
+    chart_path=${1:?"No chart path provided to [Helm template]"}
+
+    # Print only errors and warnings
+    helm_template_output=$(helm template "$chart_path" 2>&1 >/dev/null)
+    helm_template_exit_code=$?
+    while IFS= read -r line; do
+        echo -e "\t$line"
+    done <<< "$helm_template_output"
+
+    if [ $helm_template_exit_code -ne 0 ]; then
+        echo -e "\t❌ Helm template: Failed"
+        curr_result=1
+    else
+        echo -e "\t✅ Helm template: Passed"
+    fi
+}
+export -f helm_template
+
 function yaml_lint(){
     file_path=${1:?"No file path provided to [YAML lint]"}
 
@@ -96,6 +125,16 @@ function lint_chart(){
         echo ''
         echo "👣 Helm Lint - [$chart_path]"
         helm_lint "$chart_path"
+
+        echo "👣 Helm Template - [$chart_path]"
+        helm_template "$chart_path"
+
+        for values in $chart_path/ci/*values.yaml; do
+            if [ -f "${values}" ]; then
+                echo "👣 Helm Template - [$values]"
+                helm_template "$chart_path" -f "$values"
+            fi
+        done
 
         echo "👣 Chart Version - [$chart_path] against [$target_branch]"
         check_version "$chart_path" "$target_branch"
