@@ -1,6 +1,6 @@
 {{- define "authentik.validation" -}}
   {{- range $outpost, $values := .Values.authentik.outposts -}}
-    {{- if (kindIs "dict" $outpost) -}}
+    {{- if (kindIs "dict" $values) -}}
       {{- if and $values.enabled (not $values.token) -}}
         {{- fail (printf "Authentik - Outpost [%v] is enabled, but [token] was not provided" ($outpost | upper)) -}}
       {{- end -}}
