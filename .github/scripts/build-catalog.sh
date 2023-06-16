@@ -77,7 +77,9 @@ patch_apps() {
     cat ${target}/Chart.yaml | yq '.annotations."truecharts.org/catagories"' -r >> catalog/${train}/${chartname}/item.yaml
 
     # Generate screenshots
-    screenshots=$(ls ${target}/screenshots)
+    if [[ -d "${target}/screenshots" ]]; then
+        screenshots=$(ls ${target}/screenshots)
+    fi
     if [[ -n $screenshots ]]; then
         echo "screenshots:" >> catalog/${train}/${chartname}/item.yaml
         for screenshot in $screenshots; do
