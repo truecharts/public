@@ -97,6 +97,13 @@ Leave the default `one_factor` unless you've setup TOTP above. Then click `Add` 
   - `Remote-Name`
   - `Remote-Email`
 
+### Adding the forwardauth to your Apps
+
+The last step is adding the `forwardauth` along with the standard `ingress` settings for your app, for more info on setting ingress see the [ClusterIssuer Guide](https://truecharts.org/charts/enterprise/clusterissuer/how-to). What changes versus a standard setup is the `Traefik Middlewares` section, where you must add your `forwardauth` to the section.
+
+- In this example we use the same name as above, or `auth`. Click `Add` to the `Traefik Middlewares` section, and enter your `forwardauth` name.
+
+![TraefikForwardAuthMiddleware](img/TraefikForwardAuthMiddleware.png)
 ### References
 
 The origin material for this guide is available on the [LLDAP Github](https://github.com/lldap/lldap). While further information on Authelia can be found on their [Github](https://github.com/authelia/authelia) and [website](https://www.authelia.com/).
