@@ -8,30 +8,30 @@ Blocky has multiple DNS entries configured by default these can be overridden to
 
 Blocky supports 3 methods for upstream DNS.
 
-UDP - Basic DNS  
-DoT - DNS over TLS  
-DoH - DNS over HTTPS  
+UDP - Basic DNS<br />
+DoT - DNS over TLS<br />
+DoH - DNS over HTTPS
 
 While UDP provides no security for DNS both DoT and DoH will encrypt DNS request. DoH has the added benefit of privacy since DNS traffic will appear as HTTPS traffic.
 
 ### UDP DNS Setup
 
-Google DNS: `8.8.8.8` `8.8.4.4`  
-Cloudflare DNS: `1.1.1.1` `1.0.0.1`  
+Google DNS: `8.8.8.8` `8.8.4.4`<br />
+Cloudflare DNS: `1.1.1.1` `1.0.0.1`
 
 ![blocky-udp-upstream-google](./img/blocky-udp-upstream-google.png)
 
 ### DoT DNS Setup
 
-Google DNS ([Bootstrap DNS Required](#bootstrap-dns)): `tcp-tls:dns.google:853`  
-Cloudflare DNS: `tcp-tls:1.1.1.1:853` `tcp-tls:1.0.0.1:853`  
+Google DNS ([Bootstrap DNS Required](#bootstrap-dns)): `tcp-tls:dns.google:853`<br />
+Cloudflare DNS: `tcp-tls:1.1.1.1:853` `tcp-tls:1.0.0.1:853`
 
 ![blocky-dot-upstream-google](./img/blocky-dot-upstream-google.png)
 
 ### DoH Upstream
 
-Google DNS ([Bootstrap DNS Required](#bootstrap-dns)): `https://dns.google/dns-query`  
-Cloudflare DNS: `https://1.1.1.1/dns-query` `https://1.0.0.1/dns-query`  
+Google DNS ([Bootstrap DNS Required](#bootstrap-dns)): `https://dns.google/dns-query`<br />
+Cloudflare DNS: `https://1.1.1.1/dns-query` `https://1.0.0.1/dns-query`
 
 ![blocky-doh-upstream-google](./img/blocky-doh-upstream-google.png)
 
