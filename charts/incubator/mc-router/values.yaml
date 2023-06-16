@@ -30,13 +30,9 @@ workload:
               enabled: false
             startup:
               enabled: false
-          env:
-            PORT: "{{ .Values.service.main.ports.main.port }}"
-            API_BINDING: "{{ .Values.service.api.ports.api.port }}"
-            MAPPING:
-              secretKeyRef:
-                name: secrets
-                key: MAPPING
+          envFrom:
+            - secretRef:
+                name: "mcrouter-secret"
 
 portal:
   open:

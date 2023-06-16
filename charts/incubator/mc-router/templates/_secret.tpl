@@ -7,5 +7,7 @@
 {{- end }}
 enabled: true
 data:
+  PORT: "{{ .Values.service.main.ports.main.port }}"
+  API_BINDING: "{{ .Values.service.api.ports.api.port }}"
   MAPPING: {{ join "," $mappings | quote }}
 {{- end -}}
