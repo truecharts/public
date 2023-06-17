@@ -11,13 +11,5 @@
   {{- $_ := set $.Values.workload.main.podSpec.containers.main.probes.startup "httpHeaders" $headers -}}
 {{- end -}}
 
-{{/* Check if TRANSMISSION_RPC_WHITELIST is set and if the current podCIDR is not already whitelisted */}}
-{{- with .Values.workload.main.podSpec.containers.main.env.TRANSMISSION_RPC_WHITELIST -}}
-  {{- if not (contains $.Values.chartContext.podCIDR .) }}
-    {{/* Append CIDR in front */}}
-    {{- $_ := set $.Values.workload.main.podSpec.containers.main.env "TRANSMISSION_RPC_WHITELIST" (printf "%v,%v" $.Values.chartContext.podCIDR .) }}
-  {{- end }}
-{{- end -}}
-
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}
