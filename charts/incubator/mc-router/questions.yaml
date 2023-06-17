@@ -9,32 +9,18 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-  - variable: mcrouter
-    group: App Configuration
-    label: MC Router Configuration
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: host_minecraft
-          label: Host and Minecraft
-          schema:
-            type: list
-            default: []
-            items:
-              - variable: hostminecraftEntry
-                label: Host and Minecraft Type Entry
-                schema:
-                  type: dict
-                  additional_attrs: true
-                  attrs:
-                    - variable: host_minecraft_service
-                      label: Host and Minecraft Service
-                      schema:
-                        type: string
-                        required: true
-                        default: "minecraft.local=localhost:25565"
-                        valid_chars: '^([\w.-]+)=([A-Za-z0-9.-]+):(\d+)$'
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: MAPPING
+                                        label: Mapping
+                                        description: list of hostname=ip:port of minecraft server delimiter by ,
+                                        schema:
+                                          type: string
+                                          default: "minecraft.local=0.0.0.0:25565"
 
 # Include{containerBasic}
 # Include{containerAdvanced}

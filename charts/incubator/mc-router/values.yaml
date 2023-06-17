@@ -15,10 +15,6 @@ service:
         enabled: true
         port: 25564
 
-mcrouter:
-  host_minecraft: []
-  #  - "minecraft.local=localhost:25566"
-
 workload:
   main:
     podSpec:
@@ -34,9 +30,10 @@ workload:
             startup:
               enabled: true
               type: tcp
-          envFrom:
-            - secretRef:
-                name: "mcrouter-secret"
+          env:
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+            API_BINDING: "{{ .Values.service.api.ports.main.api }}"
+            MAPPING: ""
 
 portal:
   open:
