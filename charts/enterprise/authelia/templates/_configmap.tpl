@@ -285,20 +285,64 @@ data:
     {{- if not .Values.access_control.networks }}
       networks: []
     {{- else }}
-      networks: {{ toYaml .Values.access_control.networks | nindent 6 }}
+      networks:
+    {{- range $net := .Values.access_control.networks }}
+      - name: {{ $net.name }}
+        networks:
+          {{- range $net.networks }}
+          - {{ . | squote }}
+          {{- end }}
+    {{- end }}
     {{- end }}
 
-    {{- $rules := .Values.access_control.rules -}}
-    {{- if not $rules }}
+    {{- if not .Values.access_control.rules }}
       rules: []
     {{- else }}
       rules:
-    {{- range $rule := $rules }}
-
-      {{- with $rule.domain }}
-      - domain: {{ . | toJson }}
+    {{- range $rule := .Values.access_control.rules }}
+      {{- if $rule.domain }}
+      - domain:
+        {{- if kindIs "string" $rule.domain }}
+          - {{ $rule.domain | squote }}
+        {{- else -}}
+          {{- range $rule.domain }}
+          - {{ . | squote }}
+          {{- end }}
+        {{- end }}
+      {{- end -}}
+      {{- with $rule.policy }}
+        policy: {{ . }}
+      {{- end -}}
+      {{- if $rule.networks }}
+        networks:
+        {{- if kindIs "string" $rule.networks }}
+          - {{ $rule.networks | squote }}
+        {{- else -}}
+          {{- range $rule.networks }}
+            - {{ . | squote }}
+          {{- end }}
+        {{- end }}
       {{- end }}
-
+      {{- if $rule.subject }}
+        subject:
+        {{- if kindIs "string" $rule.subject }}
+          - {{ $rule.subject | squote }}
+        {{- else -}}
+          {{- range $rule.subject }}
+            - {{ . | squote }}
+          {{- end }}
+        {{- end }}
+      {{- end }}
+      {{- if $rule.resources }}
+        resources:
+        {{- if kindIs "string" $rule.resources }}
+          - {{ $rule.resources | squote }}
+        {{- else -}}
+          {{- range $rule.resources }}
+            - {{ . | squote }}
+          {{- end }}
+        {{- end }}
+      {{- end }}
     {{- end }}
     {{- end }}
     ...
