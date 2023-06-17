@@ -25,16 +25,10 @@ questions:
               - variable: hostminecraftEntry
                 label: Host and Minecraft Type Entry
                 schema:
-                  type: dict
-                  additional_attrs: true
-                  attrs:
-                    - variable: host_minecraft_service
-                      label: Host and Minecraft Service
-                      schema:
-                        type: string
-                        required: true
-                        default: "minecraft.local=localhost:25565"
-                        valid_chars: '^([\w.-]+)=([A-Za-z0-9.-]+):(\d+)$'
+                  type: string
+                  required: true
+                  default: "minecraft.local=localhost:25565"
+                  valid_chars: '^([\w.-]+)=([A-Za-z0-9.-]+):(\d+)$'
 
 # Include{containerBasic}
 # Include{containerAdvanced}

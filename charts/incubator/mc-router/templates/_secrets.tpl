@@ -4,7 +4,7 @@
 {{- $mcrouter := .Values.mcrouter -}}
 {{- $mappings := list }}
 {{- range $item := $mcrouter.host_minecraft }}
-  {{- $mappings = mustAppend $mappings $item.host_minecraft_service}}
+  {{- $mappings = mustAppend $mappings $item.hostminecraftEntry}}
 {{- end }}
 enabled: true
 data:
