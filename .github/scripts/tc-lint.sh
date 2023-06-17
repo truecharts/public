@@ -79,14 +79,14 @@ export -f helm_lint
 
 function helm_template(){
     chart_path=${1:?"No chart path provided to [Helm template]"}
-    values=${2:-""}
+    values=${2:-}
 
     if [[ -n "$values" ]]; then
         values="-f $values"
     fi
 
     # Print only errors and warnings
-    helm_template_output=$(helm template "$chart_path" "$values" 2>&1 >/dev/null)
+    helm_template_output=$(helm template $values "$chart_path" 2>&1 >/dev/null)
     helm_template_exit_code=$?
     while IFS= read -r line; do
         if [[ -n $line ]]; then
