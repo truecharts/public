@@ -9,7 +9,7 @@ args:
   - -c
   - |
     echo "Waiting Authentik Server [{{ $serverUrl }}] to be ready..."
-    until wget --spider --quiet "{{ $serverUrl }}";
+    until wget --no-check-certificate --spider --quiet "{{ $serverUrl }}";
     do
       echo "Waiting Authentik Server [{{ $serverUrl }}] to be ready..."
       sleep 3
