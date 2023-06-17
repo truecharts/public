@@ -6,10 +6,10 @@ function check_version() {
 
     chart_dir=$(dirname "$chart_path")
     # If only docs changed, skip version check
-    # git diff target_branch, filter only on chart_dir and exclude chart_dir/docs
+    # git diff target_branch, filter only on $chart_dir and invert match for $chart_dir/docs
     # note that it requires branches to be up to date for this to work.
-    git diff "$target_branch" -- "$chart_dir" ":!$chart_dir/docs"
-    chart_changes=$(git diff "$target_branch" -- "$chart_dir" ":!$chart_dir/docs")
+    git diff --name-status "$target_branch" -- "$chart_dir" | grep -v "$chart_dir/docs"
+    chart_changes=$(git diff --name-status "$target_branch" -- "$chart_dir" | grep -v "$chart_dir/docs")
 
     if [[ -z "$chart_changes" ]]; then
         echo -e "\tLooks like only docs changed. Skipping chart version check"
