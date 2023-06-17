@@ -272,6 +272,12 @@ cronjobs:
       - occ preview:pre-generate
       - echo "Finished [occ preview:pre-generate]"
 
+ingress:
+  main:
+    enabled: true
+    hosts:
+     - host: abc.gom
+
 service:
   # Main service links to ingress easier
   # That's why the nginx is swapped with nextcloud

@@ -1,8 +1,21 @@
 {{/* Define the configmap */}}
 {{- define "nextcloud.configmaps" -}}
 {{- $fullname := (include "tc.v1.common.lib.chart.names.fullname" $) -}}
-{{- $urlNoProtocol := regexReplaceAll ".*://(.*)" .Values.chartContext.APPURL "${1}" -}}
-{{- $protocolOnly := regexReplaceAll "(.*)://.*" .Values.chartContext.APPURL "${1}" -}}
+{{- $fullUrl := .Values.chartContext.APPURL -}}
+{{- if or (contains "127.0.0.1" $fullUrl) (contains "localhost" $fullUrl) -}}
+  {{- if .Values.nextcloud.general.accessIP -}}
+    {{- $prot := "http" -}}
+    {{- $host := .Values.nextcloud.general.accessIP -}}
+    {{- $port := .Values.service.main.ports.main.port -}}
+    {{/*
+      Allowing here to override protocol and port
+      should be enough to make it work with any rev proxy
+    */}}
+    {{- $fullUrl = printf "%v://%v:%v" $prot $host $port -}}
+  {{- end -}}
+{{- end -}}
+{{- $urlNoProtocol := regexReplaceAll ".*://(.*)" $fullUrl "${1}" -}}
+{{- $protocolOnly := regexReplaceAll "(.*)://.*" $fullUrl "${1}" -}}
 {{- $redisHost := .Values.redis.creds.plainhost | trimAll "\"" -}}
 {{- $redisPass := .Values.redis.creds.redisPassword | trimAll "\"" -}}
 {{- $healthHost := "kube.internal.healthcheck" -}}
@@ -72,11 +85,7 @@ nextcloud-config:
     {{/* Notify Push */}}
     NX_NOTIFY_PUSH: {{ .Values.nextcloud.notify_push.enabled | quote }}
     {{- if .Values.nextcloud.notify_push.enabled }}
-      {{- $endpoint := .Values.chartContext.APPURL -}}
-      {{- if or (contains "127.0.0.1" $endpoint) (contains "localhost" $endpoint) -}}
-        {{- $endpoint = printf "http://%v:%v" $fullname .Values.service.main.ports.main.port -}}
-      {{- end }}
-    NX_NOTIFY_PUSH_ENDPOINT: {{ $endpoint }}/push
+    NX_NOTIFY_PUSH_ENDPOINT: {{ $fullUrl }}/push
     {{- end }}
 
     {{/* Previews */}}
@@ -152,7 +161,7 @@ nextcloud-config:
 
     {{/* URLs */}}
     NX_OVERWRITE_HOST: {{ $urlNoProtocol }}
-    NX_OVERWRITE_CLI_URL: {{ .Values.chartContext.APPURL }}
+    NX_OVERWRITE_CLI_URL: {{ $fullUrl }}
     # Return the protocol part of the URL
     NX_OVERWRITE_PROTOCOL: {{ $protocolOnly | lower }}
     # IP (or range in this case) of the proxy(ies)
@@ -166,7 +175,7 @@ nextcloud-config:
       {{ $fullname }}
       {{ printf "%v-*" $fullname }}
       {{ $healthHost }}
-      {{- if ne $urlNoProtocol "127.0.0.1" }}
+      {{- if not (contains "127.0.0.1" $urlNoProtocol) }}
         {{- $urlNoProtocol | nindent 6 }}
       {{- end -}}
       {{- with .Values.nextcloud.general.accessIP }}
