@@ -7,13 +7,17 @@ service:
   main:
     ports:
       main:
-        port: 25565
-  api:
+        port: 25564
+  minecraft:
     enabled: true
     ports:
-      api:
+      minecraft:
         enabled: true
-        port: 25564
+        port: 25565
+
+mcrouter:
+  host_minecraft: []
+  #  - "minecraft.local=localhost:25566"
 
 workload:
   main:
@@ -22,18 +26,18 @@ workload:
         main:
           probes:
             liveness:
-              enabled: true
-              type: tcp
+              enabled: false
             readiness:
-              enabled: true
-              type: tcp
+              enabled: false
             startup:
-              enabled: true
-              type: tcp
+              enabled: false
           env:
-            PORT: "{{ .Values.service.main.ports.main.port }}"
             API_BINDING: ":{{ .Values.service.api.ports.api.port }}"
-            MAPPING: ""
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+            MAPPING:
+              secretKeyRef:
+                name: secrets
+                key: MAPPING
 
 portal:
   open:
