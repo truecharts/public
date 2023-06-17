@@ -14,6 +14,8 @@
     {{- $accessUrl = printf "%v://%v:%v" $prot $host $port -}}
   {{- end -}}
 {{- end -}}
+{{- $accessHost := regexReplaceAll ".*://(.*)" $accessUrl "${1}" -}}
+{{- $accessHost = regexReplaceAll "(.*):.*" $accessUrl "${1}" -}}
 {{- $accessHostPort := regexReplaceAll ".*://(.*)" $accessUrl "${1}" -}}
 {{- $accessProtocol := regexReplaceAll "(.*)://.*" $accessUrl "${1}" -}}
 {{- $redisHost := .Values.redis.creds.plainhost | trimAll "\"" -}}
@@ -34,6 +36,7 @@ redis-session:
   enabled: true
   data:
     redis-session.ini: |
+      session.save_handler = redis
       session.save_path = {{ printf "tcp://%v:6379?auth=%v" $redisHost $redisPass | quote }}
       redis.session.locking_enabled = 1
       redis.session.lock_retries = -1
@@ -175,8 +178,8 @@ nextcloud-config:
       {{ $fullname }}
       {{ printf "%v-*" $fullname }}
       {{ $healthHost }}
-      {{- if not (contains "127.0.0.1" $accessHostPort) }}
-        {{- $accessHostPort | nindent 6 }}
+      {{- if not (contains "127.0.0.1" $accessHost) }}
+        {{- $accessHost | nindent 6 }}
       {{- end -}}
       {{- with .Values.nextcloud.general.accessIP }}
         {{- . | nindent 6 }}

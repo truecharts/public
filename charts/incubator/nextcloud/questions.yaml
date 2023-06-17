@@ -392,7 +392,8 @@ questions:
                       label: Allow List
                       schema:
                         type: list
-                        default: ["0.0.0.0/0"]
+                        default:
+                          - "0.0.0.0/0"
                         items:
                           - variable: allow_entry
                             label: Allow Entry
@@ -415,7 +416,7 @@ questions:
                   You need to deploy it yourself.
                 schema:
                   type: boolean
-                  default: true
+                  default: false
                   show_subquestions_if: true
                   subquestions:
                     - variable: url
