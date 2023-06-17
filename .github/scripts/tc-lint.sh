@@ -35,6 +35,7 @@ function check_version() {
             curr_result=1
         fi
     fi
+    echo ''
 }
 export -f check_version
 
@@ -55,6 +56,7 @@ function check_chart_schema(){
     else
         echo -e "\t✅ Chart Schema: Passed"
     fi
+    echo ''
 }
 export -f check_chart_schema
 
@@ -76,6 +78,7 @@ function helm_lint(){
     else
         echo -e "\t✅ Helm Lint: Passed"
     fi
+    echo ''
 }
 export -f helm_lint
 
@@ -102,6 +105,7 @@ function helm_template(){
     else
         echo -e "\t✅ Helm template: Passed"
     fi
+    echo ''
 }
 export -f helm_template
 
@@ -122,6 +126,7 @@ function yaml_lint(){
     else
         echo -e "\t✅ YAML Lint: Passed [$file_path]"
     fi
+    echo ''
 }
 export -f yaml_lint
 
