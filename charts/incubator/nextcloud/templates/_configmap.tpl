@@ -169,6 +169,7 @@ nextcloud-config:
     NX_OVERWRITE_PROTOCOL: {{ $accessProtocol | lower }}
     # IP (or range in this case) of the proxy(ies)
     NX_TRUSTED_PROXIES: |
+      {{ .Values.chartContext.podCIDR }}
       {{ .Values.chartContext.svcCIDR }}
     # fullname-* will allow access from the
     # other services in the same namespace
