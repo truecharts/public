@@ -2,6 +2,7 @@
 {{- define "authentik.configmaps" -}}
 
   {{- $fullname := include "tc.v1.common.lib.chart.names.fullname" $ -}}
+  {{- $serverHost := printf "https://%v:%v" $fullname .Values.service.main.ports.main.port -}}
   {{- $host := .Values.chartContext.APPURL }}
 server:
   enabled: true
@@ -23,6 +24,7 @@ server-worker:
 
     {{/* Outposts */}}
     AUTHENTIK_OUTPOSTS__DISCOVER: "false"
+    AUTHENTIK_OUTPOSTS__DISABLE_EMBEDDED_OUTPOST: {{ .Values.authentik.outposts.disableEmbeddedOutpost | quote }}
 
     {{/* GeoIP */}}
     {{- $geoipPath := (printf "/geoip/%v.mmdb" .Values.authentik.geoip.editionID) -}}
@@ -74,13 +76,26 @@ server-worker:
     AUTHENTIK_DEFAULT_TOKEN_LENGTH: {{ .Values.authentik.general.tokenLength | quote }}
     AUTHENTIK_IMPERSONATION: {{ .Values.authentik.general.impersonation | quote }}
 
+{{- if .Values.authentik.outposts.proxy.enabled }}
+proxy:
+  enabled: true
+  data:
+    AUTHENTIK_LISTEN__HTTP: {{ printf "0.0.0.0:%v" .Values.service.proxy.ports.http.port | quote }}
+    AUTHENTIK_LISTEN__HTTPS: {{ printf "0.0.0.0:%v" .Values.service.proxy.ports.https.port | quote }}
+    AUTHENTIK_LISTEN__METRICS: {{ printf "0.0.0.0:%v" .Values.service.proxymetrics.ports.proxymetrics.port | quote }}
+    AUTHENTIK_HOST: {{ $serverHost }}
+    AUTHENTIK_INSECURE: "true"
+    # TODO: node ip or ingress host
+    AUTHENTIK_HOST_BROWSER: {{ $host }}
+{{- end -}}
+
 {{- if .Values.authentik.outposts.radius.enabled }}
 radius:
   enabled: true
   data:
     AUTHENTIK_LISTEN__RADIUS: {{ printf "0.0.0.0:%v" .Values.service.radius.ports.radius.port | quote }}
     AUTHENTIK_LISTEN__METRICS: {{ printf "0.0.0.0:%v" .Values.service.radiusmetrics.ports.radiusmetrics.port | quote }}
-    AUTHENTIK_HOST: {{ printf "https://%v:%v" $fullname .Values.service.main.ports.main.port }}
+    AUTHENTIK_HOST: {{ $serverHost }}
     AUTHENTIK_INSECURE: "true"
     # TODO: node ip or ingress host
     AUTHENTIK_HOST_BROWSER: {{ $host }}
@@ -93,7 +108,7 @@ ldap:
     AUTHENTIK_LISTEN__LDAP: {{ printf "0.0.0.0:%v" .Values.service.ldap.ports.ldap.port | quote }}
     AUTHENTIK_LISTEN__LDAPS: {{ printf "0.0.0.0:%v" .Values.service.ldaps.ports.ldaps.port | quote }}
     AUTHENTIK_LISTEN__METRICS: {{ printf "0.0.0.0:%v" .Values.service.ldapmetrics.ports.ldapmetrics.port | quote }}
-    AUTHENTIK_HOST: {{ printf "https://%v:%v" $fullname .Values.service.main.ports.main.port }}
+    AUTHENTIK_HOST: {{ $serverHost }}
     AUTHENTIK_INSECURE: "true"
     # TODO: node ip or ingress host
     AUTHENTIK_HOST_BROWSER: {{ $host }}

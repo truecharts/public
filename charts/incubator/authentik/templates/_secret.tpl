@@ -47,6 +47,13 @@ geoip:
     GEOIPUPDATE_LICENSE_KEY: {{ .Values.authentik.geoip.licenseKey | quote }}
 {{- end -}}
 
+{{- if .Values.authentik.outposts.proxy.enabled }}
+proxy:
+  enabled: true
+  data:
+    AUTHENTIK_TOKEN: {{ .Values.authentik.outposts.proxy.token | quote }}
+{{- end -}}
+
 {{- if .Values.authentik.outposts.radius.enabled }}
 radius:
   enabled: true
