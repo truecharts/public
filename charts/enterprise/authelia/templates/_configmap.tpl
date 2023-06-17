@@ -32,41 +32,41 @@ enabled: true
 data:
   configuration.yaml: |
     ---
-    theme: {{ default "light" .Values.theme }}
+    theme: {{ .Values.theme | default "light" }}
     default_redirection_url: {{ default (printf "https://www.%s" .Values.domain) .Values.default_redirection_url }}
     ntp:
-      address:  {{ default "time.cloudflare.com:123" .Values.ntp.address }}
-      version: {{ default 4 .Values.ntp.version }}
-      max_desync: {{ default "3s" .Values.ntp.max_desync }}
-      disable_startup_check: {{ default false .Values.ntp.disable_startup_check }}
-      disable_failure: {{ default true .Values.ntp.disable_failure }}
+      address:  {{ .Values.ntp.address | default "time.cloudflare.com:123" }}
+      version: {{ .Values.ntp.version | default 4 }}
+      max_desync: {{ .Values.ntp.max_desync | default "3s" }}
+      disable_startup_check: {{ .Values.ntp.disable_startup_check | default false }}
+      disable_failure: {{ .Values.ntp.disable_failure |  default true }}
     server:
       host: 0.0.0.0
-      port: {{ default 9091 .Values.server.port }}
-      {{- if not (eq "" (default "" .Values.server.path)) }}
+      port: {{ .Values.server.port | default 9091 }}
+      {{- if ne "" (.Values.server.path | default "") }}
       path: {{ .Values.server.path }}
       {{- end }}
       buffers:
-        write: {{ default 4096 .Values.server.write_buffer_size }}
-        read: {{ default 4096 .Values.server.read_buffer_size }}
-      enable_pprof: {{ default false .Values.server.enable_pprof }}
-      enable_expvars: {{ default false .Values.server.enable_expvars }}
+        write: {{ .Values.server.write_buffer_size | default 4096 }}
+        read: {{ .Values.server.read_buffer_size | default 4096 }}
+      enable_pprof: {{ .Values.server.enable_pprof | default false }}
+      enable_expvars: {{ .Values.server.enable_expvars | default false }}
     log:
-      level: {{ default "info" .Values.log.level }}
-      format: {{ default "text" .Values.log.format }}
-      {{- if not (eq "" (default "" .Values.log.file_path)) }}
+      level: {{ .Values.log.level | default "info" }}
+      format: {{ .Values.log.format | default "text" }}
+      {{- if ne "" (.Values.log.file_path | default "") }}
       file_path: {{ .Values.log.file_path }}
       keep_stdout: true
       {{- end }}
     totp:
-      issuer: {{ default .Values.domain .Values.totp.issuer }}
-      period: {{ default 30 .Values.totp.period }}
-      skew: {{ default 1 .Values.totp.skew }}
+      issuer: {{ .Values.totp.issuer | default .Values.domain }}
+      period: {{ .Values.totp.period | default 30 }}
+      skew: {{ .Values.totp.skew | default 1 }}
     {{- if .Values.duo_api.enabled }}
     duo_api:
       hostname: {{ .Values.duo_api.hostname }}
       integration_key: {{ .Values.duo_api.integration_key }}
-    {{- end }}
+    {{- end -}}
     {{- with $auth := .Values.authentication_backend }}
     authentication_backend:
       password_reset:
@@ -74,95 +74,121 @@ data:
     {{- if $auth.file.enabled }}
       file:
         path: {{ $auth.file.path }}
-        password: {{ toYaml $auth.file.password | nindent 10 }}
-    {{- end }}
+        password:
+          {{- $p := $auth.file.password -}}
+          {{- if $p.algorithm }}
+          algorithm: {{ $p.algorithm }}
+          {{- end -}}
+          {{- if $p.iterations }}
+          iterations: {{ $p.iterations }}
+          {{- end -}}
+          {{- if $p.key_length }}
+          key_length: {{ $p.key_length }}
+          {{- end -}}
+          {{- if $p.salt_length }}
+          salt_length: {{ $p.salt_length }}
+          {{- end -}}
+          {{- if $p.memory }}
+          memory: {{ $p.memory }}
+          {{- end -}}
+          {{- if $p.parallelism }}
+          parallelism: {{ $p.parallelism }}
+          {{- end -}}
+    {{- end -}}
     {{- if $auth.ldap.enabled }}
       ldap:
-        implementation: {{ default "custom" $auth.ldap.implementation }}
+        implementation: {{ $auth.ldap.implementation | default "custom" }}
         url: {{ $auth.ldap.url }}
-        timeout: {{ default "5s" $auth.ldap.timeout }}
+        timeout: {{ $auth.ldap.timeout | default "5s" }}
         start_tls: {{ $auth.ldap.start_tls }}
         tls:
           {{- if hasKey $auth.ldap.tls "server_name" }}
-          server_name: {{ default $auth.ldap.host $auth.ldap.tls.server_name }}
+          server_name: {{ $auth.ldap.tls.server_name | default $auth.ldap.host }}
           {{- end }}
-          minimum_version: {{ default "TLS1.2" $auth.ldap.tls.minimum_version }}
-          skip_verify: {{ default false $auth.ldap.tls.skip_verify }}
+          minimum_version: {{ $auth.ldap.tls.minimum_version | default "TLS1.2" }}
+          skip_verify: {{ $auth.ldap.tls.skip_verify | default false }}
     {{- if $auth.ldap.base_dn }}
         base_dn: {{ $auth.ldap.base_dn }}
-    {{- end }}
+    {{- end -}}
     {{- if $auth.ldap.username_attribute }}
         username_attribute: {{ $auth.ldap.username_attribute }}
-    {{- end }}
+    {{- end -}}
     {{- if $auth.ldap.additional_users_dn }}
         additional_users_dn: {{ $auth.ldap.additional_users_dn }}
-    {{- end }}
+    {{- end -}}
     {{- if $auth.ldap.users_filter }}
         users_filter: {{ $auth.ldap.users_filter }}
-    {{- end }}
+    {{- end -}}
     {{- if $auth.ldap.additional_groups_dn }}
         additional_groups_dn: {{ $auth.ldap.additional_groups_dn }}
-    {{- end }}
+    {{- end -}}
     {{- if $auth.ldap.groups_filter }}
         groups_filter: {{ $auth.ldap.groups_filter }}
-    {{- end }}
+    {{- end -}}
     {{- if $auth.ldap.group_name_attribute }}
         group_name_attribute: {{ $auth.ldap.group_name_attribute }}
-    {{- end }}
+    {{- end -}}
     {{- if $auth.ldap.mail_attribute }}
         mail_attribute: {{ $auth.ldap.mail_attribute }}
-    {{- end }}
+    {{- end -}}
     {{- if $auth.ldap.display_name_attribute }}
         display_name_attribute: {{ $auth.ldap.display_name_attribute }}
     {{- end }}
         user: {{ $auth.ldap.user }}
-    {{- end }}
-    {{- end }}
+    {{- end -}}
+    {{- end -}}
     {{- with $session := .Values.session }}
     session:
-      name: {{ default "authelia_session" $session.name }}
+      name: {{ $session.name | default "authelia_session" }}
       domain: {{ required "A valid .Values.domain entry required!" $.Values.domain }}
-      same_site: {{ default "lax" $session.same_site }}
-      expiration: {{ default "1M" $session.expiration }}
-      inactivity: {{ default "5m" $session.inactivity }}
-      remember_me_duration: {{ default "1M" $session.remember_me_duration }}
+      same_site: {{ $session.same_site | default "lax" }}
+      expiration: {{ $session.expiration | default "1M" }}
+      inactivity: {{ $session.inactivity | default "5m" }}
+      remember_me_duration: {{ $session.remember_me_duration | default "1M" }}
     {{- end }}
       redis:
         host: {{ .Values.redis.creds.plain }}
       {{- with $redis := .Values.redisProvider }}
-        port: {{ default 6379 $redis.port }}
+        port: {{ $redis.port | default 6379 }}
         {{- if not (eq $redis.username "") }}
         username: {{ $redis.username }}
         {{- end }}
-        maximum_active_connections: {{ default 8 $redis.maximum_active_connections }}
-        minimum_idle_connections: {{ default 0 $redis.minimum_idle_connections }}
+        maximum_active_connections: {{ $redis.maximum_active_connections | default 8 }}
+        minimum_idle_connections: {{ $redis.minimum_idle_connections | default 0 }}
     {{- if $redis.tls.enabled }}
         tls:
           server_name: {{ $redis.tls.server_name }}
-          minimum_version: {{ default "TLS1.2" $redis.tls.minimum_version }}
+          minimum_version: {{ $redis.tls.minimum_version | default "TLS1.2" }}
           skip_verify: {{ $redis.tls.skip_verify }}
     {{- end }}
     {{- if $redis.high_availability.enabled }}
         high_availability:
           sentinel_name: {{ $redis.high_availability.sentinel_name }}
     {{- if $redis.high_availability.nodes }}
-          nodes: {{ toYaml $redis.high_availability.nodes | nindent 10 }}
+          nodes:
+          {{- range $node := $redis.high_availability.nodes }}
+          - host: {{ $node.host }}
+            port: {{ $node.port | default 26379 }}
+          {{- end -}}
     {{- end }}
           route_by_latency: {{ $redis.high_availability.route_by_latency }}
           route_randomly: {{ $redis.high_availability.route_randomly }}
       {{- end }}
     {{- end }}
-    regulation: {{ toYaml .Values.regulation | nindent 6 }}
+    regulation:
+      max_retries: {{ .Values.regulation.max_retries | default 3 }}
+      find_time: {{ .Values.regulation.find_time | default "1m" }}
+      ban_time: {{ .Values.regulation.ban_time | default "5m" }}
     storage:
       postgres:
         host: {{ $.Values.cnpg.main.creds.host }}
     {{- with $storage := .Values.storage }}
-        port: {{ default 5432 $storage.postgres.port }}
-        database: {{ default "authelia" $storage.postgres.database }}
-        username: {{ default "authelia" $storage.postgres.username }}
-        timeout: {{ default "5s" $storage.postgres.timeout }}
+        port: {{ $storage.postgres.port | default 5432 }}
+        database: {{ $storage.postgres.database | default "authelia" }}
+        username: {{ $storage.postgres.username | default "authelia" }}
+        timeout: {{ $storage.postgres.timeout | default "5s" }}
         ssl:
-          mode: {{ default "disable" $storage.postgres.sslmode }}
+          mode: {{ $storage.postgres.sslmode | default "disable" }}
     {{- end }}
     {{- with $notifier := .Values.notifier }}
     notifier:
@@ -174,8 +200,8 @@ data:
     {{- if $notifier.smtp.enabled }}
       smtp:
         host: {{ $notifier.smtp.host }}
-        port: {{ default 25 $notifier.smtp.port }}
-        timeout: {{ default "5s" $notifier.smtp.timeout }}
+        port: {{ $notifier.smtp.port | default 25 }}
+        timeout: {{ $notifier.smtp.timeout | default "5s" }}
         {{- with $notifier.smtp.username }}
         username: {{ . }}
         {{- end }}
@@ -186,50 +212,65 @@ data:
         disable_require_tls: {{ $notifier.smtp.disable_require_tls }}
         disable_html_emails: {{ $notifier.smtp.disable_html_emails }}
         tls:
-          server_name: {{ default $notifier.smtp.host $notifier.smtp.tls.server_name }}
-          minimum_version: {{ default "TLS1.2" $notifier.smtp.tls.minimum_version }}
-          skip_verify: {{ default false $notifier.smtp.tls.skip_verify }}
+          server_name: {{ $notifier.smtp.tls.server_name | default $notifier.smtp.host }}
+          minimum_version: {{ $notifier.smtp.tls.minimum_version | default "TLS1.2" }}
+          skip_verify: {{ $notifier.smtp.tls.skip_verify | default false }}
     {{- end }}
     {{- end }}
     {{- if .Values.identity_providers.oidc.enabled }}
     identity_providers:
       oidc:
-        access_token_lifespan: {{ default "1h" .Values.identity_providers.oidc.access_token_lifespan }}
-        authorize_code_lifespan: {{ default "1m" .Values.identity_providers.oidc.authorize_code_lifespan }}
-        id_token_lifespan: {{ default "1h" .Values.identity_providers.oidc.id_token_lifespan }}
-        refresh_token_lifespan: {{ default "90m" .Values.identity_providers.oidc.refresh_token_lifespan }}
-        enable_client_debug_messages: {{ default false .Values.identity_providers.oidc.enable_client_debug_messages }}
-        minimum_parameter_entropy: {{ default 8 .Values.identity_providers.oidc.minimum_parameter_entropy }}
-        {{- if gt (len .Values.identity_providers.oidc.clients) 0 }}
+        access_token_lifespan: {{ .Values.identity_providers.oidc.access_token_lifespan | default "1h" }}
+        authorize_code_lifespan: {{ .Values.identity_providers.oidc.authorize_code_lifespan | default "1m" }}
+        id_token_lifespan: {{ .Values.identity_providers.oidc.id_token_lifespan | default "1h" }}
+        refresh_token_lifespan: {{ .Values.identity_providers.oidc.refresh_token_lifespan | default "90m" }}
+        enable_client_debug_messages: {{ .Values.identity_providers.oidc.enable_client_debug_messages | default false }}
+        minimum_parameter_entropy: {{ .Values.identity_providers.oidc.minimum_parameter_entropy | default 8 }}
+        {{- if .Values.identity_providers.oidc.clients  }}
         clients:
     {{- range $client := .Values.identity_providers.oidc.clients }}
         - id: {{ $client.id }}
-          description: {{ default $client.id $client.description }}
-          secret: {{ default (randAlphaNum 128) $client.secret }}
+          description: {{ $client.description | default $client.id }}
+          secret: {{ $client.secret | default (randAlphaNum 128) }}
           {{- if $client.public }}
           public: {{ $client.public }}
           {{- end }}
-          authorization_policy: {{ default "two_factor" $client.authorization_policy }}
-          consent_mode: {{ default "auto" $client.consent_mode}}
+          authorization_policy: {{ $client.authorization_policy | default "two_factor" }}
+          consent_mode: {{ $client.consent_mode | default "auto" }}
           redirect_uris:
           {{- range $client.redirect_uris }}
           - {{ . }}
           {{- end }}
           {{- if $client.audience }}
-          audience: {{ toYaml $client.audience | nindent 10 }}
+          audience:
+            {{- range $client.audience }}
+            - {{ . }}
+            {{- end }}
           {{- end }}
-          scopes: {{ toYaml (default (list "openid" "profile" "email" "groups") $client.scopes) | nindent 10 }}
-          grant_types: {{ toYaml (default (list "refresh_token" "authorization_code") $client.grant_types) | nindent 10 }}
-          response_types: {{ toYaml (default (list "code") $client.response_types) | nindent 10 }}
+          scopes:
+          {{- range ($client.scopes | default (list "openid" "profile" "email" "groups")) }}
+            - {{ . }}
+          {{- end }}
+          grant_types:
+          {{- range ($client.grant_types | default (list "refresh_token" "authorization_code")) }}
+            - {{ . }}
+          {{- end }}
+          response_types:
+          {{- range ($client.response_types | default (list "code")) }}
+            - {{ . }}
+          {{- end }}
           {{- if $client.response_modes }}
-          response_modes: {{ toYaml $client.response_modes | nindent 10 }}
+          response_modes:
+          {{- range $client.response_modes }}
+            - {{ . }}
           {{- end }}
-          userinfo_signing_algorithm: {{ default "none" $client.userinfo_signing_algorithm }}
+          {{- end }}
+          userinfo_signing_algorithm: {{ $client.userinfo_signing_algorithm | default "none" }}
     {{- end }}
     {{- end }}
     {{- end }}
     access_control:
-    {{- if (eq (len .Values.access_control.rules) 0) }}
+    {{- if not .Values.access_control.rules }}
       {{- if (eq .Values.access_control.default_policy "bypass") }}
       default_policy: one_factor
       {{- else if (eq .Values.access_control.default_policy "deny") }}
@@ -240,15 +281,69 @@ data:
     {{- else }}
       default_policy: {{ .Values.access_control.default_policy }}
     {{- end }}
-    {{- if (eq (len .Values.access_control.networks) 0) }}
+
+    {{- if not .Values.access_control.networks }}
       networks: []
     {{- else }}
-      networks: {{ toYaml .Values.access_control.networks | nindent 6 }}
+      networks:
+    {{- range $net := .Values.access_control.networks }}
+      - name: {{ $net.name }}
+        networks:
+          {{- range $net.networks }}
+          - {{ . | squote }}
+          {{- end }}
     {{- end }}
-    {{- if (eq (len .Values.access_control.rules) 0) }}
+    {{- end }}
+
+    {{- if not .Values.access_control.rules }}
       rules: []
     {{- else }}
-      rules: {{ toYaml .Values.access_control.rules | nindent 6 }}
+      rules:
+    {{- range $rule := .Values.access_control.rules }}
+      {{- if $rule.domain }}
+      - domain:
+        {{- if kindIs "string" $rule.domain }}
+          - {{ $rule.domain | squote }}
+        {{- else -}}
+          {{- range $rule.domain }}
+          - {{ . | squote }}
+          {{- end }}
+        {{- end }}
+      {{- end -}}
+      {{- with $rule.policy }}
+        policy: {{ . }}
+      {{- end -}}
+      {{- if $rule.networks }}
+        networks:
+        {{- if kindIs "string" $rule.networks }}
+          - {{ $rule.networks | squote }}
+        {{- else -}}
+          {{- range $rule.networks }}
+            - {{ . | squote }}
+          {{- end }}
+        {{- end }}
+      {{- end }}
+      {{- if $rule.subject }}
+        subject:
+        {{- if kindIs "string" $rule.subject }}
+          - {{ $rule.subject | squote }}
+        {{- else -}}
+          {{- range $rule.subject }}
+            - {{ . | squote }}
+          {{- end }}
+        {{- end }}
+      {{- end }}
+      {{- if $rule.resources }}
+        resources:
+        {{- if kindIs "string" $rule.resources }}
+          - {{ $rule.resources | squote }}
+        {{- else -}}
+          {{- range $rule.resources }}
+            - {{ . | squote }}
+          {{- end }}
+        {{- end }}
+      {{- end }}
+    {{- end }}
     {{- end }}
     ...
 {{- end -}}
