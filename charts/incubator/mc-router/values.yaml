@@ -32,7 +32,7 @@ workload:
               type: tcp
           env:
             PORT: "{{ .Values.service.main.ports.main.port }}"
-            API_BINDING: "{{ .Values.service.api.ports.main.api }}"
+            API_BINDING: ":{{ .Values.service.api.ports.api.port }}"
             MAPPING: ""
 
 portal:
