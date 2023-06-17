@@ -42,7 +42,9 @@ function check_chart_schema(){
     yamale_output=$(yamale --schema .github/chart_schema.yaml "$chart_path/Chart.yaml")
     yamale_exit_code=$?
     while IFS= read -r line; do
-        echo -e "\t$line"
+        if [[ -n $line ]]; then
+            echo -e "\t$line"
+        fi
     done <<< "$yamale_output"
 
     if [ $yamale_exit_code -ne 0 ]; then
@@ -61,7 +63,9 @@ function helm_lint(){
     helm_lint_output=$(helm lint --quiet "$chart_path")
     helm_lint_exit_code=$?
     while IFS= read -r line; do
-        echo -e "\t$line"
+        if [[ -n $line ]]; then
+            echo -e "\t$line"
+        fi
     done <<< "$helm_lint_output"
 
     if [ $helm_lint_exit_code -ne 0 ]; then
@@ -75,12 +79,19 @@ export -f helm_lint
 
 function helm_template(){
     chart_path=${1:?"No chart path provided to [Helm template]"}
+    values=${2:-}
+
+    if [[ -n "$values" ]]; then
+        values="-f $values"
+    fi
 
     # Print only errors and warnings
-    helm_template_output=$(helm template "$chart_path" 2>&1 >/dev/null)
+    helm_template_output=$(helm template $values "$chart_path" 2>&1 >/dev/null)
     helm_template_exit_code=$?
     while IFS= read -r line; do
-        echo -e "\t$line"
+        if [[ -n $line ]]; then
+            echo -e "\t$line"
+        fi
     done <<< "$helm_template_output"
 
     if [ $helm_template_exit_code -ne 0 ]; then
@@ -98,7 +109,9 @@ function yaml_lint(){
     yaml_lint_output=$(yamllint --config-file .github/yaml-lint-conf.yaml "$file_path")
     yaml_lint_exit_code=$?
     while IFS= read -r line; do
-        echo -e "\t$line"
+        if [[ -n $line ]]; then
+            echo -e "\t$line"
+        fi
     done <<< "$yaml_lint_output"
 
     if [ $yaml_lint_exit_code -ne 0 ]; then
@@ -132,7 +145,7 @@ function lint_chart(){
         for values in $chart_path/ci/*values.yaml; do
             if [ -f "${values}" ]; then
                 echo "👣 Helm Template - [$values]"
-                helm_template "$chart_path" -f "$values"
+                helm_template "$chart_path" "$values"
             fi
         done
 
@@ -168,6 +181,7 @@ function lint_chart(){
         echo ''
     } > "$curr_result_file"
     cat "$curr_result_file"
+    # $curr_result starts with 0, and it gets set to 1 only when a linting step fails
     echo $curr_result >> "$status_file"
 }
 export -f lint_chart

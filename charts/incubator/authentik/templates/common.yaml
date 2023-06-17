@@ -25,6 +25,10 @@
 
 {{- if .Values.authentik.outposts.proxy.enabled -}}
   {{- $_ := set .Values.workload.proxy "enabled" true -}}
+  {{- if not .Values.workload.proxy.podSpec.initContainers -}}
+    {{- $_ := set .Values.workload.proxy.podSpec "initContainers" dict -}}
+  {{- end -}}
+  {{- $_ := set .Values.workload.proxy.podSpec.initContainers "wait-server" (include "authentik.wait.server" . | fromYaml) -}}
   {{- $_ := set .Values.service.proxy "enabled" true -}}
   {{- $_ := set .Values.service.proxymetrics "enabled" true -}}
   {{- $_ := set .Values.metrics.proxymetrics "enabled" true -}}
@@ -37,6 +41,10 @@
 
 {{- if .Values.authentik.outposts.radius.enabled -}}
   {{- $_ := set .Values.workload.radius "enabled" true -}}
+  {{- if not .Values.workload.radius.podSpec.initContainers -}}
+    {{- $_ := set .Values.workload.radius.podSpec "initContainers" dict -}}
+  {{- end -}}
+  {{- $_ := set .Values.workload.radius.podSpec.initContainers "wait-server" (include "authentik.wait.server" . | fromYaml) -}}
   {{- $_ := set .Values.service.radius "enabled" true -}}
   {{- $_ := set .Values.service.radiusmetrics "enabled" true -}}
   {{- $_ := set .Values.metrics.radiusmetrics "enabled" true -}}
@@ -49,6 +57,10 @@
 
 {{- if .Values.authentik.outposts.ldap.enabled -}}
   {{- $_ := set .Values.workload.ldap "enabled" true -}}
+  {{- if not .Values.workload.ldap.podSpec.initContainers -}}
+    {{- $_ := set .Values.workload.ldap.podSpec "initContainers" dict -}}
+  {{- end -}}
+  {{- $_ := set .Values.workload.ldap.podSpec.initContainers "wait-server" (include "authentik.wait.server" . | fromYaml) -}}
   {{- $_ := set .Values.service.ldap "enabled" true -}}
   {{- $_ := set .Values.service.ldaps "enabled" true -}}
   {{- $_ := set .Values.service.ldapmetrics "enabled" true -}}
