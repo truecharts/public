@@ -36,6 +36,7 @@ redis-session:
   enabled: true
   data:
     redis-session.ini: |
+      session.save_handler = redis
       session.save_path = {{ printf "tcp://%v:6379?auth=%v" $redisHost $redisPass | quote }}
       redis.session.locking_enabled = 1
       redis.session.lock_retries = -1
