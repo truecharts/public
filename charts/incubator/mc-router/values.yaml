@@ -32,8 +32,8 @@ workload:
             startup:
               enabled: false
           env:
-            API_BINDING: ":{{ .Values.service.api.ports.api.port }}"
-            PORT: "{{ .Values.service.main.ports.main.port }}"
+            API_BINDING: ":{{ .Values.service.main.ports.main.port }}"
+            PORT: "{{ .Values.service.minecraft.ports.minecraft.port }}"
             MAPPING:
               secretKeyRef:
                 name: secrets
