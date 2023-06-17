@@ -13,6 +13,7 @@ function check_version() {
     if [[ -z "$chart_changes" ]]; then
         echo -e "\tLooks like only docs changed. Skipping chart version check"
         echo -e "\t✅ Chart version: No bump required"
+        echo ''
         return
     fi
 
