@@ -11,7 +11,7 @@ function check_version() {
     chart_changes=$(git diff --summary "$target_branch" -- $chart_dir ":(exclude)$chart_dir/docs")
 
     if [[ -z "$chart_changes" ]]; then
-        echo "Looks like only docs changed. Skipping chart version check"
+        echo -e "\tLooks like only docs changed. Skipping chart version check"
         echo -e "\t✅ Chart version: No bump required"
         return
     fi
