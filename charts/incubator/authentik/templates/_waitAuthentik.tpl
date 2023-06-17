@@ -9,12 +9,12 @@ args:
   - -c
   - |
     echo "Waiting Authentik Server [{{ $serverUrl }}] to be ready..."
-    until curl --silent --insecure --output /dev/null {{ $serverUrl }};
+    until wget --spider --quiet "{{ $serverUrl }}";
     do
       echo "Waiting Authentik Server [{{ $serverUrl }}] to be ready..."
       sleep 3
     done
 
-    echo "Authentik is ready..."
+    echo "Authentik [{{ $serverUrl }}] is ready..."
     echo "Starting Outpost..."
 {{- end -}}
