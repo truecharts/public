@@ -18,6 +18,11 @@ radiusImage:
   tag: v2023.5.3@sha256:d46f4dbc727d5d6f6c91df0f6a2bf98d2c941de908fdc15193552413331e375b
   pullPolicy: IfNotPresent
 
+proxyImage:
+  repository: tccr.io/truecharts/authentik-proxy
+  tag: v2023.5.3@sha256:d46f4dbc727d5d6f6c91df0f6a2bf98d2c941de908fdc15193552413331e375b
+  pullPolicy: IfNotPresent
+
 authentik:
   credentials:
     # Only works on initial install
@@ -65,6 +70,11 @@ authentik:
     accountID: ""
     licenseKey: ""
   outposts:
+    # Experimental feature
+    disableEmbeddedOutpost: false
+    proxy:
+      enabled: false
+      token: ""
     radius:
       enabled: false
       token: ""
@@ -156,6 +166,44 @@ workload:
               type: exec
               command:
                - /lifecycle/ak
+               - healthcheck
+
+  # ===== PROXY =====
+  proxy:
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
+        proxy:
+          enabled: true
+          primary: true
+          imageSelector: proxyImage
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+          envFrom:
+            - configMapRef:
+                name: proxy
+            - secretRef:
+                name: proxy
+          probes:
+            liveness:
+              enabled: true
+              type: exec
+              command:
+               - /proxy
+               - healthcheck
+            readiness:
+              enabled: true
+              type: exec
+              command:
+               - /proxy
+               - healthcheck
+            startup:
+              enabled: true
+              type: exec
+              command:
+               - /proxy
                - healthcheck
 
   # ===== RADIUS =====
@@ -278,6 +326,16 @@ service:
         enabled: true
         protocol: http
         port: 10230
+  # Proxy
+  proxy:
+    ports:
+      http:
+        protocol: http
+        port: 10227
+      https:
+        enabled: true
+        protocol: https
+        port: 10228
   # Radius
   radius:
     enabled: true
@@ -327,6 +385,15 @@ service:
         enabled: true
         protocol: http
         port: 10233
+  # Proxy Metrics
+  proxymetrics:
+    enabled: true
+    type: ClusterIP
+    ports:
+      proxymetrics:
+        enabled: true
+        protocol: http
+        port: 10234
 
 persistence:
   media:
@@ -387,7 +454,7 @@ portal:
     enabled: true
 
 metrics:
-  # FIXME: Metris do not work yet
+  # FIXME: Metrics do not work yet
   servermetrics:
     enabled: true
     type: servicemonitor
@@ -409,6 +476,14 @@ metrics:
     type: servicemonitor
     endpoints:
       - port: "{{ .Values.service.ldapmetrics.ports.ldapmetrics.port }}"
+        path: /metrics
+    prometheusRule:
+      enabled: false
+  proxymetrics:
+    enabled: true
+    type: servicemonitor
+    endpoints:
+      - port: "{{ .Values.service.proxymetrics.ports.proxymetrics.port }}"
         path: /metrics
     prometheusRule:
       enabled: false
