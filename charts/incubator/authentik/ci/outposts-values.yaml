@@ -1,4 +1,3 @@
-
 authentik:
   credentials:
     bootstrapToken: some_super_secret_token
@@ -8,8 +7,12 @@ authentik:
       enabled: true
       token: some_super_secret_token
     radius:
-      enabled: true
+      # Can't enable it before creating a
+      # provider in the GUI
+      enabled: false
       token: some_super_secret_token
     ldap:
-      enabled: true
+      # Can't enable it before creating a
+      # provider in the GUI
+      enabled: false
       token: some_super_secret_token
