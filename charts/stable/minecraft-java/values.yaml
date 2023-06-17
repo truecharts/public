@@ -64,10 +64,6 @@ service:
       main:
         type: tcp
         port: 25565
-      query:
-        enabled: true
-        type: udp
-        port: 25565
   rcon:
     enabled: true
     ports:
@@ -99,7 +95,7 @@ workload:
                 - mc-health
           env:
             SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
-            QUERY_PORT: "{{ .Values.service.main.ports.query.query }}"
+            QUERY_PORT: "{{ .Values.service.main.ports.main.query }}"
             RCON_PORT: "{{ .Values.service.rcon.ports.rcon.port }}"
             ENABLE_QUERY: "true"
             EULA: "TRUE"
