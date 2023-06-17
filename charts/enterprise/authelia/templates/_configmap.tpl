@@ -242,13 +242,28 @@ data:
           - {{ . }}
           {{- end }}
           {{- if $client.audience }}
-          audience: {{ toYaml $client.audience | nindent 10 }}
+          audience:
+            {{- range $client.audience }}
+            - {{ . }}
+            {{- end }}
           {{- end }}
-          scopes: {{ toYaml (default (list "openid" "profile" "email" "groups") $client.scopes) | nindent 10 }}
-          grant_types: {{ toYaml (default (list "refresh_token" "authorization_code") $client.grant_types) | nindent 10 }}
-          response_types: {{ toYaml (default (list "code") $client.response_types) | nindent 10 }}
+          scopes:
+          {{- range ($client.scopes | default (list "openid" "profile" "email" "groups")) }}
+            - {{ . }}
+          {{- end }}
+          grant_types:
+          {{- range ($client.grant_types | default (list "refresh_token" "authorization_code")) }}
+            - {{ . }}
+          {{- end }}
+          response_types:
+          {{- range ($client.response_types | default (list "code")) }}
+            - {{ . }}
+          {{- end }}
           {{- if $client.response_modes }}
-          response_modes: {{ toYaml $client.response_modes | nindent 10 }}
+          response_modes:
+          {{- range $client.response_modes }}
+            - {{ . }}
+          {{- end }}
           {{- end }}
           userinfo_signing_algorithm: {{ $client.userinfo_signing_algorithm | default "none" }}
     {{- end }}
