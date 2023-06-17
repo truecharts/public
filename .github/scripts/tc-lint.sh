@@ -181,6 +181,7 @@ function lint_chart(){
         echo ''
     } > "$curr_result_file"
     cat "$curr_result_file"
+    # $curr_result starts with 0, and it gets set to 1 only when a linting step fails
     echo $curr_result >> "$status_file"
 }
 export -f lint_chart
