@@ -272,11 +272,6 @@ cronjobs:
       - occ preview:pre-generate
       - echo "Finished [occ preview:pre-generate]"
 
-ingress:
-  main:
-    enabled: true
-    hosts:
-     - host: abc.gom
 
 service:
   # Main service links to ingress easier
