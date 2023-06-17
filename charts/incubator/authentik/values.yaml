@@ -28,6 +28,8 @@ authentik:
     # Only works on initial install
     email: my-mail@example.com
     password: my-password
+    # Optional, only set if you want to use it
+    bootstrapToken: ""
   general:
     disableUpdateCheck: false
     disableStartupAnalytics: true

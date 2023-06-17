@@ -22,6 +22,9 @@ server-worker:
     {{/* Initial credentials */}}
     AUTHENTIK_BOOTSTRAP_EMAIL: {{ .Values.authentik.credentials.email | quote }}
     AUTHENTIK_BOOTSTRAP_PASSWORD: {{ .Values.authentik.credentials.password | quote }}
+    {{- with .Values.authentik.credentials.bootstrapToken -}}
+    AUTHENTIK_BOOTSTRAP_TOKEN: {{ . }}
+    {{- end -}}
 
     {{/* Mail */}}
     {{- with .Values.authentik.email.host }}

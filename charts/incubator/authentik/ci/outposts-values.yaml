@@ -1,0 +1,15 @@
+
+authentik:
+  credentials:
+    bootstrapToken: some_super_secret_token
+  outposts:
+    disableEmbeddedOutpost: true
+    proxy:
+      enabled: true
+      token: some_super_secret_token
+    radius:
+      enabled: true
+      token: some_super_secret_token
+    ldap:
+      enabled: true
+      token: some_super_secret_token
