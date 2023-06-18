@@ -57,8 +57,10 @@ j8j9Image:
 
 service:
   main:
+    enabled: true
     ports:
       main:
+        enabled: true
         type: tcp
         port: 25565
       query:
