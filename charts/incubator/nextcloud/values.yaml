@@ -285,6 +285,8 @@ workload:
             runAsUser: 100
             runAsGroup: 102
             readOnlyRootFilesystem: false
+            capabilities:
+              drop: []
           envFrom:
             - configMapRef:
                 name: collabora-config
