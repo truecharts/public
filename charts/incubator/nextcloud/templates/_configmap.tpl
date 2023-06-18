@@ -58,6 +58,29 @@ clamav-config:
     CLAMAV_NO_MILTERD: "true"
     CLAMD_STARTUP_TIMEOUT: "1800"
 
+collabora-config:
+  enabled: {{ .Values.nextcloud.collabora.enabled }}
+  data:
+    aliasgroup1: {{ $accessUrl }}
+    server_name: {{ $accessHostPort }}
+    dictionaries: {{ join " " .Values.nextcloud.collabora.dictionaries }}
+    username: {{ .Values.nextcloud.collabora.username | quote }}
+    password: {{ .Values.nextcloud.collabora.password | quote }}
+    DONT_GEN_SSL_CERT: "true"
+    # mount_jail_tree is only used for local storage
+    # not needed for WOPI https://github.com/CollaboraOnline/online/issues/3604#issuecomment-989833814
+    extra_params: |
+      --o:ssl.enable=false
+      --o:ssl.termination=true
+      --o:net.service_root=/collabora
+      --o:home_mode.enable=true
+      --o:welcome.enable=false
+      --o:logging.level=warning
+      --o:logging.level_startup=warning
+      --o:security.seccomp=true
+      --o:mount_jail_tree=false
+      --o:user_interface.mode={{ .Values.nextcloud.collabora.user_interface_mode }}
+
 nextcloud-config:
   enabled: true
   data:
@@ -76,12 +99,6 @@ nextcloud-config:
     NEXTCLOUD_ADMIN_PASSWORD: {{ .Values.nextcloud.credentials.initialAdminPassword | quote }}
 
     {{/* PHP Variables */}}
-    {{- if not (mustRegexMatch "^[0-9]+(M|G){1}$" .Values.nextcloud.php.memory_limit) -}}
-      {{- fail (printf "Nextcloud - Expected Memory Limit to be in format [1M, 1G] but got [%v]" .Values.nextcloud.php.memory_limit) -}}
-    {{- end -}}
-    {{- if not (mustRegexMatch "^[0-9]+(M|G){1}$" .Values.nextcloud.php.upload_limit) -}}
-      {{- fail (printf "Nextcloud - Expected Memory Limit to be in format [1M, 1G] but got [%v]" .Values.nextcloud.php.upload_limit) -}}
-    {{- end }}
     PHP_MEMORY_LIMIT: {{ .Values.nextcloud.php.memory_limit | quote }}
     PHP_UPLOAD_LIMIT: {{ .Values.nextcloud.php.upload_limit | quote }}
 
@@ -93,9 +110,6 @@ nextcloud-config:
 
     {{/* Previews */}}
     NX_PREVIEWS: {{ .Values.nextcloud.previews.enabled | quote }}
-    {{- if not (deepEqual .Values.nextcloud.previews.providers (uniq .Values.nextcloud.previews.providers)) }}
-      {{- fail (printf "Nextcloud - Expected preview providers to be unique but got [%v]" .Values.nextcloud.previews.providers) }}
-    {{- end }}
     NX_PREVIEW_PROVIDERS: {{ join " " .Values.nextcloud.previews.providers }}
     NX_PREVIEW_MAX_X: {{ .Values.nextcloud.previews.max_x | quote }}
     NX_PREVIEW_MAX_Y: {{ .Values.nextcloud.previews.max_y | quote }}
@@ -143,15 +157,13 @@ nextcloud-config:
     NX_CLAMAV_INFECTED_ACTION: {{ .Values.nextcloud.clamav.infected_action | quote }}
     {{- end }}
 
-    {{- if and .Values.nextcloud.collabora.enabled .Values.nextcloud.onlyoffice.enabled -}}
-      {{- fail "Nextcloud - Expected only one of [Collabora, OnlyOffice] to be enabled" -}}
-    {{- end }}
-
     {{/* Collabora */}}
     NX_COLLABORA: {{ .Values.nextcloud.collabora.enabled | quote }}
     {{- if .Values.nextcloud.collabora.enabled }}
-    NX_COLLABORA_URL: {{ .Values.nextcloud.collabora.url | quote }}
-    NX_COLLABORA_ALLOWLIST: {{ join "," .Values.nextcloud.collabora.allow_list | quote }}
+    NX_COLLABORA_URL: {{ printf "%v/collabora" $accessUrl | quote }}
+    # Ideally this would be a combo of: public ip, pod cidr, svc cidr
+    # But not always people have static IP.
+    NX_COLLABORA_ALLOWLIST: "0.0.0.0/0"
     {{- end }}
 
     {{/* Only Office */}}
