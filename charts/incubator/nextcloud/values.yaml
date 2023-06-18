@@ -287,7 +287,8 @@ workload:
             readOnlyRootFilesystem: false
             allowPrivilegeEscalation: true
             capabilities:
-              drop: []
+              add:
+                - MKNOD
           envFrom:
             - configMapRef:
                 name: collabora-config
