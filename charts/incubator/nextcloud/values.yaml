@@ -281,12 +281,9 @@ workload:
           primary: true
           enabled: true
           imageSelector: collaboraImage
-          # TODO: Check how low we can go
           securityContext:
-            runAsUser: 0
-            runAsGroup: 0
-            runAsNonRoot: false
-            readOnlyRootFilesystem: false
+            runAsUser: 100
+            runAsGroup: 102
           envFrom:
             - configMapRef:
                 name: collabora-config
