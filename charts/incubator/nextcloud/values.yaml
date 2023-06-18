@@ -284,6 +284,7 @@ workload:
           securityContext:
             runAsUser: 100
             runAsGroup: 102
+            readOnlyRootFilesystem: false
           envFrom:
             - configMapRef:
                 name: collabora-config
