@@ -293,6 +293,9 @@ workload:
                 - MKNOD
                 - SETFCAP
                 - SETPCAP
+                - SETUID
+                - SETGID
+                - CHROOT
                 - AUDIT_WRITE
           envFrom:
             - configMapRef:
