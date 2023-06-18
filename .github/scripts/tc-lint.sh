@@ -7,7 +7,6 @@ function check_version() {
     # If only docs changed, skip version check
     # git diff target_branch, filter only on $chart_path and invert match for $chart_path/docs
     # note that it requires branches to be up to date for this to work.
-    git diff --name-status "$target_branch" -- "$chart_path" | grep -v "$chart_path/docs"
     chart_changes=$(git diff --name-status "$target_branch" -- "$chart_path" | grep -v "$chart_path/docs")
 
     if [[ -z "$chart_changes" ]]; then
