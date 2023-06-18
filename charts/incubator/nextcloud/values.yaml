@@ -285,6 +285,7 @@ workload:
             runAsUser: 100
             runAsGroup: 102
             readOnlyRootFilesystem: false
+            allowPrivilegeEscalation: true
             capabilities:
               drop: []
           envFrom:
