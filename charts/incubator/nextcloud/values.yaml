@@ -372,6 +372,7 @@ service:
         targetSelector: clamav
   collabora:
     enabled: true
+    type: ClusterIP
     targetSelector: collabora
     ports:
       collabora:
