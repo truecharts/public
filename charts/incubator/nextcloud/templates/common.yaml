@@ -61,7 +61,7 @@
   {{- $_ := mustMergeOverwrite .Values.workload $cronjobs -}}
 {{- end -}}
 
-{{/* TODO: Do we have to cleanup when something is disabled? */}}
+{{/* TODO: Do we have to cleanup when something (eg Collabora) is disabled? */}}
 {{- include "nextcloud.ingressInjector" $ -}}
 
 {{/* Render the templates */}}
