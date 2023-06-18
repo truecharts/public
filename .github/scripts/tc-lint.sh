@@ -4,13 +4,15 @@ function check_version() {
     chart_path=${1:?"No chart path provided to [Version Check]"}
     target_branch=${2:?"No target branch provided to [Version Check]"}
 
-    chart_dir=$(dirname "$chart_path")
     # If only docs changed, skip version check
-    chart_changes=$(git diff "$target_branch" -- "$chart_dir" :^docs)
+    # git diff target_branch, filter only on $chart_path and invert match for $chart_path/docs
+    # note that it requires branches to be up to date for this to work.
+    chart_changes=$(git diff --name-status "$target_branch" -- "$chart_path" | grep -v "$chart_path/docs")
 
     if [[ -z "$chart_changes" ]]; then
-        echo "Looks like only docs changed. Skipping chart version check"
+        echo -e "\tLooks like only docs changed. Skipping chart version check"
         echo -e "\t✅ Chart version: No bump required"
+        echo ''
         return
     fi
 
@@ -33,6 +35,7 @@ function check_version() {
             curr_result=1
         fi
     fi
+    echo ''
 }
 export -f check_version
 
@@ -53,6 +56,7 @@ function check_chart_schema(){
     else
         echo -e "\t✅ Chart Schema: Passed"
     fi
+    echo ''
 }
 export -f check_chart_schema
 
@@ -74,6 +78,7 @@ function helm_lint(){
     else
         echo -e "\t✅ Helm Lint: Passed"
     fi
+    echo ''
 }
 export -f helm_lint
 
@@ -100,6 +105,7 @@ function helm_template(){
     else
         echo -e "\t✅ Helm template: Passed"
     fi
+    echo ''
 }
 export -f helm_template
 
@@ -120,6 +126,7 @@ function yaml_lint(){
     else
         echo -e "\t✅ YAML Lint: Passed [$file_path]"
     fi
+    echo ''
 }
 export -f yaml_lint
 
