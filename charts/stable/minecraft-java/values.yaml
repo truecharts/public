@@ -62,6 +62,7 @@ service:
         type: tcp
         port: 25565
       query:
+        enabled: true
         type: udp
         port: 25565
   rcon:
