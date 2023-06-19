@@ -10,14 +10,17 @@ workload:
         main:
           probes:
             liveness:
-              type: http
-              path: "{{ .Values.workload.main.podSpec.containers.main.env.TRANSMISSION__RPC_URL }}"
+              enabled: true
+              type: tcp
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
             startup:
-              type: http
-              path: "{{ .Values.workload.main.podSpec.containers.main.env.TRANSMISSION__RPC_URL }}"
+              enabled: true
+              type: tcp
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
             readiness:
-              type: http
-              path: "{{ .Values.workload.main.podSpec.containers.main.env.TRANSMISSION__RPC_URL }}"
+              enabled: true
+              type: tcp
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
           env:
             # PUID: 1001
             # URL is set here so it wont be able to get overwritten by the user

@@ -22,6 +22,9 @@ server-worker:
     {{/* Initial credentials */}}
     AUTHENTIK_BOOTSTRAP_EMAIL: {{ .Values.authentik.credentials.email | quote }}
     AUTHENTIK_BOOTSTRAP_PASSWORD: {{ .Values.authentik.credentials.password | quote }}
+    {{- with .Values.authentik.credentials.bootstrapToken }}
+    AUTHENTIK_BOOTSTRAP_TOKEN: {{ . }}
+    {{- end }}
 
     {{/* Mail */}}
     {{- with .Values.authentik.email.host }}
@@ -35,7 +38,7 @@ server-worker:
     {{- end -}}
     {{- with .Values.authentik.email.from }}
     AUTHENTIK_EMAIL__FROM: {{ . }}
-    {{- end }}
+    {{- end -}}
 
 {{- if .Values.authentik.geoip.enabled }}
 geoip:
@@ -45,6 +48,13 @@ geoip:
     GEOIPUPDATE_PRESERVE_FILE_TIMES: "1"
     GEOIPUPDATE_ACCOUNT_ID: {{ .Values.authentik.geoip.accountID | quote }}
     GEOIPUPDATE_LICENSE_KEY: {{ .Values.authentik.geoip.licenseKey | quote }}
+{{- end -}}
+
+{{- if .Values.authentik.outposts.proxy.enabled }}
+proxy:
+  enabled: true
+  data:
+    AUTHENTIK_TOKEN: {{ .Values.authentik.outposts.proxy.token | quote }}
 {{- end -}}
 
 {{- if .Values.authentik.outposts.radius.enabled }}
@@ -60,4 +70,5 @@ ldap:
   data:
     AUTHENTIK_TOKEN: {{ .Values.authentik.outposts.ldap.token | quote }}
 {{- end -}}
+
 {{- end -}}

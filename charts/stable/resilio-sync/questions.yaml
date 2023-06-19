@@ -90,6 +90,14 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
+        - variable: data
+          label: "App Data Storage"
+          description: "Stores the Application Data."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

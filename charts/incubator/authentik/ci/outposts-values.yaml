@@ -1,0 +1,18 @@
+authentik:
+  credentials:
+    bootstrapToken: some_super_secret_token
+  outposts:
+    disableEmbeddedOutpost: true
+    proxy:
+      enabled: true
+      token: some_super_secret_token
+    radius:
+      # Can't enable it before creating a
+      # provider in the GUI
+      enabled: false
+      token: some_super_secret_token
+    ldap:
+      # Can't enable it before creating a
+      # provider in the GUI
+      enabled: false
+      token: some_super_secret_token

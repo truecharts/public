@@ -119,8 +119,10 @@ service:
         protocol: http
         port: 13000
   wireguard:
+    enabled: true
     ports:
       wireguard:
+        enabled: true
         protocol: udp
         port: 51820
 
