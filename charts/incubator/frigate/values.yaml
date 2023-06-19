@@ -44,10 +44,6 @@ securityContext:
     runAsUser: 0
     runAsGroup: 0
 
-ingress:
-  rtmp:
-    autoLink: true
-
 service:
   main:
     ports:
@@ -62,6 +58,25 @@ service:
         enabled: true
         port: 1935
         targetPort: 1935
+  rtsp:
+    enabled: true
+    ports:
+      rtsp:
+        enabled: true
+        port: 8554
+        targetPort: 8554
+  webrtc:
+    enabled: true
+    ports:
+      webrtc-tcp:
+        enabled: true
+        port: 8555
+        targetPort: 8555
+      webrtc-udp:
+        enabled: true
+        port: 8555
+        protocol: udp
+        targetPort: 8555
 
 persistence:
   media:

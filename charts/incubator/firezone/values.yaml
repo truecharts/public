@@ -1,0 +1,142 @@
+image:
+  repository: tccr.io/truecharts/firezone
+  pullPolicy: IfNotPresent
+  tag: v0.7.30@sha256:e22dc7a9be93a804bbe0e3d301c883625463a3649d856c8b41f80a2257214667
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    PUID: 0
+    runAsUser: 0
+    runAsGroup: 0
+    capabilities:
+      add:
+        - NET_ADMIN
+        - SYS_MODULE
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            # web
+            PHOENIX_HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
+            EXTERNAL_URL: "https://app.mydomain.com"
+            # PHOENIX_SECURE_COOKIES: true
+            # PHOENIX_HTTP_PROTOCOL_OPTIONS: "{}"
+            # PHOENIX_EXTERNAL_TRUSTED_PROXIES: "[]"
+            # PHOENIX_PRIVATE_CLIENTS: "[]"
+            # DB
+            DATABASE_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            DATABASE_PORT: 5432
+            DATABASE_NAME: "{{ .Values.cnpg.main.database }}"
+            DATABASE_USER: "{{ .Values.cnpg.main.user }}"
+            DATABASE_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            # DATABASE_POOL_SIZE
+            DATABASE_SSL_ENABLED: false
+            # DATABASE_SSL_OPTS: "{}"
+            # Admin
+            RESET_ADMIN_ON_BOOT: false
+            DEFAULT_ADMIN_EMAIL: "admin@email.com"
+            DEFAULT_ADMIN_PASSWORD: "1234567890"
+            # Secrets and Encryption
+            GUARDIAN_SECRET_KEY:
+              secretKeyRef:
+                name: secrets
+                key: GUARDIAN_SECRET_KEY
+            DATABASE_ENCRYPTION_KEY:
+              secretKeyRef:
+                name: secrets
+                key: DATABASE_ENCRYPTION_KEY
+            SECRET_KEY_BASE:
+              secretKeyRef:
+                name: secrets
+                key: SECRET_KEY_BASE
+            LIVE_VIEW_SIGNING_SALT:
+              secretKeyRef:
+                name: secrets
+                key: LIVE_VIEW_SIGNING_SALT
+            COOKIE_SIGNING_SALT:
+              secretKeyRef:
+                name: secrets
+                key: COOKIE_SIGNING_SALT
+            COOKIE_ENCRYPTION_SALT:
+              secretKeyRef:
+                name: secrets
+                key: COOKIE_ENCRYPTION_SALT
+            # Devices
+            ALLOW_UNPRIVILEGED_DEVICE_MANAGEMENT: true
+            ALLOW_UNPRIVILEGED_DEVICE_CONFIGURATION: true
+            VPN_SESSION_DURATION: 0
+            DEFAULT_CLIENT_PERSISTENT_KEEPALIVE: 25
+            DEFAULT_CLIENT_MTU: 1280
+            # DEFAULT_CLIENT_ENDPOINT: ""
+            DEFAULT_CLIENT_DNS: "1.1.1.1,1.0.0.1"
+            DEFAULT_CLIENT_ALLOWED_IPS: "0.0.0.0/0, ::/0"
+            # Limits
+            MAX_DEVICES_PER_USER: 10
+            # Authorization
+            LOCAL_AUTH_ENABLED: true
+            DISABLE_VPN_ON_OIDC_ERROR: false
+            SAML_ENTITY_ID: "urn:firezone.dev:firezone-app"
+            # SAML_KEYFILE_PATH: "/var/firezone/saml.key"
+            # SAML_CERTFILE_PATH: "/var/firezone/saml.crt"
+            # OPENID_CONNECT_PROVIDERS: "[]"
+            # SAML_IDENTITY_PROVIDERS: "[]"
+            # WireGuard
+            WIREGUARD_PORT: "{{ .Values.service.wireguard.ports.wireguard.port }}"
+            WIREGUARD_IPV4_ENABLED: true
+            WIREGUARD_IPV6_ENABLED: false
+            # Outbound Emails
+            OUTBOUND_EMAIL_FROM: ""
+            OUTBOUND_EMAIL_ADAPTER: "Elixir.FzHttpWeb.Mailer.NoopAdapter"
+            # OUTBOUND_EMAIL_ADAPTER_OPTS: "{}"
+            # Connectivity Checks
+            CONNECTIVITY_CHECKS_ENABLED: true
+            CONNECTIVITY_CHECKS_INTERVAL: 43200
+            # Telemetry
+            TELEMETRY_ENABLED: false
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 13000
+  wireguard:
+    enabled: true
+    ports:
+      wireguard:
+        enabled: true
+        protocol: udp
+        port: 51820
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/var/firezone"
+
+cnpg:
+  main:
+    enabled: true
+    user: firezone
+    database: firezone
+
+portal:
+  open:
+    enabled: true
