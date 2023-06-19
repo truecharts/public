@@ -61,11 +61,11 @@ service:
     ports:
       main:
         enabled: true
-        type: tcp
+        protocol: tcp
         port: 25565
       query:
         enabled: true
-        type: udp
+        protocol: udp
         port: 25565
   rcon:
     enabled: true
