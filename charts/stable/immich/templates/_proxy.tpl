@@ -12,7 +12,7 @@ podSpec:
       imageSelector: proxyImage
       envFrom:
         - configMapRef:
-            name: common-config
+            name: proxy-config
       probes:
         readiness:
           enabled: true

@@ -13,11 +13,7 @@ podSpec:
       imageSelector: webImage
       envFrom:
         - configMapRef:
-            name: common-config
-        - configMapRef:
             name: web-config
-        - secretRef:
-            name: deps-secret
       probes:
         readiness:
           enabled: true

@@ -13,15 +13,7 @@ podSpec:
       imageSelector: mlImage
       envFrom:
         - configMapRef:
-            name: common-config
-        - configMapRef:
-            name: server-config
-        - configMapRef:
             name: ml-config
-        - secretRef:
-            name: deps-secret
-        - secretRef:
-            name: secret
       probes:
         readiness:
           enabled: true

@@ -19,8 +19,6 @@ podSpec:
         - configMapRef:
             name: common-config
         - configMapRef:
-            name: server-config
-        - configMapRef:
             name: micro-config
       probes:
         readiness:
