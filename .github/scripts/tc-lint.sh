@@ -8,7 +8,11 @@ function check_version() {
     # git diff target_branch, filter only on $chart_path and invert match for $chart_path/docs
     # note that it requires branches to be up to date for this to work.
     chart_changes=$(git diff --name-status "$target_branch" -- "$chart_path" | grep -v "$chart_path/docs")
-    echo "Change files: \n$chart_changes"
+    echo -e "\tChange files: \n$chart_changes"
+
+    git status
+    git log
+
     if [[ -z "$chart_changes" ]]; then
         echo -e "\tLooks like only docs changed. Skipping chart version check"
         echo -e "\t✅ Chart version: No bump required"
