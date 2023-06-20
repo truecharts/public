@@ -32,10 +32,7 @@ immich:
   public_login_page_message: Immich
   disable_reverse_geocoding: false
   reverse_geocoding_precision: 3
-  # simple | verbose
-  log_level: simple
-  mapbox_enable: false
-  mapbox_key: ""
+  log_level: log
 
 service:
   main:
@@ -59,6 +56,50 @@ service:
         port: 10001
         protocol: http
         targetSelector: main
+  web:
+    enabled: true
+    type: ClusterIP
+    targetSelector: web
+    ports:
+      web:
+        enabled: true
+        primary: true
+        port: 10000
+        protocol: http
+        targetSelector: web
+  microservices:
+    enabled: true
+    type: ClusterIP
+    targetSelector: microservices
+    ports:
+      microservices:
+        enabled: true
+        primary: true
+        port: 10004
+        protocol: http
+        targetSelector: microservices
+  machinelearning:
+    enabled: true
+    type: ClusterIP
+    targetSelector: machinelearning
+    ports:
+      machinelearning:
+        enabled: true
+        primary: true
+        port: 10003
+        protocol: http
+        targetSelector: machinelearning
+  typesense:
+    enabled: true
+    type: ClusterIP
+    targetSelector: typesense
+    ports:
+      typesense:
+        enabled: true
+        primary: true
+        port: 10002
+        protocol: http
+        targetSelector: typesense
 
 persistence:
   mlcache:
@@ -91,8 +132,6 @@ persistence:
         main: {}
       microservices:
         microservices: {}
-      machinelearning:
-        machinelearning: {}
   uploads:
     enabled: true
     mountPath: /usr/src/app/upload/upload
@@ -102,8 +141,6 @@ persistence:
         main: {}
       microservices:
         microservices: {}
-      machinelearning:
-        machinelearning: {}
   thumbs:
     enabled: true
     mountPath: /usr/src/app/upload/thumbs
@@ -113,8 +150,6 @@ persistence:
         main: {}
       microservices:
         microservices: {}
-      machinelearning:
-        machinelearning: {}
   profile:
     enabled: true
     mountPath: /usr/src/app/upload/profile
@@ -124,8 +159,6 @@ persistence:
         main: {}
       microservices:
         microservices: {}
-      machinelearning:
-        machinelearning: {}
   video:
     enabled: true
     mountPath: /usr/src/app/upload/encoded-video
@@ -135,8 +168,6 @@ persistence:
         main: {}
       microservices:
         microservices: {}
-      machinelearning:
-        machinelearning: {}
 
 cnpg:
   main:
