@@ -1,11 +1,13 @@
 {{/* Define the web container */}}
 {{- define "immich.web" -}}
+{{- $fname := (include "tc.v1.common.lib.chart.names.fullname" .) -}}
+{{- $url := printf "http://%v-server:%v/server-info/ping" $fname .Values.service.server.ports.server.port }}
 enabled: true
 type: Deployment
 podSpec:
   initContainers:
     wait-server:
-      {{- include "immich.wait" (dict "variable" "IMMICH_SERVER_URL" "path" "server-info/ping") | nindent 6 }}
+      {{- include "immich.wait" (dict "url" $url) | nindent 6 }}
   containers:
     web:
       enabled: true
