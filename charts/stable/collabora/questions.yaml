@@ -99,19 +99,19 @@ questions:
           label: Disable SSL Generation
           description: Disable SSL Generation
           schema:
-            type: bool
+            type: boolean
             default: true
         - variable: ssl_enable
           label: Enable SSL
           description: Enable SSL
           schema:
-            type: bool
+            type: boolean
             default: false
         - variable: ssl_termination
           label: Terminate SSL
           description: Terminate SSL
           schema:
-            type: bool
+            type: boolean
             default: true
         - variable: extra_params
           label: Extra Parameters
