@@ -8,6 +8,9 @@ podSpec:
       enabled: true
       primary: true
       imageSelector: typesenseImage
+      securityContext:
+        capabilities:
+          disableS6Caps: true
       envFrom:
         - secretRef:
             name: typesense-secret

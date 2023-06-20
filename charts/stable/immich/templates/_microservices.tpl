@@ -14,6 +14,9 @@ podSpec:
       primary: true
       imageSelector: image
       args: start-microservices.sh
+      securityContext:
+        capabilities:
+          disableS6Caps: true
       envFrom:
         - secretRef:
             name: secret

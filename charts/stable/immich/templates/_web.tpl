@@ -14,6 +14,12 @@ podSpec:
       enabled: true
       primary: true
       imageSelector: webImage
+      securityContext:
+        capabilities:
+          disableS6Caps: true
+          add:
+            - SETUID
+            - SETGID
       envFrom:
         - configMapRef:
             name: web-config

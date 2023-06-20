@@ -14,6 +14,9 @@ podSpec:
       enabled: true
       primary: true
       imageSelector: mlImage
+      securityContext:
+        capabilities:
+          disableS6Caps: true
       envFrom:
         - configMapRef:
             name: ml-config

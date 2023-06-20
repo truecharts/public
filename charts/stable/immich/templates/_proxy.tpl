@@ -16,6 +16,13 @@ podSpec:
       enabled: true
       primary: true
       imageSelector: proxyImage
+      securityContext:
+        capabilities:
+          disableS6Caps: true
+          add:
+            - CHOWN
+            - SETUID
+            - SETGID
       envFrom:
         - configMapRef:
             name: proxy-config
