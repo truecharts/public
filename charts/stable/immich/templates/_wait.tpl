@@ -3,9 +3,6 @@
 enabled: true
 type: init
 imageSelector: alpineImage
-envFrom:
-  - configMapRef:
-      name: common-config
 command:
   - /bin/ash
   - -c
