@@ -285,18 +285,13 @@ workload:
             runAsUser: 100
             runAsGroup: 102
             readOnlyRootFilesystem: false
-            # TODO: Investigate how to drop
-            # this and the caps. Needs live testing
             allowPrivilegeEscalation: true
             capabilities:
               add:
+                - CHOWN
+                - FOWNER
+                - SYS_CHROOT
                 - MKNOD
-                - SETFCAP
-                - SETPCAP
-                - SETUID
-                - SETGID
-                - CHROOT
-                - AUDIT_WRITE
           envFrom:
             - configMapRef:
                 name: collabora-config
