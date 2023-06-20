@@ -33,16 +33,3 @@ podSpec:
           path: /robots.txt
           port: {{ .Values.service.web.ports.web.port }}
 {{- end -}}
-
-{{- define "immich.web.service" -}}
-enabled: true
-type: ClusterIP
-targetSelector: web
-ports:
-  web:
-    enabled: true
-    primary: true
-    port: 10000
-    protocol: http
-    targetSelector: web
-{{- end -}}

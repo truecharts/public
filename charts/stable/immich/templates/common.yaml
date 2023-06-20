@@ -4,20 +4,22 @@
 {{- $fname := (include "tc.v1.common.lib.chart.names.fullname" .) -}}
 {{- $_ := set .Values.workload "proxy" (include "immich.proxy" . | fromYaml) -}}
 
-{{- $_ := set .Values.service "web" (include "immich.web.service" . | fromYaml) -}}
 {{- $_ := set .Values.workload "web" (include "immich.web" . | fromYaml) -}}
 
-{{- $_ := set .Values.service "microservices" (include "immich.microservices.service" . | fromYaml) -}}
 {{- $_ := set .Values.workload "microservices" (include "immich.microservices" . | fromYaml) -}}
 
 {{- if .Values.immich.enable_ml -}}
-  {{- $_ := set .Values.service "machinelearning" (include "immich.machinelearning.service" . | fromYaml) -}}
+  {{- $_ := set .Values.service.machinelearning "enabled" true -}}
   {{- $_ := set .Values.workload "machinelearning" (include "immich.machinelearning" . | fromYaml) -}}
+{{- else -}}
+  {{- $_ := set .Values.service.machinelearning "enabled" false -}}
 {{- end -}}
 
 {{- if .Values.immich.enable_typesense -}}
-  {{- $_ := set .Values.service "typesense" (include "immich.typesense.service" . | fromYaml) -}}
+  {{- $_ := set .Values.service.typesense "enabled" true -}}
   {{- $_ := set .Values.workload "typesense" (include "immich.typesense" . | fromYaml) -}}
+{{- else -}}
+  {{- $_ := set .Values.service.typesense "enabled" false -}}
 {{- end -}}
 
 {{- $_ := set .Values.workload.main.podSpec.containers "main" (include "immich.server" . | fromYaml) -}}

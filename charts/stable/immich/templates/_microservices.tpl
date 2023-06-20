@@ -48,16 +48,3 @@ podSpec:
             - |
               ps -a | grep -v grep | grep -q microservices
 {{- end -}}
-
-{{- define "immich.microservices.service" -}}
-enabled: true
-type: ClusterIP
-targetSelector: microservices
-ports:
-  microservices:
-    enabled: true
-    primary: true
-    port: 10004
-    protocol: http
-    targetSelector: microservices
-{{- end -}}

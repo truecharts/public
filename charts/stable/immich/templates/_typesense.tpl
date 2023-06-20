@@ -31,16 +31,3 @@ podSpec:
           path: /health
           port: {{ .Values.service.typesense.ports.typesense.port }}
 {{- end -}}
-
-{{- define "immich.typesense.service" -}}
-enabled: true
-type: ClusterIP
-targetSelector: typesense
-ports:
-  typesense:
-    enabled: true
-    primary: true
-    port: 10002
-    protocol: http
-    targetSelector: typesense
-{{- end -}}

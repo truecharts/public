@@ -33,16 +33,3 @@ podSpec:
           path: /ping
           port: {{ .Values.service.machinelearning.ports.machinelearning.port }}
 {{- end -}}
-
-{{- define "immich.machinelearning.service" -}}
-enabled: true
-type: ClusterIP
-targetSelector: machinelearning
-ports:
-  machinelearning:
-    enabled: true
-    primary: true
-    port: 10003
-    protocol: http
-    targetSelector: machinelearning
-{{- end -}}
