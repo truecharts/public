@@ -34,10 +34,9 @@
 
 {{- $_ := set .Values.workload.main.podSpec.containers "main" (include "immich.server" . | fromYaml) -}}
 {{- if .Values.immich.enable_typesense -}}
-  {{/* Append init container to server and microserviecs, to make sure typesense is ready before starting */}}
+  {{/* Append init container to server, to make sure typesense is ready before starting */}}
   {{- $url := printf "http://%v-typesense:%v/health" $fname .Values.service.typesense.ports.typesense.port -}}
   {{- $_ := set .Values.workload.main.podSpec.initContainers "wait-typesense" (include "immich.wait" (dict "url" $url) | fromYaml) -}}
-  {{- $_ := set .Values.workload.microservices.podSpec.initContainers "wait-typesense" (include "immich.wait" (dict "url" $url) | fromYaml) -}}
 {{- end -}}
 
 {{/* Render configuration for immich

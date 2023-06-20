@@ -7,7 +7,9 @@ type: Deployment
 podSpec:
   initContainers:
     wait-server:
+      {{/* Wait for server */}}
       {{- include "immich.wait" (dict "url" $serverUrl) | nindent 6 }}
+      {{/* Wait for web, otherwise nginx will fail to find host */}}
       {{- include "immich.wait" (dict "url" $webUrl) | nindent 6 }}
   containers:
     proxy:
