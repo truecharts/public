@@ -2,25 +2,29 @@ image:
   repository: tccr.io/truecharts/minecraft-java
   tag: v2023.4.1@sha256:c176a9bed87e36f89a79d0927e45677ad5b88edf0452d89934714dcce5243cb7
   pullPolicy: Always
-j19Image:
-  repository: tccr.io/truecharts/minecraft-java19
-  tag: latest@sha256:ee7ca67652074e46034ff660ebe29f45465748244302e1e510a033d794c3a247
+j20Image:
+  repository: tccr.io/truecharts/minecraft-java20
+  tag: latest@sha256:897e4e94c64d46f68858a291079fb53721a638c58b338f6c38ba85615cf1d736
+  pullPolicy: Always
+j20AlpineImage:
+  repository: tccr.io/truecharts/minecraft-java20-alpine
+  tag: v2023.4.1@sha256:2399cba3c7599b9dd50cba372b5051f01e5e07882dd0258759eb2b721fd41abd
   pullPolicy: Always
 j17j9Image:
   repository: tccr.io/truecharts/minecraft-java17-openj9
-  tag: v2023.4.1@sha256:81e86ae5691d594207a9aaabbca34efacb8887e50766b4872ce3d769df3e6eb5
+  tag: v2023.4.1@sha256:a0c78f26955bdd19117db78f008749345af9fbdce7be4724efddeb4e1aea4495
   pullPolicy: Always
 j17jdkImage:
   repository: tccr.io/truecharts/minecraft-java17-jdk
-  tag: v2023.4.1@sha256:281daf069cecacf710e2f3b7b8bdb4882e96bf655605204b2f33f259b5f8cbc9
+  tag: v2023.4.1@sha256:b0e951b55d1b91a1bb6a6ae7b7585526b60d95bd34e11281de7e701197b1d34c
   pullPolicy: Always
 j17gceImage:
   repository: tccr.io/truecharts/minecraft-java17-graalvm-ce
-  tag: latest@sha256:57e90c3b98ff367cb3491c594d95e8cc89cd677f1168430885d3e739c77f7f2f
+  tag: latest@sha256:20e8f1dd890f9ef49a58e865039496a13dd9e46dde723f335cf037122b83a0b2
   pullPolicy: Always
 j17alpineImage:
   repository: tccr.io/truecharts/minecraft-java17-alpine
-  tag: v2023.4.1@sha256:5486bdee5464ffdeead25d1bf7072f935313e857a0406524f80e67f1e1cd1543
+  tag: v2023.4.1@sha256:f89317c45ae57345d756b5711d348288141248a01de6f9d8b3ba8893ffb2fc59
   pullPolicy: Always
 j11Image:
   repository: tccr.io/truecharts/minecraft-java11
@@ -28,32 +32,40 @@ j11Image:
   pullPolicy: Always
 j11jdkImage:
   repository: tccr.io/truecharts/minecraft-java11-jdk
-  tag: v2023.4.1@sha256:f899603d8a7913e9e18c23dc8b63a0716872c176b11faaaf69af702636b02dc0
+  tag: v2023.4.1@sha256:b0e951b55d1b91a1bb6a6ae7b7585526b60d95bd34e11281de7e701197b1d34c
   pullPolicy: Always
 j11j9Image:
   repository: tccr.io/truecharts/minecraft-java11-openj9
-  tag: v2023.4.1@sha256:ec93725bc2ca1ee942fc5741cd1ca22e9472d2771dae7b399873b52a795a5ab1
+  tag: v2023.4.1@sha256:1d15fe6df28051934505a0eb52331dfac63dd506bcc9d6f7179a58184aed5028
   pullPolicy: Always
 j8Image:
   repository: tccr.io/truecharts/minecraft-java8
-  tag: latest@sha256:7c70936fa9029de588ead87bc44f554c53371aa75763f617a1d55da46c4a09db
+  tag: latest@sha256:59b850aed3a9507932bd8266c8d0d5ff3a3baecb94c43ebec931d6871c497353
   pullPolicy: Always
 j8gceImage:
   repository: tccr.io/truecharts/minecraft-java8-graalvm-ce
-  tag: latest@sha256:0c39ac645c01411997b98ff41bdf8cc0495d92b2b6dbe0b7f9129ba356807ceb
+  tag: latest@sha256:7564fd2bb91bc84bfa2bfeb2d3f4331329066771716d2d03482a57774ceb3afa
   pullPolicy: Always
 j8jdkImage:
   repository: tccr.io/truecharts/minecraft-java8-jdk
-  tag: v2023.4.1@sha256:f50331c469d574c7b2bf0d481f4a6a9f4e155baf07c4e531d94e7f178e4d7ecf
+  tag: v2023.4.1@sha256:f9d8a8f43b98977eecd72d234e10d943c8e567ff10aefd425476ddc2633d43aa
   pullPolicy: Always
 j8j9Image:
   repository: tccr.io/truecharts/minecraft-java8-openj9
-  tag: v2023.4.0@sha256:23ef7a412217aca78065650aca969868d6411f252dda7a5ff6feba3237340d67
+  tag: v2023.4.1@sha256:8ef5e9d3e25d32a541f89d616289003f5cee8b15cb0569e79b2e778d3b0b68d4
   pullPolicy: Always
+
 service:
   main:
+    enabled: true
     ports:
       main:
+        enabled: true
+        protocol: tcp
+        port: 25565
+      query:
+        enabled: true
+        protocol: udp
         port: 25565
   rcon:
     enabled: true
@@ -61,20 +73,7 @@ service:
       rcon:
         enabled: true
         port: 25575
-        targetPort: 25575
-persistence:
-  data:
-    enabled: true
-    mountPath: "/data"
-portal:
-  open:
-    enabled: false
-securityContext:
-  container:
-    readOnlyRootFilesystem: false
-    runAsNonRoot: false
-    runAsUser: 0
-    runAsGroup: 0
+
 workload:
   main:
     podSpec:
@@ -99,6 +98,9 @@ workload:
                 - mc-health
           env:
             SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
+            QUERY_PORT: "{{ .Values.service.main.ports.query.port }}"
+            RCON_PORT: "{{ .Values.service.rcon.ports.rcon.port }}"
+            ENABLE_QUERY: "true"
             EULA: "TRUE"
             GUI: "FALSE"
             OVERRIDE_SERVER_PROPERTIES: true
@@ -181,3 +183,12 @@ workload:
             # CF_OVERRIDES_SKIP_EXISTING
             # CF_PARALLEL_DOWNLOADS
             # CF_SET_LEVEL_FROM
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+
+portal:
+  open:
+    enabled: false
