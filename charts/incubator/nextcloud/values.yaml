@@ -292,6 +292,16 @@ workload:
                 - FOWNER
                 - SYS_CHROOT
                 - MKNOD
+            probes:
+              liveness:
+                path: /collabora
+                port: "{{ .Values.service.collabora.ports.collabora.targetPort }}"
+              readiness:
+                path: /collabora
+                port: "{{ .Values.service.collabora.ports.collabora.targetPort }}"
+              startup:
+                type: tcp
+                port: "{{ .Values.service.collabora.ports.collabora.targetPort }}"
           envFrom:
             - configMapRef:
                 name: collabora-config
