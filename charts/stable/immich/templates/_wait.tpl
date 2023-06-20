@@ -1,6 +1,5 @@
 {{- define "immich.wait" -}}
-{{- $path := .path | default "" }}
-{{- $variable := .variable }}
+{{- $url := .url }}
 enabled: true
 type: init
 imageSelector: alpineImage
@@ -11,10 +10,10 @@ command:
   - /bin/ash
   - -c
   - |
-    echo "Pinging [${{ $variable }}/{{ $path }}] until it is ready..."
-    until wget --spider --quiet "${{ $variable }}/{{ $path }}"; do
-      echo "Waiting for [${{ $variable }}/{{ $path }}] to be ready..."
+    echo "Pinging [${{ $url }}] until it is ready..."
+    until wget --spider --quiet "${{ $url }}"; do
+      echo "Waiting for [${{ $url }}] to be ready..."
       sleep 2
     done
-    echo "URL [${{ $variable }}/{{ $path }}] is ready!"
+    echo "URL [${{ $url }}] is ready!"
 {{- end -}}
