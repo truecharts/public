@@ -22,7 +22,7 @@
 
 {{- $_ := set .Values.workload.main.podSpec.containers "main" (include "immich.server" . | fromYaml) -}}
 {{- if .Values.immich.enable_typesense -}}
-  {{- $url := printf "http://%v-typesenes:%v/health" $fname .Values.service.typesense.ports.typesense.port -}}
+  {{- $url := printf "http://%v-typesense:%v/health" $fname .Values.service.typesense.ports.typesense.port -}}
   {{- $_ := set .Values.workload.main.podSpec.initContainers "wait-typesense" (include "immich.wait" (dict "url" $url) | fromYaml) -}}
 {{- end -}}
 
