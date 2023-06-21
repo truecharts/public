@@ -281,12 +281,17 @@ workload:
           primary: true
           enabled: true
           imageSelector: collaboraImage
-          # TODO: Check how low we can go
           securityContext:
-            runAsUser: 0
-            runAsGroup: 0
-            runAsNonRoot: false
+            runAsUser: 100
+            runAsGroup: 102
             readOnlyRootFilesystem: false
+            allowPrivilegeEscalation: true
+            capabilities:
+              add:
+                - CHOWN
+                - FOWNER
+                - SYS_CHROOT
+                - MKNOD
           envFrom:
             - configMapRef:
                 name: collabora-config
@@ -294,10 +299,12 @@ workload:
             readiness:
               enabled: true
               type: http
+              path: /collabora/
               port: "{{ .Values.service.collabora.ports.collabora.targetPort }}"
             liveness:
               enabled: true
               type: http
+              path: /collabora/
               port: "{{ .Values.service.collabora.ports.collabora.targetPort }}"
             startup:
               enabled: true

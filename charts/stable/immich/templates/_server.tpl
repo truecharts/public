@@ -3,6 +3,9 @@ enabled: true
 primary: true
 imageSelector: image
 args: start-server.sh
+securityContext:
+  capabilities:
+    disableS6Caps: true
 envFrom:
   - configMapRef:
       name: server-config

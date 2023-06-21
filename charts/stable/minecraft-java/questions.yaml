@@ -8,6 +8,7 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
                                 - variable: imageSelector
                                   label: Select Image
                                   schema:
@@ -16,8 +17,10 @@ questions:
                                     enum:
                                       - value: image
                                         description: Java 17 HotSpot
-                                      - value: j19Image
-                                        description: Java 19 HotSpot
+                                      - value: j20Image
+                                        description: Java 20 HotSpot
+                                      - value: j20AlpineImage
+                                        description: Java 20 Alpine
                                       - value: j17j9Image
                                         description: Java 17 OpenJ9
                                       - value: j17jdkImage
@@ -25,7 +28,7 @@ questions:
                                       - value: j17gceImage
                                         description: Java 17 GraalVM CE
                                       - value: j17alpineImage
-                                        description: Java 17 Hotspot(Alpine)
+                                        description: Java 17 Alpine
                                       - value: j11jdkImage
                                         description: Java 11 JDK
                                       - value: j11Image
@@ -644,6 +647,19 @@ questions:
                               type: int
                               default: 25565
                               required: true
+                    - variable: query
+                      label: Query Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 25565
+                              required: true
         - variable: rcon
           label: RCON Service
           description: The RCON service.
@@ -686,13 +702,13 @@ questions:
                 description: "The UserID of the user running the application"
                 schema:
                   type: int
-                  default: 0
+                  default: 568
               - variable: runAsGroup
                 label: "runAsGroup"
                 description: "The groupID of the user running the application"
                 schema:
                   type: int
-                  default: 0
+                  default: 568
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
