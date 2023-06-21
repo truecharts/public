@@ -42,5 +42,5 @@ collabora-config:
     username: {{ .Values.collabora.username | quote }}
     password: {{ .Values.collabora.password | quote }}
     DONT_GEN_SSL_CERT: {{ .Values.collabora.no_gen_ssl | quote }}
-    extra_params: {{ join " " .Values.collabora.extra_params }}
+    extra_params: {{ join " " $params }}
 {{- end -}}
