@@ -54,7 +54,7 @@ ls -la
 Next steps are destructive without a way to undo.
 Make sure you have proper backups to avoid data loss.
 
-**You have been warned**
+You have been **warned**
 
 ```bash
 rm -rf <folder>
