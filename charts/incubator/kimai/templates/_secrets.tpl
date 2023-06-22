@@ -4,7 +4,7 @@
 {{- $kimaiprevious := lookup "v1" "Secret" .Release.Namespace $secretName }}
 enabled: true
 data:
-  {{- if $bookstackprevious }}
+  {{- if $kimaiprevious }}
   APP_SECRET: {{ index $kimaiprevious.data "APP_SECRET" | b64dec }}
   {{- else }}
   {{- $app_secret := randAlphaNum 32 }}
