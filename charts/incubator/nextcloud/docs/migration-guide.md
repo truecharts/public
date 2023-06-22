@@ -68,7 +68,6 @@ rm .ocdata .htaccess index.html nextcloud.log
 
 :::
 
-
 ## Change UserData Permissions
 
 The new version of Nextcloud uses apps instead of www-data for file ownership. Apply permissions as shown below to your UserData dataset.
