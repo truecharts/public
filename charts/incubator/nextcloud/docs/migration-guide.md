@@ -50,6 +50,7 @@ ls -la
 ![userdata-old](./img/userdata-old.png)
 
 :::warning
+
 Next steps are destructive without a way to undo.
 Make sure you have proper backups to avoid data loss.
 
@@ -57,8 +58,16 @@ Make sure you have proper backups to avoid data loss.
 
 ```bash
 rm -rf <folder>
+```
+
+```bash
+rm .ocdata .htaccess index.html nextcloud.log
+```
 
 ![userdata-clean](./img/userdata-clean.png)
+
+:::
+
 
 ## Change UserData Permissions
 
@@ -154,4 +163,3 @@ occ files:scan --all
 ## Delete Temporary User Data Folder
 
 You may now remove the folder created during install for the temporary user that was configured.
-
