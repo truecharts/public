@@ -31,32 +31,34 @@ sparkImage:
 imageSelector: "image"
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
 
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-secretEnv:
-  WORKSPACE_AUTH_USER: "admin"
-  WORKSPACE_AUTH_PASSWORD: "password"
-  # true, false, or a token
-  AUTHENTICATE_VIA_JUPYTER: "mytoken"
-
-env:
-  WORKSPACE_BASE_URL: "/"
-  WORKSPACE_SSL_ENABLED: false
-  WORKSPACE_PORT: "{{ .Values.service.main.ports.main.port }}"
-  # User Defined
-  CONFIG_BACKUP_ENABLED: true
-  SHARED_LINKS_ENABLED: false
-  INCLUDE_TUTORIALS: true
-  MAX_NUM_THREADS: "auto"
-  # Jupyter Config
-  # true, false or timeout in seconds
-  SHUTDOWN_INACTIVE_KERNELS: "false"
-  NOTEBOOK_ARGS: ""
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            WORKSPACE_BASE_URL: "/"
+            WORKSPACE_SSL_ENABLED: false
+            WORKSPACE_PORT: "{{ .Values.service.main.ports.main.port }}"
+            # User Defined
+            CONFIG_BACKUP_ENABLED: true
+            SHARED_LINKS_ENABLED: false
+            INCLUDE_TUTORIALS: true
+            MAX_NUM_THREADS: "auto"
+            # Jupyter Config
+            # true, false or timeout in seconds
+            SHUTDOWN_INACTIVE_KERNELS: "false"
+            NOTEBOOK_ARGS: ""
+            WORKSPACE_AUTH_USER: "admin"
+            WORKSPACE_AUTH_PASSWORD: "password"
+            # true, false, or a token
+            AUTHENTICATE_VIA_JUPYTER: "mytoken"
 
 service:
   main:
@@ -68,11 +70,7 @@ persistence:
   workspace:
     enabled: true
     mountPath: "/workspace"
-  shm:
-    enabled: true
-    mountPath: "/dev/shm"
-    type: "emptyDir"
-    medium: "Memory"
 
 portal:
-  enabled: true
+  open:
+    enabled: true
