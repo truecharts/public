@@ -49,12 +49,14 @@ ls -la
 
 ![userdata-old](./img/userdata-old.png)
 
+:::warning
+Next steps are destructive without a way to undo.
+Make sure you have proper backups to avoid data loss.
+
+**You have been warned**
+
 ```bash
 rm -rf <folder>
-```
-```bash
-rm .ocdata .htaccess index.html nextcloud.log
-```
 
 ![userdata-clean](./img/userdata-clean.png)
 
