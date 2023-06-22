@@ -10,6 +10,7 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
                                 - variable: env
                                   group: "App Configuration"
                                   label: "Image Environment"
@@ -18,13 +19,13 @@ questions:
                                     type: dict
                                     attrs:
                                       - variable: ADMINMAIL
-                                        label: "Admin E-mail"
+                                        label: "Admin e-mail address"
                                         schema:
                                           type: string
                                           default: ""
                                           required: true
                                       - variable: ADMINPASS
-                                        label: "Admin Password"
+                                        label: "Admin password"
                                         schema:
                                           type: string
                                           default: ""
@@ -41,13 +42,7 @@ questions:
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
-        - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main

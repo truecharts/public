@@ -1,20 +1,14 @@
 {{/* Define the secrets */}}
 {{- define "kimai.secrets" -}}
----
-
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: kimai-secrets
-{{- $kimaiprevious := lookup "v1" "Secret" .Release.Namespace "kimai-secrets" }}
-{{- $app_secret := "" }}
+{{- $secretName := (printf "%s-kimai-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
+{{- $kimaiprevious := lookup "v1" "Secret" .Release.Namespace $secretName }}
+enabled: true
 data:
-  {{- if $kimaiprevious}}
-  APP_SECRET: {{ index $kimaiprevious.data "APP_SECRET" }}
+  {{- if $bookstackprevious }}
+  APP_SECRET: {{ index $kimaiprevious.data "APP_SECRET" | b64dec }}
   {{- else }}
   {{- $app_secret := randAlphaNum 32 }}
-  APP_SECRET: {{ $app_secret | b64enc }}
+  APP_SECRET: {{ $app_secret }}
   {{- end }}
 
 {{- end -}}
