@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/steam-headless
   pullPolicy: IfNotPresent
-  tag: vlatest@sha256:change_me
+  tag: vlatest@sha256:60ad46c85c1b06499ea1d9b08f08fc2cb210f29b19df608150065e04fdd8244d
 
 securityContext:
   container:
@@ -49,6 +49,12 @@ persistence:
     type: hostPath
     hostPath: /dev/input
     mountPath: /dev/input
+    readOnly: true
+  dbus:
+    enabled: true
+    type: hostPath
+    hostPath: /run/dbus
+    mountPath: /run/dbus
     readOnly: true
 
 portal:

@@ -123,7 +123,7 @@ questions:
                                           show_if: [[ENABLE_SUNSHINE, "=", "true"]]
                                       - variable: ENABLE_EVDEV_INPUTS
                                         label: Enable EVDev Inputs
-                                        description: Enable Keyboard and Mouse Passthrough. This will configure the Xorg server to catch all evdev events for Keyboard, Mouse, etc.
+                                        description: Enable Keyboard and Mouse Passthrough.
                                         schema:
                                           type: string
                                           default: "true"
