@@ -18,19 +18,23 @@ questions:
       attrs:
         - variable: host_minecraft
           label: Host and Minecraft
-          description: Host and Minecraft
           schema:
             type: list
             default: []
             items:
-              - variable: hostminecraftEntry
-                label: Host and Minecraft Service Entry
-                description: Host and Minecraft Service
+              - variable: hostRecordEntry
+                label: Host and Minecraft Type Entry
                 schema:
-                  type: string
-                  default: "minecraft.local=localhost:25565"
-                  required: true
-                  valid_chars: '^([\w.-]+)=([A-Za-z0-9.-]+):(\d+)$'
+                  type: dict
+                  additional_attrs: true
+                  attrs:
+                    - variable: domain_minecraft_service
+                      label: Domain and Minecraft Service
+                      schema:
+                        type: string
+                        required: true
+                        default: "minecraft.local=localhost:25565"
+                        valid_chars: '^([\w.-]+)=([A-Za-z0-9.-]+):(\d+)$'
 
 # Include{containerBasic}
 # Include{containerAdvanced}
