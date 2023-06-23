@@ -47,8 +47,13 @@ questions:
                                         description: Configures the container to use the host DBus process.
                                         schema:
                                           type: string
-                                          default: ":0"
+                                          default: "false"
                                           show_if: [[MODE, "=", "secondary"]]
+                                          enum:
+                                            - value: "true"
+                                              description: "True"
+                                            - value: "false"
+                                              description: "False"
                                       - variable: WEB_UI_MODE
                                         label: Web UI Mode
                                         description:  Enables audio over for the VNC Web UI.
