@@ -45,6 +45,17 @@ questions:
                   required: true
                   immutable: true
                   default: ""
+              - variable: bootstrapToken
+                label: (Optional) Bootstrap Token
+                description: |
+                  Set the bootstrap token for the authentik server.</br>
+                  Only read on initial install, changing this will have no effect. </br>
+                  Only set this token if you plan to use the API right after installation.
+                schema:
+                  type: string
+                  private: true
+                  immutable: true
+                  default: ""
         - variable: general
           label: General
           schema:

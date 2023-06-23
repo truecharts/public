@@ -1,12 +1,12 @@
 {{/* Define the secrets */}}
 {{- define "firezone.secrets" -}}
 {{- $secretName := (printf "%s-firezone-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) -}}
-{{- $keyGuardian := randAlphaNum 32 -}}
-{{- $keyDatabase := randAlphaNum 32 -}}
-{{- $keySecret := randAlphaNum 32 -}}
-{{- $keyLive := randAlphaNum 32 -}}
-{{- $keyCookieSigning := randAlphaNum 32 -}}
-{{- $keyCookieEncrypt := randAlphaNum 32 -}}
+{{- $keyGuardian := randAlphaNum 64 -}}
+{{- $keyDatabase := randAlphaNum 64 -}}
+{{- $keySecret := randAlphaNum 64 -}}
+{{- $keyLive := randAlphaNum 64 -}}
+{{- $keyCookieSigning := randAlphaNum 64 -}}
+{{- $keyCookieEncrypt := randAlphaNum 64 -}}
 {{- with (lookup "v1" "Secret" .Release.Namespace $secretName) -}}
   {{- $keyGuardian = index .data "GUARDIAN_SECRET_KEY" | b64dec -}}
   {{- $keyDatabase = index .data "DATABASE_ENCRYPTION_KEY" | b64dec -}}

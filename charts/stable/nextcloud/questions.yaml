@@ -49,7 +49,7 @@ questions:
             type: dict
             attrs:
               - variable: run_optimize
-                label: Run Optiomize Scripts
+                label: Run Optimize Scripts
                 description: |
                   Runs the following commands at startup:</br>
                   occ db:add-missing-indices</br>
@@ -59,10 +59,6 @@ questions:
                   occ maintenance:mimetype:update-js</br>
                   occ maintenance:mimetype:update-db</br>
                   occ maintenance:update:htaccess</br>
-                schema:
-                  type: string
-                  required: true
-                  default: ""
                 schema:
                   type: boolean
                   default: false
@@ -379,27 +375,59 @@ questions:
                 label: Enable Collabora
                 description: |
                   Enable and configure Collabora.</br>
-                  This will NOT deploy the needed container.</br>
-                  You need to deploy it yourself.
+                  It will also deploy the needed container.</br>
+                  Keep in mind that this will run as root.
                 schema:
                   type: boolean
-                  default: true
+                  default: false
                   show_subquestions_if: true
                   subquestions:
-                    - variable: url
-                      label: URL
+                    - variable: interface_mode
+                      label: Interface Mode
                       schema:
                         type: string
                         required: true
+                        default: default
+                        enum:
+                          - value: default
+                            description: Default
+                          - value: compact
+                            description: Compact
+                          - value: tabbed
+                            description: Tabbed
+                    - variable: username
+                      label: Username
+                      schema:
+                        type: string
+                        default: admin
+                        required: true
+                    - variable: password
+                      label: Password
+                      schema:
+                        type: string
                         default: ""
-                    - variable: allow_list
-                      label: Allow List
+                        required: true
+                    - variable: dictionaries
+                      label: Dictionaries
                       schema:
                         type: list
-                        default: ["0.0.0.0/0"]
+                        empty: false
+                        required: true
+                        default:
+                          - de_DE
+                          - en_GB
+                          - en_US
+                          - el_GR
+                          - es_ES
+                          - fr_FR
+                          - pt_BR
+                          - pt_PT
+                          - it
+                          - nl
+                          - ru
                         items:
-                          - variable: allow_entry
-                            label: Allow Entry
+                          - variable: dictionary
+                            label: Dictionary
                             schema:
                               type: string
                               required: true
@@ -419,7 +447,7 @@ questions:
                   You need to deploy it yourself.
                 schema:
                   type: boolean
-                  default: true
+                  default: false
                   show_subquestions_if: true
                   subquestions:
                     - variable: url

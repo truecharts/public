@@ -41,7 +41,7 @@ server-worker:
     {{- end -}}
     {{- with .Values.authentik.email.timeout }}
     AUTHENTIK_EMAIL__TIMEOUT: {{ . | quote }}
-    {{- end -}}
+    {{- end }}
 
     {{/* LDAP */}}
     AUTHENTIK_LDAP__TASK_TIMEOUT_HOURS: {{ .Values.authentik.ldap.taskTimeoutHours | quote }}
@@ -64,7 +64,7 @@ server-worker:
     {{- end -}}
     {{- with .Values.authentik.general.footerLinks }}
     AUTHENTIK_FOOTER_LINKS: {{ toJson . | squote }}
-    {{- end -}}
+    {{- end }}
 
     {{/* General */}}
     AUTHENTIK_DISABLE_UPDATE_CHECK: {{ .Values.authentik.general.disableUpdateCheck | quote }}
@@ -121,4 +121,5 @@ geoip:
     GEOIPUPDATE_EDITION_IDS: {{ .Values.authentik.geoip.editionID }}
     GEOIPUPDATE_FREQUENCY: {{ .Values.authentik.geoip.frequency | quote }}
 {{- end -}}
+
 {{- end -}}

@@ -1,8 +1,23 @@
 {{/* Define the configmap */}}
 {{- define "nextcloud.configmaps" -}}
 {{- $fullname := (include "tc.v1.common.lib.chart.names.fullname" $) -}}
-{{- $urlNoProtocol := regexReplaceAll ".*://(.*)" .Values.chartContext.APPURL "${1}" -}}
-{{- $protocolOnly := regexReplaceAll "(.*)://.*" .Values.chartContext.APPURL "${1}" -}}
+{{- $accessUrl := .Values.chartContext.APPURL -}}
+{{- if or (contains "127.0.0.1" $accessUrl) (contains "localhost" $accessUrl) -}}
+  {{- if .Values.nextcloud.general.accessIP -}}
+    {{- $prot := "http" -}}
+    {{- $host := .Values.nextcloud.general.accessIP -}}
+    {{- $port := .Values.service.main.ports.main.port -}}
+    {{/*
+      Allowing here to override protocol and port
+      should be enough to make it work with any rev proxy
+    */}}
+    {{- $accessUrl = printf "%v://%v:%v" $prot $host $port -}}
+  {{- end -}}
+{{- end -}}
+{{- $accessHost := regexReplaceAll ".*://(.*)" $accessUrl "${1}" -}}
+{{- $accessHost = regexReplaceAll "(.*):.*" $accessUrl "${1}" -}}
+{{- $accessHostPort := regexReplaceAll ".*://(.*)" $accessUrl "${1}" -}}
+{{- $accessProtocol := regexReplaceAll "(.*)://.*" $accessUrl "${1}" -}}
 {{- $redisHost := .Values.redis.creds.plainhost | trimAll "\"" -}}
 {{- $redisPass := .Values.redis.creds.redisPassword | trimAll "\"" -}}
 {{- $healthHost := "kube.internal.healthcheck" -}}
@@ -21,6 +36,7 @@ redis-session:
   enabled: true
   data:
     redis-session.ini: |
+      session.save_handler = redis
       session.save_path = {{ printf "tcp://%v:6379?auth=%v" $redisHost $redisPass | quote }}
       redis.session.locking_enabled = 1
       redis.session.lock_retries = -1
@@ -42,6 +58,29 @@ clamav-config:
     CLAMAV_NO_MILTERD: "true"
     CLAMD_STARTUP_TIMEOUT: "1800"
 
+collabora-config:
+  enabled: {{ .Values.nextcloud.collabora.enabled }}
+  data:
+    aliasgroup1: {{ $accessUrl }}
+    server_name: {{ $accessHostPort }}
+    dictionaries: {{ join " " .Values.nextcloud.collabora.dictionaries }}
+    username: {{ .Values.nextcloud.collabora.username | quote }}
+    password: {{ .Values.nextcloud.collabora.password | quote }}
+    DONT_GEN_SSL_CERT: "true"
+    # mount_jail_tree is only used for local storage
+    # not needed for WOPI https://github.com/CollaboraOnline/online/issues/3604#issuecomment-989833814
+    extra_params: |
+      --o:ssl.enable=false
+      --o:ssl.termination=true
+      --o:net.service_root=/collabora
+      --o:home_mode.enable=true
+      --o:welcome.enable=false
+      --o:logging.level=warning
+      --o:logging.level_startup=warning
+      --o:security.seccomp=true
+      --o:mount_jail_tree=false
+      --o:user_interface.mode={{ .Values.nextcloud.collabora.user_interface_mode }}
+
 nextcloud-config:
   enabled: true
   data:
@@ -60,30 +99,17 @@ nextcloud-config:
     NEXTCLOUD_ADMIN_PASSWORD: {{ .Values.nextcloud.credentials.initialAdminPassword | quote }}
 
     {{/* PHP Variables */}}
-    {{- if not (mustRegexMatch "^[0-9]+(M|G){1}$" .Values.nextcloud.php.memory_limit) -}}
-      {{- fail (printf "Nextcloud - Expected Memory Limit to be in format [1M, 1G] but got [%v]" .Values.nextcloud.php.memory_limit) -}}
-    {{- end -}}
-    {{- if not (mustRegexMatch "^[0-9]+(M|G){1}$" .Values.nextcloud.php.upload_limit) -}}
-      {{- fail (printf "Nextcloud - Expected Memory Limit to be in format [1M, 1G] but got [%v]" .Values.nextcloud.php.upload_limit) -}}
-    {{- end }}
     PHP_MEMORY_LIMIT: {{ .Values.nextcloud.php.memory_limit | quote }}
     PHP_UPLOAD_LIMIT: {{ .Values.nextcloud.php.upload_limit | quote }}
 
     {{/* Notify Push */}}
     NX_NOTIFY_PUSH: {{ .Values.nextcloud.notify_push.enabled | quote }}
     {{- if .Values.nextcloud.notify_push.enabled }}
-      {{- $endpoint := .Values.chartContext.APPURL -}}
-      {{- if or (contains "127.0.0.1" $endpoint) (contains "localhost" $endpoint) -}}
-        {{- $endpoint = printf "http://%v:%v" $fullname .Values.service.main.ports.main.port -}}
-      {{- end }}
-    NX_NOTIFY_PUSH_ENDPOINT: {{ $endpoint }}/push
+    NX_NOTIFY_PUSH_ENDPOINT: {{ $accessUrl }}/push
     {{- end }}
 
     {{/* Previews */}}
     NX_PREVIEWS: {{ .Values.nextcloud.previews.enabled | quote }}
-    {{- if not (deepEqual .Values.nextcloud.previews.providers (uniq .Values.nextcloud.previews.providers)) }}
-      {{- fail (printf "Nextcloud - Expected preview providers to be unique but got [%v]" .Values.nextcloud.previews.providers) }}
-    {{- end }}
     NX_PREVIEW_PROVIDERS: {{ join " " .Values.nextcloud.previews.providers }}
     NX_PREVIEW_MAX_X: {{ .Values.nextcloud.previews.max_x | quote }}
     NX_PREVIEW_MAX_Y: {{ .Values.nextcloud.previews.max_y | quote }}
@@ -131,15 +157,13 @@ nextcloud-config:
     NX_CLAMAV_INFECTED_ACTION: {{ .Values.nextcloud.clamav.infected_action | quote }}
     {{- end }}
 
-    {{- if and .Values.nextcloud.collabora.enabled .Values.nextcloud.onlyoffice.enabled -}}
-      {{- fail "Nextcloud - Expected only one of [Collabora, OnlyOffice] to be enabled" -}}
-    {{- end }}
-
     {{/* Collabora */}}
     NX_COLLABORA: {{ .Values.nextcloud.collabora.enabled | quote }}
     {{- if .Values.nextcloud.collabora.enabled }}
-    NX_COLLABORA_URL: {{ .Values.nextcloud.collabora.url | quote }}
-    NX_COLLABORA_ALLOWLIST: {{ join "," .Values.nextcloud.collabora.allow_list | quote }}
+    NX_COLLABORA_URL: {{ printf "%v/collabora" $accessUrl | quote }}
+    # Ideally this would be a combo of: public ip, pod cidr, svc cidr
+    # But not always people have static IP.
+    NX_COLLABORA_ALLOWLIST: "0.0.0.0/0"
     {{- end }}
 
     {{/* Only Office */}}
@@ -151,12 +175,13 @@ nextcloud-config:
     {{- end }}
 
     {{/* URLs */}}
-    NX_OVERWRITE_HOST: {{ $urlNoProtocol }}
-    NX_OVERWRITE_CLI_URL: {{ .Values.chartContext.APPURL }}
+    NX_OVERWRITE_HOST: {{ $accessHostPort }}
+    NX_OVERWRITE_CLI_URL: {{ $accessUrl }}
     # Return the protocol part of the URL
-    NX_OVERWRITE_PROTOCOL: {{ $protocolOnly | lower }}
+    NX_OVERWRITE_PROTOCOL: {{ $accessProtocol | lower }}
     # IP (or range in this case) of the proxy(ies)
     NX_TRUSTED_PROXIES: |
+      {{ .Values.chartContext.podCIDR }}
       {{ .Values.chartContext.svcCIDR }}
     # fullname-* will allow access from the
     # other services in the same namespace
@@ -166,8 +191,8 @@ nextcloud-config:
       {{ $fullname }}
       {{ printf "%v-*" $fullname }}
       {{ $healthHost }}
-      {{- if ne $urlNoProtocol "127.0.0.1" }}
-        {{- $urlNoProtocol | nindent 6 }}
+      {{- if not (contains "127.0.0.1" $accessHost) }}
+        {{- $accessHost | nindent 6 }}
       {{- end -}}
       {{- with .Values.nextcloud.general.accessIP }}
         {{- . | nindent 6 }}

@@ -1,16 +1,22 @@
 {{- define "immich.microservices" -}}
+{{- $fname := (include "tc.v1.common.lib.chart.names.fullname" .) -}}
+{{- $serverUrl := printf "http://%v-server:%v/server-info/ping" $fname .Values.service.server.ports.server.port }}
 enabled: true
 type: Deployment
 podSpec:
   initContainers:
     wait-server:
-      {{- include "immich.wait" (dict "variable" "IMMICH_SERVER_URL" "path" "server-info/ping") | nindent 6 }}
+      {{/* Wait for server */}}
+      {{- include "immich.wait" (dict "url" $serverUrl) | nindent 6 }}
   containers:
     microservices:
       enabled: true
       primary: true
       imageSelector: image
       args: start-microservices.sh
+      securityContext:
+        capabilities:
+          disableS6Caps: true
       envFrom:
         - secretRef:
             name: secret
@@ -18,8 +24,6 @@ podSpec:
             name: deps-secret
         - configMapRef:
             name: common-config
-        - configMapRef:
-            name: server-config
         - configMapRef:
             name: micro-config
       probes:
@@ -47,17 +51,4 @@ podSpec:
             - -c
             - |
               ps -a | grep -v grep | grep -q microservices
-{{- end -}}
-
-{{- define "immich.microservices.service" -}}
-enabled: true
-type: ClusterIP
-targetSelector: microservices
-ports:
-  microservices:
-    enabled: true
-    primary: true
-    port: 10004
-    protocol: http
-    targetSelector: microservices
 {{- end -}}

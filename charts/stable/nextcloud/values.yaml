@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/nextcloud-fpm
   pullPolicy: IfNotPresent
-  tag: v2.0.0@sha256:c3ff63fa9613fbad94c7950743482c8bb2a2a659ac42b3daac8963e0bbaf5129
+  tag: v2.0.0@sha256:19e79737d94706af06b8b2d89a156749f73a16bb765ac3d1b3171873f915e982
 nginxImage:
   repository: tccr.io/truecharts/nginx-unprivileged
   pullPolicy: IfNotPresent
@@ -18,6 +18,10 @@ clamavImage:
   repository: tccr.io/truecharts/clamav
   pullPolicy: IfNotPresent
   tag: v1.1.0@sha256:ab196d867fcfddedc8dc965d67a2e6824ca65488cf616cc707e9c36efd54e086
+collaboraImage:
+  repository: tccr.io/truecharts/collabora
+  pullPolicy: IfNotPresent
+  tag: v23.05.0.5.1@sha256:a753bfe9d5479e992e914f5818bc96f33ff95dd3760cb10938ae2296286c416e
 
 nextcloud:
   # Initial Credentials
@@ -82,12 +86,24 @@ nextcloud:
     enabled: true
   # Collabora settings
   collabora:
-    # It will not deploy the container
-    # Only add the Collabora settings
+    # It will also deploy the container
     enabled: false
-    url: ""
-    allow_list:
-      - 0.0.0.0/0
+    # default|compact|tabbed
+    interface_mode: default
+    username: admin
+    password: changeme
+    dictionaries:
+      - de_DE
+      - en_GB
+      - en_US
+      - el_GR
+      - es_ES
+      - fr_FR
+      - pt_BR
+      - pt_PT
+      - it
+      - nl
+      - ru
   onlyoffice:
     # It will not deploy the container
     # Only add the OnlyOffice settings
@@ -254,6 +270,46 @@ workload:
               enabled: true
               type: tcp
               port: "{{ .Values.service.clamav.ports.clamav.targetPort }}"
+  collabora:
+    enabled: true
+    type: Deployment
+    strategy: RollingUpdate
+    replicas: 1
+    podSpec:
+      containers:
+        collabora:
+          primary: true
+          enabled: true
+          imageSelector: collaboraImage
+          securityContext:
+            runAsUser: 100
+            runAsGroup: 102
+            readOnlyRootFilesystem: false
+            allowPrivilegeEscalation: true
+            capabilities:
+              add:
+                - CHOWN
+                - FOWNER
+                - SYS_CHROOT
+                - MKNOD
+          envFrom:
+            - configMapRef:
+                name: collabora-config
+          probes:
+            readiness:
+              enabled: true
+              type: http
+              path: /collabora/
+              port: "{{ .Values.service.collabora.ports.collabora.targetPort }}"
+            liveness:
+              enabled: true
+              type: http
+              path: /collabora/
+              port: "{{ .Values.service.collabora.ports.collabora.targetPort }}"
+            startup:
+              enabled: true
+              type: tcp
+              port: "{{ .Values.service.collabora.ports.collabora.targetPort }}"
 
 cronjobs:
     # Don't change names, it's used in the persistence
@@ -321,6 +377,15 @@ service:
         port: 3310
         targetPort: 3310
         targetSelector: clamav
+  collabora:
+    enabled: true
+    targetSelector: collabora
+    ports:
+      collabora:
+        enabled: true
+        port: 9980
+        targetPort: 9980
+        targetSelector: collabora
 
 persistence:
   php-tune:

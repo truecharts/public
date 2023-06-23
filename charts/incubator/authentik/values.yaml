@@ -15,7 +15,7 @@ ldapImage:
 
 radiusImage:
   repository: tccr.io/truecharts/authentik-radius
-  tag: v2023.5.3@sha256:d46f4dbc727d5d6f6c91df0f6a2bf98d2c941de908fdc15193552413331e375b
+  tag: v2023.5.3@sha256:824415af5e7efa090d716d38b944df3a758df08a78f2dce5a77fd0f12ee41c5c
   pullPolicy: IfNotPresent
 
 proxyImage:
@@ -28,6 +28,8 @@ authentik:
     # Only works on initial install
     email: my-mail@example.com
     password: my-password
+    # Optional, only set if you want to use it
+    bootstrapToken: ""
   general:
     disableUpdateCheck: false
     disableStartupAnalytics: true
@@ -328,36 +330,47 @@ service:
         port: 10230
   # Proxy
   proxy:
+    enabled: true
+    targetSelector: proxy
     ports:
       http:
+        enabled: true
         protocol: http
         port: 10227
+        targetSelector: proxy
       https:
         enabled: true
         protocol: https
         port: 10228
+        targetSelector: proxy
   # Radius
   radius:
     enabled: true
+    targetSelector: radius
     ports:
       radius:
         enabled: true
         protocol: udp
+        targetSelector: radius
         port: 1812
   # LDAP
   ldap:
     enabled: true
+    targetSelector: ldap
     ports:
       ldap:
         enabled: true
         port: 389
+        targetSelector: ldap
   # LDAPS
   ldaps:
     enabled: true
+    targetSelector: ldap
     ports:
       ldaps:
         enabled: true
         port: 636
+        targetSelector: ldap
   # Server Metrics
   servermetrics:
     enabled: true
@@ -371,30 +384,35 @@ service:
   radiusmetrics:
     enabled: true
     type: ClusterIP
+    targetSelector: radius
     ports:
       radiusmetrics:
         enabled: true
         protocol: http
         port: 10232
+        targetSelector: radius
   # LDAP Metrics
   ldapmetrics:
     enabled: true
     type: ClusterIP
+    targetSelector: ldap
     ports:
       ldapmetrics:
         enabled: true
         protocol: http
         port: 10233
+        targetSelector: ldap
   # Proxy Metrics
   proxymetrics:
     enabled: true
     type: ClusterIP
+    targetSelector: proxy
     ports:
       proxymetrics:
         enabled: true
         protocol: http
         port: 10234
-
+        targetSelector: proxy
 persistence:
   media:
     enabled: true
