@@ -2,9 +2,9 @@
 {{- include "tc.v1.common.loader.init" . }}
 
 {{/* Render secrets for mcrouter */}}
-{{- $secrets := include "mcrouter.secrets" . | fromYaml -}}
+{{- $secrets := include "mcrouter.secret" . | fromYaml -}}
 {{- if $secrets -}}
-{{- $_ := set .Values.secret "secrets" $secrets -}}
+  {{- $_ := set .Values.secret "secret" $secrets -}}
 {{- end -}}
 
 {{/* Render the templates */}}
