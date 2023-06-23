@@ -5,7 +5,7 @@
 
 - Enable ingress, without doing so `http://IP:PORT` will be used as the short url generator which obviously will be an issue.
 
-- Please follow this [guide](https://truecharts.org/docs/manual/SCALE%20Apps/add-ingress) on adding ingress to a chart.
+- Please follow this [guide](https://truecharts.org/manual/SCALE/options/ingress) on adding ingress to a chart.
 
 ## Disable authentication
 
