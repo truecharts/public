@@ -57,12 +57,12 @@ questions:
                                           required: true
                                           default: "vnc"
                                           enum:
-                                            - value: none
-                                              description: None
-                                            - value: vnc
-                                              description: VNC
-                                            - value: neko
-                                              description: Neko
+                                            - value: "none"
+                                              description: "None"
+                                            - value: "vnc"
+                                              description: "VNC"
+                                            - value: "neko"
+                                              description: "Neko"
                                       - variable: ENABLE_VNC_AUDIO
                                         label: Enable VNC Audio
                                         description: Configure nat1to1 for the neko WebUI.
