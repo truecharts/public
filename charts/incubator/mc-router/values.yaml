@@ -16,8 +16,8 @@ service:
         port: 25565
 
 mcrouter:
-  host_minecraft: []
-  #  - "minecraft.local=localhost:25566"
+  host_minecraft:
+    - "minecraft.local=localhost:25566"
 
 workload:
   main:
