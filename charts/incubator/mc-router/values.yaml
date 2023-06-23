@@ -33,7 +33,7 @@ workload:
               enabled: false
           envFrom:
             - secretRef:
-                name: "secret"
+                name: "secrets"
           env:
             API_BINDING: ":{{ .Values.service.main.ports.main.port }}"
             PORT: "{{ .Values.service.minecraft.ports.minecraft.port }}"
