@@ -17,6 +17,7 @@ workload:
       containers:
         main:
           args:
+            - --path.rootfs=/host
             - --path.procfs=/hostproc
             - --path.sysfs=/hostsys
             - --web.listen-address=0.0.0.0:{{ .Values.service.main.ports.main.port }}
@@ -44,16 +45,19 @@ podOptions:
 persistence:
   host:
     enabled: true
+    type: hostPath
     hostPath: /
     mountPath: /host
     readOnly: true
   proc:
     enabled: true
+    type: hostPath
     hostPath: /proc
     mountPath: /hostproc
     readOnly: true
   sys:
     enabled: true
+    type: hostPath
     hostPath: /sys
     mountPath: /hostsys
     readOnly: true
