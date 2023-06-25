@@ -71,7 +71,7 @@ objectData: The object data to be used to render the container.
   {{- $objectData := .objectData -}}
   {{- $probeName := .probeName -}}
 
-  {{- $timeouts := (get $rootCtx.Values.fallbackDefaults.probeTimeouts $probeName) -}}
+  {{- $timeouts := mustDeepCopy (get $rootCtx.Values.fallbackDefaults.probeTimeouts $probeName) -}}
 
   {{- if $objectData.spec -}} {{/* Overwrite with defined timeouts */}}
     {{- $timeouts = mustMergeOverwrite $timeouts $objectData.spec -}}

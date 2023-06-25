@@ -638,6 +638,63 @@ tests:
                   echo ""
               echo "Finished auto permissions job..."
 
+  - it: should have different resources
+    set:
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name:
+                enabled: true
+                primary: true
+                probes:
+                  liveness:
+                    enabled: false
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+      persistence:
+        test1:
+          enabled: true
+          type: hostPath
+          autoPermissions:
+            chown: true
+            chmod: 770
+            recursive: true
+          mountPath: /test1
+          hostPath: /testhost1
+    asserts:
+      - documentIndex: &jobDoc 0
+        isKind:
+          of: Job
+      - documentIndex: &deploymentDoc 1
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.containers[0].resources
+          value:
+            requests:
+              cpu: 10m
+              memory: 50Mi
+            limits:
+              cpu: 4000m
+              memory: 8Gi
+      - documentIndex: *jobDoc
+        equal:
+          path: spec.template.spec.containers[0].resources
+          value:
+            requests:
+              cpu: 10m
+              memory: 50Mi
+            limits:
+              cpu: 2000m
+              memory: 2Gi
+
 # Failures
   - it: should fail trying to set ownership on non hostPath
     set:
@@ -651,6 +708,7 @@ tests:
         test:
           enabled: true
           type: device
+          hostPath: /test
           autoPermissions:
             chown: true
     asserts:
