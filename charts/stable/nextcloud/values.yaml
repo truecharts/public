@@ -299,12 +299,12 @@ workload:
             readiness:
               enabled: true
               type: http
-              path: /collabora/
+              path: /collabora
               port: "{{ .Values.service.collabora.ports.collabora.targetPort }}"
             liveness:
               enabled: true
               type: http
-              path: /collabora/
+              path: /collabora
               port: "{{ .Values.service.collabora.ports.collabora.targetPort }}"
             startup:
               enabled: true

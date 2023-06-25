@@ -16,7 +16,7 @@
 
 {{- define "nextcloud.collabora.ingress" -}}
 {{- $fullname := include "tc.v1.common.lib.chart.names.fullname" . }}
-path: /collabora/
+path: /collabora
 pathType: Prefix
 service:
   name: {{ printf "%v-collabora" $fullname }}
