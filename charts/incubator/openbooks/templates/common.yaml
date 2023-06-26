@@ -1,8 +1,13 @@
+{{/* Render the templates */}}
+{{ include "tc.v1.common.loader.apply" . }}
+
 {{/* Make sure all variables are set properly */}}
 {{- include "tc.v1.common.loader.init" . }}
 
-{{- $args := concat .Values.args (include "openbooks.args" . | fromYaml).args }}
-{{- $_ := set .Values "args" $args -}}
+{{- $newArgs := (include "openbooks.args" . | fromYaml) }}
+{{- $_ := set .Values "newArgs" $newArgs -}}
+{{- $args := concat ((get .Values.workload.main.podSpec.containers.main "args") | default list)  .Values.newArgs.args }}
+{{- $_ := set .Values.workload.main.podSpec.containers.main "args" $args -}}
 
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}
