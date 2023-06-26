@@ -5,7 +5,7 @@
   {{- end -}}
 
   {{- if not (mustRegexMatch "^$" .Values.kimai.credentials.ADMINPASS) -}}
-    {{- fail (printf "Admin password must not be empty." .Values.kimai.credentials.ADMINPASS) -}}
+    {{- fail (printf "Admin password must not be empty.") -}}
   {{- end -}}
 
 {{- end -}}
