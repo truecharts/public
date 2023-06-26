@@ -17,6 +17,12 @@ service:
         protocol: http
         targetPort: 8001
 
+kimai:
+  credentials:
+    ADMINMAIL: admin@change.me
+    ADMINPASS: ChangeME
+  trusted_hosts: localhost
+
 workload:
   main:
     podSpec:
@@ -61,8 +67,9 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "kimai-secrets" }}'
                 key: APP_SECRET
-            ADMINMAIL: "admin@mysecretdomain.com"
-            ADMINPASS: "MvvTfjagiaqDprGNVA"
+          envFrom:
+            - configMapRef:
+                name: kimai-config
 
 persistence:
   data:

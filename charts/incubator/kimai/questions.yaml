@@ -6,40 +6,47 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
-                                - variable: env
-                                  group: "App Configuration"
-                                  label: "Image Environment"
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                      - variable: ADMINMAIL
-                                        label: "Admin e-mail address"
-                                        schema:
-                                          type: string
-                                          default: ""
-                                          required: true
-                                      - variable: ADMINPASS
-                                        label: "Admin password"
-                                        schema:
-                                          type: string
-                                          default: ""
-                                          required: true
-                                          private: true
-                                      - variable: trust_hosts
-                                        label: "TRUSTED_HOSTS"
-                                        description: "Comma separated list of trusted hosts."
-                                        schema:
-                                          type: string
-                                          default: "YOUR.FQDN or YOUR.NAS.IP"
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
+  - variable: kimai
+    group: App Configuration
+    label: Kimai
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: credentials
+          group: App Configuration
+          label: Admin Credentials
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+            - variable: ADMINMAIL
+              label: Admin e-mail address
+              description: Email address of the admin account.
+              schema:
+                type: string
+                default: ""
+                required: true
+            - variable: ADMINPASS
+              label: Admin password
+              description: Password for the admin account.
+              schema:
+                type: string
+                default: ""
+                required: true
+                private: true
+        - variable: trusted_hosts
+          label: Trusted Hosts
+          description: Comma separated list of trusted hosts. Sets the environment variable TRUSTED_HOSTS.
+          schema:
+            type: string
+            default: "YOUR.FQDN or YOUR.NAS.IP"
 # Include{podOptions}
 # Include{serviceRoot}
 # Include{serviceMain}
