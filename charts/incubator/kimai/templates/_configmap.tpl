@@ -12,9 +12,9 @@ kimai-config:
   enabled: true
   data:
     {{/* Admin credentials */}}
-    ADMINMAIL: .Values.kimai.credentials.ADMINMAIL
-    ADMINPASS: .Values.kimai.credentials.ADMINPASS
+    ADMINMAIL: {{ .Values.kimai.credentials.ADMINMAIL }}
+    ADMINPASS: {{ .Values.kimai.credentials.ADMINPASS }}
     {{/* Trusted Hosts */}}
-    TRUSTED_HOSTS: $trusted_hosts
+    TRUSTED_HOSTS: {{ $trusted_hosts }}
 
 {{- end -}}
