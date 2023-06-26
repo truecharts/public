@@ -2,7 +2,7 @@
   {{- if .Values.ingress.main.enabled -}}
     {{- $injectPaths := list -}}
     {{- if .Values.nextcloud.collabora.enabled -}}
-      {{- $injectPaths = $injectPaths mustAppend (include "nextcloud.collabora.ingress" $ | fromYaml) -}}
+      {{- $injectPaths = mustAppend $injectPaths (include "nextcloud.collabora.ingress" $ | fromYaml) -}}
     {{- end -}}
     {{/* Append more paths here if needed */}}
 
@@ -16,7 +16,7 @@
 
 {{- define "nextcloud.collabora.ingress" -}}
 {{- $fullname := include "tc.v1.common.lib.chart.names.fullname" . }}
-path: /collabora
+path: /collabora/
 pathType: Prefix
 service:
   name: {{ printf "%v-collabora" $fullname }}

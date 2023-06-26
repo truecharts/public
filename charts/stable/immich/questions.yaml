@@ -38,28 +38,25 @@ questions:
             type: int
             show_if: [["disable_reverse_geocoding", "=", false]]
             default: 3
-        - variable: mapbox_enable
-          label: Enable MapBox
-          schema:
-            type: boolean
-            default: false
-        - variable: mapbox_key
-          label: MaxBox Key
-          schema:
-            type: string
-            private: true
-            show_if: [["maxbox_enable", "=", false]]
-            default: ""
         - variable: log_level
           label: Log Level
           schema:
             type: string
-            default: simple
+            default: log
             enum:
+              - value: log
+                description: log
               - value: simple
-                description: simple
+                description: simple (Switch to log ASAP)
+              - value: warn
+                description: warn
+              - value: error
+                description: error
               - value: verbose
                 description: verbose
+              - value: debug
+                description: debug
+
         - variable: enable_ml
           label: Enable Machine Learning Container
           schema:

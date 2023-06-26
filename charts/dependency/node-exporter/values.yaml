@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/node-exporter
   pullPolicy: IfNotPresent
-  tag: v1.6.0@sha256:e881a016f2807a274d0d102d217ab483412357ecf08d6ba3cd641eaf3fbabe49
+  tag: v1.6.0@sha256:b82ff647c4861ed4d31f1872a60c412320bff19f28235879bebe6339f85ccb51
 
 service:
   main:
@@ -17,11 +17,12 @@ workload:
       containers:
         main:
           args:
-            - --path.procfs=/host/proc
-            - --path.sysfs=/host/sys
+            - --path.rootfs=/host
+            - --path.procfs=/hostproc
+            - --path.sysfs=/hostsys
             - --web.listen-address=0.0.0.0:{{ .Values.service.main.ports.main.port }}
-            - --collector.filesystem.ignored-mount-points="^/(dev|proc|sys|var/lib/docker/.+|var/lib/kubelet/.+|var/db/system/.+|mnt/[a-zA-Z0-9-_\\.]+/ix-applications/.+)($|/)"
-            - --collector.filesystem.ignored-fs-types="^(autofs|binfmt_misc|cgroup|configfs|debugfs|devpts|devtmpfs|fusectl|hugetlbfs|mqueue|overlay|proc|procfs|pstore|rpc_pipefs|securityfs|sysfs|tracefs)$"
+            - --collector.filesystem.mount-points-exclude="^/(dev|proc|sys|var/lib/docker/.+|var/lib/kubelet/.+|var/db/system/.+|mnt/[a-zA-Z0-9-_\\.]+/ix-applications/.+)($|/)"
+            - --collector.filesystem.fs-types-exclude="^(autofs|binfmt_misc|cgroup|configfs|debugfs|devpts|devtmpfs|fusectl|hugetlbfs|mqueue|overlay|proc|procfs|pstore|rpc_pipefs|securityfs|sysfs|tracefs)$"
             - --collector.netdev.device-exclude="^veth.*$"
             - --collector.netclass.ignored-devices="^veth.*$"
           probes:
@@ -44,18 +45,21 @@ podOptions:
 persistence:
   host:
     enabled: true
+    type: hostPath
     hostPath: /
     mountPath: /host
     readOnly: true
   proc:
     enabled: true
+    type: hostPath
     hostPath: /proc
-    mountPath: /host/proc
+    mountPath: /hostproc
     readOnly: true
   sys:
     enabled: true
+    type: hostPath
     hostPath: /sys
-    mountPath: /host/sys
+    mountPath: /hostsys
     readOnly: true
 
 metrics:

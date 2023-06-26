@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/nextcloud-fpm
   pullPolicy: IfNotPresent
-  tag: v2.0.0@sha256:c3ff63fa9613fbad94c7950743482c8bb2a2a659ac42b3daac8963e0bbaf5129
+  tag: v27.0.0@sha256:81b845323042636b8486011bd3224fa931b8a0dd2d3ceccbf741595eb3d16324
 nginxImage:
   repository: tccr.io/truecharts/nginx-unprivileged
   pullPolicy: IfNotPresent
@@ -13,7 +13,7 @@ imaginaryImage:
 hpbImage:
   repository: tccr.io/truecharts/nextcloud-push-notify
   pullPolicy: IfNotPresent
-  tag: v0.6.3@sha256:25c0a2f0c3eeb64e26be102cc3be09d8ce19b8d05397e188f73f94de8359d339
+  tag: v0.6.3@sha256:01fa824efebf851985b15a0e48d94e89992e26f27f07e593f7751354ed3d0ea6
 clamavImage:
   repository: tccr.io/truecharts/clamav
   pullPolicy: IfNotPresent
@@ -281,12 +281,17 @@ workload:
           primary: true
           enabled: true
           imageSelector: collaboraImage
-          # TODO: Check how low we can go
           securityContext:
-            runAsUser: 0
-            runAsGroup: 0
-            runAsNonRoot: false
+            runAsUser: 100
+            runAsGroup: 102
             readOnlyRootFilesystem: false
+            allowPrivilegeEscalation: true
+            capabilities:
+              add:
+                - CHOWN
+                - FOWNER
+                - SYS_CHROOT
+                - MKNOD
           envFrom:
             - configMapRef:
                 name: collabora-config
@@ -294,10 +299,12 @@ workload:
             readiness:
               enabled: true
               type: http
+              path: /collabora/
               port: "{{ .Values.service.collabora.ports.collabora.targetPort }}"
             liveness:
               enabled: true
               type: http
+              path: /collabora/
               port: "{{ .Values.service.collabora.ports.collabora.targetPort }}"
             startup:
               enabled: true

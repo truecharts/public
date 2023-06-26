@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "2.0.0"
+appVersion: "27.0.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -10,7 +10,7 @@ dependencies:
     version: 6.0.48
 deprecated: false
 description: A private cloud server that puts the control and security of your own data back into your hands.
-home: https://truecharts.org/charts/incubator/nextcloud
+home: https://truecharts.org/charts/stable/nextcloud
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/nextcloud.png
 keywords:
   - nextcloud
@@ -25,11 +25,11 @@ maintainers:
     url: https://truecharts.org
 name: nextcloud
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/nextcloud
+  - https://github.com/truecharts/charts/tree/master/charts/stable/nextcloud
   - https://github.com/nextcloud/docker
   - https://github.com/nextcloud/helm
 type: application
-version: 20.1.0
+version: 21.0.3
 annotations:
   truecharts.org/catagories: |
     - cloud

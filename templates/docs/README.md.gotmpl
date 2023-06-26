@@ -14,7 +14,7 @@ https://charts.truecharts.org
 TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
 
 This readme is just an automatically generated general guide on installing our Helm Charts and Apps.
-For more information, please click here: [{{ template "chart.name" . }}](https://truecharts.org/docs/charts/TRAINPLACEHOLDER/{{ template "chart.name" . }})
+For more information, please click here: [{{ template "chart.name" . }}](https://truecharts.org/charts/TRAINPLACEHOLDER/{{ template "chart.name" . }})
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 {{- end -}}
@@ -33,7 +33,7 @@ For more information, please click here: [{{ template "chart.name" . }}](https:/
 
 ### TrueNAS SCALE
 
-To install this Chart on TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/docs/manual/SCALE%20Apps/Installing-an-App).
+To install this Chart on TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/manual/SCALE/guides/scale-intro).
 
 ### Helm
 
@@ -52,7 +52,7 @@ helm install {{ template "chart.name" . }} {{ template "custom.helm.path" . }}
 
 **Upgrading, Rolling Back and Uninstalling the Chart**
 
-To upgrade, rollback or delete this Chart from TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/docs/manual/SCALE%20Apps/Upgrade-rollback-delete-an-App).
+To upgrade, rollback or delete this Chart from TrueNAS SCALE check our [Quick-Start Guide](https://truecharts.org/manual/SCALE/guides/scale-intro).
 
 ### Helm
 
@@ -97,12 +97,12 @@ helm install {{ template "chart.name" . }} {{ template "custom.helm.path" . }} -
 {{- define "custom.linking" -}}
 #### Connecting to other charts
 
-If you need to connect this Chart to other Charts on TrueNAS SCALE, please refer to our [Linking Charts Internally](https://truecharts.org/docs/manual/SCALE%20Apps/linking-apps) quick-start guide.
+If you need to connect this Chart to other Charts on TrueNAS SCALE, please refer to our [Linking Apps Internally](https://truecharts.org/manual/SCALE/guides/linking-apps) quick-start guide.
 {{- end -}}
 {{- define "custom.support" -}}
 ## Support
 
-- Please check our [quick-start guides for TrueNAS SCALE](https://truecharts.org/docs/manual/SCALE%20Apps/Important-MUST-READ).
+- Please check our [quick-start guides for TrueNAS SCALE](https://truecharts.org/manual/SCALE/guides/scale-intro).
 - See the [Website](https://truecharts.org)
 - Check our [Discord](https://discord.gg/tVsPTHWTtr)
 - Open a [issue](https://github.com/truecharts/apps/issues/new/choose)

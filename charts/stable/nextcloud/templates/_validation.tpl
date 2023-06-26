@@ -33,6 +33,10 @@
     {{- if not .Values.nextcloud.collabora.dictionaries -}}
       {{- fail "Nextcloud - Expected non-empty Collabora [Dictionaries]" -}}
     {{- end -}}
+
+    {{- if not (deepEqual .Values.nextcloud.collabora.dictionaries (uniq .Values.nextcloud.collabora.dictionaries)) -}}
+      {{- fail "Nextcloud - Collabora [Dictionaries] must be unique" -}}
+    {{- end -}}
   {{- end -}}
 
 {{- end -}}
