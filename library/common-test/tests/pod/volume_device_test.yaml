@@ -56,6 +56,68 @@ tests:
               path: /dev/something
               type: BlockDevice
 
+  - it: should pass with specific devices volume
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+      persistence:
+        tty-vol:
+          enabled: true
+          type: device
+          hostPath: /dev/ttyUSB0
+        sda-vol:
+          enabled: true
+          type: device
+          hostPath: /dev/sda
+        hda-vol:
+          enabled: true
+          type: device
+          hostPath: /dev/hda
+        nvme-vol:
+          enabled: true
+          type: device
+          hostPath: /dev/nvme0n1
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: tty-vol
+            hostPath:
+              path: /dev/ttyUSB0
+              type: CharDevice
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: sda-vol
+            hostPath:
+              path: /dev/sda
+              type: BlockDevice
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: hda-vol
+            hostPath:
+              path: /dev/hda
+              type: BlockDevice
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.volumes
+          content:
+            name: nvme-vol
+            hostPath:
+              path: /dev/nvme0n1
+              type: BlockDevice
+
 # Failures
   - it: should fail without hostPath
     set:
