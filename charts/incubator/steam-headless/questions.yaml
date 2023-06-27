@@ -18,33 +18,33 @@ questions:
                                     type: dict
                                     attrs:
                                       - variable: USER_PASSWORD
-                                        label: User Password
+                                        label: "User Password"
                                         schema:
                                           type: string
                                           private: true
                                           default: ""
                                       - variable: MODE
-                                        label: Mode
-                                        description: Configures the container to not start an X server of its own if set to secondary mode.
+                                        label: "Mode"
+                                        description: "Configures the container to not start an X server of its own if set to secondary mode."
                                         schema:
                                           type: string
                                           required: true
                                           default: "primary"
                                           enum:
-                                            - value: primary
-                                              description: Primary
-                                            - value: secondary
-                                              description: Secondary
+                                            - value: "primary"
+                                              description: "Primary"
+                                            - value: "secondary"
+                                              description: "Secondary"
                                       - variable: DISPLAY
-                                        label: Display
-                                        description: Configures the screen to use the primary display.
+                                        label: "Display"
+                                        description: "Configures the screen to use the primary display."
                                         schema:
                                           type: string
                                           default: ":0"
                                           show_if: [[MODE, "=", "secondary"]]
                                       - variable: HOST_DBUS
-                                        label: Host DBus
-                                        description: Configures the container to use the host DBus process.
+                                        label: "Host DBus"
+                                        description: "Configures the container to use the host DBus process."
                                         schema:
                                           type: string
                                           default: "false"
@@ -55,20 +55,22 @@ questions:
                                             - value: "false"
                                               description: "False"
                                       - variable: WEB_UI_MODE
-                                        label: Web UI Mode
-                                        description:  Enables audio over for the VNC Web UI.
+                                        label: "Web UI Mode"
+                                        description: "Enables audio over for the VNC Web UI."
                                         schema:
                                           type: string
                                           required: true
                                           default: "vnc"
                                           enum:
+                                            - value: "none"
+                                              description: "None"
                                             - value: "vnc"
                                               description: "VNC"
                                             - value: "neko"
                                               description: "Neko"
                                       - variable: ENABLE_VNC_AUDIO
-                                        label: Enable VNC Audio
-                                        description: Configure nat1to1 for the neko WebUI.
+                                        label: "Enable VNC Audio"
+                                        description: "Configure nat1to1 for the neko WebUI."
                                         schema:
                                           type: string
                                           default: "true"
@@ -79,15 +81,15 @@ questions:
                                             - value: "false"
                                               description: "False"
                                       - variable: NEKO_NAT1TO1
-                                        label: Neko Nat1T01
+                                        label: "Neko Nat1T01"
                                         description: Configure nat1to1 for the neko WebUI.
                                         schema:
                                           type: string
                                           default: ""
                                           show_if: [[WEB_UI_MODE, "=", "neko"]]
                                       - variable: ENABLE_VNC_AUDIO
-                                        label: Enable VNC Audio
-                                        description: Configure nat1to1 for the neko WebUI.
+                                        label: "Enable VNC Audio"
+                                        description: "Configure nat1to1 for the neko WebUI."
                                         schema:
                                           type: string
                                           default: "true"
@@ -98,8 +100,8 @@ questions:
                                             - value: "false"
                                               description: "False"
                                       - variable: ENABLE_SUNSHINE
-                                        label: Enable Sunshine
-                                        description: Enable Sunshine streaming service.
+                                        label: "Enable Sunshine"
+                                        description: "Enable Sunshine streaming service."
                                         schema:
                                           type: string
                                           default: "false"
@@ -109,24 +111,24 @@ questions:
                                             - value: "false"
                                               description: "False"
                                       - variable: SUNSHINE_USER
-                                        label: Sunshine User
-                                        description: Set the Sunshine service username.
+                                        label: "Sunshine User"
+                                        description: "Set the Sunshine service username."
                                         schema:
                                           type: string
                                           private: true
                                           default: ""
                                           show_if: [[ENABLE_SUNSHINE, "=", "true"]]
                                       - variable: SUNSHINE_PASS
-                                        label: Sunshine Password
-                                        description: Set the Sunshine service password.
+                                        label: "Sunshine Password"
+                                        description: "Set the Sunshine service password."
                                         schema:
                                           type: string
                                           private: true
                                           default: ""
                                           show_if: [[ENABLE_SUNSHINE, "=", "true"]]
                                       - variable: ENABLE_EVDEV_INPUTS
-                                        label: Enable EVDev Inputs
-                                        description: Enable Keyboard and Mouse Passthrough.
+                                        label: "Enable EVDev Inputs"
+                                        description: "Enable Keyboard and Mouse Passthrough."
                                         schema:
                                           type: string
                                           default: "true"
