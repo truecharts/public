@@ -12,6 +12,9 @@ questions:
 # Include{containerMain}
 
 
+# Include{containerBasic}
+# Include{containerAdvanced}
+
                                 - variable: env
                                   label: Image Environment
                                   schema:
@@ -139,8 +142,6 @@ questions:
                                             - value: "false"
                                               description: "False"
 
-# Include{containerBasic}
-# Include{containerAdvanced}
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
