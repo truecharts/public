@@ -9,11 +9,7 @@ questions:
 
 # Include{replicas1}
 # Include{podSpec}
-# Include{containerMain}
 
-
-# Include{containerBasic}
-# Include{containerAdvanced}
 
                                 - variable: env
                                   label: Image Environment
@@ -141,6 +137,10 @@ questions:
                                               description: "True"
                                             - value: "false"
                                               description: "False"
+
+# Include{containerMain}
+# Include{containerBasic}
+# Include{containerAdvanced}
 
 # Include{containerConfig}
 # Include{podOptions}
