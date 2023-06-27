@@ -1,6 +1,6 @@
 {{/* Define the secrets */}}
 {{- define "mcrouter.secrets" -}}
-{{- $mcrouter := .Values.mcrouter -}}
+{{- $mcrouter := .Values.mcrouter }}
 
 enabled: true
 data:
