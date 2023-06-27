@@ -21,7 +21,7 @@ questions:
                                         label: Enables transcoding configuration in the UI
                                         description: To configure transcoding, Navidrome WebUI provide a screen that allows you to edit existing transcoding configurations and to add new ones.
                                         schema:
-                                          type: string
+                                          type: boolean
                                           default: "false"
                                           required: true
                                       - variable: ND_SESSIONTIMEOUT
