@@ -10,35 +10,37 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: APP_URL
+                                        label: App URL
+                                        description: URL at which you will access and share.
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: DISABLE_BUILTIN_AUTH
+                                        label: Disable Builtin Auth
+                                        description: Check this if using an external auth provider, otherwise leave it false.
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: ALLOW_BUG_REPORTING
+                                        label: Allow Bug Reporting
+                                        description: Helps upstream developers fix bugs proactively, recommended leave it enabled, but can be optionally disabled.
+                                        schema:
+                                          type: boolean
+                                          default: true
+
 # Include{containerBasic}
 # Include{containerAdvanced}
 
 # Include{containerConfig}
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: APP_URL
-          label: App URL
-          description: set this url as either http://ip:port or https://app.domain.tld if using ingress/reverse proxy.
-          schema:
-            type: string
-            default: ""
-        - variable: DISABLE_BUILTIN_AUTH
-          label: Disable Builtin Auth
-          description: Check this if using an external auth provider, otherwise leave it false.
-          schema:
-            type: boolean
-            default: false
-        - variable: ALLOW_BUG_REPORTING
-          label: Allow Bug Reporting
-          description: Helps upstream developers fix bugs proactively, recommended leave it enabled, but can be optionally disabled.
-          schema:
-            type: boolean
-            default: true
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: Main Service
