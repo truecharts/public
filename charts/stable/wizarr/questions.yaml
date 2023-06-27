@@ -9,8 +9,6 @@ questions:
 
 # Include{replicas1}
 # Include{podSpec}
-# Include{containerMain}
-
                                 - variable: env
                                   label: Image Environment
                                   schema:
@@ -35,7 +33,7 @@ questions:
                                         schema:
                                           type: boolean
                                           default: true
-
+# Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
 
