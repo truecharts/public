@@ -20,7 +20,10 @@ With MetalLB installed, apps will not be reachable using the integrated loadbala
 
 Install `metallb` from `operators` train first. There is no config, so just hit save.
 
-If you previously had `metallb` installed and are attempting to upgrade, follow the steps specified below in [Migrating an existing MetalLB config to operator-based version](#migrating-an-existing-metallb-config-to-operator-version)
+If you encounter an error upon install, run the following command as root from system settings -> shell and attempt the install again:
+```k3s kubectl delete  --grace-period 30 --v=4 -k https://github.com/truecharts/manifests/delete```
+
+If you previously had `metallb` installed and encounter an error, delete the old version, then run the above command before proceeding to install the `metallb` operator.
 
 ## 2. Set Address Pool & L2 Advertisement in MetalLB-Config
 
@@ -87,9 +90,3 @@ Known Issue: On the SCALE Installed Applications page, the **Open** buttons on e
 :::
 
 For details on other configuration options, please reference the [MetaLB documentation](https://metallb.universe.tf/configuration/)
-
-## Migrating an existing MetalLB config to operator version
-
-- remove the old `metallb` chart coming from the `enterprise` train
-- run this in a **root** shell: `k3s kubectl delete  --grace-period 30 --v=4 -k https://github.com/truecharts/manifests/delete`
-- Proceed with Steps 1 & 2 in the setup guide above
