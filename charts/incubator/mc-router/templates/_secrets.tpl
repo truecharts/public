@@ -4,5 +4,5 @@
 
 enabled: true
 data:
-  MAPPING: {{ join "," mcrouter.host_minecraft }}
+  MAPPING: {{ join "," $mcrouter.host_minecraft }}
 {{- end -}}
