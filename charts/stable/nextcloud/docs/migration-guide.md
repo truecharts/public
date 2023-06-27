@@ -2,6 +2,12 @@
 
 This guide will walk you through the migration process for Nextcloud. This guide utilize HostPath or NFS for UserData.
 
+:::danger SMB EXTERNAL STORAGE
+
+If you are using SMB authenticated external storage on your Nextcloud remove it before starting this guide. The migration process will fail if it is not removed.
+
+:::
+
 :::danger TWO FACTOR AUTHENTICATION
 
 If you are using two factor authentication on your Nextcloud accounts disable it before starting this guide. While it can be done via the CLI later it is much easier to disable it before hand.
