@@ -17,7 +17,7 @@ service:
 
 mcrouter:
   host_minecraft:
-    - domain_minecraft_service: "minecraft.local=localhost:25566"
+    - "minecraft.local=localhost:25566"
 
 workload:
   main:
