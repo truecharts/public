@@ -22,7 +22,7 @@ questions:
                                         description: To configure transcoding, Navidrome WebUI provide a screen that allows you to edit existing transcoding configurations and to add new ones.
                                         schema:
                                           type: boolean
-                                          default: "false"
+                                          default: false
                                           required: true
                                       - variable: ND_SESSIONTIMEOUT
                                         label: Session Timeout time
@@ -38,7 +38,6 @@ questions:
                                           type: string
                                           default: "@every 15m"
                                           required: true
-
 # Include{containerBasic}
 # Include{containerAdvanced}
 
