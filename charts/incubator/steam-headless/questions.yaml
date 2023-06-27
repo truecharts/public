@@ -6,11 +6,13 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
-# Include{replicas1}
+# Include{replicas2}
 # Include{podSpec}
 # Include{containerMain}
-
+# Include{containerBasic}
+# Include{containerAdvanced}
+# Include{containerConfig}
+# Include{podOptions}
                                 - variable: env
                                   label: Image Environment
                                   schema:
@@ -137,12 +139,6 @@ questions:
                                               description: "True"
                                             - value: "false"
                                               description: "False"
-
-# Include{containerBasic}
-# Include{containerAdvanced}
-
-# Include{containerConfig}
-# Include{podOptions}
 # Include{serviceRoot}
 # Include{serviceMain}
         - variable: main
