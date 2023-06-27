@@ -62,7 +62,7 @@ questions:
                                         description: "Seconds between updates."
                                         schema:
                                           type: int
-                                          default: "15"
+                                          default: 15
                                           min: 5
                                           max: 60
                                       - variable: TC_TERMINATE_MESSAGE
