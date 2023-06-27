@@ -6,11 +6,13 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
-# Include{replicas1}
+# Include{replicas2}
 # Include{podSpec}
 # Include{containerMain}
-
+# Include{containerBasic}
+# Include{containerAdvanced}
+# Include{containerConfig}
+# Include{podOptions}
   - variable: openbooks
     group: App Configuration
     label: OpenBooks Configuration
@@ -73,12 +75,6 @@ questions:
           schema:
             type: boolean
             default: true
-
-# Include{containerBasic}
-# Include{containerAdvanced}
-
-# Include{containerConfig}
-# Include{podOptions}
 # Include{serviceRoot}
 # Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
