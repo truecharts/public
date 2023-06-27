@@ -4,11 +4,13 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
-# Include{replicas1}
+# Include{replicas2}
 # Include{podSpec}
 # Include{containerMain}
-
+# Include{containerBasic}
+# Include{containerAdvanced}
+# Include{containerConfig}
+# Include{podOptions}
   - variable: mcrouter
     group: App Configuration
     label: MC Router Configuration
@@ -29,12 +31,6 @@ questions:
                   default: "minecraft.local=localhost:25565"
                   valid_chars: '^([\w.-]+)=([A-Za-z0-9.-]+):(\d+)$'
                   required: true
-
-# Include{containerBasic}
-# Include{containerAdvanced}
-
-# Include{containerConfig}
-# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: Main Service
