@@ -1,20 +1,27 @@
 image:
   repository: tccr.io/truecharts/plexanisync
   pullPolicy: IfNotPresent
-  tag: latest@sha256:f9db346735f4e316b0c363d1bf73826daa7d5feafed20c2d73bdb732ff2c798c
+  tag: v1.3.25@sha256:f9db346735f4e316b0c363d1bf73826daa7d5feafed20c2d73bdb732ff2c798c
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+    fsGroup: 568
 
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
 
 plexanisync:
   interval: 3600
   plex:
-    plex_section:
+    anime_section:
       []
       # - section1
       # - section2
@@ -50,24 +57,21 @@ custom_mappings:
   #     synonyms:
   #       - asfdasd
 
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-secret'
-
-service:
+workload:
   main:
-    enabled: false
-    ports:
-      main:
-        enabled: false
-
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          envFrom:
+            - secretRef:
+                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-secret'
 
 persistence:
   settings:
@@ -75,9 +79,10 @@ persistence:
     type: secret
     readOnly: true
     defaultMode: "0600"
-    objectName: '{{ include "tc.common.names.fullname" . }}-config-secret'
+    objectName: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-config-secret'
     mountPath: /plexanisync/settings.ini
     subPath: settings.ini
 
 portal:
-  enabled: false
+  open:
+    enabled: false

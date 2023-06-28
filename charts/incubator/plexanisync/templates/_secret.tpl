@@ -1,8 +1,8 @@
 {{/* Define the secret */}}
 {{- define "plexanisync.secret" -}}
 
-{{- $secretName := printf "%s-secret" (include "tc.common.names.fullname" .) }}
-{{- $secretConfigName := printf "%s-config-secret" (include "tc.common.names.fullname" .) }}
+{{- $secretName := printf "%s-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
+{{- $secretConfigName := printf "%s-config-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 {{- $pas := .Values.plexanisync }}
 {{- $cm := .Values.custom_mappings }}
 ---
@@ -25,7 +25,7 @@ metadata:
 stringData:
   settings.ini: |
     [PLEX]
-    anime_section = {{ join "|" $pas.plex.plex_section }}
+    anime_section = {{ join "|" $pas.plex.anime_section }}
 
     authentication_method = {{ $pas.plex.plex_auth_method }}
 
