@@ -11,6 +11,10 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
+# Include{containerBasic}
+# Include{containerAdvanced}
+# Include{containerConfig}
+# Include{podOptions}
 
                                 - variable: env
                                   label: Image Environment
@@ -37,11 +41,8 @@ questions:
                                           type: boolean
                                           default: true
 
-# Include{containerBasic}
-# Include{containerAdvanced}
-# Include{containerConfig}
-# Include{podOptions}
 # Include{serviceRoot}
+# Include{serviceMain}
         - variable: main
           label: Main Service
           description: The Primary service on which the healthcheck runs, often the webUI
