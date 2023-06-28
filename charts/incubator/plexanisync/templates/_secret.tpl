@@ -11,7 +11,7 @@ kind: Secret
 metadata:
   name: {{ $secretName }}
   labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
+    {{- include "tc.v1.common.lib.metadata.allLabels" . | nindent 4 }}
 stringData:
   SETTINGS_FILE: {{ .Values.persistence.settings.mountPath }}
   INTERVAL: {{ $pas.interval | quote }}
@@ -21,7 +21,7 @@ kind: Secret
 metadata:
   name: {{ $secretConfigName }}
   labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
+    {{- include "tc.v1.common.lib.metadata.allLabels" . | nindent 4 }}
 stringData:
   settings.ini: |
     [PLEX]
