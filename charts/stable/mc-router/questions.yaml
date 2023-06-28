@@ -28,7 +28,7 @@ questions:
                 label: Domain and Minecraft Service
                 schema:
                   type: string
-                  default: "minecraft.local=localhost:25565"
+                  default: "minecraft.local=minecraft-java.ix-minecraft-java.svc.cluster.local:25565"
                   valid_chars: '^([\w.-]+)=([A-Za-z0-9.-]+):(\d+)$'
                   required: true
 # Include{serviceRoot}
