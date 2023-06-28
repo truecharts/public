@@ -44,6 +44,9 @@ persistence:
   books:
     enabled: true
     mountPath: /books/books
+  logs:
+    enabled: true
+    mountPath: /books/logs
 
 portal:
   open:

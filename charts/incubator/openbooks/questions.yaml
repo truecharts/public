@@ -104,6 +104,14 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
+        - variable: logs
+          label: "App Logs Storage"
+          description: "Stores the Application Logs."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
