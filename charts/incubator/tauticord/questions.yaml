@@ -81,13 +81,8 @@ questions:
                                         label: "Use 24 Hour Time"
                                         description: "Whether to display times in 24-hour time."
                                         schema:
-                                          type: string
-                                          default: "False"
-                                          enum:
-                                            - value: "False"
-                                              description: "False"
-                                            - value: "True"
-                                              description: "True"
+                                          type: boolean
+                                          default: false
                                       - variable: hide_info
                                         label: Show Hidden Info Settings
                                         schema:
@@ -99,90 +94,50 @@ questions:
                                               label: "Hide Usernames"
                                               description: "Whether to hide usernames in the streams view."
                                               schema:
-                                                type: string
-                                                default: "False"
-                                                enum:
-                                                  - value: "False"
-                                                    description: "False"
-                                                  - value: "True"
-                                                    description: "True"
+                                                type: boolean
+                                                default: false
                                             - variable: TC_HIDE_PLATFORMS
                                               label: "Hide Platforms"
                                               description: "Whether to hide platforms in the streams view."
                                               schema:
-                                                type: string
-                                                default: "False"
-                                                enum:
-                                                  - value: "False"
-                                                    description: "False"
-                                                  - value: "True"
-                                                    description: "True"
+                                                type: boolean
+                                                default: false
                                             - variable: TC_HIDE_PLAYER_NAMES
                                               label: "Hide Player Names"
                                               description: "Whether to hide player names in the streams view."
                                               schema:
-                                                type: string
-                                                default: "False"
-                                                enum:
-                                                  - value: "False"
-                                                    description: "False"
-                                                  - value: "True"
-                                                    description: "True"
+                                                type: boolean
+                                                default: false
                                             - variable: TC_HIDE_QUALITY
                                               label: "Hide Quality"
                                               description: "Whether to hide quality profiles in the streams view."
                                               schema:
-                                                type: string
-                                                default: "False"
-                                                enum:
-                                                  - value: "False"
-                                                    description: "False"
-                                                  - value: "True"
-                                                    description: "True"
+                                                type: boolean
+                                                default: false
                                             - variable: TC_HIDE_BANDWIDTH
                                               label: "Hide Bandwidth"
                                               description: "Whether to hide bandwidth in the streams view."
                                               schema:
-                                                type: string
-                                                default: "False"
-                                                enum:
-                                                  - value: "False"
-                                                    description: "False"
-                                                  - value: "True"
-                                                    description: "True"
+                                                type: boolean
+                                                default: false
                                             - variable: TC_HIDE_TRANSCODE
                                               label: "Hide Transcode"
                                               description: "Whether to hide transcoding statuses in the streams view."
                                               schema:
-                                                type: string
-                                                default: "False"
-                                                enum:
-                                                  - value: "False"
-                                                    description: "False"
-                                                  - value: "True"
-                                                    description: "True"
+                                                type: boolean
+                                                default: false
                                             - variable: TC_HIDE_PROGRESS
                                               label: "Hide Progress"
                                               description: "Whether to hide stream progress in the streams view."
                                               schema:
-                                                type: string
-                                                default: "False"
-                                                enum:
-                                                  - value: "False"
-                                                    description: "False"
-                                                  - value: "True"
-                                                    description: "True"
+                                                type: boolean
+                                                default: false
                                             - variable: TC_HIDE_ETA
                                               label: "Hide ETA"
                                               description: "Whether to hide stream ETAs in the streams view."
                                               schema:
-                                                type: string
-                                                default: "False"
-                                                enum:
-                                                  - value: "False"
-                                                    description: "False"
-                                                  - value: "True"
-                                                    description: "True"
+                                                type: boolean
+                                                default: false
                                       - variable: tc_vc_stats
                                         label: Show VC Stats Settings
                                         schema:
@@ -200,68 +155,38 @@ questions:
                                               label: "VC Stream Count"
                                               description: "Whether to display current stream count in a voice channel."
                                               schema:
-                                                type: string
-                                                default: "False"
-                                                enum:
-                                                  - value: "False"
-                                                    description: "False"
-                                                  - value: "True"
-                                                    description: "True"
+                                                type: boolean
+                                                default: false
                                             - variable: TC_VC_TRANSCODE_COUNT
                                               label: "VC Transcode Count"
                                               description: "Whether to display current transcode count in a voice channel."
                                               schema:
-                                                type: string
-                                                default: "False"
-                                                enum:
-                                                  - value: "False"
-                                                    description: "False"
-                                                  - value: "True"
-                                                    description: "True"
+                                                type: boolean
+                                                default: false
                                             - variable: TC_VC_BANDWIDTH
                                               label: "VC Bandwidth"
                                               description: "Whether to display current bandwidth in a voice channel."
                                               schema:
-                                                type: string
-                                                default: "False"
-                                                enum:
-                                                  - value: "False"
-                                                    description: "False"
-                                                  - value: "True"
-                                                    description: "True"
+                                                type: boolean
+                                                default: false
                                             - variable: TC_VC_LOCAL_BANDWIDTH
                                               label: "VC Local Bandwidth"
                                               description: "Whether to display current local bandwidth in a voice channel."
                                               schema:
-                                                type: string
-                                                default: "False"
-                                                enum:
-                                                  - value: "False"
-                                                    description: "False"
-                                                  - value: "True"
-                                                    description: "True"
+                                                type: boolean
+                                                default: false
                                             - variable: TC_VC_REMOTE_BANDWIDTH
                                               label: "VC Remote Bandwidth"
                                               description: "Whether to display current remote bandwidth in a voice channel."
                                               schema:
-                                                type: string
-                                                default: "False"
-                                                enum:
-                                                  - value: "False"
-                                                    description: "False"
-                                                  - value: "True"
-                                                    description: "True"
+                                                type: boolean
+                                                default: false
                                             - variable: TC_VC_PLEX_STATUS
                                               label: "VC Plex Status"
                                               description: "Whether to display Plex online status in a voice channel."
                                               schema:
-                                                type: string
-                                                default: "False"
-                                                enum:
-                                                  - value: "False"
-                                                    description: "False"
-                                                  - value: "True"
-                                                    description: "True"
+                                                type: boolean
+                                                default: false
                                       - variable: tc_vc_libraries
                                         label: Show VC Libraries Settings
                                         schema:
@@ -279,13 +204,8 @@ questions:
                                               label: "VC Library Stats"
                                               description: "Whether to display library statistics in voice channels."
                                               schema:
-                                                type: string
-                                                default: "False"
-                                                enum:
-                                                  - value: "False"
-                                                    description: "False"
-                                                  - value: "True"
-                                                    description: "True"
+                                                type: boolean
+                                                default: false
                                             - variable: TC_VC_LIBRARY_NAMES
                                               label: "VC Library Names"
                                               description: "Comma-separated list of libraries to display statistics of."
@@ -303,57 +223,32 @@ questions:
                                               label: "VC Library Use Emojis"
                                               description: "Whether to use emojis to symbolize library types."
                                               schema:
-                                                type: string
-                                                default: "True"
-                                                enum:
-                                                  - value: "False"
-                                                    description: "False"
-                                                  - value: "True"
-                                                    description: "True"
+                                                type: boolean
+                                                default: true
                                             - variable: TC_VC_TV_SERIES_COUNT
                                               label: "VC TV Series Count"
                                               description: "Display series counts for all selected series libraries."
                                               schema:
-                                                type: string
-                                                default: "True"
-                                                enum:
-                                                  - value: "False"
-                                                    description: "False"
-                                                  - value: "True"
-                                                    description: "True"
+                                                type: boolean
+                                                default: true
                                             - variable: TC_VC_TV_EPISODE_COUNT
                                               label: "VC TV Episode Count"
                                               description: "Display episode counts for all selected series libraries."
                                               schema:
-                                                type: string
-                                                default: "True"
-                                                enum:
-                                                  - value: "False"
-                                                    description: "False"
-                                                  - value: "True"
-                                                    description: "True"
+                                                type: boolean
+                                                default: true
                                             - variable: TC_VC_MUSIC_ARTIST_COUNT
                                               label: "VC Music Artist Count"
                                               description: "Display artist counts for all selected music libraries."
                                               schema:
-                                                type: string
-                                                default: "True"
-                                                enum:
-                                                  - value: "False"
-                                                    description: "False"
-                                                  - value: "True"
-                                                    description: "True"
+                                                type: boolean
+                                                default: true
                                             - variable: TC_VC_MUSIC_TRACK_COUNT
                                               label: "VC Music Track Count"
                                               description: "Display track counts for all selected music libraries."
                                               schema:
-                                                type: string
-                                                default: "True"
-                                                enum:
-                                                  - value: "False"
-                                                    description: "False"
-                                                  - value: "True"
-                                                    description: "True"
+                                                type: boolean
+                                                default: true
                                       - variable: tc_vc_performance
                                         label: Show VC Performance Settings
                                         schema:
@@ -371,24 +266,14 @@ questions:
                                               label: "Monitor CPU"
                                               description: "Whether to monitor CPU performance."
                                               schema:
-                                                type: string
-                                                default: "False"
-                                                enum:
-                                                  - value: "False"
-                                                    description: "False"
-                                                  - value: "True"
-                                                    description: "True"
+                                                type: boolean
+                                                default: false
                                             - variable: TC_MONITOR_MEMORY
                                               label: "Monitor Memory"
                                               description: "Whether to monitor RAM performance."
                                               schema:
-                                                type: string
-                                                default: "False"
-                                                enum:
-                                                  - value: "False"
-                                                    description: "False"
-                                                  - value: "True"
-                                                    description: "True"
+                                                type: boolean
+                                                default: false
                                       - variable: TC_DISCORD_ADMIN_IDS
                                         label: "Discord Admin IDS"
                                         description: "Comma separated of Discord IDs with admin privileges."
@@ -399,13 +284,8 @@ questions:
                                         label: "Discord Admin IDS"
                                         description: "Whether to post a stat summary text message."
                                         schema:
-                                          type: string
-                                          default: "True"
-                                          enum:
-                                            - value: "False"
-                                              description: "False"
-                                            - value: "True"
-                                              description: "True"
+                                          type: boolean
+                                          default: true
                                       - variable: TC_DISCORD_CHANNEL_NAME
                                         label: "Discord Channel Name"
                                         description: "Channel name for stats summary text message."
@@ -416,24 +296,14 @@ questions:
                                         label: "Discord Nitro"
                                         description: "Whether the Discord server has a Nitro subscription. (bot will upload custom emojis)"
                                         schema:
-                                          type: string
-                                          default: "False"
-                                          enum:
-                                            - value: "False"
-                                              description: "False"
-                                            - value: "True"
-                                              description: "True"
+                                          type: boolean
+                                          default: false
                                       - variable: TC_ALLOW_ANALYTICS
                                         label: "TC Allow Analytics"
                                         description: "Allow Anonymous Crash Analytics"
                                         schema:
-                                          type: string
-                                          default: "False"
-                                          enum:
-                                            - value: "False"
-                                              description: "False"
-                                            - value: "True"
-                                              description: "True"
+                                          type: boolean
+                                          default: false
 
 # Include{containerBasic}
 # Include{containerAdvanced}
