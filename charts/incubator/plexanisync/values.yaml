@@ -9,15 +9,6 @@ securityContext:
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-    fsGroup: 568
-
-service:
-  main:
-    enabled: false
-    ports:
-      main:
-        enabled: false
-
 plexanisync:
   interval: 3600
   plex:
@@ -70,8 +61,15 @@ workload:
             startup:
               enabled: false
           envFrom:
-            - secretRef:
-                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-secret'
+            - configMapKeyRef:
+                name: config
+
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
 
 persistence:
   settings:
@@ -79,7 +77,7 @@ persistence:
     type: secret
     readOnly: true
     defaultMode: "0600"
-    objectName: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-config-secret'
+    objectName: secret
     mountPath: /plexanisync/settings.ini
     subPath: settings.ini
 

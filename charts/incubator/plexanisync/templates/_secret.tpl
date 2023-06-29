@@ -1,28 +1,10 @@
-{{/* Define the secret */}}
 {{- define "plexanisync.secret" -}}
 
-{{- $secretName := printf "%s-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
-{{- $secretConfigName := printf "%s-config-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
-{{- $pas := .Values.plexanisync }}
+{{- $pas := .Values.plexanisync -}}
 {{- $cm := .Values.custom_mappings }}
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: {{ $secretName }}
-  labels:
-    {{- include "tc.v1.common.lib.metadata.allLabels" . | nindent 4 }}
-stringData:
-  SETTINGS_FILE: {{ .Values.persistence.settings.mountPath }}
-  INTERVAL: {{ $pas.interval | quote }}
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: {{ $secretConfigName }}
-  labels:
-    {{- include "tc.v1.common.lib.metadata.allLabels" . | nindent 4 }}
-stringData:
+
+enabled: true
+data:
   settings.ini: |
     [PLEX]
     anime_section = {{ join "|" $pas.plex.anime_section }}
@@ -52,6 +34,7 @@ stringData:
     skip_list_update = {{ ternary "True" "False" $pas.anilist.skip_list_update }}
     username = {{ $pas.anilist.ani_username }}
     log_failed_matches = {{ ternary "True" "False" $pas.anilist.log_failed_matches }}
+
   custom_mappings.yaml: |
     # https://github.com/RickDB/PlexAniSync/blob/master/custom_mappings.yaml.example
   {{- if $cm }}
@@ -60,7 +43,7 @@ stringData:
       {{- range $url := . }}
       - {{ . | quote }}
       {{- end }}
-    {{- end }}
+    {{- end -}}
 
     {{- with $cm.entries }}
     entries:
@@ -72,7 +55,7 @@ stringData:
           - season: {{ $season_entry.season }}
             anilist-id: {{ $season_entry.anilist_id }}
           {{- end }}
-        {{- end }}
+        {{- end -}}
         {{- with $entry.synonyms }}
         synonyms:
           {{- range $synonym := . }}
@@ -80,6 +63,6 @@ stringData:
           {{- end }}
         {{- end }}
       {{- end }}
-    {{- end }}
-  {{- end }}
+    {{- end -}}
+  {{- end -}}
 {{- end -}}
