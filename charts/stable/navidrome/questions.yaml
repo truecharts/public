@@ -6,7 +6,6 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
@@ -32,7 +31,7 @@ questions:
                                           required: true
                                       - variable: ND_SCANSCHEDULE
                                         label: Music folder scan schedule frequency
-                                        description: 	Configure periodic scans using cron syntax. To disable it altogether, set it to 0
+                                        description: Configure periodic scans using cron syntax. To disable it altogether, set it to 0
                                         schema:
                                           type: string
                                           default: "@every 15m"
