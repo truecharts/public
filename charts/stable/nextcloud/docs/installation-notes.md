@@ -32,7 +32,7 @@ The following configurations must be set during initially setup for nextcloud to
 
 3. Collabora (document editor for nextcloud, this includes a complete sidecar installation of Collabora)
 
-4. Only Office (document editor for nextcloud, this DOES NOT include a sidecar installation. You will need to have a separate installation of Only Office)
+4. Only Office (document editor for nextcloud, this DOES **NOT** include a sidecar installation. You will need to have a separate installation of Only Office)
 
 ### Networking and Services
 
