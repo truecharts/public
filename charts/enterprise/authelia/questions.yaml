@@ -28,6 +28,7 @@ questions:
     schema:
       type: string
       default: ""
+      valid_chars: '^https?:\/\/(.*)'
   - variable: theme
     group: "App Configuration"
     label: "Theme"

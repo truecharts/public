@@ -30,9 +30,8 @@ LLDAP is a `Stable` train chart and therefore isn't supported at the same level 
 
 ### App Configuration
 
-Domain: `mydomain.com` <- Your domain without https://
-Default Redirection URL: `auth.mydomain.com`
-  - Can be anything, but we'll stick to auth.mydomain.com. As well, this will be the ingress URL for `Authelia`
+- Domain: `mydomain.com` <- Your domain without https://
+- Default Redirection URL: `https://auth.mydomain.com` <- Can be anything, but we'll stick to auth.mydomain.com. As well, this will be the ingress URL for `Authelia`
 
 ### LDAP Backend Configuration
 
