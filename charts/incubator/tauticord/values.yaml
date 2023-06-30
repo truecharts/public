@@ -1,0 +1,87 @@
+image:
+  repository: tccr.io/truecharts/tauticord
+  pullPolicy: IfNotPresent
+  tag: v3.8.0@sha256:3f834aac482c202963b6882ff78be23d94cc34e29f16a7642010a9db9ee9cdc1
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            TC_DISCORD_BOT_TOKEN: ""
+            TC_DISCORD_SERVER_ID: ""
+            TC_TAUTULLI_KEY: ""
+            TC_TAUTULLI_URL: ""
+            TC_PLEX_PASS: false
+            TC_REFRESH_SECONDS: 15
+            TC_TERMINATE_MESSAGE: "Your stream has ended."
+            TC_SERVER_NAME: "Plex"
+            TC_USE_24_HOUR_TIME: false
+            # Hide Info
+            TC_HIDE_USERNAMES: false
+            TC_HIDE_PLATFORMS: false
+            TC_HIDE_PLAYER_NAMES: false
+            TC_HIDE_QUALITY: false
+            TC_HIDE_BANDWIDTH: false
+            TC_HIDE_TRANSCODE: false
+            TC_HIDE_PROGRESS: false
+            TC_HIDE_ETA: false
+            # Stats Cat
+            TC_VC_STATS_CATEGORY_NAME: "Plex Stream Stats"
+            TC_VC_STREAM_COUNT: false
+            TC_VC_TRANSCODE_COUNT: false
+            TC_VC_BANDWIDTH: false
+            TC_VC_LOCAL_BANDWIDTH: false
+            TC_VC_REMOTE_BANDWIDTH: false
+            TC_VC_PLEX_STATUS: false
+            # Libraries Cat
+            TC_VC_LIBRARIES_CATEGORY_NAME: "Plex Library Stats"
+            TC_VC_LIBRARY_STATS: false
+            TC_VC_LIBRARY_NAMES: Movies,TV Shows,Music
+            TC_VC_LIBRARY_REFRESH_SECONDS: 3600
+            TC_VC_LIBRARY_USE_EMOJIS: true
+            TC_VC_TV_SERIES_COUNT: true
+            TC_VC_TV_EPISODE_COUNT: true
+            TC_VC_MUSIC_ARTIST_COUNT: true
+            TC_VC_MUSIC_TRACK_COUNT: true
+            # Performance Cat
+            TC_VC_PERFORMANCE_CATEGORY_NAME: "Performance"
+            TC_MONITOR_CPU: false
+            TC_MONITOR_MEMORY: false
+            # Other
+            TC_DISCORD_ADMIN_IDS: ""
+            TC_DISCORD_POST_SUMMARY_MESSAGE: true
+            TC_DISCORD_CHANNEL_NAME: "Tautulli Status"
+            TC_DISCORD_NITRO: false
+            TC_ALLOWS_ANALYTICS: false
+
+persistence:
+  logs:
+    enabled: true
+    mountPath: "/logs"
+
+portal:
+  open:
+    enabled: false
