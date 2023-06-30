@@ -17,14 +17,14 @@ workload:
           env:
             - DB_HOST:
                 secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
-                key: plainporthost
+                  expandObjectName: false
+                  name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                  key: plainporthost
             - DB_ROOT_PASSWD:
                 secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
-                key: mariadbRootPassword
+                  expandObjectName: false
+                  name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                  key: mariadbRootPassword
             - SEAFILE_SERVER_LETSENCRYPT: false
             - SEAFILE_SERVER_HOSTNAME: ""
             - SEAFILE_ADMIN_EMAIL: me@example.com
