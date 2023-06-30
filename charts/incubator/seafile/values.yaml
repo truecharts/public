@@ -2,12 +2,21 @@ image:
   repository: seafileltd/seafile-mc
   tag: 10.0.1@sha256:f1b3317c0a5fbad551606dfedd255c656d3e8d1c2a8aff360b5a9d59286fec2d
   pullPolicy: IfNotPresent
+
 service:
   main:
     ports:
       main:
         port: 13080
+        protocol: http
         targetPort: 80
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
 
 workload:
   main:
@@ -30,7 +39,7 @@ workload:
             - SEAFILE_ADMIN_EMAIL: me@example.com
             - SEAFILE_ADMIN_PASSWORD: a_very_secret_password
             - FORCE_HTTPS_IN_CONF: true
-            - NON_ROOT: true
+
 persistence:
   config:
     enabled: true
