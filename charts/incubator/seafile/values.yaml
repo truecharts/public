@@ -14,7 +14,7 @@ workload:
     podSpec:
       containers:
         main:
-          env: {- $_ := set .Values.mariadb.creds "mariadbRootPassword" ($rootPass | quote) -}
+          env:
             - DB_HOST:
                 secretKeyRef:
                 expandObjectName: false
