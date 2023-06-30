@@ -1,0 +1,47 @@
+image:
+  repository: seafileltd/seafile-mc
+  tag: 10.0.1@sha256:f1b3317c0a5fbad551606dfedd255c656d3e8d1c2a8aff360b5a9d59286fec2d
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 13080
+        targetPort: 80
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env: {- $_ := set .Values.mariadb.creds "mariadbRootPassword" ($rootPass | quote) -}
+            - DB_HOST:
+                secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: plainporthost
+            - DB_ROOT_PASSWD:
+                secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: mariadbRootPassword
+            - SEAFILE_SERVER_LETSENCRYPT: false
+            - SEAFILE_SERVER_HOSTNAME: ""
+            - SEAFILE_ADMIN_EMAIL: me@example.com
+            - SEAFILE_ADMIN_PASSWORD: a_very_secret_password
+            - FORCE_HTTPS_IN_CONF: true
+            - NON_ROOT: true
+persistence:
+  config:
+    enabled: true
+    mountPath: "/shared"
+mariadb:
+  enabled: true
+  mariadbUsername:
+  mariadbDatabase: seafile
+# --  memcached dependency settings
+memcached:
+  enabled: true
+portal:
+  open:
+    enabled: true
