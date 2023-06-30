@@ -37,7 +37,7 @@ persistence:
     mountPath: "/shared"
 mariadb:
   enabled: true
-  mariadbUsername:
+  mariadbUsername: root
   mariadbDatabase: seafile
 # --  memcached dependency settings
 memcached:
