@@ -9,22 +9,26 @@ redisinsight:
   auth_prompt: false
   auth_timer: 30
 
-env:
-  RIPORT: "{{ .Values.service.main.ports.main.port }}"
-  RIHOMEDIR: /config
-  RILOGDIR: /logs
-  RILOGLEVEL: "{{ .Values.redisinsight.log_level }}"
-  RITRUSTEDORIGINS: '{{ join "," .Values.redisinsight.trusted_origins }}'
-  RIAUTHPROMPT: "{{ .Values.redisinsight.auth_prompt }}"
-  RIAUTHTIMER: "{{ .Values.redisinsight.auth_timer }}"
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            RIPORT: "{{ .Values.service.main.ports.main.port }}"
+            RIHOMEDIR: /config
+            RILOGDIR: /logs
+            RILOGLEVEL: "{{ .Values.redisinsight.log_level }}"
+            RITRUSTEDORIGINS: '{{ join "," .Values.redisinsight.trusted_origins }}'
+            RIAUTHPROMPT: "{{ .Values.redisinsight.auth_prompt }}"
+            RIAUTHTIMER: "{{ .Values.redisinsight.auth_timer }}"
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
 
 service:
   main:
@@ -42,4 +46,5 @@ persistence:
     mountPath: /logs
 
 portal:
-  enabled: true
+  open:
+    enabled: true
