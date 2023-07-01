@@ -19,19 +19,19 @@ questions:
                                     type: dict
                                     attrs:
                                       - variable: SEAFILE_SERVER_HOSTNAME
-                                        label: "Seafile Server Hostname (First Install Only)"
+                                        label: "Seafile Server Hostname"
                                         description: "If using ingress, set your FQDN here"
                                         schema:
                                           type: string
                                           default: ""
                                      - variable: SEAFILE_ADMIN_EMAIL
-                                        label: "Seafile Admin Email (First Install Only)"
+                                        label: "Seafile Admin Email"
                                         description: "Initial admin email."
                                         schema:
                                           type: string
                                           default: "me@example.com"
                                      - variable: SEAFILE_ADMIN_PASSWORD
-                                        label: "Seafile Admin Password (First Install Only)"
+                                        label: "Seafile Admin Password"
                                         description: "Initial admin password. Change this"
                                         schema:
                                           type: string
