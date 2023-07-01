@@ -16,6 +16,6 @@ enabled: true
 data:
   ACCESS_TOKEN_SALT: {{ $accesstokensalt }}
   JWT_SECRET_KEY: {{ $jwtsecret }}
-  DATABASE_URL: {{ printf "postgresql://%v:%v@%v:5432/%v?connect_timeout=300&sslmode=prefer" .Values.cnpg.main.creds.user .Values.cnpg.main.creds.password .Values.cnpg.main.creds.host .Values.cnpg.main.database }}
+  DATABASE_URL: {{ (printf "%s?client_encoding=utf8" (.Values.cnpg.main.creds.std | trimAll "\"")) | quote }}
   REDIS_PASSWORD: {{ .Values.redis.creds.redisPassword }}
 {{- end -}}
