@@ -32,7 +32,7 @@ workload:
               secretKeyRef:
                 name: secrets
                 key: DATABASE_URL
-            REDIS_HOST: "{{ .Values.redis.creds.plainhost }}"
+            REDIS_HOST: "{{ .Values.redis.creds.plain }}"
             REDIS_PASSWORD:
               secretKeyRef:
                 name: secrets
