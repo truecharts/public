@@ -4,10 +4,6 @@ dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 12.14.2
-  - condition: memcached.enabled
-    name: memcached
-    repository: https://deps.truecharts.org/
-    version: 6.0.59
   - condition: mariadb.enabled
     name: mariadb
     repository: https://deps.truecharts.org/
