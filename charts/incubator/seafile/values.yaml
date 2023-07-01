@@ -25,15 +25,17 @@ workload:
         main:
           env:
             - DB_HOST:
-                secretKeyRef:
-                  expandObjectName: false
-                  name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
-                  key: plainhost
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: plainporthost
             - DB_ROOT_PASSWD:
-                secretKeyRef:
-                  expandObjectName: false
-                  name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
-                  key: mariadbRootPassword
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: mariadb-password
+            - DB_USER: seafile
+            - DB_HOST: seafile
             - SEAFILE_SERVER_LETSENCRYPT: false
             - SEAFILE_SERVER_HOSTNAME: ""
             - SEAFILE_ADMIN_EMAIL: me@example.com
@@ -46,7 +48,7 @@ persistence:
     mountPath: "/shared"
 mariadb:
   enabled: true
-  mariadbUsername: root
+  mariadbUsername: seafile
   mariadbDatabase: seafile
 portal:
   open:
