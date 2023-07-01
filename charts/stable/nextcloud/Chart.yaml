@@ -3,11 +3,11 @@ appVersion: "27.0.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 12.14.1
+    version: 12.14.6
   - condition: redis.enabled
     name: redis
     repository: https://deps.truecharts.org
-    version: 6.0.48
+    version: 6.0.62
 deprecated: false
 description: A private cloud server that puts the control and security of your own data back into your hands.
 home: https://truecharts.org/charts/stable/nextcloud
@@ -29,7 +29,7 @@ sources:
   - https://github.com/nextcloud/docker
   - https://github.com/nextcloud/helm
 type: application
-version: 21.0.7
+version: 21.0.8
 annotations:
   truecharts.org/catagories: |
     - cloud
