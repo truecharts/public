@@ -28,7 +28,7 @@ workload:
               secretKeyRef:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
-                key: plainporthost
+                key: plainport
             DB_ROOT_PASSWD:
               secretKeyRef:
                 expandObjectName: false
