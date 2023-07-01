@@ -17,5 +17,4 @@ data:
   ACCESS_TOKEN_SALT: {{ $accesstokensalt }}
   JWT_SECRET_KEY: {{ $jwtsecret }}
   DATABASE_URL: {{ (printf "%s?client_encoding=utf8" (.Values.cnpg.main.creds.std | trimAll "\"")) | quote }}
-  REDIS_PASSWORD: {{ .Values.redis.creds.redisPassword }}
 {{- end -}}
