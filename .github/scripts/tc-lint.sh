@@ -147,8 +147,10 @@ function lint_chart(){
         echo "👣 Helm Lint - [$chart_path]"
         helm_lint "$chart_path"
 
-        echo "👣 Helm Template - [$chart_path]"
-        helm_template "$chart_path"
+        if [[ ! $(ls $chart_path/ci/*values.yaml) ]]; then
+            echo "👣 Helm Template - [$chart_path]"
+            helm_template "$chart_path"
+        fi
 
         for values in $chart_path/ci/*values.yaml; do
             if [ -f "${values}" ]; then

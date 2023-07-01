@@ -340,11 +340,6 @@ nginx-config:
             location = /.well-known/carddav { return 301 /remote.php/dav/; }
             location = /.well-known/caldav  { return 301 /remote.php/dav/; }
 
-            # According to the documentation these two lines are not necessary,
-            # but some users are still receiving errors
-            location = /.well-known/webfinger   { return 301 /index.php$uri; }
-            location = /.well-known/nodeinfo   { return 301 /index.php$uri; }
-
             location /.well-known/acme-challenge    { try_files $uri $uri/ =404; }
             location /.well-known/pki-validation    { try_files $uri $uri/ =404; }
 
