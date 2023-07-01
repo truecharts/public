@@ -32,9 +32,11 @@ questions:
                                           default: "me@example.com"
                                      - variable: SEAFILE_ADMIN_PASSWORD
                                         label: "Seafile Admin Password (First Install Only)"
-                                        description: "Initial admin password. **BE SURE TO CHANGE THIS!**"
+                                        description: "Initial admin password. Change this"
                                         schema:
                                           type: string
+                                          required: true
+                                          private: true
                                           default: "a_very_secret_password"
                                      - variable: FORCE_HTTPS_IN_CONF
                                         label: "Force HTTPS (Must be enabled to use with Reverse Proxies)"
@@ -42,7 +44,6 @@ questions:
                                         schema:
                                           type: boolean
                                           default: false
-
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
