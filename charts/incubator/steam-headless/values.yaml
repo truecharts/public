@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/steam-headless
   pullPolicy: IfNotPresent
-  tag: vlatest@sha256:e981d2ca1cc56e8e8588daf94c90d5565bfa7c10fb4691796a9c52aa575d2d61
+  tag: vlatest@sha256:81fb4b11ee49b5730cbae59634df422988291015740a74cdda3f60f33291d942
 
 securityContext:
   container:
@@ -22,13 +22,13 @@ workload:
             # DISPLAY: :0
             # HOST_DBUS: true
             WEB_UI_MODE: "vnc"
-            ENABLE_VNC_AUDIO: "true"
+            ENABLE_VNC_AUDIO: false
             # NEKO_NAT1TO1: "" needs to be the ip of the host
-            ENABLE_SUNSHINE: "false"
+            ENABLE_SUNSHINE: false
             # SUNSHINE_USER: ""
             # SUNSHINE_PASS: ""
             # USER_PASSWORD: ""
-            ENABLE_EVDEV_INPUTS: "true"
+            ENABLE_EVDEV_INPUTS: false
 
 service:
   main:
@@ -44,18 +44,6 @@ persistence:
   games:
     enabled: true
     mountPath: /mnt/games
-  input:
-    enabled: true
-    type: hostPath
-    hostPath: /dev/input
-    mountPath: /dev/input
-    readOnly: true
-  dbus:
-    enabled: true
-    type: hostPath
-    hostPath: /run/dbus
-    mountPath: /run/dbus
-    readOnly: true
 
 portal:
   open:

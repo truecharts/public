@@ -45,14 +45,9 @@ questions:
                                         label: "Host DBus"
                                         description: "Configures the container to use the host DBus process."
                                         schema:
-                                          type: string
-                                          default: "false"
+                                          type: boolean
+                                          default: false
                                           show_if: [[MODE, "=", "secondary"]]
-                                          enum:
-                                            - value: "true"
-                                              description: "True"
-                                            - value: "false"
-                                              description: "False"
                                       - variable: WEB_UI_MODE
                                         label: "Web UI Mode"
                                         description: "Enables audio over for the VNC Web UI."
@@ -71,14 +66,9 @@ questions:
                                         label: "Enable VNC Audio"
                                         description: "Configure nat1to1 for the neko WebUI."
                                         schema:
-                                          type: string
-                                          default: "true"
+                                          type: boolean
+                                          default: true
                                           show_if: [[WEB_UI_MODE, "=", "vnc"]]
-                                          enum:
-                                            - value: "true"
-                                              description: "True"
-                                            - value: "false"
-                                              description: "False"
                                       - variable: NEKO_NAT1TO1
                                         label: "Neko Nat1T01"
                                         description: Configure nat1to1 for the neko WebUI.
@@ -90,25 +80,15 @@ questions:
                                         label: "Enable VNC Audio"
                                         description: "Configure nat1to1 for the neko WebUI."
                                         schema:
-                                          type: string
-                                          default: "true"
+                                          type: boolean
+                                          default: true
                                           show_if: [[WEB_UI_MODE, "=", "vnc"]]
-                                          enum:
-                                            - value: "true"
-                                              description: "True"
-                                            - value: "false"
-                                              description: "False"
                                       - variable: ENABLE_SUNSHINE
                                         label: "Enable Sunshine"
                                         description: "Enable Sunshine streaming service."
                                         schema:
-                                          type: string
-                                          default: "false"
-                                          enum:
-                                            - value: "true"
-                                              description: "True"
-                                            - value: "false"
-                                              description: "False"
+                                          type: boolean
+                                          default: false
                                       - variable: SUNSHINE_USER
                                         label: "Sunshine User"
                                         description: "Set the Sunshine service username."
@@ -129,13 +109,8 @@ questions:
                                         label: "Enable EVDev Inputs"
                                         description: "Enable Keyboard and Mouse Passthrough."
                                         schema:
-                                          type: string
-                                          default: "true"
-                                          enum:
-                                            - value: "true"
-                                              description: "True"
-                                            - value: "false"
-                                              description: "False"
+                                          type: boolean
+                                          default: true
 
 # Include{containerBasic}
 # Include{containerAdvanced}
