@@ -59,7 +59,7 @@ workload:
               enabled: false
           envFrom:
             - secretRef:
-                name: "pmm.secret"
+                name: "pmm.secrets"
 
 persistence:
   config:
