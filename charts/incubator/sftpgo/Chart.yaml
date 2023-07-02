@@ -1,9 +1,6 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - Network-FTP
 apiVersion: v2
-appVersion: "latest"
+appVersion: "build20230629131622"
+dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 12.14.6
@@ -25,3 +22,7 @@ sources:
   - https://github.com/drakkan/sftpgo
 type: application
 version: 3.0.0
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - Network-FTP
