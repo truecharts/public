@@ -3,15 +3,17 @@ image:
   tag: 7.3@sha256:be700165a0f8ed996982d758ceb20523f401333f333119ef461857f89ecee792
   pullPolicy: IfNotPresent
 
-env:
-  TIMEZONE: "{{ .Values.TZ }}"
-  MM_SQLSETTINGS_DRIVERNAME: "postgres"
-  MM_BLEVESETTINGS_INDEXDIR: "/mattermost/bleve-indexes"
-  MM_SERVICESETTINGS_SITEURL: "https://test.example.com"
-  MM_SQLSETTINGS_DATASOURCE:
-    secretKeyRef:
-      name: dbcreds
-      key: urlnossl
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            TIMEZONE: "{{ .Values.TZ }}"
+            MM_SQLSETTINGS_DRIVERNAME: "postgres"
+            MM_BLEVESETTINGS_INDEXDIR: "/mattermost/bleve-indexes"
+            MM_SERVICESETTINGS_SITEURL: "https://test.example.com"
+            MM_SQLSETTINGS_DATASOURCE: {{ (printf "%s?client_encoding=utf8" (.Values.cnpg.main.creds.std | trimAll "\"")) | quote }}
 
 service:
   main:
@@ -40,11 +42,11 @@ persistence:
     enabled: true
     mountPath: "/mattermost/bleve-indexes"
 
-postgresql:
+cnpg:
   enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: mattermost
-  postgresqlDatabase: mattermost
+  user: mattermost
+  database: mattermost
 
 portal:
-  enabled: true
+  open:
+    enabled: true
