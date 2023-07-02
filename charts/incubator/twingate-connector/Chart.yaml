@@ -1,0 +1,29 @@
+apiVersion: v2
+appVersion: "1.56.0"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.14.6
+deprecated: false
+description: Twingate is remote access for the modern world.
+home: https://truecharts.org/charts/twingate-connector
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/twingate-connector.png
+keywords:
+  - twingate-connector
+  - networking
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: twingate-connector
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/twingate-connector
+  - https://www.twingate.com/docs/connector-deployment
+type: application
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - network
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
