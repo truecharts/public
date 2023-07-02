@@ -9,11 +9,11 @@ workload:
       containers:
         main:
           env:
-             TIMEZONE: "{{ .Values.TZ }}"
-             MM_SQLSETTINGS_DRIVERNAME: "postgres"
-             MM_BLEVESETTINGS_INDEXDIR: "/mattermost/bleve-indexes"
-             MM_SERVICESETTINGS_SITEURL: "https://test.example.com"
-             MM_SQLSETTINGS_DATASOURCE: "{{ (printf "%s?client_encoding=utf8" (.Values.cnpg.main.creds.std | trimAll "\"")) | quote }}"
+            TIMEZONE: "{{ .Values.TZ }}"
+            MM_SQLSETTINGS_DRIVERNAME: "postgres"
+            MM_BLEVESETTINGS_INDEXDIR: "/mattermost/bleve-indexes"
+            MM_SERVICESETTINGS_SITEURL: "https://test.example.com"
+            MM_SQLSETTINGS_DATASOURCE: "{{ (printf "%s?client_encoding=utf8" (.Values.cnpg.main.creds.std | trimAll "\"")) | quote }}"
 
 service:
   main:
