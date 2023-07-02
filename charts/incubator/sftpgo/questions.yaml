@@ -13,51 +13,53 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: SFTPGO_FTPD__BINDINGS__0__FORCE_PASSIVE_IP
-          label: "SFTPGO_FTPD__BINDINGS__0__FORCE_PASSIVE_IP"
-          description: "Put your server IP here for local access, or your public IP for public access via port forwarding."
-          schema:
-            type: string
-            default: "10.0.0.10"
-        - variable: SFTPGO_COMMON__DEFENDER__ENABLED
-          label: "SFTPGO_COMMON__DEFENDER__ENABLED"
-          description: "httpsgithub.comdrakkansftpgoblobmaindocsdefender.md"
-          schema:
-            type: string
-            default: "true"
-        - variable: SFTPGO_FTPD__PASSIVE_PORT_RANGE__START
-          label: "SFTPGO_FTPD__PASSIVE_PORT_RANGE__START"
-          schema:
-            type: string
-            default: "50000"
-        - variable: SFTPGO_FTPD__PASSIVE_PORT_RANGE__END
-          label: "SFTPGO_FTPD__PASSIVE_PORT_RANGE__END"
-          schema:
-            type: string
-            default: "50100"
-        - variable: SFTPGO_FTPD__BINDINGS__0__PORT
-          label: "SFTPGO_FTPD__BINDINGS__0__PORT"
-          schema:
-            type: string
-            default: "2121"
-        - variable: SFTPGO_WEBDAVD__BINDINGS__0__PORT
-          label: "SFTPGO_WEBDAVD__BINDINGS__0__PORT"
-          schema:
-            type: string
-            default: "10080"
-        - variable: SFTPGO_FTPD__BINDINGS__0__DEBUG
-          label: "SFTPGO_FTPD__BINDINGS__0__DEBUG"
-          description: "0 = false, 1 = true"
-          schema:
-            type: string
-            default: "0"
+# Include{containerMain}
+
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                    - variable: SFTPGO_FTPD__BINDINGS__0__FORCE_PASSIVE_IP
+                                      label: "SFTPGO_FTPD__BINDINGS__0__FORCE_PASSIVE_IP"
+                                      description: "Put your server IP here for local access, or your public IP for public access via port forwarding."
+                                      schema:
+                                        type: string
+                                        default: "10.0.0.10"
+                                    - variable: SFTPGO_COMMON__DEFENDER__ENABLED
+                                      label: "SFTPGO_COMMON__DEFENDER__ENABLED"
+                                      description: "httpsgithub.comdrakkansftpgoblobmaindocsdefender.md"
+                                      schema:
+                                        type: string
+                                        default: "true"
+                                    - variable: SFTPGO_FTPD__PASSIVE_PORT_RANGE__START
+                                      label: "SFTPGO_FTPD__PASSIVE_PORT_RANGE__START"
+                                      schema:
+                                        type: string
+                                        default: "50000"
+                                    - variable: SFTPGO_FTPD__PASSIVE_PORT_RANGE__END
+                                      label: "SFTPGO_FTPD__PASSIVE_PORT_RANGE__END"
+                                      schema:
+                                        type: string
+                                        default: "50100"
+                                    - variable: SFTPGO_FTPD__BINDINGS__0__PORT
+                                      label: "SFTPGO_FTPD__BINDINGS__0__PORT"
+                                      schema:
+                                        type: string
+                                        default: "2121"
+                                    - variable: SFTPGO_WEBDAVD__BINDINGS__0__PORT
+                                      label: "SFTPGO_WEBDAVD__BINDINGS__0__PORT"
+                                      schema:
+                                        type: string
+                                        default: "10080"
+                                    - variable: SFTPGO_FTPD__BINDINGS__0__DEBUG
+                                      label: "SFTPGO_FTPD__BINDINGS__0__DEBUG"
+                                      description: "0 = false, 1 = true"
+                                      schema:
+                                        type: string
+                                        default: "0"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
