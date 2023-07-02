@@ -43,9 +43,10 @@ persistence:
     mountPath: "/mattermost/bleve-indexes"
 
 cnpg:
-  enabled: true
-  user: mattermost
-  database: mattermost
+  main:
+    enabled: true
+    user: mattermost
+    database: mattermost
 
 portal:
   open:
