@@ -24,13 +24,13 @@ questions:
                                         schema:
                                           type: string
                                           default: ""
-                                     - variable: SEAFILE_ADMIN_EMAIL
+                                      - variable: SEAFILE_ADMIN_EMAIL
                                         label: "Seafile Admin Email"
                                         description: "Initial admin email."
                                         schema:
                                           type: string
                                           default: "me@example.com"
-                                     - variable: SEAFILE_ADMIN_PASSWORD
+                                      - variable: SEAFILE_ADMIN_PASSWORD
                                         label: "Seafile Admin Password"
                                         description: "Initial admin password. Change this"
                                         schema:
@@ -38,7 +38,7 @@ questions:
                                           required: true
                                           private: true
                                           default: "a_very_secret_password"
-                                     - variable: FORCE_HTTPS_IN_CONF
+                                      - variable: FORCE_HTTPS_IN_CONF
                                         label: "Force HTTPS (Must be enabled to use with Reverse Proxies)"
                                         description: "If using Traefik or another reverse proxy enable this to use HTTPS"
                                         schema:
