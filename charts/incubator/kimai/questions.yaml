@@ -47,6 +47,7 @@ questions:
           schema:
             type: list
             default: []
+            items:
               - variable: hostEntry
                 label: Trusted Host
                 schema:
