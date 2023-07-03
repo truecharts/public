@@ -26,6 +26,12 @@ All of the defaults are fine to start off, you must choose a password, however `
 
 **Ingress Example**
 
+:::note
+
+Note that the `*.mydomain.com` host config is only needed if you want to use `Forward auth (single application)` in `authentik`.
+
+:::
+
 ![Ingress-Auth](img/Ingress-Auth.png)
 
 ## Authentik GUI Setup
@@ -53,6 +59,14 @@ Default username is `akadmin` and password is whatever you entered in the initia
 - The simplest is to give it a name and use `Forward auth (domain level)`. Once there you enter the `main ingress` URL you use to access `authentik` and the `cookie domain` as the main domain you use.
 
 ![New-Provider-2](img/New-Provider-2.png)
+
+- If you want to use subdomain-level access control, select `Forward auth (single application)` and enter the URL you have chosen for your apps' ingress.
+- The example uses `https://application.mydomain.com/`, make sure your app is reachable and uses a valid certificate beforehand. 
+- You can set HTTP-Basic Authentication Attributes under `Authentication settings` for your service here. 
+  - Don't use a `basicAuth` middleware in the apps' ingress settings. Only use this if your app has build in basic auth support. 
+  - Add the attributes in a `authentik` group, then assign any user you want to be able to access the application to this group.
+
+![New-Provider-3](image.png)
 
 - Once done use that new `Provider` you created
 
@@ -86,11 +100,18 @@ Once `authentik` is setup and running, you must create a `forwardAuth` inside `T
 
 The main thing about this screen is to use the internal DNS name for simplicity
 
+- I have successfully used an `authentik` instance on a difference host together with `external-service` using this URL: 
+  - `https://authentik-external-service.ix-authentik.svc.cluster.local:9443/outpost.goauthentik.io/auth/traefik`
+- Use `heavyscript dns -a` to get the internal DNS name for your `authentik` instance in that case. 
+- I suggest using the `https` endpoint and port because it is what worked for me.
+
 :::
 
 ```
 http://authentik-http.ix-authentik.svc.cluster.local:10230/outpost.goauthentik.io/auth/traefik
 ```
+
+**Double-check the DNS name and port.**
 
 There's also a list of `authResponseHeaders` inside `authentik` listed for use with `Traefik`, so in case you need them here they are.
 
@@ -105,6 +126,8 @@ There's also a list of `authResponseHeaders` inside `authentik` listed for use w
 - `X-authentik-meta-provider`
 - `X-authentik-meta-app`
 - `X-authentik-meta-version`
+
+Add the `authorization` header to pass the HTTP-Basic headers from `authentik` to you application.
 
 ### Add Traefik forwardAuth to Charts
 
