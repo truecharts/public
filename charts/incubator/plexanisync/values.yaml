@@ -61,7 +61,7 @@ workload:
             startup:
               enabled: false
           envFrom:
-            - configMapKeyRef:
+            - configMapRef:
                 name: config
 
 service:
