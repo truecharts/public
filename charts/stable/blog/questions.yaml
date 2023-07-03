@@ -17,6 +17,19 @@ questions:
                                     additional_attrs: true
                                     type: dict
                                     attrs:
+                                      - variable: BLOG_NICK
+                                        label: "Admin username"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          required: "true"
+                                      - variable: BLOG_PASS
+                                        label: "Admin password"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          required: "true"
+                                          private: "true"
                                       - variable: BLOG_TITLE
                                         label: "Blog Title"
                                         schema:
