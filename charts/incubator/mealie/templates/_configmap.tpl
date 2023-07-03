@@ -38,8 +38,8 @@ metadata:
   labels:
     {{- include "tc.v1.common.lib.metadata.allLabels" . | nindent 4 }}
 data:
-  PUID: {{ .Values.security.PUID | quote }}
-  PGID: {{ .Values.podSecurityContext.fsGroup | quote }}
+  PUID: {{ .Values.securityContext.container.PUID | quote }}
+  PGID: {{ .Values.securityContext.pod.fsGroup | quote }}
   TZ: {{ .Values.TZ }}
   DB_ENGINE: "postgres"
   POSTGRES_PORT: "5432"

@@ -2,10 +2,10 @@
 image: {{ .Values.apiImage.repository }}:{{ .Values.apiImage.tag }}
 imagePullPolicy: {{ .Values.apiImage.pullPolicy }}
 securityContext:
-  runAsUser: {{ .Values.podSecurityContext.runAsUser }}
-  runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
-  readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
-  runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
+  runAsUser: {{ .Values.securityContext.container.runAsUser }}
+  runAsGroup: {{ .Values.securityContext.container.runAsGroup }}
+  readOnlyRootFilesystem: {{ .Values.securityContext.container.readOnlyRootFilesystem }}
+  runAsNonRoot: {{ .Values.securityContext.container.runAsNonRoot }}
 envFrom:
   - secretRef:
       name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-api-secret'
