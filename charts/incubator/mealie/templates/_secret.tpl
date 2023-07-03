@@ -1,11 +1,11 @@
 {{/* Define the secret */}}
 {{- define "mealie.secret" -}}
 
-{{- $apiSecretName := printf "%s-api-secret" (include "tc.common.names.fullname" .) }}
+{{- $apiSecretName := printf "%s-api-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 
 ---
 
-{{/* This secrets are loaded on both main authentik container and worker */}}
+{{/* This secrets are loaded on mealie */}}
 apiVersion: v1
 kind: Secret
 type: Opaque
@@ -14,7 +14,7 @@ metadata:
   labels:
     {{- include "tc.common.labels" . | nindent 4 }}
 data:
-  POSTGRES_PASSWORD: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" | b64enc }}
+  POSTGRES_PASSWORD: {{ .Values.cnpg.main.creds.password | trimAll "\"" }}
   {{- with .Values.mealie_backend.smtp.user | b64enc }}
   SMTP_USER: {{ . }}
   {{- end }}

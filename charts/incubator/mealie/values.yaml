@@ -9,12 +9,28 @@ apiImage:
   pullPolicy: IfNotPresent
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+    fsGroup: 568
 
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10018
+        protocol: http
+        targetPort: 3000
+  api:
+    enabled: true
+    type: ClusterIP
+    ports:
+      api:
+        enabled: true
+        protocol: http
+        port: 10019
 
 mealie_frontend:
   theme:
@@ -65,47 +81,36 @@ mealie_backend:
     base_dn: ""
     admin_filter: ""
 
-envFrom:
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-frontend-config'
-
-probes:
-  liveness:
-    type: HTTP
-    path: /
-  readiness:
-    type: HTTP
-    path: /
-  startup:
-    type: HTTP
-    path: /
-
-service:
+workload:
   main:
-    ports:
-      main:
-        port: 10018
-        protocol: HTTP
-        targetPort: 3000
-  api:
-    enabled: true
-    type: ClusterIP
-    ports:
-      api:
-        enabled: true
-        protocol: HTTP
-        port: 10019
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: "/"
+              type: http
+            readiness:
+              path: "/"
+              type: http
+            startup:
+              path: "/"
+              type: http
+          envFrom:
+            - configMapRef:
+                name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-frontend-config'
 
 persistence:
   data:
     enabled: true
     mountPath: /app/data
 
-postgresql:
-  enabled: true
-  existingSecret: dbcreds
-  postgresqlUsername: mealie
-  postgresqlDatabase: mealie
+cnpg:
+  main:
+    enabled: true
+    user: mealie
+    database: mealie
 
 portal:
-  enabled: true
+  open:
+    enabled: true

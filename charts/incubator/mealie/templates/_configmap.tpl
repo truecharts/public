@@ -1,8 +1,8 @@
 {{/* Define the configmap */}}
 {{- define "mealie.config" -}}
 
-{{- $frontendConfigName := printf "%s-frontend-config" (include "tc.common.names.fullname" .) }}
-{{- $apiConfigName := printf "%s-api-config" (include "tc.common.names.fullname" .) }}
+{{- $frontendConfigName := printf "%s-frontend-config" (include "tc.v1.common.lib.chart.names.fullname" .) }}
+{{- $apiConfigName := printf "%s-api-config" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 
 ---
 
@@ -43,9 +43,9 @@ data:
   TZ: {{ .Values.TZ }}
   DB_ENGINE: "postgres"
   POSTGRES_PORT: "5432"
-  POSTGRES_USER: {{ .Values.postgresql.postgresqlUsername }}
-  POSTGRES_DB: {{ .Values.postgresql.postgresqlDatabase }}
-  POSTGRES_SERVER: {{ printf "%v-%v" .Release.Name "postgresql" }}
+  POSTGRES_USER: {{ .Values.cnpg.main.user }}
+  POSTGRES_DB: {{ .Values.cnpg.main.database }}
+  POSTGRES_SERVER: {{ .Values.cnpg.main.creds.host }}
   API_PORT: {{ .Values.service.api.ports.api.port | quote }}
   {{/* User Defined */}}
   {{/* General */}}
