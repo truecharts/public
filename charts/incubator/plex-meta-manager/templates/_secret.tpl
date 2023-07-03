@@ -1,8 +1,7 @@
-{{/* Define the secrets */}}
-{{- define "pmm.secrets" -}}
-{{- $secretName := (printf "%s-pmm-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) -}}
+{{/* Define the secret */}}
+{{- define "pmm.secret" -}}
 
-{{- $pmm := .Values.pmm -}}
+{{- $pmm := .Values.pmm }}
 enabled: true
 data:
   {{/* PMM */}}

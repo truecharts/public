@@ -30,23 +30,20 @@ workload:
     podSpec:
       initContainers:
         create-init-config-file:
-          type: install
           enabled: true
+          type: init
           imageSelector: "image"
-          volumeMounts:
-            - name: config
-              mountPath: "/config"
           command:
             - /bin/sh
             - -c
           args:
-            - |-
+            - |
               echo "Creating config.yml file..."
               if [ -f /config/config.yml ]; then
-                echo "Config file exists!, Skipping..."
+                echo "Config file exists! Skipping..."
               else
                 echo "Config file is missing, getting a new one!"
-                curl -fLvo /config/config.yml https://raw.githubusercontent.com/meisnate12/Plex-Meta-Manager/master/config/config.yml.template || ( echo "Downloading config file, FAILED..." && exit 1 )
+                curl -fLvo /config/config.yml https://raw.githubusercontent.com/meisnate12/Plex-Meta-Manager/master/config/config.yml.template || (echo "Downloading config file, FAILED..." && exit 1)
               fi
       containers:
         main:
@@ -59,12 +56,13 @@ workload:
               enabled: false
           envFrom:
             - secretRef:
-                name: "secrets"
+                name: "secret"
 
 persistence:
   config:
     enabled: true
     mountPath: /config
+    targetSelectAll: true
 
 portal:
   open:
