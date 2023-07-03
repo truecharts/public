@@ -3,7 +3,7 @@
 
 {{/* Render secret for pmm */}}
 {{- $secret := include "pmm.secret" . | fromYaml -}}
-{{- if $secrets -}}
+{{- if $secret -}}
   {{- $_ := set .Values.secret "secret" $secret -}}
 {{- end -}}
 
