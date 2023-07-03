@@ -57,12 +57,7 @@ questions:
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
-          label: Main Service
-          description: The Primary service on which the Minecraft Server runs on
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
@@ -76,7 +71,7 @@ questions:
                             description: This port exposes the container port on the service
                             schema:
                               type: int
-                              default: 25565
+                              default: 8008
                               required: true
         - variable: dns
           label: DNS Service
