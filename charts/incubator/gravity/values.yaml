@@ -40,7 +40,7 @@ workload:
             BOOTSTRAP_ROLES: "dns;api;etcd;discovery;backup;monitoring;tsdb"
             ADMIN_TOKEN:
               secretKeyRef:
-                name: secrets
+                name: gravity-secret
                 key: ADMIN_TOKEN
             INSTANCE_LISTEN: "0.0.0.0"
 
