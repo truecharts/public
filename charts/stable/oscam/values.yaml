@@ -19,6 +19,7 @@ portal:
     enabled: true
 securityContext:
   container:
+    readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
-    runAsGroup: 20
+    runAsGroup: 0
