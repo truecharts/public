@@ -9,8 +9,8 @@
 
 {{- $config := include "kimai.config" . | fromYaml -}}
 {{- if $config -}}
-  {{ $config := (mustMergeOverwrite .Values.secret $config) }}
-  {{- $_ := set .Values "secret" $config -}}
+  {{ $config := (mustMergeOverwrite .Values.configmap $config) }}
+  {{- $_ := set .Values "configmap" $config -}}
 {{- end -}}
 
 
