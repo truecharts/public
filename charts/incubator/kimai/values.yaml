@@ -43,15 +43,10 @@ workload:
               enabled: true
               type: http
               path: "/en/login"
+          envFrom:
+            - configMapRef:
+                name: kimai-config
           env:
-            DB_TYPE: "mysql"
-            DB_PORT: "3306"
-            DB_USER: "{{ .Values.mariadb.mariadbDatabase }}"
-            DB_BASE: "{{ .Values.mariadb.mariadbUsername }}"
-            APP_ENV: "prod"
-            TRUSTED_HOSTS: "{{ .Values.env.trust_hosts }},localhost"
-            # User Defined
-            trust_hosts: "127.0.0.1"
             DB_PASS:
               secretKeyRef:
                 expandObjectName: false
@@ -64,12 +59,8 @@ workload:
                 key: plainhost
             APP_SECRET:
               secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "kimai-secrets" }}'
+                name: kimai-secrets
                 key: APP_SECRET
-          envFrom:
-            - configMapRef:
-                name: kimai-config
 
 persistence:
   data:

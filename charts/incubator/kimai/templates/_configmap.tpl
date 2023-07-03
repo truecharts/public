@@ -1,20 +1,24 @@
 {{/* Define the configmap */}}
 {{- define "kimai.configmap" -}}
+
 {{- $trusted_hosts := .Values.kimai.trusted_hosts }}
-{{- if (contains "localhost" $trusted_hosts) -}}
-  {{- $trusted_hosts := .Values.kimai.trusted_hosts }}
-{{- else -}}
-  {{- $trusted_hosts := cat .Values.kimai.trusted_hosts ", localhost" -}}
+
+{{- if not (mustHas "localhost" $trusted_hosts) -}}
+  {{- $trusted_hosts = mustAppend $trusted_hosts "localhost" }}
 {{- end -}}
-{{- $trusted_hosts := regexReplaceAll " " $trusted_hosts "" -}}
 
-kimai-config:
-  enabled: true
-  data:
-    {{/* Admin credentials */}}
-    ADMINMAIL: {{ .Values.kimai.credentials.ADMINMAIL }}
-    ADMINPASS: {{ .Values.kimai.credentials.ADMINPASS }}
-    {{/* Trusted Hosts */}}
-    TRUSTED_HOSTS: {{ $trusted_hosts }}
-
+configmap:
+  kimai-config:
+    enabled: true
+    data:
+      {{/* Admin credentials */}}
+      ADMINMAIL: {{ .Values.kimai.credentials.ADMINMAIL }}
+      ADMINPASS: {{ .Values.kimai.credentials.ADMINPASS }}
+      {{/* Trusted Hosts */}}
+      TRUSTED_HOSTS: {{ join "," $trusted_hosts }}
+      DB_TYPE: mysql
+      DB_PORT: "3306"
+      DB_USER: {{ .Values.mariadb.mariadbDatabase }}
+      DB_BASE: {{ .Values.mariadb.mariadbUsername }}
+      APP_ENV: prod
 {{- end -}}

@@ -26,27 +26,33 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-            - variable: ADMINMAIL
-              label: Admin e-mail address
-              description: Email address of the admin account.
-              schema:
-                type: string
-                default: ""
-                required: true
-            - variable: ADMINPASS
-              label: Admin password
-              description: Password for the admin account.
-              schema:
-                type: string
-                default: ""
-                required: true
-                private: true
+              - variable: ADMINMAIL
+                label: Admin e-mail address
+                description: Email address of the admin account.
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+              - variable: ADMINPASS
+                label: Admin password
+                description: Password for the admin account.
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+                  private: true
         - variable: trusted_hosts
           label: Trusted Hosts
           description: Comma separated list of trusted hosts. Sets the environment variable TRUSTED_HOSTS.
           schema:
-            type: string
-            default: "YOUR.FQDN or YOUR.NAS.IP"
+            type: list
+            default: []
+              - variable: hostEntry
+                label: Trusted Host
+                schema:
+                  type: string
+                  default: ""
+                  required: true
 # Include{podOptions}
 # Include{serviceRoot}
 # Include{serviceMain}
