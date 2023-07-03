@@ -11,7 +11,7 @@ kind: ConfigMap
 metadata:
   name: {{ $frontendConfigName }}
   labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
+    {{- include "tc.v1.common.lib.metadata.allLabels" . | nindent 4 }}
 data:
   API_URL: http://localhost:{{ .Values.service.api.ports.api.port }}
   THEME_LIGHT_PRIMARY: {{ .Values.mealie_frontend.theme.light_primary | default "#E58325" | quote }}
@@ -36,7 +36,7 @@ kind: ConfigMap
 metadata:
   name: {{ $apiConfigName }}
   labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
+    {{- include "tc.v1.common.lib.metadata.allLabels" . | nindent 4 }}
 data:
   PUID: {{ .Values.security.PUID | quote }}
   PGID: {{ .Values.podSecurityContext.fsGroup | quote }}

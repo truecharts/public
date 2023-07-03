@@ -12,7 +12,7 @@ type: Opaque
 metadata:
   name: {{ $apiSecretName }}
   labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
+    {{- include "tc.v1.common.lib.metadata.allLabels" . | nindent 4 }}
 data:
   POSTGRES_PASSWORD: {{ .Values.cnpg.main.creds.password | trimAll "\"" }}
   {{- with .Values.mealie_backend.smtp.user | b64enc }}
