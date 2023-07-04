@@ -7,9 +7,8 @@
   {{- $token = index .data "ADMIN_TOKEN" | b64dec -}}
 {{- end }}
 
-secret:
-  gravity-secret:
-    enabled: true
-    data:
-      ADMIN_TOKEN: {{ $token }}
+gravity-secret:
+  enabled: true
+  data:
+    ADMIN_TOKEN: {{ $token }}
 {{- end -}}
