@@ -33,7 +33,8 @@ questions:
                                         description: "Address to listen on."
                                         schema:
                                           type: string
-                                          default: "0.0.0.0"
+                                          $ref:
+                                            - definitions/nodeIP
                                       - variable: PASTEY_BEHIND_PROXY
                                         label: "Pastey Behind Proxy"
                                         description: "Inform Pastey if it is behind a reverse proxy."
