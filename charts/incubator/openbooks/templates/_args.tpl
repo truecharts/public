@@ -1,24 +1,25 @@
 {{- define "openbooks.args" -}}
+{{- $openbooks := .Values.openbooks -}}
 args:
   - --port
   - {{ .Values.service.main.ports.main.port | quote }}
   - --name
-  - {{ .Values.openbooks.user_name }}
+  - {{ $openbooks.user_name }}
   - --searchbot
-  - {{ .Values.openbooks.search }}
-  {{- if .Values.openbooks.tls }}
+  - {{ $openbooks.search }}
+  {{- if $openbooks.tls }}
   - --tls
   {{- end -}}
-  {{- if .Values.openbooks.log }}
+  {{- if $openbooks.log }}
   - --log
   {{- end -}}
-  {{- if .Values.openbooks.debug }}
+  {{- if $openbooks.debug }}
   - --debug
   {{- end -}}
-  {{- if .Values.openbooks.persist }}
+  {{- if $openbooks.persist }}
   - --persist
   {{- end -}}
-  {{- if .Values.openbooks.no_browser_downloads }}
+  {{- if $openbooks.no_browser_downloads }}
   - --no-browser-downloads
   {{- end -}}
 {{- end -}}

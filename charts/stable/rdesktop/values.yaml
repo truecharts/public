@@ -1,14 +1,14 @@
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/rdesktop
-  tag: latest@sha256:ad5616d3ae7cdf4543d4d842472844de51976ebfa6c0ae6aff3f7b901fa325ff
+  tag: latest@sha256:648d00e2579a3d67a0da41e757978b602232608f2755cd31644395695c8fb76e
 ubuntuXFCEImage:
   repository: tccr.io/truecharts/rdesktop-ubuntu-xfce
-  tag: latest@sha256:8f68bc3eab6c46f03245f357cddba23af0a0db4d1ddd40e563b7567b37215009
+  tag: latest@sha256:3fcfd609f35f26fb56f11e7ee6d64cc9e079b805efab355f8eb05cf86fb063cd
   pullPolicy: Always
 fedoraXFCEImage:
   repository: tccr.io/truecharts/rdesktop-fedora-xfce
-  tag: latest@sha256:947a76a8673af878d94d42af924e5a65792ffa4426be17864b67412633d6c09f
+  tag: latest@sha256:e55ba6c62b095b41c2a56a6181192aec6ed48d8787bdfa66c4e569d1b0268593
   pullPolicy: Always
 archXFCEImage:
   repository: tccr.io/truecharts/rdesktop-arch-xfce
@@ -20,7 +20,7 @@ alpineKDEImage:
   pullPolicy: Always
 ubuntuKDEImage:
   repository: tccr.io/truecharts/rdesktop-ubuntu-kde
-  tag: latest@sha256:641b498bb0d1916bae66308135bbdbd7dc9f72ff66ece2e13cdcef296d28f1fe
+  tag: latest@sha256:e9eeb755d4c8a484e49f7904972e2ceb8c3e6595e9fb08b118a85c639753cfea
   pullPolicy: Always
 fedoraKDEImage:
   repository: tccr.io/truecharts/rdesktop-fedora-kde
@@ -36,7 +36,7 @@ alpineMATEImage:
   pullPolicy: Always
 ubuntuMATEImage:
   repository: tccr.io/truecharts/rdesktop-ubuntu-mate
-  tag: latest@sha256:9af92d6f033ea07165521a033604d33a821e2fca65aed55112283dcf7cbce70c
+  tag: latest@sha256:2648504bc66e08196097f9f7e48155a391f67c017ed3573d87c2e3f4b357ed45
   pullPolicy: Always
 fedoraMATEImage:
   repository: tccr.io/truecharts/rdesktop-fedora-mate
@@ -52,7 +52,7 @@ alpineI3Image:
   pullPolicy: Always
 ubuntuI3Image:
   repository: tccr.io/truecharts/rdesktop-ubuntu-i3
-  tag: latest@sha256:6592b3c97898a9f4fb8d3ed1ddd71ea0d59447eb32fa0e8dc78c2b21211af921
+  tag: latest@sha256:c26026bc8e50be0c1eb30e57807c1643c189a79860e95ebe90be9168105eda99
   pullPolicy: Always
 fedoraI3Image:
   repository: tccr.io/truecharts/rdesktop-fedora-i3
@@ -68,11 +68,11 @@ alpineOpenBoxImage:
   pullPolicy: Always
 ubuntuOpenBoxImage:
   repository: tccr.io/truecharts/rdesktop-ubuntu-openbox
-  tag: latest@sha256:f57c0134d198047c583a426ffa06c33fac9a8bfaf90dd32a3eaec499b1d14ca4
+  tag: latest@sha256:ba33a69d17cd2b53cc7911cba059a877330d704044489e2f3763dcc1c38f5be0
   pullPolicy: Always
 fedoraOpenBoxImage:
   repository: tccr.io/truecharts/rdesktop-fedora-openbox
-  tag: latest@sha256:a921e3353f39c66812adc6b1cdba45338628332ed08af24536c9038bef2a5785
+  tag: latest@sha256:1cc97d93c834935ffaede41a7797adb9046f6966c4fbd89b966a34284e2b8351
   pullPolicy: Always
 archOpenBoxImage:
   repository: tccr.io/truecharts/rdesktop-arch-openbox
@@ -84,7 +84,7 @@ alpineICEWMImage:
   pullPolicy: Always
 ubuntuICEWMImage:
   repository: tccr.io/truecharts/rdesktop-ubuntu-icewm
-  tag: latest@sha256:effba81a9511333d6a91f09d026a000bd3b184a501fe767eebaad2d911166bae
+  tag: latest@sha256:4a7bcd4cb289d1ef67cd40132e7f0f934a9a8317038f0c4bcfd7449c1c26967d
   pullPolicy: Always
 fedoraICEWMImage:
   repository: tccr.io/truecharts/rdesktop-fedora-icewm
