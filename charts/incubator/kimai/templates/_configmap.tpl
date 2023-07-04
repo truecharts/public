@@ -7,18 +7,17 @@
   {{- $trusted_hosts = mustAppend $trusted_hosts "localhost" }}
 {{- end -}}
 
-configmap:
-  kimai-config:
-    enabled: true
-    data:
-      {{/* Admin credentials */}}
-      ADMINMAIL: {{ .Values.kimai.credentials.ADMINMAIL }}
-      ADMINPASS: {{ .Values.kimai.credentials.ADMINPASS }}
-      {{/* Trusted Hosts */}}
-      TRUSTED_HOSTS: {{ join "," $trusted_hosts }}
-      DB_TYPE: mysql
-      DB_PORT: "3306"
-      DB_USER: {{ .Values.mariadb.mariadbDatabase }}
-      DB_BASE: {{ .Values.mariadb.mariadbUsername }}
-      APP_ENV: prod
+kimai-config:
+  enabled: true
+  data:
+    {{/* Admin credentials */}}
+    ADMINMAIL: {{ .Values.kimai.credentials.ADMINMAIL }}
+    ADMINPASS: {{ .Values.kimai.credentials.ADMINPASS }}
+    {{/* Trusted Hosts */}}
+    TRUSTED_HOSTS: {{ join "," $trusted_hosts }}
+    DB_TYPE: mysql
+    DB_PORT: "3306"
+    DB_USER: {{ .Values.mariadb.mariadbDatabase }}
+    DB_BASE: {{ .Values.mariadb.mariadbUsername }}
+    APP_ENV: prod
 {{- end -}}

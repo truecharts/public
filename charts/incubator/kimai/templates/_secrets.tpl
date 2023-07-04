@@ -7,9 +7,8 @@
   {{- $app_secret = index .data "APP_SECRET" | b64dec -}}
 {{- end }}
 
-secret:
-  kimai-secret:
-    enabled: true
-    data:
-      APP_SECRET: {{ $app_secret }}
+kimai-secret:
+  enabled: true
+  data:
+    APP_SECRET: {{ $app_secret }}
 {{- end -}}
