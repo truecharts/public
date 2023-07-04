@@ -27,9 +27,19 @@ workload:
       containers:
         main:
           imageSelector: image
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
           env:
             PASTEY_LISTEN_PORT: "{{ .Values.service.main.ports.main.port }}"
-            PASTEY_LISTEN_ADDRESS: "0.0.0.0"
+            # PASTEY_LISTEN_ADDRESS: "0.0.0.0"
             PASTEY_BEHIND_PROXY: false
             PASTEY_GUESS_THRESHOLD: "0.20"
             PASTEY_RATE_LIMIT: 5/hour
