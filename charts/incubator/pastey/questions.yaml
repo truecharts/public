@@ -83,12 +83,6 @@ questions:
                                         schema:
                                           type: string
                                           default: "127.0.0.1/32,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
-                                      - variable: PASTEY_BLACKLIST_CIDR
-                                        label: "Pastey BlackList CIDR"
-                                        description: "List of blocked IP addresses or networks."
-                                        schema:
-                                          type: string
-                                          default: ""
                                       - variable: PASTEY_DEFAULT_THEME
                                         label: "Pastey Default Theme"
                                         schema:
