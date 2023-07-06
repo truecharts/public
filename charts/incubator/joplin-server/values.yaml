@@ -1,65 +1,68 @@
 image:
   repository: tccr.io/truecharts/joplin-server
-  tag: 2.10.10@sha256:5c9c6525af1b8b4a2ba926d13d3df83c53a95428f8344fc2a75c0cfa83a2806e
+  tag: v2.11.2@sha256:59cf299fbc539b90fc130a3e89bf54aee252fda6f97c36c72837028b87a29c14
   pullPolicy: IfNotPresent
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-env:
-  APP_BASE_URL: http://localhost:22300
-  APP_PORT: 22300
-  DB_CLIENT: "pg"
-  POSTGRES_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
-  POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
-  POSTGRES_PORT: "5432"
-  POSTGRES_PASSWORD:
-    secretKeyRef:
-      name: dbcreds
-      key: postgresql-password
-  POSTGRES_HOST:
-    secretKeyRef:
-      name: dbcreds
-      key: plainhost
-  MAILER_ENABLED: 0
-  MAILER_HOST: ""
-  MAILER_PORT: 465
-  MAILER_SECURE: true
-  MAILER_AUTH_USER: ""
-  MAILER_AUTH_PASSWORD: ""
-  MAILER_NOREPLY_NAME: ""
-  MAILER_NOREPLY_EMAIL: ""
-
-probes:
-  liveness:
-    path: "/api/ping"
-  readiness:
-    path: "/api/ping"
-  startup:
-    path: "/api/ping"
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
 
 service:
   main:
     ports:
       main:
         port: 22300
-        targetPort: 22300
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: "/api/ping"
+            readiness:
+              path: "/api/ping"
+            startup:
+              path: "/api/ping"
+          env:
+            APP_BASE_URL: "http://localhost:{{ .Values.service.main.ports.main.port }}"
+            APP_PORT: "{{ .Values.service.main.ports.main.port }}"
+            DB_CLIENT: "pg"
+            POSTGRES_DATABASE: "{{ .Values.cnpg.main.database }}"
+            POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
+            POSTGRES_PORT: "5432"
+            POSTGRES_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            POSTGRES_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            MAILER_ENABLED: 0
+            MAILER_HOST: ""
+            MAILER_PORT: 465
+            MAILER_SECURE: true
+            MAILER_AUTH_USER: ""
+            MAILER_AUTH_PASSWORD: ""
+            MAILER_NOREPLY_NAME: ""
+            MAILER_NOREPLY_EMAIL: ""
 
 persistence:
   config:
     enabled: true
     mountPath: "/config"
 
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: joplin
-  postgresqlDatabase: joplin
+cnpg:
+  main:
+    enabled: true
+    user: joplin
+    database: joplin
 
 portal:
-  enabled: true
+  open:
+    enabled: true
