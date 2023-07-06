@@ -52,6 +52,7 @@ type: hostPath
 hostPath: {{ .Values.addons.vpn.configFile | default "/vpn" }}
 hostPathType: "File"
 autoPermissions:
+  enabled: true
   chown: true
   user: 568
   group: 568
@@ -73,6 +74,7 @@ enabled: true
 type: hostPath
 hostPath: {{ .Values.addons.vpn.configFolder | quote }}
 autoPermissions:
+  enabled: true
   chown: true
   user: 568
   group: 568

@@ -22,7 +22,7 @@ objectData: The object data to be used to render the Pod.
       {{/* If the pod is the autopermission */}}
       {{- else if eq $objectData.shortName "autopermissions" -}}
         {{- if $persistence.autoPermissions -}}
-          {{- if or $persistence.autoPermissions.chown $persistence.autoPermissions.chmod -}}
+          {{- if $persistence.autoPermissions.enabled -}}
             {{- $selected = true -}}
           {{- end -}}
         {{- end -}}

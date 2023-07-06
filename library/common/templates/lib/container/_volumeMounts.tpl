@@ -90,7 +90,7 @@ objectData: The object data to be used to render the container.
     {{- $return = true -}}
     {{/* Set custom path on autopermissions container */}}
     {{- if and (eq $objectData.shortName "autopermissions") $persistenceValues.autoPermissions -}}
-      {{- if or $persistenceValues.autoPermissions.chown $persistenceValues.autoPermissions.chmod -}}
+      {{- if $persistenceValues.autoPermissions.enabled -}}
         {{- $return = true -}}
         {{- $_ := set $volMount "mountPath" (printf "/mounts/%v" $persistenceName) -}}
       {{- end -}}
@@ -99,7 +99,7 @@ objectData: The object data to be used to render the container.
   {{/* If the container is the autopermission */}}
   {{- else if (eq $objectData.shortName "autopermissions") -}}
     {{- if $persistenceValues.autoPermissions -}}
-      {{- if or $persistenceValues.autoPermissions.chown $persistenceValues.autoPermissions.chmod -}}
+      {{- if $persistenceValues.autoPermissions.enabled -}}
         {{- $return = true -}}
         {{- $_ := set $volMount "mountPath" (printf "/mounts/%v" $persistenceName) -}}
       {{- end -}}

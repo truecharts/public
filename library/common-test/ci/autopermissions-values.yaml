@@ -44,7 +44,10 @@ persistence:
   autopermissions:
     enabled: true
     type: hostPath
-    setPermissions: true
+    autoPermissions:
+      enabled: true
+      chown: true
+      chmod: 775
     hostPath: /usr
     mountPath: /hptest
     hostPathType: ""
