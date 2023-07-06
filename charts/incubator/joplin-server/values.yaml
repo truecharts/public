@@ -29,7 +29,7 @@ workload:
             startup:
               path: "/api/ping"
           env:
-            APP_BASE_URL: "http://localhost:{{ .Values.service.main.ports.main.port }}"
+            APP_BASE_URL: "http://127.0.0.1:{{ .Values.service.main.ports.main.port }}"
             APP_PORT: "{{ .Values.service.main.ports.main.port }}"
             DB_CLIENT: "pg"
             POSTGRES_DATABASE: "{{ .Values.cnpg.main.database }}"
