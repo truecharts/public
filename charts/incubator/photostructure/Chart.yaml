@@ -1,18 +1,12 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - MediaApp-Photos
-    - MediaServer-Video
-    - MediaServer-Photos
 apiVersion: v2
-appVersion: "stable"
+appVersion: "2.1.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 12.14.6
 deprecated: false
-description: "[b]PhotoStructure is your new home for all your photos and videos.[/b]\n"
-home: https://truecharts.org/charts/incubator/photostructure
+description: PhotoStructure is your new home for all your photos and videos.
+home: https://truecharts.org/charts/stable/photostructure
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/photostructure.png
 keywords:
   - photostructure
@@ -26,7 +20,13 @@ maintainers:
     url: https://truecharts.org
 name: photostructure
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/photostructure
-  - https://photostructure.com/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/photostructure
+  - https://github.com/photostructure/photostructure-for-servers
 type: application
-version: 2.0.9
+version: 3.0.0
+annotations:
+  truecharts.org/catagories: |
+    - MediaApp-Photos
+    - MediaServer-Video
+    - MediaServer-Photos
+  truecharts.org/SCALE-support: "true"
