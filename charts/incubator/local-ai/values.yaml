@@ -1,0 +1,78 @@
+image:
+  repository: tccr.io/truecharts/local-ai
+  pullPolicy: IfNotPresent
+  tag: v1.20.1@sha256:CHANGE_ME
+ffmpegImage:
+  repository: tccr.io/truecharts/local-ai-ffmpeg
+  pullPolicy: IfNotPresent
+  tag: v1.20.1@sha256:CHANGE_ME
+cublasCuda12Image:
+  repository: tccr.io/truecharts/local-ai-cublas-cuda12
+  pullPolicy: IfNotPresent
+  tag: v1.20.1@sha256:CHANGE_ME
+cublasCuda12FfmpegImage:
+  repository: tccr.io/truecharts/local-ai-cublas-cuda12-ffmpeg
+  pullPolicy: IfNotPresent
+  tag: v1.20.1@sha256:CHANGE_ME
+cublasCuda11Image:
+  repository: tccr.io/truecharts/local-ai-cublas-cuda11
+  pullPolicy: IfNotPresent
+  tag: v1.20.1@sha256:CHANGE_ME
+cublasCuda11FfmpegImage:
+  repository: tccr.io/truecharts/local-ai-cublas-cuda11-ffmpeg
+  pullPolicy: IfNotPresent
+  tag: v1.20.1@sha256:CHANGE_ME
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 8000
+
+localai:
+  # Specify a build type. Available: cublas, openblas, clblas.
+  build_type: "openblas"
+  rebuild: false
+  # requires REBUILD=true | stablediffusion, tts
+  # stablediffusion: image generation with stablediffusion
+  # tts: enables text-to-speech with go-piper
+  go_tags: "stablediffusion"
+  galleries:
+    - name: "model-gallery"
+      url: "github:go-skynet/model-gallery/index.yaml"
+  context_size: 512
+  debug: true
+  cors: true
+  cors_allow_origins: "*"
+  # UPLOAD_LIMIT
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          imageSelector: image
+          envFrom:
+            - secretRef:
+                name: "secret"
+          env:
+            ADDRESS: ":{{ .Values.service.main.ports.main.port }}"
+            MODELS_PATH: "/models"
+            IMAGE_PATH: "/images"
+
+persistence:
+  models:
+    enabled: true
+    mountPath: "/models"
+  images:
+    enabled: true
+    mountPath: "/images"
+
+portal:
+  open:
+    enabled: true
