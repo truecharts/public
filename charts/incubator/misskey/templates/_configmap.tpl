@@ -1,6 +1,7 @@
 {{/* Define the configmap */}}
 {{- define "misskey.configmap" -}}
-
+{{- $redisHost := .Values.redis.creds.plainhost | trimAll "\"" -}}
+{{- $redisPass := .Values.redis.creds.redisPassword | trimAll "\"" -}}
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -65,15 +66,15 @@ data:
     #───┘ PostgreSQL configuration └────────────────────────────────
 
     db:
-      host: {{ printf "%v-%v" .Release.Name "postgresql" }}
+      host: {{ .Values.cnpg.main.creds.host | trimAll "\"" }}
       port: 5432
 
       # Database name
-      db: {{ .Values.postgresql.postgresqlDatabase }}
+      db: {{ .Values.cnpg.main.database }}
 
       # Auth
-      user: {{ .Values.postgresql.postgresqlUsername }}
-      pass: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" }}
+      user: {{ .Values.cnpg.main.user }}
+      pass: {{ .Values.cnpg.main.creds.password | trimAll "\"" }}
 
       # Whether disable Caching queries
       #disableCache: true
@@ -86,9 +87,9 @@ data:
     #───┘ Redis configuration └─────────────────────────────────────
 
     redis:
-      host: {{ printf "%v-%v" .Release.Name "redis" }}
+      host: {{ $redisHost }}
       port: 6379
-      pass: {{ .Values.redis.redisPassword | trimAll "\"" }}
+      pass: {{ $redisPass }}
       #prefix: example-prefix
       #db: 1
 
