@@ -1,14 +1,9 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - HomeAutomation
-    - Network-Management
 apiVersion: v2
 appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 12.14.6
 deprecated: false
 description: Tasmota backup - TasmoBackup - Backup all your tasmota devices in one place.  Add/scan for your Tasmota devices.  Use the backupall.php page to schedule automated backups of all devices!
 home: https://truecharts.org/charts/incubator/tasmobackup
@@ -25,5 +20,11 @@ maintainers:
 name: tasmobackup
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/tasmobackup
+  - https://github.com/danmed/TasmoBackupV1
 type: application
-version: 2.0.9
+version: 3.0.0
+annotations:
+  truecharts.org/catagories: |
+    - HomeAutomation
+    - Network-Management
+  truecharts.org/SCALE-support: "true"
