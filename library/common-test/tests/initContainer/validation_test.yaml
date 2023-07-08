@@ -1,6 +1,8 @@
 suite: init container data test (upgrade)
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
 # Failures
   - it: should fail with empty type on init container

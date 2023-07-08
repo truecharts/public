@@ -1,6 +1,8 @@
 suite: pod device volume test
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
   - it: should pass with device volume
     set:

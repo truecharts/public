@@ -1,6 +1,8 @@
 suite: imagePullSecret name test
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
   - it: should generate correct name
     set:
@@ -29,7 +31,7 @@ tests:
       - documentIndex: *secretDoc
         equal:
           path: metadata.name
-          value: release-name-common-test-my-pull-secret1
+          value: test-release-name-common-test-my-pull-secret1
       - documentIndex: &otherSecretDoc 1
         isKind:
           of: Secret
@@ -39,4 +41,4 @@ tests:
       - documentIndex: *otherSecretDoc
         equal:
           path: metadata.name
-          value: release-name-common-test-my-pull-secret2
+          value: test-release-name-common-test-my-pull-secret2

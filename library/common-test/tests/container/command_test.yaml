@@ -1,6 +1,8 @@
 suite: container command test
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
   - it: should create the correct command in scalar
     set:

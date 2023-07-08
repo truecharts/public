@@ -1,6 +1,8 @@
 suite: init container data test
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
   - it: should generate correct init container
     set:
@@ -84,7 +86,7 @@ tests:
         isSubset:
           path: spec.template.spec.initContainers[0]
           content:
-            name: release-name-common-test-install-container-name2
+            name: test-release-name-common-test-install-container-name2
             image: bash:latest
             command:
               - /bin/sh
@@ -123,7 +125,7 @@ tests:
         isSubset:
           path: spec.template.spec.initContainers[1]
           content:
-            name: release-name-common-test-init-container-name1
+            name: test-release-name-common-test-init-container-name1
       - documentIndex: *deploymentDoc
         isSubset:
           path: spec.template.spec.initContainers[1]

@@ -1,6 +1,8 @@
 suite: extra tpl test
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
   - it: should pass with extra tpl
     set:
@@ -10,7 +12,7 @@ tests:
           apiVersion: v1
           kind: Service
           metadata:
-            name: release-name-common-test
+            name: test-release-name-common-test
           spec:
             type: ClusterIP
             publishNotReadyAddresses: false
@@ -23,14 +25,14 @@ tests:
           apiVersion: apps/v1
           kind: Deployment
           metadata:
-            name: release-name-common-test
+            name: test-release-name-common-test
             labels:
               some-label: {{ .Values.someKey }}
           spec:
             template:
               spec:
                 containers:
-                  - name: release-name-common-test
+                  - name: test-release-name-common-test
         - "apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: {{ .Values.someKey }}"
     asserts:
       - documentIndex: &serviceDoc 0

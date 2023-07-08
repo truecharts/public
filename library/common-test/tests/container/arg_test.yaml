@@ -1,6 +1,8 @@
 suite: container arg test
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
   - it: should create the correct multiple args
     set:

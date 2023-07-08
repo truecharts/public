@@ -1,6 +1,8 @@
 suite: service validation test
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
   - it: should fail without primary service
     set:

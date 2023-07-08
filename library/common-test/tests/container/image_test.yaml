@@ -1,6 +1,8 @@
 suite: container image test
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
   - it: should generate correct image
     set:

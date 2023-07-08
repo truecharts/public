@@ -3,6 +3,8 @@ templates:
   - common.yaml
 chart:
   version: &version v9.9.9
+release:
+  name: test-release-name
 tests:
   - it: should pass with key-value data
     set:
@@ -17,7 +19,7 @@ tests:
       - documentIndex: *configmapDoc
         equal:
           path: metadata.name
-          value: release-name-common-test-tc-data
+          value: test-release-name-common-test-tc-data
       - documentIndex: *configmapDoc
         equal:
           path: data

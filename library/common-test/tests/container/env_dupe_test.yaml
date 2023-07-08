@@ -1,6 +1,8 @@
 suite: container env dupe test
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
 # Failures
   - it: should fail with dupe env in env and envList

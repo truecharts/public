@@ -1,6 +1,8 @@
 suite: container name test
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
   - it: should generate correct container name
     set:
@@ -42,9 +44,9 @@ tests:
         isSubset:
           path: spec.template.spec.containers[0]
           content:
-            name: release-name-common-test
+            name: test-release-name-common-test
       - documentIndex: *deploymentDoc
         isSubset:
           path: spec.template.spec.containers[1]
           content:
-            name: release-name-common-test-container-name2
+            name: test-release-name-common-test-container-name2

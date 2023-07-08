@@ -1,6 +1,8 @@
 suite: statefulset validation test
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
   - it: should fail with invalid strategy
     set:

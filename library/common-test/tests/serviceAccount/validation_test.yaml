@@ -1,6 +1,8 @@
 suite: service account validation test
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
   - it: should fail with name longer than 63 characters
     set:
@@ -13,7 +15,7 @@ tests:
           primary: false
     asserts:
       - failedTemplate:
-          errorMessage: Name [release-name-common-test-my-service-account-super-long-name-that-is-longer-than-63-characters] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
+          errorMessage: Name [test-release-name-common-test-my-service-account-super-long-name-that-is-longer-than-63-characters] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
 
   - it: should fail with name starting with underscore
     set:
@@ -26,7 +28,7 @@ tests:
           primary: false
     asserts:
       - failedTemplate:
-          errorMessage: Name [release-name-common-test-_my-sa2] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
+          errorMessage: Name [test-release-name-common-test-_my-sa2] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
 
   - it: should fail with labels not a dict
     set:

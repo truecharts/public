@@ -2,17 +2,17 @@ suite: externalInterface metadata test
 templates:
   - common.yaml
 release:
-  name: release-name
+  name: test-release-name
 tests:
   - it: should generate correct annotations without selector
     set:
       # Simulate middleware injection
       ixExternalInterfacesConfiguration:
-        - '{"cniVersion": "0.3.1", "name": "ix-release-name-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
-        - '{"cniVersion": "0.3.1", "name": "ix-release-name-0", "type": "macvlan", "master": "ens4s0", "ipam": {"type": "dhcp"}}'
+        - '{"cniVersion": "0.3.1", "name": "ix-test-release-name-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
+        - '{"cniVersion": "0.3.1", "name": "ix-test-release-name-0", "type": "macvlan", "master": "ens4s0", "ipam": {"type": "dhcp"}}'
       ixExternalInterfacesConfigurationNames:
-        - ix-release-name-0
-        - ix-release-name-1
+        - ix-test-release-name-0
+        - ix-test-release-name-1
       scaleExternalInterface:
         - hostInterface: enp0s3
           ipam:
@@ -63,12 +63,12 @@ tests:
       - documentIndex: *deploymentDoc
         equal:
           path: metadata.name
-          value: release-name-common-test
+          value: test-release-name-common-test
       - documentIndex: *deploymentDoc
         isSubset:
           path: spec.template.metadata.annotations
           content:
-            k8s.v1.cni.cncf.io/networks: ix-release-name-0, ix-release-name-1
+            k8s.v1.cni.cncf.io/networks: ix-test-release-name-0, ix-test-release-name-1
       - documentIndex: &statefulSetDoc 3
         isKind:
           of: StatefulSet
@@ -78,22 +78,22 @@ tests:
       - documentIndex: *statefulSetDoc
         equal:
           path: metadata.name
-          value: release-name-common-test-workload-name2
+          value: test-release-name-common-test-workload-name2
       - documentIndex: *statefulSetDoc
         isNotSubset:
           path: spec.template.metadata.annotations
           content:
-            k8s.v1.cni.cncf.io/networks: ix-release-name-0, ix-release-name-1
+            k8s.v1.cni.cncf.io/networks: ix-test-release-name-0, ix-test-release-name-1
 
   - it: should generate correct annotations with targetSelectAll
     set:
       # Simulate middleware injection
       ixExternalInterfacesConfiguration:
-        - '{"cniVersion": "0.3.1", "name": "ix-release-name-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
-        - '{"cniVersion": "0.3.1", "name": "ix-release-name-0", "type": "macvlan", "master": "ens4s0", "ipam": {"type": "dhcp"}}'
+        - '{"cniVersion": "0.3.1", "name": "ix-test-release-name-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
+        - '{"cniVersion": "0.3.1", "name": "ix-test-release-name-0", "type": "macvlan", "master": "ens4s0", "ipam": {"type": "dhcp"}}'
       ixExternalInterfacesConfigurationNames:
-        - ix-release-name-0
-        - ix-release-name-1
+        - ix-test-release-name-0
+        - ix-test-release-name-1
       scaleExternalInterface:
         - hostInterface: enp0s3
           ipam:
@@ -137,12 +137,12 @@ tests:
       - documentIndex: *daemonSetDoc
         equal:
           path: metadata.name
-          value: release-name-common-test
+          value: test-release-name-common-test
       - documentIndex: *daemonSetDoc
         isSubset:
           path: spec.template.metadata.annotations
           content:
-            k8s.v1.cni.cncf.io/networks: ix-release-name-0, ix-release-name-1
+            k8s.v1.cni.cncf.io/networks: ix-test-release-name-0, ix-test-release-name-1
       - documentIndex: &jobDoc 3
         isKind:
           of: Job
@@ -152,22 +152,22 @@ tests:
       - documentIndex: *jobDoc
         equal:
           path: metadata.name
-          value: release-name-common-test-workload-name2
+          value: test-release-name-common-test-workload-name2
       - documentIndex: *jobDoc
         isSubset:
           path: spec.template.metadata.annotations
           content:
-            k8s.v1.cni.cncf.io/networks: ix-release-name-0, ix-release-name-1
+            k8s.v1.cni.cncf.io/networks: ix-test-release-name-0, ix-test-release-name-1
 
   - it: should generate correct annotations with targetSelector
     set:
       # Simulate middleware injection
       ixExternalInterfacesConfiguration:
-        - '{"cniVersion": "0.3.1", "name": "ix-release-name-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
-        - '{"cniVersion": "0.3.1", "name": "ix-release-name-0", "type": "macvlan", "master": "ens4s0", "ipam": {"type": "dhcp"}}'
+        - '{"cniVersion": "0.3.1", "name": "ix-test-release-name-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
+        - '{"cniVersion": "0.3.1", "name": "ix-test-release-name-0", "type": "macvlan", "master": "ens4s0", "ipam": {"type": "dhcp"}}'
       ixExternalInterfacesConfigurationNames:
-        - ix-release-name-0
-        - ix-release-name-1
+        - ix-test-release-name-0
+        - ix-test-release-name-1
       scaleExternalInterface:
         - hostInterface: enp0s3
           ipam:
@@ -215,12 +215,12 @@ tests:
       - documentIndex: *daemonSetDoc
         equal:
           path: metadata.name
-          value: release-name-common-test
+          value: test-release-name-common-test
       - documentIndex: *daemonSetDoc
         isSubset:
           path: spec.template.metadata.annotations
           content:
-            k8s.v1.cni.cncf.io/networks: ix-release-name-0, ix-release-name-1
+            k8s.v1.cni.cncf.io/networks: ix-test-release-name-0, ix-test-release-name-1
       - documentIndex: &cronJobDoc 3
         isKind:
           of: CronJob
@@ -230,9 +230,9 @@ tests:
       - documentIndex: *cronJobDoc
         equal:
           path: metadata.name
-          value: release-name-common-test-workload-name2
+          value: test-release-name-common-test-workload-name2
       - documentIndex: *cronJobDoc
         isSubset:
           path: spec.jobTemplate.spec.template.metadata.annotations
           content:
-            k8s.v1.cni.cncf.io/networks: ix-release-name-0
+            k8s.v1.cni.cncf.io/networks: ix-test-release-name-0

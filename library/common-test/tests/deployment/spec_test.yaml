@@ -1,6 +1,8 @@
 suite: deployment spec test
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
   - it: should pass with workload enabled
     set:

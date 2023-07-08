@@ -1,6 +1,8 @@
 suite: imagePullSecret data test
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
   - it: should pass with data
     set:

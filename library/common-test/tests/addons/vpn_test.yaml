@@ -1,6 +1,8 @@
 suite: addon vpn
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
   - it: addon vpn gluetun enabled with config and env should pass
     set:
@@ -52,7 +54,7 @@ tests:
       - documentIndex: *SecretDocument
         equal:
           path: metadata.name
-          value: release-name-common-test-vpnconfig
+          value: test-release-name-common-test-vpnconfig
       - documentIndex: *SecretDocument
         equal:
           path: stringData
@@ -63,19 +65,19 @@ tests:
       - documentIndex: *DeploymentDocument
         equal:
           path: metadata.name
-          value: release-name-common-test
+          value: test-release-name-common-test
       - documentIndex: *DeploymentDocument
         equal:
           path: spec.template.spec.containers[0].name
-          value: release-name-common-test
+          value: test-release-name-common-test
       - documentIndex: *DeploymentDocument
         equal:
           path: spec.template.spec.containers[1].name
-          value: release-name-common-test-vpn
+          value: test-release-name-common-test-vpn
       - documentIndex: *ServiceDocument
         equal:
           path: metadata.name
-          value: release-name-common-test
+          value: test-release-name-common-test
       - documentIndex: *DeploymentDocument
         notContains:
           path: spec.template.spec.containers[0].volumeMounts
@@ -132,7 +134,7 @@ tests:
           content:
             name: vpnconfig
             secret:
-              secretName: release-name-common-test-vpnconfig
+              secretName: test-release-name-common-test-vpnconfig
               defaultMode: 0777
               optional: false
               items:
@@ -182,11 +184,11 @@ tests:
       - documentIndex: *SecretDocument
         equal:
           path: metadata.name
-          value: release-name-common-test-vpnconfig
+          value: test-release-name-common-test-vpnconfig
       - documentIndex: *ConfigMapDocument
         equal:
           path: metadata.name
-          value: release-name-common-test-vpnscripts
+          value: test-release-name-common-test-vpnscripts
       - documentIndex: *ConfigMapDocument
         equal:
           path: data
@@ -207,7 +209,7 @@ tests:
       - documentIndex: *DeploymentDocument
         equal:
           path: spec.template.spec.containers[0].name
-          value: release-name-common-test
+          value: test-release-name-common-test
       - documentIndex: *DeploymentDocument
         contains:
           path: spec.template.spec.containers[1].volumeMounts
@@ -239,14 +241,14 @@ tests:
       - documentIndex: *DeploymentDocument
         equal:
           path: spec.template.spec.containers[1].name
-          value: release-name-common-test-vpn
+          value: test-release-name-common-test-vpn
       - documentIndex: *DeploymentDocument
         contains:
           path: spec.template.spec.volumes
           content:
             name: vpnconfig
             secret:
-              secretName: release-name-common-test-vpnconfig
+              secretName: test-release-name-common-test-vpnconfig
               defaultMode: 0777
               optional: false
               items:
@@ -295,7 +297,7 @@ tests:
       - documentIndex: *DeploymentDocument
         equal:
           path: spec.template.spec.containers[0].name
-          value: release-name-common-test
+          value: test-release-name-common-test
       - documentIndex: *DeploymentDocument
         contains:
           path: spec.template.spec.containers[1].volumeMounts
@@ -313,7 +315,7 @@ tests:
       - documentIndex: *DeploymentDocument
         equal:
           path: spec.template.spec.containers[1].name
-          value: release-name-common-test-vpn
+          value: test-release-name-common-test-vpn
       - documentIndex: *DeploymentDocument
         contains:
           path: spec.template.spec.volumes
@@ -358,7 +360,7 @@ tests:
       - documentIndex: *JobDocument
         equal:
           path: metadata.name
-          value: release-name-common-test-autopermissions
+          value: test-release-name-common-test-autopermissions
       - documentIndex: *JobDocument
         contains:
           path: spec.template.spec.volumes
@@ -394,7 +396,7 @@ tests:
       - documentIndex: *DeploymentDocument
         equal:
           path: spec.template.spec.containers[0].name
-          value: release-name-common-test
+          value: test-release-name-common-test
       - documentIndex: *DeploymentDocument
         contains:
           path: spec.template.spec.containers[1].volumeMounts
@@ -412,7 +414,7 @@ tests:
       - documentIndex: *DeploymentDocument
         equal:
           path: spec.template.spec.containers[1].name
-          value: release-name-common-test-vpn
+          value: test-release-name-common-test-vpn
       - documentIndex: *DeploymentDocument
         contains:
           path: spec.template.spec.volumes
@@ -447,7 +449,7 @@ tests:
       - documentIndex: *JobDocument
         equal:
           path: metadata.name
-          value: release-name-common-test-autopermissions
+          value: test-release-name-common-test-autopermissions
       - documentIndex: *JobDocument
         contains:
           path: spec.template.spec.volumes
@@ -488,7 +490,7 @@ tests:
       - documentIndex: *DeploymentDocument
         equal:
           path: spec.template.spec.containers[0].name
-          value: release-name-common-test
+          value: test-release-name-common-test
       - documentIndex: *DeploymentDocument
         contains:
           path: spec.template.spec.containers[1].volumeMounts
@@ -506,7 +508,7 @@ tests:
       - documentIndex: *DeploymentDocument
         equal:
           path: spec.template.spec.containers[1].name
-          value: release-name-common-test-vpn
+          value: test-release-name-common-test-vpn
       - documentIndex: *DeploymentDocument
         contains:
           path: spec.template.spec.volumes
@@ -540,11 +542,11 @@ tests:
       - documentIndex: *DeploymentDocument
         equal:
           path: spec.template.spec.containers[0].name
-          value: release-name-common-test
+          value: test-release-name-common-test
       - documentIndex: *DeploymentDocument
         equal:
           path: spec.template.spec.containers[1].name
-          value: release-name-common-test-tailscale
+          value: test-release-name-common-test-tailscale
       - documentIndex: *DeploymentDocument
         contains:
           path: spec.template.spec.containers[1].env
@@ -651,11 +653,11 @@ tests:
       - documentIndex: *DeploymentDocument
         equal:
           path: spec.template.spec.containers[0].name
-          value: release-name-common-test
+          value: test-release-name-common-test
       - documentIndex: *DeploymentDocument
         equal:
           path: spec.template.spec.containers[1].name
-          value: release-name-common-test-tailscale
+          value: test-release-name-common-test-tailscale
       - documentIndex: *DeploymentDocument
         isSubset:
           path: spec.template.spec.containers[1].securityContext
@@ -697,7 +699,7 @@ tests:
       - documentIndex: *JobDocument
         equal:
           path: metadata.name
-          value: release-name-common-test-autopermissions
+          value: test-release-name-common-test-autopermissions
       - documentIndex: *JobDocument
         contains:
           path: spec.template.spec.volumes
@@ -733,7 +735,7 @@ tests:
       - documentIndex: *DeploymentDocument
         equal:
           path: spec.template.spec.containers[0].name
-          value: release-name-common-test
+          value: test-release-name-common-test
       - documentIndex: *DeploymentDocument
         contains:
           path: spec.template.spec.containers[1].volumeMounts
@@ -751,7 +753,7 @@ tests:
       - documentIndex: *DeploymentDocument
         equal:
           path: spec.template.spec.containers[1].name
-          value: release-name-common-test-vpn
+          value: test-release-name-common-test-vpn
       - documentIndex: *DeploymentDocument
         contains:
           path: spec.template.spec.volumes
@@ -792,7 +794,7 @@ tests:
       - documentIndex: *JobDocument
         equal:
           path: metadata.name
-          value: release-name-common-test-autopermissions
+          value: test-release-name-common-test-autopermissions
       - documentIndex: *JobDocument
         contains:
           path: spec.template.spec.volumes
@@ -828,7 +830,7 @@ tests:
       - documentIndex: *DeploymentDocument
         equal:
           path: spec.template.spec.containers[0].name
-          value: release-name-common-test
+          value: test-release-name-common-test
       - documentIndex: *DeploymentDocument
         contains:
           path: spec.template.spec.containers[1].volumeMounts
@@ -846,7 +848,7 @@ tests:
       - documentIndex: *DeploymentDocument
         equal:
           path: spec.template.spec.containers[1].name
-          value: release-name-common-test-vpn
+          value: test-release-name-common-test-vpn
       - documentIndex: *DeploymentDocument
         contains:
           path: spec.template.spec.volumes

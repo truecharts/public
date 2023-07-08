@@ -1,6 +1,8 @@
 suite: pod restart policy test
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
   - it: should pass with restartPolicy empty
     set:

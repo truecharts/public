@@ -1,6 +1,8 @@
 suite: addon codeserver
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
   - it: addon enabled should pass
     set:
@@ -41,23 +43,23 @@ tests:
       - documentIndex: *DeploymentDocument
         equal:
           path: metadata.name
-          value: release-name-common-test
+          value: test-release-name-common-test
       - documentIndex: *DeploymentDocument
         equal:
           path: spec.template.spec.containers[0].name
-          value: release-name-common-test-codeserver
+          value: test-release-name-common-test-codeserver
       - documentIndex: *DeploymentDocument
         equal:
           path: spec.template.spec.containers[1].name
-          value: release-name-common-test
+          value: test-release-name-common-test
       - documentIndex: *ServiceDocument
         equal:
           path: metadata.name
-          value: release-name-common-test
+          value: test-release-name-common-test
       - documentIndex: *AddonServiceDocument
         equal:
           path: metadata.name
-          value: release-name-common-test-codeserver
+          value: test-release-name-common-test-codeserver
 
   - it: addon enabled should pass without other service
     set:
@@ -82,19 +84,19 @@ tests:
       - documentIndex: *DeploymentDocument
         equal:
           path: metadata.name
-          value: release-name-common-test
+          value: test-release-name-common-test
       - documentIndex: *DeploymentDocument
         equal:
           path: spec.template.spec.containers[0].name
-          value: release-name-common-test-codeserver
+          value: test-release-name-common-test-codeserver
       - documentIndex: *DeploymentDocument
         equal:
           path: spec.template.spec.containers[1].name
-          value: release-name-common-test
+          value: test-release-name-common-test
       - documentIndex: *AddonServiceDocument
         equal:
           path: metadata.name
-          value: release-name-common-test
+          value: test-release-name-common-test
 
   - it: addon enabled should pass and mount volume with targetSelector on other container only
     set:
@@ -128,15 +130,15 @@ tests:
       - documentIndex: *DeploymentDocument
         equal:
           path: metadata.name
-          value: release-name-common-test
+          value: test-release-name-common-test
       - documentIndex: *DeploymentDocument
         equal:
           path: spec.template.spec.containers[1].name
-          value: release-name-common-test
+          value: test-release-name-common-test
       - documentIndex: *DeploymentDocument
         equal:
           path: spec.template.spec.containers[0].name
-          value: release-name-common-test-codeserver
+          value: test-release-name-common-test-codeserver
       - documentIndex: *DeploymentDocument
         contains:
           path: spec.template.spec.containers[0].volumeMounts

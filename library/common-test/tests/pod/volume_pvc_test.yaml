@@ -1,6 +1,8 @@
 suite: pod pvc volume test
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
   - it: should pass with pvc volume
     set:
@@ -24,7 +26,7 @@ tests:
           content:
             name: pvc-vol
             persistentVolumeClaim:
-              claimName: release-name-common-test-pvc-vol
+              claimName: test-release-name-common-test-pvc-vol
 
   - it: should pass with pvc volume with existing claim
     set:

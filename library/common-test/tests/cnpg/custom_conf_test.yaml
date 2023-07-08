@@ -1,6 +1,8 @@
 suite: cnpg custom conf test
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
   - it: should pass with custom-conf
     set:

@@ -1,6 +1,8 @@
 suite: workload name test
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
   - it: should generate correct workload name
     set:
@@ -41,7 +43,7 @@ tests:
       - documentIndex: *cronJobDoc
         equal:
           path: metadata.name
-          value: release-name-common-test-cronjob-workload-name
+          value: test-release-name-common-test-cronjob-workload-name
       - documentIndex: &daemonSetDoc 1
         isKind:
           of: DaemonSet
@@ -51,7 +53,7 @@ tests:
       - documentIndex: *daemonSetDoc
         equal:
           path: metadata.name
-          value: release-name-common-test-daemonset-workload-name
+          value: test-release-name-common-test-daemonset-workload-name
       - documentIndex: &jobDoc 2
         isKind:
           of: Job
@@ -61,7 +63,7 @@ tests:
       - documentIndex: *jobDoc
         equal:
           path: metadata.name
-          value: release-name-common-test-job-workload-name
+          value: test-release-name-common-test-job-workload-name
       - documentIndex: &statefulSetDoc 3
         isKind:
           of: StatefulSet
@@ -71,7 +73,7 @@ tests:
       - documentIndex: *statefulSetDoc
         equal:
           path: metadata.name
-          value: release-name-common-test-stateful-workload-name
+          value: test-release-name-common-test-stateful-workload-name
       - documentIndex: &deploymentDoc 4
         isKind:
           of: Deployment
@@ -81,4 +83,4 @@ tests:
       - documentIndex: *deploymentDoc
         equal:
           path: metadata.name
-          value: release-name-common-test
+          value: test-release-name-common-test

@@ -1,6 +1,8 @@
 suite: pod runtime class name test
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
   - it: should pass with empty runtimeClassName
     set:

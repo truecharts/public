@@ -3,6 +3,8 @@ templates:
   - common.yaml
 chart:
   appVersion: &appVer v9.9.9
+release:
+  name: test-release-name
 tests:
   - it: should pass with type externalIP and useSlice unset (default)
     set:
@@ -27,7 +29,7 @@ tests:
       - documentIndex: *serviceDoc
         equal:
           path: metadata.name
-          value: release-name-common-test
+          value: test-release-name-common-test
       - documentIndex: *serviceDoc
         equal:
           path: spec
@@ -110,20 +112,20 @@ tests:
       - documentIndex: *endpointSliceDoc
         equal:
           path: metadata.name
-          value: release-name-common-test
+          value: test-release-name-common-test
       - documentIndex: *endpointSliceDoc
         equal:
           path: metadata.labels
           value:
-            kubernetes.io/service-name: release-name-common-test
+            kubernetes.io/service-name: test-release-name-common-test
             app.kubernetes.io/name: common-test
-            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/instance: test-release-name
             app.kubernetes.io/managed-by: Helm
             app.kubernetes.io/version: *appVer
             helm.sh/chart: common-test-1.0.0
             helm-revision: "0"
             app: common-test-1.0.0
-            release: RELEASE-NAME
+            release: test-release-name
       - documentIndex: *endpointSliceDoc
         equal:
           path: addressType
@@ -295,19 +297,19 @@ tests:
       - documentIndex: *endpointDoc
         equal:
           path: metadata.name
-          value: release-name-common-test
+          value: test-release-name-common-test
       - documentIndex: *endpointDoc
         equal:
           path: metadata.labels
           value:
             app.kubernetes.io/name: common-test
-            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/instance: test-release-name
             app.kubernetes.io/managed-by: Helm
             app.kubernetes.io/version: *appVer
             helm.sh/chart: common-test-1.0.0
             helm-revision: "0"
             app: common-test-1.0.0
-            release: RELEASE-NAME
+            release: test-release-name
       - documentIndex: *endpointDoc
         equal:
           path: subsets

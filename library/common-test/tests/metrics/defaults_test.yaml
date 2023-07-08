@@ -1,6 +1,8 @@
 suite: metrics defaults
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
   - it: default should pass
     set:

@@ -29,7 +29,7 @@ objectData is object containing the data of the pod
   {{- if $rootCtx.Values.ixExternalInterfacesConfiguration -}}
     {{- with $rootCtx.Values.ixExternalInterfacesConfigurationNames -}}
       {{- range $ifaceName := . -}}
-        {{/* Get the index by splitting the iFaceName (ix-RELEASE-NAME-0) */}}
+        {{/* Get the index by splitting the iFaceName (ix-release-name-0) */}}
         {{- $index := splitList "-" $ifaceName -}}
         {{/* And pick the last item on the list */}}
         {{- $index = mustLast $index -}}

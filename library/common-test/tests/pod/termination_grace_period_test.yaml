@@ -1,6 +1,8 @@
 suite: pod termination grace period test
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
   - it: should pass with empty terminationGracePeriodSeconds
     set:

@@ -1,6 +1,8 @@
 suite: pod hostpid test
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
   - it: should pass with hostpid disabled from "global"
     set:

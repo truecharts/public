@@ -1,6 +1,8 @@
 suite: ingress values
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
   - it: default should pass
     set:
@@ -94,7 +96,7 @@ tests:
       - documentIndex: *ingressDocument
         equal:
           path: spec.rules[0].host
-          value: RELEASE-NAME.hostname
+          value: test-release-name.hostname
 
   - it: path with template should pass
     set:
@@ -125,4 +127,4 @@ tests:
       - documentIndex: *ingressDocument
         equal:
           path: spec.rules[0].http.paths[0].path
-          value: "/RELEASE-NAME.path"
+          value: "/test-release-name.path"

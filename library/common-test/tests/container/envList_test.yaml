@@ -1,6 +1,8 @@
 suite: container envList test
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
   - it: should create the correct envList
     set:

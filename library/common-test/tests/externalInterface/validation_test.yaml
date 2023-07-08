@@ -2,7 +2,7 @@ suite: external interface validation test
 templates:
   - common.yaml
 release:
-  name: release-name
+  name: test-release-name
 tests:
   - it: should fail with targetSelector not a list
     set:
@@ -119,7 +119,7 @@ tests:
     set:
       # Simulate middleware injection
       ixExternalInterfacesConfiguration:
-        - '{"cniVersion": "0.3.1", "name": "ix-release-name-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
+        - '{"cniVersion": "0.3.1", "name": "ix-test-release-name-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
       ixExternalInterfaceConfigurationNames: []
       scaleExternalInterface:
         - hostInterface: enp0s3

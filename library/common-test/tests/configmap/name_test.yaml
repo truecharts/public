@@ -1,6 +1,8 @@
 suite: configmap name test
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
   - it: should generate correct name
     set:
@@ -23,7 +25,7 @@ tests:
       - documentIndex: *configmapDoc
         equal:
           path: metadata.name
-          value: release-name-common-test-my-configmap1
+          value: test-release-name-common-test-my-configmap1
       - documentIndex: &otherConfigmapDoc 1
         isKind:
           of: ConfigMap
@@ -33,4 +35,4 @@ tests:
       - documentIndex: *otherConfigmapDoc
         equal:
           path: metadata.name
-          value: release-name-common-test-my-configmap2
+          value: test-release-name-common-test-my-configmap2

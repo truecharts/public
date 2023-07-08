@@ -1,6 +1,8 @@
 suite: job validation test
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
   - it: should fail with invalid completionMode
     set:

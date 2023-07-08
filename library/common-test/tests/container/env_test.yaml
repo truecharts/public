@@ -1,6 +1,8 @@
 suite: container env test
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
   - it: should create the correct env
     set:
@@ -93,7 +95,7 @@ tests:
             valueFrom:
               configMapKeyRef:
                 key: key1
-                name: release-name-common-test-configmap-name
+                name: test-release-name-common-test-configmap-name
       - documentIndex: *deploymentDoc
         contains:
           path: spec.template.spec.containers[0].env
@@ -102,7 +104,7 @@ tests:
             valueFrom:
               secretKeyRef:
                 key: key2
-                name: release-name-common-test-secret-name
+                name: test-release-name-common-test-secret-name
       - documentIndex: *deploymentDoc
         contains:
           path: spec.template.spec.containers[0].env

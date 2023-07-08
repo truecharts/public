@@ -1,6 +1,8 @@
 suite: rbac name test
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
   - it: should generate correct name
     set:
@@ -50,7 +52,7 @@ tests:
       - documentIndex: *roleDoc
         equal:
           path: metadata.name
-          value: release-name-common-test
+          value: test-release-name-common-test
       - documentIndex: &roleBindingDoc 2
         isKind:
           of: RoleBinding
@@ -60,7 +62,7 @@ tests:
       - documentIndex: *roleBindingDoc
         equal:
           path: metadata.name
-          value: release-name-common-test
+          value: test-release-name-common-test
 
       - documentIndex: &clusterRoleDoc 3
         isKind:
@@ -71,7 +73,7 @@ tests:
       - documentIndex: *clusterRoleDoc
         equal:
           path: metadata.name
-          value: release-name-common-test-my-rbac2
+          value: test-release-name-common-test-my-rbac2
       - documentIndex: &clusterRoleBindingDoc 4
         isKind:
           of: ClusterRoleBinding
@@ -81,7 +83,7 @@ tests:
       - documentIndex: *clusterRoleBindingDoc
         equal:
           path: metadata.name
-          value: release-name-common-test-my-rbac2
+          value: test-release-name-common-test-my-rbac2
 
       - documentIndex: &otherRoleDoc 5
         isKind:
@@ -92,7 +94,7 @@ tests:
       - documentIndex: *otherRoleDoc
         equal:
           path: metadata.name
-          value: release-name-common-test-my-rbac3
+          value: test-release-name-common-test-my-rbac3
       - documentIndex: &otherRoleBindingDoc 6
         isKind:
           of: RoleBinding
@@ -102,4 +104,4 @@ tests:
       - documentIndex: *otherRoleBindingDoc
         equal:
           path: metadata.name
-          value: release-name-common-test-my-rbac3
+          value: test-release-name-common-test-my-rbac3

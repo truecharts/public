@@ -1,6 +1,8 @@
 suite: pod enableServiceLinks test
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
   - it: should pass with enableServiceLinks disabled from "global"
     set:

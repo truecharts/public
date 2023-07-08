@@ -1,6 +1,8 @@
 suite: container tty and stdin test
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
   - it: should pass without tty and stdin
     set:

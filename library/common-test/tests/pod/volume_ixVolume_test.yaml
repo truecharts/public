@@ -1,6 +1,8 @@
 suite: pod ixVolume volume test
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
   - it: should pass with ixVolume volume
     set:

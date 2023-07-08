@@ -1,6 +1,8 @@
 suite: ingress tls
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
   - it: default should pass
     set:
@@ -123,6 +125,6 @@ tests:
         equal:
           path: spec.tls[0]
           value:
-            secretName: RELEASE-NAME-secret
+            secretName: test-release-name-secret
             hosts:
               - hostname

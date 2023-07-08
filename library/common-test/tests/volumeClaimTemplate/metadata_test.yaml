@@ -3,6 +3,8 @@ templates:
   - common.yaml
 chart:
   appVersion: &appVer v9.9.9
+release:
+  name: test-release-name
 tests:
   - it: should pass with vct created with labels and annotations
     set:

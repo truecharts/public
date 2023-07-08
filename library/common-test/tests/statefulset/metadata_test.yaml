@@ -3,6 +3,8 @@ templates:
   - common.yaml
 chart:
   appVersion: &appVer v9.9.9
+release:
+  name: test-release-name
 tests:
   - it: should pass with statefulset created with labels and annotations
     set:
@@ -52,11 +54,11 @@ tests:
           path: metadata.labels
           value:
             app: common-test-1.0.0
-            release: RELEASE-NAME
+            release: test-release-name
             helm-revision: "0"
             helm.sh/chart: common-test-1.0.0
             app.kubernetes.io/name: common-test
-            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/instance: test-release-name
             app.kubernetes.io/managed-by: Helm
             app.kubernetes.io/version: *appVer
             g_label1: global_label1
@@ -69,15 +71,15 @@ tests:
           value:
             pod.name: workload-name
             app.kubernetes.io/name: common-test
-            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/instance: test-release-name
       - documentIndex: *statefulSetDoc
         equal:
           path: spec.template.metadata.labels
           value:
             pod.name: workload-name
             app: common-test-1.0.0
-            release: RELEASE-NAME
-            app.kubernetes.io/instance: RELEASE-NAME
+            release: test-release-name
+            app.kubernetes.io/instance: test-release-name
             app.kubernetes.io/managed-by: Helm
             app.kubernetes.io/name: common-test
             app.kubernetes.io/version: v9.9.9
@@ -112,20 +114,20 @@ tests:
       - documentIndex: *statefulSetDoc
         equal:
           path: metadata.name
-          value: release-name-common-test-other-workload-name
+          value: test-release-name-common-test-other-workload-name
       - documentIndex: *statefulSetDoc
         equal:
           path: spec.selector.matchLabels
           value:
             pod.name: other-workload-name
             app.kubernetes.io/name: common-test
-            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/instance: test-release-name
       - documentIndex: *statefulSetDoc
         isSubset:
           path: spec.template.metadata.labels
           content:
             pod.name: other-workload-name
-            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/instance: test-release-name
             app.kubernetes.io/name: common-test
       - documentIndex: &otherStatefulSetDoc 1
         isKind:
@@ -133,18 +135,18 @@ tests:
       - documentIndex: *otherStatefulSetDoc
         equal:
           path: metadata.name
-          value: release-name-common-test
+          value: test-release-name-common-test
       - documentIndex: *otherStatefulSetDoc
         equal:
           path: spec.selector.matchLabels
           value:
             pod.name: workload-name
             app.kubernetes.io/name: common-test
-            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/instance: test-release-name
       - documentIndex: *otherStatefulSetDoc
         isSubset:
           path: spec.template.metadata.labels
           content:
             pod.name: workload-name
-            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/instance: test-release-name
             app.kubernetes.io/name: common-test

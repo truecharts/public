@@ -1,6 +1,8 @@
 suite: container envFrom test
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
   - it: should create the correct envFrom
     set:
@@ -56,9 +58,9 @@ tests:
           content:
             envFrom:
               - configMapRef:
-                  name: release-name-common-test-configmap-name
+                  name: test-release-name-common-test-configmap-name
               - secretRef:
-                  name: release-name-common-test-secret-name
+                  name: test-release-name-common-test-secret-name
 
   - it: should create the correct envFrom without expanding the name
     set:

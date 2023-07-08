@@ -3,6 +3,8 @@ templates:
   - common.yaml
 chart:
   appVersion: &appVer v9.9.9
+release:
+  name: test-release-name
 tests:
   - it: should pass with cronjob created with labels and annotations
     set:
@@ -53,11 +55,11 @@ tests:
           path: metadata.labels
           value:
             app: common-test-1.0.0
-            release: RELEASE-NAME
+            release: test-release-name
             helm-revision: "0"
             helm.sh/chart: common-test-1.0.0
             app.kubernetes.io/name: common-test
-            app.kubernetes.io/instance: RELEASE-NAME
+            app.kubernetes.io/instance: test-release-name
             app.kubernetes.io/managed-by: Helm
             app.kubernetes.io/version: *appVer
             g_label1: global_label1
@@ -70,8 +72,8 @@ tests:
           value:
             pod.name: workload-name
             app: common-test-1.0.0
-            release: RELEASE-NAME
-            app.kubernetes.io/instance: RELEASE-NAME
+            release: test-release-name
+            app.kubernetes.io/instance: test-release-name
             app.kubernetes.io/managed-by: Helm
             app.kubernetes.io/name: common-test
             app.kubernetes.io/version: v9.9.9

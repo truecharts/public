@@ -1,6 +1,8 @@
 suite: ingress service reference
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
   - it: default should pass
     set:
@@ -27,7 +29,7 @@ tests:
         equal:
           path: spec.rules[0].http.paths[0].backend.service
           value:
-            name: release-name-common-test
+            name: test-release-name-common-test
             port:
               number: 12345
 

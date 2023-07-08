@@ -1,6 +1,8 @@
 suite: addon netshoot
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
   - it: addon enabled should pass
     set:
@@ -38,16 +40,16 @@ tests:
       - documentIndex: *DeploymentDocument
         equal:
           path: metadata.name
-          value: release-name-common-test
+          value: test-release-name-common-test
       - documentIndex: *DeploymentDocument
         equal:
           path: spec.template.spec.containers[0].name
-          value: release-name-common-test
+          value: test-release-name-common-test
       - documentIndex: *DeploymentDocument
         equal:
           path: spec.template.spec.containers[1].name
-          value: release-name-common-test-netshoot
+          value: test-release-name-common-test-netshoot
       - documentIndex: *ServiceDocument
         equal:
           path: metadata.name
-          value: release-name-common-test
+          value: test-release-name-common-test

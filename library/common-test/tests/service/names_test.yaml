@@ -1,6 +1,8 @@
 suite: service name test
 templates:
   - common.yaml
+release:
+  name: test-release-name
 tests:
   - it: should generate correct name
     set:
@@ -44,7 +46,7 @@ tests:
       - documentIndex: *serviceDoc
         equal:
           path: metadata.name
-          value: release-name-common-test
+          value: test-release-name-common-test
       - documentIndex: &otherServiceDoc 2
         isKind:
           of: Service
@@ -54,7 +56,7 @@ tests:
       - documentIndex: *otherServiceDoc
         equal:
           path: metadata.name
-          value: release-name-common-test-my-service2
+          value: test-release-name-common-test-my-service2
       - documentIndex: &thirdServiceDoc 3
         isKind:
           of: Service
