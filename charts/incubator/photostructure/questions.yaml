@@ -84,14 +84,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-        - variable: logs
-          label: "App Logs Storage"
-          description: "Stores the Application Logs."
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
         - variable: tempscratchdisk
           label: "App TempScratchDisk Storage"
           description: "Stores the Application TempScratchDisk."
@@ -123,7 +115,7 @@ questions:
                   default: 0
               - variable: runAsGroup
                 label: runAsGroup
-                description: The groupID this App of the user running the application
+                description: The groupID of the user running the application
                 schema:
                   type: int
                   default: 0
