@@ -49,7 +49,7 @@ workload:
 persistence:
   misskeyconfig:
     enabled: true
-    type: configMap
+    type: configmap
     objectName: misskeyconfig
     mountPath: "/misskey/.config"
   files:
