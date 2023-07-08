@@ -3,6 +3,7 @@ templates:
   - common.yaml
 release:
   name: test-release-name
+  namespace: test-release-namespace
 tests:
   - it: should create the correct envFrom
     set:

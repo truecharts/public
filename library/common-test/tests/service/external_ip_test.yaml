@@ -5,6 +5,7 @@ chart:
   appVersion: &appVer v9.9.9
 release:
   name: test-release-name
+  namespace: test-release-namespace
 tests:
   - it: should pass with type externalIP and useSlice unset (default)
     set:

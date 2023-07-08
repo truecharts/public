@@ -3,6 +3,7 @@ templates:
   - common.yaml
 release:
   name: test-release-name
+  namespace: test-release-namespace
 tests:
   - it: should pass with rules and subjects added with tpl and primary rbac/sa
     set:
@@ -81,7 +82,7 @@ tests:
           value:
             - kind: ServiceAccount
               name: test-release-name-common-test
-              namespace: NAMESPACE
+              namespace: test-release-namespace
             - kind: a-kind
               name: a-name
               apiGroup: rbac.authorization.k8s.io
@@ -176,10 +177,10 @@ tests:
           value:
             - kind: ServiceAccount
               name: test-release-name-common-test-my-other-sa
-              namespace: NAMESPACE
+              namespace: test-release-namespace
             - kind: ServiceAccount
               name: test-release-name-common-test
-              namespace: NAMESPACE
+              namespace: test-release-namespace
             - apiGroup: rbac.authorization.k8s.io
               kind: a-kind
               name: a-name
@@ -249,4 +250,4 @@ tests:
           value:
             - kind: ServiceAccount
               name: test-release-name-common-test-my-other-sa
-              namespace: NAMESPACE
+              namespace: test-release-namespace

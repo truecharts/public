@@ -3,6 +3,7 @@ templates:
   - common.yaml
 release:
   name: test-release-name
+  namespace: test-release-namespace
 tests:
 # Failures
   - it: should fail with empty type on init container
