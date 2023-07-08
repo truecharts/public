@@ -26,7 +26,7 @@ questions:
                                           default: "secret"
                                           required: true
                                       - variable: KOPIA_PASSWORD
-                                        label: "KOPIA_PASSWORD"
+                                        label: "Kopia Password"
                                         description: "Repository password"
                                         schema:
                                           type: string
@@ -34,20 +34,21 @@ questions:
                                           required: true
                                           private: true
                                       - variable: KOPIA_SERVER_USERNAME
-                                        label: "KOPIA_SERVER_USERNAME"
+                                        label: "Kopia Server Username"
                                         description: "Username for WebUI"
                                         schema:
                                           type: string
                                           default: "server_user"
                                           required: true
                                       - variable: KOPIA_SERVER_PASSWORD
-                                        label: "KOPIA_SERVER_PASSWORD"
+                                        label: "Kopia Server Password"
                                         description: "Password for WebUI"
                                         schema:
                                           type: string
                                           default: "server_password"
                                           required: true
                                           private: true
+
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
