@@ -3,6 +3,23 @@ image:
   pullPolicy: IfNotPresent
   tag: v3.00@sha256:cf61bde05f265653ce12b0ef42e25ac25abcc51ff84c9e5528ef75fea8330eda
 
+service:
+  main:
+    ports:
+      main:
+        port: 10109
+  torrent:
+    enabled: true
+    ports:
+      torrent:
+        enabled: true
+        port: 51414
+        protocol: tcp
+      torrentudp:
+        enabled: true
+        port: 51414
+        protocol: udp
+
 workload:
   main:
     podSpec:
@@ -12,20 +29,18 @@ workload:
             liveness:
               enabled: true
               type: tcp
-              port: "{{ .Values.service.main.ports.main.targetPort }}"
             startup:
               enabled: true
               type: tcp
-              port: "{{ .Values.service.main.ports.main.targetPort }}"
             readiness:
               enabled: true
               type: tcp
-              port: "{{ .Values.service.main.ports.main.targetPort }}"
           env:
             # PUID: 1001
             # URL is set here so it wont be able to get overwritten by the user
             # as this will break the probes, if the need arises we can expose it.
             TRANSMISSION__RPC_URL: "/transmission"
+            TRANSMISSION__RPC_PORT: "{{ .Values.service.main.ports.main.port }}"
             # TRANSMISSION_RPC_USERNAME: ""
             # TRANSMISSION_RPC_PASSWORD: ""
             # TRANSMISSION_RPC_AUTHENTICATION_REQUIRED: false
@@ -94,28 +109,11 @@ workload:
             # TRANSMISSION_UTP_ENABLED: true
             # TRANSMISSION_WATCH_DIR: "/watch"
             # TRANSMISSION_WATCH_DIR_ENABLED: false
+
 persistence:
   config:
     enabled: true
     mountPath: "/config"
-
-service:
-  main:
-    ports:
-      main:
-        port: 10109
-        targetPort: 9091
-  torrent:
-    enabled: true
-    ports:
-      torrent:
-        enabled: true
-        port: 51414
-        protocol: tcp
-      torrentudp:
-        enabled: true
-        port: 51414
-        protocol: udp
 
 portal:
   open:
