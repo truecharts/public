@@ -39,8 +39,8 @@ workload:
             # PUID: 1001
             # URL is set here so it wont be able to get overwritten by the user
             # as this will break the probes, if the need arises we can expose it.
-            TRANSMISSION__RPC_URL: "/transmission"
-            TRANSMISSION__RPC_PORT: "{{ .Values.service.main.ports.main.port }}"
+            TRANSMISSION_RPC_URL: "/transmission"
+            TRANSMISSION_RPC_PORT: "{{ .Values.service.main.ports.main.port }}"
             # TRANSMISSION_RPC_USERNAME: ""
             # TRANSMISSION_RPC_PASSWORD: ""
             # TRANSMISSION_RPC_AUTHENTICATION_REQUIRED: false
