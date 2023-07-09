@@ -18,21 +18,6 @@ questions:
                                     additional_attrs: true
                                     type: dict
                                     attrs:
-                                      - variable: USER
-                                        label: "Kopia User"
-                                        description: "Repository user"
-                                        schema:
-                                          type: string
-                                          default: "secret"
-                                          required: true
-                                      - variable: KOPIA_PASSWORD
-                                        label: "Kopia Password"
-                                        description: "Repository password"
-                                        schema:
-                                          type: string
-                                          default: "secret"
-                                          required: true
-                                          private: true
                                       - variable: KOPIA_SERVER_USERNAME
                                         label: "Kopia Server Username"
                                         description: "Username for WebUI"
