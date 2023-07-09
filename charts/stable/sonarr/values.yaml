@@ -2,25 +2,37 @@ image:
   repository: tccr.io/truecharts/sonarr
   pullPolicy: IfNotPresent
   tag: 3.0.10.1567@sha256:f420ed0b9341a5241c2278d51a7f4f59635a9c3a5670ac893542fa59052e61b2
+exportarrImage:
+  repository: tccr.io/truecharts/exportarr
+  pullPolicy: IfNotPresent
+  tag: v1.5.3@sha256:f369a43b28410f12ce1b96f52187dd5c6fb9769a137ecc6f7ab8fdcfbe7db58e
+
 service:
   main:
     ports:
       main:
         port: 8989
-persistence:
-  config:
+  exportarr:
     enabled: true
-    mountPath: /config
-# might be supported on sonarr v4 upon released
-cnpg:
-  main:
-    enabled: false
+    type: ClusterIP
+    targetSelector: exportarr
+    ports:
+      exportarr:
+        enabled: true
+        port: 8990
+        targetSelector: exportarr
 
-    database: sonarr
-    user: sonarr
-portal:
-  open:
-    enabled: true
+exportarr:
+  enable: false
+  url: "0.0.0.0:{{ .Values.service.main.ports.main.port }}"
+  api_key: ""
+  form_auth: false
+  # auth_username: ""
+  # auth_password: ""
+  log_level: INFO
+  disable_ssl_verify: false
+  enable_additional_metrics: false
+  enable_unknown_queue_items: false
 
 workload:
   main:
@@ -43,15 +55,12 @@ workload:
           env:
             SONARR__PORT: "{{ .Values.service.main.ports.main.port }}"
             SONARR__AUTHENTICATION_METHOD: ""
-            # Enable postgres if v4 of sonarr supports it.
-            # SONARR__POSTGRES_PORT: 5432
-            # SONARR__POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
-            # SONARR__POSTGRES_MAIN_DB: "{{ .Values.cnpg.main.database }}"
-            # SONARR__POSTGRES_HOST:
-            #   secretKeyRef:
-            #     name: cnpg-main-urls
-            #     key: host
-            # SONARR__POSTGRES_PASSWORD:
-            #   secretKeyRef:
-            #     name: cnpg-main-urls
-            #     key: password
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+
+portal:
+  open:
+    enabled: true

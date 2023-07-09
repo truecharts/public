@@ -11,7 +11,6 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-
                                 - variable: env
                                   group: App Configuration
                                   label: Image Environment
@@ -34,6 +33,83 @@ questions:
                                               description: Basic
                                             - value: Forms
                                               description: Forms
+
+  - variable: exportarr
+    group: App Configuration
+    label: Exportarr Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: enable
+          label: Enable Exportarr
+          schema:
+            type: boolean
+            default: false
+        - variable: api_key
+          label: API Key
+          schema:
+            type: string
+            private: true
+            default: ""
+            show_if: [[enable, "=", true]]
+        - variable: form_auth
+          label: Form Auth
+          description: "Enable if using form auth otherwise disable for basic."
+          schema:
+            type: boolean
+            default: false
+        - variable: auth_username
+          label: Auth UserName
+          schema:
+            type: string
+            default: ""
+            show_if: [[enable, "=", true]]
+        - variable: auth_password
+          label: Auth Password
+          schema:
+            type: string
+            private: true
+            default: ""
+            show_if: [[enable, "=", true]]
+        - variable: log_level
+          label: Log Level
+          schema:
+            type: string
+            default: INFO
+            show_if: [[enable, "=", true]]
+            enum:
+              - value: DEBUG
+                description: Debug
+              - value: INFO
+                description: Info
+              - value: WARN
+                description: Warn
+              - value: ERROR
+                description: error
+              - value: PANIC
+                description: Panic
+              - value: FATAL
+                description: Fatal
+        - variable: disable_ssl_verify
+          label: Disable SSL Verify
+          schema:
+            type: boolean
+            default: false
+            show_if: [[enable, "=", true]]
+        - variable: enable_additional_metrics
+          label: Enable Additional Metrics
+          description: Enable gathering of additional metrics (slow).
+          schema:
+            type: boolean
+            default: false
+        - variable: enable_unknown_queue_items
+          label: Enable Unknown Queue Items
+          schema:
+            type: boolean
+            default: false
+            show_if: [[enable, "=", true]]
+
 # Include{containerBasic}
 # Include{containerAdvanced}
 
