@@ -12,42 +12,38 @@ questions:
 # Include{containerMain}
 
                                 - variable: kopia
-                                  group: "App Configuration"
-                                  label: "Image Environment"
+                                  group: App Configuration
+                                  label: Kopia Configuration
                                   schema:
                                     additional_attrs: true
                                     type: dict
                                     attrs:
-                                      - variable: USER
-                                        label: "Kopia User"
-                                        description: "Repository user"
+                                      - variable: user
+                                        label: Repo User
                                         schema:
                                           type: string
-                                          default: "secret"
+                                          default: ""
                                           required: true
-                                      - variable: KOPIA_PASSWORD
-                                        label: "Kopia Password"
-                                        description: "Repository password"
+                                      - variable: password
+                                        label: Repo Password
                                         schema:
                                           type: string
-                                          default: "secret"
-                                          required: true
+                                          default: ""
                                           private: true
-                                      - variable: KOPIA_SERVER_USERNAME
-                                        label: "Kopia Server Username"
-                                        description: "Username for WebUI"
+                                          required: true
+                                      - variable: server_username
+                                        label: Server UserName
                                         schema:
                                           type: string
-                                          default: "server_user"
+                                          default: ""
                                           required: true
-                                      - variable: KOPIA_SERVER_PASSWORD
-                                        label: "Kopia Server Password"
-                                        description: "Password for WebUI"
+                                      - variable: server_password
+                                        label:  Server Password
                                         schema:
                                           type: string
-                                          default: "server_password"
-                                          required: true
+                                          default: ""
                                           private: true
+                                          required: true
 
 # Include{containerBasic}
 # Include{containerAdvanced}
