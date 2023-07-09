@@ -28,21 +28,21 @@ questions:
                                         label: Repo Password
                                         schema:
                                           type: string
-                                          private: true
                                           default: ""
+                                          private: true
+                                          required: true
                                       - variable: server_username
                                         label: Server UserName
                                         schema:
                                           type: string
-                                          private: true
                                           default: ""
                                           required: true
                                       - variable: server_password
                                         label:  Server Password
                                         schema:
                                           type: string
-                                          private: true
                                           default: ""
+                                          private: true
                                           required: true
 
 # Include{containerBasic}
