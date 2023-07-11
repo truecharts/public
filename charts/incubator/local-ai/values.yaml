@@ -58,14 +58,11 @@ workload:
         main:
           probes:
             liveness:
-              path: "/"
-              type: http
+              enabled: false
             readiness:
-              path: "/"
-              type: http
+              enabled: false
             startup:
-              path: "/"
-              type: http
+              enabled: false
           imageSelector: image
           envFrom:
             - secretRef:
@@ -85,4 +82,4 @@ persistence:
 
 portal:
   open:
-    enabled: true
+    enabled: false
