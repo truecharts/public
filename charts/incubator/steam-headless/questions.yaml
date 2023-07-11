@@ -153,6 +153,14 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
+        - variable: flatpak
+          label: "App FlatPak Storage"
+          description: "Stores the Application FlatPak."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

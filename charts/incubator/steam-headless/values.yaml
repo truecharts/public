@@ -1,10 +1,11 @@
 image:
   repository: tccr.io/truecharts/steam-headless
   pullPolicy: IfNotPresent
-  tag: vlatest@sha256:81fb4b11ee49b5730cbae59634df422988291015740a74cdda3f60f33291d942
+  tag: vlatest@sha256:b1e4ca51e5651809eb739562dc4e1ee6ca498f03fdd042d1614e557314d1c504
 
 securityContext:
   container:
+    privileged: true
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
@@ -44,6 +45,9 @@ persistence:
   games:
     enabled: true
     mountPath: /mnt/games
+  flatpak:
+    enabled: true
+    mountPath: /var/lib/flatpak
 
 portal:
   open:
