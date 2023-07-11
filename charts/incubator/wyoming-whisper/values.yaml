@@ -1,0 +1,46 @@
+image:
+  repository: docker.io/rhasspy/wyoming-whisper
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:785eb53debbb1d1c170f75aa5a3bdf0ea1a57b3a747641ea5f309a2e9dd3bfc4
+
+wyoming-whisper:
+  model: tiny-int8
+  language: en
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              port: 10300
+              scheme: tcp
+            readiness:
+              port: 10300
+              scheme: tcp
+            startup:
+              port: 10300
+              scheme: tcp
+          args:
+            - --model
+            - {{ .Values.wyoming-whisper.model }}
+            - --language
+            - {{ .Values.wyoming-whisper.language }}
+
+service:
+  main:
+    ports:
+      main:
+        port: 10300
+        protocol: tcp
+        targetPort: 10300
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /data
+
+portal:
+  open:
+    enabled: false
