@@ -111,13 +111,7 @@ questions:
 
 # Include{containerConfig}
 # Include{serviceRoot}
-        - variable: main
-          label: Main Service
-          description: The Primary service on which the healthcheck runs, often the webUI
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
@@ -133,7 +127,6 @@ questions:
                               type: int
                               default: 10347
                               required: true
-
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
 # Include{serviceList}
