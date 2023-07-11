@@ -1,0 +1,26 @@
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.14.6
+deprecated: false
+description: Wyoming Piper
+home: https://truecharts.org/charts/incubator/wyoming-piper
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/wyoming-piper.png
+keywords:
+  - wyoming-piper
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: wyoming-piper
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/wyoming-piper
+type: application
+version: 1.0.0
+annotations:
+  truecharts.org/catagories: |
+    - home-automation
+  truecharts.org/SCALE-support: "true"
