@@ -6,6 +6,6 @@
 
 enabled: true
 data:
-  USER: {{ $kopias.user | default "user" | quote }}
+  USER: {{ $kopia.user | default "user" | quote }}
   KOPIA_PASSWORD: {{ $kopia.password | default "secret" | quote }}
 {{- end }}
