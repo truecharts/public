@@ -23,7 +23,7 @@ workload:
               scheme: tcp
           args:
             - --voice
-            - {{ .Values.wyomingPiper.voice }}
+            - "{{ .Values.wyomingPiper.voice }}"
 
 service:
   main:

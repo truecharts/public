@@ -24,9 +24,9 @@ workload:
               scheme: tcp
           args:
             - --model
-            - {{ .Values.wyomingWhisper.model }}
+            - "{{ .Values.wyomingWhisper.model }}"
             - --language
-            - {{ .Values.wyomingWhisper.language }}
+            - "{{ .Values.wyomingWhisper.language }}"
 
 service:
   main:
