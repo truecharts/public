@@ -4,7 +4,7 @@
 {{/* Render secrets for midarr */}}
 {{- $secrets := include "midarr.secrets" . | fromYaml -}}
 {{- if $secrets -}}
-  {{- $_ := set .Values.secret "midarr.secrets" $secrets -}}
+  {{- $_ := set .Values.secret "midarr-secrets" $secrets -}}
 {{- end -}}
 
 {{/* Render the templates */}}
