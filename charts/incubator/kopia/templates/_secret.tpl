@@ -1,10 +1,11 @@
 {{/* Define the secret */}}
-{{- define "kopia.secret" -}}
+{{- define "kopia.secrets" -}}
+{{- $secretName := (printf "%s-kopia-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) -}}
+
+{{- $kopia := .Values.kopia -}}
 
 enabled: true
 data:
-  USER: {{ .Values.kopia.user | default "user" }}
-  KOPIA_PASSWORD: {{ .Values.kopia.password | default "secret" }}
-  KOPIA_SERVER_USERNAME: {{ .Values.kopia.server_username | default "server_user" }}
-  KOPIA_SERVER_PASSWORD: {{ .Values.kopia.server_password | default "server_password" }}
+  USER: {{ $kopias.user | default "user" | quote }}
+  KOPIA_PASSWORD: {{ $kopia.password | default "secret" | quote }}
 {{- end }}
