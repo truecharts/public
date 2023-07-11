@@ -25,7 +25,10 @@ cublasCuda11FfmpegImage:
 
 securityContext:
   container:
+    runAsNonRoot: false
     readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
 
 service:
   main:
@@ -53,6 +56,16 @@ workload:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              path: "/"
+              type: http
+            readiness:
+              path: "/"
+              type: http
+            startup:
+              path: "/"
+              type: http
           imageSelector: image
           envFrom:
             - secretRef:
