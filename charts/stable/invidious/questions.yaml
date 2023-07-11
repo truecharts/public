@@ -342,7 +342,7 @@ questions:
                   default: false
               - variable: hmac_key
                 label: HMAC Key
-                description: HMAC signing key used for CSRF tokens and pubsub subscriptions verification.
+                description: HMAC signing key used for CSRF tokens and pubsub subscriptions verification. A random key must be generated and placed here.
                 schema:
                   type: string
                   private: true

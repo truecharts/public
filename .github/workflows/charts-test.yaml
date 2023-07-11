@@ -157,7 +157,7 @@ jobs:
             kubectl apply -f https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.20/releases/cnpg-1.20.0.yaml  --server-side --force-conflicts || echo "error fetching cnpg manifest"
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
-            kubectl apply -f  https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.65.2/bundle.yaml --server-side --force-conflicts || echo "error fetching prometheus operator manifest"
+            kubectl apply -f  https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.66.0/bundle.yaml --server-side --force-conflicts || echo "error fetching prometheus operator manifest"
           fi
 
       - name: Run chart-testing (install)
@@ -215,7 +215,7 @@ jobs:
             kubectl apply -f https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.17/releases/cnpg-1.17.5.yaml  --server-side --force-conflicts || echo "error fetching cnpg manifest"
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
-            kubectl apply -f  https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.65.2/bundle.yaml --server-side --force-conflicts || echo "error fetching prometheus operator manifest"
+            kubectl apply -f  https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.66.0/bundle.yaml --server-side --force-conflicts || echo "error fetching prometheus operator manifest"
           fi
 
       - name: Run chart-testing (install)
@@ -273,7 +273,7 @@ jobs:
             kubectl apply -f https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.17/releases/cnpg-1.17.5.yaml  --server-side --force-conflicts || echo "error fetching cnpg manifest"
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
-            kubectl apply -f  https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.65.2/bundle.yaml --server-side --force-conflicts || echo "error fetching prometheus operator manifest"
+            kubectl apply -f  https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.66.0/bundle.yaml --server-side --force-conflicts || echo "error fetching prometheus operator manifest"
           fi
 
       - name: Run chart-testing (install)
@@ -331,7 +331,7 @@ jobs:
             kubectl apply -f https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.17/releases/cnpg-1.17.5.yaml  --server-side --force-conflicts || echo "error fetching cnpg manifest"
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
-            kubectl apply -f  https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.65.2/bundle.yaml --server-side --force-conflicts || echo "error fetching prometheus operator manifest"
+            kubectl apply -f  https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.66.0/bundle.yaml --server-side --force-conflicts || echo "error fetching prometheus operator manifest"
           fi
 
       - name: Run chart-testing (install)
@@ -389,7 +389,7 @@ jobs:
             kubectl apply -f --server-side --force-conflicts https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.17/releases/cnpg-1.17.5.yaml
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
-            kubectl apply -f --server-side --force-conflicts --server-side --force-conflicts https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.65.2/bundle.yaml
+            kubectl apply -f --server-side --force-conflicts --server-side --force-conflicts https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.66.0/bundle.yaml
           fi
 
       - name: Run chart-testing (install)
@@ -447,7 +447,7 @@ jobs:
             kubectl apply -f https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.17/releases/cnpg-1.17.5.yaml  --server-side --force-conflicts || echo "error fetching cnpg manifest"
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
-            kubectl apply -f  https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.65.2/bundle.yaml --server-side --force-conflicts || echo "error fetching prometheus operator manifest"
+            kubectl apply -f  https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.66.0/bundle.yaml --server-side --force-conflicts || echo "error fetching prometheus operator manifest"
           fi
 
       - name: Run chart-testing (install)
