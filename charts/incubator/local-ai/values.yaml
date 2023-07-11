@@ -66,7 +66,7 @@ workload:
           imageSelector: image
           envFrom:
             - secretRef:
-                name: "localai-secrets"
+                name: "secrets"
 
 persistence:
   models:

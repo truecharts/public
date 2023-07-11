@@ -4,7 +4,7 @@
 {{/* Render secrets for localai */}}
 {{- $secrets := include "localai.secrets" . | fromYaml -}}
 {{- if $secrets -}}
-  {{- $_ := set .Values.secret "localai-secrets" $secrets -}}
+{{- $_ := set .Values.secret "secrets" $secrets -}}
 {{- end -}}
 
 {{/* Render the templates */}}

@@ -1,9 +1,7 @@
 {{/* Define the secrets */}}
 {{- define "localai.secrets" -}}
 {{- $secretName := (printf "%s-localai-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) -}}
-
 {{- $lai := .Values.localai -}}
-
 enabled: true
 data:
   ADDRESS: ":{{ .Values.service.main.ports.main.port }}"
