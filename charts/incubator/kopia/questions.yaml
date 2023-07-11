@@ -11,6 +11,9 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
+# Include{containerBasic}
+# Include{containerAdvanced}
+
   - variable: kopia
     group: App Configuration
     label: Kopia Configuration
@@ -45,8 +48,6 @@ questions:
             required: true
             default: ""
 
-# Include{containerBasic}
-# Include{containerAdvanced}
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
@@ -131,7 +132,7 @@ questions:
                   default: 568
               - variable: runAsGroup
                 label: "runAsGroup"
-                description: "The groupID of the user running the application"
+                description: "The groupID this App of the user running the application"
                 schema:
                   type: int
                   default: 568
