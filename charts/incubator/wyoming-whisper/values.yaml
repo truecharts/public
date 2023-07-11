@@ -3,7 +3,7 @@ image:
   pullPolicy: IfNotPresent
   tag: latest@sha256:785eb53debbb1d1c170f75aa5a3bdf0ea1a57b3a747641ea5f309a2e9dd3bfc4
 
-wyoming-whisper:
+wyomingWhisper:
   model: tiny-int8
   language: en
 
@@ -24,9 +24,9 @@ workload:
               scheme: tcp
           args:
             - --model
-            - {{ .Values.wyoming-whisper.model }}
+            - {{ .Values.wyomingWhisper.model }}
             - --language
-            - {{ .Values.wyoming-whisper.language }}
+            - {{ .Values.wyomingWhisper.language }}
 
 service:
   main:
