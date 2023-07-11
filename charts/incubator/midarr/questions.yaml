@@ -30,17 +30,20 @@ questions:
                 label: Admin Mail
                 schema:
                   type: string
+                  required: true
                   default: ""
               - variable: name
                 label: Admin Name
                 schema:
                   type: string
+                  required: true
                   default: ""
               - variable: pass
                 label: Admin Password
                 schema:
                   type: string
                   private: true
+                  required: true
                   default: ""
         - variable: general
           label: General Configuration
@@ -59,7 +62,7 @@ questions:
                 label: Mailer From
                 schema:
                   type: string
-                  default: ""
+                  default: "midarr@example.com"
               - variable: sendgrid_api_key
                 label: SendGrid API Key
                 schema:
@@ -76,12 +79,14 @@ questions:
                 label: Base URL
                 schema:
                   type: string
+                  required: true
                   default: ""
               - variable: api_key
                 label: API Key
                 schema:
                   type: string
                   private: true
+                  required: true
                   default: ""
         - variable: sonarr
           label: Sonarr Configuration
@@ -93,13 +98,17 @@ questions:
                 label: Base URL
                 schema:
                   type: string
+                  required: true
                   default: ""
               - variable: api_key
                 label: API Key
                 schema:
                   type: string
                   private: true
+                  required: true
                   default: ""
+
+
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -124,6 +133,7 @@ questions:
                               type: int
                               default: 10347
                               required: true
+
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
 # Include{serviceList}
@@ -140,8 +150,8 @@ questions:
 # Include{ingressTraefik}
 # Include{ingressAdvanced}
 # Include{ingressList}
+# Include{securityContextRoot}
 
-# Include{podSecurityContextRoot}
         - variable: runAsUser
           label: runAsUser
           description: The UserID of the user running the application
