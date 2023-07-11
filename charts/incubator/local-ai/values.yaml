@@ -42,9 +42,6 @@ localai:
   # stablediffusion: image generation with stablediffusion
   # tts: enables text-to-speech with go-piper
   go_tags: "stablediffusion"
-  galleries:
-    - name: "model-gallery"
-      url: "github:go-skynet/model-gallery/index.yaml"
   context_size: 512
   debug: true
   cors: true
@@ -59,7 +56,7 @@ workload:
           imageSelector: image
           envFrom:
             - secretRef:
-                name: "secret"
+                name: "localai-secrets"
           env:
             ADDRESS: ":{{ .Values.service.main.ports.main.port }}"
             MODELS_PATH: "/models"

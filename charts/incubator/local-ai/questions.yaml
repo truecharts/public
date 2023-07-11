@@ -46,6 +46,8 @@ questions:
             enum:
               - value: openblas
                 description: Openblas
+              - value: cublas
+                description: Cublas
               - value: clblas
                 description: Clblas
         - variable: rebuild
@@ -65,32 +67,6 @@ questions:
                 description: Stable Diffusion
               - value: tts
                 description: TTS
-        - variable: galleries
-          label: Galleries
-          schema:
-            type: list
-            default:
-              - name: "model-gallery"
-                url: "github:go-skynet/model-gallery/index.yaml"
-            items:
-              - variable: galleryEntry
-                label: Gallery Entry
-                schema:
-                  type: dict
-                  additional_attrs: true
-                  attrs:
-                    - variable: name
-                      label: Name
-                      schema:
-                        type: string
-                        required: true
-                        default: ""
-                    - variable: url
-                      label: URL
-                      schema:
-                        type: string
-                        required: true
-                        default: ""
         - variable: context_size
           label: Context Size
           description: Default models context size.
