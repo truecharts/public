@@ -67,10 +67,6 @@ workload:
           envFrom:
             - secretRef:
                 name: "localai-secrets"
-          env:
-            ADDRESS: ":{{ .Values.service.main.ports.main.port }}"
-            MODELS_PATH: "/models"
-            IMAGE_PATH: "/images"
 
 persistence:
   models:

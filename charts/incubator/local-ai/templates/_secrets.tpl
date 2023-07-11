@@ -6,6 +6,9 @@
 
 enabled: true
 data:
+  ADDRESS: ":{{ .Values.service.main.ports.main.port }}"
+  MODELS_PATH: "/models"
+  IMAGE_PATH: "/images"
   BUILD_TYPE: {{ $lai.build_type }}
   REBUILD: {{ $lai.rebuild }}
   GO_TAGS: {{ $lai.go_tags }}
