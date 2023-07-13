@@ -34,9 +34,8 @@ workload:
               command:
                 - /bin/sh
                 - -c
-                - |-
+                - |
                   export language={{ .Values.piwigo.language }};
-                  export dbhost={{ .Values.mariadb.creds.plainhost | trimAll "\"" }};
                   export dbhost={{ .Values.mariadb.creds.plainhost | trimAll "\"" }}:3306;
                   export dbuser={{ .Values.mariadb.mariadbUsername }};
                   export dbpasswd={{ .Values.mariadb.creds.mariadbPassword | trimAll "\"" }};
