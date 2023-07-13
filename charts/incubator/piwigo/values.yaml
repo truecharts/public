@@ -29,8 +29,6 @@ workload:
       containers:
         main:
           env:
-            DOCKER_TLS_CERTDIR: /certs
-            COMPOSE_FILE: ""
             LANGUAGE: "{{ .Values.piwigo.language }}"
             ADMIN_USER: "{{ .Values.piwigo.admin_user }}"
             ADMIN_PASS: "{{ .Values.piwigo.admin_pass }}"
