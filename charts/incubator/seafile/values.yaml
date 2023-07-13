@@ -28,7 +28,7 @@ workload:
               secretKeyRef:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
-                key: plainporthost
+                key: plainhost
             DB_ROOT_PASSWD:
               secretKeyRef:
                 expandObjectName: false
@@ -43,7 +43,17 @@ workload:
 persistence:
   config:
     enabled: true
-    mountPath: "/opt/seafile"
+    mountPath: "/shared/seafile"
+  logs:
+    enabled: true
+    mountPath: "/shared/logs"
+  varlogs:
+    enabled: true
+    mountPath: "/shared/logs/var-log"
+  seafilelogs:
+    enabled: true
+    mouthPath: "/shared/logs/seafile"
+  
 mariadb:
   enabled: true
   mariadbUsername: seafile
