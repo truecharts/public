@@ -49,6 +49,8 @@ workload:
                 name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: mariadb-password
           command:
+            - /bin/sh
+            - -c
             - curl
             - -X POST
             - -d
