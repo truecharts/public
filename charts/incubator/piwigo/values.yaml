@@ -26,12 +26,11 @@ piwigo:
 workload:
   main:
     podSpec:
-      initContainers:
-        initconfig:
-          type: install
-          enabled: true
-          imageSelector: "image"
+      containers:
+        main:
           env:
+            DOCKER_TLS_CERTDIR: /certs
+            COMPOSE_FILE: ""
             LANGUAGE: "{{ .Values.piwigo.language }}"
             ADMIN_USER: "{{ .Values.piwigo.admin_user }}"
             ADMIN_PASS: "{{ .Values.piwigo.admin_pass }}"
@@ -48,14 +47,17 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: mariadb-password
-          command:
-            - /bin/sh
-            - -c
-          args:
-            - |
-              echo "init piwigo config..."
-              curl -X POST -d "language=${LANGUAGE}&dbhost=${DB_HOST}:3306&dbuser=${DB_USER}&dbpasswd=${DB_PASSWD}&dbname=${DB_NAME}&prefix=piwigo_&admin_name=${ADMIN_USER}&admin_pass1=${ADMIN_PASS}&admin_pass2=${ADMIN_PASS}&admin_mail=${ADMIN_EMAIL}&install=Start+installation" "http://0.0.0.0/install.php" || (echo "init config, FAILED..." && exit 1)
-              fi
+
+lifecycle:
+  postStart:
+    exec:
+      command:
+        - /bin/sh
+        - -c
+        - |
+          echo "create piwigo config..."
+          curl -X POST -d "language=${LANGUAGE}&dbhost=${DB_HOST}:3306&dbuser=${DB_USER}&dbpasswd=${DB_PASSWD}&dbname=${DB_NAME}&prefix=piwigo_&admin_name=${ADMIN_USER}&admin_pass1=${ADMIN_PASS}&admin_pass2=${ADMIN_PASS}&admin_mail=${ADMIN_EMAIL}&install=Start+installation" "http://0.0.0.0/install.php" || (echo "init config, FAILED..." && exit 1)
+          fi
 
 persistence:
   config:
