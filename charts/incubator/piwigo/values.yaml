@@ -34,13 +34,22 @@ workload:
               command:
                 - /bin/sh
                 - -c
+                - |-
+                  export language={{ .Values.piwigo.language }};
+                  export dbhost={{ .Values.mariadb.creds.plainhost | trimAll "\"" }};
+                  export dbhost={{ .Values.mariadb.creds.plainhost | trimAll "\"" }}:3306;
+                  export dbuser={{ .Values.mariadb.mariadbUsername }};
+                  export dbpasswd={{ .Values.mariadb.creds.mariadbPassword | trimAll "\"" }};
+                  export dbname={{ .Values.mariadb.mariadbDatabase }};
+                  export admin_name={{ .Values.piwigo.admin_user }};
+                  export admin_pass={{ .Values.piwigo.admin_pass }};
+                  export admin_email={{ .Values.piwigo.admin_email }};
                 - curl
                 - -X
                 - POST
                 - -d
-                - "language={{ .Values.piwigo.language }}&dbhost={{ .Values.mariadb.creds.plainhost }}:3306&dbuser={{ .Values.mariadb.mariadbUsername }}&dbpasswd={{ .Values.mariadb.creds.mariadbPassword }}&dbname={{ .Values.mariadb.mariadbDatabase}}&prefix=piwigo_&admin_name={{ .Values.piwigo.admin_user }}&admin_pass1={{ .Values.piwigo.admin_pass }}&admin_pass2={{ .Values.piwigo.admin_pass }}&admin_mail={{ .Values.piwigo.admin_email }}&install=Start+installation"
+                - "language=$language&dbhost=$dbhost&dbuser=$&dbpasswd=$dbpasswd&dbname=$dbname&prefix=piwigo_&admin_name=$admin_name&admin_pass1=$admin_pass&admin_pass2=$admin_pass&admin_mail=$admin_mail&install=Start+installation"
                 - http://0.0.0.0/install.php
-          env: {}
 
 persistence:
   config:
