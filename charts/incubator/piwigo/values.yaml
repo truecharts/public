@@ -32,21 +32,12 @@ workload:
           enabled: true
           imageSelector: "image"
           probes:
-            liveness:
-              port: 3306
-              type: tcp
-            readiness:
-              port: 3306
-              type: tcp
-            startup:
-              port: 3306
-              type: tcp
           env:
             LANGUAGE: "{{ .Values.piwigo.language }}"
             ADMIN_USER: "{{ .Values.piwigo.admin_user }}"
             ADMIN_PASS: "{{ .Values.piwigo.admin_pass }}"
             ADMIN_EMAIL: "{{ .Values.piwigo.admin_email }}"
-            WEB_PORT: "{{ .Values.service.main.ports.main.targetPort }}"
+            WEB_PORT: "{{ .Values.service.main.ports.main.port }}"
             DB_PORT: 3306
             DB_NAME: "{{ .Values.mariadb.mariadbDatabase }}"
             DB_USER: "{{ .Values.mariadb.mariadbUsername }}"
