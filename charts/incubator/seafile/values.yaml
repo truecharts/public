@@ -44,15 +44,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/shared/seafile"
-  logs:
-    enabled: true
-    mountPath: "/shared/logs"
-  varlogs:
-    enabled: true
-    mountPath: "/shared/logs/var-log"
-  seafilelogs:
-    enabled: true
-    mouthPath: "/shared/logs/seafile"
   
 mariadb:
   enabled: true
