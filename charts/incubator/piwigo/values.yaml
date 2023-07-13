@@ -43,12 +43,11 @@ workload:
                   export admin_name={{ .Values.piwigo.admin_user }};
                   export admin_pass={{ .Values.piwigo.admin_pass }};
                   export admin_email={{ .Values.piwigo.admin_email }};
-                  curl
-                  -X
-                  POST
-                  -d
-                  "language=$language&dbhost=$dbhost&dbuser=$&dbpasswd=$dbpasswd&dbname=$dbname&prefix=piwigo_&admin_name=$admin_name&admin_pass1=$admin_pass&admin_pass2=$admin_pass&admin_mail=$admin_mail&install=Start+installation"
-                  http://0.0.0.0/install.php
+                  echo "sending api request for initial piwigo setup"
+                  echo "if set previously, piwigo will disregard request"
+                  curl -X POST -d "language=$language&dbhost=$dbhost&dbuser=$&dbpasswd=$dbpasswd&dbname=$dbname&prefix=piwigo_&admin_name=$admin_name&admin_pass1=$admin_pass&admin_pass2=$admin_pass&admin_mail=$admin_mail&install=Start+installation" http://0.0.0.0/install.php
+                  echo "done"
+                  fi
 
 persistence:
   config:
