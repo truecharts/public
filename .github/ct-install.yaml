@@ -11,8 +11,10 @@ chart-dirs:
   - charts/operators
 excluded-charts:
   - charts/dependency/subchart
+  - charts/incubator/twingate-connector
   - charts/incubator/orbital-sync
   - charts/incubator/plex-meta-manager
+  - charts/incubator/tauticord
   - charts/library/common
   - charts/stable/alertmanager-bot
   - charts/stable/alertmanager-bot
@@ -23,11 +25,11 @@ excluded-charts:
   - charts/stable/foundryvtt
   - charts/stable/foundryvtt
   - charts/stable/heimdall
+  - charts/stable/mc-router
   - charts/stable/multus
   - charts/stable/orbital-sync
   - charts/stable/plex-meta-manager
   - charts/stable/pod-gateway
-  - charts/stable/promcord
   - charts/stable/promcord
   - charts/stable/rdesktop
   - charts/stable/reg

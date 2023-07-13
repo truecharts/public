@@ -1,0 +1,72 @@
+image:
+  repository: tccr.io/truecharts/ghostfolio
+  pullPolicy: IfNotPresent
+  tag: v1.283.5@sha256:06a3ff744e4571695bf3185710c7addfa74a0318f4d6d53d3e7da7df6ade4516
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 3333
+        targetPort: 3333
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: "/"
+              type: http
+            readiness:
+              path: "/"
+              type: http
+            startup:
+              path: "/"
+              type: http
+          env:
+            ALPHA_VANTAGE_API_KEY: ""
+            ACCESS_TOKEN_SALT:
+              secretKeyRef:
+                name: secrets
+                key: ACCESS_TOKEN_SALT
+            JWT_SECRET_KEY:
+              secretKeyRef:
+                name: secrets
+                key: JWT_SECRET_KEY
+            DATABASE_URL:
+              secretKeyRef:
+                name: secrets
+                key: DATABASE_URL
+            REDIS_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: plainhost
+            REDIS_PASSWORD:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: redis-password
+            REDIS_PORT: "6379"
+
+cnpg:
+  main:
+    enabled: true
+    user: ghostfolio
+    database: ghostfolio
+
+redis:
+  enabled: true
+
+portal:
+  open:
+    enabled: true

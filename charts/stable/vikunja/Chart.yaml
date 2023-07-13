@@ -1,13 +1,13 @@
 apiVersion: v2
-appVersion: "0.20.4"
+appVersion: "0.21.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 12.14.2
+    version: 12.14.6
   - condition: redis.enabled
     name: redis
     repository: https://deps.truecharts.org
-    version: 6.0.58
+    version: 6.0.62
 description: The to-do app to organize your life.
 home: https://truecharts.org/charts/stable/vikunja
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/vikunja.png
@@ -22,7 +22,7 @@ name: vikunja
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/vikunja
   - https://vikunja.io/docs
-version: 8.0.21
+version: 8.0.24
 annotations:
   truecharts.org/catagories: |
     - productivity

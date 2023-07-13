@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/node-exporter
   pullPolicy: IfNotPresent
-  tag: v1.6.0@sha256:c92f83633121087414968180ced29f3ab2a9c924fd3dd74e4918f7513a87255e
+  tag: v1.6.0@sha256:e39b13f3378cf4341ca7b4d5e329cd8b8a015b77391f9ad0651982276d35e5da
 
 service:
   main:
@@ -67,7 +67,7 @@ metrics:
     # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
     # @default -- See values.yaml
     enabled: true
-    type: serviceMonitor
+    type: "servicemonitor"
     endpoints:
       - port: main
         path: /metrics
