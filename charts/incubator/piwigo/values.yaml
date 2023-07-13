@@ -17,9 +17,45 @@ service:
         targetPort: 80
         port: 10027
 
+piwigo:
+  language: en_US
+  admin_user: admin
+  admin_pass: admin123
+  admin_email: admin@email.com
+
 workload:
   main:
     podSpec:
+      initContainers:
+        initconfig:
+          type: install
+          enabled: true
+          imageSelector: "image"
+          env:
+            LANGUAGE: "{{ .Values.piwigo.language }}"
+            ADMIN_USER: "{{ .Values.piwigo.admin_user }}"
+            ADMIN_PASS: "{{ .Values.piwigo.admin_pass }}"
+            ADMIN_EMAIL: "{{ .Values.piwigo.admin_email }}"
+            WEB_PORT: "{{ .Values.service.main.ports.main.targetPort }}"
+            DB_PORT: 3306
+            DB_NAME: "{{ .Values.mariadb.mariadbDatabase }}"
+            DB_USER: "{{ .Values.mariadb.mariadbUsername }}"
+            DB_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: plainhost
+            DB_PASSWD:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: mariadb-password
+          command:
+            - curl
+            - -X POST
+            - -d
+            - "language=${LANGUAGE}&dbhost=${DB_HOST}:${DB_PORT}&dbuser=${DB_USER}&dbpasswd=${DB_PASSWD}&dbname=${DB_NAME}&prefix=piwigo_&admin_name=${ADMIN_USER}&admin_pass1=${ADMIN_PASS}&admin_pass2=${ADMIN_PASS}&admin_mail=${ADMIN_EMAIL}&install=Start+installation"
+            - "http://0.0.0.0:${WEB_PORT}/install.php"
       containers:
         main:
           env: {}
@@ -35,6 +71,11 @@ persistence:
     size: 256Gi
   varrun:
     enabled: true
+
+mariadb:
+  enabled: true
+  mariadbUsername: piwigo
+  mariadbDatabase: piwigo
 
 portal:
   open:

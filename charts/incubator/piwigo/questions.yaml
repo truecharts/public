@@ -11,6 +11,42 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
+  - variable: piwigo
+    group: App Configuration
+    label: Piwigo Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: language
+          label: Language
+          description: Set the initial Language
+          schema:
+            type: string
+            default: "en_US"
+        - variable: admin_user
+          label: Admin user
+          description: Set the initial admin user
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: admin_pass
+          label: Admin Password
+          description: Set the initial admin password
+          schema:
+            type: string
+            required: true
+            private: true
+            default: ""
+        - variable: admin_email
+          label: Admin Email
+          description: Set the initial admin email
+          schema:
+            type: string
+            required: true
+            default: ""
+
 # Include{containerBasic}
 # Include{containerAdvanced}
 
