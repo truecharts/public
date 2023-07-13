@@ -55,6 +55,14 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
+        - variable: recordings
+          label: "Recordings Storage"
+          description: "Stores the DVR recordings, default is /shares/DVR"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

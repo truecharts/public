@@ -11,8 +11,6 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-
-  # Docker specific env
                                 - variable: env
                                   group: "App Configuration"
                                   label: "Image Environment"
@@ -26,6 +24,7 @@ questions:
                                         schema:
                                           type: string
                                           default: ""
+                                          private: true
                                       - variable: PHOTOVIEW_DISABLE_FACE_RECOGNITION
                                         label: "Disable Face Recognition"
                                         description: "Completely disable face recognition and hide the icon from the side menu."
@@ -44,18 +43,21 @@ questions:
                                         schema:
                                           type: boolean
                                           default: false
+                                      - variable: PHOTOVIEW_LISTEN_IP
+                                        label: PhotoView Listen IP
+                                        schema:
+                                          type: string
+                                          required: true
+                                          $ref:
+                                            - definitions/nodeIP
+
 # Include{containerBasic}
 # Include{containerAdvanced}
+
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
-        - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
@@ -75,8 +77,16 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
+        - variable: cache
+          label: "App Cache Storage"
+          description: "Stores the Application Cache."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
         - variable: photos
-          label: "Photos Storage"
+          label: "App Photos Storage"
           description: "Stores the Application Photos."
           schema:
             additional_attrs: true

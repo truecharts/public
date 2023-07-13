@@ -1,18 +1,19 @@
 image:
   repository: tccr.io/truecharts/mattermost
-  tag: 7.3@sha256:be700165a0f8ed996982d758ceb20523f401333f333119ef461857f89ecee792
+  tag: v8.0.0@sha256:e5f3f3b356c2cca249fa261d56ec9ba103432d63636827682a77682a014e2971
   pullPolicy: IfNotPresent
 
-env:
-  TIMEZONE: "{{ .Values.TZ }}"
-  MM_SQLSETTINGS_DRIVERNAME: "postgres"
-  MM_BLEVESETTINGS_INDEXDIR: "/mattermost/bleve-indexes"
-  MM_SERVICESETTINGS_SITEURL: "https://test.example.com"
-  MM_SQLSETTINGS_DATASOURCE:
-    secretKeyRef:
-      name: dbcreds
-      key: urlnossl
-
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            TIMEZONE: '{{ .Values.TZ }}'
+            MM_SQLSETTINGS_DRIVERNAME: "postgres"
+            MM_BLEVESETTINGS_INDEXDIR: "/mattermost/bleve-indexes"
+            MM_SERVICESETTINGS_SITEURL: "https://test.example.com"
+            MM_SQLSETTINGS_DATASOURCE: '{{ .Values.cnpg.main.creds.std | trimAll "\""  }}'
 service:
   main:
     ports:
@@ -40,11 +41,12 @@ persistence:
     enabled: true
     mountPath: "/mattermost/bleve-indexes"
 
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: mattermost
-  postgresqlDatabase: mattermost
+cnpg:
+  main:
+    enabled: true
+    user: mattermost
+    database: mattermost
 
 portal:
-  enabled: true
+  open:
+    enabled: true
