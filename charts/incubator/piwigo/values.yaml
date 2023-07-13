@@ -31,6 +31,16 @@ workload:
           type: install
           enabled: true
           imageSelector: "image"
+          probes:
+            liveness:
+              port: 3306
+              type: tcp
+            readiness:
+              port: 3306
+              type: tcp
+            startup:
+              port: 3306
+              type: tcp
           env:
             LANGUAGE: "{{ .Values.piwigo.language }}"
             ADMIN_USER: "{{ .Values.piwigo.admin_user }}"
