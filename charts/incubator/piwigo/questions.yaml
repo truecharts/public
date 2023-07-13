@@ -11,6 +11,9 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
+# Include{containerBasic}
+# Include{containerAdvanced}
+
   - variable: piwigo
     group: App Configuration
     label: Piwigo Configuration
@@ -46,9 +49,6 @@ questions:
             type: string
             required: true
             default: ""
-
-# Include{containerBasic}
-# Include{containerAdvanced}
 
 # Include{containerConfig}
 # Include{serviceRoot}
