@@ -34,6 +34,9 @@ questions:
                                             - value: Forms
                                               description: Forms
 
+# Include{containerBasic}
+# Include{containerAdvanced}
+
   - variable: exportarr
     group: App Configuration
     label: Exportarr Configuration
@@ -76,15 +79,11 @@ questions:
             type: boolean
             default: false
 
-# Include{containerBasic}
-# Include{containerAdvanced}
-
 # Include{containerConfig}
-# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
-          label: Main Service
-          description: The Primary service on which the Minecraft Server runs on
+          label: "Main Service"
+          description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
             type: dict
@@ -92,14 +91,14 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: Main Service Port Configuration
+                      label: "Main Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: Port
-                            description: This port exposes the container port on the service
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 8989

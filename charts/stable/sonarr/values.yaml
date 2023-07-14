@@ -14,12 +14,10 @@ service:
         port: 8989
   exportarr:
     enabled: true
-    targetSelector: exportarr
     ports:
       exportarr:
         enabled: true
         port: 8990
-        targetSelector: exportarr
 
 exportarr:
   log_level: INFO
