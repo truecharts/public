@@ -39,7 +39,6 @@ workload:
                   echo "if set previously, piwigo will disregard request"
                   curl -X POST -d "language={{ .Values.piwigo.language }}&dbhost={{ .Values.mariadb.creds.plainhost | trimAll "\"" }}:3306&dbuser={{ .Values.mariadb.mariadbUsername }}&dbpasswd={{ .Values.mariadb.creds.mariadbPassword | trimAll "\"" }}&dbname={{ .Values.mariadb.mariadbDatabase }}&prefix=piwigo_&admin_name={{ .Values.piwigo.admin_user }}&admin_pass1={{ .Values.piwigo.admin_pass }}&admin_pass2={{ .Values.piwigo.admin_pass }}&admin_mail={{ .Values.piwigo.admin_email }}&install=Start+installation" http://0.0.0.0/install.php
                   echo "done"
-                  fi
 
 persistence:
   config:
