@@ -3,10 +3,6 @@ image:
   repository: tccr.io/truecharts/recyclarr
   tag: v5.1.1@sha256:2ba5e5356bc7d5ae7b07893556a950b8129d9adbb1e3c2dda2d413fe5629c1c9
 
-securityContext:
-  container:
-    runAsGroup: 568
-    runAsUser: 568
 
 service:
   main:
