@@ -14,7 +14,6 @@ service:
         port: 8989
   exportarr:
     enabled: true
-    type: ClusterIP
     targetSelector: exportarr
     ports:
       exportarr:
@@ -23,16 +22,49 @@ service:
         targetSelector: exportarr
 
 exportarr:
-  enable: false
-  url: "0.0.0.0:{{ .Values.service.main.ports.main.port }}"
-  api_key: ""
-  form_auth: false
-  # auth_username: ""
-  # auth_password: ""
   log_level: INFO
   disable_ssl_verify: false
   enable_additional_metrics: false
   enable_unknown_queue_items: false
+
+additionalContainers:
+  exportarr:
+    name: exportarr
+    image: "{{ .Values.exportarrImage.repository }}:{{ .Values.exportarrImage.tag }}"
+    probes:
+      liveness:
+        enabled: true
+        type: http
+        path: /metrics
+      readiness:
+        enabled: true
+        type: http
+        path: /metrics
+      startup:
+        enabled: true
+        type: http
+        path: /metrics
+    env:
+      - name: INTERFACE
+        value: "0.0.0.0"
+      - name: URL
+        value: "0.0.0.0:{{ .Values.service.main.ports.main.port }}"
+      - name: PORT
+        value: "{{ .Values.service.exportarr.ports.exportarr.port }}"
+      - name: LOG_LEVEL
+        value: "{{.Values.exportarr.log_level }}"
+      - name: DISABLE_SSL_VERIFY
+        value: "{{ ternary true false .Values.exportarr.disable_ssl_verify }}"
+      - name: ENABLE_ADDITIONAL_METRICS
+        value: "{{ ternary true false .Values.exportarr.enable_additional_metrics }}"
+      - name: ENABLE_UNKNOWN_QUEUE_ITEMS
+        value: "{{ ternary true false .Values.exportarr.enable_unknown_queue_items }}"
+      - name: CONFIG
+        value: "{{.Values.persistence.config.mountPath }}"
+    args: sonarr
+    volumeMounts:
+      - name: config
+        mountPath: "/config"
 
 workload:
   main:
