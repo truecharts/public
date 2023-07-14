@@ -38,7 +38,7 @@ workload:
                   if [ -f "/config/POSTSETUP" ]; then
                     echo "POSTSETUP exists, no further action is needed."
                   else
-                    while ! curl -s -v --retry-max-time 60 --retry 1 http://0.0.0.0/install.php >/dev/null; do sleep 1; done && \
+                    while ! curl -s -o -v /dev/null http://0.0.0.0/install.php; do sleep 1; done && \
                     curl -v -X POST -d "language={{ .Values.piwigo.language }}&dbhost={{ .Values.mariadb.creds.plainhost | trimAll "\"" }}:3306&dbuser={{ .Values.mariadb.mariadbUsername }}&dbpasswd={{ .Values.mariadb.creds.mariadbPassword | trimAll "\"" }}&dbname={{ .Values.mariadb.mariadbDatabase }}&prefix=piwigo_&admin_name={{ .Values.piwigo.admin_user }}&admin_pass1={{ .Values.piwigo.admin_pass }}&admin_pass2={{ .Values.piwigo.admin_pass }}&admin_mail={{ .Values.piwigo.admin_email }}&install=Start+installation" http://0.0.0.0/install.php && \
                     ( touch "/config/POSTSETUP" && echo "Created POSTSETUP!") || \
                     ( echo "Failed to create POSTSETUP file..." && exit 1 )
