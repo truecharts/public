@@ -72,8 +72,8 @@ questions:
           label: Context Size
           description: Default models context size.
           schema:
-            type: int
-            default: 512
+            type: string
+            default: "512"
         - variable: debug
           label: Debug
           description: Enable Debug Mode.
