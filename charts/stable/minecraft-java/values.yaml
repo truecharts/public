@@ -54,6 +54,10 @@ j8j9Image:
   repository: tccr.io/truecharts/minecraft-java8-openj9
   tag: v2023.4.1@sha256:8ef5e9d3e25d32a541f89d616289003f5cee8b15cb0569e79b2e778d3b0b68d4
   pullPolicy: Always
+mcBackupImage:
+  repository: tccr.io/truecharts/mc-backup
+  tag: vlatest@sha256:ea77469ef878456d476d58d35619e6676466a9a2cc7294aba303bb6656f570ef
+  pullPolicy: Always
 
 service:
   main:
@@ -73,6 +77,67 @@ service:
       rcon:
         enabled: true
         port: 25575
+
+mcbackup:
+  initial_delay: 2m
+  backup_interval: 24hr
+  player_online_check_interval: 5m
+  prune_backups_days: "7"
+  pause_if_no_players: false
+  link_latest: false
+  tar_compress_method: gzip
+  zstd_params: --long=25 --single-thread
+  excludes: "*.jar,cache,logs,*.tmp"
+
+additionalContainers:
+  mcbackup:
+    name: mcbackup
+    image: "{{ .Values.mcBackupImage.repository }}:{{ .Values.mcBackupImage.tag }}"
+    probes:
+      liveness:
+        enabled: false
+      readiness:
+        enabled: false
+      startup:
+        enabled: false
+    env:
+      - name: BACKUP_METHOD
+        value: "tar"
+      - name: DEST_DIR
+        value: "/backups"
+      - name: SRC_DIR
+        value: "{{.Values.persistence.data.mountPath }}"
+      - name: SERVER_PORT
+        value: "{{ .Values.service.main.ports.main.port }}"
+      - name: RCON_HOST
+        value: "0.0.0.0"
+      - name: RCON_PORT
+        value: "{{ .Values.service.rcon.ports.main.rcon }}"
+      - name: RCON_PASSWORD
+        value: "{{ .Values.env.RCON_PASSWORD }}"
+      - name: INITIAL_DELAY
+        value: "{{ .Values.mcbackup.initial_delay }}"
+      - name: BACKUP_INTERVAL
+        value: "{{ .Values.mcbackup.backup_interval }}"
+      - name: PRUNE_BACKUPS_DAYS
+        value: "{{ .Values.mcbackup.prune_backups_days }}"
+      - name: PAUSE_IF_NO_PLAYERS
+        value: "{{ ternary true false .Values.mcbackup.pause_if_no_players }}"
+      - name: PLAYERS_ONLINE_CHECK_INTERVAL
+        value: "{{ .Values.mcbackup.player_online_check_interval }}"
+      - name: LINK_LATEST
+        value: "{{ ternary true false .Values.mcbackup.link_latest }}"
+      - name: TAR_COMPRESS_METHOD
+        value: "{{ .Values.mcbackup.tar_compress_method }}"
+      - name: ZSTD_PARAMETERS
+        value: "{{ .Values.mcbackup.zstd_params }}"
+      - name: EXCLUDES
+        value: "{{ .Values.mcbackup.excludes }}"
+    volumeMounts:
+      - name: data
+        mountPath: "/data"
+      - name: backups
+        mountPath: "/backups"
 
 workload:
   main:
@@ -188,6 +253,9 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
+  backups:
+    enabled: true
+    mountPath: "/backups"
 
 portal:
   open:
