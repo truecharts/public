@@ -1,0 +1,13 @@
+workload:
+  main:
+    podSpec:
+      initContainers:
+        initconfig:
+          type: install
+          enabled: true
+          imageSelector: "image"
+          command:
+            - /bin/sh
+            - -c
+            - touch
+            - /config/POSTSETUP
