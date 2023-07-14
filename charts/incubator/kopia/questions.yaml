@@ -11,42 +11,43 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-                                - variable: kopia
-                                  group: App Configuration
-                                  label: Kopia Configuration
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                      - variable: user
-                                        label: Repo User
-                                        schema:
-                                          type: string
-                                          default: ""
-                                          required: true
-                                      - variable: password
-                                        label: Repo Password
-                                        schema:
-                                          type: string
-                                          default: ""
-                                          private: true
-                                          required: true
-                                      - variable: server_username
-                                        label: Server UserName
-                                        schema:
-                                          type: string
-                                          default: ""
-                                          required: true
-                                      - variable: server_password
-                                        label:  Server Password
-                                        schema:
-                                          type: string
-                                          default: ""
-                                          private: true
-                                          required: true
-
 # Include{containerBasic}
 # Include{containerAdvanced}
+
+  - variable: kopia
+    group: App Configuration
+    label: Kopia Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: user
+          label: Repo User
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: password
+          label: Repo Password
+          schema:
+            type: string
+            private: true
+            required: true
+            default: ""
+        - variable: server_username
+          label: Server User
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: server_password
+          label: Server Password
+          schema:
+            type: string
+            private: true
+            required: true
+            default: ""
+
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
