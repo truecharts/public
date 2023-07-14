@@ -7,6 +7,12 @@
 2. While nextcloud can run without ingress setup a lot of features will not work. More information can be
    found on our [getting started guide](https://truecharts.org/manual/SCALE/guides/getting-started#traefik-installation-for-ingress--reverse-proxy-support-with-truecharts-apps).
 
+:::caution SNAPSHOT DIRECTORY VISIBILITY
+
+Nextcloud installation will fail if the application or user data datasets have Snapshot Directory set to Visible (Invisible by default). Return this setting to default prior to installation.
+
+:::
+
 ## User Data Permissions
 
 If you plan to use HostPath or NFS to store user data then the permissions for the dataset will need to be set as shown below.
@@ -27,7 +33,7 @@ The following configurations must be set during initially setup for nextcloud to
 ### Optional Addons
 
 1. Notify Push (Allows Nextcloud to notify clients of changes, instead of clients having to poll. 
-   A Notify Push container will be deployed automatically). This is highly reccomended to keep enabled.
+   A Notify Push container will be deployed automatically). This is highly recommended to keep enabled.
 2. ClamAV (Anti-virus for nextcloud, keep in mind that only scans files that Nextcloud posts to it's endpoint. 
    A Clam AV container will be deployed automatically.
 3. Collabora (Document editor for Nextcloud. A Collabora container will be deployed automatically.
