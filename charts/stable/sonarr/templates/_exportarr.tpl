@@ -7,10 +7,14 @@ type: Deployment
       enabled: true
       primary: true
       imageSelector: exportarrImage
-      args: ["sonarr"]
+      args:
+        - sonarr
       envFrom:
         - configMapRef:
             name: exportarr-config
+      volumeMounts:
+        - name: config
+          mountPath: "/config"
       probes:
         readiness:
           enabled: true
