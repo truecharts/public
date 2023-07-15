@@ -3,8 +3,8 @@ enabled: true
 imageSelector: exportarrImage
 args: ["sonarr"]
 envFrom:
-  - secretRef:
-      name: exportarr-secrets
+  - configMapRef:
+      name: exportarr-config
 volumeMounts:
   - name: config
     mountPath: "/config"
@@ -24,16 +24,4 @@ probes:
     type: http
     path: /metrics
     port: {{ .Values.service.metrics.ports.metrics.port }}
-{{- end -}}
-
-{{/* Define the secrets */}}
-{{- define "exportarr.secrets" -}}
-{{- $fname := (include "tc.v1.common.lib.chart.names.fullname" .) -}}
-{{- $serverUrl := printf "http://%v-server:%v" $fname .Values.service.main.ports.main.port }}
-enabled: true
-data:
-  INTERFACE: 0.0.0.0
-  PORT: {{ .Values.service.metrics.ports.metrics.port | quote }}
-  URL: {{ $serverUrl | quote }}
-  CONFIG: {{.Values.persistence.config.mountPath  | quote }}
 {{- end -}}
