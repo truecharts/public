@@ -2,6 +2,7 @@
 {{- define "sonarr.exportarr" -}}
 enabled: true
 type: Deployment
+podSpec:
   containers:
     exportarr:
       enabled: true
