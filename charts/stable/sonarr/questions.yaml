@@ -44,40 +44,12 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: log_level
-          label: Log Level
-          schema:
-            type: string
-            default: INFO
-            enum:
-              - value: DEBUG
-                description: Debug
-              - value: INFO
-                description: Info
-              - value: WARN
-                description: Warn
-              - value: ERROR
-                description: error
-              - value: PANIC
-                description: Panic
-              - value: FATAL
-                description: Fatal
-        - variable: disable_ssl_verify
-          label: Disable SSL Verify
+        - variable: enabled
+          label: Enable Exportarr
+          description: Enables Exportarr
           schema:
             type: boolean
-            default: false
-        - variable: enable_additional_metrics
-          label: Enable Additional Metrics
-          description: Enable gathering of additional metrics (slow).
-          schema:
-            type: boolean
-            default: false
-        - variable: enable_unknown_queue_items
-          label: Enable Unknown Queue Items
-          schema:
-            type: boolean
-            default: false
+            default: true
 
 # Include{containerConfig}
 # Include{serviceRoot}
@@ -102,28 +74,6 @@ questions:
                             schema:
                               type: int
                               default: 8989
-                              required: true
-        - variable: exportarr
-          label: Exportarr Service
-          description: The Exportarr service.
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelectorLoadBalancer}
-# Include{serviceSelectorExtras}
-                    - variable: exportarr
-                      label: Exportarr Service Port Configuration
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: Port
-                            description: This port exposes the container port on the service
-                            schema:
-                              type: int
-                              default: 8990
                               required: true
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
@@ -175,6 +125,8 @@ questions:
                   default: 568
 
 # Include{resources}
+# Include{metrics}
+# Include{prometheusRule}
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
