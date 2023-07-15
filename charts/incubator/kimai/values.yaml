@@ -60,7 +60,7 @@ workload:
                 key: plainhost
             APP_SECRET:
               secretKeyRef:
-                name: kimai-secrets
+                name: kimai-secret
                 key: APP_SECRET
 
 persistence:
