@@ -75,6 +75,11 @@ metrics:
   exportarr:
     enabled: true
     type: "servicemonitor"
+    endpoints:
+      - port: exportarr
+        path: /metrics
+    prometheusRule:
+      enabled: false
 
 portal:
   open:
