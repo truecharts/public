@@ -8,6 +8,10 @@ dependencies:
     name: mariadb
     repository: https://deps.truecharts.org/
     version: 7.0.50
+  - condition: memcached.enabled
+    name: memcached
+    repository: https://deps.truecharts.org/
+    version: 6.0.69
 deprecated: false
 description: Reliable and Performant File Sync and Share Solution
 home: https://truecharts.org/charts/incubator/seafile
