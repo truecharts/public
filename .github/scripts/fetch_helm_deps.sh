@@ -95,8 +95,8 @@ for idx in $(eval echo "{0..$length}"); do
             dep_url=$(v="$version" n="$name" go-yq '.entries.[env(n)].[] | select (.version == env(v)) | .urls.[0]' "$index_cache/$repo_dir/index.yaml")
 
             # tmp hotpatch for cert-manager
-            if [[ "$dep_url" = \/.* ]]
-            dep_url="https://charts.jetstack.io${dep_url}"
+            if [[ "$dep_url" = \/.* ]]; then
+              dep_url="https://charts.jetstack.io${dep_url}"
             fi
 
             echo ""
