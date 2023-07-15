@@ -28,6 +28,7 @@ probes:
 
 {{/* Define the secrets */}}
 {{- define "exportarr.secrets" -}}
+{{- $fname := (include "tc.v1.common.lib.chart.names.fullname" .) -}}
 {{- $serverUrl := printf "http://%v-server:%v" $fname .Values.service.main.ports.main.port }}
 enabled: true
 data:
