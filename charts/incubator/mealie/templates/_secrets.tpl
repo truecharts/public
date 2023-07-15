@@ -26,9 +26,6 @@ data:
   THEME_DARK_ERROR: {{ $frontend.theme.dark_error | default "#EF5350" | quote }}
 
   {{/* API */}}
-  PUID: {{ .Values.securityContext.container.PUID | quote }}
-  PGID: {{ .Values.securityContext.pod.fsGroup | quote }}
-  TZ: {{ .Values.TZ }}
   DB_ENGINE: "postgres"
   POSTGRES_PORT: "5432"
   POSTGRES_USER: {{ .Values.cnpg.main.user }}
