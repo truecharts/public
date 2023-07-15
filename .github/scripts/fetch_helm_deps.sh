@@ -122,8 +122,8 @@ for idx in $(eval echo "{0..$length}"); do
             if [ -f "$cache_path/$repo_dir/$name-$version.tgz" ]; then
                 echo "✅ Dependency Downloaded!"
                 if [[ "$name" =~ "cert-manager" ]]; then
-                  helm dependency build "$charts_path/$train_chart/Chart.yaml" --verify --keyring $gpg_dir/certman.gpg || \
-                  helm dependency update "$charts_path/$train_chart/Chart.yaml" --verify --keyring $gpg_dir/certman.gpg || exit 1
+                  helm verify $cache_path/$repo_dir/$name-$version.tgz --keyring $gpg_dir/certman.gpg || \
+                  helm verify $cache_path/$repo_dir/$name-$version.tgz --keyring $gpg_dir/certman.gpg || exit 1
                 elif [[ ! "$train_chart" =~ incubator\/.* ]]; then
                   echo "Validating dependency signature..."
                   helm verify $cache_path/$repo_dir/$name-$version.tgz --keyring $gpg_dir/pubring.gpg || \
