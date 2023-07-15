@@ -12,6 +12,9 @@ dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 12.14.8
+  - name: cert-manager
+    repository: https://charts.jetstack.io
+    version: 1.12.2
 kubeVersion: ">=1.16.0-0"
 maintainers:
   - email: info@truecharts.org
