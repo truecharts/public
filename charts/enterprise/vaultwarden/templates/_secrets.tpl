@@ -29,8 +29,8 @@ data:
   YUBICO_CLIENT_ID: {{ $yubicoClientId }}
   YUBICO_SECRET_KEY: {{ required "Yubico Secret Key required" .Values.vaultwarden.yubico.secretKey | quote }}
   {{- end }}
-  {{- if ne $pushinstallationId "" }}
-  PUSH_INSTALLATION_ID: {{ $pushinstallationId }}
+  {{- if eq .Values.vaultwarden.push.enabled true }}
+  PUSH_INSTALLATION_ID: {{ required "Installation ID required" .Values.vaultwarden.push.installationId | quote }}
   PUSH_INSTALLATION_KEY: {{ required "Installation Key required" .Values.vaultwarden.push.installationKey | quote }}
   {{- end }}
 {{- end -}}
