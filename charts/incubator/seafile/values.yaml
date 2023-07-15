@@ -14,9 +14,9 @@ service:
 securityContext:
   container:
     readOnlyRootFilesystem: false
-    runAsNonRoot: false
-    runAsUser: 0
-    runAsGroup: 0
+    runAsNonRoot: true
+    runAsUser: 568    # Test
+    runAsGroup: 568   # I know it's defaults just testing
 
 workload:
   main:
@@ -44,6 +44,9 @@ persistence:
   config:
     enabled: true
     mountPath: "/shared/seafile"
+  storage:
+    enabled: true
+    mountPath: "/shared/seafile/storage"
 
 mariadb:
   enabled: true
