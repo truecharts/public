@@ -35,7 +35,7 @@ workload:
                 name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: mariadb-root-password
             SEAFILE_SERVER_LETSENCRYPT: false
-            SEAFILE_SERVER_HOSTNAME: "docs.seafile.com"
+            SEAFILE_SERVER_HOSTNAME: ""
             SEAFILE_ADMIN_EMAIL: me@example.com
             SEAFILE_ADMIN_PASSWORD: a_very_secret_password
             FORCE_HTTPS_IN_CONF: false
