@@ -1,7 +1,7 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "tc.v1.common.loader.init" . }}
 
-{{- $_ := set .Values.workload.main.podSpec.containers "exportarr" (include "sonarr.exportarr" . | fromYaml) -}}
+{{- $_ := set .Values.workload.exportarr.podSpec.containers "exportarr" (include "sonarr.exportarr" . | fromYaml) -}}
 
 {{- $config := include "sonarr.config" . | fromYaml -}}
 {{- if $config -}}

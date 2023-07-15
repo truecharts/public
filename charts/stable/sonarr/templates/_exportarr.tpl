@@ -12,23 +12,20 @@ type: Deployment
       envFrom:
         - configMapRef:
             name: exportarr-config
-      volumeMounts:
-        - name: config
-          mountPath: "/config"
       probes:
         readiness:
           enabled: true
           type: http
-          path: /metrics
-          port: {{ .Values.service.metrics.ports.metrics.port }}
+          path: /exportarr
+          port: {{ .Values.service.exportarr.ports.exportarr.port }}
         liveness:
           enabled: true
           type: http
           path: /metrics
-          port: {{ .Values.service.metrics.ports.metrics.port }}
+          port: {{ .Values.service.exportarr.ports.exportarr.port }}
         startup:
           enabled: true
           type: http
           path: /metrics
-          port: {{ .Values.service.metrics.ports.metrics.port }}
+          port: {{ .Values.service.exportarr.ports.exportarr.port }}
 {{- end -}}

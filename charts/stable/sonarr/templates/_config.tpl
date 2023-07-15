@@ -8,7 +8,7 @@ configmap:
     enabled: true
     data:
       INTERFACE: 0.0.0.0
-      PORT: {{ .Values.service.metrics.ports.metrics.port | quote }}
+      PORT: {{ .Values.service.exportarr.ports.exportarr.port | quote }}
       URL: {{ $serverUrl | quote }}
       CONFIG: {{.Values.persistence.config.mountPath  | quote }}
   {{- end }}
