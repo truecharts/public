@@ -1,9 +1,20 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "tc.v1.common.loader.init" . }}
 
-{{- $_ := set .Values.workload.main.podSpec.containers "exportarr" (include "exportarr.container" . | fromYaml) -}}
+{{- if .Values.exportarr.enabled -}}
+  {{/* Enable Exportarr Service */}}
+  {{- $_ := set .Values.service.exportarr "enabled" true -}}
+  {{/* Render Exportarr Workload */}}
+  {{- $_ := set .Values.workload "exportarr" (include "sonarr.exportarr" . | fromYaml) -}}
+{{- else -}}
+  {{/* Disable Exportarr Service */}}
+  {{- $_ := set .Values.service.exportarr "enabled" false -}}
+{{- end -}}
 
 {{- $config := include "sonarr.config" . | fromYaml -}}
+{{- if $config -}}
+  {{- $_ := mustMergeOverwrite .Values $config -}}
+{{- end -}}
 
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}
