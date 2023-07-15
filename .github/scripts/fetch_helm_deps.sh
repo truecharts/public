@@ -94,6 +94,11 @@ for idx in $(eval echo "{0..$length}"); do
             # Extract url from repo_url. It's under .entries.DEP_NAME.urls. We filter the specific version first (.version)
             dep_url=$(v="$version" n="$name" go-yq '.entries.[env(n)].[] | select (.version == env(v)) | .urls.[0]' "$index_cache/$repo_dir/index.yaml")
 
+            # tmp hotpatch for cert-manager
+            if [[ "$dep_url" = \/.* ]]
+            dep_url="https://charts.jetstack.io${dep_url}"
+            fi
+
             echo ""
             echo "⏬ Downloading dependency $name-$version from $dep_url..."
             mkdir -p "$cache_path/$repo_dir"
