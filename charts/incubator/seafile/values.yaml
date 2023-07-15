@@ -35,7 +35,7 @@ workload:
                 name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: mariadb-root-password
             SEAFILE_SERVER_LETSENCRYPT: false
-            SEAFILE_SERVER_HOSTNAME: ""https://{{ if .Values.ingress }}{{ if .Values.ingress.main.enabled }}{{ ( index .Values.ingress.main.hosts 0 ).host }}{{ else }}placeholder.com{{ end }}{{ else }}placeholder.com{{ end }}""
+            SEAFILE_SERVER_HOSTNAME: "{{ if .Values.ingress }}{{ if .Values.ingress.main.enabled }}{{ ( index .Values.ingress.main.hosts 0 ).host }}{{ else }}placeholder.com{{ end }}{{ else }}placeholder.com{{ end }}"
             SEAFILE_ADMIN_EMAIL: me@example.com
             SEAFILE_ADMIN_PASSWORD: a_very_secret_password
             FORCE_HTTPS_IN_CONF: false
