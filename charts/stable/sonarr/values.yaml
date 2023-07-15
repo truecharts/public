@@ -29,6 +29,9 @@ additionalContainers:
   exportarr:
     name: exportarr
     image: "{{ .Values.exportarrImage.repository }}:{{ .Values.exportarrImage.tag }}"
+    ports:
+      - containerPort: 8990
+        name: exportarr
     probes:
       liveness:
         enabled: true
