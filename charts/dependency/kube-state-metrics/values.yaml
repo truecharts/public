@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/kube-state-metrics
   pullPolicy: IfNotPresent
-  tag: v2.9.2@sha256:9c9a3df7dcac726190d5489817b1629fe365759b6e0f6b2295a0c8f201dbb6b3
+  tag: v2.9.2@sha256:c6668d3f6b5502907a7bd81bea4f13ec0392f7c8eff0f2d1b5a3bafa1802675d
 
 service:
   main:
@@ -285,7 +285,7 @@ metrics:
     # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
     # @default -- See values.yaml
     enabled: true
-    type: serviceMonitor
+    type: "servicemonitor"
     endpoints:
       - port: main
       - port: selfmonitor

@@ -11,14 +11,12 @@ service:
   main:
     ports:
       main:
-        targetPort: 17170
         port: 17170
   ldap:
     enabled: true
     ports:
       ldap:
         enabled: true
-        targetPort: 3890
         port: 3890
 
 workload:
@@ -31,7 +29,25 @@ workload:
           args:
             - "run"
           env:
+            LLDAP_HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
+            LLDAP_LDAP_PORT: "{{ .Values.service.ldap.ports.ldap.port }}"
+            LLDAP_HTTP_URL: "http://localhost:{{ .Values.service.main.ports.main.port }}"
             LLDAP_LDAP_BASE_DN: "dc=example,dc=com"
+            # ADMIN
+            LLDAP_LDAP_USER_DN: "admin"
+            LLDAP_LDAP_USER_EMAIL: "admin@example.com"
+            LLDAP_LDAP_USER_PASS: "password"
+            # LOGGING
+            LLDAP_VERBOSE: false
+            # SMTP
+            LLDAP_SMTP_OPTIONS__ENABLE_PASSWORD_RESET: false
+            LLDAP_SMTP_OPTIONS__SERVER: ""
+            LLDAP_SMTP_OPTIONS__PORT: 587
+            LLDAP_SMTP_OPTIONS__SMTP_ENCRYPTION: "STARTTLS"
+            LLDAP_SMTP_OPTIONS__USER: ""
+            LLDAP_SMTP_OPTIONS__PASSWORD: ""
+            LLDAP_SMTP_OPTIONS__FROM: "LLDAP Admin <sender@gmail.com>"
+            LLDAP_SMTP_OPTIONS__REPLY_TO: "Do not reply <noreply@localhost>"
             LLDAP_JWT_SECRET:
               - secretRef:
                   name: secrets
