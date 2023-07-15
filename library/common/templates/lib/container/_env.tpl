@@ -14,9 +14,12 @@ objectData: The object data to be used to render the container.
     {{- if not (kindIs "map" $v) -}}
       {{- $value := "" -}}
       {{- if not (kindIs "invalid" $v) -}} {{/* Only tpl non-empty values */}}
-        {{- $value = tpl (toString $v) $rootCtx -}}
+        {{- $value = $v -}}
+        {{- if kindIs "string" $v -}}
+          {{- $value = tpl $v $rootCtx -}}
+        {{- end -}}
       {{- end }}
-  value: {{ $value | quote }}
+  value: {{ include "tc.v1.common.helper.makeIntOrNoop" $value | quote }}
     {{- else if kindIs "map" $v }}
   valueFrom:
       {{- $refs := (list "configMapKeyRef" "secretKeyRef" "fieldRef") -}}

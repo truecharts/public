@@ -70,6 +70,6 @@ objectData: The object data to be used to render the container.
   {{- range $env := $fixed -}}
     {{- include "tc.v1.common.helper.container.envDupeCheck" (dict "rootCtx" $rootCtx "objectData" $objectData "source" "fixedEnv" "key" $env.k) }}
 - name: {{ $env.k | quote }}
-  value: {{ $env.v | quote }}
+  value: {{ (include "tc.v1.common.helper.makeIntOrNoop" $env.v) | quote }}
   {{- end -}}
 {{- end -}}

@@ -12,8 +12,12 @@ objectData: The object data to be used to render the container.
     {{- if not $env.name -}}
       {{- fail "Container - Expected non-empty <envList.name>" -}}
     {{- end -}} {{/* Empty value is valid */}}
-    {{- include "tc.v1.common.helper.container.envDupeCheck" (dict "rootCtx" $rootCtx "objectData" $objectData "source" "envList" "key" $env.name) }}
+    {{- include "tc.v1.common.helper.container.envDupeCheck" (dict "rootCtx" $rootCtx "objectData" $objectData "source" "envList" "key" $env.name) -}}
+    {{- $value := $env.value -}}
+    {{- if kindIs "string" $env.value -}}
+      {{- $value = tpl $env.value $rootCtx -}}
+    {{- end }}
 - name: {{ $env.name | quote }}
-  value: {{ tpl (toString $env.value) $rootCtx | quote }}
+  value: {{ include "tc.v1.common.helper.makeIntOrNoop" $value | quote }}
   {{- end -}}
 {{- end -}}

@@ -140,6 +140,36 @@ tests:
               - name: some_other_name
                 value: "some_different_value"
 
+  - it: should pass with fsGroup and supplementalGroups with long int
+    set:
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            securityContext:
+              fsGroup: 100000514
+              fsGroupChangePolicy: Always
+              supplementalGroups:
+                - 1002
+                - 100000514
+    asserts:
+      - documentIndex: *statefulSetDoc
+        isKind:
+          of: Deployment
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.template.spec.securityContext
+          value:
+            fsGroup: 100000514
+            fsGroupChangePolicy: Always
+            supplementalGroups:
+              - 1002
+              - 100000514
+              - 568
+            sysctls: []
+
   - it: should pass with sysctls automatically appended based on services
     set:
       some_sysctl_name: some_name

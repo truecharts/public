@@ -89,12 +89,12 @@ objectData: The object data to be used to render the Pod.
   {{- if not (mustHas $secContext.fsGroupChangePolicy $policies) -}}
     {{- fail (printf "Pod - Expected <fsGroupChangePolicy> to be one of [%s], but got [%s]" (join ", " $policies) $secContext.fsGroupChangePolicy) -}}
   {{- end }}
-fsGroup: {{ $secContext.fsGroup }}
+fsGroup: {{ include "tc.v1.common.helper.makeIntOrNoop" $secContext.fsGroup }}
 fsGroupChangePolicy: {{ $secContext.fsGroupChangePolicy }}
   {{- with $secContext.supplementalGroups }}
 supplementalGroups:
     {{- range . }}
-  - {{ . }}
+  - {{ include "tc.v1.common.helper.makeIntOrNoop" . }}
     {{- end -}}
   {{- else }}
 supplementalGroups: []
