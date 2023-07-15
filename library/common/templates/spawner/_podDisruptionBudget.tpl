@@ -5,12 +5,11 @@
 
 {{- define "tc.v1.common.spawner.podDisruptionBudget" -}}
 
-  {{- range $name, $poddisruptionbudget := .Values.podDisruptionBudget -}}
-
+  {{- range $name, $pdb := .Values.podDisruptionBudget -}}
     {{- $enabled := false -}}
-    {{- if hasKey $poddisruptionbudget "enabled" -}}
-      {{- if not (kindIs "invalid" $poddisruptionbudget.enabled) -}}
-        {{- $enabled = $poddisruptionbudget.enabled -}}
+    {{- if hasKey $pdb "enabled" -}}
+      {{- if not (kindIs "invalid" $pdb.enabled) -}}
+        {{- $enabled = $pdb.enabled -}}
       {{- else -}}
         {{- fail (printf "Pod Disruption Budget - Expected the defined key [enabled] in <podDisruptionBudget.%s> to not be empty" $name) -}}
       {{- end -}}
@@ -30,7 +29,7 @@
     {{- if $enabled -}}
 
       {{/* Create a copy of the poddisruptionbudget */}}
-      {{- $objectData := (mustDeepCopy $poddisruptionbudget) -}}
+      {{- $objectData := (mustDeepCopy $pdb) -}}
 
       {{- $objectName := (printf "%s-%s" (include "tc.v1.common.lib.chart.names.fullname" $) $name) -}}
       {{- if hasKey $objectData "expandObjectName" -}}
@@ -41,12 +40,13 @@
 
       {{/* Perform validations */}}
       {{- include "tc.v1.common.lib.chart.names.validation" (dict "name" $objectName) -}}
-      {{- include "tc.v1.common.lib.podDisruptionBudget.validation" (dict "objectData" $objectData) -}}
-      {{- include "tc.v1.common.lib.metadata.validation" (dict "objectData" $objectData "caller" "Pod Distruption Budget") -}}
+      {{- include "tc.v1.common.lib.metadata.validation" (dict "objectData" $objectData "caller" "Pod Disruption Budget") -}}
 
       {{/* Set the name of the poddisruptionbudget */}}
       {{- $_ := set $objectData "name" $objectName -}}
       {{- $_ := set $objectData "shortName" $name -}}
+
+      {{- include "tc.v1.common.lib.podDisruptionBudget.validation" (dict "objectData" $objectData "rootCtx" $) -}}
 
       {{/* Call class to create the object */}}
       {{- include "tc.v1.common.class.podDisruptionBudget" (dict "rootCtx" $ "objectData" $objectData) -}}
