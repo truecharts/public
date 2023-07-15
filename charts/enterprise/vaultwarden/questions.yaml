@@ -72,11 +72,13 @@ questions:
                       schema:
                         type: string
                         default: ""
+                        required: true
                     - variable: installationKey
                       label: "Installation Key"
                       schema:
                         type: string
                         default: ""
+                        required: true
         - variable: admin
           label: "Admin Portal"
           schema:
