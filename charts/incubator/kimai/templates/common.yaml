@@ -7,7 +7,7 @@
   {{- $_ := set .Values "secret" $secret -}}
 {{- end -}}
 
-{{- $config := include "kimai.config" . | fromYaml -}}
+{{- $config := include "kimai.configmap" . | fromYaml -}}
 {{- if $config -}}
   {{ $config := (mustMergeOverwrite .Values.configmap $config) }}
   {{- $_ := set .Values "configmap" $config -}}
