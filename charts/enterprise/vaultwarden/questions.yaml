@@ -53,6 +53,32 @@ questions:
                       schema:
                         type: string
                         default: ""
+        - variable: push
+          label: "Mobile Push Notifications"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable Mobile Push Notifications"
+                description: "You must obtain and ID and Key here: https://bitwarden.com/host"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: installationId
+                      label: "Installation ID"
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+                    - variable: installationKey
+                      label: "Installation Key"
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
         - variable: admin
           label: "Admin Portal"
           schema:

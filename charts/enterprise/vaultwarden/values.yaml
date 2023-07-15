@@ -122,6 +122,12 @@ vaultwarden:
     # clientId:
     # secretKey:
 
+  ## Enable Mobile Push Notifications. You must obtain and ID and Key here: https://bitwarden.com/host
+  push:
+    enabled: false
+    # installationId:
+    # installationKey: 
+
   ## Logging options. https://github.com/dani-garcia/bitwarden_rs/wiki/Logging
   log:
     # Log to file.
