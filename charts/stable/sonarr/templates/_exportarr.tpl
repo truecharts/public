@@ -1,6 +1,5 @@
 {{/* Define the exportarr container */}}
 {{- define "sonarr.exportarr" -}}
-{{- $fname := (include "tc.v1.common.lib.chart.names.fullname" .) -}}
 enabled: true
 type: Deployment
   containers:
