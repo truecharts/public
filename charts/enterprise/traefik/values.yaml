@@ -332,6 +332,20 @@ middlewares:
   #     - "X-CustomHeader"
   #   authResponseHeadersRegex: "^X-"
   #   trustForwardHeader: true
+  customRequestHeaders: []
+  # - name: customRequestHeaderExample
+  #   headers:
+  #     - name: X-Custom-Header
+  #       value: "foobar"
+  #     - name: X-Header-To-Remove
+  #       value: ""
+  customResponseHeaders: []
+  # - name: customResponseHeaderExample
+  #   headers:
+  #     - name: X-Custom-Header
+  #       value: "foobar"
+  #     - name: X-Header-To-Remove
+  #       value: ""
   chain: []
   # - name: chainname
   #   middlewares:
