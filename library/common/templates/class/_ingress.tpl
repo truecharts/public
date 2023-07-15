@@ -36,7 +36,7 @@ within the common library.
   {{- end -}}
 
   {{- if $values.ingressClassName -}}
-    
+
     {{- if $.Values.global.ixChartContext -}}
       {{- $mddwrNamespace = (printf "ix-%s" $values.ingressClassName) -}}
     {{- else -}}
@@ -74,6 +74,7 @@ apiVersion: {{ include "tc.v1.common.capabilities.ingress.apiVersion" $ }}
 kind: Ingress
 metadata:
   name: {{ $ingressName }}
+  namespace: {{ $.Values.namespace | default $.Values.global.namespace | default $.Release.Namespace }}
   {{- $labels := (mustMerge ($ingressLabels | default dict) (include "tc.v1.common.lib.metadata.allLabels" $ | fromYaml)) -}}
   {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $ "labels" $labels) | trim) }}
   labels:

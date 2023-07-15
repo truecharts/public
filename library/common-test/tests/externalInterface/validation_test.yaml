@@ -121,7 +121,7 @@ tests:
       # Simulate middleware injection
       ixExternalInterfacesConfiguration:
         - '{"cniVersion": "0.3.1", "name": "ix-test-release-name-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
-      ixExternalInterfaceConfigurationNames: []
+      ixExternalInterfacesConfigurationNames: []
       scaleExternalInterface:
         - hostInterface: enp0s3
           ipam:
@@ -136,3 +136,37 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: External Interface - Expected non empty <ixExternalInterfaceConfigurationNames>
+
+  - it: should fail with namespace longer than 63 characters
+    set:
+      # Simulate middleware injection
+      ixExternalInterfacesConfiguration:
+        - '{"cniVersion": "0.3.1", "name": "ix-test-release-name-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
+      ixExternalInterfacesConfigurationNames: []
+      scaleExternalInterface:
+        - hostInterface: enp0s3
+          ipam:
+            type: dhcp
+      global:
+        namespace: my-extra-super-duper-long-name-that-is-longer-than-63-characters
+    asserts:
+      - failedTemplate:
+          errorMessage: Network Attachment Definition - Namespace [my-extra-super-duper-long-name-that-is-longer-than-63-characters] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
+
+  - it: should fail with namespace not starting with [ix-] in TrueNAS SCALE
+    set:
+      global:
+        namespace: my-namespace
+        ixChartContext:
+          iAmNotEmpty: true
+      # Simulate middleware injection
+      ixExternalInterfacesConfiguration:
+        - '{"cniVersion": "0.3.1", "name": "ix-test-release-name-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
+      ixExternalInterfacesConfigurationNames: []
+      scaleExternalInterface:
+        - hostInterface: enp0s3
+          ipam:
+            type: dhcp
+    asserts:
+      - failedTemplate:
+          errorMessage: Network Attachment Definition - Namespace [my-namespace] expected to have [ix-] prefix when installed in TrueNAS SCALE

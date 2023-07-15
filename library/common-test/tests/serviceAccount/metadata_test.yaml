@@ -58,3 +58,85 @@ tests:
             g_label2: global_label2
             label1: label1
             label2: label2
+      - documentIndex: *serviceAccountDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *serviceAccountDoc
+        equal:
+          path: metadata.namespace
+          value: test-release-namespace
+
+  - it: should pass with sa created with namespace
+    set:
+      serviceAccount:
+        my-sa1:
+          enabled: true
+          primary: true
+          namespace: some-namespace
+    asserts:
+      - documentIndex: *serviceAccountDoc
+        equal:
+          path: metadata.namespace
+          value: some-namespace
+
+  - it: should pass with sa created with object namespace from tpl
+    set:
+      key: some-namespace
+      serviceAccount:
+        my-sa1:
+          enabled: true
+          primary: true
+          namespace: "{{ .Values.key }}"
+    asserts:
+      - documentIndex: *serviceAccountDoc
+        equal:
+          path: metadata.namespace
+          value: some-namespace
+
+  - it: should pass with sa created with namespace from global with tpl
+    set:
+      key: global-namespace
+      global:
+        namespace: "{{ .Values.key }}"
+      serviceAccount:
+        my-sa1:
+          enabled: true
+          primary: true
+    asserts:
+      - documentIndex: *serviceAccountDoc
+        equal:
+          path: metadata.namespace
+          value: global-namespace
+
+  - it: should pass with sa created with namespace from root with tpl
+    set:
+      key: local-namespace
+      namespace: "{{ .Values.key }}"
+      global:
+        namespace: global-namespace
+      serviceAccount:
+        my-sa1:
+          enabled: true
+          primary: true
+    asserts:
+      - documentIndex: *serviceAccountDoc
+        equal:
+          path: metadata.namespace
+          value: local-namespace
+
+  - it: should pass with sa created with namespace in TrueNAS SCALE
+    set:
+      global:
+        ixChartContext:
+          iAmNotEmpty: true
+      namespace: ix-namespace
+      serviceAccount:
+        my-sa1:
+          enabled: true
+          primary: true
+    asserts:
+      - documentIndex: *serviceAccountDoc
+        equal:
+          path: metadata.namespace
+          value: ix-namespace

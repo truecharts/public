@@ -116,6 +116,10 @@ tests:
           value: test-release-name-common-test
       - documentIndex: *endpointSliceDoc
         equal:
+          path: metadata.namespace
+          value: test-release-namespace
+      - documentIndex: *endpointSliceDoc
+        equal:
           path: metadata.labels
           value:
             kubernetes.io/service-name: test-release-name-common-test
@@ -237,6 +241,14 @@ tests:
           of: v1
       - documentIndex: *endpointDoc
         equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *endpointDoc
+        equal:
+          path: metadata.namespace
+          value: test-release-namespace
+      - documentIndex: *endpointDoc
+        equal:
           path: subsets
           value:
             - addresses:
@@ -325,3 +337,198 @@ tests:
                   port: 12346
                   protocol: TCP
                   appProtocol: http
+
+  - it: should use object namespace from tpl with type ExternalIP and https and useSlice explicitly set to true
+    set:
+      key: some-namespace
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          type: ExternalIP
+          useSlice: true
+          externalIP: 1.1.1.1
+          namespace: "{{ .Values.key }}"
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 443
+              protocol: https
+    asserts:
+      - documentIndex: *endpointSliceDoc
+        equal:
+          path: metadata.namespace
+          value: some-namespace
+
+  - it: should use global namespace from tpl with type ExternalIP and https and useSlice explicitly set to true
+    set:
+      key: global-namespace
+      global:
+        namespace: "{{ .Values.key }}"
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          type: ExternalIP
+          useSlice: true
+          externalIP: 1.1.1.1
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 443
+              protocol: https
+    asserts:
+      - documentIndex: *endpointSliceDoc
+        equal:
+          path: metadata.namespace
+          value: global-namespace
+
+  - it: should use root namespace from tpl with type ExternalIP and https and useSlice explicitly set to true
+    set:
+      key: local-namespace
+      namespace: "{{ .Values.key }}"
+      global:
+        namespace: global-namespace
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          type: ExternalIP
+          useSlice: true
+          externalIP: 1.1.1.1
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 443
+              protocol: https
+    asserts:
+      - documentIndex: *endpointSliceDoc
+        equal:
+          path: metadata.namespace
+          value: local-namespace
+
+  - it: should have ix namespace from tpl with type ExternalIP and https and useSlice explicitly set to true
+    set:
+      global:
+        ixChartContext:
+          iAmNotEmpty: true
+      namespace: ix-namespace
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          type: ExternalIP
+          useSlice: true
+          externalIP: 1.1.1.1
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 443
+              protocol: https
+    asserts:
+      - documentIndex: *endpointSliceDoc
+        equal:
+          path: metadata.namespace
+          value: ix-namespace
+
+  - it: should use object namespace from tpl with type ExternalIP and https and useSlice explicitly set to false
+    set:
+      key: some-namespace
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          type: ExternalIP
+          useSlice: false
+          externalIP: 1.1.1.1
+          namespace: "{{ .Values.key }}"
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 443
+              protocol: https
+    asserts:
+      - documentIndex: *endpointDoc
+        equal:
+          path: metadata.namespace
+          value: some-namespace
+
+  - it: should use global namespace from tpl with type ExternalIP and https and useSlice explicitly set to false
+    set:
+      key: global-namespace
+      global:
+        namespace: "{{ .Values.key }}"
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          type: ExternalIP
+          useSlice: false
+          externalIP: 1.1.1.1
+          namespace: "{{ .Values.key }}"
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 443
+              protocol: https
+    asserts:
+      - documentIndex: *endpointDoc
+        equal:
+          path: metadata.namespace
+          value: global-namespace
+
+  - it: should use root namespace from tpl with type ExternalIP and https and useSlice explicitly set to false
+    set:
+      key: local-namespace
+      namespace: "{{ .Values.key }}"
+      global:
+        namespace: global-namespace
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          type: ExternalIP
+          useSlice: false
+          externalIP: 1.1.1.1
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 443
+              protocol: https
+    asserts:
+      - documentIndex: *endpointDoc
+        equal:
+          path: metadata.namespace
+          value: local-namespace
+
+  - it: should have ix namespace from tpl with type ExternalIP and https and useSlice explicitly set to false
+    set:
+      global:
+        ixChartContext:
+          iAmNotEmpty: true
+      namespace: ix-namespace
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          type: ExternalIP
+          useSlice: false
+          externalIP: 1.1.1.1
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 443
+              protocol: https
+    asserts:
+      - documentIndex: *endpointDoc
+        equal:
+          path: metadata.namespace
+          value: ix-namespace

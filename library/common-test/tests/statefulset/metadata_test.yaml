@@ -118,6 +118,10 @@ tests:
           value: test-release-name-common-test-other-workload-name
       - documentIndex: *statefulSetDoc
         equal:
+          path: metadata.namespace
+          value: test-release-namespace
+      - documentIndex: *statefulSetDoc
+        equal:
           path: spec.selector.matchLabels
           value:
             pod.name: other-workload-name
@@ -139,6 +143,10 @@ tests:
           value: test-release-name-common-test
       - documentIndex: *otherStatefulSetDoc
         equal:
+          path: metadata.namespace
+          value: test-release-namespace
+      - documentIndex: *otherStatefulSetDoc
+        equal:
           path: spec.selector.matchLabels
           value:
             pod.name: workload-name
@@ -151,3 +159,72 @@ tests:
             pod.name: workload-name
             app.kubernetes.io/instance: test-release-name
             app.kubernetes.io/name: common-test
+
+  - it: should pass with statefulset created with object namespace from tpl
+    set:
+      key: some-namespace
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          namespace: "{{ .Values.key }}"
+          podSpec: {}
+    asserts:
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: metadata.namespace
+          value: some-namespace
+
+  - it: should pass with deployment created with global namespace from tpl
+    set:
+      key: global-namespace
+      global:
+        namespace: "{{ .Values.key }}"
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: metadata.namespace
+          value: global-namespace
+
+  - it: should pass with deployment created with root namespace from tpl
+    set:
+      key: local-namespace
+      namespace: "{{ .Values.key }}"
+      global:
+        namespace: global-namespace
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: metadata.namespace
+          value: local-namespace
+
+  - it: should pass with deployment created with namespace in TrueNAS SCALE
+    set:
+      global:
+        ixChartContext:
+          iAmNotEmpty: true
+      namespace: ix-namespace
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: metadata.namespace
+          value: ix-namespace

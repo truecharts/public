@@ -34,7 +34,7 @@
 
   {{- $name := .name -}}
 
-  {{- if not (mustRegexMatch "^[a-z0-9]([a-z0-9]-?|-?[a-z0-9]){0,61}[a-z0-9]$" $name) -}}
+  {{- if not (and (mustRegexMatch "^[a-z0-9](-?[a-z0-9]-?)+[a-z0-9]$" $name) (le (len $name) 63)) -}}
     {{- fail (printf "Name [%s] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters." $name) -}}
   {{- end -}}
 

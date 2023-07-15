@@ -4,6 +4,9 @@ global:
   labels: {}
   # -- Set additional global annotations
   annotations: {}
+  # -- Set a global namespace
+  # TODO: Currently some objects do not support this
+  namespace: ""
   # -- Adds metalLB annotations to services
   addMetalLBAnnotations: true
   # -- Adds traefik annotations to services
@@ -56,6 +59,8 @@ fallbackDefaults:
       failureThreshold: 60
       successThreshold: 1
 
+# -- Explicitly set a namespace for this chart only
+namespace: ""
 
 # -- Image values
 image:

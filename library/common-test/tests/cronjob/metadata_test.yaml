@@ -88,3 +88,84 @@ tests:
         matchRegex:
           path: spec.jobTemplate.spec.template.metadata.annotations.rollme
           pattern: '^[0-9a-zA-Z]{5}$'
+      - documentIndex: *cronJobDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *cronJobDoc
+        equal:
+          path: metadata.namespace
+          value: test-release-namespace
+
+  - it: should pass with CronJob created with object namespace from tpl
+    set:
+      key: some-namespace
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: CronJob
+          namespace: "{{ .Values.key }}"
+          schedule: "*/1 * * * *"
+          podSpec: {}
+    asserts:
+      - documentIndex: *cronJobDoc
+        equal:
+          path: metadata.namespace
+          value: some-namespace
+
+  - it: should pass with CronJob created with global namespace from tpl
+    set:
+      key: global-namespace
+      global:
+        namespace: "{{ .Values.key }}"
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: CronJob
+          schedule: "*/1 * * * *"
+          podSpec: {}
+    asserts:
+      - documentIndex: *cronJobDoc
+        equal:
+          path: metadata.namespace
+          value: global-namespace
+
+  - it: should pass with CronJob created with root namespace from tpl
+    set:
+      key: local-namespace
+      namespace: "{{ .Values.key }}"
+      global:
+        namespace: global-namespace
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: CronJob
+          schedule: "*/1 * * * *"
+          podSpec: {}
+    asserts:
+      - documentIndex: *cronJobDoc
+        equal:
+          path: metadata.namespace
+          value: local-namespace
+
+  - it: should pass with CronJob created with namespace in TrueNAS SCALE
+    set:
+      global:
+        ixChartContext:
+          iAmNotEmpty: true
+      namespace: ix-namespace
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: CronJob
+          schedule: "*/1 * * * *"
+          podSpec: {}
+    asserts:
+      - documentIndex: *cronJobDoc
+        equal:
+          path: metadata.namespace
+          value: ix-namespace

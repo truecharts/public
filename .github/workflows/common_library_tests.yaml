@@ -198,14 +198,14 @@ jobs:
           wget https://github.com/boz/kail/releases/download/${KAIL_VERSION}/kail_${KAIL_VERSION}_linux_amd64.tar.gz
           tar -xvzf kail_${KAIL_VERSION}_linux_amd64.tar.gz
           chmod +x kail
-          
+
         # Install some manifests to enable us to allow for testing cnpg, metrics and such
       - name: Install manifests
         run: |
           kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml --server-side --force-conflicts || echo "error fetching metallb manifest"
           kubectl apply -f https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.20/releases/cnpg-1.20.0.yaml  --server-side --force-conflicts || echo "error fetching cnpg manifest"
           kubectl apply -f  https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.65.2/bundle.yaml --server-side --force-conflicts || echo "error fetching prometheus operator manifest"
-          
+
 
       - name: Run chart-testing (install)
         run: |
@@ -280,6 +280,9 @@ jobs:
           cd library/common-test
           helm dependency update
           cd -
+      - name: Add namespace
+        run: |
+          echo "namespace: common-test" >> library/common-test/ci/${{ matrix.values }}
 
       - name: Run Security Scan
         uses: datreeio/action-datree@main

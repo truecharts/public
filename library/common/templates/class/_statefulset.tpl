@@ -16,6 +16,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: {{ $objectData.name }}
+  namespace: {{ include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $rootCtx "objectData" $objectData "caller" "StatefulSet") }}
   {{- $labels := (mustMerge ($objectData.labels | default dict) (include "tc.v1.common.lib.metadata.allLabels" $rootCtx | fromYaml)) -}}
   {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "labels" $labels) | trim) }}
   labels:

@@ -156,7 +156,7 @@
         {{- include "tc.v1.common.lib.configmap.validation" (dict "objectData" $configMap) -}}
         {{- include "tc.v1.common.lib.metadata.validation" (dict "objectData" $configMap "caller" "ConfigMap") -}}
 
-        {{- if $.Values.ixChartContext -}}
+        {{- if $.Values.global.ixChartContext -}}
         {{/* Call class to create the object */}}
         {{- include "tc.v1.common.class.configmap" (dict "rootCtx" $ "objectData" $configMap) -}}
 

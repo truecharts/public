@@ -59,6 +59,7 @@ tests:
   - it: should fail without storageClassName in ixChartContext
     set:
       global:
+        namespace: ix-namespace
         ixChartContext:
           storageClassName: ""
       persistence:
@@ -72,6 +73,7 @@ tests:
   - it: should fail without storageClassName in ixChartContext with SCALE-ZFS explicitly set
     set:
       global:
+        namespace: ix-namespace
         ixChartContext:
           storageClassName: ""
       persistence:
@@ -130,3 +132,28 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: Persistence - Expected secret [my-non-existent-secret] defined in <objectName> to exist
+
+  - it: should fail with namespace longer than 63 characters
+    set:
+      persistence:
+        volume1:
+          enabled: true
+          type: pvc
+          namespace: my-extra-super-duper-long-name-that-is-longer-than-63-characters
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistent Volume Claim - Namespace [my-extra-super-duper-long-name-that-is-longer-than-63-characters] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
+
+  - it: should fail with namespace not starting with [ix-] in TrueNAS SCALE
+    set:
+      global:
+        ixChartContext:
+          iAmNotEmpty: true
+      persistence:
+        volume1:
+          enabled: true
+          type: pvc
+          namespace: my-namespace
+    asserts:
+      - failedTemplate:
+          errorMessage: Persistent Volume Claim - Namespace [my-namespace] expected to have [ix-] prefix when installed in TrueNAS SCALE

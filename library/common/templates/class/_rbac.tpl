@@ -22,7 +22,7 @@ kind: {{ ternary "ClusterRole" "Role" $objectData.clusterWide }}
 metadata:
   name: {{ $objectData.name }}
   {{- if not $objectData.clusterWide }}
-  namespace: {{ $rootCtx.Release.Namespace }}
+  namespace: {{ include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $rootCtx "objectData" $objectData "caller" "RBAC") }}
   {{- end }}
   {{- $labels := (mustMerge ($objectData.labels | default dict) (include "tc.v1.common.lib.metadata.allLabels" $rootCtx | fromYaml)) -}}
   {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "labels" $labels) | trim) }}

@@ -60,8 +60,9 @@ tests:
             label1: label1
             label2: label2
       - documentIndex: *configMapDoc
-        isNull:
+        equal:
           path: metadata.namespace
+          value: test-release-namespace
 
   - it: should pass with configmap created with namespace
     set:
@@ -77,13 +78,13 @@ tests:
           path: metadata.namespace
           value: some-namespace
 
-  - it: should pass with configmap created with namespace from tpl
+  - it: should pass with configmap created with object namespace from tpl
     set:
-      namespace: some-namespace
+      key: some-namespace
       configmap:
         my-configmap1:
           enabled: true
-          namespace: "{{ .Values.namespace }}"
+          namespace: "{{ .Values.key }}"
           data:
             foo: bar
     asserts:
@@ -91,3 +92,53 @@ tests:
         equal:
           path: metadata.namespace
           value: some-namespace
+
+  - it: should pass with configmap created with namespace from global with tpl
+    set:
+      key: global-namespace
+      global:
+        namespace: "{{ .Values.key }}"
+      configmap:
+        my-configmap1:
+          enabled: true
+          data:
+            foo: bar
+    asserts:
+      - documentIndex: *configMapDoc
+        equal:
+          path: metadata.namespace
+          value: global-namespace
+
+  - it: should pass with configmap created with namespace from root with tpl
+    set:
+      key: local-namespace
+      namespace: "{{ .Values.key }}"
+      global:
+        namespace: global-namespace
+      configmap:
+        my-configmap1:
+          enabled: true
+          data:
+            foo: bar
+    asserts:
+      - documentIndex: *configMapDoc
+        equal:
+          path: metadata.namespace
+          value: local-namespace
+
+  - it: should pass with configmap created with namespace in TrueNAS SCALE
+    set:
+      global:
+        ixChartContext:
+          iAmNotEmpty: true
+      namespace: ix-namespace
+      configmap:
+        my-configmap1:
+          enabled: true
+          data:
+            foo: bar
+    asserts:
+      - documentIndex: *configMapDoc
+        equal:
+          path: metadata.namespace
+          value: ix-namespace

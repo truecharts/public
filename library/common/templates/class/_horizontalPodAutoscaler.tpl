@@ -24,6 +24,7 @@ apiVersion: {{ include "tc.v1.common.capabilities.hpa.apiVersion" $ }}
 kind: HorizontalPodAutoscaler
 metadata:
   name: {{ $hpaName }}
+  namespace: {{ $.Values.namespace | default $.Values.global.namespace | default $.Release.Namespace }}
   {{- $labels := (mustMerge ($hpaLabels | default dict) (include "tc.v1.common.lib.metadata.allLabels" $ | fromYaml)) -}}
   {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $ "labels" $labels) | trim) }}
   labels:

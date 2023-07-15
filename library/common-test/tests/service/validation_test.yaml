@@ -497,3 +497,38 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: Service - Expected the defined key [expandObjectName] in <secret.service-name1> to not be empty
+
+  - it: should fail with namespace longer than 63 characters
+    set:
+      service:
+        my-service1:
+          enabled: true
+          primary: true
+          namespace: my-extra-super-duper-long-name-that-is-longer-than-63-characters
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 12345
+    asserts:
+      - failedTemplate:
+          errorMessage: Service - Namespace [my-extra-super-duper-long-name-that-is-longer-than-63-characters] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
+
+  - it: should fail with namespace not starting with [ix-] in TrueNAS SCALE
+    set:
+      global:
+        ixChartContext:
+          iAmNotEmpty: true
+      service:
+        my-service1:
+          enabled: true
+          primary: true
+          namespace: my-namespace
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 12345
+    asserts:
+      - failedTemplate:
+          errorMessage: Service - Namespace [my-namespace] expected to have [ix-] prefix when installed in TrueNAS SCALE

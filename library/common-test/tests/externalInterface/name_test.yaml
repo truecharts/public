@@ -32,6 +32,10 @@ tests:
         equal:
           path: metadata.name
           value: ix-test-release-name-0
+      - documentIndex: *networkDoc
+        equal:
+          path: metadata.namespace
+          value: test-release-namespace
       - documentIndex: &otherNetworkDoc 1
         isKind:
           of: NetworkAttachmentDefinition
@@ -42,3 +46,7 @@ tests:
         equal:
           path: metadata.name
           value: ix-test-release-name-1
+      - documentIndex: *otherNetworkDoc
+        equal:
+          path: metadata.namespace
+          value: test-release-namespace

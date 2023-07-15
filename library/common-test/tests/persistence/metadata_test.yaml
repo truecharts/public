@@ -61,6 +61,14 @@ tests:
             g_label2: global_label2
             label1: label1
             label2: label2
+      - documentIndex: *pvcDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-volume1
+      - documentIndex: *pvcDoc
+        equal:
+          path: metadata.namespace
+          value: test-release-namespace
 
   - it: should pass with pvc created with retain set to true
     set:
@@ -90,3 +98,65 @@ tests:
             app.kubernetes.io/instance: test-release-name
             app.kubernetes.io/managed-by: Helm
             app.kubernetes.io/version: *appVer
+
+  - it: should pass with pvc created with object namespace from tpl
+    set:
+      key: some-namespace
+      persistence:
+        my-volume1:
+          enabled: true
+          type: pvc
+          namespace: "{{ .Values.key }}"
+    asserts:
+      - documentIndex: *pvcDoc
+        equal:
+          path: metadata.namespace
+          value: some-namespace
+
+  - it: should pass with pvc created with global namespace from tpl
+    set:
+      key: global-namespace
+      global:
+        namespace: "{{ .Values.key }}"
+      persistence:
+        my-volume1:
+          enabled: true
+          type: pvc
+    asserts:
+      - documentIndex: *pvcDoc
+        equal:
+          path: metadata.namespace
+          value: global-namespace
+
+  - it: should pass with pvc created with root namespace from tpl
+    set:
+      key: local-namespace
+      namespace: "{{ .Values.key }}"
+      global:
+        namespace: global-namespace
+      persistence:
+        my-volume1:
+          enabled: true
+          type: pvc
+    asserts:
+      - documentIndex: *pvcDoc
+        equal:
+          path: metadata.namespace
+          value: local-namespace
+
+  - it: should pass with pvc created with namespace in TrueNAS SCALE
+    set:
+      global:
+        ixChartContext:
+          iAmNotEmpty: true
+          storageClassName: SCALE-ZFS
+      namespace: ix-namespace
+      persistence:
+        my-volume1:
+          enabled: true
+          type: pvc
+    asserts:
+      - documentIndex: *pvcDoc
+        equal:
+          path: metadata.namespace
+          value: ix-namespace

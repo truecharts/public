@@ -78,6 +78,14 @@ tests:
             g_label2: global_label2
             label1: label1
             label2: label2
+      - documentIndex: *serviceDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *serviceDoc
+        equal:
+          path: metadata.namespace
+          value: test-release-namespace
       - documentIndex: &otherServiceDoc 2
         isKind:
           of: Service
@@ -96,6 +104,14 @@ tests:
             helm-revision: "0"
             helm.sh/chart: common-test-1.0.0
             release: test-release-name
+      - documentIndex: *otherServiceDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-service2
+      - documentIndex: *otherServiceDoc
+        equal:
+          path: metadata.namespace
+          value: test-release-namespace
 
   - it: should pass with service type LoadBalancer, with https port and addMetalLBAnnotations/Traefik true
     set:
@@ -193,3 +209,84 @@ tests:
             pod.name: my-workload
             app.kubernetes.io/name: common-test
             app.kubernetes.io/instance: test-release-name
+
+  - it: should pass with service created with object namespace from tpl
+    set:
+      key: some-namespace
+      service:
+        my-service1:
+          enabled: true
+          primary: true
+          namespace: "{{ .Values.key }}"
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 12345
+    asserts:
+      - documentIndex: &serviceDoc 0
+        equal:
+          path: metadata.namespace
+          value: some-namespace
+
+  - it: should pass with service created with global namespace from tpl
+    set:
+      key: global-namespace
+      global:
+        namespace: "{{ .Values.key }}"
+      service:
+        my-service1:
+          enabled: true
+          primary: true
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 12345
+    asserts:
+      - documentIndex: *serviceDoc
+        equal:
+          path: metadata.namespace
+          value: global-namespace
+
+  - it: should pass with service created with root namespace from tpl
+    set:
+      key: local-namespace
+      namespace: "{{ .Values.key }}"
+      global:
+        namespace: global-namespace
+      service:
+        my-service1:
+          enabled: true
+          primary: true
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 12345
+    asserts:
+      - documentIndex: *serviceDoc
+        equal:
+          path: metadata.namespace
+          value: local-namespace
+
+  - it: should pass with service created with namespace in TrueNAS SCALE
+    set:
+      global:
+        ixChartContext:
+          iAmNotEmpty: true
+      namespace: ix-namespace
+      service:
+        my-service1:
+          enabled: true
+          primary: true
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 12345
+    asserts:
+      - documentIndex: *serviceDoc
+        equal:
+          path: metadata.namespace
+          value: ix-namespace

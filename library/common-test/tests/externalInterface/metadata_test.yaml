@@ -237,3 +237,65 @@ tests:
           path: spec.jobTemplate.spec.template.metadata.annotations
           content:
             k8s.v1.cni.cncf.io/networks: ix-test-release-name-0
+
+  - it: should pass with networkattachmentdefinition created with namespace from global with tpl
+    set:
+      # Simulate middleware injection
+      ixExternalInterfacesConfiguration:
+        - '{"cniVersion": "0.3.1", "name": "ix-test-release-name-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
+      ixExternalInterfacesConfigurationNames: []
+      scaleExternalInterface:
+        - hostInterface: enp0s3
+          ipam:
+            type: dhcp
+      key: global-namespace
+      global:
+        namespace: "{{ .Values.key }}"
+    asserts:
+      - documentIndex: &networkDoc 0
+        isKind:
+          of: NetworkAttachmentDefinition
+      - documentIndex: *networkDoc
+        equal:
+          path: metadata.namespace
+          value: global-namespace
+
+  - it: should pass with networkattachmentdefinition created with namespace from root with tpl
+    set:
+      # Simulate middleware injection
+      ixExternalInterfacesConfiguration:
+        - '{"cniVersion": "0.3.1", "name": "ix-test-release-name-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
+      ixExternalInterfacesConfigurationNames: []
+      scaleExternalInterface:
+        - hostInterface: enp0s3
+          ipam:
+            type: dhcp
+      key: local-namespace
+      namespace: "{{ .Values.key }}"
+      global:
+        namespace: global-namespace
+    asserts:
+      - documentIndex: *networkDoc
+        equal:
+          path: metadata.namespace
+          value: local-namespace
+
+  - it: should pass with networkattachmentdefinition created with namespace in TrueNAS SCALE
+    set:
+      global:
+        ixChartContext:
+          iAmNotEmpty: true
+      # Simulate middleware injection
+      ixExternalInterfacesConfiguration:
+        - '{"cniVersion": "0.3.1", "name": "ix-test-release-name-0", "type": "macvlan", "master": "ens3s0", "ipam": {"type": "dhcp"}}'
+      ixExternalInterfacesConfigurationNames: []
+      scaleExternalInterface:
+        - hostInterface: enp0s3
+          ipam:
+            type: dhcp
+      namespace: ix-namespace
+    asserts:
+      - documentIndex: *networkDoc
+        equal:
+          path: metadata.namespace
+          value: ix-namespace

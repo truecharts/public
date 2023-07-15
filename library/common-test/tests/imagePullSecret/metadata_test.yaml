@@ -62,3 +62,88 @@ tests:
             g_label2: global_label2
             label1: label1
             label2: label2
+      - documentIndex: *secretDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-secret1
+      - documentIndex: *secretDoc
+        equal:
+          path: metadata.namespace
+          value: test-release-namespace
+
+  - it: should pass with secret created with object namespace from tpl
+    set:
+      key: some-namespace
+      imagePullSecret:
+        my-secret1:
+          enabled: true
+          namespace: "{{ .Values.key }}"
+          data:
+            registry: reg
+            username: user
+            password: pass
+            email: mail
+    asserts:
+      - documentIndex: *secretDoc
+        equal:
+          path: metadata.namespace
+          value: some-namespace
+
+  - it: should pass with secret created with namespace from global with tpl
+    set:
+      key: global-namespace
+      global:
+        namespace: "{{ .Values.key }}"
+      imagePullSecret:
+        my-secret1:
+          enabled: true
+          data:
+            registry: reg
+            username: user
+            password: pass
+            email: mail
+    asserts:
+      - documentIndex: *secretDoc
+        equal:
+          path: metadata.namespace
+          value: global-namespace
+
+  - it: should pass with secret created with namespace from root with tpl
+    set:
+      key: local-namespace
+      namespace: "{{ .Values.key }}"
+      global:
+        namespace: global-namespace
+      imagePullSecret:
+        my-secret1:
+          enabled: true
+          data:
+            registry: reg
+            username: user
+            password: pass
+            email: mail
+    asserts:
+      - documentIndex: *secretDoc
+        equal:
+          path: metadata.namespace
+          value: local-namespace
+
+  - it: should pass with secret created with namespace in TrueNAS SCALE
+    set:
+      global:
+        ixChartContext:
+          iAmNotEmpty: true
+      namespace: ix-namespace
+      imagePullSecret:
+        my-secret1:
+          enabled: true
+          data:
+            registry: reg
+            username: user
+            password: pass
+            email: mail
+    asserts:
+      - documentIndex: *secretDoc
+        equal:
+          path: metadata.namespace
+          value: ix-namespace

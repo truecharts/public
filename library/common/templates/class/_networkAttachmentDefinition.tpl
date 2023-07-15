@@ -19,6 +19,7 @@ apiVersion: k8s.cni.cncf.io/v1
 kind: NetworkAttachmentDefinition
 metadata:
   name: {{ $objectData.name }}
+  namespace: {{ include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $rootCtx "objectData" $objectData "caller" "Network Attachment Definition") }}
   {{- $labels := (include "tc.v1.common.lib.metadata.allLabels" $rootCtx | fromYaml) | default dict -}}
   {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "labels" $labels) | trim) }}
   labels:

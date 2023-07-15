@@ -327,8 +327,10 @@ tests:
           primary: true
           type: Deployment
           podSpec: {}
-      ixChartContext:
-        some: context
+      global:
+        namespace: ix-namespace
+        ixChartContext:
+          some: context
       ixVolumes:
         - hostPath: /mnt/pool/ix-applications/test
       persistence:

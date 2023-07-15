@@ -351,6 +351,7 @@ tests:
         - gpu:
             nvidia.com/gpu: 1
       global:
+        namespace: ix-namespace
         ixChartContext:
           addNvidiaRuntimeClass: true
           nvidiaRuntimeClassName: nvidia
@@ -441,6 +442,7 @@ tests:
     set:
       image: *image
       global:
+        namespace: ix-namespace
         ixChartContext:
           addNvidiaRuntimeClass: true
           nvidiaRuntimeClassName: nvidia
@@ -537,6 +539,7 @@ tests:
     set:
       image: *image
       global:
+        namespace: ix-namespace
         ixChartContext:
           addNvidiaRuntimeClass: true
           nvidiaRuntimeClassName: nvidia
@@ -635,6 +638,7 @@ tests:
     set:
       image: *image
       global:
+        namespace: ix-namespace
         ixChartContext:
           addNvidiaRuntimeClass: true
           nvidiaRuntimeClassName: nvidia
@@ -703,6 +707,7 @@ tests:
     set:
       image: *image
       global:
+        namespace: ix-namespace
         ixChartContext:
           addNvidiaRuntimeClass: true
           nvidiaRuntimeClassName: nvidia

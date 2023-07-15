@@ -56,7 +56,7 @@
         {{- else -}}
           {{- $namespace = $selectedIngress.ingressClassName -}}
         {{- end -}}
-        
+
       {{- end -}}
 
       {{- $traefikportalhook := lookup "v1" "ConfigMap" $namespace "portalhook" -}}
@@ -95,10 +95,10 @@
   {{- end -}}
 
   {{/* TrueNAS SCALE specific code */}}
-  {{- if $.Values.ixChartContext -}}
-    {{- if $.Values.ixChartContext.kubernetes_config -}}
-      {{- $podCIDR = $.Values.ixChartContext.kubernetes_config.cluster_cidr -}}
-      {{- $svcCIDR = $.Values.ixChartContext.kubernetes_config.service_cidr -}}
+  {{- if $.Values.global.ixChartContext -}}
+    {{- if $.Values.global.ixChartContext.kubernetes_config -}}
+      {{- $podCIDR = $.Values.global.ixChartContext.kubernetes_config.cluster_cidr -}}
+      {{- $svcCIDR = $.Values.global.ixChartContext.kubernetes_config.service_cidr -}}
     {{- end -}}
   {{- else -}}
     {{/* TODO: Find ways to implement CIDR detection */}}

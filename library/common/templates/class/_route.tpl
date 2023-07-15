@@ -8,7 +8,7 @@ within the common library.
   {{- with .ObjectValues.route -}}
     {{- $values = . -}}
   {{- end -}}
-{{ end -}}
+{{- end -}}
 
   {{- $routeLabels := $values.labels -}}
   {{- $routeAnnotations := $values.annotations -}}
@@ -16,7 +16,7 @@ within the common library.
 {{- $fullName := include "tc.v1.common.lib.chart.names.fullname" . -}}
 {{- if and (hasKey $values "nameOverride") $values.nameOverride -}}
   {{- $fullName = printf "%v-%v" $fullName $values.nameOverride -}}
-{{ end -}}
+{{- end -}}
 {{- $routeKind := $values.kind | default "HTTPRoute" -}}
 
 {{/* Get the name of the primary service, if any */}}
@@ -28,16 +28,17 @@ within the common library.
 {{- if and (hasKey $primaryService "nameOverride") $primaryService.nameOverride -}}
   {{- $defaultServiceName = printf "%v-%v" $defaultServiceName $primaryService.nameOverride -}}
 {{- end -}}
-{{- $defaultServicePort := get $primaryService.ports (include "tc.v1.common.lib.util.service.ports.primary" (dict "svcValues" $primaryService "svcName" $primaryServiceName )) -}}
+{{- $defaultServicePort := get $primaryService.ports (include "tc.v1.common.lib.util.service.ports.primary" (dict "svcValues" $primaryService "svcName" $primaryServiceName )) }}
 
 ---
 apiVersion: gateway.networking.k8s.io/v1alpha2
-{{- if and (ne $routeKind "GRPCRoute") (ne $routeKind "HTTPRoute") (ne $routeKind "TCPRoute") (ne $routeKind "TLSRoute") (ne $routeKind "UDPRoute") }}
-  {{- fail (printf "Not a valid route kind (%s)" $routeKind) }}
+{{- if and (ne $routeKind "GRPCRoute") (ne $routeKind "HTTPRoute") (ne $routeKind "TCPRoute") (ne $routeKind "TLSRoute") (ne $routeKind "UDPRoute") -}}
+  {{- fail (printf "Not a valid route kind (%s)" $routeKind) -}}
 {{- end }}
 kind: {{ $routeKind }}
 metadata:
   name: {{ $fullName }}
+  namespace: {{ $.Values.namespace | default $.Values.global.namespace | default $.Release.Namespace }}
   {{- $labels := (mustMerge ($routeLabels | default dict) (include "tc.v1.common.lib.metadata.allLabels" $ | fromYaml)) -}}
   {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $ "labels" $labels) | trim) }}
   labels:
