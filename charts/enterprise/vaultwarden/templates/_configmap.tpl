@@ -22,7 +22,6 @@ data:
   INVITATION_ORG_NAME: {{ .Values.vaultwarden.defaultInviteName | quote }}
   {{- end }}
   SHOW_PASSWORD_HINT: {{ .Values.vaultwarden.showPasswordHint | quote }}
-  WEBSOCKET_ENABLED: {{ .Values.vaultwarden.enableWebsockets | quote }}
   WEB_VAULT_ENABLED: {{ .Values.vaultwarden.enableWebVault | quote }}
   ORG_CREATION_USERS: {{ .Values.vaultwarden.orgCreationUsers | quote }}
   {{- if .Values.vaultwarden.attachmentLimitOrg }}
