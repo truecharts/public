@@ -1,7 +1,4 @@
-{{- $values := .Values }}
-
-{{ range $index, $middlewareData := .Values.middlewares.customRequestHeaders }}
-
+{{- range $index, $middlewareData := .Values.middlewares.customRequestHeaders }}
 ---
 # Declaring the user list
 apiVersion: traefik.io/v1alpha1
@@ -12,7 +9,7 @@ metadata:
 spec:
   headers:
     customRequestHeaders:
-      {{ range $index, $customRequestHeader := $middlewareData.headers }}
+      {{- range $index, $customRequestHeader := $middlewareData.headers }}
       {{ $customRequestHeader.name }}: {{ $customRequestHeader.value | quote }}
-      {{ end }}
-{{ end }}
+      {{- end }}
+{{- end -}}

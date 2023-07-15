@@ -1,7 +1,4 @@
-{{- $values := .Values }}
-
-{{ range $index, $middlewareData := .Values.middlewares.redirectRegex }}
-
+{{- range $index, $middlewareData := .Values.middlewares.redirectRegex }}
 ---
 # Declaring the user list
 apiVersion: traefik.io/v1alpha1
@@ -14,4 +11,4 @@ spec:
     regex: {{ $middlewareData.regex | quote }}
     replacement: {{ $middlewareData.replacement | quote }}
     permanent: {{ $middlewareData.permanent }}
-{{ end }}
+{{- end -}}

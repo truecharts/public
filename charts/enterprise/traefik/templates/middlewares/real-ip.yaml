@@ -1,7 +1,4 @@
-{{- $values := .Values }}
-
 {{- range $index, $middlewareData := .Values.middlewares.realIP }}
-
 ---
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
@@ -15,4 +12,4 @@ spec:
         {{- range $middlewareData.excludedNetworks }}
         - {{ . | quote }}
         {{- end }}
-{{- end }}
+{{- end -}}

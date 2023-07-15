@@ -1,7 +1,4 @@
-{{- $values := .Values }}
-
-{{ range $index, $middlewareData := .Values.middlewares.ipWhiteList }}
-
+{{- range $index, $middlewareData := .Values.middlewares.ipWhiteList }}
 ---
 # Declaring the user list
 apiVersion: traefik.io/v1alpha1
@@ -19,12 +16,12 @@ spec:
     ipStrategy:
       {{- if $middlewareData.ipStrategy.depth }}
       depth: {{ $middlewareData.ipStrategy.depth }}
-      {{- end }}
+      {{- end -}}
       {{- if $middlewareData.ipStrategy.excludedIPs }}
       excludedIPs:
         {{- range $middlewareData.ipStrategy.excludedIPs }}
         - {{ . }}
         {{- end }}
-      {{- end }}
-    {{- end }}
-{{ end }}
+      {{- end -}}
+    {{- end -}}
+{{- end -}}
