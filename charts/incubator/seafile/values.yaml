@@ -1,0 +1,54 @@
+image:
+  repository: tccr.io/truecharts/seafile
+  tag: v10.0.1@sha256:7cae32631d0b9075d65ef20a671031fd9c4ff28e30dc592d1dc6253f8a325106
+  pullPolicy: IfNotPresent
+
+service:
+  main:
+    ports:
+      main:
+        port: 13080
+        protocol: http
+        targetPort: 80
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DB_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: plainhost
+            DB_ROOT_PASSWD:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: mariadb-root-password
+            SEAFILE_SERVER_LETSENCRYPT: false
+            SEAFILE_SERVER_HOSTNAME: "{{ if .Values.ingress }}{{ if .Values.ingress.main.enabled }}{{ ( index .Values.ingress.main.hosts 0 ).host }}{{ else }}placeholder.com{{ end }}{{ else }}placeholder.com{{ end }}"
+            SEAFILE_ADMIN_EMAIL: me@example.com
+            SEAFILE_ADMIN_PASSWORD: a_very_secret_password
+            FORCE_HTTPS_IN_CONF: false
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/shared/seafile"
+
+mariadb:
+  enabled: true
+  mariadbUsername: seafile
+  mariadbDatabase: seafile
+portal:
+  open:
+    enabled: true
