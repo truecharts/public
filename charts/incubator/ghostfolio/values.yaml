@@ -3,6 +3,20 @@ image:
   pullPolicy: IfNotPresent
   tag: v1.283.5@sha256:06a3ff744e4571695bf3185710c7addfa74a0318f4d6d53d3e7da7df6ade4516
 
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 3333
+        targetPort: 3333
+
 workload:
   main:
     podSpec:
@@ -44,13 +58,6 @@ workload:
                 key: redis-password
             REDIS_PORT: "6379"
 
-service:
-  main:
-    ports:
-      main:
-        port: 3333
-        targetPort: 3333
-
 cnpg:
   main:
     enabled: true
@@ -59,14 +66,6 @@ cnpg:
 
 redis:
   enabled: true
-
-securityContext:
-  container:
-    runAsNonRoot: false
-    readOnlyRootFilesystem: false
-    runAsUser: 0
-    runAsGroup: 0
-    fsGroup: 568
 
 portal:
   open:

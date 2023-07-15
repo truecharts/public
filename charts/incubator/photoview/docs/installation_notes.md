@@ -7,7 +7,6 @@ Under `Security and Permissions`
 
 - Check `Show Advanced Security Settings`
   - Uncheck `ReadOnly Root Filesystem`
-  - Uncheck `runAsNonRoot`
 
 Under `Pod Security Context`
 

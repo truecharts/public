@@ -1,15 +1,14 @@
 image:
   repository: tccr.io/truecharts/piwigo
   pullPolicy: IfNotPresent
-  tag: version-11.5.0@sha256:8f8bb5d28b930edfded154d71dd2eab4ffe5631d2e4f21773bf33b220ab76f05
+  tag: v13.7.0@sha256:9f8bd8ae06a7dfcdb209af444f49119680ce74e58a53df4ac5ed56d9878292f4
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
 
 service:
   main:
@@ -17,6 +16,13 @@ service:
       main:
         targetPort: 80
         port: 10027
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env: {}
 
 persistence:
   config:
@@ -31,4 +37,5 @@ persistence:
     enabled: true
 
 portal:
-  enabled: true
+  open:
+    enabled: true
