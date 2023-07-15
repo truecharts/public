@@ -52,6 +52,9 @@
   {{/* Render Networkpolicy(s) */}}
   {{- include "tc.v1.common.spawner.networkpolicy" . | nindent 0 -}}
 
+  {{/* Render podDisruptionBudget(s) */}}
+  {{- include "tc.v1.common.spawner.podDisruptionBudget" . | nindent 0 -}}
+
   {{/* Render Prometheus Metrics(s) */}}
   {{- include "tc.v1.common.spawner.metrics" . | nindent 0 -}}
 
