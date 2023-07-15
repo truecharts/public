@@ -313,14 +313,6 @@ portal:
 # -- Set by "open" portal, used for some applications internally.
 APPURL: ""
 
-# -- Used to inject our own operator manifests into SCALE
-manifestManager:
-  enabled: true
-  staging: false
-  install: true
-  check: true
-  delete: false
-
 gluetunImage:
   repository: tccr.io/truecharts/gluetun
   tag: v3.35.0@sha256:d86c128a3b480b6de94c81928e1007390fc0722eb4be8cd087c5c292fbec7a5b
