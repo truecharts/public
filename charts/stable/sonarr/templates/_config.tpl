@@ -7,7 +7,6 @@ configmap:
   exportarr-config:
     enabled: true
     data:
-      SERVER_PORT: {{ .Values.service.server.ports.server.port | quote }}
       INTERFACE: 0.0.0.0
       PORT: {{ .Values.service.metrics.ports.metrics.port | quote }}
       URL: {{ $serverUrl | quote }}
