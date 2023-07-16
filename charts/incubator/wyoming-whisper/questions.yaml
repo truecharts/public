@@ -24,6 +24,23 @@ questions:
             type: string
             required: true
             default: tiny-int8
+            enum:
+              - value: tiny-int8
+                description: Tiny-int8
+              - value: tiny
+                description: Tiny
+              - value: base-int8
+                description: Base-int8
+              - value: base
+                description: Base
+              - value: small-int8
+                description: Small-int8
+              - value: small
+                description: Small
+              - value: medium-int8
+                description: Medium-int8
+              - value: medium
+                description: Medium
         - variable: lanuage
           label: Language
           description: Language that you will use for speach.
