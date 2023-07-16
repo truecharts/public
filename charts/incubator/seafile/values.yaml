@@ -15,8 +15,13 @@ securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+    allowPrivilegeEscalation: true
     runAsUser: 0
     runAsGroup: 0
+    capabilities:
+      add:
+        - SYS_ADMIN
+        - MKNOD
 
 workload:
   main:
@@ -39,16 +44,24 @@ workload:
             SEAFILE_ADMIN_EMAIL: me@example.com
             SEAFILE_ADMIN_PASSWORD: a_very_secret_password
             FORCE_HTTPS_IN_CONF: false
+            NON_ROOT: true
 
 persistence:
   config:
     enabled: true
     mountPath: "/shared/seafile"
+  storage:
+    enabled: true
+    mountPath: "/shared/seafile/storage"
 
 mariadb:
   enabled: true
   mariadbUsername: seafile
   mariadbDatabase: seafile
+
+memcached:
+  enabled: true
+
 portal:
   open:
     enabled: true
