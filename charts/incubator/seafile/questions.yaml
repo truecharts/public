@@ -77,6 +77,14 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
+        - variable: storage
+          label: "App File Block Storage"
+          description: "Stores the File Block Storage (Not user readable unless FUSE enabled)"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

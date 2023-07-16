@@ -14,6 +14,14 @@ service:
 securityContext:
   container:
     readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    allowPrivilegeEscalation: true
+    runAsUser: 0
+    runAsGroup: 0
+    capabilities:
+      add:
+        - SYS_ADMIN
+        - MKNOD
 
 workload:
   main:
