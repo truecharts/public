@@ -21,7 +21,7 @@ workload:
             VOLUMES_FILES: /games
             VOLUMES_IMAGES: /images
             VOLUMES_LOG: /logs
-            #DB
+            # DB
             DB_SYSTEM: POSTGRESQL
             DB_PORT: 5432
             DB_HOST:
@@ -34,12 +34,12 @@ workload:
               secretKeyRef:
                 name: cnpg-main-user
                 key: password
-            #ADMIN
+            # ADMIN
             SERVER_ADMIN_USERNAME: "admin"
             SERVER_ADMIN_PASSWORD: "password"
             SERVER_REGISTRATION_DISABLED: true
             SERVER_ACCOUNT_ACTIVATION_DISABLED: false
-            #SERVER
+            # SERVER
             SERVER_LOG_LEVEL: info
             SERVER_CORS_ALLOWED_ORIGINS: "*"
             # GAMES
