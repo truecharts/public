@@ -46,7 +46,7 @@ persistence:
     mountPath: "/shared/seafile"
   storage:
     enabled: true
-    mountPath: "/shared/seafile/storage"
+    mountPath: "/shared/seafile/seafile-data/storage"
 
 mariadb:
   enabled: true
