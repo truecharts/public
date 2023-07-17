@@ -22,6 +22,16 @@ workload:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              path: /api/v1/health
+              type: http
+            readiness:
+              path: /api/v1/health
+              type: http
+            startup:
+              path: /api/v1/health
+              type: http
           env:
             SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
             # manually set and change to /games so its easy for users to know where to place their game files.
