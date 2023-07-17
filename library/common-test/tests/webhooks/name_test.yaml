@@ -1,0 +1,55 @@
+suite: webhook name test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should generate correct name
+    set:
+      webhook:
+        my-webhook1:
+          enabled: true
+          type: validating
+          webhooks: &webhooks
+            - name: webhook1
+              admissionReviewVersions:
+                - v1
+              clientConfig:
+                service:
+                  name: test
+                  namespace: test
+              rules:
+                - operations:
+                    - CREATE
+                  apiGroups:
+                    - ""
+                  apiVersions:
+                    - v1
+                  resources:
+                    - pods
+        my-webhook2:
+          enabled: true
+          type: mutating
+          webhooks: *webhooks
+    asserts:
+      - documentIndex: &webhookValDoc 0
+        isKind:
+          of: ValidatingWebhookConfiguration
+      - documentIndex: *webhookValDoc
+        isAPIVersion:
+          of: admissionregistration.k8s.io/v1
+      - documentIndex: *webhookValDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-webhook1
+      - documentIndex: &WebhookMutDoc 1
+        isKind:
+          of: MutatingWebhookConfiguration
+      - documentIndex: *WebhookMutDoc
+        isAPIVersion:
+          of: admissionregistration.k8s.io/v1
+      - documentIndex: *WebhookMutDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-webhook2

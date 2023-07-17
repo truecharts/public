@@ -534,6 +534,16 @@ podDisruptionBudget:
     minAvailable: 1
     maxUnavailable: 1
 
+webhook:
+  validating:
+    enabled: false
+    type: validating
+    webhooks: []
+  mutating:
+    enabled: false
+    type: mutating
+    webhooks: []
+
 metrics:
   main:
     enabled: false
