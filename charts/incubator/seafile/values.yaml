@@ -41,12 +41,9 @@ workload:
             FORCE_HTTPS_IN_CONF: false
 
 persistence:
-  config:
-    enabled: true
-    mountPath: "/shared/seafile"
   storage:
     enabled: true
-    mountPath: "/shared/seafile/storage"
+    mountPath: "/shared/seafile"
 
 mariadb:
   enabled: true
