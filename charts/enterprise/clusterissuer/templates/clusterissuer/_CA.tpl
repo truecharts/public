@@ -1,10 +1,6 @@
 {{- define "certmanager.clusterissuer.ca" -}}
-{{- $namespace := "cert-manager" -}}
-{{- if $.Values.operator.certmanager -}}
-{{- if $.Values.operator.certmanager.namespace -}}
-{{- $namespace = $.Values.operator.certmanager.namespace -}}
-{{- end -}}
-{{- end -}}
+{{- $operator := index $.Values.operator "cert-manager" -}}
+{{- $namespace := $operator.namespace | default "cert-manager" -}}
 
 {{- range .Values.clusterIssuer.CA }}
   {{- if not (mustRegexMatch "^[a-z]+(-?[a-z]){0,63}-?[a-z]+$" .name) -}}
