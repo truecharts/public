@@ -5,13 +5,13 @@
 enabled: true
 data:
   ADDRESS: ":{{ .Values.service.main.ports.main.port }}"
-  MODELS_PATH: "/models"
-  IMAGE_PATH: "/images"
+  MODELS_PATH: {{ .Values.persistence.models.mountPath }}
+  IMAGE_PATH: {{ .Values.persistence.images.mountPath }}
   BUILD_TYPE: {{ $lai.build_type }}
-  REBUILD: {{ $lai.rebuild }}
+  REBUILD: {{ ternary true false $lai.rebuild }}
   GO_TAGS: {{ $lai.go_tags }}
   CONTEXT_SIZE: {{ $lai.context_size | quote }}
-  DEBUG: {{ $lai.debug }}
-  CORS: {{ $lai.cors }}
+  DEBUG: {{ ternary true false $lai.debug }}
+  CORS: {{ ternary true false $lai.cors }}
   CORS_ALLOW_ORIGINS: {{ $lai.cors_allow_origins | quote }}
 {{- end }}
