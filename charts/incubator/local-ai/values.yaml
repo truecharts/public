@@ -58,15 +58,21 @@ workload:
         main:
           probes:
             liveness:
-              enabled: false
+              enabled: true
+              type: http
+              path: /readyz
             readiness:
-              enabled: false
+              enabled: true
+              type: http
+              path: /readyz
             startup:
-              enabled: false
+              enabled: true
+              type: http
+              path: /readyz
           imageSelector: image
           envFrom:
             - secretRef:
-                name: "secrets"
+                name: "localai-secrets"
 
 persistence:
   models:

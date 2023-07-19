@@ -2,9 +2,9 @@
 {{- include "tc.v1.common.loader.init" . }}
 
 {{/* Render secrets for localai */}}
-{{- $secrets := include "localai.secrets" . | fromYaml -}}
-{{- if $secrets -}}
-{{- $_ := set .Values.secret "secrets" $secrets -}}
+{{- $secret := include "localai.secrets" . | fromYaml -}}
+{{- if $secret -}}
+  {{- $_ := set .Values.secret "localai-secrets" $secret -}}
 {{- end -}}
 
 {{/* Render the templates */}}
