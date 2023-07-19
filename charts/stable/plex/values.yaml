@@ -14,6 +14,9 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+  plugins:
+    enabled: true
+    mountPath: "/config/Library/Application Support/Plex Media Server/Plug-ins"
 
 plex:
   # User Defined

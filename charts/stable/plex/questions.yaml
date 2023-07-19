@@ -101,6 +101,14 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
+        - variable: plugins
+          label: Plug-ins Storage
+          description: Stores the Plug-ins files.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
