@@ -1,4 +1,4 @@
-# Seafile installation notes and guidelines
+# Seaile installation notes and guidelines
 
 ## Ingress
 
@@ -19,7 +19,7 @@ By default WebDAV is disabled by default, as per [upstream docs](https://manual.
 - Use the CLI to enter the Seafile WebDAV (`seafdav.conf`) config file
 
 ![SeafileShell](img/SeafileShell.png)
- 
+
 - Use vi commands to edit the `Enabled` to `true` and change the share name as desired (default is `/seafdav`).
 
 > Use `i` to insert text and and `:wq`, and `ESC key` to exit insert mode
