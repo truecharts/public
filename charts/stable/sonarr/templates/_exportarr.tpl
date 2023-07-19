@@ -17,16 +17,16 @@ podSpec:
         readiness:
           enabled: true
           type: http
-          path: /exportarr
+          path: /healthz
           port: {{ .Values.service.exportarr.ports.exportarr.port }}
         liveness:
           enabled: true
           type: http
-          path: /metrics
+          path: /healthz
           port: {{ .Values.service.exportarr.ports.exportarr.port }}
         startup:
           enabled: true
           type: http
-          path: /metrics
+          path: /healthz
           port: {{ .Values.service.exportarr.ports.exportarr.port }}
 {{- end -}}
