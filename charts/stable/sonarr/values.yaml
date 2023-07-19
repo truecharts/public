@@ -63,6 +63,7 @@ persistence:
   config:
     enabled: true
     mountPath: /config
+    targetSelectAll: true
 
 # might be supported on sonarr v4 upon released
 cnpg:
