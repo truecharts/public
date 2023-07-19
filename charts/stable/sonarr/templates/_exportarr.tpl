@@ -13,9 +13,6 @@ podSpec:
       envFrom:
         - configMapRef:
             name: exportarr-config
-      volumeMounts:
-        - name: config
-          mountPath: "/config"
       probes:
         readiness:
           enabled: true
