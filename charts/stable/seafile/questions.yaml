@@ -19,8 +19,8 @@ questions:
                                     type: dict
                                     attrs:
                                       - variable: SEAFILE_SERVER_HOSTNAME
-                                        label: "Seafile Server Hostname - Required"
-                                        description: "Set your FQDN name here using app.mydomain.com without https"
+                                        label: "Seafile Server Hostname (Required)"
+                                        description: "Set your FQDN as app.mydomain.com (without https)."
                                         schema:
                                           type: string
                                           required: true
@@ -31,21 +31,22 @@ questions:
                                         schema:
                                           type: string
                                           required: true
-                                          default: "me@example.com"
+                                          default: ""
                                       - variable: SEAFILE_ADMIN_PASSWORD
                                         label: "Seafile Admin Password"
-                                        description: "Initial admin password. Change this"
+                                        description: "Initial admin password."
                                         schema:
                                           type: string
                                           required: true
                                           private: true
-                                          default: "a_very_secret_password"
+                                          default: ""
                                       - variable: FORCE_HTTPS_IN_CONF
                                         label: "Force HTTPS (Must be enabled to use with Reverse Proxies)"
                                         description: "If using Traefik or another reverse proxy enable this to use HTTPS"
                                         schema:
                                           type: boolean
                                           default: false
+
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
