@@ -15,7 +15,22 @@ service:
     ports:
       main:
         port: 8191
-        targetPort: 8191
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+            HOST: "0.0.0.0"
+            TEST_URL: "https://www.google.com"
+            BROWSER_TIMEOUT: 40000
+            HEADLESS: true
+            LOG_LEVEL: info
+            LOG_HTML: false
+            # At this time none of the captcha solvers work, defaults to none.
+            CAPTCHA_SOLVER: none
 
 persistence:
   config:
@@ -24,4 +39,4 @@ persistence:
 
 portal:
   open:
-    enabled: true
+    enabled: false
