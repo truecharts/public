@@ -65,6 +65,7 @@ workload:
         exportarr:
           primary: true
           enabled: true
+          args: sonarr
           probes:
             liveness:
               enabled: true
@@ -85,6 +86,10 @@ workload:
             INTERFACE: 0.0.0.0
             PORT: "{{ .Values.service.exportarr.ports.exportarr.port }}"
             URL: "localhost:{{ .Values.service.main.ports.main.port }}"
+            # additional metrics (slow)
+            # ENABLE_ADDITIONAL_METRICS: false
+            # enable gathering unknown queue items
+            # ENABLE_UNKNOWN_QUEUE_ITEMS: false
             CONFIG: "{{.Values.persistence.config.mountPath }}/config.xml"
 
 persistence:
