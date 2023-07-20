@@ -56,6 +56,7 @@ workload:
             #     name: cnpg-main-urls
             #     key: password
         exportarr:
+          enabled: true
           probes:
             liveness:
               enabled: true
