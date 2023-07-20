@@ -70,14 +70,17 @@ workload:
               enabled: true
               type: http
               path: /healthz
+              port: "{{ .Values.service.exportarr.ports.exportarr.port }}"
             readiness:
               enabled: true
               type: http
               path: /healthz
+              port: "{{ .Values.service.exportarr.ports.exportarr.port }}"
             startup:
               enabled: true
               type: http
               path: /healthz
+              port: "{{ .Values.service.exportarr.ports.exportarr.port }}"
           env:
             INTERFACE: 0.0.0.0
             PORT: "{{ .Values.service.exportarr.ports.exportarr.port }}"
