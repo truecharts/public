@@ -55,6 +55,9 @@ workload:
             #   secretKeyRef:
             #     name: cnpg-main-urls
             #     key: password
+  exportarr:
+    podSpec:
+      containers:
         exportarr:
           enabled: true
           probes:
@@ -79,8 +82,13 @@ workload:
 persistence:
   config:
     enabled: true
-    mountPath: /config
-    targetSelectAll: true
+    targetSelector:
+      main:
+        main:
+          mountPath: /config
+      exportarr:
+        exportarr:
+          mountPath: /config
 
 # might be supported on sonarr v4 upon released
 cnpg:
