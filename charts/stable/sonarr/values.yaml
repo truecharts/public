@@ -57,6 +57,9 @@ workload:
             #     key: password
   exportarr:
     enabled: true
+    type: Deployment
+    strategy: RollingUpdate
+    replicas: 1
     podSpec:
       containers:
         exportarr:
