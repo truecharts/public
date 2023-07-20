@@ -184,6 +184,8 @@ questions:
       attrs:
 # Include{basicAuthMiddleware}
 # Include{forwardAuthMiddleware}
+# Include{customRequestHeadersMiddleware}
+# Include{customResponseHeadersMiddleware}
 # Include{chainMiddleware}
 # Include{redirectSchemeMiddleware}
 # Include{rateLimitMiddleware}

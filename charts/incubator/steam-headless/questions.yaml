@@ -64,7 +64,7 @@ questions:
                                               description: "Neko"
                                       - variable: ENABLE_VNC_AUDIO
                                         label: "Enable VNC Audio"
-                                        description: "Configure nat1to1 for the neko WebUI."
+                                        description: "Enables audio over for the VNC Web UI."
                                         schema:
                                           type: boolean
                                           default: true
@@ -76,13 +76,6 @@ questions:
                                           type: string
                                           default: ""
                                           show_if: [[WEB_UI_MODE, "=", "neko"]]
-                                      - variable: ENABLE_VNC_AUDIO
-                                        label: "Enable VNC Audio"
-                                        description: "Configure nat1to1 for the neko WebUI."
-                                        schema:
-                                          type: boolean
-                                          default: true
-                                          show_if: [[WEB_UI_MODE, "=", "vnc"]]
                                       - variable: ENABLE_SUNSHINE
                                         label: "Enable Sunshine"
                                         description: "Enable Sunshine streaming service."

@@ -1,16 +1,15 @@
-{{- $values := .Values }}
+{{- range $index, $middlewareData := .Values.middlewares.basicAuth -}}
 
-{{ range $index, $middlewareData := .Values.middlewares.basicAuth }}
+  {{- $users := list -}}
+  {{- range $index, $userdata := $middlewareData.users -}}
+    {{- $users = append $users (htpasswd $userdata.username $userdata.password) -}}
+  {{- end }}
+
 ---
-{{- $users := list }}
-{{- range $index, $userdata := $middlewareData.users }}
-  {{- $users = append $users (htpasswd $userdata.username $userdata.password) }}
-{{- end }}
-
 apiVersion: v1
 kind: Secret
 metadata:
-  name: {{printf "%v-%v" $middlewareData.name "secret" }}
+  name: {{ printf "%v-%v" $middlewareData.name "secret" }}
   namespace: tc-system
 type: Opaque
 stringData:
@@ -28,4 +27,4 @@ metadata:
 spec:
   basicAuth:
     secret: {{ printf "%v-%v" $middlewareData.name "secret" }}
-{{ end }}
+{{- end -}}
