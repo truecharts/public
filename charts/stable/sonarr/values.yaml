@@ -56,9 +56,11 @@ workload:
             #     name: cnpg-main-urls
             #     key: password
   exportarr:
+    enabled: true
     podSpec:
       containers:
         exportarr:
+          primary: true
           enabled: true
           probes:
             liveness:
