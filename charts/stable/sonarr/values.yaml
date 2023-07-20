@@ -90,18 +90,13 @@ workload:
             # ENABLE_ADDITIONAL_METRICS: false
             # enable gathering unknown queue items
             # ENABLE_UNKNOWN_QUEUE_ITEMS: false
-            CONFIG: "{{.Values.persistence.config.mountPath }}/config.xml"
+            CONFIG: "/config/config.xml"
 
 persistence:
   config:
     enabled: true
-    targetSelector:
-      main:
-        main:
-          mountPath: /config
-      exportarr:
-        exportarr:
-          mountPath: /config
+    mountPath: /config
+    targetSelectAll: true
 
 # might be supported on sonarr v4 upon released
 cnpg:
