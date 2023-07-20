@@ -55,6 +55,25 @@ workload:
             #   secretKeyRef:
             #     name: cnpg-main-urls
             #     key: password
+        exportarr:
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              path: /healthz
+            readiness:
+              enabled: true
+              type: http
+              path: /healthz
+            startup:
+              enabled: true
+              type: http
+              path: /healthz
+          env:
+            INTERFACE: 0.0.0.0
+            PORT: "{{ .Values.service.exportarr.ports.exportarr.port }}"
+            URL: "localhost:{{ .Values.service.main.ports.main.port }}"
+            CONFIG: "{{.Values.persistence.config.mountPath }}/config.xml"
 
 persistence:
   config:
