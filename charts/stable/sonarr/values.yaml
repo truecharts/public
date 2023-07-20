@@ -22,9 +22,6 @@ service:
         port: 8990
         targetSelector: exportarr
 
-exportarr:
-  enabled: true
-
 workload:
   main:
     podSpec:
@@ -73,7 +70,7 @@ cnpg:
     user: sonarr
 
 metrics:
-  exportarr:
+  main:
     enabled: true
     type: "servicemonitor"
     endpoints:

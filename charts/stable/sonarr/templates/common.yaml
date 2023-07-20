@@ -5,7 +5,7 @@
   {{/* Enable Exportarr Service */}}
   {{- $_ := set .Values.service.exportarr "enabled" true -}}
   {{/* Render Exportarr Workload */}}
-  {{- $_ := set .Values.workload "exportarr" (include "sonarr.exportarr" . | fromYaml) -}}
+  {{- $_ := set .Values.workload "main" (include "sonarr.exportarr" . | fromYaml) -}}
 {{- else -}}
   {{/* Disable Exportarr Service */}}
   {{- $_ := set .Values.service.exportarr "enabled" false -}}

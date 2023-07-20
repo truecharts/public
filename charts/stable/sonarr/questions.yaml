@@ -37,20 +37,6 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: exportarr
-    group: App Configuration
-    label: Exportarr Configuration
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: enabled
-          label: Enable Exportarr
-          description: Enables Exportarr
-          schema:
-            type: boolean
-            default: true
-
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
