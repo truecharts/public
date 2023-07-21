@@ -222,7 +222,7 @@ workload:
             SRC_DIR: "{{.Values.persistence.data.mountPath }}"
             SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
             RCON_HOST: "0.0.0.0"
-            RCON_PORT: "{{ .Values.service.rcon.ports.main.rcon }}"
+            RCON_PORT: "{{ .Values.service.rcon.ports.rcon.port }}"
             RCON_PASSWORD: "{{ .Values.env.RCON_PASSWORD }}"
             INITIAL_DELAY: "{{ .Values.mcbackup.initial_delay }}"
             BACKUP_INTERVAL: "{{ .Values.mcbackup.backup_interval }}"
