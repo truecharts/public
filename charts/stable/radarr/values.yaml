@@ -102,7 +102,7 @@ metrics:
     enabled: true
     type: "servicemonitor"
     endpoints:
-      - port: exportarr
+      - port: metrics
         path: /metrics
     prometheusRule:
       enabled: false
