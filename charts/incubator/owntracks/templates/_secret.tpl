@@ -1,7 +1,7 @@
 {{/* Define the configmap */}}
 {{- define "owntracks.secret" -}}
 
-{{- $secretNameName := printf "%s-secret" (include "tc.common.names.fullname" .) }}
+{{- $secretName := printf "%s-secret" (include "tc.v1.common.names.fullname" .) }}
 enabled: true
 stringData:
   OTR_HTTPPORT: {{ .Values.service.main.ports.main.port | quote }}
