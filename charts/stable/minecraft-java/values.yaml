@@ -89,56 +89,6 @@ mcbackup:
   zstd_params: --long=25 --single-thread
   excludes: "*.jar,cache,logs,*.tmp"
 
-additionalContainers:
-  mcbackup:
-    name: mcbackup
-    image: "{{ .Values.mcBackupImage.repository }}:{{ .Values.mcBackupImage.tag }}"
-    probes:
-      liveness:
-        enabled: false
-      readiness:
-        enabled: false
-      startup:
-        enabled: false
-    env:
-      - name: BACKUP_METHOD
-        value: "tar"
-      - name: DEST_DIR
-        value: "/backups"
-      - name: SRC_DIR
-        value: "{{.Values.persistence.data.mountPath }}"
-      - name: SERVER_PORT
-        value: "{{ .Values.service.main.ports.main.port }}"
-      - name: RCON_HOST
-        value: "0.0.0.0"
-      - name: RCON_PORT
-        value: "{{ .Values.service.rcon.ports.main.rcon }}"
-      - name: RCON_PASSWORD
-        value: "{{ .Values.env.RCON_PASSWORD }}"
-      - name: INITIAL_DELAY
-        value: "{{ .Values.mcbackup.initial_delay }}"
-      - name: BACKUP_INTERVAL
-        value: "{{ .Values.mcbackup.backup_interval }}"
-      - name: PRUNE_BACKUPS_DAYS
-        value: "{{ .Values.mcbackup.prune_backups_days }}"
-      - name: PAUSE_IF_NO_PLAYERS
-        value: "{{ ternary true false .Values.mcbackup.pause_if_no_players }}"
-      - name: PLAYERS_ONLINE_CHECK_INTERVAL
-        value: "{{ .Values.mcbackup.player_online_check_interval }}"
-      - name: LINK_LATEST
-        value: "{{ ternary true false .Values.mcbackup.link_latest }}"
-      - name: TAR_COMPRESS_METHOD
-        value: "{{ .Values.mcbackup.tar_compress_method }}"
-      - name: ZSTD_PARAMETERS
-        value: "{{ .Values.mcbackup.zstd_params }}"
-      - name: EXCLUDES
-        value: "{{ .Values.mcbackup.excludes }}"
-    volumeMounts:
-      - name: data
-        mountPath: "/data"
-      - name: backups
-        mountPath: "/backups"
-
 workload:
   main:
     podSpec:
@@ -248,14 +198,57 @@ workload:
             # CF_OVERRIDES_SKIP_EXISTING
             # CF_PARALLEL_DOWNLOADS
             # CF_SET_LEVEL_FROM
+  mcbackup:
+    enabled: true
+    type: Deployment
+    strategy: RollingUpdate
+    replicas: 1
+    podSpec:
+      containers:
+        mcbackup:
+          primary: true
+          enabled: true
+          imageSelector: mcBackupImage
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            BACKUP_METHOD: "tar"
+            DEST_DIR: "{{.Values.persistence.backups.mountPath }}"
+            SRC_DIR: "{{.Values.persistence.data.mountPath }}"
+            SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
+            RCON_HOST: "0.0.0.0"
+            RCON_PORT: "{{ .Values.service.rcon.ports.main.rcon }}"
+            RCON_PASSWORD: "{{ .Values.env.RCON_PASSWORD }}"
+            INITIAL_DELAY: "{{ .Values.mcbackup.initial_delay }}"
+            BACKUP_INTERVAL: "{{ .Values.mcbackup.backup_interval }}"
+            PRUNE_BACKUPS_DAYS: "{{ .Values.mcbackup.prune_backups_days }}"
+            PAUSE_IF_NO_PLAYERS: "{{ ternary true false .Values.mcbackup.pause_if_no_players }}"
+            PLAYERS_ONLINE_CHECK_INTERVAL: "{{ .Values.mcbackup.player_online_check_interval }}"
+            LINK_LATEST: "{{ ternary true false .Values.mcbackup.link_latest }}"
+            TAR_COMPRESS_METHOD: "{{ .Values.mcbackup.tar_compress_method }}"
+            ZSTD_PARAMETERS: "{{ .Values.mcbackup.zstd_params }}"
+            EXCLUDES: "{{ .Values.mcbackup.excludes }}"
 
 persistence:
   data:
     enabled: true
-    mountPath: "/data"
+    targetSelector:
+      main:
+        main:
+          mountPath: /data
+      mcbackup:
+        mcbackup:
+          mountPath: /data
+          readOnly: true
   backups:
     enabled: true
-    mountPath: "/backups"
+    mountPath: /backups
+    targetSelectorAll: true
 
 portal:
   open:
