@@ -3,7 +3,7 @@
 
 {{/* Render secrets for owntracks */}}
 {{- $secret := include "owntracks.secret" . | fromYaml -}}
-{{- if $secrets -}}
+{{- if $secret -}}
   {{- $_ := set .Values.secret "secret" $secret -}}
 {{- end -}}
 
