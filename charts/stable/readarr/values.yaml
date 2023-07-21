@@ -94,7 +94,14 @@ workload:
 persistence:
   config:
     enabled: true
-    mountPath: /config
+    targetSelector:
+      main:
+        main:
+          mountPath: /config
+      exportarr:
+        exportarr:
+          mountPath: /config
+          readOnly: true
 
 metrics:
   main:
