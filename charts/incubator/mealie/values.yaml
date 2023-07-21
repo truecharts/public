@@ -24,11 +24,13 @@ service:
   api:
     enabled: true
     type: ClusterIP
+    targetSelector: api
     ports:
       api:
         enabled: true
         protocol: http
         port: 10019
+        targetSelector: api
 
 mealie:
   frontend:
@@ -79,33 +81,6 @@ mealie:
       base_dn: ""
       admin_filter: ""
 
-additionalContainers:
-  api:
-    name: api
-    image: "{{ .Values.apiImage.repository }}:{{ .Values.apiImage.tag }}"
-    ports:
-      - containerPort: 10019
-        name: api
-    probes:
-      liveness:
-        enabled: true
-        type: http
-        path: /docs
-      readiness:
-        enabled: true
-        type: http
-        path: /docs
-      startup:
-        enabled: true
-        type: http
-        path: /docs
-    envFrom:
-      - secretRef:
-          name: mealie-secrets
-    volumeMounts:
-      - name: data
-        mountPath: "/app/data"
-
 workload:
   main:
     podSpec:
@@ -124,11 +99,44 @@ workload:
           envFrom:
             - secretRef:
                 name: mealie-secrets
+  api:
+    enabled: true
+    type: Deployment
+    strategy: RollingUpdate
+    replicas: 1
+    podSpec:
+      containers:
+        api:
+          primary: true
+          enabled: true
+          imageSelector: apiImage
+          probes:
+            liveness:
+              path: /docs
+              type: http
+              port: "{{ .Values.service.api.ports.api.port }}"
+            readiness:
+              path: /docs
+              type: http
+              port: "{{ .Values.service.api.ports.api.port }}"
+            startup:
+              path: /docs
+              type: http
+              port: "{{ .Values.service.api.ports.api.port }}"
+          envFrom:
+            - secretRef:
+                name: mealie-secrets
 
 persistence:
   data:
     enabled: true
-    mountPath: /app/data
+    targetSelector:
+      main:
+        main:
+          mountPath: /app/data
+      api:
+        api:
+          mountPath: /app/data
 
 cnpg:
   main:
