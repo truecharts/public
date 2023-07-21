@@ -88,6 +88,7 @@ mcbackup:
   tar_compress_method: gzip
   zstd_params: --long=25 --single-thread
   excludes: "*.jar,cache,logs,*.tmp"
+  rcon_pass: "{{ .Values.env.RCON_PASSWORD }}"
 
 workload:
   main:
@@ -223,7 +224,7 @@ workload:
             SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
             RCON_HOST: "0.0.0.0"
             RCON_PORT: "{{ .Values.service.rcon.ports.rcon.port }}"
-            RCON_PASSWORD: "{{ .Values.env.RCON_PASSWORD }}"
+            RCON_PASSWORD: "{{ .Values.mcbackup.rcon_pass }}"
             INITIAL_DELAY: "{{ .Values.mcbackup.initial_delay }}"
             BACKUP_INTERVAL: "{{ .Values.mcbackup.backup_interval }}"
             PRUNE_BACKUPS_DAYS: "{{ .Values.mcbackup.prune_backups_days }}"

@@ -51,7 +51,7 @@ questions:
                                     type: dict
                                     attrs:
                                       - variable: RCON_PASSWORD
-                                        label: RCON_PASSWORD
+                                        label: Rcon Password
                                         description: This will only have effect in the first installation or always if OVERRIDE_SERVER_PROPERTIES is enabled
                                         schema:
                                           type: string
@@ -620,6 +620,7 @@ questions:
                                               schema:
                                                 type: string
                                                 default: ""
+
 # Include{containerBasic}
 # Include{containerAdvanced}
 
