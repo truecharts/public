@@ -12,7 +12,7 @@ service:
     ports:
       main:
         port: 8989
-  exportarr:
+  metrics:
     enabled: true
     type: ClusterIP
     targetSelector: exportarr
