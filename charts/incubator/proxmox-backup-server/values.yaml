@@ -1,0 +1,45 @@
+image:
+  #repository: tccr.io/truecharts/proxmox-backup-server
+  #tag: 3.1.2@sha256:e5d818f3bffa5b64941df45e9e4c8193cf682d6ccf0e749d26dc6bcdf4abac49
+  repository: bingsin/pbs
+  tag: 2.2-7-amd64
+  pullPolicy: IfNotPresent
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        targetPort: 8007
+        protocol: https
+        port: 8007
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /etc/proxmox-backup
+  lib:
+    enabled: true
+    mountPath: /var/lib/proxmox-backup
+  log:
+    enabled: true
+    mountPath: /var/log/proxmox-backup
+  run:
+    enabled: true
+    type: emptyDir
+    mountPath: /run
+  tmp:
+    enabled: true
+    type: emptyDir
+    mountPath: /tmp
+    
+
+portal:
+  open:
+    enabled: true
