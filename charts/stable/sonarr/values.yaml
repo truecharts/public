@@ -65,7 +65,9 @@ workload:
         exportarr:
           primary: true
           enabled: true
-          args: sonarr
+          imageSelector: exportarrImage
+          args:
+            - sonarr
           probes:
             liveness:
               enabled: true
