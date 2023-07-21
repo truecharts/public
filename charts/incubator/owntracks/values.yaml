@@ -3,8 +3,6 @@ image:
   pullPolicy: IfNotPresent
   tag: 0.9.3@sha256:797eb8958677b80bbb438251f75a51984b578c4919f0fe2c3a9bbf0e866a8b43
 
-# securityContext:
-#  readOnlyRootFilesystem: false
 
 owntracks:
   otr_host: ""
@@ -19,37 +17,43 @@ owntracks:
 
 envFrom:
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-secret'
+      name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-secret'
 
 service:
   main:
     ports:
       main:
-        protocol: HTTP
-        port: 8083
+        port: 38083
+        protocol: http
+        targetPort: 8083
 
-probes:
-  liveness:
-    enabled: true
-    custom: true
-    spec:
-      exec:
-        command:
-          - /usr/sbin/recorder-health.sh
-  readiness:
-    enabled: true
-    custom: true
-    spec:
-      exec:
-        command:
-          - /usr/sbin/recorder-health.sh
-  startup:
-    enabled: true
-    custom: true
-    spec:
-      exec:
-        command:
-          - /usr/sbin/recorder-health.sh
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: true
+              custom: true
+              spec:
+                exec:
+                  command:
+                    - /usr/sbin/recorder-health.sh
+            readiness:
+              enabled: true
+              custom: true
+              spec:
+                exec:
+                  command:
+                    - /usr/sbin/recorder-health.sh
+            startup:
+              enabled: true
+              custom: true
+              spec:
+                exec:
+                  command:
+                    - /usr/sbin/recorder-health.sh
 
 persistence:
   store:
@@ -57,4 +61,5 @@ persistence:
     mountPath: /store
 
 portal:
-  enabled: true
+  open:
+    enabled: true
