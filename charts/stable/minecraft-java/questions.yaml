@@ -201,6 +201,12 @@ questions:
                                           type: string
                                           default: ""
                                           show_if: [[TYPE, "=", "FABRIC"]]
+                                      - variable: PACKWIZ_URL
+                                        label: Packwiz URL
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          show_if: [[TYPE, "=", "FABRIC"]]
                                       - variable: SPIGOT_DOWNLOAD_URL
                                         label: Spigot Download URL
                                         schema:
@@ -227,12 +233,6 @@ questions:
                                           show_if: [[TYPE, "=", "PAPER"]]
                                       - variable: PAPER_DOWNLOAD_URL
                                         label: Paper Download URL
-                                        schema:
-                                          type: string
-                                          default: ""
-                                          show_if: [[TYPE, "=", "PAPER"]]
-                                      - variable: PACKWIZ_URL
-                                        label: Packwiz URL
                                         schema:
                                           type: string
                                           default: ""
