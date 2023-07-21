@@ -1,7 +1,5 @@
 # Include{groups}
-portals:
-  open:
-# Include{portalLink}
+portals: {}
 questions:
 # Include{global}
 # Include{workload}
@@ -10,19 +8,50 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
 # Include{containerBasic}
 # Include{containerAdvanced}
+  - variable: wyoming_whisper
+    group: App Configuration
+    label: Whisper Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: model
+          label: Model
+          description: Whisper model that will be used for transcription.
+          schema:
+            type: string
+            required: true
+            default: tiny-int8
+            enum:
+              - value: tiny-int8
+                description: Tiny-int8
+              - value: tiny
+                description: Tiny
+              - value: base-int8
+                description: Base-int8
+              - value: base
+                description: Base
+              - value: small-int8
+                description: Small-int8
+              - value: small
+                description: Small
+              - value: medium-int8
+                description: Medium-int8
+              - value: medium
+                description: Medium
+        - variable: lanuage
+          label: Language
+          description: Language that you will use for speach.
+          schema:
+            type: string
+            required: true
+            default: en
 
 # Include{containerConfig}
 # Include{serviceRoot}
-        - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
@@ -36,7 +65,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10027
+                              default: 10300
                               required: true
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
@@ -45,14 +74,6 @@ questions:
         - variable: config
           label: "App Config Storage"
           description: "Stores the Application Configuration."
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
-        - variable: gallery
-          label: "App Gallery Storage"
-          description: "Stores the Application Gallery."
           schema:
             additional_attrs: true
             type: dict
@@ -78,13 +99,13 @@ questions:
                 description: "The UserID of the user running the application"
                 schema:
                   type: int
-                  default: 0
+                  default: 568
               - variable: runAsGroup
                 label: "runAsGroup"
                 description: "The groupID of the user running the application"
                 schema:
                   type: int
-                  default: 0
+                  default: 568
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}

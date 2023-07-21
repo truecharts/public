@@ -1,4 +1,6 @@
 {{- define "certmanager.clusterissuer.acme" -}}
+{{- $operator := index $.Values.operator "cert-manager" -}}
+{{- $namespace := $operator.namespace | default "cert-manager" -}}
 {{- range .Values.clusterIssuer.ACME }}
   {{- if not (mustRegexMatch "^[a-z]+(-?[a-z]){0,63}-?[a-z]+$" .name) -}}
     {{- fail "ACME - Expected name to be all lowercase with hyphens, but not start or end with a hyphen" -}}
@@ -80,7 +82,7 @@ spec:
 apiVersion: v1
 kind: Secret
 metadata:
-  namespace: cert-manager
+  namespace: {{ $namespace }}
   name: {{ $issuerSecretName }}
 type: Opaque
 stringData:
