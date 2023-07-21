@@ -2,25 +2,25 @@ image:
   repository: tccr.io/truecharts/sonarr
   pullPolicy: IfNotPresent
   tag: 3.0.10.1567@sha256:f420ed0b9341a5241c2278d51a7f4f59635a9c3a5670ac893542fa59052e61b2
+exportarrImage:
+  repository: tccr.io/truecharts/exportarr
+  pullPolicy: IfNotPresent
+  tag: v1.5.3@sha256:f369a43b28410f12ce1b96f52187dd5c6fb9769a137ecc6f7ab8fdcfbe7db58e
+
 service:
   main:
     ports:
       main:
         port: 8989
-persistence:
-  config:
+  metrics:
     enabled: true
-    mountPath: /config
-# might be supported on sonarr v4 upon released
-cnpg:
-  main:
-    enabled: false
-
-    database: sonarr
-    user: sonarr
-portal:
-  open:
-    enabled: true
+    type: ClusterIP
+    targetSelector: exportarr
+    ports:
+      metrics:
+        enabled: true
+        port: 8990
+        targetSelector: exportarr
 
 workload:
   main:
@@ -55,3 +55,74 @@ workload:
             #   secretKeyRef:
             #     name: cnpg-main-urls
             #     key: password
+  exportarr:
+    enabled: true
+    type: Deployment
+    strategy: RollingUpdate
+    replicas: 1
+    podSpec:
+      containers:
+        exportarr:
+          primary: true
+          enabled: true
+          imageSelector: exportarrImage
+          args:
+            - sonarr
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              path: /healthz
+              port: "{{ .Values.service.metrics.ports.metrics.port }}"
+            readiness:
+              enabled: true
+              type: http
+              path: /healthz
+              port: "{{ .Values.service.metrics.ports.metrics.port }}"
+            startup:
+              enabled: true
+              type: http
+              path: /healthz
+              port: "{{ .Values.service.metrics.ports.metrics.port }}"
+          env:
+            INTERFACE: 0.0.0.0
+            PORT: "{{ .Values.service.metrics.ports.metrics.port }}"
+            URL: "http://localhost:{{ .Values.service.main.ports.main.port }}"
+            # additional metrics (slow)
+            # ENABLE_ADDITIONAL_METRICS: false
+            # enable gathering unknown queue items
+            # ENABLE_UNKNOWN_QUEUE_ITEMS: false
+            CONFIG: "/config/config.xml"
+
+persistence:
+  config:
+    enabled: true
+    targetSelector:
+      main:
+        main:
+          mountPath: /config
+      exportarr:
+        exportarr:
+          mountPath: /config
+          readOnly: true
+
+# might be supported on sonarr v4 upon released
+cnpg:
+  main:
+    enabled: false
+    database: sonarr
+    user: sonarr
+
+metrics:
+  main:
+    enabled: true
+    type: "servicemonitor"
+    endpoints:
+      - port: exportarr
+        path: /metrics
+    prometheusRule:
+      enabled: false
+
+portal:
+  open:
+    enabled: true
