@@ -38,7 +38,7 @@ questions:
                                         description: If true all HTML that passes through the proxy will be logged to the console in debug level.
                                         schema:
                                           type: boolean
-                                          required: false
+                                          default: false
                                       - variable: BROWSER_TIMEOUT
                                         label: Browser Timeout
                                         description: If you are experiencing errors/timeouts because your system is slow, you can try to increase this value.
