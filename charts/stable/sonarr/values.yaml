@@ -73,20 +73,20 @@ workload:
               enabled: true
               type: http
               path: /healthz
-              port: "{{ .Values.service.exportarr.ports.exportarr.port }}"
+              port: "{{ .Values.service.metrics.ports.metrics.port }}"
             readiness:
               enabled: true
               type: http
               path: /healthz
-              port: "{{ .Values.service.exportarr.ports.exportarr.port }}"
+              port: "{{ .Values.service.metrics.ports.metrics.port }}"
             startup:
               enabled: true
               type: http
               path: /healthz
-              port: "{{ .Values.service.exportarr.ports.exportarr.port }}"
+              port: "{{ .Values.service.metrics.ports.metrics.port }}"
           env:
             INTERFACE: 0.0.0.0
-            PORT: "{{ .Values.service.exportarr.ports.exportarr.port }}"
+            PORT: "{{ .Values.service.metrics.ports.metrics.port }}"
             URL: "http://localhost:{{ .Values.service.main.ports.main.port }}"
             # additional metrics (slow)
             # ENABLE_ADDITIONAL_METRICS: false
