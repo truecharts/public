@@ -1,0 +1,36 @@
+image:
+  repository: tccr.io/truecharts/alpine
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:a661597195a991150580f4915018663dd18bc36f5fef1e88e00c7a3e7b93e127
+
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+workload:
+  main:
+    enabled: false
+
+portal:
+  open:
+    enabled: false
+
+operator:
+  register: true
+
+metrics:
+  main:
+    enabled: false
+    type: "podmonitor"
+    endpoints:
+      - port: main
+        interval: 5s
+        scrapeTimeout: 5s
+        path: /
+        honorLabels: false
+
+manifestManager:
+  enabled: false

@@ -1,7 +1,4 @@
-{{- $values := .Values }}
-
 {{- range $index, $middlewareData := .Values.middlewares.themePark }}
-
 ---
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
@@ -19,5 +16,5 @@ spec:
         {{- range $middlewareData.addons }}
         - {{ . | quote }}
         {{- end }}
-      {{- end }}
-{{- end }}
+      {{- end -}}
+{{- end -}}

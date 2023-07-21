@@ -1,7 +1,4 @@
-{{- $values := .Values }}
-
-{{ range $index, $middlewareData := .Values.middlewares.redirectScheme }}
-
+{{- range $index, $middlewareData := .Values.middlewares.redirectScheme }}
 ---
 # Declaring the user list
 apiVersion: traefik.io/v1alpha1
@@ -13,4 +10,4 @@ spec:
   redirectScheme:
     scheme: {{ $middlewareData.scheme }}
     permanent: {{ $middlewareData.permanent }}
-{{ end }}
+{{- end -}}
