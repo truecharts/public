@@ -23,9 +23,8 @@ service:
   main:
     ports:
       main:
-        port: 38083
+        port: 8083
         protocol: http
-        targetPort: 8083
 
 workload:
   main:
