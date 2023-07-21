@@ -97,8 +97,14 @@ workload:
 persistence:
   config:
     enabled: true
-    mountPath: /config
-    targetSelectAll: true
+    targetSelector:
+      main:
+        main:
+          mountPath: /config
+      exportarr:
+        exportarr:
+          mountPath: /config
+          readOnly: true
 
 # might be supported on sonarr v4 upon released
 cnpg:
