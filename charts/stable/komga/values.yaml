@@ -2,12 +2,21 @@ image:
   repository: tccr.io/truecharts/komga
   tag: v1.2.1@sha256:6d68464cca11eb7dd3ddbe5c6189f2b001cf87dbaeeb89bf2cdf7a41dd551b94
   pullPolicy: IfNotPresent
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
+
 service:
   main:
     ports:
       main:
         port: 10085
-        targetPort: 25600
+
 persistence:
   config:
     enabled: true
@@ -15,6 +24,7 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
+
 portal:
   open:
     enabled: true
