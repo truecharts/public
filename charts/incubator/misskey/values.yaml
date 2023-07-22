@@ -25,17 +25,25 @@ misskey:
   id: "aid"
   other:
     disableHSTS: false
-    signToActivityPubGet: false
+    signToActivityPubGet: true
     maxFileSize: 262144000
     clusterLimit: 1
     deliverJobConcurrency: 128
     inboxJobConcurrency: 16
+    relashionshipJobConcurrency: 16
     deliverJobPerSec: 128
     inboxJobPerSec: 16
+    relashionshipJobPerSec: 64
     deliverJobMaxAttempts: 12
     inboxJobMaxAttempts: 8
     allowedPrivateNetworks:
       - 127.0.0.1/32
+    proxyBypassHosts:
+      - api.deepl.com
+      - api-free.deepl.com
+      - www.recaptcha.net
+      - hcaptcha.com
+      - challenges.cloudflare.com
 
 workload:
   main:
