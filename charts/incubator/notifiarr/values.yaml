@@ -27,7 +27,7 @@ workload:
             DN_API_KEY: ""
             DN_BIND_ADDR: '{{ printf "0.0.0.0:%v" .Values.service.main.ports.main.port }}'
             DN_UPSTREAMS_0: '{{ join " " .Values.notifiarr.upstreams }}'
-            DN_UI_PASSWORD: '{{ join ":" .Values.notifiarr.credentials.username .Values.notifiarr.credentials.password }}'
+            DN_UI_PASSWORD: '{{ printf "%v:%v" .Values.notifiarr.credentials.username .Values.notifiarr.credentials.password }}'
 
 persistence:
   config:
