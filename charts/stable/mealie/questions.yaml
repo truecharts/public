@@ -270,6 +270,7 @@ questions:
                       description: Mail From Email
                       schema:
                         type: string
+                        show_if: [["host", "!=", ""]]
                         required: true
                         default: ""
                     - variable: auth_strategy
