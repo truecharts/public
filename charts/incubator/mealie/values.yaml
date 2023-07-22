@@ -7,31 +7,6 @@ apiImage:
   tag: latest@sha256:75250abbd9641bdc044961c58aa1f297245be450c3e5abd25aceac38b12ad72c
   pullPolicy: IfNotPresent
 
-securityContext:
-  container:
-    runAsNonRoot: false
-    readOnlyRootFilesystem: false
-    runAsUser: 0
-    runAsGroup: 0
-
-service:
-  main:
-    ports:
-      main:
-        port: 10018
-        protocol: http
-        targetPort: 3000
-  api:
-    enabled: true
-    type: ClusterIP
-    targetSelector: api
-    ports:
-      api:
-        enabled: true
-        protocol: http
-        port: 10019
-        targetSelector: api
-
 mealie:
   frontend:
     theme:
@@ -92,6 +67,10 @@ workload:
     podSpec:
       containers:
         main:
+          securityContext:
+            capabilities:
+              add:
+                - NET_BIND_SERVICE
           probes:
             liveness:
               path: "/"
@@ -132,6 +111,31 @@ workload:
           envFrom:
             - secretRef:
                 name: api
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 10018
+        protocol: http
+        targetPort: 3000
+  api:
+    enabled: true
+    type: ClusterIP
+    targetSelector: api
+    ports:
+      api:
+        enabled: true
+        protocol: http
+        port: 10019
+        targetSelector: api
 
 persistence:
   data:
