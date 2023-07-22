@@ -26,14 +26,14 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-              - variable: ADMINMAIL
+              - variable: adminMail
                 label: Admin e-mail address
                 description: Email address of the admin account.
                 schema:
                   type: string
                   default: ""
                   required: true
-              - variable: ADMINPASS
+              - variable: adminPass
                 label: Admin password
                 description: Password for the admin account.
                 schema:

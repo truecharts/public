@@ -3,25 +3,11 @@ image:
   tag: v2.0.14@sha256:de4c3bd18d4b7a9d324df9923dcb2d358e1a542307ae36c1fa0d8f3cba22880b
   pullPolicy: IfNotPresent
 
-securityContext:
-  container:
-    readOnlyRootFilesystem: false
-    runAsUser: 33
-    runAsGroup: 33
-
-service:
-  main:
-    ports:
-      main:
-        port: 10198
-        protocol: http
-        targetPort: 8001
-
 kimai:
   credentials:
-    ADMINMAIL: admin@change.me
-    ADMINPASS: ChangeME
-  trusted_hosts: 
+    adminMail: admin@change.me
+    adminPass: ChangeME
+  trusted_hosts:
     - localhost
 
 workload:
@@ -29,24 +15,10 @@ workload:
     podSpec:
       containers:
         main:
-          enabled: true
-          primary: true
-          probes:
-            liveness:
-              enabled: true
-              type: http
-              path: "/en/login"
-            readiness:
-              enabled: true
-              type: http
-              path: "/en/login"
-            startup:
-              enabled: true
-              type: http
-              path: "/en/login"
-          envFrom:
-            - configMapRef:
-                name: kimai-config
+          securityContext:
+            capabilities:
+              add:
+                - CHOWN
           env:
             DB_PASS:
               secretKeyRef:
@@ -62,6 +34,36 @@ workload:
               secretKeyRef:
                 name: kimai-secret
                 key: APP_SECRET
+          envFrom:
+            - configMapRef:
+                name: kimai-config
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              path: /en/login
+            readiness:
+              enabled: true
+              type: http
+              path: /en/login
+            startup:
+              enabled: true
+              type: http
+              path: /en/login
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsUser: 33
+    runAsGroup: 33
+
+service:
+  main:
+    ports:
+      main:
+        port: 10198
+        protocol: http
+        targetPort: 8001
 
 persistence:
   data:
