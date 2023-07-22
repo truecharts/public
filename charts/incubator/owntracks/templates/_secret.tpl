@@ -1,10 +1,8 @@
 {{/* Define the configmap */}}
 {{- define "owntracks.secret" -}}
 
-{{- $secretName := (printf "%s-owntracks-secret" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
-secret:
 enabled: true
-stringData:
+data:
   OTR_HTTPPORT: {{ .Values.service.main.ports.main.port | quote }}
   {{- with .Values.owntracks.otr_host }}
   OTR_HOST: {{ . | quote }}
