@@ -3,6 +3,11 @@ workload:
     podSpec:
       containers:
         main:
-          env: 
-            APP_BASE_URL: "http://127.0.0.1:{{ .Values.service.main.ports.main.port }}"
+          env:
+            APP_BASE_URL: "http://tc-joplin:{{ .Values.service.main.ports.main.port }}"
 
+podOptions:
+  hostAliases:
+    - ip: 127.0.0.1
+      hostnames:
+        - tc-joplin
