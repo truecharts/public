@@ -66,7 +66,7 @@ Default username is `akadmin` and password is whatever you entered in the initia
   - Don't use a `basicAuth` middleware in the apps' ingress settings. Only use this if your app has build in basic auth support. 
   - Add the attributes in a `authentik` group, then assign any user you want to be able to access the application to this group.
 
-![New-Provider-3](image.png)
+![New-Provider-3](./img/New-Provider-3.png)
 
 - Once done use that new `Provider` you created
 
