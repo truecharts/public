@@ -176,6 +176,13 @@ questions:
                         type: int
                         required: true
                         default: 1024
+                    - variable: max_allowed_resolution
+                      label: Max Allowed Resolution
+                      schema:
+                        type: int
+                        show_if: [["imaginary", "=", true]]
+                        required: true
+                        default: 18.0
                     - variable: max_file_size_image
                       label: Max File Size Image
                       schema:
