@@ -12,14 +12,14 @@ workload:
             SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
           probes:
             liveness:
-              port: "{{ .Values.komgaNetwork.webPort }}"
+              port: "{{ .Values.service.main.ports.main.port }}"
               path: /actuator/health
             readiness:
-              port: "{{ .Values.komgaNetwork.webPort }}"
+              port: "{{ .Values.service.main.ports.main.port }}"
               path: /actuator/health
             startup:
               type: tcp
-              port: "{{ .Values.komgaNetwork.webPort }}"
+              port: "{{ .Values.service.main.ports.main.port }}"
 
 service:
   main:
