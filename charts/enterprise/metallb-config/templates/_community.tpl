@@ -5,7 +5,7 @@ apiVersion: metallb.io/v1beta1
 kind: Community
 metadata:
   name: communities
-  namespace: metallb-system
+  namespace: {{ $.Values.operatorNamespace }}
 spec:
   communities:
   {{- range .Values.Communities }}

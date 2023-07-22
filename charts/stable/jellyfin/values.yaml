@@ -2,12 +2,24 @@ image:
   repository: tccr.io/truecharts/jellyfin
   pullPolicy: IfNotPresent
   tag: v10.8.10@sha256:d2c377ee7ea463110a1dda7eb1b231424ad05245aaf95744e76164bd2e593377
+broadcastProxyImage:
+  repository: tccr.io/truecharts/socat
+  pullPolicy: IfNotPresent
+  tag: v1.7.4.4@sha256:105bb72fad0f73aa6f07895f2b7d5b1d69c6ae27493e378ec347af72186ad5a7
 service:
   main:
     ports:
       main:
         port: 8096
         targetPort: 8096
+  autodiscovery:
+    enabled: true
+    ports:
+      autodiscovery:
+        enabled: true
+        protocol: udp
+        port: 7359
+        targetPort: 7359
 persistence:
   config:
     enabled: true
@@ -32,4 +44,53 @@ workload:
       containers:
         main:
           env:
-            JELLYFIN_PublishedServerUrl: "https://jelly.mydomain.com"
+            JELLYFIN_PublishedServerUrl: "{{ $.Values.chartContext.APPURL }}"
+  broadcastproxy:
+    enabled: false
+    type: DaemonSet
+    podSpec:
+      hostNetwork: true
+      # Proxy doesn't seem to respect the TERM signal, so by default
+      # this ends up just hanging until the default grace period ends.
+      # This is unnecesary since this workload only proxies autodiscovery
+      # messages.
+      terminationGracePeriodSeconds: 3
+      containers:
+        broadcastproxy:
+          enabled: true
+          primary: true
+          imageSelector: broadcastProxyImage
+          securityContext:
+            readOnlyRootFilesystem: true
+          command: ["/bin/sh"]
+          # Quite a lot going on here:
+          # - Resolve Jellyfin's autodiscovery service IP from its FQDN via getent hosts
+          # - Export the IP to `$TARGET_IP`
+          # - Check `$TARGET_IP` is not empty (so we can crash if it is - will help to detect templating errors)
+          # - Touch `/tmp/healty` to use with the readiness, liveness and startup probes
+          # - Start socat in proxy mode
+          # - On exit remove `/tmp/healthy`
+          args: ["-c", "export TARGET_IP=$(getent hosts '{{ printf \"%v-autodiscovery\" (include \"tc.v1.common.lib.chart.names.fullname\" $) }}' | awk '{ print $1 }') && [[ ! -z $TARGET_IP ]] && touch /tmp/healthy && socat UDP-LISTEN:7359,fork,reuseaddr,rcvbuf=8096 UDP4-SENDTO:${TARGET_IP}:7359,rcvbuf=8096 ; rm -rf /tmp/healthy"]
+          probes:
+            readiness:
+              enabled: true
+              type: exec
+              command:
+                - cat
+                - /tmp/healthy
+            liveness:
+              enabled: true
+              type: exec
+              command:
+                - cat
+                - /tmp/healthy
+            startup:
+              enabled: true
+              type: exec
+              command:
+                - cat
+                - /tmp/healthy
+
+# -- enable Jellyfin autodiscovery on LAN
+autodiscovery:
+  enabled: false

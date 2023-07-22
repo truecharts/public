@@ -1,16 +1,11 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - Productivity
-    - Tools-Utilities
 apiVersion: v2
-appVersion: "latest"
+appVersion: "0.5.1"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 13.2.0
 deprecated: false
-description: A lightweight, self-hosted paste platform (Pastebin alternative) with language detection and on-disk encryption.
+description: A lightweight, self-hosted paste platform.
 home: https://truecharts.org/charts/incubator/pastey
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pastey.png
 keywords:
@@ -27,4 +22,9 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/pastey
   - https://github.com/Cesura/pastey
 type: application
-version: 2.0.9
+version: 3.0.2
+annotations:
+  truecharts.org/catagories: |
+    - Productivity
+    - Tools-Utilities
+  truecharts.org/SCALE-support: "true"

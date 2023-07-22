@@ -1,12 +1,15 @@
 {{/* Define the portalHook */}}
 {{- define "traefik.portalhook" -}}
-{{- if .Values.portalhook.enabled }}
+{{- if .Values.portalhook.enabled -}}
+  {{- $name := "portalhook" -}}
+  {{- if $.Values.ingressClass.enabled -}}
+    {{- $name = printf "portalhook-%v" .Release.Name -}}
+  {{- end }}
 ---
-
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ ternary "portalhook" (printf "portalhook-%v" .Release.Name ) $.Values.ingressClass.enabled }}
+  name: {{ $name }}
   namespace: tc-system
 data:
   {{- $ports := dict }}

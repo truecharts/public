@@ -1,0 +1,302 @@
+image:
+  repository: tccr.io/truecharts/prometheus-operator
+  tag: "v0.66.0@sha256:27718c8079802791e156d885ecd5ecf7efc1b15574bf130e248bbacc5e3ed883"
+  pullPolicy:
+
+configReloaderImage:
+  repository: tccr.io/truecharts/prometheus-config-reloader
+  tag: "v0.66.0@sha256:6e9e61d0d545fca106ef7f7438a488bae616f5c0b6fb0f7fc571b5f12af903ea"
+  pullPolicy:
+
+thanosImage:
+  repository: tccr.io/truecharts/thanos
+  tag: "v0.31.0@sha256:d1f694ca4040aae878005e15baafdf16ca9e52ce836e5eb64158918f35acd34b"
+  pullPolicy:
+
+patchImage:
+  repository: tccr.io/truecharts/kube-webhook-certgen
+  tag: latest@sha256:28c6de4c7fe7527daafd761e2d33aafe1094004e77248fcc674cc6e092da1017
+  pullPolicy:
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+          args:
+            - --kubelet-service={{ .Values.prometheusOperator.kubeletService.namespace }}/{{ include "tc.v1.common.lib.chart.names.fullname" $ }}-kubelet
+            - --log-format={{ .Values.prometheusOperator.logFormat }}
+            - --log-level={{ .Values.prometheusOperator.logLevel }}
+            # - --deny-namespaces={{ tpl (.Values.prometheusOperator.denyNamespaces | join ",") $ }}
+            - --localhost=127.0.0.1
+            # - --prometheus-default-base-image={{ .Values.global.imageRegistry | default .Values.prometheusOperator.prometheusDefaultBaseImageRegistry }}/{{ .Values.prometheusOperator.prometheusDefaultBaseImage }}
+            # - --alertmanager-default-base-image={{ .Values.global.imageRegistry | default .Values.prometheusOperator.alertmanagerDefaultBaseImageRegistry }}/{{ .Values.prometheusOperator.alertmanagerDefaultBaseImage }}
+            - --prometheus-config-reloader={{ .Values.configReloaderImage.repository }}:{{ .Values.configReloaderImage.tag }}
+            - --config-reloader-cpu-request={{ .Values.resources.requests.cpu }}
+            - --config-reloader-cpu-limit={{ .Values.resources.limits.cpu }}
+            - --config-reloader-memory-request={{ .Values.resources.requests.memory }}
+            - --config-reloader-memory-limit={{ .Values.resources.limits.memory }}
+            - --enable-config-reloader-probes={{ .Values.prometheusOperator.prometheusConfigReloader.probes.enabled }}
+            # - --alertmanager-instance-namespaces={{ .Values.prometheusOperator.alertmanagerInstanceNamespaces | join "," }}
+            # - --alertmanager-instance-selector={{ .Values.prometheusOperator.alertmanagerInstanceSelector }}
+            # - --alertmanager-config-namespaces={{ .Values.prometheusOperator.alertmanagerConfigNamespaces | join "," }}
+            # - --prometheus-instance-namespaces={{ .Values.prometheusOperator.prometheusInstanceNamespaces | join "," }}
+            # - --prometheus-instance-selector={{ .Values.prometheusOperator.prometheusInstanceSelector }}
+            # - --thanos-default-base-image={{ $thanosRegistry }}/{{ .Values.prometheusOperator.thanosImage.repository }}:{{ .Values.prometheusOperator.thanosImage.tag }}
+            # - --thanos-ruler-instance-namespaces={{ .Values.prometheusOperator.thanosRulerInstanceNamespaces | join "," }}
+            # - --thanos-ruler-instance-selector={{ .Values.prometheusOperator.thanosRulerInstanceSelector }}
+            - --secret-field-selector={{ tpl (.Values.prometheusOperator.secretFieldSelector) $ }}
+            # - --cluster-domain={{ .Values.prometheusOperator.clusterDomain }}
+  createsecret:
+    type: Job
+    enabled: true
+    annotations:
+      "helm.sh/hook": post-install,post-upgrade
+      "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
+    podSpec:
+      restartPolicy: Never
+      containers:
+        main:
+          enabled: true
+          primary: true
+          imageSelector: patchImage
+          args:
+            - create
+            - --host={{ include "tc.v1.common.lib.chart.names.fullname" $ }},{{ include "tc.v1.common.lib.chart.names.fullname" $ }}.{{ .Release.Namespace }}.svc
+            - --namespace={{ .Release.Namespace }}
+            - --secret-name={{ include "tc.v1.common.lib.chart.names.fullname" $ }}-admission
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+
+  patchwebhook:
+    type: Job
+    enabled: true
+    annotations:
+      "helm.sh/hook": post-install,post-upgrade
+      "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
+    podSpec:
+      restartPolicy: Never
+      containers:
+        main:
+          enabled: true
+          primary: true
+          imageSelector: patchImage
+          args:
+            - patch
+            - --webhook-name={{ include "tc.v1.common.lib.chart.names.fullname" $ }}-admission
+            - --namespace={{ .Release.Namespace }}
+            - --secret-name={{ include "tc.v1.common.lib.chart.names.fullname" $ }}-admission
+            - --patch-failure-policy={{ .Values.prometheusOperator.admissionWebhooks.failurePolicy }}
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+
+podOptions:
+  automountServiceAccountToken: true
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 8080
+
+prometheusOperator:
+  logFormat: logfmt
+  logLevel: all
+  kubeletService:
+    enabled: true
+    namespace: kube-system
+
+  prometheusConfigReloader:
+    enabled: false
+    probes:
+      enabled: false
+
+  ## Set a Field Selector to filter watched secrets
+  ##
+  secretFieldSelector: "type!=kubernetes.io/dockercfg,type!=kubernetes.io/service-account-token,type!=helm.sh/release.v1"
+
+  ## Admission webhook support for PrometheusRules resources added in Prometheus Operator 0.30 can be enabled to prevent incorrectly formatted
+  ## rules from making their way into prometheus and potentially preventing the container from starting
+  admissionWebhooks:
+    ## Valid values: Fail, Ignore, IgnoreOnInstallOnly
+    ## IgnoreOnInstallOnly - If Release.IsInstall returns "true", set "Ignore" otherwise "Fail"
+    failurePolicy: ""
+    ## The default timeoutSeconds is 10 and the maximum value is 30.
+    timeoutSeconds: 10
+    enabled: true
+    ## A PEM encoded CA bundle which will be used to validate the webhook's server certificate.
+    ## If unspecified, system trust roots on the apiserver are used.
+    caBundle: ""
+    ## If enabled, generate a self-signed certificate, then patch the webhook configurations with the generated data.
+    ## On chart upgrades (or if the secret exists) the cert will not be re-generated. You can use this to provide your own
+    ## certs ahead of time if you wish.
+    ##
+
+    patch:
+      enabled: true
+
+    # Use certmanager to generate webhook certs
+    certManager:
+      enabled: false
+      # self-signed root certificate
+      rootCert:
+        # default to be 5y
+        duration: ""
+      admissionCert:
+        # default to be 1y
+        duration: ""
+      # issuerRef:
+      #   name: "issuer"
+      #   kind: "ClusterIssuer"
+
+operator:
+  register: true
+
+portal:
+  open:
+    enabled: false
+
+metrics:
+  main:
+    enabled: false
+    endpoints:
+      - port: main
+        interval: 5s
+        scrapeTimeout: 5s
+        path: /
+        honorLabels: false
+
+rbac:
+  main:
+    enabled: true
+    primary: true
+    clusterWide: true
+    rules:
+      - apiGroups:
+          - monitoring.coreos.com
+        resources:
+          - alertmanagers
+          - alertmanagers/finalizers
+          - alertmanagers/status
+          - alertmanagerconfigs
+          - prometheuses
+          - prometheuses/finalizers
+          - prometheuses/status
+          - prometheusagents
+          - prometheusagents/finalizers
+          - prometheusagents/status
+          - thanosrulers
+          - thanosrulers/finalizers
+          - thanosrulers/status
+          - scrapeconfigs
+          - servicemonitors
+          - podmonitors
+          - probes
+          - prometheusrules
+        verbs:
+          - "*"
+      - apiGroups:
+          - apps
+        resources:
+          - statefulsets
+        verbs:
+          - "*"
+      - apiGroups:
+          - ""
+        resources:
+          - configmaps
+          - secrets
+        verbs:
+          - "*"
+      - apiGroups:
+          - ""
+        resources:
+          - pods
+        verbs:
+          - list
+          - delete
+      - apiGroups:
+          - ""
+        resources:
+          - services
+          - services/finalizers
+          - endpoints
+        verbs:
+          - get
+          - create
+          - update
+          - delete
+      - apiGroups:
+          - ""
+        resources:
+          - nodes
+        verbs:
+          - list
+          - watch
+      - apiGroups:
+          - ""
+        resources:
+          - namespaces
+        verbs:
+          - get
+          - list
+          - watch
+      - apiGroups:
+          - networking.k8s.io
+        resources:
+          - ingresses
+        verbs:
+          - get
+          - list
+          - watch
+      - apiGroups:
+          - discovery.k8s.io
+        resources:
+          - endpointslices
+        verbs:
+          - get
+          - list
+          - watch
+      - apiGroups:
+          - admissionregistration.k8s.io
+        resources:
+          - validatingwebhookconfigurations
+          - mutatingwebhookconfigurations
+        verbs:
+          - get
+          - update
+      - apiGroups:
+          - ""
+        resources:
+          - secrets
+        verbs:
+          - get
+          - create
+
+crds:
+  annotations: {}
+
+serviceAccount:
+  main:
+    enabled: true
+    primary: true
+    targetSelectAll: true
+
+manifestManager:
+  enabled: false

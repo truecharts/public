@@ -184,6 +184,8 @@ questions:
       attrs:
 # Include{basicAuthMiddleware}
 # Include{forwardAuthMiddleware}
+# Include{customRequestHeadersMiddleware}
+# Include{customResponseHeadersMiddleware}
 # Include{chainMiddleware}
 # Include{redirectSchemeMiddleware}
 # Include{rateLimitMiddleware}
@@ -293,6 +295,7 @@ questions:
                           - variable: tls
                             label: "websecure Entrypoints Configuration"
                             schema:
+                              additional_attrs: true
                               type: dict
                               hidden: true
                               attrs:

@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/kube-state-metrics
   pullPolicy: IfNotPresent
-  tag: v2.8.2@sha256:35a4457d904190e4870a88d7955b26b6b2604a60ad82c108f9f672a3a6b09ab1
+  tag: v2.9.2@sha256:3ecc44f0949f9290269a2ad09b271bb175d6a62d472b170b47249c1f079c0240
 
 service:
   main:
@@ -48,7 +48,7 @@ workload:
             - --resources=services
             - --resources=statefulsets
             - --resources=storageclasses
-            - --resources=verticalpodautoscalers
+            # - --resources=verticalpodautoscalers
             - --resources=validatingwebhookconfigurations
             - --resources=volumeattachments
 
@@ -285,7 +285,7 @@ metrics:
     # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
     # @default -- See values.yaml
     enabled: true
-    type: serviceMonitor
+    type: "servicemonitor"
     endpoints:
       - port: main
       - port: selfmonitor

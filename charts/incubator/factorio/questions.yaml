@@ -4,57 +4,57 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+                                - variable: env
+                                  group: App Configuration
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: GENERATE_NEW_SAVE
+                                        label: Generate new save on startup
+                                        description: Generate a new save if one does not exist before starting the server
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: LOAD_LATEST_SAVE
+                                        label: Load latest save game
+                                        description: Load latest when true. Otherwise load SAVE_NAME
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: SAVE_NAME
+                                        label: Game save name (change this to use multiple saves)
+                                        description: Name to use for the save file
+                                        schema:
+                                          type: string
+                                          default: _autosave1
+                                      - variable: TOKEN
+                                        label: Factorio.com Token
+                                        description: Import your factorio.com token
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: UPDATE_MODS_ON_START
+                                        label: Update server mods BEFORE starting the server
+                                        description: If mods should be updated before starting the server
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: USERNAME
+                                        label: Factorio.com Username
+                                        description: Import your factorio.com username
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: GENERATE_NEW_SAVE
-          label: Generate new save on startup
-          description: Generate a new save if one does not exist before starting the server
-          schema:
-            type: boolean
-            default: false
-        - variable: LOAD_LATEST_SAVE
-          label: Load latest save game
-          description: Load latest when true. Otherwise load SAVE_NAME
-          schema:
-            type: boolean
-            default: true
-        - variable: SAVE_NAME
-          label: Game save name (change this to use multiple saves)
-          description: Name to use for the save file
-          schema:
-            type: string
-            default: _autosave1
-        - variable: TOKEN
-          label: Factorio.com Token
-          description: Import your factorio.com token
-          schema:
-            type: string
-            default: ""
-        - variable: UPDATE_MODS_ON_START
-          label: Update server mods BEFORE starting the server
-          description: If mods should be updated before starting the server
-          schema:
-            type: string
-            default: ""
-        - variable: USERNAME
-          label: Factorio.com Username
-          description: Import your factorio.com username
-          schema:
-            type: string
-            default: ""
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: Main Service
@@ -104,8 +104,8 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: path
-          label: path Storage
+        - variable: config
+          label: App Config Storage
           description: Container Path factorio
           schema:
             additional_attrs: true
@@ -125,20 +125,20 @@ questions:
 # Include{ingressTraefik}
 # Include{ingressAdvanced}
 # Include{ingressList}
+# Include{securityContextRoot}
 
-# Include{podSecurityContextRoot}
-        - variable: runAsUser
-          label: runAsUser
-          description: The UserID of the user running the application
-          schema:
-            type: int
-            default: 0
-        - variable: runAsGroup
-          label: runAsGroup
-          description: The groupID this App of the user running the application
-          schema:
-            type: int
-            default: 0
+              - variable: runAsUser
+                label: runAsUser
+                description: The UserID of the user running the application
+                schema:
+                  type: int
+                  default: 0
+              - variable: runAsGroup
+                label: runAsGroup
+                description: The groupID this App of the user running the application
+                schema:
+                  type: int
+                  default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}

@@ -1,5 +1,3 @@
-{{- $values := .Values }}
-
 {{- range $index, $middlewareData := .Values.middlewares.addPrefix }}
 
 ---

@@ -1,15 +1,69 @@
-env:
-  SFTPGO_COMMON__DEFENDER__ENABLED: "true"
-  SFTPGO_FTPD__BINDINGS__0__DEBUG: "0"
-  SFTPGO_FTPD__BINDINGS__0__FORCE_PASSIVE_IP: 10.0.0.10
-  SFTPGO_FTPD__BINDINGS__0__PORT: "2121"
-  SFTPGO_FTPD__PASSIVE_PORT_RANGE__END: "50100"
-  SFTPGO_FTPD__PASSIVE_PORT_RANGE__START: "50000"
-  SFTPGO_WEBDAVD__BINDINGS__0__PORT: "10080"
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/sftpgo
-  tag: latest@sha256:48b22b6bfe9beb43c747436c4376c43b739ee639d795c68ccfca59960c9c45c7
+  tag: v2.5.3@sha256:1a159663e5a9a2430edbf9b143fe8cab2998697bee9909598db32351c9de4f85
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 2221
+        protocol: http
+        targetPort: 8080
+  ftpport:
+    enabled: true
+    ports:
+      ftpport:
+        enabled: true
+        port: 2121
+        protocol: http
+        targetPort: 2121
+  passiveports:
+    enabled: true
+    ports:
+      passiveports:
+        enabled: true
+        port: 50000
+        protocol: http
+        targetPort: 50000
+  sftpport:
+    enabled: true
+    ports:
+      sftpport:
+        enabled: true
+        port: 2022
+        protocol: tcp
+        targetPort: 2022
+  webdavport:
+    enabled: true
+    ports:
+      webdavport:
+        enabled: true
+        port: 10080
+        protocol: tcp
+        targetPort: 10080
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            SFTPGO_COMMON__DEFENDER__ENABLED: "true"
+            SFTPGO_FTPD__BINDINGS__0__DEBUG: "0"
+            SFTPGO_FTPD__BINDINGS__0__FORCE_PASSIVE_IP: 10.0.0.10
+            SFTPGO_FTPD__BINDINGS__0__PORT: "2121"
+            SFTPGO_FTPD__PASSIVE_PORT_RANGE__END: "50100"
+            SFTPGO_FTPD__PASSIVE_PORT_RANGE__START: "50000"
+            SFTPGO_WEBDAVD__BINDINGS__0__PORT: "10080"
+
 persistence:
   backupdirectory:
     enabled: true
@@ -22,52 +76,8 @@ persistence:
     mountPath: /srv/sftpgo/data
   shareaccess:
     enabled: true
-    mountPath: /unraid
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-service:
-  ftpport:
-    enabled: true
-    ports:
-      ftpport:
-        enabled: true
-        port: 2121
-        protocol: TCP
-        targetPort: 2121
-  main:
-    ports:
-      main:
-        port: 2221
-        protocol: HTTP
-        targetPort: 8080
-  passiveports:
-    enabled: true
-    ports:
-      passiveports:
-        enabled: true
-        port: 50000
-        protocol: TCP
-        targetPort: 50000
-  sftpport:
-    enabled: true
-    ports:
-      sftpport:
-        enabled: true
-        port: 2022
-        protocol: TCP
-        targetPort: 2022
-  webdavport:
-    enabled: true
-    ports:
-      webdavport:
-        enabled: true
-        port: 10080
-        protocol: TCP
-        targetPort: 10080
+    mountPath: /shareaccess
 
 portal:
-  enabled: true
+  open:
+    enabled: true

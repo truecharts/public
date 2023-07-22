@@ -1,28 +1,28 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - GameServers
 apiVersion: v2
+kubeVersion: ">=1.16.0-0"
+name: factorio
+version: 4.0.7
 appVersion: "stable"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
-deprecated: false
 description: "This Chart Chart will download the latest stable release of the game, generate the map and you're ready to play."
+type: application
+deprecated: false
 home: https://truecharts.org/charts/incubator/factorio
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/factorio.png
 keywords:
   - factorio
   - GameServers
-kubeVersion: ">=1.16.0-0"
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/factorio
+  - https://www.factorio.com/
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 13.2.0
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts
     url: https://truecharts.org
-name: factorio
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/factorio
-  - https://www.factorio.com/
-type: application
-version: 3.0.2
+annotations:
+  truecharts.org/catagories: |
+    - GameServers
+  truecharts.org/SCALE-support: "true"

@@ -1,45 +1,88 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "tc.common.loader.init" . }}
+{{- include "tc.v1.common.loader.init" . }}
 
-{{/* Render secret */}}
-{{- include "authentik.secret" . }}
+{{- include "authentik.validation" $ -}}
 
-{{/* Render config */}}
-{{- include "authentik.config" . }}
-
-{{- if hasKey .Values "metrics" -}}
-{{- if .Values.metrics.enabled -}}
-{{- $_ := set .Values.podAnnotations "prometheus.io/scrape" "true" -}}
-{{- $_ := set .Values.podAnnotations "prometheus.io/path" "/metrics" -}}
-{{- $_ := set .Values.podAnnotations "prometheus.io/port" (.Values.service.metrics.ports.metrics.targetPort | default 9301 | quote) -}}
-{{- end -}}
+{{/* Render secrets for authentik and friends */}}
+{{- $secrets := include "authentik.secrets" . | fromYaml -}}
+{{- if $secrets -}}
+  {{ $secrets := (mustMergeOverwrite .Values.secret $secrets) }}
+  {{- $_ := set .Values "secret" $secrets -}}
 {{- end -}}
 
-{{- if .Values.workerContainer.enabled -}}
-{{- $_ := set .Values.additionalContainers "worker" (include "authentik.worker" . | fromYaml) -}}
+{{/* Render configmaps for authentik and friends */}}
+{{- $configmaps := include "authentik.configmaps" . | fromYaml -}}
+{{- if $configmaps -}}
+  {{ $configmaps := (mustMergeOverwrite .Values.configmap $configmaps) }}
+  {{- $_ := set .Values "configmap" $configmaps -}}
 {{- end -}}
 
-{{- if .Values.geoip.enabled -}}
-{{- $_ := set .Values.additionalContainers "geoip" (include "authentik.geoip" . | fromYaml) -}}
+{{- if .Values.authentik.geoip.enabled -}}
+  {{- $_ := set .Values.workload.geoip "enabled" true -}}
+{{- else -}}
+  {{- $_ := set .Values.workload.geoip "enabled" false -}}
 {{- end -}}
 
-{{- if .Values.outposts.ldap.enabled -}}
-{{- $_ := set .Values.additionalContainers "ldap-outpost" (include "authentik.ldap" . | fromYaml) -}}
-{{/* - if .Values.metrics.enabled - */}}
-{{/* https://github.com/prometheus/prometheus/issues/3756 */}}
-{{/* TODO: Figure how the pipe works to connect it to prometheus operator */}}
-{{/* We can't define multiple ports/endpoints with annotations */}}
-{{/* - end - */}}
+{{- if .Values.authentik.outposts.proxy.enabled -}}
+  {{- $_ := set .Values.workload.proxy "enabled" true -}}
+  {{- if not .Values.workload.proxy.podSpec.initContainers -}}
+    {{- $_ := set .Values.workload.proxy.podSpec "initContainers" dict -}}
+  {{- end -}}
+  {{- $_ := set .Values.workload.proxy.podSpec.initContainers "wait-server" (include "authentik.wait.server" . | fromYaml) -}}
+  {{- $_ := set .Values.service.proxy "enabled" true -}}
+  {{- $_ := set .Values.service.proxymetrics "enabled" true -}}
+  {{- $_ := set .Values.metrics.proxymetrics "enabled" true -}}
+{{- else -}}
+  {{- $_ := set .Values.workload.proxy "enabled" false -}}
+  {{- $_ := set .Values.service.proxy "enabled" false -}}
+  {{- $_ := set .Values.service.proxymetrics "enabled" false -}}
+  {{- $_ := set .Values.metrics.proxymetrics "enabled" false -}}
 {{- end -}}
 
-{{- if .Values.outposts.proxy.enabled -}}
-{{- $_ := set .Values.additionalContainers "proxy-outpost" (include "authentik.proxy" . | fromYaml) -}}
-{{/* - if .Values.metrics.enabled - */}}
-{{/* https://github.com/prometheus/prometheus/issues/3756 */}}
-{{/* TODO: Figure how the pipe works to connect it to prometheus operator */}}
-{{/* We can't define multiple ports/endpoints with annotations */}}
-{{/* - end - */}}
+{{- if .Values.authentik.outposts.radius.enabled -}}
+  {{- $_ := set .Values.workload.radius "enabled" true -}}
+  {{- if not .Values.workload.radius.podSpec.initContainers -}}
+    {{- $_ := set .Values.workload.radius.podSpec "initContainers" dict -}}
+  {{- end -}}
+  {{- $_ := set .Values.workload.radius.podSpec.initContainers "wait-server" (include "authentik.wait.server" . | fromYaml) -}}
+  {{- $_ := set .Values.service.radius "enabled" true -}}
+  {{- $_ := set .Values.service.radiusmetrics "enabled" true -}}
+  {{- $_ := set .Values.metrics.radiusmetrics "enabled" true -}}
+{{- else -}}
+  {{- $_ := set .Values.workload.radius "enabled" false -}}
+  {{- $_ := set .Values.service.radius "enabled" false -}}
+  {{- $_ := set .Values.service.radiusmetrics "enabled" false -}}
+  {{- $_ := set .Values.metrics.radiusmetrics "enabled" false -}}
 {{- end -}}
+
+{{- if .Values.authentik.outposts.ldap.enabled -}}
+  {{- $_ := set .Values.workload.ldap "enabled" true -}}
+  {{- if not .Values.workload.ldap.podSpec.initContainers -}}
+    {{- $_ := set .Values.workload.ldap.podSpec "initContainers" dict -}}
+  {{- end -}}
+  {{- $_ := set .Values.workload.ldap.podSpec.initContainers "wait-server" (include "authentik.wait.server" . | fromYaml) -}}
+  {{- $_ := set .Values.service.ldap "enabled" true -}}
+  {{- $_ := set .Values.service.ldaps "enabled" true -}}
+  {{- $_ := set .Values.service.ldapmetrics "enabled" true -}}
+  {{- $_ := set .Values.metrics.ldapmetrics "enabled" true -}}
+{{- else -}}
+  {{- $_ := set .Values.workload.ldap "enabled" false -}}
+  {{- $_ := set .Values.service.ldap "enabled" false -}}
+  {{- $_ := set .Values.service.ldaps "enabled" false -}}
+  {{- $_ := set .Values.service.ldapmetrics "enabled" false -}}
+  {{- $_ := set .Values.metrics.ldapmetrics "enabled" false -}}
+{{- end -}}
+
+{{/* FIXME: See values.yaml */}}
+{{- $_ := set .Values.service.servermetrics "enabled" false -}}
+{{- $_ := set .Values.service.proxymetrics "enabled" false -}}
+{{- $_ := set .Values.service.radiusmetrics "enabled" false -}}
+{{- $_ := set .Values.service.ldapmetrics "enabled" false -}}
+
+{{- $_ := set .Values.metrics.servermetrics "enabled" false -}}
+{{- $_ := set .Values.metrics.proxymetrics "enabled" false -}}
+{{- $_ := set .Values.metrics.radiusmetrics "enabled" false -}}
+{{- $_ := set .Values.metrics.ldapmetrics "enabled" false -}}
 
 {{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}
+{{ include "tc.v1.common.loader.apply" . }}

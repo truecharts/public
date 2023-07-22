@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "2.4.2"
+appVersion: "3.0.5"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 13.2.0
 deprecated: false
 description: A administrative platform for devices flashed with Tasmota.
 home: https://truecharts.org/charts/incubator/tasmoadmin
@@ -22,10 +22,9 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/tasmoadmin
   - https://github.com/TasmoAdmin/TasmoAdmin
 type: application
-version: 3.0.0
+version: 4.0.8
 annotations:
   truecharts.org/catagories: |
     - HomeAutomation
     - Network-Management
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U

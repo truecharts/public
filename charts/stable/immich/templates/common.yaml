@@ -1,27 +1,42 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "tc.v1.common.loader.init" . }}
 
+{{- $fname := (include "tc.v1.common.lib.chart.names.fullname" .) -}}
+
+{{/* Render Proxy Workload */}}
 {{- $_ := set .Values.workload "proxy" (include "immich.proxy" . | fromYaml) -}}
 
 {{- $_ := set .Values.workload.main.podSpec.containers "main" (include "immich.server" . | fromYaml) -}}
 {{- if .Values.immich.enable_typesense -}}
-  {{- $_ := set .Values.workload.main.podSpec.initContainers "wait-typesense" (include "immich.wait" (dict "variable" "TYPESENSE_URL" "path" "health") | fromYaml) -}}
+  {{/* Append init container to server, to make sure typesense is ready before starting */}}
+  {{- $url := printf "http://%v-typesense:%v/health" $fname .Values.service.typesense.ports.typesense.port -}}
+  {{- $_ := set .Values.workload.main.podSpec.initContainers "wait-typesense" (include "immich.wait" (dict "url" $url) | fromYaml) -}}
 {{- end -}}
 
-{{- $_ := set .Values.service "web" (include "immich.web.service" . | fromYaml) -}}
+{{/* Render Web Workload */}}
 {{- $_ := set .Values.workload "web" (include "immich.web" . | fromYaml) -}}
 
-{{- $_ := set .Values.service "microservices" (include "immich.microservices.service" . | fromYaml) -}}
+{{/* Render Microservices Workload */}}
 {{- $_ := set .Values.workload "microservices" (include "immich.microservices" . | fromYaml) -}}
 
 {{- if .Values.immich.enable_ml -}}
-  {{- $_ := set .Values.service "machinelearning" (include "immich.machinelearning.service" . | fromYaml) -}}
+  {{/* Enable Machine Learning Service */}}
+  {{- $_ := set .Values.service.machinelearning "enabled" true -}}
+  {{/* Render Machine Learning Workload */}}
   {{- $_ := set .Values.workload "machinelearning" (include "immich.machinelearning" . | fromYaml) -}}
+{{- else -}}
+  {{/* Disable Machine Learning Service */}}
+  {{- $_ := set .Values.service.machinelearning "enabled" false -}}
 {{- end -}}
 
 {{- if .Values.immich.enable_typesense -}}
-  {{- $_ := set .Values.service "typesense" (include "immich.typesense.service" . | fromYaml) -}}
+  {{/* Enable Typesense Service */}}
+  {{- $_ := set .Values.service.typesense "enabled" true -}}
+  {{/* Render Typesense Workload */}}
   {{- $_ := set .Values.workload "typesense" (include "immich.typesense" . | fromYaml) -}}
+{{- else -}}
+  {{/* Disable Typesense Service */}}
+  {{- $_ := set .Values.service.typesense "enabled" false -}}
 {{- end -}}
 
 {{/* Render configuration for immich

@@ -6,7 +6,6 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
@@ -25,13 +24,37 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
+              - variable: email
+                label: Email
+                description: |
+                  Set the default email address for the akadmin user.</br>
+                  Only read on initial install, changing this will have no effect.
+                schema:
+                  type: string
+                  required: true
+                  immutable: true
+                  default: ""
               - variable: password
-                label: Password (Initial install only)
-                description: Password for <akadmin> user. Can be used for any flow executor
+                label: Password
+                description: |
+                  Set the default password for the akadmin user.</br>
+                  Only read on initial install, changing this will have no effect.
                 schema:
                   type: string
                   private: true
                   required: true
+                  immutable: true
+                  default: ""
+              - variable: bootstrapToken
+                label: (Optional) Bootstrap Token
+                description: |
+                  Set the bootstrap token for the authentik server.</br>
+                  Only read on initial install, changing this will have no effect. </br>
+                  Only set this token if you plan to use the API right after installation.
+                schema:
+                  type: string
+                  private: true
+                  immutable: true
                   default: ""
         - variable: general
           label: General
@@ -39,42 +62,49 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-              - variable: disable_update_check
+              - variable: disableUpdateCheck
                 label: Disable Update Check
                 description: Disable the inbuilt update-checker
                 schema:
                   type: boolean
                   default: false
-              - variable: disable_startup_analytics
+              - variable: disableStartupAnalytics
                 label: Disable Startup Analytics
                 description: Disable startup analytics
                 schema:
                   type: boolean
                   default: true
-              - variable: allow_user_name_change
-                label: Allow User Name Change
+              - variable: allowUserChangeName
+                label: Allow User Change Name
                 description: Enable the ability for users to change their Name
                 schema:
                   type: boolean
                   default: true
-              - variable: allow_user_mail_change
-                label: Allow User Mail Change
+              - variable: allowUserChangeEmail
+                label: Allow User Change Mail
                 description: Enable the ability for users to change their Email address
                 schema:
                   type: boolean
                   default: true
-              - variable: allow_user_username_change
-                label: Allow User Username Change
+              - variable: allowUserChangeUsername
+                label: Allow User Change Username
                 description: Enable the ability for users to change their Usernames
                 schema:
                   type: boolean
                   default: true
-              - variable: gdpr_compliance
+              - variable: gdprCompliance
                 label: GDPR Compliance
                 description: When enabled, all the events caused by a user will be deleted upon the user's deletion
                 schema:
                   type: boolean
                   default: true
+              - variable: tokenLength
+                label: Token Length
+                description: Configure the length of generated tokens
+                schema:
+                  type: int
+                  min: 60
+                  default: 128
               - variable: impersonation
                 label: Impersonation
                 description: Globally enable / disable impersonation
@@ -85,22 +115,49 @@ questions:
                 label: Avatars
                 description: Configure how authentik should show avatars for users
                 schema:
-                  type: string
-                  default: gravatar,initials
-              - variable: token_length
-                label: Token Length
-                description: Configure the length of generated tokens
-                schema:
-                  type: int
-                  default: 128
-              - variable: footer_links
+                  type: list
+                  default:
+                    - gravatar
+                    - initials
+                  items:
+                    - variable: avatar
+                      label: Avatar
+                      description: Avatar type
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+              - variable: footerLinks
                 label: Footer Links
                 description: This option configures the footer links on the flow executor pages
                 schema:
-                  type: string
-                  default: ""
-        - variable: mail
-          label: e-Mail
+                  type: list
+                  default:
+                    - name: Authentik
+                      href: https://goauthentik.io
+                  items:
+                    - variable: footerLink
+                      label: Footer Link
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: name
+                            label: Name
+                            description: Name of the link
+                            schema:
+                              type: string
+                              default: ""
+                              required: true
+                          - variable: href
+                            label: Href
+                            description: URL of the link
+                            schema:
+                              type: string
+                              default: ""
+                              required: true
+        - variable: email
+          label: Email
           schema:
             additional_attrs: true
             type: dict
@@ -116,16 +173,29 @@ questions:
                 description: Sets port of mail server
                 schema:
                   type: int
-                  default: 25
-              - variable: tls
+                  default: 587
+              - variable: username
+                label: Username
+                description: Sets username of mail server
+                schema:
+                  type: string
+                  default: ""
+              - variable: password
+                label: Password
+                description: Sets password of mail server
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+              - variable: useTLS
                 label: Use TLS for authentication
-                description: Sets tls for mail server authentication
+                description: Sets TLS for mail server authentication
                 schema:
                   type: boolean
-                  default: false
-              - variable: ssl
+                  default: true
+              - variable: useSSL
                 label: Use SSL for authentication
-                description: Sets ssl for mail server authentication
+                description: Sets SSL for mail server authentication
                 schema:
                   type: boolean
                   default: false
@@ -135,51 +205,32 @@ questions:
                 schema:
                   type: int
                   default: 10
-              - variable: user
-                label: Username
-                description: Sets username of mail server
-                schema:
-                  type: string
-                  default: ""
-              - variable: pass
-                label: Password
-                description: Sets password of mail server
-                schema:
-                  type: string
-                  private: true
-                  default: ""
               - variable: from
                 label: From Address
                 description: Email address authentik will send from
                 schema:
                   type: string
                   default: ""
-        - variable: error_reporting
-          label: Error Reporting
+        - variable: ldap
+          label: LDAP
           schema:
             additional_attrs: true
             type: dict
             attrs:
-              - variable: enabled
-                label: Enable Reporting
-                description: Enables error reporting
+              - variable: tls_ciphers
+                label: TLS Ciphers
+                description: |
+                  Allows configuration of TLS Ciphers for LDAP connections used by LDAP sources.</br>
+                  Setting applies to all sources
                 schema:
-                  type: boolean
-                  default: false
-                  show_subquestions_if:
-                  subquestions:
-                    - variable: send_pii
-                      label: Send Personal Data
-                      description: Whether or not to send personal data, like usernames
-                      schema:
-                        type: boolean
-                        default: false
-                    - variable: environment
-                      label: Environment
-                      description: Unique environment that is attached to your error reports, should be set to your email address for example.
-                      schema:
-                        type: string
-                        default: customer
+                  type: string
+                  default: "null"
+              - variable: taskTimeoutHours
+                label: Task Timeout Hours
+                description: Timeout in hours for LDAP synchronization tasks
+                schema:
+                  type: int
+                  default: 2
         - variable: logging
           label: Logging
           schema:
@@ -203,235 +254,176 @@ questions:
                       description: warning
                     - value: error
                       description: error
-        - variable: ldap
-          label: LDAP
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-              - variable: tls_ciphers
-                label: TLS Ciphers
-                description: Allows configuration of TLS Ciphers for LDAP connections used by LDAP sources. Setting applies to all sources
-                schema:
-                  type: string
-                  default: "null"
-  - variable: outposts
-    group: App Configuration
-    label: Outpost Configuration
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: ldap
-          label: LDAP
+        - variable: error_reporting
+          label: Error Reporting
           schema:
             additional_attrs: true
             type: dict
             attrs:
               - variable: enabled
-                label: Enable LDAP outpost
+                label: Enable Reporting
+                description: Enables error reporting
                 schema:
                   type: boolean
                   default: false
-                  show_subquestions_if: true
+                  show_subquestions_if:
                   subquestions:
-                    - variable: overrideHost
-                      label: Override Host
+                    - variable: sendPII
+                      label: Send Personal Data
+                      description: Whether or not to send personal data, like usernames
                       schema:
                         type: boolean
                         default: false
-                        show_subquestions_if: true
-                        subquestions:
-                          - variable: host
-                            label: Authentik Host
-                            description: "URL of your Authentik server. (e.g. https://auth.domain.com)"
-                            schema:
-                              type: string
-                              # TODO: Make them required again once Scale stable supports nested subquestions
-                              # required: true
-                              default: ""
-                          - variable: insecure
-                            label: Insecure
-                            description: Check only if you accessing Authentik in an unsecure way
-                            schema:
-                              type: boolean
-                              default: false
-                    - variable: overrideToken
-                      label: Override Token
-                      description: Overrides the random generated token to provide your own
+                    - variable: environment
+                      label: Environment
+                      description: The environment tag associated with all data sent to Sentry
                       schema:
-                        type: boolean
-                        default: false
-                        show_subquestions_if: true
-                        subquestions:
-                        - variable: token
-                          label: API Token
-                          description: You can get this from Applications > Outposts > View Deployment Info
-                          schema:
-                            type: string
-                            private: true
-                            # TODO: Make them required again once Scale stable supports nested subquestions
-                            # required: true
-                            default: ""
-                    - variable: overrideBrowserHost
-                      label: Override Host Browser
-                      description: Overrides the Browser Host, by default the first ingress host is used
+                        type: string
+                        default: customer
+                    - variable: sentryDSN
+                      label: Sentry DSN
+                      description: Sets the DSN for the Sentry API endpoint.
                       schema:
-                        type: boolean
-                        default: false
-                        show_subquestions_if: true
-                        subquestions:
-                        - variable: host_browser
-                          label: Host Browser
-                          description: URL to use in the browser, when it differs from << host >>
-                          schema:
-                            type: string
-                            # TODO: Make them required again once Scale stable supports nested subquestions
-                            # required: true
-                            default: ""
-        - variable: proxy
-          label: Proxy
+                        type: string
+                        private: true
+                        default: ""
+        - variable: geoip
+          label: GeoIP
           schema:
             additional_attrs: true
             type: dict
             attrs:
               - variable: enabled
-                label: Enable Proxy outpost
+                label: Enabled
+                description: |
+                  Enables and configures the GeoIP container.</br>
+                  This will deploy the GeoIP container.
                 schema:
                   type: boolean
                   default: false
                   show_subquestions_if: true
                   subquestions:
-                    - variable: overrideHost
-                      label: Override Host
+                    - variable: editionID
+                      label: Edition ID
+                      description: |
+                        The edition ID of the database to download.</br>
+                        Only one seems to be supported by Authentik.
                       schema:
-                        type: boolean
-                        default: false
-                        show_subquestions_if: true
-                        subquestions:
-                          - variable: host
-                            label: Authentik Host
-                            description: "URL of your Authentik server. (e.g. https://auth.domain.com)"
-                            schema:
-                              type: string
-                              # TODO: Make them required again once Scale stable supports nested subquestions
-                              # required: true
-                              default: ""
-                          - variable: insecure
-                            label: Insecure
-                            description: Check only if you accessing Authentik in an unsecure way
-                            schema:
-                              type: boolean
-                              default: false
-                    - variable: overrideToken
-                      label: Override Token
-                      description: Overrides the random generated token to provide your own
+                        type: string
+                        default: GeoLite2-City
+                    - variable: frequency
+                      label: Frequency
+                      description: The number of hours between geoipupdate runs.
                       schema:
-                        type: boolean
-                        default: false
-                        show_subquestions_if: true
-                        subquestions:
-                        - variable: token
-                          label: API Token
-                          description: You can get this from Applications > Outposts > View Deployment Info
-                          schema:
-                            type: string
-                            private: true
-                            # TODO: Make them required again once Scale stable supports nested subquestions
-                            # required: true
-                            default: ""
-                    - variable: overrideBrowserHost
-                      label: Override Host Browser
-                      description: Overrides the Browser Host, by default the first ingress host is used
+                        type: int
+                        min: 1
+                        default: 8
+                    - variable: accountID
+                      label: Account ID
+                      description: Your MaxMind account ID
                       schema:
-                        type: boolean
-                        default: false
-                        show_subquestions_if: true
-                        subquestions:
-                        - variable: host_browser
-                          label: Host Browser
-                          description: URL to use in the browser, when it differs from << host >>
-                          schema:
-                            type: string
-                            # TODO: Make them required again once Scale stable supports nested subquestions
-                            # required: true
-                            default: ""
-  - variable: geoip
-    group: App Configuration
-    label: GeoIP Configuration
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: enabled
-          label: Enable GeoIP Container
-          description: Enables GeoIP container
+                        type: string
+                        private: true
+                        required: true
+                        default: ""
+                    - variable: licenseKey
+                      label: License Key
+                      description: Your MaxMind license key
+                      schema:
+                        type: string
+                        private: true
+                        required: true
+                        default: ""
+        - variable: outposts
+          label: Outposts
           schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: account_id
-                label: Account ID
-                description: Your MaxMind account ID
-                schema:
-                  type: string
-                  private: true
-                  required: true
-                  default: ""
-              - variable: license_key
-                label: License Key
-                description: Your case-sensitive MaxMind license key
-                schema:
-                  type: string
-                  private: true
-                  required: true
-                  default: ""
-              - variable: edition_ids
-                label: Edition IDs
-                description: List of space-separated database edition IDs. Edition IDs may consist of letters, digits, and dashes
-                schema:
-                  type: string
-                  required: true
-                  default: GeoLite2-City
-              - variable: frequency
-                label: Frequency
-                description: The number of hours between geoipupdate runs
-                schema:
-                  type: int
-                  min: 1
-                  default: 8
-              - variable: host_server
-                label: Host Server
-                description: The host name of the server to use
-                schema:
-                  type: string
-                  default: updates.maxmind.com
-              - variable: preserve_file_times
-                label: Preserve File Times
-                description: Whether to preserve modification times of files downloaded from the server
-                schema:
-                  type: boolean
-                  default: false
-              - variable: verbose
-                label: Verbose
-                description: Enable verbose mode. Prints out the steps that geoipupdate takes
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: disableEmbeddedOutpost
+                label: EXPERIMENTAL - Disable Embedded Outpost
+                description: |
+                  Disables the embedded outpost.</br>
+                  This will disable the embedded outpost, and will require you to deploy your own outpost.</br>
+                  Only use this for testing, it might be removed without notice.
                 schema:
                   type: boolean
                   default: false
               - variable: proxy
                 label: Proxy
-                description: The proxy host name or IP address
                 schema:
-                  type: string
-                  default: ""
-              - variable: proxy_user_pass
-                label: Proxy Pass
-                description: The proxy user name and password, separated by a colon
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: Enabled
+                      description: |
+                        Enables and configures the Proxy container.</br>
+                        This will deploy the Proxy container.
+                      schema:
+                        type: boolean
+                        default: false
+                        show_subquestions_if: true
+                        subquestions:
+                          - variable: token
+                            label: Token
+                            description: |
+                              The token used to authenticate with the authentik server.
+                            schema:
+                              type: string
+                              private: true
+                              required: true
+                              default: ""
+              - variable: radius
+                label: Radius
                 schema:
-                  type: string
-                  private: true
-                  default: ""
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: Enabled
+                      description: |
+                        Enables and configures the Radius container.</br>
+                        This will deploy the Radius container.
+                      schema:
+                        type: boolean
+                        default: false
+                        show_subquestions_if: true
+                        subquestions:
+                          - variable: token
+                            label: Token
+                            description: |
+                              The token used to authenticate with the authentik server.
+                            schema:
+                              type: string
+                              private: true
+                              required: true
+                              default: ""
+              - variable: ldap
+                label: LDAP
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: Enabled
+                      description: |
+                        Enables and configures the LDAP container.</br>
+                        This will deploy the LDAP container.
+                      schema:
+                        type: boolean
+                        default: false
+                        show_subquestions_if: true
+                        subquestions:
+                          - variable: token
+                            label: Token
+                            description: |
+                              The token used to authenticate with the authentik server.
+                            schema:
+                              type: string
+                              private: true
+                              required: true
+                              default: ""
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
@@ -457,17 +449,17 @@ questions:
                               type: int
                               default: 10229
                               required: true
-        - variable: ldapldaps
-          label: LDAPS Service
-          description: The LDAPS service.
+        - variable: proxy
+          label: Proxy Service
+          description: The Proxy service.
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
-                    - variable: ldapldaps
-                      label: LDAPS Service Port Configuration
+                    - variable: http
+                      label: HTTP Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
@@ -477,18 +469,53 @@ questions:
                             description: This port exposes the container port on the service
                             schema:
                               type: int
-                              default: 636
+                              default: 10227
                               required: true
-        - variable: ldapldap
-          label: LDAP Service
-          description: The LDAPS service.
+                    - variable: https
+                      label: HTTPS Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 10228
+                              required: true
+        - variable: radius
+          label: RADIUS Service
+          description: The RADIUS service.
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
-                    - variable: ldapldap
+                    - variable: radius
+                      label: RADIUS Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 1812
+                              required: true
+        - variable: ldap
+          label: LDAP Service
+          description: The LDAP service.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: ldap
                       label: LDAP Service Port Configuration
                       schema:
                         additional_attrs: true
@@ -501,17 +528,17 @@ questions:
                               type: int
                               default: 389
                               required: true
-        - variable: proxyhttps
-          label: Proxy HTTPS Service
-          description: The Proxy HTTPS service.
+        - variable: ldaps
+          label: LDAPS Service
+          description: The LDAPS service.
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
-                    - variable: proxyhttps
-                      label: Proxy HTTPS Service Port Configuration
+                    - variable: ldaps
+                      label: LDAPS Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
@@ -521,7 +548,7 @@ questions:
                             description: This port exposes the container port on the service
                             schema:
                               type: int
-                              default: 10233
+                              default: 636
                               required: true
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
@@ -538,6 +565,14 @@ questions:
         - variable: templates
           label: App Templates Storage
           description: Stores the Application Templates.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: blueprints
+          label: App Blueprints Storage
+          description: Stores the Application Blueprints.
           schema:
             additional_attrs: true
             type: dict
@@ -571,8 +606,8 @@ questions:
 # Include{ingressTLS}
 # Include{ingressTraefik}
 # Include{ingressAdvanced}
-        - variable: proxyhttps
-          label: Proxy HTTPS Ingress
+        - variable: proxy
+          label: Proxy (HTTPS) Ingress
           schema:
             additional_attrs: true
             type: dict
@@ -583,16 +618,15 @@ questions:
 # Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}
-
               - variable: runAsUser
-                label: "runAsUser"
-                description: "The UserID of the user running the application"
+                label: runAsUser
+                description: The UserID of the user running the application
                 schema:
                   type: int
                   default: 1000
               - variable: runAsGroup
-                label: "runAsGroup"
-                description: "The groupID of the user running the application"
+                label: runAsGroup
+                description: The groupID of the user running the application
                 schema:
                   type: int
                   default: 1000
@@ -600,12 +634,11 @@ questions:
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
               - variable: fsGroup
-                label: "fsGroup"
-                description: "The group that should own ALL storage."
+                label: fsGroup
+                description: The group that should own ALL storage.
                 schema:
                   type: int
                   default: 568
-
 # Include{resources}
 # Include{metrics}
 # Include{prometheusRule}

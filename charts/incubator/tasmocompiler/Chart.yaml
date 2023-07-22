@@ -1,14 +1,9 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - HomeAutomation
-    - Tools-Utilities
 apiVersion: v2
 appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 13.2.0
 deprecated: false
 description: "TasmoCompiler is a simple web GUI which allows you to compile fantastic Tasmota firmware with your own settings"
 home: https://truecharts.org/charts/incubator/tasmocompiler
@@ -27,4 +22,9 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/tasmocompiler
   - https://github.com/benzino77/tasmocompiler
 type: application
-version: 2.0.14
+version: 3.0.2
+annotations:
+  truecharts.org/catagories: |
+    - HomeAutomation
+    - Tools-Utilities
+  truecharts.org/SCALE-support: "true"

@@ -1,25 +1,26 @@
 image:
-  repository: quay.io/metallb/controller
-  tag: v0.13.9
+  repository: tccr.io/truecharts/metallb-controller
+  tag: v0.13.10@sha256:ceb5bd0146b4e956504165d5ceb1733e316056b19e4fa41d3cb4b9b43b880eba
   pullPolicy:
 speakerImage:
-  repository: quay.io/metallb/speaker
-  tag: v0.13.9
+  repository: tccr.io/truecharts/metallb-speaker
+  tag: v0.13.10@sha256:b17cabf528526004299a1f533a314ce03b42add607b63248412c316c2085734b
   pullPolicy:
 
 workload:
   main:
+    strategy: RollingUpdate
     labels:
-      component: controller
+      app.kubernetes.io/component: controller
     podSpec:
       labels:
-        component: controller
+        app.kubernetes.io/component: controller
       containers:
         main:
           args:
             - --port=7472
             - --log-level=all
-            - --cert-service-name='{{ include "tc.v1.common.lib.chart.names.fullname" $ }}'
+            - --cert-service-name={{ include "tc.v1.common.lib.chart.names.fullname" $ }}
             - --webhook-mode=enabled
           probes:
             liveness:
@@ -39,20 +40,22 @@ workload:
   speaker:
     enabled: true
     type: DaemonSet
+    strategy: RollingUpdate
     labels:
-      component: speaker
+      app.kubernetes.io/component: controller
     podSpec:
       labels:
-        component: speaker
+        app.kubernetes.io/component: controller
       shareProcessNamespace: true
+      hostNetwork: true
       containers:
         speaker:
           enabled: true
           primary: true
+          imageSelector: speakerImage
           args:
-            - --port=7472
+            - --port=7473
             - --log-level=all
-            - --cert-service-name='{{ include "tc.v1.common.lib.chart.names.fullname" $ }}'
           probes:
             liveness:
               port: speakermon
@@ -73,11 +76,12 @@ workload:
             METALLB_ML_BIND_ADDR:
               fieldRef:
                 fieldPath: status.podIP
-            METALLB_ML_LABELS: "release={{ $.Release.Name }},pod.name=main"
-            METALLB_ML_BIND_PORT: "{{ $.Values.service.memberlist.ports.memberlisttcp }}"
+            METALLB_ML_LABELS: "release={{ $.Release.Name }},app.kubernetes.io/component=speaker"
+            METALLB_ML_BIND_PORT: "{{ $.Values.service.memberlist.ports.memberlisttcp.port }}"
             METALLB_ML_SECRET_KEY_PATH: "/etc/ml_secret_key"
             METALLB_NAMESPACE: "{{$.Release.Namespace}}"
           securityContext:
+            runAsUser: 0
             capabilities:
               add:
                 - NET_RAW
@@ -106,12 +110,14 @@ service:
   speakermon:
     enabled: true
     targetSelector: speaker
+    clusterIP: None
     ports:
       speakermon:
         enabled: true
-        port: 7472
+        port: 7473
   controllermon:
     enabled: true
+    clusterIP: None
     ports:
       controllermon:
         enabled: true
@@ -168,12 +174,10 @@ persistence:
     objectName: memberlist
     expandObjectName: false
     defaultMode: "0420"
-    readOnly: true
     targetSelector:
       speaker:
         speaker:
           mountPath: "/etc/ml_secret_key"
-
 portal:
   open:
     enabled: false
@@ -340,8 +344,4 @@ speaker:
 validationFailurePolicy: Fail
 
 manifestManager:
-  enabled: true
-  staging: false
-  install: false
-  check: false
-  delete: true
+  enabled: false

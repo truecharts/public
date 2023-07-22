@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/flaresolverr
   pullPolicy: IfNotPresent
-  tag: 3.1.2@sha256:768d9c5b20c2cedc0e568ebb96d5202debd247651311acc7a78ee224c70c3ab6
+  tag: v3.2.2@sha256:654c5ed3431fa3ad6911f6a9ad8bd7dd618aff2a82c7eda69f895c5003045d44
 
 securityContext:
   container:
@@ -15,7 +15,22 @@ service:
     ports:
       main:
         port: 8191
-        targetPort: 8191
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+            HOST: "0.0.0.0"
+            TEST_URL: "https://www.google.com"
+            BROWSER_TIMEOUT: 40000
+            HEADLESS: true
+            LOG_LEVEL: info
+            LOG_HTML: false
+            # At this time none of the captcha solvers work, defaults to none.
+            CAPTCHA_SOLVER: none
 
 persistence:
   config:
@@ -24,4 +39,4 @@ persistence:
 
 portal:
   open:
-    enabled: true
+    enabled: false

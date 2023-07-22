@@ -1,7 +1,8 @@
 image:
   repository: tccr.io/truecharts/homebox
   pullPolicy: IfNotPresent
-  tag: 0.9.1@sha256:f404ce8478c07a1ba1c05cec53e5b11d4430178f56430435f67c983d5546a3b5
+  tag: v0.9.2@sha256:0936a8959013589504264a0f52698a661c50a127700ba32f99f19838fe75966c
+
 homebox:
   allow_registration: true
   auto_increment_asset_id: true
@@ -13,19 +14,6 @@ homebox:
   mailer_from: ""
   mailer_username: ""
   mailer_password: ""
-service:
-  main:
-    ports:
-      main:
-        protocol: http
-        port: 10603
-persistence:
-  data:
-    enabled: true
-    mountPath: /data
-portal:
-  open:
-    enabled: true
 
 workload:
   main:
@@ -34,4 +22,20 @@ workload:
         main:
           envFrom:
             - secretRef:
-                name: "homebox-secret"
+                name: homebox-secret
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 10603
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+
+portal:
+  open:
+    enabled: true

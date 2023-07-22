@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/scratch
-  tag: latest@sha256:9dd0f68d32ace452a3a75273bd8e3a074d0a14e4d38683389c73887432832fc3
+  tag: latest@sha256:1a9a10a0a5f5cb5fe4b30ac6d9c56ff87ad47f3f3490bafb6938fc155230131b
   pullPolicy: IfNotPresent
 manifestManager:
   enabled: true
@@ -30,6 +30,13 @@ service:
 portal:
   open:
     enabled: false
+
+operator:
+  verify:
+    additionalOperators:
+      - cert-manager
+    enabled: true
+    failOnError: false
 
 clusterIssuer:
   selfSigned:
@@ -75,6 +82,3 @@ clusterIssuer:
 #     tsigKeyName: ""
 #     tsigAlgorithm: ""
 #     rfctsigSecret: ""
-
-customMetrics:
-  enabled: true

@@ -3,36 +3,39 @@ image:
   repository: tccr.io/truecharts/factorio
   tag: vstable@sha256:6a8a24374e3582abaebf34c9062627914c020d57d2ad88322e53eedf2c767c53
 
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
-
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
 
-env:
-  GENERATE_NEW_SAVE: false
-  LOAD_LATEST_SAVE: true
-  SAVE_NAME: "_autosave1"
-  TOKEN: ""
-  UPDATE_MODS_ON_START: ""
-  USERNAME: ""
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            GENERATE_NEW_SAVE: false
+            LOAD_LATEST_SAVE: true
+            SAVE_NAME: "_autosave1"
+            TOKEN: ""
+            UPDATE_MODS_ON_START: ""
+            USERNAME: ""
 
 service:
   main:
     ports:
       main:
         port: 34197
-        protocol: UDP
+        protocol: udp
         targetPort: 34197
   rcon:
     enabled: true
@@ -40,13 +43,14 @@ service:
       rcon:
         enabled: true
         port: 27015
-        protocol: TCP
+        protocol: tcp
         targetPort: 27015
 
 persistence:
-  path:
+  config:
     enabled: true
     mountPath: /factorio
 
 portal:
-  enabled: false
+  open:
+    enabled: false

@@ -52,7 +52,6 @@ questions:
                       description: "Server for ACME, for example: letsencrypt"
                       schema:
                         type: string
-                        show_if: [["type", "!=", "HTTP01"]]
                         default: 'Letsencrypt-Production'
                         enum:
                           - value: 'https://acme-v02.api.letsencrypt.org/directory'
@@ -78,7 +77,6 @@ questions:
                       schema:
                         type: string
                         required: true
-                        show_if: [["type", "!=", "HTTP01"]]
                         default: "something@example.com"
                     - variable: cfapikey
                       label: CloudFlare API key
@@ -238,6 +236,7 @@ questions:
                       schema:
                         type: string
                         required: true
+                        max_length: 10240
                         show_if: [["selfSigned", "=", false]]
                         default: ""
                     - variable: key
@@ -246,6 +245,7 @@ questions:
                       schema:
                         type: string
                         required: true
+                        max_length: 10240
                         show_if: [["selfSigned", "=", false]]
                         default: ""
 

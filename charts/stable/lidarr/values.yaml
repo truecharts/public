@@ -1,22 +1,31 @@
 image:
   repository: tccr.io/truecharts/lidarr
   pullPolicy: IfNotPresent
-  tag: v1.2.2.3242@sha256:02fce505745a500b3d876e5d2918ca4a88adbb9aad316fe3711f56e756b2f613
+  tag: v1.3.1.3371@sha256:1cea8b94bc278c6fa20fb15747e8a1c393079e87b8537775d499667795717de6
+exportarrImage:
+  repository: tccr.io/truecharts/exportarr
+  pullPolicy: IfNotPresent
+  tag: v1.5.3@sha256:f369a43b28410f12ce1b96f52187dd5c6fb9769a137ecc6f7ab8fdcfbe7db58e
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+
 service:
   main:
     ports:
       main:
         port: 8686
-persistence:
-  config:
+  metrics:
     enabled: true
-    mountPath: /config
-portal:
-  open:
-    enabled: true
-securityContext:
-  container:
-    readOnlyRootFilesystem: false
+    type: ClusterIP
+    targetSelector: exportarr
+    ports:
+      metrics:
+        enabled: true
+        port: 8687
+        targetSelector: exportarr
+
 workload:
   main:
     podSpec:
@@ -44,3 +53,67 @@ workload:
           env:
             LIDARR__PORT: "{{ .Values.service.main.ports.main.port }}"
             LIDARR__AUTHENTICATION_METHOD: ""
+  exportarr:
+    enabled: true
+    type: Deployment
+    strategy: RollingUpdate
+    replicas: 1
+    podSpec:
+      containers:
+        exportarr:
+          primary: true
+          enabled: true
+          imageSelector: exportarrImage
+          args:
+            - lidarr
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              path: /healthz
+              port: "{{ .Values.service.metrics.ports.metrics.port }}"
+            readiness:
+              enabled: true
+              type: http
+              path: /healthz
+              port: "{{ .Values.service.metrics.ports.metrics.port }}"
+            startup:
+              enabled: true
+              type: http
+              path: /healthz
+              port: "{{ .Values.service.metrics.ports.metrics.port }}"
+          env:
+            INTERFACE: 0.0.0.0
+            PORT: "{{ .Values.service.metrics.ports.metrics.port }}"
+            URL: "http://localhost:{{ .Values.service.main.ports.main.port }}"
+            # additional metrics (slow)
+            # ENABLE_ADDITIONAL_METRICS: false
+            # enable gathering unknown queue items
+            # ENABLE_UNKNOWN_QUEUE_ITEMS: false
+            CONFIG: "/config/config.xml"
+
+persistence:
+  config:
+    enabled: true
+    targetSelector:
+      main:
+        main:
+          mountPath: /config
+      exportarr:
+        exportarr:
+          mountPath: /config
+          readOnly: true
+
+metrics:
+  main:
+    enabled: true
+    type: "servicemonitor"
+    endpoints:
+      - port: metrics
+        path: /metrics
+    prometheusRule:
+      enabled: false
+
+portal:
+  open:
+    enabled: true

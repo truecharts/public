@@ -1,258 +1,507 @@
 image:
   repository: tccr.io/truecharts/authentik
-  tag: 2023.4.1@sha256:7d60414d9d5f2395b703228193e8b03c616d7fed6c3cee620940845dd0b725cb
+  tag: v2023.5.3@sha256:55c6eea8ce8d936379b34a05c0d0558a0ca737e71a72d27600d27ce23bc369e3
   pullPolicy: IfNotPresent
 
 geoipImage:
   repository: tccr.io/truecharts/geoipupdate
-  tag: v4.9@sha256:ce42b4252c8cd4a9e39275fd7c3312e5df7bda0d7034df565af4362d7e0d26ce
+  tag: v5.1.0@sha256:9397c7e4d99ab79d620bd7c6ecbad3558ac581dfc2c9432d98dd066ae7d55c71
   pullPolicy: IfNotPresent
 
 ldapImage:
   repository: tccr.io/truecharts/authentik-ldap
-  tag: 2023.4.1@sha256:f737b534c6f3a022b002bb5d635ef491273fd40f8c0b6dd64efa7f5f6265d8cf
+  tag: v2023.5.3@sha256:7ac0f5c4ad334c9480548cf2d5978fe0f6105809c9deeb8d40c450486863526f
+  pullPolicy: IfNotPresent
+
+radiusImage:
+  repository: tccr.io/truecharts/authentik-radius
+  tag: v2023.5.3@sha256:824415af5e7efa090d716d38b944df3a758df08a78f2dce5a77fd0f12ee41c5c
   pullPolicy: IfNotPresent
 
 proxyImage:
   repository: tccr.io/truecharts/authentik-proxy
-  tag: 2023.4.1@sha256:b6e40435836333bdc53afde38f4c4bfb342005b0636d769c641c79348ce1aae4
+  tag: v2023.5.3@sha256:d46f4dbc727d5d6f6c91df0f6a2bf98d2c941de908fdc15193552413331e375b
   pullPolicy: IfNotPresent
-
-args: ["server"]
-
-podSecurityContext:
-  runAsUser: 1000
-  runAsGroup: 1000
-
-securityContext:
-  readOnlyRootFilesystem: false
-
-workerContainer:
-  enabled: true
 
 authentik:
   credentials:
-    password: "supersecret"
+    # Only works on initial install
+    email: my-mail@example.com
+    password: my-password
+    # Optional, only set if you want to use it
+    bootstrapToken: ""
   general:
-    disable_update_check: false
-    disable_startup_analytics: true
-    allow_user_name_change: true
-    allow_user_mail_change: true
-    allow_user_username_change: true
-    gdpr_compliance: true
+    disableUpdateCheck: false
+    disableStartupAnalytics: true
+    allowUserChangeName: true
+    allowUserChangeEmail: true
+    allowUserChangeUsername: true
+    gdprCompliance: true
+    tokenLength: 128
     impersonation: true
-    avatars: "gravatar,initials"
-    token_length: 128
-    # Use single quotes for footer_links
-    footer_links: '[{"name": "Link Name", "href": "https://mylink.com"}]'
-  mail:
+    avatars:
+      - gravatar
+      - initials
+    footerLinks:
+      - name: Authentik
+        href: https://goauthentik.io
+  email:
     host: ""
-    port: 25
-    tls: false
-    ssl: false
+    port: 587
+    username:
+    password:
+    useTLS: true
+    useSSL: false
     timeout: 10
-    user: ""
-    pass: ""
     from: ""
-  error_reporting:
-    enabled: false
-    send_pii: false
-    environment: "customer"
+  ldap:
+    tlsCiphers: "null"
+    taskTimeoutHours: 2
   logging:
-    log_level: "info"
-  ldap:
-    tls_ciphers: "null"
-geoip:
-  enabled: false
-  account_id: ""
-  license_key: ""
-  proxy: ""
-  proxy_user_pass: ""
-  edition_ids: "GeoLite2-City"
-  frequency: 8
-  host_server: "updates.maxmind.com"
-  preserve_file_times: false
-  verbose: false
-
-outposts:
-  ldap:
-    # -- First you have to create an Outpost in the GUI. Applications > Outposts
+    # info, debug, warning, error, trace
+    logLevel: info
+  errorReporting:
     enabled: false
-    # -- Host Browser by default is set to the first ingress host you set
-    # host_browser: ""
-    # -- Host should not need to be overridden. Defaults to https://localhost:9443
-    # host: ""
-    # -- As we use https://localhost:9443 it's an unsecure connection
-    # insecure: false
-    # -- Token is only needed if you accidentally deleted the token within the UI
-    # token: ""
+    sendPII: false
+    environment: customer
+    sentryDSN: ""
+  geoip:
+    enabled: false
+    editionID: GeoLite2-City
+    frequency: 8
+    accountID: ""
+    licenseKey: ""
+  outposts:
+    # Experimental feature
+    disableEmbeddedOutpost: false
+    proxy:
+      enabled: false
+      token: ""
+    radius:
+      enabled: false
+      token: ""
+    ldap:
+      enabled: false
+      token: ""
+
+# ===== DO NOT EDIT BELOW THIS LINE =====
+workload:
+  # ===== Server =====
+  main:
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
+        main:
+          enabled: true
+          primary: true
+          imageSelector: image
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+            # readOnlyRootFilesystem: false
+          envFrom:
+            - configMapRef:
+                name: server
+            - secretRef:
+                name: server-worker
+            - configMapRef:
+                name: server-worker
+          args:
+            - server
+          probes:
+            liveness:
+              enabled: true
+              type: exec
+              command:
+               - /lifecycle/ak
+               - healthcheck
+            readiness:
+              enabled: true
+              type: exec
+              command:
+               - /lifecycle/ak
+               - healthcheck
+            startup:
+              enabled: true
+              type: exec
+              command:
+               - /lifecycle/ak
+               - healthcheck
+
+  # ===== Worker =====
+  worker:
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
+        worker:
+          enabled: true
+          primary: true
+          imageSelector: image
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+            # readOnlyRootFilesystem: false
+          envFrom:
+            - secretRef:
+                name: server-worker
+            - configMapRef:
+                name: server-worker
+          args:
+            - worker
+          probes:
+            liveness:
+              enabled: true
+              type: exec
+              command:
+               - /lifecycle/ak
+               - healthcheck
+            readiness:
+              enabled: true
+              type: exec
+              command:
+               - /lifecycle/ak
+               - healthcheck
+            startup:
+              enabled: true
+              type: exec
+              command:
+               - /lifecycle/ak
+               - healthcheck
+
+  # ===== PROXY =====
   proxy:
-    # -- First you have to create an Outpost in the GUI. Applications > Outposts
-    enabled: false
-    # -- Host Browser by default is set to the first ingress host you set
-    # host_browser: ""
-    # -- As we use https://localhost:9443 it's an unsecure connection
-    # insecure: false
-    # -- Host should not need to be overridden. Defaults to https://localhost:9443
-    # host: ""
-    # -- Token is only needed if you accidentally deleted the token within the UI
-    # token: ""
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
+        proxy:
+          enabled: true
+          primary: true
+          imageSelector: proxyImage
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+          envFrom:
+            - configMapRef:
+                name: proxy
+            - secretRef:
+                name: proxy
+          probes:
+            liveness:
+              enabled: true
+              type: exec
+              command:
+               - /proxy
+               - healthcheck
+            readiness:
+              enabled: true
+              type: exec
+              command:
+               - /proxy
+               - healthcheck
+            startup:
+              enabled: true
+              type: exec
+              command:
+               - /proxy
+               - healthcheck
 
-metrics:
-  # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
-  # @default -- See values.yaml
-  enabled: false
-  serviceMonitor:
-    interval: 1m
-    scrapeTimeout: 30s
-    labels: {}
-  # -- Enable and configure Prometheus Rules for the chart under this key.
-  # @default -- See values.yaml
-  prometheusRule:
-    enabled: false
-    useDefault: true
-    labels: {}
-    # -- Configure additional rules for the chart under this key.
-    # @default -- See prometheusrules.yaml
-    rules:
-      []
-      # - alert: UnifiPollerAbsent
-      #   annotations:
-      #     description: Unifi Poller has disappeared from Prometheus service discovery.
-      #     summary: Unifi Poller is down.
-      #   expr: |
-      #     absent(up{job=~".*unifi-poller.*"} == 1)
-      #   for: 5m
-      #   labels:
-      #     severity: critical
+  # ===== RADIUS =====
+  radius:
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
+        radius:
+          enabled: true
+          primary: true
+          imageSelector: radiusImage
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+          envFrom:
+            - configMapRef:
+                name: radius
+            - secretRef:
+                name: radius
+          probes:
+            liveness:
+              enabled: true
+              type: exec
+              command:
+               - /radius
+               - healthcheck
+            readiness:
+              enabled: true
+              type: exec
+              command:
+               - /radius
+               - healthcheck
+            startup:
+              enabled: true
+              type: exec
+              command:
+               - /radius
+               - healthcheck
 
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-authentik-secret'
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-authentik-config'
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-authentik-server-config'
+  # ===== LDAP =====
+  ldap:
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
+        ldap:
+          enabled: true
+          primary: true
+          imageSelector: ldapImage
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+          envFrom:
+            - configMapRef:
+                name: ldap
+            - secretRef:
+                name: ldap
+          probes:
+            liveness:
+              enabled: true
+              type: exec
+              command:
+               - /ldap
+               - healthcheck
+            readiness:
+              enabled: true
+              type: exec
+              command:
+               - /ldap
+               - healthcheck
+            startup:
+              enabled: true
+              type: exec
+              command:
+               - /ldap
+               - healthcheck
 
-probes:
-  liveness:
-    type: HTTPS
-    path: /-/health/live/
-    port: "{{ .Values.service.main.ports.main.targetPort }}"
-  readiness:
-    type: HTTPS
-    path: /-/health/ready/
-    port: "{{ .Values.service.main.ports.main.targetPort }}"
-  startup:
-    type: HTTPS
-    path: /-/health/ready/
-    port: "{{ .Values.service.main.ports.main.targetPort }}"
+  # ===== GeoIP Updater =====
+  geoip:
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
+        geoip:
+          enabled: true
+          primary: true
+          imageSelector: geoipImage
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+            capabilities:
+              disableS6Caps: true
+          envFrom:
+            - configMapRef:
+                name: geoip
+            - secretRef:
+                name: geoip
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
 
 service:
+  # Server HTTPS
   main:
     ports:
       main:
-        protocol: HTTPS
+        protocol: https
         port: 10229
-        targetPort: 9443
+  # Server HTTP
   http:
     enabled: true
     type: ClusterIP
     ports:
       http:
         enabled: true
-        protocol: HTTP
+        protocol: http
         port: 10230
-        targetPort: 9000
-  # LDAP Outpost Services
-  ldapldaps:
+  # Proxy
+  proxy:
     enabled: true
+    targetSelector: proxy
     ports:
-      ldapldaps:
+      http:
         enabled: true
-        port: 636
-        targetPort: 6636
-  ldapldap:
+        protocol: http
+        port: 10227
+        targetSelector: proxy
+      https:
+        enabled: true
+        protocol: https
+        port: 10228
+        targetSelector: proxy
+  # Radius
+  radius:
     enabled: true
+    targetSelector: radius
     ports:
-      ldapldap:
+      radius:
+        enabled: true
+        protocol: udp
+        targetSelector: radius
+        port: 1812
+  # LDAP
+  ldap:
+    enabled: true
+    targetSelector: ldap
+    ports:
+      ldap:
         enabled: true
         port: 389
-        targetPort: 3389
-  # Proxy Outpost Services
-  proxyhttps:
+        targetSelector: ldap
+  # LDAPS
+  ldaps:
     enabled: true
+    targetSelector: ldap
     ports:
-      proxyhttps:
+      ldaps:
         enabled: true
-        port: 10233
-        protocol: HTTPS
-        targetPort: 9444
-  proxyhttp:
-    enabled: true
-    type: ClusterIP
-    ports:
-      proxyhttp:
-        enabled: true
-        port: 10234
-        protocol: HTTP
-        targetPort: 9001
-  # Metrics Services
-  metrics:
+        port: 636
+        targetSelector: ldap
+  # Server Metrics
+  servermetrics:
     enabled: true
     type: ClusterIP
     ports:
-      metrics:
+      servermetrics:
         enabled: true
-        protocol: HTTP
+        protocol: http
         port: 10231
-        targetPort: 9301
+  # Radius Metrics
+  radiusmetrics:
+    enabled: true
+    type: ClusterIP
+    targetSelector: radius
+    ports:
+      radiusmetrics:
+        enabled: true
+        protocol: http
+        port: 10232
+        targetSelector: radius
+  # LDAP Metrics
   ldapmetrics:
     enabled: true
     type: ClusterIP
+    targetSelector: ldap
     ports:
       ldapmetrics:
         enabled: true
-        port: 10232
-        protocol: HTTP
-        targetPort: 9302
+        protocol: http
+        port: 10233
+        targetSelector: ldap
+  # Proxy Metrics
   proxymetrics:
     enabled: true
     type: ClusterIP
+    targetSelector: proxy
     ports:
       proxymetrics:
         enabled: true
-        port: 10235
-        protocol: HTTP
-        targetPort: 9303
-
-ingress:
-  proxyhttps:
-    autoLink: true
-
+        protocol: http
+        port: 10234
+        targetSelector: proxy
 persistence:
   media:
     enabled: true
-    mountPath: "/media"
+    targetSelector:
+      main:
+        main:
+          mountPath: /media
+      worker:
+        worker:
+          mountPath: /media
   templates:
     enabled: true
-    mountPath: "/templates"
+    targetSelector:
+      main:
+        main:
+          mountPath: /templates
+      worker:
+        worker:
+          mountPath: /templates
+  blueprints:
+    enabled: true
+    targetSelector:
+      worker:
+        worker:
+          mountPath: /blueprints
   certs:
     enabled: true
-    mountPath: "/certs"
+    mountPath: /certs
+    targetSelector:
+      worker:
+        worker:
+          mountPath: /certs
   geoip:
     enabled: true
-    mountPath: "/geoip"
+    targetSelector:
+      main:
+        main:
+          mountPath: /geoip
+      worker:
+        worker:
+          mountPath: /geoip
+      geoip:
+        geoip:
+          mountPath: /usr/share/GeoIP
 
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: authentik
-  postgresqlDatabase: authentik
+cnpg:
+  main:
+    enabled: true
+    user: authentik
+    database: authentik
 
 redis:
   enabled: true
-  existingSecret: "rediscreds"
 
 portal:
-  enabled: true
+  open:
+    enabled: true
+
+metrics:
+  # FIXME: Metrics do not work yet
+  servermetrics:
+    enabled: true
+    type: servicemonitor
+    endpoints:
+      - port: "{{ .Values.service.servermetrics.ports.servermetrics.port }}"
+        path: /metrics
+    prometheusRule:
+      enabled: false
+  radiusmetrics:
+    enabled: true
+    type: servicemonitor
+    endpoints:
+      - port: "{{ .Values.service.radiusmetrics.ports.radiusmetrics.port }}"
+        path: /metrics
+    prometheusRule:
+      enabled: false
+  ldapmetrics:
+    enabled: true
+    type: servicemonitor
+    endpoints:
+      - port: "{{ .Values.service.ldapmetrics.ports.ldapmetrics.port }}"
+        path: /metrics
+    prometheusRule:
+      enabled: false
+  proxymetrics:
+    enabled: true
+    type: servicemonitor
+    endpoints:
+      - port: "{{ .Values.service.proxymetrics.ports.proxymetrics.port }}"
+        path: /metrics
+    prometheusRule:
+      enabled: false

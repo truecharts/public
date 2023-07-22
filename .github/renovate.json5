@@ -62,7 +62,7 @@
       "bumpVersion": "major",
       "labels": ["update/helm/dependency/major"],
       "groupName": ["helm dependency major"],
-      "matchPaths": ["charts/dependency/**"],
+      "matchPaths": ["charts/dependency/**", "templates/**"],
     },
     {
       "matchDatasources": ["helm"],
@@ -73,11 +73,11 @@
       ],
       "bumpVersion": "patch",
       "labels": ["update/helm/dependency/non-major", "automerge"],
-      "matchPaths": ["charts/dependency/**"],
+      "matchPaths": ["charts/dependency/**", "templates/**"],
       "groupName": "helm dependency non-major",
     },
     //
-    // helm ent
+    // helm ent and operators
     //
     {
       "matchDatasources": ["helm"],
@@ -86,7 +86,7 @@
       "enabled": true,
       "labels": ["update/helm/general/major"],
       "groupName": ["helm general major"],
-      "matchPaths": ["charts/enterprise/**"],
+      "matchPaths": ["charts/enterprise/**", "charts/operators/**"],
       "schedule": [
         "before 10pm on tuesday"
       ],
@@ -102,7 +102,7 @@
       "bumpVersion": "patch",
       "labels": ["update/helm/general/non-major", "automerge"],
       "groupName": "helm general non-major",
-      "matchPaths": ["charts/enterprise/**"],
+      "matchPaths": ["charts/enterprise/**", "charts/operators/**"],
       "schedule": [
         "before 10pm on tuesday"
       ],
@@ -139,7 +139,7 @@
       ],
     },
     //
-    // Tag updates for semantic tags on enterprise Apps
+    // Tag updates for semantic tags on enterprise and operatorApps
     //
     {
       "matchDatasources": ["docker"],
@@ -147,7 +147,7 @@
       "enabled": true,
       "bumpVersion": "major",
       "labels": ["update/docker/enterprise/major"],
-      "matchPaths": ["charts/enterprise/**"],
+      "matchPaths": ["charts/enterprise/**", "charts/operators/**"],
     },
     {
       "matchDatasources": ["docker"],
@@ -158,7 +158,7 @@
       "enabled": true,
       "bumpVersion": "patch",
       "labels": ["update/docker/enterprise/minor"],
-      "matchPaths": ["charts/enterprise/**"],
+      "matchPaths": ["charts/enterprise/**", "charts/operators/**"],
     },
     {
       "matchDatasources": ["docker"],
@@ -172,6 +172,19 @@
       "enabled": true,
       "labels": ["update/docker/enterprise/patch", "automerge"],
       "matchPaths": ["charts/enterprise/**"],
+    },
+    {
+      "matchDatasources": ["docker"],
+      "automerge": false,
+      "matchUpdateTypes": [
+        "patch",
+        "digest",
+        "pin",
+      ],
+      "bumpVersion": "patch",
+      "enabled": true,
+      "labels": ["update/docker/operator/patch"],
+      "matchPaths": ["charts/operator/**"],
     },
     //
     // Tag updates for semantic tags on incubator and dev charts
@@ -191,15 +204,25 @@
         "minor",
         "patch",
         "digest",
-        "pin",
       ],
       "bumpVersion": "patch",
       "enabled": false,
       "labels": ["update/docker/incubator/non-major", "automerge"],
       "matchPaths": ["charts/incubator/**", "charts/dev/**"],
     },
+    {
+      "matchDatasources": ["docker"],
+      "automerge": false,
+      "matchUpdateTypes": [
+        "pin",
+      ],
+      "bumpVersion": "patch",
+      "enabled": true,
+      "labels": ["update/docker/incubator/non-major", "automerge"],
+      "matchPaths": ["charts/incubator/**", "charts/dev/**"],
+    },
     //
-    // Tag updates for semantic tags on all but enterprise and incubator Apps
+    // Tag updates for semantic tags on all but enterprise, operator and incubator Apps
     //
     {
       "matchDatasources": ["docker"],
@@ -267,6 +290,11 @@
       "matchDatasources": ["docker"],
       "matchPackagePrefixes": ["tccr.io/truecharts/webtop"],
       "groupName": "webtop",
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["tccr.io/truecharts/metallb"],
+      "groupName": "metallb",
     },
     {
       "matchDatasources": ["docker"],

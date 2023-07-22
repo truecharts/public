@@ -1,0 +1,34 @@
+apiVersion: v2
+appVersion: "latest"
+deprecated: false
+description: Cert-Manager is a kubernetes-aware certificate manager
+home: https://truecharts.org/charts/operators/cert-manager
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/cert-manager.png
+keywords:
+  - cert-manager
+  - certificates
+  - security
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 13.2.0
+  - name: cert-manager
+    repository: https://charts.jetstack.io
+    version: v1.12.2
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: cert-manager
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/operators/cert-manager
+  - https://github.com/cert-manager
+  - https://cert-manager.io/
+type: application
+version: 1.0.0
+annotations:
+  truecharts.org/catagories: |
+    - operators
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

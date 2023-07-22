@@ -8,6 +8,7 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
                                 - variable: imageSelector
                                   label: Select Image
                                   schema:
@@ -16,8 +17,10 @@ questions:
                                     enum:
                                       - value: image
                                         description: Java 17 HotSpot
-                                      - value: j19Image
-                                        description: Java 19 HotSpot
+                                      - value: j20Image
+                                        description: Java 20 HotSpot
+                                      - value: j20AlpineImage
+                                        description: Java 20 Alpine
                                       - value: j17j9Image
                                         description: Java 17 OpenJ9
                                       - value: j17jdkImage
@@ -25,7 +28,7 @@ questions:
                                       - value: j17gceImage
                                         description: Java 17 GraalVM CE
                                       - value: j17alpineImage
-                                        description: Java 17 Hotspot(Alpine)
+                                        description: Java 17 Alpine
                                       - value: j11jdkImage
                                         description: Java 11 JDK
                                       - value: j11Image
@@ -114,6 +117,8 @@ questions:
                                               description: FTBA
                                             - value: CURSEFORGE
                                               description: Curseforge
+                                            - value: AUTO_CURSEFORGE
+                                              description: Auto CurseForge
                                             - value: QUILT
                                               description: Quilt
                                             - value: PUFFERFISH
@@ -322,6 +327,84 @@ questions:
                                           type: boolean
                                           default: false
                                           show_if: [[TYPE, "=", "CURSEFORGE"]]
+                                      - variable: CF_API_KEY
+                                        label: CF API Key
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          show_if: [[TYPE, "=", "AUTO_CURSEFORGE"]]
+                                      - variable: CF_PAGE_URL
+                                        label: CF modpack page URL
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          show_if: [[TYPE, "=", "AUTO_CURSEFORGE"]]
+                                      - variable: CF_SLUG
+                                        label: CF modpack slug
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          show_if: [[TYPE, "=", "AUTO_CURSEFORGE"]]
+                                      - variable: modpack_exclusions
+                                        label: Configure modpack exclusions
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                          show_if: [[TYPE, "=", "AUTO_CURSEFORGE"]]
+                                          show_subquestions_if: true
+                                          subquestions:
+                                            - variable: CF_EXCLUDE_INCLUDE_FILE
+                                              label: JSON file path
+                                              schema:
+                                                type: string
+                                            - variable: CF_EXCLUDE_MODS
+                                              label: List of project slugs or IDs to exclude
+                                              description: "Comma or space delimited list"
+                                              schema:
+                                                type: string
+                                                default: ""
+                                            - variable: CF_FORCE_INCLUDE_MODS
+                                              label: List of project slugs or IDs to force include
+                                              description: "Comma or space delimited list"
+                                              schema:
+                                                type: string
+                                                default: ""
+                                            - variable: CF_FORCE_SYNCHRONIZE
+                                              label: Check to ensure the exclude/includes are re-evaluated
+                                              schema:
+                                                type: boolean
+                                                default: false
+                                      - variable: advanced_auto_curseforge
+                                        label: Advanced Auto CurseForge configurations
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                          show_if: [[TYPE, "=", "AUTO_CURSEFORGE"]]
+                                          show_subquestions_if: true
+                                          subquestions:
+                                            - variable: CF_OVERRIDES_SKIP_EXISTING
+                                              label: Skip files in the overrides that already exist in the data directory
+                                              schema:
+                                                type: boolean
+                                                default: false
+                                            - variable: CF_PARALLEL_DOWNLOADS
+                                              label: How many parallel mod downloads to perform
+                                              schema:
+                                                type: int
+                                                default: 4
+                                            - variable: CF_SET_LEVEL_FROM
+                                              label: Saves directory
+                                              description: "Some modpacks come with world/save data via a worlds file and/or the overrides provided with the modpack. Either approach can be selected to set the LEVEL to the resulting saves directory."
+                                              schema:
+                                                type: string
+                                                default: ""
+                                                enum:
+                                                  - value: ""
+                                                    description: Default
+                                                  - value: WORLD_FILE
+                                                    description: World File
+                                                  - value: OVERRIDES
+                                                    description: Overrides
                                       - variable: DIFFICULTY
                                         label: Difficulty
                                         schema:
@@ -564,6 +647,19 @@ questions:
                               type: int
                               default: 25565
                               required: true
+                    - variable: query
+                      label: Query Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 25565
+                              required: true
         - variable: rcon
           label: RCON Service
           description: The RCON service.
@@ -606,13 +702,13 @@ questions:
                 description: "The UserID of the user running the application"
                 schema:
                   type: int
-                  default: 0
+                  default: 568
               - variable: runAsGroup
                 label: "runAsGroup"
                 description: "The groupID of the user running the application"
                 schema:
                   type: int
-                  default: 0
+                  default: 568
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
