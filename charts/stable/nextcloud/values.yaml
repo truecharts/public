@@ -56,6 +56,8 @@ nextcloud:
     max_y: 2048
     max_memory: 1024
     max_file_size_image: 50
+    # Setting for Imaginary
+    max_allowed_resolution: 18.0
     jpeg_quality: 60
     square_sizes: 32 256
     width_sizes: 256 384
@@ -222,6 +224,8 @@ workload:
             - "{{ .Values.service.imaginary.ports.imaginary.port }}"
             - -concurrency
             - "10"
+            - -max-allowed-resolution
+            - "{{ .Values.nextcloud.previews.max_allowed_resolution }}"
             - -enable-url-source
             - -return-size
           probes:
