@@ -6,13 +6,11 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
-
   - variable: mealie
     group: App Configuration
     label: Mealie Configuration
@@ -38,84 +36,98 @@ questions:
                       schema:
                         type: string
                         default: "#E58325"
+                        required: true
                     - variable: light_accent
                       label: Light Accent
                       description: Light Theme Config Variable
                       schema:
                         type: string
                         default: "#007A99"
+                        required: true
                     - variable: light_secondary
                       label: Light Secondary
                       description: Light Theme Config Variable
                       schema:
                         type: string
                         default: "#973542"
+                        required: true
                     - variable: light_success
                       label: Light Success
                       description: Light Theme Config Variable
                       schema:
                         type: string
                         default: "#43A047"
+                        required: true
                     - variable: light_info
                       label: Light Info
                       description: Light Theme Config Variable
                       schema:
                         type: string
                         default: "#1976D2"
+                        required: true
                     - variable: light_warning
                       label: Light Warning
                       description: Light Theme Config Variable
                       schema:
                         type: string
                         default: "#FF6D00"
+                        required: true
                     - variable: light_error
                       label: Light Error
                       description: Light Theme Config Variable
                       schema:
                         type: string
                         default: "#EF5350"
+                        required: true
                     - variable: dark_primary
                       label: Dark Primary
                       description: Dark Theme Config Variable
                       schema:
                         type: string
                         default: "#E58325"
+                        required: true
                     - variable: dark_accent
                       label: Dark Accent
                       description: Dark Theme Config Variable
                       schema:
                         type: string
                         default: "#007A99"
+                        required: true
                     - variable: dark_secondary
                       label: Dark Secondary
                       description: Dark Theme Config Variable
                       schema:
                         type: string
                         default: "#973542"
+                        required: true
                     - variable: dark_success
                       label: Dark Success
                       description: Dark Theme Config Variable
                       schema:
                         type: string
                         default: "#43A047"
+                        required: true
                     - variable: dark_info
                       label: Dark Info
                       description: Dark Theme Config Variable
                       schema:
                         type: string
                         default: "#1976D2"
+                        required: true
                     - variable: dark_warning
                       label: Dark Warning
                       description: Dark Theme Config Variable
                       schema:
                         type: string
                         default: "#FF6D00"
+                        required: true
                     - variable: dark_error
                       label: Dark Error
                       description: Dark Theme Config Variable
                       schema:
                         type: string
                         default: "#EF5350"
+                        required: true
         - variable: api
           label: Mealie API Configuration
           schema:
@@ -128,6 +140,12 @@ questions:
                   additional_attrs: true
                   type: dict
                   attrs:
+                    - variable: base_url
+                      label: Base URL
+                      description: Used for Notifications
+                      schema:
+                        type: string
+                        default: ""
                     - variable: allow_signup
                       label: Allow Sign up
                       description: Allow user sign-up without token
@@ -140,24 +158,21 @@ questions:
                       schema:
                         type: string
                         default: Home
+                        required: true
                     - variable: default_email
                       label: Default Email
                       description: The default username for the superuser
                       schema:
                         type: string
                         default: changeme@email.com
-                    - variable: base_url
-                      label: Base URL
-                      description: Used for Notifications
-                      schema:
-                        type: string
-                        default: ""
+                        required: true
                     - variable: token_time
                       label: Token Time
                       description: The time in hours that a login/auth token is valid
                       schema:
                         type: int
                         default: 48
+                        required: true
               - variable: security
                 label: Security
                 schema:
@@ -170,12 +185,14 @@ questions:
                       schema:
                         type: int
                         default: 5
+                        required: true
                     - variable: user_lockout_time
                       label: User Lockout Time
                       description: Time in hours for how long a users account is locked
                       schema:
                         type: int
                         default: 24
+                        required: true
               - variable: webworkers
                 label: Web Workers
                 schema:
@@ -188,37 +205,27 @@ questions:
                       schema:
                         type: int
                         default: 1
+                        required: true
                     - variable: max_workers
                       label: Max Workers
                       description: Set the maximum number of workers to use. Default is not set meaning unlimited.
                       schema:
                         type: int
                         default: 1
+                        required: true
                     - variable: web_concurrency
                       label: Web Concurrency
                       description: Override the automatic definition of number of workers.
                       schema:
                         type: int
                         default: 1
+                        required: true
               - variable: smtp
                 label: SMTP
                 schema:
                   additional_attrs: true
                   type: dict
                   attrs:
-                    - variable: user
-                      label: User
-                      description: Mail User
-                      schema:
-                        type: string
-                        default: ""
-                    - variable: password
-                      label: Password
-                      description: Mail Password
-                      schema:
-                        type: string
-                        private: true
-                        default: ""
                     - variable: host
                       label: Host
                       description: Mail Host
@@ -230,24 +237,48 @@ questions:
                       description: Mail Port
                       schema:
                         type: int
+                        show_if: [["host", "!=", ""]]
                         default: 587
+                        required: true
+                    - variable: user
+                      label: User
+                      description: Mail User
+                      schema:
+                        type: string
+                        show_if: [["host", "!=", ""]]
+                        required: true
+                        default: ""
+                    - variable: password
+                      label: Password
+                      description: Mail Password
+                      schema:
+                        type: string
+                        show_if: [["host", "!=", ""]]
+                        private: true
+                        required: true
+                        default: ""
                     - variable: from_name
                       label: From Name
                       description: Mail From Name
                       schema:
                         type: string
+                        show_if: [["host", "!=", ""]]
+                        required: true
                         default: Mealie
                     - variable: from_email
                       label: From Email
                       description: Mail From Email
                       schema:
                         type: string
+                        required: true
                         default: ""
                     - variable: auth_strategy
                       label: Auth Strategy
                       description: Mail Auth Strategy
                       schema:
                         type: string
+                        show_if: [["host", "!=", ""]]
+                        required: true
                         default: "TLS"
                         enum:
                           - value: TLS
@@ -280,15 +311,15 @@ questions:
                       schema:
                         type: boolean
                         default: false
+                    - variable: enable_starttls
+                      label: Enable StartTLS
+                      description: Use STARTTLS to connect to the server
+                      schema:
+                        type: boolean
+                        default: false
                     - variable: tls_cacertfile
                       label: TLS CA Cert File
                       description: File path to Certificate Authority used to verify server certificate
-                      schema:
-                        type: string
-                        default: ""
-                    - variable: bind_template
-                      label: Bind Template
-                      description: Templated DN for users, {} will be replaced with the username.
                       schema:
                         type: string
                         default: ""
@@ -298,12 +329,48 @@ questions:
                       schema:
                         type: string
                         default: ""
-                    - variable: admin_filter
-                      label: Admin Filter
-                      description: Optional LDAP filter, which tells Mealie the LDAP user .is an admin
+                    - variable: query_bind
+                      label: Query Bind
+                      description: Optional bind user for LDAP search queries
                       schema:
                         type: string
                         default: ""
+                    - variable: query_password
+                      label: Query Password
+                      description: Optional password for the bind user used
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: user_filter
+                      label: User Filter
+                      description: Optional LDAP filter to narrow down eligible users
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: admin_filter
+                      label: Admin Filter
+                      description: Optional LDAP filter, which tells Mealie the LDAP user is an admin
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: id_attribute
+                      label: ID Attribute
+                      description: The LDAP attribute that maps to the user's id
+                      schema:
+                        type: string
+                        default: uid
+                    - variable: user_attribute
+                      label: User Attribute
+                      description: The LDAP attribute that maps to the user's name
+                      schema:
+                        type: string
+                        default: name
+                    - variable: mail_attribute
+                      label: Mail Attribute
+                      description: The LDAP attribute that maps to the user's email
+                      schema:
+                        type: string
+                        default: mail
 
 # Include{containerConfig}
 # Include{podOptions}

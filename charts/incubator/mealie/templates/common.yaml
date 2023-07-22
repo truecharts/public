@@ -4,7 +4,7 @@
 {{/* Render secrets for mealie */}}
 {{- $secrets := include "mealie.secrets" . | fromYaml -}}
 {{- if $secrets -}}
-{{- $_ := set .Values.secret "mealie-secrets" $secrets -}}
+  {{- $_ := mustMergeOverwrite .Values.secret $secrets -}}
 {{- end -}}
 
 {{/* Render the templates */}}

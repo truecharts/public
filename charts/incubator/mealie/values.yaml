@@ -59,10 +59,6 @@ mealie:
     security:
       max_login_attempts: 5
       user_lockout_time: 24
-    webworkers:
-      workers_per_core: 1
-      max_workers: 1
-      web_concurrency: 1
     smtp:
       user: ""
       password: ""
@@ -72,14 +68,24 @@ mealie:
       from_email: ""
       # TLS | SSL | NONE
       auth_strategy: TLS
+    webworkers:
+      workers_per_core: 1
+      max_workers: 1
+      web_concurrency: 1
     ldap:
       auth_enabled: false
       server_url: ""
       tls_insecure: false
+      enable_starttls: false
       tls_cacertfile: ""
-      bind_template: ""
       base_dn: ""
+      query_bind: ""
+      query_password: ""
+      user_filter: ""
       admin_filter: ""
+      id_attribute: uid
+      user_attribute: name
+      mail_attribute: mail
 
 workload:
   main:
@@ -98,7 +104,7 @@ workload:
               type: http
           envFrom:
             - secretRef:
-                name: mealie-secrets
+                name: frontend
   api:
     enabled: true
     type: Deployment
@@ -125,7 +131,7 @@ workload:
               port: "{{ .Values.service.api.ports.api.port }}"
           envFrom:
             - secretRef:
-                name: mealie-secrets
+                name: api
 
 persistence:
   data:
@@ -134,6 +140,7 @@ persistence:
       main:
         main:
           mountPath: /app/data
+          readOnly: true
       api:
         api:
           mountPath: /app/data
