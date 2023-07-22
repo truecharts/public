@@ -1,16 +1,16 @@
 image:
   repository: tccr.io/truecharts/misskey
   pullPolicy: IfNotPresent
-  tag: 13.8.1@sha256:8c0686172b31fd55c25168f333107ba1ae7a622505d36a95d387a41209927fbe
+  tag: v13.13.2@sha256:efc293f9d7988327e4e4c9c2694f8889edfb0165edf8bef1ea4a5b4ca6409402
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-  fsGroup: 33
+  pod:
+    fsgroup: 33
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
 
 service:
   main:
@@ -25,41 +25,54 @@ misskey:
   id: "aid"
   other:
     disableHSTS: false
-    signToActivityPubGet: false
+    signToActivityPubGet: true
     maxFileSize: 262144000
     clusterLimit: 1
     deliverJobConcurrency: 128
     inboxJobConcurrency: 16
+    relashionshipJobConcurrency: 16
     deliverJobPerSec: 128
     inboxJobPerSec: 16
+    relashionshipJobPerSec: 64
     deliverJobMaxAttempts: 12
     inboxJobMaxAttempts: 8
     allowedPrivateNetworks:
       - 127.0.0.1/32
+    proxyBypassHosts:
+      - api.deepl.com
+      - api-free.deepl.com
+      - www.recaptcha.net
+      - hcaptcha.com
+      - challenges.cloudflare.com
 
-env:
-  # NODE_ENV = production | development
-  NODE_ENV: production
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            NODE_ENV: production
 
 persistence:
   misskeyconfig:
     enabled: true
-    type: configMap
+    type: configmap
     objectName: misskeyconfig
     mountPath: "/misskey/.config"
   files:
     enabled: true
     mountPath: "/misskey/files"
 
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: misskey
-  postgresqlDatabase: misskey
+cnpg:
+  main:
+    enabled: true
+    user: misskey
+    database: misskey
 
 redis:
   enabled: true
-  existingSecret: "rediscreds"
+  username: default
 
 portal:
-  enabled: true
+  open:
+    enabled: true
