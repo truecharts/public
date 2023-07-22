@@ -124,7 +124,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-201-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-202-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -394,6 +394,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/svetlemodry"><img src="https://avatars.githubusercontent.com/u/8712544?v=4?s=100" width="100px;" alt="Jaroslav Lichtblau"/><br /><sub><b>Jaroslav Lichtblau</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=svetlemodry" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Maximilian-Staab"><img src="https://avatars.githubusercontent.com/u/20892091?v=4?s=100" width="100px;" alt="MaximilianS"/><br /><sub><b>MaximilianS</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=Maximilian-Staab" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://dionlarson.com"><img src="https://avatars.githubusercontent.com/u/1843883?v=4?s=100" width="100px;" alt="Dion Larson"/><br /><sub><b>Dion Larson</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=dionlarson" title="Code">💻</a> <a href="https://github.com/truecharts/charts/commits?author=dionlarson" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/waflint"><img src="https://avatars.githubusercontent.com/u/94139453?v=4?s=100" width="100px;" alt="waflint"/><br /><sub><b>waflint</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=waflint" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
