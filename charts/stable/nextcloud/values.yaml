@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/nextcloud-fpm
   pullPolicy: IfNotPresent
-  tag: v27.0.0@sha256:86e87cd2b7f64c5085ae6dc1a5cff06e3bbae45d13794a7e63320c784cea6ed7
+  tag: v27.0.0@sha256:0810b5cab6f7e927c80225dd5debfede8836759e5b5237b699373cf927057b02
 nginxImage:
   repository: tccr.io/truecharts/nginx-unprivileged
   pullPolicy: IfNotPresent
@@ -21,7 +21,7 @@ clamavImage:
 collaboraImage:
   repository: tccr.io/truecharts/collabora
   pullPolicy: IfNotPresent
-  tag: v23.05.0.5.1@sha256:a753bfe9d5479e992e914f5818bc96f33ff95dd3760cb10938ae2296286c416e
+  tag: v23.05.1.3.1@sha256:b1dbcd6f551b75d6a2153ee5a24cfe5e9252e3b71dc629b1b74cb5e29cca97a8
 
 nextcloud:
   # Initial Credentials
@@ -56,6 +56,8 @@ nextcloud:
     max_y: 2048
     max_memory: 1024
     max_file_size_image: 50
+    # Setting for Imaginary
+    max_allowed_resolution: 18.0
     jpeg_quality: 60
     square_sizes: 32 256
     width_sizes: 256 384
@@ -222,6 +224,8 @@ workload:
             - "{{ .Values.service.imaginary.ports.imaginary.port }}"
             - -concurrency
             - "10"
+            - -max-allowed-resolution
+            - "{{ .Values.nextcloud.previews.max_allowed_resolution }}"
             - -enable-url-source
             - -return-size
           probes:
