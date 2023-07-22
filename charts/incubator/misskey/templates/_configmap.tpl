@@ -1,12 +1,6 @@
 {{/* Define the configmap */}}
 {{- define "misskey.configmap" -}}
-{{- $redisHost := .Values.redis.creds.plainhost | trimAll "\"" -}}
-{{- $redisPass := .Values.redis.creds.redisPassword | trimAll "\"" -}}
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: misskeyconfig
+enabled: true
 data:
   default.yml: |-
     #━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -87,9 +81,9 @@ data:
     #───┘ Redis configuration └─────────────────────────────────────
 
     redis:
-      host: {{ $redisHost }}
+      host: {{ .Values.redis.creds.plainhost | trimAll "\"" }}
       port: 6379
-      pass: {{ $redisPass }}
+      pass: {{ .Values.redis.creds.redisPassword | trimAll "\"" }}
       #prefix: example-prefix
       #db: 1
 
@@ -177,6 +171,4 @@ data:
 
     # Upload or download file size limits (bytes)
     maxFileSize: {{ .Values.misskey.other.maxFileSize }}
-
-
 {{- end -}}

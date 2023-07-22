@@ -4,13 +4,13 @@ image:
   tag: v13.13.2@sha256:efc293f9d7988327e4e4c9c2694f8889edfb0165edf8bef1ea4a5b4ca6409402
 
 securityContext:
+  pod:
+    fsgroup: 33
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-  pod:
-    fsgroup: 33
 
 service:
   main:
@@ -43,7 +43,6 @@ workload:
       containers:
         main:
           env:
-            # NODE_ENV = production | development
             NODE_ENV: production
 
 persistence:
