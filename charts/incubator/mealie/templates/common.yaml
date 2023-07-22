@@ -1,13 +1,11 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "tc.common.loader.init" . }}
+{{- include "tc.v1.common.loader.init" . }}
 
-{{/* Render secret */}}
-{{- include "mealie.secret" . }}
-
-{{/* Render config */}}
-{{- include "mealie.config" . }}
-
-{{- $_ := set .Values.additionalContainers "api" (include "mealie.api" . | fromYaml) -}}
+{{/* Render secrets for mealie */}}
+{{- $secrets := include "mealie.secrets" . | fromYaml -}}
+{{- if $secrets -}}
+  {{- $_ := mustMergeOverwrite .Values.secret $secrets -}}
+{{- end -}}
 
 {{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}
+{{ include "tc.v1.common.loader.apply" . }}
