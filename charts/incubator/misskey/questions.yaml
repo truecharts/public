@@ -10,6 +10,8 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+# Include{containerBasic}
+# Include{containerAdvanced}
 
   - variable: misskey
     group: App Configuration
@@ -151,10 +153,6 @@ questions:
                         type: string
                         required: true
                         default: ""
-
-# Include{containerBasic}
-# Include{containerAdvanced}
-
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -204,20 +202,19 @@ questions:
 # Include{ingressTraefik}
 # Include{ingressAdvanced}
 # Include{ingressList}
-
 # Include{podSecurityContextRoot}
-        - variable: runAsUser
-          label: runAsUser
-          description: The UserID of the user running the application
-          schema:
-            type: int
-            default: 0
-        - variable: runAsGroup
-          label: runAsGroup
-          description: The groupID this App of the user running the application
-          schema:
-            type: int
-            default: 0
+              - variable: runAsUser
+                label: runAsUser
+                description: The UserID of the user running the application
+                schema:
+                  type: int
+                  default: 0
+              - variable: runAsGroup
+                label: runAsGroup
+                description: The groupID this App of the user running the application
+                schema:
+                  type: int
+                  default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
