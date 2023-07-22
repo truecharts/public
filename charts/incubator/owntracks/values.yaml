@@ -50,7 +50,7 @@ workload:
                   command:
                     - /usr/sbin/recorder-health.sh
           envFrom:
-            secretRef:
+            - secretRef:
               name: 'owntracks-secret'
 
 persistence:
