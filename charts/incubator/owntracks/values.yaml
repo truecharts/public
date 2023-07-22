@@ -50,8 +50,8 @@ workload:
                   command:
                     - /usr/sbin/recorder-health.sh
           envFrom:
-            configMapRef:
-              name: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-secret'
+            secretRef:
+              name: 'owntracks-secret'
 
 persistence:
   store:
