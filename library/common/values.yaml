@@ -67,7 +67,7 @@ image:
   # -- Image repository
   repository: tccr.io/truecharts/whoami
   # -- Image tag
-  tag: 1.9.0@sha256:ff8dfff3c266af64aa7a6653c0b7f2c51fd6c0608335997af1d334aac3e19798
+  tag: v1.10.1@sha256:36d22e4b8a154919b819bd7283531783eca9076972e8fc631649bb7eade770d9
   # -- Image pull policy
   pullPolicy: IfNotPresent
 
@@ -330,7 +330,7 @@ tailscaleImage:
 
 codeserverImage:
   repository: tccr.io/truecharts/code-server
-  tag: v4.14.1@sha256:729253c02e4481bd1184c29466859db0cdb3fa306c8fc319c96975bf26a6b4f6
+  tag: v4.15.0@sha256:38095332888d4b509b204552eecb2d22d45c2f78205f48f8360b6e93fbe49354
   pullPolicy: IfNotPresent
 
 alpineImage:
