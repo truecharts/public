@@ -124,7 +124,7 @@ service:
       main:
         port: 10018
         protocol: http
-        targetPort: 3001
+        targetPort: 3000
   api:
     enabled: true
     type: ClusterIP
