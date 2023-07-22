@@ -97,16 +97,15 @@ workload:
           imageSelector: apiImage
           probes:
             liveness:
-              path: /docs
+              path: /api/app/about
               type: http
               port: "{{ .Values.service.api.ports.api.port }}"
             readiness:
-              path: /docs
+              path: /api/app/about
               type: http
               port: "{{ .Values.service.api.ports.api.port }}"
             startup:
-              path: /docs
-              type: http
+              type: tcp
               port: "{{ .Values.service.api.ports.api.port }}"
           envFrom:
             - secretRef:
