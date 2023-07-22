@@ -1,6 +1,7 @@
 {{/* Define the configmap */}}
 {{- define "owntracks.secret" -}}
 
+{{- $secretName := (printf "%s-owntracks-secret" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
 secret:
 enabled: true
 stringData:
