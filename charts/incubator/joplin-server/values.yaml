@@ -18,10 +18,16 @@ workload:
           probes:
             liveness:
               path: "/api/ping"
+              httpHeaders:
+                Host: '{{ .Values.workload.main.podSpec.containers.main.env.APP_BASE_URL | replace "https://" "" | replace "http://" "" }}'
             readiness:
               path: "/api/ping"
+              httpHeaders:
+                Host: '{{ .Values.workload.main.podSpec.containers.main.env.APP_BASE_URL | replace "https://" "" | replace "http://" "" }}'
             startup:
               path: "/api/ping"
+              httpHeaders:
+                Host: '{{ .Values.workload.main.podSpec.containers.main.env.APP_BASE_URL | replace "https://" "" | replace "http://" "" }}'
           env:
             APP_BASE_URL: ""
             APP_PORT: "{{ .Values.service.main.ports.main.port }}"
