@@ -1,6 +1,7 @@
 {{/* Define the configmap */}}
 {{- define "owntracks.secret" -}}
 
+secret:
 enabled: true
 stringData:
   OTR_HTTPPORT: {{ .Values.service.main.ports.main.port | quote }}
