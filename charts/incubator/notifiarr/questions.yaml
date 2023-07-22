@@ -22,43 +22,43 @@ questions:
                                         description: "Notifiarr All Integrations API key from https://notifiarr.com"
                                         schema:
                                           type: string
-                                          default: "CHANGEME"
-                                      - variable: upstream1
-                                        label: "Upstream 1"
+                                          default: ""
+                                          required: true
+                                      - variable: upstreams
+                                        label: "Upstreams"
                                         description: "Controls which IP is written to the web server log file (requestor or x-forwarded-for header). Also allows the x-webauth-user header for proxy authentication. Separate with spaces. The default kubernetes network is pre-filled."
                                         schema:
-                                          type: string
-                                          default: ""
-                                      - variable: upstream2
-                                        label: "Upstream 2"
-                                        description: "Controls which IP is written to the web server log file (requestor or x-forwarded-for header). Also allows the x-webauth-user header for proxy authentication. Separate with spaces. The default kubernetes network is pre-filled."
+                                          type: list
+                                          default:
+                                            - 172.16.0.0/16
+                                          items:
+                                            - variable: upstreamEntry
+                                              label: "Upstream"
+                                              description: "Upstream IP or CIDR"
+                                              schema:
+                                                type: string
+                                                default: ""
+                                                required: true
+                                      - variable: credentials
+                                        label: "Web UI Credentials"
                                         schema:
-                                          type: string
-                                          default: ""
-                                      - variable: upstream3
-                                        label: "Upstream 3"
-                                        description: "Controls which IP is written to the web server log file (requestor or x-forwarded-for header). Also allows the x-webauth-user header for proxy authentication. Separate with spaces. The default kubernetes network is pre-filled."
-                                        schema:
-                                          type: string
-                                          default: ""
-                                      - variable: upstream4
-                                        label: "Upstream 4"
-                                        description: "Controls which IP is written to the web server log file (requestor or x-forwarded-for header). Also allows the x-webauth-user header for proxy authentication. Separate with spaces. The default kubernetes network is pre-filled."
-                                        schema:
-                                          type: string
-                                          default: ""
-                                      - variable: username
-                                        label: "Web UI Username"
-                                        description: "Default username is admin. Change it here."
-                                        schema:
-                                          type: string
-                                          default: ""
-                                      - variable: password
-                                        label: "Web UI Password"
-                                        description: "Set a first time login password (minimum 9 characters) & change the password from the Web UI to encrypt it. If you don't set this you will need to check the logs on first start to find the generated password."
-                                        schema:
-                                          type: string
-                                          default: ""
+                                          additional_attrs: true
+                                          type: dict
+                                          attrs:
+                                            - variable: username
+                                              label: "Web UI Username"
+                                              description: "Default username is admin. Change it here."
+                                              schema:
+                                                type: string
+                                                default: ""
+                                                required: true
+                                            - variable: password
+                                              label: "Web UI Password"
+                                              description: "Set a first time login password (minimum 9 characters) & change the password from the Web UI to encrypt it. If you don't set this you will need to check the logs on first start to find the generated password."
+                                              schema:
+                                                type: string
+                                                default: ""
+                                                required: true
 
 # Include{containerBasic}
 # Include{containerAdvanced}

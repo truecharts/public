@@ -6,13 +6,9 @@ image:
 notifiarr:
   upstreams:
     - 172.16.0.0/16
-    - upstream1
-    - upstream2
-    - upstream3
-    - upstream4
   credentials:
-    - username
-    - password
+    username: ""
+    password: ""
 
 service:
   main:
@@ -20,7 +16,6 @@ service:
       main:
         port: 5454
         protocol: http
-        targetPort: 5454
 
 workload:
   main:
@@ -29,9 +24,10 @@ workload:
         main:
           env:
             TMPDIR: /tmpdir
-            DN_API_KEY: "CHANGEME"
+            DN_API_KEY: ""
+            DN_BIND_ADDR: '{{ printf "0.0.0.0:%v" .Values.service.main.ports.main.port }}'
             DN_UPSTREAMS_0: '{{ join " " .Values.notifiarr.upstreams }}'
-            DN_UI_PASSWORD: '{{ join ":" .Values.notifiarr.credentials }}'
+            DN_UI_PASSWORD: '{{ join ":" .Values.notifiarr.credentials.username .Values.notifiarr.credentials.password }}'
 
 persistence:
   config:
