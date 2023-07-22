@@ -20,6 +20,7 @@ workload:
               add:
                 - CHOWN
                 - DAC_OVERRIDE
+                - FOWNER
           env:
             DB_PASS:
               secretKeyRef:
