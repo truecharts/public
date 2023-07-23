@@ -1,11 +1,11 @@
 apiVersion: v2
-appVersion: "1.0.0beta"
+appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 13.2.0
 description: Mealie is a self hosted recipe manager and meal planner with a RestAPI backend
-home: https://truecharts.org/charts/incubator/mealie
+home: https://truecharts.org/charts/stable/mealie
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/mealie.png
 keywords:
   - grocy
@@ -16,7 +16,7 @@ maintainers:
     url: https://truecharts.org
 name: mealie
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/mealie
+  - https://github.com/truecharts/charts/tree/master/charts/stable/mealie
   - https://github.com/hay-kot/mealie
 version: 16.0.1
 annotations:
