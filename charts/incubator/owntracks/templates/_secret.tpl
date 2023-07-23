@@ -1,5 +1,6 @@
 {{/* Define the configmap */}}
 {{- define "owntracks.secret" -}}
+{{- $fullname := (include "tc.v1.common.lib.chart.names.fullname" $) -}}
 
 enabled: true
 data:
