@@ -11,7 +11,6 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-
                                 - variable: env
                                   group: App Configuration
                                   label: Image Environment
@@ -34,6 +33,7 @@ questions:
                                               description: Basic
                                             - value: Forms
                                               description: Forms
+
 # Include{containerBasic}
 # Include{containerAdvanced}
 
@@ -106,6 +106,8 @@ questions:
                   default: 568
 
 # Include{resources}
+# Include{metrics}
+# Include{prometheusRule}
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
