@@ -631,52 +631,90 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: initial_delay
-          label: Initial Delay
-          schema:
-            type: string
-            default: 2m
-        - variable: backup_interval
-          label: Backup Interval
-          schema:
-            type: string
-            default: 24hr
-        - variable: player_online_check_interval
-          label: Player Online Check Interval
-          schema:
-            type: string
-            default: 5m
-        - variable: prune_backups_days
-          label: Prune Backups Days
-          schema:
-            type: string
-            default: "7"
-        - variable: pause_if_no_players
-          label: Pause If No Players
+        - variable: enabled
+          label: Enable MC Backup Container
           schema:
             type: boolean
             default: false
-        - variable: link_latest
-          label: Link Latest
-          description: Creates a symbolic link to the latest backup.
-          schema:
-            type: boolean
-            default: false
-        - variable: tar_compress_method
-          label: Tar Compress Method
-          schema:
-            type: string
-            default: gzip
-        - variable: zstd_params
-          label: ZSTD Params
-          schema:
-            type: string
-            default: --long=25 --single-thread
-        - variable: excludes
-          label: Excludes
-          schema:
-            type: string
-            default: "*.jar,cache,logs,*.tmp"
+            show_subquestions_if: true
+            subquestions:
+              - variable: initial_delay
+                label: Initial Delay
+                schema:
+                  type: string
+                  default: 2m
+              - variable: backup_interval
+                label: Backup Interval
+                schema:
+                  type: string
+                  default: 24hr
+              - variable: player_online_check_interval
+                label: Player Online Check Interval
+                schema:
+                  type: string
+                  default: 5m
+              - variable: prune_backups_days
+                label: Prune Backups Days
+                schema:
+                  type: int
+                  default: 7
+              - variable: pause_if_no_players
+                label: Pause If No Players
+                schema:
+                  type: boolean
+                  default: false
+              - variable: link_latest
+                label: Link Latest
+                description: Creates a symbolic link to the latest backup.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: tar_compress_method
+                label: Tar Compress Method
+                schema:
+                  type: string
+                  default: gzip
+                  enum:
+                    - value: gzip
+                      description: Gzip
+                    - value: bzip2
+                      description: Bzip2
+                    - value: zstd
+                      description: Zstd
+              - variable: zstd_params
+                label: ZSTD Params
+                schema:
+                  type: list
+                  empty: false
+                  default:
+                    - --long=25
+                    - --single-thread
+                  required: true
+                  items:
+                    - variable: param
+                      label: Param
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+              - variable: excludes
+                label: Excludes
+                schema:
+                  type: list
+                  empty: false
+                  default:
+                    - "*.jar"
+                    - "cache"
+                    - "logs"
+                    - "*.tmp"
+                  required: true
+                  items:
+                    - variable: exclude
+                      label: Exclude
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
 
 # Include{containerConfig}
 # Include{podOptions}

@@ -79,16 +79,25 @@ service:
         port: 25575
 
 mcbackup:
+  enabled: true
   initial_delay: 2m
   backup_interval: 24hr
   player_online_check_interval: 5m
-  prune_backups_days: "7"
+  prune_backups_days: 7
   pause_if_no_players: false
   link_latest: false
+  # values gzip,bzip2,zstd
   tar_compress_method: gzip
-  zstd_params: --long=25 --single-thread
-  excludes: "*.jar,cache,logs,*.tmp"
-  rcon_pass: "{{ .Values.env.RCON_PASSWORD }}"
+  # White spaced separated list
+  zstd_params:
+    - --long=25
+    - --single-thread
+  # comma separated list
+  excludes:
+    - "*.jar"
+    - "cache"
+    - "logs"
+    - "*.tmp"
 
 workload:
   main:
@@ -202,8 +211,6 @@ workload:
   mcbackup:
     enabled: true
     type: Deployment
-    strategy: RollingUpdate
-    replicas: 1
     podSpec:
       containers:
         mcbackup:
@@ -222,18 +229,18 @@ workload:
             DEST_DIR: "{{.Values.persistence.backups.mountPath }}"
             SRC_DIR: "{{.Values.persistence.data.mountPath }}"
             SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
-            RCON_HOST: "0.0.0.0"
+            RCON_HOST: '{{ include "tc.v1.common.lib.chart.names.fullname" $ }}'
             RCON_PORT: "{{ .Values.service.rcon.ports.rcon.port }}"
-            RCON_PASSWORD: "{{ .Values.mcbackup.rcon_pass }}"
+            RCON_PASSWORD: "{{ .Values.env.RCON_PASSWORD }}"
             INITIAL_DELAY: "{{ .Values.mcbackup.initial_delay }}"
             BACKUP_INTERVAL: "{{ .Values.mcbackup.backup_interval }}"
             PRUNE_BACKUPS_DAYS: "{{ .Values.mcbackup.prune_backups_days }}"
-            PAUSE_IF_NO_PLAYERS: "{{ ternary true false .Values.mcbackup.pause_if_no_players }}"
+            PAUSE_IF_NO_PLAYERS: "{{ .Values.mcbackup.pause_if_no_players }}"
             PLAYERS_ONLINE_CHECK_INTERVAL: "{{ .Values.mcbackup.player_online_check_interval }}"
-            LINK_LATEST: "{{ ternary true false .Values.mcbackup.link_latest }}"
+            LINK_LATEST: "{{ .Values.mcbackup.link_latest }}"
             TAR_COMPRESS_METHOD: "{{ .Values.mcbackup.tar_compress_method }}"
-            ZSTD_PARAMETERS: "{{ .Values.mcbackup.zstd_params }}"
-            EXCLUDES: "{{ .Values.mcbackup.excludes }}"
+            ZSTD_PARAMETERS: "{{ join ' ' .Values.mcbackup.zstd_params }}"
+            EXCLUDES: "{{ join ',' .Values.mcbackup.excludes }}"
 
 persistence:
   data:
@@ -249,7 +256,6 @@ persistence:
   backups:
     enabled: true
     mountPath: /backups
-    targetSelectorAll: true
 
 portal:
   open:
