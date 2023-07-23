@@ -123,7 +123,7 @@ db-init:
       echo "File [{{ $filename }}] failed to create."
       exit 1
     apply-seed.sh: |
-      psql  --host="$POSGRESQL_HOSTNAME" --port="$POSTGRESQL_PORT" \
+      psql  --host="$POSTGRESQL_HOSTNAME" --port="$POSTGRESQL_PORT" \
             --username="$POSTGRESQL_USER" --dbname="$POSTGRESQL_DATABASE" \
             --command='SELECT * FROM public.guacamole_user' --output="/dev/null"
       if [ $? -eq 0 ]; then
@@ -135,7 +135,7 @@ db-init:
         exit 1
       fi
       echo "Initializing database from [{{ $filename }}] file..."
-      psql  --host="$POSGRESQL_HOSTNAME" --port="$POSTGRESQL_PORT" \
+      psql  --host="$POSTGRESQL_HOSTNAME" --port="$POSTGRESQL_PORT" \
             --username="$POSTGRESQL_USER" --dbname="$POSTGRESQL_DATABASE" \
             --echo-all --no-password --file={{ $filename }}
       if [ $? -eq 0 ]; then
