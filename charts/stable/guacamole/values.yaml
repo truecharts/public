@@ -117,15 +117,15 @@ workload:
           probes:
             liveness:
               type: http
-              port: "{{ .Values.service.main.ports.main.port }}"
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
               path: /guacamole
             readiness:
               type: http
-              port: "{{ .Values.service.main.ports.main.port }}"
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
               path: /guacamole
             startup:
               type: tcp
-              port: "{{ .Values.service.main.ports.main.port }}"
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
       # zz is used to ensure that the initContainers are run after db-waits
       initContainers:
         1-create-seed:
