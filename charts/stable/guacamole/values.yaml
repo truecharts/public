@@ -221,7 +221,9 @@ persistence:
     type: emptyDir
     targetSelector:
       main:
-        init:
+        zz-1-create-seed:
+          mountPath: /tc-init
+        zz-2-apply-seed:
           mountPath: /tc-init
   db-seed:
     enabled: true
