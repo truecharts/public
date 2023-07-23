@@ -219,10 +219,10 @@ persistence:
     targetSelector:
       main:
         1-create-seed:
-          mountPath: /tc-scripts
+          mountPath: /tc-scripts/create-seed.sh
           subPath: create-seed.sh
         2-apply-seed:
-          mountPath: /tc-scripts
+          mountPath: /tc-scripts/apply-seed.sh
           subPath: apply-seed.sh
 
   recordings:
