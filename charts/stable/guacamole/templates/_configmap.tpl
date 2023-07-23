@@ -126,7 +126,8 @@ db-init:
       export PGPASSWORD="$POSTGRESQL_PASSWORD"
       psql  --host="$POSTGRESQL_HOSTNAME" --port="$POSTGRESQL_PORT" \
             --username="$POSTGRESQL_USER" --dbname="$POSTGRESQL_DATABASE" \
-            --command='SELECT * FROM public.guacamole_user' --output="/dev/null"
+            --echo-all --no-password --command='SELECT * FROM public.guacamole_user' \
+            --output="/dev/null"
       if [ $? -eq 0 ]; then
         echo "Database already initialized."
         exit 0
