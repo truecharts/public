@@ -145,7 +145,7 @@ db-init:
       echo "Initializing database from [{{ $filename }}] file..."
       psql  --host="$POSTGRESQL_HOSTNAME" --port="$POSTGRESQL_PORT" \
             --username="$POSTGRESQL_USER" --dbname="$POSTGRESQL_DATABASE" \
-            --no-password --file={{ $filename }}
+            --no-password --quiet --output=/dev/null --file={{ $filename }}
       if [ $? -eq 0 ]; then
         echo "Database initialized successfully!"
         exit 0
