@@ -128,7 +128,7 @@ workload:
               port: "{{ .Values.service.main.ports.main.port }}"
       # zz is used to ensure that the initContainers are run after db-waits
       initContainers:
-        zz-1-create-seed:
+        1-create-seed:
           enabled: true
           type: install
           imageSelector: image
@@ -144,7 +144,7 @@ workload:
           args:
             - -c
             - /tc-scripts/create-seed.sh
-        zz-2-apply-seed:
+        2-apply-seed:
           enabled: true
           type: install
           imageSelector: postgresClientImage
@@ -204,7 +204,7 @@ service:
   main:
     ports:
       main:
-        port: 9998
+        port: 10123
         targetPort: 8080
   guacd:
     enabled: true
@@ -213,7 +213,7 @@ service:
       guacd:
         enabled: true
         targetSelector: guacd
-        port: 4822
+        port: 10124
 
 persistence:
   tc-init:
@@ -221,9 +221,9 @@ persistence:
     type: emptyDir
     targetSelector:
       main:
-        zz-1-create-seed:
+        1-create-seed:
           mountPath: /tc-init
-        zz-2-apply-seed:
+        2-apply-seed:
           mountPath: /tc-init
   db-seed:
     enabled: true
@@ -232,10 +232,10 @@ persistence:
     defaultMode: "0770"
     targetSelector:
       main:
-        zz-1-create-seed:
+        1-create-seed:
           mountPath: /tc-scripts/create-seed.sh
           subPath: create-seed.sh
-        zz-2-apply-seed:
+        2-apply-seed:
           mountPath: /tc-scripts/apply-seed.sh
           subPath: apply-seed.sh
 

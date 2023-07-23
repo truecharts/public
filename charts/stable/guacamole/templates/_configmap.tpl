@@ -124,10 +124,16 @@ db-init:
       exit 1
     apply-seed.sh: |
       export PGPASSWORD="$POSTGRESQL_PASSWORD"
+      until
+        pg_isready --username="$POSTGRESQL_USER" --host="$POSTGRESQL_HOSTNAME" --port="$POSTGRESQL_PORT"
+      do
+        echo "Waiting for PostgreSQL to start..."
+        sleep 2
+      done
       psql  --host="$POSTGRESQL_HOSTNAME" --port="$POSTGRESQL_PORT" \
             --username="$POSTGRESQL_USER" --dbname="$POSTGRESQL_DATABASE" \
             --no-password --command='SELECT * FROM public.guacamole_user' \
-            | 2>&1 > /dev/null
+            --output=/dev/null --quiet
       if [ $? -eq 0 ]; then
         echo "Database already initialized."
         exit 0
