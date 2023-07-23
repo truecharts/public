@@ -15,6 +15,10 @@ owntracks:
   otr_serverlabel: OwnTracks
   otr_lmdbsize: 104857600000
 
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.v1.common.names.fullname" . }}-secret'
+
 service:
   main:
     ports:
@@ -49,9 +53,6 @@ workload:
                 exec:
                   command:
                     - /usr/sbin/recorder-health.sh
-          envFrom:
-            - secretRef:
-              name: "secret"
 
 persistence:
   store:
