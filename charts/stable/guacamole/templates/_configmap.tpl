@@ -115,7 +115,7 @@ db-init:
     {{- $filename := "/tc-init/initdb.sql" }}
     create-seed.sh: |
       echo "Creating [{{ $filename }}] file..."
-      /opt/guacamole/bin/initdb.sh --postgres > {{ $filename }}
+      /opt/guacamole/bin/initdb.sh --postgresql > {{ $filename }}
       if [ -f {{ $filename }} ]; then
         echo "File [{{ $filename }}] created successfully!"
         exit 0
