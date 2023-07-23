@@ -7,16 +7,17 @@ guacamole-config:
   enabled: true
   data:
     RECORDING_SEARCH_PATH: /var/lib/guacamole/recordings
-    {{/* GuacD */}}
+  {{/* GuacD */}}
     GUACD_HOSTNAME: {{ printf "%v-guacd" $fullname }}
     GUACD_PORT: {{ .Values.service.guacd.ports.guacd.port | quote }}
-    {{/* Database */}}
+  {{/* Database */}}
     POSTGRESQL_PORT: "5432"
     POSTGRESQL_DATABASE: {{ .Values.cnpg.main.database }}
     POSTGRESQL_USER: {{ .Values.cnpg.main.user }}
     POSTGRESQL_HOSTNAME: {{ .Values.cnpg.main.creds.host }}
     POSTGRESQL_PASSWORD: {{ .Values.cnpg.main.creds.password | trimAll "\"" }}
-    {{/* LDAP */}}
+  {{/* LDAP */}}
+  {{- if (get .Values.guacamole "ldap").LDAP_HOSTNAME }}
     {{ include "guac.env" (dict "ob" "ldap" "key" "LDAP_HOSTNAME" "rootCtx" $) }}
     {{ include "guac.env" (dict "ob" "ldap" "key" "LDAP_PORT" "rootCtx" $) }}
     {{ include "guac.env" (dict "ob" "ldap" "key" "LDAP_ENCRYPTION_METHOD" "rootCtx" $) }}
@@ -37,10 +38,16 @@ guacamole-config:
     {{ include "guac.env" (dict "ob" "ldap" "key" "LDAP_MAX_REFERRAL_HOPS" "rootCtx" $) }}
     {{ include "guac.env" (dict "ob" "ldap" "key" "LDAP_MAX_SEARCH_RESULTS" "rootCtx" $) }}
     {{ include "guac.env" (dict "ob" "ldap" "key" "LDAP_OPERATION_TIMEOUT" "rootCtx" $) }}
-    {{/* Header */}}
+  {{- end }}
+  {{/* Header */}}
+  {{- if (get .Values.guacamole "header").HEADER_ENABLED }}
     {{ include "guac.env" (dict "ob" "header" "key" "HEADER_ENABLED" "rootCtx" $) }}
     {{ include "guac.env" (dict "ob" "header" "key" "HTTP_AUTH_HEADER" "rootCtx" $) }}
-    {{/* SAML */}}
+  {{- end }}
+  {{/* SAML */}}
+  {{- if or
+        (and ((get .Values.guacamole "saml").SAML_ENTITY_ID) ((get .Values.guacamole "saml").SAML_CALLBACK_URL))
+        ((get .Values.guacamole "saml").SAML_IDP_METADATA_URL) }}
     {{ include "guac.env" (dict "ob" "saml" "key" "SAML_IDP_METADATA_URL" "rootCtx" $) }}
     {{ include "guac.env" (dict "ob" "saml" "key" "SAML_IDP_URL" "rootCtx" $) }}
     {{ include "guac.env" (dict "ob" "saml" "key" "SAML_ENTITY_ID" "rootCtx" $) }}
@@ -50,28 +57,36 @@ guacamole-config:
     {{ include "guac.env" (dict "ob" "saml" "key" "SAML_COMPRESS_REQUEST" "rootCtx" $) }}
     {{ include "guac.env" (dict "ob" "saml" "key" "SAML_COMPRESS_RESPONSE" "rootCtx" $) }}
     {{ include "guac.env" (dict "ob" "saml" "key" "SAML_GROUP_ATTRIBUTE" "rootCtx" $) }}
-    {{/* Proxy */}}
+  {{- end }}
+  {{/* Proxy */}}
+  {{- if (get .Values.guacamole "proxy").REMOTE_IP_VALVE_ENABLED }}
     {{ include "guac.env" (dict "ob" "proxy" "key" "REMOTE_IP_VALVE_ENABLED" "rootCtx" $) }}
     {{ include "guac.env" (dict "ob" "proxy" "key" "PROXY_ALLOWED_IPS_REGEX" "rootCtx" $) }}
     {{ include "guac.env" (dict "ob" "proxy" "key" "PROXY_IP_HEADER" "rootCtx" $) }}
     {{ include "guac.env" (dict "ob" "proxy" "key" "PROXY_PROTOCOL_HEADER" "rootCtx" $) }}
     {{ include "guac.env" (dict "ob" "proxy" "key" "PROXY_BY_HEADER" "rootCtx" $) }}
-    {{/* General */}}
+  {{- end }}
+  {{/* General */}}
     {{ include "guac.env" (dict "ob" "general" "key" "EXTENSION_PRIORITY" "rootCtx" $) }}
-    {{/* TOTP */}}
+  {{/* TOTP */}}
+  {{- if (get .Values.guacamole "totp").TOTP_ENABLED }}
     {{ include "guac.env" (dict "ob" "totp" "key" "TOTP_ENABLED" "rootCtx" $) }}
     {{ include "guac.env" (dict "ob" "totp" "key" "TOTP_ISSUER" "rootCtx" $) }}
     {{ include "guac.env" (dict "ob" "totp" "key" "TOTP_DIGITS" "rootCtx" $) }}
     {{ include "guac.env" (dict "ob" "totp" "key" "TOTP_PERIOD" "rootCtx" $) }}
     {{ include "guac.env" (dict "ob" "totp" "key" "TOTP_MODE" "rootCtx" $) }}
-    {{/* DUO */}}
+  {{- end }}
+  {{/* DUO */}}
+  {{- if (get .Values.guacamole "duo").DUO_API_HOSTNAME }}
     {{ include "guac.env" (dict "ob" "duo" "key" "DUO_API_HOSTNAME" "rootCtx" $) }}
     {{ include "guac.env" (dict "ob" "duo" "key" "DUO_INTEGRATION_KEY" "rootCtx" $) }}
     {{ include "guac.env" (dict "ob" "duo" "key" "DUO_SECRET_KEY" "rootCtx" $) }}
     {{ include "guac.env" (dict "ob" "duo" "key" "DUO_APPLICATION_KEY" "rootCtx" $) }}
-    {{/* API */}}
+  {{- end }}
+  {{/* API */}}
     {{ include "guac.env" (dict "ob" "api" "key" "API_SESSION_TIMEOUT" "rootCtx" $) }}
-    {{/* RADIUS */}}
+  {{/* RADIUS */}}
+  {{- if (get .Values.guacamole "radius").SHARED_SECRET }}
     {{ include "guac.env" (dict "ob" "radius" "key" "RADIUS_HOSTNAME" "rootCtx" $) }}
     {{ include "guac.env" (dict "ob" "radius" "key" "RADIUS_AUTH_PORT" "rootCtx" $) }}
     {{ include "guac.env" (dict "ob" "radius" "key" "RADIUS_SHARED_SECRET" "rootCtx" $) }}
@@ -87,7 +102,9 @@ guacamole-config:
     {{ include "guac.env" (dict "ob" "radius" "key" "RADIUS_TIMEOUT" "rootCtx" $) }}
     {{ include "guac.env" (dict "ob" "radius" "key" "RADIUS_EAP_TTLS_INNER_PROTOCOL" "rootCtx" $) }}
     {{ include "guac.env" (dict "ob" "radius" "key" "RADIUS_NAS_IP" "rootCtx" $) }}
-    {{/* OPENID */}}
+  {{- end }}
+  {{/* OPENID */}}
+  {{- if (get .Values.guacamole "openid").OPENID_AUTHORIZATION_ENDPOINT }}
     {{ include "guac.env" (dict "ob" "openid" "key" "OPENID_AUTHORIZATION_ENDPOINT" "rootCtx" $) }}
     {{ include "guac.env" (dict "ob" "openid" "key" "OPENID_JWKS_ENDPOINT" "rootCtx" $) }}
     {{ include "guac.env" (dict "ob" "openid" "key" "OPENID_ISSUER" "rootCtx" $) }}
@@ -96,9 +113,12 @@ guacamole-config:
     {{ include "guac.env" (dict "ob" "openid" "key" "OPENID_USERNAME_CLAIM_TYPE" "rootCtx" $) }}
     {{ include "guac.env" (dict "ob" "openid" "key" "OPENID_GROUPS_CLAIM_TYPE" "rootCtx" $) }}
     {{ include "guac.env" (dict "ob" "openid" "key" "OPENID_SCOPE" "rootCtx" $) }}
+    {{ include "guac.env" (dict "ob" "openid" "key" "OPENID_ALLOWED_CLOCK_SKEW" "rootCtx" $) }}
     {{ include "guac.env" (dict "ob" "openid" "key" "OPENID_MAX_TOKEN_VALIDITY" "rootCtx" $) }}
     {{ include "guac.env" (dict "ob" "openid" "key" "OPENID_MAX_NONCE_VALIDITY" "rootCtx" $) }}
-    {{/* CAS */}}
+  {{- end }}
+  {{/* CAS */}}
+  {{- if (get .Values.guacamole "cas").CAS_AUTHORIZATION_ENDPOINT }}
     {{ include "guac.env" (dict "ob" "cas" "key" "CAS_AUTHORIZATION_ENDPOINT" "rootCtx" $) }}
     {{ include "guac.env" (dict "ob" "cas" "key" "CAS_REDIRECT_URI" "rootCtx" $) }}
     {{ include "guac.env" (dict "ob" "cas" "key" "CAS_CLEARPASS_KEY" "rootCtx" $) }}
@@ -106,9 +126,12 @@ guacamole-config:
     {{ include "guac.env" (dict "ob" "cas" "key" "CAS_GROUP_FORMAT" "rootCtx" $) }}
     {{ include "guac.env" (dict "ob" "cas" "key" "CAS_GROUP_LDAP_BASE_DN" "rootCtx" $) }}
     {{ include "guac.env" (dict "ob" "cas" "key" "CAS_GROUP_LDAP_ATTRIBUTE" "rootCtx" $) }}
-    {{/* JSON */}}
+  {{- end }}
+  {{/* JSON */}}
+  {{- if (get .Values.guacamole "json").JSON_SECRET_KEY }}
     {{ include "guac.env" (dict "ob" "json" "key" "JSON_SECRET_KEY" "rootCtx" $) }}
     {{ include "guac.env" (dict "ob" "json" "key" "JSON_TRUSTED_NETWORKS" "rootCtx" $) }}
+  {{- end }}
 db-init:
   enabled: true
   data:
