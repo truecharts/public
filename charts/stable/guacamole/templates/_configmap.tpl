@@ -126,8 +126,8 @@ db-init:
       export PGPASSWORD="$POSTGRESQL_PASSWORD"
       psql  --host="$POSTGRESQL_HOSTNAME" --port="$POSTGRESQL_PORT" \
             --username="$POSTGRESQL_USER" --dbname="$POSTGRESQL_DATABASE" \
-            --echo-all --no-password --command='SELECT * FROM public.guacamole_user' \
-            --output="/dev/null"
+            --no-password --command='SELECT * FROM public.guacamole_user' \
+            | 2>&1 > /dev/null
       if [ $? -eq 0 ]; then
         echo "Database already initialized."
         exit 0
@@ -139,7 +139,7 @@ db-init:
       echo "Initializing database from [{{ $filename }}] file..."
       psql  --host="$POSTGRESQL_HOSTNAME" --port="$POSTGRESQL_PORT" \
             --username="$POSTGRESQL_USER" --dbname="$POSTGRESQL_DATABASE" \
-            --echo-all --no-password --file={{ $filename }}
+            --no-password --file={{ $filename }}
       if [ $? -eq 0 ]; then
         echo "Database initialized successfully!"
         exit 0
