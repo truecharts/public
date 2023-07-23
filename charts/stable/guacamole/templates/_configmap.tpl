@@ -115,6 +115,7 @@ db-init:
     {{- $filename := "/tc-init/initdb.sql" }}
     create-seed.sh: |
       echo "Creating [{{ $filename }}] file..."
+      mkdir -p /tc-init
       /opt/guacamole/bin/initdb.sh --postgres > {{ $filename }}
       if [ -f {{ $filename }} ]; then
         echo "File [{{ $filename }}] created successfully!"
@@ -129,6 +130,10 @@ db-init:
       if [ $? -eq 0 ]; then
         echo "Database already initialized."
         exit 0
+      fi
+      if [ ! -f {{ $filename }} ]; then
+        echo "File [{{ $filename }}] does not exist."
+        exit 1
       fi
       echo "Initializing database from [{{ $filename }}] file..."
       psql  --host="$POSGRESQL_HOSTNAME" --port="$POSTGRESQL_PORT" \

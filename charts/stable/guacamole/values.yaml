@@ -170,9 +170,20 @@ workload:
           enabled: true
           primary: true
           imageSelector: guacdImage
+          command:
+           - /opt/guacamole/sbin/guacd
           args:
+            # Listen Address
+            - -b
+            - "0.0.0.0"
+            # Listen Port
             - -l
             - "{{ .Values.service.guacd.ports.guacd.port }}"
+            # Log Level
+            - -L
+            - info
+            # Foreground
+            - f
           securityContext:
             runAsUser: 1000
             runAsGroup: 1000
