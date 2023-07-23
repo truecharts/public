@@ -239,8 +239,8 @@ workload:
             PLAYERS_ONLINE_CHECK_INTERVAL: "{{ .Values.mcbackup.player_online_check_interval }}"
             LINK_LATEST: "{{ .Values.mcbackup.link_latest }}"
             TAR_COMPRESS_METHOD: "{{ .Values.mcbackup.tar_compress_method }}"
-            ZSTD_PARAMETERS: "{{ join ' ' .Values.mcbackup.zstd_params }}"
-            EXCLUDES: "{{ join ',' .Values.mcbackup.excludes }}"
+            ZSTD_PARAMETERS: '{{ join " " .Values.mcbackup.zstd_params }}'
+            EXCLUDES: '{{ join "," .Values.mcbackup.excludes }}'
 
 persistence:
   data:
