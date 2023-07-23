@@ -41,7 +41,7 @@ questions:
                                           required: true
                                           private: true
                                           default: ""
-                                          minLength: 8
+                                          max_length: 8
                                       - variable: LLDAP_HTTP_URL
                                         label: "Public URL"
                                         schema:
