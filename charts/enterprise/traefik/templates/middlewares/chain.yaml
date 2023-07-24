@@ -1,10 +1,10 @@
-{{- $values := .Values }}
-{{- $namespace := "tc-system" }}
-{{- if $.Values.ingressClass.enabled }}
-{{- $namespace := ( printf "tc-system-%s" .Release.Name ) }}
-{{- end }}
-{{ range $index, $middlewareData := .Values.middlewares.chain }}
+{{- $values := .Values -}}
+{{- $namespace := "tc-system" -}}
+{{- if $.Values.ingressClass.enabled -}}
+  {{- $namespace := (printf "tc-system-%s" .Release.Name) -}}
+{{- end -}}
 
+{{- range $index, $middlewareData := .Values.middlewares.chain }}
 ---
 # Declaring the user list
 apiVersion: traefik.io/v1alpha1
@@ -15,7 +15,7 @@ metadata:
 spec:
   chain:
     middlewares:
-      {{ range $index, $middleware := .middlewares }}
+      {{- range $index, $middleware := .middlewares }}
       - name: {{ printf "%v-%v@%v" $namespace $middleware "kubernetescrd" }}
-      {{ end }}
-{{ end }}
+      {{- end }}
+{{- end -}}

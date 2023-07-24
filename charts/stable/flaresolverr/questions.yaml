@@ -1,7 +1,5 @@
 # Include{groups}
-portals:
-  open:
-# Include{portalLink}
+portals: {}
 questions:
 # Include{global}
 # Include{workload}
@@ -10,6 +8,50 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: TEST_URL
+                                        label: Test Url
+                                        description: Makes a request on start to make sure the web browser is working.
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: "https://www.google.com"
+                                      - variable: LOG_LEVEL
+                                        label: Log Level
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: info
+                                          enum:
+                                            - value: info
+                                              description: Info
+                                            - value: debug
+                                              description: Debug
+                                      - variable: LOG_HTML
+                                        label: Log HTML
+                                        description: If true all HTML that passes through the proxy will be logged to the console in debug level.
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: BROWSER_TIMEOUT
+                                        label: Browser Timeout
+                                        description: If you are experiencing errors/timeouts because your system is slow, you can try to increase this value.
+                                        schema:
+                                          type: int
+                                          required: true
+                                          default: 40000
+                                      - variable: HEADLESS
+                                        label: Headless
+                                        description: To run the web browser in headless mode or visible.
+                                        schema:
+                                          type: boolean
+                                          default: true
 
 # Include{containerBasic}
 # Include{containerAdvanced}

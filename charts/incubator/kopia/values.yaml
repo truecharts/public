@@ -23,7 +23,7 @@ workload:
         main:
           envFrom:
             - secretRef:
-                name: "kopia-secret"
+                name: "kopia-secrets"
           args:
             - server
             - start

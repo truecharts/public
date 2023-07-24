@@ -1,15 +1,15 @@
 image:
   repository: tccr.io/truecharts/nextcloud-fpm
   pullPolicy: IfNotPresent
-  tag: v27.0.0@sha256:1219bf81da036fe593094d12cf9eff8a49fdf48407816b4af1680335db117a9a
+  tag: v27.0.0@sha256:0810b5cab6f7e927c80225dd5debfede8836759e5b5237b699373cf927057b02
 nginxImage:
   repository: tccr.io/truecharts/nginx-unprivileged
   pullPolicy: IfNotPresent
-  tag: v1.25.1@sha256:4440ab5be9cee95583cb9a87f52c578fad34b95b6456550ab8885e948a9f274b
+  tag: v1.25.1@sha256:64b9ff5037b03e721e2ac033d968b4b603d1ba1d4aafa67248444c232be15e02
 imaginaryImage:
   repository: tccr.io/truecharts/nextcloud-imaginary
   pullPolicy: IfNotPresent
-  tag: v20230401@sha256:b321e31253f9bf1eb9ea490ffbbb6e067c053c3a2de2fc3d67bf2d42f64de3ac
+  tag: v20230401@sha256:9d90b996789ff4e6a700cca97273d86c07b508c627cd1c25d6526fba819797bd
 hpbImage:
   repository: tccr.io/truecharts/nextcloud-push-notify
   pullPolicy: IfNotPresent
@@ -21,7 +21,7 @@ clamavImage:
 collaboraImage:
   repository: tccr.io/truecharts/collabora
   pullPolicy: IfNotPresent
-  tag: v23.05.0.5.1@sha256:a753bfe9d5479e992e914f5818bc96f33ff95dd3760cb10938ae2296286c416e
+  tag: v23.05.1.3.1@sha256:b1dbcd6f551b75d6a2153ee5a24cfe5e9252e3b71dc629b1b74cb5e29cca97a8
 
 nextcloud:
   # Initial Credentials
@@ -56,6 +56,8 @@ nextcloud:
     max_y: 2048
     max_memory: 1024
     max_file_size_image: 50
+    # Setting for Imaginary
+    max_allowed_resolution: 18.0
     jpeg_quality: 60
     square_sizes: 32 256
     width_sizes: 256 384
@@ -222,6 +224,8 @@ workload:
             - "{{ .Values.service.imaginary.ports.imaginary.port }}"
             - -concurrency
             - "10"
+            - -max-allowed-resolution
+            - "{{ .Values.nextcloud.previews.max_allowed_resolution }}"
             - -enable-url-source
             - -return-size
           probes:

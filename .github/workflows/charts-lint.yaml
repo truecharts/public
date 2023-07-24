@@ -52,7 +52,7 @@ jobs:
           helm repo add truecharts https://charts.truecharts.org
           helm repo add truecharts-deps https://deps.truecharts.org
           helm repo add truecharts-library https://library-charts.truecharts.org
-          helm repo add truecharts-deps https://deps.truecharts.org
+          helm repo add jetstack https://charts.jetstack.io
           helm repo update
 
       - name: Collect changes (branch-based)
