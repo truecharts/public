@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/rdtclient
   pullPolicy: IfNotPresent
-  tag: v2.0.32@sha256:CHANGE_ME
+  tag: v2.0.32@sha256:d43f7b58d5136937f8962e0f3dfa328fc205bf632cbb4faf6813fff986b75836
 aria2Image:
   repository: tccr.io/truecharts/aria2-pro
   pullPolicy: IfNotPresent
@@ -106,7 +106,7 @@ persistence:
   db:
     enabled: true
     mountPath: "/data/db"
-  aria2-config:
+  config:
     enabled: true
     targetSelector:
       aria2:
