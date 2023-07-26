@@ -91,7 +91,24 @@ questions:
                   type: int
                   default: '{{ eq .Values.workload.main.podSpec.containers.main.imageSelector "tveImage" | ternary 0 568 }}'
 # Include{securityContextContainer}
-# Include{securityContextAdvanced}
+              - variable: advanced
+                label: Show Advanced Settings
+                description: Advanced settings are not covered by TrueCharts Support
+                schema:
+                  type: boolean
+                  default: '{{ eq .Values.workload.main.podSpec.containers.main.imageSelector "tveImage" }}'
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: privileged
+                      label: "Privileged mode"
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: readOnlyRootFilesystem
+                      label: "ReadOnly Root Filesystem"
+                      schema:
+                        type: boolean
+                        default: '{{ eq .Values.workload.main.podSpec.containers.main.imageSelector "tveImage" | not }}'
 # Include{securityContextPod}
               - variable: fsGroup
                 label: "fsGroup"
