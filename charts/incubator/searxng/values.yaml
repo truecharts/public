@@ -18,6 +18,7 @@ securityContext:
   runAsUser: 0
   capabilities:
     add:
+      - CHOWN
       - SETUID
       - SETGID
 
