@@ -31,6 +31,24 @@ workload:
               path: "/healthz"
           env:
             PORT: "{{ .Values.service.main.ports.main.port }}"
+            MODSEC_DATA_DIR: "{{ .Values.persistence.data.mountPath }}"
+            MODSEC_TMP_DIR: "{{ .Values.persistence.temp.mountPath }}"
+            MODSEC_UPLOAD_DIR: "{{ .Values.persistence.upload.mountPath }}"
+            BACKEND: "http://localhost:80"
+
+persistence:
+  data:
+    enabled: true
+    type: emptyDir
+    mountPath: /modsecurity/data
+  temp:
+    enabled: true
+    type: emptyDir
+    mountPath: /modsecurity/temp
+  upload:
+    enabled: true
+    type: emptyDir
+    mountPath: /modsecurity/upload
 
 portal:
   open:
