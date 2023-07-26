@@ -18,8 +18,8 @@ securityContext:
   runAsUser: 0
   capabilities:
     add:
-      - SETGID
       - SETUID
+      - SETGID
 
 service:
   main:
