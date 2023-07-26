@@ -61,12 +61,12 @@ Default username is `akadmin` and password is whatever you entered in the initia
 ![New-Provider-2](img/New-Provider-2.png)
 
 - If you want to use subdomain-level access control, select `Forward auth (single application)` and enter the URL you have chosen for your apps' ingress.
-- The example uses `https://application.mydomain.com/`, make sure your app is reachable and uses a valid certificate beforehand. 
-- You can set HTTP-Basic Authentication Attributes under `Authentication settings` for your service here. 
-  - Don't use a `basicAuth` middleware in the apps' ingress settings. Only use this if your app has build in basic auth support. 
+- The example uses `https://application.mydomain.com/`, make sure your app is reachable and uses a valid certificate beforehand.
+- You can set HTTP-Basic Authentication Attributes under `Authentication settings` for your service here.
+  - Don't use a `basicAuth` middleware in the apps' ingress settings. Only use this if your app has build in basic auth support.
   - Add the attributes in a `authentik` group, then assign any user you want to be able to access the application to this group.
 
-![New-Provider-3](image.png)
+![New-Provider-3](img/New-Provider-3.png)
 
 - Once done use that new `Provider` you created
 
@@ -100,9 +100,9 @@ Once `authentik` is setup and running, you must create a `forwardAuth` inside `T
 
 The main thing about this screen is to use the internal DNS name for simplicity
 
-- I have successfully used an `authentik` instance on a difference host together with `external-service` using this URL: 
+- I have successfully used an `authentik` instance on a difference host together with `external-service` using this URL:
   - `https://authentik-external-service.ix-authentik.svc.cluster.local:9443/outpost.goauthentik.io/auth/traefik`
-- Use `heavyscript dns -a` to get the internal DNS name for your `authentik` instance in that case. 
+- Use `heavyscript dns -a` to get the internal DNS name for your `authentik` instance in that case.
 - I suggest using the `https` endpoint and port because it is what worked for me.
 
 :::
