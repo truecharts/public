@@ -83,20 +83,20 @@ questions:
                 description: "The UserID of the user running the application"
                 schema:
                   type: int
-                  default: '{{ eq .Values.workload.main.podSpec.containers.main.imageSelector "tveImage" | ternary 0 568 }}'
+                  default: {{ eq .Values.workload.main.podSpec.containers.main.imageSelector "tveImage" | ternary 0 568 }}
               - variable: runAsGroup
                 label: "runAsGroup"
                 description: "The groupID this App of the user running the application"
                 schema:
                   type: int
-                  default: '{{ eq .Values.workload.main.podSpec.containers.main.imageSelector "tveImage" | ternary 0 568 }}'
+                  default: {{ eq .Values.workload.main.podSpec.containers.main.imageSelector "tveImage" | ternary 0 568 }}
 # Include{securityContextContainer}
               - variable: advanced
                 label: Show Advanced Settings
                 description: Advanced settings are not covered by TrueCharts Support
                 schema:
                   type: boolean
-                  default: '{{ eq .Values.workload.main.podSpec.containers.main.imageSelector "tveImage" }}'
+                  default: {{ eq .Values.workload.main.podSpec.containers.main.imageSelector "tveImage" }}
                   show_subquestions_if: true
                   subquestions:
                     - variable: privileged
@@ -108,7 +108,7 @@ questions:
                       label: "ReadOnly Root Filesystem"
                       schema:
                         type: boolean
-                        default: '{{ eq .Values.workload.main.podSpec.containers.main.imageSelector "tveImage" | not }}'
+                        default: {{ eq .Values.workload.main.podSpec.containers.main.imageSelector "tveImage" | not }}
 # Include{securityContextPod}
               - variable: fsGroup
                 label: "fsGroup"
