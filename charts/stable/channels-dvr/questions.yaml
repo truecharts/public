@@ -83,13 +83,13 @@ questions:
                 description: "The UserID of the user running the application"
                 schema:
                   type: int
-                  default: 0
+                  default: '{{ eq .Values.workload.main.podSpec.containers.main.imageSelector "tveImage" | ternary 0 568 }}'
               - variable: runAsGroup
                 label: "runAsGroup"
                 description: "The groupID this App of the user running the application"
                 schema:
                   type: int
-                  default: 0
+                  default: '{{ eq .Values.workload.main.podSpec.containers.main.imageSelector "tveImage" | ternary 0 568 }}'
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}

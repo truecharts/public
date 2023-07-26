@@ -10,9 +10,9 @@ tveImage:
 
 securityContext:
   container:
-    readOnlyRootFilesystem: false
-    runAsUser: 0
-    runAsGroup: 0
+    readOnlyRootFilesystem: '{{ eq .Values.workload.main.podSpec.containers.main.imageSelector "tveImage" | ternary false true }}'
+    runAsUser: '{{ eq .Values.workload.main.podSpec.containers.main.imageSelector "tveImage" | ternary 0 568 }}'
+    runAsGroup: '{{ eq .Values.workload.main.podSpec.containers.main.imageSelector "tveImage" | ternary 0 568 }}'
     
 service:
   main:
