@@ -51,16 +51,16 @@ guacamole:
   general:
     EXTENSION_PRIORITY: ""
   totp:
-    TOTP_ENABLED: true
+    TOTP_ENABLED: false
     TOTP_ISSUER: Apache Guacamole
     TOTP_DIGITS: 6
     TOTP_PERIOD: 30
     TOTP_MODE: sha1
   duo:
-    DUO_API_HOSTNAME: ""
-    DUO_INTEGRATION_KEY: ""
-    DUO_SECRET_KEY: ""
-    DUO_APPLICATION_KEY: ""
+    DUO_API_HOSTNAME: "asd"
+    DUO_INTEGRATION_KEY: "asd"
+    DUO_SECRET_KEY: "asd"
+    DUO_APPLICATION_KEY: "asd"
   api:
     API_SESSION_TIMEOUT: 60
   radius:
