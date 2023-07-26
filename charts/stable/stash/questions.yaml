@@ -61,6 +61,14 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
+        - variable: blobs
+          label: "App Blobs Storage"
+          description: "Binary data for scene covers, performer images, etc"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
         - variable: data
           label: "App Data Storage"
           description: "Stores the Application Data."
