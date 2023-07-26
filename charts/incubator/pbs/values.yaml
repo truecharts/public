@@ -1,8 +1,6 @@
 image:
-  #repository: tccr.io/truecharts/proxmox-backup-server
-  #tag: 3.1.2@sha256:e5d818f3bffa5b64941df45e9e4c8193cf682d6ccf0e749d26dc6bcdf4abac49
-  repository: bingsin/pbs
-  tag: 2.2-7-amd64
+  repository: tccr.io/truecharts/pbs
+  tag: v2.2-7@sha256:e949feab45f7e66326c292ff8e2d6f095b1465e82724705b2b6eb122a5285240
   pullPolicy: IfNotPresent
 
 securityContext:
