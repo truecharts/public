@@ -9,7 +9,7 @@ workload:
       containers:
         main:
           env:
-            BASE_URL: {{ printf "0.0.0.0:%v" .Values.service.main.ports.main.port }}
+            BASE_URL: "(printf "%v:%v" .0.0.0.0 .Values.service.main.ports.main.port)"
             INSTANCE_NAME: SearXng
 
 securityContext:
