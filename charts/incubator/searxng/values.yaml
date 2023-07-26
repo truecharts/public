@@ -9,7 +9,7 @@ workload:
       containers:
         main:
           env:
-            BASE_URL: ""
+            BASE_URL: {{ printf "0.0.0.0:%v" .Values.service.main.ports.main.port }}
             INSTANCE_NAME: SearXng
 
 securityContext:
@@ -18,7 +18,6 @@ securityContext:
   runAsUser: 0
   capabilities:
     add:
-      - CHOWN
       - SETGID
       - SETUID
 
