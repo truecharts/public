@@ -8,12 +8,6 @@ tveImage:
   pullPolicy: Always
   tag: latest@sha256:7e0130ad244e07f3714edadecdcc8711d9d3c11eac8409705b5c6aa8e108ca7e
 
-securityContext:
-  container:
-    readOnlyRootFilesystem: {{ eq .Values.workload.main.podSpec.containers.main.imageSelector "tveImage" | not }}
-    runAsUser: {{ eq .Values.workload.main.podSpec.containers.main.imageSelector "tveImage" | ternary 0 568 }}
-    runAsGroup: {{ eq .Values.workload.main.podSpec.containers.main.imageSelector "tveImage" | ternary 0 568 }}
-
 service:
   main:
     ports:
