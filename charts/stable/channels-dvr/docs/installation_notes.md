@@ -1,6 +1,6 @@
 # Channels DVR Installation Notes
 
-:::danger Ingress
+:::danger Permissions
 
 If using the TVE image, `runAsUser` and `runAsGroup` must both be changed to `0` and `readOnlyRootFilesystem` must be changed to `false`.
 
