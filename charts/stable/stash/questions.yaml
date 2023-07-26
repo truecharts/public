@@ -53,6 +53,14 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
+        - variable: generated
+          label: "App Generated Storage"
+          description: "Thumbnails, clips, etc"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
         - variable: metadata
           label: "App MetaData Storage"
           description: "Stores the Application MetaData."
