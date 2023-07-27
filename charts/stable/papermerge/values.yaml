@@ -24,9 +24,9 @@ workload:
         main:
           env:
             PAPERMERGE__MAIN__TIMEZONE: "{{ .Values.TZ }}"
-            DJANGO_SUPERUSER_EMAIL: "{{ .Values.env.DJANGO_SUPERUSER_EMAIL }}"
-            DJANGO_SUPERUSER_USENAME: "{{ .Values.env.DJANGO_SUPERUSER_USENAME }}"
-            DJANGO_SUPERUSER_PASSWORD: "{{ .Values.env.DJANGO_SUPERUSER_PASSWORD }}"
+            DJANGO_SUPERUSER_EMAIL: admin@example.com
+            DJANGO_SUPERUSER_USENAME: admin
+            DJANGO_SUPERUSER_PASSWORD: my_admin_password123
             PAPERMERGE__MAIN__SECRET_KEY:
               secretKeyRef:
                 name: papermerge-secrets
