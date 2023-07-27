@@ -57,7 +57,7 @@ recipes:
   allowed_hosts:
     - "*"
   csrf_trusted_orgins: []
-  gunicorn_media: False
+  gunicorn_media: false
   gunicorn_workers: 1
   gunicorn_threads: 1
   fraction_pref_default: false
@@ -71,14 +71,14 @@ recipes:
   email_port: 587
   email_host_user: ""
   email_host_password: ""
-  email_use_tls: False
-  email_use_ssl: False
+  email_use_tls: false
+  email_use_ssl: false
   default_from_email: ""
   # this by default has a space, so left it as is.
   account_email_subject_prefix: "[Tandoor Recipes] "
 
   # allow authentication via reverse proxy, eg authelia
-  reverse_proxy_auth: False
+  reverse_proxy_auth: false
 
   # spaces
   # max recipes per space, 0 for unlimited
@@ -215,12 +215,12 @@ persistence:
   recipes-config:
     enabled: true
     type: configmap
-    objectName: nginx-config
+    objectName: config
     targetSelector:
       nginx:
         nginx:
           mountPath: /etc/nginx/nginx.conf
-          subPath: nginx.conf
+          subPath: nginx-config
           readOnly: true
 
 cnpg:
