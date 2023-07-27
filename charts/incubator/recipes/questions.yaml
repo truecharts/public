@@ -47,6 +47,7 @@ questions:
           description: A list of hosts which are trusted origins for unsafe requests.
           schema:
             type: list
+            empty: true
             default: []
             items:
               - variable: host
