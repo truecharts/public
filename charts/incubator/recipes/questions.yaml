@@ -57,41 +57,31 @@ questions:
                   type: string
                   required: true
                   default: ""
-        - variable: gunicorn
-          label: Show Advanced Gunicorn Settings
+        - variable: gunicorn_media
+          label: Gunicorn Media
+          description: Serve mediafiles directly using gunicorn.
           schema:
             type: boolean
             default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: gunicorn_media
-                label: Gunicorn Media
-                description: Serve mediafiles directly using gunicorn.
+        - variable: prefs
+          group: App Configuration
+          label: Preferences
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: fraction_default
+                label: Fraction Default
+                description: Enable/Disable fraction support
                 schema:
                   type: boolean
                   default: false
-              - variable: gunicorn_workers
-                label: Gunicorn Workers
-                schema:
-                  type: int
-                  default: 1
-              - variable: gunicorn_threads
-                label: Gunicorn Threads
-                schema:
-                  type: int
-                  default: 1
-        - variable: fraction_pref_default
-          label: Fraction Pref Default
-          description: Enable/Disable fraction support
-          schema:
-            type: boolean
-            default: false
-        - variable: comment_pref_default
-            label: Comment Pref Default
-            description: Enable/Disable commenting system
-            schema:
-              type: boolean
-              default: true
+              - variable: comment_default
+                  label: Comment Default
+                  description: Enable/Disable commenting system
+                  schema:
+                    type: boolean
+                    default: true
         - variable: shopping_min_autosync_interval
           label: Shopping Min AutoSync Interval
           description: Set time which the shopping list is refreshed when in viewing mode.
@@ -100,40 +90,41 @@ questions:
             default: 5
             min: 5
         - variable: email
-          label: Show Advanced Email Settings
+          group: App Configuration
+          label: Email
+          description: Optionally set up email configuration
           schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: email_host
-                label: Email Host
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: host
+                label: Host
                 schema:
                   type: string
                   default: ""
-              - variable: email_port
-                label: Email Port
+              - variable: port
+                label: Port
                 schema:
                   type: int
                   default: 587
-              - variable: email_host_user
-                label: Email Host User
+              - variable: user
+                label: User
                 schema:
                   type: string
                   default: ""
-              - variable: email_host_password
-                label: Email Host Password
+              - variable: password
+                label: Password
                 schema:
                   type: string
                   private: true
                   default: ""
-              - variable: email_use_tls
-                label: Email Use TLS
+              - variable: use_tls
+                label: Use TLS
                 schema:
                   type: boolean
                   default: false
-              - variable: email_use_ssl
-                label: Email Use SSL
+              - variable: use_ssl
+                label: Use SSL
                 schema:
                   type: boolean
                   default: false
@@ -153,33 +144,33 @@ questions:
             schema:
               type: boolean
               default: false
-        - variable: spaces
-          label: Show Advanced Spaced Settings
+        - variable: space
+          group: App Configuration
+          label: Space
           schema:
-            type: boolean
-            default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: space_default_max_recipes
-                label: Space Default Max Recipes
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: default_max_recipes
+                label: Default Max Recipes
                 description: Set limit of max recipes, 0=unlimited recipes.
                 schema:
                   type: int
                   default: 0
-              - variable: space_default_max_users
-                label: Space Default Max Users
+              - variable: default_max_users
+                label: Default Max Users
                 description: Set limit of max users, 0=unlimited users per space.
                 schema:
                   type: int
                   default: 0
-              - variable: space_default_max_files
-                label: Space Default Max Files
+              - variable: default_max_files
+                label: Default Max Files
                 description: Maximum file storage for space in MB, 0 for unlimited, -1 to disable file upload.
                 schema:
                   type: int
                   default: 0
-              - variable: space_default_allow_sharing
-                label: Space Default Allow Sharing
+              - variable: default_allow_sharing
+                label: Default Allow Sharing
                 description: Allow users to share recipes with public links
                 schema:
                   type: boolean
@@ -189,65 +180,42 @@ questions:
           description: Allow people to create accounts on your application instance (without an invite link).
           schema:
             type: boolean
-            default: true
-            show_subquestions_if: true
-            subquestions:
-              - variable: hcaptcha_sitekey
-                label: Hcaptcha SiteKey (optional)
-                schema:
-                  type: string
-                  private: true
-                  default: ""
-              - variable: hcaptcha_secret
-                label: Hcaptcha Secret (optional)
-                schema:
-                  type: string
-                  private: true
-                  default: ""
-              - variable: terms_url
-                label: Terms Url (optional)
-                schema:
-                  type: string
-                  default: ""
-              - variable: privacy_url
-                label: Privacy Url (optional)
-                schema:
-                  type: string
-                  default: ""
-              - variable: imprint_url
-                label: Imprint Url (optional)
-                schema:
-                  type: string
-                  default: ""
-        - variable: ldap_auth
-          label: Enable LDAP Auth
-          description: list of allowed users will be fetched from LDAP server.
-          schema:
-            type: boolean
             default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: auth_ldap_server_uri
-                label: Auth LDAP Server Uri
+        - variable: ldap
+          group: App Configuration
+          label: Ldap
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enable
+                label: Enable LDAP Auth
                 schema:
-                  type: string
-                  default: ""
-              - variable: auth_ldap_bind_dn
-                label: Auth LDAP Bind DN
-                schema:
-                  type: string
-                  default: ""
-              - variable: auth_ldap_bind_password
-                label: Auth LDAP Bind Password
-                schema:
-                  type: string
-                  private: true
-                  default: ""
-              - variable: auth_ldap_user_search_base_dn
-                label: Auth LDAP User Search Base DN
-                schema:
-                  type: string
-                  default: ""
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: server_uri
+                      label: Server Uri
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: bind_dn
+                      label: Bind DN
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: bind_password
+                      label: Bind Password
+                      schema:
+                        type: string
+                        private: true
+                        default: ""
+                    - variable: user_search_base_dn
+                      label: User Search Base DN
+                      schema:
+                        type: string
+                        default: ""
         - variable: enable_pdf_export
             label: Enable PDF Export
             description: Enables exporting PDF (see export docs)
