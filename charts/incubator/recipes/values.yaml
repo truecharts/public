@@ -117,27 +117,27 @@ workload:
         main:
           env:
             TANDOOR_PORT: "{{ .Values.service.main.ports.main.port }}"
-            DEBUG: "{{ .Values.recipes.debug }}"
+            DEBUG: "{{ ternary 1 0 .Values.recipes.debug }}"
             # SCRIPT_NAME: /
             # STATIC_URL=/static/
             # MEDIA_URL=/media/
             ALLOWED_HOSTS: '{{ join "," .Values.recipes.ALLOWED_HOSTS }}'
             CSRF_TRUSTED_ORIGINS: '{{ join "," .Values.recipes.CSRF_TRUSTED_ORIGINS }}'
-            GUNICORN_MEDIA: "{{ .Values.recipes.gunicorn_media }}"
+            GUNICORN_MEDIA: "{{ ternary 1 0 .Values.recipes.gunicorn_media }}"
             GUNICORN_WORKERS: "{{ .Values.recipes.gunicorn_workers }}"
             GUNICORN_THREADS: "{{ .Values.recipes.gunicorn_threads }}"
-            FRACTION_PREF_DEFAULT: "{{ .Values.recipes.fraction_pref_default }}"
-            COMMENT_PREF_DEFAULT: "{{ .Values.recipes.comment_pref_default }}"
+            FRACTION_PREF_DEFAULT: "{{ ternary 1 0 .Values.recipes.fraction_pref_default }}"
+            COMMENT_PREF_DEFAULT: "{{ ternary 1 0 .Values.recipes.comment_pref_default }}"
             SHOPPING_MIN_AUTOSYNC_INTERVAL: "{{ .Values.recipes.shopping_min_autosync_interval }}"
             EMAIL_HOST: "{{ .Values.recipes.email_host }}"
             EMAIL_PORT: "{{ .Values.recipes.email_port }}"
-            EMAIL_USE_TLS: "{{ .Values.recipes.email_use_tls }}"
-            EMAIL_USE_SSL: "{{ .Values.recipes.email_use_ssl }}"
+            EMAIL_USE_TLS: "{{ ternary 1 0 .Values.recipes.email_use_tls }}"
+            EMAIL_USE_SSL: "{{ ternary 1 0 .Values.recipes.email_use_ssl }}"
             DEFAULT_FROM_EMAIL: "{{ .Values.recipes.default_from_email }}"
             ACCOUNT_EMAIL_SUBJECT_PREFIX: "{{ .Values.recipes.account_email_subject_prefix }}"
-            REVERSE_PROXY_AUTH: "{{ .Values.recipes.reverse_proxy_auth }}"
-            SPACE_DEFAULT_ALLOW_SHARING: "{{ .Values.recipes.space_default_allow_sharing }}"
-            ENABLE_SIGNUP: "{{ .Values.recipes.enable_signup }}"
+            REVERSE_PROXY_AUTH: "{{ ternary 1 0 .Values.recipes.reverse_proxy_auth }}"
+            SPACE_DEFAULT_ALLOW_SHARING: "{{ ternary 1 0 .Values.recipes.space_default_allow_sharing }}"
+            ENABLE_SIGNUP: "{{ ternary 1 0 .Values.recipes.enable_signup }}"
             HCAPTCHA_SITEKEY: "{{ .Values.recipes.hcaptcha_sitekey }}"
             HCAPTCHA_SECRET: "{{ .Values.recipes.hcaptcha_secret }}"
             TERMS_URL: "{{ .Values.recipes.terms_url }}"
@@ -148,7 +148,9 @@ workload:
             AUTH_LDAP_BIND_DN: "{{ .Values.recipes.auth_ldap_bind_dn }}"
             AUTH_LDAP_BIND_PASSWORD: "{{ .Values.recipes.auth_ldap_bind_password }}"
             AUTH_LDAP_USER_SEARCH_BASE_DN: "{{ .Values.recipes.auth_ldap_user_search_base_dn }}"
-            AUTH_LDAP_START_TLS: "{{ .Values.recipes.auth_ldap_start_tls }}"
+            AUTH_LDAP_START_TLS: "{{ ternary 1 0 .Values.recipes.auth_ldap_start_tls }}"
+            ENABLE_PDF_EXPORT: "{{ ternary 1 0 .Values.recipes.enable_pdf_export }}"
+            EXPORT_FILE_CACHE_DURATION: "{{.Values.recipes.export_file_cache_duration }}"
             TIMEZONE: "{{ .Values.TZ }}"
             DB_ENGINE: "django.db.backends.postgresql"
             POSTGRES_DB: "{{ .Values.cnpg.main.database }}"
