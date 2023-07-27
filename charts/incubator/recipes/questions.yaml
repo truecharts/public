@@ -6,10 +6,12 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+# Include{containerBasic}
+# Include{containerAdvanced}
+# Include{containerConfig}
 
   - variable: recipes
     group: App Configuration
@@ -252,9 +254,6 @@ questions:
               type: int
               default: 600
 
-# Include{containerBasic}
-# Include{containerAdvanced}
-# Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
         - variable: main
@@ -285,7 +284,7 @@ questions:
 # Include{persistenceRoot}
         - variable: media
           label: "App Media Storage"
-          description: "Stores the Application media."
+          description: "Stores the Application Media."
           schema:
             additional_attrs: true
             type: dict
@@ -314,7 +313,7 @@ questions:
                   default: 0
               - variable: runAsGroup
                 label: "runAsGroup"
-                description: "The groupID this App of the user running the application"
+                description: "The groupID of the user running the application"
                 schema:
                   type: int
                   default: 0
