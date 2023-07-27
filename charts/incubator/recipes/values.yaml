@@ -177,22 +177,6 @@ workload:
           primary: true
           enabled: true
           imageSelector: nginxImage
-          probes:
-            liveness:
-              enabled: true
-              type: http
-              path: /
-              port: "{{ .Values.service.main.ports.main.port }}"
-            readiness:
-              enabled: true
-              type: http
-              path: /
-              port: "{{ .Values.service.main.ports.main.port }}"
-            startup:
-              enabled: true
-              type: http
-              path: /
-              port: "{{ .Values.service.main.ports.main.port }}"
 
 persistence:
   media:
