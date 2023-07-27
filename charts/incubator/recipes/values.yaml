@@ -1,19 +1,25 @@
 image:
   repository: tccr.io/truecharts/recipes
-  tag: 1.4.9@sha256:303aaf27090d748aabf8f42c95b2d9e3dcded92b5e348d2b86ee9a02a77e2dca
+  tag: v1.5.4@sha256:93820e960e88ba4115293df317f4e700f7b4ba4c8745ef253c36b4c536bd2d27
   pullPolicy: IfNotPresent
-
 nginxImage:
   repository: tccr.io/truecharts/nginx
-  tag: 1.24.0@sha256:7eee831d79f11786149bd02a0d4d438057772285ec7b62fc2976ee70676707fa
+  tag: v1.25.1@sha256:b66a892da36816d0ce995a4a4e5a0559bd887633b4c38e52aa3b52ab217906e3
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
 
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+service:
+  main:
+    targetSelectorAll: true
+    ports:
+      main:
+        port: 10029
+        targetSelectorAll: true
 
 configmap:
   config:
@@ -40,84 +46,189 @@ configmap:
             # pass requests for dynamic content to gunicorn
             location / {
               proxy_set_header Host $http_host;
-              proxy_pass http://localhost:8080;
+              proxy_pass http://localhost:{{ .Values.service.main.ports.main.port }};
               proxy_set_header X-Forwarded-Proto $http_x_forwarded_proto;
             }
           }
         }
 
-env:
-  DEBUG: 0
-  ALLOWED_HOSTS: "*"
-  CSRF_TRUSTED_ORIGINS: ""
-  GUNICORN_MEDIA: 0
-  FRACTION_PREF_DEFAULT: 0
-  COMMENT_PREF_DEFAULT: 1
-  SHOPPING_MIN_AUTOSYNC_INTERVAL: 5
-  TIMEZONE: "{{ .Values.TZ }}"
-  DB_ENGINE: "django.db.backends.postgresql"
-  POSTGRES_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
-  POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
-  POSTGRES_PORT: "5432"
-  POSTGRES_PASSWORD:
-    secretKeyRef:
-      name: dbcreds
-      key: postgresql-password
-  POSTGRES_HOST:
-    secretKeyRef:
-      name: dbcreds
-      key: plainhost
-  SECRET_KEY:
-    secretKeyRef:
-      name: recipes-secrets
-      key: SECRET_KEY
+recipes:
+  debug: false
+  allowed_hosts:
+    - "*"
+  csrf_trusted_orgins: []
+  gunicorn_media: False
+  gunicorn_workers: 1
+  gunicorn_threads: 1
+  fraction_pref_default: false
+  comment_pref_default: true
+  # time in mins
+  # might cause high load on the server if any lower.
+  shopping_min_autosync_interval: 5
+  # email
+  # only activates if email host is set
+  email_host: ""
+  email_port: 587
+  email_host_user: ""
+  email_host_password: ""
+  email_use_tls: False
+  email_use_ssl: False
+  default_from_email: ""
+  # this by default has a space, so left it as is.
+  account_email_subject_prefix: "[Tandoor Recipes] "
 
-additionalContainers:
-  nginx:
-    name: nginx
-    image: "{{ .Values.nginxImage.repository }}:{{ .Values.nginxImage.tag }}"
-    ports:
-      - containerPort: 80
-        name: main
-    volumeMounts:
-      - name: recipes-config
-        mountPath: "/etc/nginx/nginx.conf"
-        subPath: nginx-config
-        readOnly: true
-      - name: media
-        mountPath: "/media"
-      - name: static
-        mountPath: "/static"
+  # allow authentication via reverse proxy, eg authelia
+  reverse_proxy_auth: False
 
-service:
+  # spaces
+  # max recipes per space, 0 for unlimited
+  space_default_max_recipes: 0
+  # max users per space, 0 for unlimited
+  space_default_max_users: 0
+  # max file storage per space, 0 for unlimited, -1 to disable file upload.
+  space_default_max_files: 0
+  # Allow users to share recipes with public links
+  space_default_allow_sharing: false
+
+  enable_signup: true
+  # optional:
+  hcaptcha_sitekey: ""
+  hcaptcha_secret: ""
+  terms_url: ""
+  privacy_url: ""
+  imprint_url: ""
+
+  # ldap auth
+  ldap_auth: false
+  auth_ldap_server_uri: ""
+  auth_ldap_bind_dn: ""
+  auth_ldap_bind_password: ""
+  auth_ldap_user_search_base_dn: ""
+  auth_ldap_start_tls: false
+
+  # other
+  enable_pdf_export: false
+  export_file_cache_duration: 600
+
+workload:
   main:
-    ports:
-      main:
-        port: 10029
-        targetPort: 80
+    podSpec:
+      containers:
+        main:
+          env:
+            TANDOOR_PORT: "{{ .Values.service.main.ports.main.port }}"
+            DEBUG: "{{ .Values.recipes.debug }}"
+            # SCRIPT_NAME: /
+            # STATIC_URL=/static/
+            # MEDIA_URL=/media/
+            ALLOWED_HOSTS: '{{ join "," .Values.recipes.ALLOWED_HOSTS }}'
+            CSRF_TRUSTED_ORIGINS: '{{ join "," .Values.recipes.CSRF_TRUSTED_ORIGINS }}'
+            GUNICORN_MEDIA: "{{ .Values.recipes.gunicorn_media }}"
+            GUNICORN_WORKERS: "{{ .Values.recipes.gunicorn_workers }}"
+            GUNICORN_THREADS: "{{ .Values.recipes.gunicorn_threads }}"
+            FRACTION_PREF_DEFAULT: "{{ .Values.recipes.fraction_pref_default }}"
+            COMMENT_PREF_DEFAULT: "{{ .Values.recipes.comment_pref_default }}"
+            SHOPPING_MIN_AUTOSYNC_INTERVAL: "{{ .Values.recipes.shopping_min_autosync_interval }}"
+            EMAIL_HOST: "{{ .Values.recipes.email_host }}"
+            EMAIL_PORT: "{{ .Values.recipes.email_port }}"
+            EMAIL_USE_TLS: "{{ .Values.recipes.email_use_tls }}"
+            EMAIL_USE_SSL: "{{ .Values.recipes.email_use_ssl }}"
+            DEFAULT_FROM_EMAIL: "{{ .Values.recipes.default_from_email }}"
+            ACCOUNT_EMAIL_SUBJECT_PREFIX: "{{ .Values.recipes.account_email_subject_prefix }}"
+            REVERSE_PROXY_AUTH: "{{ .Values.recipes.reverse_proxy_auth }}"
+            SPACE_DEFAULT_ALLOW_SHARING: "{{ .Values.recipes.space_default_allow_sharing }}"
+            ENABLE_SIGNUP: "{{ .Values.recipes.enable_signup }}"
+            HCAPTCHA_SITEKEY: "{{ .Values.recipes.hcaptcha_sitekey }}"
+            HCAPTCHA_SECRET: "{{ .Values.recipes.hcaptcha_secret }}"
+            TERMS_URL: "{{ .Values.recipes.terms_url }}"
+            PRIVACY_URL: "{{ .Values.recipes.privacy_url }}"
+            IMPRINT_URL: "{{ .Values.recipes.imprint_url }}"
+            LDAP_AUTH: "{{ .Values.recipes.ldap_auth }}"
+            AUTH_LDAP_SERVER_URI: "{{ .Values.recipes.auth_ldap_server_uri }}"
+            AUTH_LDAP_BIND_DN: "{{ .Values.recipes.auth_ldap_bind_dn }}"
+            AUTH_LDAP_BIND_PASSWORD: "{{ .Values.recipes.auth_ldap_bind_password }}"
+            AUTH_LDAP_USER_SEARCH_BASE_DN: "{{ .Values.recipes.auth_ldap_user_search_base_dn }}"
+            AUTH_LDAP_START_TLS: "{{ .Values.recipes.auth_ldap_start_tls }}"
+            TIMEZONE: "{{ .Values.TZ }}"
+            DB_ENGINE: "django.db.backends.postgresql"
+            POSTGRES_DB: "{{ .Values.cnpg.main.database }}"
+            POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
+            POSTGRES_PORT: "5432"
+            POSTGRES_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            POSTGRES_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            SECRET_KEY:
+              secretKeyRef:
+                name: recipes-secrets
+                key: SECRET_KEY
+  nginx:
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
+        nginx:
+          primary: true
+          enabled: true
+          imageSelector: nginxImage
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              path: /
+              port: "{{ .Values.service.main.ports.main.port }}"
+            readiness:
+              enabled: true
+              type: http
+              path: /
+              port: "{{ .Values.service.main.ports.main.port }}"
+            startup:
+              enabled: true
+              type: http
+              path: /
+              port: "{{ .Values.service.main.ports.main.port }}"
 
 persistence:
   media:
     enabled: true
-    mountPath: "/opt/recipes/mediafiles"
+    targetSelector:
+      main:
+        main:
+          mountPath: /opt/recipes/mediafiles
+      nginx:
+        nginx:
+          mountPath: /media
   static:
     enabled: true
     type: emptyDir
-    mountPath: "/opt/recipes/staticfiles"
+    targetSelector:
+      main:
+        main:
+          mountPath: /opt/recipes/staticfiles
+      nginx:
+        nginx:
+          mountPath: /static
   recipes-config:
-    enabled: "true"
-    mountPath: "/etc/nginx/nginx.conf"
-    subPath: "nginx.conf"
-    type: "custom"
-    volumeSpec:
-      configMap:
-        name: '{{ printf "%v-config" (include "tc.common.names.fullname" .) }}'
+    enabled: true
+    type: configmap
+    objectName: nginx-config
+    targetSelector:
+      nginx:
+        nginx:
+          mountPath: /etc/nginx/nginx.conf
+          subPath: nginx.conf
+          readOnly: true
 
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: recipes
-  postgresqlDatabase: recipes
+cnpg:
+  main:
+    enabled: truecharts
+    database: recipes
+    user: recipes
 
 portal:
-  enabled: true
+  open:
+    enabled: true
