@@ -22,11 +22,6 @@ securityContext:
   readOnlyRootFilesystem: false
   runAsGroup: 0
   runAsUser: 0
-  capabilities:
-    add:
-      - CHOWN
-      - SETUID
-      - SETGID
 
 service:
   main:
