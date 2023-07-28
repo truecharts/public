@@ -9,19 +9,25 @@ workload:
       containers:
         main:
           env:
-            BASE_URL: ""
+            BIND_ADDRESS: '{{ printf "0.0.0.0:%v" .Values.service.main.ports.main.port }}'
             INSTANCE_NAME: SearXng
+            BASE_URL: ""
+          probes:
+            liveness:
+              path: /healthz
+            readiness:
+              path: /healthz
+            statup:
+              type: tcp
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsGroup: 0
-  runAsUser: 0
-  capabilities:
-    add:
-      - CHOWN
-      - CHMOD
-      - SETUID
-      - SETGID
+  container:
+    runAsGroup: 0
+    runAsUser: 0
+    capabilities:
+      add:
+        - SETUID
+        - SETGID
 
 service:
   main:
@@ -29,7 +35,6 @@ service:
       main:
         port: 8080
         protocol: http
-        targetPort: 8080
 
 persistence:
   config:
