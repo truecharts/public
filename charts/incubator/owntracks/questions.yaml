@@ -115,6 +115,14 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
+        - variable: config
+          label: App Storage
+          description: Stores the config data.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

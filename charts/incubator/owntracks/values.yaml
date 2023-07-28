@@ -49,6 +49,9 @@ persistence:
   store:
     enabled: true
     mountPath: /store
+  config:
+    enabled: true
+    mountPath: /config
 
 portal:
   open:
