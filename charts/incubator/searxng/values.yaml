@@ -12,6 +12,7 @@ workload:
             capabilities:
               add:
                 - CHOWN
+                - CHMOD
                 - SETUID
                 - SETGID
           env:
