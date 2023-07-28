@@ -11,6 +11,7 @@ workload:
           env:
             BIND_ADDRESS: '{{ printf "0.0.0.0:%v" .Values.service.main.ports.main.port }}'
             INSTANCE_NAME: SearXng
+            BASE_URL: ""
           probes:
             liveness:
               path: /healthz
