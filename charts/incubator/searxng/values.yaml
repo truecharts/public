@@ -19,7 +19,7 @@ workload:
             readiness:
               path: /healthz
               port: '{{ .Values.service.main.ports.main.port }}'              
-            statup:
+            startup:
               type: tcp
               port: '{{ .Values.service.main.ports.main.port }}'
 
