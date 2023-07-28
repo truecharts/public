@@ -31,6 +31,13 @@ portal:
   open:
     enabled: false
 
+operator:
+  verify:
+    additionalOperators:
+      - cert-manager
+    enabled: true
+    failOnError: false
+
 clusterIssuer:
   selfSigned:
     enabled: true
@@ -75,6 +82,3 @@ clusterIssuer:
 #     tsigKeyName: ""
 #     tsigAlgorithm: ""
 #     rfctsigSecret: ""
-
-customMetrics:
-  enabled: true
