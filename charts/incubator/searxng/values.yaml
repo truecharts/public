@@ -28,6 +28,8 @@ securityContext:
     runAsGroup: 0
     runAsUser: 0
     capabilities:
+      disableS6Caps: true
+
       add:
         - SETUID
         - SETGID
