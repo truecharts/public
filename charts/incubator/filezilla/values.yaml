@@ -5,9 +5,6 @@ image:
 
 securityContext:
   readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
 
@@ -16,14 +13,14 @@ service:
     ports:
       main:
         port: 10035
+        protocol: http
         targetPort: 3000
 
 persistence:
   config:
     enabled: true
     mountPath: "/config"
-  varrun:
-    enabled: true
 
 portal:
-  enabled: true
+  open:
+    enabled: true
