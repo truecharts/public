@@ -8,6 +8,12 @@ workload:
     podSpec:
       containers:
         main:
+          securityContext:
+            capabilities:
+              add:
+                - CHOWN
+                - SETUID
+                - SETGID
           env:
             BASE_URL: ""
             INSTANCE_NAME: SearXng
