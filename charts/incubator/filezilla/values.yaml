@@ -4,14 +4,15 @@ image:
   tag: 3.59.0@sha256:e6c854d35020a3fafddee718542cd99ef416432fe8424cf1b84559ecec1e6289
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsUser: 0
-  runAsGroup: 0
-  capabilities:
-    add:
-      - SYS_CHROOT
-      - KILL
-      - NET_BIND_SERVICE
+  container:
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+    capabilities:
+      add:
+        - SYS_CHROOT
+        - KILL
+        - NET_BIND_SERVICE
 
 workload:
   main:
