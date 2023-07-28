@@ -13,25 +13,25 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: INSTANCE_NAME
-          label: Instance Name
-          description: Your SearXNG instance name
-          schema:
-            type: string
-            default: SearXng
-        - variable: BASE_URL
-          label: Base URL
-          description: Set base url like so https://search.mydomain.com
-          schema:
-            type: string
-            default: ""
+                                - variable: env
+                                  group: App Configuration
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: INSTANCE_NAME
+                                        label: Instance Name
+                                        description: Your SearXNG instance name
+                                        schema:
+                                          type: string
+                                          default: SearXng
+                                      - variable: BASE_URL
+                                        label: Base URL
+                                        description: Set base url like so https://search.mydomain.com
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -71,7 +71,7 @@ questions:
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: Main Ingress
+          label: "Main Ingress"
           schema:
             additional_attrs: true
             type: dict
@@ -81,29 +81,29 @@ questions:
 # Include{ingressTraefik}
 # Include{ingressAdvanced}
 # Include{ingressList}
+# Include{securityContextRoot}
 
-# Include{podSecurityContextRoot}
-        - variable: runAsUser
-          label: runAsUser
-          description: The UserID of the user running the application
-          schema:
-            type: int
-            default: 0
-        - variable: runAsGroup
-          label: runAsGroup
-          description: The groupID this App of the user running the application
-          schema:
-            type: int
-            default: 0
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID this App of the user running the application"
+                schema:
+                  type: int
+                  default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID this App of the user running the application"
+                schema:
+                  type: int
+                  default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-        - variable: fsGroup
-          label: fsGroup
-          description: The group that should own ALL storage.
-          schema:
-            type: int
-            default: 568
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
+                schema:
+                  type: int
+                  default: 568
 
 # Include{resources}
 # Include{advanced}
