@@ -15,10 +15,13 @@ workload:
           probes:
             liveness:
               path: /healthz
+              port: '{{ .Values.service.main.ports.main.port }}'              
             readiness:
               path: /healthz
+              port: '{{ .Values.service.main.ports.main.port }}'              
             statup:
               type: tcp
+              port: '{{ .Values.service.main.ports.main.port }}'
 
 securityContext:
   container:
