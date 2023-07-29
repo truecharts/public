@@ -1,19 +1,11 @@
 {{/* Define the secret */}}
 {{- define "funkwhale.secret" -}}
+{{- $basename := include "tc.v1.common.lib.chart.names.fullname" $ -}}
+{{- $fetchname := printf "%s-secret" $basename -}}
 
-{{- $secretName := printf "%s-secret" (include "tc.common.names.fullname" .) -}}
-
----
-
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: {{ $secretName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
+enabled: true
 data:
-  {{- with (lookup "v1" "Secret" .Release.Namespace $secretName) }}
+  {{- with (lookup "v1" "Secret" .Release.Namespace $fetchnameame) }}
   DJANGO_SECRET_KEY: {{ (index .data "DJANGO_SECRET_KEY") }}
   {{- else }}
   DJANGO_SECRET_KEY: {{ randAlphaNum 32 | b64enc }}
