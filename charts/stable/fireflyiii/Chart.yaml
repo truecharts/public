@@ -3,11 +3,11 @@ appVersion: "6.0.19"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 12.14.6
+    version: 12.15.0
   - condition: redis.enabled
     name: redis
     repository: https://deps.truecharts.org
-    version: 6.0.62
+    version: 6.0.66
 deprecated: false
 description: A free and open source personal finance manager
 home: https://truecharts.org/charts/stable/fireflyiii
@@ -25,7 +25,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/fireflyiii
   - https://github.com/firefly-iii/firefly-iii/
 type: application
-version: 20.0.32
+version: 20.0.33
 annotations:
   truecharts.org/catagories: |
     - finacial
