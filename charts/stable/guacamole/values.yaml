@@ -119,11 +119,9 @@ workload:
             liveness:
               type: http
               port: "{{ .Values.service.main.ports.main.targetPort }}"
-              path: /guacamole
             readiness:
               type: http
               port: "{{ .Values.service.main.ports.main.targetPort }}"
-              path: /guacamole
             startup:
               type: tcp
               port: "{{ .Values.service.main.ports.main.targetPort }}"
