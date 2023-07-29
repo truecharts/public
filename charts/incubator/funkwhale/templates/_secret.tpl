@@ -5,7 +5,7 @@
 
 enabled: true
 data:
-  {{- with (lookup "v1" "Secret" .Release.Namespace $fetchnameame) }}
+  {{- with (lookup "v1" "Secret" .Release.Namespace $fetchname) }}
   DJANGO_SECRET_KEY: {{ (index .data "DJANGO_SECRET_KEY") }}
   {{- else }}
   DJANGO_SECRET_KEY: {{ randAlphaNum 32 | b64enc }}
