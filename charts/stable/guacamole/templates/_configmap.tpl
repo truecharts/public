@@ -7,6 +7,11 @@ guacamole-config:
   enabled: true
   data:
     RECORDING_SEARCH_PATH: /var/lib/guacamole/recordings
+    {{/*
+      https://github.com/apache/guacamole-client/blob/bffc5fbdd5e2bb7a777f55c819a1d4d858829cb7/guacamole-docker/bin/start.sh#L1038
+      TomCat uses the war name as the context path. ROOT.war is the default and means the context path is /.
+    */}}
+    WEBAPP_CONTEXT: ROOT
   {{/* GuacD */}}
     GUACD_HOSTNAME: {{ printf "%v-guacd" $fullname }}
     GUACD_PORT: {{ .Values.service.guacd.ports.guacd.port | quote }}
