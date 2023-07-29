@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/traefik
-  tag: 2.10.1@sha256:049aece2d3e7eddabed1e2e4c4bd03ceba372d3b9f461386b262b6cb69369fcf
+  tag: 2.10.4@sha256:028687caa7680c6189c52a6dd28ffd17c3d0a747885ad83b3027fa74023a0fec
   pullPolicy: IfNotPresent
 manifestManager:
   enabled: true
@@ -23,7 +23,7 @@ workload:
               # @default -- "/"
               # path: "/ping"
 
-            # -- Redainess probe configuration
+            # -- Readiness probe configuration
             # @default -- See below
             readiness:
               # -- sets the probe type when not using a custom probe
