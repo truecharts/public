@@ -45,8 +45,7 @@ workload:
                 key: password
             REDIS_URL:
               secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                name: rediscreds
                 key: url
 
 persistence:
