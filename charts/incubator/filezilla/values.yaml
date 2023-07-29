@@ -8,11 +8,6 @@ securityContext:
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-    capabilities:
-      add:
-        - SYS_CHROOT
-        - KILL
-        - NET_BIND_SERVICE
 
 workload:
   main:
