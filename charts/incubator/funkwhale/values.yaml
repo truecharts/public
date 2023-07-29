@@ -4,10 +4,11 @@ image:
   tag: 1.2.10@sha256:835a4970cd330024e617e6b320f609b700ee79f042b57118ad761605fbd985d1
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-  runAsGroup: 0
-  runAsUser: 0
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
 
 workload:
   main:
