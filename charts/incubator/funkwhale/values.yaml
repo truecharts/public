@@ -20,7 +20,7 @@ workload:
               secretKeyRef:
                 name: secret
                 key: DJANGO_SECRET_KEY
-            FUNKWHALE_HOSTNAME: yourdomain.funkwhale
+            FUNKWHALE_HOSTNAME: "https://{{ if .Values.ingress }}{{ if .Values.ingress.main.enabled }}{{ ( index .Values.ingress.main.hosts 0 ).host }}{{ else }}placeholder.com{{ end }}{{ else }}placeholder.com{{ end }}"
             NESTED_PROXY: "0"
 
 service:
