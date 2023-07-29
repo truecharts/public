@@ -3,11 +3,11 @@ appVersion: "13.13.2"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 13.2.0
+    version: 13.2.1
   - condition: redis.enabled
     name: redis
     repository: https://deps.truecharts.org
-    version: 7.0.1
+    version: 7.0.5
 deprecated: false
 description: Open source decentralized social media platform that's free forever!
 home: https://truecharts.org/charts/incubator/misskey
@@ -29,7 +29,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/misskey
   - https://github.com/misskey-dev/misskey/
 type: application
-version: 4.0.1
+version: 4.0.2
 annotations:
   truecharts.org/catagories: |
     - Social
