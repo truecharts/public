@@ -9,13 +9,18 @@ securityContext:
   runAsGroup: 0
   runAsUser: 0
 
-env:
-  DJANGO_SECRET_KEY:
-    secretKeyRef:
-      name: secret
-      key: DJANGO_SECRET_KEY
-  FUNKWHALE_HOSTNAME: yourdomain.funkwhale
-  NESTED_PROXY: "0"
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DJANGO_SECRET_KEY:
+              secretKeyRef:
+                name: secret
+                key: DJANGO_SECRET_KEY
+            FUNKWHALE_HOSTNAME: yourdomain.funkwhale
+            NESTED_PROXY: "0"
 
 service:
   main:
