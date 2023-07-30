@@ -67,6 +67,10 @@ authentik:
     sentryDSN: ""
   geoip:
     enabled: false
+    # Ignored if enabled is true
+    # If enabled is false, and this is true, the
+    # built-in GeoIP database will be wiped
+    wipeBuiltInDb: false
     editionID: GeoLite2-City
     frequency: 8
     accountID: ""
@@ -432,12 +436,15 @@ persistence:
       worker:
         worker:
           mountPath: /templates
-  blueprints:
-    enabled: true
-    targetSelector:
-      worker:
-        worker:
-          mountPath: /blueprints
+  # - Enabling this will override the
+  # - default blueprints and initialisation
+  # - will fail.
+  # blueprints:
+  #   enabled: true
+  #   targetSelector:
+  #     worker:
+  #       worker:
+  #         mountPath: /blueprints
   certs:
     enabled: true
     mountPath: /certs
