@@ -164,19 +164,16 @@ args:
   {{- if .Values.middlewares.themePark }}
   {{/* theme.park */}}
   - "--experimental.localPlugins.traefik-themepark.modulename=github.com/packruler/traefik-themepark"
-  - "--experimental.localPlugins.traefik-themepark.version={{ .Values.middlewares.themeParkVersion }}"
   {{- end }}
   {{/* End of theme.park */}}
   {{/* GeoBlock */}}
   {{- if .Values.middlewares.geoBlock }}
   - "--experimental.localPlugins.GeoBlock.modulename=github.com/PascalMinder/geoblock"
-  - "--experimental.localPlugins.GeoBlock.version={{ .Values.middlewares.geoBlockVersion }}"
   {{- end }}
   {{/* End of GeoBlock */}}
   {{/* RealIP */}}
   {{- if .Values.middlewares.realIP }}
   - "--experimental.localPlugins.traefik-real-ip.modulename=github.com/soulbalz/traefik-real-ip"
-  - "--experimental.localPlugins.traefik-real-ip.version={{ .Values.middlewares.realIPVersion }}"
   {{- end }}
   {{/* End of RealIP */}}
   {{- with .Values.additionalArguments }}
