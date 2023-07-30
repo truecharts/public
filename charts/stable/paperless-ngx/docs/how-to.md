@@ -36,7 +36,7 @@ online archive. Our app is a simple way to install it on your TrueNAS SCALE serv
 
 ![Configure paperless-ngx](img/configure_paperless-ngx.png)
 
-Scroll to the bottom of the window and click `Save`. Once you hit Save Paperless-ngx will be donwloaded and configured. 
+Scroll to the bottom of the window and click `Save`. Once you hit Save Paperless-ngx will be donwloaded and configured.
 
 Switch back to the `Installed Applications` tab, and wait for the application to switch from `Deploying` to `Active`.
 Once `paperless-ngx` shows `Active` you can click its `Open` button to launch to its login screen. Use the initial Admin
