@@ -98,6 +98,15 @@ questions:
                 schema:
                   type: boolean
                   default: true
+              - variable: overwriteDefaultBlueprints
+                label: Overwrite Default Blueprints
+                description: |
+                  When enabled, all the default blueprints will be overwritten</br>
+                  True: mountPath: /blueprints</br>
+                  False: mountPath: /blueprints/custom
+                schema:
+                  type: boolean
+                  default: false
               - variable: tokenLength
                 label: Token Length
                 description: Configure the length of generated tokens
@@ -575,6 +584,14 @@ questions:
         - variable: templates
           label: App Templates Storage
           description: Stores the Application Templates.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: Blueprints
+          label: App Blueprints Storage
+          description: Stores the Application Blueprints.
           schema:
             additional_attrs: true
             type: dict
