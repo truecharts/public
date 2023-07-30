@@ -17,6 +17,10 @@
   {{- $_ := set .Values "configmap" $configmaps -}}
 {{- end -}}
 
+{{- if .Values.authentik.general.overwriteDefaultBlueprints -}}
+  {{- $_ := set .Values.persistence.blueprints.targetSelector.worker.worker "mountPath" "/blueprints" -}}
+{{- end -}}
+
 {{- if .Values.authentik.geoip.enabled -}}
   {{- $_ := set .Values.workload.geoip "enabled" true -}}
 {{- else -}}

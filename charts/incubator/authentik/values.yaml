@@ -36,6 +36,7 @@ authentik:
     allowUserChangeName: true
     allowUserChangeEmail: true
     allowUserChangeUsername: true
+    overwriteDefaultBlueprints: false
     gdprCompliance: true
     tokenLength: 128
     impersonation: true
@@ -436,15 +437,15 @@ persistence:
       worker:
         worker:
           mountPath: /templates
-  # - Enabling this will override the
-  # - default blueprints and initialisation
-  # - will fail.
-  # blueprints:
-  #   enabled: true
-  #   targetSelector:
-  #     worker:
-  #       worker:
-  #         mountPath: /blueprints
+  blueprints:
+    enabled: true
+    targetSelector:
+      worker:
+        worker:
+          # This will automatically change to `/blueprints`
+          # if `overwriteDefaultBlueprints` is set to `true
+          # Otherwise it will respect the value specified here
+          mountPath: /blueprints/custom
   certs:
     enabled: true
     mountPath: /certs
