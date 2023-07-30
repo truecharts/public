@@ -10,29 +10,30 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: FUNKWHALE_HOSTNAME
+                                        label: "FUNKWHALE_HOSTNAME"
+                                        description: "Container Variable FUNKWHALEHOSTNAME"
+                                        schema:
+                                          type: string
+                                          default: "yourdomain.funkwhale"
+                                      - variable: NESTED_PROXY
+                                        label: "NESTED_PROXY"
+                                        description: "Container Variable NESTEDPROXY  Set to 1 when container is behind a reverse proxy."
+                                        schema:
+                                          type: string
+                                          default: "0"
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: FUNKWHALE_HOSTNAME
-          label: "FUNKWHALE_HOSTNAME"
-          description: "Container Variable FUNKWHALEHOSTNAME"
-          schema:
-            type: string
-            default: "yourdomain.funkwhale"
-        - variable: NESTED_PROXY
-          label: "NESTED_PROXY"
-          description: "Container Variable NESTEDPROXY  Set to 1 when container is behind a reverse proxy."
-          schema:
-            type: string
-            default: "0"
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
