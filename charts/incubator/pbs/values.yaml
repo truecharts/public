@@ -32,10 +32,6 @@ persistence:
     enabled: true
     type: emptyDir
     mountPath: /run
-  tmp:
-    enabled: true
-    type: emptyDir
-    mountPath: /tmp
     
 
 portal:
