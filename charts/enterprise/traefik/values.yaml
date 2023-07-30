@@ -349,6 +349,13 @@ middlewares:
   customFrameOptionsValue: []
   # - name: customFrameOptionsValueExample
   #   value: "SAMEORIGIN"
+  buffering: []
+  # - name: bufferingExample
+  #   maxRequestBodyBytes: 1000000
+  #   memRequestBodyBytes: 1000000
+  #   maxResponseBodyBytes: 1000000
+  #   memResponseBodyBytes: 1000000
+  #   retryExpression: "IsNetworkError() && Attempts() < 2"
   chain: []
   # - name: chainname
   #   middlewares:
