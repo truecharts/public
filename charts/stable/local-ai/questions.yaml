@@ -84,14 +84,56 @@ questions:
           label: Galleries
           description: Models to install that will be visible in /models/available.
           schema:
-            type: string
-            default: '[{"name":"model-gallery", "url":"github:go-skynet/model-gallery/index.yaml"}]'
+            type: list
+            default:
+              - name: model-gallery
+                url: github:go-skynet/model-gallery/index.yaml
+            items:
+              - variable: galleryEntry
+                label: Gallery Type Entry
+                schema:
+                  type: dict
+                  additional_attrs: true
+                  attrs:
+                    - variable: name
+                      label: Name
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: url
+                      label: Url
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
         - variable: preload_models
           label: Preload Models
           description: Preload models on start.
           schema:
-            type: string
-            default: '[{"url": "github:go-skynet/model-gallery/gpt4all-j.yaml", "name": "gpt-3.5-turbo"}]'
+            type: list
+            default:
+              - name: gpt-3.5-turbo
+                url: ggithub:go-skynet/model-gallery/gpt4all-j.yaml
+            items:
+              - variable: preloadEntry
+                label: Preload Type Entry
+                schema:
+                  type: dict
+                  additional_attrs: true
+                  attrs:
+                    - variable: name
+                      label: Name
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: url
+                      label: Url
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
         - variable: cors
           label: Enable CORS
           schema:
