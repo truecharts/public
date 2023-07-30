@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/authentik
-  tag: v2023.5.3@sha256:55c6eea8ce8d936379b34a05c0d0558a0ca737e71a72d27600d27ce23bc369e3
+  tag: v2023.6.1@sha256:d0ff7fa405776b113dff914991a598a8a9754365e10f83232bede961e1903311
   pullPolicy: IfNotPresent
 
 geoipImage:
@@ -10,17 +10,17 @@ geoipImage:
 
 ldapImage:
   repository: tccr.io/truecharts/authentik-ldap
-  tag: v2023.5.3@sha256:7ac0f5c4ad334c9480548cf2d5978fe0f6105809c9deeb8d40c450486863526f
+  tag: v2023.6.1@sha256:7c31bdcb9d9fa8b6f8591b2d8d9f1de1365cb2a639201cd6bdb985aa0c9c2620
   pullPolicy: IfNotPresent
 
 radiusImage:
   repository: tccr.io/truecharts/authentik-radius
-  tag: v2023.5.3@sha256:824415af5e7efa090d716d38b944df3a758df08a78f2dce5a77fd0f12ee41c5c
+  tag: v2023.6.1@sha256:35c16ad6031b1ea82b275a7be36bc398f765dc4c44822036fab7f84b800c1c0e
   pullPolicy: IfNotPresent
 
 proxyImage:
   repository: tccr.io/truecharts/authentik-proxy
-  tag: v2023.5.3@sha256:d46f4dbc727d5d6f6c91df0f6a2bf98d2c941de908fdc15193552413331e375b
+  tag: v2023.6.1@sha256:c0343cac900479531bb5bf0d2b40d8f1f57c6016a377b33a86b8aab526d76aa3
   pullPolicy: IfNotPresent
 
 authentik:
@@ -36,6 +36,7 @@ authentik:
     allowUserChangeName: true
     allowUserChangeEmail: true
     allowUserChangeUsername: true
+    overwriteDefaultBlueprints: false
     gdprCompliance: true
     tokenLength: 128
     impersonation: true
@@ -67,6 +68,10 @@ authentik:
     sentryDSN: ""
   geoip:
     enabled: false
+    # Ignored if enabled is true
+    # If enabled is false, and this is true, the
+    # built-in GeoIP database will be wiped
+    wipeBuiltInDb: false
     editionID: GeoLite2-City
     frequency: 8
     accountID: ""
@@ -437,7 +442,10 @@ persistence:
     targetSelector:
       worker:
         worker:
-          mountPath: /blueprints
+          # This will automatically change to `/blueprints`
+          # if `overwriteDefaultBlueprints` is set to `true
+          # Otherwise it will respect the value specified here
+          mountPath: /blueprints/custom
   certs:
     enabled: true
     mountPath: /certs

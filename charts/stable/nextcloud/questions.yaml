@@ -179,10 +179,11 @@ questions:
                     - variable: max_allowed_resolution
                       label: Max Allowed Resolution
                       schema:
-                        type: int
+                        type: string
+                        valid_chars: '^[0-9]{1,5}(\.[0-9]{1,2})?$'
                         show_if: [["imaginary", "=", true]]
                         required: true
-                        default: 18.0
+                        default: "18.0"
                     - variable: max_file_size_image
                       label: Max File Size Image
                       schema:

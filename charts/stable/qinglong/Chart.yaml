@@ -1,8 +1,8 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: qinglong
-version: 5.0.30
-appVersion: "2.15.19"
+version: 5.0.33
+appVersion: "2.15.20"
 description: A timed task management panel that supports typescript, javaScript, python3, and shell
 type: application
 deprecated: false
@@ -16,7 +16,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 12.14.6
+    version: 12.15.0
     # condition:
 maintainers:
   - email: info@truecharts.org
