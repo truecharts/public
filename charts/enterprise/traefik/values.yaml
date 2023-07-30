@@ -372,7 +372,6 @@ middlewares:
   #   ipStrategy:
   #     depth: 2
   #     excludedIPs: []
-  themeParkVersion: v1.3.0
   themePark: []
   # - name: themeParkName
   # -- Supported apps, lower case name
@@ -384,7 +383,6 @@ middlewares:
   #   theme: themenamehere
   # -- https://theme-park.dev or a self hosted url
   #   baseUrl: https://theme-park.dev
-  realIPVersion: v1.0.3
   # Sets X-Real-Ip with an IP from the X-Forwarded-For or
   # Cf-Connecting-Ip (If from Cloudflare)
   # Evaluation of those headers will go from last to first
@@ -397,7 +395,6 @@ middlewares:
   addPrefix: []
   # - name: addPrefixName
   #   prefix: "/foo"
-  geoBlockVersion: v0.2.4
   geoBlock: []
   # -- https://github.com/PascalMinder/geoblock
   # - name: geoBlockName
