@@ -123,6 +123,7 @@ geoip:
   data:
     GEOIPUPDATE_EDITION_IDS: {{ .Values.authentik.geoip.editionID }}
     GEOIPUPDATE_FREQUENCY: {{ .Values.authentik.geoip.frequency | quote }}
+    GEOIPUPDATE_DB_DIR: {{ .Values.persistence.geoip.targetSelector.geoip.geoip.mountPath | quote }}
 {{- end -}}
 
 {{- end -}}
