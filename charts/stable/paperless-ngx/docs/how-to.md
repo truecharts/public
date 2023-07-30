@@ -36,7 +36,7 @@ online archive. Our app is a simple way to install it on your TrueNAS SCALE serv
 
 ![Configure paperless-ngx](img/configure_paperless-ngx.png)
 
-Scroll to the bottom of the window and click `Save`. Once you hit Save Paperless-ngx will be donwloaded and configured. 
+Scroll to the bottom of the window and click `Save`. Once you hit Save Paperless-ngx will be donwloaded and configured.
 
 Switch back to the `Installed Applications` tab, and wait for the application to switch from `Deploying` to `Active`.
 Once `paperless-ngx` shows `Active` you can click its `Open` button to launch to its login screen. Use the initial Admin
@@ -53,23 +53,6 @@ Per default OCR is only performed in English. Check the Paperless-ngx documentat
 would best match your use-case. Paperless-ngx only comes with a few OCR languages pre-installed, see the
 [`PAPERLESS_OCR_LANGUAGES` (plural)](https://docs.paperless-ngx.com/configuration/#docker) configuration option for more
 information, and note if you need this configured too.
-
-Apply those options to your Paperless-ngx installation as follows:
-
-- Select `Apps` inside the TrueNAS menu.
-- You should be on the `Installed Applications` tab.
-- Look for your `paperless-ngx` installation.
-- Click the 3-button menu in its box and select `Edit`. This will open the application configuration pane similar to the
-  configuration page on installation.
-  - Scroll down to the `Extra Environment Variables` section and click `Add`, once or twice depending on whether you
-    need to add one or both of the above options.
-  - Enter each option and its value in a separate box.
-
-![OCR configuration for paperless-ngx](img/ocr_configuration_for_paperless-ngx.png)
-
-Scroll to the bottom of the window and click `Save`. This will reconfigure and restart Paperless-ngx. OCR operations
-performed on documents imported after this change will take the additional languages into account. Those options can be
-changed at any time and will apply to all new OCR operations performed after changes.
 
 ### Configure import share
 
@@ -103,8 +86,7 @@ Once you have set up the NFS share, configure your Paperless-ngx installation as
   - Scroll down to the `Extra Environment Variables` section and click `Add`.
   - Enter the name `PAPERLESS_CONSUMER_POLLING` and the value `120`, Paperless-ngx will then look for new documents in
     the import share every 120 seconds (2 minutes).
-  - Scroll further down to the `To-be consumed Document Storage` section and set `Type of Storage` to `NFS Share`, `NFS
-    Server` to `localhost` and `Path on NFS Server` to the path you configured above.
+  - Scroll further down to the `To-be consumed Document Storage` section and set `Type of Storage` to `NFS Share`, `NFS Server` to `localhost` and `Path on NFS Server` to the path you configured above.
 
 ![Consumer polling configuration for paperless-ngx](img/consumer_polling_configuration_for_paperless-ngx.png)
 ![To-be consumed document storage configuration for paperless-ngx](img/to-be_consumed_document_storage_configuration_for_paperless-ngx.png)
