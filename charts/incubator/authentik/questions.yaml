@@ -293,6 +293,16 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
+              - variable: wipeBuiltInDb
+                label: Wipe Built-In GeoIP DB
+                description: |
+                  Wipes the built-in GeoIP database.</br>
+                  With this set to false, and disabled GeoIP container,</br>
+                  It will use the built-in database.
+                schema:
+                  type: boolean
+                  show_if: [["enabled", "=", false]]
+                  default: false
               - variable: enabled
                 label: Enabled
                 description: |

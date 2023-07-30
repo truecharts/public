@@ -30,8 +30,11 @@ server-worker:
     {{- $geoipPath := (printf "/geoip/%v.mmdb" .Values.authentik.geoip.editionID) -}}
     {{- if not .Values.authentik.geoip.enabled -}}
       {{- $geoipPath = "/tmp/non-existent-file" -}}
-    {{- end }}
+    {{- end -}}
+
+    {{- if or .Values.authentik.geoip.enabled .Values.authentik.geoip.wipeBuiltInDb }}
     AUTHENTIK_GEOIP: {{ $geoipPath }}
+    {{- end }}
 
     {{/* Mail */}}
     AUTHENTIK_EMAIL__USE_TLS: {{ .Values.authentik.email.useTLS | quote }}

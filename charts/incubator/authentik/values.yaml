@@ -67,10 +67,14 @@ authentik:
     sentryDSN: ""
   geoip:
     enabled: false
+    # Ignored if enabled is true
+    # If enabled is false, and this is true, the
+    # built-in GeoIP database will be wiped
+    wipeBuiltInDb: false
     editionID: GeoLite2-City
     frequency: 8
-    accountID: ""
-    licenseKey: ""
+    accountID: "asd"
+    licenseKey: "ads"
   outposts:
     # Experimental feature
     disableEmbeddedOutpost: false

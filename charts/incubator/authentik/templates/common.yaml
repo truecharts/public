@@ -21,6 +21,11 @@
   {{- $_ := set .Values.workload.geoip "enabled" true -}}
 {{- else -}}
   {{- $_ := set .Values.workload.geoip "enabled" false -}}
+  {{- $_ := set .Values.persistence.geoip "enabled" false -}}
+{{- end -}}
+
+{{- if or .Values.authentik.geoip.enabled .Values.authentik.geoip.wipeBuiltInDb -}}
+  {{- $_ := set .Values.persistence.geoip "enabled" true -}}
 {{- end -}}
 
 {{- if .Values.authentik.outposts.proxy.enabled -}}
