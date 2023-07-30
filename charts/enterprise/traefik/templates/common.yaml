@@ -1,6 +1,6 @@
 {{/* Make sure all variables are set properly */}}
 {{- if .Values.ingressClass.enabled -}}
-  {{- $_ := set .Values.operator "register" false-}}
+  {{- $_ := set .Values.operator "register" false -}}
 {{- end -}}
 
 {{- include "tc.v1.common.loader.init" . }}
