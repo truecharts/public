@@ -1,27 +1,27 @@
 image:
   repository: tccr.io/truecharts/local-ai
   pullPolicy: IfNotPresent
-  tag: v1.21.0@sha256:ab2b3e391effc9a4c5bde8add39e060e9b46558491599550bbb423da191f0461
+  tag: v1.23.0@sha256:06183cc9fffb59c474a98171c479eb234369d502cb4bcefd4c5f56ccc248ce31
 ffmpegImage:
   repository: tccr.io/truecharts/local-ai-ffmpeg
   pullPolicy: IfNotPresent
-  tag: v1.21.0@sha256:bdf5ad52dd91f7eb45f231172c38c08716000c2a0dcdd5f029e939ac78076543
+  tag: v1.23.0@sha256:9d9cc49336e898379e54533991ffcc27bac9b328acf7ab4df7651afeee397ecd
 cublasCuda12Image:
   repository: tccr.io/truecharts/local-ai-cublas-cuda12
   pullPolicy: IfNotPresent
-  tag: v1.21.0-cublas@sha256:b081e33b37252b71ef5f2c1e78cbbb8530d850693cbcf853ced6d2a43c9d98be
+  tag: v1.23.0-cublas@sha256:5270b7a462c7c3e5178c7eb3ec8ab5c5e24d9d9763ae559e9a050cb881f44890
 cublasCuda12FfmpegImage:
   repository: tccr.io/truecharts/local-ai-cublas-cuda12-ffmpeg
   pullPolicy: IfNotPresent
-  tag: v1.21.0-cublas-cuda12@sha256:61f25376a200298898e8e47a2a98584fd8a1dd2206a6139cd42fa2686a7371f0
+  tag: v1.23.0-cublas-cuda12@sha256:01d4891f1b125829c0e7675e50da97e53555fd1dc8c6cf4777925d2ccd1d481c
 cublasCuda11Image:
   repository: tccr.io/truecharts/local-ai-cublas-cuda11
   pullPolicy: IfNotPresent
-  tag: v1.21.0-cublas@sha256:f62226611d79d7c3278ff51609d79d26f0da8aa399a2eb91a0e0e7e68e0a561b
+  tag: v1.23.0-cublas@sha256:776c99a721ec1202b95220eae5806082bf925c813105eb0bf2e24d26b76b3b50
 cublasCuda11FfmpegImage:
   repository: tccr.io/truecharts/local-ai-cublas-cuda11-ffmpeg
   pullPolicy: IfNotPresent
-  tag: v1.21.0-cublas-cuda11@sha256:09935552112e52bc40fb11a106c54132c8fc8f1b534a04c4cd3580082f4339f1
+  tag: v1.23.0-cublas-cuda11@sha256:573c374e21e3bb32cf45ac08383c357f2e7c5339f3bf15dc6802c7b089c6989d
 
 securityContext:
   container:
@@ -49,7 +49,8 @@ localai:
   debug: true
   cors: true
   cors_allow_origins: "*"
-  # galleries: [{"name":"model-gallery", "url":"github:go-skynet/model-gallery/index.yaml"}]
+  galleries: '[{"name":"model-gallery", "url":"github:go-skynet/model-gallery/index.yaml"}]'
+  preload_models: '[{"url": "github:go-skynet/model-gallery/gpt4all-j.yaml", "name": "gpt-3.5-turbo"}]'
   # UPLOAD_LIMIT
 
 workload:
@@ -81,6 +82,8 @@ workload:
             CONTEXT_SIZE: "{{ .Values.localai.context_size }}"
             DEBUG: "{{ .Values.localai.debug }}"
             CORS: "{{ .Values.localai.cors }}"
+            GALLERIES: "{{ .Values.localai.galleries }}"
+            PRELOAD_MODELS: "{{ .Values.localai.preload_models }}"
             CORS_ALLOW_ORIGINS: "{{ .Values.localai.cors_allow_origins }}"
 
 persistence:

@@ -80,19 +80,26 @@ questions:
           schema:
             type: boolean
             default: true
-        - variable: cors_settings
-          label: Show Cors Policy Settings
+        - variable: galleries
+          label: Galleries
+          description: Models to install that will be visible in /models/available.
+          schema:
+            type: string
+            default: '[{"name":"model-gallery", "url":"github:go-skynet/model-gallery/index.yaml"}]'
+        - variable: preload_models
+          label: Preload Models
+          description: Preload models on start.
+          schema:
+            type: string
+            default: '[{"url": "github:go-skynet/model-gallery/gpt4all-j.yaml", "name": "gpt-3.5-turbo"}]'
+        - variable: cors
+          label: Enable CORS
           schema:
             type: boolean
-            default: false
+            default: true
             show_subquestions_if: true
             subquestions:
-              - variable: CORS
-                label: Enable CORS
-                schema:
-                  type: boolean
-                  default: true
-              - variable: CORS_ALLOW_ORIGINS
+              - variable: cors_allow_origins
                 label: Cors Allows Origins
                 schema:
                   type: string
