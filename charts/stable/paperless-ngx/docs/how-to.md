@@ -107,8 +107,7 @@ Once you have set up the NFS share, configure your Paperless-ngx installation as
     Server` to `localhost` and `Path on NFS Server` to the path you configured above.
 
 ![Consumer polling configuration for paperless-ngx](img/consumer_polling_configuration_for_paperless-ngx.png)
-![To-be consumed document storage configuration for
-paperless-ngx](img/to-be_consumed_document_storage_configuration_for_paperless-ngx.png)
+![To-be consumed document storage configuration for paperless-ngx](img/to-be_consumed_document_storage_configuration_for_paperless-ngx.png)
 
 Scroll to the bottom of the window and click `Save`. This will reconfigure and restart Paperless-ngx. Documents added to
 shared folder will be automatically imported by Paperless-ngx. Those options can be changed at any time, documents still
