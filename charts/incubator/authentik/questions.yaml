@@ -570,14 +570,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-        - variable: blueprints
-          label: App Blueprints Storage
-          description: Stores the Application Blueprints.
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
         - variable: certs
           label: App Certs Storage
           description: Stores the Application Certs.

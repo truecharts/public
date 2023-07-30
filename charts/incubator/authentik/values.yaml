@@ -432,12 +432,15 @@ persistence:
       worker:
         worker:
           mountPath: /templates
-  blueprints:
-    enabled: true
-    targetSelector:
-      worker:
-        worker:
-          mountPath: /blueprints
+  # - Enabling this will override the
+  # - default blueprints and initialisation
+  # - will fail.
+  # blueprints:
+  #   enabled: true
+  #   targetSelector:
+  #     worker:
+  #       worker:
+  #         mountPath: /blueprints
   certs:
     enabled: true
     mountPath: /certs
