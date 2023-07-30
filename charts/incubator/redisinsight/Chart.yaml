@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: redisinsight
-version: 3.0.3
+version: 3.0.4
 appVersion: "1.14.0"
 description: GUI for Redis.
 type: application
@@ -17,7 +17,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 13.2.1
+    version: 13.2.2
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts
