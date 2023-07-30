@@ -30,7 +30,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 7009
+                              default: 8007
                               required: true
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
@@ -59,7 +59,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{persistenceBasic}            
+# Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
