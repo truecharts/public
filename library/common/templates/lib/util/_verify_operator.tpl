@@ -4,9 +4,9 @@
     {{- $operatorList := .Values.operator.verify.additionalOperators -}}
 
     {{- $cnpg := false -}}
-    {{- range $opName := .Values.cnpg -}}
+    {{- range $opName := $.Values.cnpg -}}
       {{- if .enabled -}}
-        {{- $cnpg := true -}}
+        {{- $cnpg = true -}}
       {{- end -}}
     {{- end -}}
     {{- if $cnpg -}}
@@ -14,9 +14,9 @@
     {{- end -}}
 
     {{- $ingress := false -}}
-    {{- range $opName := .Values.ingress -}}
+    {{- range $opName := $.Values.ingress -}}
       {{- if .enabled -}}
-        {{- $ingress := true -}}
+        {{- $ingress = true -}}
       {{- end -}}
     {{- end -}}
     {{- if $ingress -}}
@@ -24,9 +24,9 @@
     {{- end -}}
 
     {{- $metrics := false -}}
-    {{- range $opName := .Values.metrics -}}
+    {{- range $opName := $.Values.metrics -}}
       {{- if .enabled -}}
-        {{- $metrics := true -}}
+        {{- $metrics = true -}}
       {{- end -}}
     {{- end -}}
     {{- if $metrics -}}
