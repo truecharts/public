@@ -184,8 +184,10 @@ questions:
       attrs:
 # Include{basicAuthMiddleware}
 # Include{forwardAuthMiddleware}
+# Include{bufferingMiddleware}
 # Include{customRequestHeadersMiddleware}
 # Include{customResponseHeadersMiddleware}
+# Include{customFrameOptionsValueMiddleware}
 # Include{chainMiddleware}
 # Include{redirectSchemeMiddleware}
 # Include{rateLimitMiddleware}
