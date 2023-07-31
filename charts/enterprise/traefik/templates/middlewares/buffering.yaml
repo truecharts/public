@@ -5,7 +5,7 @@ apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
   name: {{ ternary (printf "%v-%v" $.Release.Name $middlewareData.name) $middlewareData.name $.Values.ingressClass.enabled }}
-  namespace: tc-system
+  namespace: {{ $.Values.namespace | default $.Values.global.namespace | default $.Release.Namespace }}
 spec:
   buffering: {{/* Only render if its not <nil> and has a value of 0 or greater */}}
     {{- if not (kindIs "invalid" $middlewareData.maxRequestBodyBytes) (ge ($middlewareData.maxRequestBodyBytes | int) 0) }}
