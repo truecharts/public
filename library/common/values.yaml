@@ -582,8 +582,7 @@ operator:
   verify:
     enabled: true
     # -- Makes non-found operators hard-failing
-    ## TODO: set to true
-    failOnError: false
+    failOnError: true
     # -- a list of extra operators to check for
     additionalOperators: []
   ## -- used as a datastore when a metallb operator is found.

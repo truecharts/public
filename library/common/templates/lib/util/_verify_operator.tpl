@@ -40,7 +40,7 @@
       {{- if eq $fetchedOpData "false" -}}
         {{/* Fail only if explicitly asked */}}
         {{- if $.Values.operator.verify.failOnError -}}
-          {{- fail (printf "Operator [%s] have to be installed first" $opName) -}}
+          {{- fail (printf "Operator [%s] has to be installed first" $opName) -}}
         {{- end -}}
       {{/* If $fetchedOpData is not false, we should have JSON data */}}
       {{- else -}}
