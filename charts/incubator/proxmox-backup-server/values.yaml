@@ -9,6 +9,7 @@ securityContext:
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
+    fsGroup: 43
 
 service:
   main:
@@ -24,9 +25,11 @@ persistence:
     mountPath: /etc/proxmox-backup
   lib:
     enabled: true
+    type: emptyDir
     mountPath: /var/lib/proxmox-backup
   log:
     enabled: true
+    type: emptyDir
     mountPath: /var/log/proxmox-backup
   run:
     enabled: true

@@ -44,22 +44,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-        - variable: lib
-          label: "App lib Storage"
-          description: "Storage for lib."
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
-        - variable: log
-          label: "App log Storage"
-          description: "Storage for log."
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
