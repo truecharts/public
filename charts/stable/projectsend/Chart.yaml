@@ -3,7 +3,7 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 12.15.0
+    version: 14.0.1
   - condition: mariadb.enabled
     name: mariadb
     repository: https://deps.truecharts.org/
@@ -25,7 +25,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/projectsend
   - https://github.com/projectsend/projectsend
 type: application
-version: 7.1.4
+version: 8.0.0
 annotations:
   truecharts.org/catagories: |
     - files
