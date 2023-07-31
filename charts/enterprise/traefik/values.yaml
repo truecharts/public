@@ -48,6 +48,9 @@ workload:
 podOptions:
   automountServiceAccountToken: true
 
+operator:
+  register: true
+
 # -- Use ingressClass. Ignored if Traefik version < 2.3 / kubernetes < 1.18.x
 ingressClass:
   # true is not unit-testable yet, pending https://github.com/rancher/helm-unittest/pull/12
@@ -421,6 +424,14 @@ middlewares:
   #   blackListMode: false
   #   countries:
   #     - RU
+  modsecurity: []
+  # - name: modsecurityName
+  #   modSecurityUrl: modSecurity container URL
+  #   timeoutMillis: Configurated  timeout
+  #   maxBodySize: maxBodySize
+  ## Note: body of every request will be buffered in memory while the request is in-flight
+  ## (i.e.: during the security check and during the request processing by traefik and the backend),
+  ## so you may want to tune maxBodySize depending on how much RAM you have.
 
 portalhook:
   enabled: true

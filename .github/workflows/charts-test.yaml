@@ -150,7 +150,7 @@ jobs:
         run: |
           ## TODO: Move to our Helm Charts
           ## TODO: Only add when required
-          if [[ "${{ matrix.chart }}" != "charts/operators/metallb" ]]; then
+          if [[ "${{ matrix.chart }}" == "charts/operators/metallb-config" ]]; then
             kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml --server-side --force-conflicts || echo "error fetching metallb manifest"
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/cloudnative-pg" ]]; then
@@ -208,7 +208,7 @@ jobs:
 
       - name: Add Dependencies
         run: |
-          if [[ "${{ matrix.chart }}" != "charts/operators/metallb" ]]; then
+          if [[ "${{ matrix.chart }}" == "charts/operators/metallb-config" ]]; then
             kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml --server-side --force-conflicts || echo "error fetching metallb manifest"
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/cloudnative-pg" ]]; then
@@ -266,7 +266,7 @@ jobs:
 
       - name: Add Dependencies
         run: |
-          if [[ "${{ matrix.chart }}" != "charts/operators/metallb" ]]; then
+          if [[ "${{ matrix.chart }}" == "charts/operators/metallb-config" ]]; then
             kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml --server-side --force-conflicts || echo "error fetching metallb manifest"
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/cloudnative-pg" ]]; then
@@ -324,7 +324,7 @@ jobs:
 
       - name: Add Dependencies
         run: |
-          if [[ "${{ matrix.chart }}" != "charts/operators/metallb" ]]; then
+          if [[ "${{ matrix.chart }}" == "charts/operators/metallb-config" ]]; then
             kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml --server-side --force-conflicts || echo "error fetching metallb manifest"
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/cloudnative-pg" ]]; then
@@ -382,7 +382,7 @@ jobs:
 
       - name: Add Dependencies
         run: |
-          if [[ "${{ matrix.chart }}" != "charts/operators/metallb" ]]; then
+          if [[ "${{ matrix.chart }}" == "charts/operators/metallb-config" ]]; then
             kubectl apply -f --server-side --force-conflicts https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/cloudnative-pg" ]]; then
@@ -440,7 +440,7 @@ jobs:
 
       - name: Add Dependencies
         run: |
-          if [[ "${{ matrix.chart }}" != "charts/operators/metallb" ]]; then
+          if [[ "${{ matrix.chart }}" == "charts/operators/metallb-config" ]]; then
             kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml --server-side --force-conflicts || echo "error fetching metallb manifest"
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/cloudnative-pg" ]]; then
