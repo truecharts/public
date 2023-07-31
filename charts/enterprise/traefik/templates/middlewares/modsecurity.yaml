@@ -9,6 +9,6 @@ spec:
   plugin:
     traefik-modsecurity-plugin:
       modSecurityUrl: {{ $middlewareData.modSecurityUrl }}
-      maxBodySize: {{ $middlewareData.maxBodySize }}
       timeoutMillis: {{ $middlewareData.timeoutMillis }}
+      maxBodySize: {{ $middlewareData.maxBodySize }}
 {{- end -}}
