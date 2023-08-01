@@ -5,7 +5,7 @@ apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
   name: {{ ternary (printf "%v-%v" $.Release.Name $middlewareData.name) $middlewareData.name $.Values.ingressClass.enabled }}
-  namespace: tc-system
+  namespace: {{ $.Release.Namespace }}
 spec:
   redirectScheme:
     scheme: {{ $middlewareData.scheme }}
