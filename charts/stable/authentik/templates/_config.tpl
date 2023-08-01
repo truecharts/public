@@ -24,7 +24,6 @@ server-worker:
 
     {{/* Outposts */}}
     AUTHENTIK_OUTPOSTS__DISCOVER: "false"
-    AUTHENTIK_OUTPOSTS__DISABLE_EMBEDDED_OUTPOST: {{ .Values.authentik.outposts.disableEmbeddedOutpost | quote }}
 
     {{/* GeoIP */}}
     {{- $geoipPath := (printf "/geoip/%v.mmdb" .Values.authentik.geoip.editionID) -}}
