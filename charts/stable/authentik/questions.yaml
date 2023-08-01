@@ -359,15 +359,6 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-              - variable: disableEmbeddedOutpost
-                label: EXPERIMENTAL - Disable Embedded Outpost
-                description: |
-                  Disables the embedded outpost.</br>
-                  This will disable the embedded outpost, and will require you to deploy your own outpost.</br>
-                  Only use this for testing, it might be removed without notice.
-                schema:
-                  type: boolean
-                  default: false
               - variable: proxy
                 label: Proxy
                 schema:
