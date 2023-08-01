@@ -227,6 +227,12 @@ persistence:
       guacd:
         guacd:
           mountPath: /var/lib/guacamole/recordings
+  drive:
+    enabled: true
+    targetSelector:
+      guacd:
+        guacd:
+          mountPath: /var/lib/guacamole/drive
   tc-init:
     enabled: true
     type: emptyDir
