@@ -27,8 +27,8 @@ workload:
             # filesystem  | s3
             UPLOAD_PROVIDER: filesystem
             # set storage locations.
-            UPLOAD_FOLDER: /uploads
-            LOG_FOLDER: /logs
+            UPLOAD_FOLDER: "{{ .Values.persistence.uploads.mountPath }}"
+            LOG_FOLDER: "{{ .Values.persistence.logs.mountPath }}"
             SECRET_KEY:
               secretKeyRef:
                 name: ctfd-secrets
