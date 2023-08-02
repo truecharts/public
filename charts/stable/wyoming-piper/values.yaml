@@ -5,6 +5,11 @@ image:
 
 wyoming_piper:
   voice: en_US-lessac-medium
+  speaker: 0
+  length_scale: "1.0"
+  noise_scale: "0.667"
+  noise_w: "0.333"
+  max_piper_procs: 1
 
 workload:
   main:
@@ -24,6 +29,16 @@ workload:
           args:
             - --voice
             - "{{ .Values.wyoming_piper.voice }}"
+            - --speaker
+            - "{{ .Values.wyoming_piper.speaker }}"
+            - --length_scale
+            - "{{ .Values.wyoming_piper.length_scale }}"
+            - --noise_scale
+            - "{{ .Values.wyoming_piper.noise_scale }}"
+            - --noise_w
+            - "{{ .Values.wyoming_piper.noise_w }}"
+            - --max_piper_procs
+            - "{{ .Values.wyoming_piper.max_piper_procs }}"
 
 service:
   main:
