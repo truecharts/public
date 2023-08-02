@@ -5,7 +5,7 @@ image:
 
 geoipImage:
   repository: tccr.io/truecharts/geoipupdate
-  tag: v5.1.0@sha256:9397c7e4d99ab79d620bd7c6ecbad3558ac581dfc2c9432d98dd066ae7d55c71
+  tag: v6.0.0@sha256:e057484036265c5bde379556463eed605f68f72016f328404202fb293f02a76a
   pullPolicy: IfNotPresent
 
 ldapImage:
@@ -77,8 +77,6 @@ authentik:
     accountID: ""
     licenseKey: ""
   outposts:
-    # Experimental feature
-    disableEmbeddedOutpost: false
     proxy:
       enabled: false
       token: ""
