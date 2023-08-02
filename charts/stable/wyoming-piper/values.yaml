@@ -31,13 +31,13 @@ workload:
             - "{{ .Values.wyoming_piper.voice }}"
             - --speaker
             - "{{ .Values.wyoming_piper.speaker }}"
-            - --length_scale
+            - --length-scale
             - "{{ .Values.wyoming_piper.length_scale }}"
-            - --noise_scale
+            - --noise-scale
             - "{{ .Values.wyoming_piper.noise_scale }}"
-            - --noise_w
+            - --noise-w
             - "{{ .Values.wyoming_piper.noise_w }}"
-            - --max_piper_procs
+            - --max-piper-procs
             - "{{ .Values.wyoming_piper.max_piper_procs }}"
 
 service:
