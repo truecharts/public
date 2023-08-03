@@ -9,52 +9,52 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-                                - variable: env
+                                -  variable: env
                                   label: Image Environment
                                   schema:
                                     additional_attrs: true
                                     type: dict
                                     attrs:
-                                      - variable: SERVER_ADMIN_USERNAME
+                                      -  variable: SERVER_ADMIN_USERNAME
                                         label: "Server Admin User"
                                         schema:
                                           type: string
                                           required: true
                                           default: ""
-                                      - variable: SERVER_ADMIN_PASSWORD
+                                      -  variable: SERVER_ADMIN_PASSWORD
                                         label: "Server Admin Password"
                                         schema:
                                           type: string
                                           private: true
                                           required: true
                                           default: ""
-                                      - variable: server
+                                      -  variable: server
                                         label: Show Server Settings
                                         schema:
                                           type: boolean
                                           default: false
                                           show_subquestions_if: true
                                           subquestions:
-                                            - variable: SERVER_REGISTRATION_DISABLED
+                                            -  variable: SERVER_REGISTRATION_DISABLED
                                               label: "Server Registration Disabled"
                                               description: "If registration is enabled or not."
                                               schema:
                                                 type: boolean
                                                 default: false
-                                            - variable: SERVER_ACCOUNT_ACTIVATION_DISABLED
+                                            -  variable: SERVER_ACCOUNT_ACTIVATION_DISABLED
                                               label: "Server Account Activation Disabled"
                                               description: "If accounts need to be activated by an admin before using them."
                                               schema:
                                                 type: boolean
                                                 default: false
-                                            - variable: SERVER_CORS_ALLOWED_ORIGINS
+                                            -  variable: SERVER_CORS_ALLOWED_ORIGINS
                                               label: "Server Cors Allowed Origin"
-                                              description: "A comma-separated list of Allowed CORS origins for the server."
+                                              description: "A comma- separated list of Allowed CORS origins for the server."
                                               schema:
                                                 type: string
                                                 required: true
                                                 default: "*"
-                                            - variable: SERVER_LOG_LEVEL
+                                            -  variable: SERVER_LOG_LEVEL
                                               label: "Server Log Level"
                                               description: "The log level of the server."
                                               schema:
@@ -62,64 +62,109 @@ questions:
                                                 required: true
                                                 default: "info"
                                                 enum:
-                                                  - value: "debug"
+                                                  -  value: "debug"
                                                     description: "Debug"
-                                                  - value: "info"
+                                                  -  value: "info"
                                                     description: "Info"
-                                                  - value: "warn"
+                                                  -  value: "warn"
                                                     description: "Warn"
-                                                  - value: "error"
+                                                  -  value: "error"
                                                     description: "Error"
-                                                  - value: "fatal"
+                                                  -  value: "fatal"
                                                     description: "Fatal"
-                                      - variable: games_images
+                                      -  variable: games_images
                                         label: Show Games and Images Settings
                                         schema:
                                           type: boolean
                                           default: false
                                           show_subquestions_if: true
                                           subquestions:
-                                            - variable: GAMES_INDEX_INTERVAL_IN_MINUTES
+                                            -  variable: GAMES_INDEX_INTERVAL_IN_MINUTES
                                               label: "Games Index Interval In Minutes"
                                               description: "The index interval in minutes. Determines how often the server should index the list of games."
                                               schema:
                                                 type: int
                                                 default: 5
                                                 min: 1
-                                            - variable: IMAGE_GC_KEEP_DAYS
+                                            -  variable: GAMES_SUPPORTED_FILE_FORMATS
+                                              label: "Games Supported File Formats"
+                                              description: "Custom list of file formats."
+                                              schema:
+                                                type: list
+                                                empty: false
+                                                default:
+                                                  - ".7z"
+                                                  - ".xz"
+                                                  - ".bz2"
+                                                  - ".gz"
+                                                  - ".tar"
+                                                  - ".zip"
+                                                  - ".wim"
+                                                  - ".ar"
+                                                  - ".arj"
+                                                  - ".cab"
+                                                  - ".chm"
+                                                  - ".cpio"
+                                                  - ".cramfs"
+                                                  - ".dmg"
+                                                  - ".ext"
+                                                  - ".fat"
+                                                  - ".gpt"
+                                                  - ".hfs"
+                                                  - ".ihex"
+                                                  - ".iso"
+                                                  - ".lzh"
+                                                  - ".lzma"
+                                                  - ".mbr"
+                                                  - ".msi"
+                                                  - ".nsis"
+                                                  - ".ntfs"
+                                                  - ".qcow2"
+                                                  - ".rar"
+                                                  - ".rpm"
+                                                  - ".squashfs"
+                                                  - ".udf"
+                                                  - ".uefi"
+                                                  - ".vdi"
+                                                  - ".vhd"
+                                                  - ".vmdk"
+                                                  - ".wim"
+                                                  - ".xar"
+                                                  - ".z"
+                                            -  variable: IMAGE_GC_KEEP_DAYS
                                               label: "Image GC Keep Days"
                                               description: "The number of days to keep unused images. After this period, images that have not been accessed are deleted."
                                               schema:
                                                 type: int
                                                 default: 30
                                                 min: 1
-                                            - variable: IMAGE_GC_INTERVAL_MINUTES
+                                            -  variable: IMAGE_GC_INTERVAL_MINUTES
                                               label: "Image GC Interval Minutes"
                                               description: "How often to run the image garbage collector, in minutes."
                                               schema:
                                                 type: int
                                                 default: 60
                                                 min: 1
-                                      - variable: rawg
+                                      -  variable: rawg
                                         label: Show RAWG Server Settings
                                         schema:
                                           type: boolean
                                           default: false
                                           show_subquestions_if: true
                                           subquestions:
-                                            - variable: RAWG_API_URL
+                                            -  variable: RAWG_API_URL
                                               label: RAWG API Url
                                               schema:
                                                 type: string
                                                 required: true
                                                 default: https://api.rawg.io/api
-                                            - variable: RAWG_API_CACHE_DAYS
+                                            -  variable: RAWG_API_CACHE_DAYS
                                               label: RAWG API Cache Days
                                               schema:
                                                 type: int
                                                 default: 7
                                                 min: 1
-                                            - variable: RAWG_API_KEY
+                                            -  variable: RAWG_API_KEY
                                               label: RAWG API Key
                                               schema:
                                                 type: string
@@ -131,7 +176,7 @@ questions:
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
-        - variable: main
+        -  variable: main
           label: Main Service
           description: The Primary service on which the healthcheck runs, often the webUI
           schema:
@@ -140,13 +185,13 @@ questions:
             attrs:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
-                    - variable: main
+                    -  variable: main
                       label: Main Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
-                          - variable: port
+                          -  variable: port
                             label: Port
                             description: This port exposes the container port on the service
                             schema:
@@ -157,7 +202,7 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: logs
+        -  variable: logs
           label: "App Logs Storage"
           description: "Stores the Application Logs."
           schema:
@@ -165,7 +210,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-        - variable: images
+        -  variable: images
           label: "App Images Storage"
           description: "Stores the Application Images."
           schema:
@@ -173,7 +218,7 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-        - variable: games
+        -  variable: games
           label: "App Games Storage"
           description: "Stores the Application Games."
           schema:
@@ -183,7 +228,7 @@ questions:
 # Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
-        - variable: main
+        -  variable: main
           label: "Main Ingress"
           schema:
             additional_attrs: true
@@ -196,13 +241,13 @@ questions:
 # Include{ingressList}
 # Include{securityContextRoot}
 
-              - variable: runAsUser
+              -  variable: runAsUser
                 label: "runAsUser"
                 description: "The UserID of the user running the application"
                 schema:
                   type: int
                   default: 0
-              - variable: runAsGroup
+              -  variable: runAsGroup
                 label: "runAsGroup"
                 description: "The groupID of the user running the application"
                 schema:
@@ -211,7 +256,7 @@ questions:
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-              - variable: fsGroup
+              -  variable: fsGroup
                 label: "fsGroup"
                 description: "The group that should own ALL storage."
                 schema:
