@@ -1,0 +1,43 @@
+image:
+  repository: tccr.io/truecharts/wyoming-piper
+  pullPolicy: IfNotPresent
+  tag: v1.1.0@sha256:f07d688c833458b029237cc0e1e2fdfe249b2c8f8f555d3cd4e2148143c14200
+
+wyoming_piper:
+  voice: en-us-lessac-low
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              port: 10200
+              scheme: tcp
+            readiness:
+              port: 10200
+              scheme: tcp
+            startup:
+              port: 10200
+              scheme: tcp
+          args:
+            - --voice
+            - "{{ .Values.wyoming_piper.voice }}"
+
+service:
+  main:
+    ports:
+      main:
+        port: 10200
+        protocol: tcp
+        targetPort: 10200
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /data
+
+portal:
+  open:
+    enabled: false

@@ -1,8 +1,11 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "tc.common.loader.init" . }}
+{{- include "tc.v1.common.loader.init" . }}
 
-{{/* Render secret */}}
-{{- include "funkwhale.secret" . }}
+{{/* Render secrets for Funkwhalte */}}
+{{- $secrets := include "funkwhale.secret" . | fromYaml -}}
+{{- if $secrets -}}
+  {{- $_ := set .Values.secret "secret" $secrets -}}
+{{- end -}}
 
 {{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}
+{{ include "tc.v1.common.loader.apply" . }}

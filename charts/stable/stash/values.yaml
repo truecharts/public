@@ -41,6 +41,9 @@ persistence:
   metadata:
     enabled: true
     mountPath: "/metadata"
+  blobs:
+    enabled: true
+    mountPath: "/blobs"
   data:
     enabled: true
     mountPath: "/data"

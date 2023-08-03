@@ -3,7 +3,7 @@ apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
   name: {{ ternary (printf "%v-compress" $.Release.Name) "compress" $.Values.ingressClass.enabled }}
-  namespace: tc-system
+  namespace: {{ $.Release.Namespace }}
 spec:
   compress: {}
 ---
@@ -13,7 +13,7 @@ apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
   name: {{ ternary (printf "%v-basic-ratelimit" $.Release.Name) "basic-ratelimit" $.Values.ingressClass.enabled }}
-  namespace: tc-system
+  namespace: {{ $.Release.Namespace }}
 spec:
   rateLimit:
     average: 600
@@ -23,7 +23,7 @@ apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
   name: {{ ternary (printf "%v-basic-secure-headers" $.Release.Name) "basic-secure-headers" $.Values.ingressClass.enabled }}
-  namespace: tc-system
+  namespace: {{ $.Release.Namespace }}
 spec:
   headers:
     accessControlAllowMethods:
@@ -48,7 +48,7 @@ apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
   name: {{ ternary (printf "%v-chain-basic" $.Release.Name) "chain-basic" $.Values.ingressClass.enabled }}
-  namespace: tc-system
+  namespace: {{ $.Release.Namespace }}
 spec:
   chain:
     middlewares:

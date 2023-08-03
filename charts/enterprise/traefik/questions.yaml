@@ -184,8 +184,10 @@ questions:
       attrs:
 # Include{basicAuthMiddleware}
 # Include{forwardAuthMiddleware}
+# Include{bufferingMiddleware}
 # Include{customRequestHeadersMiddleware}
 # Include{customResponseHeadersMiddleware}
+# Include{customFrameOptionsValueMiddleware}
 # Include{chainMiddleware}
 # Include{redirectSchemeMiddleware}
 # Include{rateLimitMiddleware}
@@ -196,6 +198,7 @@ questions:
 # Include{realIPMiddleware}
 # Include{geoBlockMiddleware}
 # Include{addPrefixMiddleware}
+# Include{modsecurityMiddleware}
   - variable: service
     group: "Networking and Services"
     label: "Configure Service Entrypoint"

@@ -10,7 +10,6 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: {{ $name }}
-  namespace: tc-system
 data:
   {{- $ports := dict }}
   {{- range $.Values.service }}
