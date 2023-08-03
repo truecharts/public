@@ -231,7 +231,7 @@ workload:
             SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
             RCON_HOST: '{{ include "tc.v1.common.lib.chart.names.fullname" $ }}'
             RCON_PORT: "{{ .Values.service.rcon.ports.rcon.port }}"
-            RCON_PASSWORD: "{{ .Values.env.RCON_PASSWORD }}"
+            # RCON_PASSWORD: "{{ .Values.env.RCON_PASSWORD }}"
             INITIAL_DELAY: "{{ .Values.mcbackup.initial_delay }}"
             BACKUP_INTERVAL: "{{ .Values.mcbackup.backup_interval }}"
             PRUNE_BACKUPS_DAYS: "{{ .Values.mcbackup.prune_backups_days }}"
