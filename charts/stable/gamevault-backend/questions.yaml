@@ -85,7 +85,12 @@ questions:
                                               schema:
                                                 type: int
                                                 default: 5
-                                                min: 1
+                                            -  variable: GAMES_SEARCH_RECURSIVE
+                                              label: "Games Search Recursive"
+                                              description: "Toggling the Indexer's search for games in subfolders."
+                                              schema:
+                                                type: boolean
+                                                default: true
                                             -  variable: GAMES_SUPPORTED_FILE_FORMATS
                                               label: "Games Supported File Formats"
                                               description: "Custom list of file formats."
