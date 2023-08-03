@@ -18,7 +18,7 @@ questions:
       type: dict
       attrs:
         - variable: voice
-          label: voice
+          label: Voice
           description: Name of the Piper voice to use.
           schema:
             type: string
@@ -310,7 +310,7 @@ questions:
               - value: zh_CN-huayan-x_low
                 description: zh_CN-huayan-x_low
         - variable: speaker
-          label: speaker
+          label: Speaker
           description: Speaker number to use if the voice supports multiple speakers.
           schema:
             type: int
@@ -318,7 +318,7 @@ questions:
             default: 0
             min: 0
         - variable: length_scale
-          label: length_scale
+          label: Length Scale
           description: Speeds up or slows down the voice.
           schema:
             type: string
@@ -326,7 +326,7 @@ questions:
             default: "1.0"
             valid_charts: ^\d+\.\d+$
         - variable: noise_scale
-          label: noise_scale
+          label: Noise Scale
           description: Controls the variability of audio by adding noise during audio generation.
           schema:
             type: string
@@ -334,7 +334,7 @@ questions:
             default: "0.667"
             valid_charts: ^\d+\.\d+$
         - variable: noise_w
-          label: noise_w
+          label: Noise Width
           description: Controls the variability of speaking cadence (phoneme widths).
           schema:
             type: string
@@ -342,7 +342,7 @@ questions:
             default: "0.333"
             valid_charts: ^\d+\.\d+$
         - variable: max_piper_procs
-          label: max_piper_procs
+          label: Max Piper Processes
           description: Number of Piper processes to run simultaneously.
           schema:
             type: int
