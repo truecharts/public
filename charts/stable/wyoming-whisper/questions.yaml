@@ -18,7 +18,7 @@ questions:
       type: dict
       attrs:
         - variable: lanuage
-          label: language
+          label: Language
           description: Default language for the app.
           schema:
             type: string
@@ -226,7 +226,7 @@ questions:
               - value: zh
                 description: zh
         - variable: model
-          label: model
+          label: Model
           description: Whisper model that will be used for transcription.
           schema:
             type: string
@@ -248,7 +248,7 @@ questions:
               - value: tiny-int8
                 description: tiny-int8
         - variable: beam_size
-          label: beam_size
+          label: Beam Size
           description: Number of candidates to consider simultaneously during transcription.
           schema:
             type: int
