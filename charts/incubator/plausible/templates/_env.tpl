@@ -38,7 +38,7 @@ stringData:
   SECRET_KEY_BASE: {{ randAlphaNum 65 | b64enc }}
   {{- end }}
 
-  DATABASE_URL: {{ get .Values.postgresql.url "complete-noql" }}
+  DATABASE_URL: {{ .Values.cnpg.main.creds.std }}
   CLICKHOUSE_DATABASE_URL: {{ .Values.clickhouse.url.complete }}
 
   MAILER_EMAIL: {{ .Values.plausible.MAILER_EMAIL | quote }}

@@ -33,44 +33,65 @@ plausible:
   # Logging
   LOG_LEVEL: warn
 
-securityContext:
-  readOnlyRootFilesystem: false
-
-podSecurityContext:
-  runAsUser: 1000
-  runAsGroup: 1000
-
-envFrom:
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-env-config'
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-env-secret'
-
-installContainers:
-  plausible-install:
-    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    envFrom:
-      - configMapRef:
-          name: '{{ include "tc.common.names.fullname" . }}-env-config'
-      - secretRef:
-          name: '{{ include "tc.common.names.fullname" . }}-env-secret'
-    command: [sh]
-    args:
-      - -c
-      - /entrypoint.sh db createdb && /entrypoint.sh db migrate
-
-upgradeContainers:
-  plausible-upgrade:
-    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    envFrom:
-      - configMapRef:
-          name: '{{ include "tc.common.names.fullname" . }}-env-config'
-      - secretRef:
-          name: '{{ include "tc.common.names.fullname" . }}-env-secret'
-    command: [sh]
-    args:
-      - -c
-      - /entrypoint.sh db migrate
+workload:
+  main:
+    podSpec:
+      initContainers:
+        db-create:
+          type: install
+          enabled: true
+          imageSelector: image
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+            readOnlyRootFilesystem: false
+          envFrom:
+            - configMapRef:
+                name: '{{ include "tc.common.names.fullname" . }}-env-config'
+            - secretRef:
+                name: '{{ include "tc.common.names.fullname" . }}-env-secret'
+          command: [sh]
+          args:
+            - -c
+            - /entrypoint.sh db createdb && /entrypoint.sh db migrate
+        db-migrate:
+          type: upgrade
+          enabled: true
+          imageSelector: image
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+            readOnlyRootFilesystem: false
+          envFrom:
+            - configMapRef:
+                name: '{{ include "tc.common.names.fullname" . }}-env-config'
+            - secretRef:
+                name: '{{ include "tc.common.names.fullname" . }}-env-secret'
+          command: [sh]
+          args:
+            - -c
+            - /entrypoint.sh db migrate
+      containers:
+        main:
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+            readOnlyRootFilesystem: false
+          envFrom:
+            - configMapRef:
+                name: '{{ include "tc.common.names.fullname" . }}-env-config'
+            - secretRef:
+                name: '{{ include "tc.common.names.fullname" . }}-env-secret'
+          probes:
+            liveness:
+              type: http
+              path: /api/health
+            readiness:
+              type: http
+              path: /api/health
+            startup:
+              type: http
+              path: /api/health
 
 service:
   main:
@@ -80,22 +101,11 @@ service:
         protocol: HTTP
         port: 10277
 
-probes:
-  liveness:
-    type: HTTP
-    path: /api/health
-  readiness:
-    type: HTTP
-    path: /api/health
-  startup:
-    type: HTTP
-    path: /api/health
-
-postgresql:
-  enabled: true
-  existingSecret: dbcreds
-  postgresqlUsername: plausible
-  postgresqlDatabase: plausible
+cnpg:
+  main:
+    enabled: true
+    user: plausible
+    database: plausible
 
 clickhouse:
   enabled: true
