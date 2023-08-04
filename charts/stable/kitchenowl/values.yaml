@@ -2,55 +2,88 @@ image:
   repository: tccr.io/truecharts/kitchenowl-web
   pullPolicy: IfNotPresent
   tag: latest@sha256:eff15b745cb2589c3ce0d0ba6a30ba0d949c298f7cedf5b4214b4a4fedb424a6
+
 backendImage:
   repository: tccr.io/truecharts/kitchenowl-backend
   pullPolicy: IfNotPresent
   tag: latest@sha256:903c6339426e0fe7d96245b477b9706db58b27e4851d92f92164e305bd8cd56d
+
 service:
   main:
+    enabled: true
+    targetSelector: main
     ports:
       main:
+        enabled: true
         protocol: http
         targetPort: 80
         port: 10246
-additionalContainers:
-  backend:
-    name: backend
-    image: "{{ .Values.backendImage.repository }}:{{ .Values.backendImage.tag }}"
-    env:
-      - name: FRONT_URL
-        value: "{{ .Values.workload.main.podSpec.containers.main.env.FRONT_URL }}"
-        # Backend also listens on 80, but afaik there is no use as of now
-        # Changed port to 81 to avoid conflict with frontend
-      - name: HTTP_PORT
-        value: "81"
-      - name: JWT_SECRET_KEY
-        valueFrom:
-          secretKeyRef:
-            name: kitchenowl-secrets
-            key: JWT_SECRET_KEY
-    volumeMounts:
-      - name: data
-        mountPath: "/data"
+        targetSelector: main
+
 persistence:
   data:
     enabled: true
-    mountPath: "/data"
+    targetSelector:
+      main:
+        backend:
+          mountPath: /data
+
 portal:
   open:
     enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
+
 workload:
   main:
+    enabled: true
+    type: Deployment
+    strategy: RollingUpdate
     podSpec:
       containers:
         main:
+          enabled: true
+          primary: true
+          imageSelector: image
           env:
-            FRONT_URL: "http://localhost:10246"
-            # Backend listens on 5000 websockets.
+            FRONT_URL: "{{ .Values.workload.main.podSpec.containers.main.kitchenowl.FRONT_URL }}"
+            # As we have two Containers in the same Pod, we can use localhost to reach WS Port
+            # This is a temporary fix, separating containers is the longterm solution
             BACK_URL: "localhost:5000"
+          probes:
+            liveness:
+              type: http
+              path: /
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+            readiness:
+              type: http
+              path: /
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+            startup:
+              type: http
+              path: /
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+        backend:
+          enabled: true
+          imageSelector: backendImage
+          env:
+            FRONT_URL: "{{ .Values.workload.main.podSpec.containers.main.kitchenowl.FRONT_URL }}"
+            # As we have two Containers in the same Pod, we can use localhost to reach WS Port
+            # This is a temporary fix, separating containers is the longterm solution
+            BACK_URL: "localhost:5000"
+            # Next to Port 5000 Backend listens on Port 80 as well
+            # Changed port to 81 to avoid conflict with frontend, separating containers is the longterm solution
+            HTTP_PORT: "81"
+            JWT_SECRET_KEY: "{{ .Values.workload.main.podSpec.containers.main.kitchenowl.JWT_SECRET_KEY }}"
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
