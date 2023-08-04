@@ -36,11 +36,12 @@ plausible:
   SENDGRID_API_KEY: ""
 
   # IP Geolocation
+  # todo(investigate where automatic updates are stored and configure storage accordingly)
   MAXMIND_LICENSE_KEY: ""
   MAXMIND_EDITION: GeoLite2-City
   # todo
-  #GEOLITE2_COUNTRY_DB: ""
-  #GEONAMES_SOURCE_FILE: ""
+  # GEOLITE2_COUNTRY_DB: ""
+  # GEONAMES_SOURCE_FILE: ""
 
   # Google Search Integration
   GOOGLE_CLIENT_ID: ""
@@ -130,4 +131,5 @@ clickhouse:
   clickhouseDatabase: plausible
 
 portal:
-  enabled: true
+  open:
+    enabled: false
