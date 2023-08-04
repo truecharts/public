@@ -9,7 +9,7 @@ stringData:
   {{- end }}
 
   DATABASE_URL: {{ .Values.cnpg.main.creds.std }}
-  CLICKHOUSE_DATABASE_URL: {{ .Values.clickhouse.url.complete }}
+  CLICKHOUSE_DATABASE_URL: {{ .Values.clickhouse.creds.complete }}
 
   MAILER_EMAIL: {{ .Values.plausible.MAILER_EMAIL | quote }}
   MAILER_NAME: {{ .Values.plausible.MAILER_NAME | quote }}
