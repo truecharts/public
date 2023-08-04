@@ -6,13 +6,10 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
-
-                                - variable: env
+                                - variable: kitchenowl
                                   group: "App Configuration"
                                   label: "Image Environment"
                                   schema:
@@ -26,9 +23,15 @@ questions:
                                           type: string
                                           required: true
                                           default: ""
+                                      - variable: JWT_SECRET_KEY
+                                        label: "JWT_SECRET_KEY"
+                                        description: "JWT secret for encryption"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
-
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
