@@ -64,9 +64,9 @@ workload:
             readOnlyRootFilesystem: false
           envFrom:
             - configMapRef:
-                name: '{{ include "tc.common.names.fullname" . }}-env-config'
+                name: plausible-config
             - secretRef:
-                name: '{{ include "tc.common.names.fullname" . }}-env-secret'
+                name: plausible-secret
           command: [sh]
           args:
             - -c
@@ -81,9 +81,9 @@ workload:
             readOnlyRootFilesystem: false
           envFrom:
             - configMapRef:
-                name: '{{ include "tc.common.names.fullname" . }}-env-config'
+                name: plausible-config
             - secretRef:
-                name: '{{ include "tc.common.names.fullname" . }}-env-secret'
+                name: plausible-secret
           command: [sh]
           args:
             - -c
@@ -96,9 +96,9 @@ workload:
             readOnlyRootFilesystem: false
           envFrom:
             - configMapRef:
-                name: '{{ include "tc.common.names.fullname" . }}-env-config'
+                name: plausible-config
             - secretRef:
-                name: '{{ include "tc.common.names.fullname" . }}-env-secret'
+                name: plausible-secret
           probes:
             liveness:
               type: http
