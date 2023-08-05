@@ -16,7 +16,7 @@ workload:
       containers:
         main:
           env:
-            SERVER_PORT: "{{ .Values.service.main.ports.main.targetPort }}"
+            SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
             SERVER_ROOT: "/public"
 
 persistence:
