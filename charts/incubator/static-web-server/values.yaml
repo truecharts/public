@@ -18,6 +18,13 @@ workload:
           env:
             SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
             SERVER_ROOT: "/public"
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
 
 persistence:
   config:
