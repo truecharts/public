@@ -24,6 +24,7 @@ service:
         enabled: true
         primary: true
         port: 25
+        protocol: tcp
         targetPort: 25
   imap:
     enabled: true
@@ -31,6 +32,7 @@ service:
       imap:
         enabled: true
         port: 143
+        protcol: tcp
         targetPort: 143
 
 persistence:
