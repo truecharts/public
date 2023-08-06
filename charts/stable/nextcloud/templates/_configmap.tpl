@@ -43,7 +43,7 @@ opcache:
       opcache.max_accelerated_files={{ .Values.nextcloud.opcache.max_accelerated_files }}
       opcache.memory_consumption={{ .Values.nextcloud.opcache.memory_consumption }}
       opcache.revalidate_freq={{ .Values.nextcloud.opcache.revalidate_freq }}
-      opcache.jit_buffer_size={{ printf "%sM" .Values.nextcloud.opcache.jit_buffer_size }}
+      opcache.jit_buffer_size={{ printf "%dM" .Values.nextcloud.opcache.jit_buffer_size }}
 
 redis-session:
   enabled: true
