@@ -16,13 +16,6 @@ workload:
     podSpec:
       containers:
         main:
-          probes:
-            liveness:
-              path: "/"
-            readiness:
-              path: "/"
-            startup:
-              path: "/"
           env:
             # filesystem  | s3
             UPLOAD_PROVIDER: filesystem
