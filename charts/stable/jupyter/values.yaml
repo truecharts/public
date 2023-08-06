@@ -1,19 +1,19 @@
 image:
   repository: tccr.io/truecharts/jupyter-base
   pullPolicy: IfNotPresent
-  tag: v2023-07@sha256:952b103d99f36c9ad3cac99891415fb305edc6da83770235a1147487ec4dc938
+  tag: v2023-07@sha256:966197802e8335bdf6a38132830f787106568b82deb7c82df25ad1ec5608ab5a
 minimalImage:
   repository: tccr.io/truecharts/jupyter-minimal
   pullPolicy: IfNotPresent
-  tag: v2023-07@sha256:6d0e74bba7cd6338029f3cd19736903a18f2cc1b05fd0fd9b6236e2ae1933ec8
+  tag: v2023-07@sha256:fab1f81c06df9749402903163994c03563fc6b16c323438883395e656f17c9b4
 rImage:
   repository: tccr.io/truecharts/jupyter-r
   pullPolicy: IfNotPresent
-  tag: v2023-07@sha256:0ae377bb30d4015fe00a84c10f1d00ddcbebe2ed9c93dd0ca89ff007f9267ead
+  tag: v2023-07@sha256:b88d926136eeb6255d007d2114ad23c579c8b6f59b3e14978d626d2b12a0d78c
 scipyImage:
   repository: tccr.io/truecharts/jupyter-scipy
   pullPolicy: IfNotPresent
-  tag: v2023-07@sha256:ba4fb30175d283f82f8fab2ddd6f27fa47baa875c5127972d32658113e06bfe1
+  tag: v2023-07@sha256:2c1f5d8a740ad6762599d76a7a6cae8966bcf8622a671bdc8ea8f08aa62485fd
 tensorflowImage:
   repository: tccr.io/truecharts/jupyter-tensorflow
   pullPolicy: IfNotPresent
@@ -21,15 +21,15 @@ tensorflowImage:
 datascienceImage:
   repository: tccr.io/truecharts/jupyter-datascience
   pullPolicy: IfNotPresent
-  tag: v2023-07@sha256:d7d07a188029b79354e3eda861c18a7df9759ce8f7f8656fbfd6160018a87c87
+  tag: v2023-07@sha256:0a52c326bf9fb3340f54e4cf42ee886cd683d7448be15529a67956ebcce5db37
 pysparkImage:
   repository: tccr.io/truecharts/jupyter-pyspark
   pullPolicy: IfNotPresent
-  tag: v2023-07@sha256:767defb2fa8e09c18da089da30c00e54c51d394923e62b82bb0a1dad779ffd55
+  tag: v2023-07@sha256:901f70788202a3256ba4c7f231b3aa18d4a0e30a6af9c9f79364b77ce1cd10c3
 allsparkImage:
   repository: tccr.io/truecharts/jupyter-all-spark
   pullPolicy: IfNotPresent
-  tag: v2023-07@sha256:4e5482cbb74fe5ffa67b064ef032cdabc1728f476fca4e66270ab12ea9af5f21
+  tag: v2023-07@sha256:2bd7a0f39d03e5a2c94a06ac1e2ec9abe89323b4b8f7839ea17adcba39bc3bcc
 jupyter:
   jupyter_cmd: lab
   restartable: true
