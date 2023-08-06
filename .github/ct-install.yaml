@@ -1,6 +1,6 @@
 remote: origin
 target-branch: master
-helm-extra-args: --timeout 180s
+helm-extra-args: --timeout 250s
 chart-yaml-schema: .github/chart_schema.yaml
 chart-dirs:
   - charts/incubator
@@ -11,8 +11,11 @@ chart-dirs:
   - charts/operators
 excluded-charts:
   - charts/dependency/subchart
+  - charts/incubator/twingate-connector
+  - charts/incubator/midarr
   - charts/incubator/orbital-sync
   - charts/incubator/plex-meta-manager
+  - charts/incubator/tauticord
   - charts/library/common
   - charts/stable/alertmanager-bot
   - charts/stable/alertmanager-bot
@@ -21,13 +24,12 @@ excluded-charts:
   - charts/stable/discordgsm
   - charts/stable/facebox
   - charts/stable/foundryvtt
-  - charts/stable/foundryvtt
   - charts/stable/heimdall
+  - charts/stable/mc-router
   - charts/stable/multus
   - charts/stable/orbital-sync
   - charts/stable/plex-meta-manager
   - charts/stable/pod-gateway
-  - charts/stable/promcord
   - charts/stable/promcord
   - charts/stable/rdesktop
   - charts/stable/reg
@@ -42,3 +44,4 @@ chart-repos:
   - truecharts=https://charts.truecharts.org
   - truecharts-library=https://library-charts.truecharts.org
   - truecharts-deps=https://deps.truecharts.org
+  - jetstack=https://charts.jetstack.io

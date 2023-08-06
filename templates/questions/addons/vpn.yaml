@@ -23,6 +23,7 @@
               - variable: openvpn
                 label: OpenVPN Settings
                 schema:
+                  additional_attrs: true
                   type: dict
                   show_if: [["type", "=", "openvpn"]]
                   attrs:
@@ -43,6 +44,7 @@
               - variable: tailscale
                 label: Tailscale Settings
                 schema:
+                  additional_attrs: true
                   type: dict
                   show_if: [["type", "=", "tailscale"]]
                   attrs:

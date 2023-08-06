@@ -50,7 +50,7 @@ jobs:
       detected6: ${{ steps.list-changed.outputs.detected6 }}
     steps:
       - name: Checkout
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
@@ -115,7 +115,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
@@ -127,7 +127,7 @@ jobs:
             helmv3
           helm: "3.9.4"
 
-      - uses: actions/setup-python@bd6b4b6205c4dbad673328db7b31b7fab9e241c0 # v4
+      - uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1 # v4
         with:
           python-version: "3.11"
 
@@ -146,18 +146,28 @@ jobs:
         run: |
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
+      - name: Prep Helm
+        run: |
+          helm repo add truecharts https://charts.truecharts.org
+          helm repo add truecharts-deps https://deps.truecharts.org
+          helm repo add truecharts-library https://library-charts.truecharts.org
+          helm repo add jetstack https://charts.jetstack.io
+          helm repo update
+
       - name: Add Dependencies
         run: |
-          ## TODO: Move to our Helm Charts
+          if [[ "${{ matrix.chart }}" == "charts/operators/metallb-config" ]]; then
+            helm install metallb truecharts/metallb --namespace metallb --create-namespace --wait
+          fi
           ## TODO: Only add when required
-          if [[ "${{ matrix.chart }}" != "charts/operators/metallb" ]]; then
-            kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml --server-side --force-conflicts || echo "error fetching metallb manifest"
+          if [[ "${{ matrix.chart }}" == "charts/enterprise/clusterissuer" ]]; then
+            helm install cert-manager truecharts/cert-manager --namespace cert-manager --create-namespace --wait
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/cloudnative-pg" ]]; then
-            kubectl apply -f https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.20/releases/cnpg-1.20.0.yaml  --server-side --force-conflicts || echo "error fetching cnpg manifest"
+            helm install cloudnative-pg truecharts/cloudnative-pg --namespace cloudnative-pg --create-namespace --wait
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
-            kubectl apply -f  https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.65.2/bundle.yaml --server-side --force-conflicts || echo "error fetching prometheus operator manifest"
+            helm install prometheus-operator truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
           fi
 
       - name: Run chart-testing (install)
@@ -175,7 +185,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
@@ -187,7 +197,7 @@ jobs:
             helmv3
           helm: "3.9.4"
 
-      - uses: actions/setup-python@bd6b4b6205c4dbad673328db7b31b7fab9e241c0 # v4
+      - uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1 # v4
         with:
           python-version: "3.11"
 
@@ -208,14 +218,18 @@ jobs:
 
       - name: Add Dependencies
         run: |
-          if [[ "${{ matrix.chart }}" != "charts/operators/metallb" ]]; then
-            kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml --server-side --force-conflicts || echo "error fetching metallb manifest"
+          if [[ "${{ matrix.chart }}" == "charts/operators/metallb-config" ]]; then
+            helm install metallb truecharts/metallb --namespace metallb --create-namespace --wait
+          fi
+          ## TODO: Only add when required
+          if [[ "${{ matrix.chart }}" == "charts/enterprise/clusterissuer" ]]; then
+            helm install cert-manager truecharts/cert-manager --namespace cert-manager --create-namespace --wait
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/cloudnative-pg" ]]; then
-            kubectl apply -f https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.17/releases/cnpg-1.17.5.yaml  --server-side --force-conflicts || echo "error fetching cnpg manifest"
+            helm install cloudnative-pg truecharts/cloudnative-pg --namespace cloudnative-pg --create-namespace --wait
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
-            kubectl apply -f  https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.65.2/bundle.yaml --server-side --force-conflicts || echo "error fetching prometheus operator manifest"
+            helm install prometheus-operator truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
           fi
 
       - name: Run chart-testing (install)
@@ -233,7 +247,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
@@ -245,7 +259,7 @@ jobs:
             helmv3
           helm: "3.9.4"
 
-      - uses: actions/setup-python@bd6b4b6205c4dbad673328db7b31b7fab9e241c0 # v4
+      - uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1 # v4
         with:
           python-version: "3.11"
 
@@ -266,14 +280,18 @@ jobs:
 
       - name: Add Dependencies
         run: |
-          if [[ "${{ matrix.chart }}" != "charts/operators/metallb" ]]; then
-            kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml --server-side --force-conflicts || echo "error fetching metallb manifest"
+          if [[ "${{ matrix.chart }}" == "charts/operators/metallb-config" ]]; then
+            helm install metallb truecharts/metallb --namespace metallb --create-namespace --wait
+          fi
+          ## TODO: Only add when required
+          if [[ "${{ matrix.chart }}" == "charts/enterprise/clusterissuer" ]]; then
+            helm install cert-manager truecharts/cert-manager --namespace cert-manager --create-namespace --wait
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/cloudnative-pg" ]]; then
-            kubectl apply -f https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.17/releases/cnpg-1.17.5.yaml  --server-side --force-conflicts || echo "error fetching cnpg manifest"
+            helm install cloudnative-pg truecharts/cloudnative-pg --namespace cloudnative-pg --create-namespace --wait
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
-            kubectl apply -f  https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.65.2/bundle.yaml --server-side --force-conflicts || echo "error fetching prometheus operator manifest"
+            helm install prometheus-operator truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
           fi
 
       - name: Run chart-testing (install)
@@ -291,7 +309,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
@@ -303,7 +321,7 @@ jobs:
             helmv3
           helm: "3.9.4"
 
-      - uses: actions/setup-python@bd6b4b6205c4dbad673328db7b31b7fab9e241c0 # v4
+      - uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1 # v4
         with:
           python-version: "3.11"
 
@@ -324,14 +342,18 @@ jobs:
 
       - name: Add Dependencies
         run: |
-          if [[ "${{ matrix.chart }}" != "charts/operators/metallb" ]]; then
-            kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml --server-side --force-conflicts || echo "error fetching metallb manifest"
+          if [[ "${{ matrix.chart }}" == "charts/operators/metallb-config" ]]; then
+            helm install metallb truecharts/metallb --namespace metallb --create-namespace --wait
+          fi
+          ## TODO: Only add when required
+          if [[ "${{ matrix.chart }}" == "charts/enterprise/clusterissuer" ]]; then
+            helm install cert-manager truecharts/cert-manager --namespace cert-manager --create-namespace --wait
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/cloudnative-pg" ]]; then
-            kubectl apply -f https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.17/releases/cnpg-1.17.5.yaml  --server-side --force-conflicts || echo "error fetching cnpg manifest"
+            helm install cloudnative-pg truecharts/cloudnative-pg --namespace cloudnative-pg --create-namespace --wait
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
-            kubectl apply -f  https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.65.2/bundle.yaml --server-side --force-conflicts || echo "error fetching prometheus operator manifest"
+            helm install prometheus-operator truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
           fi
 
       - name: Run chart-testing (install)
@@ -349,7 +371,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
@@ -361,7 +383,7 @@ jobs:
             helmv3
           helm: "3.9.4"
 
-      - uses: actions/setup-python@bd6b4b6205c4dbad673328db7b31b7fab9e241c0 # v4
+      - uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1 # v4
         with:
           python-version: "3.11"
 
@@ -382,16 +404,19 @@ jobs:
 
       - name: Add Dependencies
         run: |
-          if [[ "${{ matrix.chart }}" != "charts/operators/metallb" ]]; then
-            kubectl apply -f --server-side --force-conflicts https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml
+          if [[ "${{ matrix.chart }}" == "charts/operators/metallb-config" ]]; then
+            helm install metallb truecharts/metallb --namespace metallb --create-namespace --wait
+          fi
+          ## TODO: Only add when required
+          if [[ "${{ matrix.chart }}" == "charts/enterprise/clusterissuer" ]]; then
+            helm install cert-manager truecharts/cert-manager --namespace cert-manager --create-namespace --wait
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/cloudnative-pg" ]]; then
-            kubectl apply -f --server-side --force-conflicts https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.17/releases/cnpg-1.17.5.yaml
+            helm install cloudnative-pg truecharts/cloudnative-pg --namespace cloudnative-pg --create-namespace --wait
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
-            kubectl apply -f --server-side --force-conflicts --server-side --force-conflicts https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.65.2/bundle.yaml
+            helm install prometheus-operator truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
           fi
-
       - name: Run chart-testing (install)
         run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade
 
@@ -407,7 +432,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
@@ -419,7 +444,7 @@ jobs:
             helmv3
           helm: "3.9.4"
 
-      - uses: actions/setup-python@bd6b4b6205c4dbad673328db7b31b7fab9e241c0 # v4
+      - uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1 # v4
         with:
           python-version: "3.11"
 
@@ -440,14 +465,18 @@ jobs:
 
       - name: Add Dependencies
         run: |
-          if [[ "${{ matrix.chart }}" != "charts/operators/metallb" ]]; then
-            kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml --server-side --force-conflicts || echo "error fetching metallb manifest"
+          if [[ "${{ matrix.chart }}" == "charts/operators/metallb-config" ]]; then
+            helm install metallb truecharts/metallb --namespace metallb --create-namespace --wait
+          fi
+          ## TODO: Only add when required
+          if [[ "${{ matrix.chart }}" == "charts/enterprise/clusterissuer" ]]; then
+            helm install cert-manager truecharts/cert-manager --namespace cert-manager --create-namespace --wait
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/cloudnative-pg" ]]; then
-            kubectl apply -f https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.17/releases/cnpg-1.17.5.yaml  --server-side --force-conflicts || echo "error fetching cnpg manifest"
+            helm install cloudnative-pg truecharts/cloudnative-pg --namespace cloudnative-pg --create-namespace --wait
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
-            kubectl apply -f  https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.65.2/bundle.yaml --server-side --force-conflicts || echo "error fetching prometheus operator manifest"
+            helm install prometheus-operator truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
           fi
 
       - name: Run chart-testing (install)

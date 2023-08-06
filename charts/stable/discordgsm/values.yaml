@@ -22,7 +22,6 @@ gsm:
   workers: 2
   timeout: 90
   # Bot Config
-
   app_token: ""
   whitelist_guilds: []
   app_activity_type: 3
@@ -33,6 +32,9 @@ gsm:
   command_query_cooldown: 5
   web_api_enable: false
   postgres_ssl_mode: disable
+  # factorio
+  factorio_username: ""
+  factorio_auth_token: ""
 
 workload:
   main:

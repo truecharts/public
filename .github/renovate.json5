@@ -283,6 +283,11 @@
     },
     {
       "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["tccr.io/truecharts/portainer"],
+      "groupName": "portainer",
+    },
+    {
+      "matchDatasources": ["docker"],
       "matchPackagePrefixes": ["tccr.io/truecharts/neko"],
       "groupName": "neko",
     },

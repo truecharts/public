@@ -20,6 +20,9 @@ persistence:
   config:
     enabled: true
     mountPath: /channels-dvr
+  recordings:
+    enabled: true
+    mountPath: /shares/DVR
 
 portal:
   open:

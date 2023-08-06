@@ -11,38 +11,43 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-                                - variable: env
-                                  group: "App Configuration"
-                                  label: "Image Environment"
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                      - variable: KOPIA_PASSWORD
-                                        label: "KOPIA_PASSWORD"
-                                        description: "Repository password"
-                                        schema:
-                                          type: string
-                                          default: ""
-                                          required: true
-                                          private: true
-                                      - variable: KOPIA_SERVER_USERNAME
-                                        label: "KOPIA_SERVER_USERNAME"
-                                        description: "Username for WebUI"
-                                        schema:
-                                          type: string
-                                          default: ""
-                                          required: true
-                                      - variable: KOPIA_SERVER_PASSWORD
-                                        label: "KOPIA_SERVER_PASSWORD"
-                                        description: "Password for WebUI"
-                                        schema:
-                                          type: string
-                                          default: ""
-                                          required: true
-                                          private: true
 # Include{containerBasic}
 # Include{containerAdvanced}
+
+  - variable: kopia
+    group: App Configuration
+    label: Kopia Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: user
+          label: Repo User
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: password
+          label: Repo Password
+          schema:
+            type: string
+            private: true
+            required: true
+            default: ""
+        - variable: server_username
+          label: Server User
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: server_password
+          label: Server Password
+          schema:
+            type: string
+            private: true
+            required: true
+            default: ""
+
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}

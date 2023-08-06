@@ -1,12 +1,12 @@
 image:
   repository: tccr.io/truecharts/xenorchestra
-  tag: v5.116.3@sha256:14a43b6c7d9f42cd9f106d9ad3c032fec0bca45a4babb9ef5fe9d904b58425c4
+  tag: v5.119.0@sha256:479030d23f29bf423210c186325a8fb448fc9a91563c205e7a6f3a2fca74264c
   pullPolicy: IfNotPresent
 service:
   main:
     ports:
       main:
-        procotol: HTTPS
+        protocol: https
         port: 10324
 persistence:
   xo-data:

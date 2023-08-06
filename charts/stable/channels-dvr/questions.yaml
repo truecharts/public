@@ -20,7 +20,7 @@ questions:
                                       - value: image
                                         description: Channels DVR
                                       - value: tveImage
-                                        description: Channels DVR with TV Everywhere
+                                        description: Channels DVR with TV Everywhere (see installation notes)
 
 # Include{containerBasic}
 # Include{containerAdvanced}
@@ -50,6 +50,14 @@ questions:
         - variable: config
           label: "App Config Storage"
           description: "Stores the Application Configuration."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: recordings
+          label: "Recordings Storage"
+          description: "Stores the DVR recordings, default is /shares/DVR"
           schema:
             additional_attrs: true
             type: dict

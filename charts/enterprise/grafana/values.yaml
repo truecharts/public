@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/grafana
   pullPolicy: IfNotPresent
-  tag: v9.5.3@sha256:9ca762d680eace05226acb119edd6a15e4fe77a1a61d94a6f138c9e58b86a512
+  tag: v10.0.3@sha256:c39406b61cd96aeb602fe1a2e6995053190fb3f09526cbc25886bcc252a2a016
 manifestManager:
   enabled: true
 securityContext:
@@ -59,7 +59,7 @@ metrics:
     # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
     # @default -- See values.yaml
     enabled: true
-    type: serviceMonitor
+    type: "servicemonitor"
     endpoints:
       - port: main
         path: /metrics

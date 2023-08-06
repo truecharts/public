@@ -4,13 +4,13 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
 # Include{containerBasic}
 # Include{containerAdvanced}
+# Include{containerConfig}
+# Include{podOptions}
   - variable: plexanisync
     group: App Configuration
     label: PlexAniSync Configuration
@@ -31,16 +31,16 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-              - variable: plex_section
-                label: Plex Section
+              - variable: anime_section
+                label: Anime Section
                 description: The libraries where your anime resides.
                 schema:
                   type: list
                   required: true
                   default: []
                   items:
-                    - variable: plex_section_library_entry
-                      label: Plex Section Library Entry
+                    - variable: anime_section_library_entry
+                      label: Anime Section Library Entry
                       description: Single library per entry.
                       schema:
                         type: string
@@ -227,14 +227,13 @@ questions:
                               type: string
                               required: true
                               default: ""
-# Include{containerConfig}
-# Include{podOptions}
+
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceList}
-
 # Include{securityContextRoot}
+
               - variable: runAsUser
                 label: "runAsUser"
                 description: "The UserID of the user running the application"

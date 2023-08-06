@@ -53,6 +53,32 @@ questions:
                       schema:
                         type: string
                         default: ""
+        - variable: push
+          label: "Mobile Push Notifications"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable Mobile Push Notifications"
+                description: "You must obtain and ID and Key here: https://bitwarden.com/host"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: installationId
+                      label: "Installation ID"
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+                    - variable: installationKey
+                      label: "Installation Key"
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
         - variable: admin
           label: "Admin Portal"
           schema:
@@ -330,28 +356,6 @@ questions:
                             schema:
                               type: int
                               default: 10102
-                              required: true
-        - variable: ws
-          label: "WebSocket Service"
-          description: "WebSocket Service"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelectorLoadBalancer}
-# Include{serviceSelectorExtras}
-                    - variable: ws
-                      label: "WebSocket Service Port Configuration"
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 3012
                               required: true
 # Include{serviceExpertRoot}
 # Include{serviceExpert}

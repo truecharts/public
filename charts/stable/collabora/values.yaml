@@ -1,0 +1,60 @@
+image:
+  repository: tccr.io/truecharts/collabora
+  pullPolicy: IfNotPresent
+  tag: v23.05.2.2.1@sha256:ef92d2d819318c1922b040351e1ac6f0a98e11f5821475fee2709694d92f6754
+
+collabora:
+  username: admin
+  password: changeme
+  interface: default
+  dictionaries:
+    - de_DE
+    - en_GB
+    - en_US
+    - el_GR
+    - es_ES
+    - fr_FR
+    - pt_BR
+    - pt_PT
+    - it
+    - nl
+    - ru
+  server_name: example.com
+  aliasgroup1: https://cloud.example.com
+  ssl_enable: false
+  ssl_termination: true
+  no_gen_ssl: true
+  extra_params:
+    - --o:welcome.enable=false
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - configMapRef:
+                name: collabora-config
+          securityContext:
+            runAsUser: 100
+            runAsGroup: 102
+            readOnlyRootFilesystem: false
+            allowPrivilegeEscalation: true
+            capabilities:
+              add:
+                - CHOWN
+                - FOWNER
+                - SYS_CHROOT
+                - MKNOD
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 9980
+        port: 9980
+
+portal:
+  open:
+    enabled: true

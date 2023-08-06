@@ -1,8 +1,11 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "tc.common.loader.init" . }}
+{{- include "tc.v1.common.loader.init" . }}
 
-{{/* Render secret */}}
-{{- include "owntracks.secret" . }}
+{{/* Render secrets for owntracks */}}
+{{- $secret := include "owntracks.secret" . | fromYaml -}}
+{{- if $secret -}}
+  {{- $_ := set .Values.secret "secret" $secret -}}
+{{- end -}}
 
 {{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}
+{{ include "tc.v1.common.loader.apply" . }}

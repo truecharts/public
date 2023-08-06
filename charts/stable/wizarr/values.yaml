@@ -1,0 +1,41 @@
+image:
+  repository: tccr.io/truecharts/wizarr
+  pullPolicy: IfNotPresent
+  tag: v2.2.0@sha256:bce9ad58272458e3453c4752b5014f49e7acf83695488446f2589a7a00e11a59
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 5690
+        port: 10596
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: "/"
+              type: http
+            readiness:
+              path: "/"
+              type: http
+            startup:
+              path: "/"
+              type: http
+          env:
+            APP_URL: "http://localhost:{{ .Values.service.main.ports.main.port }}"
+            DISABLE_BUILTIN_AUTH: false
+            ALLOW_BUG_REPORTING: false
+
+persistence:
+  database:
+    enabled: true
+    mountPath: /data/database
+
+portal:
+  open:
+    enabled: true

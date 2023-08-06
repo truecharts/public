@@ -1,11 +1,6 @@
 {{/* Define the configmap */}}
 {{- define "misskey.configmap" -}}
-
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: misskeyconfig
+enabled: true
 data:
   default.yml: |-
     #━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -24,56 +19,22 @@ data:
     #   ┌───────────────────────┐
     #───┘ Port and TLS settings └───────────────────────────────────
 
-    #
-    # Misskey supports two deployment options for public.
-    #
-
-    # Option 1: With Reverse Proxy
-    #
-    #                 +----- https://example.tld/ ------------+
-    #   +------+      |+-------------+      +----------------+|
-    #   | User | ---> || Proxy (443) | ---> | Misskey (3000) ||
-    #   +------+      |+-------------+      +----------------+|
-    #                 +---------------------------------------+
-    #
-    #   You need to setup reverse proxy. (eg. nginx)
-    #   You do not define 'https' section.
-
-    # Option 2: Standalone
-    #
-    #                 +- https://example.tld/ -+
-    #   +------+      |   +---------------+    |
-    #   | User | ---> |   | Misskey (443) |    |
-    #   +------+      |   +---------------+    |
-    #                 +------------------------+
-    #
-    #   You need to run Misskey as root.
-    #   You need to set Certificate in 'https' section.
-
-    # To use option 1, uncomment below line.
     port: {{ .Values.service.main.ports.main.port }} # A port that your Misskey server should listen.
 
-    # To use option 2, uncomment below lines.
-    #port: 443
-
-    #https:
-    #  # path for certification
-    #  key: /etc/letsencrypt/live/example.tld/privkey.pem
-    #  cert: /etc/letsencrypt/live/example.tld/fullchain.pem
 
     #   ┌──────────────────────────┐
     #───┘ PostgreSQL configuration └────────────────────────────────
 
     db:
-      host: {{ printf "%v-%v" .Release.Name "postgresql" }}
+      host: {{ .Values.cnpg.main.creds.host | trimAll "\"" }}
       port: 5432
 
       # Database name
-      db: {{ .Values.postgresql.postgresqlDatabase }}
+      db: {{ .Values.cnpg.main.database }}
 
       # Auth
-      user: {{ .Values.postgresql.postgresqlUsername }}
-      pass: {{ .Values.postgresql.postgresqlPassword | trimAll "\"" }}
+      user: {{ .Values.cnpg.main.user }}
+      pass: {{ .Values.cnpg.main.creds.password | trimAll "\"" }}
 
       # Whether disable Caching queries
       #disableCache: true
@@ -84,13 +45,30 @@ data:
 
     #   ┌─────────────────────┐
     #───┘ Redis configuration └─────────────────────────────────────
-
+    {{- $redisHost := .Values.redis.creds.plainhost | trimAll "\"" }}
+    {{- $redisPass := .Values.redis.creds.redisPassword | trimAll "\"" }}
     redis:
-      host: {{ printf "%v-%v" .Release.Name "redis" }}
+      host: {{ $redisHost }}
       port: 6379
-      pass: {{ .Values.redis.redisPassword | trimAll "\"" }}
-      #prefix: example-prefix
-      #db: 1
+      pass: {{ $redisPass }}
+      prefix: main
+      db: 0
+
+    redisForPubsub:
+      host: {{ $redisHost }}
+      port: 6379
+      #family: 0  # 0=Both, 4=IPv4, 6=IPv6
+      pass: {{ $redisPass }}
+      prefix: pub-sub
+      db: 0
+
+    redisForJobQueue:
+      host: {{ $redisHost }}
+      port: 6379
+      #family: 0  # 0=Both, 4=IPv4, 6=IPv6
+      pass: {{ $redisPass }}
+      prefix: job-queue
+      db: 0
 
     #   ┌─────────────────────────────┐
     #───┘ Elasticsearch configuration └─────────────────────────────
@@ -105,20 +83,11 @@ data:
     #   ┌───────────────┐
     #───┘ ID generation └───────────────────────────────────────────
 
-    # You can select the ID generation method.
-    # You don't usually need to change this setting, but you can
-    # change it according to your preferences.
-
-    # Available methods:
-    # aid ... Short, Millisecond accuracy
-    # meid ... Similar to ObjectID, Millisecond accuracy
-    # ulid ... Millisecond accuracy
-    # objectid ... This is left for backward compatibility
-
     # ONCE YOU HAVE STARTED THE INSTANCE, DO NOT CHANGE THE
     # ID SETTINGS AFTER THAT!
 
     id: {{ .Values.misskey.id }}
+
     #   ┌─────────────────────┐
     #───┘ Other configuration └─────────────────────────────────────
 
@@ -131,10 +100,12 @@ data:
     # Job concurrency per worker
     deliverJobConcurrency: {{ .Values.misskey.other.deliverJobConcurrency }}
     inboxJobConcurrency: {{ .Values.misskey.other.inboxJobConcurrency }}
+    relashionshipJobConcurrency: {{ .Values.misskey.other.relashionshipJobConcurrency }}
 
     # Job rate limiter
     deliverJobPerSec: {{ .Values.misskey.other.deliverJobPerSec }}
     inboxJobPerSec: {{ .Values.misskey.other.inboxJobPerSec }}
+    relashionshipJobPerSec: {{ .Values.misskey.other.relashionshipJobPerSec }}
 
     # Job attempts
     deliverJobMaxAttempts: {{ .Values.misskey.other.deliverJobMaxAttempts }}
@@ -143,18 +114,15 @@ data:
     # IP address family used for outgoing request (ipv4, ipv6 or dual)
     #outgoingAddressFamily: ipv4
 
-    # Syslog option
-    #syslog:
-    #  host: localhost
-    #  port: 514
-
     # Proxy for HTTP/HTTPS
     #proxy: http://127.0.0.1:3128
 
-    #proxyBypassHosts: [
-    #  'example.com',
-    #  '192.0.2.8'
-    #]
+    {{- with $hosts := .Values.misskey.other.proxyBypassHosts }}
+    proxyBypassHosts:
+      {{- range $item := $hosts }}
+      - {{ $item }}
+      {{- end }}
+    {{- end }}
 
     # Proxy for SMTP/SMTPS
     #proxySmtp: http://127.0.0.1:3128   # use HTTP/1.1 CONNECT
@@ -176,6 +144,4 @@ data:
 
     # Upload or download file size limits (bytes)
     maxFileSize: {{ .Values.misskey.other.maxFileSize }}
-
-
 {{- end -}}

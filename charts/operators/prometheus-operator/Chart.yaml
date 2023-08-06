@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "0.13.9"
+appVersion: "0.67.0"
 deprecated: false
 description: Prometheus Operator is an operator for prometheus
 home: https://truecharts.org/charts/operators/prometheus-operator
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/prometheus-operator
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/prometheus-operator.png
 keywords:
   - operator
   - prometheus
@@ -11,7 +11,7 @@ keywords:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 12.13.0
+    version: 14.0.1
 kubeVersion: ">=1.16.0-0"
 maintainers:
   - email: info@truecharts.org
@@ -22,7 +22,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/operators/prometheus-operator
   - https://github.com/prometheus-operator
 type: application
-version: 0.0.4
+version: 1.0.2
 annotations:
   truecharts.org/catagories: |
     - operators

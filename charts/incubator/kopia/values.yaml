@@ -1,20 +1,43 @@
 image:
   repository: tccr.io/truecharts/kopia
-  tag: 0.12.1@sha256:8f1c82292cf0c2271be78a9ede514858ba16a80c9105d258aabbde899dd7f1eb
+  tag: 0.13.0@sha256:72ed1856efdd443be31e23535d24242056639a387587aa3ade5413e75dad0603
   pullPolicy: IfNotPresent
-
-extraArgs: ["server", "--address=http://0.0.0.0:10238", "--ui", "--insecure"]
-
-secretEnv:
-  KOPIA_PASSWORD: ""
-  KOPIA_SERVER_USERNAME: "user"
-  KOPIA_SERVER_PASSWORD: "password"
 
 service:
   main:
     ports:
       main:
+        protocol: http
         port: 10238
+
+kopia:
+  user: "user"
+  password: "secret"
+  server_username: "user"
+  server_password: "password"
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - secretRef:
+                name: "kopia-secrets"
+          args:
+            - server
+            - start
+            - --address=http://0.0.0.0:{{ .Values.service.main.ports.main.port }}
+            - --insecure
+            - --server-username={{ .Values.kopia.server_username }}
+            - --server-password={{ .Values.kopia.server_password }}
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
 
 persistence:
   config:
@@ -31,4 +54,5 @@ persistence:
     mountPath: "/app/rclone"
 
 portal:
-  enabled: true
+  open:
+    enabled: true

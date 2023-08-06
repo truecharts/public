@@ -4,6 +4,19 @@ function check_version() {
     chart_path=${1:?"No chart path provided to [Version Check]"}
     target_branch=${2:?"No target branch provided to [Version Check]"}
 
+    # If only docs changed, skip version check
+    # git diff target_branch, filter only on $chart_path and invert match for $chart_path/docs
+    # note that it requires branches to be up to date for this to work.
+    chart_changes=$(git diff --name-status "$target_branch" -- "$chart_path" | grep -v "$chart_path/docs")
+    echo -e "\tChange files: \n\n$chart_changes"
+
+    if [[ -z "$chart_changes" ]]; then
+        echo -e "\tLooks like only docs changed. Skipping chart version check"
+        echo -e "\t✅ Chart version: No bump required"
+        echo ''
+        return
+    fi
+
     new=$(git diff "$target_branch" -- "$chart_path" | sed -nr 's/^\+version: (.*)$/\1/p')
     old=$(git diff "$target_branch" -- "$chart_path" | sed -nr 's/^\-version: (.*)$/\1/p')
 
@@ -23,6 +36,7 @@ function check_version() {
             curr_result=1
         fi
     fi
+    echo ''
 }
 export -f check_version
 
@@ -32,7 +46,9 @@ function check_chart_schema(){
     yamale_output=$(yamale --schema .github/chart_schema.yaml "$chart_path/Chart.yaml")
     yamale_exit_code=$?
     while IFS= read -r line; do
-        echo -e "\t$line"
+        if [[ -n $line ]]; then
+            echo -e "\t$line"
+        fi
     done <<< "$yamale_output"
 
     if [ $yamale_exit_code -ne 0 ]; then
@@ -41,6 +57,7 @@ function check_chart_schema(){
     else
         echo -e "\t✅ Chart Schema: Passed"
     fi
+    echo ''
 }
 export -f check_chart_schema
 
@@ -51,7 +68,9 @@ function helm_lint(){
     helm_lint_output=$(helm lint --quiet "$chart_path")
     helm_lint_exit_code=$?
     while IFS= read -r line; do
-        echo -e "\t$line"
+        if [[ -n $line ]]; then
+            echo -e "\t$line"
+        fi
     done <<< "$helm_lint_output"
 
     if [ $helm_lint_exit_code -ne 0 ]; then
@@ -60,8 +79,36 @@ function helm_lint(){
     else
         echo -e "\t✅ Helm Lint: Passed"
     fi
+    echo ''
 }
 export -f helm_lint
+
+function helm_template(){
+    chart_path=${1:?"No chart path provided to [Helm template]"}
+    values=${2:-}
+
+    if [[ -n "$values" ]]; then
+        values="-f $values"
+    fi
+
+    # Print only errors and warnings
+    helm_template_output=$(helm template $values "$chart_path" 2>&1 >/dev/null)
+    helm_template_exit_code=$?
+    while IFS= read -r line; do
+        if [[ -n $line ]]; then
+            echo -e "\t$line"
+        fi
+    done <<< "$helm_template_output"
+
+    if [ $helm_template_exit_code -ne 0 ]; then
+        echo -e "\t❌ Helm template: Failed"
+        curr_result=1
+    else
+        echo -e "\t✅ Helm template: Passed"
+    fi
+    echo ''
+}
+export -f helm_template
 
 function yaml_lint(){
     file_path=${1:?"No file path provided to [YAML lint]"}
@@ -69,7 +116,9 @@ function yaml_lint(){
     yaml_lint_output=$(yamllint --config-file .github/yaml-lint-conf.yaml "$file_path")
     yaml_lint_exit_code=$?
     while IFS= read -r line; do
-        echo -e "\t$line"
+        if [[ -n $line ]]; then
+            echo -e "\t$line"
+        fi
     done <<< "$yaml_lint_output"
 
     if [ $yaml_lint_exit_code -ne 0 ]; then
@@ -78,6 +127,7 @@ function yaml_lint(){
     else
         echo -e "\t✅ YAML Lint: Passed [$file_path]"
     fi
+    echo ''
 }
 export -f yaml_lint
 
@@ -96,6 +146,19 @@ function lint_chart(){
         echo ''
         echo "👣 Helm Lint - [$chart_path]"
         helm_lint "$chart_path"
+
+        # FIXME: Comment out for now as it requires deps installed in linting.
+        # if [[ ! $(ls $chart_path/ci/*values.yaml) ]]; then
+        #     echo "👣 Helm Template - [$chart_path]"
+        #     helm_template "$chart_path"
+        # fi
+
+        # for values in $chart_path/ci/*values.yaml; do
+        #     if [ -f "${values}" ]; then
+        #         echo "👣 Helm Template - [$values]"
+        #         helm_template "$chart_path" "$values"
+        #     fi
+        # done
 
         echo "👣 Chart Version - [$chart_path] against [$target_branch]"
         check_version "$chart_path" "$target_branch"
@@ -129,6 +192,7 @@ function lint_chart(){
         echo ''
     } > "$curr_result_file"
     cat "$curr_result_file"
+    # $curr_result starts with 0, and it gets set to 1 only when a linting step fails
     echo $curr_result >> "$status_file"
 }
 export -f lint_chart

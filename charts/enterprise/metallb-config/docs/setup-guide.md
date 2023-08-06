@@ -8,11 +8,28 @@ With MetalLB installed, apps will not be reachable using the integrated loadbala
 
 :::
 
-## 1. Configure Address Pool & L2 Advertisement
+## Prerequisites
+
+- Add the Operators & Enterprise trains to your TrueCharts Catalog.
+
+![metallb-addtrains](img/metallb_guide_trains.png)
+
+## 1. Install MetalLB Operator from Operators Train
+
+![metallb-apps](img/metallb_guide_apps.png)
+
+Install `metallb` from `operators` train first. There is no config, so just hit save.
+
+If you encounter an error upon install, run the following command as root from system settings -> shell and attempt the install again:
+```k3s kubectl delete  --grace-period 30 --v=4 -k https://github.com/truecharts/manifests/delete```
+
+If you previously had `metallb` installed and encounter an error, delete the old version, then run the above command before proceeding to install the `metallb` operator.
+
+## 2. Set Address Pool & L2 Advertisement in MetalLB-Config
+
+Install `metallb-config` from enterprise train and create a new entry under `Configure IP Address Pools Object`
 
 ![metallb-addpoolbasic](img/metallb_guide_addresspool_basic.png)
-
-Create a new entry under `Configure IP Address Pools Object`
 
 - **Name**: Enter a general name for this IP range. Something like _apps_ or _charts_ for this field is fine.
 - **Auto Assign**: if you want MetalLB Services to auto-assign IPs from the configured address pool without needing to specify per app. Recommendation is to keep this checked. You can still specify an IP for apps as needed (see step 3).
@@ -30,15 +47,23 @@ Create a new entry under `Configure L2 Advertisements`.
 - **Name**: Enter a basic name for your layer 2 advertisement.
 - **Address Pool Entry:** This should match the **name** of the address pool created above (not the IP range itself).
 
-_For users with VLANs or multiple subnets, you may reference multiple address pool objects under a single L2 Advertisement entry as needed._
-
 :::info
 
-Once installed, MetalLB will always show as Stopped.
+Once installed, `metallb-config` will always show as Stopped.
 
 :::
 
-## 2. Disable SCALE's Default Loadbalancer
+## 3. Optional: Specify IP Address per App or Service
+
+![metallb-specifyIP](img/metallb_guide_specifyIP.png)
+
+With MetalLB installed, its is recommended (but optional) to specify IP addresses for your apps.
+
+For each app, under **Networking and Services**, select `LoadBalancer` Service Type for the Main Service.
+
+In the **LoadBalancer IP** field, specify an IP address that is within the MetalLB address pool that you configured. Apply the same IP address to the **LoadBalancer IP** field on other services within the app.
+
+## 4. Disable SCALE's Default Loadbalancer
 
 With MetalLB installed and configured, you must now disable SCALE's default loadbalancer.
 
@@ -48,19 +73,9 @@ In the SCALE UI, under **Apps** > **Settings** > **Advanced Settings**
 
 Uncheck `Enable Integrated Loadbalancer`.
 
-**This will trigger a restart of Kubernetes and all apps**. After roughly 5-10 minutes, your apps will redeploy using the MetalLB-assigned addresses.
+**This will trigger a restart of Kubernetes and all apps**. After roughly 5-10 minutes, your apps will redeploy using the MetalLB-assigned IP addresses.
 
-## 3. Optional: Specify IP Address per App or Service
-
-![metallb-specifyIP](img/metallb_guide_specifyIP.png)
-
-With MetalLB installed, you may optionally specify IP addresses for your apps.
-
-For each app, under **Networking and Services**, select `LoadBalancer` Service Type for the Main Service.
-
-In the **LoadBalancer IP** field, specify an IP address that is within the MetalLB address pool that you configured. Apply the same IP address to the **LoadBalancer IP** field on other services within the app.
-
-You may need to stop & restart the app for the IP address to take affect.
+## 5. Verify IP Addresses Are Assigned
 
 From your SCALE shell, run the command `k3s kubectl get svc -A` to verify the IP addresses assigned for each of your apps. The IPs will be listed under the `EXTERNAL-IP` column.
 

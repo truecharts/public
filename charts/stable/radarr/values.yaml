@@ -1,22 +1,31 @@
 image:
   repository: tccr.io/truecharts/radarr
   pullPolicy: IfNotPresent
-  tag: 4.4.4.7068@sha256:299a9fc534456ac607bb99e480582d413a8accc21b641f2041d7bcb30905ff26
+  tag: v4.6.4.7568@sha256:9a8bfd8c2beb92116af78bc7d71ae7e87c734115f8252180137d89291731a577
+exportarrImage:
+  repository: tccr.io/truecharts/exportarr
+  pullPolicy: IfNotPresent
+  tag: v1.5.3@sha256:f369a43b28410f12ce1b96f52187dd5c6fb9769a137ecc6f7ab8fdcfbe7db58e
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+
 service:
   main:
     ports:
       main:
         port: 7878
-persistence:
-  config:
+  metrics:
     enabled: true
-    mountPath: /config
-portal:
-  open:
-    enabled: true
-securityContext:
-  container:
-    readOnlyRootFilesystem: false
+    type: ClusterIP
+    targetSelector: exportarr
+    ports:
+      metrics:
+        enabled: true
+        port: 7879
+        targetSelector: exportarr
+
 workload:
   main:
     podSpec:
@@ -35,6 +44,69 @@ workload:
               enabled: true
               type: http
               path: /ping
-
           env:
             RADARR__PORT: "{{ .Values.service.main.ports.main.port }}"
+  exportarr:
+    enabled: true
+    type: Deployment
+    strategy: RollingUpdate
+    replicas: 1
+    podSpec:
+      containers:
+        exportarr:
+          primary: true
+          enabled: true
+          imageSelector: exportarrImage
+          args:
+            - radarr
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              path: /healthz
+              port: "{{ .Values.service.metrics.ports.metrics.port }}"
+            readiness:
+              enabled: true
+              type: http
+              path: /healthz
+              port: "{{ .Values.service.metrics.ports.metrics.port }}"
+            startup:
+              enabled: true
+              type: http
+              path: /healthz
+              port: "{{ .Values.service.metrics.ports.metrics.port }}"
+          env:
+            INTERFACE: 0.0.0.0
+            PORT: "{{ .Values.service.metrics.ports.metrics.port }}"
+            URL: '{{ printf "http://%v:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.main.ports.main.port }}'
+            # additional metrics (slow)
+            # ENABLE_ADDITIONAL_METRICS: false
+            # enable gathering unknown queue items
+            # ENABLE_UNKNOWN_QUEUE_ITEMS: false
+            CONFIG: "/config/config.xml"
+
+persistence:
+  config:
+    enabled: true
+    targetSelector:
+      main:
+        main:
+          mountPath: /config
+      exportarr:
+        exportarr:
+          mountPath: /config
+          readOnly: true
+
+metrics:
+  main:
+    enabled: true
+    type: "servicemonitor"
+    endpoints:
+      - port: metrics
+        path: /metrics
+    prometheusRule:
+      enabled: false
+
+portal:
+  open:
+    enabled: true

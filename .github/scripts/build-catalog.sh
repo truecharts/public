@@ -75,6 +75,21 @@ patch_apps() {
     sed -i "s|^icon:|icon_url:|g" catalog/${train}/${chartname}/item.yaml
     echo "categories:" >> catalog/${train}/${chartname}/item.yaml
     cat ${target}/Chart.yaml | yq '.annotations."truecharts.org/catagories"' -r >> catalog/${train}/${chartname}/item.yaml
+
+    # Generate screenshots
+    screenshots=""
+    if [[ -d "${target}/screenshots" ]]; then
+        screenshots=$(ls ${target}/screenshots)
+    fi
+    if [[ -n $screenshots ]]; then
+        echo "screenshots:" >> catalog/${train}/${chartname}/item.yaml
+        for screenshot in $screenshots; do
+            echo "  - https://truecharts.org/img/hotlink-ok/chart-screenshots/${chartname}/${screenshot}" >> catalog/${train}/${chartname}/item.yaml
+        done
+    else
+        echo "screenshots: []" >> catalog/${train}/${chartname}/item.yaml
+    fi
+    rm -rf ${target}/screenshots
     # Copy changelog from website
     if [[ ! -f "website/docs/charts/${train}/${chartname}/CHANGELOG.md" ]]; then
         touch "website/docs/charts/${train}/${chartname}/CHANGELOG.md"
