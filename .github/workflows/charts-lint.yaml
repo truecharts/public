@@ -108,7 +108,7 @@ jobs:
       - name: Create/Update comment
         if: steps.list-changed.outputs.detected == 'true'
         continue-on-error: true
-        uses: thollander/actions-comment-pull-request@630516fc6533722c61ef2e633786b52ca3250ce3 # v2
+        uses: thollander/actions-comment-pull-request@d61db783da9abefc3437960d0cce08552c7c004f # v2
         with:
           filePath: /tmp/lint_result.txt
           comment_tag: lint_results
