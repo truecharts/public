@@ -22,6 +22,7 @@ service:
     ports:
       smtp:
         enabled: true
+        primary: true
         port: 25
         targetPort: 25
   imap:
