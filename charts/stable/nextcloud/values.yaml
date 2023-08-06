@@ -421,7 +421,7 @@ persistence:
   opcache-recommended:
     enabled: true
     type: configmap
-    objectName: redis-session
+    objectName: opcache
     targetSelector:
       main:
         main:
