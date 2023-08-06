@@ -35,6 +35,22 @@ service:
         protcol: tcp
         targetPort: 143
 
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+              port: "{{ .Values.service.smtp.ports.smtp.targetPort }}"
+            readiness:
+              type: tcp
+              port: "{{ .Values.service.smtp.ports.smtp.targetPort }}"
+            startup:
+              type: tcp
+              port: "{{ .Values.service.smtp.ports.smtp.targetPort }}"
+
 persistence:
   config:
     enabled: true
