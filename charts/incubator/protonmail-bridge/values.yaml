@@ -18,6 +18,7 @@ service:
         enabled: false
   smtp:
     enabled: true
+    primary: true
     ports:
       smtp:
         enabled: true
