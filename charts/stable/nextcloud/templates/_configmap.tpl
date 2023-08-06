@@ -39,11 +39,11 @@ opcache:
       opcache.enable=1
       opcache.save_comments=1
       opcache.jit=1255
-      opcache.interned_strings_buffer={{ .Values.nextcloud.php.opcache.interned_strings_buffer }}
-      opcache.max_accelerated_files={{ .Values.nextcloud.php.opcache.max_accelerated_files }}
-      opcache.memory_consumption={{ .Values.nextcloud.php.opcache.memory_consumption }}
-      opcache.revalidate_freq={{ .Values.nextcloud.php.opcache.revalidate_freq }}
-      opcache.jit_buffer_size={{ printf "%sM" .Values.nextcloud.php.opcache.jit_buffer_size }}
+      opcache.interned_strings_buffer={{ .Values.nextcloud.opcache.interned_strings_buffer }}
+      opcache.max_accelerated_files={{ .Values.nextcloud.opcache.max_accelerated_files }}
+      opcache.memory_consumption={{ .Values.nextcloud.opcache.memory_consumption }}
+      opcache.revalidate_freq={{ .Values.nextcloud.opcache.revalidate_freq }}
+      opcache.jit_buffer_size={{ printf "%sM" .Values.nextcloud.opcache.jit_buffer_size }}
 
 redis-session:
   enabled: true
