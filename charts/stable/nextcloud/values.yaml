@@ -121,6 +121,12 @@ nextcloud:
     pm_start_servers: 18
     pm_min_spare_servers: 12
     pm_max_spare_servers: 30
+  opcache:
+    interned_strings_buffer: 32
+    max_accelerated_files: 10000
+    memory_consumption: 128
+    revalidate_freq: 60
+    jit_buffer_size: 128
 
 # Do NOT edit below this line
 workload:
@@ -411,6 +417,16 @@ persistence:
         main:
           mountPath: /usr/local/etc/php/conf.d/redis-session.ini
           subPath: redis-session.ini
+          readOnly: true
+  opcache-recommended:
+    enabled: true
+    type: configmap
+    objectName: opcache
+    targetSelector:
+      main:
+        main:
+          mountPath: /usr/local/etc/php/conf.d/opcache-recommended.ini
+          subPath: opcache-recommended.ini
           readOnly: true
   nginx:
     enabled: true
