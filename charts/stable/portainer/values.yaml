@@ -70,10 +70,10 @@ workload:
           probes:
             liveness:
               port: 9443
-              scheme: https
+              type: https
             readiness:
               port: 9443
-              scheme: https
+              type: https
             startup:
               port: 9443
-              scheme: https
+              type: https
