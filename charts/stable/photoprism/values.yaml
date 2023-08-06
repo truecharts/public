@@ -16,6 +16,12 @@ persistence:
     enabled: true
     mountPath: "/photoprism_temp"
     type: emptyDir
+  originals:
+    enabled: true
+    mountPath: "/originals"
+  import:
+    enabled: true
+    mountPath: "/import"
 mariadb:
   enabled: true
   mariadbUsername: photoprism
@@ -34,8 +40,8 @@ workload:
         main:
           env:
             HOME: "/photoprism"
-            PHOTOPRISM_ORIGINALS_PATH: "/photoprism/originals"
-            PHOTOPRISM_IMPORT_PATH: "/photoprism/import"
+            PHOTOPRISM_ORIGINALS_PATH: "/originals"
+            PHOTOPRISM_IMPORT_PATH: "/import"
             PHOTOPRISM_TEMP_PATH: "/photoprism_temp"
             PHOTOPRISM_STORAGE_PATH: "/assets/storage"
             PHOTOPRISM_SIDECAR_PATH: "/assets/sidecar"
