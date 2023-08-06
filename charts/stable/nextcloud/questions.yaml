@@ -534,7 +534,7 @@ questions:
                 schema:
                   type: int
                   required: true
-                  default: 10000
+                  default: 128
               - variable: revalidate_freq
                 label: Revalidate Frequency
                 description: How often to check script timestamps for updates, in seconds. 0 will result in OPcache checking for updates on every request.
