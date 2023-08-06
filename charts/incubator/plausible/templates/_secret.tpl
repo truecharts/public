@@ -1,11 +1,11 @@
 {{- define "plausible.secret" -}}
 enabled: true
-stringData:
+data:
   {{- with (lookup "v1" "Secret" .Release.Namespace "plausible-secret") }}
   SECRET_KEY_BASE: {{ index .data "SECRET_KEY_BASE" | b64dec }}
   {{- else }}
   {{- /* The plain value of SECRET_KEY_BASE is also base64 encoded */}}
-  SECRET_KEY_BASE: {{ randAlphaNum 65 | b64enc }}
+  SECRET_KEY_BASE: {{ randAlphaNum 86 | b64enc }}
   {{- end }}
 
   DATABASE_URL: {{ .Values.cnpg.main.creds.std }}

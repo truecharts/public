@@ -11,8 +11,6 @@ plausible:
   BASE_URL: http://localhost
   DISABLE_REGISTRATION: "true"
   LOG_FAILED_LOGIN_ATTEMPTS: false
-  # todo(this is fine for SCALE, but not for other multi-node platforms)
-  # RELEASE_DISTRIBUTION: none
 
   # Database
   CLICKHOUSE_FLUSH_INTERVAL_MS: 5000
@@ -39,9 +37,6 @@ plausible:
   # todo(investigate where automatic updates are stored and configure storage accordingly)
   MAXMIND_LICENSE_KEY: ""
   MAXMIND_EDITION: GeoLite2-City
-  # todo
-  # GEOLITE2_COUNTRY_DB: ""
-  # GEONAMES_SOURCE_FILE: ""
 
   # Google Search Integration
   GOOGLE_CLIENT_ID: ""
@@ -67,7 +62,7 @@ workload:
                 name: plausible-config
             - secretRef:
                 name: plausible-secret
-          command: [sh]
+          command: sh
           args:
             - -c
             - /entrypoint.sh db createdb && /entrypoint.sh db migrate
@@ -84,7 +79,7 @@ workload:
                 name: plausible-config
             - secretRef:
                 name: plausible-secret
-          command: [sh]
+          command: sh
           args:
             - -c
             - /entrypoint.sh db migrate
