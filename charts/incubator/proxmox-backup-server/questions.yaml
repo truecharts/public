@@ -76,10 +76,10 @@ questions:
 # Include{securityContextPod}
               - variable: fsGroup
                 label: "fsGroup"
-                description: "The group that should own ALL storage, make sure PBS Configuration has backup(43) group permission"
+                description: "The group that should own ALL storage, make sure PBS Configuration has backup(34) group permission"
                 schema:
                   type: int
-                  default: 43
+                  default: 34
 
 # Include{resources}
 # Include{advanced}
