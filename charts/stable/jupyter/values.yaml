@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/jupyter-base
   pullPolicy: IfNotPresent
-  tag: v2023-08@sha256:544b66e363a2c189b40a212818fa5075481d2829579d6836e92922a3c64717a4
+  tag: v2023-08@sha256:3fae291957d01cbcf77fa26f6592c9cedd73623a86ddc23e9f306d1e08b2e556
 minimalImage:
   repository: tccr.io/truecharts/jupyter-minimal
   pullPolicy: IfNotPresent
@@ -9,7 +9,7 @@ minimalImage:
 rImage:
   repository: tccr.io/truecharts/jupyter-r
   pullPolicy: IfNotPresent
-  tag: v2023-08@sha256:8a76aa77db7f786fef14436212152d07d6925638c27dd1447a01eb748bf4e910
+  tag: v2023-08@sha256:333f303d1b10a1ba0a515042a8038a8231b3a3cc28710677d569bd5a9dd3513d
 scipyImage:
   repository: tccr.io/truecharts/jupyter-scipy
   pullPolicy: IfNotPresent
@@ -21,15 +21,15 @@ tensorflowImage:
 datascienceImage:
   repository: tccr.io/truecharts/jupyter-datascience
   pullPolicy: IfNotPresent
-  tag: v2023-08@sha256:e69ba477d1aeb8fe583da7bfa3def12fdc1b08e29dc7378c9283f371d15927b5
+  tag: v2023-08@sha256:926d83688f606a18fb8f41c4bfd10e40e821a7368abdb9883e756fb426590fb8
 pysparkImage:
   repository: tccr.io/truecharts/jupyter-pyspark
   pullPolicy: IfNotPresent
-  tag: v2023-08@sha256:e2e15877ac080008b469ad929dc7ca6192b66a67f73ce46720188b53bd7920b9
+  tag: v2023-08@sha256:3376992a301a92d0a100b616c5ceff96159ecc2674a228ec07d54aeac511b061
 allsparkImage:
   repository: tccr.io/truecharts/jupyter-all-spark
   pullPolicy: IfNotPresent
-  tag: v2023-08@sha256:0c8465162ffa694f55fbbeedd2427bd56b8f78f41606e67ff6a8f0b95942bbd1
+  tag: v2023-08@sha256:0629dda21d5eb152d53fea0a13f9639b88122fd60861a269e252d76e03028758
 jupyter:
   jupyter_cmd: lab
   restartable: true
