@@ -37,10 +37,10 @@ workload:
           probes:
             liveness:
               port: 8089
-              scheme: http
+              type: http
             readiness:
               port: 8089
-              scheme: http
+              type: http
             startup:
               port: 8089
-              scheme: http
+              type: http

@@ -19,13 +19,13 @@ workload:
           probes:
             liveness:
               port: 10200
-              scheme: tcp
+              type: tcp
             readiness:
               port: 10200
-              scheme: tcp
+              type: tcp
             startup:
               port: 10200
-              scheme: tcp
+              type: tcp
           args:
             - --voice
             - "{{ .Values.wyoming_piper.voice }}"
