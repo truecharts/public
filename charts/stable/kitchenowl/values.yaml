@@ -60,6 +60,7 @@ workload:
           primary: true
           env:
             FRONT_URL: "{{ .Values.workload.main.podSpec.containers.main.env.FRONT_URL }}"
+          envFrom:
             BACK_URL:
               configMapKeyRef:
                 name: kitchenowl-config
