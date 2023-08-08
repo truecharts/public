@@ -62,7 +62,7 @@ workload:
             FRONT_URL: "{{ .Values.workload.main.podSpec.containers.main.env.FRONT_URL }}"
           envFrom:
             BACK_URL:
-              configMapKeyRef:
+              configMapRef:
                 name: kitchenowl-config
                 key: BACK_URL
           probes:
