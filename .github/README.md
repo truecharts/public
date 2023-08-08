@@ -124,7 +124,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-205-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-206-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -400,6 +400,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Shrinks99"><img src="https://avatars.githubusercontent.com/u/5672810?v=4?s=100" width="100px;" alt="Henry Wilkinson"/><br /><sub><b>Henry Wilkinson</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=Shrinks99" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/cedstrom"><img src="https://avatars.githubusercontent.com/u/6175957?v=4?s=100" width="100px;" alt="cedstrom"/><br /><sub><b>cedstrom</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=cedstrom" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/v3DJG6GL"><img src="https://avatars.githubusercontent.com/u/72495210?v=4?s=100" width="100px;" alt="v3DJG6GL"/><br /><sub><b>v3DJG6GL</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Av3DJG6GL" title="Bug reports">🐛</a></td>
     </tr>
   </tbody>
 </table>
