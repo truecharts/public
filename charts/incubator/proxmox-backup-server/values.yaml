@@ -20,6 +20,22 @@ service:
         protocol: https
         port: 8007
 
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: https
+              path: /
+            readiness:
+              type: https
+              path: /
+            startup:
+              type: https
+              path: /
+
 persistence:
   config:
     enabled: true
