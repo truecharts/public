@@ -60,7 +60,10 @@ workload:
           primary: true
           env:
             FRONT_URL: "{{ .Values.workload.main.podSpec.containers.main.env.FRONT_URL }}"
-            BACK_URL: "kitchenowl-backend:{{ .Values.service.backend.ports.backend.port }}"
+            BACK_URL:
+              configMapKeyRef:
+                name: kitchenowl-config
+                key: BACK_URL
           probes:
             liveness:
               type: http
