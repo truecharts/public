@@ -1,20 +1,15 @@
 {{/* Define the secrets */}}
 {{- define "kitchenowl.secrets" -}}
----
+{{- $secretName := (printf "%s-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
+{{- $kitchenowlprevious := lookup "v1" "Secret" .Release.Namespace $secretName }}
 
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: kitchenowl-secrets
-{{- $kitchenowlprevious := lookup "v1" "Secret" .Release.Namespace "kitchenowl-secrets" }}
-{{- $jwt_secret := "" }}
+enabled: true
 data:
-  {{- if $kitchenowlprevious}}
-  JWT_SECRET_KEY: {{ index $kitchenowlprevious.data "JWT_SECRET_KEY" }}
+  {{- if $kitchenowlprevious }}
+  JWT_SECRET_KEY: {{ index $kitchenowlprevious.data "JWT_SECRET_KEY" | b64dec }}
   {{- else }}
-  {{- $jwt_secret := randAlphaNum 32 }}
-  JWT_SECRET_KEY: {{ $jwt_secret | b64enc }}
+  {{- $jwtsecret := randAlphaNum 50 }}
+  JWT_SECRET_KEY: {{ $jwtsecret }}
   {{- end }}
 
 {{- end -}}
