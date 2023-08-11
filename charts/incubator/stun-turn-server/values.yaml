@@ -15,7 +15,7 @@ service:
   udpports:
     enabled: true
     ports:
-      dnstcp:
+      udpports:
         enabled: true
         port: 5349
         protocol: udp
