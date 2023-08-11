@@ -31,24 +31,15 @@ workload:
               path: "/"
           env:
             KAIZOKU_PORT: "{{ .Values.service.main.ports.main.port }}"
-            DATABASE_USER: "{{ .Values.cnpg.main.user }}"
-            # database name
-            DATABASE_SCHEMA: "{{ .Values.cnpg.main.database }}"
-            DATABASE_PASSWORD:
+            DATABASE_URL:
               secretKeyRef:
-                name: cnpg-main-user
-                key: password
-            DATABASE_HOST:
-              secretKeyRef:
-                name: cnpg-main-urls
-                key: host
-            DATABASE_PORT: 5432
-            EDIS_HOST: redis
+                name: kaizoku-secret
+                key: DATABASE_URL
             REDIS_HOST:
               secretKeyRef:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
-                key: plainhost
+                key: url
             REDIS_PORT: 6379
 
 persistence:
@@ -70,7 +61,6 @@ cnpg:
 
 redis:
   enabled: true
-  redisUsername: "default"
 
 portal:
   open:
