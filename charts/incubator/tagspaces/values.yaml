@@ -30,7 +30,7 @@ workload:
           env:
             KEY:
               secretKeyRef:
-                name: tagspaces-secrets
+                name: tagspaces-secret
                 key: KEY
 
 persistence:
