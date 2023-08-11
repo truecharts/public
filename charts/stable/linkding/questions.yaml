@@ -21,19 +21,13 @@ questions:
                                     additional_attrs: true
                                     type: dict
                                     attrs:
-                                      - variable: DJANGO_SUPERUSER_USERNAME
+                                      - variable: LD_SUPERUSER_NAME
                                         label: "Superuser Username (Initial install only)"
                                         schema:
                                           type: string
                                           default: ""
                                           required: true
-                                      - variable: DJANGO_SUPERUSER_EMAIL
-                                        label: "Superuser Email (Initial install only)"
-                                        schema:
-                                          type: string
-                                          default: ""
-                                          required: true
-                                      - variable: DJANGO_SUPERUSER_PASSWORD
+                                      - variable: LD_SUPERUSER_PASSWORD
                                         label: "Superuser Password (Initial install only)"
                                         schema:
                                           type: string
