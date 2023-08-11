@@ -5,18 +5,20 @@ image:
   
 service:
   main:
+    enabled: true
     ports:
       main:
+        enabled: true
         port: 5349
-        protocol: TCP
+        protocol: tcp
         targetPort: 5349
   udpports:
     enabled: true
     ports:
-      udpports:
+      dnstcp:
         enabled: true
         port: 5349
-        protocol: UDP
+        protocol: udp
         targetPort: 5349
 
 persistence:
