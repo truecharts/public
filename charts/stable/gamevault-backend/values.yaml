@@ -62,7 +62,7 @@ workload:
             # GAMES
             GAMES_INDEX_INTERVAL_IN_MINUTES: 5
             GAMES_SEARCH_RECURSIVE: true
-            GAMES_SUPPORTED_FILE_FORMATS: '{{ join "," .Values.env.GS_FILE_FORMATS }}'
+            GAMES_SUPPORTED_FILE_FORMATS: '{{ join "," .Values.workload.main.podSpec.containers.main.env.GS_FILE_FORMATS }}'
             # IMAGES
             IMAGE_GC_KEEP_DAYS: 30
             IMAGE_GC_INTERVAL_MINUTES: 60
