@@ -176,13 +176,13 @@ questions:
                               type: int
                               default: 5349
                               required: true
-        - variable: udpports
-          label: 'udpports service'
-          description: "UDP Port"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+                    - variable: udpports
+                      label: 'udpports service'
+                      description: "UDP Port"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: udpports
@@ -202,9 +202,9 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: containerpath
-          label: "containerpath Storage"
-          description: "Container Path stun-turn"
+        - variable: config
+          label: "App Config Storage"
+          description: "Stores the Application Data."
           schema:
             additional_attrs: true
             type: dict
