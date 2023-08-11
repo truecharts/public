@@ -109,19 +109,19 @@ questions:
           description: "Specify your state or province."
           schema:
             type: string
-            default: "None"
+            default: ""
         - variable: CA_LOCALITY
           label: "CA_LOCALITY"
           description: "Specify your locality."
           schema:
             type: string
-            default: "None"
+            default: ""
         - variable: CA_ORGANIZATION
           label: "CA_ORGANIZATION"
           description: "Specify your organiszation."
           schema:
             type: string
-            default: "None"
+            default: ""
         - variable: DH_LENGTH
           label: "DH_LENGTH"
           description: "Enter your preferred key length (the higher the value the longer it takes to generate the key)."
