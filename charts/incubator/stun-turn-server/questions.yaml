@@ -176,17 +176,17 @@ questions:
                               type: int
                               default: 5349
                               required: true
-                    - variable: udpports
-                      label: 'udpports service'
-                      description: "UDP Port"
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
+        - variable: udpports
+          label: 'UDP Service Port Configuration'
+          description: "UDP Port"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: udpports
-                      label: "udpports Service Port Configuration"
+                      label: "UDP Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
