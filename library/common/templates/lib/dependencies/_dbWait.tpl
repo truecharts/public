@@ -234,7 +234,7 @@ command:
 {{- define "tc.v1.common.lib.deps.wait.clickhouse" -}}
 enabled: true
 type: system
-imageSelector: alpineImage
+imageSelector: wgetImage
 securityContext:
   runAsUser: 568
   runAsGroup: 568
@@ -263,16 +263,15 @@ env:
       key: ping
 command:
   - "/bin/sh"
+args:
   - "-c"
   - |
-    /bin/bash <<'EOF'
     echo "Executing DB waits..."
     until wget --quiet --tries=1 --spider "${CLICKHOUSE_PING}"; do
       echo "ClickHouse - no response. Sleeping 2 seconds..."
       sleep 2
     done
     echo "ClickHouse - accepting connections"
-    EOF
 {{- end -}}
 
 {{- define "tc.v1.common.lib.deps.wait.solr" -}}
@@ -316,9 +315,9 @@ env:
 
 command:
   - "/bin/sh"
+args:
   - "-c"
   - |
-    /bin/bash <<'EOF'
     echo "Executing DB waits..."
     if [ "$SOLR_ENABLE_AUTHENTICATION" == "yes" ]; then
       until curl --fail --user "${SOLR_ADMIN_USERNAME}":"${SOLR_ADMIN_PASSWORD}" "${SOLR_HOST}":8983/solr/"${SOLR_CORES}"/admin/ping; do
@@ -330,8 +329,7 @@ command:
         echo "Solr is not responding... Sleeping 2 seconds..."
         sleep 2
       done
-    fi;
-    EOF
+    fi
 {{- end -}}
 
 {{- define "tc.v1.common.lib.deps.wait.cnpg" -}}
