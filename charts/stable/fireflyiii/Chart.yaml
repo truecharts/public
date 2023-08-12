@@ -3,7 +3,7 @@ appVersion: "6.0.19"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 12.15.0
+    version: 14.0.1
   - condition: redis.enabled
     name: redis
     repository: https://deps.truecharts.org
@@ -25,7 +25,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/fireflyiii
   - https://github.com/firefly-iii/firefly-iii/
 type: application
-version: 20.0.33
+version: 21.0.0
 annotations:
   truecharts.org/catagories: |
     - finacial

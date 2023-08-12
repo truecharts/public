@@ -3,7 +3,7 @@ appVersion: "4.15.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 12.15.0
+    version: 14.0.1
   - condition: mariadb.enabled
     name: mariadb
     repository: https://deps.truecharts.org/
@@ -23,7 +23,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/matomo
   - https://github.com/bitnami/bitnami-docker-matomo
   - https://github.com/matomo-org/matomo
-version: 7.0.34
+version: 8.0.0
 annotations:
   truecharts.org/catagories: |
     - productivity
