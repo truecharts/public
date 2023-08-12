@@ -18,10 +18,10 @@ persistence:
     type: emptyDir
   originals:
     enabled: true
-    mountPath: "/originals"
+    mountPath: "/photoprism/originals"
   import:
     enabled: true
-    mountPath: "/import"
+    mountPath: "/photoprism/import"
 mariadb:
   enabled: true
   mariadbUsername: photoprism
