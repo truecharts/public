@@ -16,6 +16,12 @@ persistence:
     enabled: true
     mountPath: "/photoprism_temp"
     type: emptyDir
+  originals:
+    enabled: true
+    mountPath: "/photoprism/originals"
+  import:
+    enabled: true
+    mountPath: "/photoprism/import"
 mariadb:
   enabled: true
   mariadbUsername: photoprism

@@ -26,18 +26,6 @@ questions:
                                           required: true
                                           private: true
                                           default: ""
-                                      - variable: PHOTOPRISM_ORIGINALS_PATH
-                                        label: "PHOTOPRISM_ORIGINALS_PATH"
-                                        description: "Photoprism originals path"
-                                        schema:
-                                          type: string
-                                          default: "/photoprism/originals"
-                                      - variable: PHOTOPRISM_IMPORT_PATH
-                                        label: "PHOTOPRISM_IMPORT_PATH"
-                                        description: "Photoprism import path"
-                                        schema:
-                                          type: string
-                                          default: "/photoprism/import"
                                       - variable: PHOTOPRISM_PUBLIC
                                         label: "PHOTOPRISM_PUBLIC"
                                         description: "Disable authentication / password protection"
@@ -81,6 +69,22 @@ questions:
         - variable: photoprismtemp
           label: "App Temp Files"
           description: "Stores the Application Temp Files."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: originals
+          label: "Photoprism Originals"
+          description: "Stores the Photoprism Originals."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: import
+          label: "Photoprism Import"
+          description: "Location of the Photoprism Imports."
           schema:
             additional_attrs: true
             type: dict
