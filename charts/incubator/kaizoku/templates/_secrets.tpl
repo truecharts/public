@@ -4,10 +4,10 @@
 
 {{- $user := .Values.cnpg.main.user -}}
 {{- $password := .Values.cnpg.main.creds.password | trimAll "\"" -}}
-{{- $database := .Values.cnpg.main.database -}}
 {{- $host := .Values.cnpg.main.creds.host -}}
+{{- $database := .Values.cnpg.main.database -}}
 
-{{- $url := printf "postgres://%v:%v@db:5432/%v" $user $password $database }}
+{{- $url := printf "postgres://%v:%v@%v:5432/%v" $user $password $host $database }}
 kaizoku-secret:
   enabled: true
   data:
