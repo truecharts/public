@@ -138,6 +138,7 @@ securityContext:
 workload:
   main:
     podSpec:
+      automountServiceAccountToken: true
       initContainers:
         create-config:
           enabled: true

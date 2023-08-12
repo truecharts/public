@@ -3,29 +3,38 @@ image:
   repository: tccr.io/truecharts/funkwhale
   tag: 1.2.10@sha256:835a4970cd330024e617e6b320f609b700ee79f042b57118ad761605fbd985d1
 
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+# TODO: multi pod setup
+# Some examples:
+# - https://gitlab.com/ananace/charts/-/tree/master/charts/funkwhale/templates
+# - https://dev.funkwhale.audio/funkwhale/funkwhale/-/blob/develop/deploy/env.prod.sample
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
 
-env:
-  DJANGO_SECRET_KEY:
-    secretKeyRef:
-      name: '{{ printf "%s-secret" (include "tc.common.names.fullname" .) }}'
-      key: DJANGO_SECRET_KEY
-  FUNKWHALE_HOSTNAME: yourdomain.funkwhale
-  NESTED_PROXY: "0"
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            FUNKWHALE_HOSTNAME: "http://localhost:{{ .Values.service.main.ports.main.port }}"
+            FUNKWHALE_API_PORT: "{{ .Values.service.main.ports.main.port }}"
+            NESTED_PROXY: "0"
+            DJANGO_SECRET_KEY:
+              secretKeyRef:
+                name: secret
+                key: DJANGO_SECRET_KEY
 
 service:
   main:
     ports:
       main:
         port: 10236
-        protocol: HTTP
-        targetPort: 5000
+        protocol: http
 
 persistence:
   data:
@@ -34,7 +43,7 @@ persistence:
   musicpath:
     enabled: true
     mountPath: /music
-    readOnly: true
 
 portal:
-  enabled: true
+  open:
+    enabled: true

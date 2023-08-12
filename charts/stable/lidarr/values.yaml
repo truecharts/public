@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/lidarr
   pullPolicy: IfNotPresent
-  tag: v1.3.1.3371@sha256:1cea8b94bc278c6fa20fb15747e8a1c393079e87b8537775d499667795717de6
+  tag: v1.3.4.3458@sha256:898d999aef15f8b24f6896da31198a804548d8dde8767fc29ced80dbc9b9053b
 exportarrImage:
   repository: tccr.io/truecharts/exportarr
   pullPolicy: IfNotPresent
@@ -85,7 +85,7 @@ workload:
           env:
             INTERFACE: 0.0.0.0
             PORT: "{{ .Values.service.metrics.ports.metrics.port }}"
-            URL: "http://localhost:{{ .Values.service.main.ports.main.port }}"
+            URL: '{{ printf "http://%v:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.main.ports.main.port }}'
             # additional metrics (slow)
             # ENABLE_ADDITIONAL_METRICS: false
             # enable gathering unknown queue items
