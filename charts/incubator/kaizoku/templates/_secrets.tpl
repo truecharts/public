@@ -7,7 +7,7 @@
 {{- $database := .Values.cnpg.main.database -}}
 {{- $host := .Values.cnpg.main.creds.host -}}
 
-{{- $url := printf "postgresql://%v:%v@db:5432/%v" $user $password $database }}
+{{- $url := printf "postgres://%v:%v@db:5432/%v" $user $password $database }}
 kaizoku-secret:
   enabled: true
   data:
