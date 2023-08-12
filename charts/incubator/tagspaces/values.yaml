@@ -29,6 +29,7 @@ workload:
 persistence:
   nginx:
     enabled: true
+    type: emptyDir
     mountPath: "/var/cache/nginx"
 
 portal:
