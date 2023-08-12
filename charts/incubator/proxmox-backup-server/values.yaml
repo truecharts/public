@@ -28,13 +28,10 @@ workload:
           probes:
             liveness:
               type: https
-              path: /
             readiness:
               type: https
-              path: /
             startup:
-              type: https
-              path: /
+              type: tcp
 
 persistence:
   config:
