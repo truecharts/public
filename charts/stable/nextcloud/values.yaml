@@ -5,11 +5,11 @@ image:
 nginxImage:
   repository: tccr.io/truecharts/nginx-unprivileged
   pullPolicy: IfNotPresent
-  tag: v1.25.1@sha256:d2431433db5212e8162c7311b0bdfe771d8be20dffbf7b4a381a17283136dc48
+  tag: v1.25.1@sha256:0d56942ece7a7eafcf13608a7cfda8ee11b562f83192cec4b8bbe7cc7934cec2
 imaginaryImage:
   repository: tccr.io/truecharts/nextcloud-imaginary
   pullPolicy: IfNotPresent
-  tag: v20230401@sha256:9d90b996789ff4e6a700cca97273d86c07b508c627cd1c25d6526fba819797bd
+  tag: v20230401@sha256:dcca0bdeb9dd760bece6c8d1fa907062947b0055a1a1fafdf96d82b0f336efae
 hpbImage:
   repository: tccr.io/truecharts/nextcloud-push-notify
   pullPolicy: IfNotPresent
@@ -17,7 +17,7 @@ hpbImage:
 clamavImage:
   repository: tccr.io/truecharts/clamav
   pullPolicy: IfNotPresent
-  tag: v1.1.0@sha256:ab196d867fcfddedc8dc965d67a2e6824ca65488cf616cc707e9c36efd54e086
+  tag: v1.1.0@sha256:b3bbc42571cb14323f2383fd1bf8a0478da7c25c2e126090b2f7069a7c69846a
 collaboraImage:
   repository: tccr.io/truecharts/collabora
   pullPolicy: IfNotPresent
