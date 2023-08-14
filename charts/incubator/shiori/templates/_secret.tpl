@@ -2,7 +2,7 @@
 {{- define "shiori.secret" -}}
 
 enabled: true
-stringData:
+data:
   SHIORI_DIR: {{ .Values.persistence.data.mountPath }}
 
   {{/* Database */}}
