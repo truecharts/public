@@ -11,5 +11,5 @@ stringData:
   SHIORI_PG_USER: {{ .Values.cnpg.main.username }}
   SHIORI_PG_PASS: {{ .Values.cnpg.main.creds.password | trimAll "\"" }}
   SHIORI_PG_NAME: {{ .Values.cnpg.main.database }}
-  SHIORI_PG_HOST: {{ .Values.cnpg.main.creds.host }}
+  SHIORI_PG_HOST: {{ .Values.cnpg.main.creds.host | trimAll "\"" }}
 {{- end -}}
