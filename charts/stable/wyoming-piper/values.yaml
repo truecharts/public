@@ -1,10 +1,15 @@
 image:
   repository: tccr.io/truecharts/wyoming-piper
   pullPolicy: IfNotPresent
-  tag: v1.1.0@sha256:f07d688c833458b029237cc0e1e2fdfe249b2c8f8f555d3cd4e2148143c14200
+  tag: v1.2.0@sha256:97f62b6f45ed9726133db3ee872c64b5e81661edd78e17533866826e0787ee87
 
 wyoming_piper:
-  voice: en-us-lessac-low
+  voice: en_US-lessac-medium
+  speaker: 0
+  length_scale: "1.0"
+  noise_scale: "0.667"
+  noise_w: "0.333"
+  max_piper_procs: 1
 
 workload:
   main:
@@ -14,16 +19,26 @@ workload:
           probes:
             liveness:
               port: 10200
-              scheme: tcp
+              type: tcp
             readiness:
               port: 10200
-              scheme: tcp
+              type: tcp
             startup:
               port: 10200
-              scheme: tcp
+              type: tcp
           args:
             - --voice
             - "{{ .Values.wyoming_piper.voice }}"
+            - --speaker
+            - "{{ .Values.wyoming_piper.speaker }}"
+            - --length-scale
+            - "{{ .Values.wyoming_piper.length_scale }}"
+            - --noise-scale
+            - "{{ .Values.wyoming_piper.noise_scale }}"
+            - --noise-w
+            - "{{ .Values.wyoming_piper.noise_w }}"
+            - --max-piper-procs
+            - "{{ .Values.wyoming_piper.max_piper_procs }}"
 
 service:
   main:
