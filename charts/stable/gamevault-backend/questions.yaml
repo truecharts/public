@@ -49,20 +49,11 @@ questions:
                                                 default: false
                                             - variable: SERVER_CORS_ALLOWED_ORIGINS
                                               label: "Server Cors Allowed Origin"
-                                              description: "List of Allowed CORS origins for the server."
+                                              description: "A comma-separated list of Allowed CORS origins for the server."
                                               schema:
-                                                type: list
-                                                empty: false
+                                                type: string
                                                 required: true
-                                                default:
-                                                  - "*"
-                                                items:
-                                                  - variable: cors
-                                                    label: Cors
-                                                    schema:
-                                                      type: string
-                                                      required: true
-                                                      default: ""
+                                                default: "*"
                                             - variable: SERVER_LOG_LEVEL
                                               label: "Server Log Level"
                                               description: "The log level of the server."
