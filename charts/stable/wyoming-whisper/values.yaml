@@ -16,13 +16,13 @@ workload:
           probes:
             liveness:
               port: 10300
-              scheme: tcp
+              type: tcp
             readiness:
               port: 10300
-              scheme: tcp
+              type: tcp
             startup:
               port: 10300
-              scheme: tcp
+              type: tcp
           args:
             - --language
             - "{{ .Values.wyoming_whisper.language }}"
