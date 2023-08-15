@@ -1,11 +1,11 @@
 apiVersion: v2
 appVersion: "15.0"
-version: 13.0.0
+version: 13.0.1
 kubeVersion: ">=1.16.0-0"
 name: odoo
 description: All-in-one business software. Beautiful. Easy-to-use. CRM, Accounting, PM, HR, Procurement, Point of Sale, MRP, Marketing, etc.
 type: application
-home: https://truecharts.org/charts/stable/odoo
+home: https://truecharts.org/charts/incubator/odoo
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/odoo.png
 keywords:
   - odoo
@@ -16,7 +16,7 @@ keywords:
   - mrp
   - marketing
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/odoo
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/odoo
   - https://www.odoo.com/
 dependencies:
   - name: common
