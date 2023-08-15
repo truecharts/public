@@ -8,10 +8,20 @@ workload:
     podSpec:
       containers:
         main:
-          envFrom:
-            - secretRef:
-                name: "secret"
-
+          env:
+            SHIORI_DIR: {{ .Values.persistence.data.mountPath }}
+            SHIORI_DBMS: "postgresql"
+            SHIORI_PG_PORT: "5432"
+            SHIORI_PG_USER: {{ .Values.cnpg.main.user }}
+            SHIORI_PG_NAME: {{ .Values.cnpg.main.database }}
+            SHIORI_PG_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            SHIORI_PG_PASS:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
 service:
   main:
     ports:
