@@ -136,21 +136,7 @@ questions:
                   type: int
                   default: 0
 # Include{securityContextContainer}
-              - variable: PUID	
-                label: "Process User ID - PUID"	
-                description: "When supported by the container, this sets the User ID running the Application Process. Not supported by all Apps"
-                schema:	
-                  type: int	
-                  show_if: [["runAsUser", "=", 0]]	
-                  default: 33	
 # Include{securityContextContainer}  
-              - variable: UMASK	
-                label: "UMASK"
-                description: "When supported by the container, this sets the UMASK for the App. Not supported by all Apps"	
-                schema:	
-                  type: string	
-                  default: "0000"
-
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
               - variable: fsGroup
