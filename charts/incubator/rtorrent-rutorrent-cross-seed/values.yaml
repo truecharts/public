@@ -62,10 +62,9 @@ workload:
     podSpec:
       containers:
         main:
-          resources: 
-            limits:
-              cpu: "1"
-              memory: "1Gi"
-            requests:
-              cpu: "0.5"
-              memory: "512Mi"
+          env:
+            RUTORRENT_PORT: "{{ .Values.service.main.ports.main.port }}"
+            RT_DHT_PORT: "{{ .Values.service.dht.ports.dht.port }}"
+            XMLRPC_PORT: "{{ .Values.service.xmlrpc.ports.xmlrpc.port }}"
+            WEBDAV_PORT: "{{ .Values.service.webdav.ports.webdav.port }}"
+            RT_INC_PORT: "{{ .Values.service.rtinc.ports.rtinc.port }}"
