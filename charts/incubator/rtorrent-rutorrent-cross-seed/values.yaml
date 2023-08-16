@@ -76,7 +76,11 @@ portal:
 
 securityContext:
   container:
+    PUID: 33
+    runAsNonRoot: false
     readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
 
 workload:
   main:
