@@ -8,28 +8,42 @@ service:
     ports:
       main:
         protocol: http
-        targetPort: 8080
         port: 8080
+  xmlrpc:
+    enabled: true
+    ports:
       xmlrpc:
-        main:
-          protocol: tcp
-          targetPort: 8000
-          port: 8000
+        enabled: true
+        protocol: http
+        port: 8000
+  dht:
+    enabled: true
+    ports:
       dht:
-        main:
-          protocol: udp
-          targetPort: 6881
-          port: 6881
+        enabled: true
+        protocol: udp
+        port: 6881
+  webdav:
+    enabled: true
+    ports:
       webdav:
-        main:
-          protocol: http
-          targetPort: 9000
-          port: 9000
-      cross-seed:
-        main:
-          protocol: tcp
-          targetPort: 2468
-          port: 2468
+        enabled: true
+        protocol: http
+        port: 9001
+  rtinc:
+    enabled: true
+    ports:
+      rtinc:
+        enabled: true
+        port: 50000
+  crossseed:
+    enabled: true
+    ports:
+      crossseed:
+        enabled: true
+        protocol: tcp
+        targetPort: 2468
+        port: 2468
 
 persistence:
   config:
