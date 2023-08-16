@@ -10,13 +10,30 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+# Include{groups}
+portals:
+  open:
+# Include{portalLink}
+questions:
+# Include{global}
+# Include{workload}
+# Include{workloadDeployment}
+
+# Include{replicas1}
+# Include{podSpec}
+# Include{containerMain}
+
 # Include{containerBasic}
 # Include{containerAdvanced}
-
 # Include{containerConfig}
-# Include{podOptions}
 # Include{serviceRoot}
-# Include{serviceMain}
+        - variable: main
+          label: "Main Service"
+          description: "The Primary service on which the healthcheck runs, often the webUI"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
@@ -27,10 +44,10 @@ questions:
                         attrs:
                           - variable: port
                             label: "Port"
-                            description: "The container port for torrent connectivity needs to be exposed in order to show that it is connectable."
+                            description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 33942
+                              default: 8080
                               required: true
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
@@ -39,6 +56,38 @@ questions:
         - variable: config
           label: "App Config Storage"
           description: "Stores the Application Configuration."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: data
+          label: "App Data Storage"
+          description: "Stores the Application Data."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: sessions
+          label: "App Sessions Storage"
+          description: "Stores the Application Sessions."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: cross-seed
+          label: "App Cross Seed Storage"
+          description: "Stores the Application Cross Seed."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: passwd
+          label: "App Passwd Storage"
+          description: "Stores the Application Passwd."
           schema:
             additional_attrs: true
             type: dict
@@ -67,32 +116,13 @@ questions:
                   default: 0
               - variable: runAsGroup
                 label: "runAsGroup"
-                description: "The groupID this App of the user running the application"
+                description: "The groupID of the user running the application"
                 schema:
                   type: int
                   default: 0
-# Include{securityContext}
-              - variable: PUID
-                label: Process User ID - PUID
-                description: When supported by the container, this sets the User ID running the Application Process. Not supported by all Apps
-                schema:
-                  type: int
-                  show_if: [["runAsUser", "=", 0]]
-                  default: 33
-              - variable: UMASK
-                label: UMASK
-                description: When supported by the container, this sets the UMASK for the App. Not supported by all Apps
-                schema:
-                  type: string
-                  default: "0000"
+# Include{securityContextContainer}
 # Include{securityContextAdvanced}
-                    - variable: privileged
-                      label: "Privileged mode"
-                      schema:
-                        type: boolean
-                        default: true
-# Include{securityContextPo        - variable: privileged
-            attrs:
+# Include{securityContextPod}
               - variable: fsGroup
                 label: "fsGroup"
                 description: "The group that should own ALL storage."
@@ -107,3 +137,4 @@ questions:
 # Include{netshoot}
 # Include{vpn}
 # Include{documentation}
+
