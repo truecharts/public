@@ -9,6 +9,13 @@ service:
       main:
         protocol: http
         port: 8080
+  rtorrent:
+    enabled: true
+    ports:
+      rtorrent:
+        enabled: true
+        protocol: tcp
+        port: 33942
   xmlrpc:
     enabled: true
     ports:
