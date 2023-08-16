@@ -55,8 +55,8 @@ questions:
                               default: 8080
                               required: true
   # Include{serviceSelectorExtras}
-                          - variable: PORT_RTORRENT
-                            label: "PORT_RTORRENT"
+                          - variable: rtorrent
+                            label: "Rtorrent"
                             description: "This port exposes the connectivity port to stay connectable to the torrent sites and links to the rtorrent port"
                             schema:
                               additional_attrs: true
