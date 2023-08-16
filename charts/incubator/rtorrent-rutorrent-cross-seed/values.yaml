@@ -73,10 +73,10 @@ workload:
             requests:
               cpu: "0.5"
               memory: "512Mi"
-          probes:
-            liveness:
-              path: "tcp"
-            readiness:
-              path: "tcp"
-            startup:
-              path: "tcp"
+         # probes:
+          #  liveness:
+           #   path: "tcp"
+          #  readiness:
+           #   path: "tcp"
+          #  startup:
+          #    path: "tcp"
