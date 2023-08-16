@@ -8,61 +8,48 @@ service:
       main:
         protocol: http
         targetPort: 8080
-        port: 8080
-    
+        port: 8080    
      xmlrpc:
       main:
         protocol: tcp
         targetPort: 8000
         port: 8000
-
      dht:
       main:
         protocol: udp
         targetPort: 6881
         port: 6881
-
      webdav:
       main:
         protocol: http
         targetPort: 9000
         port: 9000
-
      cross-seed:
       main:
         protocol: tcp
         targetPort: 2468
         port: 2468
-
-
-
-
 persistence:
   config:
     enabled: true
     mountPath: "/config"
    size: 256Gi
-  
   data:
    enabled: true
    mountPath: "/data"
    size: 256Gi
- 
- sessions:
+  sessions:
    enabled: true
    mountPath: "/sessions"
    size: 256Gi
-
   cross-seed:
     enabled: true
     mountPath: "/root/.cross-seed"
-   size: 256Gi
-
-  passwd:
+    size: 256Gi
+   passwd:
     enabled: true
     mountPath: "/passwd"
    size: 256Gi
-
 portal:
   open:
     enabled: true
