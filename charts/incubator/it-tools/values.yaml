@@ -15,6 +15,7 @@ service:
 persistence:
   cache:
     enabled: true
+    type: emptyDir
     mountPath: "/var/cache/nginx"
 
 portal:
