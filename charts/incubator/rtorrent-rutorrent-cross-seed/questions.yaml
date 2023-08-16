@@ -10,12 +10,6 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-                                      - variable: PORT_RTORRENT
-                                        label: rutorrent port to open for connectivity
-                                        description: This will let your client open to be connectable.
-                                        schema:
-                                          type: string
-                                          default: "33942"
 # Include{containerBasic}
 # Include{containerAdvanced}
 
