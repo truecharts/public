@@ -35,7 +35,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-    size: 256Gi
   data:
     enabled: true
     mountPath: "/data"
@@ -43,15 +42,12 @@ persistence:
   sessions:
     enabled: true
     mountPath: "/sessions"
-    size: 256Gi
   cross-seed:
     enabled: true
     mountPath: "/root/.cross-seed"
-    size: 256Gi
   passwd:
     enabled: true
     mountPath: "/passwd"
-    size: 256Gi
 
 portal:
   open:
