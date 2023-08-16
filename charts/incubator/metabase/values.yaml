@@ -1,0 +1,50 @@
+image:
+  repository: tccr.io/truecharts/metabase
+  pullPolicy: IfNotPresent
+  tag: v0.46.7@sha256:96f48cfb662f80278fb4b0356a747eea4d171868c68c7dfec56acc9a24813e96"
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 3000
+        port: 13030
+
+portal:
+  open:
+    enabled: true
+
+workload:
+  main:
+    type: Deployment
+    strategy: RollingUpdate
+    replicas: 1
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - configMapRef:
+                name: metabase-config
+            - secretRef:
+                name: metabase-secrets
+          probes:
+            liveness:
+              type: http
+              path: /
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+            readiness:
+              type: http
+              path: /
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+            startup:
+              type: http
+              path: /
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+
+# Enabled postgres
+cnpg:
+  main:
+    enabled: true
+    user: metabase
+    database: metabase
