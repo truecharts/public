@@ -12,6 +12,11 @@ service:
         targetPort: 80
         port: 18082
 
+persistence:
+  cache:
+    enabled: true
+    mountPath: "/var/cache/nginx"
+
 portal:
   open:
     enabled: true
