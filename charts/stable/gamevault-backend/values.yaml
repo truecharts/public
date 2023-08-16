@@ -16,6 +16,7 @@ service:
       main:
         protocol: http
         port: 8080
+        targetPort: 8080
 
 workload:
   main:
@@ -33,11 +34,10 @@ workload:
               path: /api/v1/health
               type: http
           env:
-            SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
             # manually set and change to /games so its easy for users to know where to place their game files.
-            VOLUMES_FILES: /games
-            VOLUMES_IMAGES: /images
-            VOLUMES_LOG: /logs
+            VOLUMES_FILES: "{{.Values.persistence.games.mountPath }}"
+            VOLUMES_IMAGES: "{{.Values.persistence.images.mountPath }}"
+            VOLUMES_LOG: "{{.Values.persistence.logs.mountPath }}"
             # DB
             DB_SYSTEM: POSTGRESQL
             DB_PORT: 5432
@@ -58,9 +58,11 @@ workload:
             SERVER_ACCOUNT_ACTIVATION_DISABLED: false
             # SERVER
             SERVER_LOG_LEVEL: info
-            SERVER_CORS_ALLOWED_ORIGINS: "*"
+            SERVER_CORS_ALLOWED_ORIGINS: '{{ join "," .Values.workload.main.podSpec.containers.main.env.SERVER_CORS_ALLOWED_ORIGINS }}'
             # GAMES
             GAMES_INDEX_INTERVAL_IN_MINUTES: 5
+            GAMES_SEARCH_RECURSIVE: true
+            GAMES_SUPPORTED_FILE_FORMATS: '{{ join "," .Values.workload.main.podSpec.containers.main.env.GAMES_SUPPORTED_FILE_FORMATS }}'
             # IMAGES
             IMAGE_GC_KEEP_DAYS: 30
             IMAGE_GC_INTERVAL_MINUTES: 60
