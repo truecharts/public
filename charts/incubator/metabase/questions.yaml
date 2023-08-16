@@ -38,6 +38,13 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
+        - variable: config
+          label: "App Plugin Storage"
+          description: "Stores the Metabase Plugins."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
 # Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}

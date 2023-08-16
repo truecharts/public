@@ -11,6 +11,11 @@ service:
         targetPort: 3000
         port: 13030
 
+persistence:
+  plugins:
+    enabled: true
+    mountPath: "/plugins"
+
 portal:
   open:
     enabled: true
