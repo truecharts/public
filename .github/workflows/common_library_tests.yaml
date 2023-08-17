@@ -130,8 +130,6 @@ jobs:
           - metrics-values.yaml
           - cnpg-values.yaml
           - cnpg-multi-values.yaml
-          - manifest-values.yaml
-          - stagingmanifest-values.yaml
           - register-operator-values.yaml
 
     steps:
@@ -199,13 +197,25 @@ jobs:
           tar -xvzf kail_${KAIL_VERSION}_linux_amd64.tar.gz
           chmod +x kail
 
-        # Install some manifests to enable us to allow for testing cnpg, metrics and such
-      - name: Install manifests
+      - name: Prep Helm
         run: |
-          kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.13.10/config/manifests/metallb-native.yaml --server-side --force-conflicts || echo "error fetching metallb manifest"
-          kubectl apply -f https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.20/releases/cnpg-1.20.0.yaml  --server-side --force-conflicts || echo "error fetching cnpg manifest"
-          kubectl apply -f  https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.65.2/bundle.yaml --server-side --force-conflicts || echo "error fetching prometheus operator manifest"
+          helm repo add truecharts https://charts.truecharts.org
+          helm repo add truecharts-deps https://deps.truecharts.org
+          helm repo add truecharts-library https://library-charts.truecharts.org
+          helm repo update
 
+      - name: Add Dependencies
+        run: |
+          if [[ "${{ matrix.values }}" =~ (metrics|cnpg).*-values.yaml ]]; then
+            helm install prometheus-operator truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
+          fi
+          if [[ "${{ matrix.values }}" =~ cnpg.*-values.yaml ]]; then
+            helm install cloudnative-pg truecharts/cloudnative-pg --namespace cloudnative-pg --create-namespace --wait
+          fi
+
+          if [[ "${{ matrix.values }}" =~ ingress.*-values.yaml ]]; then
+            helm install traefik truecharts/traefik --namespace traefik --create-namespace --wait
+          fi
 
       - name: Run chart-testing (install)
         run: |
@@ -274,7 +284,6 @@ jobs:
         with:
           fetch-depth: 1
 
-
       - name: build helm deps
         run: |
           cd library/common-test
@@ -291,7 +300,6 @@ jobs:
           cliArguments: '--ignore-missing-schemas --policy CommonBasic'
           isHelmChart: true
           helmArguments: '--values library/common-test/ci/${{ matrix.values }}'
-
 
   security-man:
     needs:
@@ -312,8 +320,6 @@ jobs:
           - metrics-values.yaml
           # - cnpg-values.yaml
           # - cnpg-multi-values.yaml
-          # - manifest-values.yaml
-          # - stagingmanifest-values.yaml
 
     steps:
       - name: Install Helm
@@ -321,11 +327,22 @@ jobs:
         with:
           version: ${{ matrix.helm-version }}
 
+      - name: Prep Helm
+        run: |
+          helm repo add truecharts https://charts.truecharts.org
+          helm repo add truecharts-deps https://deps.truecharts.org
+          helm repo add truecharts-library https://library-charts.truecharts.org
+          helm repo update
+      - name: Add Dependencies
+        run: |
+            helm install prometheus-operator truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
+            helm install cloudnative-pg truecharts/cloudnative-pg --namespace cloudnative-pg --create-namespace --wait
+            helm install traefik truecharts/traefik --namespace traefik --create-namespace --wait
+
       - name: Checkout
         uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3
         with:
           fetch-depth: 1
-
 
       - name: build helm deps
         run: |
@@ -372,7 +389,6 @@ jobs:
         uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3
         with:
           fetch-depth: 1
-
 
       - name: build helm deps
         run: |

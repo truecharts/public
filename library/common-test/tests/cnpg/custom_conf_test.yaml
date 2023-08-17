@@ -7,6 +7,9 @@ release:
 tests:
   - it: should pass with custom-conf
     set:
+      operator:
+        verify:
+          enabled: false
       cnpg:
         main:
           enabled: true

@@ -7,6 +7,9 @@ release:
 tests:
   - it: should pass with hibernate
     set:
+      operator:
+        verify:
+          enabled: false
       cnpg:
         main:
           enabled: true
@@ -41,6 +44,9 @@ tests:
 
   - it: should set hibernate and 0 instances on stopAll
     set:
+      operator:
+        verify:
+          enabled: false
       global:
         stopAll: true
       cnpg:

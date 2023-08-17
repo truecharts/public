@@ -20,6 +20,9 @@ tests:
 
   - it: explicitly enabled should pass
     set:
+      operator:
+        verify:
+          enabled: false
       ingress.main.enabled: true
       service:
         main:
@@ -52,6 +55,9 @@ tests:
 
   - it: multiple enabled should pass
     set:
+      operator:
+        verify:
+          enabled: false
       ingress.main.enabled: true
       ingress.test.enabled: true
       service:

@@ -7,6 +7,9 @@ release:
 tests:
   - it: default should pass
     set:
+      operator:
+        verify:
+          enabled: false
       service:
         main:
           enabled: true
@@ -37,6 +40,9 @@ tests:
 
   - it: custom host and path should pass
     set:
+      operator:
+        verify:
+          enabled: false
       service:
         main:
           enabled: true
@@ -72,6 +78,9 @@ tests:
 
   - it: host with template should pass
     set:
+      operator:
+        verify:
+          enabled: false
       service:
         main:
           enabled: true
@@ -101,6 +110,9 @@ tests:
 
   - it: path with template should pass
     set:
+      operator:
+        verify:
+          enabled: false
       service:
         main:
           enabled: true

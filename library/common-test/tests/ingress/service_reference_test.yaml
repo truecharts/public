@@ -7,6 +7,9 @@ release:
 tests:
   - it: default should pass
     set:
+      operator:
+        verify:
+          enabled: false
       ingress.main.enabled: true
       service:
         main:
@@ -37,6 +40,9 @@ tests:
 
   - it: custom service reference should pass
     set:
+      operator:
+        verify:
+          enabled: false
       service:
         main:
           enabled: true

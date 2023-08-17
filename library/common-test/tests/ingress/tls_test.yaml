@@ -7,6 +7,9 @@ release:
 tests:
   - it: default should pass
     set:
+      operator:
+        verify:
+          enabled: false
       service:
         main:
           enabled: true
@@ -32,6 +35,9 @@ tests:
 
   - it: tls enabled should pass
     set:
+      operator:
+        verify:
+          enabled: false
       service:
         main:
           enabled: true
@@ -66,6 +72,9 @@ tests:
 
   - it: tls enabled without secret should pass
     set:
+      operator:
+        verify:
+          enabled: false
       service:
         main:
           enabled: true
@@ -98,6 +107,9 @@ tests:
 
   - it: tls enabled with secret template should pass
     set:
+      operator:
+        verify:
+          enabled: false
       service:
         main:
           enabled: true

@@ -9,6 +9,9 @@ release:
 tests:
   - it: default metadata should pass
     set:
+      operator:
+        verify:
+          enabled: false
       ingress.main.enabled: true
       service:
         main:
@@ -50,6 +53,9 @@ tests:
 
   - it: custom metadata should pass
     set:
+      operator:
+        verify:
+          enabled: false
       service:
         main:
           enabled: true

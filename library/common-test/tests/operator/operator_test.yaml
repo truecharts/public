@@ -38,7 +38,7 @@ tests:
             - some-operator
     asserts:
       - failedTemplate:
-          errorMessage: Operator [some-operator] have to be installed first
+          errorMessage: Operator [some-operator] has to be installed first
 
   - it: should not fail with operator verify disabled
     set:
