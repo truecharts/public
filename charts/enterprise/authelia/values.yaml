@@ -118,6 +118,25 @@ totp:
   skew: 1
 
 ##
+## Password Policy Config
+##
+## Parameters used for Password Policies
+password_policy:
+  ## See: https://www.authelia.com/configuration/security/password-policy/
+  standard:
+    enabled: false
+    min_length: 8
+    max_length: 0
+    require_uppercase: false
+    require_lowercase: false
+    require_number: false
+    require_special: false
+  zxcvbn:
+    ## See https://www.authelia.com/configuration/security/password-policy/#zxcvbn for more info
+    enabled: false
+    min_score: 3
+
+##
 ## Duo Push API Configuration
 ##
 ## Parameters used to contact the Duo API. Those are generated when you protect an application of type
