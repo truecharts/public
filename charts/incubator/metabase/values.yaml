@@ -22,17 +22,9 @@ portal:
 
 workload:
   main:
-    type: Deployment
-    strategy: RollingUpdate
-    replicas: 1
     podSpec:
       containers:
         main:
-          envFrom:
-            - configMapRef:
-                name: metabase-config
-            - secretRef:
-                name: metabase-secrets
           probes:
             liveness:
               type: http
@@ -46,6 +38,20 @@ workload:
               type: http
               path: /
               port: "{{ .Values.service.main.ports.main.targetPort }}"
+          env:
+            JAVA_TIMEZONE: "{{ .Values.TZ }}"
+            MB_DB_TYPE: "postgres"
+            MB_DB_USER: "{{ .Values.cnpg.main.user }}"
+            MB_DB_DBNAME: "{{ .Values.cnpg.main.database }}"
+            MB_DB_PORT: 5432
+            MB_DB_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            MB_DB_PASS:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
 
 # Enabled postgres
 cnpg:
