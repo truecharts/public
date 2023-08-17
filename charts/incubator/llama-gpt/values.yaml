@@ -1,0 +1,79 @@
+image:
+  repository: tccr.io/truecharts/llama-gpt-ui
+  pullPolicy: IfNotPresent
+  tag: v1.0.1@sha256:3e66190591adaf5bd91a0707c385bf0c26978c2627691659269335a105c93e7a
+apiImage:
+  repository: tccr.io/truecharts/llama-gpt-api
+  pullPolicy: IfNotPresent
+  tag: v1.0.1@sha256:39147d1e7829feb5c82e7654812ed629ee6b7a3422608597f64b232656fa8d83
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+    capabilities:
+      add:
+        - IPC_LOCK
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 3000
+        port: 3000
+  api:
+    enabled: true
+    type: ClusterIP
+    targetSelector: api
+    ports:
+      api:
+        enabled: true
+        targetSelector: api
+        port: 8000
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          imageSelector: image
+          env:
+            # doesnt need to be exposed, gui will use the api backend
+            OPENAI_API_KEY: sk-XXXXXXXXXXXXXXXXXXXX
+            OPENAI_API_HOST: '{{ printf "http://%v-api" (include "tc.v1.common.lib.chart.names.fullname" $) }}:{{ .Values.service.api.ports.api.port }}'
+            DEFAULT_MODEL: /models/llama-2-7b-chat.bin
+            WAIT_HOSTS: '{{ printf "http://%v-api" (include "tc.v1.common.lib.chart.names.fullname" $) }}:{{ .Values.service.api.ports.api.port }}'
+            WAIT_TIMEOUT: 600
+            N_GQA: "8"
+            USE_MLOCK: 1
+  api:
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
+        api:
+          primary: true
+          enabled: true
+          imageSelector: apiImage
+          probes:
+            liveness:
+              path: "/"
+              type: http
+              port: "{{ .Values.service.api.ports.api.port }}"
+            readiness:
+              path: "/"
+              type: http
+              port: "{{ .Values.service.api.ports.api.port }}"
+            startup:
+              path: "/"
+              type: http
+              port: "{{ .Values.service.api.ports.api.port }}"
+          env:
+            MODEL: "{{ .Values.workload.main.podSpec.containers.main.env.DEFAULT_MODEL }}"
+
+portal:
+  open:
+    enabled: true
