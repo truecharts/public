@@ -89,7 +89,7 @@ api:
     {{- with $api.ldap.id_attribute }}
     LDAP_ID_ATTRIBUTE: {{ . | quote }}
     {{- end -}}
-    {{- with $api.ldap.name_attribute }}
+    {{- with $api.ldap.user_attribute }}
     LDAP_NAME_ATTRIBUTE: {{ . | quote }}
     {{- end -}}
     {{- with $api.ldap.mail_attribute }}
