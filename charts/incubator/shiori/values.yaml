@@ -1,12 +1,27 @@
 image:
   repository: tccr.io/truecharts/shiori
   pullPolicy: IfNotPresent
-  tag: 1.5.4@sha256:d0d145787855f00b81752433cb3cfa047c833926b55a14f845cbe8dbc42b8800
+  tag: v1.5.5@sha256:2aa3fe6e09d5cb801e998a93f3f6ce13e0e7f8e75d567666a800939c6be3a474
 
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-secret'
-
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            SHIORI_DIR: "{{ .Values.persistence.data.mountPath }}"
+            SHIORI_DBMS: "postgresql"
+            SHIORI_PG_PORT: "5432"
+            SHIORI_PG_USER: "{{ .Values.cnpg.main.user }}"
+            SHIORI_PG_NAME: "{{ .Values.cnpg.main.database }}"
+            SHIORI_PG_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            SHIORI_PG_PASS:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
 service:
   main:
     ports:
@@ -18,14 +33,13 @@ persistence:
   data:
     enabled: true
     mountPath: /data
-  varrun:
-    enabled: true
 
-postgresql:
-  enabled: true
-  existingSecret: dbcreds
-  postgresqlUsername: shiori
-  postgresqlDatabase: shiori
+cnpg:
+  main:
+    enabled: true
+    user: shiori
+    password: shiori
 
 portal:
-  enabled: true
+  open:
+    enabled: true

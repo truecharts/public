@@ -49,11 +49,20 @@ questions:
                                                 default: false
                                             - variable: SERVER_CORS_ALLOWED_ORIGINS
                                               label: "Server Cors Allowed Origin"
-                                              description: "A comma-separated list of Allowed CORS origins for the server."
+                                              description: "List of Allowed CORS origins for the server."
                                               schema:
-                                                type: string
+                                                type: list
+                                                empty: false
                                                 required: true
-                                                default: "*"
+                                                default:
+                                                  - "*"
+                                                items:
+                                                  - variable: cors
+                                                    label: Cors
+                                                    schema:
+                                                      type: string
+                                                      required: true
+                                                      default: ""
                                             - variable: SERVER_LOG_LEVEL
                                               label: "Server Log Level"
                                               description: "The log level of the server."
@@ -85,7 +94,65 @@ questions:
                                               schema:
                                                 type: int
                                                 default: 5
-                                                min: 1
+                                            - variable: GAMES_SEARCH_RECURSIVE
+                                              label: "Games Search Recursive"
+                                              description: "Toggling the Indexer's search for games in sub folders."
+                                              schema:
+                                                type: boolean
+                                                default: true
+                                            - variable: GAMES_SUPPORTED_FILE_FORMATS
+                                              label: "Games Supported File Formats"
+                                              description: "Custom list of file formats."
+                                              schema:
+                                                type: list
+                                                empty: false
+                                                default:
+                                                  - ".7z"
+                                                  - ".xz"
+                                                  - ".bz2"
+                                                  - ".gz"
+                                                  - ".tar"
+                                                  - ".zip"
+                                                  - ".wim"
+                                                  - ".ar"
+                                                  - ".arj"
+                                                  - ".cab"
+                                                  - ".chm"
+                                                  - ".cpio"
+                                                  - ".cramfs"
+                                                  - ".dmg"
+                                                  - ".ext"
+                                                  - ".fat"
+                                                  - ".gpt"
+                                                  - ".hfs"
+                                                  - ".ihex"
+                                                  - ".iso"
+                                                  - ".lzh"
+                                                  - ".lzma"
+                                                  - ".mbr"
+                                                  - ".msi"
+                                                  - ".nsis"
+                                                  - ".ntfs"
+                                                  - ".qcow2"
+                                                  - ".rar"
+                                                  - ".rpm"
+                                                  - ".squashfs"
+                                                  - ".udf"
+                                                  - ".uefi"
+                                                  - ".vdi"
+                                                  - ".vhd"
+                                                  - ".vmdk"
+                                                  - ".wim"
+                                                  - ".xar"
+                                                  - ".z"
+                                                required: true
+                                                items:
+                                                  - variable: format
+                                                    label: Format
+                                                    schema:
+                                                      type: string
+                                                      required: true
+                                                      default: ""
                                             - variable: IMAGE_GC_KEEP_DAYS
                                               label: "Image GC Keep Days"
                                               description: "The number of days to keep unused images. After this period, images that have not been accessed are deleted."
@@ -124,6 +191,7 @@ questions:
                                               schema:
                                                 type: string
                                                 default: ""
+
 
 # Include{containerBasic}
 # Include{containerAdvanced}
