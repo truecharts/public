@@ -45,7 +45,7 @@ workload:
             OPENAI_API_KEY: sk-XXXXXXXXXXXXXXXXXXXX
             OPENAI_API_HOST: '{{ printf "http://%v-api" (include "tc.v1.common.lib.chart.names.fullname" $) }}:{{ .Values.service.api.ports.api.port }}'
             DEFAULT_MODEL: /models/llama-2-7b-chat.bin
-            WAIT_HOSTS: '{{ printf "http://%v-api" (include "tc.v1.common.lib.chart.names.fullname" $) }}:{{ .Values.service.api.ports.api.port }}'
+            WAIT_HOSTS: '{{ printf "%v-api" (include "tc.v1.common.lib.chart.names.fullname" $) }}:{{ .Values.service.api.ports.api.port }}'
             WAIT_TIMEOUT: 600
             N_GQA: "8"
             USE_MLOCK: 1
@@ -60,15 +60,15 @@ workload:
           imageSelector: apiImage
           probes:
             liveness:
-              path: "/"
+              path: "/v1/models"
               type: http
               port: "{{ .Values.service.api.ports.api.port }}"
             readiness:
-              path: "/"
+              path: "/v1/models"
               type: http
               port: "{{ .Values.service.api.ports.api.port }}"
             startup:
-              path: "/"
+              path: "/v1/models"
               type: http
               port: "{{ .Values.service.api.ports.api.port }}"
           env:
