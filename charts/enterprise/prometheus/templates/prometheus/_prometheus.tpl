@@ -128,7 +128,7 @@ spec:
   {{- end }}
   {{- with .Values.prometheus.remoteWrite }}
   remoteWrite:
-    {{- toYaml . | nindent 4 }}
+    {{- tpl (toYaml .) $ | nindent 4 }}
   {{- end }}
   {{- if .Values.prometheus.podSecurityContext.enabled }}
   securityContext: {{- omit .Values.prometheus.podSecurityContext "enabled" | toYaml | nindent 4 }}
