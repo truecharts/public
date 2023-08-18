@@ -29,6 +29,9 @@ questions:
                                           required: true
                                           default: ""
 
+# Include{containerBasic}
+# Include{containerAdvanced}
+
   - variable: gamevault
     group: App Configuration
     label: Gamevault
@@ -201,9 +204,6 @@ questions:
                 schema:
                   type: string
                   default: ""
-
-# Include{containerBasic}
-# Include{containerAdvanced}
 
 # Include{containerConfig}
 # Include{podOptions}
