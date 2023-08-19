@@ -9,26 +9,6 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-                                - variable: env
-                                  label: Image Environment
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                      - variable: SERVER_ADMIN_USERNAME
-                                        label: "Server Admin User"
-                                        schema:
-                                          type: string
-                                          required: true
-                                          default: ""
-                                      - variable: SERVER_ADMIN_PASSWORD
-                                        label: "Server Admin Password"
-                                        schema:
-                                          type: string
-                                          private: true
-                                          required: true
-                                          default: ""
-
 # Include{containerBasic}
 # Include{containerAdvanced}
 
@@ -45,6 +25,19 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
+              - variable: admin_username
+                label: Admin User
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: admin_password
+                label: Admin Password
+                schema:
+                  type: string
+                  private: true
+                  required: true
+                  default: ""
               - variable: registration_disabled
                 label: Registration Disabled
                 description: If registration is enabled or not.
@@ -109,7 +102,7 @@ questions:
                 schema:
                   type: boolean
                   default: true
-              - variable: supported_file_formats
+              - variable: file_formats
                 label: Supported File Formats
                 description: Custom list of file formats.
                 schema:
