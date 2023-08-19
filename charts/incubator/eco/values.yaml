@@ -3,13 +3,12 @@ image:
   repository: tccr.io/truecharts/eco
   tag: latest@sha256:b68c9690ea433e1d94363ebf5384342652ab2d9316a2d71c740202669c76aca5
 
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
 
 service:
   main:
