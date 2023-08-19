@@ -54,9 +54,6 @@ workload:
             runAsGroup: 0
             runAsNonRoot: false
             readOnlyRootFilesystem: false
-            capabilities:
-              add:
-                - IPC_LOCK
           probes:
             liveness:
               path: "/v1/models"
