@@ -32,9 +32,9 @@ questions:
                                       - variable: USE_MLOCK
                                         label: Use Mlock
                                         schema:
-                                          type: int
+                                          type: boolean
                                           required: true
-                                          default: 1
+                                          default: true
                                       - variable: MODEL
                                         label: Model
                                         schema:

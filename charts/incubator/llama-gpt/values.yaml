@@ -39,7 +39,7 @@ workload:
             WAIT_HOSTS: '{{ printf "%v-api" (include "tc.v1.common.lib.chart.names.fullname" $) }}:{{ .Values.service.api.ports.api.targetPort }}'
             WAIT_TIMEOUT: 600
             N_GQA: "8"
-            USE_MLOCK: 1
+            USE_MLOCK: false
   api:
     enabled: true
     type: Deployment
