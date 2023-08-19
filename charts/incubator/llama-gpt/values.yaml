@@ -25,6 +25,12 @@ service:
         targetPort: 8000
         port: 8000
 
+llama:
+  default_model: /models/llama-2-7b-chat.bin
+  timeout: 600
+  n_gqa: "8"
+  mlock: false
+
 workload:
   main:
     podSpec:
@@ -35,11 +41,9 @@ workload:
             # doesnt need to be exposed, gui will use the api backend
             OPENAI_API_KEY: sk-XXXXXXXXXXXXXXXXXXXX
             OPENAI_API_HOST: '{{ printf "http://%v-api" (include "tc.v1.common.lib.chart.names.fullname" $) }}:{{ .Values.service.api.ports.api.targetPort }}'
-            DEFAULT_MODEL: /models/llama-2-7b-chat.bin
+            DEFAULT_MODEL: "{{ .Values.llama.default_model }}"
             WAIT_HOSTS: '{{ printf "%v-api" (include "tc.v1.common.lib.chart.names.fullname" $) }}:{{ .Values.service.api.ports.api.targetPort }}'
-            WAIT_TIMEOUT: 600
-            N_GQA: "8"
-            USE_MLOCK: false
+            WAIT_TIMEOUT: "{{ .Values.llama.timeout }}"
   api:
     enabled: true
     type: Deployment
@@ -68,7 +72,9 @@ workload:
               type: http
               port: "{{ .Values.service.api.ports.api.targetPort }}"
           env:
-            MODEL: "{{ .Values.workload.main.podSpec.containers.main.env.DEFAULT_MODEL }}"
+            MODEL: "{{ .Values.llama.default_model }}"
+            N_GQA: "{{ .Values.llama.n_gqa }}"
+            USE_MLOCK: "{{ .Values.llama.mlock }}"
 
 portal:
   open:

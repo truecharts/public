@@ -2,7 +2,7 @@
 {{- include "tc.v1.common.loader.init" . -}}
 
 {{/* Disable [IPC_LOCK] if requested */}}
-{{- if not .Values.env.USE_MLOCK -}}
+{{- if not .Values.llama.mlock -}}
   {{- $_ := set .Values.workload.api.podSpec.containers.api.capabilities.add IPC_LOCK -}}
 {{- end -}}
 

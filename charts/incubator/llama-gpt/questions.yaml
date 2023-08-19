@@ -11,46 +11,46 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-                                - variable: env
-                                  label: Image Environment
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                      - variable: WAIT_TIMEOUT
-                                        label: Wait TimeOut
-                                        schema:
-                                          type: int
-                                          required: true
-                                          default: 600
-                                      - variable: N_GQA
-                                        label: N GQA
-                                        schema:
-                                          type: string
-                                          required: true
-                                          default: "8"
-                                      - variable: USE_MLOCK
-                                        label: Use Mlock
-                                        schema:
-                                          type: boolean
-                                          required: true
-                                          default: true
-                                      - variable: MODEL
-                                        label: Model
-                                        schema:
-                                          type: string
-                                          required: true
-                                          default: llama-2-7b-chat
-                                          enum:
-                                            - value: /models/llama-2-7b-chat.bin
-                                              description: llama-2-7b-chat
-                                            - value: /models/llama-2-13b-chat.bin
-                                              description: llama-2-13b-chat
-                                            - value: /models/llama-2-70b-chat.bin
-                                              description: llama-2-70b-chat
-
 # Include{containerBasic}
 # Include{containerAdvanced}
+
+  - variable: llama
+    group: App Configuration
+    label: Llama Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: default_model
+          label: Default Model
+          schema:
+            type: string
+            required: true
+            default: "llama-2-7b-chat"
+            enum:
+              - value: /models/llama-2-7b-chat.bin
+                description: llama-2-7b-chat
+              - value: /models/llama-2-13b-chat.bin
+                description: llama-2-13b-chat
+              - value: /models/llama-2-70b-chat.bin
+                description: llama-2-70b-chat
+        - variable: timeout
+          label: TimeOut
+          schema:
+            type: int
+            default: 600
+            min: 10
+        - variable: n_gqa
+          label: N GQA
+          schema:
+            type: string
+            required: true
+            default: "8"
+        - variable: mlock
+          label: Mlock
+          schema:
+            type: boolean
+            default: true
 
 # Include{containerConfig}
 # Include{podOptions}
