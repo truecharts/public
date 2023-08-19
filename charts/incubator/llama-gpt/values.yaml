@@ -7,16 +7,6 @@ apiImage:
   pullPolicy: IfNotPresent
   tag: v1.0.1@sha256:39147d1e7829feb5c82e7654812ed629ee6b7a3422608597f64b232656fa8d83
 
-securityContext:
-  container:
-    runAsNonRoot: false
-    readOnlyRootFilesystem: false
-    runAsUser: 0
-    runAsGroup: 0
-    capabilities:
-      add:
-        - IPC_LOCK
-
 service:
   main:
     ports:
@@ -32,6 +22,7 @@ service:
       api:
         enabled: true
         targetSelector: api
+        targetPort: 8000
         port: 8000
 
 workload:
@@ -43,9 +34,9 @@ workload:
           env:
             # doesnt need to be exposed, gui will use the api backend
             OPENAI_API_KEY: sk-XXXXXXXXXXXXXXXXXXXX
-            OPENAI_API_HOST: '{{ printf "http://%v-api" (include "tc.v1.common.lib.chart.names.fullname" $) }}:{{ .Values.service.api.ports.api.port }}'
+            OPENAI_API_HOST: '{{ printf "http://%v-api" (include "tc.v1.common.lib.chart.names.fullname" $) }}:{{ .Values.service.api.ports.api.targetPort }}'
             DEFAULT_MODEL: /models/llama-2-7b-chat.bin
-            WAIT_HOSTS: '{{ printf "%v-api" (include "tc.v1.common.lib.chart.names.fullname" $) }}:{{ .Values.service.api.ports.api.port }}'
+            WAIT_HOSTS: '{{ printf "%v-api" (include "tc.v1.common.lib.chart.names.fullname" $) }}:{{ .Values.service.api.ports.api.targetPort }}'
             WAIT_TIMEOUT: 600
             N_GQA: "8"
             USE_MLOCK: 1
@@ -58,19 +49,27 @@ workload:
           primary: true
           enabled: true
           imageSelector: apiImage
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+            runAsNonRoot: false
+            readOnlyRootFilesystem: false
+            capabilities:
+              add:
+                - IPC_LOCK
           probes:
             liveness:
               path: "/v1/models"
               type: http
-              port: "{{ .Values.service.api.ports.api.port }}"
+              port: "{{ .Values.service.api.ports.api.targetPort }}"
             readiness:
               path: "/v1/models"
               type: http
-              port: "{{ .Values.service.api.ports.api.port }}"
+              port: "{{ .Values.service.api.ports.api.targetPort }}"
             startup:
               path: "/v1/models"
               type: http
-              port: "{{ .Values.service.api.ports.api.port }}"
+              port: "{{ .Values.service.api.ports.api.targetPort }}"
           env:
             MODEL: "{{ .Values.workload.main.podSpec.containers.main.env.DEFAULT_MODEL }}"
 
