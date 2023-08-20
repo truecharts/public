@@ -18,7 +18,7 @@ odoo-config:
       [options]
       addons_path = {{ .Values.persistence.addons.mountPath }}
       data_dir = {{ .Values.persistence.odoo.mountPath }}
-      admin_passwd = {{ $odoo.admin.passwd }}
+      admin_passwd = {{ $admin.admin.passwd }}
       longpolling_port = {{ .Values.service.odoo.ports.longpolling.port }}
       xmlrpc = True
       xmlrpc_interface =
@@ -30,7 +30,7 @@ odoo-config:
       db_port = 5432
       db_user = {{ $pguser }}
       db_password = {{ $pgpassword }}
-      dbfilter = {{ $odoo.dbfilter }}
+      dbfilter = {{ $db.dbfilter }}
       csv_internal_sep = ,
       db_maxconn = 64
       debug_mode = False
@@ -47,12 +47,12 @@ odoo-config:
       max_cron_threads = 2
       osv_memory_age_limit = 1.0
       osv_memory_count_limit = False
-      smtp_server = {{ $odoo.smtp.server }}
-      smtp_port = {{ $odoo.smtp.port }}
-      smtp_user = {{ $odoo.smtp.user }}
-      smtp_password = {{ $odoo.smtp.password }}
-      smtp_ssl = {{ $odoo.smtp.ssl }}
-      email_from = {{ $odoo.smtp.from }}
+      smtp_server = {{ $smtp.server }}
+      smtp_port = {{ $smtp.port }}
+      smtp_user = {{ $smtp.user }}
+      smtp_password = {{ $smtp.password }}
+      smtp_ssl = {{ $smtp.ssl }}
+      email_from = {{ $smtp.from }}
       workers = 0
 
 {{- end -}}
