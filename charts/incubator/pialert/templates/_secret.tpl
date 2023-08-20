@@ -102,7 +102,7 @@ stringData:
 
     # MQTT
     REPORT_MQTT={{ ternary "True" "False" .Values.pialert.mqtt.enabled }}
-    {{- if .Values.pialert.email.enabled }}
+    {{- if .Values.pialert.mqtt.enabled }}
     MQTT_BROKER={{ .Values.pialert.mqtt.broker | squote }}
     MQTT_PORT={{ .Values.pialert.mqtt.port }}
     {{- with .Values.pialert.mqtt.user }}
