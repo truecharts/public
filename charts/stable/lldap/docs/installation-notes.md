@@ -32,7 +32,7 @@ When setting your bind user you should avoid using the admin user as this is a s
 
 ## Support
 
-- If you need more details or have a more custom setup the documentation on the [upstream](https://github.com/ldap/ldap) is very useful so check the descriptions of the options there including example configs for various apps.
+- If you need more details or have a more custom setup the documentation on the [upstream](https://github.com/lldap/lldap) is very useful so check the descriptions of the options there including example configs for various apps.
 - You can also reach us using [Discord](https://discord.gg/tVsPTHWTtr) for real-time feedback and support
 
 ---
