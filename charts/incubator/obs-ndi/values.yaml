@@ -15,16 +15,18 @@ workload:
     podSpec:
       containers:
         main:
+          securityContext:
+            capabilities:
+              add:
+                - NET_BIND_SERVICE
+                - KILL
           probes:
             liveness:
               type: tcp
-              path: /
             readiness:
               type: tcp
-              path: /
             startup:
               type: tcp
-              path: /
           env:
             VNC_PASSWD: "123456"
 service:
