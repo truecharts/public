@@ -1,9 +1,10 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "tc.v1.common.loader.init" . -}}
 
-{{/* remove IPC_LOCK in [api] if requested */}}
-{{- if not .Values.llama.mlock -}}
-  {{- $_ := set .Values.workload.api.podSpec.containers.api.capabilities.add IPC_LOCK -}}
+{{- if .Values.llama.mlock -}}
+  {{- $capAdd := .Values.workload.api.podSpec.containers.api.capabilities.add -}}
+  {{- $capAdd = (mustAppend $capAdd "IPC_LOCK") }}
+  {{- $_ := set .Values.workload.api.podSpec.containers.api.capabilities "add" $capAdd -}}
 {{- end -}}
 
 {{/* Render the templates */}}
