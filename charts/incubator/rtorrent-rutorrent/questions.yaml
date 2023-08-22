@@ -62,9 +62,9 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-        - variable: sessions
-          label: "App Sessions Storage"
-          description: "Stores the Application Sessions."
+        - variable: downloads
+          label: "App Downloads Storage"
+          description: "Stores the Application Downloads."
           schema:
             additional_attrs: true
             type: dict
