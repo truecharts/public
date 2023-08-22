@@ -43,7 +43,7 @@ questions:
                   type: string
                   required: true
                   default: ""
-        - variable: csrf_trusted_orgins
+        - variable: csrf_trusted_origins
           label: CSRF Trusted Origins
           description: A list of hosts which are trusted origins for unsafe requests.
           schema:

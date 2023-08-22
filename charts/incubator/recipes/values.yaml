@@ -25,7 +25,7 @@ recipes:
   debug: false
   allowed_hosts:
     - "*"
-  csrf_trusted_orgins: []
+  csrf_trusted_origins: []
   gunicorn_media: false
 
   prefs:
@@ -85,8 +85,8 @@ workload:
             # SCRIPT_NAME: /
             # STATIC_URL=/static/
             # MEDIA_URL=/media/
-            ALLOWED_HOSTS: '{{ join "," .Values.recipes.ALLOWED_HOSTS }}'
-            CSRF_TRUSTED_ORIGINS: '{{ join "," .Values.recipes.CSRF_TRUSTED_ORIGINS }}'
+            ALLOWED_HOSTS: '{{ join "," .Values.recipes.allowed_hosts }}'
+            CSRF_TRUSTED_ORIGINS: '{{ join "," .Values.recipes.csrf_trusted_origins }}'
             GUNICORN_MEDIA: "{{ ternary 1 0 .Values.recipes.gunicorn_media }}"
             FRACTION_PREF_DEFAULT: "{{ ternary 1 0 .Values.recipes.prefs.fraction_default }}"
             COMMENT_PREF_DEFAULT: "{{ ternary 1 0 .Values.recipes.prefs.comment_default }}"
