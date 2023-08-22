@@ -40,7 +40,7 @@ workload:
           env:
             # doesnt need to be exposed, gui will use the api backend
             OPENAI_API_KEY: sk-XXXXXXXXXXXXXXXXXXXX
-            OPENAI_API_HOST: '{{ printf "http://%v-api" (include "tc.v1.common.lib.chart.names.fullname" $) }}:{{ .Values.service.api.ports.api.targetPort }}'
+            OPENAI_API_HOST: '{{ printf "http://%v-api:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.api.ports.api.targetPort }}'
             DEFAULT_MODEL: "{{ .Values.llama.default_model }}"
             WAIT_HOSTS: '{{ printf "%v-api:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.api.ports.api.targetPort }}'
             WAIT_TIMEOUT: "{{ .Values.llama.timeout }}"
