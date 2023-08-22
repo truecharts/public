@@ -39,7 +39,7 @@ workload:
               secretKeyRef:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
-                key: plainhost
+                key: url
             REDIS_PORT: 6379
 
 persistence:
@@ -61,7 +61,6 @@ cnpg:
 
 redis:
   enabled: true
-  redisPassword: false
 
 portal:
   open:
