@@ -1,5 +1,5 @@
 image:
-  repository: tccr.io/truecharts/rtorrent-rutorrent-cross-seed
+  repository: tccr.io/truecharts/rtorrent-rutorrent
   pullPolicy: IfNotPresent
   tag: latest@sha256:a8ce14672c15c15ce4da2925c64914958ebea38f1b3afe1ad44975c2cc86c796
 service:
@@ -42,14 +42,6 @@ service:
       rtinc:
         enabled: true
         port: 50000
-  crossseed:
-    enabled: true
-    ports:
-      crossseed:
-        enabled: true
-        protocol: tcp
-        targetPort: 2468
-        port: 2468
 
 persistence:
   config:
@@ -61,9 +53,6 @@ persistence:
   sessions:
     enabled: true
     mountPath: "/sessions"
-  cross-seed:
-    enabled: true
-    mountPath: "/root/.cross-seed"
   passwd:
     enabled: true
     mountPath: "/passwd"
