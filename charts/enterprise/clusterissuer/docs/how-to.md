@@ -10,7 +10,7 @@ This guide will walk you through setting up `clusterissuer`, certificate managem
 
 ## Set Scale Nameservers
 
-It is important to configure Scale with reliable nameserver to avoid issues handling DNS-01 challenges. Under Network -> Global Configuration-> Nameservers, we recommend setting 1.1.1.1, 9.9.9.9 or 8.8.8.8.
+It is important to configure Scale with reliable nameserver to avoid issues handling DNS-01 challenges. Under Network -> Global Configuration-> Nameservers, we recommend setting 1.1.1.1/1.0.0.1 or 8.8.8.8/8.8.4.4.
 
 ![clusterissuer scale nameservers](img/scale-network-nameserver.png)
 

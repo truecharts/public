@@ -13,31 +13,31 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: APP_IPMI_HOST
-          label: "APP_IPMI_HOST"
-          description: "The IP or host of your iDRAC interface."
-          schema:
-            type: string
-            default: ""
-        - variable: APP_IPMI_USER
-          label: "APP_IPMI_USER"
-          description: "Your IPMI username (same as your iDRAC user)"
-          schema:
-            type: string
-            default: ""
-        - variable: APP_IPMI_PASS
-          label: "APP_IPMI_PASS"
-          description: "Your IPMI password (same as your iDRAC password)"
-          schema:
-            type: string
-            default: ""
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: APP_IPMI_HOST
+                                        label: "App IPMI Host"
+                                        description: "The IP or host of your iDRAC interface."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: APP_IPMI_USER
+                                        label: "App IPMI User"
+                                        description: "Your IPMI username (same as your iDRAC user)"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: APP_IPMI_PASS
+                                        label: "App IPMI Pass"
+                                        description: "Your IPMI password (same as your iDRAC password)"
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -94,13 +94,13 @@ questions:
                 description: "The UserID of the user running the application"
                 schema:
                   type: int
-                  default: 0
+                  default: 568
               - variable: runAsGroup
                 label: "runAsGroup"
                 description: "The groupID of the user running the application"
                 schema:
                   type: int
-                  default: 0
+                  default: 568
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}

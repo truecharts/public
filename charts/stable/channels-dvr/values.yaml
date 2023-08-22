@@ -8,12 +8,6 @@ tveImage:
   pullPolicy: Always
   tag: latest@sha256:7e0130ad244e07f3714edadecdcc8711d9d3c11eac8409705b5c6aa8e108ca7e
 
-securityContext:
-  container:
-    readOnlyRootFilesystem: false
-    runAsUser: 0
-    runAsGroup: 0
-    
 service:
   main:
     ports:
@@ -43,10 +37,10 @@ workload:
           probes:
             liveness:
               port: 8089
-              scheme: http
+              type: http
             readiness:
               port: 8089
-              scheme: http
+              type: http
             startup:
               port: 8089
-              scheme: http
+              type: http
