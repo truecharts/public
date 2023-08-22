@@ -18,24 +18,28 @@ questions:
                                     attrs:
                                       - variable: LLDAP_LDAP_BASE_DN
                                         label: "LDAP Base DN"
+                                        description: "A domain entry within an Lldap directory."
                                         schema:
                                           type: string
                                           required: true
                                           default: "dc=example,dc=com"
                                       - variable: LLDAP_LDAP_USER_DN
                                         label: "Ldap User DN"
+                                        description: "The Ldap user for the default auth."
                                         schema:
                                           type: string
                                           required: true
                                           default: ""
                                       - variable: LLDAP_LDAP_USER_EMAIL
                                         label: "Ldap User Email"
+                                        description: "The Ldap user email for the default auth."
                                         schema:
                                           type: string
                                           required: true
                                           default: ""
                                       - variable: LLDAP_LDAP_USER_PASS
                                         label: "Ldap User Password"
+                                        description: "The Ldap user password for the default auth."
                                         schema:
                                           type: string
                                           required: true
@@ -44,6 +48,7 @@ questions:
                                           min_length: 8
                                       - variable: LLDAP_HTTP_URL
                                         label: "Public URL"
+                                        description: "A valid and public FQDN domain, ex https://lldap.example.com or http://IP:PORT"
                                         schema:
                                           type: string
                                           required: true
@@ -104,7 +109,7 @@ questions:
                                                 type: string
                                                 default: "LLDAP Admin <sender@gmail.com>"
                                             - variable: LLDAP_SMTP_OPTIONS__REPLY_TO
-                                              label: SMTP Reply TO
+                                              label: SMTP Reply To
                                               schema:
                                                 type: string
                                                 default: "Do not reply <noreply@localhost>"

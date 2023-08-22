@@ -126,8 +126,9 @@ spec:
   {{- if .Values.prometheus.remoteRead }}
   remoteRead: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.prometheus.remoteRead "context" $) | nindent 4 }}
   {{- end }}
-  {{- if .Values.prometheus.remoteWrite }}
-  remoteWrite: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.prometheus.remoteWrite "context" $) | nindent 4 }}
+  {{- with .Values.prometheus.remoteWrite }}
+  remoteWrite:
+    {{- tpl (toYaml .) $ | nindent 4 }}
   {{- end }}
   {{- if .Values.prometheus.podSecurityContext.enabled }}
   securityContext: {{- omit .Values.prometheus.podSecurityContext "enabled" | toYaml | nindent 4 }}
