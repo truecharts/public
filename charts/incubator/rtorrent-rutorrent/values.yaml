@@ -1,0 +1,94 @@
+image:
+  repository: tccr.io/truecharts/rtorrent-rutorrent-cross-seed
+  pullPolicy: IfNotPresent
+  tag: 001@a2baf35629fbe48911adfc15ff20112a69f04f65d98d5a89aa9f2c7937c0fd11
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 8080
+  rtorrent:
+    enabled: true
+    ports:
+      rtorrent:
+        enabled: true
+        protocol: tcp
+        port: 33942
+  xmlrpc:
+    enabled: true
+    ports:
+      xmlrpc:
+        enabled: true
+        protocol: http
+        port: 8000
+  dht:
+    enabled: true
+    ports:
+      dht:
+        enabled: true
+        protocol: udp
+        port: 6881
+  webdav:
+    enabled: true
+    ports:
+      webdav:
+        enabled: true
+        protocol: http
+        port: 9000
+  rtinc:
+    enabled: true
+    ports:
+      rtinc:
+        enabled: true
+        port: 50000
+  crossseed:
+    enabled: true
+    ports:
+      crossseed:
+        enabled: true
+        protocol: tcp
+        targetPort: 2468
+        port: 2468
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  data:
+    enabled: true
+    mountPath: "/data"
+  sessions:
+    enabled: true
+    mountPath: "/sessions"
+  cross-seed:
+    enabled: true
+    mountPath: "/root/.cross-seed"
+  passwd:
+    enabled: true
+    mountPath: "/passwd"
+
+portal:
+  open:
+    enabled: true
+
+securityContext:
+  container:
+    PUID: 33
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            RUTORRENT_PORT: "{{ .Values.service.main.ports.main.port }}"
+            PORT_RTORRENT: "{{ .Values.service.rtorrent.ports.rtorrent.port }}"
+            RT_DHT_PORT: "{{ .Values.service.dht.ports.dht.port }}"
+            XMLRPC_PORT: "{{ .Values.service.xmlrpc.ports.xmlrpc.port }}"
+            WEBDAV_PORT: "{{ .Values.service.webdav.ports.webdav.port }}"
+            RT_INC_PORT: "{{ .Values.service.rtinc.ports.rtinc.port }}"
