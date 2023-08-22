@@ -21,8 +21,8 @@ questions:
       type: dict
       attrs:
         - variable: VNC_PASSWD
-          label: "VNC_PASSWD"
-          description: "Container Variable VNCPASSWD"
+          label: "VNC Password to login"
+          description: "Enter your VNC password to login"
           schema:
             type: string
             default: "123456"
