@@ -15,9 +15,9 @@ workload:
     podSpec:
       containers:
         main:
-          env: {}
+          env:
             VNC_PASSWD: "123456"
-            
+
 service:
   main:
     ports:
