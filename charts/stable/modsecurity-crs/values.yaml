@@ -34,7 +34,6 @@ workload:
             MODSEC_DATA_DIR: "{{ .Values.persistence.data.mountPath }}"
             MODSEC_TMP_DIR: "{{ .Values.persistence.temp.mountPath }}"
             MODSEC_UPLOAD_DIR: "{{ .Values.persistence.upload.mountPath }}"
-            BACKEND: "http://localhost:80"
 
 persistence:
   data:
