@@ -7,6 +7,14 @@ apiImage:
   pullPolicy: IfNotPresent
   tag: v1.0.1@sha256:39147d1e7829feb5c82e7654812ed629ee6b7a3422608597f64b232656fa8d83
 
+# web gui needs root
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
 service:
   main:
     ports:
