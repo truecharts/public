@@ -68,8 +68,7 @@ workload:
               type: http
               port: "{{ .Values.service.api.ports.api.targetPort }}"
             startup:
-              path: "/v1/models"
-              type: http
+              type: tcp
               port: "{{ .Values.service.api.ports.api.targetPort }}"
           env:
             MODEL: "{{ .Values.llama.default_model }}"
