@@ -34,10 +34,10 @@ service:
         port: 8000
 
 llama:
-  default_model: /models/llama-2-7b-chat.bin
+  default_model: "/models/llama-2-7b-chat.bin"
   timeout: 600
   n_gqa: "8"
-  mlock: false
+  mlock: true
 
 workload:
   main:
