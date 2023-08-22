@@ -78,14 +78,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-        - variable: cross-seed
-          label: "App Cross Seed Storage"
-          description: "Stores the Application Cross Seed."
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
         - variable: passwd
           label: "App Passwd Storage"
           description: "Stores the Application Passwd."
