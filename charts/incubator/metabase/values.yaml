@@ -35,7 +35,7 @@ workload:
               path: /
               port: "{{ .Values.service.main.ports.main.targetPort }}"
             startup:
-              type: http
+              type: tcp
               path: /
               port: "{{ .Values.service.main.ports.main.targetPort }}"
           env:
