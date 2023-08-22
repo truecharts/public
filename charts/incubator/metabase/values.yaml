@@ -1,0 +1,61 @@
+image:
+  repository: tccr.io/truecharts/metabase
+  pullPolicy: IfNotPresent
+  tag: v0.47.0@sha256:3f82fcefeb7c41d74fd8fd42bf01e0f15defb3f3dcdbe756820f0e9a286e53c7
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 3000
+        port: 13030
+
+persistence:
+  plugins:
+    enabled: true
+    mountPath: "/plugins"
+
+portal:
+  open:
+    enabled: true
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+            readiness:
+              type: http
+              path: /
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+            startup:
+              type: tcp
+              path: /
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+          env:
+            JAVA_TIMEZONE: "{{ .Values.TZ }}"
+            MB_DB_TYPE: "postgres"
+            MB_DB_USER: "{{ .Values.cnpg.main.user }}"
+            MB_DB_DBNAME: "{{ .Values.cnpg.main.database }}"
+            MB_DB_PORT: 5432
+            MB_DB_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            MB_DB_PASS:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+
+# Enabled postgres
+cnpg:
+  main:
+    enabled: true
+    user: metabase
+    database: metabase
