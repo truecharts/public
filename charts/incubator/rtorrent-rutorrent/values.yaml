@@ -44,9 +44,6 @@ service:
         port: 50000
 
 persistence:
-  config:
-    enabled: true
-    mountPath: "/config"
   data:
     enabled: true
     mountPath: "/data"
