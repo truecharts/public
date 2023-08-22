@@ -31,7 +31,7 @@ workload:
               secretKeyRef:
                 name: papermerge-secrets
                 key: PAPERMERGE__MAIN__SECRET_KEY
-            PAPERMERGE__DATABASE__TYPE: pg
+            PAPERMERGE__DATABASE__TYPE: postgres
             PAPERMERGE__DATABASE__NAME: "{{ .Values.cnpg.main.database }}"
             PAPERMERGE__DATABASE__USER: "{{ .Values.cnpg.main.user }}"
             PAPERMERGE__DATABASE__PORT: 5432
@@ -48,7 +48,7 @@ workload:
               secretKeyRef:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
-                key: plainhost
+                key: url
 
 persistence:
   config:
