@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/recipes
-  tag: v1.5.4@sha256:93820e960e88ba4115293df317f4e700f7b4ba4c8745ef253c36b4c536bd2d27
+  tag: v1.5.5@sha256:cb58a37c23cfc485c6a605035ef5459ccf2c899f1486600d899ca30974987dc7
   pullPolicy: IfNotPresent
 nginxImage:
   repository: tccr.io/truecharts/nginx
@@ -20,37 +20,6 @@ service:
       main:
         port: 10029
         targetSelectorAll: true
-
-configmap:
-  config:
-    enabled: true
-    data:
-      nginx-config: |-
-        events {
-          worker_connections 1024;
-        }
-        http {
-          include /etc/nginx/mime.types;
-          server {
-            listen 80;
-            server_name _;
-            client_max_body_size 16M;
-            # serve media files
-            location /media/ {
-              alias /media/;
-            }
-            # serve static files
-            location /static/ {
-              alias /static/;
-            }
-            # pass requests for dynamic content to gunicorn
-            location / {
-              proxy_set_header Host $http_host;
-              proxy_pass http://localhost:{{ .Values.service.main.ports.main.port }};
-              proxy_set_header X-Forwarded-Proto $http_x_forwarded_proto;
-            }
-          }
-        }
 
 recipes:
   debug: false
@@ -205,15 +174,15 @@ persistence:
       nginx:
         nginx:
           mountPath: /static
-  recipes-config:
+  nginx:
     enabled: true
     type: configmap
-    objectName: config
+    objectName: nginx-config
     targetSelector:
       nginx:
         nginx:
           mountPath: /etc/nginx/nginx.conf
-          subPath: nginx-config
+          subPath: nginx.conf
           readOnly: true
 
 cnpg:

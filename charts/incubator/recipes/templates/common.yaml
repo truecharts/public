@@ -1,6 +1,12 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "tc.v1.common.loader.init" . }}
 
+{{/* Render configmaps for all pods */}}
+{{- $configmaps := include "recipes.configmaps" . | fromYaml -}}
+{{- if $configmaps -}}
+  {{- $_ := mustMergeOverwrite .Values.configmap $configmaps -}}
+{{- end -}}
+
 {{/* Render secrets for recipes */}}
 {{- $secrets := include "recipes.secrets" . | fromYaml -}}
 {{- if $secrets -}}
