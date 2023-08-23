@@ -46,7 +46,7 @@ service:
     type: ClusterIP
     targetSelector: search
     ports:
-      api:
+      search:
         enabled: true
         targetSelector: search
         targetPort: 7700
