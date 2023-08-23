@@ -4,10 +4,6 @@
 
 {{- $mainPort := .Values.service.main.ports.main.port -}}
 
-{{- $searchUrl := printf "http://%v-search:%v" $fullname .Values.service.search.ports.search.targetPort -}}
-{{- $webUrl := printf "http://%v-web:%v" $fullname .Values.service.web.ports.web.targetPort -}}
-{{- $apiUrl := printf "http://%v-api:%v" $fullname .Values.service.api.ports.api.targetPort -}}
-
 nginx-config:
   enabled: true
   data:
@@ -23,15 +19,15 @@ nginx-config:
           client_max_body_size 100M;
 
           location /bar/ {
-              proxy_pass {{ $apiUrl }};
+              proxy_pass {{ printf "http://%v-api:%v" $fullname .Values.service.api.ports.api.targetPort }};
           }
 
           location /search/ {
-              proxy_pass {{ $searchUrl }};
+              proxy_pass {{ printf "http://%v-search:%v" $fullname .Values.service.search.ports.search.targetPort }};
           }
 
           location / {
-              proxy_pass {{ $webUrl }};
+              proxy_pass {{ printf "http://%v-web:%v" $fullname .Values.service.web.ports.web.targetPort }};
           }
         }
 {{- end -}}

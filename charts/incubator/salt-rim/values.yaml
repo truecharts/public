@@ -28,9 +28,9 @@ service:
     ports:
       web:
         enabled: true
+        targetSelector: web
         targetPort: 8080
         port: 8081
-        targetSelector: web
   api:
     enabled: true
     type: ClusterIP
@@ -38,9 +38,9 @@ service:
     ports:
       api:
         enabled: true
+        targetSelector: api
         targetPort: 3000
         port: 3000
-        targetSelector: api
   search:
     enabled: true
     type: ClusterIP
@@ -48,9 +48,9 @@ service:
     ports:
       api:
         enabled: true
+        targetSelector: search
         targetPort: 7700
         port: 7700
-        targetSelector: search
 
 saltrim:
   name: "TrueCharts Salt Rim"
