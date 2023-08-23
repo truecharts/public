@@ -13,6 +13,7 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
@@ -36,19 +37,115 @@ questions:
                               type: int
                               default: 8080
                               required: true
-# Include{serviceSelectorExtras}  
-                          - variable: rtorrent
-                            label: "Rtorrent"
-                            description: "This port exposes the connectivity port to stay connectable to the torrent sites and links to the rtorrent port"
+        - variable: torrent
+          label: "Torrent Service"
+          description: "Torrent service"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: rtorrent
+                      label: "rTorrent Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
                             schema:
-                              additional_attrs: true
-                              type: int
-                              attrs:
-                                - variable: port
-                                  label: "Port"
-                                  description: "This port exposes the container port on the service"
                               type: int
                               default: 33942
+                              required: true
+        - variable: xmlrpc
+          label: "XMLRPC Service"
+          description: "XMLRPC service"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: xmlrpc
+                      label: XMLRPC Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 8000
+                              required: true
+        - variable: dht
+          label: "DHT Service"
+          description: "DHT service"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: dht
+                      label: DHT Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 6881
+                              required: true
+        - variable: webdav
+          label: "WEBDAV Service"
+          description: "WEBDAV service"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: webdav
+                      label: "WEBDAV Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 9000
+                              required: true
+        - variable: rtinc
+          label: "RTINC Service"
+          description: "RTINC service"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: rtinc
+                      label: "RTINC Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 50000
                               required: true
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
@@ -106,7 +203,6 @@ questions:
                   type: int
                   default: 0
 # Include{securityContextContainer}
-# Include{securityContextContainer}  
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
               - variable: fsGroup
