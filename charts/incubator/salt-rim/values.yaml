@@ -159,13 +159,13 @@ workload:
             #   secretKeyRef:
             #     name: cnpg-main-user
             #     key: password
-            CACHE_DRIVER: redis
-            SESSION_DRIVER: redis
+            # CACHE_DRIVER: redis
+            # SESSION_DRIVER: redis
             REDIS_HOST:
               secretKeyRef:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
-                key: plainhost
+                key: url
             REDIS_PASSWORD:
               secretKeyRef:
                 expandObjectName: false
