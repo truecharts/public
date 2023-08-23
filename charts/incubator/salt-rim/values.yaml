@@ -1,0 +1,236 @@
+image:
+  repository: tccr.io/truecharts/nginx-unprivileged
+  pullPolicy: IfNotPresent
+  tag: v1.25.1@sha256:570548a099b61ae4f185b0778193504930d2b853ce2ac8be767e55ab5de5aba5
+webImage:
+  repository: tccr.io/truecharts/bar-assistant-web
+  pullPolicy: IfNotPresent
+  tag: v1.20.1@sha256:CHANGE_ME
+apiImage:
+  repository: tccr.io/truecharts/bar-assistant-api
+  pullPolicy: IfNotPresent
+  tag: v2.5.3@sha256:CHANGE_ME
+searchImage:
+  repository: tccr.io/truecharts/meilisearch
+  pullPolicy: IfNotPresent
+  tag: v1.3.1@sha256:CHANGE_ME
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 8080
+  web:
+    enabled: true
+    type: ClusterIP
+    targetSelector: web
+    ports:
+      web:
+        enabled: true
+        targetPort: 8080
+        port: 8081
+        targetSelector: web
+  api:
+    enabled: true
+    type: ClusterIP
+    targetSelector: api
+    ports:
+      api:
+        enabled: true
+        targetPort: 3000
+        port: 3000
+        targetSelector: api
+  search:
+    enabled: true
+    type: ClusterIP
+    targetSelector: search
+    ports:
+      api:
+        enabled: true
+        targetPort: 7700
+        port: 7700
+        targetSelector: search
+
+saltrim:
+  base_url: "http:localhost:8081"
+  name: "TrueCharts Salt Rim"
+  description: "An OpenSauce Bar"
+  locale: "en-US"
+  allow_reg: false
+  disable_login: false
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          imageSelector: image
+  web:
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
+        web:
+          primary: true
+          enabled: true
+          imageSelector: webImage
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+            runAsNonRoot: false
+            readOnlyRootFilesystem: false
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              path: /
+              port: "{{ .Values.service.web.ports.web.targetPort }}"
+            readiness:
+              enabled: true
+              type: http
+              path: /
+              port: "{{ .Values.service.web.ports.web.targetPort }}"
+            startup:
+              enabled: true
+              type: http
+              path: /
+              port: "{{ .Values.service.api.ports.api.targetPort }}"
+          env:
+            API_URL: "/bar"
+            MEILISEARCH_URL: "/search"
+            BAR_NAME: "{{ .Values.saltrim.name }}"
+            DESCRIPTION: "{{ .Values.saltrim.description }}"
+            DEFAULT_LOCALE: "{{ .Values.saltrim.locale }}"
+            DISABLE_LOGIN: "{{ .Values.saltrim.disable_login }}"
+  api:
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
+        api:
+          primary: true
+          enabled: true
+          imageSelector: apiImage
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+            runAsNonRoot: false
+            readOnlyRootFilesystem: false
+            pods:
+              fsGroup: 33
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              path: /api
+              port: "{{ .Values.service.api.ports.api.targetPort }}"
+            readiness:
+              enabled: true
+              type: http
+              path: /api
+              port: "{{ .Values.service.api.ports.api.targetPort }}"
+            startup:
+              enabled: true
+              type: http
+              path: /api
+              port: "{{ .Values.service.api.ports.api.targetPort }}"
+          env:
+            APP_URL: "/bar"
+            DISABLE_LOGIN: "{{ .Values.saltrim.disable_login }}"
+            MEILISEARCH_HOST: '{{ printf "http://%v-search:%v/search" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.search.ports.search.targetPort }}'
+            MEILISEARCH_KEY:
+              secretKeyRef:
+                name: saltrim-secrets
+                key: MEILI_MASTER_KEY
+            DB_CONNECTION: "pgsql"
+            DB_USERNAME: "{{ .Values.cnpg.main.user }}"
+            DB_DATABASE: "{{ .Values.cnpg.main.database }}"
+            DB_PORT: 5432
+            DB_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            DB_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            CACHE_DRIVER: redis
+            SESSION_DRIVER: redis
+            REDIS_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: plainhost
+            REDIS_PASSWORD:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: redis-password
+  search:
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
+        search:
+          primary: true
+          enabled: true
+          imageSelector: searchImage
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              path: /
+              port: "{{ .Values.service.search.ports.search.targetPort }}"
+            readiness:
+              enabled: true
+              type: http
+              path: /
+              port: "{{ .Values.service.search.ports.search.targetPort }}"
+            startup:
+              enabled: true
+              type: tcp
+              path: /
+              port: "{{ .Values.service.search.ports.search.targetPort }}"
+          env:
+            MEILI_MASTER_KEY:
+              secretKeyRef:
+                name: saltrim-secrets
+                key: MEILI_MASTER_KEY
+
+persistence:
+  nginx:
+    enabled: true
+    type: configmap
+    objectName: nginx-config
+    targetSelector:
+      main:
+        main:
+          mountPath: /etc/nginx/conf.d/default.conf
+          subPath: default.conf
+          readOnly: true
+  server:
+    enabled: true
+    targetSelector:
+      api:
+        api:
+          mountPath: /var/www/cocktails/storage/bar-assistant
+  search:
+    enabled: true
+    targetSelector:
+      search:
+        search:
+          mountPath: /meili_data
+
+cnpg:
+  main:
+    enabled: true
+    user: saltrim
+    database: saltrim
+
+redis:
+  enabled: true
+
+portal:
+  open:
+    enabled: true
