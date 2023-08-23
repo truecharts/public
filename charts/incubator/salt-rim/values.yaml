@@ -137,23 +137,28 @@ workload:
           env:
             APP_URL: "/bar"
             DISABLE_LOGIN: "{{ .Values.saltrim.disable_login }}"
+            SCOUT_DRIVER: meilisearch
             MEILISEARCH_HOST: '{{ printf "http://%v-search:%v/search" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.search.ports.search.targetPort }}'
             MEILISEARCH_KEY:
               secretKeyRef:
                 name: saltrim-secrets
                 key: MEILI_MASTER_KEY
-            DB_CONNECTION: "pgsql"
-            DB_USERNAME: "{{ .Values.cnpg.main.user }}"
-            DB_DATABASE: "{{ .Values.cnpg.main.database }}"
-            DB_PORT: 5432
-            DB_HOST:
+            APP_KEY:
               secretKeyRef:
-                name: cnpg-main-urls
-                key: host
-            DB_PASSWORD:
-              secretKeyRef:
-                name: cnpg-main-user
-                key: password
+                name: saltrim-secrets
+                key: APP_KEY
+            # DB_CONNECTION: "pgsql"
+            # DB_USERNAME: "{{ .Values.cnpg.main.user }}"
+            # DB_DATABASE: "{{ .Values.cnpg.main.database }}"
+            # DB_PORT: 5432
+            # DB_HOST:
+            #   secretKeyRef:
+            #     name: cnpg-main-urls
+            #     key: host
+            # DB_PASSWORD:
+            #   secretKeyRef:
+            #     name: cnpg-main-user
+            #     key: password
             CACHE_DRIVER: redis
             SESSION_DRIVER: redis
             REDIS_HOST:
@@ -221,9 +226,10 @@ persistence:
         search:
           mountPath: /meili_data
 
+# will be available following a major release.
 cnpg:
   main:
-    enabled: true
+    enabled: false
     user: saltrim
     database: saltrim
 
