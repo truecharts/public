@@ -165,7 +165,7 @@ workload:
               secretKeyRef:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
-                key: url
+                key: plainhost
             REDIS_PASSWORD:
               secretKeyRef:
                 expandObjectName: false
