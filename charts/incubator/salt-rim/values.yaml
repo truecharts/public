@@ -1,19 +1,19 @@
 image:
+  repository: tccr.io/truecharts/bar-assistant-web
+  pullPolicy: IfNotPresent
+  tag: v1.20.1@sha256:326dbb6b21263dd1959c7464f2c25702b38a0fb481164c4a077ea33f60d8288e
+nginxImage:
   repository: tccr.io/truecharts/nginx-unprivileged
   pullPolicy: IfNotPresent
   tag: v1.25.1@sha256:570548a099b61ae4f185b0778193504930d2b853ce2ac8be767e55ab5de5aba5
-webImage:
-  repository: tccr.io/truecharts/bar-assistant-web
-  pullPolicy: IfNotPresent
-  tag: v1.20.1@sha256:CHANGE_ME
 apiImage:
   repository: tccr.io/truecharts/bar-assistant-api
   pullPolicy: IfNotPresent
-  tag: v2.5.3@sha256:CHANGE_ME
+  tag: v2.5.3@sha256:2a2428c6237e4ff997a1618bef93a6b0da1279851c4bfbb46790cbc322a501ff
 searchImage:
   repository: tccr.io/truecharts/meilisearch
   pullPolicy: IfNotPresent
-  tag: v1.3.1@sha256:CHANGE_ME
+  tag: v1.3.1@sha256:419286f036f3c87d50860a035606ef7ad54a7af5efc37727dd7353435740dcb2
 
 service:
   main:
@@ -53,7 +53,6 @@ service:
         targetSelector: search
 
 saltrim:
-  base_url: "http:localhost:8081"
   name: "TrueCharts Salt Rim"
   description: "An OpenSauce Bar"
   locale: "en-US"
@@ -65,7 +64,7 @@ workload:
     podSpec:
       containers:
         main:
-          imageSelector: image
+          imageSelector: nginxImage
   web:
     enabled: true
     type: Deployment
@@ -74,7 +73,7 @@ workload:
         web:
           primary: true
           enabled: true
-          imageSelector: webImage
+          imageSelector: image
           securityContext:
             runAsUser: 0
             runAsGroup: 0
@@ -95,7 +94,7 @@ workload:
               enabled: true
               type: http
               path: /
-              port: "{{ .Values.service.api.ports.api.targetPort }}"
+              port: "{{ .Values.service.web.ports.web.targetPort }}"
           env:
             API_URL: "/bar"
             MEILISEARCH_URL: "/search"
