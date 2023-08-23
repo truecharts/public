@@ -15,6 +15,10 @@ searchImage:
   pullPolicy: IfNotPresent
   tag: v1.3.1@sha256:419286f036f3c87d50860a035606ef7ad54a7af5efc37727dd7353435740dcb2
 
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+
 service:
   main:
     ports:
