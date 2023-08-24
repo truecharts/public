@@ -51,3 +51,6 @@ update_plugin "packruler/traefik-themepark" "themeParkVersion" "ThemePark"
 
 # GeoBlock
 update_plugin "PascalMinder/geoblock" "geoBlockVersion" "GeoBlock"
+
+# ModSecurity
+update_plugin "acouvreur/traefik-modsecurity-plugin" "modsecurityVersion" "ModSecurity"
