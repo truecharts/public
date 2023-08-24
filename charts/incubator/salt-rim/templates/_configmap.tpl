@@ -27,7 +27,7 @@ nginx-config:
           }
 
           location / {
-              proxy_pass {{ printf "http://%v-web:%v" $fullname .Values.service.web.ports.web.targetPort }};
+              proxy_pass {{ printf "http://%v:%v" $fullname .Values.service.web.ports.web.targetPort }};
           }
         }
 {{- end -}}

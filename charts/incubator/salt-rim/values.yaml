@@ -17,18 +17,20 @@ searchImage:
 
 service:
   main:
+    targetSelector: nginx
     ports:
       main:
+        targetSelector: nginx
         protocol: http
         port: 8080
   web:
     enabled: true
     type: ClusterIP
-    targetSelector: web
+    targetSelector: main
     ports:
       web:
         enabled: true
-        targetSelector: web
+        targetSelector: main
         targetPort: 8080
         port: 8081
   api:
@@ -64,36 +66,22 @@ workload:
     podSpec:
       containers:
         main:
-          imageSelector: nginxImage
-  web:
-    enabled: true
-    type: Deployment
-    podSpec:
-      containers:
-        web:
-          primary: true
-          enabled: true
           imageSelector: image
-          securityContext:
-            runAsUser: 0
-            runAsGroup: 0
-            runAsNonRoot: false
-            readOnlyRootFilesystem: false
           probes:
             liveness:
               enabled: true
+              path: "/"
               type: http
-              path: /
               port: "{{ .Values.service.web.ports.web.targetPort }}"
             readiness:
               enabled: true
+              path: "/"
               type: http
-              path: /
               port: "{{ .Values.service.web.ports.web.targetPort }}"
             startup:
               enabled: true
-              type: http
-              path: /
+              path: "/"
+              type: tcp
               port: "{{ .Values.service.web.ports.web.targetPort }}"
           env:
             API_URL: "/bar"
@@ -102,6 +90,34 @@ workload:
             DESCRIPTION: "{{ .Values.saltrim.description }}"
             DEFAULT_LOCALE: "{{ .Values.saltrim.locale }}"
             DISABLE_LOGIN: "{{ .Values.saltrim.disable_login }}"
+  nginx:
+    enabled: true
+    type: Deployment
+    strategy: RollingUpdate
+    replicas: 1
+    podSpec:
+      containers:
+        nginx:
+          enabled: true
+          primary: true
+          imageSelector: nginxImage
+          probes:
+            readiness:
+              enabled: true
+              path: /
+              port: "{{ .Values.service.main.ports.main.port }}"
+              httpHeaders:
+                Host: kube.internal.healthcheck
+            liveness:
+              enabled: true
+              path: /
+              port: "{{ .Values.service.main.ports.main.port }}"
+              httpHeaders:
+                Host: kube.internal.healthcheck
+            startup:
+              enabled: true
+              type: tcp
+              port: "{{ .Values.service.main.ports.main.port }}"
   api:
     enabled: true
     type: Deployment
@@ -208,8 +224,8 @@ persistence:
     type: configmap
     objectName: nginx-config
     targetSelector:
-      main:
-        main:
+      nginx:
+        nginx:
           mountPath: /etc/nginx/conf.d/default.conf
           subPath: default.conf
           readOnly: true
