@@ -15,10 +15,6 @@ searchImage:
   pullPolicy: IfNotPresent
   tag: v1.3.1@sha256:419286f036f3c87d50860a035606ef7ad54a7af5efc37727dd7353435740dcb2
 
-securityContext:
-  container:
-    readOnlyRootFilesystem: false
-
 service:
   main:
     ports:
@@ -169,7 +165,7 @@ workload:
               secretKeyRef:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
-                key: plainhost
+                key: url
             REDIS_PASSWORD:
               secretKeyRef:
                 expandObjectName: false
@@ -231,11 +227,11 @@ persistence:
           mountPath: /meili_data
 
 # will be available following a major release.
-cnpg:
-  main:
-    enabled: false
-    user: saltrim
-    database: saltrim
+# cnpg:
+#   main:
+#     enabled: false
+#     user: saltrim
+#     database: saltrim
 
 redis:
   enabled: true
