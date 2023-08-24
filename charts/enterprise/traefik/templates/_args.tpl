@@ -173,7 +173,7 @@ args:
   {{/* End of GeoBlock */}}
   {{/* RealIP */}}
   {{- if .Values.middlewares.realIP }}
-  - "--experimental.localPlugins.traefik-real-ip.modulename=github.com/soulbalz/traefik-real-ip"
+  - "--experimental.localPlugins.traefik-real-ip.modulename=github.com/jramsgz/traefik-real-ip"
   {{- end }}
   {{/* End of RealIP */}}
   {{- with .Values.additionalArguments }}
