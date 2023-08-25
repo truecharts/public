@@ -11,19 +11,6 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-                                - variable: env
-                                  label: Image Environment
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                      - variable: BACKEND
-                                        label: Backend
-                                        description: A string indicating the partial URL for the remote server of the ProxyPass directive.
-                                        schema:
-                                          type: string
-                                          private: true
-                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
 
