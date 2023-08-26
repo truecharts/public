@@ -9,8 +9,11 @@
   {{- fail "Query Steam Service port cannot be between 27020 and 27050." -}}
 {{- end }}
 
-{{/* Render secret */}}
-{{- include "ark.secret" . }}
+{{/* Render secrets for ark */}}
+{{- $secrets := include "ark.secrets" . | fromYaml -}}
+{{- if $secrets -}}
+  {{- $_ := set .Values.secret "ark-secrets" $secrets -}}
+{{- end -}}
 
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}
