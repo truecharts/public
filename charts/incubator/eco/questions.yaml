@@ -119,8 +119,20 @@ questions:
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceList}
-
+# Include{ingressRoot}
+        - variable: main
+          label: Main Ingress
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+# Include{ingressTLS}
+# Include{ingressTraefik}
+# Include{ingressAdvanced}
+# Include{ingressList}
 # Include{securityContextRoot}
+
               - variable: runAsUser
                 label: "runAsUser"
                 description: "The UserID of the user running the application"
