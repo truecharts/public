@@ -31,13 +31,26 @@ workload:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              path: "/"
+              type: http
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+            readiness:
+              path: "/"
+              type: http
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+            startup:
+              path: "/"
+              type: tcp
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
           env:
             USERNAME: ""
             PASSWRD: ""
-            DATA_PERM: "770"
             GAME_ID: "739590"
             GAME_PARAMS: ""
             VALIDATE: false
+            # DATA_PERM: "770"
 
 persistence:
   steamcmd:
