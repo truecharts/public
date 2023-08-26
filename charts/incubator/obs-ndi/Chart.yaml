@@ -1,10 +1,3 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - GameServers
-    - Productivity
-    - MediaApp-Video
-    - MediaServer-Video
 apiVersion: v2
 appVersion: "latest"
 dependencies:
@@ -32,3 +25,10 @@ sources:
   - https://github.com/patrickstigler/docker-obs-ndi
 type: application
 version: 3.0.1
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - GameServers
+    - Productivity
+    - MediaApp-Video
+    - MediaServer-Video
