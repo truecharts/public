@@ -3,7 +3,6 @@
 {{- $fullname := (include "tc.v1.common.lib.chart.names.fullname" $) -}}
 
 {{- $admin := .Values.odoo.admin -}}
-{{- $db := .Values.odoo.db -}}
 {{- $smtp := .Values.odoo.smtp -}}
 
 {{- $pgdb := .Values.cnpg.main.database -}}
@@ -30,7 +29,6 @@ odoo-config:
       db_port = 5432
       db_user = {{ $pguser }}
       db_password = {{ $pgpassword }}
-      dbfilter = {{ $db.dbfilter }}
       csv_internal_sep = ,
       db_maxconn = 64
       debug_mode = False
