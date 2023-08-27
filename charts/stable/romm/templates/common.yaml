@@ -1,13 +1,7 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "tc.v1.common.loader.init" . -}}
 
-{{/* Render configmaps for all pods */}}
-{{- $configmaps := include "romm.configmaps" . | fromYaml -}}
-{{- if $configmaps -}}
-  {{- $_ := mustMergeOverwrite .Values.configmap $configmaps -}}
-{{- end -}}
-
-{{/* Render secrets for salt-rim */}}
+{{/* Render secrets for romm */}}
 {{- $secrets := include "romm.secrets" . | fromYaml -}}
 {{- if $secrets -}}
   {{- $_ := set .Values.secret "romm-secrets" $secrets -}}
