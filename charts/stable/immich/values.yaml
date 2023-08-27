@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/immich-server
-  tag: v1.73.0@sha256:dc1c6211e1c9cf8b6da9e4cdb14f425161c712d297d1eb568c16061c7ba9212a
+  tag: v1.75.1@sha256:d71779893218665be8fe0215b76b8ecb3e35d4c8ba33be4cfd3412ced9714044
   pullPolicy: IfNotPresent
 mlImage:
   repository: tccr.io/truecharts/immich-ml
@@ -8,11 +8,11 @@ mlImage:
   pullPolicy: IfNotPresent
 webImage:
   repository: tccr.io/truecharts/immich-web
-  tag: v1.73.0@sha256:94637035ab7c5fbe10ae68f3604daeae66df87e80e74f826b8638981dd456d9b
+  tag: v1.75.2@sha256:3a7cd2e5f884d7d4d9ee0129b45d6de5c40b6af23a3f131740abb568086b3d7c
   pullPolicy: IfNotPresent
 proxyImage:
   repository: tccr.io/truecharts/immich-proxy
-  tag: v1.73.0@sha256:c5c197ddf4567ef05fb3ce039490f9c1ce631b93d67d69e1e356cd9fe8522811
+  tag: v1.75.2@sha256:6312ab637fab86e66fd5c5d88a669df99554443a181aa05374135239ed12f153
   pullPolicy: IfNotPresent
 typesenseImage:
   repository: tccr.io/truecharts/immich-typesense
