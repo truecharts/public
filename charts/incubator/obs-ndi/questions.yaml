@@ -13,20 +13,21 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: VNC_PASSWD
-          label: "VNC Password to login"
-          description: "Enter your VNC password to login"
-          schema:
-            type: string
-            default: "123456"
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: VNC_PASSWD
+                                        label: "VNC Password to login"
+                                        description: "Enter your VNC password to login"
+                                        schema:
+                                          type: string
+                                          default: "123456"
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
@@ -39,6 +40,50 @@ questions:
 # Include{serviceSelectorExtras}
                     - variable: main
                       label: "Main Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 6901
+                              required: true
+        - variable: websocket
+          label: "websocket Service"
+          description: "The websocket service"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: websocket
+                      label: "websocket Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 4455
+                              required: true
+        - variable: vnc
+          label: "vnc Service"
+          description: "The vnc service"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: vnc
+                      label: "vnc Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
