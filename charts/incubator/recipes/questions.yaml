@@ -28,11 +28,11 @@ questions:
             type: boolean
             default: false
         - variable: reverse_proxy_auth
-            label: Reverse Proxy Auth
-            description: Allow authentication via reverse proxy.
-            schema:
-              type: boolean
-              default: false
+          label: Reverse Proxy Auth
+          description: Allow authentication via reverse proxy.
+          schema:
+            type: boolean
+            default: false
         - variable: allowed_hosts
           label: Allowed Hosts
           description: Hosts the application can run under (e.g. recipes.mydomain.com,cooking.mydomain.com)
@@ -59,17 +59,17 @@ questions:
             default: 5
             min: 5
         - variable: enable_pdf_export
-            label: Enable PDF Export
-            description: Enables exporting PDF (see export docs)
-            schema:
-              type: boolean
-              default: false
+          label: Enable PDF Export
+          description: Enables exporting PDF (see export docs)
+          schema:
+            type: boolean
+            default: false
         - variable: export_file_cache_duration
-            label: Export File Cache Duration
-            description: Recipe exports are cached for a certain time by default
-            schema:
-              type: int
-              default: 600
+          label: Export File Cache Duration
+          description: Recipe exports are cached for a certain time by default
+          schema:
+            type: int
+            default: 600
         - variable: enable_signup
           label: Enable SignUp
           description: Allow people to create accounts on your application instance (without an invite link).
@@ -230,8 +230,8 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: media
-          label: "App Media Storage"
-          description: "Stores the Application Media."
+          label: App Media Storage
+          description: Stores the Application Media.
           schema:
             additional_attrs: true
             type: dict
@@ -240,7 +240,7 @@ questions:
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: "Main Ingress"
+          label: Main Ingress
           schema:
             additional_attrs: true
             type: dict
