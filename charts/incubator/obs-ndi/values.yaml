@@ -33,9 +33,21 @@ service:
   main:
     ports:
       main:
-        port: 5901
+        port: 6901
         protocol: http
-        targetPort: 5901
+        targetPort: 6901
+  websocket:
+    enabled: true
+    ports:
+      websocket:
+        enabled: true
+        port: 4455
+  vnc:
+    enabled: true
+    ports:
+      vnc:
+        enabled: true
+        port: 5901
 
 persistence:
   configpath:
