@@ -106,14 +106,10 @@ workload:
               enabled: true
               path: /
               port: "{{ .Values.service.main.ports.main.port }}"
-              httpHeaders:
-                Host: kube.internal.healthcheck
             liveness:
               enabled: true
               path: /
               port: "{{ .Values.service.main.ports.main.port }}"
-              httpHeaders:
-                Host: kube.internal.healthcheck
             startup:
               enabled: true
               type: tcp
