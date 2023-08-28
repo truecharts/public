@@ -22,7 +22,7 @@ service:
       main:
         targetSelector: nginx
         protocol: http
-        port: 8082
+        port: 8081
   web:
     enabled: true
     type: ClusterIP
