@@ -10,6 +10,10 @@
 {{- else }}
   {{- $secret_key = randAlphaNum 64 | b64enc }}
 {{- end }}
+{{- $pgDB := .Values.cnpg.main.database }}
+{{- $pgUser := .Values.cnpg.main.user }}
+{{- $pgPass := .Values.cnpg.main.creds.password | trimAll "\"" }}
+{{- $pgHost := printf "%v-cnpg-main-rw" $fullname }}
 
 netbox-config:
   enabled: true
@@ -24,10 +28,10 @@ netbox-config:
       ]
 
       DATABASE = {
-          'NAME': '{{ .Values.cnpg.main.database }}',
-          'USER': '{{ .Values.cnpg.main.user }}',
-          'PASSWORD': '{{ .Values.cnpg.main.creds.password | trimAll "\"" }}',
-          'HOST': '{{ .Values.cnpg.main.creds.host }}',
+          'NAME': '{{ $pgDB }}',
+          'USER': '{{ $pgUser }}',
+          'PASSWORD': '{{ $pgPass }}',
+          'HOST': '{{ $pgHost }}',
           'PORT': '5432',
           'CONN_MAX_AGE': 300,
       }
