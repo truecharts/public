@@ -7,9 +7,6 @@
   {{- $_ := mustMergeOverwrite .Values.configmap $configmaps -}}
 {{- end -}}
 
-{{- $_ := set .Values.additionalContainers "worker" (include "netbox.worker" . | fromYaml) -}}
-{{- $_ := set .Values.additionalContainers "housekeeper" (include "netbox.housekeeper" . | fromYaml) -}}
-
 {{- if .Values.metrics.enabled -}}
 {{- $_ := set .Values.podAnnotations "prometheus.io/scrape" "true" -}}
 {{- $_ := set .Values.podAnnotations "prometheus.io/path" "/metrics" -}}

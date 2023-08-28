@@ -35,6 +35,95 @@ workload:
               type: http
               # Gives some time for app to run db migrations
               initialDelaySeconds: 60
+  worker:
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
+        worker:
+          primary: true
+          enabled: true
+          imageSelector: image
+          command:
+            - /bin/bash
+            - -c
+            - |
+              echo "Starting worker...."
+              until $(curl --output /dev/null --silent --head --fail http://127.0.0.1:8080/login); do
+                echo "Worker: Waiting for the main netbox container..."
+                sleep 5
+              done
+              /opt/netbox/venv/bin/python /opt/netbox/netbox/manage.py rqworker
+          probes:
+            liveness:
+              enabled: true
+              type: exec
+              command:
+                - /bin/bash
+                - -c
+                - |
+                  ps -aux | grep -v grep | grep -q rqworker || exit 1
+            readiness:
+              enabled: true
+              type: exec
+              command:
+                - /bin/bash
+                - -c
+                - |
+                  ps -aux | grep -v grep | grep -q rqworker || exit 1
+            startup:
+              enabled: true
+              type: exec
+              command:
+                - /bin/bash
+                - -c
+                - |
+                  ps -aux | grep -v grep | grep -q rqworker || exit 1
+  housekeeper:
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
+        housekeeper:
+          primary: true
+          enabled: true
+          imageSelector: image
+          command:
+            - /bin/bash
+            - -c
+            - |
+              echo "Starting housekeeper..."
+              until $(curl --output /dev/null --silent --head --fail http://127.0.0.1:8080/login); do
+                echo "Housekeeper: Waiting for the main netbox container..."
+                sleep 5
+              done
+              /opt/netbox/housekeeping.sh
+              echo "Housekeeper finished, exiting..."
+          probes:
+            liveness:
+              enabled: true
+              type: exec
+              command:
+                - /bin/bash
+                - -c
+                - |
+                  ps -aux | grep -v grep | grep -q housekeeping || exit 1
+            readiness:
+              enabled: true
+              type: exec
+              command:
+                - /bin/bash
+                - -c
+                - |
+                  ps -aux | grep -v grep | grep -q housekeeping || exit 1
+            startup:
+              enabled: true
+              type: exec
+              command:
+                - /bin/bash
+                - -c
+                - |
+                  ps -aux | grep -v grep | grep -q housekeeping || exit 1
 
 netbox:
   # -- This is a list of valid fully-qualified domain names (FQDNs) for the NetBox server. NetBox will not permit write
@@ -242,15 +331,19 @@ persistence:
   config:
     enabled: true
     mountPath: /etc/netbox/config
+    targetSelectAll: true
   reports:
     enabled: true
     mountPath: /etc/netbox/reports
+    targetSelectAll: true
   scripts:
     enabled: true
     mountPath: /etc/netbox/scripts
+    targetSelectAll: true
   media:
     enabled: true
     mountPath: /opt/netbox/netbox/media
+    targetSelectAll: true
   netbox-config:
     enabled: true
     type: configmap
