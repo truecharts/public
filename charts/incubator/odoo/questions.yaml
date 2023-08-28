@@ -11,9 +11,83 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-
 # Include{containerBasic}
 # Include{containerAdvanced}
+
+  - variable: odoo
+    group: App Configuration
+    label: Odoo
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: admin
+          label: Admin Credentials
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: passwd
+                label: Admin Password
+                schema:
+                  type: string
+                  required: true
+                  private: true
+                  default: ""
+        - variable: db
+          label: DB Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: filter
+                label: DB Filter
+                schema:
+                  type: string
+                  required: true
+                  default: "^mycompany.*$"
+        - variable: smtp
+          label: SMTP Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: server
+                label: Server
+                schema:
+                  type: string
+                  default: ""
+              - variable: port
+                label: Port
+                schema:
+                  type: int
+                  default: 587
+              - variable: user
+                label: User
+                schema:
+                  type: string
+                  default: ""
+              - variable: password
+                label: Password
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+              - variable: from
+                label: Email From
+                schema:
+                  type: string
+                  default: ""
+              - variable: ssl
+                label: SSL
+                schema:
+                  type: string
+                  default: "False"
+                  enum:
+                    - value: "False"
+                      description: "False"
+                    - value: "True"
+                      description: "True"
 
 # Include{containerConfig}
 # Include{podOptions}
@@ -44,7 +118,7 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: xmlrpcs
-                      label: "xmlrpcs Service Port Configuration"
+                      label: "XMLR PCS Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -57,7 +131,7 @@ questions:
                               default: 8071
                               required: true
                     - variable: longpolling
-                      label: "longpolling Service Port Configuration"
+                      label: "Long Polling Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -74,8 +148,8 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: odoo
-          label: "App Storage"
-          description: "Stores the Application."
+          label: "App Config Storage"
+          description: "Stores the Application Configuration."
           schema:
             additional_attrs: true
             type: dict
@@ -109,13 +183,13 @@ questions:
                 description: "The UserID of the user running the application"
                 schema:
                   type: int
-                  default: 568
+                  default: 0
               - variable: runAsGroup
                 label: "runAsGroup"
                 description: "The groupID this App of the user running the application"
                 schema:
                   type: int
-                  default: 568
+                  default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}

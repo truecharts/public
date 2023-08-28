@@ -1,10 +1,3 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - GameServers
-    - Productivity
-    - MediaApp-Video
-    - MediaServer-Video
 apiVersion: v2
 appVersion: "latest"
 dependencies:
@@ -12,7 +5,7 @@ dependencies:
     repository: https://library-charts.truecharts.org
     version: 14.0.1
 deprecated: false
-description: "This container is based on bb12489/gui-Chart &amp;amp;amp; bb12489/Chart-obs. The OBS with NDI is incorporated into the container and can be used to stream your desktop. The main reason for this fork is to update the Chart and add it to the TrueNAS app store.&amp;#xD;"
+description: Docker Open Broadcaster Software (obs).
 home: https://truecharts.org/charts/incubator/obs-ndi
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/obs-ndi.png
 keywords:
@@ -31,4 +24,11 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/obs-ndi
   - https://github.com/patrickstigler/docker-obs-ndi
 type: application
-version: 3.0.0
+version: 3.0.1
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/catagories: |
+    - GameServers
+    - Productivity
+    - MediaApp-Video
+    - MediaServer-Video
