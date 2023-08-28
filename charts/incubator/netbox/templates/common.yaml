@@ -1,7 +1,11 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "tc.common.loader.init" . }}
+{{- include "tc.v1.common.loader.init" . -}}
 
-{{- include "netbox.secret" . }}
+{{/* Render configmaps for all pods */}}
+{{- $configmaps := include "netbox.configmaps" . | fromYaml -}}
+{{- if $configmaps -}}
+  {{- $_ := mustMergeOverwrite .Values.configmap $configmaps -}}
+{{- end -}}
 
 {{- $_ := set .Values.additionalContainers "worker" (include "netbox.worker" . | fromYaml) -}}
 {{- $_ := set .Values.additionalContainers "housekeeper" (include "netbox.housekeeper" . | fromYaml) -}}
@@ -13,4 +17,4 @@
 {{- end -}}
 
 {{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}
+{{- include "tc.v1.common.loader.apply" . -}}

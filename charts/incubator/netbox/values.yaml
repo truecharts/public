@@ -1,36 +1,40 @@
 image:
   repository: tccr.io/truecharts/netbox
-  tag: 3.4.8@sha256:17e52535055ca6246132d98bcc94b6b01c8aef64faa52f8769e0e95dd1909773
+  tag: v3.5.8@sha256:244cc38161885ff2834d125f7a57a43a2a074ab11635c17ad635febd5a8a2b8c
   pullPolicy: IfNotPresent
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-probes:
-  liveness:
-    type: HTTP
-    path: /api
-  readiness:
-    type: HTTP
-    path: /api
-  startup:
-    type: HTTP
-    path: /api
-    # Gives some time for app to run db migrations
-    initialDelaySeconds: 60
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
 
 service:
   main:
     ports:
       main:
-        port: 10265
-        protocol: HTTP
+        protocol: http
         targetPort: 8080
+        port: 10265
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: "/api"
+              type: http
+            readiness:
+              path: "/api"
+              type: http
+            startup:
+              path: "/api"
+              type: http
+              # Gives some time for app to run db migrations
+              initialDelaySeconds: 60
 
 netbox:
   # -- This is a list of valid fully-qualified domain names (FQDNs) for the NetBox server. NetBox will not permit write
@@ -247,22 +251,25 @@ persistence:
   media:
     enabled: true
     mountPath: /opt/netbox/netbox/media
-  configfile:
+  netbox-config:
     enabled: true
-    type: secret
-    objectName: '{{ include "tc.common.names.fullname" . }}-secret'
-    mountPath: /etc/netbox/config/01-config.py
-    subPath: config.py
+    type: configmap
+    objectName: netbox-config
+    targetSelector:
+      main:
+        main:
+          mountPath: /etc/netbox/config/01-config.py
+          subPath: config.py
 
-postgresql:
-  enabled: true
-  existingSecret: dbcreds
-  postgresqlUsername: netbox
-  postgresqlDatabase: netbox
+cnpg:
+  main:
+    enabled: true
+    user: netbox
+    database: netbox
 
 redis:
   enabled: true
-  existingSecret: rediscreds
 
 portal:
-  enabled: true
+  open:
+    enabled: true
