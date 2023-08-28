@@ -22,7 +22,7 @@ service:
       main:
         targetSelector: nginx
         protocol: http
-        port: 8080
+        port: 8082
   web:
     enabled: true
     type: ClusterIP
@@ -32,7 +32,7 @@ service:
         enabled: true
         targetSelector: main
         targetPort: 8080
-        port: 8081
+        port: 8080
   api:
     enabled: true
     type: ClusterIP
@@ -67,22 +67,29 @@ workload:
       containers:
         main:
           imageSelector: image
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+            runAsNonRoot: false
+            readOnlyRootFilesystem: false
+            pod:
+              fsGroup: 33
           probes:
             liveness:
               enabled: true
-              path: "/"
+              path: "/api"
               type: http
-              port: "{{ .Values.service.web.ports.web.targetPort }}"
+              port: "{{ .Values.service.api.ports.api.targetPort }}"
             readiness:
               enabled: true
-              path: "/"
+              path: "/api"
               type: http
-              port: "{{ .Values.service.web.ports.web.targetPort }}"
+              port: "{{ .Values.service.api.ports.api.targetPort }}"
             startup:
               enabled: true
-              path: "/"
+              path: "/api"
               type: tcp
-              port: "{{ .Values.service.web.ports.web.targetPort }}"
+              port: "{{ .Values.service.api.ports.api.targetPort }}"
           env:
             API_URL: "/bar"
             MEILISEARCH_URL: "/search"
@@ -93,8 +100,6 @@ workload:
   nginx:
     enabled: true
     type: Deployment
-    strategy: RollingUpdate
-    replicas: 1
     podSpec:
       containers:
         nginx:
@@ -128,7 +133,7 @@ workload:
             runAsGroup: 0
             runAsNonRoot: false
             readOnlyRootFilesystem: false
-            pods:
+            pod:
               fsGroup: 33
           probes:
             liveness:
