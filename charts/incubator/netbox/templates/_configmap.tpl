@@ -252,7 +252,7 @@ netbox-config:
       LOGIN_TIMEOUT = {{ . }}
       {{- end }}
 
-      METRICS_ENABLED = {{ ternary "True" "False" .Values.metrics.enabled }}
+      METRICS_ENABLED = {{ ternary "True" "False" .Values.metrics.main.enabled }}
 
       TIME_ZONE = {{ .Values.TZ | squote }}
 
