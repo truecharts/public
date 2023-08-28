@@ -3,8 +3,8 @@ image:
   tag: v1.5.5@sha256:cb58a37c23cfc485c6a605035ef5459ccf2c899f1486600d899ca30974987dc7
   pullPolicy: IfNotPresent
 nginxImage:
-  repository: tccr.io/truecharts/nginx
-  tag: v1.25.1@sha256:b66a892da36816d0ce995a4a4e5a0559bd887633b4c38e52aa3b52ab217906e3
+  repository: tccr.io/truecharts/nginx-unprivileged
+  tag: v1.25.2@sha256:b66a892da36816d0ce995a4a4e5a0559bd887633b4c38e52aa3b52ab217906e3
 
 securityContext:
   container:

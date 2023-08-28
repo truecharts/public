@@ -16,7 +16,7 @@ questions:
 
   - variable: recipes
     group: App Configuration
-    label: Recipes Configuration
+    label: Recipes
     schema:
       additional_attrs: true
       type: dict
@@ -27,44 +27,56 @@ questions:
           schema:
             type: boolean
             default: false
+        - variable: reverse_proxy_auth
+            label: Reverse Proxy Auth
+            description: Allow authentication via reverse proxy.
+            schema:
+              type: boolean
+              default: false
         - variable: allowed_hosts
           label: Allowed Hosts
           description: Hosts the application can run under (e.g. recipes.mydomain.com,cooking.mydomain.com)
           schema:
-            type: list
-            empty: false
-            default:
-              - "*"
-            required: true
-            items:
-              - variable: host
-                label: Host
-                schema:
-                  type: string
-                  required: true
-                  default: ""
+            type: string
+            default: "*"
         - variable: csrf_trusted_origins
           label: CSRF Trusted Origins
-          description: A list of hosts which are trusted origins for unsafe requests.
+          description: Trusted origins for unsafe requests.
           schema:
-            type: list
-            empty: true
-            default: []
-            items:
-              - variable: host
-                label: Host
-                schema:
-                  type: string
-                  required: true
-                  default: ""
+            type: string
+            default: ""
         - variable: gunicorn_media
           label: Gunicorn Media
           description: Serve mediafiles directly using gunicorn.
           schema:
             type: boolean
             default: false
+        - variable: shopping_min_autosync_interval
+          label: Shopping Min AutoSync Interval
+          description: Set time which the shopping list is refreshed when in viewing mode.
+          schema:
+            type: int
+            default: 5
+            min: 5
+        - variable: enable_pdf_export
+            label: Enable PDF Export
+            description: Enables exporting PDF (see export docs)
+            schema:
+              type: boolean
+              default: false
+        - variable: export_file_cache_duration
+            label: Export File Cache Duration
+            description: Recipe exports are cached for a certain time by default
+            schema:
+              type: int
+              default: 600
+        - variable: enable_signup
+          label: Enable SignUp
+          description: Allow people to create accounts on your application instance (without an invite link).
+          schema:
+            type: boolean
+            default: false
         - variable: prefs
-          group: App Configuration
           label: Preferences
           schema:
             additional_attrs: true
@@ -77,22 +89,13 @@ questions:
                   type: boolean
                   default: false
               - variable: comment_default
-                  label: Comment Default
-                  description: Enable/Disable commenting system
-                  schema:
-                    type: boolean
-                    default: true
-        - variable: shopping_min_autosync_interval
-          label: Shopping Min AutoSync Interval
-          description: Set time which the shopping list is refreshed when in viewing mode.
-          schema:
-            type: int
-            default: 5
-            min: 5
+                label: Comment Default
+                description: Enable/Disable commenting system
+                schema:
+                  type: boolean
+                  default: true
         - variable: email
-          group: App Configuration
           label: Email
-          description: Optionally set up email configuration
           schema:
             additional_attrs: true
             type: dict
@@ -138,51 +141,7 @@ questions:
                 schema:
                   type: string
                   default: "[Tandoor Recipes] "
-        - variable: reverse_proxy_auth
-            label: Reverse Proxy Auth
-            description: Allow authentication via reverse proxy.
-            schema:
-              type: boolean
-              default: false
-        - variable: space
-          group: App Configuration
-          label: Space
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-              - variable: default_max_recipes
-                label: Default Max Recipes
-                description: Set limit of max recipes, 0=unlimited recipes.
-                schema:
-                  type: int
-                  default: 0
-              - variable: default_max_users
-                label: Default Max Users
-                description: Set limit of max users, 0=unlimited users per space.
-                schema:
-                  type: int
-                  default: 0
-              - variable: default_max_files
-                label: Default Max Files
-                description: Maximum file storage for space in MB, 0 for unlimited, -1 to disable file upload.
-                schema:
-                  type: int
-                  default: 0
-              - variable: default_allow_sharing
-                label: Default Allow Sharing
-                description: Allow users to share recipes with public links
-                schema:
-                  type: boolean
-                  default: false
-        - variable: enable_signup
-          label: Enable SignUp
-          description: Allow people to create accounts on your application instance (without an invite link).
-          schema:
-            type: boolean
-            default: false
         - variable: ldap
-          group: App Configuration
           label: Ldap
           schema:
             additional_attrs: true
@@ -216,18 +175,36 @@ questions:
                       schema:
                         type: string
                         default: ""
-        - variable: enable_pdf_export
-            label: Enable PDF Export
-            description: Enables exporting PDF (see export docs)
-            schema:
-              type: boolean
-              default: false
-        - variable: export_file_cache_duration
-            label: Export File Cache Duration
-            description: Recipe exports are cached for a certain time by default
-            schema:
-              type: int
-              default: 600
+        - variable: space
+          label: Space
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: default_max_recipes
+                label: Default Max Recipes
+                description: Set limit of max recipes, 0=unlimited recipes.
+                schema:
+                  type: int
+                  default: 0
+              - variable: default_max_users
+                label: Default Max Users
+                description: Set limit of max users, 0=unlimited users per space.
+                schema:
+                  type: int
+                  default: 0
+              - variable: default_max_files
+                label: Default Max Files
+                description: Maximum file storage for space in MB, 0 for unlimited, -1 to disable file upload.
+                schema:
+                  type: int
+                  default: 0
+              - variable: default_allow_sharing
+                label: Default Allow Sharing
+                description: Allow users to share recipes with public links
+                schema:
+                  type: boolean
+                  default: false
 
 # Include{containerConfig}
 # Include{podOptions}
