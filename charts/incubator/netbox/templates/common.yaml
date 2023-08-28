@@ -7,11 +7,5 @@
   {{- $_ := mustMergeOverwrite .Values.configmap $configmaps -}}
 {{- end -}}
 
-{{- if .Values.metrics.enabled -}}
-{{- $_ := set .Values.podAnnotations "prometheus.io/scrape" "true" -}}
-{{- $_ := set .Values.podAnnotations "prometheus.io/path" "/metrics" -}}
-{{- $_ := set .Values.podAnnotations "prometheus.io/port" (.Values.service.main.ports.main.targetPort | toString) -}}
-{{- end -}}
-
 {{/* Render the templates */}}
 {{- include "tc.v1.common.loader.apply" . -}}
