@@ -19,13 +19,14 @@
 
 enabled: true
 data:
-  {{ /* KEY */}}
-  SECRET_KEY_BASE: {{ $baseKey }}
   {{/* DB */}}
   DB_USERNAME: {{ .Values.cnpg.main.user }}
   DB_DATABASE: {{ .Values.cnpg.main.database }}
   DB_HOSTNAME: {{ $host }}
   DB_PASSWORD: {{ $password }}
+
+  {{/* KEYS */}}
+  SECRET_KEY_BASE: {{ $baseKey }}
 
   {{/* MIDARR */}}
   {{- with $admin.mail }}
