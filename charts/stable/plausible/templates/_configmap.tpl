@@ -21,6 +21,6 @@ data:
   MAILER_ADAPTER: {{ $email.mailer_adapter | quote }}
   MAILGUN_BASE_URI: {{ $email.mailgun_base_uri | quote }}
 
-  MAXMIND_EDITION: {{ $maxmind. | quote }}
+  MAXMIND_EDITION: {{ $maxmind.edition | quote }}
 
 {{- end }}
