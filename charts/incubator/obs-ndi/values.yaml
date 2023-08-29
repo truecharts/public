@@ -28,7 +28,7 @@ workload:
             startup:
               type: tcp
           env:
-            VNC_PASSWD: "123456"
+            VNC_PASSWD: "headless"
 service:
   main:
     ports:
