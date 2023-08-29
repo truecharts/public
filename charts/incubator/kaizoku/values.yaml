@@ -22,13 +22,6 @@ workload:
     podSpec:
       containers:
         main:
-          probes:
-            liveness:
-              path: "/"
-            readiness:
-              path: "/"
-            startup:
-              path: "/"
           env:
             KAIZOKU_PORT: "{{ .Values.service.main.ports.main.port }}"
             DATABASE_URL:
