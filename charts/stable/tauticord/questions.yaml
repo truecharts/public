@@ -327,31 +327,31 @@ questions:
                 description: Whether to use emojis to symbolize library types.
                 schema:
                   type: boolean
-                  required: true
+                  default: true
               - variable: tv_series_count_enabled
                 label: TV Series Count Enabled
                 description: Display series counts for all selected "TV Shows" libraries.
                 schema:
                   type: boolean
-                  required: true
+                  default: true
               - variable: tv_episode_count_enabled
                 label: TV Episode Count Enabled
                 description: Display episode counts for all selected "TV Shows" libraries.
                 schema:
                   type: boolean
-                  required: true
+                  default: true
               - variable: music_artist_count_enabled
                 label: Music Artist Count Enabled
                 description: Display artist counts for all selected "Music" libraries.
                 schema:
                   type: boolean
-                  required: true
+                  default: true
               - variable: music_track_count_enabled
                 label: Music Track Count Enabled
                 description: Display track counts for all selected "Music" libraries.
                 schema:
                   type: boolean
-                  required: true
+                  default: true
         - variable: cat_performance
           label: Category Performance
           schema:
@@ -370,13 +370,13 @@ questions:
                 description: Whether to monitor CPU performance.
                 schema:
                   type: boolean
-                  required: false
+                  default: false
               - variable: monitor_memory_enabled
                 label: Monitor Memory Enabled
                 description: Whether to monitor RAM performance (see Performance.
                 schema:
                   type: boolean
-                  required: false
+                  default: false
 
 # Include{containerConfig}
 # Include{podOptions}
