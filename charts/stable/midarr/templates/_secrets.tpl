@@ -2,7 +2,11 @@
 {{- define "midarr.secrets" -}}
 {{- $secretName := (printf "%s-midarr-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) -}}
 
-{{- $mainPort := .Values.service.main.ports.main.port  -}}
+{{- $baseKey := randAlphaNum 32 -}}
+{{- with (lookup "v1" "Secret" .Release.Namespace $secretName) -}}
+  {{- $baseKey = index .data "SECRET_KEY_BASE" | b64dec -}}
+{{- end }}
+
 {{- $midarr := .Values.midarr -}}
 
 {{- $admin := $midarr.admin -}}
@@ -15,7 +19,8 @@
 
 enabled: true
 data:
-  PORT: {{ $mainPort }}
+  PORT: {{ .Values.service.main.ports.main.port }}
+  SECRET_KEY_BASE: {{ $baseKey }}
   {{/* DB */}}
   DB_USERNAME: {{ .Values.cnpg.main.user }}
   DB_DATABASE: {{ .Values.cnpg.main.database }}
