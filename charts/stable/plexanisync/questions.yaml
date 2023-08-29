@@ -4,13 +4,14 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
+
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
 # Include{containerBasic}
 # Include{containerAdvanced}
-# Include{containerConfig}
-# Include{podOptions}
+
   - variable: plexanisync
     group: App Configuration
     label: PlexAniSync Configuration
@@ -156,6 +157,7 @@ questions:
                 schema:
                   type: boolean
                   default: true
+
   - variable: custom-mappings
     group: App Configuration
     label: Custom Mappings
@@ -227,6 +229,9 @@ questions:
                               type: string
                               required: true
                               default: ""
+
+# Include{containerConfig}
+# Include{podOptions}
 
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
