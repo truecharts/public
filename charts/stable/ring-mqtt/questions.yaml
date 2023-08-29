@@ -72,8 +72,17 @@ questions:
         - variable: location_ids
           label: Location Ids
           schema:
-            type: string
-            default: ""
+            type: list
+            empty: true
+            default: []
+            required: true
+            items:
+              - variable: location
+                label: Location
+                schema:
+                  type: string
+                  required: true
+                  default: ""
 
 # Include{containerConfig}
 # Include{podOptions}
