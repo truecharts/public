@@ -6,7 +6,7 @@
 
   {{- $secretKey := randAlphaNum 32 -}}
   {{- with (lookup "v1" "Secret" .Release.Namespace $fetchname) -}}
-    {{ $secretKey = index .data "AUTHENTIK_SECRET_KEY" }}
+    {{- $secretKey = index .data "AUTHENTIK_SECRET_KEY" | b64dec -}}
   {{- end }}
 
 server-worker:
@@ -17,7 +17,7 @@ server-worker:
     AUTHENTIK_REDIS__PASSWORD: {{ .Values.redis.creds.redisPassword | trimAll "\"" }}
 
     {{/* Secret Key */}}
-    AUTHENTIK_SECRET_KEY: {{ $secretKey | b64dec }}
+    AUTHENTIK_SECRET_KEY: {{ $secretKey }}
 
     {{/* Initial credentials */}}
     AUTHENTIK_BOOTSTRAP_EMAIL: {{ .Values.authentik.credentials.email | quote }}
