@@ -38,6 +38,7 @@ questions:
                                         schema:
                                           type: string
                                           default: ""
+
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -67,8 +68,8 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: data
-          label: "data Storage"
-          description: "data"
+          label: App Data Storage
+          description: Stores the Application Data.
           schema:
             additional_attrs: true
             type: dict
