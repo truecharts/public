@@ -4,7 +4,7 @@
 
 {{- $baseKey := randAlphaNum 32 -}}
 {{- with (lookup "v1" "Secret" .Release.Namespace $secretName) -}}
-  {{- $baseKey = index .data "SECRET_KEY_BASE" | b64dec -}}
+  {{- $baseKey = index .data "baseKey" | b64dec -}}
 {{- end }}
 
 {{- $midarr := .Values.midarr -}}
@@ -21,6 +21,7 @@ enabled: true
 data:
   PORT: {{ .Values.service.main.ports.main.port }}
   SECRET_KEY_BASE: {{ $baseKey }}
+  
   {{/* DB */}}
   DB_USERNAME: {{ .Values.cnpg.main.user }}
   DB_DATABASE: {{ .Values.cnpg.main.database }}
