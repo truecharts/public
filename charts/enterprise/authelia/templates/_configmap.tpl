@@ -62,6 +62,20 @@ data:
       issuer: {{ .Values.totp.issuer | default .Values.domain }}
       period: {{ .Values.totp.period | default 30 }}
       skew: {{ .Values.totp.skew | default 1 }}
+    {{- if .Values.password_policy.enabled }}
+    password_policy:
+      standard:
+        enabled: {{ .Values.password_policy.standard.enabled | default false }}
+        min_length: {{ .Values.password_policy.standard.min_length | default 8 }}
+        max_length: {{ .Values.password_policy.standard.max_length | default 0 }}
+        require_uppercase: {{ .Values.password_policy.standard.require_uppercase | default false }}
+        require_lowercase: {{ .Values.password_policy.standard.require_lowercase | default false }}
+        require_number: {{ .Values.password_policy.standard.require_number | default false }}
+        require_special: {{ .Values.password_policy.standard.require_special | default false }}
+      zxcvbn:
+        enabled: {{ .Values.password_policy.zxcvbn.enabled | default false }}
+        min_score: {{ .Values.password_policy.zxcvbn.min_score | default 3 }}
+    {{- end -}}
     {{- if .Values.duo_api.enabled }}
     duo_api:
       hostname: {{ .Values.duo_api.hostname }}

@@ -47,10 +47,9 @@ configmap:
     data:
       NODE_ENV: production
       LOG_LEVEL: {{ .Values.immich.log_level }}
+      IMMICH_MACHINE_LEARNING_ENABLED: {{ .Values.immich.enable_ml | quote }}
       {{- if .Values.immich.enable_ml }}
       IMMICH_MACHINE_LEARNING_URL: {{ printf "http://%v-machinelearning:%v" $fname .Values.service.machinelearning.ports.machinelearning.port }}
-      {{- else }}
-      IMMICH_MACHINE_LEARNING_URL: "false"
       {{- end }}
       TYPESENSE_ENABLED: {{ .Values.immich.enable_typesense | quote }}
       {{- if .Values.immich.enable_typesense }}

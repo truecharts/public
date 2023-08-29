@@ -1,23 +1,23 @@
 image:
   repository: tccr.io/truecharts/nextcloud-fpm
   pullPolicy: IfNotPresent
-  tag: v27.0.0@sha256:0810b5cab6f7e927c80225dd5debfede8836759e5b5237b699373cf927057b02
+  tag: v27.0.2@sha256:367bdda86c95a334189e1396e5a5865f78d6739a7bca1f665290e6a965f51bcf
 nginxImage:
   repository: tccr.io/truecharts/nginx-unprivileged
   pullPolicy: IfNotPresent
-  tag: v1.25.1@sha256:ea33059011ae3baea6ddbc0b7ccee5da9960e2cb6026b3afeefe476aae574517
+  tag: v1.25.2@sha256:06c9ffbece2a2d335d720385e2b3157652b6899ef23c6c2977559639e2b95f85
 imaginaryImage:
   repository: tccr.io/truecharts/nextcloud-imaginary
   pullPolicy: IfNotPresent
-  tag: v20230401@sha256:9d90b996789ff4e6a700cca97273d86c07b508c627cd1c25d6526fba819797bd
+  tag: v20230401@sha256:c6c54e1d65440cc7eca7184c437f3f0028679a2ab5124ae26c9fd3008c2df439
 hpbImage:
   repository: tccr.io/truecharts/nextcloud-push-notify
   pullPolicy: IfNotPresent
-  tag: v0.6.3@sha256:01fa824efebf851985b15a0e48d94e89992e26f27f07e593f7751354ed3d0ea6
+  tag: v0.6.3@sha256:e951d53322738ac7155dde6897fe0371e64109fc3c47c7176cb00c2f88e61065
 clamavImage:
   repository: tccr.io/truecharts/clamav
   pullPolicy: IfNotPresent
-  tag: v1.1.0@sha256:ab196d867fcfddedc8dc965d67a2e6824ca65488cf616cc707e9c36efd54e086
+  tag: v1.1.1@sha256:a3bc2cc229449b4dd823d9180fb229997d8313c3fd69652832184f4f5bff8d96
 collaboraImage:
   repository: tccr.io/truecharts/collabora
   pullPolicy: IfNotPresent
@@ -121,6 +121,12 @@ nextcloud:
     pm_start_servers: 18
     pm_min_spare_servers: 12
     pm_max_spare_servers: 30
+  opcache:
+    interned_strings_buffer: 32
+    max_accelerated_files: 10000
+    memory_consumption: 128
+    revalidate_freq: 60
+    jit_buffer_size: 128
 
 # Do NOT edit below this line
 workload:
@@ -411,6 +417,16 @@ persistence:
         main:
           mountPath: /usr/local/etc/php/conf.d/redis-session.ini
           subPath: redis-session.ini
+          readOnly: true
+  opcache-recommended:
+    enabled: true
+    type: configmap
+    objectName: opcache
+    targetSelector:
+      main:
+        main:
+          mountPath: /usr/local/etc/php/conf.d/opcache-recommended.ini
+          subPath: opcache-recommended.ini
           readOnly: true
   nginx:
     enabled: true

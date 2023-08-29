@@ -32,6 +32,19 @@ php-tune:
       pm.min_spare_servers = {{ .Values.nextcloud.php.pm_min_spare_servers }}
       pm.max_spare_servers = {{ .Values.nextcloud.php.pm_max_spare_servers }}
 
+opcache:
+  enabled: true
+  data:
+    opcache-recommended.ini: |
+      opcache.enable=1
+      opcache.save_comments=1
+      opcache.jit=1255
+      opcache.interned_strings_buffer={{ .Values.nextcloud.opcache.interned_strings_buffer }}
+      opcache.max_accelerated_files={{ .Values.nextcloud.opcache.max_accelerated_files }}
+      opcache.memory_consumption={{ .Values.nextcloud.opcache.memory_consumption }}
+      opcache.revalidate_freq={{ .Values.nextcloud.opcache.revalidate_freq }}
+      opcache.jit_buffer_size={{ printf "%vM" .Values.nextcloud.opcache.jit_buffer_size }}
+
 redis-session:
   enabled: true
   data:
