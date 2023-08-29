@@ -3,13 +3,6 @@ image:
   pullPolicy: IfNotPresent
   tag: vlatest@sha256:cdfe17754b1e0cf3cb84b55ac727b8dcedb4764c6d66103558b9527672177f4c
 
-securityContext:
-  container:
-    readOnlyRootFilesystem: false
-    runAsNonRoot: false
-    runAsUser: 0
-    runAsGroup: 0
-
 service:
   main:
     ports:
@@ -20,6 +13,30 @@ service:
 workload:
   main:
     podSpec:
+      initContainers:
+        create-nginx-file:
+          type: install
+          enabled: true
+          imageSelector: "image"
+          command:
+            - sh
+            - -c
+          args:
+            - |
+              nginxfile="/etc/nginx/nginx.conf";
+              if [ ! -f ${nginxfile} ]; then
+                echo "No ${nginxfile} File...";
+                echo "Creating ${nginxfile} file...";
+                touch ${nginxfile};
+                if [ -f ${nginxfile} ];
+                then
+                  echo "Success!";
+                else
+                  echo "Failed.";
+                fi;
+              else
+                echo "${nginxfile} File exists. Skipping...";
+              fi;
       containers:
         main:
           probes:
@@ -35,6 +52,16 @@ workload:
             HEIGHT: "100vh"
             WIDTH: "100%"
             HEADLINE: ""
+
+persistence:
+  nginx:
+    enabled: true
+    type: emptyDir
+    mountPath: /etc/nginx
+  html:
+    enabled: true
+    type: emptyDir
+    mountPath: /usr/share/nginx/html
 
 portal:
   open:
