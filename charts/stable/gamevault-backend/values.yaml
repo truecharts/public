@@ -20,7 +20,7 @@ service:
 
 gamevault:
   server:
-    admin_user: admin
+    admin_username: admin
     admin_password: password
     registration_disabled: false
     account_activation_disabled: false
@@ -74,7 +74,7 @@ workload:
                 name: cnpg-main-user
                 key: password
             # ADMIN
-            SERVER_ADMIN_USERNAME: "{{ .Values.gamevault.server.admin_user }}"
+            SERVER_ADMIN_USERNAME: "{{ .Values.gamevault.server.admin_username }}"
             SERVER_ADMIN_PASSWORD: "{{ .Values.gamevault.server.admin_password }}"
             SERVER_REGISTRATION_DISABLED: "{{ .Values.gamevault.server.registration_disabled }}"
             SERVER_ACCOUNT_ACTIVATION_DISABLED: "{{ .Values.gamevault.server.account_activation_disabled }}"
