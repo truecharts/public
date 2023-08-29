@@ -10,9 +10,6 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
-
                                 - variable: env
                                   group: "App Configuration"
                                   label: "Image Environment"
@@ -20,12 +17,14 @@ questions:
                                     additional_attrs: true
                                     type: dict
                                     attrs:
-                                      - variable: VNC_PASSWD
+                                      - variable: VNC_PW
                                         label: "VNC Password to login"
                                         description: "Enter your VNC password to login"
                                         schema:
                                           type: string
-                                          default: "123456"
+                                          default: "headless"
+# Include{containerBasic}
+# Include{containerAdvanced}
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
