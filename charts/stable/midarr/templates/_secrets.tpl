@@ -2,6 +2,7 @@
 {{- define "midarr.secrets" -}}
 {{- $secretName := (printf "%s-midarr-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) -}}
 
+{{- $mainPort := .Values.service.main.ports.main.port  -}}
 {{- $midarr := .Values.midarr -}}
 
 {{- $admin := $midarr.admin -}}
@@ -14,6 +15,7 @@
 
 enabled: true
 data:
+  PORT: {{ $mainPort }}
   {{/* DB */}}
   DB_USERNAME: {{ .Values.cnpg.main.user }}
   DB_DATABASE: {{ .Values.cnpg.main.database }}

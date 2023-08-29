@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/midarr-server
-  tag: v3.1.0@sha256:5d85789b1a43cd6f7b133ae129d9f1dae4b97773e6c9f54b48094b1c86b47422
+  tag: v4.0.0@sha256:36ca5ae7850f1e9ecb27d2e50867893f8966230c7cc9c0656d0b1c83b52de1ab
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -15,7 +15,6 @@ service:
     ports:
       main:
         port: 10347
-        targetPort: 4000
 
 midarr:
   admin:
