@@ -14,7 +14,7 @@
 {{- $radarr := $midarr.radarr -}}
 {{- $sonarr := $midarr.sonarr -}}
 
-{{- $host := printf "%v-cnpg-main-rw" (include "tc.v1.common.lib.chart.names.fullname" $) }}
+{{- $host := .Values.cnpg.main.creds.host | trimAll "\"" -}}
 {{- $password := .Values.cnpg.main.creds.password | trimAll "\"" }}
 
 enabled: true
