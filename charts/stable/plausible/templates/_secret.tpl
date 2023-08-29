@@ -1,4 +1,6 @@
 {{- define "plausible.secret" -}}
+{{- $fname := (include "tc.v1.common.lib.chart.names.fullname" .) -}}
+{{- $secretName := printf "%s-secret" $fname -}}
 
 {{- $plausible := .Values.plausible -}}
 {{- $email := $plausible.email -}}
