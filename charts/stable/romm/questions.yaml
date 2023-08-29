@@ -59,13 +59,11 @@ questions:
                 label: Auth User
                 schema:
                   type: string
-                  required: true
                   default: ""
               - variable: pass
                 label: Auth Password
                 schema:
                   type: string
-                  required: true
                   private: true
                   default: ""
 
