@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/slash
   pullPolicy: IfNotPresent
-  tag: v0.3.0@sha256:365ce5f5b4a97939ec87d55ac5579701bc2c07d31457a578697bf9c0b5d8615a
+  tag: v0.4.3@sha256:ee931b868fab72d2aaa218837039ee3fcced6817596cac500f3878e780152b60
 
 service:
   main:
@@ -15,13 +15,6 @@ workload:
     podSpec:
       containers:
         main:
-          probes:
-            liveness:
-              path: "/"
-            readiness:
-              path: "/"
-            startup:
-              path: "/"
           env:
             SLASH_PORT: "{{ .Values.service.main.ports.main.port }}"
 
