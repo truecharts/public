@@ -58,6 +58,12 @@ workload:
                 name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: mariadb-password
 
+persistence:
+  nginx:
+    enabled: true
+    mountPath: "/var/run/nginx"
+    type: emptyDir
+
 mariadb:
   enabled: true
   mariadbUsername: servas
