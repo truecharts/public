@@ -40,7 +40,7 @@ workload:
                 name: servas-secrets
                 key: APP_KEY
             APP_ENV: production
-            APP_DEBUG: true
+            APP_DEBUG: false
             # APP_URL: "http://localhost:{{ .Values.service.main.ports.main.port }}"
             SERVAS_ENABLE_REGISTRATION: true
             DB_CONNECTION: mysql
