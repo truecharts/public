@@ -19,16 +19,16 @@ questions:
                                     attrs:
                                       - variable: APP_NAME
                                         label: App Name
-                                        description: set as http://ip:port or https://mydomain.tld
-                                        schema:
-                                          type: string
-                                          default: ""
-                                      - variable: APP_URL
-                                        label: App Url
                                         description: Web Name
                                         schema:
                                           type: string
                                           default: "Servas"
+                                      - variable: APP_URL
+                                        label: App Url
+                                        description: "Configure it either as http://ip:port or as https://mydomain.tld."
+                                        schema:
+                                          type: string
+                                          default: ""
                                       - variable: APP_DEBUG
                                         label: App Debug
                                         description: App Debug
@@ -43,17 +43,9 @@ questions:
 
 # Include{containerBasic}
 # Include{containerAdvanced}
-
 # Include{containerConfig}
-# Include{podOptions}
 # Include{serviceRoot}
-        - variable: main
-          label: Main Service
-          description: The Primary service on which the healthcheck runs, often the webUI
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
@@ -72,11 +64,10 @@ questions:
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
 # Include{serviceList}
-# Include{persistenceRoot}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: "Main Ingress"
+          label: Main Ingress
           schema:
             additional_attrs: true
             type: dict
@@ -87,15 +78,16 @@ questions:
 # Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}
+
               - variable: runAsUser
-                label: "runAsUser"
-                description: "The UserID of the user running the application"
+                label: runAsUser
+                description: The UserID of the user running the application
                 schema:
                   type: int
                   default: 0
               - variable: runAsGroup
-                label: "runAsGroup"
-                description: "The groupID of the user running the application"
+                label: runAsGroup
+                description: The groupID this App of the user running the application
                 schema:
                   type: int
                   default: 0
@@ -103,8 +95,8 @@ questions:
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
               - variable: fsGroup
-                label: "fsGroup"
-                description: "The group that should own ALL storage."
+                label: fsGroup
+                description: The group that should own ALL storage.
                 schema:
                   type: int
                   default: 568
