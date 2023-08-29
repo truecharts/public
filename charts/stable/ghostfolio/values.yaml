@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/ghostfolio
   pullPolicy: IfNotPresent
-  tag: v1.283.5@sha256:06a3ff744e4571695bf3185710c7addfa74a0318f4d6d53d3e7da7df6ade4516
+  tag: v1.300.0@sha256:ae2af077b3ecf40f20fe2dfa1f413e4ab40e41c937537eee9a986805216d24c4
 
 securityContext:
   container:
@@ -30,21 +30,20 @@ workload:
               path: "/"
               type: http
             startup:
-              path: "/"
-              type: http
+              type: tcp
           env:
             ALPHA_VANTAGE_API_KEY: ""
             ACCESS_TOKEN_SALT:
               secretKeyRef:
-                name: secrets
+                name: ghostfolio-secrets
                 key: ACCESS_TOKEN_SALT
             JWT_SECRET_KEY:
               secretKeyRef:
-                name: secrets
+                name: ghostfolio-secrets
                 key: JWT_SECRET_KEY
             DATABASE_URL:
               secretKeyRef:
-                name: secrets
+                name: ghostfolio-secrets
                 key: DATABASE_URL
             REDIS_HOST:
               secretKeyRef:
