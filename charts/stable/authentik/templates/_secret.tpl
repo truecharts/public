@@ -17,7 +17,7 @@ server-worker:
     AUTHENTIK_REDIS__PASSWORD: {{ .Values.redis.creds.redisPassword | trimAll "\"" }}
 
     {{/* Secret Key */}}
-    AUTHENTIK_SECRET_KEY: {{ $secretKey }}
+    AUTHENTIK_SECRET_KEY: {{ $secretKey | b64dec }}
 
     {{/* Initial credentials */}}
     AUTHENTIK_BOOTSTRAP_EMAIL: {{ .Values.authentik.credentials.email | quote }}
