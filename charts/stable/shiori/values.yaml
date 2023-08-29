@@ -3,6 +3,13 @@ image:
   pullPolicy: IfNotPresent
   tag: v1.5.5@sha256:2aa3fe6e09d5cb801e998a93f3f6ce13e0e7f8e75d567666a800939c6be3a474
 
+service:
+  main:
+    ports:
+      main:
+        port: 10098
+        targetPort: 8080
+
 workload:
   main:
     podSpec:
@@ -22,12 +29,6 @@ workload:
               secretKeyRef:
                 name: cnpg-main-user
                 key: password
-service:
-  main:
-    ports:
-      main:
-        port: 10098
-        targetPort: 8080
 
 persistence:
   data:
