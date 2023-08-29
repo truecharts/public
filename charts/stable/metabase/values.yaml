@@ -8,17 +8,7 @@ service:
     ports:
       main:
         protocol: http
-        targetPort: 3000
         port: 13030
-
-persistence:
-  plugins:
-    enabled: true
-    mountPath: "/plugins"
-
-portal:
-  open:
-    enabled: true
 
 workload:
   main:
@@ -39,6 +29,7 @@ workload:
               path: /
               port: "{{ .Values.service.main.ports.main.targetPort }}"
           env:
+            MB_JETTY_PORT: "{{ .Values.service.main.ports.main.port }}"
             JAVA_TIMEZONE: "{{ .Values.TZ }}"
             MB_DB_TYPE: "postgres"
             MB_DB_USER: "{{ .Values.cnpg.main.user }}"
@@ -53,9 +44,18 @@ workload:
                 name: cnpg-main-user
                 key: password
 
+persistence:
+  plugins:
+    enabled: true
+    mountPath: "/plugins"
+
 # Enabled postgres
 cnpg:
   main:
     enabled: true
     user: metabase
     database: metabase
+
+portal:
+  open:
+    enabled: true
