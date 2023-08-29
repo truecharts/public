@@ -15,19 +15,6 @@ workload:
     podSpec:
       containers:
         main:
-          probes:
-            liveness:
-              type: http
-              path: /
-              port: "{{ .Values.service.main.ports.main.targetPort }}"
-            readiness:
-              type: http
-              path: /
-              port: "{{ .Values.service.main.ports.main.targetPort }}"
-            startup:
-              type: tcp
-              path: /
-              port: "{{ .Values.service.main.ports.main.targetPort }}"
           env:
             MB_JETTY_PORT: "{{ .Values.service.main.ports.main.port }}"
             JAVA_TIMEZONE: "{{ .Values.TZ }}"
