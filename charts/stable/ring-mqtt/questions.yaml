@@ -73,9 +73,7 @@ questions:
           label: Location Ids
           schema:
             type: list
-            empty: true
             default: []
-            required: true
             items:
               - variable: location
                 label: Location
