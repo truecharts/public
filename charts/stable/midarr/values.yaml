@@ -41,6 +41,8 @@ workload:
             - sh
             - -c
             - chmod u+x entry-local.sh && ./entry-local.sh
+          env:
+            PORT: "{{ .Values.service.main.ports.main.port }}"
           envFrom:
             - secretRef:
                 name: "midarr-secrets"
