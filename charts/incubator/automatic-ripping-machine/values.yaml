@@ -25,8 +25,9 @@ workload:
       containers:
         main:
           env:
-            ARM_UID: "{{ .Values.securityContext.container.runAsUser }}"
-            ARM_GID: "{{ .Values.securityContext.container.runAsGroup }}"
+            # default media perms
+            ARM_UID: 568
+            ARM_GID: 568
 
 persistence:
   config:
