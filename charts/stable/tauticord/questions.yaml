@@ -120,7 +120,7 @@ questions:
                 description: IP/internal url of your Tautulli server
                 schema:
                   type: string
-                  required:
+                  required: true
                   default: ""
         - variable: plex
           label: Plex
@@ -133,7 +133,7 @@ questions:
                 description: Enable PlexPass Features.
                 schema:
                   type: boolean
-                  default: true
+                  default: false
               - variable: server_name
                 label: Server Name
                 description: Name of the Plex server.
