@@ -26,13 +26,8 @@ questions:
                                       - variable: APP_DEBUG
                                         label: App Debug
                                         schema:
-                                          type: string
-                                          default: "true"
-                                          enum:
-                                            - value: "true"
-                                              description: "True"
-                                            - value: "false"
-                                              description: "False"
+                                          type: boolean
+                                          default: true
                                       - variable: APP_URL
                                         label: App Url
                                         description: "set as http://ip:port or https://mydomain.tld"
@@ -42,13 +37,8 @@ questions:
                                       - variable: SERVAS_ENABLE_REGISTRATION
                                         label: Servas Enable Registration
                                         schema:
-                                          type: string
-                                          default: "true"
-                                          enum:
-                                            - value: "true"
-                                              description: "True"
-                                            - value: "false"
-                                              description: "False"
+                                          type: boolean
+                                          default: true
 
 # Include{containerBasic}
 # Include{containerAdvanced}
@@ -76,14 +66,6 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: nginx
-          label: "App Nginx Storage"
-          description: "Stores the Application Nginx."
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
