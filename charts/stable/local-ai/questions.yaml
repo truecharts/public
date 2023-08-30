@@ -51,12 +51,6 @@ questions:
                 description: Cublas
               - value: clblas
                 description: Clblas
-        - variable: rebuild
-          label: Rebuild
-          description: Set to false to disable rebuilding from source.
-          schema:
-            type: boolean
-            default: false
         - variable: go_tags
           label: Go Tags
           schema:
@@ -113,8 +107,7 @@ questions:
           schema:
             type: list
             default:
-              - name: gpt-3.5-turbo
-                url: github:go-skynet/model-gallery/gpt4all-j.yaml
+              - url: github:go-skynet/model-gallery/gpt4all-j.yaml
             items:
               - variable: preloadEntry
                 label: Preload Type Entry
@@ -122,12 +115,6 @@ questions:
                   type: dict
                   additional_attrs: true
                   attrs:
-                    - variable: name
-                      label: Name
-                      schema:
-                        type: string
-                        required: true
-                        default: ""
                     - variable: url
                       label: Url
                       schema:
