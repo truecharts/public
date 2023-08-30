@@ -78,6 +78,18 @@ workload:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              path: "/"
+              type: http
+              port: 8080
+            readiness:
+              path: "/"
+              type: http
+              port: 8080
+            startup:
+              type: tcp
+              port: 8080
           env:
             DEBUG: "{{ ternary 1 0 .Values.recipes.debug }}"
             # SCRIPT_NAME: /
