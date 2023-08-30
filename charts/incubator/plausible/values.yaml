@@ -113,8 +113,7 @@ workload:
               type: http
               path: /api/health
             startup:
-              type: http
-              path: /api/health
+              type: tcp
 
 cnpg:
   main:
