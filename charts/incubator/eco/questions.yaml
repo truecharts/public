@@ -10,71 +10,53 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: USERNAME
+                                        label: "UserName"
+                                        description: "Your Steam username  (optionally leave it blank)."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: PASSWRD
+                                        label: "Password"
+                                        description: "Your Steam password (optionally leave it blank)"
+                                        schema:
+                                          type: string
+                                          private: true
+                                          default: ""
+                                      - variable: GAME_ID
+                                        label: "Game ID"
+                                        description: "The ID of the container to download at start up."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: GAME_PARAMS
+                                        label: "Game Params"
+                                        description: "Enter your start up commands for the server."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: VALIDATE
+                                        label: "Validate"
+                                        description: "Set the Variable to true if you want to validate the installation otherwise leave it blank."
+                                        schema:
+                                          type: boolean
+                                          default: true
+
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: USERNAME
-          label: "USERNAME"
-          description: "Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
-          schema:
-            type: string
-            default: ""
-        - variable: PASSWRD
-          label: "PASSWRD"
-          description: "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
-          schema:
-            type: string
-            private: true
-            default: ""
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: GAME_ID
-          label: "GAME_ID"
-          description: "The GAME_ID that the container download at startup.(https://developer.valvesoftware.com/wiki/Dedicated_Servers_List)"
-          schema:
-            type: string
-            default: "739590"
-        - variable: GAME_PARAMS
-          label: "GAME_PARAMS"
-          description: "Enter your start up commands for the server."
-          schema:
-            type: string
-            default: ""
-        - variable: VALIDATE
-          label: "VALIDATE"
-          description: "Set the Variable to true if you want to validate the installation otherwise leave it blank."
-          schema:
-            type: boolean
-            default: true
-        - variable: DATA_PERM
-          label: "DATA_PERM"
-          description: "Container Variable DATAPERM"
-          schema:
-            type: string
-            default: "770"
-        - variable: UMASK
-          label: "UMASK"
-          description: "Container Variable UMASK"
-          schema:
-            type: string
-            default: "000"
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+          label: Main Service
+          description: The Primary service on which the Minecraft Server runs on
           schema:
             additional_attrs: true
             type: dict
@@ -82,36 +64,36 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: "Main Service Port Configuration"
+                      label: Main Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 3001
                               required: true
-        - variable: udpgameport
-          label: 'udpgameport service'
-          description: "UDP Game Port"
+        - variable: game
+          label: Game Service
+          description: The Game service.
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
-                    - variable: udpgameport
-                      label: "udpgameport Service Port Configuration"
+                    - variable: game
+                      label: Game Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 3000
@@ -121,16 +103,16 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: steamcmd
-          label: "steamcmd Storage"
-          description: "Container Path serverdatasteamcmd"
+          label: App SteamCMD Storage
+          description: Stores the Application SteamCMD.
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
         - variable: serverfiles
-          label: "serverfiles Storage"
-          description: "Container Path serverdataserverfiles"
+          label: App Server Files Storage
+          description: Stores the Application Server Files.
           schema:
             additional_attrs: true
             type: dict
@@ -139,7 +121,7 @@ questions:
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: "Main Ingress"
+          label: Main Ingress
           schema:
             additional_attrs: true
             type: dict
