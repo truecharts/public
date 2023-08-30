@@ -26,13 +26,13 @@ workload:
             KAIZOKU_PORT: "{{ .Values.service.main.ports.main.port }}"
             DATABASE_URL:
               secretKeyRef:
-                name: kaizoku-secret
-                key: DATABASE_URL
+                name: cnpg-main-urls
+                key: std
             REDIS_HOST:
               secretKeyRef:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
-                key: url
+                key: plainhost
             REDIS_PORT: 6379
 
 persistence:
