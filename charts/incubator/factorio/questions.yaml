@@ -42,8 +42,8 @@ questions:
                                         label: Update server mods BEFORE starting the server
                                         description: If mods should be updated before starting the server
                                         schema:
-                                          type: string
-                                          default: ""
+                                          type: boolean
+                                          default: false
                                       - variable: USERNAME
                                         label: Factorio.com Username
                                         description: Import your factorio.com username
