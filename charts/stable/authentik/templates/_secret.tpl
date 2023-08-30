@@ -6,7 +6,7 @@
 
   {{- $secretKey := randAlphaNum 32 -}}
   {{- with (lookup "v1" "Secret" .Release.Namespace $fetchname) -}}
-    {{ $secretKey = index .data "AUTHENTIK_SECRET_KEY" }}
+    {{- $secretKey = index .data "AUTHENTIK_SECRET_KEY" | b64dec -}}
   {{- end }}
 
 server-worker:
