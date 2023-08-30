@@ -1,12 +1,12 @@
 apiVersion: v2
-appVersion: "0.3.0"
+appVersion: "0.4.3"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 12.15.0
+    version: 14.0.3
 deprecated: false
 description: A bookmarking and link shortening service that enables easy saving and sharing of links.
-home: https://truecharts.org/charts/incubator/slash
+home: https://truecharts.org/charts/stable/slash
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/slash.png
 keywords:
   - slash
@@ -19,10 +19,10 @@ maintainers:
     url: https://truecharts.org
 name: slash
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/slash
+  - https://github.com/truecharts/charts/tree/master/charts/stable/slash
   - https://github.com/boojack/slash
 type: application
-version: 0.0.2
+version: 0.0.3
 annotations:
   truecharts.org/catagories: |
     - bookmarks
