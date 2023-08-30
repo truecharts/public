@@ -170,48 +170,48 @@ questions:
                 label: Postmark API Key
                 description: Required. Enter your API key.
                 schema:
-                  show_if: [["MAILER_ADAPTER", "=", "Bamboo.PostmarkAdapter"]]
                   type: string
                   private: true
                   default: ""
+                  show_if: [["mailer_adapter", "=", "Bamboo.PostmarkAdapter"]]
               - variable: mailgun_api_key
                 label: Mailgun API Key
                 description: Required. Enter your API key.
                 schema:
-                  show_if: [["MAILER_ADAPTER", "=", "Bamboo.MailgunAdapter"]]
                   type: string
                   default: ""
                   private: true
+                  show_if: [["mailer_adapter", "=", "Bamboo.MailgunAdapter"]]
               - variable: mailgun_domain
                 label: Mailgun Domain
                 description: Required. Enter your Mailgun domain.
                 schema:
-                  show_if: [["MAILER_ADAPTER", "=", "Bamboo.MailgunAdapter"]]
                   type: string
                   default: ""
+                  show_if: [["mailer_adapter", "=", "Bamboo.MailgunAdapter"]]
               - variable: mailgun_base_uri
                 label: Mailgun Base URI
                 description: This is optional. Mailgun makes a difference in the API base URL between sender domains from within the EU and outside. By default, the base URL is set to https://api.mailgun.net/v3. To override this you can pass https://api.eu.mailgun.net/v3 if you are using an EU domain.
                 schema:
-                  show_if: [["MAILER_ADAPTER", "=", "Bamboo.MailgunAdapter"]]
                   type: string
                   default: ""
+                  show_if: [["mailer_adapter", "=", "Bamboo.MailgunAdapter"]]
               - variable: mandrill_api_key
                 label: Mandrill API Key
                 description: Required. Enter your API key.
                 schema:
-                  show_if: [["MAILER_ADAPTER", "=", "Bamboo.MandrillAdapter"]]
                   type: string
                   default: ""
                   private: true
+                  show_if: [["mailer_adapter", "=", "Bamboo.MandrillAdapter"]]
               - variable: sendgrid_api_key
                 label: Sendgrid API Key
                 description: Required. Enter your API key.
                 schema:
-                  show_if: [["MAILER_ADAPTER", "=", "Bamboo.SendGridAdapter"]]
                   type: string
                   default: ""
                   private: true
+                  show_if: [["mailer_adapter", "=", "Bamboo.SendGridAdapter"]]
         - variable: maxmind
           label: Maxmind Configuration
           schema:
@@ -227,9 +227,9 @@ questions:
                   private: true
               - variable: edition
                 label: Maxmind Edition
-                description: MaxMind database edition to use (only if MAXMIND_LICENSE_KEY is set)
+                description: MaxMind database edition to use (only if Maxmind License Key is set)
                 schema:
-                  show_if: [["MAXMIND_LICENSE_KEY", "!=", ""]]
+                  show_if: [["license_key", "!=", ""]]
                   type: string
                   required: true
                   default: GeoLite2-City
