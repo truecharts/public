@@ -10,10 +10,10 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-# Include{containerConfig}
   - variable: redisinsight
     group: App Configuration
     label: Redis Insight Configuration
@@ -64,6 +64,10 @@ questions:
           schema:
             type: int
             default: 30
+
+# Include{containerConfig}
+# Include{podOptions}
+
 # Include{serviceRoot}
         - variable: main
           label: Main Service
