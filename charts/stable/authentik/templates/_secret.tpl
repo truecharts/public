@@ -6,7 +6,7 @@
 
   {{- $secretKey := randAlphaNum 32 -}}
   {{- with (lookup "v1" "Secret" .Release.Namespace $fetchname) -}}
-    {{ $secretKey = index .data "AUTHENTIK_SECRET_KEY" }}
+    {{- $secretKey = index .data "AUTHENTIK_SECRET_KEY" | b64dec -}}
   {{- end }}
 
 server-worker:
@@ -30,10 +30,10 @@ server-worker:
     {{- with .Values.authentik.email.host }}
     AUTHENTIK_EMAIL__HOST: {{ . }}
     {{- end -}}
-    {{- with .Values.authentik.email.user }}
+    {{- with .Values.authentik.email.username }}
     AUTHENTIK_EMAIL__USERNAME: {{ . }}
     {{- end -}}
-    {{- with .Values.authentik.email.pass }}
+    {{- with .Values.authentik.email.password }}
     AUTHENTIK_EMAIL__PASSWORD: {{ . }}
     {{- end -}}
     {{- with .Values.authentik.email.from }}
