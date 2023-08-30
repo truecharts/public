@@ -36,7 +36,6 @@ service:
 llama:
   # 7b, 13b, 70b, code-7b, code-13b, code-34b.
   model: "13b"
-  timeout: 600
 
 workload:
   main:
@@ -49,7 +48,6 @@ workload:
             OPENAI_API_KEY: sk-XXXXXXXXXXXXXXXXXXXX
             OPENAI_API_HOST: '{{ printf "http://%v-api:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.api.ports.api.targetPort }}'
             WAIT_HOSTS: '{{ printf "%v-api:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.api.ports.api.targetPort }}'
-            WAIT_TIMEOUT: "{{ .Values.llama.timeout }}"
   api:
     enabled: true
     type: Deployment
@@ -80,6 +78,8 @@ workload:
               type: tcp
               port: "{{ .Values.service.api.ports.api.targetPort }}"
           args:
+            - /bin/sh
+            - /api/run.sh
             - --model
             - "{{ .Values.llama.model }}"
           env:
