@@ -32,13 +32,13 @@ workload:
           probes:
             liveness:
               type: tcp
-              port: "{{ .Values.service.game.ports.rcon.port }}"
+              port: "{{ .Values.service.rcon.ports.rcon.port }}"
             readiness:
               type: tcp
-              port: "{{ .Values.service.game.ports.rcon.port }}"
+              port: "{{ .Values.service.rcon.ports.rcon.port }}"
             startup:
               type: tcp
-              port: "{{ .Values.service.game.ports.rcon.port }}"
+              port: "{{ .Values.service.rcon.ports.rcon.port }}"
           env:
             PORT: "{{ .Values.service.main.ports.main.port }}"
             RCON_PORT: "{{ .Values.service.rcon.ports.rcon.port }}"
