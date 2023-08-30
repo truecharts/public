@@ -1,11 +1,1 @@
-{{/* Make sure all variables are set properly */}}
-{{- include "tc.v1.common.loader.init" . }}
-
-{{- $secret := include "kaizoku.secret" . | fromYaml -}}
-{{- if $secret -}}
-  {{ $secret := (mustMergeOverwrite .Values.secret $secret) }}
-  {{- $_ := set .Values "secret" $secret -}}
-{{- end -}}
-
-{{/* Render the templates */}}
-{{ include "tc.v1.common.loader.apply" . }}
+{{ include "tc.v1.common.loader.all" . }}
