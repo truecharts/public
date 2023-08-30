@@ -3,47 +3,56 @@ image:
   pullPolicy: IfNotPresent
   tag: v2.0.0@sha256:1ef59e863cfdcddc308d4ec743091bc8eda4f62e16b269cf4d778c89b8c02a68
 
+service:
+  main:
+    ports:
+      main:
+        port: 10277
+
 # Plausible self-hosting documentation
 # https://plausible.io/docs/self-hosting
-
 plausible:
   # Server
-  BASE_URL: http://localhost
-  DISABLE_REGISTRATION: "true"
-  LOG_FAILED_LOGIN_ATTEMPTS: false
+  server:
+    base_url: http://localhost:10277
+    disable_registration: "true"
+    log_failed_login_attempts: false
+  # Logging
+    log_level: warn
 
   # Database
-  CLICKHOUSE_FLUSH_INTERVAL_MS: 5000
-  CLICKHOUSE_MAX_BUFFER_SIZE: 10000
+  db:
+    clickhouse_flush_interval_ms: 5000
+    clickhouse_max_buffer_size: 10000
 
   # Mailer/SMTP Setup
-  MAILER_EMAIL: hello@plausible.local
-  MAILER_NAME: ""
-  SMTP_HOST_ADDR: localhost
-  SMTP_HOST_PORT: 25
-  SMTP_USER_NAME: ""
-  SMTP_USER_PWD: ""
-  SMTP_HOST_SSL_ENABLED: false
-  SMTP_RETRIES: 2
-  MAILER_ADAPTER: Bamboo.SMTPAdapter
-  POSTMARK_API_KEY: ""
-  MAILGUN_API_KEY: ""
-  MAILGUN_DOMAIN: ""
-  MAILGUN_BASE_URI: ""
-  MANDRILL_API_KEY: ""
-  SENDGRID_API_KEY: ""
+  email:
+    mailer_email: hello@plausible.local
+    mailer_name: ""
+    smtp_host_address: localhost
+    smtp_host_port: 25
+    smtp_user_name: ""
+    smtp_user_password: ""
+    smtp_host_ssl_enabled: false
+    smtp_retries: 2
+    mailer_adapter: Bamboo.SMTPAdapter
+    postmark_api_key: ""
+    mailgun_api_key: ""
+    mailgun_domain: ""
+    mailgun_base_uri: ""
+    mandrill_api_key: ""
+    sendgrid_api_key: ""
 
   # IP Geolocation
   # todo(investigate where automatic updates are stored and configure storage accordingly)
-  MAXMIND_LICENSE_KEY: ""
-  MAXMIND_EDITION: GeoLite2-City
+  maxmind:
+    license_key: ""
+    edition: GeoLite2-City
 
   # Google Search Integration
-  GOOGLE_CLIENT_ID: ""
-  GOOGLE_CLIENT_SECRET: ""
-
-  # Logging
-  LOG_LEVEL: warn
+  google:
+    client_id: ""
+    client_secret: ""
 
 workload:
   main:
@@ -89,6 +98,8 @@ workload:
             runAsUser: 1000
             runAsGroup: 1000
             readOnlyRootFilesystem: false
+          env:
+            PORT: "{{ .Values.service.main.ports.main.port }}"
           envFrom:
             - configMapRef:
                 name: plausible-config
@@ -102,15 +113,7 @@ workload:
               type: http
               path: /api/health
             startup:
-              type: http
-              path: /api/health
-
-service:
-  main:
-    ports:
-      main:
-        targetPort: 8000
-        port: 10277
+              type: tcp
 
 cnpg:
   main:
