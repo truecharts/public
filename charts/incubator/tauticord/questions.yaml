@@ -9,304 +9,374 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-                                - variable: env
-                                  group: "App Configuration"
-                                  label: "Image Environment"
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                      - variable: TC_DISCORD_BOT_TOKEN
-                                        label: "Discord Bot Token"
-                                        description: "Discord Bot Token."
-                                        schema:
-                                          type: string
-                                          required: true
-                                          private: true
-                                          default: ""
-                                      - variable: TC_DISCORD_SERVER_ID
-                                        label: "Discord Server ID"
-                                        description: "Discord Server ID."
-                                        schema:
-                                          type: string
-                                          required: true
-                                          default: ""
-                                      - variable: TC_TAUTULLI_URL
-                                        label: "Tautulli URL"
-                                        description: "IP/cluster URL of your Tautulli server."
-                                        schema:
-                                          type: string
-                                          required: true
-                                          default: ""
-                                      - variable: TC_TAUTULLI_KEY
-                                        label: "Tautulli Key"
-                                        description: "API key for Tautulli server."
-                                        schema:
-                                          type: string
-                                          required: true
-                                          private: true
-                                          default: ""
-                                      - variable: TC_PLEX_PASS
-                                        label: "Plex Pass"
-                                        description: "Enable PlexPass Features."
-                                        schema:
-                                          type: string
-                                          default: "False"
-                                          enum:
-                                            - value: "False"
-                                              description: "False"
-                                            - value: "True"
-                                              description: "True"
-                                      - variable: TC_REFRESH_SECONDS
-                                        label: "Refresh Seconds"
-                                        description: "Seconds between updates."
-                                        schema:
-                                          type: int
-                                          default: 15
-                                          min: 5
-                                          max: 60
-                                      - variable: TC_TERMINATE_MESSAGE
-                                        label: "Terminate Message"
-                                        description: "Message sent to users when a stream is killed."
-                                        schema:
-                                          type: string
-                                          default: "Your stream has ended."
-                                      - variable: TC_SERVER_NAME
-                                        label: "Server Name"
-                                        description: "Name of the Plex server."
-                                        schema:
-                                          type: string
-                                          default: "Plex"
-                                      - variable: TC_USE_24_HOUR_TIME
-                                        label: "Use 24 Hour Time"
-                                        description: "Whether to display times in 24-hour time."
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                      - variable: hide_info
-                                        label: Show Hidden Info Settings
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                          show_subquestions_if: true
-                                          subquestions:
-                                            - variable: TC_HIDE_USERNAMES
-                                              label: "Hide Usernames"
-                                              description: "Whether to hide usernames in the streams view."
-                                              schema:
-                                                type: boolean
-                                                default: false
-                                            - variable: TC_HIDE_PLATFORMS
-                                              label: "Hide Platforms"
-                                              description: "Whether to hide platforms in the streams view."
-                                              schema:
-                                                type: boolean
-                                                default: false
-                                            - variable: TC_HIDE_PLAYER_NAMES
-                                              label: "Hide Player Names"
-                                              description: "Whether to hide player names in the streams view."
-                                              schema:
-                                                type: boolean
-                                                default: false
-                                            - variable: TC_HIDE_QUALITY
-                                              label: "Hide Quality"
-                                              description: "Whether to hide quality profiles in the streams view."
-                                              schema:
-                                                type: boolean
-                                                default: false
-                                            - variable: TC_HIDE_BANDWIDTH
-                                              label: "Hide Bandwidth"
-                                              description: "Whether to hide bandwidth in the streams view."
-                                              schema:
-                                                type: boolean
-                                                default: false
-                                            - variable: TC_HIDE_TRANSCODE
-                                              label: "Hide Transcode"
-                                              description: "Whether to hide transcoding statuses in the streams view."
-                                              schema:
-                                                type: boolean
-                                                default: false
-                                            - variable: TC_HIDE_PROGRESS
-                                              label: "Hide Progress"
-                                              description: "Whether to hide stream progress in the streams view."
-                                              schema:
-                                                type: boolean
-                                                default: false
-                                            - variable: TC_HIDE_ETA
-                                              label: "Hide ETA"
-                                              description: "Whether to hide stream ETAs in the streams view."
-                                              schema:
-                                                type: boolean
-                                                default: false
-                                      - variable: tc_vc_stats
-                                        label: Show VC Stats Settings
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                          show_subquestions_if: true
-                                          subquestions:
-                                            - variable: TC_VC_STATS_CATEGORY_NAME
-                                              label: "VC Stats Category Name"
-                                              description: "Name of the stats voice channel category."
-                                              schema:
-                                                type: string
-                                                default: "Tautulli Stats"
-                                            - variable: TC_VC_STREAM_COUNT
-                                              label: "VC Stream Count"
-                                              description: "Whether to display current stream count in a voice channel."
-                                              schema:
-                                                type: boolean
-                                                default: false
-                                            - variable: TC_VC_TRANSCODE_COUNT
-                                              label: "VC Transcode Count"
-                                              description: "Whether to display current transcode count in a voice channel."
-                                              schema:
-                                                type: boolean
-                                                default: false
-                                            - variable: TC_VC_BANDWIDTH
-                                              label: "VC Bandwidth"
-                                              description: "Whether to display current bandwidth in a voice channel."
-                                              schema:
-                                                type: boolean
-                                                default: false
-                                            - variable: TC_VC_LOCAL_BANDWIDTH
-                                              label: "VC Local Bandwidth"
-                                              description: "Whether to display current local bandwidth in a voice channel."
-                                              schema:
-                                                type: boolean
-                                                default: false
-                                            - variable: TC_VC_REMOTE_BANDWIDTH
-                                              label: "VC Remote Bandwidth"
-                                              description: "Whether to display current remote bandwidth in a voice channel."
-                                              schema:
-                                                type: boolean
-                                                default: false
-                                            - variable: TC_VC_PLEX_STATUS
-                                              label: "VC Plex Status"
-                                              description: "Whether to display Plex online status in a voice channel."
-                                              schema:
-                                                type: boolean
-                                                default: false
-                                      - variable: tc_vc_libraries
-                                        label: Show VC Libraries Settings
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                          show_subquestions_if: true
-                                          subquestions:
-                                            - variable: TC_VC_LIBRARIES_CATEGORY_NAME
-                                              label: "VC Libraries Category Name"
-                                              description: "Name of the libraries voice channel category."
-                                              schema:
-                                                type: string
-                                                default: "Tautulli Libraries"
-                                            - variable: TC_VC_LIBRARY_STATS
-                                              label: "VC Library Stats"
-                                              description: "Whether to display library statistics in voice channels."
-                                              schema:
-                                                type: boolean
-                                                default: false
-                                            - variable: TC_VC_LIBRARY_NAMES
-                                              label: "VC Library Names"
-                                              description: "Comma-separated list of libraries to display statistics of."
-                                              schema:
-                                                type: string
-                                                default: "Movies,TV Shows,Music"
-                                            - variable: TC_VC_LIBRARY_REFRESH_SECONDS
-                                              label: "VC Library Names"
-                                              description: "Seconds between updates."
-                                              schema:
-                                                type: int
-                                                default: 3600
-                                                min: 300
-                                            - variable: TC_VC_LIBRARY_USE_EMOJIS
-                                              label: "VC Library Use Emojis"
-                                              description: "Whether to use emojis to symbolize library types."
-                                              schema:
-                                                type: boolean
-                                                default: true
-                                            - variable: TC_VC_TV_SERIES_COUNT
-                                              label: "VC TV Series Count"
-                                              description: "Display series counts for all selected series libraries."
-                                              schema:
-                                                type: boolean
-                                                default: true
-                                            - variable: TC_VC_TV_EPISODE_COUNT
-                                              label: "VC TV Episode Count"
-                                              description: "Display episode counts for all selected series libraries."
-                                              schema:
-                                                type: boolean
-                                                default: true
-                                            - variable: TC_VC_MUSIC_ARTIST_COUNT
-                                              label: "VC Music Artist Count"
-                                              description: "Display artist counts for all selected music libraries."
-                                              schema:
-                                                type: boolean
-                                                default: true
-                                            - variable: TC_VC_MUSIC_TRACK_COUNT
-                                              label: "VC Music Track Count"
-                                              description: "Display track counts for all selected music libraries."
-                                              schema:
-                                                type: boolean
-                                                default: true
-                                      - variable: tc_vc_performance
-                                        label: Show VC Performance Settings
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                          show_subquestions_if: true
-                                          subquestions:
-                                            - variable: TC_VC_PERFORMANCE_CATEGORY_NAME
-                                              label: "VC Performance Category Name"
-                                              description: "Name of the performance voice channel category."
-                                              schema:
-                                                type: string
-                                                default: "Performance"
-                                            - variable: TC_MONITOR_CPU
-                                              label: "Monitor CPU"
-                                              description: "Whether to monitor CPU performance."
-                                              schema:
-                                                type: boolean
-                                                default: false
-                                            - variable: TC_MONITOR_MEMORY
-                                              label: "Monitor Memory"
-                                              description: "Whether to monitor RAM performance."
-                                              schema:
-                                                type: boolean
-                                                default: false
-                                      - variable: TC_DISCORD_ADMIN_IDS
-                                        label: "Discord Admin IDS"
-                                        description: "Comma separated of Discord IDs with admin privileges."
-                                        schema:
-                                          type: string
-                                          default: ""
-                                      - variable: TC_DISCORD_POST_SUMMARY_MESSAGE
-                                        label: "Discord Admin IDS"
-                                        description: "Whether to post a stat summary text message."
-                                        schema:
-                                          type: boolean
-                                          default: true
-                                      - variable: TC_DISCORD_CHANNEL_NAME
-                                        label: "Discord Channel Name"
-                                        description: "Channel name for stats summary text message."
-                                        schema:
-                                          type: string
-                                          default: "Tautulli Status"
-                                      - variable: TC_DISCORD_NITRO
-                                        label: "Discord Nitro"
-                                        description: "Whether the Discord server has a Nitro subscription. (bot will upload custom emojis)"
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                      - variable: TC_ALLOW_ANALYTICS
-                                        label: "TC Allow Analytics"
-                                        description: "Allow Anonymous Crash Analytics"
-                                        schema:
-                                          type: boolean
-                                          default: false
-
 # Include{containerBasic}
 # Include{containerAdvanced}
+
+  - variable: tauticord
+    group: App Configuration
+    label: Tauticord
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: refresh_seconds
+          label: Refresh Seconds
+          description: Seconds between updates.
+          schema:
+            type: int
+            default: 15
+            min: 5
+            max: 60
+        - variable: terminate_message
+          label: Terminate Message
+          description: Message sent to users when a stream is killed.
+          schema:
+            type: string
+            default: "Your stream has ended."
+        - variable: use_24_hour_time
+          label: Use 24 Hour Time
+          description: Whether to display times in 24-hour time.
+          schema:
+            type: boolean
+            default: false
+        - variable: use_friendly_names
+          label: Use Friendly Names
+          description: Whether to display friendly names.
+          schema:
+            type: boolean
+            default: false
+        - variable: allow_analytics
+          label: Allow Analytics
+          description: Allow Anonymous Crash Analytics.
+          schema:
+            type: boolean
+            default: false
+        - variable: discord
+          label: Discord
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: bot_token
+                label: Discord Bot Token
+                schema:
+                  type: string
+                  required: true
+                  private: true
+                  default: ""
+              - variable: server_id
+                label: Discord Server Id
+                schema:
+                  type: string
+                  required: true
+                  private: true
+                  default: ""
+              - variable: admin_ids
+                label: Discord Admin Ids
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: id
+                      label: Id
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+              - variable: post_summary_message
+                label: Post Summary Message
+                description: Whether to post a stat summary text message.
+                schema:
+                  type: boolean
+                  default: true
+              - variable: channel_name
+                label: Channel Name
+                description: Channel name for stats summary text message.
+                schema:
+                  type: string
+                  default: "tautulli"
+              - variable: nitro
+                label: Nitro
+                description: Whether the Discord server has a Nitro subscription.
+                schema:
+                  type: boolean
+                  default: false
+        - variable: tautulli
+          label: Tautulli
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: key
+                label: Key
+                description: API key for Tautulli server.
+                schema:
+                  type: string
+                  required: true
+                  private: true
+                  default: ""
+              - variable: url
+                label: Url
+                description: IP/internal url of your Tautulli server
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+        - variable: plex
+          label: Plex
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: pass
+                label: Pass
+                description: Enable PlexPass Features.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: server_name
+                label: Server Name
+                description: Name of the Plex server.
+                schema:
+                  type: string
+                  default: "Plex"
+        - variable: hide
+          label: Hide
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: usernames
+                label: Usernames
+                description: Whether to hide usernames in the streams view.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: platforms
+                label: Platforms
+                description: Whether to hide platforms in the streams view.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: player_names
+                label: Player Names
+                description: Whether to hide player names in the streams view.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: quality
+                label: Quality
+                description: Whether to hide quality profiles in the streams view.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: bandwidth
+                label: Bandwidth
+                description: Whether to hide bandwidth in the streams view.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: transcode
+                label: Transcode
+                description: Whether to hide transcoding statuses in the streams view.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: progress
+                label: Progress
+                description: Whether to hide stream progress in the streams view.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: eta
+                label: Eta
+                description: Whether to hide stream ETAs in the streams view
+                schema:
+                  type: boolean
+                  default: false
+        - variable: cat_stats
+          label: Category Stats
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: name
+                label: Name
+                description: Name of the stats voice channel category
+                schema:
+                  type: string
+                  required: true
+                  default: "Tautulli Stats"
+              - variable: stream_count_enabled
+                label: Stream Count Enabled
+                description: Whether to display current stream count in a voice channel.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: stream_count_channel_id
+                label: Stream Count Channel Id
+                description: Optional ID of the Discord voice channel to display stream count.
+                schema:
+                  type: int
+                  default: 0
+              - variable: stream_transcode_count_enabled
+                label: Stream Transcode Count Enabled
+                description: Whether to display current transcode count in a voice channel.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: stream_count_channel_id
+                label: Stream Transcode Count Channel Id
+                description: Optional ID of the Discord voice channel to display transcode count.
+                schema:
+                  type: int
+                  default: 0
+              - variable: stream_bandwidth_enabled
+                label: Stream Bandwidth Enabled
+                description: Whether to display current bandwidth in a voice channel.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: stream_bandwidth_channel_id
+                label: Stream Bandwidth Channel Id
+                description: Optional ID of the Discord voice channel to display bandwidth.
+                schema:
+                  type: int
+                  default: 0
+              - variable: stream_local_bandwidth_enabled
+                label: Stream Local Bandwidth Enabled
+                description: Whether to display current local bandwidth in a voice channel.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: stream_local_bandwidth_channel_id
+                label: Stream Local Bandwidth Channel Id
+                description: Optional ID of the Discord voice channel to display local bandwidth.
+                schema:
+                  type: int
+                  default: 0
+              - variable: stream_remote_bandwidth_enabled
+                label: Stream Remote Bandwidth Enabled
+                description: Whether to display current remote bandwidth in a voice channel.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: stream_remote_bandwidth_channel_id
+                label: Stream Remote Bandwidth Channel Id
+                description: Optional ID of the Discord voice channel to display remote bandwidth.
+                schema:
+                  type: int
+                  default: 0
+              - variable: stream_plex_status_enabled
+                label: Stream Plex Status Enabled
+                description: Whether to display Plex online status in a voice channel.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: stream_plex_status_channel_id
+                label: Stream Plex Status Channel Id
+                description: Optional ID of the Discord voice channel to display Plex online status.
+                schema:
+                  type: int
+                  default: 0
+        - variable: cat_libraries
+          label: Category Libraries
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: name
+                label: Name
+                description: Name of the libraries voice channel category.
+                schema:
+                  type: string
+                  required: true
+                  default: "Plex Library Stats"
+              - variable: library_stats_enabled
+                label: Library Stats Enabled
+                description: Whether to display library statistics in voice channels.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: library_names
+                label: Library Names
+                schema:
+                  type: list
+                  empty: false
+                  default:
+                    - Movies
+                    - TV SHows
+                    - Music
+                  items:
+                    - variable: library
+                      label: Library
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+              - variable: refresh_seconds
+                label: Refresh Seconds
+                description: Seconds between updates (5-minute minimum built-in).
+                schema:
+                  type: int
+                  required: True
+                  default: 3600
+                  min: 60
+              - variable: use_emojis
+                label: Use Emojis
+                description: Whether to use emojis to symbolize library types.
+                schema:
+                  type: boolean
+                  default: true
+              - variable: tv_series_count_enabled
+                label: TV Series Count Enabled
+                description: Display series counts for all selected "TV Shows" libraries.
+                schema:
+                  type: boolean
+                  default: true
+              - variable: tv_episode_count_enabled
+                label: TV Episode Count Enabled
+                description: Display episode counts for all selected "TV Shows" libraries.
+                schema:
+                  type: boolean
+                  default: true
+              - variable: music_artist_count_enabled
+                label: Music Artist Count Enabled
+                description: Display artist counts for all selected "Music" libraries.
+                schema:
+                  type: boolean
+                  default: true
+              - variable: music_track_count_enabled
+                label: Music Track Count Enabled
+                description: Display track counts for all selected "Music" libraries.
+                schema:
+                  type: boolean
+                  default: true
+        - variable: cat_performance
+          label: Category Performance
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: name
+                label: Name
+                description: Name of the performance voice channel category.
+                schema:
+                  type: string
+                  required: true
+                  default: "Performance"
+              - variable: monitor_cpu_enabled
+                label: Monitor CPU Enabled
+                description: Whether to monitor CPU performance.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: monitor_memory_enabled
+                label: Monitor Memory Enabled
+                description: Whether to monitor RAM performance (see Performance.
+                schema:
+                  type: boolean
+                  default: false
 
 # Include{containerConfig}
 # Include{podOptions}
