@@ -12,7 +12,7 @@ nginx-config:
         http {
           include /etc/nginx/mime.types;
           server {
-            listen {{ .Values.service.main.ports.main.port }};
+            listen 80;
             server_name _;
             client_max_body_size 16M;
             # serve media files

@@ -15,11 +15,10 @@ securityContext:
 
 service:
   main:
-    targetSelectorAll: true
     ports:
       main:
+        targetPort: 80
         port: 10029
-        targetSelectorAll: true
 
 recipes:
   debug: false
@@ -141,17 +140,17 @@ workload:
               enabled: true
               type: http
               path: /
-              port: "{{ .Values.service.main.ports.main.port }}"
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
             readiness:
               enabled: true
               type: http
               path: /
-              port: "{{ .Values.service.main.ports.main.port }}"
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
             startup:
               enabled: true
               type: http
               path: /
-              port: "{{ .Values.service.main.ports.main.port }}"
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
 
 persistence:
   media:
