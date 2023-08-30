@@ -26,7 +26,7 @@ nginx-config:
             # pass requests for dynamic content to gunicorn
             location / {
               proxy_set_header Host $http_host;
-              proxy_pass http://localhost:{{ .Values.service.main.ports.main.port }};
+              proxy_pass http://localhost:8080;
               proxy_set_header X-Forwarded-Proto $http_x_forwarded_proto;
             }
           }

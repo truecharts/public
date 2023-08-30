@@ -80,7 +80,6 @@ workload:
       containers:
         main:
           env:
-            TANDOOR_PORT: "{{ .Values.service.main.ports.main.port }}"
             DEBUG: "{{ ternary 1 0 .Values.recipes.debug }}"
             # SCRIPT_NAME: /
             # STATIC_URL=/static/
@@ -137,6 +136,22 @@ workload:
           primary: true
           enabled: true
           imageSelector: nginxImage
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              path: /
+              port: "{{ .Values.service.main.ports.main.port }}"
+            readiness:
+              enabled: true
+              type: http
+              path: /
+              port: "{{ .Values.service.main.ports.main.port }}"
+            startup:
+              enabled: true
+              type: http
+              path: /
+              port: "{{ .Values.service.main.ports.main.port }}"
 
 persistence:
   media:
