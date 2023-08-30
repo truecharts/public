@@ -26,7 +26,7 @@ nginx-config:
             # pass requests for dynamic content to gunicorn
             location / {
               proxy_set_header Host $http_host;
-              proxy_pass http://localhost:8080;
+              proxy_pass '{{ printf "http://%v:%v" (include "tc.v1.common.lib.chart.names.fullname" $) 8080 }}';
               proxy_set_header X-Forwarded-Proto $http_x_forwarded_proto;
             }
           }
