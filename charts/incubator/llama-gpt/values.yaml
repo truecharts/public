@@ -34,10 +34,9 @@ service:
         port: 8000
 
 llama:
-  default_model: "/models/llama-2-7b-chat.bin"
+  # 7b, 13b, 70b, code-7b, code-13b, code-34b.
+  model: "13b"
   timeout: 600
-  n_gqa: "8"
-  mlock: true
 
 workload:
   main:
@@ -49,7 +48,6 @@ workload:
             # doesnt need to be exposed, gui will use the api backend
             OPENAI_API_KEY: sk-XXXXXXXXXXXXXXXXXXXX
             OPENAI_API_HOST: '{{ printf "http://%v-api:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.api.ports.api.targetPort }}'
-            DEFAULT_MODEL: "{{ .Values.llama.default_model }}"
             WAIT_HOSTS: '{{ printf "%v-api:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.api.ports.api.targetPort }}'
             WAIT_TIMEOUT: "{{ .Values.llama.timeout }}"
   api:
@@ -81,10 +79,19 @@ workload:
             startup:
               type: tcp
               port: "{{ .Values.service.api.ports.api.targetPort }}"
+          args:
+            - --model
+            - "{{ .Values.llama.model }}"
           env:
-            MODEL: "{{ .Values.llama.default_model }}"
-            N_GQA: "{{ .Values.llama.n_gqa }}"
-            USE_MLOCK: "{{ .Values.llama.mlock }}"
+            USE_MLOCK: true
+
+persistence:
+  models:
+    enabled: true
+    mountPath: "/models"
+  api:
+    enabled: true
+    mountPath: "/api"
 
 portal:
   open:
