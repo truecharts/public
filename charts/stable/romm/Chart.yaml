@@ -8,6 +8,10 @@ dependencies:
     name: mariadb
     repository: https://deps.truecharts.org/
     version: 7.0.70
+  - condition: redis.enabled
+    name: redis
+    repository: https://deps.truecharts.org
+    version: 7.0.6
 deprecated: false
 description: game library manager focused in retro gaming
 home: https://truecharts.org/charts/stable/romm
@@ -25,7 +29,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/romm
   - https://github.com/zurdi15/romm
 type: application
-version: 2.0.2
+version: 2.0.3
 annotations:
   truecharts.org/catagories: |
     - media
