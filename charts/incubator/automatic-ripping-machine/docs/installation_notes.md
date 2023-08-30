@@ -3,7 +3,9 @@
 Installation notes and warnings for A.R.M
 
 :::warning
+
 This app uses advanced privileges aka "GOD MODE" on the host
+
 :::
 
 Configure the app and storage.
