@@ -51,23 +51,6 @@ questions:
                 description: Cublas
               - value: clblas
                 description: Clblas
-        - variable: go_tags
-          label: Go Tags
-          schema:
-            type: string
-            default: "stablediffusion"
-            show_if: [[rebuild, "=", true]]
-            enum:
-              - value: stablediffusion
-                description: Stable Diffusion
-              - value: tts
-                description: TTS
-        - variable: context_size
-          label: Context Size
-          description: Default models context size.
-          schema:
-            type: string
-            default: "512"
         - variable: debug
           label: Debug
           description: Enable Debug Mode.
