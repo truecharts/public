@@ -10,58 +10,57 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-                                - variable: notifiarr
-                                  group: App Configuration
-                                  label: Image Environment
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                      - variable: apikey
-                                        label: Notifiarr All API Key
-                                        description: Notifiarr All Integrations API key from https://notifiarr.com
-                                        schema:
-                                          type: string
-                                          default: ""
-                                          required: true
-                                      - variable: upstreams
-                                        label: Upstreams
-                                        description: Controls which IP is written to the web server log file (requestor or x-forwarded-for header). Also allows the x-webauth-user header for proxy authentication. Separate with spaces. The default kubernetes network is pre-filled.
-                                        schema:
-                                          type: list
-                                          default:
-                                            - 172.16.0.0/16
-                                          items:
-                                            - variable: upstreamEntry
-                                              label: Upstream
-                                              description: Upstream IP or CIDR
-                                              schema:
-                                                type: string
-                                                default: ""
-                                                required: true
-                                      - variable: credentials
-                                        label: Web UI Credentials
-                                        schema:
-                                          additional_attrs: true
-                                          type: dict
-                                          attrs:
-                                            - variable: username
-                                              label: Web UI Username
-                                              description: Default username is admin. Change it here.
-                                              schema:
-                                                type: string
-                                                default: ""
-                                                required: true
-                                            - variable: password
-                                              label: Web UI Password
-                                              description: Set a first time login password (minimum 9 characters) & change the password from the Web UI to encrypt it. If you don't set this you will need to check the logs on first start to find the generated password.
-                                              schema:
-                                                type: string
-                                                default: ""
-                                                required: true
-
 # Include{containerBasic}
 # Include{containerAdvanced}
+  - variable: notifiarr
+    group: App Configuration
+    label: Image Environment
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: apikey
+          label: Notifiarr All API Key
+          description: Notifiarr All Integrations API key from https://notifiarr.com
+          schema:
+            type: string
+            default: ""
+            required: true
+        - variable: upstreams
+          label: Upstreams
+          description: Controls which IP is written to the web server log file (requestor or x-forwarded-for header). Also allows the x-webauth-user header for proxy authentication. Separate with spaces. The default kubernetes network is pre-filled.
+          schema:
+            type: list
+            default:
+              - 172.16.0.0/16
+            items:
+              - variable: upstreamEntry
+                label: Upstream
+                description: Upstream IP or CIDR
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+        - variable: credentials
+          label: Web UI Credentials
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: username
+                label: Web UI Username
+                description: Default username is admin. Change it here.
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+              - variable: password
+                label: Web UI Password
+                description: Set a first time login password (minimum 9 characters) & change the password from the Web UI to encrypt it. If you don't set this you will need to check the logs on first start to find the generated password.
+                schema:
+                  type: string
+                  default: ""
+                  required: true
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
