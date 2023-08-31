@@ -1,0 +1,262 @@
+# Include{groups}
+portals: {}
+questions:
+# Include{global}
+# Include{workload}
+# Include{workloadDeployment}
+
+# Include{replicas1}
+# Include{podSpec}
+# Include{containerMain}
+
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: USERNAME
+                                        label: "UserName"
+                                        description: "Your Steam username  (optionally leave it blank)."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: PASSWRD
+                                        label: "Password"
+                                        description: "Your Steam password (optionally leave it blank)"
+                                        schema:
+                                          type: string
+                                          private: true
+                                          default: ""
+                                      - variable: GAME_ID
+                                        label: "Game ID"
+                                        description: "The ID of the container to download at start up."
+                                        schema:
+                                          type: string
+                                          default: "2465200"
+                                      - variable: GAME_PARAMS
+                                        label: "Game Params"
+                                        description: "Enter your start up commands for the server."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: VALIDATE
+                                        label: "Validate"
+                                        description: "Set the Variable to true if you want to validate the installation otherwise leave it blank."
+                                        schema:
+                                          type: boolean
+                                          default: true
+
+# Include{containerBasic}
+# Include{containerAdvanced}
+
+  - variable: sonsoftheforest
+    group: App Configuration
+    label: Sons of the Forest
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: ServerName
+          label: Server Name
+          schema:
+            type: string
+            required: true
+            default: "Sons Of The Forest Docker Server"
+        - variable: MaxPlayers
+          label: Max Players
+          schema:
+            type: int
+            required: true
+            default: 8
+        - variable: Password
+          label: Password
+          schema:
+            type: string
+            private: true
+            default: ""
+        - variable: LanOnly
+          label: Lan Only
+          schema:
+            type: boolean
+            required: true
+            default: true
+        - variable: SaveSlot
+          label: Save Slot
+          schema:
+            type: int
+            required: true
+            default: 1
+        - variable: SaveMode
+          label: Save Mode
+          schema:
+            type: string
+            required: true
+            default: "Continue"
+        - variable: GameMode
+          label: Game Mode
+          schema:
+            type: string
+            required: true
+            default: "Normal"
+        - variable: SaveInterval
+          label: Save Interval
+          schema:
+            type: int
+            required: true
+            default: 600
+        - variable: IdleDayCycleSpeed
+          label: Idle Day Cycle Speed
+          schema:
+            type: string
+            required: true
+            default: "0.0"
+        - variable: IdleTargetFramerate
+          label: Idle Target Framerate
+          schema:
+            type: int
+            required: true
+            default: 5
+        - variable: ActiveTargetFramerate
+          label: Active Target Framerate
+          schema:
+            type: int
+            required: true
+            default: 60
+        - variable: LogFilesEnabled
+          label: Log Files Enabled
+          schema:
+            type: boolean
+            default: false
+        - variable: TimestampLogFilenames
+          label: Timestamp Log Filenames
+          schema:
+            type: boolean
+            default: true
+        - variable: TimestampLogEntries
+          label: Timestamp Log Entries
+          schema:
+            type: boolean
+            default: true
+
+# Include{containerConfig}
+# Include{podOptions}
+# Include{serviceRoot}
+        - variable: main
+          label: Main Service
+          description: The Primary service on which the Minecraft Server runs on
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: main
+                      label: Main Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 8766
+                              required: true
+        - variable: query
+          label: Query Service ports
+          description: The Query service.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: query
+                      label: Query Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 27016
+                              required: true
+        - variable: sync
+          label: Sync Service ports
+          description: The Query service.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: sync
+                      label: Sync Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 9700
+                              required: true
+# Include{serviceExpertRoot}
+# Include{serviceExpert}
+# Include{serviceList}
+# Include{persistenceRoot}
+        - variable: steamcmd
+          label: App SteamCMD Storage
+          description: Stores the Application SteamCMD.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: serverfiles
+          label: App Server Files Storage
+          description: Stores the Application Server Files.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceList}
+
+# Include{securityContextRoot}
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
+# Include{securityContextContainer}
+# Include{securityContextAdvanced}
+# Include{securityContextPod}
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
+                schema:
+                  type: int
+                  default: 568
+
+# Include{resources}
+# Include{advanced}
+# Include{addons}
+# Include{codeserver}
+# Include{netshoot}
+# Include{vpn}
+# Include{documentation}

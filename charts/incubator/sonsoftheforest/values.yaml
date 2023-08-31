@@ -1,0 +1,97 @@
+image:
+  repository: tccr.io/truecharts/sonsoftheforest
+  pullPolicy: IfNotPresent
+  tag: vlatest@sha256:CHANGE_ME
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: udp
+        targetPort: 8766
+  query:
+    enabled: true
+    ports:
+      query:
+        enabled: true
+        protocol: udp
+        port: 27016
+  sync:
+    enabled: true
+    ports:
+      sync:
+        enabled: true
+        protocol: udp
+        port: 9700
+
+sonsoftheforest:
+  IpAddress: "0.0.0.0"
+  GamePort: "{{ .Values.service.main.ports.main.port }}"
+  QueryPort: "{{ .Values.service.query.ports.query.port }}"
+  BlobSyncPort": "{{ .Values.service.sync.ports.sync.port }}"
+  ServerName": "Sons Of The Forest Docker Server"
+  MaxPlayers: 8
+  Password: ""
+  LanOnly: true
+  SaveSlot: 1
+  SaveMode: "Continue"
+  GameMode: "Normal"
+  SaveInterval: 600
+  IdleDayCycleSpeed: "0.0"
+  IdleTargetFramerate: 5
+  ActiveTargetFramerate: 60
+  LogFilesEnabled: false
+  TimestampLogFilenames: true
+  TimestampLogEntries: true
+  GameSettings: {}
+  CustomGameModeSettings: {}
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            GAME_PORT: "{{ .Values.service.main.ports.main.port }}"
+            STEAMCMD_DIR: "{{ .Values.persistence.steamcmd.mountPath }}"
+            SERVER_DIR: "{{ .Values.persistence.serverfiles.mountPath }}"
+            GAME_ID: "2465200"
+            USERNAME: ""
+            PASSWRD: ""
+            VALIDATE: false
+
+persistence:
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  dedicatedserver-config:
+    enabled: true
+    type: configmap
+    objectName: sonsoftheforest-config
+    targetSelector:
+      main:
+        main:
+          mountPath: /serverdata/serverfiles/userdata/dedicatedserver.cfg
+          subPath: dedicatedserver.cfg
+          readOnly: true
+
+portal:
+  open:
+    enabled: false
