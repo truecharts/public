@@ -94,7 +94,7 @@ questions:
                 description: Channel name for stats summary text message.
                 schema:
                   type: string
-                  default: "tautulli"
+                  default: "Tautulli Status"
               - variable: nitro
                 label: Nitro
                 description: Whether the Discord server has a Nitro subscription.
@@ -121,7 +121,7 @@ questions:
                 schema:
                   type: string
                   required: true
-                  default: ""
+                  default: "http://tautulli.ix-tautulli.svc.cluster.local:8181"
         - variable: plex
           label: Plex
           schema:
@@ -304,8 +304,8 @@ questions:
                   type: list
                   empty: false
                   default:
-                    - Movies
                     - TV SHows
+                    - Movies
                     - Music
                   items:
                     - variable: library
