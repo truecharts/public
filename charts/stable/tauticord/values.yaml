@@ -28,7 +28,7 @@ tauticord:
     server_id: ""
     admin_ids: []
     post_summary_message: true
-    channel_name: "tautulli"
+    channel_name: "Tautulli Status"
     nitro: false
   tautulli:
     key: ""
@@ -63,8 +63,8 @@ tauticord:
     name: "Plex Library Stats"
     library_stats_enabled: false
     library_names:
-      - Movies
       - TV SHows
+      - Movies
       - Music
     refresh_seconds: 3600
     use_emojis: true
@@ -91,16 +91,24 @@ workload:
               enabled: false
           env:
             TC_USE_SELF_SIGNED_CERT: false
-            TC_DISCORD_BOT_TOKEN: "{{.Values.tauticord.discord.bot_token }}"
-            TC_DISCORD_SERVER_ID: "{{.Values.tauticord.discord.server_id }}"
-            TC_TAUTULLI_KEY: "{{.Values.tauticord.tautulli.key }}"
-            TC_TAUTULLI_URL: "{{.Values.tauticord.tautulli.url }}"
-            TC_PLEX_PASS:  "{{.Values.tauticord.plex.pass }}"
-            TC_REFRESH_SECONDS:  "{{.Values.tauticord.refresh_seconds }}"
-            TC_TERMINATE_MESSAGE: "{{.Values.tauticord.terminate_message }}"
-            TC_SERVER_NAME: "{{.Values.tauticord.plex.server_name }}"
             TC_USE_24_HOUR_TIME: "{{.Values.tauticord.use_24_hour_time }}"
             TC_USE_FRIENDLY_NAMES: "{{.Values.tauticord.use_friendly_names }}"
+            TC_REFRESH_SECONDS:  "{{.Values.tauticord.refresh_seconds }}"
+            TC_TERMINATE_MESSAGE: "{{.Values.tauticord.terminate_message }}"
+            TC_ALLOWS_ANALYTICS: "{{.Values.tauticord.allow_analytics }}"
+            # Discord
+            TC_DISCORD_BOT_TOKEN: "{{.Values.tauticord.discord.bot_token }}"
+            TC_DISCORD_SERVER_ID: "{{.Values.tauticord.discord.server_id }}"
+            TC_DISCORD_ADMIN_IDS: '{{ join "," .Values.tauticord.discord.admin_ids }}'
+            TC_DISCORD_POST_SUMMARY_MESSAGE: "{{.Values.tauticord.discord.post_summary_message }}"
+            TC_DISCORD_CHANNEL_NAME: "{{.Values.tauticord.discord.channel_name }}"
+            TC_DISCORD_NITRO: "{{.Values.tauticord.discord.nitro }}"
+            # Tautulli
+            TC_TAUTULLI_KEY: "{{.Values.tauticord.tautulli.key }}"
+            TC_TAUTULLI_URL: "{{.Values.tauticord.tautulli.url }}"
+            # Plex
+            TC_PLEX_PASS:  "{{.Values.tauticord.plex.pass }}"
+            TC_SERVER_NAME: "{{.Values.tauticord.plex.server_name }}"
             # Hide Info
             TC_HIDE_USERNAMES:  "{{.Values.tauticord.hide.usernames }}"
             TC_HIDE_PLATFORMS:  "{{.Values.tauticord.hide.platforms }}"
@@ -114,15 +122,20 @@ workload:
             TC_VC_STATS_CATEGORY_NAME: "{{.Values.tauticord.cat_stats.name }}"
             TC_VC_STREAM_COUNT: "{{.Values.tauticord.cat_stats.stream_count_enabled }}"
             TC_VC_STREAM_COUNT_CHANNEL_ID: "{{.Values.tauticord.cat_stats.stream_count_channel_id }}"
+            # Transcode
             TC_VC_TRANSCODE_COUNT: "{{.Values.tauticord.cat_stats.stream_transcode_count_enabled }}"
             TC_VC_TRANSCODE_COUNT_CHANNEL_ID: "{{.Values.tauticord.cat_stats.stream_transcode_count_channel_id }}"
+            # Bandwidth
             TC_VC_BANDWIDTH: "{{.Values.tauticord.cat_stats.stream_bandwidth_enabled }}"
             TC_VC_BANDWIDTH_CHANNEL_ID: "{{.Values.tauticord.cat_stats.stream_bandwidth_channel_id }}"
+            # Bandwidth
             TC_VC_LOCAL_BANDWIDTH: "{{.Values.tauticord.cat_stats.stream_local_bandwidth_enabled }}"
             TC_VC_LOCAL_BANDWIDTH_CHANNEL_ID: "{{.Values.tauticord.cat_stats.stream_local_bandwidth_channel_id }}"
+            # Bandwidth
             TC_VC_REMOTE_BANDWIDTH: "{{.Values.tauticord.cat_stats.stream_remote_bandwidth_enabled }}"
             TC_VC_REMOTE_BANDWIDTH_CHANNEL_ID: "{{.Values.tauticord.cat_stats.stream_remote_bandwidth_channel_id }}"
-            TC_VC_PLEX_STATUS: "{{.Values.tauticord.cat_stats.name }}"
+            # Plex
+            TC_VC_PLEX_STATUS: "{{.Values.tauticord.cat_stats.stream_plex_status_enabled }}"
             TC_VC_PLEX_STATUS_CHANNEL_ID: "{{.Values.tauticord.cat_stats.stream_plex_status_channel_id }}"
             # Libraries Cat
             TC_VC_LIBRARIES_CATEGORY_NAME: "{{.Values.tauticord.cat_libraries.name }}"
@@ -138,12 +151,6 @@ workload:
             TC_VC_PERFORMANCE_CATEGORY_NAME: "{{.Values.tauticord.cat_performance.name }}"
             TC_MONITOR_CPU: "{{.Values.tauticord.cat_performance.monitor_cpu_enabled }}"
             TC_MONITOR_MEMORY: "{{.Values.tauticord.cat_performance.monitor_memory_enabled }}"
-            # Other
-            TC_DISCORD_ADMIN_IDS: '{{ join "," .Values.tauticord.discord.admin_ids }}'
-            TC_DISCORD_POST_SUMMARY_MESSAGE: "{{.Values.tauticord.discord.post_summary_message }}"
-            TC_DISCORD_CHANNEL_NAME: "{{.Values.tauticord.discord.channel_name }}"
-            TC_DISCORD_NITRO: "{{.Values.tauticord.discord.nitro }}"
-            TC_ALLOWS_ANALYTICS: "{{.Values.tauticord.allow_analytics }}"
 
 persistence:
   logs:
