@@ -10,6 +10,8 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+# Include{containerBasic}
+# Include{containerAdvanced}
   - variable: notifiarr
     group: App Configuration
     label: Image Environment
@@ -59,9 +61,6 @@ questions:
                   type: string
                   default: ""
                   required: true
-
-# Include{containerBasic}
-# Include{containerAdvanced}
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
