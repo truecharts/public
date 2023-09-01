@@ -18,18 +18,24 @@ workload:
           tty: true
           stdin: true
           probes:
-            # -- Liveness probe configuration
-            # @default -- See below
             liveness:
-              enabled: false
-            # -- Redainess probe configuration
-            # @default -- See below
+              enabled: true
+              type: exec
+              command:
+                - mc-monitor
+                - status-bedrock
             readiness:
-              enabled: false
-            # -- Startup probe configuration
-            # @default -- See below
+              enabled: true
+              type: exec
+              command:
+                - mc-monitor
+                - status-bedrock
             startup:
-              enabled: false
+              enabled: true
+              type: exec
+              command:
+                - mc-monitor
+                - status-bedrock
           env:
             EULA: "TRUE"
             VERSION: "LATEST"
