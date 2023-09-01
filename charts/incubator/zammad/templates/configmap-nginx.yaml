@@ -1,0 +1,136 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "zammad.fullname" . }}-nginx
+  labels:
+    {{- include "zammad.labels" . | nindent 4 }}
+data:
+  default: |-
+    #
+    # kubernetes nginx config for zammad
+    #
+
+    server_tokens off;
+
+    upstream zammad-railsserver {
+        server localhost:3000;
+    }
+
+    upstream zammad-websocket {
+        server localhost:6042;
+    }
+
+    server {
+        listen 8080;
+
+        server_name _;
+
+        root /opt/zammad/public;
+
+        client_body_temp_path /tmp 1 2;
+        fastcgi_temp_path /tmp 1 2;
+        proxy_temp_path /tmp 1 2;
+        scgi_temp_path /tmp 1 2;
+        uwsgi_temp_path /tmp 1 2;
+
+        access_log /dev/stdout;
+        error_log  /dev/stderr;
+
+        client_max_body_size 50M;
+
+        {{- /* Trusted proxies */}}
+        {{ if .Values.zammadConfig.nginx.trustedProxies }}
+        {{ range .Values.zammadConfig.nginx.trustedProxies }}
+        set_real_ip_from {{ . }};
+        {{- end }}
+        real_ip_header X-Forwarded-For;
+        real_ip_recursive on;
+        {{- end }}
+
+        {{- if .Values.zammadConfig.nginx.knowledgeBaseUrl }}
+        {{ if hasPrefix "/" .Values.zammadConfig.nginx.knowledgeBaseUrl }}
+        rewrite ^{{ .Values.zammadConfig.nginx.knowledgeBaseUrl }}(.*)$ /help$1 last;
+        {{- else }}
+        {{- $url := urlParse ( list "//" .Values.zammadConfig.nginx.knowledgeBaseUrl | join "" ) }}
+        if ($host = {{ $url.host }} ) {
+            rewrite ^/(api|assets)/(.*)$ /$1/$2 last;
+            rewrite ^{{ $url.path }}(.*)$ /help$1 last;
+        }
+        {{- end }}
+        {{- end }}
+
+        location ~ ^/(assets/|robots.txt|humans.txt|favicon.ico) {
+            expires max;
+        }
+
+        location /ws {
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection "Upgrade";
+            proxy_set_header CLIENT_IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            {{- range .Values.zammadConfig.nginx.websocketExtraHeaders }}
+            proxy_set_header {{ . }};
+            {{- end }}
+            proxy_read_timeout 86400;
+            proxy_pass http://zammad-websocket;
+        }
+
+        location /cable {
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection "Upgrade";
+            proxy_set_header CLIENT_IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_read_timeout 86400;
+            proxy_pass http://zammad-railsserver;
+        }
+
+        location / {
+            {{- if .Values.zammadConfig.nginx.knowledgeBaseUrl }}
+            proxy_set_header X-ORIGINAL-URL $request_uri;
+            {{- end }}
+            proxy_set_header Host $http_host;
+            proxy_set_header CLIENT_IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            {{- range .Values.zammadConfig.nginx.extraHeaders }}
+            proxy_set_header {{ . }};
+            {{- end }}
+            proxy_read_timeout 180;
+            proxy_pass http://zammad-railsserver;
+
+            gzip on;
+            gzip_types text/plain text/xml text/css image/svg+xml application/javascript application/x-javascript application/json application/xml;
+            gzip_proxied any;
+        }
+    }
+  nginx.conf: |-
+    worker_processes auto;
+    
+    pid /tmp/nginx.pid;
+    
+    include /etc/nginx/modules-enabled/*.conf;
+
+    events {
+        worker_connections 768;
+    }
+
+    http {
+        sendfile on;
+        tcp_nopush on;
+        types_hash_max_size 2048;
+
+        include /etc/nginx/mime.types;
+        default_type application/octet-stream;
+
+        ssl_protocols TLSv1 TLSv1.1 TLSv1.2 TLSv1.3;
+        ssl_prefer_server_ciphers on;
+
+        access_log /dev/stdout;
+        error_log /dev/stdout;
+
+        gzip on;
+
+        include /etc/nginx/conf.d/*.conf;
+        include /etc/nginx/sites-enabled/*;
+    }

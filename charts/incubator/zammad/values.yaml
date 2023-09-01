@@ -1,0 +1,467 @@
+image:
+  repository: ghcr.io/zammad/zammad
+  # if not set appVersion field from Chart.yaml is used as default
+  tag: ""
+  pullPolicy: IfNotPresent
+  imagePullSecrets: []
+    # - name: "image-pull-secret"
+
+service:
+  type: ClusterIP
+  port: 8080
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+    # - secretName: chart-example-tls
+    #   hosts:
+    #     - chart-example.local
+
+secrets:
+  autowizard:
+    useExisting: false
+    secretKey: autowizard
+    secretName: autowizard
+  elasticsearch:
+    useExisting: false
+    secretKey: password
+    secretName: elastic-credentials
+  postgresql:
+    useExisting: false
+    secretKey: postgresql-pass
+    secretName: postgresql-pass
+  redis:
+    useExisting: false
+    secretKey: redis-password
+    secretName: redis-pass
+
+securityContext:
+  fsGroup: 1000
+  runAsUser: 1000
+  runAsNonRoot: true
+  runAsGroup: 1000
+  seccompProfile:
+    type: RuntimeDefault
+
+zammadConfig:
+  elasticsearch:
+    # enable/disable elasticsearch chart dependency
+    enabled: true
+    # host env var is only used when zammadConfig.elasticsearch.enabled is false
+    host: zammad-elasticsearch-master
+    initialisation: true
+    pass: ""
+    port: 9200
+    reindex: true
+    schema: http
+    user: ""
+
+  memcached:
+    # enable/disable memcached chart dependency
+    enabled: true
+    # host env var is only used when zammadConfig.memcached.enabled is false
+    host: zammad-memcached
+    port: 11211
+
+  nginx:
+    trustedProxies: []
+    extraHeaders: []
+      # - 'HeaderName "Header Value"'
+    websocketExtraHeaders: []
+      # - 'HeaderName "Header Value"'
+    knowledgeBaseUrl: ""
+    livenessProbe:
+      tcpSocket:
+        port: 8080
+      initialDelaySeconds: 30
+      successThreshold: 1
+      failureThreshold: 5
+      timeoutSeconds: 5
+      periodSeconds: 10
+    readinessProbe:
+      httpGet:
+        path: /
+        port: 8080
+      initialDelaySeconds: 30
+      successThreshold: 1
+      failureThreshold: 5
+      timeoutSeconds: 5
+      periodSeconds: 10
+    resources: {}
+      # requests:
+      #   cpu: 50m
+      #   memory: 32Mi
+      # limits:
+      #   cpu: 100m
+      #   memory: 64Mi
+    securityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+          - ALL
+      readOnlyRootFilesystem: true
+      privileged: false
+
+  postgresql:
+    # enable/disable postgresql chart dependency
+    enabled: true
+    # needs to be the same as the postgresql.auth.database
+    db: zammad_production
+    # host env var is only used when postgresql.enabled is false
+    host: zammad-postgresql
+    # needs to be the same as the postgresql.auth.password
+    pass: "zammad"
+    port: 5432
+    # needs to be the same as the postgresql.auth.username
+    user: zammad
+
+  railsserver:
+    livenessProbe:
+      tcpSocket:
+        port: 3000
+      initialDelaySeconds: 30
+      successThreshold: 1
+      failureThreshold: 5
+      timeoutSeconds: 5
+      periodSeconds: 10
+    readinessProbe:
+      httpGet:
+        path: /
+        port: 3000
+      initialDelaySeconds: 30
+      successThreshold: 1
+      failureThreshold: 5
+      timeoutSeconds: 5
+      periodSeconds: 10
+    resources: {}
+      # requests:
+      #   cpu: 100m
+      #   memory: 512Mi
+      # limits:
+      #   cpu: 200m
+      #   memory: 1024Mi
+    securityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+          - ALL
+      readOnlyRootFilesystem: true
+      privileged: false
+    trustedProxies: "['127.0.0.1', '::1']"
+    webConcurrency: 0
+    tmpdir: "/opt/zammad/tmp"
+
+  redis:
+    # enable/disable redis chart dependency
+    enabled: true
+    host: "zammad-redis-master"
+    # needs to be the same as the redis.auth.password
+    pass: zammad
+    port: 6379
+
+  scheduler:
+    resources: {}
+      # requests:
+      #   cpu: 100m
+      #   memory: 256Mi
+      # limits:
+      #   cpu: 200m
+      #   memory: 512Mi
+    securityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+          - ALL
+      readOnlyRootFilesystem: true
+      privileged: false
+
+  tmpDirVolume:
+    emptyDir:
+      sizeLimit: 100Mi
+
+  websocket:
+    livenessProbe:
+      tcpSocket:
+        port: 6042
+      initialDelaySeconds: 10
+      periodSeconds: 10
+      successThreshold: 1
+      failureThreshold: 10
+      timeoutSeconds: 5
+    readinessProbe:
+      tcpSocket:
+        port: 6042
+      initialDelaySeconds: 10
+      periodSeconds: 10
+      successThreshold: 1
+      failureThreshold: 5
+      timeoutSeconds: 5
+    resources: {}
+      # requests:
+      #   cpu: 100m
+      #   memory: 256Mi
+      # limits:
+      #   cpu: 200m
+      #   memory: 512Mi
+    securityContext:
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+          - ALL
+      readOnlyRootFilesystem: true
+      privileged: false
+
+  initContainers:
+    elasticsearch:
+      resources: {}
+        # requests:
+        #   cpu: 100m
+        #   memory: 256Mi
+        # limits:
+        #   cpu: 200m
+        #   memory: 512Mi
+      securityContext:
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop:
+            - ALL
+        readOnlyRootFilesystem: true
+        privileged: false
+    postgresql:
+      resources: {}
+        # requests:
+        #   cpu: 100m
+        #   memory: 256Mi
+        # limits:
+        #   cpu: 200m
+        #   memory: 512Mi
+      securityContext:
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop:
+            - ALL
+        readOnlyRootFilesystem: false
+        privileged: false
+    volumePermissions:
+      resources: {}
+        # requests:
+        #   cpu: 100m
+        #   memory: 256Mi
+        # limits:
+        #   cpu: 200m
+        #   memory: 512Mi
+      securityContext:
+        readOnlyRootFilesystem: true
+        capabilities:
+          drop:
+            - ALL
+        runAsNonRoot: false
+        runAsUser: 0
+    zammad:
+      # set extra params to rsync command
+      extraRsyncParams: ""
+      resources: {}
+        # requests:
+        #   cpu: 100m
+        #   memory: 256Mi
+        # limits:
+        #   cpu: 200m
+        #   memory: 512Mi
+      securityContext:
+        allowPrivilegeEscalation: false
+        readOnlyRootFilesystem: true
+        privileged: false
+        runAsNonRoot: false
+        runAsUser: 0
+
+# additional environment vars added to all zammad services
+extraEnv: []
+  # - name: FOO_BAR
+  #   value: "foobar"
+
+# autowizard config
+# if a token is used the url hast to look like: http://zammad/#getting_started/auto_wizard/your_token_here
+autoWizard:
+  enabled: false
+  # string with the autowizard config as json
+  # config: |
+  #   {
+  #     "Token": "secret_zammad_autowizard_token",
+  #     "TextModuleLocale": {
+  #       "Locale": "en-us"
+  #     },
+  #     "Users": [
+  #       {
+  #         "login": "email@example.org",
+  #         "firstname": "Zammad",
+  #         "lastname": "Admin",
+  #         "email": "email@example.org",
+  #         "organization": "ZammadTest",
+  #         "password": "YourPassword"
+  #       }
+  #     ],
+  #     "Settings": [
+  #       {
+  #         "name": "product_name",
+  #         "value": "ZammadTestSystem"
+  #       },
+  #       {
+  #         "name": "system_online_service",
+  #         "value": true
+  #       }
+  #     ],
+  #     "Organizations": [
+  #       {
+  #         "name": "ZammadTest"
+  #       }
+  #     ]
+  #   }
+
+podAnnotations: {}
+  # my-annotation: "value"
+
+volumePermissions:
+  enabled: false
+  image:
+    repository: alpine
+    tag: "3.18.3"
+    pullPolicy: IfNotPresent
+
+# Configuration for persistence
+persistence:
+  enabled: true
+  ## A manually managed Persistent Volume and Claim
+  ## If defined, PVC must be created manually before volume will be bound
+  ## The value is evaluated as a template, so, for example, the name can depend on .Release or .Chart
+  ##
+  # existingClaim:
+  accessModes:
+    - ReadWriteOnce
+  storageClass: ""
+  size: 5Gi
+  annotations: {}
+
+# running zammad with more than 1 replica will need a ReadWriteMany storage volume!
+# https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
+replicas: 1
+
+nodeSelector: {}
+tolerations: []
+affinity: {}
+
+# service account configurations
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: false
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+# can be used to add additional init containers
+initContainers: []
+  # - name: s3-restore
+  #   image: some-aws-s3-restore:latest
+  #   env:
+  #     - name: AWS_DEFAULT_REGION
+  #       value: "eu-central-1"
+  #     - name: AWS_ACCESS_KEY_ID
+  #       value: "xxxxxxxxxxxx"
+  #     - name: AWS_SECRET_ACCESS_KEY
+  #       value: "xxxxxxxxxxxx"
+  #     - name: SYNC_DIR
+  #       value: "/opt/zammad"
+  #     - name: AWS_SYNC_BUCKET
+  #       value: "some-backup-bucket"
+  #   volumeMounts:
+  #     - name: help-zammad
+  #       mountPath: /opt/zammad
+
+# can be used to add additional containers / sidecars
+sidecars: []
+  # - name: s3-backup
+  #   image: some-aws-s3-backup:latest
+  #   env:
+  #     - name: AWS_DEFAULT_REGION
+  #       value: "eu-central-1"
+  #     - name: AWS_ACCESS_KEY_ID
+  #       value: "xxxxxxxxxxxx"
+  #     - name: AWS_SECRET_ACCESS_KEY
+  #       value: "xxxxxxxxxxxx"
+  #     - name: SYNC_DIR
+  #       value: "/opt/zammad"
+  #     - name: AWS_SYNC_BUCKET
+  #       value: "some-backup-bucket"
+  #     - name: AWS_SYNC_SCHEDULE
+  #       value: "0 * * * *"
+  #   volumeMounts:
+  #     - name: help-zammad
+  #       mountPath: /opt/zammad
+
+# dependency charts config
+
+# Settings for the elasticsearch subchart
+elasticsearch:
+  clusterName: zammad
+  coordinating:
+    replicaCount: 0
+  data:
+    replicaCount: 0
+  ingest:
+    replicaCount: 0
+  master:
+    heapSize: 512m
+    masterOnly: false
+    replicaCount: 1
+
+# settings for the memcached subchart
+memcached:
+  replicaCount: 1
+  resources: {}
+    # requests:
+    #   cpu: 50m
+    #   memory: 64Mi
+    # limits:
+    #   cpu: 100m
+    #   memory: 128Mi
+
+# settings for the postgres subchart
+postgresql:
+  auth:
+    postgresPassword: "zammad"
+    username: "zammad"
+    password: "zammad"
+    database: "zammad_production"
+    replicationUsername: repl_user
+    replicationPassword: "zammad"
+  resources: {}
+    # requests:
+    #   cpu: 250m
+    #   memory: 256Mi
+    # limits:
+    #   cpu: 500m
+    #   memory: 512Mi
+
+# settings for the redis subchart
+redis:
+  architecture: standalone
+  auth:
+    password: zammad
+  master:
+    resources: {}
+    # limits:
+    #   cpu: 250m
+    #   memory: 256Mi
+    # requests:
+    #   cpu: 250m
+    #   memory: 256Mi

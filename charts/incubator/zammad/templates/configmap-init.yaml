@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "zammad.fullname" . }}-init
+  labels:
+    {{- include "zammad.labels" . | nindent 4 }}
+data:
+{{ if .Values.zammadConfig.elasticsearch.initialisation }}
+  elasticsearch-init: |-
+    #!/bin/bash
+    set -e
+    bundle exec rails r 'Setting.set("es_url", "{{ .Values.zammadConfig.elasticsearch.schema }}://{{ if .Values.zammadConfig.elasticsearch.enabled }}{{ .Release.Name }}-elasticsearch{{ else }}{{ .Values.zammadConfig.elasticsearch.host }}{{ end }}:{{ .Values.zammadConfig.elasticsearch.port }}")'
+    ELASTICSEARCH_USER=${ELASTICSEARCH_USER:-{{ .Values.zammadConfig.elasticsearch.user }}}
+    if [ -n "${ELASTICSEARCH_USER}" ] && [ -n "${ELASTICSEARCH_PASSWORD}" ]; then
+        bundle exec rails r "Setting.set(\"es_user\", \"${ELASTICSEARCH_USER}\")"
+        bundle exec rails r "Setting.set(\"es_password\", \"${ELASTICSEARCH_PASSWORD}\")"
+    fi
+    {{- if and .Values.zammadConfig.elasticsearch.reindex }}
+    bundle exec rake zammad:searchindex:rebuild
+    {{ end }}
+    echo "elasticsearch init complete :)"
+{{ end }}
+  postgresql-init: |-
+    #!/bin/bash
+    set -e
+    if ! (bundle exec rails r 'puts User.any?' 2> /dev/null | grep -q true); then
+        bundle exec rake db:migrate
+        bundle exec rake db:seed
+    else
+        bundle exec rake db:migrate
+    fi
+    echo "postgresql init complete :)"
+  zammad-init: |-
+    #!/bin/bash
+    set -e
+    if [ -n "${AUTOWIZARD_JSON}" ]; then
+        echo "${AUTOWIZARD_JSON}" | base64 -d > /opt/zammad/var/auto_wizard.json
+    fi
+    rm -f /opt/zammad/tmp/pids/*.pid
+    echo "zammad init complete :)"
