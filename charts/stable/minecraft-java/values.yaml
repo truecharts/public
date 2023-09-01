@@ -86,16 +86,25 @@ workload:
               type: exec
               command:
                 - mc-health
+              initialDelaySeconds: 20
+              periodSeconds: 10
+              failureThreshold: 12
             readiness:
               enabled: true
               type: exec
               command:
                 - mc-health
+              initialDelaySeconds: 20
+              periodSeconds: 10
+              failureThreshold: 12
             startup:
               enabled: true
               type: exec
               command:
                 - mc-health
+              initialDelaySeconds: 20
+              periodSeconds: 10
+              failureThreshold: 12
           env:
             SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
             QUERY_PORT: "{{ .Values.service.main.ports.query.port }}"
