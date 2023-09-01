@@ -14,17 +14,29 @@ service:
   main:
     ports:
       main:
-        port: 3001
         protocol: http
-        targetPort: 3001
+        port: 3001
   game:
     enabled: true
     ports:
       game:
         enabled: true
-        port: 3000
         protocol: udp
-        targetPort: 3000
+        port: 3000
+
+eco:
+  PublicServer": true
+  Playtime": ""
+  Password": "Docker"
+  Description": "ECO Docker"
+  DetailedDescription": ""
+  ServerCategory": "None"
+  IPAddress": "Any"
+  GameServerPort": 3000
+  WebServerPort": 3001
+  Rate": 20
+  MaxConnections": -1
+  UPnPEnabled": true
 
 workload:
   main:
@@ -58,6 +70,16 @@ persistence:
   serverfiles:
     enabled: true
     mountPath: /serverdata/serverfiles
+  network-config:
+    enabled: true
+    type: configmap
+    objectName: eco-config
+    targetSelector:
+      main:
+        main:
+          mountPath: /serverdata/serverfiles/Configs/Network.eco
+          subPath: Network.eco
+          readOnly: true
 
 portal:
   open:

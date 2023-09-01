@@ -35,7 +35,9 @@ questions:
                                         description: "The ID of the container to download at start up."
                                         schema:
                                           type: string
-                                          default: ""
+                                          required: true
+                                          default: "739590"
+
                                       - variable: GAME_PARAMS
                                         label: "Game Params"
                                         description: "Enter your start up commands for the server."
