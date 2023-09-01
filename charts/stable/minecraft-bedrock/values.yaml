@@ -32,6 +32,7 @@ workload:
                 - status-bedrock
             startup:
               enabled: true
+              initialDelaySeconds: 60
               type: exec
               command:
                 - mc-monitor
