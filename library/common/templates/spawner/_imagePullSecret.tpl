@@ -4,6 +4,7 @@
 */}}
 
 {{- define "tc.v1.common.spawner.imagePullSecret" -}}
+  {{- $fullname := include "tc.v1.common.lib.chart.names.fullname" $ -}}
 
   {{- range $name, $imgPullSecret := .Values.imagePullSecret -}}
 
@@ -12,7 +13,7 @@
       {{/* Create a copy of the configmap */}}
       {{- $objectData := (mustDeepCopy $imgPullSecret) -}}
 
-      {{- $objectName := (printf "%s-%s" (include "tc.v1.common.lib.chart.names.fullname" $) $name) -}}
+      {{- $objectName := (printf "%s-%s" $fullname $name) -}}
 
       {{/* Perform validations */}}
       {{- include "tc.v1.common.lib.chart.names.validation" (dict "name" $objectName) -}}

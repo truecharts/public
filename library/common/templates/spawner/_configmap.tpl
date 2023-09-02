@@ -4,6 +4,7 @@
 */}}
 
 {{- define "tc.v1.common.spawner.configmap" -}}
+  {{- $fullname := include "tc.v1.common.lib.chart.names.fullname" $ -}}
 
   {{- range $name, $configmap := .Values.configmap -}}
 
@@ -33,7 +34,7 @@
       {{/* Create a copy of the configmap */}}
       {{- $objectData := (mustDeepCopy $configmap) -}}
 
-      {{- $objectName := (printf "%s-%s" (include "tc.v1.common.lib.chart.names.fullname" $) $name) -}}
+      {{- $objectName := (printf "%s-%s" $fullname $name) -}}
       {{- if hasKey $objectData "expandObjectName" -}}
         {{- if not $objectData.expandObjectName -}}
           {{- $objectName = $name -}}

@@ -1,10 +1,12 @@
 {{/* Renders the Ingress objects required by the chart */}}
 {{- define "tc.v1.common.spawner.ingress" -}}
+  {{- $fullname := include "tc.v1.common.lib.chart.names.fullname" $ -}}
+
   {{/* Generate named ingresses as required */}}
   {{- range $name, $ingress := .Values.ingress -}}
     {{- if $ingress.enabled -}}
       {{- $ingressValues := $ingress -}}
-      {{- $ingressName := include "tc.v1.common.lib.chart.names.fullname" $ -}}
+      {{- $ingressName := $fullname -}}
 
       {{/* set defaults */}}
       {{- if and (not $ingressValues.nameOverride) (ne $name (include "tc.v1.common.lib.util.ingress.primary" $)) -}}
@@ -30,7 +32,7 @@
           {{- $objectData := dict -}}
           {{- $_ := set $objectData "id" .scaleCert -}}
 
-          {{- $objectName := (printf "%s-%s" (include "tc.v1.common.lib.chart.names.fullname" $) $tlsName) -}}
+          {{- $objectName := (printf "%s-%s" $fullname $tlsName) -}}
           {{/* Perform validations */}}
           {{- include "tc.v1.common.lib.chart.names.validation" (dict "name" $objectName) -}}
           {{- include "tc.v1.common.lib.scaleCertificate.validation" (dict "objectData" $objectData) -}}

@@ -1,10 +1,12 @@
 {{/* Renders the certificate objects required by the chart */}}
 {{- define "tc.v1.common.spawner.certificate" -}}
+  {{- $fullname := include "tc.v1.common.lib.chart.names.fullname" $ -}}
+
   {{/* Generate named certs as required */}}
   {{- range $name, $cert := .Values.cert -}}
     {{- if $cert.enabled -}}
       {{- $certValues := $cert -}}
-      {{- $certName := include "tc.v1.common.lib.chart.names.fullname" $ -}}
+      {{- $certName := $fullname -}}
 
       {{/* set defaults */}}
       {{- if and (not $certValues.nameOverride) (ne $name (include "tc.v1.common.lib.util.cert.primary" $)) -}}

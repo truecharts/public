@@ -24,7 +24,7 @@ jobs:
         helm-version:
           - v3.9.4
           - v3.10.3
-          - v3.12.0
+          - v3.12.3
     steps:
       - name: Checkout
         uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
@@ -64,7 +64,7 @@ jobs:
         helm-version:
           - v3.9.4
           - v3.10.3
-          - v3.12.0
+          - v3.12.3
     steps:
       - name: Checkout
         uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3

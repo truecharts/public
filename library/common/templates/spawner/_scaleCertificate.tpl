@@ -4,6 +4,7 @@
 */}}
 
 {{- define "tc.v1.common.spawner.scaleCertificate" -}}
+  {{- $fullname := include "tc.v1.common.lib.chart.names.fullname" $ -}}
 
   {{- range $name, $certificate := .Values.scaleCertificate -}}
 
@@ -12,7 +13,7 @@
       {{/* Create a copy of the certificate */}}
       {{- $objectData := (mustDeepCopy $certificate) -}}
 
-      {{- $objectName := (printf "%s-%s" (include "tc.v1.common.lib.chart.names.fullname" $) $name) -}}
+      {{- $objectName := (printf "%s-%s" $fullname $name) -}}
       {{/* Perform validations */}}
       {{- include "tc.v1.common.lib.chart.names.validation" (dict "name" $objectName) -}}
       {{- include "tc.v1.common.lib.scaleCertificate.validation" (dict "objectData" $objectData) -}}
