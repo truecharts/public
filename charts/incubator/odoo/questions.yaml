@@ -34,6 +34,49 @@ questions:
                   required: true
                   private: true
                   default: ""
+        - variable: config
+          label: Initial Config
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: db_name
+                label: DB Name
+                schema:
+                  type: string
+                  required: true
+                  default: "odoo"
+              - variable: email
+                label: Email
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: password
+                label: Password
+                schema:
+                  type: string
+                  required: true
+                  private: true
+                  default: ""
+              - variable: phone
+                label: Email
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: lang
+                label: Language
+                schema:
+                  type: string
+                  required: true
+                  default: "en_US"
+              - variable: country_code
+                label: Country Code
+                schema:
+                  type: string
+                  required: true
+                  default: "us"
         - variable: smtp
           label: SMTP Configuration
           schema:
@@ -96,9 +139,9 @@ questions:
                               type: int
                               default: 8069
                               required: true
-        - variable: odoo
-          label: "Odoo Service"
-          description: "Odoo Services"
+        - variable: xmlrpcs
+          label: "XMLR PCS Service"
+          description: "XMLR PCS Service"
           schema:
             additional_attrs: true
             type: dict
@@ -118,6 +161,15 @@ questions:
                               type: int
                               default: 8071
                               required: true
+        - variable: longpolling
+          label: "Long Polling Service"
+          description: "Long Polling Service"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: longpolling
                       label: "Long Polling Service Port Configuration"
                       schema:

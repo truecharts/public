@@ -18,13 +18,13 @@ odoo-config:
       addons_path = {{ .Values.persistence.addons.mountPath }}
       data_dir = {{ .Values.persistence.odoo.mountPath }}
       admin_passwd = {{ $admin.passwd }}
-      longpolling_port = {{ .Values.service.odoo.ports.longpolling.port }}
+      longpolling_port = {{ .Values.service.longpolling.ports.longpolling.port }}
       xmlrpc = True
       xmlrpc_interface =
       xmlrpc_port = {{ .Values.service.main.ports.main.port }}
       xmlrpcs = True
       xmlrpcs_interface =
-      xmlrpcs_port = {{ .Values.service.odoo.ports.xmlrpcs.port }}
+      xmlrpcs_port = {{ .Values.service.xmlrpcs.ports.xmlrpcs.port }}
       db_host = {{ $pghost }}
       db_port = 5432
       db_user = {{ $pguser }}

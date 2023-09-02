@@ -1,27 +1,36 @@
 image:
   repository: tccr.io/truecharts/odoo
   pullPolicy: IfNotPresent
-  tag: v16.0.0@sha256:c1936984eeb8f504f5ebe74cf972319d6cd619ecbdf09249179ecdee2feeecf3
+  tag: v16.0.0@sha256:9a0e0d913dc6c4ed5904ae233dc2de7fa1a00f10eb5a66f21e1f695c62933a1d
 
 service:
   main:
     ports:
       main:
         port: 8069
-  odoo:
+  xmlrpcs:
     enabled: true
     ports:
       xmlrpcs:
         enabled: true
         port: 8071
+  longpolling:
+    enabled: true
+    ports:
       longpolling:
         enabled: true
         port: 8072
+
 odoo:
   admin:
     passwd: admin
-  db:
-    filter: ^mycompany.*$
+  config:
+    db_name: odoo
+    email: admin@example.com
+    password: SECUREPASS
+    phone: 5555555555
+    lang: en_US
+    country_code: us
   smtp:
     server: ""
     port: 587
@@ -29,6 +38,27 @@ odoo:
     password: ""
     ssl: "False"
     from: ""
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          lifecycle:
+            postStart:
+              type: exec
+              command:
+                - /bin/sh
+                - -c
+                - |
+                  if [ -f "/var/lib/odoo/POSTSETUP" ]; then
+                    echo "POSTSETUP exists, no further action is needed."
+                  else
+                    while ! curl -s -o -v /dev/null http://localhost:{{ .Values.service.main.ports.main.port }}/web/database/create; do sleep 1; done && \
+                    curl -v -X POST -d "master_pwd={{ .Values.odoo.admin.passwd }}&name={{ .Values.odoo.config.db_name }}&login={{ .Values.odoo.config.email }}&password={{ .Values.odoo.config.password }}&phone={{ .Values.odoo.config.phone }}&lang={{ .Values.odoo.config.lang }}&country_code={{ .Values.odoo.config.country_code }}" http://localhost:{{ .Values.service.main.ports.main.port }}/web/database/create && \
+                    ( touch "/var/lib/odoo/POSTSETUP" && echo "Created POSTSETUP!") || \
+                    ( echo "Failed to create POSTSETUP file..." && exit 1 )
+                  fi
 
 persistence:
   odoo:
@@ -46,7 +76,6 @@ persistence:
         main:
           mountPath: /etc/odoo/odoo.conf
           subPath: odoo.conf
-          readOnly: true
 
 # Enabled postgres
 cnpg:
