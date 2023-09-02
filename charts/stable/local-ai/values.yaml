@@ -67,7 +67,6 @@ workload:
             startup:
               enabled: true
               type: tcp
-              path: /readyz
           imageSelector: image
           env:
             ADDRESS: ":{{ .Values.service.main.ports.main.port }}"
