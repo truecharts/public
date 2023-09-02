@@ -1,49 +1,64 @@
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/eco
-  tag: latest@sha256:7b380486ce590ba0bb9b3361f84464727126611771ba746210f7a73180d7b987
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+  tag: latest@sha256:b68c9690ea433e1d94363ebf5384342652ab2d9316a2d71c740202669c76aca5
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-secretEnv:
-  USERNAME: ""
-  PASSWRD: ""
-
-env:
-  DATA_PERM: "770"
-  GAME_ID: "739590"
-  GAME_PARAMS: ""
-  VALIDATE: false
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
 
 service:
   main:
     ports:
       main:
         port: 3001
-        protocol: HTTP
+        protocol: http
         targetPort: 3001
-  udpgameport:
+  game:
     enabled: true
     ports:
-      udpgameport:
+      game:
         enabled: true
         port: 3000
-        protocol: UDP
+        protocol: udp
         targetPort: 3000
 
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: "/"
+              type: http
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+            readiness:
+              path: "/"
+              type: http
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+            startup:
+              type: tcp
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+          env:
+            USERNAME: ""
+            PASSWRD: ""
+            GAME_ID: "739590"
+            GAME_PARAMS: ""
+            VALIDATE: false
+            # DATA_PERM: "770"
+
 persistence:
-  serverfiles:
-    enabled: true
-    mountPath: /serverdata/serverfiles
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
 
 portal:
-  enabled: true
+  open:
+    enabled: true
