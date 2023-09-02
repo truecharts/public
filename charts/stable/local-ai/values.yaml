@@ -82,6 +82,8 @@ workload:
             CORS_ALLOW_ORIGINS: "{{ .Values.localai.cors_allow_origins }}"
 
 persistence:
+  varlog:
+    enabled: false
   models:
     enabled: true
     mountPath: "/models"
