@@ -33,6 +33,7 @@ questions:
                                         description: "The ID of the container to download at start up."
                                         schema:
                                           type: string
+                                          required: true
                                           default: "2465200"
                                       - variable: GAME_PARAMS
                                         label: "Game Params"
@@ -79,7 +80,6 @@ questions:
           label: Lan Only
           schema:
             type: boolean
-            required: true
             default: true
         - variable: SaveSlot
           label: Save Slot
