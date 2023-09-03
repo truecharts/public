@@ -63,7 +63,7 @@ Once installed, `metallb-config` will always show as Stopped.
 
 ![metallb-specifyIP](img/metallb_guide_specifyIP.png)
 
-With MetalLB installed, its is recommended (but optional) to specify IP addresses for your apps.
+With MetalLB installed, it's recommended (but optional) to specify IP addresses for your apps.
 
 For each app, under **Networking and Services**, select `LoadBalancer` Service Type for the Main Service.
 
