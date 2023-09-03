@@ -27,12 +27,14 @@ questions:
             attrs:
               - variable: url
                 label: Url
+                description: The default assumes that your Plex chart is named plex.
                 schema:
                   type: string
                   required: true
                   default: "http://plex.ix-plex.svc.cluster.local:32400"
               - variable: token
                 label: Token
+                description: Browse to a library item and click View as XML to get this token.
                 schema:
                   type: string
                   required: true
@@ -46,17 +48,20 @@ questions:
             attrs:
               - variable: user_id
                 label: User Id
+                description: Also known as your Spotify username.
                 schema:
                   type: string
                   default: ""
               - variable: client_id
                 label: Client Id
+                description: You need to create a developer account to get this.
                 schema:
                   type: string
                   private: true
                   default: ""
               - variable: client_secret
                 label: Client Secret
+                description: You need to create a developer account to get this.
                 schema:
                   type: string
                   private: true
@@ -69,11 +74,13 @@ questions:
             attrs:
               - variable: user_id
                 label: User Id
+                description: This is a numerical value that you can get from the profile page.
                 schema:
                   type: string
                   default: ""
               - variable: playlist_id
                 label: Playlist Id
+                description: This is a list of numerical values that you can get from the playlist page.
                 schema:
                   type: list
                   default: []
@@ -91,37 +98,38 @@ questions:
             type: dict
             attrs:
               - variable: write_missing_as_csv
-                label: Write Missing AS CSV
-                description: writes missing tracks from each playlist to a csv.
+                label: Write Missing Tracks to CSV
+                description: Write missing tracks from each playlist to a CSV file.
                 schema:
                   type: boolean
                   default: false
               - variable: append_service_suffix
                 label: Append Service Suffix
-                description: Appends the service name to the playlist name.
+                description: Appends the service name (Deezer/Spotify) to the playlist name.
                 schema:
                   type: boolean
                   default: true
               - variable: add_playlist_poster
-                label: Add Playlist Poster
-                description: Add poster for each playlist
+                label: Include Playlist Poster
+                description: Include the poster for each playlist.
                 schema:
                   type: boolean
                   default: true
               - variable: add_playlist_description
-                label: Add Playlist Description
-                description: Add description for each playlist
+                label: Include Playlist Description
+                description: Include the description for each playlist.
                 schema:
                   type: boolean
                   default: true
               - variable: append_instead_of_sync
-                label: Append Instead of Sync
-                description: Sync or append tracks
+                label: Append Tracks Instead of Sync
+                description: Sync all tracks or append tracks only to a playlist.
                 schema:
                   type: boolean
                   default: false
               - variable: seconds_to_wait
                 label: Seconds to Wait
+                description: The amount of time to wait before running this script.
                 schema:
                   type: int
                   default: 84000
