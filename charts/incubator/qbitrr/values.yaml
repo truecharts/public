@@ -1,0 +1,38 @@
+image:
+  repository: tccr.io/truecharts/qbitmanage
+  pullPolicy: IfNotPresent
+  tag: v4.0.3@sha256:d9f32b9b44027c5dde95a2cfd7df8460ede94e76c399d5ad852e2289c946a75c
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  data:
+    enabled: true
+    mountPath: /completed_downloads
+portal:
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 568
+    runAsUser: 568
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
