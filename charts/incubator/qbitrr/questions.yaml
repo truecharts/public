@@ -25,9 +25,9 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-        - variable: data
-          label: Torrent Storage
-          description: Stores the Completed Torrent Files.
+        - variable: downloads
+          label: App Completed Downloads Storage
+          description: Stores the Application Completed Downloads.
           schema:
             additional_attrs: true
             type: dict
