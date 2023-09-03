@@ -39,27 +39,6 @@ odoo:
     ssl: "False"
     from: ""
 
-workload:
-  main:
-    podSpec:
-      containers:
-        main:
-          lifecycle:
-            postStart:
-              type: exec
-              command:
-                - /bin/sh
-                - -c
-                - |
-                  if [ -f "/var/lib/odoo/POSTSETUP" ]; then
-                    echo "POSTSETUP exists, no further action is needed."
-                  else
-                    while ! curl -s -o -v /dev/null http://localhost:{{ .Values.service.main.ports.main.port }}/web/database/create; do sleep 1; done && \
-                    curl -v -X POST -d "master_pwd={{ .Values.odoo.admin.passwd }}&name={{ .Values.odoo.config.db_name }}&login={{ .Values.odoo.config.email }}&password={{ .Values.odoo.config.password }}&phone={{ .Values.odoo.config.phone }}&lang={{ .Values.odoo.config.lang }}&country_code={{ .Values.odoo.config.country_code }}" http://localhost:{{ .Values.service.main.ports.main.port }}/web/database/create && \
-                    ( touch "/var/lib/odoo/POSTSETUP" && echo "Created POSTSETUP!") || \
-                    ( echo "Failed to create POSTSETUP file..." && exit 1 )
-                  fi
-
 persistence:
   odoo:
     enabled: true
@@ -82,7 +61,7 @@ cnpg:
   main:
     enabled: true
     user: odoo
-    database: postgres
+    database: odoo
 
 portal:
   open:
