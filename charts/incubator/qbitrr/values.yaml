@@ -1,0 +1,58 @@
+image:
+  repository: tccr.io/truecharts/qbitrr
+  pullPolicy: IfNotPresent
+  tag: v3.7.1@sha256:c87ba70062bd1f81b397c64e53c79ed2b3cf4804b9ee5cc2fa855afd47b33ae4
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          lifecycle:
+            postStart:
+              type: exec
+              command:
+                - /bin/sh
+                - -c
+                - |
+                  echo "Creating config.toml file..."
+                  if [ -f /config/config.toml ]; then
+                    echo "Config file exists! Skipping..."
+                  else
+                    if mv -n /config/.config/config.rename_me.toml /config/config.toml; then
+                      echo "Config file copied successfully!"
+                    else
+                      echo "Copying config file failed."
+                      exit 1
+                    fi
+                  fi
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  downloads:
+    enabled: true
+    mountPath: /completed_downloads
+
+portal:
+  open:
+    enabled: false
+
