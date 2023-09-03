@@ -49,19 +49,19 @@ workload:
             startup:
               enabled: false
           env:
-            PLEX_URL: "{{ .Values.ppl.plex.url }}"
-            PLEX_TOKEN: "{{ .Values.ppl.plex.token }}"
-            SPOTIFY_USER_ID: "{{ .Values.ppl.spotify.user_id }}"
-            SPOTIFY_CLIENT_ID: "{{ .Values.ppl.spotify.client_id }}"
-            SPOTIFY_CLIENT_SECRET: "{{ .Values.ppl.spotify.client_secret }}"
-            DEEZER_USER_ID: "{{ .Values.ppl.deezer.user_id }}"
+            PLEX_URL: "{{ .Values.pps.plex.url }}"
+            PLEX_TOKEN: "{{ .Values.pps.plex.token }}"
+            SPOTIFY_USER_ID: "{{ .Values.pps.spotify.user_id }}"
+            SPOTIFY_CLIENT_ID: "{{ .Values.pps.spotify.client_id }}"
+            SPOTIFY_CLIENT_SECRET: "{{ .Values.pps.spotify.client_secret }}"
+            DEEZER_USER_ID: "{{ .Values.pps.deezer.user_id }}"
             DEEZER_PLAYLIST_ID: '{{ join " " .Values.deezer.playlist_id }}'
-            WRITE_MISSING_AS_CSV: "{{ .Values.ppl.other.write_missing_as_csv }}"
-            APPEND_SERVICE_SUFFIX: "{{ .Values.ppl.other.append_service_suffix }}"
-            ADD_PLAYLIST_POSTER: "{{ .Values.ppl.other.add_playlist_poster }}"
-            ADD_PLAYLIST_DESCRIPTION: "{{ .Values.ppl.other.add_playlist_description }}"
-            APPEND_INSTEAD_OF_SYNC: "{{ .Values.ppl.other.append_instead_of_sync }}"
-            SECONDS_TO_WAIT: "{{ .Values.ppl.other.seconds_to_wait }}"
+            WRITE_MISSING_AS_CSV: "{{ .Values.pps.other.write_missing_as_csv }}"
+            APPEND_SERVICE_SUFFIX: "{{ .Values.pps.other.append_service_suffix }}"
+            ADD_PLAYLIST_POSTER: "{{ .Values.pps.other.add_playlist_poster }}"
+            ADD_PLAYLIST_DESCRIPTION: "{{ .Values.pps.other.add_playlist_description }}"
+            APPEND_INSTEAD_OF_SYNC: "{{ .Values.pps.other.append_instead_of_sync }}"
+            SECONDS_TO_WAIT: "{{ .Values.pps.other.seconds_to_wait }}"
 
 persistence:
   data:
