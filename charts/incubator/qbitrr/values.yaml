@@ -26,10 +26,10 @@ workload:
                 - -c
                 - |
                   echo "Creating config.toml file..."
-                  if [ -f /config/.config/config.toml ]; then
+                  if [ -f /config/config.toml ]; then
                     echo "Config file exists! Skipping..."
                   else
-                    if cp -n /config/.config/config.rename_me.toml /config/.config/config.toml; then
+                    if cp -n /config/config.rename_me.toml /config/config.toml; then
                       echo "Config file copied successfully!"
                     else
                       echo "Copying config file failed."
