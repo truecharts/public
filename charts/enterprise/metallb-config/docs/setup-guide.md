@@ -4,7 +4,7 @@ The guide walks through a basic configuration of MetalLB for a single address po
 
 :::warning
 
-With MetalLB installed, apps will not be reachable using the integrated loadbalancer. You cannot combine two different loadbalancers in TrueNAS SCALE.
+With MetalLB installed, apps will not be reachable using the integrated LoadBalancer. You cannot combine two different LoadBalancers in TrueNAS SCALE.
 
 :::
 
@@ -69,15 +69,15 @@ For each app, under **Networking and Services**, select `LoadBalancer` Service T
 
 In the **LoadBalancer IP** field, specify an IP address that is within the MetalLB address pool that you configured. Apply the same IP address to the **LoadBalancer IP** field on other services within the app.
 
-## 4. Disable SCALE's Default Loadbalancer
+## 4. Disable SCALE's Default LoadBalancer
 
-With MetalLB installed and configured, you must now disable SCALE's default loadbalancer.
+With MetalLB installed and configured, you must now disable SCALE's default LoadBalancer.
 
 In the SCALE UI, under **Apps** > **Settings** > **Advanced Settings**
 
 ![metallb-disable](img/metallb_guide_disableLB.png)
 
-Uncheck `Enable Integrated Loadbalancer`.
+Uncheck `Enable Integrated LoadBalancer`.
 
 **This will trigger a restart of Kubernetes and all apps**. After roughly 5-10 minutes, your apps will redeploy using the MetalLB-assigned IP addresses.
 
