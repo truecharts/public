@@ -65,12 +65,12 @@ workload:
                 key: redis-password
             APP_KEY:
               secretKeyRef:
-                name: APP_KEY
-                key: anonaddy-secrets
+                name: anonaddy-secrets
+                key: APP_KEY
             ANONADDY_SECRET:
               secretKeyRef:
-                name: ANONADDY_SECRET
-                key: anonaddy-secrets
+                name: anonaddy-secrets
+                key: ANONADDY_SECRET
 
 persistence:
   config:
