@@ -17,7 +17,7 @@ service:
 workload:
   main:
     podSpec:
-         initContainers:
+      initContainers:
         create-init-config-file:
           enabled: true
           type: init
