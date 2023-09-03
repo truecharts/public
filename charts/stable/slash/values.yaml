@@ -1,0 +1,28 @@
+image:
+  repository: tccr.io/truecharts/slash
+  pullPolicy: IfNotPresent
+  tag: v0.4.3@sha256:ee931b868fab72d2aaa218837039ee3fcced6817596cac500f3878e780152b60
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 5231
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            SLASH_PORT: "{{ .Values.service.main.ports.main.port }}"
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/var/opt/slash"
+
+portal:
+  open:
+    enabled: true
