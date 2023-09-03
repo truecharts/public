@@ -15,8 +15,8 @@ odoo-config:
   data:
     odoo.conf: |
      [options]
-     ; addons_path = {{ .Values.persistence.addons.mountPath }}
-     ; data_dir = {{ .Values.persistence.odoo.mountPath }}
+       addons_path = {{ .Values.persistence.addons.mountPath }}
+       data_dir = {{ .Values.persistence.odoo.mountPath }}
      ; admin_passwd = {{ $admin.passwd }}
      ; longpolling_port = {{ .Values.service.longpolling.ports.longpolling.port }}
      ; xmlrpc = True
