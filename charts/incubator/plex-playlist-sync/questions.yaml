@@ -9,79 +9,123 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
+# Include{containerBasic}
+# Include{containerAdvanced}
 
-                                - variable: env
-                                  group: "App Configuration"
-                                  label: "Image Environment"
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                      - variable: PLEX_URL
-                                        label: "PLEX_URL"
-                                        schema:
-                                          type: string
-                                          default: "http://plex:32400"
-                                      - variable: PLEX_TOKEN
-                                        label: "PLEX_TOKEN"
-                                        schema:
-                                          type: string
-                                          default: "YOUR_TOKEN_PLEX"
-                                      - variable: WRITE_MISSING_AS_CSV
-                                        label: "WRITE_MISSING_AS_CSV"
-                                        schema:
-                                          type: int
-                                          default: 0
-                                      - variable: APPEND_SERVICE_SUFFIX
-                                        label: "APPEND_SERVICE_SUFFIX"
-                                        schema:
-                                          type: int
-                                          default: 1
-                                      - variable: ADD_PLAYLIST_POSTER
-                                        label: "ADD_PLAYLIST_POSTER"
-                                        schema:
-                                          type: int
-                                          default: 1
-                                      - variable: ADD_PLAYLIST_DESCRIPTION
-                                        label: "ADD_PLAYLIST_DESCRIPTION"
-                                        schema:
-                                          type: int
-                                          default: 1
-                                      - variable: APPEND_INSTEAD_OF_SYNC
-                                        label: "APPEND_INSTEAD_OF_SYNC"
-                                        schema:
-                                          type: int
-                                          default: 0
-                                      - variable: SECONDS_TO_WAIT
-                                        label: "SECONDS_TO_WAIT"
-                                        schema:
-                                          type: int
-                                          default: 84000
-                                      - variable: SPOTIFY_CLIENT_ID
-                                        label: "SPOTIFY_CLIENT_ID"
-                                        schema:
-                                          type: string
-                                          default: ""
-                                      - variable: SPOTIFY_CLIENT_SECRET
-                                        label: "SPOTIFY_CLIENT_SECRET"
-                                        schema:
-                                          type: string
-                                          default: ""
-                                      - variable: SPOTIFY_USER_ID
-                                        label: "SPOTIFY_USER_ID"
-                                        schema:
-                                          type: string
-                                          default: ""
-                                      - variable: DEEZER_USER_ID
-                                        label: "DEEZER_USER_ID"
-                                        schema:
-                                          type: string
-                                          default: ""
-                                      - variable: DEEZER_PLAYLIST_ID
-                                        label: "DEEZER_PLAYLIST_ID"
-                                        schema:
-                                          type: string
-                                          default: ""
+  - variable: pps
+    group: App Configuration
+    label: Plex Playlist Sync
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: plex
+          label: Plex Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: url
+                label: Url
+                schema:
+                  type: string
+                  required: true
+                  default: "http://plex.ix-plex.svc.cluster.local:32400"
+              - variable: token
+                label: Token
+                schema:
+                  type: string
+                  required: true
+                  private: true
+                  default: ""
+        - variable: spotify
+          label: Spotify Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: user_id
+                label: User Id
+                schema:
+                  type: string
+                  default: ""
+              - variable: client_id
+                label: Client Id
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+              - variable: client_secret
+                label: Client Secret
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+        - variable: deezer
+          label: Deezer Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: user_id
+                label: User Id
+                schema:
+                  type: string
+                  default: ""
+              - variable: playlist_id
+                label: Playlist Id
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: id
+                      label: Id
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+        - variable: other
+          label: Other Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: write_missing_as_csv
+                label: Write Missing AS CSV
+                description: writes missing tracks from each playlist to a csv.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: append_service_suffix
+                label: Append Service Suffix
+                description: Appends the service name to the playlist name.
+                schema:
+                  type: boolean
+                  default: true
+              - variable: add_playlist_poster
+                label: Add Playlist Poster
+                description: Add poster for each playlist
+                schema:
+                  type: boolean
+                  default: true
+              - variable: add_playlist_description
+                label: Add Playlist Description
+                description: Add description for each playlist
+                schema:
+                  type: boolean
+                  default: true
+              - variable: append_instead_of_sync
+                label: Append Instead of Sync
+                description: Sync or append tracks
+                schema:
+                  type: boolean
+                  default: false
+              - variable: seconds_to_wait
+                label: Seconds to Wait
+                schema:
+                  type: int
+                  default: 84000
+
 # Include{podOptions}
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
