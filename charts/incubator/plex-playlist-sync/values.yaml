@@ -1,0 +1,49 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/plex-playlist-sync
+  tag: latest@sha256:d772884cf7fa92305a83d747679b1534f7f712eed758e671bce8f799475a997e
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+portal:
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            PLEX_TOKEN: YOUR_TOKEN_PLEX
+            PLEX_URL: http://plex:32400
+            WRITE_MISSING_AS_CSV: WRITE_MISSING_AS_CSV
+            APPEND_SERVICE_SUFFIX: APPEND_SERVICE_SUFFIX
+            ADD_PLAYLIST_POSTER: ADD_PLAYLIST_POSTER
+            ADD_PLAYLIST_DESCRIPTION: ADD_PLAYLIST_DESCRIPTION
+            APPEND_INSTEAD_OF_SYNC: APPEND_INSTEAD_OF_SYNC
+            SECONDS_TO_WAIT: SECONDS_TO_WAIT
+            SPOTIFY_CLIENT_ID: SPOTIFY_CLIENT_ID
+            SPOTIFY_CLIENT_SECRET: SPOTIFY_CLIENT_SECRET
+            SPOTIFY_USER_ID: SPOTIFY_USER_ID
+            DEEZER_USER_ID: DEEZER_USER_ID
+            DEEZER_PLAYLIST_ID: DEEZER_PLAYLIST_ID

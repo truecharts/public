@@ -1,0 +1,128 @@
+# Include{groups}
+portals: {}
+questions:
+# Include{global}
+# Include{workload}
+# Include{workloadDeployment}
+
+# Include{replicas1}
+# Include{podSpec}
+# Include{containerMain}
+
+
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: PLEX_URL
+                                        label: "PLEX_URL"
+                                        schema:
+                                          type: string
+                                          default: "http://plex:32400"
+                                      - variable: PLEX_TOKEN
+                                        label: "PLEX_TOKEN"
+                                        schema:
+                                          type: string
+                                          default: "YOUR_TOKEN_PLEX"
+                                      - variable: WRITE_MISSING_AS_CSV
+                                        label: "WRITE_MISSING_AS_CSV"
+                                        schema:
+                                          type: int
+                                          default: 0
+                                      - variable: APPEND_SERVICE_SUFFIX
+                                        label: "APPEND_SERVICE_SUFFIX"
+                                        schema:
+                                          type: int
+                                          default: 1
+                                      - variable: ADD_PLAYLIST_POSTER
+                                        label: "ADD_PLAYLIST_POSTER"
+                                        schema:
+                                          type: int
+                                          default: 1
+                                      - variable: ADD_PLAYLIST_DESCRIPTION
+                                        label: "ADD_PLAYLIST_DESCRIPTION"
+                                        schema:
+                                          type: int
+                                          default: 1
+                                      - variable: APPEND_INSTEAD_OF_SYNC
+                                        label: "APPEND_INSTEAD_OF_SYNC"
+                                        schema:
+                                          type: int
+                                          default: 0
+                                      - variable: SECONDS_TO_WAIT
+                                        label: "SECONDS_TO_WAIT"
+                                        schema:
+                                          type: int
+                                          default: 84000
+                                      - variable: SPOTIFY_CLIENT_ID
+                                        label: "SPOTIFY_CLIENT_ID"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: SPOTIFY_CLIENT_SECRET
+                                        label: "SPOTIFY_CLIENT_SECRET"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: SPOTIFY_USER_ID
+                                        label: "SPOTIFY_USER_ID"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: DEEZER_USER_ID
+                                        label: "DEEZER_USER_ID"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: DEEZER_PLAYLIST_ID
+                                        label: "DEEZER_PLAYLIST_ID"
+                                        schema:
+                                          type: string
+                                          default: ""
+# Include{podOptions}
+# Include{serviceExpertRoot}
+# Include{serviceExpert}
+# Include{serviceList}
+# Include{persistenceRoot}
+        - variable: data
+          label: "data Storage"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceList}
+# Include{securityContextRoot}
+
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
+# Include{securityContextContainer}
+# Include{securityContextAdvanced}
+# Include{securityContextPod}
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
+                schema:
+                  type: int
+                  default: 568
+
+# Include{resources}
+# Include{advanced}
+# Include{addons}
+# Include{codeserver}
+# Include{netshoot}
+# Include{vpn}
+# Include{documentation}
