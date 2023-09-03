@@ -55,7 +55,7 @@ workload:
             SPOTIFY_CLIENT_ID: "{{ .Values.pps.spotify.client_id }}"
             SPOTIFY_CLIENT_SECRET: "{{ .Values.pps.spotify.client_secret }}"
             DEEZER_USER_ID: "{{ .Values.pps.deezer.user_id }}"
-            DEEZER_PLAYLIST_ID: '{{ join " " .Values.deezer.playlist_id }}'
+            DEEZER_PLAYLIST_ID: '{{ join " " .Values.pps.deezer.playlist_id }}'
             WRITE_MISSING_AS_CSV: "{{ .Values.pps.other.write_missing_as_csv }}"
             APPEND_SERVICE_SUFFIX: "{{ .Values.pps.other.append_service_suffix }}"
             ADD_PLAYLIST_POSTER: "{{ .Values.pps.other.add_playlist_poster }}"
