@@ -1,38 +1,26 @@
 # Installation Notes
 
-- Set `PLEX_URL` with `http://IP:PORT` or cluster: `http://plex.ix-plex.svc.cluster.local:32400`. this cluster URL assumes you named your applicatin `plex`.
+## Plex Required Parameters
+- Set the Plex Configuration's `Url` with the address of your Plex server, such as `http://IP:PORT`. If you're using TrueNAS Scale and your application's name is `plex`, then this value should work `http://plex.ix-plex.svc.cluster.local:32400`.
 
-- To set `PLEX_TOKEN` you need to Browse to a library item and view the XML for it in plex as the `admin` user in the browser, the url will end with `...Plex-Token=` so **ONLY** copy after the `=` for the token.
-
-Required parameters are 1, 2, or 3 depending on your desired setup. More information is explained below.
+- Set the Plex Configuration's `Token` with your Plex Token value. To get this, you'll need to log into Plex as the server owner and browse to am item in your library. Then select the "View as XML" hyperlink. This should open up a new tab showing XML data and the URL will end with `...Plex-Token=`. Your token value is after the `=`, so **only** copy that value.
 
 
 ![xml_info_token.png](imgs/xml_info_token.png)
 
+## Spotify Required Parameters
+_Note: These configuration settings are only if you are using Spotify. If you're intending to use Spotify, then the Spotify Configuration settings are all required._
 
-- `WRITE_MISSING_AS_CSV` can either be 0 or 1. 0 disables this feature, which is the default. 1 writes missing tracks from each playlist to a csv file.
-- `APPEND_SERVICE_SUFFIX` can either be 0 or 1. 0 disables this feature. 1 appends the service name to the playlist name, which is the default.
-- `ADD_PLAYLIST_POSTER` can either be 0 or 1. 0 disables this feature. 1 will add poster for each playlist, which is the default.
-- `ADD_PLAYLIST_DESCRIPTION` can either be 0 or 1. 0 disables this feature. 1 will add description for each playlist, which is the default.
-- `APPEND_INSTEAD_OF_SYNC` can either be 0 or 1. 0 appends to the playlist only, which is the default. 1 will sync tracks.
-- `SECONDS_TO_WAIT` is the seconds to wait between syncs. 84000 is the default.
-- `SPOTIFY_CLIENT_ID` should be your Spotify client id. (Option 1)
-- `SPOTIFY_CLIENT_SECRET` can be your Spotify client secret. (Option 1)
-- `SPOTIFY_USER_ID` can be your Spotify user id. (Option 1)
-- `DEEZER_USER_ID` can be your Deezer user id. (Option 2)
-- `DEEZER_PLAYLIST_ID` can be your Deezer playlist ids separated by a space. (Option 3)
+Your Spotify Client Id and Client Secret can be obtained by becoming a [Spotify Developer](https://developer.spotify.com/dashboard/login).
 
-## Spotify Required Parameters (Option 1)
-`SPOTIFY_CLIENT_ID` - can be obtained by becoming a [Spotify Developer](https://developer.spotify.com/dashboard/login).
-`SPOTIFY_CLIENT_SECRET` - you will receive the secret when you get your client id.
-`SPOTIFY_USER_ID` - can be found on [Spotify's account page](https://www.spotify.com/us/account/overview/).
+Your Spotify User Id - can be found on [Spotify's account page](https://www.spotify.com/us/account/overview/).
 
 ## Deezer Required Parameters
+_Note: These configuration settings are only if you are using Deezer. If you're intending on using Deezer instead, either the `User Id` option or the `Playlist Id` option is required._
+### Option 1 - Sync all user playlists
 
-### Option 2
+Your Deezer User Id can be obtained by logging in and clicking on your profile. The Id will be in the URL and is a numerical value. Ex: `/profile/#`
 
-`DEEZER_USER_ID` - can be obtained by logging in and clicking on your profile. The ID will be in the URL and is a numerical value. Ex: /profile/#
+### Option 2 - Sync specific playlists
 
-### Option 3
-
-`DEEZER_PLAYLIST_ID` - can be obtained by getting the playlists that you want to sync. They ID will be in the URL and is a numerical value. Ex: /playlist/#
+The Deezer Playlist Id can be obtained by navigating to the playlists that you want to sync. They Id will be in the URL and is a numerical value. Ex: `/playlist/#`
