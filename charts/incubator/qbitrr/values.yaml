@@ -29,7 +29,7 @@ workload:
                   if [ -f /config/config.toml ]; then
                     echo "Config file exists! Skipping..."
                   else
-                    if cp -n /config/config.rename_me.toml /config/config.toml; then
+                    if mv -n /config/config.rename_me.toml /config/config.toml; then
                       echo "Config file copied successfully!"
                     else
                       echo "Copying config file failed."
