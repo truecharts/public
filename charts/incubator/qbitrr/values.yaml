@@ -2,28 +2,18 @@ image:
   repository: feramance/qbitrr
   pullPolicy: IfNotPresent
   tag: v3.7.1@sha256:64899117f9c4e8de760905eb48f82465f996acc398bb64b22511e4e83686da9c
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-persistence:
-  config:
-    enabled: true
-    mountPath: /config
-  data:
-    enabled: true
-    mountPath: /completed_downloads
-portal:
-  open:
-    enabled: false
-securityContext:
-  container:
-    readOnlyRootFilesystem: false
-    runAsNonRoot: false
-    runAsGroup: 568
-    runAsUser: 568
+
 workload:
   main:
     podSpec:
@@ -36,3 +26,16 @@ workload:
               enabled: false
             startup:
               enabled: false
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  downloads:
+    enabled: true
+    mountPath: /completed_downloads
+
+portal:
+  open:
+    enabled: false
+
