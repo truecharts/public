@@ -27,11 +27,15 @@ workload:
           args:
             - |
               echo "Creating config.toml file..."
-              if [ -f /config/config.toml ]; then
+              if [ -f /config/.config/config.toml ]; then
                 echo "Config file exists! Skipping..."
               else
-                echo "Config file is missing, getting a new one!"
-                curl -fLvo /config/config.toml https://raw.githubusercontent.com/Feramance/qBitrr/master/config.example.toml || (echo "Downloading config file, FAILED..." && exit 1)
+                if cp -n /config/.config/config.rename_me.toml /config/.config/config.toml; then
+                  echo "Config file copied successfully!"
+                else
+                  echo "Copying config file failed."
+                  exit 1
+                fi
               fi
       containers:
         main:
