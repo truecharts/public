@@ -10,7 +10,7 @@
 
 ## Game ID
 
-Set `Game ID` to **ARK Survival Evolved** or **ARK Survival of the Fittest**.
+Set `Game ID` to **376030** (ARK Survival Evolved) or **445400** (ARK Survival of the Fittest).
 
 `Validate` is set to true as default, verifies the game installation.
 

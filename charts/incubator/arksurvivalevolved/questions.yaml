@@ -52,11 +52,6 @@ questions:
             type: string
             required: true
             default: "376030"
-            enum:
-              - value: "376030"
-                description: ARK Survival Evolved
-              - value: "445400"
-                description: ARK Survival of the Fittest
         - variable: custom_map
           label: Custom Map
           description: Custom Map name.
@@ -192,15 +187,6 @@ questions:
                               type: int
                               default: 7777
                               required: true
-        - variable: game
-          label: Game service
-          description: Game Service Port Configuration
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelectorLoadBalancer}
-# Include{serviceSelectorExtras}
                     - variable: game
                       label: Game Service Port Configuration (Main Port + 1)
                       schema:
@@ -214,6 +200,15 @@ questions:
                               type: int
                               default: 7778
                               required: true
+        - variable: query
+          label: Query service
+          description: Query Service Port Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: query
                       label: Query Service Port Configuration
                       schema:
@@ -227,6 +222,15 @@ questions:
                               type: int
                               default: 27015
                               required: true
+        - variable: rcon
+          label: Rcon service
+          description: Rcon Service Port Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: rcon
                       label: Rcon Service Port Configuration
                       schema:

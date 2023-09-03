@@ -5,8 +5,8 @@
 
 {{- $params := list }}
 {{- $params = append $params (printf "?Port=%v" .Values.service.main.ports.main.port) -}}
-{{- $params = append $params (printf "?QueryPort=%v" .Values.service.game.ports.query.port) -}}
-{{- $params = append $params (printf "?RCONPort=%v" .Values.service.game.ports.rcon.port) -}}
+{{- $params = append $params (printf "?QueryPort=%v" .Values.service.query.ports.query.port) -}}
+{{- $params = append $params (printf "?RCONPort=%v" .Values.service.rcon.ports.rcon.port) -}}
 
 {{- $gameExtraParams := list -}}
 {{- range $key, $value := .Values.ark.easy_game_extra_params -}}

@@ -12,22 +12,27 @@ securityContext:
 
 service:
   main:
-    ports:
-      main:
-        port: 7777
-        protocol: udp
-  game:
     enabled: true
     ports:
+      main:
+        enabled: true
+        port: 7777
+        protocol: udp
       game:
         enabled: true
-        protocol: udp
-        # This should always be main +1
         port: 7778
+        # This should always be main +1
+        protocol: udp
+  query:
+    enabled: true
+    ports:
       query:
         enabled: true
         protocol: udp
         port: 27015
+  rcon:
+    enabled: true
+    ports:
       rcon:
         enabled: true
         protocol: tcp
