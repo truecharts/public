@@ -14,6 +14,12 @@ With MetalLB installed, apps will not be reachable using the integrated loadbala
 
 ![metallb-addtrains](img/metallb_guide_trains.png)
 
+:::caution
+
+Our customized version of MetalLB is only intended for use with other TrueCharts applications. Other catalogs will likely not support our MetalLB application. MetalLB could technically work with TrueNAS catalog apps if they used the LoadBalancer service, but they don't as they use NodePort instead. These atypical configurations aren't officially supported nor encouraged by TrueCharts.
+
+:::
+
 ## 1. Install MetalLB Operator from Operators Train
 
 ![metallb-apps](img/metallb_guide_apps.png)
