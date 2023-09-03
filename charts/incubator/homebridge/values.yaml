@@ -4,22 +4,25 @@ image:
   tag: v2023-01@sha256:fa0512d8b38d20d4078b0f403c23c17716a045fcb4dc723b896461a766e22ee9
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
 
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-env:
-  HOMEBRIDGE_CONFIG_UI: 1
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            HOMEBRIDGE_CONFIG_UI: 1
 
 service:
   main:
     ports:
       main:
-        protocol: HTTP
-        targetPort: 8581
+        protocol: http
         port: 8581
 
 persistence:
@@ -28,4 +31,5 @@ persistence:
     mountPath: /homebridge
 
 portal:
-  enabled: true
+  open:
+    enabled: true
