@@ -144,7 +144,7 @@ questions:
 # Include{serviceRoot}
         - variable: main
           label: Main Service
-          description: The Primary service on which the Minecraft Server runs on
+          description: The Primary service on which the healthcheck runs, often the webUI
           schema:
             additional_attrs: true
             type: dict
@@ -165,8 +165,8 @@ questions:
                               default: 8766
                               required: true
         - variable: query
-          label: Query Service ports
-          description: The Query service.
+          label: Query service
+          description: Query Service Port Configuration
           schema:
             additional_attrs: true
             type: dict
@@ -187,8 +187,8 @@ questions:
                               default: 27016
                               required: true
         - variable: sync
-          label: Sync Service ports
-          description: The Sync service.
+          label: Sync service
+          description: Sync Service Port Configuration
           schema:
             additional_attrs: true
             type: dict
