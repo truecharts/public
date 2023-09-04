@@ -1,1 +1,11 @@
 imageSelector: cublasCuda11FfmpegImage
+
+persistence:
+  tmp:
+    enabled: true
+    type: pvc
+    mountPath: /tmp
+  devshm:
+    enabled: true
+    type: pvc
+    mountPath: /devshm
