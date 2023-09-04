@@ -65,7 +65,7 @@ questions:
                                               description: "The amount of time Litestream snapshots & WAL files will be kept."
                                               schema:
                                                 type: string
-                                                default: true
+                                                required: true
                                                 default: "72h"
 # Include{containerBasic}
 # Include{containerAdvanced}
