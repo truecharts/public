@@ -6,7 +6,7 @@
 {{- $secretKey := randAlphaNum 64 -}}
 
  {{- with lookup "v1" "Secret" .Release.Namespace $secretName -}}
-   {{- $authKey = index .data "APP_KEY" | b64dec -}}
+   {{- $appKey = index .data "APP_KEY" | b64dec -}}
    {{- $secretKey = index .data "ANONADDY_SECRET" | b64dec -}}
  {{- end }}
 enabled: true
