@@ -1,0 +1,50 @@
+image:
+  repository: tccr.io/truecharts/van-dam
+  pullPolicy: IfNotPresent
+  tag: v0.53.0@sha256:CHANGE_ME
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 3214
+        port: 3214
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DATABASE_URL:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: std
+            REDIS_URL:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: url
+            SECRET_KEY_BASE:
+              secretKeyRef:
+                name: anonaddy-secrets
+                key: ANONADDY_SECRET
+
+persistence:
+  libraries:
+    enabled: true
+    mountPath: "/libraries"
+
+cnpg:
+  main:
+    enabled: true
+    user: vandam
+    database: vandam
+
+redis:
+  enabled: true
+
+portal:
+  open:
+    enabled: true
