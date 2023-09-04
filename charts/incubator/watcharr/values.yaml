@@ -1,0 +1,38 @@
+image:
+  repository: tccr.io/truecharts/watcharr
+  pullPolicy: IfNotPresent
+  tag: v1.16.0@sha256:CHANGE_ME
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 3080
+        port: 10684
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            MODE: prod
+            JELLYFIN_HOST: https://localhost:10684
+            SIGNUP_ENABLED: true
+            # Optional: Provide your own TMDB API Key.
+            TMDB_KEY: ""
+            DEBUG: false
+            JWT_SECRET:
+              secretKeyRef:
+                name: watcharr-secrets
+                key: JWT_SECRET
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+
+portal:
+  open:
+    enabled: true
