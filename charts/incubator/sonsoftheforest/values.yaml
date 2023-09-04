@@ -15,7 +15,7 @@ service:
     ports:
       main:
         protocol: udp
-        targetPort: 8766
+        port: 8766
   query:
     enabled: true
     ports:
