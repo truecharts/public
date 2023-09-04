@@ -32,10 +32,6 @@ service:
         port: 9700
 
 sonsoftheforest:
-  IpAddress: "0.0.0.0"
-  GamePort: "{{ .Values.service.main.ports.main.port }}"
-  QueryPort: "{{ .Values.service.query.ports.query.port }}"
-  BlobSyncPort": "{{ .Values.service.sync.ports.sync.port }}"
   ServerName": "Sons Of The Forest Docker Server"
   MaxPlayers: 8
   Password: ""
@@ -50,8 +46,9 @@ sonsoftheforest:
   LogFilesEnabled: false
   TimestampLogFilenames: true
   TimestampLogEntries: true
-  GameSettings: {}
-  CustomGameModeSettings: {}
+  # TODO
+  # GameSettings: {}
+  # CustomGameModeSettings: {}
 
 workload:
   main:
