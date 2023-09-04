@@ -65,21 +65,17 @@ workload:
                 key: redis-password
             APP_KEY:
               secretKeyRef:
-                name: appkey
-                key: appkey
+                name: anonaddy-secrets
+                key: APP_KEY
             ANONADDY_SECRET:
               secretKeyRef:
-                name: appkey
-                key: secret
+                name: anonaddy-secrets
+                key: ANONADDY_SECRET
 
 persistence:
   config:
     enabled: true
     mountPath: /config
-
-portal:
-  open:
-    enabled: true
 
 redis:
   enabled: true
@@ -88,3 +84,7 @@ mariadb:
   enabled: true
   mariadbUsername: anonaddy
   mariadbDatabase: anonaddy
+
+portal:
+  open:
+    enabled: true
