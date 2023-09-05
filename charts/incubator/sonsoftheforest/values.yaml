@@ -32,13 +32,16 @@ service:
         port: 9700
 
 sonsoftheforest:
-  ServerName": "Sons Of The Forest Docker Server"
+  ServerName: "Sons Of The Forest Docker Server"
   MaxPlayers: 8
   Password: ""
-  LanOnly: true
+  LanOnly: false
+  # integer, equal to or greater than 1
   SaveSlot: 1
-  SaveMode: "Continue"
-  GameMode: "Normal"
+  # new, continue
+  SaveMode: "continue"
+  # peaceful, normal, hard, hardsurvival, custom
+  GameMode: "normal"
   SaveInterval: 600
   IdleDayCycleSpeed: "0.0"
   IdleTargetFramerate: 5
@@ -46,9 +49,44 @@ sonsoftheforest:
   LogFilesEnabled: false
   TimestampLogFilenames: true
   TimestampLogEntries: true
-  # TODO
-  # GameSettings: {}
-  # CustomGameModeSettings: {}
+
+  GameSettings:
+    TreeRegrowth: true
+    StructureDamage: true
+  CustomGameModeSettings:
+    # Multiplayer
+    Cheats: false
+    # Vail
+    EnemySpawn: true
+    # low, normal, high
+    EnemyHealth: "normal"
+    # low, normal, high
+    EnemyDamage: "normal"
+    # low, normal, high
+    EnemyArmour: "normal"
+    # low, normal, high
+    EnemyAggression: "normal"
+    # low, normal, high
+    AnimalSpawnRate: "normal"
+    # Environment
+    # spring, summer, autumn, winter
+    StartingSeason: "Summer"
+    # short, default, long, realistic
+    SeasonLength: "default"
+    # short, default, long, realistic
+    DayLength: "default"
+    # low, default, high
+    PrecipitationFrequency: "default"
+    # not a dupe key.
+    StructureDamage: true
+    # Survival
+    # normal, hard
+    ConsumableEffects: "normal"
+    # off, normal, hard
+    PlayerStatsDamage: "off"
+    ColdPenalties: "off"
+    ReducedFoodInContainers: false
+    SingleUseContainers: false
 
 workload:
   main:
