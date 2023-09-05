@@ -170,6 +170,12 @@ questions:
           schema:
             type: boolean
             default: true
+        - variable: SkipNetworkAccessibilityTest
+          label: Skip Network Accessibility Test
+          description: Opt-out of network accessibility self tests.
+          schema:
+            type: boolean
+            default: false
         - variable: GameSettings
           label: Game Settings
           schema:

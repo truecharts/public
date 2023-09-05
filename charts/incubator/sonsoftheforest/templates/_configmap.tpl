@@ -27,6 +27,7 @@ sonsoftheforest-config:
         "LogFilesEnabled": "{{ $stf.LogFilesEnabled }}",
         "TimestampLogFilenames": "{{ $stf.TimestampLogFilenames }}",
         "TimestampLogEntries": "{{ $stf.TimestampLogEntries }}",
+        "SkipNetworkAccessibilityTest": "{{ $stf.SkipNetworkAccessibilityTest }}",
         "GameSettings": {
           "Gameplay.TreeRegrowth": "{{ $stf.GameSettings.TreeRegrowth }}",
           "Structure.Damage": "{{ $stf.GameSettings.StructureDamage }}"
