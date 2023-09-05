@@ -25,18 +25,30 @@ service:
         port: 3000
 
 eco:
-  PublicServer": true
-  Playtime": ""
-  Password": "Docker"
-  Description": "ECO Docker"
-  DetailedDescription": ""
-  ServerCategory": "None"
-  IPAddress": "Any"
-  GameServerPort": 3000
-  WebServerPort": 3001
-  Rate": 20
-  MaxConnections": -1
-  UPnPEnabled": true
+  game:
+    id: 739590
+    user: ""
+    password: ""
+    validate: false
+    params: []
+  network:
+    PublicServer: true
+    Playtime: ""
+    DiscordAddress: ""
+    Password: ""
+    # server name
+    Description: "Truecharts ECO Server"
+    # server description
+    DetailedDescription: "Vanilla ECO game"
+    ServerCategory: "None"
+    RemoteAddress: "localhost:3000/"
+    IPAddress: "Any"
+    GameServerPort: "{{ .Values.service.game.ports.game.port }}"
+    WebServerPort: "{{ .Values.service.main.ports.main.port }}"
+    WebServerUrl: "localhost:3001"
+    Rate: 20
+    MaxConnections: -1
+    UPnPEnabled: false
 
 workload:
   main:
@@ -56,12 +68,11 @@ workload:
               type: tcp
               port: "{{ .Values.service.main.ports.main.targetPort }}"
           env:
-            USERNAME: ""
-            PASSWRD: ""
-            GAME_ID: "739590"
-            GAME_PARAMS: ""
-            VALIDATE: false
-            # DATA_PERM: "770"
+            GAME_ID: "{{ .Values.eco.game.id }}"
+            USERNAME: "{{ .Values.eco.game.user }}"
+            PASSWRD: "{{ .Values.eco.game.password }}"
+            GAME_PARAMS: '{{ join " " .Values.eco.game.params }}'
+            VALIDATE: "{{ .Values.eco.game.validate }}"
 
 persistence:
   steamcmd:
@@ -73,7 +84,7 @@ persistence:
   network-config:
     enabled: true
     type: configmap
-    objectName: eco-config
+    objectName: eco-network
     targetSelector:
       main:
         main:

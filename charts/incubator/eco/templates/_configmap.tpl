@@ -2,12 +2,12 @@
 {{- define "eco.configmaps" -}}
 {{- $fullname := (include "tc.v1.common.lib.chart.names.fullname" $) -}}
 
-{{- $eco := .Values.eco -}}
+{{- $network := .Values.eco.network -}}
 
-eco-config:
+eco-network:
   enabled: true
   data:
     Network.eco: |
-      {{ $eco | toJson }}
+      {{ $network | toJson }}
 
 {{- end -}}
