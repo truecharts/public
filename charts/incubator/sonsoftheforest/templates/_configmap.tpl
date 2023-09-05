@@ -41,7 +41,7 @@ sonsoftheforest-dscfg:
           "GameSetting.Vail.EnemyAggression": "{{ $server.CustomGameModeSettings.EnemyAggression }}",
           "GameSetting.Vail.AnimalSpawnRate": "{{ $server.CustomGameModeSettings.AnimalSpawnRate }}",
           "GameSetting.Environment.StartingSeason": "{{ $server.CustomGameModeSettings.StartingSeason }}",
-          "GameSetting.Environment.SeasonLength": ""{{ $server.CustomGameModeSettings.SeasonLength }}",
+          "GameSetting.Environment.SeasonLength": "{{ $server.CustomGameModeSettings.SeasonLength }}",
           "GameSetting.Environment.DayLength": "{{ $server.CustomGameModeSettings.DayLength }}",
           "GameSetting.Environment.PrecipitationFrequency": "{{ $server.CustomGameModeSettings.PrecipitationFrequency }}",
           "GameSetting.Survival.ConsumableEffects": "{{ $server.CustomGameModeSettings.ConsumableEffects }}",
