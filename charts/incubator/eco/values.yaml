@@ -68,6 +68,8 @@ workload:
               type: tcp
               port: "{{ .Values.service.main.ports.main.port }}"
           env:
+            STEAMCMD_DIR: "{{ .Values.persistence.steamcmd.mountPath }}"
+            SERVER_DIR: "{{ .Values.persistence.serverfiles.mountPath }}"
             GAME_ID: "{{ .Values.eco.game.id }}"
             USERNAME: "{{ .Values.eco.game.user }}"
             PASSWRD: "{{ .Values.eco.game.password }}"
