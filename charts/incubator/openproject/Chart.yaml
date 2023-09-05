@@ -1,13 +1,9 @@
 apiVersion: v2
-appVersion: "12.4.5"
+appVersion: "13.0.1"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
-  - condition: postgresql.enabled
-    name: postgresql
-    repository: https://deps.truecharts.org/
-    version: 11.0.31
+    version: 14.0.3
 deprecated: false
 description: OpenProject is a web-based project management system for location-independent team collaboration.
 home: https://truecharts.org/charts/incubator/openproject
@@ -23,9 +19,10 @@ maintainers:
 name: openproject
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/openproject
+  - https://github.com/opf/openproject
   - http://openproject.org
 type: application
-version: 3.0.27
+version: 4.0.0
 annotations:
   truecharts.org/SCALE-support: "true"
   truecharts.org/catagories: |

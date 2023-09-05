@@ -1,20 +1,13 @@
 {{/* Define the secrets */}}
 {{- define "openproject.secrets" -}}
----
+{{- $secretName := (printf "%s-openproject-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
 
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: openproject-secrets
-{{- $openprojectprevious := lookup "v1" "Secret" .Release.Namespace "openproject-secrets" }}
-{{- $secret_key_base := "" }}
+{{- $secretKey := randAlphaNum 64 -}}
+
+ {{- with lookup "v1" "Secret" .Release.Namespace $secretName -}}
+   {{- $secretKey = index .data "SECRET_KEY_BASE" | b64dec -}}
+ {{- end }}
+enabled: true
 data:
-  {{- if $openprojectprevious}}
-  SECRET_KEY_BASE: {{ index $openprojectprevious.data "SECRET_KEY_BASE" }}
-  {{- else }}
-  {{- $secret_key_base := randAlphaNum 32 }}
-  SECRET_KEY_BASE: {{ $secret_key_base | b64enc }}
-  {{- end }}
-
+  SECRET_KEY_BASE: {{ $secretKey }}
 {{- end -}}
