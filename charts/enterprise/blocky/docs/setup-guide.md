@@ -84,7 +84,7 @@ certain blocklists if you find legitimate traffic being blocked.
 ## Networking
 
 If you want to use Blocky on your local network to take advantage of the filtering above, or the k8s-gateway below, you 
-need to ensure your loadbalancer IP address is set and won't change.
+need to setup a static ip address and leave the default setting DNS TCP Service and DNS UDP Service as LoadBalancer.
 
 You need to configure the devices on your network to use the static IP address configured above.  This can be done per device or by changing the DHCP or DNS settings on your router.
 
