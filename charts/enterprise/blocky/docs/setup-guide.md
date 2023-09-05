@@ -23,7 +23,7 @@ Blocky has the following DNS entries configured by default.  They can be overrid
 - 76.76.2.0
 - 76.76.10.0
 
-Blocky supports 3 methods for upstream DNS.  You can choose multiple options, but I'm not sure if the order matters.
+Blocky supports 3 methods for upstream DNS.  You can use any combination of the below.
 
 - UDP - Basic DNS
 - DoT - DNS over TLS
