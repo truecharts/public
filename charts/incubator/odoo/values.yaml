@@ -24,13 +24,6 @@ service:
 odoo:
   admin:
     passwd: admin
-  config:
-    db_name: odoo
-    email: admin@example.com
-    password: SECUREPASS
-    phone: 5555555555
-    lang: en_US
-    country_code: us
   smtp:
     server: ""
     port: 587
@@ -61,7 +54,7 @@ cnpg:
   main:
     enabled: true
     user: odoo
-    database: postgres
+    database: odoo
 
 portal:
   open:

@@ -8,7 +8,7 @@
 {{- $pgdb := .Values.cnpg.main.database -}}
 {{- $pguser := .Values.cnpg.main.user -}}
 {{- $pgpassword := .Values.cnpg.main.creds.password | trimAll "\"" -}}
-{{- $pghost := .Values.cnpg.main.creds.host | trimAll "\"" -}}
+{{- $pghost := .Values.cnpg.main.creds.host -}}
 
 odoo-config:
   enabled: true
