@@ -87,7 +87,6 @@ If you want to use Blocky on your local network to take advantage of the filteri
 need to ensure your loadbalancer IP address is set and won't change.
 
 You need to configure the devices on your network to use the static IP address configured above.  This can be done per device or by changing the DHCP or DNS settings on your router.
-or by changing the DHCP settings on your router.  
 
 ## k8s-Gateway Configuration
 
