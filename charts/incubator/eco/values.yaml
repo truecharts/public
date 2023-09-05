@@ -59,14 +59,14 @@ workload:
             liveness:
               path: "/"
               type: http
-              port: "{{ .Values.service.main.ports.main.targetPort }}"
+              port: "{{ .Values.service.main.ports.main.port }}"
             readiness:
               path: "/"
               type: http
-              port: "{{ .Values.service.main.ports.main.targetPort }}"
+              port: "{{ .Values.service.main.ports.main.port }}"
             startup:
               type: tcp
-              port: "{{ .Values.service.main.ports.main.targetPort }}"
+              port: "{{ .Values.service.main.ports.main.port }}"
           env:
             GAME_ID: "{{ .Values.eco.game.id }}"
             USERNAME: "{{ .Values.eco.game.user }}"
