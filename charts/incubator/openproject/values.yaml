@@ -31,6 +31,9 @@ workload:
               secretKeyRef:
                 name: cnpg-main-urls
                 key: std
+            RAILS_CACHE_STORE: "memcache"
+            OPENPROJECT_CACHE__MEMCACHE__SERVER: '{{ printf "%v-%v:%v" .Release.Name "memcached" "11211" }}'
+
 persistence:
   assets:
     enabled: true
@@ -42,6 +45,9 @@ cnpg:
     enabled: true
     user: openproject
     database: openproject
+
+memcached:
+  enabled: true
 
 portal:
   open:

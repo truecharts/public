@@ -4,6 +4,10 @@ dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 14.0.3
+  - condition: memcached.enabled
+    name: memcached
+    repository: https://deps.truecharts.org/
+    version: 6.0.77
 deprecated: false
 description: OpenProject is a web-based project management system for location-independent team collaboration.
 home: https://truecharts.org/charts/incubator/openproject
