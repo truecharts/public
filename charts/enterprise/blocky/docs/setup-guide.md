@@ -56,7 +56,7 @@ While UDP provides no security for DNS both DoT and DoH will encrypt DNS request
 
 If you entered a non-IP address (meaning you used a domain name) for DoT or DoH, then you need to ensure that a bootstrap DNS provider
 is configured to resolve the DoT or DoH address. This provider can be any UDP upstream DNS.
-In the below example I am using Google DNS.  I don't know if you need a bootstrap DNS if you have a UDP server listed above.
+In the below example I am using Google DNS.
 
 ![blocky-bootstrap-google](./img/blocky-bootstrap-google.png)
 
