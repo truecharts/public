@@ -32,61 +32,69 @@ service:
         port: 9700
 
 sonsoftheforest:
-  ServerName: "Sons Of The Forest Docker Server"
-  MaxPlayers: 8
-  Password: ""
-  LanOnly: false
-  # integer, equal to or greater than 1
-  SaveSlot: 1
-  # new, continue
-  SaveMode: "continue"
-  # peaceful, normal, hard, hardsurvival, custom
-  GameMode: "normal"
-  SaveInterval: 600
-  IdleDayCycleSpeed: "0.0"
-  IdleTargetFramerate: 5
-  ActiveTargetFramerate: 60
-  LogFilesEnabled: false
-  TimestampLogFilenames: true
-  TimestampLogEntries: true
-  SkipNetworkAccessibilityTest: false
-  GameSettings:
-    TreeRegrowth: true
-    StructureDamage: true
-  CustomGameModeSettings:
-    # Multiplayer
-    Cheats: false
-    # Vail
-    EnemySpawn: true
-    # low, normal, high
-    EnemyHealth: "normal"
-    # low, normal, high
-    EnemyDamage: "normal"
-    # low, normal, high
-    EnemyArmour: "normal"
-    # low, normal, high
-    EnemyAggression: "normal"
-    # low, normal, high
-    AnimalSpawnRate: "normal"
-    # Environment
-    # spring, summer, autumn, winter
-    StartingSeason: "Summer"
-    # short, default, long, realistic
-    SeasonLength: "default"
-    # short, default, long, realistic
-    DayLength: "default"
-    # low, default, high
-    PrecipitationFrequency: "default"
-    # not a dupe key.
-    StructureDamage: true
-    # Survival
-    # normal, hard
-    ConsumableEffects: "normal"
-    # off, normal, hard
-    PlayerStatsDamage: "off"
-    ColdPenalties: "off"
-    ReducedFoodInContainers: false
-    SingleUseContainers: false
+  game:
+    id: "2465200"
+    user: ""
+    password: ""
+    validate: false
+    params: []
+  server:
+    ServerName: "Sons Of The Forest Docker Server"
+    MaxPlayers: 8
+    Password: ""
+    LanOnly: false
+    # integer, equal to or greater than 1
+    SaveSlot: 1
+    # new, continue
+    SaveMode: "continue"
+    # peaceful, normal, hard, hardsurvival, custom
+    GameMode: "normal"
+    SaveInterval: 600
+    IdleDayCycleSpeed: "0.0"
+    IdleTargetFramerate: 5
+    ActiveTargetFramerate: 60
+    LogFilesEnabled: false
+    TimestampLogFilenames: true
+    TimestampLogEntries: true
+    SkipNetworkAccessibilityTest: false
+    GameSettings:
+      TreeRegrowth: true
+      StructureDamage: true
+    CustomGameModeSettings:
+      # Multiplayer
+      Cheats: false
+      # Vail
+      EnemySpawn: true
+      # low, normal, high
+      EnemyHealth: "normal"
+      # low, normal, high
+      EnemyDamage: "normal"
+      # low, normal, high
+      EnemyArmour: "normal"
+      # low, normal, high
+      EnemyAggression: "normal"
+      # low, normal, high
+      AnimalSpawnRate: "normal"
+      # Environment
+      # spring, summer, autumn, winter
+      StartingSeason: "Summer"
+      # short, default, long, realistic
+      SeasonLength: "default"
+      # short, default, long, realistic
+      DayLength: "default"
+      # low, default, high
+      PrecipitationFrequency: "default"
+      # not a dupe key.
+      StructureDamage: true
+      # Survival
+      # normal, hard
+      ConsumableEffects: "normal"
+      # off, normal, hard
+      PlayerStatsDamage: "off"
+      # off, normal, hard
+      ColdPenalties: "off"
+      ReducedFoodInContainers: false
+      SingleUssonsoftheforestntainers: false
 
 workload:
   main:
@@ -104,10 +112,11 @@ workload:
             GAME_PORT: "{{ .Values.service.main.ports.main.port }}"
             STEAMCMD_DIR: "{{ .Values.persistence.steamcmd.mountPath }}"
             SERVER_DIR: "{{ .Values.persistence.serverfiles.mountPath }}"
-            GAME_ID: "2465200"
-            USERNAME: ""
-            PASSWRD: ""
-            VALIDATE: false
+            GAME_ID: "{{ .Values.sonsoftheforest.game.id }}"
+            USERNAME: "{{ .Values.sonsoftheforest.game.user }}"
+            PASSWRD: "{{ .Values.sonsoftheforest.game.password }}"
+            GAME_PARAMS: '{{ join " " .Values.sonsoftheforest.game.params }}'
+            VALIDATE: "{{ .Values.sonsoftheforest.game.validate }}"
 
 persistence:
   steamcmd:
@@ -116,10 +125,10 @@ persistence:
   serverfiles:
     enabled: true
     mountPath: /serverdata/serverfiles
-  dedicatedserver-config:
+  dedicatedserver-dscfg:
     enabled: true
     type: configmap
-    objectName: sonsoftheforest-config
+    objectName: sonsoftheforest-dscfg
     targetSelector:
       main:
         main:

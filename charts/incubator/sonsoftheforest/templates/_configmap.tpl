@@ -2,9 +2,9 @@
 {{- define "sonsoftheforest.configmaps" -}}
 {{- $fullname := (include "tc.v1.common.lib.chart.names.fullname" $) -}}
 
-{{- $stf := .Values.sonsoftheforest -}}
+{{- $server := .Values.sonsoftheforest.server -}}
 
-sonsoftheforest-config:
+sonsoftheforest-dscfg:
   enabled: true
   data:
     dedicatedserver.cfg: |
@@ -13,42 +13,42 @@ sonsoftheforest-config:
         "GamePort": "{{ .Values.service.main.ports.main.port }}",
         "QueryPort": "{{ .Values.service.query.ports.query.port }}",
         "BlobSyncPort": "{{ .Values.service.sync.ports.sync.port }}",
-        "ServerName": "{{ $stf.ServerName }}",
-        "MaxPlayers": "{{ $stf.MaxPlayers }}",
-        "Password": "{{ $stf.Password }}",
-        "LanOnly": "{{ $stf.LanOnly }}",
-        "SaveSlot": "{{ $stf.SaveSlot }}",
-        "SaveMode": "{{ $stf.SaveMode }}",
-        "GameMode": "{{ $stf.GameMode }}",
-        "SaveInterval": "{{ $stf.SaveInterval }}",
-        "IdleDayCycleSpeed": "{{ $stf.IdleDayCycleSpeed }}",
-        "IdleTargetFramerate": "{{ $stf.IdleTargetFramerate }}",
-        "ActiveTargetFramerate": "{{ $stf.ActiveTargetFramerate }}",
-        "LogFilesEnabled": "{{ $stf.LogFilesEnabled }}",
-        "TimestampLogFilenames": "{{ $stf.TimestampLogFilenames }}",
-        "TimestampLogEntries": "{{ $stf.TimestampLogEntries }}",
-        "SkipNetworkAccessibilityTest": "{{ $stf.SkipNetworkAccessibilityTest }}",
+        "ServerName": "{{ $server.ServerName }}",
+        "MaxPlayers": "{{ $server.MaxPlayers }}",
+        "Password": "{{ $server.Password }}",
+        "LanOnly": "{{ $server.LanOnly }}",
+        "SaveSlot": "{{ $server.SaveSlot }}",
+        "SaveMode": "{{ $server.SaveMode }}",
+        "GameMode": "{{ $server.GameMode }}",
+        "SaveInterval": "{{ $server.SaveInterval }}",
+        "IdleDayCycleSpeed": "{{ $server.IdleDayCycleSpeed }}",
+        "IdleTargetFramerate": "{{ $server.IdleTargetFramerate }}",
+        "ActiveTargetFramerate": "{{ $server.ActiveTargetFramerate }}",
+        "LogFilesEnabled": "{{ $server.LogFilesEnabled }}",
+        "TimestampLogFilenames": "{{ $server.TimestampLogFilenames }}",
+        "TimestampLogEntries": "{{ $server.TimestampLogEntries }}",
+        "SkipNetworkAccessibilityTest": "{{ $server.SkipNetworkAccessibilityTest }}",
         "GameSettings": {
-          "Gameplay.TreeRegrowth": "{{ $stf.GameSettings.TreeRegrowth }}",
-          "Structure.Damage": "{{ $stf.GameSettings.StructureDamage }}"
+          "Gameplay.TreeRegrowth": "{{ $server.GameSettings.TreeRegrowth }}",
+          "Structure.Damage": "{{ $server.GameSettings.StructureDamage }}"
           },
         "CustomGameModeSettings": {
-          "GameSetting.Multiplayer.Cheats": "{{ $stf.CustomGameModeSettings.Cheats }}",
-          "GameSetting.Vail.EnemySpawn": "{{ $stf.CustomGameModeSettings.EnemySpawn }}",
-          "GameSetting.Vail.EnemyHealth": "{{ $stf.CustomGameModeSettings.EnemyHealth }}",
-          "GameSetting.Vail.EnemyDamage": "{{ $stf.CustomGameModeSettings.EnemyDamage }}",
-          "GameSetting.Vail.EnemyArmour": "{{ $stf.CustomGameModeSettings.EnemyArmour }}",
-          "GameSetting.Vail.EnemyAggression": "{{ $stf.CustomGameModeSettings.EnemyAggression }}",
-          "GameSetting.Vail.AnimalSpawnRate": "{{ $stf.CustomGameModeSettings.AnimalSpawnRate }}",
-          "GameSetting.Environment.StartingSeason": "{{ $stf.CustomGameModeSettings.StartingSeason }}",
-          "GameSetting.Environment.SeasonLength": ""{{ $stf.CustomGameModeSettings.SeasonLength }}",
-          "GameSetting.Environment.DayLength": "{{ $stf.CustomGameModeSettings.DayLength }}",
-          "GameSetting.Environment.PrecipitationFrequency": "{{ $stf.CustomGameModeSettings.PrecipitationFrequency }}",
-          "GameSetting.Survival.ConsumableEffects": "{{ $stf.CustomGameModeSettings.ConsumableEffects }}",
-          "GameSetting.Survival.PlayerStatsDamage": "{{ $stf.CustomGameModeSettings.PlayerStatsDamage }}",
-          "GameSetting.Survival.ColdPenalties": "{{ $stf.CustomGameModeSettings.ColdPenalties }}",
-          "GameSetting.Survival.ReducedFoodInContainers": "{{ $stf.CustomGameModeSettings.ReducedFoodInContainers }}",
-          "GameSetting.Survival.SingleUseContainers": "{{ $stf.CustomGameModeSettings.SingleUseContainers }}"
+          "GameSetting.Multiplayer.Cheats": "{{ $server.CustomGameModeSettings.Cheats }}",
+          "GameSetting.Vail.EnemySpawn": "{{ $server.CustomGameModeSettings.EnemySpawn }}",
+          "GameSetting.Vail.EnemyHealth": "{{ $server.CustomGameModeSettings.EnemyHealth }}",
+          "GameSetting.Vail.EnemyDamage": "{{ $server.CustomGameModeSettings.EnemyDamage }}",
+          "GameSetting.Vail.EnemyArmour": "{{ $server.CustomGameModeSettings.EnemyArmour }}",
+          "GameSetting.Vail.EnemyAggression": "{{ $server.CustomGameModeSettings.EnemyAggression }}",
+          "GameSetting.Vail.AnimalSpawnRate": "{{ $server.CustomGameModeSettings.AnimalSpawnRate }}",
+          "GameSetting.Environment.StartingSeason": "{{ $server.CustomGameModeSettings.StartingSeason }}",
+          "GameSetting.Environment.SeasonLength": ""{{ $server.CustomGameModeSettings.SeasonLength }}",
+          "GameSetting.Environment.DayLength": "{{ $server.CustomGameModeSettings.DayLength }}",
+          "GameSetting.Environment.PrecipitationFrequency": "{{ $server.CustomGameModeSettings.PrecipitationFrequency }}",
+          "GameSetting.Survival.ConsumableEffects": "{{ $server.CustomGameModeSettings.ConsumableEffects }}",
+          "GameSetting.Survival.PlayerStatsDamage": "{{ $server.CustomGameModeSettings.PlayerStatsDamage }}",
+          "GameSetting.Survival.ColdPenalties": "{{ $server.CustomGameModeSettings.ColdPenalties }}",
+          "GameSetting.Survival.ReducedFoodInContainers": "{{ $server.CustomGameModeSettings.ReducedFoodInContainers }}",
+          "GameSetting.Survival.SingleUseContainers": "{{ $server.CustomGameModeSettings.SingleUseContainers }}"
         }
       }
 
