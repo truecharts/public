@@ -31,7 +31,8 @@ workload:
             startup:
               enabled: false
           env:
-            EULA: "TRUE"
+            EULA: true
+            ENABLE_LAN_VISIBILITY: false
             VERSION: "LATEST"
             SERVER_NAME: "TrueCharts Dedicated Server!"
             SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
