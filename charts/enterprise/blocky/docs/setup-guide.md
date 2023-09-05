@@ -1,6 +1,6 @@
 # Blocky Setup Guide
 
-This will guide you through the basic setup of Blocky which is the preferred DNS solution for TrueCharts. This guide will cover basic setup options which will get you up and running and is not all inclusive.  Setting up your systems to point to Blocky is out of scope of the document.
+This will guide you through the basic setup of Blocky which is the preferred DNS solution for TrueCharts. This guide will cover basic setup options which will get you up and running and is not all inclusive.  Configuring your devices to use Blocky is out of scope of this guide.
 
 ## Upstream DNS
 
