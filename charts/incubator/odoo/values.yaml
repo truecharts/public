@@ -32,6 +32,23 @@ odoo:
     ssl: "False"
     from: ""
 
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            USER: "{{ .Values.cnpg.main.user }}"
+            PORT: 5432
+            PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+
 persistence:
   odoo:
     enabled: true
@@ -54,7 +71,7 @@ cnpg:
   main:
     enabled: true
     user: odoo
-    database: odoo
+    database: postgres
 
 portal:
   open:

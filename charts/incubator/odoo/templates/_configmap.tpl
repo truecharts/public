@@ -25,11 +25,6 @@ odoo-config:
        xmlrpcs = True
        xmlrpcs_interface =
        xmlrpcs_port = {{ .Values.service.xmlrpcs.ports.xmlrpcs.port }}
-       db_name = {{ $pgdb }}
-       db_host = {{ $pghost }}
-       db_port = 5432
-       db_user = {{ $pguser }}
-       db_password = {{ $pgpassword }}
        csv_internal_sep = ,
        db_maxconn = 64
        debug_mode = False
