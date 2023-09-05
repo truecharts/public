@@ -193,13 +193,13 @@ questions:
                   additional_attrs: true
                   type: dict
                   attrs:
-                    - variable: TreeRegrowth
+                    - variable: Gameplay.TreeRegrowth
                       label: Tree Regrowth
                       description: Enable automatic tree regrowth, triggered when sleeping.
                       schema:
                         type: boolean
                         default: true
-                    - variable: StructureDamage
+                    - variable: Structure.Damage
                       label: Structure Damage
                       description: Allow buildings to be damaged.
                       schema:
@@ -212,19 +212,19 @@ questions:
                   additional_attrs: true
                   type: dict
                   attrs:
-                    - variable: Cheats
+                    - variable: GameSetting.Multiplayer.Cheats
                       label: Cheats
                       description: Allows cheats on the server.
                       schema:
                         type: boolean
                         default: false
-                    - variable: EnemySpawn
+                    - variable: GameSetting.Vail.EnemySpawn
                       label: Enemy Spawn
                       description: Enable enemies spawning.
                       schema:
                         type: boolean
                         default: true
-                    - variable: EnemyHealth
+                    - variable: GameSetting.Vail.EnemyHealth
                       label: Enemy Health
                       description: Adjust enemy starting health.
                       schema:
@@ -238,7 +238,7 @@ questions:
                             description: Normal
                           - value: high
                             description: High
-                    - variable: EnemyDamage
+                    - variable: GameSetting.Vail.EnemyDamage
                       label: Enemy Damage
                       description: Adjust damage enemies can do.
                       schema:
@@ -252,7 +252,7 @@ questions:
                             description: Normal
                           - value: high
                             description: High
-                    - variable: EnemyArmour
+                    - variable: GameSetting.Vail.EnemyArmour
                       label: Enemy Armour
                       description: Adjust enemies armor strength.
                       schema:
@@ -266,7 +266,7 @@ questions:
                             description: Normal
                           - value: high
                             description: High
-                    - variable: EnemyAggression
+                    - variable: GameSetting.Vail.EnemyAggression
                       label: Enemy Aggression
                       description: Adjust enemy aggression level.
                       schema:
@@ -280,7 +280,7 @@ questions:
                             description: Normal
                           - value: high
                             description: High
-                    - variable: AnimalSpawnRate
+                    - variable: GameSetting.Vail.AnimalSpawnRate
                       label: Animal Spawn Rate
                       description: Adjust animal spawn rate.
                       schema:
@@ -294,7 +294,7 @@ questions:
                             description: Normal
                           - value: high
                             description: High
-                    - variable: StartingSeason
+                    - variable: GameSetting.Environment.StartingSeason
                       label: Starting Season
                       description: Set environmental starting season.
                       schema:
@@ -310,7 +310,7 @@ questions:
                             description: Autumn
                           - value: winter
                             description: Winter
-                    - variable: SeasonLength
+                    - variable: GameSetting.Environment.SeasonLength
                       label: Season Length
                       description: Adjust season length.
                       schema:
@@ -326,7 +326,7 @@ questions:
                             description: Long
                           - value: realistic
                             description: Realistic
-                    - variable: DayLength
+                    - variable: GameSetting.Environment.DayLength
                       label: Day Length
                       description: Adjust day length.
                       schema:
@@ -342,7 +342,7 @@ questions:
                             description: Long
                           - value: realistic
                             description: Realistic
-                    - variable: PrecipitationFrequency
+                    - variable: GameSetting.Environment.PrecipitationFrequency
                       label: Precipitation Frequency
                       description: Adjust the frequency of rain and snow.
                       schema:
@@ -356,13 +356,13 @@ questions:
                             description: Default
                           - value: high
                             description: High
-                    - variable: StructureDamage
+                    - variable: Structure.Damage
                       label: Structure Damage
                       description: Allow buildings to be damaged.
                       schema:
                         type: boolean
                         default: true
-                    - variable: ConsumableEffects
+                    - variable: GameSetting.Survival.ConsumableEffects
                       label: Consumable Effects
                       description: Enable damage taken when low hydration and low fullness.
                       schema:
@@ -374,7 +374,7 @@ questions:
                             description: normal
                           - value: hard
                             description: Hard
-                    - variable: PlayerStatsDamage
+                    - variable: GameSetting.Survival.PlayerStatsDamage
                       label: PlayerStat Damage
                       description: Enable damage from each bad or rotten food and drink.
                       schema:
@@ -388,7 +388,7 @@ questions:
                             description: normal
                           - value: hard
                             description: Hard
-                    - variable: ColdPenalties
+                    - variable: GameSetting.Survival.ColdPenalties
                       label: Cold Penalties
                       description: Adjusts the severity that cold will affect health and stamina regeneration.
                       schema:
@@ -402,13 +402,13 @@ questions:
                             description: normal
                           - value: hard
                             description: Hard
-                    - variable: ReducedFoodInContainers
+                    - variable: GameSetting.Survival.ReducedFoodInContainers
                       label: Reduced Food In Containers
                       description: Reduces the amount of food found in containers.
                       schema:
                         type: boolean
                         default: false
-                    - variable: SingleUseContainers
+                    - variable: GameSetting.Survival.SingleUseContainers
                       label: Single Use Containers
                       description: Containers can only be opened once.
                       schema:

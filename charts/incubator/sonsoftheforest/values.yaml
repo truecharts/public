@@ -58,43 +58,43 @@ sonsoftheforest:
     TimestampLogEntries: true
     SkipNetworkAccessibilityTest: false
     GameSettings:
-      TreeRegrowth: true
-      StructureDamage: true
+      Gameplay.TreeRegrowth: true
+      Structure.Damage: true
     CustomGameModeSettings:
       # Multiplayer
-      Cheats: false
+      GameSetting.Multiplayer.Cheats: false
       # Vail
-      EnemySpawn: true
+      GameSetting.Vail.EnemySpawn: true
       # low, normal, high
-      EnemyHealth: "normal"
+      GameSetting.Vail.EnemyHealth: "normal"
       # low, normal, high
-      EnemyDamage: "normal"
+      GameSetting.Vail.EnemyDamage: "normal"
       # low, normal, high
-      EnemyArmour: "normal"
+      GameSetting.Vail.EnemyArmour: "normal"
       # low, normal, high
-      EnemyAggression: "normal"
+      GameSetting.Vail.EnemyAggression: "normal"
       # low, normal, high
-      AnimalSpawnRate: "normal"
+      GameSetting.Vail.AnimalSpawnRate: "normal"
       # Environment
       # spring, summer, autumn, winter
-      StartingSeason: "Summer"
+      GameSetting.Environment.StartingSeason: "Summer"
       # short, default, long, realistic
-      SeasonLength: "default"
+      GameSetting.Environment.SeasonLength: "default"
       # short, default, long, realistic
-      DayLength: "default"
+      GameSetting.Environment.DayLength: "default"
       # low, default, high
-      PrecipitationFrequency: "default"
+      GameSetting.Environment.PrecipitationFrequency: "default"
       # not a dupe key.
-      StructureDamage: true
+      Structure.Damage: true
       # Survival
       # normal, hard
-      ConsumableEffects: "normal"
+      GameSetting.Survival.ConsumableEffects: "normal"
       # off, normal, hard
-      PlayerStatsDamage: "off"
+      GameSetting.Survival.PlayerStatsDamage: "off"
       # off, normal, hard
-      ColdPenalties: "off"
-      ReducedFoodInContainers: false
-      SingleUssonsoftheforestntainers: false
+      GameSetting.Survival.ColdPenalties: "off"
+      GameSetting.Survival.ReducedFoodInContainers: false
+      GameSetting.Survival.SingleUssonsoftheforestntainers: false
 
 workload:
   main:
