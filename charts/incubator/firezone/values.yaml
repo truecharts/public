@@ -46,7 +46,7 @@ workload:
           env:
             # web
             PHOENIX_HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
-            # EXTERNAL_URL: ""
+            EXTERNAL_URL: "https://example.com"
             # PHOENIX_SECURE_COOKIES: true
             # PHOENIX_HTTP_PROTOCOL_OPTIONS: "{}"
             # PHOENIX_EXTERNAL_TRUSTED_PROXIES: "[]"
