@@ -92,8 +92,8 @@ workload:
             EXTERNAL_URL: "{{ .Values.firezone.web.external_url }}"
             PHOENIX_SECURE_COOKIES: "{{ .Values.firezone.web.secure_cookies }}"
             # PHOENIX_HTTP_PROTOCOL_OPTIONS: "{}"
-            PHOENIX_EXTERNAL_TRUSTED_PROXIES: '{{ join "," .Values.firezone.web.trusted_proxies }}'
-            PHOENIX_PRIVATE_CLIENTS: '{{ join "," .Values.firezone.web.private_clients }}'
+            PHOENIX_EXTERNAL_TRUSTED_PROXIES: "{{ toJson .Values.firezone.web.trusted_proxies }}"
+            PHOENIX_PRIVATE_CLIENTS: "{{ toJson .Values.firezone.web.private_clients }}"
             # DB
             DATABASE_HOST:
               secretKeyRef:
