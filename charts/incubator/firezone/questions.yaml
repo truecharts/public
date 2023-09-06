@@ -11,231 +11,226 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-                                - variable: env
-                                  label: Image Environment
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                      - variable: EXTERNAL_URL
-                                        label: External Url
-                                        description: Must be a valid and public FQDN for ACME SSL issuance to function. Include https://
-                                        schema:
-                                          type: string
-                                          required: true
-                                          default: ""
-                                      - variable: DEFAULT_ADMIN_EMAIL
-                                        label: Default Admin Email
-                                        description: Primary administrator email.
-                                        schema:
-                                          type: string
-                                          required: true
-                                          default: ""
-                                      - variable: DEFAULT_ADMIN_PASSWORD
-                                        label: Default Admin Password
-                                        description: Primary administrator password.
-                                        schema:
-                                          type: string
-                                          required: true
-                                          private: true
-                                          default: ""
-                                      - variable: RESET_ADMIN_ON_BOOT
-                                        label: Reset Admin On Boot
-                                        description: to create or reset the admin password every time FireZone starts.
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                      - variable: TELEMETRY_ENABLED
-                                        label: Telemetry Enabled
-                                        description: Enable or disable the FireZone telemetry collection.
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                      - variable: devices
-                                        label: Devices Settings
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                          show_subquestions_if: true
-                                          subquestions:
-                                            - variable: ALLOW_UNPRIVILEGED_DEVICE_MANAGEMENT
-                                              label: Allow Unprivileged Devices
-                                              description: Enable or disable management of devices on unprivileged accounts.
-                                              schema:
-                                                type: boolean
-                                                default: true
-                                            - variable: ALLOW_UNPRIVILEGED_DEVICE_CONFIGURATION
-                                              label: Allow Unprivileged Device Configuration
-                                              description: Enable or disable configuration of device network settings for unprivileged users.
-                                              schema:
-                                                type: boolean
-                                                default: true
-                                            - variable: VPN_SESSION_DURATION
-                                              label: VPN Session Duration
-                                              description: Optionally require users to periodically authenticate to the FireZone, Interval for WireGuard persistent keepalive.
-                                              schema:
-                                                type: int
-                                                default: 0
-                                            - variable: DEFAULT_CLIENT_PERSISTENT_KEEPALIVE
-                                              label: Default Client Persistent KeepAlive
-                                              description: send a keepalive packet every 25 seconds. Otherwise, keep it disabled with a 0 default value.
-                                              schema:
-                                                type: int
-                                                default: 25
-                                            - variable: DEFAULT_CLIENT_MTU
-                                              label: Default Client MTU
-                                              description: WireGuard interface MTU for devices.
-                                              schema:
-                                                type: int
-                                                default: 1280
-                                            - variable: DEFAULT_CLIENT_ENDPOINT
-                                              label: Default Client EndPoint
-                                              description: IPv4, IPv6 address, or FQDN that devices will be configured to connect to. Defaults to this server's FQDN.
-                                              schema:
-                                                type: string
-                                                default: ""
-                                            - variable: DEFAULT_CLIENT_DNS
-                                              label: Default Client DNS
-                                              description: Comma-separated list of DNS servers to use for devices.
-                                              schema:
-                                                type: string
-                                                default: "1.1.1.1,1.0.0.1"
-                                            - variable: DEFAULT_CLIENT_ALLOWED_IPS
-                                              label: Default Client Allowed IPs
-                                              description: AllowedIPs determines which destination IPs get routed through FireZone.
-                                              schema:
-                                                type: string
-                                                default: "0.0.0.0/0,::/0"
-                                            - variable: MAX_DEVICES_PER_USER
-                                              label: Max Devices Per User
-                                              description: Changes how many devices a user can have at a time.
-                                              schema:
-                                                type: int
-                                                default: 10
-                                      - variable: authorization
-                                        label: Authorization Settings
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                          show_subquestions_if: true
-                                          subquestions:
-                                            - variable: LOCAL_AUTH_ENABLED
-                                              label: Local Auth Enabled
-                                              description: Enable or disable the local authentication method for all users.
-                                              schema:
-                                                type: boolean
-                                                default: true
-                                            - variable: DISABLE_VPN_ON_OIDC_ERROR
-                                              label: Disable VPN On OIDC Error
-                                              description: Enable or disable auto disabling VPN connection on OIDC refresh error.
-                                              schema:
-                                                type: boolean
-                                                default: false
-                                      - variable: wireguard
-                                        label: Wireguard Settings
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                          show_subquestions_if: true
-                                          subquestions:
-                                            - variable: WIREGUARD_IPV4_ENABLED
-                                              label: WireGuard IPV4 Enabled
-                                              description: Enable or disable IPv4 support for WireGuard.
-                                              schema:
-                                                type: boolean
-                                                default: true
-                                            - variable: WIREGUARD_IPV6_ENABLED
-                                              label: WireGuard IPV6 Enabled
-                                              description: Enable or disable IPv6 support for WireGuard.
-                                              schema:
-                                                type: boolean
-                                                default: false
-                                      - variable: outbound
-                                        label: OutBound Email Settings
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                          show_subquestions_if: true
-                                          subquestions:
-                                            - variable: OUTBOUND_EMAIL_FROM
-                                              label: Outbound Email From
-                                              description: From address to use for sending outbound emails.
-                                              schema:
-                                                type: string
-                                                default: ""
-                                            - variable: OUTBOUND_EMAIL_ADAPTER
-                                              label: Outbound Email Adapter
-                                              description: Method to use for sending outbound email.
-                                              schema:
-                                                type: string
-                                                default: "Elixir.FzHttpWeb.Mailer.NoopAdapter"
-                                                enum:
-                                                  - value: "Elixir.FzHttpWeb.Mailer.AmazonSES"
-                                                    description: "AmazonSES"
-                                                  - value: "Elixir.FzHttpWeb.Mailer.CustomerIO"
-                                                    description: CustomerIO"
-                                                  - value: "Elixir.FzHttpWeb.Mailer.Dyn"
-                                                    description: Dyn
-                                                  - value: "Elixir.FzHttpWeb.Mailer.ExAwsAmazonSES"
-                                                    description: ExAwsAmazonSES"
-                                                  - value: "Elixir.FzHttpWeb.Mailer.Gmail"
-                                                    description: Gmail"
-                                                  - value: "Elixir.FzHttpWeb.Mailer.MailPace"
-                                                    description: MailPace"
-                                                  - value: "Elixir.FzHttpWeb.Mailer.Mailgun"
-                                                    description: Mailgun"
-                                                  - value: "Elixir.FzHttpWeb.Mailer.Mailjet"
-                                                    description: MailJet"
-                                                  - value: "Elixir.FzHttpWeb.Mailer.Mandrill"
-                                                    description: Mandrill"
-                                                  - value: "Elixir.FzHttpWeb.Mailer.Postmark"
-                                                    description: Postmark"
-                                                  - value: "Elixir.FzHttpWeb.Mailer.ProtonBridge"
-                                                    description: ProtonBridge"
-                                                  - value: "Elixir.FzHttpWeb.Mailer.SMTP"
-                                                    description: SMTP"
-                                                  - value: "Elixir.FzHttpWeb.Mailer.SMTP2GO"
-                                                    description: SMTP2GO"
-                                                  - value: "Elixir.FzHttpWeb.Mailer.Sendgrid"
-                                                    description: SendGrid"
-                                                  - value: "Elixir.FzHttpWeb.Mailer.Sendinblue"
-                                                    description: "SendInBlue"
-                                                  - value: "Elixir.FzHttpWeb.Mailer.Sendmail"
-                                                    description: "Sendmail"
-                                                  - value: "Elixir.FzHttpWeb.Mailer.SocketLabs"
-                                                    description: "SocketLabs"
-                                                  - value: "Elixir.FzHttpWeb.Mailer.SparkPost"
-                                                    description: "SparkPost"
-                                                  - value: "Elixir.FzHttpWeb.Mailer.NoopAdapter"
-                                                    description: "NoopAdapter"
-                                            - variable: OUTBOUND_EMAIL_ADAPTER_OPTS
-                                              label: Outbound Email Adapter OPTS
-                                              description: Adapter configuration, see https://github.com/swoosh/swoosh#adapters.
-                                              schema:
-                                                type: string
-                                                default: ""
-                                      - variable: connectivity
-                                        label: Connectivity Settings
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                          show_subquestions_if: true
-                                          subquestions:
-                                            - variable: CONNECTIVITY_CHECKS_ENABLED
-                                              label: Connectivity Checks Enabled
-                                              description:     Enable / disable periodic checking for egress connectivity. Determines the instance's public IP to populate Endpoint fields.
-                                              schema:
-                                                type: boolean
-                                                default: true
-                                            - variable: CONNECTIVITY_CHECKS_INTERVAL
-                                              label: Connectivity Checks Interval
-                                              description: Periodicity in seconds to check for egress connectivity.
-                                              schema:
-                                                type: int
-                                                default: 43200
-
 # Include{containerBasic}
 # Include{containerAdvanced}
+
+  - variable: firezone
+    group: App Configuration
+    label: FireZone
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: web
+          label: Web Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: external_url
+                label: External Url
+                description: Must be a valid and public FQDN for ACME SSL issuance to function. Include https://
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: trusted_proxies
+                label: Trusted Proxies
+                description: List of trusted reverse proxies.
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: proxy
+                      label: Proxy IP
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+              - variable: private_clients
+                label: Private Clients
+                description: List of trusted clients.
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: client_ip
+                      label: Client IP
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+              - variable: secure_cookies
+                label: Secure Cookies
+                description: Enable or disable requiring secure cookies. Required for HTTPS.
+                schema:
+                  type: boolean
+                  default: true
+        - variable: admin
+          label: Admin Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: reset_admin_on_boot
+                label: Reset Admin On Boot
+                description: to create or reset the admin password every time Firezone starts. By default, the admin password is only set when Firezone is installed.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: default_email
+                label: Default Email
+                description: Primary administrator email.
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: default_password
+                label: Default Password
+                description: Default password that will be used for creating or resetting the primary administrator account.
+                schema:
+                  type: string
+                  required: true
+                  private: true
+                  default: ""
+        - variable: devices
+          label: Devices Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: allow_unprivileged_device_management
+                label: Allow Unprivileged Device Management
+                description: Enable or disable management of devices on unprivileged accounts.
+                schema:
+                  type: boolean
+                  default: true
+              - variable: allow_unprivileged_device_config
+                label: Allow Unprivileged Device Configuration
+                description: Enable or disable configuration of device network settings for unprivileged users.
+                schema:
+                  type: boolean
+                  default: true
+              - variable: vpn_session_duration
+                label: VPN Session Duration
+                description: Optionally require users to periodically authenticate to the Firezone web UI in order to keep their VPN sessions active.
+                schema:
+                  type: int
+                  default: 0
+              - variable: client_persistent_keepalive
+                label: Client Persistent KeepAlive
+                description: If you experience NAT or firewall traversal problems, you can enable this to send a keepalive packet every 25 seconds, disabled by setting it to 0.
+                schema:
+                  type: int
+                  default: 0
+              - variable: default_client_mtu
+                label: Default Client MTU
+                description: WireGuard interface MTU for devices.
+                schema:
+                  type: int
+                  default: 1280
+              - variable: client_endpoint
+                label: Client Endpoint
+                description: IPv4, IPv6 address, or FQDN that devices will be configured to connect to.
+                schema:
+                  type: string
+                  default: ""
+              - variable: client_dns
+                label: Client DNS
+                description: List of DNS servers to use for devices.
+                schema:
+                  type: list
+                  empty: false
+                  required: true
+                  default:
+                    - 1.1.1.1
+                    - 1.0.0.1
+                  items:
+                    - variable: dns
+                      label: DNS
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+              - variable: client_allowed_ips
+                label: Client Allowed Ips
+                description: Configures the default AllowedIPs setting for devices.
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: dns
+                      label: DNS
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+              - variable: max_devices_per_user
+                label: Max Devices Per User
+                description: Changes how many devices a user can have at a time.
+                schema:
+                  type: int
+                  default: 10
+        - variable: authorization
+          label: Authorization Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: local_auth_enabled
+                label: Local Auth Enabled
+                description: Enable or disable the local authentication method for all users.
+                schema:
+                  type: boolean
+                  default: true
+              - variable: disable_vpn_on_oidc_error
+                label: Disable VPN On OIDC Error
+                description: Enable or disable auto disabling VPN connection on OIDC refresh error.
+                schema:
+                  type: boolean
+                  default: false
+        - variable: wireguard
+          label: Wireguard Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: ipv4_masquerade_enabled
+                label: IPv4 Masquerade Enabled
+                description: Enable or disable IPv4 masqeurading.
+                schema:
+                  type: boolean
+                  default: true
+        - variable: connectivity
+          label: Connectivity Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: checks_enabled
+                label: Checks Enabled
+                description: Enable / disable periodic checking for egress connectivity.
+                schema:
+                  type: boolean
+                  default: true
+              - variable: checks_interval
+                label: Checks Interval
+                description: Periodicity in seconds to check for egress connectivity.
+                schema:
+                  type: int
+                  default: 43200
+        - variable: other
+          label: Other Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: telemetry_enabled
+                label: Telemetry Enabled
+                description: Enable or disable the Firezone telemetry collection.
+                schema:
+                  type: boolean
+                  default: false
 
 # Include{containerConfig}
 # Include{podOptions}
