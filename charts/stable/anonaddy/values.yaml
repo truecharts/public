@@ -41,6 +41,7 @@ workload:
               type: tcp
           env:
             ANONADDY_DOMAIN: "chart-example.local"
+            APP_URL: "http://localhost:10110"
             DB_DATABASE: anonaddy
             DB_USERNAME: anonaddy
             DB_HOST:

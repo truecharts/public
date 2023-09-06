@@ -19,11 +19,17 @@ questions:
                                     type: dict
                                     attrs:
                                       - variable: ANONADDY_DOMAIN
-                                        label: "ANONADDY_DOMAIN"
+                                        label: "Anonaddy Domain"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+                                      - variable: APP_URL
+                                        label: "App Url"
                                         schema:
                                           type: string
                                           default: ""
-                                          required: true
+
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
