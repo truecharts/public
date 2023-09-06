@@ -29,8 +29,8 @@ persistence:
     targetSelector:
       main:
         main:
-          mountPath: /env
-          subPath: env
+          mountPath: /.env
+          subPath: .env
           readOnly: true
 
 portal:

@@ -12,7 +12,7 @@
 watcharr-env:
   enabled: true
   data:
-    env: |
+    .env: |
       JWT_SECRET={{ $secretKey }}
       JELLYFIN_HOST={{ $watcharr.jellyfin_host }}
       SIGNUP_ENABLED={{ $watcharr.signup_enabled }}
