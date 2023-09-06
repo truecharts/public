@@ -36,13 +36,11 @@ workload:
         main:
           probes:
             liveness:
-              type: http
-              path: /healthz
+              enabled: false
             readiness:
-              type: http
-              path: /healthz
+              enabled: false
             startup:
-              type: tcp
+              enabled: false
           env:
             # web
             PHOENIX_HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
