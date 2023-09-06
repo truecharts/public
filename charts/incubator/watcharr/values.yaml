@@ -3,6 +3,13 @@ image:
   pullPolicy: IfNotPresent
   tag: v1.16.0@sha256:bfd121ce8ba69b9eebfcb13d1a2adad392bd0d1adca7bbca6b31c2b295d9862e
 
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+
 service:
   main:
     ports:
@@ -13,10 +20,25 @@ service:
 
 watcharr:
   mode: prod
-  jellyfin_host: https://localhost
+  jellyfin_host: ""
   signup_enabled: true
   tmdb_key: ""
   debug: false
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: "/api"
+              type: http
+            readiness:
+              path: "/api"
+              type: http
+            startup:
+              type: tcp
 
 persistence:
   data:
