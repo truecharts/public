@@ -11,34 +11,40 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-                                - variable: env
-                                  label: Image Environment
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                      - variable: JELLYFIN_HOST
-                                        label: Jellyfin Host
-                                        description: To enable it as an auth provider.
-                                        schema:
-                                          type: string
-                                          default: ""
-                                      - variable: TMDB_KEY
-                                        label: TMDB Key
-                                        description: Provide your own TMDB API Key.
-                                        schema:
-                                          type: string
-                                          private: true
-                                          default: ""
-                                      - variable: DEBUG
-                                        label: Debug
-                                        description: Enable/disable debug logging.
-                                        schema:
-                                          type: boolean
-                                          default: false
-
 # Include{containerBasic}
 # Include{containerAdvanced}
+
+  - variable: watcharr
+    group: App Configuration
+    label: Watcharr
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: jellyfin_host
+          label: Jellyfin Host
+          description: To enable it as an auth provider.
+          schema:
+            type: string
+            default: ""
+        - variable: signup_enabled
+          label: SignUp Enabled
+          description: To enable it as an auth provider.
+          schema:
+            type: boolean
+            default: true
+        - variable: tmdb_key
+          label: TMDB Key
+          description: Provide your own TMDB API Key.
+          schema:
+            type: string
+            default: ""
+        - variable: debug
+          label: Debug
+          description: Enable/disable debug logging.
+          schema:
+            type: boolean
+            default: false
 
 # Include{containerConfig}
 # Include{podOptions}

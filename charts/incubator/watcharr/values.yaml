@@ -11,27 +11,27 @@ service:
         targetPort: 3080
         port: 10684
 
-workload:
-  main:
-    podSpec:
-      containers:
-        main:
-          env:
-            MODE: prod
-            JELLYFIN_HOST: https://localhost:10684
-            SIGNUP_ENABLED: true
-            # Optional: Provide your own TMDB API Key.
-            TMDB_KEY: ""
-            DEBUG: false
-            JWT_SECRET:
-              secretKeyRef:
-                name: watcharr-secrets
-                key: JWT_SECRET
+watcharr:
+  mode: prod
+  jellyfin_host: https://localhost
+  signup_enabled: true
+  tmdb_key: ""
+  debug: false
 
 persistence:
   data:
     enabled: true
     mountPath: "/data"
+  watcharr-env:
+    enabled: true
+    type: configmap
+    objectName: watcharr-env
+    targetSelector:
+      main:
+        main:
+          mountPath: /env
+          subPath: env
+          readOnly: true
 
 portal:
   open:
