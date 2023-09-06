@@ -69,11 +69,23 @@ workload:
         main:
           probes:
             liveness:
-              enabled: false
-            readiness:
-              enabled: false
-            startup:
-              enabled: false
+              enabled: true
+              ## Set this to true if you wish to specify your own livenessProbe
+              custom: true
+              ## The spec field contains the values for the default livenessProbe.
+              ## If you selected custom: true, this field holds the definition of the livenessProbe.
+              spec:
+                exec:
+                  command:
+                    - /usr/bin/ash
+                    - bash
+                    - -c
+                    - curl --fail localhost:{{ .Values.service.main.ports.main.port }}/
+                failureThreshold: 5
+                initialDelaySeconds: 60
+                periodSeconds: 10
+                successThreshold: 1
+                timeoutSeconds: 10
           env:
             # web
             PHOENIX_HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
@@ -132,7 +144,7 @@ workload:
             VPN_SESSION_DURATION: "{{ .Values.firezone.devices.vpn_session_duration }}"
             DEFAULT_CLIENT_PERSISTENT_KEEPALIVE: "{{ .Values.firezone.devices.client_persistent_keepalive }}"
             DEFAULT_CLIENT_MTU: "{{ .Values.firezone.devices.default_client_mtu }}"
-            # DEFAULT_CLIENT_ENDPOINT: ""
+            DEFAULT_CLIENT_ENDPOINT: "{{ .Values.firezone.devices.client_endpoint }}"
             DEFAULT_CLIENT_DNS: '{{ join "," .Values.firezone.devices.client_dns }}'
             DEFAULT_CLIENT_ALLOWED_IPS: '{{ join "," .Values.firezone.devices.client_allowed_ips }}'
             # Limits
