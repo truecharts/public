@@ -28,8 +28,8 @@ workload:
                 key: url
             SECRET_KEY_BASE:
               secretKeyRef:
-                name: anonaddy-secrets
-                key: ANONADDY_SECRET
+                name: vandam-secrets
+                key: SECRET_KEY_BASE
 
 persistence:
   libraries:
