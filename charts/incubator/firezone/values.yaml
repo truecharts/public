@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/firezone
   pullPolicy: IfNotPresent
-  tag: v0.7.30@sha256:e22dc7a9be93a804bbe0e3d301c883625463a3649d856c8b41f80a2257214667
+  tag: v0.7.35@sha256:53c08baeb65dde8689ebb3bd1fc9fbb034970dfdc9bceb005c4ffa03fe2b3e93
 
 securityContext:
   container:
@@ -15,6 +15,20 @@ securityContext:
         - NET_ADMIN
         - SYS_MODULE
 
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 13000
+  wireguard:
+    enabled: true
+    ports:
+      wireguard:
+        enabled: true
+        protocol: udp
+        port: 51820
+
 workload:
   main:
     podSpec:
@@ -22,11 +36,13 @@ workload:
         main:
           probes:
             liveness:
-              enabled: false
+              type: http
+              path: /healthz
             readiness:
-              enabled: false
+              type: http
+              path: /healthz
             startup:
-              enabled: false
+              type: tcp
           env:
             # web
             PHOENIX_HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
@@ -111,20 +127,6 @@ workload:
             CONNECTIVITY_CHECKS_INTERVAL: 43200
             # Telemetry
             TELEMETRY_ENABLED: false
-
-service:
-  main:
-    ports:
-      main:
-        protocol: http
-        port: 13000
-  wireguard:
-    enabled: true
-    ports:
-      wireguard:
-        enabled: true
-        protocol: udp
-        port: 51820
 
 persistence:
   config:

@@ -17,10 +17,12 @@
 {{- end }}
 enabled: true
 data:
-  GUARDIAN_SECRET_KEY: {{ $keyGuardian }}
-  DATABASE_ENCRYPTION_KEY: {{ $keyDatabase }}
-  SECRET_KEY_BASE: {{ $keySecret }}
-  LIVE_VIEW_SIGNING_SALT: {{ $keyLive }}
-  COOKIE_SIGNING_SALT: {{ $keyCookieSigning }}
-  COOKIE_ENCRYPTION_SALT: {{ $keyCookieEncrypt }}
+  # firezone requires all these keys to be in base 64 format presented in the container, so this b64enc here is intentional
+  # https://www.firezone.dev/docs/reference/env-vars#secrets-and-encryption
+  GUARDIAN_SECRET_KEY: {{ $keyGuardian | b64enc }}
+  DATABASE_ENCRYPTION_KEY: {{ $keyDatabase | b64enc }}
+  SECRET_KEY_BASE: {{ $keySecret | b64enc }}
+  LIVE_VIEW_SIGNING_SALT: {{ $keyLive | b64enc }}
+  COOKIE_SIGNING_SALT: {{ $keyCookieSigning | b64enc }}
+  COOKIE_ENCRYPTION_SALT: {{ $keyCookieEncrypt | b64enc }}
 {{- end -}}
