@@ -25,21 +25,6 @@ watcharr:
   tmdb_key: ""
   debug: false
 
-workload:
-  main:
-    podSpec:
-      containers:
-        main:
-          probes:
-            liveness:
-              path: "/api"
-              type: http
-            readiness:
-              path: "/api"
-              type: http
-            startup:
-              type: tcp
-
 persistence:
   data:
     enabled: true
