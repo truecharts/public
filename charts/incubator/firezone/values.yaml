@@ -44,7 +44,7 @@ firezone:
     vpn_session_duration: 0
     client_persistent_keepalive: 25
     default_client_mtu: 1280
-    client_endpoint: "localhost:{{ .Values.service.wireguard.ports.wireguard.port }}"
+    client_endpoint: ""
     client_dns:
       - 1.1.1.1
       - 1.0.0.1
