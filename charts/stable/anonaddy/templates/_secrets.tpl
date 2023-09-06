@@ -2,8 +2,8 @@
 {{- define "anonaddy.secrets" -}}
 {{- $secretName := (printf "%s-anonaddy-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
 
-{{- $appKey := randAlphaNum 64 -}}
-{{- $secretKey := randAlphaNum 64 -}}
+{{- $appKey := randAlphaNum 32 -}}
+{{- $secretKey := randAlphaNum 32 -}}
 
  {{- with lookup "v1" "Secret" .Release.Namespace $secretName -}}
    {{- $appKey = index .data "APP_KEY" | b64dec -}}
