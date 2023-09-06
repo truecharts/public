@@ -11,46 +11,143 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-                                - variable: env
-                                  label: Image Environment
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                      - variable: USERNAME
-                                        label: "UserName"
-                                        description: "Your Steam username  (optionally leave it blank)."
-                                        schema:
-                                          type: string
-                                          default: ""
-                                      - variable: PASSWRD
-                                        label: "Password"
-                                        description: "Your Steam password (optionally leave it blank)"
-                                        schema:
-                                          type: string
-                                          private: true
-                                          default: ""
-                                      - variable: GAME_ID
-                                        label: "Game ID"
-                                        description: "The ID of the container to download at start up."
-                                        schema:
-                                          type: string
-                                          default: ""
-                                      - variable: GAME_PARAMS
-                                        label: "Game Params"
-                                        description: "Enter your start up commands for the server."
-                                        schema:
-                                          type: string
-                                          default: ""
-                                      - variable: VALIDATE
-                                        label: "Validate"
-                                        description: "Set the Variable to true if you want to validate the installation otherwise leave it blank."
-                                        schema:
-                                          type: boolean
-                                          default: true
-
 # Include{containerBasic}
 # Include{containerAdvanced}
+
+  - variable: eco
+    group: App Configuration
+    label: Eco
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: game
+          label: Game Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: id
+                label: Game Id
+                description: The ID of the container to download at start up.
+                schema:
+                  type: string
+                  required: true
+                  default: "739590"
+              - variable: user
+                label: Steam User
+                description: Leave blank for anonymous login.
+                schema:
+                  type: string
+                  default: ""
+              - variable: password
+                label: Steam Password
+                description: Leave blank for anonymous login.
+                schema:
+                  type: string
+                  default: ""
+              - variable: validate
+                label: Validate
+                description: Validates the game data.
+                schema:
+                  type: boolean
+                  default: true
+              - variable: params
+                label: Game Params
+                schema:
+                  type: list
+                  default: []
+                  required: true
+                  items:
+                    - variable: param
+                      label: Param
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+        - variable: network
+          label: Network Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: PublicServer
+                label: Public Server
+                description: Defines if other players can see server.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: Playtime
+                label: Play time
+                schema:
+                  type: string
+                  default: ""
+              - variable: DiscordAddress
+                label: Discord Address
+                description: Invite link ID for a Discord server.
+                schema:
+                  type: string
+                  default: ""
+              - variable: Password
+                label: Password
+                description: Defines if a server's password.
+                schema:
+                  type: string
+                  default: ""
+              - variable: Description
+                label: Server Name
+                description: Defines the name of the server.
+                schema:
+                  type: string
+                  default: "Truecharts ECO Server"
+              - variable: DetailedDescription
+                label: Detailed Description
+                description: Defines the server's description.
+                schema:
+                  type: string
+                  default: "Vanilla ECO game"
+              - variable: ServerCategory
+                label: Server Category
+                description: Set the server Category.
+                schema:
+                  type: string
+                  default: "None"
+                  enum:
+                    - value: None
+                      description: None
+                    - value: Beginner
+                      description: Beginner
+                    - value: Established
+                      description: Established
+                    - value: BeginnerHard
+                      description: BeginnerHard
+                    - value: Strange
+                      description: Strange
+              - variable: RemoteAddress
+                label: Remote Address
+                description: Public/external IP-address or domain and port number needed to reach the server.
+                schema:
+                  type: string
+                  default: "localhost:3000/"
+              - variable: WebServerUrl
+                label: Web Server Url
+                description: Public/external web sever URL.
+                schema:
+                  type: string
+                  default: "localhost:3001"
+              - variable: Rate
+                label: Rate
+                description: The network rate used to communicate between server and client.
+                schema:
+                  type: int
+                  default: 20
+              - variable: MaxConnections
+                label: Max Connections
+                description: Maximum number of concurrent players (-1 no limits).
+                schema:
+                  type: int
+                  default: -1
+
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
