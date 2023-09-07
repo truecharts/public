@@ -72,6 +72,7 @@ persistence:
     enabled: true
     mountPath: /serverdata/serverfiles
   network-config:
+    enabled: true
     type: configmap
     objectName: eco-network
     mountPath: /serverdata/serverfiles/Configs/Network.eco
