@@ -95,26 +95,15 @@ workload:
           primary: true
           enabled: true
           imageSelector: prefillImage
-          securityContext:
-            runAsUser: 0
-            runAsGroup: 0
-            runAsNonRoot: false
-            readOnlyRootFilesystem: false
           tty: true
           stdin: true
           probes:
             liveness:
-              enabled: true
-              type: tcp
-              port: "{{ .Values.service.main.ports.main.targetPort }}"
+              enabled: false
             readiness:
-              enabled: true
-              type: tcp
-              port: "{{ .Values.service.main.ports.main.targetPort }}"
+              enabled: false
             startup:
-              enabled: true
-              type: tcp
-              port: "{{ .Values.service.main.ports.main.targetPort }}"
+              enabled: false
           env:
             DATA_DIR: "{{ .Values.persistence.prefill.mountPath }}"
             UPDATES: "{{ .Values.prefill.updates }}"
