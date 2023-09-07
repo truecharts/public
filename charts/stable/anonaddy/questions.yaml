@@ -39,11 +39,6 @@ questions:
                                         schema:
                                           type: string
                                           default: ""
-                                      - variable: MAIL_FROM_ADDRESS
-                                        label: "Mail From Address"
-                                        schema:
-                                          type: string
-                                          default: ""
                                       - variable: MAIL_HOST
                                         label: "Mail Host"
                                         schema:
@@ -59,6 +54,11 @@ questions:
                                         schema:
                                           type: string
                                           default: "tls"
+                                          enum:
+                                            - value: ""
+                                              description: "none"
+                                            - value: tls
+                                              description: "tls"
                                       - variable: MAIL_EHLO_DOMAIN
                                         label: "Mail Ehlo Domain"
                                         schema:
