@@ -265,6 +265,14 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
+        - variable: prefill
+          label: "App Prefill Storage"
+          description: "Stores the Application Prefill."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
