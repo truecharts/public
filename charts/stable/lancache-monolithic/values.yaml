@@ -121,6 +121,8 @@ workload:
             ENABLE_STEAM: "{{ .Values.prefill.steam.enabled }}"
             PREFILL_PARAMS_STEAM: '{{ join " " .Values.prefill.steam.params }}'
             CRON_SCHED_STEAM: "{{ .Values.prefill.steam.cron }}"
+            DATA_PERM: 770
+            USER: root
 
 persistence:
   config:
