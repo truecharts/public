@@ -1,5 +1,5 @@
 {{/* Define the configmap */}}
-{{- define "nextcloud.configmaps" -}}
+{{- define "librephotos.configmaps" -}}
 {{- $fullname := (include "tc.v1.common.lib.chart.names.fullname" $) -}}
 
 nginx-config:
