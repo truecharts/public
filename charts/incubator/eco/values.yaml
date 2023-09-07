@@ -14,7 +14,7 @@ service:
   main:
     ports:
       main:
-        protocol: http
+        protocol: tcp
         port: 3001
   game:
     enabled: true
@@ -55,6 +55,16 @@ workload:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              enabled: true
+              type: tcp
+            readiness:
+              enabled: true
+              type: tcp
+            startup:
+              enabled: true
+              type: tcp
           env:
             STEAMCMD_DIR: "{{ .Values.persistence.steamcmd.mountPath }}"
             SERVER_DIR: "{{ .Values.persistence.serverfiles.mountPath }}"
