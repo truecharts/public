@@ -55,8 +55,8 @@ questions:
                                           type: string
                                           default: "tls"
                                           enum:
-                                            - value: none
-                                              description: ""
+                                            - value: ""
+                                              description: "none"
                                             - value: tls
                                               description: "tls"
                                       - variable: MAIL_EHLO_DOMAIN
