@@ -138,10 +138,8 @@ persistence:
     mountPath: "/data/logs"
   prefill:
     enabled: true
-    targetSelector:
-      prefill:
-        prefill:
-          mountPath: /lancacheprefill
+    mountPath: /lancacheprefill
+    targetSelectAll: true
 
 portal:
   open:
