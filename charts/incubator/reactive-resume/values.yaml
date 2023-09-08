@@ -1,28 +1,146 @@
-env: {}
 image:
+  repository: tccr.io/truecharts/reactive-resume-client
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/reactive-resume
-  tag: v1@sha256:2b910510072a3f21718831945a0a7ec810573318905b134c5b7b1df6195ac969
-persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
+  tag: v3.7.5@sha256:CHANGE_ME
+serverImage:
+  repository: tccr.io/truecharts/reactive-resume-server
+  pullPolicy: IfNotPresent
+  tag: v3.7.5@sha256:CHANGE_ME
+
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
 service:
   main:
-    enabled: false
     ports:
       main:
-        enabled: false
+        targetPort: 3000
+        port: 3000
+  server:
+    enabled: true
+    type: ClusterIP
+    targetSelector: server
+    ports:
+      server:
+        enabled: true
+        targetPort: 3100
+        port: 3100
+        targetSelector: server
+
+reactiveresume:
+  app:
+    public_url: "http://localhost:3000"
+  google:
+    client_id: ""
+    client_secret: ""
+    api_key: ""
+  mail:
+    from_name: "Reactive Resume"
+    from_email: "noreply@rxresu.me"
+    host: ""
+    port: 587
+    user: ""
+    password: ""
+  storage:
+    bucket: ""
+    region: ""
+    endpoint: ""
+    url_prefix: ""
+    access_key: ""
+    secret_key: ""
+    # time in MS
+    pdf_deletion_time: 345600000
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          imageSelector: image
+          env:
+            PUBLIC_URL: "{{ .Values.reactiveresume.app.public_url }}"
+            PUBLIC_SERVER_URL: '{{ printf "%v-server" (include "tc.v1.common.lib.chart.names.fullname" $) }}'
+            PUBLIC_GOOGLE_CLIENT_ID: "{{ .Values.reactiveresume.google.client_id }}"
+  server:
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
+        server:
+          primary: true
+          enabled: true
+          imageSelector: serverImage
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              path: /
+              port: "{{ .Values.service.server.ports.server.targetPort }}"
+            readiness:
+              enabled: true
+              type: http
+              path: /
+              port: "{{ .Values.service.server.ports.server.targetPort }}"
+            startup:
+              enabled: true
+              type: http
+              path: /
+              port: "{{ .Values.service.server.ports.server.targetPort }}"
+          env:
+            PUBLIC_URL: "{{ .Values.reactiveresume.app.public_url }}"
+            PUBLIC_SERVER_URL: '{{ printf "%v-server" (include "tc.v1.common.lib.chart.names.fullname" $) }}'
+            # Google
+            PUBLIC_GOOGLE_CLIENT_ID: "{{ .Values.reactiveresume.google.client_id }}"
+            GOOGLE_CLIENT_SECRET: "{{ .Values.reactiveresume.google.client_secret }}"
+            GOOGLE_API_KEY: "{{ .Values.reactiveresume.google.api_key }}"
+            # Email
+            MAIL_FROM_NAME: "{{ .Values.reactiveresume.mail.from_name }}"
+            MAIL_FROM_EMAIL: "{{ .Values.reactiveresume.mail.from_email }}"
+            MAIL_HOST: "{{ .Values.reactiveresume.mail.host }}"
+            MAIL_PORT: "{{ .Values.reactiveresume.mail.port }}"
+            MAIL_USERNAME: "{{ .Values.reactiveresume.mail.user }}"
+            MAIL_PASSWORD: "{{ .Values.reactiveresume.mail.password }}"
+            # Storage
+            STORAGE_BUCKET: "{{ .Values.reactiveresume.storage.bucket }}"
+            STORAGE_REGION: "{{ .Values.reactiveresume.storage.region }}"
+            STORAGE_ENDPOINT: "{{ .Values.reactiveresume.storage.endpoint }}"
+            STORAGE_URL_PREFIX: "{{ .Values.reactiveresume.storage.url_prefix }}"
+            STORAGE_ACCESS_KEY: "{{ .Values.reactiveresume.storage.access_key }}"
+            STORAGE_SECRET_KEY: "{{ .Values.reactiveresume.storage.secret_key }}"
+            PDF_DELETION_TIME: "{{ .Values.reactiveresume.storage.pdf_deletion_time }}"
+            # DB
+            POSTGRES_DB: "{{ .Values.cnpg.main.database }}"
+            POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
+            POSTGRES_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            POSTGRES_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            POSTGRES_PORT: 5432
+            # POSTGRES_SSL_CERT: ""
+            JWT_EXPIRY_TIME: 604800
+            JWT_SECRET:
+              secretKeyRef:
+                name: reactiveresume-secrets
+                key: JWT_SECRET
+            SECRET_KEY:
+              secretKeyRef:
+                name: reactiveresume-secrets
+                key: SECRET_KEY
+
+cnpg:
+  main:
+    enabled: true
+    database: reactiveresume
+    user: reactiveresume
 
 portal:
-  enabled: false
+  open:
+    enabled: true
