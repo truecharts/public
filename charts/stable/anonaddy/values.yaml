@@ -41,8 +41,20 @@ workload:
               type: tcp
           env:
             ANONADDY_DOMAIN: "chart-example.local"
-            DB_DATABASE: anonaddy
-            DB_USERNAME: anonaddy
+            APP_URL: "http://localhost:10110"
+            # The from name to be used for outgoing email notifications from AnonAddy
+            MAIL_FROM_NAME: Example
+            # The from address to be used for outgoing email notifications from AnonAddy
+            MAIL_FROM_ADDRESS: mailer@example.com
+            # just smtp is configurable
+            MAIL_DRIVER: smtp
+            MAIL_HOST: mail.example.com
+            MAIL_PORT: 25
+            MAIL_ENCRYPTION: tls
+            MAIL_EHLO_DOMAIN: mail.example.com
+            MAIL_VERIFY_PEER: false
+            DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
+            DB_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
             DB_HOST:
               secretKeyRef:
                 expandObjectName: false
