@@ -4,12 +4,12 @@
 
 # firezone requires all these keys to be in base 64 | b64enc format presented in the container, so this b64enc here is intentional
 # https://www.firezone.dev/docs/reference/env-vars#secrets-and-encryption
-{{- $keyGuardian := randAlphaNum 64 | b64enc -}}
-{{- $keyDatabase := randAlphaNum 64 | b64enc -}}
-{{- $keySecret := randAlphaNum 64 | b64enc -}}
-{{- $keyLive := randAlphaNum 64 | b64enc -}}
-{{- $keyCookieSigning := randAlphaNum 64 | b64enc -}}
-{{- $keyCookieEncrypt := randAlphaNum 64 | b64enc -}}
+{{- $keyGuardian := randAlphaNum 48 | b64enc -}}
+{{- $keyDatabase := randAlphaNum 32 | b64enc -}}
+{{- $keySecret := randAlphaNum 48 | b64enc -}}
+{{- $keyLive := randAlphaNum 24 | b64enc -}}
+{{- $keyCookieSigning := randAlphaNum 6 | b64enc -}}
+{{- $keyCookieEncrypt := randAlphaNum 6 | b64enc -}}
 {{- with (lookup "v1" "Secret" .Release.Namespace $secretName) -}}
   {{- $keyGuardian = index .data "GUARDIAN_SECRET_KEY" | b64dec -}}
   {{- $keyDatabase = index .data "DATABASE_ENCRYPTION_KEY" | b64dec -}}
