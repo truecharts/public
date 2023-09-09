@@ -13,7 +13,7 @@
  {{- end }}
 enabled: true
 data:
-  APP_KEY: {{ printf "base64:%v" ($appKey) }}
+  APP_KEY: {{ $appKey }}
   # Anonaddy requires ANONADDY_SECRET to be a long string
   ANONADDY_SECRET: {{ $secretKey }}
 {{- end -}}
