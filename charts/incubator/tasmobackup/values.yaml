@@ -5,23 +5,35 @@ image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/tasmobackup
   tag: latest@sha256:f191e4de7867b74936d33cbb4d02ddc21515a0bc9327c9544174d3e88e2c5768
-persistence:
-  data:
-    enabled: true
-    mountPath: /var/www/html/data
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DBNAME: data/tasmobackup
+            DBTYPE: sqlite
 service:
   main:
     ports:
       main:
         port: 8259
-        protocol: TCP
+        protocol: http
         targetPort: 80
 
+persistence:
+  data:
+    enabled: true
+    mountPath: /var/www/html/data
+
 portal:
-  enabled: true
+  open:
+    enabled: true

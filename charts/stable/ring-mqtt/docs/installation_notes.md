@@ -4,23 +4,21 @@
 
 ## MQTT setup
 
-- I used the chart called `mosquitto` install it as normal and set `Authentication` to **true**. here's the [auth guide](https://truecharts.org/docs/charts/stable/mosquitto/setup-guide).
+- I used the chart called `mosquitto` install it as normal and set `Authentication` to **true**. here's the [auth guide](https://truecharts.org/charts/stable/mosquitto/setup-guide).
 
 ## Ring-MQTT setup
 
-- `RINGTOKEN` can be left blank as you can auth through the temporarily web interface which is just for the authorization of your ring account.
-- Go to `http://SCALE_IP:55123`.
-- Set `MQTTHOST` to **mosquitto.ix-mosquitto.svc.cluster.local**.
-- Set `MQTTPORT` to **1883**.
-- Set `MQTTUSER` to **user_name** from the authentication setup.
-- Set `MQTTPASSWORD` to **user_pass** from the authentication setup.
-- Set `ENABLECAMERAS` to **true** to enable cameras.
-- Set `SNAPSHOTMODE` to **Auto** to optimize based on high vs low-power Ring devices.
-- Set `ENABLEMODES` to **false**.
-- Set `ENABLEPANIC` to **false**.
-- Set `BEAMDURATION` to **0**.
-- Leave `DISARMCODE` blank.
-- Leave `RINGLOCATIONIDS` blank.
+Go to `http://SCALE_IP:55123`.
+
+- Set `MQTT Url` to **mqtt://@mosquitto.ix-mosquitto.svc.cluster.local:1883** if not using mqtt auth or set the user/pass in the url like so: **mqtt://USER:PASS@mosquitto.ix-mosquitto.svc.cluster.local:1883**.
+- Set `LiveStream User` to **user_name** for the RTSP user.
+- Set `LiveStream Password` to **user_pass** for the RTSP user.
+- Leave `Disarm Code` blank.
+- Set `Enable Cameras` to **true** to enable cameras.
+- Set `Enable Modes` to **false** to disable location modes.
+- Set `Enable Panic` to **false** to disable panic button.
+- Set `Hass Topic` to **homeassistant/status** for the topic to monitor for Home Assistant restarts.
+- Leave `Location Ids` blank.
 
 ## Home-assistant setup
 

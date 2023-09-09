@@ -1,11 +1,11 @@
 image:
   repository: tccr.io/truecharts/portainer-ce
-  tag: v2.18.3@sha256:95edb02e81af2d3178367f4a24dde66ef45be786a1dcb8fbb169062c4bf70889
+  tag: v2.19.0@sha256:f5fc94c115f71b3e5f5c4c7ff45fd82e53ceb7ff795e74a1510075624665664d
   pullPolicy: IfNotPresent
 
-imageBe:
+beImage:
   repository: tccr.io/truecharts/portainer-be
-  tag: v2.18.2@sha256:f76c5d84859c5dc692f08f705073c25cb26b0fc7b5f43554d7a9b96a71783efb
+  tag: v2.19.0@sha256:f2153124ddc22750ea0a6f35ebbd2f94a06ecec9544fcfa9ba855784fda7f48b
   pullPolicy: IfNotPresent
 
 portainer:
@@ -70,10 +70,10 @@ workload:
           probes:
             liveness:
               port: 9443
-              scheme: https
+              type: https
             readiness:
               port: 9443
-              scheme: https
+              type: https
             startup:
               port: 9443
-              scheme: https
+              type: https

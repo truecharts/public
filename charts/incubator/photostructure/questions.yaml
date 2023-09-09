@@ -10,28 +10,28 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: PS_LOG_LEVEL
+                                        label: "PS Log Level"
+                                        schema:
+                                          type: string
+                                          private: true
+                                          default: "error"
+                                          enum:
+                                            - value: error
+                                              description: Error
+                                            - value: info
+                                              description: Info
+
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: PS_LOG_LEVEL
-          label: "PS_LOG_LEVEL"
-          description: "Valid values are debug, info, warn, and error. Default is error, which (should be) quiet."
-          schema:
-            type: string
-            default: ""
-        - variable: UMASK
-          label: "UMASK"
-          description: "Files written by PhotoStructure will be applied with this umask."
-          schema:
-            type: string
-            default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -60,33 +60,33 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: library
-          label: "library Storage"
-          description: "This is where your PhotoStructure Library will be stored. It needs to have sufficient free space to hold preview images, and transcoded videos."
+        - variable: config
+          label: "App Config Storage"
+          description: "Stores the Application Config."
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
-        - variable: tempscratchdisk
-          label: "tempscratchdisk Storage"
-          description: "This must be fast, local disk."
+        - variable: library
+          label: "App Library Storage"
+          description: "Stores the Application Library."
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
         - variable: logs
-          label: "logs Storage"
-          description: "Logfiles will be written into this directory. Set environment variable "
+          label: "App Logs Storage"
+          description: "Stores the Application Logs."
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
-        - variable: config
-          label: "config Storage"
-          description: "System configuration is written into this directory."
+        - variable: tempscratchdisk
+          label: "App TempScratchDisk Storage"
+          description: "Stores the Application TempScratchDisk."
           schema:
             additional_attrs: true
             type: dict
@@ -95,7 +95,7 @@ questions:
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: "Main Ingress"
+          label: Main Ingress
           schema:
             additional_attrs: true
             type: dict
@@ -108,14 +108,14 @@ questions:
 # Include{securityContextRoot}
 
               - variable: runAsUser
-                label: "runAsUser"
-                description: "The UserID of the user running the application"
+                label: runAsUser
+                description: The UserID of the user running the application
                 schema:
                   type: int
                   default: 0
               - variable: runAsGroup
-                label: "runAsGroup"
-                description: "The groupID of the user running the application"
+                label: runAsGroup
+                description: The groupID of the user running the application
                 schema:
                   type: int
                   default: 0
@@ -123,8 +123,8 @@ questions:
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
               - variable: fsGroup
-                label: "fsGroup"
-                description: "The group that should own ALL storage."
+                label: fsGroup
+                description: The group that should own ALL storage.
                 schema:
                   type: int
                   default: 568

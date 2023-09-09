@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/game-server-monitor
   pullPolicy: IfNotPresent
-  tag: 2.12.1@sha256:1febfb09ff02b48ce0062d4075440e62cc84d309599ae01b7be84586ea337d0b
+  tag: v2.14.0@sha256:0ca524b74fa68bfdab7c68d73dde42fd4f921912cca4e450c46e2a5c4d424944
 
 securityContext:
   container:
@@ -22,7 +22,6 @@ gsm:
   workers: 2
   timeout: 90
   # Bot Config
-
   app_token: ""
   whitelist_guilds: []
   app_activity_type: 3
@@ -33,6 +32,9 @@ gsm:
   command_query_cooldown: 5
   web_api_enable: false
   postgres_ssl_mode: disable
+  # factorio
+  factorio_username: ""
+  factorio_auth_token: ""
 
 workload:
   main:

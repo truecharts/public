@@ -10,64 +10,104 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: imageSelector
+                                  label: Select Image
+                                  schema:
+                                    type: string
+                                    default: image
+                                    enum:
+                                      - value: image
+                                        description: Image
+                                      - value: slimImage
+                                        description: Slim
+
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: PASTEY_BEHIND_PROXY
+                                        label: "Pastey Behind Proxy"
+                                        description: "Inform Pastey if it is behind a reverse proxy."
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: PASTEY_GUESS_THRESHOLD
+                                        label: "Pastey Guess Threshold"
+                                        description: "Threshold for automatic language detection guesses."
+                                        schema:
+                                          type: string
+                                          default: "0.20"
+                                      - variable: PASTEY_RATE_LIMIT
+                                        label: "Pastey Rate Limit"
+                                        description: "Rate limit for pasting, for non-whitelisted users."
+                                        schema:
+                                          type: string
+                                          default: "5/hour"
+                                      - variable: PASTEY_RECENT_PASTES
+                                        label: "Pastey Recent Pastes"
+                                        description: "Number of recent pastes to show on the home page."
+                                        schema:
+                                          type: int
+                                          default: 10
+                                      - variable: PASTEY_RESTRICT_PASTING
+                                        label: "Pastey Restrict Pasting"
+                                        description: "Enable/disable restricting of pasting to whitelisted users."
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: PASTEY_USE_WHITELIST
+                                        label: "Pastey Use Whitelist"
+                                        description: "Enable/disable whitelisting for admin tasks."
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: PASTEY_WHITELIST_CIDR
+                                        label: "Pastey WhiteList CIDR"
+                                        description: "List of whitelisted IP addresses or networks."
+                                        schema:
+                                          type: string
+                                          default: "127.0.0.1/32,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
+                                      - variable: PASTEY_DEFAULT_THEME
+                                        label: "Pastey Default Theme"
+                                        schema:
+                                          type: string
+                                          default: "Dark"
+                                          enum:
+                                            - value: "Dark"
+                                              description: "Dark"
+                                            - value: "Light"
+                                              description: "Light"
+                                      - variable: PASTEY_PURGE_INTERVAL
+                                        label: "Pastey Purge Interval"
+                                        description: "Purge interval (in seconds) for checking expired pastes in background thread."
+                                        schema:
+                                          type: int
+                                          default: 10
+                                      - variable: PASTEY_FORCE_SHOW_RECENT
+                                        label: "Pastey Force Show Recent"
+                                        description: "Show recent pastes on the home page, even to non-whitelisted users."
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: PASTEY_IGNORE_GUESS
+                                        label: "Pastey Ignore Guess"
+                                        description: "Ignore these classifications for language detection."
+                                        schema:
+                                          type: string
+                                          default: "TeX,SQL"
+                                      - variable: PASTEY_SHOW_CLI_BUTTON
+                                        label: "Pastey Show Cli Button"
+                                        description: "Enable/disabling showing of CLI button on home page."
+                                        schema:
+                                          type: boolean
+                                          default: true
+
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: PASTEY_RESTRICT_PASTING
-          label: "PASTEY_RESTRICT_PASTING"
-          description: "Enabledisable restricting of pasting to whitelisted users."
-          schema:
-            type: string
-            default: "False"
-        - variable: PASTEY_RESTRICT_RAW_PASTING
-          label: "PASTEY_RESTRICT_RAW_PASTING"
-          description: "Enabledisable restricting of pasting via raw to whitelisted users."
-          schema:
-            type: string
-            default: "True"
-        - variable: PASTEY_RATE_LIMIT
-          label: "PASTEY_RATE_LIMIT"
-          description: "Rate limit for pasting, for non-whitelisted users."
-          schema:
-            type: string
-            default: "5/hour"
-        - variable: PASTEY_RECENT_PASTES
-          label: "PASTEY_RECENT_PASTES"
-          description: "Number of recent pastes to show on the home page."
-          schema:
-            type: string
-            default: "10"
-        - variable: PASTEY_BEHIND_PROXY
-          label: "PASTEY_BEHIND_PROXY"
-          description: "Inform Pastey if it is behind a reverse proxy (nginx, etc.). If this is the case, it will rely on HTTP headers X-Real-IP or X-Forwarded-For. NOTE Make sure your proxy config sets these values."
-          schema:
-            type: string
-            default: "False"
-        - variable: PASTEY_USE_WHITELIST
-          label: "PASTEY_USE_WHITELIST"
-          description: "Enabledisable whitelisting for admin tasks (view recent, delete, config)."
-          schema:
-            type: string
-            default: "True"
-        - variable: PASTEY_WHITELIST_CIDR
-          label: "PASTEY_WHITELIST_CIDR"
-          description: "List of whitelisted IP addresses or networks (in CIDR format)."
-          schema:
-            type: string
-            default: "127.0.0.1/32,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
-        - variable: PASTEY_GUESS_THRESHOLD
-          label: "PASTEY_GUESS_THRESHOLD"
-          description: "Threshold for automatic language detection guesses. If a result is below this value, it is treated as Plaintext."
-          schema:
-            type: string
-            default: "0.20"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -97,8 +137,8 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: data
-          label: "data Storage"
-          description: "Container Path appdata"
+          label: "App Data Storage"
+          description: "Stores the Application Data."
           schema:
             additional_attrs: true
             type: dict

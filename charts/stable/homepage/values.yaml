@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/homepage
-  tag: v0.6.20@sha256:b833a7079cd29406b54b1f63f981564a61ea5d28dad14a61a7008142289d63a0
+  tag: v0.6.29@sha256:3ff877637e0de7716eedecc600c0f3e610938c8585aaf7ce28b30e13fc431c37
   pullPolicy: IfNotPresent
 service:
   main:
@@ -42,6 +42,14 @@ rbac:
           - networking.k8s.io
         resources:
           - ingresses
+        verbs:
+          - get
+          - list
+      - apiGroups:
+          - traefik.containo.us
+          - traefik.io
+        resources:
+          - ingressroutes
         verbs:
           - get
           - list

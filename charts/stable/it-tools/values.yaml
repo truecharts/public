@@ -1,0 +1,22 @@
+image:
+  repository: tccr.io/truecharts/it-tools
+  pullPolicy: IfNotPresent
+  tag: v2023.8.21@sha256:e6332bc28392b8fca2d196a57e9236f32f506716f719a1047281e75f5ac4254f
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 80
+        port: 18082
+
+persistence:
+  cache:
+    enabled: true
+    type: emptyDir
+    mountPath: "/var/cache/nginx"
+
+portal:
+  open:
+    enabled: true

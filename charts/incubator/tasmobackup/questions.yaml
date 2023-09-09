@@ -25,22 +25,19 @@ questions:
           description: "Container Variable DBTYPE"
           schema:
             type: string
+            required: true
             default: "sqlite"
         - variable: DBNAME
           label: "DBNAME"
           description: "Container Variable DBNAME"
           schema:
             type: string
+            required: true
             default: "data/tasmobackup"
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
-        - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
@@ -61,8 +58,8 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: data
-          label: "data Storage"
-          description: "Container Path varwwwhtmldata"
+          label: "App Data Storage"
+          description: "Stores the Application Data."
           schema:
             additional_attrs: true
             type: dict

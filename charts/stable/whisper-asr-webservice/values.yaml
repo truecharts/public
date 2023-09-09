@@ -1,0 +1,61 @@
+image:
+  repository: tccr.io/truecharts/whisper-asr-webservice-cpu
+  pullPolicy: IfNotPresent
+  tag: v1.1.1@sha256:a8aa7c7298cdba9bd31e752fcfbd27cbb99a8e478abd81f20c57d868729638b4
+gpuImage:
+  repository: tccr.io/truecharts/whisper-asr-webservice-gpu
+  pullPolicy: IfNotPresent
+  tag: v1.1.1@sha256:64d515e7f6ea8fa03fd36bd67b68125e9ad525222f1ec0b520dd7e5c11dd0530
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          imageSelector: image
+          probes:
+            liveness:
+              type: http
+              path: "/docs"
+            readiness:
+              type: http
+              path: "/docs"
+            startup:
+              type: http
+              path: "/docs"
+          env:
+            ASR_MODEL: tiny
+            ASR_ENGINE: faster_whisper
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 9000
+        port: 19900
+
+persistence:
+  pip:
+    enabled: true
+    mountPath: "/root/.cache/pip"
+  poetry:
+    enabled: true
+    mountPath: "/root/.cache/poetry"
+  whisper:
+    enabled: true
+    mountPath: "/root/.cache/whisper"
+  faster-whisper:
+    enabled: true
+    mountPath: "/root/.cache/faster_whisper"
+
+portal:
+  open:
+    enabled: true

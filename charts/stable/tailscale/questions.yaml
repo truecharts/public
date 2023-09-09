@@ -34,7 +34,7 @@ questions:
             default: true
         - variable: userspace
           label: Userspace
-          description: Userspace Networking mode allows running Tailscale where you don't have access to create a VPN tunnel device. *Required for Exit Node/Accessing Local Routes* See <a href="https://truecharts.org/docs/charts/stable/tailscale/How-To-Guide/">How-To-Guide</a> for more info
+          description: Userspace Networking mode allows running Tailscale where you don't have access to create a VPN tunnel device. *Required for Exit Node/Accessing Local Routes* See <a href="https://truecharts.org/charts/stable/tailscale/How-To-Guide">How-To-Guide</a> for more info
           schema:
             type: boolean
             default: true

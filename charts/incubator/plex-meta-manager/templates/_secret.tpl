@@ -1,16 +1,9 @@
 {{/* Define the secret */}}
 {{- define "pmm.secret" -}}
 
-{{- $secretName := printf "%s-secret" (include "tc.common.names.fullname" .) }}
-{{- $pmm := .Values.pmm -}}
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: {{ $secretName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
-stringData:
+{{- $pmm := .Values.pmm }}
+enabled: true
+data:
   {{/* PMM */}}
   PMM_CONFIG: "/config/config.yml"
   {{- if not $pmm.run }}

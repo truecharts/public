@@ -2,6 +2,7 @@
 portals:
   open:
 # Include{portalLink}
+    path: "/vnc_auto.html"
 questions:
 # Include{global}
 # Include{workload}
@@ -10,39 +11,36 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: CUSTOM_RES_W
+                                        label: "Resolution Width"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: "800"
+                                      - variable: CUSTOM_RES_H
+                                        label: "Resolution Height"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: "600"
+
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: UMASK
-          label: "UMASK"
-          description: "Container Variable UMASK"
-          schema:
-            type: string
-            default: "000"
-        - variable: CUSTOM_RES_W
-          label: "CUSTOM_RES_W"
-          description: "Container Variable CUSTOMRESW"
-          schema:
-            type: string
-            default: "800"
-        - variable: CUSTOM_RES_H
-          label: "CUSTOM_RES_H"
-          description: "Container Variable CUSTOMRESH"
-          schema:
-            type: string
-            default: "600"
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+          label: Main Service
+          description: The Primary service on which the healthcheck runs, often the webUI
           schema:
             additional_attrs: true
             type: dict
@@ -50,14 +48,14 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: "Main Service Port Configuration"
+                      label: Main Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 8080
@@ -66,17 +64,9 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: datadir
-          label: "datadir Storage"
-          description: "Configuration directory"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
-        - variable: hostpath
-          label: "hostpath Storage"
-          description: "Read only (This container was mainly created to backup files to MEGA, if you also want to sync files from and to MEGA please create a new path entry to the preferred share on the server - its strongly recommended to do that in mnt... within the container)"
+        - variable: data
+          label: "App Data Storage"
+          description: "Stores the Application Data."
           schema:
             additional_attrs: true
             type: dict

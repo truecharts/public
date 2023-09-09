@@ -11,8 +11,18 @@ j8Image:
   tag: v2022.4.1@sha256:240694a8f4028188f11d1ba198f656eedf0ac00cf881535cd97b4f1a86ae3231
   pullPolicy: Always
 
-tty: true
-stdin: true
+service:
+  main:
+    ports:
+      main:
+        port: 25565
+        targetPort: 25577
+  rcon:
+    enabled: true
+    ports:
+      rcon:
+        enabled: true
+        port: 25578
 
 workload:
   main:
@@ -20,6 +30,8 @@ workload:
       containers:
         main:
           imageSelector: image
+          tty: true
+          stdin: true
           probes:
             liveness:
               type: tcp
@@ -44,19 +56,6 @@ workload:
             # JVM_OPTS: ""
             # JVM_XX_OPTS: ""
             # PLUGINS: ""
-
-service:
-  main:
-    ports:
-      main:
-        port: 25565
-        targetPort: 25577
-  rcon:
-    enabled: true
-    ports:
-      rcon:
-        enabled: true
-        port: 25578
 
 persistence:
   config:

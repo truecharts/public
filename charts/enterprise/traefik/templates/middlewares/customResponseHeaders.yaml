@@ -1,0 +1,15 @@
+{{- range $index, $middlewareData := .Values.middlewares.customResponseHeaders }}
+---
+# Declaring the user list
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: {{ ternary (printf "%v-%v" $.Release.Name $middlewareData.name) $middlewareData.name $.Values.ingressClass.enabled }}
+  namespace: {{ $.Release.Namespace }}
+spec:
+  headers:
+    customResponseHeaders:
+      {{- range $index, $customResponseHeader := $middlewareData.headers }}
+      {{ $customResponseHeader.name }}: {{ $customResponseHeader.value | quote }}
+      {{- end }}
+{{- end -}}

@@ -1,0 +1,159 @@
+image:
+  repository: tccr.io/truecharts/mealie-frontend
+  tag: latest@sha256:f0733931b382a17e2c36e58fff7ea95e9434d125ba5c7eef817328dc20fbf374
+  pullPolicy: IfNotPresent
+apiImage:
+  repository: tccr.io/truecharts/mealie-api
+  tag: latest@sha256:f2fbe97e1c2874c7fc127fc3d1acc1f1d344b1f3ee6488254651566d387baed6
+  pullPolicy: IfNotPresent
+
+mealie:
+  frontend:
+    theme:
+      light_primary: "#E58325"
+      light_accent: "#007A99"
+      light_secondary: "#973542"
+      light_success: "#43A047"
+      light_info: "#1976D2"
+      light_warning: "#FF6D00"
+      light_error: "#EF5350"
+      dark_primary: "#E58325"
+      dark_accent: "#007A99"
+      dark_secondary: "#973542"
+      dark_success: "#43A047"
+      dark_info: "#1976D2"
+      dark_warning: "#FF6D00"
+      dark_error: "#EF5350"
+  api:
+    general:
+      allow_signup: true
+      default_group: Home
+      default_email: changeme@email.com
+      base_url: ""
+      token_time: 48
+    security:
+      max_login_attempts: 5
+      user_lockout_time: 24
+    smtp:
+      user: ""
+      password: ""
+      host: ""
+      port: 587
+      from_name: Mealie
+      from_email: ""
+      # TLS | SSL | NONE
+      auth_strategy: TLS
+    webworkers:
+      workers_per_core: 1
+      max_workers: 1
+      web_concurrency: 1
+    ldap:
+      auth_enabled: false
+      server_url: ""
+      tls_insecure: false
+      enable_starttls: false
+      tls_cacertfile: ""
+      base_dn: ""
+      query_bind: ""
+      query_password: ""
+      user_filter: ""
+      admin_filter: ""
+      id_attribute: uid
+      name_attribute: name
+      mail_attribute: mail
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          securityContext:
+            capabilities:
+              add:
+                - NET_BIND_SERVICE
+          probes:
+            liveness:
+              path: "/"
+              type: http
+            readiness:
+              path: "/"
+              type: http
+            startup:
+              path: "/"
+              type: http
+          envFrom:
+            - secretRef:
+                name: frontend
+  api:
+    enabled: true
+    type: Deployment
+    strategy: RollingUpdate
+    replicas: 1
+    podSpec:
+      containers:
+        api:
+          primary: true
+          enabled: true
+          imageSelector: apiImage
+          probes:
+            liveness:
+              path: /api/app/about
+              type: http
+              port: "{{ .Values.service.api.ports.api.port }}"
+            readiness:
+              path: /api/app/about
+              type: http
+              port: "{{ .Values.service.api.ports.api.port }}"
+            startup:
+              type: tcp
+              port: "{{ .Values.service.api.ports.api.port }}"
+          envFrom:
+            - secretRef:
+                name: api
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 10018
+        protocol: http
+        targetPort: 3000
+  api:
+    enabled: true
+    type: ClusterIP
+    targetSelector: api
+    ports:
+      api:
+        enabled: true
+        protocol: http
+        port: 10019
+        targetSelector: api
+
+persistence:
+  data:
+    enabled: true
+    targetSelector:
+      main:
+        main:
+          mountPath: /app/data
+          readOnly: true
+      api:
+        api:
+          mountPath: /app/data
+
+cnpg:
+  main:
+    enabled: true
+    user: mealie
+    database: mealie
+
+portal:
+  open:
+    enabled: true

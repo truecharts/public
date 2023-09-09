@@ -1,0 +1,54 @@
+image:
+  repository: tccr.io/truecharts/gravity
+  pullPolicy: IfNotPresent
+  tag: v0.6.8@sha256:290b9e12ffbd412e02803fc11c61de1731b69dd761e4c1af39b7b0d863bc5261
+
+securityContext:
+  container:
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 8008
+        port: 8008
+  dns:
+    enabled: true
+    ports:
+      dns-tcp:
+        enabled: true
+        targetPort: 53
+        port: 53
+      dns-udp:
+        enabled: true
+        protocol: udp
+        targetPort: 53
+        port: 53
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            INSTANCE_IP: "127.0.0.1"
+            ADMIN_PASSWORD: "password"
+            INSTANCE_IDENTIFIER: "truecharts-dns-gravity"
+            BOOTSTRAP_ROLES: "dns;api;etcd;discovery;backup;monitoring;tsdb"
+            ADMIN_TOKEN:
+              secretKeyRef:
+                name: gravity-secret
+                key: ADMIN_TOKEN
+            INSTANCE_LISTEN: "0.0.0.0"
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+
+portal:
+  open:
+    enabled: true

@@ -25,6 +25,11 @@ spec:
   {{- else }}
   probeSelector: {}
   {{- end }}
+  {{- if .Values.prometheus.scrapeConfigSelector }}
+  scrapeConfigSelector: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.prometheus.scrapeConfigSelector "context" $) | nindent 4 }}
+  {{- else }}
+  scrapeConfigSelector: {}
+  {{- end }}
   alerting:
     alertmanagers:
     {{- if .Values.prometheus.alertingEndpoints }}
@@ -113,11 +118,17 @@ spec:
   {{- else }}
   probeNamespaceSelector: {}
   {{- end }}
+  {{- if .Values.prometheus.scrapeConfigNamespaceSelector }}
+  scrapeConfigNamespaceSelector: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.prometheus.scrapeConfigNamespaceSelector "context" $) | nindent 4 }}
+  {{- else }}
+  scrapeConfigNamespaceSelector: {}
+  {{- end }}
   {{- if .Values.prometheus.remoteRead }}
   remoteRead: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.prometheus.remoteRead "context" $) | nindent 4 }}
   {{- end }}
-  {{- if .Values.prometheus.remoteWrite }}
-  remoteWrite: {{- include "tc.v1.common.tplvalues.render" (dict "value" .Values.prometheus.remoteWrite "context" $) | nindent 4 }}
+  {{- with .Values.prometheus.remoteWrite }}
+  remoteWrite:
+    {{- tpl (toYaml .) $ | nindent 4 }}
   {{- end }}
   {{- if .Values.prometheus.podSecurityContext.enabled }}
   securityContext: {{- omit .Values.prometheus.podSecurityContext "enabled" | toYaml | nindent 4 }}

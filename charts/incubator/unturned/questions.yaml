@@ -1,7 +1,5 @@
 # Include{groups}
-portals:
-  open:
-# Include{portalLink}
+portals: {}
 questions:
 # Include{global}
 # Include{workload}
@@ -10,83 +8,80 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: GAME_ID
+                                        label: "Game ID"
+                                        description: "The Game ID that the container downloads at startup."
+                                        schema:
+                                          type: string
+                                          default: "1110390"
+                                      - variable: USERNAME
+                                        label: "Usename"
+                                        description: "Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: PASSWRD
+                                        label: "Password"
+                                        description: "Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: VALIDATE
+                                        label: "Validate"
+                                        description: "Validates the game data."
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: GAME_PARAMS
+                                        label: "Game Params"
+                                        description: "Enter your start up commands for the server."
+                                        schema:
+                                          type: string
+                                          default: "-pei -normal -nosync -pve"
+                                      - variable: ROCKET_MOD
+                                        label: "Rocket Mod"
+                                        description: "install Rocket Mod"
+                                        schema:
+                                          type: string
+                                          default: "false"
+                                          enum:
+                                            - value: "true"
+                                              description: "True"
+                                            - value: "false"
+                                              description: "False"
+                                      - variable: ROCKET_FORCE_UPDATE
+                                        label: "Rocket Force Update"
+                                        description: "force a update of Rocket Mod."
+                                        schema:
+                                          type: string
+                                          default: "false"
+                                          enum:
+                                            - value: "true"
+                                              description: "True"
+                                            - value: "false"
+                                              description: "False"
+                                      - variable: ROCKET_URL
+                                        label: "Rocket URL"
+                                        description: "Only change if you are know what you are doing"
+                                        schema:
+                                          type: string
+                                          default: "https://ci.rocketmod.net/job/Rocket.Unturned/lastSuccessfulBuild/artifact/Rocket.Unturned/bin/Release/Rocket.zip"
+
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: USERNAME
-          label: "USERNAME"
-          description: "Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
-          schema:
-            type: string
-            default: ""
-        - variable: PASSWRD
-          label: "PASSWRD"
-          description: "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
-          schema:
-            type: string
-            private: true
-            default: ""
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: GAME_ID
-          label: "GAME_ID"
-          description: "The GAME_ID that the container download at startup.(https://developer.valvesoftware.com/wiki/Dedicated_Servers_List)"
-          schema:
-            type: string
-            default: "1110390"
-        - variable: GAME_PARAMS
-          label: "GAME_PARAMS"
-          description: "Enter your start up commands for the server."
-          schema:
-            type: string
-            default: "-pei -normal -nosync -pve"
-        - variable: VALIDATE
-          label: "VALIDATE"
-          description: "Set the Variable to true if you want to validate the installation otherwise leave it blank."
-          schema:
-            type: boolean
-            default: true
-        - variable: ROCKET_MOD
-          label: "ROCKET_MOD"
-          description: "Set to true (without quotes) to install Rocket Mod otherwise leave blank"
-          schema:
-            type: string
-            default: ""
-        - variable: ROCKET_FORCE_UPDATE
-          label: "ROCKET_FORCE_UPDATE"
-          description: "If you want to force a update of Rocket Mod set to true (without quotes)ATTENTION All files in the Modules &amp; Scripts folder will be overwritten backup the files bevor doing that!"
-          schema:
-            type: string
-            default: ""
-        - variable: ROCKET_URL
-          label: "ROCKET_URL"
-          description: "Only change if you are know what you are doing"
-          schema:
-            type: string
-            default: "https://ci.rocketmod.net/job/Rocket.Unturned/lastSuccessfulBuild/artifact/Rocket.Unturned/bin/Release/Rocket.zip"
-        - variable: GAME_PORT
-          label: "GAME_PORT"
-          description: "If you change this setting dont forget to delete the gameport above and create 3 entries for TCP and 3 entries for UDP (GAMEPORT 2 TCP &amp; GAMEPORT UDP 2)"
-          schema:
-            type: string
-            default: "27015"
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+          label: Main Service
+          description: The Primary service on which the Minecraft Server runs on
           schema:
             additional_attrs: true
             type: dict
@@ -94,53 +89,63 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: "Main Service Port Configuration"
+                      label: Main Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
-                              default: 27017
+                              default: 27015
+                              required: true
+        - variable: steam
+          label: Steam Service
+          description: The Steam service.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: steam
+                      label: Steam Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 27016
                               required: true
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: steamcmd
-          label: "steamcmd Storage"
-          description: "Container Path serverdatasteamcmd"
+          label: App SteamCMD Storage
+          description: Stores the Application SteamCMD.
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
         - variable: serverfiles
-          label: "serverfiles Storage"
-          description: "Container Path serverdataserverfiles"
+          label: App ServerFiles Storage
+          description: Stores the Application ServerFiles.
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceList}
-# Include{ingressRoot}
-        - variable: main
-          label: "Main Ingress"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
-# Include{ingressAdvanced}
-# Include{ingressList}
-# Include{securityContextRoot}
 
+# Include{securityContextRoot}
               - variable: runAsUser
                 label: "runAsUser"
                 description: "The UserID of the user running the application"

@@ -11,19 +11,6 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-
-                                - variable: env
-                                  group: "App Configuration"
-                                  label: "Image Environment"
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                      - variable: STASH_PORT
-                                        label: "STASH_PORT"
-                                        schema:
-                                          type: int
-                                          default: 9999
 # Include{containerBasic}
 # Include{containerAdvanced}
 
@@ -58,6 +45,46 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
+        - variable: cache
+          label: "App Cache Storage"
+          description: "Stores the Application Cache."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: generated
+          label: "App Generated Storage"
+          description: "Thumbnails, clips, etc"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: metadata
+          label: "App MetaData Storage"
+          description: "Stores the Application MetaData."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: blobs
+          label: "App Blobs Storage"
+          description: "Binary data for scene covers, performer images, etc"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: data
+          label: "App Data Storage"
+          description: "Stores the Application Data."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
@@ -81,7 +108,7 @@ questions:
                   default: 0
               - variable: runAsGroup
                 label: "runAsGroup"
-                description: "The groupID this App of the user running the application"
+                description: "The groupID of the user running the application"
                 schema:
                   type: int
                   default: 0

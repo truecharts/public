@@ -1,7 +1,6 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "tc.v1.common.loader.init" . }}
 
-
 {{/* Render configmap for vaultwarden */}}
 {{- $configmapFile := include "vaultwarden.configmap" . | fromYaml -}}
 {{- if $configmapFile -}}
@@ -13,33 +12,6 @@
 {{- if $secret -}}
   {{- $_ := set .Values.secret "vaultwardensecret" $secret -}}
 {{- end -}}
-
-{{/* Define path for websocket */}}
-{{- define "vaultwarden.websocket" -}}
-{{- $fullname := include "tc.v1.common.lib.chart.names.fullname" . -}}
-path: "/notifications/hub"
-# -- Ignored if not kubeVersion >= 1.14-0
-pathType: Prefix
-service:
-  # -- Overrides the service name reference for this path
-  name: {{ printf "%s-ws" $fullname }}
-  port: {{ .Values.service.ws.ports.ws.port }}
-{{- end -}}
-
-{{/* inject websocket path to all main ingress hosts*/}}
-{{- define "vaultwarden.websocketinjector" -}}
-{{- $path := list (include "vaultwarden.websocket" . | fromYaml) -}}
-{{- if .Values.ingress.main.enabled }}
-{{- range .Values.ingress.main.hosts }}
-{{- $newpaths := list }}
-{{- $newpaths := concat .paths $path }}
-{{- $_ := set . "paths" ( deepCopy $newpaths ) -}}
-{{- end }}
-{{- end }}
-{{- end -}}
-
-{{/* inject websocket paths in ingress */}}
-{{- include "vaultwarden.websocketinjector" . }}
 
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}

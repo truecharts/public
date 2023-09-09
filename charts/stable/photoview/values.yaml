@@ -1,0 +1,48 @@
+image:
+  repository: tccr.io/truecharts/photoview
+  tag: 2.3.13@sha256:2df4e8e7a7f9b15e7d4af8d3b85d20c37434cb8503f04f48c50d30f1982a757b
+  pullPolicy: IfNotPresent
+
+service:
+  main:
+    ports:
+      main:
+        port: 10159
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PHOTOVIEW_LISTEN_PORT: "{{ .Values.service.main.ports.main.port }}"
+            PHOTOVIEW_LISTEN_IP: "127.0.0.1"
+            PHOTOVIEW_DATABASE_DRIVER: "postgres"
+            PHOTOVIEW_MEDIA_CACHE: "/cache"
+            MAPBOX_TOKEN: ""
+            PHOTOVIEW_DISABLE_FACE_RECOGNITION: false
+            PHOTOVIEW_DISABLE_VIDEO_ENCODING: false
+            PHOTOVIEW_DISABLE_RAW_PROCESSING: false
+            PHOTOVIEW_POSTGRES_URL:
+              secretKeyRef:
+                name: secrets
+                key: PHOTOVIEW_POSTGRES_URL
+
+persistence:
+  # Don't use emptyDir, it stores, thumbnails and optimized media
+  cache:
+    enabled: true
+    mountPath: "/cache"
+  photos:
+    enabled: true
+    mountPath: "/photos"
+
+cnpg:
+  main:
+    enabled: true
+    user: photoview
+    database: photoview
+
+portal:
+  open:
+    enabled: true

@@ -1,31 +1,29 @@
-{{- $values := .Values }}
-
-{{ range $index, $middlewareData := .Values.middlewares.forwardAuth }}
+{{- range $index, $middlewareData := .Values.middlewares.forwardAuth }}
 ---
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
   name: {{ ternary (printf "%v-%v" $.Release.Name $middlewareData.name) $middlewareData.name $.Values.ingressClass.enabled }}
-  namespace: tc-system
+  namespace: {{ $.Release.Namespace }}
 spec:
   forwardAuth:
     address: {{ $middlewareData.address }}
     {{- with $middlewareData.authResponseHeaders }}
     authResponseHeaders:
-    {{- toYaml . | nindent 4 }}
-    {{- end }}
+      {{- toYaml . | nindent 4 }}
+    {{- end -}}
     {{- with $middlewareData.authRequestHeaders }}
     authRequestHeaders:
-    {{- toYaml . | nindent 4 }}
-    {{- end }}
+      {{- toYaml . | nindent 4 }}
+    {{- end -}}
     {{- if $middlewareData.authResponseHeadersRegex }}
     authResponseHeadersRegex: {{ $middlewareData.authResponseHeadersRegex }}
-    {{- end }}
+    {{- end -}}
     {{- if $middlewareData.trustForwardHeader }}
     trustForwardHeader: true
-    {{- end }}
+    {{- end -}}
     {{- with $middlewareData.tls }}
     tls:
       insecureSkipVerify: {{ .insecureSkipVerify | default false }}
-    {{- end }}
-{{ end }}
+    {{- end -}}
+{{- end -}}

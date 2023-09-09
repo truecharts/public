@@ -31,7 +31,7 @@ questions:
                                         description: "The MTU the clients will use. Server uses default WG MTU."
                                         schema:
                                           type: int
-                                          default: 1420
+                                          default: 0
                                       - variable: WG_PERSISTENT_KEEPALIVE
                                         label: "WG_PERSISTENT_KEEPALIVE"
                                         description: "Value in seconds to keep the connection open."

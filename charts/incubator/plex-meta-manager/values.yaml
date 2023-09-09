@@ -1,15 +1,21 @@
 image:
   repository: tccr.io/truecharts/plex-meta-manager
   pullPolicy: IfNotPresent
-  tag: 1.18.3@sha256:d8adb30906dbeffae964364bb7b98372b06283c8e9ab3e7624eab2265478e8fc
+  tag: v1.19.0@sha256:302c3b396f4af2cb789cb36aa7540bc501a7d4aeb108090f7b6aff8e85680110
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
 
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
 
 pmm:
   run: false
@@ -19,46 +25,45 @@ pmm:
   # plex_url: ""
   # plex_token: ""
 
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-secret'
-
-service:
+workload:
   main:
-    enabled: false
-    ports:
-      main:
-        enabled: false
-
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
+    podSpec:
+      initContainers:
+        create-init-config-file:
+          enabled: true
+          type: init
+          imageSelector: "image"
+          command:
+            - /bin/sh
+            - -c
+          args:
+            - |
+              echo "Creating config.yml file..."
+              if [ -f /config/config.yml ]; then
+                echo "Config file exists! Skipping..."
+              else
+                echo "Config file is missing, getting a new one!"
+                curl -fLvo /config/config.yml https://raw.githubusercontent.com/meisnate12/Plex-Meta-Manager/master/config/config.yml.template || (echo "Downloading config file, FAILED..." && exit 1)
+              fi
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          envFrom:
+            - secretRef:
+                name: "secret"
 
 persistence:
   config:
     enabled: true
     mountPath: /config
-
-initContainers:
-  1-create-init-config-file:
-    image: "{{ .Values.ubuntuImage.repository }}:{{ .Values.ubuntuImage.tag }}"
-    volumeMounts:
-      - name: config
-        mountPath: "/config"
-    command: ["/bin/sh", "-c"]
-    args:
-      - |-
-        echo "Creating config.yml file..."
-        if [ -f /config/config.yml ]; then
-          echo "Config file exists!, Skipping..."
-        else
-          echo "Config file is missing, getting a new one!"
-          curl -fLvo /config/config.yml https://raw.githubusercontent.com/meisnate12/Plex-Meta-Manager/master/config/config.yml.template || ( echo "Downloading config file, FAILED..." && exit 1 )
-        fi
+    targetSelectAll: true
 
 portal:
-  enabled: false
+  open:
+    enabled: false

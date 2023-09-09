@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/anonaddy
-  tag: v0.14.1@sha256:4bbab3dec6fecbbe8804ebf8b9b9cf5c5ffb9cbabff19da9b71d8e6d61cfa2f8
+  tag: v0.14.1@sha256:5ec8379d750553a662ea009b1c1e61e5cae670ef0ac7161f09f0c1cfa3a204fe
   pullPolicy: IfNotPresent
 
 strategy:
@@ -41,8 +41,20 @@ workload:
               type: tcp
           env:
             ANONADDY_DOMAIN: "chart-example.local"
-            DB_DATABASE: anonaddy
-            DB_USERNAME: anonaddy
+            APP_URL: "http://localhost:10110"
+            # The from name to be used for outgoing email notifications from AnonAddy
+            MAIL_FROM_NAME: Example
+            # The from address to be used for outgoing email notifications from AnonAddy
+            MAIL_FROM_ADDRESS: mailer@example.com
+            # just smtp is configurable
+            MAIL_DRIVER: smtp
+            MAIL_HOST: mail.example.com
+            MAIL_PORT: 25
+            MAIL_ENCRYPTION: tls
+            MAIL_EHLO_DOMAIN: mail.example.com
+            MAIL_VERIFY_PEER: false
+            DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
+            DB_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
             DB_HOST:
               secretKeyRef:
                 expandObjectName: false
@@ -65,21 +77,17 @@ workload:
                 key: redis-password
             APP_KEY:
               secretKeyRef:
-                name: appkey
-                key: appkey
+                name: anonaddy-secrets
+                key: APP_KEY
             ANONADDY_SECRET:
               secretKeyRef:
-                name: appkey
-                key: secret
+                name: anonaddy-secrets
+                key: ANONADDY_SECRET
 
 persistence:
   config:
     enabled: true
     mountPath: /config
-
-portal:
-  open:
-    enabled: true
 
 redis:
   enabled: true
@@ -88,3 +96,7 @@ mariadb:
   enabled: true
   mariadbUsername: anonaddy
   mariadbDatabase: anonaddy
+
+portal:
+  open:
+    enabled: true

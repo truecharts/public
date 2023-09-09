@@ -12,7 +12,7 @@ For more information about this App, please check the docs on the TrueCharts [we
 
 ## Support
 
-- Please check our [quick-start guides for TrueNAS SCALE](https://truecharts.org/manual/SCALE%20Apps/Important-MUST-READ).
+- Please check our [quick-start guides for TrueNAS SCALE](https://truecharts.org/manual/SCALE/guides/scale-intro).
 - See the [Website](https://truecharts.org)
 - Check our [Discord](https://discord.gg/tVsPTHWTtr)
 - Open a [issue](https://github.com/truecharts/charts/issues/new/choose)

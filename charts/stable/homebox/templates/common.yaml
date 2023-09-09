@@ -4,7 +4,7 @@
 {{/* Render secrets for homebox */}}
 {{- $secrets := include "homebox.secret" . | fromYaml -}}
 {{- if $secrets -}}
-{{- $_ := set .Values.secret "homebox-secret" $secrets -}}
+  {{- $_ := set .Values.secret "homebox-secret" $secrets -}}
 {{- end -}}
 
 {{/* Render the templates */}}

@@ -3,24 +3,50 @@ image:
   repository: tccr.io/truecharts/unturned
   tag: latest@sha256:7688a521164ade3b0731bc381b9ffd53733ebb87566acb4a2b47f36d9534f70d
 
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
 
-env:
-  GAME_ID: "1110390"
-  GAME_PARAMS: -pei -normal -nosync -pve
-  GAME_PORT: "27015"
-  PASSWRD: ""
-  ROCKET_FORCE_UPDATE: ""
-  ROCKET_MOD: ""
-  ROCKET_URL: https://ci.rocketmod.net/job/Rocket.Unturned/lastSuccessfulBuild/artifact/Rocket.Unturned/bin/Release/Rocket.zip
-  USERNAME: ""
-  VALIDATE: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        protocol: udp
+        port: 27015
+  steam:
+    enabled: true
+    ports:
+      steam:
+        enabled: true
+        protocol: tcp
+        port: 27016
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            GAME_PORT: "{{ .Values.service.main.ports.main.port }}"
+            GAME_ID: "1110390"
+            USERNAME: ""
+            PASSWRD: ""
+            ROCKET_FORCE_UPDATE: ""
+            ROCKET_MOD: ""
+            ROCKET_URL: https://ci.rocketmod.net/job/Rocket.Unturned/lastSuccessfulBuild/artifact/Rocket.Unturned/bin/Release/Rocket.zip
+            VALIDATE: false
 
 persistence:
   serverfiles:
@@ -30,21 +56,6 @@ persistence:
     enabled: true
     mountPath: /serverdata/steamcmd
 
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
-
-service:
-  main:
-    ports:
-      main:
-        port: 27017
-        protocol: UDP
-        targetPort: 27017
-
 portal:
-  enabled: true
+  open:
+    enabled: false

@@ -1,29 +1,22 @@
 image:
   repository: tccr.io/truecharts/minecraft-bedrock
-  tag: 2022.1.0@sha256:85b2493240d4c6ac69f8383937510c432812072ebd5ef382ebe6ba7f325d70ed
+  tag: v2023.8.1@sha256:deedf1e2b76a62dc9bd182e94699dc17abd60ff3827d9a1193cec1a55fc4299f
   pullPolicy: Always
-tty: true
-stdin: true
-persistence:
-  config:
-    enabled: true
-    mountPath: "/data"
+
 service:
   main:
     ports:
       main:
         port: 19132
-        targetPort: 19132
         protocol: udp
-portal:
-  open:
-    enabled: true
 
 workload:
   main:
     podSpec:
       containers:
         main:
+          tty: true
+          stdin: true
           probes:
             # -- Liveness probe configuration
             # @default -- See below
@@ -38,10 +31,11 @@ workload:
             startup:
               enabled: false
           env:
-            EULA: "TRUE"
+            EULA: true
+            ENABLE_LAN_VISIBILITY: false
             VERSION: "LATEST"
             SERVER_NAME: "TrueCharts Dedicated Server!"
-            SERVER_PORT: "{{ .Values.service.main.ports.main.targetPort }}"
+            SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
             SERVER_PORT_V6: 19133
             GAMEMODE: "survival"
             DIFFICULTY: "easy"
@@ -64,3 +58,12 @@ workload:
             PLAYER_MOVEMENT_DURATION_THRESHOLD_IN_MS: 500
             CORRECT_PLAYER_MOVEMENT: false
             # OPS: "XUID,XUID"
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/data"
+
+portal:
+  open:
+    enabled: false

@@ -32,7 +32,7 @@ None necessary, a domain name is recommended for usage but not required.
 
 ### Ingress
 
-Recommended for use with a domain name but not required as mentioned above. You can refer to our [Quick-Start Guides](https://truecharts.org/docs/manual/SCALE%20Apps/Quick-Start%20Guides/add-ingress) for an overview on using Ingress with your chart.
+Recommended for use with a domain name but not required as mentioned above. You can refer to our [Quick-Start Guides](https://truecharts.org/manual/SCALE/options/ingress) for an overview on using Ingress with your chart.
 
 ## Support
 

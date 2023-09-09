@@ -10,9 +10,9 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
 # Include{containerBasic}
 # Include{containerAdvanced}
-
   - variable: midarr
     group: App Configuration
     label: Midarr Configuration
@@ -30,17 +30,20 @@ questions:
                 label: Admin Mail
                 schema:
                   type: string
+                  required: true
                   default: ""
               - variable: name
                 label: Admin Name
                 schema:
                   type: string
+                  required: true
                   default: ""
               - variable: pass
                 label: Admin Password
                 schema:
                   type: string
                   private: true
+                  required: true
                   default: ""
         - variable: general
           label: General Configuration
@@ -59,7 +62,7 @@ questions:
                 label: Mailer From
                 schema:
                   type: string
-                  default: ""
+                  default: "midarr@example.com"
               - variable: sendgrid_api_key
                 label: SendGrid API Key
                 schema:
@@ -76,12 +79,14 @@ questions:
                 label: Base URL
                 schema:
                   type: string
+                  required: true
                   default: ""
               - variable: api_key
                 label: API Key
                 schema:
                   type: string
                   private: true
+                  required: true
                   default: ""
         - variable: sonarr
           label: Sonarr Configuration
@@ -93,14 +98,17 @@ questions:
                 label: Base URL
                 schema:
                   type: string
+                  required: true
                   default: ""
               - variable: api_key
                 label: API Key
                 schema:
                   type: string
                   private: true
+                  required: true
                   default: ""
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: Main Service
@@ -141,28 +149,28 @@ questions:
 # Include{ingressAdvanced}
 # Include{ingressList}
 
-# Include{podSecurityContextRoot}
-        - variable: runAsUser
-          label: runAsUser
-          description: The UserID of the user running the application
-          schema:
-            type: int
-            default: 0
-        - variable: runAsGroup
-          label: runAsGroup
-          description: The groupID this App of the user running the application
-          schema:
-            type: int
-            default: 0
+# Include{securityContextRoot}
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-        - variable: fsGroup
-          label: fsGroup
-          description: The group that should own ALL storage.
-          schema:
-            type: int
-            default: 568
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
+                schema:
+                  type: int
+                  default: 568
 
 # Include{resources}
 # Include{advanced}

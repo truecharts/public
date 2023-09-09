@@ -14,115 +14,109 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: DNS_SERVER_ADMIN_PASSWORD
+                                        label: "DNS Server Admin Password"
+                                        description: "DNS web console admin user password."
+                                        schema:
+                                          type: string
+                                          private: true
+                                          default: ""
+                                      - variable: DNS_SERVER_DOMAIN
+                                        label: "DNS Server Domain"
+                                        description: "The primary domain name used by this DNS Server to identify itself."
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: "dns-server"
+                                      - variable: DNS_SERVER_PREFER_IPV6
+                                        label: "DNS Server Prefer IpV6"
+                                        description: "DNS Server will use IPv6 for querying whenever possible with this option enabled."
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: DNS_SERVER_OPTIONAL_PROTOCOL_DNS_OVER_HTTP
+                                        label: "DNS Server Optional Protocol DNS Over HTTP"
+                                        description: "Enables DNS server optional protocol DNS-over-HTTP on TCP port 8053 to be used with a TLS terminating reverse proxy like nginx."
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: DNS_SERVER_RECURSION
+                                        label: "DNS Server Recursion"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: "AllowOnlyForPrivateNetworks"
+                                          enum:
+                                            - value: "AllowOnlyForPrivateNetworks"
+                                              description: "AllowOnlyForPrivateNetworks"
+                                            - value: "UseSpecifiedNetworks"
+                                              description: "UseSpecifiedNetworks"
+                                            - value: "Allow"
+                                              description: "Allow"
+                                            - value: "Deny"
+                                              description: "Deny"
+                                      - variable: DNS_SERVER_RECURSION_DENIED_NETWORKS
+                                        label: "DNS Server Recursion Denied Networks"
+                                        description: "Comma separated list of IP addresses or network addresses to deny recursion. Valid only for UseSpecifiedNetworks recursion option."
+                                        schema:
+                                          show_if: [["DNS_SERVER_RECURSION", "=", "UseSpecifiedNetworks"]]
+                                          type: string
+                                          required: true
+                                          default: "1.1.1.0/24"
+                                      - variable: DNS_SERVER_RECURSION_ALLOWED_NETWORKS
+                                        label: "DNS Server Recursion Allowed Networks"
+                                        description: "Comma separated list of IP addresses or network addresses to allow recursion. Valid only for UseSpecifiedNetworks recursion option."
+                                        schema:
+                                          show_if: [["DNS_SERVER_RECURSION", "=", "UseSpecifiedNetworks"]]
+                                          type: string
+                                          required: true
+                                          default: "1.1.1.0/24"
+                                      - variable: DNS_SERVER_ENABLE_BLOCKING
+                                        label: "DNS Server Enable BLocking"
+                                        description: "Sets the DNS server to block domain names using Blocked Zone and Block List Zone."
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: DNS_SERVER_ALLOW_TXT_BLOCKING_REPORT
+                                        label: "DNS Server Allow TXT Blocking Report"
+                                        description: "Specifies if the DNS Server should respond with TXT records containing a blocked domain report for TXT type requests."
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: DNS_SERVER_FORWARDERS
+                                        label: "DNS Server Forwarders"
+                                        description: "Comma separated list of forwarder addresses."
+                                        schema:
+                                          type: string
+                                          default: "1.1.1.1,8.8.8.8"
+                                      - variable: DNS_SERVER_FORWARDER_PROTOCOL
+                                        label: "DNS Server Forwarder Protocol"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: "Tcp"
+                                          enum:
+                                            - value: "Udp"
+                                              description: "Udp"
+                                            - value: "Tcp"
+                                              description: "Tcp"
+                                            - value: "Tls"
+                                              description: "Tls"
+                                            - value: "Https"
+                                              description: "Https"
+                                            - value: "HttpsJson"
+                                              description: "HttpsJson"
+
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: DNS_SERVER_ADMIN_PASSWORD
-          label: "DNS_SERVER_ADMIN_PASSWORD"
-          description: "DNS web console admin user password."
-          schema:
-            type: string
-            default: ""
-            private: true
-            required: true
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: DNS_SERVER_DOMAIN
-          label: "DNS_SERVER_DOMAIN"
-          description: "The primary domain name used by this DNS Server to identify itself."
-          schema:
-            type: string
-            default: "dns-server"
-            required: true
-        - variable: DNS_SERVER_PREFER_IPV6
-          label: "DNS_SERVER_PREFER_IPV6"
-          description: "DNS Server will use IPv6 for querying whenever possible with this option enabled."
-          schema:
-            type: boolean
-            default: false
-        - variable: DNS_SERVER_OPTIONAL_PROTOCOL_DNS_OVER_HTTP
-          label: "DNS_SERVER_OPTIONAL_PROTOCOL_DNS_OVER_HTTP"
-          description: "Enables DNS server optional protocol DNS-over-HTTP on TCP port 8053 to be used with a TLS terminating reverse proxy like nginx."
-          schema:
-            type: boolean
-            default: false
-        - variable: DNS_SERVER_RECURSION
-          label: "DNS_SERVER_RECURSION"
-          schema:
-            type: string
-            default: "AllowOnlyForPrivateNetworks"
-            enum:
-              - value: "AllowOnlyForPrivateNetworks"
-                description: "AllowOnlyForPrivateNetworks"
-              - value: "UseSpecifiedNetworks"
-                description: "UseSpecifiedNetworks"
-              - value: "Allow"
-                description: "Allow"
-              - value: "Deny"
-                description: "Deny"
-        - variable: DNS_SERVER_RECURSION_DENIED_NETWORKS
-          label: "DNS_SERVER_RECURSION_DENIED_NETWORKS"
-          description: "Comma separated list of IP addresses or network addresses to deny recursion. Valid only for UseSpecifiedNetworks recursion option."
-          schema:
-            show_if: [["DNS_SERVER_RECURSION", "=", "UseSpecifiedNetworks"]]
-            type: string
-            default: "1.1.1.0/24"
-        - variable: DNS_SERVER_RECURSION_ALLOWED_NETWORKS
-          label: "DNS_SERVER_RECURSION_ALLOWED_NETWORKS"
-          description: "Comma separated list of IP addresses or network addresses to allow recursion. Valid only for `UseSpecifiedNetworks` recursion option."
-          schema:
-            show_if: [["DNS_SERVER_RECURSION", "=", "UseSpecifiedNetworks"]]
-            type: string
-            default: "127.0.0.1, 192.168.1.0/24"
-        - variable: DNS_SERVER_ENABLE_BLOCKING
-          label: "DNS_SERVER_ENABLE_BLOCKING"
-          description: "Sets the DNS server to block domain names using Blocked Zone and Block List Zone."
-          schema:
-            type: boolean
-            default: false
-        - variable: DNS_SERVER_ALLOW_TXT_BLOCKING_REPORT
-          label: "DNS_SERVER_ALLOW_TXT_BLOCKING_REPORT"
-          description: "Specifies if the DNS Server should respond with TXT records containing a blocked domain report for TXT type requests."
-          schema:
-            type: boolean
-            default: false
-        - variable: DNS_SERVER_FORWARDERS
-          label: "DNS_SERVER_FORWARDERS"
-          description: "Comma separated list of forwarder addresses."
-          schema:
-            type: string
-            default: "1.1.1.1, 8.8.8.8"
-        - variable: DNS_SERVER_FORWARDER_PROTOCOL
-          label: "DNS_SERVER_FORWARDER_PROTOCOL"
-          description: "Forwarder protocol options: Udp, Tcp, Tls, Https, HttpsJson."
-          schema:
-            type: string
-            default: "Tcp"
-            enum:
-              - value: "AllowOnlyForPrivateNetworks"
-                description: "AllowOnlyForPrivateNetworks"
-              - value: "Udp"
-                description: "Udp"
-              - value: "Tcp"
-                description: "Tcp"
-              - value: "Tls"
-                description: "Tls"
-              - value: "Https"
-                description: "Https"
-              - value: "HttpsJson"
-                description: "HttpsJson"
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -147,17 +141,17 @@ questions:
                               type: int
                               default: 5380
                               required: true
-        - variable: dns-udp
-          label: "DNS-UDP Service"
-          description: "DNS-UDP Service"
+        - variable: dns
+          label: "DNS Service"
+          description: "DNS Service"
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
-                    - variable: dns-udp
-                      label: "DNS-UDP Service Port Configuration"
+                    - variable: dns-tcp
+                      label: "DNS-TCP Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -169,17 +163,8 @@ questions:
                               type: int
                               default: 53
                               required: true
-        - variable: dns-tcp
-          label: "DNS-TCP Service"
-          description: "DNS-TCP Service"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelectorLoadBalancer}
-# Include{serviceSelectorExtras}
-                    - variable: dns-tcp
-                      label: "DNS-TCP Service Port Configuration"
+                    - variable: dns-udp
+                      label: "DNS-UDP Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict

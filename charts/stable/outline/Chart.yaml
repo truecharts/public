@@ -1,13 +1,13 @@
 apiVersion: v2
-appVersion: "0.69.2"
+appVersion: "0.71.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 12.14.2
+    version: 14.0.1
   - condition: redis.enabled
     name: redis
     repository: https://deps.truecharts.org
-    version: 6.0.58
+    version: 6.0.66
 deprecated: false
 description: A fast, collaborative, knowledge base for your team built using React and Node.js.
 home: https://truecharts.org/charts/stable/outline
@@ -25,7 +25,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/outline
   - https://github.com/outline/outline
 type: application
-version: 7.0.26
+version: 8.0.1
 annotations:
   truecharts.org/catagories: |
     - productivity

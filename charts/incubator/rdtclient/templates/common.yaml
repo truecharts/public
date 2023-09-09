@@ -1,0 +1,12 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.v1.common.loader.init" . -}}
+
+{{/* Disable [aria2] if requested */}}
+{{- if not .Values.aria2.enabled -}}
+  {{- $_ := set .Values.workload.aria2 "enabled" false -}}
+  {{- $_ := set .Values.service.aria2 "enabled" false -}}
+  {{- $_ := set .Values.service.torrent "enabled" false -}}
+{{- end -}}
+
+{{/* Render the templates */}}
+{{- include "tc.v1.common.loader.apply" . -}}

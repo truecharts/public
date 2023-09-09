@@ -3,7 +3,18 @@ image:
   tag: 0.13.0@sha256:72ed1856efdd443be31e23535d24242056639a387587aa3ade5413e75dad0603
   pullPolicy: IfNotPresent
 
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 10238
 
+kopia:
+  user: "user"
+  password: "secret"
+  server_username: "user"
+  server_password: "password"
 
 workload:
   main:
@@ -12,11 +23,11 @@ workload:
         main:
           envFrom:
             - secretRef:
-                name: "kopia-secret"
+                name: "kopia-secrets"
           args:
             - server
             - start
-            - --address=http://0.0.0.0:10238
+            - --address=http://0.0.0.0:{{ .Values.service.main.ports.main.port }}
             - --insecure
             - --server-username={{ .Values.kopia.server_username }}
             - --server-password={{ .Values.kopia.server_password }}
@@ -27,19 +38,6 @@ workload:
               enabled: false
             startup:
               enabled: false
-
-kopia:
-  kopia_user: "user"
-  kopia_password: "secret"
-  kopia_server_username: "user"
-  kopia_server_password: "password"
-
-service:
-  main:
-    ports:
-      main:
-        protocol: http
-        port: 10238
 
 persistence:
   config:

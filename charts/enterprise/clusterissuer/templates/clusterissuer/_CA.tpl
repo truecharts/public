@@ -1,4 +1,7 @@
 {{- define "certmanager.clusterissuer.ca" -}}
+{{- $operator := index $.Values.operator "cert-manager" -}}
+{{- $namespace := $operator.namespace | default "cert-manager" -}}
+
 {{- range .Values.clusterIssuer.CA }}
   {{- if not (mustRegexMatch "^[a-z]+(-?[a-z]){0,63}-?[a-z]+$" .name) -}}
     {{- fail "CA - Expected name to be all lowercase with hyphens, but not start or end with a hyphen" -}}
@@ -16,7 +19,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: {{ .name }}-selfsigned-ca
-  namespace: cert-manager
+  namespace: {{ $namespace }}
 spec:
   isCA: true
   commonName: {{ .selfSignedCommonName }}
@@ -25,7 +28,7 @@ spec:
     algorithm: ECDSA
     size: 256
   issuerRef:
-    name: selfsigned-ca-issuer
+    name: {{ .name }}-selfsigned-ca-issuer
     kind: ClusterIssuer
     group: cert-manager.io
 {{- else }}
@@ -34,7 +37,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: {{ .name }}-ca
-  namespace: cert-manager
+  namespace: {{ $namespace }}
 data:
   tls.crt: {{ .crt | b64enc }}
   tls.key: {{ .key | b64enc }}

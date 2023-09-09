@@ -1,22 +1,22 @@
 image:
   repository: tccr.io/truecharts/immich-server
-  tag: v1.60.0@sha256:642a9a3fff34c4bdd0581c5cba3298e83300ec57e7c23dcd761e426012963260
+  tag: v1.77.0@sha256:d1487c2162709ba78b818317b79d1e36af6c257a8a25e82af02ca55766472eb8
   pullPolicy: IfNotPresent
 mlImage:
   repository: tccr.io/truecharts/immich-ml
-  tag: v1.60.0@sha256:0e6b178ba6ae09936b5bf8bbdc1e66efa7b5c3c8dfd6324e2a3f9e35b2d495cb
+  tag: v1.77.0@sha256:0e42da3c612d0c8ff68b83cc94d79b7971bcf00439fb9e42f40408ff0c6041fa
   pullPolicy: IfNotPresent
 webImage:
   repository: tccr.io/truecharts/immich-web
-  tag: v1.60.0@sha256:d72f6f35fb75e5ff0fe59b574c1bfd6a20423c5716db37b8856d80eae8c6e06d
+  tag: v1.77.0@sha256:90259b85ea1526f7fa186985178d9ac29d746608c14e4baaa9485ab52cff289f
   pullPolicy: IfNotPresent
 proxyImage:
   repository: tccr.io/truecharts/immich-proxy
-  tag: v1.60.0@sha256:995e43572a4683157466ff5dd9c960cdf84cfef393798ab80a522f7d3867e454
+  tag: v1.77.0@sha256:cd272c17d8e0b9463a3534ecd632f0762cc2ab552c999488e6d1ed1eb9271c4b
   pullPolicy: IfNotPresent
 typesenseImage:
   repository: tccr.io/truecharts/immich-typesense
-  tag: v0.24.1@sha256:1e46a13a98670c98b483e0cbbf66f05aa418146e7edf447446ae72f3bb8477ac
+  tag: v0.25.0@sha256:4599ed9d9f48ef84ae440b403e314cb368a1918166e8aea718cd6038b29c296e
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -32,10 +32,7 @@ immich:
   public_login_page_message: Immich
   disable_reverse_geocoding: false
   reverse_geocoding_precision: 3
-  # simple | verbose
-  log_level: simple
-  mapbox_enable: false
-  mapbox_key: ""
+  log_level: log
 
 service:
   main:
@@ -59,6 +56,50 @@ service:
         port: 10001
         protocol: http
         targetSelector: main
+  web:
+    enabled: true
+    type: ClusterIP
+    targetSelector: web
+    ports:
+      web:
+        enabled: true
+        primary: true
+        port: 10000
+        protocol: http
+        targetSelector: web
+  microservices:
+    enabled: true
+    type: ClusterIP
+    targetSelector: microservices
+    ports:
+      microservices:
+        enabled: true
+        primary: true
+        port: 10004
+        protocol: http
+        targetSelector: microservices
+  machinelearning:
+    enabled: true
+    type: ClusterIP
+    targetSelector: machinelearning
+    ports:
+      machinelearning:
+        enabled: true
+        primary: true
+        port: 10003
+        protocol: http
+        targetSelector: machinelearning
+  typesense:
+    enabled: true
+    type: ClusterIP
+    targetSelector: typesense
+    ports:
+      typesense:
+        enabled: true
+        primary: true
+        port: 10002
+        protocol: http
+        targetSelector: typesense
 
 persistence:
   mlcache:
@@ -91,8 +132,6 @@ persistence:
         main: {}
       microservices:
         microservices: {}
-      machinelearning:
-        machinelearning: {}
   uploads:
     enabled: true
     mountPath: /usr/src/app/upload/upload
@@ -102,8 +141,6 @@ persistence:
         main: {}
       microservices:
         microservices: {}
-      machinelearning:
-        machinelearning: {}
   thumbs:
     enabled: true
     mountPath: /usr/src/app/upload/thumbs
@@ -113,8 +150,6 @@ persistence:
         main: {}
       microservices:
         microservices: {}
-      machinelearning:
-        machinelearning: {}
   profile:
     enabled: true
     mountPath: /usr/src/app/upload/profile
@@ -124,8 +159,6 @@ persistence:
         main: {}
       microservices:
         microservices: {}
-      machinelearning:
-        machinelearning: {}
   video:
     enabled: true
     mountPath: /usr/src/app/upload/encoded-video
@@ -135,8 +168,6 @@ persistence:
         main: {}
       microservices:
         microservices: {}
-      machinelearning:
-        machinelearning: {}
 
 cnpg:
   main:

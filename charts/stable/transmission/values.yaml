@@ -1,107 +1,13 @@
 image:
   repository: tccr.io/truecharts/transmission
   pullPolicy: IfNotPresent
-  tag: v3.00@sha256:cf61bde05f265653ce12b0ef42e25ac25abcc51ff84c9e5528ef75fea8330eda
-
-workload:
-  main:
-    podSpec:
-      containers:
-        main:
-          probes:
-            liveness:
-              type: http
-              path: "{{ .Values.workload.main.podSpec.containers.main.env.TRANSMISSION__RPC_URL }}"
-            startup:
-              type: http
-              path: "{{ .Values.workload.main.podSpec.containers.main.env.TRANSMISSION__RPC_URL }}"
-            readiness:
-              type: http
-              path: "{{ .Values.workload.main.podSpec.containers.main.env.TRANSMISSION__RPC_URL }}"
-          env:
-            # PUID: 1001
-            # URL is set here so it wont be able to get overwritten by the user
-            # as this will break the probes, if the need arises we can expose it.
-            TRANSMISSION__RPC_URL: "/transmission"
-            # TRANSMISSION_RPC_USERNAME: ""
-            # TRANSMISSION_RPC_PASSWORD: ""
-            # TRANSMISSION_RPC_AUTHENTICATION_REQUIRED: false
-            # TRANSMISSION_ALT_SPEED_DOWN: 50
-            # TRANSMISSION_ALT_SPEED_ENABLED: false
-            # TRANSMISSION_ALT_SPEED_TIME_BEGIN: 540
-            # TRANSMISSION_ALT_SPEED_TIME_DAY: 127
-            # TRANSMISSION_ALT_SPEED_TIME_ENABLED: false
-            # TRANSMISSION_ALT_SPEED_TIME_END: 1020
-            # TRANSMISSION_ALT_SPEED_UP: 50
-            # TRANSMISSION_BIND_ADDRESS_IPV4: "0.0.0.0"
-            # TRANSMISSION_BIND_ADDRESS_IPV6: "::"
-            # TRANSMISSION_BLOCKLIST_ENABLED: true
-            # TRANSMISSION_BLOCKLIST_URL: "https://github.com/Naunter/BT_BlockLists/releases/download/v.1/bt_blocklists.gz"
-            # TRANSMISSION_CACHE_SIZE_MB: 4
-            # TRANSMISSION_DHT_ENABLED: true
-            # TRANSMISSION_DOWNLOAD_DIR: "/downloads/complete"
-            # TRANSMISSION_DOWNLOAD_QUEUE_ENABLED: true
-            # TRANSMISSION_DOWNLOAD_QUEUE_SIZE: 5
-            # TRANSMISSION_ENCRYPTION: 1
-            # TRANSMISSION_IDLE_SEEDING_LIMIT: 30
-            # TRANSMISSION_IDLE_SEEDING_LIMIT_ENABLED: false
-            # TRANSMISSION_INCOMPLETE_DIR: "/downloads/incomplete"
-            # TRANSMISSION_INCOMPLETE_DIR_ENABLED: true
-            # TRANSMISSION_LPD_ENABLED: false
-            # TRANSMISSION_MESSAGE_LEVEL: 2
-            # TRANSMISSION_PEER_CONGESTION_ALGORITHM: ""
-            # TRANSMISSION_PEER_ID_TTL_HOURS: 6
-            # TRANSMISSION_PEER_LIMIT_GLOBAL: 200
-            # TRANSMISSION_PEER_LIMIT_PER_TORRENT: 50
-            TRANSMISSION_PEER_PORT: "{{ .Values.service.torrent.ports.torrent.port }}"
-            # TRANSMISSION_PEER_PORT_RANDOM_HIGH: 65535
-            # TRANSMISSION_PEER_PORT_RANDOM_LOW: 49152
-            # TRANSMISSION_PEER_PORT_RANDOM_ON_START: false
-            # TRANSMISSION_PEER_SOCKET_TOS: default"
-            # TRANSMISSION_PEX_ENABLED: true
-            # TRANSMISSION_PORT_FORWARDING_ENABLED: false
-            # TRANSMISSION_PREALLOCATION: 1
-            # TRANSMISSION_PREFETCH_ENABLED: true
-            # TRANSMISSION_QUEUE_STALLED_ENABLED: true
-            # TRANSMISSION_QUEUE_STALLED_MINUTES: 30
-            # TRANSMISSION_RATIO_LIMIT: 2
-            # TRANSMISSION_RATIO_LIMIT_ENABLED: false
-            # TRANSMISSION_RENAME_PARTIAL_FILES: true
-            # TRANSMISSION_RPC_BIND_ADDRESS: "0.0.0.0"
-            # TRANSMISSION_RPC_ENABLED: true
-            # TRANSMISSION_RPC_HOST_WHITELIST: ""
-            # TRANSMISSION_RPC_HOST_WHITELIST_ENABLED: false
-            TRANSMISSION_RPC_PORT: "{{ .Values.service.main.ports.main.port }}"
-            # TRANSMISSION_RPC_URL: "/transmission/"
-            # TRANSMISSION_RPC_WHITELIST: ""
-            # TRANSMISSION_RPC_WHITELIST_ENABLED: false
-            # TRANSMISSION_SCRAPE_PAUSED_TORRENTS_ENABLED: true
-            # TRANSMISSION_SCRIPT_TORRENT_DONE_ENABLED: false
-            # TRANSMISSION_SCRIPT_TORRENT_DONE_FILENAME: ""
-            # TRANSMISSION_SEED_QUEUE_ENABLED: false
-            # TRANSMISSION_SEED_QUEUE_SIZE: 10
-            # TRANSMISSION_SPEED_LIMIT_DOWN: 100
-            # TRANSMISSION_SPEED_LIMIT_DOWN_ENABLED: false
-            # TRANSMISSION_SPEED_LIMIT_UP: 100
-            # TRANSMISSION_SPEED_LIMIT_UP_ENABLED: false
-            # TRANSMISSION_START_ADDED_TORRENTS: true
-            # TRANSMISSION_TRASH_ORIGINAL_TORRENT_FILES: false
-            # TRANSMISSION_UMASK: 2
-            # TRANSMISSION_UPLOAD_SLOTS_PER_TORRENT: 14
-            # TRANSMISSION_UTP_ENABLED: true
-            # TRANSMISSION_WATCH_DIR: "/watch"
-            # TRANSMISSION_WATCH_DIR_ENABLED: false
-persistence:
-  config:
-    enabled: true
-    mountPath: "/config"
+  tag: v4.0.3@sha256:245158e56dae5ca2da2cac5e9e85d4879685e8f302ed955ba144162d504307e4
 
 service:
   main:
     ports:
       main:
         port: 10109
-        targetPort: 9091
   torrent:
     enabled: true
     ports:
@@ -113,6 +19,100 @@ service:
         enabled: true
         port: 51414
         protocol: udp
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: true
+              type: tcp
+            startup:
+              enabled: true
+              type: tcp
+            readiness:
+              enabled: true
+              type: tcp
+          env:
+            # PUID: 1001
+            # URL is set here so it wont be able to get overwritten by the user
+            # as this will break the probes, if the need arises we can expose it.
+            TRANSMISSION__RPC_URL: "/transmission"
+            # TRANSMISSION__RPC_USERNAME: ""
+            # TRANSMISSION__RPC_PASSWORD: ""
+            # TRANSMISSION__RPC_AUTHENTICATION_REQUIRED: false
+            # TRANSMISSION__ALT_SPEED_DOWN: 50
+            # TRANSMISSION__ALT_SPEED_ENABLED: false
+            # TRANSMISSION__ALT_SPEED_TIME_BEGIN: 540
+            # TRANSMISSION__ALT_SPEED_TIME_DAY: 127
+            # TRANSMISSION__ALT_SPEED_TIME_ENABLED: false
+            # TRANSMISSION__ALT_SPEED_TIME_END: 1020
+            # TRANSMISSION__ALT_SPEED_UP: 50
+            # TRANSMISSION__BIND_ADDRESS_IPV4: "0.0.0.0"
+            # TRANSMISSION__BIND_ADDRESS_IPV6: "::"
+            # TRANSMISSION__BLOCKLIST_ENABLED: true
+            # TRANSMISSION__BLOCKLIST_URL: "https://github.com/Naunter/BT_BlockLists/releases/download/v.1/bt_blocklists.gz"
+            # TRANSMISSION__CACHE_SIZE_MB: 4
+            # TRANSMISSION__DHT_ENABLED: true
+            # TRANSMISSION__DOWNLOAD_DIR: "/downloads/complete"
+            # TRANSMISSION__DOWNLOAD_QUEUE_ENABLED: true
+            # TRANSMISSION__DOWNLOAD_QUEUE_SIZE: 5
+            # TRANSMISSION__ENCRYPTION: 1
+            # TRANSMISSION__IDLE_SEEDING_LIMIT: 30
+            # TRANSMISSION__IDLE_SEEDING_LIMIT_ENABLED: false
+            # TRANSMISSION__INCOMPLETE_DIR: "/downloads/incomplete"
+            # TRANSMISSION__INCOMPLETE_DIR_ENABLED: true
+            # TRANSMISSION__LPD_ENABLED: false
+            # TRANSMISSION__MESSAGE_LEVEL: 2
+            # TRANSMISSION__PEER_CONGESTION_ALGORITHM: ""
+            # TRANSMISSION__PEER_ID_TTL_HOURS: 6
+            # TRANSMISSION__PEER_LIMIT_GLOBAL: 200
+            # TRANSMISSION__PEER_LIMIT_PER_TORRENT: 50
+            TRANSMISSION__PEER_PORT: "{{ .Values.service.torrent.ports.torrent.port }}"
+            # TRANSMISSION__PEER_PORT_RANDOM_HIGH: 65535
+            # TRANSMISSION__PEER_PORT_RANDOM_LOW: 49152
+            # TRANSMISSION__PEER_PORT_RANDOM_ON_START: false
+            # TRANSMISSION__PEER_SOCKET_TOS: default"
+            # TRANSMISSION__PEX_ENABLED: true
+            # TRANSMISSION__PORT_FORWARDING_ENABLED: false
+            # TRANSMISSION__PREALLOCATION: 1
+            # TRANSMISSION__PREFETCH_ENABLED: true
+            # TRANSMISSION__QUEUE_STALLED_ENABLED: true
+            # TRANSMISSION__QUEUE_STALLED_MINUTES: 30
+            # TRANSMISSION__RATIO_LIMIT: 2
+            # TRANSMISSION__RATIO_LIMIT_ENABLED: false
+            # TRANSMISSION__RENAME_PARTIAL_FILES: true
+            # TRANSMISSION__RPC_BIND_ADDRESS: "0.0.0.0"
+            # TRANSMISSION__RPC_ENABLED: true
+            # TRANSMISSION__RPC_HOST_WHITELIST: ""
+            # TRANSMISSION__RPC_HOST_WHITELIST_ENABLED: false
+            TRANSMISSION__RPC_PORT: "{{ .Values.service.main.ports.main.port }}"
+            # TRANSMISSION__RPC_URL: "/transmission/"
+            # TRANSMISSION__RPC_WHITELIST: ""
+            # TRANSMISSION__RPC_WHITELIST_ENABLED: false
+            # TRANSMISSION__SCRAPE_PAUSED_TORRENTS_ENABLED: true
+            # TRANSMISSION__SCRIPT_TORRENT_DONE_ENABLED: false
+            # TRANSMISSION__SCRIPT_TORRENT_DONE_FILENAME: ""
+            # TRANSMISSION__SEED_QUEUE_ENABLED: false
+            # TRANSMISSION__SEED_QUEUE_SIZE: 10
+            # TRANSMISSION__SPEED_LIMIT_DOWN: 100
+            # TRANSMISSION__SPEED_LIMIT_DOWN_ENABLED: false
+            # TRANSMISSION__SPEED_LIMIT_UP: 100
+            # TRANSMISSION__SPEED_LIMIT_UP_ENABLED: false
+            # TRANSMISSION__START_ADDED_TORRENTS: true
+            # TRANSMISSION__TRASH_ORIGINAL_TORRENT_FILES: false
+            # TRANSMISSION__UMASK: 2
+            # TRANSMISSION__UPLOAD_SLOTS_PER_TORRENT: 14
+            # TRANSMISSION__UTP_ENABLED: true
+            # TRANSMISSION__WATCH_DIR: "/watch"
+            # TRANSMISSION__WATCH_DIR_ENABLED: false
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
 
 portal:
   open:

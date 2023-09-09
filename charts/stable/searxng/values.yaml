@@ -1,0 +1,51 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/searxng
+  tag: latest@sha256:8922a437aefc8a8af48743e236bcd8e26a3fc60022cb06bcfb39c0e7a243c465
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            BIND_ADDRESS: '{{ printf "0.0.0.0:%v" .Values.service.main.ports.main.port }}'
+            INSTANCE_NAME: SearXng
+            BASE_URL: ""
+          probes:
+            liveness:
+              path: /healthz
+              port: '{{ .Values.service.main.ports.main.port }}'
+            readiness:
+              path: /healthz
+              port: '{{ .Values.service.main.ports.main.port }}'
+            startup:
+              type: tcp
+              port: '{{ .Values.service.main.ports.main.port }}'
+
+securityContext:
+  container:
+    runAsGroup: 0
+    runAsUser: 0
+    capabilities:
+      disableS6Caps: true
+
+      add:
+        - SETUID
+        - SETGID
+
+service:
+  main:
+    ports:
+      main:
+        port: 8080
+        protocol: http
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /etc/searxng
+
+portal:
+  open:
+    enabled: true
