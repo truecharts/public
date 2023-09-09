@@ -18,24 +18,6 @@ workload:
     podSpec:
       containers:
         main:
-          lifecycle:
-            postStart:
-              type: exec
-              command:
-                - /bin/sh
-                - -c
-                - |
-                  echo "Creating config.toml file..."
-                  if [ -f /config/config.toml ]; then
-                    echo "Config file exists! Skipping..."
-                  else
-                    if mv -n /config/.config/config.rename_me.toml /config/config.toml; then
-                      echo "Config file copied successfully!"
-                    else
-                      echo "Copying config file failed."
-                      exit 1
-                    fi
-                  fi
           probes:
             liveness:
               enabled: false
