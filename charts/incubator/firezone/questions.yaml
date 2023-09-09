@@ -157,7 +157,9 @@ questions:
                 description: Configures the default AllowedIPs setting for devices.
                 schema:
                   type: list
-                  default: []
+                  empty: false
+                  default:
+                    - 0.0.0.0/0
                   items:
                     - variable: dns
                       label: DNS
