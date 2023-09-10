@@ -79,8 +79,8 @@ workload:
             group: apps
             user_id: "{{ .Values.security.PUID }}"
             group_id: "{{ .Values.podSecurityContext.fsGroup }}"
-            download_path: /home/{{ .Values.env.user }}/iCloud
-            jpeg_path: /home/{{ .Values.env.user }}/iCloud
+            download_path: /home/{{ .Values.workload.main.podSpec.containers.main.env.user }}/iCloud
+            jpeg_path: /home/{{ .Values.workload.main.podSpec.containers.main.env.user }}/iCloud
             # User Defined
             apple_id: "{{ .Values.icloudpd.apple_id }}"
             synchronisation_interval: "{{ .Values.icloudpd.synchronisation_interval }}"
