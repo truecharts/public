@@ -1,8 +1,6 @@
 {{/* Define the secret */}}
 {{- define "jenkins.secret" -}}
 
-{{- $secretName := printf "%s-secret" (include "tc.v1.common.names.fullname" .) -}}
-
 stringData:
   JAVA_OPTS: {{ join " " (include "java.opts" . | fromYaml).opts | quote }}
   JENKINS_OPTS: {{ join " " (include "jenkins.opts" . | fromYaml).opts | quote }}
