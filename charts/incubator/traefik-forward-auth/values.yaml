@@ -3,13 +3,15 @@ image:
   pullPolicy: IfNotPresent
   tag: latest@sha256:edd7eb812cb38e59d32b5a00398b57a78506db2390cbe295f5df590a38a5d44e
 
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-google-secret'
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-oidc-secret'
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-oauth2-secret'
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          args: []
+          envFrom:
+            - secretRef:
+                name: tfa-secrets
 
 service:
   main:
