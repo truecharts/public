@@ -63,7 +63,7 @@ workload:
           imageSelector: image
           env:
             PUBLIC_URL: "{{ .Values.reactiveresume.app.public_url }}"
-            PUBLIC_SERVER_URL: '{{ printf "%v-server" (include "tc.v1.common.lib.chart.names.fullname" $) }}'
+            PUBLIC_SERVER_URL: '{{ printf "http://%v-server:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.server.ports.server.targetPort }}'
             PUBLIC_GOOGLE_CLIENT_ID: "{{ .Values.reactiveresume.google.client_id }}"
   server:
     enabled: true
@@ -92,7 +92,7 @@ workload:
               port: "{{ .Values.service.server.ports.server.targetPort }}"
           env:
             PUBLIC_URL: "{{ .Values.reactiveresume.app.public_url }}"
-            PUBLIC_SERVER_URL: '{{ printf "%v-server" (include "tc.v1.common.lib.chart.names.fullname" $) }}'
+            PUBLIC_SERVER_URL: '{{ printf "http://%v-server:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.server.ports.server.targetPort }}'
             # Google
             PUBLIC_GOOGLE_CLIENT_ID: "{{ .Values.reactiveresume.google.client_id }}"
             GOOGLE_CLIENT_SECRET: "{{ .Values.reactiveresume.google.client_secret }}"
