@@ -27,13 +27,12 @@ service:
     ports:
       server:
         enabled: true
-        targetPort: 3100
         port: 3100
         targetSelector: server
 
 reactiveresume:
   app:
-    public_url: "http://localhost:3000"
+    public_url: "http://localhost:{{ .Values.service.main.ports.main.targetPort }}"
   google:
     client_id: ""
     client_secret: ""
@@ -61,9 +60,24 @@ workload:
       containers:
         main:
           imageSelector: image
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              path: /
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+            readiness:
+              enabled: true
+              type: http
+              path: /
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+            startup:
+              enabled: true
+              type: tcp
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
           env:
             PUBLIC_URL: "{{ .Values.reactiveresume.app.public_url }}"
-            PUBLIC_SERVER_URL: '{{ printf "http://%v-server:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.server.ports.server.targetPort }}'
+            PUBLIC_SERVER_URL: '{{ printf "http://%v-server:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.server.ports.server.port }}'
             PUBLIC_GOOGLE_CLIENT_ID: "{{ .Values.reactiveresume.google.client_id }}"
   server:
     enabled: true
@@ -78,21 +92,22 @@ workload:
             liveness:
               enabled: true
               type: http
-              path: /
-              port: "{{ .Values.service.server.ports.server.targetPort }}"
+              path: /api
+              port: "{{ .Values.service.server.ports.server.port }}"
             readiness:
               enabled: true
               type: http
-              path: /
-              port: "{{ .Values.service.server.ports.server.targetPort }}"
+              path: /api
+              port: "{{ .Values.service.server.ports.server.port }}"
             startup:
               enabled: true
               type: http
-              path: /
-              port: "{{ .Values.service.server.ports.server.targetPort }}"
+              path: /api
+              port: "{{ .Values.service.server.ports.server.port }}"
           env:
+            PORT: "{{ .Values.service.server.ports.server.port }}"
             PUBLIC_URL: "{{ .Values.reactiveresume.app.public_url }}"
-            PUBLIC_SERVER_URL: '{{ printf "http://%v-server:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.server.ports.server.targetPort }}'
+            PUBLIC_SERVER_URL: '{{ printf "http://%v-server:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.server.ports.server.port }}'
             # Google
             PUBLIC_GOOGLE_CLIENT_ID: "{{ .Values.reactiveresume.google.client_id }}"
             GOOGLE_CLIENT_SECRET: "{{ .Values.reactiveresume.google.client_secret }}"
