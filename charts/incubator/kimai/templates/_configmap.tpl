@@ -11,7 +11,7 @@ kimai-config:
   data:
     APP_ENV: prod
     DB_TYPE: mysql
-    DB_PORT: "3306"
+    DB_PORT: 3306
     DB_USER: {{ .Values.mariadb.mariadbDatabase }}
     DB_BASE: {{ .Values.mariadb.mariadbUsername }}
     {{/* Admin credentials */}}
@@ -19,4 +19,5 @@ kimai-config:
     ADMINPASS: {{ .Values.kimai.credentials.adminPass }}
     {{/* Trusted Hosts */}}
     TRUSTED_HOSTS: {{ join "," $trusted_hosts }}
+    memory_limit: 256M
 {{- end -}}
