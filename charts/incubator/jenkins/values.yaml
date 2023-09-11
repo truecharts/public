@@ -24,16 +24,6 @@ workload:
     podSpec:
       containers:
         main:
-          probes:
-            liveness:
-              type: http
-              path: /login
-            readiness:
-              type: http
-              path: /login
-            startup:
-              type: http
-              path: /login
           envFrom:
             - secretRef:
                 name: 'jenkins-secret'
