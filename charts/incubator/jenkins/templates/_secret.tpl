@@ -1,6 +1,6 @@
 {{/* Define the secret */}}
 {{- define "jenkins.secret" -}}
-
+enabled: true
 stringData:
   JAVA_OPTS: {{ join " " (include "java.opts" . | fromYaml).opts | quote }}
   JENKINS_OPTS: {{ join " " (include "jenkins.opts" . | fromYaml).opts | quote }}
