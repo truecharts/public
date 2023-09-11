@@ -21,7 +21,7 @@ tensorflowImage:
 datascienceImage:
   repository: tccr.io/truecharts/jupyter-datascience
   pullPolicy: IfNotPresent
-  tag: v2023-09@sha256:963e4b5d2112b2b845b557b56de1170f94891db0219c85cbd6988cf6b6e2b016
+  tag: v2023-09@sha256:36e52edb25e1bf15c0dd103656bf746e6c5db566dda4260337ad6edaff512fad
 pysparkImage:
   repository: tccr.io/truecharts/jupyter-pyspark
   pullPolicy: IfNotPresent
@@ -29,7 +29,7 @@ pysparkImage:
 allsparkImage:
   repository: tccr.io/truecharts/jupyter-all-spark
   pullPolicy: IfNotPresent
-  tag: v2023-09@sha256:7a6bbab85f6bc0018e6e5b57fb55df88330cd447e334d33bc13367a2d77952bd
+  tag: v2023-09@sha256:ae204aa869f5e25b9fcb582270d84102cc1f40090725a26c28e54fcdc2feb17c
 jupyter:
   jupyter_cmd: lab
   restartable: true
