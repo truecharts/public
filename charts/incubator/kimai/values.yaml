@@ -49,11 +49,14 @@ workload:
                 name: kimai-config
           probes:
             liveness:
-              type: http
+              enabled: true
+              path: /en/login
             readiness:
-              type: http
+              enabled: true
+              path: /en/login
             startup:
-              type: tcp
+              enabled: true
+              path: /en/login
 
 service:
   main:
