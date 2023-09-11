@@ -4,7 +4,7 @@
 {{/* Render secrets for jenkins */}}
 {{- $secret := include "jenkins.secret" . | fromYaml -}}
 {{- if $secret -}}
-  {{- $_ := set .Values.secret "jenkins-secret" $secret -}}
+  {{- $_ := set .Values.secret "secret" $secret -}}
 {{- end -}}
 
 {{/* Render the templates */}}
