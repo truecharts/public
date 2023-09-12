@@ -31,15 +31,15 @@ workload:
       containers:
         main:
           env:
+            JELLYFIN_HOST: "{{ .Values.watcharr.jellyfin_host }}"
+            SIGNUP_ENABLED: "{{ .Values.watcharr.signup_enabled }}"
+            TMDB_KEY: "{{ .Values.watcharr.tmdb_key }}"
+            DEBUG: "{{ .Values.watcharr.debug }}"
+            MODE: "{{ .Values.watcharr.mode }}"
             JWT_SECRET:
               secretKeyRef:
                 name: watcharr-secrets
                 key: JWT_SECRET
-            JELLYFIN_HOST: "{{ $watcharr.jellyfin_host }}"
-            SIGNUP_ENABLED: "{{ $watcharr.signup_enabled }}"
-            TMDB_KEY: "{{ $watcharr.tmdb_key }}"
-            DEBUG: "{{ $watcharr.debug }}"
-            MODE: "{{ $watcharr.mode }}"
 
 persistence:
   data:
