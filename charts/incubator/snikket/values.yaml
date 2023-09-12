@@ -1,0 +1,105 @@
+image:
+  repository: tccr.io/truecharts/snikket-server
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:b13f73fee280b5959114ad1adb8bc0fffafac36d65f34aee21fd9592dca718c8
+certManagerImage:
+  repository: tccr.io/truecharts/snikket-cert-manager
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:340a5db323c5ccac30818bf94c3ecd54cfab26d5b95bb63ad98b041d7b97b9b4
+webProxyImage:
+  repository: tccr.io/truecharts/snikket-web-proxy
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:d303b22791cbe67fbd852a9f9112b5651d6bd054b4d5832e655dac4e348c3a4a
+webPortalImage:
+  repository: tccr.io/truecharts/snikket-web-portal
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:390386908795029f7eb44af0fd2f6579f33104f54ef165a1b34389b3a5f2477d
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 5280
+        port: 5280
+  portal:
+    enabled: true
+    type: ClusterIP
+    targetSelector: portal
+    ports:
+      portal:
+        enabled: true
+        port: 5765
+        targetSelector: portal
+
+snikket:
+  name: "TrueCharts Snikket Server"
+  domain: "localhost"
+  admin_email: "admin@localhost"
+  # Terms OF Services: Y | N
+  tos: "Y"
+  cache_ttl: 1800
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          imageSelector: image
+          env:
+            SNIKKET_DOMAIN: "{{ .Values.snikket.domain }}"
+            SNIKKET_ADMIN_EMAIL: "{{ .Values.snikket.admin_email }}"
+            SNIKKET_LETSENCRYPT_TOS_AGREE: "{{ .Values.snikket.tos }}"
+  portal:
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
+        portal:
+          primary: true
+          enabled: true
+          imageSelector: webPortalImage
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              path: /
+              port: "{{ .Values.service.portal.ports.portal.port }}"
+            readiness:
+              enabled: true
+              type: http
+              path: /
+              port: "{{ .Values.service.portal.ports.portal.port }}"
+            startup:
+              enabled: true
+              type: http
+              path: /
+              port: "{{ .Values.service.portal.ports.portal.port }}"
+          env:
+            SNIKKET_WEB_DOMAIN: "{{ .Values.snikket.domain }}"
+            SNIKKET_WEB_SITE_NAME: "{{ .Values.snikket.name }}"
+            SNIKKET_WEB_SECRET_KEY:
+              secretKeyRef:
+                name: snikket-secrets
+                key: SNIKKET_WEB_SECRET_KEY
+            SNIKKET_WEB_PROSODY_ENDPOINT: '{{ printf "http://%v:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.main.ports.main.targetPort }}'
+            SNIKKET_WEB_AVATAR_CACHE_TTL: 1800
+
+persistence:
+  snikket:
+    enabled: true
+    mountPath: "/snikket"
+  certs:
+    enabled: true
+    mountPath: "/var/www/html/.well-known/acme-challenge"
+
+portal:
+  open:
+    enabled: true
