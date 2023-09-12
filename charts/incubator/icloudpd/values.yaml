@@ -10,9 +10,6 @@ securityContext:
     runAsGroup: 0
     runAsUser: 0
 
-podSecurityContext:
-  fsGroup: 568
-
 icloudpd:
   apple_id: your@appleid.com
   authentication_type: 2FA
@@ -80,8 +77,8 @@ workload:
           env:
             user: apps
             group: apps
-            user_id: "{{ .Values.security.PUID }}"
-            group_id: "{{ .Values.podSecurityContext.fsGroup }}"
+            user_id: "{{ Values.SecurityContext.container.PUID }}"
+            group_id: "{{ .Values.SecurityContext.container.fsGroup }}"
             download_path: /home/{{ .Values.workload.main.podSpec.containers.main.env.user }}/iCloud
             jpeg_path: /home/{{ .Values.workload.main.podSpec.containers.main.env.user }}/iCloud
             # User Defined
