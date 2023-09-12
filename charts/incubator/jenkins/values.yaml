@@ -27,13 +27,13 @@ workload:
           probes:
             liveness:
               type: http
-              path: /
+              path: /login
             readiness:
               type: http
-              path: /
+              path: /login
             startup:
               type: http
-              path: /
+              path: /login
           envFrom:
             - secretRef:
                 name: 'jenkins-secret'
