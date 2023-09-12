@@ -25,6 +25,22 @@ watcharr:
   tmdb_key: ""
   debug: false
 
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            JWT_SECRET:
+              secretKeyRef:
+                name: watcharr-secrets
+                key: JWT_SECRET
+            JELLYFIN_HOST: "{{ $watcharr.jellyfin_host }}"
+            SIGNUP_ENABLED: "{{ $watcharr.signup_enabled }}"
+            TMDB_KEY: "{{ $watcharr.tmdb_key }}"
+            DEBUG: "{{ $watcharr.debug }}"
+            MODE: "{{ $watcharr.mode }}"
+
 persistence:
   data:
     enabled: true
