@@ -77,8 +77,8 @@ workload:
           env:
             user: apps
             group: apps
-            user_id: "{{ .Values.securityContext.container.PUID }}"
-            group_id: "{{ .Values.securityContext.container.fsGroup }}"
+            user_id: "{{ .Values.securityContext.container.runAsUser }}"
+            group_id: "{{ .Values.securityContext.container.runAsGroup }}"
             download_path: /home/{{ .Values.workload.main.podSpec.containers.main.env.user }}/iCloud
             jpeg_path: /home/{{ .Values.workload.main.podSpec.containers.main.env.user }}/iCloud
             # User Defined
