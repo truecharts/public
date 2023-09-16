@@ -17,6 +17,14 @@ service:
         protocol: udp
         targetPort: 27017
         port: 27017
+  api:
+    enabled: true
+    ports:
+      api:
+        protocol: http
+        enabled: true
+        targetPort: 8080
+        port: 18080
 
 spaceengineers:
   instance_name: "TestInstance"
@@ -29,14 +37,22 @@ workload:
         main:
           probes:
             liveness:
-              enabled: false
+              enabled: true
+              type: http
+              path: /v1/server/ping
+              port: "{{ .Values.service.api.ports.api.targetPort }}"
             readiness:
-              enabled: false
+              enabled: true
+              type: http
+              path: /v1/server/ping
+              port: "{{ .Values.service.api.ports.api.targetPort }}"
             startup:
-              enabled: false
+              enabled: true
+              type: http
+              path: /v1/server/ping
+              port: "{{ .Values.service.api.ports.api.targetPort }}"
           env:
             INSTANCE_NAME: "{{ .Values.spaceengineers.instance_name }}"
-            # Healthcheck
             PUBLIC_IP: "{{ .Values.spaceengineers.public_ip }}"
 
 persistence:

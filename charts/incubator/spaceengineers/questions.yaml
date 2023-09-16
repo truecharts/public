@@ -26,6 +26,7 @@ questions:
             default: ""
         - variable: public_ip
           label: Public IP
+          description: Public IP required for healthcheck
           schema:
             type: string
             default: ""
@@ -53,6 +54,28 @@ questions:
                             schema:
                               type: int
                               default: 27017
+                              required: true
+        - variable: api
+          label: API Service
+          description: The API service.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: api
+                      label: API Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 18080
                               required: true
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
@@ -91,6 +114,7 @@ questions:
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceList}
+# Include{ingressList}
 
 # Include{securityContextRoot}
               - variable: runAsUser
