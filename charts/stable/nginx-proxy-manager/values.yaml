@@ -75,6 +75,8 @@ workload:
                 exec:
                   command:
                     - /bin/check-health
+                  initialDelaySeconds: 300
+                  periodSeconds: 30
           env:
             DISABLE_IPV6: true
             DB_MYSQL_PORT: 3306
