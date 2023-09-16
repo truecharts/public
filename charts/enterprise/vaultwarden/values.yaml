@@ -95,7 +95,7 @@ vaultwarden:
     ## SMTP sender name, defaults to 'Bitwarden_RS'.
     # fromName: ""
     ## Enable SSL connection.
-    # tls: starttls
+    # security: starttls
     ## SMTP port. Defaults to 587 with STARTTLS, 465 with FORCE_TLS, and 25 without SSL.
     # port: 587
     ## SMTP Authentication Mechanisms. Comma-separated options: 'Plain', 'Login' and 'Xoauth2'. Defaults to 'Plain'.
