@@ -29,7 +29,7 @@ workload:
             - -c
           args:
             - |
-              conf="config.toml"
+              conf="/config/config.toml"
               example="https://raw.githubusercontent.com/Feramance/qBitrr/master/config.example.toml"
               if [ -f "$conf" ]; then
                 echo "$conf exists. Skipping..."
@@ -51,6 +51,10 @@ persistence:
   config:
     enabled: true
     mountPath: /config
+    targetSelector:
+      main:
+        main: {}
+        1-create-config-file: {}
   downloads:
     enabled: true
     mountPath: /completed_downloads
@@ -58,4 +62,3 @@ persistence:
 portal:
   open:
     enabled: false
-
