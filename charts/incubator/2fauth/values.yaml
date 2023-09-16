@@ -1,0 +1,148 @@
+image:
+  repository: tccr.io/truecharts/2fauth
+  pullPolicy: IfNotPresent
+  tag: v4.2.1@sha256:a5ab2136f9ba431f1a1d816217eb35608a38b54f8ffc511e1369a5479f6cbcb3
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 8000
+        port: 8000
+
+fauth:
+  app:
+    name: "2FAuth"
+    debug: false
+    site_owner: "mail@example.com"
+    url: "http://localhost"
+    # daily | single
+    log_channel: "daily"
+    # debug | info | notice | warning | error | critical | alert | emergency
+    log_level: "notice"
+    trusted_proxies:
+      - "*"
+  mail:
+    driver: smtp
+    host: smtp.mailtrap.io
+    port: 587
+    from: changeme@example.com
+    user: changeme@example.com
+    pass: changeme
+    # TLS | STARTTLS | SSL
+    encryption: STARTTLS
+    from_name: 2FAuth
+    from_address: changeme@example.com
+  auth:
+    # web-guard | reverse-proxy-guard
+    guard: web-guard
+    # show if guard uses reverse-proxy-guard
+    proxy_header_for_user: ""
+    proxy_header_for_email: ""
+    proxy_logout_url: ""
+  webauthn:
+    name: 2FAuth
+    id: ""
+    icon: ""
+    # required | preferred | discouraged
+    user_verified: preferred
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            APP_KEY:
+              secretKeyRef:
+                name: 2fauth-secrets
+                key: APP_KEY
+            APP_ENV: local
+            # If you're looking for performance improvements, you could install memcached.
+            CACHE_DRIVER: file
+            SESSION_DRIVER: file
+            # redis
+            REDIS_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: plainhost
+            REDIS_PASSWORD:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: redis-password
+            REDIS_PORT: 6379
+            BROADCAST_DRIVER: log
+            QUEUE_DRIVER: sync
+            SESSION_LIFETIME: 120
+            # postgres
+            DB_CONNECTION: pgsql
+            DB_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            DB_PORT: 5432
+            DB_DATABASE: "{{ .Values.cnpg.main.database }}"
+            DB_USERNAME: "{{ .Values.cnpg.main.user }}"
+            DB_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            # config
+            # IS_DEMO_APP: false
+            # APP
+            APP_NAME: "{{ .Values.fauth.app.name }}"
+            APP_DEBUG: "{{ .Values.fauth.app.debug }}"
+            SITE_OWNER: "{{ .Values.fauth.app.site_owner }}"
+            APP_URL: "{{ .Values.fauth.app.url }}"
+            LOG_CHANNEL: "{{ .Values.fauth.app.log_channel }}"
+            LOG_LEVEL: "{{ .Values.fauth.app.log_level }}"
+            trusted_proxies: '{{ join "," .Values.fauth.app.trusted_proxies }}'
+            # MAIL
+            MAIL_DRIVER: "{{ .Values.fauth.mail.driver }}"
+            MAIL_HOST: "{{ .Values.fauth.mail.host }}"
+            MAIL_PORT: "{{ .Values.fauth.mail.port }}"
+            MAIL_FROM: "{{ .Values.fauth.mail.from }}"
+            MAIL_USERNAME: "{{ .Values.fauth.mail.user }}"
+            MAIL_PASSWORD: "{{ .Values.fauth.mail.pass }}"
+            MAIL_ENCRYPTION: "{{ .Values.fauth.mail.encryption }}"
+            MAIL_FROM_NAME: "{{ .Values.fauth.mail.from_name }}"
+            MAIL_FROM_ADDRESS: "{{ .Values.fauth.mail.from_address }}"
+            # AUTH
+            AUTHENTICATION_GUARD: "{{ .Values.fauth.auth.guard }}"
+            AUTH_PROXY_HEADER_FOR_USER: "{{ .Values.fauth.auth.proxy_header_for_user }}"
+            AUTH_PROXY_HEADER_FOR_EMAIL: "{{ .Values.fauth.auth.proxy_header_for_email }}"
+            PROXY_LOGOUT_URL: "{{ .Values.fauth.auth.proxy_logout_url }}"
+            # WebAuthn:
+            WEBAUTHN_NAME: "{{ .Values.fauth.webauthn.name }}"
+            WEBAUTHN_ID: "{{ .Values.fauth.webauthn.id }}"
+            # Optional image data in BASE64 (128 bytes maximum) or an image url
+            WEBAUTHN_ICON: "{{ .Values.fauth.webauthn.icon }}"
+            WEBAUTHN_USER_VERIFICATION: "{{ .Values.fauth.webauthn.user_verified }}"
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/2fauth"
+
+# Enabled postgres
+cnpg:
+  main:
+    enabled: true
+    user: 2fauth
+    database: 2fauth
+redis:
+  enabled: true
+
+portal:
+  open:
+    enabled: true
