@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/watcharr
   pullPolicy: IfNotPresent
-  tag: v1.16.0@sha256:bfd121ce8ba69b9eebfcb13d1a2adad392bd0d1adca7bbca6b31c2b295d9862e
+  tag: v1.16.1@sha256:0759f67ac6868998b0dc918f4240ae764fcc2e93289096c8e4c80319e6940ac6
 
 securityContext:
   container:
@@ -45,16 +45,6 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
-  watcharr-env:
-    enabled: true
-    type: configmap
-    objectName: watcharr-env
-    targetSelector:
-      main:
-        main:
-          mountPath: /.env
-          subPath: .env
-          readOnly: true
 
 portal:
   open:
