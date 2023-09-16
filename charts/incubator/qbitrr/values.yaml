@@ -16,6 +16,29 @@ service:
 workload:
   main:
     podSpec:
+      initContainers:
+        1-create-config-file:
+          type: install
+          enabled: true
+          imageSelector: "image"
+          command:
+            - sh
+            - -c
+          args:
+            - |
+              config="/config/config.toml";
+              if [ ! -f ${config} ]; then
+                echo "No ${config} file...";
+                echo "Creating ${config} file...";
+                if [ -f ${config} ];
+                then
+                  echo "Success!";
+                else
+                  echo "Failed!";
+                fi;
+              else
+                echo "${config} file exists. Skipping...";
+              fi;
       containers:
         main:
           probes:
