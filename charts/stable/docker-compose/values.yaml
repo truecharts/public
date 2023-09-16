@@ -61,7 +61,7 @@ workload:
                   fi
     type: StatefulSet
     replicas: 1
-    strategy: Recreate
+    strategy: RollingUpdate
 
 persistence:
   docker-certs-ca:
