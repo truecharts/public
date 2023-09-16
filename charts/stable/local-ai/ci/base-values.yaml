@@ -5,6 +5,8 @@ persistence:
     enabled: true
     type: pvc
     mountPath: /tmp
+  varlog:
+    type: pvc
   devshm:
     enabled: true
     type: pvc
