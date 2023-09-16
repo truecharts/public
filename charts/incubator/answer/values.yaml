@@ -1,0 +1,75 @@
+image:
+  repository: tccr.io/truecharts/answer
+  pullPolicy: IfNotPresent
+  tag: v1.1.3@sha256:2f8bbae6d4cffc4582f9a06063b367c66b74089e3df8ba7c6f4c9580672db15e
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 9080
+
+answer:
+  app:
+    language: "en-US"
+    # DEBUG | INFO | WARN | ERROR
+    log_level: "DEBUG"
+  site:
+    name: "Answer"
+    url: "http://localhost:{{ .Values.service.main.ports.main.port }}"
+    contact_email: "contact@example.com"
+  admin:
+    name: "admin"
+    password: "admin"
+    email: "admin@example.com"
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            AUTO_INSTALL: true
+            INSTALL_PORT: "{{ .Values.service.main.ports.main.port }}"
+            DB_TYPE: postgres
+            DB_USERNAME: "{{ .Values.cnpg.main.user }}"
+            DB_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            # Host + port
+            DB_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: std
+            DB_NAME: "{{ .Values.cnpg.main.database }}"
+            # App
+            LANGUAGE: "{{ .Values.answer.app.language }}"
+            LOG_LEVEL: "{{ .Values.answer.app.log_level }}"
+            # Site
+            SITE_NAME: "{{ .Values.answer.site.name }}"
+            SITE_URL: "{{ .Values.answer.site.url }}"
+            CONTACT_EMAIL: "{{ .Values.answer.site.contact_email }}"
+            # Admin
+            ADMIN_NAME: "{{ .Values.answer.admin.name }}"
+            ADMIN_PASSWORD: "{{ .Values.answer.admin.password }}"
+            ADMIN_EMAIL: "{{ .Values.answer.admin.email }}"
+
+# Enabled postgres
+cnpg:
+  main:
+    enabled: true
+    user: answer
+    database: answer
+
+portal:
+  open:
+    enabled: true
