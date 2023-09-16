@@ -1,0 +1,148 @@
+# Include{groups}
+portals:
+  open:
+# Include{portalLink}
+questions:
+# Include{global}
+# Include{workload}
+# Include{workloadDeployment}
+
+# Include{replicas1}
+# Include{podSpec}
+# Include{containerMain}
+
+
+# Include{containerBasic}
+# Include{containerAdvanced}
+
+  - variable: admidio
+    group: App Configuration
+    label: Admidio
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: organization
+          label: Organization
+          schema:
+            type: string
+            default: "Admidio"
+        - variable: mail_relay_host
+          label: Mail Relay Host
+          schema:
+            type: string
+            default: ""
+        - variable: password_hash_algorithm
+          label: Password Hash Algorithm
+          schema:
+            type: string
+            default: "DEFAULT"
+            enum:
+              - value: DEFAULT
+                description: Default
+              - value: BCRYPT
+                description: Bcrypt
+              - value: SHA512
+                description: Sha512
+              - value: ARGON2ID
+                description: Argon2ID
+              - value: ARGON2I
+                description: Argon2I
+        - variable: root_path
+          label: App Url
+          description: "App url (no trailing slash)"
+          schema:
+            type: string
+            default: "http://localhost:8080"
+
+# Include{containerConfig}
+# Include{podOptions}
+# Include{serviceRoot}
+# Include{serviceMain}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: main
+                      label: "Main Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 8080
+                              required: true
+# Include{serviceExpertRoot}
+# Include{serviceExpert}
+# Include{serviceList}
+# Include{persistenceRoot}
+        - variable: files
+          label: "App Files Storage"
+          description: "Stores the Application Files."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: themes
+          label: "App Themes Storage"
+          description: "Stores the Application Themes."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: plugins
+          label: "App plugins Storage"
+          description: "Stores the Application Plugins."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceList}
+# Include{ingressRoot}
+        - variable: main
+          label: "Main Ingress"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+# Include{ingressTLS}
+# Include{ingressTraefik}
+# Include{ingressAdvanced}
+# Include{ingressList}
+# Include{securityContextRoot}
+
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
+# Include{securityContextContainer}
+# Include{securityContextAdvanced}
+# Include{securityContextPod}
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
+                schema:
+                  type: int
+                  default: 568
+
+# Include{resources}
+# Include{advanced}
+# Include{addons}
+# Include{codeserver}
+# Include{netshoot}
+# Include{vpn}
+# Include{documentation}

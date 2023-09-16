@@ -1,0 +1,28 @@
+apiVersion: v2
+appVersion: "4.2.11"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 14.0.3
+deprecated: false
+description: A free open source user management system for websites of organizations and groups.
+home: https://truecharts.org/charts/stable/admidio
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/admidio.png
+keywords:
+  - admidio
+  - cloud
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: admidio
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/admidio
+  - https://github.com/Admidio/admidio
+type: application
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - cloud
+  truecharts.org/SCALE-support: "true"

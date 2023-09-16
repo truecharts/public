@@ -1,0 +1,75 @@
+image:
+  repository: tccr.io/truecharts/admidio
+  pullPolicy: IfNotPresent
+  tag: v4.2.11@sha256:22bace5b59155344828437f1e3a2b5591a4ba2a24d7074e1bb155067dd65cc3d
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 8080
+        port: 8080
+
+admidio:
+  organization: "Admidio"
+  mail_relay_host: "hostname.domain.at:25"
+  # DEFAULT, | ​BCRYPT |​ ​SHA512 | ARGON2ID | ARGON2I​
+  password_hash_algorithm: "DEFAULT"
+  # app url, no trailing slash
+  root_path: "http://localhost:{{ .Values.service.main.ports.main.port }}"
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            ADMIDIO_DB_TYPE: postgresql
+            # Keep enabled.
+            ADMIDIO_LOGIN_FOR_UPDATE: 1
+            ADMIDIO_DB_TABLE_PRAEFIX: "adm"
+            # host + port.
+            ADMIDIO_DB_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: std
+            ADMIDIO_DB_NAME: "{{ .Values.cnpg.main.database }}"
+            ADMIDIO_DB_USER: "{{ .Values.cnpg.main.user }}"
+            ADMIDIO_DB_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            ADMIDIO_ORGANISATION: "{{ .Values.admidio.organization }}"
+            ADMIDIO_MAIL_RELAYHOST: "{{ .Values.admidio.mail_relay_host }}"
+            ADMIDIO_PASSWORD_HASH_ALGORITHM: "{{ .Values.admidio.password_hash_algorithm }}"
+            ADMIDIO_ROOT_PATH: "{{ .Values.admidio.root_path }}"
+
+persistence:
+  files:
+    enabled: true
+    mountPath: "/var/www/admidio/adm_my_files"
+  themes:
+    enabled: true
+    mountPath: "/var/www/admidio/adm_themes"
+  plugins:
+    enabled: true
+    mountPath: "/var/www/admidio/adm_plugins"
+
+# Enabled postgres
+cnpg:
+  main:
+    enabled: true
+    user: admidio
+    database: admidio
+
+portal:
+  open:
+    enabled: true
