@@ -34,18 +34,6 @@ questions:
                   required: true
                   private: true
                   default: ""
-        - variable: db
-          label: DB Configuration
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-              - variable: filter
-                label: DB Filter
-                schema:
-                  type: string
-                  required: true
-                  default: "^mycompany.*$"
         - variable: smtp
           label: SMTP Configuration
           schema:
@@ -108,9 +96,9 @@ questions:
                               type: int
                               default: 8069
                               required: true
-        - variable: odoo
-          label: "Odoo Service"
-          description: "Odoo Services"
+        - variable: xmlrpcs
+          label: "XMLR PCS Service"
+          description: "XMLR PCS Service"
           schema:
             additional_attrs: true
             type: dict
@@ -130,6 +118,15 @@ questions:
                               type: int
                               default: 8071
                               required: true
+        - variable: longpolling
+          label: "Long Polling Service"
+          description: "Long Polling Service"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: longpolling
                       label: "Long Polling Service Port Configuration"
                       schema:
@@ -183,13 +180,13 @@ questions:
                 description: "The UserID of the user running the application"
                 schema:
                   type: int
-                  default: 0
+                  default: 568
               - variable: runAsGroup
                 label: "runAsGroup"
                 description: "The groupID this App of the user running the application"
                 schema:
                   type: int
-                  default: 0
+                  default: 568
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
