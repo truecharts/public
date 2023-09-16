@@ -29,20 +29,15 @@ workload:
             - /bin/sh
             - -c
           args:
-            - >
-              if [ -f /config/config.toml ]; then
-                echo "config.toml file exists. Skipping...";
+            - |
+              conf="/config/config.toml"
+              example="https://raw.githubusercontent.com/Feramance/qBitrr/master/config.example.toml"
+              if [ -f "$conf" ]; then
+                echo "$conf exists. Skipping..."
               else
-                echo "Missing config.toml file...";
-                echo "Creating config.toml file...";
-                touch /config/config.toml;
-                if [ -f /config/config.toml ];
-                then
-                  echo "Success!";
-                else
-                  echo "Failed!";
-                fi;
-              fi;
+                echo "$conf does not exist... Downloading the example from upstream..."
+                wget "$example" -O $conf || echo "Failed to download"
+              fi
       containers:
         main:
           probes:
