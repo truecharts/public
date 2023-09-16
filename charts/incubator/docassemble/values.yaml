@@ -1,0 +1,30 @@
+image:
+  repository: tccr.io/truecharts/docassemble
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:ed87d0332178228b093f89e31a4f31c03fcfbf42406f1a9fb1a80a80976ff8aa
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 80
+        port: 9080
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+
+portal:
+  open:
+    enabled: true
