@@ -5,6 +5,10 @@ image:
 securityContext:
   container:
     readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    allowPrivilegeEscalation: true
+    runAsUser: 0
+    runAsGroup: 0
 
 service:
   main:
@@ -29,7 +33,7 @@ workload:
               if [ -f /config/config.toml ]; then
                 echo "config.toml file exists. Skipping...";
               else
-                echo "config.toml file...";
+                echo "Missing config.toml file...";
                 echo "Creating config.toml file...";
                 touch /config/config.toml;
                 if [ -f /config/config.toml ];
