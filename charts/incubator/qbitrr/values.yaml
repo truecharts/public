@@ -29,7 +29,7 @@ workload:
             - -c
           args:
             - |
-              conf="/config/config.toml"
+              conf="config.toml"
               example="https://raw.githubusercontent.com/Feramance/qBitrr/master/config.example.toml"
               if [ -f "$conf" ]; then
                 echo "$conf exists. Skipping..."
