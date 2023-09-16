@@ -22,22 +22,22 @@ workload:
           enabled: true
           imageSelector: "image"
           command:
-            - sh
+            - /bin/sh
             - -c
           args:
-            - |
-              config="/config/config.toml";
-              if [ ! -f ${config} ]; then
-                echo "No ${config} file...";
-                echo "Creating ${config} file...";
-                if [ -f ${config} ];
+            - >
+              if [ -f /config/config.toml ]; then
+                echo "config.toml file exists. Skipping...";
+              else
+                echo "config.toml file...";
+                echo "Creating config.toml file...";
+                touch /config/config.toml;
+                if [ -f /config/config.toml ];
                 then
                   echo "Success!";
                 else
                   echo "Failed!";
                 fi;
-              else
-                echo "${config} file exists. Skipping...";
               fi;
       containers:
         main:
