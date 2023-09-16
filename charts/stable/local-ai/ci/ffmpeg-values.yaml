@@ -1,11 +1,10 @@
 imageSelector: ffmpegImage
 
+# CI complains for emphimeral storage size getting to big
 persistence:
   tmp:
-    enabled: true
     type: pvc
-    mountPath: /tmp
+  varlogs:
+    type: pvc
   devshm:
-    enabled: true
     type: pvc
-    mountPath: /devshm
