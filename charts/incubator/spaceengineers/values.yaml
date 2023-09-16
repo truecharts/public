@@ -39,17 +39,17 @@ workload:
             liveness:
               enabled: true
               type: http
-              path: /v1/server/ping
+              path: /vrageremote/api/v1/server/ping
               port: "{{ .Values.service.api.ports.api.targetPort }}"
             readiness:
               enabled: true
               type: http
-              path: /v1/server/ping
+              path: /vrageremote/api/v1/server/ping
               port: "{{ .Values.service.api.ports.api.targetPort }}"
             startup:
               enabled: true
               type: http
-              path: /v1/server/ping
+              path: /vrageremote/api/v1/server/ping
               port: "{{ .Values.service.api.ports.api.targetPort }}"
           env:
             INSTANCE_NAME: "{{ .Values.spaceengineers.instance_name }}"
