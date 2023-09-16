@@ -63,7 +63,7 @@ workload:
           env:
             APP_KEY:
               secretKeyRef:
-                name: 2fauth-secrets
+                name: fauth-secrets
                 key: APP_KEY
             APP_ENV: local
             # If you're looking for performance improvements, you could install memcached.
