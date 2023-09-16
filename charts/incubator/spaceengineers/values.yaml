@@ -15,7 +15,7 @@ service:
     ports:
       main:
         protocol: udp
-        targetPort: 27017
+        targetPort: 27016
         port: 27017
   api:
     enabled: true
@@ -37,20 +37,11 @@ workload:
         main:
           probes:
             liveness:
-              enabled: true
-              type: http
-              path: /vrageremote/api/v1/server/ping
-              port: "{{ .Values.service.api.ports.api.targetPort }}"
+              enabled: false
             readiness:
-              enabled: true
-              type: http
-              path: /vrageremote/api/v1/server/ping
-              port: "{{ .Values.service.api.ports.api.targetPort }}"
+              enabled: false
             startup:
-              enabled: true
-              type: http
-              path: /vrageremote/api/v1/server/ping
-              port: "{{ .Values.service.api.ports.api.targetPort }}"
+              enabled: false
           env:
             INSTANCE_NAME: "{{ .Values.spaceengineers.instance_name }}"
             PUBLIC_IP: "{{ .Values.spaceengineers.public_ip }}"
