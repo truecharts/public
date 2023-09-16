@@ -63,6 +63,11 @@ workload:
             ADMIN_PASSWORD: "{{ .Values.answer.admin.password }}"
             ADMIN_EMAIL: "{{ .Values.answer.admin.email }}"
 
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+
 # Enabled postgres
 cnpg:
   main:
