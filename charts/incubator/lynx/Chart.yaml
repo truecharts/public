@@ -1,0 +1,32 @@
+apiVersion: v2
+appVersion: "1.7.3"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 14.0.3
+  - condition: mongodb.enabled
+    name: mongodb
+    repository: https://deps.truecharts.org
+    version: 6.0.67
+deprecated: false
+description: A fullstack application using the MEVN stack to shorten your URLs.
+home: https://truecharts.org/charts/incubator/lynx
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/lynx.png
+keywords:
+  - lynx
+  - url-shortener
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: lynx
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/lynx
+  - https://github.com/Lynx-Shortener/Lynx
+type: application
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - url-shortener
+  truecharts.org/SCALE-support: "true"

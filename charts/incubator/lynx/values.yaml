@@ -1,0 +1,101 @@
+image:
+  repository: tccr.io/truecharts/lynx
+  pullPolicy: IfNotPresent
+  tag: v1.7.3@sha256:3d657db82dd8186aa87b4aec6ef8aae45e720c9e19ac3524cc4dd1e5e9d81013
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 3000
+
+lynx:
+  app:
+    domain: http://example.com
+    home_redirect: "/dash/overview"
+    cors: "*"
+    use_https: true
+    force_frontend_redirects: false
+    enable_reg: false
+  url:
+    length: 8
+    # lower | standard
+    set: standard
+    only_unique: false
+    regex: 'https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#: ]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//: ]*)'
+  umami:
+    site_id: ""
+    url: ""
+  backup:
+    enabled: true
+    schedule: "* * * * *"
+    count: 5
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            EXPRESS_PORT: "{{ .Values.service.main.ports.main.port }}"
+            NODE_ENV: production
+            JWT_KEY:
+              secretKeyRef:
+                name: lynx-secrets
+                key: JWT_KEY
+            # DB
+            DB_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mongodbcreds" }}'
+                key: plainhost
+            DB_PORT: 27017
+            DB_PASSWORD:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mongodbcreds" }}'
+                key: mongodb-password
+            DB_USER: "{{ .Values.mongodb.mongodbUsername }}"
+            DEMO: false
+            # app
+            HOME_REDIRECT: "{{ .Values.lynx.app.home_redirect }}"
+            FORCE_FRONTEND_REDIRECT: "{{ .Values.lynx.app.force_frontend_redirects }}"
+            ENABLE_REGISTRATION: "{{ .Values.lynx.app.enable_reg }}"
+            DOMAIN: "{{ .Values.lynx.app.domain }}"
+            USE_HTTPS: "{{ .Values.lynx.app.use_https }}"
+            CORS: "{{ .Values.lynx.app.cors }}"
+            # Url
+            URL_LENGTH: "{{ .Values.lynx.url.length }}"
+            URL_SET: "{{ .Values.lynx.url.set }}"
+            URL_ONLY_UNIQUE: "{{ .Values.lynx.url.only_unique }}"
+            URL_REGEX: "{{ .Values.lynx.url.regex }}"
+            # umami
+            UMAMI_SITEID: "{{ .Values.lynx.umami.site_id }}"
+            UMAMI_URL: "{{ .Values.lynx.umami.url }}"
+            # backup
+            BACKUP: "{{ .Values.lynx.backup.enabled }}"
+            BACKUP_SCHEDULE: "{{ .Values.lynx.backup.schedule }}"
+            BACKUP_COUNT: "{{ .Values.lynx.backup.count }}"
+
+persistence:
+  backups:
+    enabled: true
+    mountPath: "/app/backups"
+
+mongodb:
+  enabled: true
+  mongodbUsername: lynx
+  # app has no variable for setting the db name.
+  # mongodbDatabase: lynx
+
+portal:
+  open:
+    enabled: true

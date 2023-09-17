@@ -1,0 +1,223 @@
+# Include{groups}
+portals:
+  open:
+# Include{portalLink}
+questions:
+# Include{global}
+# Include{workload}
+# Include{workloadDeployment}
+
+# Include{replicas1}
+# Include{podSpec}
+# Include{containerMain}
+
+# Include{containerBasic}
+# Include{containerAdvanced}
+
+  - variable: lynx
+    group: App Configuration
+    label: Lynx
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: app
+          label: App Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: domain
+                label: App Domain
+                schema:
+                  type: string
+                  required: true
+                  default: "http://localhost:3000"
+              - variable: home_redirect
+                label: Home Redirect
+                schema:
+                  type: string
+                  required: true
+                  default: "/dash/overview"
+              - variable: cors
+                label: Cors
+                schema:
+                  type: string
+                  required: true
+                  default: "*"
+              - variable: use_https
+                label: Use Https
+                description: Only changes how cookies are handled if using an https app url.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: force_frontend_redirects
+                label: Force Frontend Redirects
+                description: Use the frontend to redirect instead of express, useful for hiding embeds on discord for all your rickrolling needs.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: enable_reg
+                label: Enable Registration
+                description: Whether or not to allow registration. If not accounts exist you will be allowed to register either way. (first account will also be an admin account.)
+                schema:
+                  type: boolean
+                  default: false
+        - variable: url
+          label: Url Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: length
+                label: Url Length
+                description: The length of your automatically generated slugs.
+                schema:
+                  type: int
+                  required: true
+                  default: 8
+                  min: 5
+              - variable: set
+                label: Url Set
+                description: The type of characters your automatically generated slug will use.
+                schema:
+                  type: string
+                  required: true
+                  default: "standard"
+                  enum:
+                    - value: standard
+                      description: Standard
+                    - value: lower
+                      description: Lower
+              - variable: only_unique
+                label: Only Unique Urls
+                description: Wether each new url has to be unique, new links created cannot link to the same destination.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: regex
+                label: Url Regex
+                description: A custom url regex.
+                schema:
+                  type: string
+                  default: 'https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)|twitter:\/\/user\?screen_name=[a-zA-Z0-9_]+'
+        - variable: umami
+          label: Umami Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: site_id
+                label: Site Id
+                description: Your umami site ID, blank to disable.
+                schema:
+                  type: string
+                  default: ""
+              - variable: url
+                label: Url
+                description: The URL to your umami instance.
+                schema:
+                  type: string
+                  default: ""
+        - variable: backup
+          label: Backup Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: Enable Backups
+                description: Wether to create backups or not.
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: schedule
+                      label: Schedule
+                      schema:
+                        type: string
+                        default: "0 * * * *"
+                    - variable: count
+                      label: Count
+                      description: How many backups to keep. 1 will make a backup file called backup.json, -1 will keep every backup.
+                      schema:
+                        type: int
+                        default: 5
+                        min: -1
+
+# Include{containerConfig}
+# Include{podOptions}
+# Include{serviceRoot}
+# Include{serviceMain}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: main
+                      label: "Main Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 3000
+                              required: true
+# Include{serviceExpertRoot}
+# Include{serviceExpert}
+# Include{serviceList}
+# Include{persistenceRoot}
+        - variable: backups
+          label: "App Backups Storage"
+          description: "Stores the Application Backups."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceList}
+# Include{ingressRoot}
+        - variable: main
+          label: "Main Ingress"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+# Include{ingressTLS}
+# Include{ingressTraefik}
+# Include{ingressAdvanced}
+# Include{ingressList}
+# Include{securityContextRoot}
+
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
+# Include{securityContextContainer}
+# Include{securityContextAdvanced}
+# Include{securityContextPod}
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
+                schema:
+                  type: int
+                  default: 568
+
+# Include{resources}
+# Include{advanced}
+# Include{addons}
+# Include{codeserver}
+# Include{netshoot}
+# Include{vpn}
+# Include{documentation}
