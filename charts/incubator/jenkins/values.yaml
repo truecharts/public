@@ -44,6 +44,7 @@ service:
       main:
         protocol: http
         port: 10280
+        targetPort: 8080
   agent:
     enabled: true
     ports:
