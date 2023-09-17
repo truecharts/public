@@ -1,0 +1,30 @@
+apiVersion: v2
+appVersion: "0.0.1"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 14.0.6
+deprecated: false
+description: Elasticsearch is a distributed, RESTful search engine optimized for speed and relevance on production-scale workloads.
+home: https://truecharts.org/charts/dependency/elasticsearch
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/elasticsearch.png
+keywords:
+  - elasticsearch
+  - search
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: redis
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/dependency/elasticsearch
+  - https://github.com/elastic/elasticsearch
+  - https://www.elastic.co/elasticsearch/
+type: application
+version: 8.0.22
+annotations:
+  truecharts.org/catagories: |
+    - search
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U
