@@ -47,10 +47,7 @@ workload:
             ADMIDIO_LOGIN_FOR_UPDATE: 1
             ADMIDIO_DB_TABLE_PRAEFIX: "adm"
             # host + port.
-            ADMIDIO_DB_HOST:
-              secretKeyRef:
-                name: cnpg-main-urls
-                key: host
+            ADMIDIO_DB_HOST: '{{ printf "%v-cnpg-main-rw:5432" (include "tc.v1.common.lib.chart.names.fullname" $) }}'
             ADMIDIO_DB_NAME: "{{ .Values.cnpg.main.database }}"
             ADMIDIO_DB_USER: "{{ .Values.cnpg.main.user }}"
             ADMIDIO_DB_PASSWORD:
