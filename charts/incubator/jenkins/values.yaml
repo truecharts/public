@@ -26,13 +26,13 @@ workload:
         main:
           probes:
             liveness:
-              type: http
+              port: "{{ .Values.service.main.ports.main.port }}"
               path: /login
             readiness:
-              type: http
+              port: "{{ .Values.service.main.ports.main.port }}"
               path: /login
             startup:
-              type: http
+              port: "{{ .Values.service.main.ports.main.port }}"
               path: /login
           envFrom:
             - secretRef:
