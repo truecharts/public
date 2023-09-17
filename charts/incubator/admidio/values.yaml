@@ -31,6 +31,16 @@ workload:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              path: "/adm_program/overview.php"
+              type: http
+            readiness:
+              path: "/adm_program/overview.php"
+              type: http
+            startup:
+              path: "/adm_program/overview.php"
+              type: http
           env:
             ADMIDIO_DB_TYPE: postgresql
             # Keep enabled.
