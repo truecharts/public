@@ -38,7 +38,7 @@ odoo-config:
      db_name = {{ $pgdb }}
      db_user = {{ $pguser }}
      db_sslmode = disable
-     db_password = {{ $dbPass }}
+     db_password = {{ $pgpassword }}
     {{- range $opt := .Values.odoo.additionalConf -}}
         {{- if (mustHas $opt.key $reservedKeys) -}}
           {{- fail (printf "Odoo - Key [%v] is not allowed to be modified") -}}
