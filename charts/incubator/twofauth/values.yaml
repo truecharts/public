@@ -18,7 +18,7 @@ service:
         targetPort: 8000
         port: 8000
 
-fauth:
+twofauth:
   app:
     name: "2FAuth"
     debug: false
@@ -63,7 +63,7 @@ workload:
           env:
             APP_KEY:
               secretKeyRef:
-                name: fauth-secrets
+                name: twofauth-secrets
                 key: APP_KEY
             APP_ENV: local
             # If you're looking for performance improvements, you could install memcached.
@@ -101,34 +101,34 @@ workload:
             # config
             # IS_DEMO_APP: false
             # APP
-            APP_NAME: "{{ .Values.fauth.app.name }}"
-            APP_DEBUG: "{{ .Values.fauth.app.debug }}"
-            SITE_OWNER: "{{ .Values.fauth.app.site_owner }}"
-            APP_URL: "{{ .Values.fauth.app.url }}"
-            LOG_CHANNEL: "{{ .Values.fauth.app.log_channel }}"
-            LOG_LEVEL: "{{ .Values.fauth.app.log_level }}"
-            trusted_proxies: '{{ join "," .Values.fauth.app.trusted_proxies }}'
+            APP_NAME: "{{ .Values.twofauth.app.name }}"
+            APP_DEBUG: "{{ .Values.twofauth.app.debug }}"
+            SITE_OWNER: "{{ .Values.twofauth.app.site_owner }}"
+            APP_URL: "{{ .Values.twofauth.app.url }}"
+            LOG_CHANNEL: "{{ .Values.twofauth.app.log_channel }}"
+            LOG_LEVEL: "{{ .Values.twofauth.app.log_level }}"
+            trusted_proxies: '{{ join "," .Values.twofauth.app.trusted_proxies }}'
             # MAIL
-            MAIL_DRIVER: "{{ .Values.fauth.mail.driver }}"
-            MAIL_HOST: "{{ .Values.fauth.mail.host }}"
-            MAIL_PORT: "{{ .Values.fauth.mail.port }}"
-            MAIL_FROM: "{{ .Values.fauth.mail.from }}"
-            MAIL_USERNAME: "{{ .Values.fauth.mail.user }}"
-            MAIL_PASSWORD: "{{ .Values.fauth.mail.pass }}"
-            MAIL_ENCRYPTION: "{{ .Values.fauth.mail.encryption }}"
-            MAIL_FROM_NAME: "{{ .Values.fauth.mail.from_name }}"
-            MAIL_FROM_ADDRESS: "{{ .Values.fauth.mail.from_address }}"
+            MAIL_DRIVER: "{{ .Values.twofauth.mail.driver }}"
+            MAIL_HOST: "{{ .Values.twofauth.mail.host }}"
+            MAIL_PORT: "{{ .Values.twofauth.mail.port }}"
+            MAIL_FROM: "{{ .Values.twofauth.mail.from }}"
+            MAIL_USERNAME: "{{ .Values.twofauth.mail.user }}"
+            MAIL_PASSWORD: "{{ .Values.twofauth.mail.pass }}"
+            MAIL_ENCRYPTION: "{{ .Values.twofauth.mail.encryption }}"
+            MAIL_FROM_NAME: "{{ .Values.twofauth.mail.from_name }}"
+            MAIL_FROM_ADDRESS: "{{ .Values.twofauth.mail.from_address }}"
             # AUTH
-            AUTHENTICATION_GUARD: "{{ .Values.fauth.auth.guard }}"
-            AUTH_PROXY_HEADER_FOR_USER: "{{ .Values.fauth.auth.proxy_header_for_user }}"
-            AUTH_PROXY_HEADER_FOR_EMAIL: "{{ .Values.fauth.auth.proxy_header_for_email }}"
-            PROXY_LOGOUT_URL: "{{ .Values.fauth.auth.proxy_logout_url }}"
+            AUTHENTICATION_GUARD: "{{ .Values.twofauth.auth.guard }}"
+            AUTH_PROXY_HEADER_FOR_USER: "{{ .Values.twofauth.auth.proxy_header_for_user }}"
+            AUTH_PROXY_HEADER_FOR_EMAIL: "{{ .Values.twofauth.auth.proxy_header_for_email }}"
+            PROXY_LOGOUT_URL: "{{ .Values.twofauth.auth.proxy_logout_url }}"
             # WebAuthn:
-            WEBAUTHN_NAME: "{{ .Values.fauth.webauthn.name }}"
-            WEBAUTHN_ID: "{{ .Values.fauth.webauthn.id }}"
+            WEBAUTHN_NAME: "{{ .Values.twofauth.webauthn.name }}"
+            WEBAUTHN_ID: "{{ .Values.twofauth.webauthn.id }}"
             # Optional image data in BASE64 (128 bytes maximum) or an image url
-            WEBAUTHN_ICON: "{{ .Values.fauth.webauthn.icon }}"
-            WEBAUTHN_USER_VERIFICATION: "{{ .Values.fauth.webauthn.user_verified }}"
+            WEBAUTHN_ICON: "{{ .Values.twofauth.webauthn.icon }}"
+            WEBAUTHN_USER_VERIFICATION: "{{ .Values.twofauth.webauthn.user_verified }}"
 
 persistence:
   config:
@@ -136,15 +136,14 @@ persistence:
     mountPath: "/2fauth"
 
 # Enabled postgres
-# ommit the two
 cnpg:
   main:
     enabled: true
-    user: fauth
-    database: fauth
+    user: twofauth
+    database: twofauth
 redis:
   enabled: true
-  redisUsername: fauth
+  redisUsername: twofauth
 
 portal:
   open:

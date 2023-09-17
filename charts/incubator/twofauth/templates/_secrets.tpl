@@ -1,6 +1,6 @@
 {{/* Define the secrets */}}
-{{- define "fauth.secrets" -}}
-{{- $secretName := (printf "%s-fauth-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
+{{- define "twofauth.secrets" -}}
+{{- $secretName := (printf "%s-twofauth-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
 
 {{- $appKey := (printf "%v" (randAlphaNum 32 | b64enc)) -}}
 
