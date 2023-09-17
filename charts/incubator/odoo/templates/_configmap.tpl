@@ -27,8 +27,8 @@ odoo-config:
     odoo.conf: |
      [options]
      ; Paths
-     data_dir = {{ $$odooPath }}
-     addons_path = {{ $$addonsPath }}
+     data_dir = {{ $odooPath }}
+     addons_path = {{ $addonsPath }}
      ; Network Details
      http_enable = True
      http_port = {{ $mainPort }}
