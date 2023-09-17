@@ -81,6 +81,7 @@ workload:
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: redis-password
             REDIS_PORT: 6379
+            REDIS_USERNAME: "{{ .Values.redis.redisUsername }}"
             BROADCAST_DRIVER: log
             QUEUE_DRIVER: sync
             SESSION_LIFETIME: 120
@@ -135,13 +136,15 @@ persistence:
     mountPath: "/2fauth"
 
 # Enabled postgres
+# ommit the two
 cnpg:
   main:
     enabled: true
-    user: 2fauth
-    database: 2fauth
+    user: fauth
+    database: fauth
 redis:
   enabled: true
+  redisUsername: fauth
 
 portal:
   open:
