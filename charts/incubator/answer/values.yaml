@@ -46,10 +46,7 @@ workload:
                 name: cnpg-main-user
                 key: password
             # Host + port
-            DB_HOST:
-              secretKeyRef:
-                name: cnpg-main-urls
-                key: host
+            DB_HOST: '{{ printf "%v-cnpg-main-rw:5432" (include "tc.v1.common.lib.chart.names.fullname" $) }}'
             DB_NAME: "{{ .Values.cnpg.main.database }}"
             # App
             LANGUAGE: "{{ .Values.answer.app.language }}"
