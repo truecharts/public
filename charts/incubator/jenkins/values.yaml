@@ -7,6 +7,7 @@ security:
   container:
     runAsGroup: 1000
     runAsUser: 1000
+  pod:
     fsGroup: 1000
 
 # securityContext:
@@ -26,14 +27,11 @@ workload:
         main:
           probes:
             liveness:
-              type: tcp
-              port: "{{ .Values.service.main.ports.main.targetPort }}"
+              type: http
             readiness:
-              type: tcp
-              port: "{{ .Values.service.main.ports.main.targetPort }}"
+              type: http
             startup:
               type: tcp
-              port: "{{ .Values.service.main.ports.main.targetPort }}"
           envFrom:
             - secretRef:
                 name: 'jenkins-secret'
@@ -44,7 +42,6 @@ service:
       main:
         protocol: http
         port: 10280
-        targetPort: 8080
   agent:
     enabled: true
     ports:
