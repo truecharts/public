@@ -50,7 +50,7 @@ workload:
             ADMIDIO_DB_HOST:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: std
+                key: host
             ADMIDIO_DB_NAME: "{{ .Values.cnpg.main.database }}"
             ADMIDIO_DB_USER: "{{ .Values.cnpg.main.user }}"
             ADMIDIO_DB_PASSWORD:
