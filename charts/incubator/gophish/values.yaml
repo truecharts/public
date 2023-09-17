@@ -1,0 +1,56 @@
+image:
+  repository: tccr.io/truecharts/gophish
+  pullPolicy: IfNotPresent
+  tag: v0.12.1@sha256:ee070e386cf30f186f20f847843eef708ed2f6b1cad1e3e783a8b3609ce68a73
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 3333
+  phish:
+    enabled: true
+    ports:
+      phish:
+        enabled: true
+        protocol: http
+        port: 3334
+
+gophish:
+  admin_server:
+    use_tls: false
+    trusted_origins: []
+  phish_server:
+    use_tls: false
+  contact_address: "contact@example.com"
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            ADMIN_LISTEN_URL: "localhost:{{ .Values.service.main.ports.main.port }}"
+            ADMIN_USE_TLS: "{{ .Values.gophish.admin_server.use_tls }}"
+            ADMIN_TRUSTED_ORIGINS: '{{ join "," .Values.gophish.admin_server.trusted_origins }}'
+            PHISH_LISTEN_URL: "localhost:{{ .Values.service.phish_server.ports.phish.port }}"
+            PHISH_USE_TLS: "{{ .Values.gophish.phish_server.use_tls }}"
+            CONTACT_ADDRESS: "{{ .Values.gophish.contact_address }}"
+            DB_FILE_PATH: "{{ .Values.persistence.config.mountPath }}/gophish.db"
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+
+portal:
+  open:
+    enabled: true

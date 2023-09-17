@@ -1,0 +1,181 @@
+# Include{groups}
+portals:
+  open:
+# Include{portalLink}
+    path: "/"
+  phish:
+    protocols:
+      - "$kubernetes-resource_configmap_portal_protocol"
+    host:
+      - "$kubernetes-resource_configmap_portal_host"
+    ports:
+      - "$variable-service.phish.ports.phish.port"
+questions:
+# Include{global}
+# Include{workload}
+# Include{workloadDeployment}
+
+# Include{replicas1}
+# Include{podSpec}
+# Include{containerMain}
+
+# Include{containerBasic}
+# Include{containerAdvanced}
+
+  - variable: gophish
+    group: App Configuration
+    label: Gophish
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: admin_server
+          label: Admin Server
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: use_tls
+                label: Use Tls
+                description: Use TLS for admin server?
+                schema:
+                  type: boolean
+                  default: false
+              - variable: trusted_origins
+                label: Trusted Origins
+                schema:
+                  type: list
+                  default: []
+                  required: true
+                  items:
+                    - variable: origin
+                      label: Origin
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+        - variable: phish_server
+          label: Phish Server
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: use_tls
+                label: Use Tls
+                description: Use TLS for admin server?
+                schema:
+                  type: boolean
+                  default: false
+        - variable: contact_address
+          label: Contact Address
+          schema:
+            type: string
+            default: ""
+
+# Include{containerConfig}
+# Include{podOptions}
+# Include{serviceRoot}
+# Include{serviceMain}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: main
+                      label: "Main Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 3333
+                              required: true
+        - variable: phish
+          label: "Phish Service"
+          description: "Phish Service"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: phish
+                      label: "Phish Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 3334
+                              required: true
+# Include{serviceExpertRoot}
+# Include{serviceExpert}
+# Include{serviceList}
+# Include{persistenceRoot}
+        - variable: config
+          label: "App Config Storage"
+          description: "Stores the Application Configuration."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceList}
+# Include{ingressRoot}
+        - variable: main
+          label: "Main Ingress"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+# Include{ingressTLS}
+# Include{ingressTraefik}
+# Include{ingressAdvanced}
+        - variable: phish
+          label: "Phish Ingress"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+# Include{ingressTLS}
+# Include{ingressTraefik}
+# Include{ingressAdvanced}
+# Include{ingressList}
+# Include{securityContextRoot}
+
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
+# Include{securityContextContainer}
+# Include{securityContextAdvanced}
+# Include{securityContextPod}
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
+                schema:
+                  type: int
+                  default: 568
+
+# Include{resources}
+# Include{advanced}
+# Include{addons}
+# Include{codeserver}
+# Include{netshoot}
+# Include{vpn}
+# Include{documentation}
