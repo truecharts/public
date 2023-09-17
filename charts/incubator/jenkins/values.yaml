@@ -26,14 +26,14 @@ workload:
         main:
           probes:
             liveness:
+              type: tcp
               port: "{{ .Values.service.main.ports.main.port }}"
-              path: /login
             readiness:
+              type: tcp
               port: "{{ .Values.service.main.ports.main.port }}"
-              path: /login
             startup:
+              type: tcp
               port: "{{ .Values.service.main.ports.main.port }}"
-              path: /login
           envFrom:
             - secretRef:
                 name: 'jenkins-secret'
