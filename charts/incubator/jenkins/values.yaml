@@ -28,8 +28,10 @@ workload:
           probes:
             liveness:
               type: http
+              path: /login
             readiness:
               type: http
+              path: /login
             startup:
               type: tcp
           envFrom:
