@@ -49,7 +49,7 @@ workload:
             DB_HOST:
               secretKeyRef:
                 name: cnpg-main-urls
-                key: std
+                key: host
             DB_NAME: "{{ .Values.cnpg.main.database }}"
             # App
             LANGUAGE: "{{ .Values.answer.app.language }}"
