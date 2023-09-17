@@ -1,0 +1,80 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/zammad
+  tag: latest@sha256:c9c8ec07af85ca06ff2776e1bd00c70cca470c7bf9aa92c716b78283bf880f49
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+zammad:
+  zammad:
+    zammad_autowizardjson: ""
+  webconcurrency:
+    webcon_instances: ""
+    webcon_sessionjobs: 0
+    webcon_schedprocesses: false
+    webcon_delayedjobs: 0
+  rails:
+    rails_trustedproxies: ['127.0.0.1', '::1']
+  redis:
+    redis_url: "http://redis.ix-redis.svc.cluster.local:6379"
+  memcached:
+    memcached_url: "http://memcached.ix-memcached.svc.cluster.local:11211"
+  elasticsearch:
+    elasticsearch_enabled: true
+    elasticsearch_url: "elasticsearch.ix-elasticsearch.svc.cluster.local"
+    elasticsearch_port: 9200
+    elasticsearch_schema: "http"
+    elasticsearch_namespace: "zammad"
+    elasticsearch_reindex: true
+    elasticsearch_sslverify: true
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            AUTOWIZARD_JSON: "{{ .Values.zammad.zammad.zammad_autowizardjson }}"
+            ZAMMAD_WEB_CONCURRENCY: "{{ .Values.zammad.webconcurrency.webcon_instances }}"
+            ZAMMAD_SESSION_JOBS_CONCURRENT: "{{ .Values.zammad.webconcurrency.webcon_sessionjobs }}"
+            ZAMMAD_PROCESS_SCHEDULED_JOBS_WORKERS: "{{ .Values.zammad.webconcurrency.webcon_schedprocesses }}"
+            ZAMMAD_PROCESS_DELAYED_JOBS_WORKERS: "{{ .Values.zammad.webconcurrency.webcon_delayedjobs }}"
+            RAILS_TRUSTED_PROXIES: '{{ .Values.rails.rails_trustedproxies }}'
+            REDIS_URL: '{{ .Values.zammad.redis.redis_url }}'
+            MEMCACHE_SERVERS: '{{ .Values.zammad.memcached.memcached_url }}'
+            ELASTICSEARCH_ENABLED: '{{ .Values.zammad.elasticsearch.elasticsearch_enabled }}'
+            ELASTICSEARCH_HOST: "{{ .Values.zammad.elasticsearch.elasticsearch_url }}"
+            ELASTICSEARCH_PORT: "{{ .Values.zammad.elasticsearch.elasticsearch_port }}"
+            ELASTICSEARCH_SCHEMA: "{{ .Values.zammad.elasticsearch.elasticsearch_schema }}"
+            ELASTICSEARCH_NAMESPACE: "{{ .Values.zammad.elasticsearch.elasticsearch_namespace }}"
+            ELASTICSEARCH_REINDEX: "{{ .Values.zammad.elasticsearch.elasticsearch_reindex }}"
+            ELASTICSEARCH_SSL_VERIFY: "{{ .Values.zammad.elasticsearch.elasticsearch_sslverify }}"
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+
+portal:
+  open:
+    enabled: false
+

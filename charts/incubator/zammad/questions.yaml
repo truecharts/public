@@ -1,0 +1,200 @@
+# Include{groups}
+portals: {}
+questions:
+# Include{global}
+# Include{workload}
+# Include{workloadDeployment}
+
+# Include{replicas1}
+# Include{podSpec}
+# Include{containerMain}
+
+# Include{containerBasic}
+# Include{containerAdvanced}
+
+  - variable: zammad
+    group: App Configuration
+    label: Zammad
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: zammad
+          label: Zammad Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: zammad_autowizardjson
+                label: Autowizard JSON
+                description: Allows you to provide initial configuration data for your instance. See the docs for more information.
+                schema:
+                  type: string
+                  default: ""
+        - variable: webconcurrency
+          label: Web Concurrency Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: webcon_instances
+                label: Web Concurrency (Instances)
+                description: Allows spawning n workers to allow more simultaneous connections for Zammad's web interface. If you fill this out then fill out the rest of the Web Concurrency Configuration section.
+                schema:
+                  type: string
+                  default: ""
+              - variable: webcon_sessionjobs
+                label: Concurrent Session Jobs
+                description: Allows specifying the amount of instances of the session worker to run at a time. Increasing this can speed up background jobs (like the scheduler) when too many users are on Zammad at once. Generally speaking, it should only be useful to adjust this setting if you have more than 40 active users at a time.
+                schema:
+                  type: int
+                  default: 0
+              - variable: webcon_schedprocesses
+                label: Independent Process for Scheduled Jobs
+                description: Allows you to enable or disable independent processes for jobs such as LDAP syncs. This can free up the Zammad background worker for other tasks when some scheduled tasks are fairly long.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: webcon_delayedjobs
+                label: Processes for Delayed Jobs
+                description: Allows you to specify the amount of processes that should work on delayed jobs. Increasing this can improve issues with delayed jobs stacking up in your system. You may want to try to use `Concurrent Session Jobs` before though. This option can be very CPU intensive. The maximum value is 16.
+                schema:
+                  type: int
+                  default: 0
+        - variable: rails
+          label: Rails Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: rails_trustedproxies
+                label: Rails Trusted Proxies
+                description: Allows you to change the trusted proxies. Changing this isn't recommended unless you know what you're doing.
+                schema:
+                  type: list
+                  default: ['127.0.0.1', '::1']
+                  items:
+                    - variable: url
+                      label: URL
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+        - variable: redis
+          label: Redis Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: redis_url
+                label: Redis URL
+                description: Allows you to store your web socket conection within Redis, and should point to your Redis instance. The default value assumes your Redis chart's name is redis. If not provided, Zammad falls back to the file system (`/opt/zammad/tmp/websocket_*`).
+                schema:
+                  type: string
+                  default: "http://redis.ix-redis.svc.cluster.local:6379"
+        - variable: memcached
+          label: Memcached Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: memcached_url
+                label: Memcached URL
+                description: Allows you to store your application cache files within Memcached, and should point to your Memcached instance. The default value assumes your Memchaced chart's name is memcached. If not provided, Zammad falls back to the file system (`/opt/zammad/tmp/cache*`).
+                schema:
+                  type: string
+                  default: "http://memcached.ix-memcached.svc.cluster.local:11211"
+        - variable: elasticsearch
+          label: Elasticsearch Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: elasticsearch_enabled
+                label: Elasticsearch Enable
+                description: Allows you to enable Elasticsearch, which is enabled by default and is the recommended configuration.
+                schema:
+                  type: boolean
+                  required: true
+                  default: true
+              - variable: elasticsearch_url
+                label: Elasticsearch URL
+                description: This should point to your Elasticsearch instance's endpoint, and should either be the host name or IP address. The default value assumes your Elasticsearch chart's name is elasticsearch.
+                schema:
+                  type: string
+                  default: "elasticsearch.ix-elasticsearch.svc.cluster.local"
+              - variable: elasticsearch_port
+                label: Elasticsearch Port
+                description: This should point to your Elasticsearch instance's port.
+                schema:
+                  type: int
+                  default: 9200
+              - variable: elasticsearch_schema
+                label: Elasticsearch Schema
+                description: Allows you to specify the schema of Elasticsearch.
+                schema:
+                  type: string
+                  default: "http"
+              - variable: elasticsearch_namespace
+                label: Elasticsearch Namespace
+                description: Allows you to specify a namespace to all Zammad related indexes will be created. Change this if you're using external clusters.
+                schema:
+                  type: string
+                  default: "zammad"
+              - variable: elasticsearch_reindex
+                label: Elasticsearch Reindex
+                description: This enables reindexing on startups, which may be troublesome on larger installations.
+                schema:
+                  type: boolean
+                  default: true
+              - variable: elasticsearch_sslverify
+                label: Elasticsearch SSL Verify
+                description: Allows you to let the compose scripts ignore self signed SSL certificates for your Elasticsearch installation if needed.
+                schema:
+                  type: bool
+                  default: true
+
+# Include{podOptions}
+# Include{serviceExpertRoot}
+# Include{serviceExpert}
+# Include{serviceList}
+# Include{persistenceRoot}
+        - variable: data
+          label: "data Storage"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceList}
+# Include{securityContextRoot}
+
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
+# Include{securityContextContainer}
+# Include{securityContextAdvanced}
+# Include{securityContextPod}
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
+                schema:
+                  type: int
+                  default: 568
+
+# Include{resources}
+# Include{advanced}
+# Include{addons}
+# Include{codeserver}
+# Include{netshoot}
+# Include{vpn}
+# Include{documentation}
