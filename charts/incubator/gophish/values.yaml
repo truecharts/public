@@ -41,7 +41,7 @@ workload:
             ADMIN_LISTEN_URL: "localhost:{{ .Values.service.main.ports.main.port }}"
             ADMIN_USE_TLS: "{{ .Values.gophish.admin_server.use_tls }}"
             ADMIN_TRUSTED_ORIGINS: '{{ join "," .Values.gophish.admin_server.trusted_origins }}'
-            PHISH_LISTEN_URL: "localhost:{{ .Values.service.phish_server.ports.phish.port }}"
+            PHISH_LISTEN_URL: "localhost:{{ .Values.service.phish.ports.phish.port }}"
             PHISH_USE_TLS: "{{ .Values.gophish.phish_server.use_tls }}"
             CONTACT_ADDRESS: "{{ .Values.gophish.contact_address }}"
             DB_FILE_PATH: "{{ .Values.persistence.config.mountPath }}/gophish.db"
