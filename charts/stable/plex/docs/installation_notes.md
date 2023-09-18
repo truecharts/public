@@ -56,3 +56,5 @@ Plex allows for the installation of plug-ins. Plug-ins can be added using the co
 
 5. Restart Plex
 
+## Plex-AMD Image
+If you would like to be able to enable hardware encoding for an AMD GPU, then please use the Plex-AMD image.
