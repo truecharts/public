@@ -93,8 +93,7 @@ persistence:
 mongodb:
   enabled: true
   mongodbUsername: lynx
-  # app has no variable for setting the db name.
-  # mongodbDatabase: lynx
+  mongodbDatabase: shortener
 
 portal:
   open:
