@@ -17,6 +17,19 @@ workload:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              path: /web/health
+            readiness:
+              enabled: true
+              type: http
+              path: /web/health
+            startup:
+              enabled: true
+              type: http
+              path: /web/health
           env:
             USER: "{{ .Values.cnpg.main.user }}"
             PORT: 5432
@@ -40,11 +53,9 @@ persistence:
     enabled: true
     type: configmap
     objectName: odoo-config
-    targetSelector:
-      main:
-        main:
-          mountPath: /etc/odoo/odoo.conf
-          subPath: odoo.conf
+    mountPath: /etc/odoo/odoo.conf
+    subPath: odoo.conf
+    readOnly: true
 
 # Enabled postgres
 cnpg:
