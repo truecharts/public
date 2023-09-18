@@ -1,0 +1,29 @@
+apiVersion: v2
+appVersion: "0.0.1"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 14.0.1
+deprecated: false
+description: Plex Media Server - AMD
+home: https://truecharts.org/charts/incubator/plex-amd
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/plex-amd.png
+keywords:
+  - plex
+  - plex-amd
+  - plex-media-server
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: plex-amd
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/plex-amd
+  - https://github.com/k8s-at-home/container-images/pkgs/container/plex-amd
+type: application
+version: 14.0.1
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
