@@ -2,6 +2,10 @@ image:
   repository: tccr.io/truecharts/plex
   pullPolicy: IfNotPresent
   tag: v1.32.6.7468@sha256:16d282e87aac706aed2cc446585ddc98210fd773823c9651c248a55b4863db99
+plex-amdImage:
+  repository: tccr.io/truecharts/plex-amd
+  pullPolicy: IfNotPresent
+  tag: 1.32.5.7328-2632c9d3a@sha256:UPDATEME
 service:
   main:
     ports:
@@ -27,6 +31,7 @@ workload:
     podSpec:
       containers:
         main:
+          imageSelector: image
           probes:
             liveness:
               enabled: true

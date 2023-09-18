@@ -10,6 +10,16 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+                                - variable: imageSelector
+                                  label: Select Image
+                                  schema:
+                                    type: string
+                                    default: image
+                                    enum:
+                                      - value: image
+                                        description: Plex Image
+                                      - value: plex-amdImage
+                                        description: Plex-AMD Image
                                 - variable: env
                                   group: App Configuration
                                   label: Image Environment
