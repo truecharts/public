@@ -1,10 +1,13 @@
 image:
   repository: tccr.io/truecharts/qbitrr
   pullPolicy: IfNotPresent
-  tag: v3.7.1@sha256:c87ba70062bd1f81b397c64e53c79ed2b3cf4804b9ee5cc2fa855afd47b33ae4
+  tag: v3.7.4@sha256:46ce7db5c51415f0848963c8fa4b6afacf7ac9690ecb986449948bb455d10ecf
 securityContext:
   container:
     readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
 
 service:
   main:
@@ -16,26 +19,26 @@ service:
 workload:
   main:
     podSpec:
+      initContainers:
+        1-create-config-file:
+          type: install
+          enabled: true
+          imageSelector: "image"
+          command:
+            - /bin/sh
+            - -c
+          args:
+            - |
+              conf="/config/config.toml"
+              example="https://raw.githubusercontent.com/Feramance/qBitrr/master/config.example.toml"
+              if [ -f "$conf" ]; then
+                echo "$conf exists. Skipping..."
+              else
+                echo "$conf does not exist... Downloading the example from upstream..."
+                wget "$example" -O $conf || echo "Failed to download"
+              fi
       containers:
         main:
-          lifecycle:
-            postStart:
-              type: exec
-              command:
-                - /bin/sh
-                - -c
-                - |
-                  echo "Creating config.toml file..."
-                  if [ -f /config/config.toml ]; then
-                    echo "Config file exists! Skipping..."
-                  else
-                    if mv -n /config/.config/config.rename_me.toml /config/config.toml; then
-                      echo "Config file copied successfully!"
-                    else
-                      echo "Copying config file failed."
-                      exit 1
-                    fi
-                  fi
           probes:
             liveness:
               enabled: false
@@ -48,6 +51,10 @@ persistence:
   config:
     enabled: true
     mountPath: /config
+    targetSelector:
+      main:
+        main: {}
+        1-create-config-file: {}
   downloads:
     enabled: true
     mountPath: /completed_downloads
@@ -55,4 +62,3 @@ persistence:
 portal:
   open:
     enabled: false
-

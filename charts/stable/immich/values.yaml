@@ -1,22 +1,22 @@
 image:
   repository: tccr.io/truecharts/immich-server
-  tag: v1.76.1@sha256:286aa45399a1d814425aa7448180b93ce8a4f53a469ecd7065aa910970f2fa63
+  tag: v1.78.1@sha256:710de0a0512395b6eed6aaae9f60261dc4f7391bb1098054f5926d987e0e0f0b
   pullPolicy: IfNotPresent
 mlImage:
   repository: tccr.io/truecharts/immich-ml
-  tag: v1.76.1@sha256:f362aeced3620ac683495f2bc89a186cfc62b80ed9f3aa2391718d15179443b5
+  tag: v1.78.1@sha256:21faf656f5973ef5e7d909e302387ee61f14570c2f1f7dc9d96c0a69c5c5f60f
   pullPolicy: IfNotPresent
 webImage:
   repository: tccr.io/truecharts/immich-web
-  tag: v1.76.1@sha256:739db6da6dea657c79f89eefbed9a5e56bdc16f43f4ad5ed60cfc6d66146a828
+  tag: v1.78.1@sha256:4cb24f7c40654b9cd0ccd74ec0e85040a09ccb238019136526d84779f2c0d597
   pullPolicy: IfNotPresent
 proxyImage:
   repository: tccr.io/truecharts/immich-proxy
-  tag: v1.76.1@sha256:5d7a9dc524cad16e2185eb665b05a511584d683515250d24a41189da5d10111f
+  tag: v1.78.1@sha256:a20481ebd6b40a506be14d0e093f43df596004d437cc5f53ce50ef1b342fea62
   pullPolicy: IfNotPresent
 typesenseImage:
   repository: tccr.io/truecharts/immich-typesense
-  tag: v0.25.0@sha256:4599ed9d9f48ef84ae440b403e314cb368a1918166e8aea718cd6038b29c296e
+  tag: v0.25.1@sha256:878fa58e17f9ba6223d07530d03139b647300bd2ea185124688b731e3349d705
   pullPolicy: IfNotPresent
 
 securityContext:

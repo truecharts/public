@@ -51,48 +51,67 @@ questions:
                 description: Cublas
               - value: clblas
                 description: Clblas
-        - variable: rebuild
-          label: Rebuild
-          description: Set to false to disable rebuilding from source.
-          schema:
-            type: boolean
-            default: false
-        - variable: go_tags
-          label: Go Tags
-          schema:
-            type: string
-            default: "stablediffusion"
-            show_if: [[rebuild, "=", true]]
-            enum:
-              - value: stablediffusion
-                description: Stable Diffusion
-              - value: tts
-                description: TTS
-        - variable: context_size
-          label: Context Size
-          description: Default models context size.
-          schema:
-            type: string
-            default: "512"
         - variable: debug
           label: Debug
           description: Enable Debug Mode.
           schema:
             type: boolean
-            default: true
-        - variable: cors_settings
-          label: Show Cors Policy Settings
+            default: false
+        - variable: galleries
+          label: Galleries
+          description: Models to install that will be visible in /models/available.
+          schema:
+            type: list
+            default:
+              - name: model-gallery
+                url: github:go-skynet/model-gallery/index.yaml
+            items:
+              - variable: galleryEntry
+                label: Gallery Type Entry
+                schema:
+                  type: dict
+                  additional_attrs: true
+                  attrs:
+                    - variable: name
+                      label: Name
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: url
+                      label: Url
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+        - variable: preload_models
+          label: Preload Models
+          description: Preload models on start.
+          schema:
+            type: list
+            default:
+              - url: github:go-skynet/model-gallery/gpt4all-j.yaml
+            items:
+              - variable: preloadEntry
+                label: Preload Type Entry
+                schema:
+                  type: dict
+                  additional_attrs: true
+                  attrs:
+                    - variable: url
+                      label: Url
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+        - variable: cors
+          label: Enable CORS
           schema:
             type: boolean
-            default: false
+            default: true
             show_subquestions_if: true
             subquestions:
-              - variable: CORS
-                label: Enable CORS
-                schema:
-                  type: boolean
-                  default: true
-              - variable: CORS_ALLOW_ORIGINS
+              - variable: cors_allow_origins
                 label: Cors Allows Origins
                 schema:
                   type: string
