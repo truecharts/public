@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/2fauth
   pullPolicy: IfNotPresent
-  tag: v4.2.1@sha256:a5ab2136f9ba431f1a1d816217eb35608a38b54f8ffc511e1369a5479f6cbcb3
+  tag: v4.2.2@sha256:0383cb30609aa4cb60fd00b7a15c7f8e18533c18714144d498fcc2ea0744297f
 
 securityContext:
   container:
@@ -85,19 +85,19 @@ workload:
             BROADCAST_DRIVER: log
             QUEUE_DRIVER: sync
             SESSION_LIFETIME: 120
-            # postgres
-            DB_CONNECTION: pgsql
+            # mysql
+            DB_CONNECTION: mysql
             DB_HOST:
               secretKeyRef:
-                name: cnpg-main-urls
-                key: host
-            DB_PORT: 5432
-            DB_DATABASE: "{{ .Values.cnpg.main.database }}"
-            DB_USERNAME: "{{ .Values.cnpg.main.user }}"
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: plainhost
+            DB_PORT: 3306
+            DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
+            DB_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
             DB_PASSWORD:
               secretKeyRef:
-                name: cnpg-main-user
-                key: password
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: mariadb-password
             # config
             # IS_DEMO_APP: false
             # APP
@@ -135,12 +135,10 @@ persistence:
     enabled: true
     mountPath: "/2fauth"
 
-# Enabled postgres
-cnpg:
-  main:
-    enabled: true
-    user: twofauth
-    database: twofauth
+mariadb:
+  enabled: true
+  user: twofauth
+  database: twofauth
 redis:
   enabled: true
   redisUsername: twofauth
