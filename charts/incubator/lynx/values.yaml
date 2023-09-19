@@ -66,14 +66,14 @@ workload:
               secretKeyRef:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "mongodbcreds" }}'
-                key: plainhost
+                key: host
             DB_PORT: 27017
+            DB_USER: "{{ .Values.mongodb.mongodbUsername }}"
             DB_PASSWORD:
               secretKeyRef:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "mongodbcreds" }}'
                 key: mongodb-password
-            DB_USER: "{{ .Values.mongodb.mongodbUsername }}"
             DEMO: false
             # app
             HOME_REDIRECT: "{{ .Values.lynx.app.home_redirect }}"
@@ -102,8 +102,8 @@ persistence:
 
 mongodb:
   enabled: true
+  mongodbUsername: lynx
   # default values that cant change.
-  mongodbUsername: admin
   mongodbDatabase: shortener
 
 portal:
