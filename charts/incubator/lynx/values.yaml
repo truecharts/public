@@ -44,6 +44,16 @@ workload:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              path: "/api/about"
+              type: http
+            readiness:
+              path: "/api/about"
+              type: http
+            startup:
+              path: "/api/about"
+              type: http
           env:
             EXPRESS_PORT: "{{ .Values.service.main.ports.main.port }}"
             NODE_ENV: production
