@@ -11,9 +11,71 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-
 # Include{containerBasic}
 # Include{containerAdvanced}
+
+  - variable: odoo
+    group: App Configuration
+    label: Odoo
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: admin
+          label: Admin Credentials
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: passwd
+                label: Admin Password
+                schema:
+                  type: string
+                  required: true
+                  private: true
+                  default: ""
+        - variable: smtp
+          label: SMTP Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: server
+                label: Server
+                schema:
+                  type: string
+                  default: ""
+              - variable: port
+                label: Port
+                schema:
+                  type: int
+                  default: 587
+              - variable: user
+                label: User
+                schema:
+                  type: string
+                  default: ""
+              - variable: password
+                label: Password
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+              - variable: from
+                label: Email From
+                schema:
+                  type: string
+                  default: ""
+              - variable: ssl
+                label: SSL
+                schema:
+                  type: string
+                  default: "False"
+                  enum:
+                    - value: "False"
+                      description: "False"
+                    - value: "True"
+                      description: "True"
 
 # Include{containerConfig}
 # Include{podOptions}
@@ -34,9 +96,9 @@ questions:
                               type: int
                               default: 8069
                               required: true
-        - variable: odoo
-          label: "Odoo Service"
-          description: "Odoo Services"
+        - variable: xmlrpcs
+          label: "XMLR PCS Service"
+          description: "XMLR PCS Service"
           schema:
             additional_attrs: true
             type: dict
@@ -44,7 +106,7 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: xmlrpcs
-                      label: "xmlrpcs Service Port Configuration"
+                      label: "XMLR PCS Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -56,8 +118,17 @@ questions:
                               type: int
                               default: 8071
                               required: true
+        - variable: longpolling
+          label: "Long Polling Service"
+          description: "Long Polling Service"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
                     - variable: longpolling
-                      label: "longpolling Service Port Configuration"
+                      label: "Long Polling Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -74,8 +145,8 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: odoo
-          label: "App Storage"
-          description: "Stores the Application."
+          label: "App Config Storage"
+          description: "Stores the Application Configuration."
           schema:
             additional_attrs: true
             type: dict

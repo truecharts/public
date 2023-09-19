@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/vaultwarden
   pullPolicy: IfNotPresent
-  tag: v1.29.1@sha256:5a670aee4b1a57a5a414607f9222f558ab365625f64ff78885f7776971c95b54
+  tag: v1.29.2@sha256:f5761cdd99e267221623b7a91d123153885afd0980b31c863de039245b73aad3
 manifestManager:
   enabled: true
 service:
@@ -95,8 +95,8 @@ vaultwarden:
     ## SMTP sender name, defaults to 'Bitwarden_RS'.
     # fromName: ""
     ## Enable SSL connection.
-    # ssl: true
-    ## SMTP port. Defaults to 25 without SSL, 587 with SSL.
+    # security: starttls
+    ## SMTP port. Defaults to 587 with STARTTLS, 465 with FORCE_TLS, and 25 without SSL.
     # port: 587
     ## SMTP Authentication Mechanisms. Comma-separated options: 'Plain', 'Login' and 'Xoauth2'. Defaults to 'Plain'.
     # authMechanism: Plain
