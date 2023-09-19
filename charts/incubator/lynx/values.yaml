@@ -66,7 +66,7 @@ workload:
               secretKeyRef:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "mongodbcreds" }}'
-                key: url
+                key: plainhost
             DB_PORT: 27017
             DB_PASSWORD:
               secretKeyRef:
@@ -102,8 +102,8 @@ persistence:
 
 mongodb:
   enabled: true
-  mongodbUsername: lynx
-  # static default name
+  # default values that cant change.
+  mongodbUsername: admin
   mongodbDatabase: shortener
 
 portal:
