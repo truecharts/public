@@ -1,0 +1,28 @@
+apiVersion: v2
+appVersion: "1.16.1"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 14.0.3
+deprecated: false
+description: Open source, self-hostable watched list
+home: https://truecharts.org/charts/incubator/watcharr
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/watcharr.png
+keywords:
+  - watcharr
+  - media
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: watcharr
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/watcharr
+  - https://github.com/sbondCo/Watcharr
+type: application
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
