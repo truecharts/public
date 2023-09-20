@@ -11,9 +11,27 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-
 # Include{containerBasic}
 # Include{containerAdvanced}
+
+  - variable: docassemble
+    group: App Configuration
+    label: Docassemble
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: hostname
+          label: HostName
+          schema:
+            type: string
+            required: true
+            default: "http://localhost:10685"
+        - variable: https
+          label: https
+          schema:
+            type: boolean
+            default: false
 
 # Include{containerConfig}
 # Include{podOptions}
@@ -32,7 +50,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 9117
+                              default: 10685
                               required: true
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
@@ -41,6 +59,38 @@ questions:
         - variable: config
           label: "App Config Storage"
           description: "Stores the Application Configuration."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: webapp
+          label: "App Web App Storage"
+          description: "Stores the Application Web App."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: log
+          label: "App Log Storage"
+          description: "Stores the Application Log."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: backup
+          label: "App Backup Storage"
+          description: "Stores the Application Backup."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: files
+          label: "App Files Storage"
+          description: "Stores the Application Files."
           schema:
             additional_attrs: true
             type: dict
