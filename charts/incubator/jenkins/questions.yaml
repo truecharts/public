@@ -146,19 +146,18 @@ questions:
 # Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}
-
-        - variable: runAsUser
-          label: runAsUser
-          description: The UserID of the user running the application
-          schema:
-            type: int
-            default: 1000
-        - variable: runAsGroup
-          label: runAsGroup
-          description: The groupID this App of the user running the application
-          schema:
-            type: int
-            default: 1000
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
+                schema:
+                  type: int
+                  default: 1000
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
+                schema:
+                  type: int
+                  default: 1000
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
@@ -168,7 +167,6 @@ questions:
           schema:
             type: int
             default: 1000
-
 # Include{resources}
 # Include{advanced}
 # Include{addons}

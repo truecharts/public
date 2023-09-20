@@ -4,7 +4,7 @@
 {{/* Render secrets for firezone */}}
 {{- $secrets := include "firezone.secrets" . | fromYaml -}}
 {{- if $secrets -}}
-  {{- $_ := set .Values.secret "secrets" $secrets -}}
+  {{- $_ := set .Values.secret "firezone-secrets" $secrets -}}
 {{- end -}}
 
 {{/* Render the templates */}}
