@@ -1,15 +1,7 @@
 {{/* Define the secret */}}
 {{- define "jenkins.secret" -}}
-
-{{- $secretName := printf "%s-secret" (include "tc.common.names.fullname" .) -}}
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: {{ $secretName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
-stringData:
+enabled: true
+data:
   JAVA_OPTS: {{ join " " (include "java.opts" . | fromYaml).opts | quote }}
   JENKINS_OPTS: {{ join " " (include "jenkins.opts" . | fromYaml).opts | quote }}
   JENKINS_JAVA_OPTS: {{ join " " (include "jenkins.java.opts" . | fromYaml).opts | quote }}
