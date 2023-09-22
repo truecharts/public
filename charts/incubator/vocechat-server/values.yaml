@@ -1,0 +1,33 @@
+image:
+  repository: tccr.io/truecharts/vocechat-server
+  pullPolicy: IfNotPresent
+  tag: v0.3.38@sha256:CHANGE_ME
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 3009
+        port: 3009
+
+vocechat:
+  domain: vocechat.yourdomain.com
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          args:
+            - --network.bind "0.0.0.0:{{ .Values.service.main.ports.main.port }}"
+            - --network.domain "{{ .Values.vocechat.domain }}"
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/home/vocechat-server/data"
+
+portal:
+  open:
+    enabled: true
