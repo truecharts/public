@@ -33,7 +33,6 @@ zammad:
     - ::1
   elasticsearch:
     elasticsearch_enabled: true
-    elasticsearch_url: "elasticsearch.ix-elasticsearch.svc.cluster.local"
     elasticsearch_port: 9200
     elasticsearch_schema: "http"
     elasticsearch_namespace: "zammad"
@@ -66,7 +65,7 @@ workload:
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: url
             ELASTICSEARCH_ENABLED: '{{ .Values.zammad.elasticsearch.elasticsearch_enabled }}'
-            ELASTICSEARCH_HOST: "{{ .Values.zammad.elasticsearch.elasticsearch_url }}"
+            ELASTICSEARCH_HOST: '{{ printf "%v-%v" .Release.Name "elasticsearch" }}'
             ELASTICSEARCH_PORT: "{{ .Values.zammad.elasticsearch.elasticsearch_port }}"
             ELASTICSEARCH_SCHEMA: "{{ .Values.zammad.elasticsearch.elasticsearch_schema }}"
             ELASTICSEARCH_NAMESPACE: "{{ .Values.zammad.elasticsearch.elasticsearch_namespace }}"

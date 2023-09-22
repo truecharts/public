@@ -107,12 +107,6 @@ questions:
                   type: boolean
                   required: true
                   default: true
-              - variable: elasticsearch_url
-                label: Elasticsearch URL
-                description: This should point to your Elasticsearch instance's endpoint, and should either be the host name or IP address. The default value assumes your Elasticsearch chart's name is elasticsearch.
-                schema:
-                  type: string
-                  default: "elasticsearch.ix-elasticsearch.svc.cluster.local"
               - variable: elasticsearch_port
                 label: Elasticsearch Port
                 description: This should point to your Elasticsearch instance's port.
