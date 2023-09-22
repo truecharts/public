@@ -80,18 +80,6 @@ questions:
                         type: string
                         required: true
                         default: ""
-        - variable: redis
-          label: Redis Configuration
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-              - variable: redis_url
-                label: Redis URL
-                description: Allows you to store your web socket conection within Redis, and should point to your Redis instance. The default value assumes your Redis chart's name is redis. If not provided, Zammad falls back to the file system (`/opt/zammad/tmp/websocket_*`).
-                schema:
-                  type: string
-                  default: "http://redis.ix-redis.svc.cluster.local:6379"
         - variable: memcached
           label: Memcached Configuration
           schema:

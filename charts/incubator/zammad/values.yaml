@@ -27,12 +27,6 @@ zammad:
     webcon_delayedjobs: 0
   rails:
     rails_trustedproxies: ['127.0.0.1', '::1']
-  redis:
-redis_url:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
-                key: url
   memcached:
     memcached_url: "http://memcached.ix-memcached.svc.cluster.local:11211"
   elasticsearch:
@@ -63,8 +57,12 @@ workload:
             ZAMMAD_PROCESS_SCHEDULED_JOBS_WORKERS: "{{ .Values.zammad.webconcurrency.webcon_schedprocesses }}"
             ZAMMAD_PROCESS_DELAYED_JOBS_WORKERS: "{{ .Values.zammad.webconcurrency.webcon_delayedjobs }}"
             RAILS_TRUSTED_PROXIES: '{{ .Values.rails.rails_trustedproxies }}'
-            REDIS_URL: '{{ .Values.zammad.redis.redis_url }}'
             MEMCACHE_SERVERS: '{{ .Values.zammad.memcached.memcached_url }}'
+            REDIS_URL:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: url
             ELASTICSEARCH_ENABLED: '{{ .Values.zammad.elasticsearch.elasticsearch_enabled }}'
             ELASTICSEARCH_HOST: "{{ .Values.zammad.elasticsearch.elasticsearch_url }}"
             ELASTICSEARCH_PORT: "{{ .Values.zammad.elasticsearch.elasticsearch_port }}"
