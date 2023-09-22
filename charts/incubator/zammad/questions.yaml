@@ -82,18 +82,6 @@ questions:
                         type: string
                         required: true
                         default: ""
-        - variable: memcached
-          label: Memcached Configuration
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-              - variable: memcached_url
-                label: Memcached URL
-                description: Allows you to store your application cache files within Memcached, and should point to your Memcached instance. The default value assumes your Memchaced chart's name is memcached. If not provided, Zammad falls back to the file system (`/opt/zammad/tmp/cache*`).
-                schema:
-                  type: string
-                  default: "http://memcached.ix-memcached.svc.cluster.local:11211"
         - variable: elasticsearch
           label: Elasticsearch Configuration
           schema:
