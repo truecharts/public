@@ -28,7 +28,11 @@ zammad:
   rails:
     rails_trustedproxies: ['127.0.0.1', '::1']
   redis:
-    redis_url: "http://redis.ix-redis.svc.cluster.local:6379"
+redis_url:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: url
   memcached:
     memcached_url: "http://memcached.ix-memcached.svc.cluster.local:11211"
   elasticsearch:
