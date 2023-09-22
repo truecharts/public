@@ -48,7 +48,7 @@ workload:
               secretKeyRef:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
-                key: plainhost
+                key: url
 
 persistence:
   config:
@@ -59,7 +59,7 @@ persistence:
 
 redis:
   enabled: true
-  redisUsername: papermerge
+  # redisUsername: papermerge
 
 cnpg:
   main:
