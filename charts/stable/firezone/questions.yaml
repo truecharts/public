@@ -77,7 +77,7 @@ questions:
                 description: to create or reset the admin password every time Firezone starts. By default, the admin password is only set when Firezone is installed.
                 schema:
                   type: boolean
-                  default: false
+                  default: true
               - variable: default_email
                 label: Default Email
                 description: Primary administrator email.
@@ -131,9 +131,10 @@ questions:
                   default: 1280
               - variable: client_endpoint
                 label: Client Endpoint
-                description: IPv4, IPv6 address, or FQDN that devices will be configured to connect to.
+                description: IPv4 address, or FQDN that devices will be configured to connect to.
                 schema:
                   type: string
+                  required: true
                   default: ""
               - variable: client_dns
                 label: Client DNS
