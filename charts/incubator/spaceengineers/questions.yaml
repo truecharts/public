@@ -55,6 +55,28 @@ questions:
                               type: int
                               default: 27017
                               required: true
+        - variable: steam
+          label: Steam Service
+          description: The Steam service.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: steam
+                      label: Steam Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 27018
+                              required: true
         - variable: api
           label: API Service
           description: The API service.
