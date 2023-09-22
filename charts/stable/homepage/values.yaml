@@ -61,3 +61,13 @@ rbac:
         verbs:
           - get
           - list
+      - apiGroups:
+          - apiextensions.k8s.io
+        resources:
+          - customresourcedefinitions/status
+        verbs:
+          - get
+workload:
+  main:
+    podSpec:
+       automountServiceAccountToken: true
