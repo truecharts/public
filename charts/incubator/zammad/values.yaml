@@ -77,8 +77,21 @@ persistence:
   data:
     enabled: true
     mountPath: /data
+  redis-session:
+    enabled: true
+    type: configmap
+    objectName: redis-session
+    targetSelector:
+      main:
+        main:
+          mountPath: /usr/local/etc/php/conf.d/redis-session.ini
+          subPath: redis-session.ini
+          readOnly: true
 
 portal:
   open:
     enabled: false
 
+redis:
+  enabled: true
+  username: default

@@ -4,6 +4,10 @@ dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 14.0.1
+  - condition: redis.enabled
+    name: redis
+    repository: https://deps.truecharts.org
+    version: 6.0.66
 deprecated: false
 description: Zammad is a web-based and open source helpdesk/customer support system with many features to manage customer communication via several channels such as telephone, Facebook, Twitter/X, chat and e-mails.
 home: https://truecharts.org/charts/incubator/zammad
