@@ -43,11 +43,11 @@ workload:
             - -c
           args:
             - |-
-              export configFile="/config/includes/sys.config.php";
+              export configFile="/config/projectsend/includes/sys.config.php";
               if [ ! -f $configFile ];
               then
                 echo "Creating initial config file...";
-                mkdir -p /config/includes;
+                mkdir -p /config/projectsend;
                 touch $configFile;
                 echo "<?php" >> $configFile;
                 echo "# This is generated on initial setup of this TrueCharts App" >> $configFile;
