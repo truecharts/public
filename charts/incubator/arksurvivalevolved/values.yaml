@@ -1,18 +1,46 @@
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/arksurvivalevolved
-  tag: latest@sha256:6c3c2c8ce43c350b88e93943eb99265499680011f2eb5b912652e226a19bd47c
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+  tag: latest@sha256:c0aeac7b1419b1591e65b42384b74c07575610b891eb5b78cba1cd7735643d3f
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 7777
+        protocol: udp
+      game:
+        enabled: true
+        port: 7778
+        # This should always be main +1
+        protocol: udp
+  query:
+    enabled: true
+    ports:
+      query:
+        enabled: true
+        protocol: udp
+        port: 27015
+  rcon:
+    enabled: true
+    ports:
+      rcon:
+        enabled: true
+        protocol: tcp
+        port: 27020
 
 ark:
-  srv_admin_pass: ""
+  # setting pass for rcon
+  srv_admin_pass: "123456789"
   srv_password: ""
   username: ""
   password: ""
@@ -30,54 +58,33 @@ ark:
   server_name: ""
   validate: false
 
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-secret'
-
-probes:
-  liveness:
-    port: "{{ .Values.service.rcontcp.ports.rcontcp.port }}"
-  readiness:
-    port: "{{ .Values.service.rcontcp.ports.rcontcp.port }}"
-  startup:
-    port: "{{ .Values.service.rcontcp.ports.rcontcp.port }}"
-
-service:
+workload:
   main:
-    ports:
-      main:
-        port: 7777
-        protocol: UDP
-  udp2:
-    enabled: true
-    ports:
-      udp2:
-        enabled: true
-        # This should always be main +1
-        port: 7778
-        protocol: UDP
-  udpsteam:
-    enabled: true
-    ports:
-      udpsteam:
-        enabled: true
-        port: 27015
-        protocol: UDP
-  rcontcp:
-    enabled: true
-    ports:
-      rcontcp:
-        enabled: true
-        port: 27020
-        protocol: TCP
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+              port: "{{ .Values.service.rcon.ports.rcon.port }}"
+            readiness:
+              type: tcp
+              port: "{{ .Values.service.rcon.ports.rcon.port }}"
+            startup:
+              type: tcp
+              port: "{{ .Values.service.rcon.ports.rcon.port }}"
+          envFrom:
+            - secretRef:
+                name: "ark-secrets"
 
 persistence:
-  serverfiles:
-    enabled: true
-    mountPath: /serverdata/serverfiles
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
 
 portal:
-  enabled: true
+  open:
+    enabled: false

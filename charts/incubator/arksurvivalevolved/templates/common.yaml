@@ -1,16 +1,19 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "tc.common.loader.init" . }}
+{{- include "tc.v1.common.loader.init" . }}
 
-{{- if ne (int .Values.service.udp2.ports.udp2.port) (add1 (int .Values.service.main.ports.main.port)) -}}
-  {{- fail (printf "In the service udp2, the port for udp2 must be greater by 1 than the main service's port. You have to set it to <%s>." (add1 .Values.service.main.ports.main.port)) }}
+{{- if ne (int .Values.service.main.ports.game.port) (add1 (int .Values.service.main.ports.main.port)) -}}
+  {{- fail (printf "In the service game, the port for game must be greater by 1 than the main service's port. You have to set it to <%s>." (add1 .Values.service.main.ports.main.port)) }}
 {{- end -}}
 
-{{- if and (ge (int .Values.service.udpsteam.ports.udpsteam.port) 27020) (le (int .Values.service.udpsteam.ports.udpsteam.port) 27050) -}}
-  {{- fail "UDP Steam Service port cannot be between 27020 and 27050." -}}
+{{- if and (ge (int .Values.service.query.ports.query.port) 27020) (le (int .Values.service.query.ports.query.port) 27050) -}}
+  {{- fail "Query Steam Service port cannot be between 27020 and 27050." -}}
 {{- end }}
 
-{{/* Render secret */}}
-{{- include "ark.secret" . }}
+{{/* Render secrets for ark */}}
+{{- $secrets := include "ark.secrets" . | fromYaml -}}
+{{- if $secrets -}}
+  {{- $_ := set .Values.secret "ark-secrets" $secrets -}}
+{{- end -}}
 
 {{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}
+{{ include "tc.v1.common.loader.apply" . }}

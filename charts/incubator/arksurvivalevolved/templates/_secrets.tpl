@@ -1,12 +1,12 @@
-{{/* Define the secret */}}
-{{- define "ark.secret" -}}
+{{/* Define the secrets */}}
+{{- define "ark.secrets" -}}
 
-{{- $secretName := printf "%s-secret" (include "tc.common.names.fullname" .) }}
+{{- $secretName := (printf "%s-ark-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) -}}
 
 {{- $params := list }}
 {{- $params = append $params (printf "?Port=%v" .Values.service.main.ports.main.port) -}}
-{{- $params = append $params (printf "?QueryPort=%v" .Values.service.udpsteam.ports.udpsteam.port) -}}
-{{- $params = append $params (printf "?RCONPort=%v" .Values.service.rcontcp.ports.rcontcp.port) -}}
+{{- $params = append $params (printf "?QueryPort=%v" .Values.service.query.ports.query.port) -}}
+{{- $params = append $params (printf "?RCONPort=%v" .Values.service.rcon.ports.rcon.port) -}}
 
 {{- $gameExtraParams := list -}}
 {{- range $key, $value := .Values.ark.easy_game_extra_params -}}
@@ -18,15 +18,8 @@
 {{- if .Values.ark.rcon_enabled -}}
   {{- $params = append $params (print "?RCONEnabled=True") -}}
 {{- end }}
-
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: {{ $secretName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
-stringData:
+enabled: true
+data:
   GAME_ID: {{ .Values.ark.game_id | quote }}
   GAME_PARAMS: {{ printf "%s%s" (join "" $params) (join "" .Values.ark.game_params) | quote }}
   GAME_PARAMS_EXTRA: {{ (join " " (concat $gameExtraParams .Values.ark.game_params_extra)) | quote }}

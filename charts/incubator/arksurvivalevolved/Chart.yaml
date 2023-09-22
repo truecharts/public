@@ -1,19 +1,16 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - GameServers
 apiVersion: v2
 appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 14.0.3
 deprecated: false
-description: "This Chart will download and install SteamCMD. It will also install ARK:SurvivalEvolved and run it (Normal server startup of ARK can take a long time!)."
+description: A custom SteamCMD chart that runs ArkSE.
 home: https://truecharts.org/charts/incubator/arksurvivalevolved
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/arksurvivalevolved.png
 keywords:
   - arksurvivalevolved
+  - arkse
   - GameServers
 kubeVersion: ">=1.16.0-0"
 maintainers:
@@ -23,6 +20,10 @@ maintainers:
 name: arksurvivalevolved
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/arksurvivalevolved
-  - https://survivetheark.com/
+  - https://github.com/ich777/docker-steamcmd-server/tree/arkse
 type: application
-version: 3.0.9
+version: 4.0.0
+annotations:
+  truecharts.org/catagories: |
+    - GameServers
+  truecharts.org/SCALE-support: "true"
