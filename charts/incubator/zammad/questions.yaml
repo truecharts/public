@@ -72,7 +72,9 @@ questions:
                 description: Allows you to change the trusted proxies. Changing this isn't recommended unless you know what you're doing.
                 schema:
                   type: list
-                  default: ['127.0.0.1', '::1']
+                  default:
+                  - 127.0.0.1
+                  - ::1
                   items:
                     - variable: url
                       label: URL

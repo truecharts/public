@@ -26,9 +26,11 @@ zammad:
     webcon_schedprocesses: false
     webcon_delayedjobs: 0
   rails:
-    rails_trustedproxies: ['127.0.0.1', '::1']
   memcached:
     memcached_url: "http://memcached.ix-memcached.svc.cluster.local:11211"
+    rails_trustedproxies:
+    - 127.0.0.1
+    - ::1
   elasticsearch:
     elasticsearch_enabled: true
     elasticsearch_url: "elasticsearch.ix-elasticsearch.svc.cluster.local"
@@ -45,11 +47,11 @@ workload:
         main:
           probes:
             liveness:
-              enabled: false
+              enabled: true
             readiness:
-              enabled: false
+              enabled: true
             startup:
-              enabled: false
+              enabled: true
           env:
             AUTOWIZARD_JSON: "{{ .Values.zammad.zammad.zammad_autowizardjson }}"
             ZAMMAD_WEB_CONCURRENCY: "{{ .Values.zammad.webconcurrency.webcon_instances }}"
