@@ -27,8 +27,8 @@ zammad:
     webcon_delayedjobs: 0
   rails:
     rails_trustedproxies:
-    - 127.0.0.1
-    - ::1
+    - "127.0.0.1"
+    - "::1"
   elasticsearch:
     elasticsearch_enabled: true
     elasticsearch_port: 9200
