@@ -10,14 +10,6 @@ podSpec:
       enabled: true
       primary: true
       imageSelector: "image"
-      securityContext:
-        runAsNonRoot: false
-        readOnlyRootFilesystem: false
-        runAsUser: 0
-        runAsGroup: 0
-        capabilities:
-          drop:
-            - ALL
       command:
           - /bin/bash
           - -c
