@@ -10,8 +10,83 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
 # Include{containerBasic}
 # Include{containerAdvanced}
+
+  - variable: backuppc
+    group: App Configuration
+    label: Backup PC
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: smtp
+          label: SMTP Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: auto_from
+                label: Auto From
+                description: Add setting to support sending through Gmail SMTP.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: host
+                label: SMTP Host
+                schema:
+                  type: string
+                  default: ""
+              - variable: port
+                label: SMTP Port
+                schema:
+                  type: int
+                  default: 25
+              - variable: domain
+                label: HELO Domain
+                schema:
+                  type: string
+                  default: ""
+              - variable: maildomain
+                label: Mail Domain From.
+                schema:
+                  type: string
+                  default: ""
+              - variable: auth
+                label: SMTP Authentication
+                schema:
+                  type: string
+                  default: "NONE"
+              - variable: user
+                label: SMTP Username
+                schema:
+                  type: string
+                  default: ""
+              - variable: pass
+                label: SMTP Password
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+              - variable: tls
+                label: TLS
+                description: Use TLS.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: starttls
+                label: StartTLS
+                description:     Start TLS from within session.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: tlscertcheck
+                label: TLS Cert Check
+                description: Check remote certificate.
+                schema:
+                  type: boolean
+                  default: false
 
 # Include{containerConfig}
 # Include{serviceRoot}
@@ -41,33 +116,33 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: backuplocation
-          label: "backuplocation Storage"
-          description: "Backup Location"
+        - variable: config
+          label: "App Config Storage"
+          description: "Stores the Application Configuration."
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
-        - variable: configurationfiles
-          label: "configurationfiles Storage"
-          description: "Configuration Files"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
-        - variable: homedirectory
-          label: "homedirectory Storage"
-          description: "Home Directory for Backuppc (SSH Keys)"
+        - variable: ssh
+          label: "App SSH Storage"
+          description: "Stores the Application SSH."
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
         - variable: logs
-          label: "logs Storage"
-          description: "Logs"
+          label: "App Logs Storage"
+          description: "Stores the Application Logs."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: data
+          label: "App Data Storage"
+          description: "Stores the Application Data."
           schema:
             additional_attrs: true
             type: dict
@@ -96,7 +171,7 @@ questions:
                   default: 0
               - variable: runAsGroup
                 label: "runAsGroup"
-                description: "The groupID of the user running the application"
+                description: "The groupID this App of the user running the application"
                 schema:
                   type: int
                   default: 0
