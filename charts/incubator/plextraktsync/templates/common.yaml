@@ -2,11 +2,11 @@
 {{- include "tc.v1.common.loader.init" . }}
 
 {{- if and .Values.plextraktsync.cron_enabled .Values.plextraktsync.schedule}}
-{{/* Render cronjob for plextraktsync */}}
-{{- $cronjob := include "plextraktsync.cronjob" . | fromYaml -}}
-{{- if $cronjob -}}
-{{- $_ := set .Values.workload "cron" $cronjob -}}
-{{- end -}}
+  {{/* Render cronjob for plextraktsync */}}
+  {{- $cronjob := include "plextraktsync.cronjob" . | fromYaml -}}
+  {{- if $cronjob -}}
+    {{- $_ := set .Values.workload "cron" $cronjob -}}
+  {{- end -}}
 {{- end -}}
 
 {{/* Render the templates */}}
