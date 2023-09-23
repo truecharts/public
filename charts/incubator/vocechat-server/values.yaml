@@ -19,8 +19,8 @@ workload:
       containers:
         main:
           args:
-            - --network.bind "0.0.0.0:{{ .Values.service.main.ports.main.port }}"
-            - --network.domain "{{ .Values.vocechat.domain }}"
+            - --network.bind 0.0.0.0:{{ .Values.service.main.ports.main.port }}
+            - --network.domain {{ .Values.vocechat.domain }}
 
 persistence:
   data:
