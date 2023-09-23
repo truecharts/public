@@ -25,8 +25,8 @@ podSpec:
           - -c
           - |
             plextraktsync
-            {{- if  ${task} }}
-              {{ ${task} }}
+            {{- if  $task }}
+              {{ $task }}
             {{- else }}
               sync --sync=all
             {{- end }}
