@@ -92,17 +92,17 @@ workload:
             liveness:
               enabled: true
               type: http
-              path: /api
+              path: /health
               port: "{{ .Values.service.server.ports.server.port }}"
             readiness:
               enabled: true
               type: http
-              path: /api
+              path: /health
               port: "{{ .Values.service.server.ports.server.port }}"
             startup:
               enabled: true
               type: http
-              path: /api
+              path: /health
               port: "{{ .Values.service.server.ports.server.port }}"
           env:
             PORT: "{{ .Values.service.server.ports.server.port }}"
