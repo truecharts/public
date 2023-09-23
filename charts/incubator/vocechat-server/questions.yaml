@@ -11,9 +11,22 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-
 # Include{containerBasic}
 # Include{containerAdvanced}
+
+  - variable: vocechat
+    group: App Configuration
+    label: VoceChat Server
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: domain
+          label: Domain
+          schema:
+            type: string
+            required: true
+            default: "http://localhost:3009"
 
 # Include{containerConfig}
 # Include{podOptions}
