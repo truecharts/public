@@ -19,6 +19,16 @@ workload:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              path: "/health_check"
+              type: http
+            readiness:
+              path: "/health_check"
+              type: http
+            startup:
+              path: "/health_check"
+              type: http
           env:
             DBNAME: "{{ .Values.cnpg.main.database  }}"
             DBUSER: "{{ .Values.cnpg.main.user }}"
