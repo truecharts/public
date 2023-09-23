@@ -9,6 +9,11 @@ securityContext:
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
+    allowPrivilegeEscalation: true
+    capabilities:
+      add:
+        - SETFCAP
+        - SETPCAP
 
 service:
   main:
@@ -16,11 +21,6 @@ service:
       main:
         port: 9200
         targetPort: 9200
-
-persistence:
-  data:
-    enabled: true
-    mounthPath: "/bitnami/elasticsearch/data"
 
 portal:
   open:
