@@ -11,15 +11,12 @@ podSpec:
       primary: true
       imageSelector: "image"
       command:
-          - /bin/bash
-          - -c
-          - |
-            plextraktsync
-            {{- if  .Values.plextraktsync.task }}
-              {{ .Values.plextraktsync.task }}
-            {{- else }}
-              sync --sync=all
-            {{- end }}
+          - plextraktsync
+          {{- if  .Values.plextraktsync.task }}
+          - {{ .Values.plextraktsync.task }}
+          {{- else }}
+          - sync --sync=all
+          {{- end }}
       probes:
         liveness:
           enabled: false
