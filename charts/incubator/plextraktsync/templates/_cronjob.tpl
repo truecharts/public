@@ -18,15 +18,13 @@ podSpec:
         capabilities:
           drop:
             - ALL
-      env:
-        task: {{ .Values.plexTraktSync.task }}
       command:
           - /bin/bash
           - -c
           - |
             plextraktsync
-            {{- if  $task }}
-              {{ $task }}
+            {{- if  .Values.plexTraktSync.task }}
+              {{ .Values.plexTraktSync.task }}
             {{- else }}
               sync --sync=all
             {{- end }}
