@@ -43,8 +43,7 @@ workload:
               secretKeyRef:
                 name: cnpg-main-user
                 key: password
-            PAPERMERGE__REDIS__PORT: 6379
-            PAPERMERGE__REDIS__HOST:
+            PAPERMERGE__REDIS__URL:
               secretKeyRef:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
