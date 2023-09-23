@@ -48,18 +48,21 @@ questions:
                 description: Allows specifying the amount of instances of the session worker to run at a time. Increasing this can speed up background jobs (like the scheduler) when too many users are on Zammad at once. Generally speaking, it should only be useful to adjust this setting if you have more than 40 active users at a time.
                 schema:
                   type: int
+                  required: true
                   default: 0
               - variable: webcon_schedprocesses
                 label: Independent Process for Scheduled Jobs
                 description: Allows you to enable or disable independent processes for jobs such as LDAP syncs. This can free up the Zammad background worker for other tasks when some scheduled tasks are fairly long.
                 schema:
                   type: boolean
+                  required: true
                   default: false
               - variable: webcon_delayedjobs
                 label: Processes for Delayed Jobs
                 description: Allows you to specify the amount of processes that should work on delayed jobs. Increasing this can improve issues with delayed jobs stacking up in your system. You may want to try to use `Concurrent Session Jobs` before though. This option can be very CPU intensive. The maximum value is 16.
                 schema:
                   type: int
+                  required: true
                   default: 0
         - variable: rails
           label: Rails Configuration
@@ -93,6 +96,7 @@ questions:
                 description: This enables reindexing on startups, which may be troublesome on larger installations.
                 schema:
                   type: boolean
+                  required: true
                   default: true
 
 # Include{podOptions}
