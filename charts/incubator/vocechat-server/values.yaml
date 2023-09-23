@@ -11,7 +11,7 @@ service:
         port: 3009
 
 vocechat:
-  domain: localhost:3009
+  domain: localhost:{{ .Values.service.main.ports.main.port }}
 
 workload:
   main:
