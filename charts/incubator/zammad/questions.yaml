@@ -88,42 +88,11 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-              - variable: elasticsearch_enabled
-                label: Elasticsearch Enable
-                description: Allows you to enable Elasticsearch, which is enabled by default and is the recommended configuration.
-                schema:
-                  type: boolean
-                  required: true
-                  default: true
-              - variable: elasticsearch_port
-                label: Elasticsearch Port
-                description: This should point to your Elasticsearch instance's port.
-                schema:
-                  type: int
-                  default: 9200
-              - variable: elasticsearch_schema
-                label: Elasticsearch Schema
-                description: Allows you to specify the schema of Elasticsearch.
-                schema:
-                  type: string
-                  default: "http"
-              - variable: elasticsearch_namespace
-                label: Elasticsearch Namespace
-                description: Allows you to specify a namespace to all Zammad related indexes will be created. Change this if you're using external clusters.
-                schema:
-                  type: string
-                  default: "zammad"
               - variable: elasticsearch_reindex
                 label: Elasticsearch Reindex
                 description: This enables reindexing on startups, which may be troublesome on larger installations.
                 schema:
                   type: boolean
-                  default: true
-              - variable: elasticsearch_sslverify
-                label: Elasticsearch SSL Verify
-                description: Allows you to let the compose scripts ignore self signed SSL certificates for your Elasticsearch installation if needed.
-                schema:
-                  type: bool
                   default: true
 
 # Include{podOptions}

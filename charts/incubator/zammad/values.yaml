@@ -30,12 +30,7 @@ zammad:
     - 127.0.0.1
     - ::1
   elasticsearch:
-    elasticsearch_enabled: true
-    elasticsearch_port: 9200
-    elasticsearch_schema: "http"
-    elasticsearch_namespace: "zammad"
     elasticsearch_reindex: true
-    elasticsearch_sslverify: true
 
 workload:
   main:
@@ -62,13 +57,13 @@ workload:
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: url
             MEMCACHE_SERVERS: '{{ printf "%v-%v:%v" .Release.Name "memcached" "11211" }}'
-            ELASTICSEARCH_ENABLED: '{{ .Values.zammad.elasticsearch.elasticsearch_enabled }}'
+            ELASTICSEARCH_ENABLED: true
             ELASTICSEARCH_HOST: '{{ printf "%v-%v" .Release.Name "elasticsearch" }}'
-            ELASTICSEARCH_PORT: "{{ .Values.zammad.elasticsearch.elasticsearch_port }}"
-            ELASTICSEARCH_SCHEMA: "{{ .Values.zammad.elasticsearch.elasticsearch_schema }}"
-            ELASTICSEARCH_NAMESPACE: "{{ .Values.zammad.elasticsearch.elasticsearch_namespace }}"
+            ELASTICSEARCH_PORT: 9200
+            ELASTICSEARCH_SCHEMA: "http"
+            ELASTICSEARCH_NAMESPACE: "zammad"
             ELASTICSEARCH_REINDEX: "{{ .Values.zammad.elasticsearch.elasticsearch_reindex }}"
-            ELASTICSEARCH_SSL_VERIFY: "{{ .Values.zammad.elasticsearch.elasticsearch_sslverify }}"
+            ELASTICSEARCH_SSL_VERIFY: true
 
 persistence:
   data:
