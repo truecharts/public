@@ -15,13 +15,12 @@ service:
     ports:
       main:
         port: 9200
-        protocol: tcp
         targetPort: 9200
 
 persistence:
-  config:
+  data:
     enabled: true
-    mounthPath: /bitnami
+    mounthPath: "/bitnami/elasticsearch/data"
 
 portal:
   open:
