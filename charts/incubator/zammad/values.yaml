@@ -55,7 +55,7 @@ workload:
             ZAMMAD_SESSION_JOBS_CONCURRENT: "{{ .Values.zammad.webconcurrency.webcon_sessionjobs }}"
             ZAMMAD_PROCESS_SCHEDULED_JOBS_WORKERS: "{{ .Values.zammad.webconcurrency.webcon_schedprocesses }}"
             ZAMMAD_PROCESS_DELAYED_JOBS_WORKERS: "{{ .Values.zammad.webconcurrency.webcon_delayedjobs }}"
-            RAILS_TRUSTED_PROXIES: '{{ .Values.rails.rails_trustedproxies }}'
+            RAILS_TRUSTED_PROXIES: '{{ toJson .Values.rails.rails_trustedproxies }}'
             REDIS_URL:
               secretKeyRef:
                 expandObjectName: false
