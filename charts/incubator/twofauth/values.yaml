@@ -67,8 +67,8 @@ workload:
                 key: APP_KEY
             APP_ENV: local
             # If you're looking for performance improvements, you could install memcached.
-            CACHE_DRIVER: file
-            SESSION_DRIVER: file
+            CACHE_DRIVER: redis
+            SESSION_DRIVER: redis
             # redis
             REDIS_HOST:
               secretKeyRef:
@@ -82,8 +82,8 @@ workload:
                 key: redis-password
             REDIS_PORT: 6379
             REDIS_USERNAME: "{{ .Values.redis.redisUsername }}"
-            BROADCAST_DRIVER: log
-            QUEUE_DRIVER: sync
+            BROADCAST_DRIVER: redis
+            QUEUE_DRIVER: redis
             SESSION_LIFETIME: 120
             # mysql
             DB_CONNECTION: mysql
@@ -107,7 +107,7 @@ workload:
             APP_URL: "{{ .Values.twofauth.app.url }}"
             LOG_CHANNEL: "{{ .Values.twofauth.app.log_channel }}"
             LOG_LEVEL: "{{ .Values.twofauth.app.log_level }}"
-            trusted_proxies: '{{ join "," .Values.twofauth.app.trusted_proxies }}'
+            TRUSTED_PROXIES: '{{ join "," .Values.twofauth.app.trusted_proxies }}'
             # MAIL
             MAIL_DRIVER: "{{ .Values.twofauth.mail.driver }}"
             MAIL_HOST: "{{ .Values.twofauth.mail.host }}"
