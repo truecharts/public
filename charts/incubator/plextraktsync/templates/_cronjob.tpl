@@ -2,7 +2,7 @@
 {{- define "plextraktsync.cronjob" -}}
 enabled: true
 type: "CronJob"
-schedule: "{{ .Values.plexTraktSync.schedule }}"
+schedule: "{{ .Values.plextraktsync.schedule }}"
 podSpec:
   restartPolicy: Never
   containers:
@@ -23,8 +23,8 @@ podSpec:
           - -c
           - |
             plextraktsync
-            {{- if  .Values.plexTraktSync.task }}
-              {{ .Values.plexTraktSync.task }}
+            {{- if  .Values.plextraktsync.task }}
+              {{ .Values.plextraktsync.task }}
             {{- else }}
               sync --sync=all
             {{- end }}
