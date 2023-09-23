@@ -170,8 +170,7 @@ persistence:
         microservices: {}
   externallibrary:
     enabled: true
-    mountPath: /mnt/media
-    readOnly: true
+    mountPath: /media
     targetSelector:
       # Main pod/container is server
       main:
