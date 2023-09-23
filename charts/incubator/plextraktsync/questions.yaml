@@ -1,6 +1,5 @@
 # Include{groups}
 portals: {}
-questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
@@ -11,6 +10,7 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
+
   - variable: plexTraktSync
     group: App Configuration
     label: Plex Trakt Sync Config
@@ -18,26 +18,35 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: task
-          label: Task
-          description: Task to run on schedule. Leave empty for default. Default is <sync --sync=all>
+        - variable: cron_enabled
+          label: "Enable cronjob"
           schema:
-            type: string
-            default: ""
-        - variable: schedule
-          label: Schedule
-          description: How often to run the task
-          schema:
-            type: string
-            default: "0 */6 * * *"
+            type: boolean
+            default: true
+            show_subquestions_if: true
+            subquestions:
+              - variable: task
+                label: Task
+                description: Task to run on schedule. Leave empty for default. Default is <sync --sync=all>
+                schema:
+                  type: string
+                  default: ""
+              - variable: schedule
+                label: Schedule
+                description: How often to run the task.
+                schema:
+                  type: string
+                  default: "0 */6 * * *"
+
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: config
-          label: Config Storage
-          description: Container Path Config
+          label: App Config Storage
+          description: Stores the Application Configuration.
           schema:
             additional_attrs: true
             type: dict
