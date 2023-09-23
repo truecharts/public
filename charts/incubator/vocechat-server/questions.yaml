@@ -21,12 +21,12 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: domain
-          label: Domain
+        - variable: frontend_url
+          label: Frontend Url
           schema:
             type: string
             required: true
-            default: "localhost:3009"
+            default: "http://localhost:3009"
 
 # Include{containerConfig}
 # Include{podOptions}

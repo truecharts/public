@@ -11,7 +11,7 @@ service:
         port: 3009
 
 vocechat:
-  domain: localhost:{{ .Values.service.main.ports.main.port }}
+  frontend_url: localhost:{{ .Values.service.main.ports.main.port }}
 
 workload:
   main:
@@ -20,7 +20,7 @@ workload:
         main:
           args:
             - --network.bind 0.0.0.0:{{ .Values.service.main.ports.main.port }}
-            - --network.domain {{ .Values.vocechat.domain }}
+            - --network.frontend_url {{ .Values.vocechat.frontend_url }}
 
 persistence:
   data:
