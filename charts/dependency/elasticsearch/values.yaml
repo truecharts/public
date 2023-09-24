@@ -6,13 +6,7 @@ image:
 securityContext:
   container:
     readOnlyRootFilesystem: false
-    runAsNonRoot: false
-    runAsUser: 0
     runAsGroup: 0
-    allowPrivilegeEscalation: true
-    capabilities:
-      add:
-        - SYS_CHROOT
 
 service:
   main:
@@ -20,6 +14,11 @@ service:
       main:
         port: 9200
         targetPort: 9200
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/bitnami/mongodb"
 
 portal:
   open:
