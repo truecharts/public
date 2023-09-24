@@ -107,7 +107,7 @@ questions:
 # Include{persistenceBasic}
         - variable: uploads
           label: App Uploads Storage
-          description: Stores the Application Uploads.
+          description: Temporary location for WebUI and mobile app uploads for images/videos that still need to be processed and eventually imported into the library storage.
           schema:
             additional_attrs: true
             type: dict
