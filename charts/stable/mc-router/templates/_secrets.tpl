@@ -4,10 +4,20 @@
 
 {{- $mappings := list -}}
 {{- range $id, $value := $mcrouter.mappings -}}
-  {{ $mappings = mustAppend $mappings (printf "%s=%s" $value.domain $value.service) }}
+  {{- if $value -}}
+    {{ $mappings = mustAppend $mappings (printf "%s=%s" $value.domain $value.service) }}
+  {{- end -}}
 {{- end -}}
 
 enabled: true
 data:
   MAPPING: {{ join "," $mappings }}
+  PORT: {{ .Values.service.main.ports.main.port | quote }}
+  API_BINDING: {{ printf ":%v" .Values.service.api.ports.api.port }}
+  {{- with $mcrouter.default }}
+  DEFAULT: {{ . | quote }}
+  {{- end }}
+  {{- with $mcrouter.ngrok }}
+  NGROK_TOKEN: {{ . | quote }}
+  {{- end }}
 {{- end -}}

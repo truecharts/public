@@ -1,0 +1,10 @@
+mcrouter:
+  default: localhost:25566
+  mappings:
+    - domain: minecraft.local
+      service: localhost:25566
+    - domain: minecraft2.local
+      service: localhost:25567
+    - domain: minecraft3.local
+      service: localhost:25568
+  ngrok: ""
