@@ -1,10 +1,7 @@
 {{/* Define the secrets */}}
 {{- define "mcrouter.secrets" -}}
-{{- $secretName := (printf "%s-mcrouter-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
 
 {{- $mcrouter := .Values.mcrouter }}
-{{- $mainPort := .Values.service.main.ports.main.port }}
-{{- $apiPort := .Values.service.api.ports.api.port }}
 
 {{- $mappings := list -}}
 {{- range $id, $value := $mcrouter.mappings -}}
@@ -15,9 +12,9 @@
 
 enabled: true
 data:
-  MAPPING: {{ join "," $mappings }}
-  PORT: {{ $mainPort }}
-  API_BINDING: {{ printf ":%v" $apiPort }}
+  MAPPING: {{ $mappings }}
+  PORT: {{ .Values.service.main.ports.main.port }}
+  API_BINDING: {{ printf ":%v" .Values.service.api.ports.api.port }}
   {{- with $mcrouter.default }}
   DEFAULT: {{ . | quote }}
   {{- end }}
