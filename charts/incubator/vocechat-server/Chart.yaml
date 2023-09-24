@@ -1,0 +1,28 @@
+apiVersion: v2
+appVersion: "0.3.38"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 14.0.3
+deprecated: false
+description: A superlight rust written social server.
+home: https://truecharts.org/charts/incubator/vocechat-server
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/vocechat-server.png
+keywords:
+  - vocechat-server
+  - social
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: vocechat-server
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/vocechat-server
+  - https://github.com/Privoce/vocechat-server-rust
+type: application
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - social
+  truecharts.org/SCALE-support: "true"
