@@ -1,7 +1,13 @@
-{{- include "tc.common.loader.init" . }}
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.v1.common.loader.init" . }}
 
-{{/* Render cronjob for clamav */}}
-{{- include "plextraktsync.cronjob" . }}
+{{- if and .Values.plextraktsync.cron_enabled .Values.plextraktsync.schedule}}
+  {{/* Render cronjob for plextraktsync */}}
+  {{- $cronjob := include "plextraktsync.cronjob" . | fromYaml -}}
+  {{- if $cronjob -}}
+    {{- $_ := set .Values.workload "cron" $cronjob -}}
+  {{- end -}}
+{{- end -}}
 
 {{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}
+{{ include "tc.v1.common.loader.apply" . }}
