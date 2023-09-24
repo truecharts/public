@@ -12,8 +12,7 @@ securityContext:
     allowPrivilegeEscalation: true
     capabilities:
       add:
-        - SETFCAP
-        - SETPCAP
+        - SYS_CHROOT
 
 service:
   main:
