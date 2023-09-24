@@ -77,19 +77,19 @@ questions:
                             description: This port exposes the container port on the service
                             schema:
                               type: int
-                              default: 25564
+                              default: 25565
                               required: true
-        - variable: minecraft
-          label: Minecraft Service
-          description: The Minecraft service.
+        - variable: api
+          label: API Service
+          description: The API service.
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
-                    - variable: minecraft
-                      label: Minecraft Service Port Configuration
+                    - variable: api
+                      label: API Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
@@ -99,7 +99,7 @@ questions:
                             description: This port exposes the container port on the service
                             schema:
                               type: int
-                              default: 25565
+                              default: 10687
                               required: true
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
