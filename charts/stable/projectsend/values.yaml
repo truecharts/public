@@ -43,7 +43,7 @@ workload:
             - -c
           args:
             - |-
-              export configFile="/config/projectsend/includes/sys.config.php";
+              export configFile="/app/www/public/includes/sys.config.php";
               if [ ! -f $configFile ];
               then
                 echo "Creating initial config file...";
