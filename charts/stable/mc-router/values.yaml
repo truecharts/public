@@ -16,8 +16,11 @@ service:
         port: 25565
 
 mcrouter:
-  host_minecraft: []
-  #  - "minecraft.local=minecraft-java.ix-minecraft-java.svc.cluster.local:25565"
+  default: ""
+  mappings: []
+  # - domain: minecraft.local
+  #   service: minecraft-java.ix-minecraft-java.svc.cluster.local:25565"
+  ngrok: ""
 
 workload:
   main:
@@ -31,12 +34,15 @@ workload:
               enabled: false
             startup:
               enabled: false
-          envFrom:
-            - secretRef:
-                name: "secrets"
           env:
             API_BINDING: ":{{ .Values.service.main.ports.main.port }}"
             PORT: "{{ .Values.service.minecraft.ports.minecraft.port }}"
+            DEFAULT: "{{ .Values.mcrouter.default }}"
+            MAPPING:
+              secretKeyRef:
+                name: mcrouter-secrets
+                key: MAPPING
+            NGROK_TOKEN: "{{ .Values.mcrouter.ngrok }}"
 
 portal:
   open:

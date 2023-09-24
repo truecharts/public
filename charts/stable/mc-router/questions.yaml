@@ -4,13 +4,14 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-# Include{replicas2}
+
+# Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
 # Include{containerBasic}
 # Include{containerAdvanced}
-# Include{containerConfig}
-# Include{podOptions}
+
   - variable: mcrouter
     group: App Configuration
     label: MC Router Configuration
@@ -18,19 +19,43 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: host_minecraft
-          label: Host and Minecraft
+        - variable: default
+          label: Set Default Server
+          schema:
+            type: string
+            default: ""
+        - variable: mappings
+          label: Mappings
           schema:
             type: list
             default: []
             items:
-              - variable: domain_minecraft_service
-                label: Domain and Minecraft Service
+              - variable: mappingEntry
+                label: Mapping Entry
                 schema:
-                  type: string
-                  default: "minecraft.local=minecraft-java.ix-minecraft-java.svc.cluster.local:25565"
-                  valid_chars: '^([\w.-]+)=([A-Za-z0-9.-]+):(\d+)$'
-                  required: true
+                  type: dict
+                  additional_attrs: true
+                  attrs:
+                    - variable: domain
+                      label: Domain
+                      schema:
+                        type: string
+                        required: true
+                        default: "minecraft.local"
+                    - variable: service
+                      label: Minecraft Service
+                      schema:
+                        type: string
+                        required: true
+                        default: "minecraft-java.ix-minecraft-java.svc.cluster.local:25565"
+        - variable: ngrok
+          label: Set Ngrok Token
+          schema:
+            type: string
+            default: ""
+
+# Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: Main Service
@@ -80,17 +105,6 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceList}
-# Include{ingressRoot}
-        - variable: main
-          label: "Main Ingress"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
-# Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}
 
