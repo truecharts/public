@@ -137,6 +137,14 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
+        - variable: externallibrary
+          label: App External Library Storage
+          description: Stores the External Library.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
