@@ -55,6 +55,7 @@ workload:
             PHOTOPRISM_DATABASE_DRIVER: "mysql"
             PHOTOPRISM_DATABASE_NAME: "photoprism"
             PHOTOPRISM_DATABASE_USER: "photoprism"
+            PHOTOPRISM_DISABLE_TLS: true
             PHOTOPRISM_DATABASE_SERVER:
               secretKeyRef:
                 expandObjectName: false
