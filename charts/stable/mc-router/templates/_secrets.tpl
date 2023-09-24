@@ -12,7 +12,9 @@
 
 enabled: true
 data:
-  MAPPING: {{ $mappings }}
+  {{- with $mappings }}
+  MAPPING: {{ . | quote }}
+  {{- else }}
   PORT: {{ .Values.service.main.ports.main.port }}
   API_BINDING: {{ printf ":%v" .Values.service.api.ports.api.port }}
   {{- with $mcrouter.default }}
