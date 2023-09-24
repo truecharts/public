@@ -168,6 +168,15 @@ persistence:
         main: {}
       microservices:
         microservices: {}
+  externallibrary:
+    enabled: true
+    mountPath: /media
+    targetSelector:
+      # Main pod/container is server
+      main:
+        main: {}
+      microservices:
+        microservices: {}
 
 cnpg:
   main:
