@@ -7,7 +7,7 @@
 {{- $maxmind := $plausible.maxmind -}}
 {{- $google := $plausible.google -}}
 
-{{- $baseKey := randAlphaNum 32 -}}
+{{- $baseKey := randAlphaNum 64 -}}
 {{- with (lookup "v1" "Secret" .Release.Namespace $secretName) -}}
   {{- $baseKey = index .data "SECRET_KEY_BASE" | b64dec -}}
 {{- end }}
