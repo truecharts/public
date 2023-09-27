@@ -18,10 +18,11 @@ questions:
                                     attrs:
                                       - variable: EULA
                                         label: Minecraft Eula
+                                        description: "Must be enabled to accept the Minecraft End User License Agreement."
                                         schema:
                                           type: boolean
                                           required: true
-                                          default: false
+                                          default: true
                                       - variable: ENABLE_LAN_VISIBILITY
                                         label: Enable Lan Visibility
                                         schema:
