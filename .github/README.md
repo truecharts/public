@@ -124,7 +124,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-213-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-214-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -410,6 +410,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="http://tigertutoringtool.aamira.me"><img src="https://avatars.githubusercontent.com/u/82281117?v=4?s=100" width="100px;" alt="Aamir Azad"/><br /><sub><b>Aamir Azad</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=aamirazad" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/jordan-woyak"><img src="https://avatars.githubusercontent.com/u/1768214?v=4?s=100" width="100px;" alt="Jordan Woyak"/><br /><sub><b>Jordan Woyak</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=jordan-woyak" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/simon-hofmann"><img src="https://avatars.githubusercontent.com/u/23562420?v=4?s=100" width="100px;" alt="Simon Hofman"/><br /><sub><b>Simon Hofman</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=simon-hofmann" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/NotYourAverageGamer"><img src="https://avatars.githubusercontent.com/u/104248676?v=4?s=100" width="100px;" alt="notyouraveragegamer"/><br /><sub><b>notyouraveragegamer</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=notyouraveragegamer" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>
