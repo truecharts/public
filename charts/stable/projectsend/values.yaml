@@ -49,6 +49,7 @@ workload:
               then
                 echo "Creating initial config file...";
                 mkdir -p /config/projectsend;
+                mkdir - p /app/www/public/includes;
                 touch $configFile;
                 echo "<?php" >> $configFile;
                 echo "# This is generated on initial setup of this TrueCharts App" >> $configFile;
