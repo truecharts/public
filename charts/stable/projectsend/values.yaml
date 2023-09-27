@@ -22,63 +22,22 @@ workload:
     podSpec:
       containers:
         main:
-          lifecycle:
-            postStart:
-              type: exec
-              command:
-                - /bin/sh
-                - -c
-                - |
-                  export postsetup="/config/projectsend/POSTSETUP";
-                  export configFile="/app/www/public/includes/sys.config.php";
-                  if [ ! -f $postsetup ];
-                  then
-                    echo "Creating initial config file...";
-                    mkdir -p /config/projectsend;
-                    mkdir - p /app/www/public/includes;
-                    touch $configFile;
-                    echo "<?php" >> $configFile;
-                    echo "# This is generated on initial setup of this TrueCharts App" >> $configFile;
-                    echo "# Do not change below values, or DB connection will fail." >> $configFile;
-                    echo "define('DB_DRIVER', 'mysql');" >> $configFile;
-                    echo "define('DB_NAME', '$DBNAME');" >> $configFile;
-                    echo "define('DB_HOST', '$DBHOST');" >> $configFile;
-                    echo "define('DB_USER', '$DBUSER');" >> $configFile;
-                    echo "define('DB_PASSWORD', '$DBPASS');" >> $configFile;
-                    echo "define('MAX_FILESIZE', $MAX_UPLOAD);" >> $configFile;
-                    echo "define('TABLES_PREFIX', 'tbl_');" >> $configFile;
-                    echo "# You can manually change below values if you like." >> $configFile;
-                    echo "define('SITE_LANG', 'en');" >> $configFile;
-                    echo "define('EMAIL_ENCODING', 'utf-8');" >> $configFile;
-                    echo "define('DEBUG', false);" >> $configFile;
-                    echo "# End of generated config values." >> $configFile;
-                    touch "$postsetup" && echo "Created POSTSETUP!"
-                    echo "Done!";
-                  else
-                    echo "Initial config file already exists. Skipping...";
-                  fi;
           env:
             MAX_UPLOAD: 5000
             PHP_MEMORY_LIMIT: "512M"
             PHP_MAX_FILE_UPLOAD: 200
-            DBNAME: "{{ .Values.mariadb.mariadbDatabase }}"
-            DBUSER: "{{ .Values.mariadb.mariadbUsername }}"
-            DBPASS:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
-                key: mariadb-password
-            DBHOST:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
-                key: plainhost
 
 persistence:
   config:
     enabled: true
     mountPath: "/config"
-    targetSelectAll: true
+  projectsend-config:
+    enabled: true
+    type: configmap
+    objectName: odoo-config
+    mountPath: /app/www/public/includes/sys.config.php
+    subPath: sys.config.php
+    readOnly: true
   data:
     enabled: true
     mountPath: "/data"
