@@ -34,7 +34,7 @@ persistence:
   projectsend-config:
     enabled: true
     type: configmap
-    objectName: odoo-config
+    objectName: projectsend-config
     mountPath: /app/www/public/includes/sys.config.php
     subPath: sys.config.php
     readOnly: true
