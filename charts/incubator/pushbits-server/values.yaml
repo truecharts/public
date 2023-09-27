@@ -1,0 +1,65 @@
+image:
+  repository: tccr.io/truecharts/pushbits-server
+  pullPolicy: IfNotPresent
+  tag: v0.10.1@sha256:CHANGE_ME
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 8080
+
+pushbits:
+  admin:
+    id: "@your/matrix/username:matrix.org"
+    password: "password123"
+  matrix:
+    user: "user1"
+    password: "password456"
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: "/health"
+            readiness:
+              path: "/health"
+            startup:
+              path: "/health"
+          env:
+            PUSHBITS_HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
+            PUSHBITS_DATABASE_DIALECT: "postgres"
+            PUSHBITS_DATABASE_CONNECTION:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: std
+            POSTGRES_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
+            POSTGRES_DB: "{{ .Values.cnpg.main.database }}"
+            PUSHBITS_ADMIN_MATRIXID: "{{ .Values.pushbits.admin.id }}"
+            PUSHBITS_ADMIN_PASSWORD: "{{ .Values.pushbits.admin.password }}"
+            PUSHBITS_MATRIX_USERNAME: "{{ .Values.pushbits.matrix.user }}"
+            PUSHBITS_MATRIX_PASSWORD: "{{ .Values.pushbits.matrix.password }}"
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+
+# Enabled postgres
+cnpg:
+  main:
+    enabled: true
+    user: pushbits
+    database: pushbits
+
+portal:
+  open:
+    enabled: false
