@@ -35,7 +35,7 @@ persistence:
     enabled: true
     type: configmap
     objectName: projectsend-config
-    mountPath: /app/www/public/includes/sys.config.php
+    mountPath: /config/projectsend/sys.config.php
     subPath: sys.config.php
     readOnly: true
   data:
