@@ -208,7 +208,7 @@ jobs:
                 echo "" >> website/docs/charts/${train}/${chart}/index.md
                 echo "## Chart Sources" >> website/docs/charts/${train}/${chart}/index.md
                 echo "" >> website/docs/charts/${train}/${chart}/index.md
-                cat charts/${train}/${chart}/Chart.yaml | yq .sources -r >> website/docs/charts/${train}/${chart}/index.md
+                cat charts/${train}/${chart}/Chart.yaml | go-yq .sources -r >> website/docs/charts/${train}/${chart}/index.md
                 echo "" >> website/docs/charts/${train}/${chart}/index.md
                 echo "## Available Documentation" >> website/docs/charts/${train}/${chart}/index.md
                 echo "" >> website/docs/charts/${train}/${chart}/index.md
