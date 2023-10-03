@@ -27,8 +27,6 @@ configmap:
     enabled: true
     data:
       MICROSERVICES_PORT: {{ .Values.service.microservices.ports.microservices.port | quote }}
-      DISABLE_REVERSE_GEOCODING: {{ .Values.immich.disable_reverse_geocoding | quote }}
-      REVERSE_GEOCODING_PRECISION: {{ .Values.immich.reverse_geocoding_precision | quote }}
       REVERSE_GEOCODING_DUMP_DIRECTORY: {{ .Values.persistence.microcache.targetSelector.microservices.microservices.mountPath }}
 
   {{- if .Values.immich.enable_ml }}
