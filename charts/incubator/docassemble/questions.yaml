@@ -27,8 +27,8 @@ questions:
             type: string
             required: true
             default: "http://localhost:10685"
-        - variable: https
-          label: https
+        - variable: behind_loadbalancer
+          label: Behind LoadBalancer
           schema:
             type: boolean
             default: false

@@ -9,10 +9,16 @@ service:
       main:
         protocol: http
         port: 10685
+  rcon:
+    enabled: true
+    ports:
+      rcon:
+        enabled: true
+        port: 25575
 
 docassemble:
   hostname: docassemble.example.com
-  https: false
+  behind_loadbalancer: false
 
 workload:
   main:
@@ -40,8 +46,8 @@ workload:
               secretKeyRef:
                 name: cnpg-main-urls
                 key: host
-            DALISTENPORT: "{{ .Values.service.main.ports.main.port }}"
-            USEHTTPS: "{{ .Values.docassemble.https }}"
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+            BEHINDHTTPSLOADBALANCER: "{{ .Values.docassemble.behind_loadbalancer }}"
             DAHOSTNAME: "{{ .Values.docassemble.hostname }}"
 
 persistence:
