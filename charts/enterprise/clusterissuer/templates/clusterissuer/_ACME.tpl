@@ -11,7 +11,7 @@
 {{- end -}}
 
 {{- range .Values.clusterIssuer.ACME }}
-  {{- if not (mustRegexMatch "^[a-z]+(-?[a-z]){0,63}-?[a-z]+$" .name) -}}
+  {{- if or (not .name) (not (mustRegexMatch "^[a-z]+(-?[a-z]){0,63}-?[a-z]+$" .name)) -}}
     {{- fail "ACME - Expected name to be all lowercase with hyphens, but not start or end with a hyphen" -}}
   {{- end -}}
   {{- $validTypes := list "HTTP01" "cloudflare" "route53" "digitalocean" "akamai" "rfc2136" "acmedns" -}}
@@ -20,7 +20,7 @@
   {{- end -}}
   {{- $issuerSecretName := printf "%s-clusterissuer-secret" .name }}
   {{- $acmednsDict := dict -}}
-  {{- if eq .type "acmedns" }}
+  {{- if and (eq .type "acmedns") (not .acmednsConfigJson) }}
     {{- range .acmednsConfig }}
       {{/* Transform to a dict with domain as a key, also remove domain from the dict */}}
       {{- $_ := set $acmednsDict .domain (omit . "domain") -}}
@@ -116,7 +116,10 @@ stringData:
   akaccessToken: {{ .akaccessToken | default "" }}
   doaccessToken: {{ .doaccessToken | default "" }}
   rfctsigSecret: {{ $rfctsigSecret }}
-  acmednsJson: |
-    {{- toJson $acmednsDict | nindent 4 }}
-{{- end }}
+{{- if .acmednsConfigJson }}
+  acmednsJson: {{ .acmednsConfigJson }}
+{{- else if $acmednsDict }}
+  acmednsJson: {{ toJson $acmednsDict }}
+{{- end -}}
+  {{- end -}}
 {{- end -}}
