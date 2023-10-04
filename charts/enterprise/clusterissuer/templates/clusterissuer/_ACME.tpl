@@ -13,6 +13,7 @@
   {{- $acmednsDict := dict -}}
   {{- if eq .type "acmedns" }}
     {{- range .acmednsConfig }}
+      {{/* Transform to a dict with domain as a key, also remove domain from the dict */}}
       {{- $_ := set $acmednsDict .domain (omit . "domain") -}}
     {{- end }}
   {{- end -}}
@@ -106,7 +107,7 @@ stringData:
   akaccessToken: {{ .akaccessToken | default "" }}
   doaccessToken: {{ .doaccessToken | default "" }}
   rfctsigSecret: {{ .rfctsigSecret | default "" }}
-  acmednsJson: >
-    {{ toJson $acmednsDict }}
+  acmednsJson: |
+    {{- toJson $acmednsDict | nindent 4 }}
 {{- end }}
 {{- end -}}
