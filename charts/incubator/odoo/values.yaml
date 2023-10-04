@@ -30,8 +30,11 @@ workload:
             readOnlyRootFilesystem: false
             runAsUser: 101
             runAsGroup: 101
+          env:
+            ODOO_RC: /etc/odoo/odoo.conf
           command:
             - /bin/bash
+          args:
             - -c
             - |
               /usr/bin/odoo --config=/etc/odoo/odoo.conf \
@@ -54,16 +57,7 @@ workload:
               type: http
               path: /web/health
           env:
-            USER: "{{ .Values.cnpg.main.user }}"
-            PORT: 5432
-            PASSWORD:
-              secretKeyRef:
-                name: cnpg-main-user
-                key: password
-            HOST:
-              secretKeyRef:
-                name: cnpg-main-urls
-                key: host
+            ODOO_RC: /etc/odoo/odoo.conf
 
 persistence:
   odoo:
