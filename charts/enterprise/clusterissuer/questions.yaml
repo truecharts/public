@@ -47,6 +47,8 @@ questions:
                             description: rfc2136 (Advanced)
                           - value: HTTP01
                             description: HTTP01 (Experimental)
+                          - value: acmedns
+                            description: ACME DNS (Advanced)
                     - variable: server
                       label: Server
                       description: "Server for ACME, for example: letsencrypt"
@@ -195,7 +197,64 @@ questions:
                         type: string
                         required: true
                         default: ""
-
+                    - variable: acmednsHost
+                      label: ACME DNS host
+                      description: "ACME DNS API server address"
+                      schema:
+                        show_if: [["type", "=", "acmedns"]]
+                        type: string
+                        required: true
+                        default: "https://auth.acme-dns.io"
+                    - variable: acmednsConfig
+                      label: ACME DNS config
+                      description: "ACME DNS per-domain auth configuration"
+                      schema:
+                        show_if: [["type", "=", "acmedns"]]
+                        type: list
+                        default: []
+                        items:
+                          - variable: acmednsEntry
+                            label: 'ACME DNS entry'
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: domain
+                                  label: Domain
+                                  schema:
+                                    type: string
+                                    required: true
+                                - variable: username
+                                  label: Username
+                                  schema:
+                                    type: string
+                                    required: true
+                                - variable: password
+                                  label: Password
+                                  schema:
+                                    type: string
+                                    required: true
+                                - variable: fulldomain
+                                  label: Full domain
+                                  schema:
+                                    type: string
+                                    required: true
+                                - variable: subdomain
+                                  label: Subdomain
+                                  schema:
+                                    type: string
+                                    required: true
+                                - variable: allowFrom
+                                  label: Allow from
+                                  schema:
+                                    type: list
+                                    default: []
+                                    items:
+                                      - variable: cidr
+                                        label: CIDR
+                                        schema:
+                                          type: ipaddr
+                                          cidr: true
+                                          required: true
         - variable: CA
           label: Certificate Authority Issuer
           schema:
