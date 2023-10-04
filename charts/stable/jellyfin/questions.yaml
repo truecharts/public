@@ -78,6 +78,7 @@ questions:
 # Include{ingressTLS}
 # Include{ingressTraefik}
                     - variable: cors
+                      label: "CORS"
                       schema:
                         additional_attrs: true
                         type: dict
