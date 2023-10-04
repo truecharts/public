@@ -72,7 +72,6 @@ persistence:
       main:
         main:
           mountPath: "/var/lib/odoo"
-      init-db:
         init-db:
           mountPath: "/var/lib/odoo"
   addons:
@@ -81,7 +80,6 @@ persistence:
       main:
         main:
           mountPath: "/mnt/extra-addons"
-      init-db:
         init-db:
           mountPath: "/mnt/extra-addons"
   odoo-config:
@@ -94,7 +92,6 @@ persistence:
           mountPath: /etc/odoo/odoo.conf
           subPath: odoo.conf
           readOnly: true
-      init-db:
         init-db:
           mountPath: /etc/odoo/odoo.conf
           subPath: odoo.conf
