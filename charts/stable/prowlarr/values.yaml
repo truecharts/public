@@ -1,11 +1,11 @@
 image:
   repository: tccr.io/truecharts/prowlarr
-  tag: v1.8.1.3837@sha256:3192428715d0bfa656ce1274d0a77088aa9796b2a2af0562bd656b94f3ff9caa
+  tag: v1.9.1.3981@sha256:ab71a261e37f6db1dc3e217216dfb7afb7e1f38ff7fc4834ac6eafb89f608da5
   pullPolicy: IfNotPresent
 exportarrImage:
   repository: tccr.io/truecharts/exportarr
   pullPolicy: IfNotPresent
-  tag: v1.5.3@sha256:f369a43b28410f12ce1b96f52187dd5c6fb9769a137ecc6f7ab8fdcfbe7db58e
+  tag: v1.5.5@sha256:0dbba4994ac9926e284b5a24fe38e7ca546bcda4b20bbd1ab2444b8bc190d6cb
 
 securityContext:
   container:

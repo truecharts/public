@@ -26,18 +26,6 @@ questions:
           schema:
             type: string
             default: ""
-        - variable: disable_reverse_geocoding
-          label: Disable Reverse Geocoding
-          schema:
-            type: boolean
-            default: false
-        - variable: reverse_geocoding_precision
-          label: Reverse Geocoding Precision
-          description: Reverse geocoding is done locally which has a small impact on memory usage. (Valid options 0 - 3)
-          schema:
-            type: int
-            show_if: [["disable_reverse_geocoding", "=", false]]
-            default: 3
         - variable: log_level
           label: Log Level
           schema:
@@ -107,7 +95,7 @@ questions:
 # Include{persistenceBasic}
         - variable: uploads
           label: App Uploads Storage
-          description: Stores the Application Uploads.
+          description: Temporary location for WebUI and mobile app uploads for images/videos that still need to be processed and eventually imported into the library storage.
           schema:
             additional_attrs: true
             type: dict
@@ -132,6 +120,14 @@ questions:
         - variable: video
           label: App Encoded Video Storage
           description: Stores the Encoded Videos.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: externallibrary
+          label: App External Library Storage
+          description: Stores the External Library.
           schema:
             additional_attrs: true
             type: dict

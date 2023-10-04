@@ -1,0 +1,32 @@
+apiVersion: v2
+appVersion: "0.53.0"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 14.0.3
+  - condition: redis.enabled
+    name: redis
+    repository: https://deps.truecharts.org
+    version: 7.0.6
+deprecated: false
+description: A Digital Asset Manager (DAM), specifically designed for 3D print files.
+home: https://truecharts.org/charts/incubator/van-dam
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/van-dam.png
+keywords:
+  - vanDAM
+  - media
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: van-dam
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/van-dam
+  - https://github.com/Floppy/van_dam
+type: application
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"

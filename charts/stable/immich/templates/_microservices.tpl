@@ -29,26 +29,14 @@ podSpec:
       probes:
         readiness:
           enabled: true
-          type: exec
-          command:
-            - /bin/sh
-            - -c
-            - |
-              ps -a | grep -v grep | grep -q microservices
+          type: tcp
+          port: '{{ .Values.service.microservices.ports.microservices.port }}'
         liveness:
           enabled: true
-          type: exec
-          command:
-            - /bin/sh
-            - -c
-            - |
-              ps -a | grep -v grep | grep -q microservices
+          type: tcp
+          port: '{{ .Values.service.microservices.ports.microservices.port }}'
         startup:
           enabled: true
-          type: exec
-          command:
-            - /bin/sh
-            - -c
-            - |
-              ps -a | grep -v grep | grep -q microservices
+          type: tcp
+          port: '{{ .Values.service.microservices.ports.microservices.port }}'
 {{- end -}}

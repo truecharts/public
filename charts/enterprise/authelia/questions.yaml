@@ -98,6 +98,95 @@ questions:
           schema:
             type: int
             default: 1
+  - variable: password_policy
+    group: "App Configuration"
+    label: "Password Policy Configuration"
+    description: "Authelia allows administrators to configure an enforced password policy."
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: enabled
+          label: "Enable"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: standard
+                label: Standard
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: Enabled
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: min_length
+                      label: "Minimum Password Length"
+                      description: "Minimum Password Length"
+                      schema:
+                        type: int
+                        required: true
+                        show_if: [["enabled", "=", true]]
+                        default: 8
+                    - variable: max_length
+                      label: "Max Passsword Length"
+                      description: "Max Password Length"
+                      schema:
+                        type: int
+                        required: true
+                        show_if: [["enabled", "=", true]]
+                        default: 0
+                    - variable: require_uppercase
+                      label: "Require Upppercase"
+                      schema:
+                        type: boolean
+                        default: false
+                        show_if: [["enabled", "=", true]]
+                        required: true
+                    - variable: require_lowercase
+                      label: "Require Lowercase"
+                      schema:
+                        type: boolean
+                        default: false
+                        show_if: [["enabled", "=", true]]
+                        required: true
+                    - variable: require_number
+                      label: "Require Numbers"
+                      description: "Require Numbers in the password"
+                      schema:
+                        type: boolean
+                        default: false
+                        show_if: [["enabled", "=", true]]
+                        required: true
+                    - variable: require_special
+                      label: "Require Special Characters"
+                      schema:
+                        type: boolean
+                        default: false
+                        show_if: [["enabled", "=", true]]
+              - variable: zxcvbn
+                label: zxcvbn
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: Enabled
+                      schema:
+                        type: boolean
+                        default: false
+                        required: true
+                    - variable: min_score
+                      label: "Min Score"
+                      schema:
+                        type: int
+                        required: true
+                        show_if: [["enabled", "=", true]]
+                        default: 3
   - variable: duo_api
     group: "App Configuration"
     label: "DUO API Configuration"

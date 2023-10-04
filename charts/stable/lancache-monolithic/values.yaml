@@ -2,6 +2,18 @@ image:
   repository: tccr.io/truecharts/lancache-monolithic
   pullPolicy: IfNotPresent
   tag: latest@sha256:eb23244b951e999cd1f0731fb8cc8a3aaa21c929ed20b8d35f47b1ce0f2af995
+prefillImage:
+  repository: tccr.io/truecharts/lancache-prefill
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:b0d891ccb2584eb5270505ec1cfcaeb16320757386f5626bc89fa61173c6d395
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+
 service:
   main:
     ports:
@@ -17,22 +29,45 @@ service:
         port: 10280
         targetPort: 443
         protocol: https
-persistence:
-  config:
+
+monolithic:
+  cache_domains_repo: "https://github.com/uklans/cache-domains.git"
+  cache_domains_branch: "master"
+  upstream_dns:
+    - 1.1.1.1
+    - 1.0.0.1
+  cache_disk_size: "1000000m"
+  cache_max_age: "3560d"
+  cache_index_size: 500m
+  no_fetch: false
+
+prefill:
+  # sidecar
+  enabled: true
+  updates: true
+  # Prefill on every container start/restart
+  on_start: false
+  log_clean_up: true
+  default_cron: ""
+  # BattleNet
+  battlenet:
     enabled: true
-    mountPath: "/data"
-  logs:
+    # https://tpill90.github.io/battlenet-lancache-prefill/detailed-command-usage/Prefill/#options
+    params: []
+    cron: "0 5 * * *"
+  # Epic
+  epic:
     enabled: true
-    mountPath: "/data/logs"
-portal:
-  open:
-    enabled: false
-securityContext:
-  container:
-    readOnlyRootFilesystem: false
-    runAsNonRoot: false
-    runAsUser: 0
-    runAsGroup: 0
+    # https://tpill90.github.io/epic-lancache-prefill/Detailed-Command-Usage/#prefill
+    params: []
+    cron: "0 4 * * *"
+  # Steam
+  steam:
+    enabled: true
+    # https://tpill90.github.io/steam-lancache-prefill/detailed-command-usage/Prefill/#options
+    params: []
+    cron: "0 2 * * *"
+
 workload:
   main:
     podSpec:
@@ -46,10 +81,64 @@ workload:
             startup:
               type: tcp
           env:
-            CACHE_DOMAINS_REPO: "https://github.com/uklans/cache-domains.git"
-            CACHE_DOMAINS_BRANCH: "master"
-            UPSTREAM_DNS: "1.1.1.1 1.0.0.1"
-            CACHE_DISK_SIZE: "1000000m"
-            CACHE_MAX_AGE: "3560d"
-            CACHE_INDEX_SIZE: "500m"
-            NOFETCH: false
+            CACHE_DOMAINS_REPO: "{{ .Values.monolithic.cache_domains_repo }}"
+            CACHE_DOMAINS_BRANCH: "{{ .Values.monolithic.cache_domains_branch }}"
+            UPSTREAM_DNS: '{{ join " " .Values.monolithic.upstream_dns }}'
+            CACHE_DISK_SIZE: "{{ .Values.monolithic.cache_disk_size }}"
+            CACHE_MAX_AGE: "{{ .Values.monolithic.cache_max_age }}"
+            CACHE_INDEX_SIZE: "{{ .Values.monolithic.cache_index_size }}"
+            NOFETCH: "{{ .Values.monolithic.no_fetch }}"
+  prefill:
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
+        prefill:
+          primary: true
+          enabled: true
+          imageSelector: prefillImage
+          tty: true
+          stdin: true
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            DATA_DIR: "{{ .Values.persistence.prefill.mountPath }}"
+            UPDATES: "{{ .Values.prefill.updates }}"
+            PREFILL_ONSTARTUP: "{{ .Values.prefill.on_start }}"
+            LOGCLEANUP: "{{ .Values.prefill.log_clean_up }}"
+            CRON_SCHED_GLOBAL: "{{ .Values.prefill.default_cron }}"
+            # BattleNet
+            ENABLE_BN: "{{ .Values.prefill.battlenet.enabled }}"
+            PREFILL_PARAMS_BN: '{{ join " " .Values.prefill.battlenet.params }}'
+            CRON_SCHED_BN: "{{ .Values.prefill.battlenet.cron }}"
+            # Epic
+            ENABLE_EPIC: "{{ .Values.prefill.epic.enabled }}"
+            CRON_SCHED_EPIC: "{{ .Values.prefill.epic.cron }}"
+            PREFILL_PARAMS_EPIC: '{{ join " " .Values.prefill.epic.params }}'
+            # Steam
+            ENABLE_STEAM: "{{ .Values.prefill.steam.enabled }}"
+            PREFILL_PARAMS_STEAM: '{{ join " " .Values.prefill.steam.params }}'
+            CRON_SCHED_STEAM: "{{ .Values.prefill.steam.cron }}"
+            DATA_PERM: 770
+            USER: root
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/data/cache"
+  logs:
+    enabled: true
+    mountPath: "/data/logs"
+  prefill:
+    enabled: true
+    mountPath: /data/prefill
+    targetSelectAll: true
+
+portal:
+  open:
+    enabled: false

@@ -80,6 +80,45 @@ questions:
                 schema:
                   type: boolean
                   default: false
+              - variable: remoteWrite
+                label: "Remote Write"
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: remoteWriteEntry
+                      label: Remote Write Entry
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: url
+                            label: URL
+                            description: Remote write destination URL
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
+                          - variable: basicAuth
+                            label: Basic Auth
+                            description: Basic authentication for remote write
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: username
+                                  label: Username
+                                  description: Basic auth username
+                                  schema:
+                                    type: string
+                                    required: true
+                                    default: ""
+                                - variable: password
+                                  label: Password
+                                  description: Basic auth password
+                                  schema:
+                                    type: string
+                                    required: false
+                                    default: ""
 
   - variable: exporters
     group: "App Configuration"

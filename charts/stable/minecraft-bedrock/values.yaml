@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/minecraft-bedrock
-  tag: v2023.7.1@sha256:7efd498fc50d228fe44ece833ad6bc4204f66ae422be84ad39f6c56f83673165
+  tag: v2023.8.1@sha256:deedf1e2b76a62dc9bd182e94699dc17abd60ff3827d9a1193cec1a55fc4299f
   pullPolicy: Always
 
 service:
@@ -31,7 +31,8 @@ workload:
             startup:
               enabled: false
           env:
-            EULA: "TRUE"
+            EULA: true
+            ENABLE_LAN_VISIBILITY: false
             VERSION: "LATEST"
             SERVER_NAME: "TrueCharts Dedicated Server!"
             SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"

@@ -1,10 +1,10 @@
 image:
   repository: tccr.io/truecharts/mealie-frontend
-  tag: latest@sha256:3b952e2dabf86e9cdf575ad3161e7df19f78dae62a2732e8751b362911271be1
+  tag: latest@sha256:f0733931b382a17e2c36e58fff7ea95e9434d125ba5c7eef817328dc20fbf374
   pullPolicy: IfNotPresent
 apiImage:
   repository: tccr.io/truecharts/mealie-api
-  tag: latest@sha256:1f9dbd42ac3030646c93eb2bcb57af06ec319f0a7b559410b79d19542e218c4b
+  tag: latest@sha256:f2fbe97e1c2874c7fc127fc3d1acc1f1d344b1f3ee6488254651566d387baed6
   pullPolicy: IfNotPresent
 
 mealie:
@@ -59,7 +59,7 @@ mealie:
       user_filter: ""
       admin_filter: ""
       id_attribute: uid
-      user_attribute: name
+      name_attribute: name
       mail_attribute: mail
 
 workload:

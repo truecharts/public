@@ -1,13 +1,17 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "tc.common.loader.init" . }}
+{{- include "tc.v1.common.loader.init" . }}
 
 {{/* Render secret */}}
-{{- include "tfa.secret" . }}
+{{- $secret := include "tfa.secrets" . | fromYaml -}}
+{{- if $secret -}}
+  {{- $_ := set .Values.secret "tfa-secrets" $secret -}}
+{{- end -}}
 
+{{/* Render arguments */}}
 {{- $tplArgs := (include "tfa.args" . | fromYaml) }}
 {{- $_ := set .Values "tplArgs" $tplArgs -}}
-{{- $args := concat .Values.args .Values.tplArgs.args }}
-{{- $_ := set .Values "args" $args -}}
+{{- $mergedArgs := concat $.Values.workload.main.podSpec.containers.main.args .Values.tplArgs.args }}
+{{- $_ := set $.Values.workload.main.podSpec.containers.main "args" $mergedArgs -}}
 
 {{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}
+{{ include "tc.v1.common.loader.apply" . }}

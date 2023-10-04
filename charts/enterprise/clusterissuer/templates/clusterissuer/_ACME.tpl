@@ -1,6 +1,15 @@
 {{- define "certmanager.clusterissuer.acme" -}}
 {{- $operator := index $.Values.operator "cert-manager" -}}
 {{- $namespace := $operator.namespace | default "cert-manager" -}}
+
+{{- $rfctsigSecret := .rfctsigSecret | default "" -}}
+{{/* https://cert-manager.io/docs/configuration/acme/dns01/rfc2136/#troubleshooting */}}
+{{- if $rfctsigSecret -}} {{/* If we try to decode and fail, go on and encode it. */}}
+  {{- if (contains "illegal base64" (b64dec $rfctsigSecret)) -}}
+    {{- $rfctsigSecret = b64enc $rfctsigSecret -}}
+  {{- end -}}
+{{- end -}}
+
 {{- range .Values.clusterIssuer.ACME }}
   {{- if not (mustRegexMatch "^[a-z]+(-?[a-z]){0,63}-?[a-z]+$" .name) -}}
     {{- fail "ACME - Expected name to be all lowercase with hyphens, but not start or end with a hyphen" -}}
@@ -106,7 +115,7 @@ stringData:
   akclientSecret: {{ .akclientSecret | default "" }}
   akaccessToken: {{ .akaccessToken | default "" }}
   doaccessToken: {{ .doaccessToken | default "" }}
-  rfctsigSecret: {{ .rfctsigSecret | default "" }}
+  rfctsigSecret: {{ $rfctsigSecret }}
   acmednsJson: |
     {{- toJson $acmednsDict | nindent 4 }}
 {{- end }}

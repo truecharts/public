@@ -3,13 +3,12 @@ image:
   repository: tccr.io/truecharts/icloudpd
   tag: latest@sha256:ab4b90c22a3bf93d6045cd26733447b143a66d5c9100a91c9bbea27f0443a838
 
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
 
 icloudpd:
   apple_id: your@appleid.com
@@ -35,7 +34,7 @@ icloudpd:
   delete_accompanying: false
   delete_empty_directories: false
   command_line_options: ""
-  notification_title: iCloud PD
+  notification_title: "iCloud PD"
   # https://github.com/boredazfcuk/docker-icloudpd/blob/master/NOTIFICATIONS.md
   notification_type: ""
   # prowl_api_key: ""
@@ -70,47 +69,51 @@ icloudpd:
   # bark_device_key: ""
   # bark_server: ""
 
-env:
-  user: apps
-  group: apps
-  user_id: "{{ .Values.security.PUID }}"
-  group_id: "{{ .Values.podSecurityContext.fsGroup }}"
-  download_path: /home/{{ .Values.env.user }}/iCloud
-  jpeg_path: /home/{{ .Values.env.user }}/iCloud
-  # User Defined
-  apple_id: "{{ .Values.icloudpd.apple_id }}"
-  synchronisation_interval: "{{ .Values.icloudpd.synchronisation_interval }}"
-  synchronisation_delay: "{{ .Values.icloudpd.synchronisation_delay }}"
-  notification_days: "{{ .Values.icloudpd.notification_days }}"
-  authentication_type: "{{ .Values.icloudpd.authentication_type }}"
-  skip_check: '{{ ternary "True" "False" .Values.icloudpd.skip_check }}'
-  download_notifications: '{{ ternary "True" "False" .Values.icloudpd.download_notifications }}'
-  delete_notifications: '{{ ternary "True" "False" .Values.icloudpd.delete_notifications }}'
-  delete_accompanying: '{{ ternary "True" "False" .Values.icloudpd.delete_accompanying }}'
-  delete_empty_directories: '{{ ternary "True" "False" .Values.icloudpd.delete_empty_directories }}'
-  set_exif_datetime: '{{ ternary "True" "False" .Values.icloudpd.set_exif_datetime }}'
-  auto_delete: '{{ ternary "True" "False" .Values.icloudpd.auto_delete }}'
-  photo_size: "{{ .Values.icloudpd.photo_size }}"
-  skip_live_photos: '{{ ternary "True" "False" .Values.icloudpd.skip_live_photos }}'
-  live_photo_size: "{{ .Values.icloudpd.live_photo_size }}"
-  skip_videos: '{{ ternary "True" "False" .Values.icloudpd.skip_videos }}'
-  recent_only: '{{ ternary "" .Values.icloudpd.recent_only (eq 0 (int .Values.icloudpd.recent_only)) }}'
-  until_found: '{{ ternary "" .Values.icloudpd.until_found (eq 0 (int .Values.icloudpd.until_found)) }}'
-  photo_album: "{{ .Values.icloudpd.photo_album }}"
-  convert_heic_to_jpeg: '{{ ternary "True" "False" .Values.icloudpd.convert_heic_to_jpeg }}'
-  jpeg_quality: "{{ .Values.icloudpd.jpeg_quality }}"
-  icloud_china: '{{ ternary "True" "" .Values.icloudpd.icloud_china }}'
-  command_line_options: "{{ .Values.icloudpd.command_line_options }}"
-  notification_title: "{{ .Values.icloudpd.notification_title }}"
-  notification_type: "{{ .Values.icloudpd.notification_type }}"
-
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            user: apps
+            group: apps
+            user_id: "{{ .Values.securityContext.container.runAsUser }}"
+            group_id: "{{ .Values.securityContext.container.runAsGroup }}"
+            download_path: /home/{{ .Values.workload.main.podSpec.containers.main.env.user }}/iCloud
+            jpeg_path: /home/{{ .Values.workload.main.podSpec.containers.main.env.user }}/iCloud
+            # User Defined
+            apple_id: "{{ .Values.icloudpd.apple_id }}"
+            synchronisation_interval: "{{ .Values.icloudpd.synchronisation_interval }}"
+            synchronisation_delay: "{{ .Values.icloudpd.synchronisation_delay }}"
+            notification_days: "{{ .Values.icloudpd.notification_days }}"
+            authentication_type: "{{ .Values.icloudpd.authentication_type }}"
+            skip_check: '{{ ternary "True" "False" .Values.icloudpd.skip_check }}'
+            download_notifications: '{{ ternary "True" "False" .Values.icloudpd.download_notifications }}'
+            delete_notifications: '{{ ternary "True" "False" .Values.icloudpd.delete_notifications }}'
+            delete_accompanying: '{{ ternary "True" "False" .Values.icloudpd.delete_accompanying }}'
+            delete_empty_directories: '{{ ternary "True" "False" .Values.icloudpd.delete_empty_directories }}'
+            set_exif_datetime: '{{ ternary "True" "False" .Values.icloudpd.set_exif_datetime }}'
+            auto_delete: '{{ ternary "True" "False" .Values.icloudpd.auto_delete }}'
+            photo_size: "{{ .Values.icloudpd.photo_size }}"
+            skip_live_photos: '{{ ternary "True" "False" .Values.icloudpd.skip_live_photos }}'
+            live_photo_size: "{{ .Values.icloudpd.live_photo_size }}"
+            skip_videos: '{{ ternary "True" "False" .Values.icloudpd.skip_videos }}'
+            recent_only: '{{ ternary "" .Values.icloudpd.recent_only (eq 0 (int .Values.icloudpd.recent_only)) }}'
+            until_found: '{{ ternary "" .Values.icloudpd.until_found (eq 0 (int .Values.icloudpd.until_found)) }}'
+            photo_album: "{{ .Values.icloudpd.photo_album }}"
+            convert_heic_to_jpeg: '{{ ternary "True" "False" .Values.icloudpd.convert_heic_to_jpeg }}'
+            jpeg_quality: "{{ .Values.icloudpd.jpeg_quality }}"
+            icloud_china: '{{ ternary "True" "" .Values.icloudpd.icloud_china }}'
+            command_line_options: "{{ .Values.icloudpd.command_line_options }}"
+            notification_title: "{{ .Values.icloudpd.notification_title }}"
+            notification_type: "{{ .Values.icloudpd.notification_type }}"
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
 
 service:
   main:
@@ -128,4 +131,5 @@ persistence:
     mountPath: /home/apps/iCloud
 
 portal:
-  enabled: false
+  open:
+    enabled: false

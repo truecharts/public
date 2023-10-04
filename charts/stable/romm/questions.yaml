@@ -42,6 +42,31 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
+  - variable: romm
+    group: App Configuration
+    label: Romm
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: auth
+          label: Auth Credentials
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: user
+                label: Auth User
+                schema:
+                  type: string
+                  default: ""
+              - variable: pass
+                label: Auth Password
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+
 # Include{containerConfig}
 # Include{serviceRoot}
 # Include{serviceMain}
@@ -75,6 +100,14 @@ questions:
         - variable: resources
           label: App Resources Storage
           description: Stores the Application Resources.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: logs
+          label: App Logs Storage
+          description: Stores the Application Logs.
           schema:
             additional_attrs: true
             type: dict

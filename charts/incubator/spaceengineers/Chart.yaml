@@ -1,15 +1,11 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - GameServers
 apiVersion: v2
 appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 14.0.3
 deprecated: false
-description: "Space Engineers Dedicated Server build on Debian10"
+description: Space Engineers Dedicated Server.
 home: https://truecharts.org/charts/incubator/spaceengineers
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/spaceengineers.png
 keywords:
@@ -23,5 +19,10 @@ maintainers:
 name: spaceengineers
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/spaceengineers
+  - https://github.com/Devidian/docker-spaceengineers
 type: application
-version: 2.0.11
+version: 3.0.1
+annotations:
+  truecharts.org/catagories: |
+    - GameServers
+  truecharts.org/SCALE-support: "true"

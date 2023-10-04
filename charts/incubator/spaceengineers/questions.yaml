@@ -1,7 +1,5 @@
 # Include{groups}
-portals:
-  open:
-# Include{portalLink}
+portals: {}
 questions:
 # Include{global}
 # Include{workload}
@@ -10,36 +8,29 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
+  - variable: spaceengineers
+    group: App Configuration
+    label: SpaceEngineers
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: WINEPREFIX
-          label: "WINEPREFIX"
+        - variable: instance_name
+          label: Instance Name
           schema:
             type: string
-            default: "/root/server"
-        - variable: WINEARCH
-          label: "WINEARCH"
+            default: ""
+        - variable: public_ip
+          label: Public IP
+          description: Public IP required for healthcheck
           schema:
             type: string
-            default: "win64"
-        - variable: WINEDEBUG
-          label: "WINEDEBUG"
-          schema:
-            type: string
-            default: "-all"
-        - variable: APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE
-          label: "APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE"
-          schema:
-            type: string
-            default: "1"
+            default: ""
+
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -64,53 +55,90 @@ questions:
                               type: int
                               default: 27017
                               required: true
+        - variable: steam
+          label: Steam Service
+          description: The Steam service.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: steam
+                      label: Steam Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 27018
+                              required: true
+        - variable: api
+          label: API Service
+          description: The API service.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: api
+                      label: API Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 18080
+                              required: true
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: steamcmd
-          label: "steamcmd Storage"
+          label: App SteamCMD Storage
+          description: Stores the Application SteamCMD.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: plugins
+          label: App Plugins Storage
+          description: Stores the Application Plugins.
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
         - variable: serverfiles
-          label: "serverfiles Storage"
+          label: App Server Files Storage
+          description: Stores the Application Server Files.
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
-        - variable: savegame
-          label: "savegame Storage"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
-        - variable: serverconfig
-          label: "serverconfig Storage"
+        - variable: instances
+          label: App Instances Storage
+          description: Stores the Application Instances.
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceList}
-# Include{ingressRoot}
-        - variable: main
-          label: "Main Ingress"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
-# Include{ingressAdvanced}
 # Include{ingressList}
-# Include{securityContextRoot}
 
+# Include{securityContextRoot}
               - variable: runAsUser
                 label: "runAsUser"
                 description: "The UserID of the user running the application"

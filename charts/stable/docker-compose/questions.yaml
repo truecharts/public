@@ -18,7 +18,7 @@ questions:
                                     attrs:
                                       - variable: COMPOSE_FILE
                                         label: Docker Compose File
-                                        description: Path on the host of the compose file you want to load. You MUST mount the storage yourself
+                                        description: Path of the compose file you want to load. You MUST mount the storage yourself
                                         schema:
                                           type: string
                                           default: ""
