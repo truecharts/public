@@ -12,7 +12,7 @@
 {{- $pgdb := .Values.cnpg.main.database -}}
 {{- $pguser := .Values.cnpg.main.user -}}
 {{- $pgpassword := .Values.cnpg.main.creds.password | trimAll "\"" -}}
-{{- $pghost := .Values.cnpg.main.creds.host -}}
+{{- $pghost := .Values.cnpg.main.creds.host | trimAll "\"" -}}
 
 {{/* xmlrpc* keys are deprecated and http* keys are used in their place */}}
   {{- $reservedKeys := (list  "data_dir" "addons_path" "http_enable" "http_interface"
