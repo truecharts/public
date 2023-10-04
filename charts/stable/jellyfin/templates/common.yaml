@@ -5,4 +5,7 @@
 {{- $_ := set .Values.workload.broadcastproxy "enabled" true -}}
 {{- end -}}
 
+{{- $newMiddlewares :=  list "tc-opencors-chain" }}
+{{- $_ := set .Values.ingress.main "fixedMiddlewares" $newMiddlewares -}}
+
 {{- include "tc.v1.common.loader.apply" . -}}
