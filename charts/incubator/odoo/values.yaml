@@ -15,6 +15,19 @@ odoo:
 workload:
   main:
     podSpec:
+      initContainers:
+        init-db:
+          type: install
+          enabled: true
+          imageSelector: "image"
+          command:
+            - /usr/bin/odoo
+            - -c
+          args:
+            - --config=/etc/odoo/odoo.conf
+            - --stop-after-init
+            - --without-demo=all
+            - --init=base
       containers:
         main:
           probes:
@@ -46,15 +59,18 @@ persistence:
   odoo:
     enabled: true
     mountPath: "/var/lib/odoo"
+    targetSelectAll: true
   addons:
     enabled: true
     mountPath: "/mnt/extra-addons"
+    targetSelectAll: true
   odoo-config:
     enabled: true
     type: configmap
     objectName: odoo-config
     mountPath: /etc/odoo/odoo.conf
     subPath: odoo.conf
+    targetSelectAll: true
     readOnly: true
 
 # Enabled postgres
