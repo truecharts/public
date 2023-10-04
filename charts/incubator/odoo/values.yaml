@@ -21,13 +21,13 @@ workload:
           enabled: true
           imageSelector: "image"
           command:
-            - /usr/bin/odoo
+            - /bin/bash
             - -c
-          args:
-            - --config=/etc/odoo/odoo.conf
-            - --stop-after-init
-            - --without-demo=all
-            - --init=base
+            - |
+              /usr/bin/odoo --config=/etc/odoo/odoo.conf \
+                            --stop-after-init \
+                            --without-demo=all \
+                            --init=base
       containers:
         main:
           probes:
