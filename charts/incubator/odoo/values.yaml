@@ -1,42 +1,46 @@
 image:
   repository: tccr.io/truecharts/odoo
   pullPolicy: IfNotPresent
-  tag: v16.0.0@sha256:c1936984eeb8f504f5ebe74cf972319d6cd619ecbdf09249179ecdee2feeecf3
-
-# test for root
-securityContext:
-  container:
-    runAsNonRoot: false
-    readOnlyRootFilesystem: false
-    runAsUser: 0
-    runAsGroup: 0
+  tag: v16.0.0@sha256:9a0e0d913dc6c4ed5904ae233dc2de7fa1a00f10eb5a66f21e1f695c62933a1d
 
 service:
   main:
     ports:
       main:
         port: 8069
-  odoo:
-    enabled: true
-    ports:
-      xmlrpcs:
-        enabled: true
-        port: 8071
-      longpolling:
-        enabled: true
-        port: 8072
+
 odoo:
-  admin:
-    passwd: admin
-  db:
-    filter: ^mycompany.*$
-  smtp:
-    server: ""
-    port: 587
-    user: ""
-    password: ""
-    ssl: "False"
-    from: ""
+  additionalConf: []
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              path: /web/health
+            readiness:
+              enabled: true
+              type: http
+              path: /web/health
+            startup:
+              enabled: true
+              type: http
+              path: /web/health
+          env:
+            USER: "{{ .Values.cnpg.main.user }}"
+            PORT: 5432
+            PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
 
 persistence:
   odoo:
@@ -49,12 +53,9 @@ persistence:
     enabled: true
     type: configmap
     objectName: odoo-config
-    targetSelector:
-      main:
-        main:
-          mountPath: /etc/odoo/odoo.conf
-          subPath: odoo.conf
-          readOnly: true
+    mountPath: /etc/odoo/odoo.conf
+    subPath: odoo.conf
+    readOnly: true
 
 # Enabled postgres
 cnpg:

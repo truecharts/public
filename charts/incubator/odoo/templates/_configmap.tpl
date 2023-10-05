@@ -3,56 +3,50 @@
 {{- $fullname := (include "tc.v1.common.lib.chart.names.fullname" $) -}}
 
 {{- $admin := .Values.odoo.admin -}}
-{{- $db := .Values.odoo.db -}}
 {{- $smtp := .Values.odoo.smtp -}}
+
+{{- $mainPort := .Values.service.main.ports.main.port -}}
+{{- $odooPath := .Values.persistence.odoo.mountPath -}}
+{{- $addonsPath := .Values.persistence.addons.mountPath -}}
 
 {{- $pgdb := .Values.cnpg.main.database -}}
 {{- $pguser := .Values.cnpg.main.user -}}
 {{- $pgpassword := .Values.cnpg.main.creds.password | trimAll "\"" -}}
-{{- $pghost := .Values.cnpg.main.creds.host | trimAll "\"" -}}
+{{- $pghost := .Values.cnpg.main.creds.host -}}
+
+{{/* xmlrpc* keys are deprecated and http* keys are used in their place */}}
+  {{- $reservedKeys := (list  "data_dir" "addons_path" "http_enable" "http_interface"
+                              "http_port"  "xmlrpc" "xmlrpc_port" "xmlrpc_interface"
+                              "db_port" "db_host" "db_name" "db_user" "db_sslmode"
+                              "db_password") -}}
+{{- $userKeys := list -}}
 
 odoo-config:
   enabled: true
   data:
     odoo.conf: |
-      [options]
-      addons_path = {{ .Values.persistence.addons.mountPath }}
-      data_dir = {{ .Values.persistence.odoo.mountPath }}
-      admin_passwd = {{ $admin.passwd }}
-      longpolling_port = {{ .Values.service.odoo.ports.longpolling.port }}
-      xmlrpc = True
-      xmlrpc_interface =
-      xmlrpc_port = {{ .Values.service.main.ports.main.port }}
-      xmlrpcs = True
-      xmlrpcs_interface =
-      xmlrpcs_port = {{ .Values.service.odoo.ports.xmlrpcs.port }}
-      db_host = {{ $pghost }}
-      db_port = 5432
-      db_user = {{ $pguser }}
-      db_password = {{ $pgpassword }}
-      dbfilter = {{ $db.dbfilter }}
-      csv_internal_sep = ,
-      db_maxconn = 64
-      debug_mode = False
-      limit_memory_hard = 2684354560
-      limit_memory_soft = 2147483648
-      limit_request = 8192
-      limit_time_cpu = 60
-      limit_time_real = 120
-      list_db = True
-      log_db = False
-      log_handler = [':INFO']
-      log_level = info
-      logfile = None
-      max_cron_threads = 2
-      osv_memory_age_limit = 1.0
-      osv_memory_count_limit = False
-      smtp_server = {{ $smtp.server }}
-      smtp_port = {{ $smtp.port }}
-      smtp_user = {{ $smtp.user }}
-      smtp_password = {{ $smtp.password }}
-      smtp_ssl = {{ $smtp.ssl }}
-      email_from = {{ $smtp.from }}
-      workers = 0
-
+     [options]
+     ; Paths
+     data_dir = {{ $odooPath }}
+     addons_path = {{ $addonsPath }}
+     ; Network Details
+     http_enable = True
+     http_port = {{ $mainPort }}
+     ; Database Details
+     db_port = 5432
+     db_host = {{ $pghost }}
+     db_name = {{ $pgdb }}
+     db_user = {{ $pguser }}
+     db_sslmode = disable
+     db_password = {{ $pgpassword }}
+    {{- range $opt := .Values.odoo.additionalConf -}}
+        {{- if (mustHas $opt.key $reservedKeys) -}}
+          {{- fail (printf "Odoo - Key [%v] is not allowed to be modified") -}}
+        {{- end -}}
+        {{- $userKeys = mustAppend $userKeys $opt.key -}}
+        {{- printf "%s = %s" $opt.key $opt.value | nindent 8 -}}
+      {{- end -}}
+{{- if not (deepEqual $userKeys (uniq $userKeys)) -}}
+  {{- fail (printf "Odoo - Additional configuration keys must be unique, but got [%v]" (join ", " $userKeys)) -}}
+{{- end -}}
 {{- end -}}

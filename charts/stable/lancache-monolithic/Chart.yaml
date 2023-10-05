@@ -1,27 +1,27 @@
 apiVersion: v2
-kubeVersion: ">=1.16.0-0"
-name: lancache-monolithic
-version: 5.0.0
 appVersion: "latest"
-description: A monolithic lancache service capable of caching all CDNs in a single instance.
-type: application
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 14.0.1
 deprecated: false
+description: A monolithic lancache service capable of caching all CDNs in a single instance.
 home: https://truecharts.org/charts/stable/lancache-monolithic
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/lancache-monolithic.png
 keywords:
   - monolithic
   - lancache
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/lancache-monolithic
-  - https://github.com/lancachenet/monolithic
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.0.1
+kubeVersion: ">=1.16.0-0"
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts
     url: https://truecharts.org
+name: lancache-monolithic
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/lancache-monolithic
+  - https://github.com/lancachenet/monolithic
+type: application
+version: 5.1.1
 annotations:
   truecharts.org/catagories: |
     - gaming

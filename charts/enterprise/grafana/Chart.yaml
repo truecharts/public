@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "10.1.0"
+appVersion: "10.1.4"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.0.1
+    version: 14.0.6
 deprecated: false
 description: Grafana is an open source, feature rich metrics dashboard and graph editor for Graphite, Elasticsearch, OpenTSDB, Prometheus and InfluxDB.
 home: https://truecharts.org/charts/enterprise/grafana
@@ -24,7 +24,7 @@ sources:
   - https://github.com/bitnami/bitnami-docker-grafana
   - https://grafana.com/
 type: application
-version: 9.0.9
+version: 9.0.24
 annotations:
   truecharts.org/catagories: |
     - metrics

@@ -15,6 +15,7 @@ service:
     ports:
       main:
         protocol: http
+        targetPort: 80
         port: 10680
 
 romm:
@@ -35,7 +36,6 @@ workload:
             startup:
               type: http
           env:
-            VITE_BACKEND_DEV_PORT: "{{ .Values.service.main.ports.main.port }}"
             ROMM_BASE_PATH: /romm
             ROMM_DB_DRIVER: mariadb
             # IGDB client id

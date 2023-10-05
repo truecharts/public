@@ -11,6 +11,35 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
+                                - variable: env
+                                  group: App Configuration
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: DJANGO_SUPERUSER_EMAIL
+                                        label: SuperUser Email
+                                        description: Admin email
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+                                      - variable: DJANGO_SUPERUSER_USENAME
+                                        label: SuperUser UserName
+                                        description: Admin user
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+                                      - variable: DJANGO_SUPERUSER_PASSWORD
+                                        label: SuperUser Password
+                                        description: Admin Password
+                                        schema:
+                                          type: string
+                                          required: true
+                                          private: true
+                                          default: ""
 
 # Include{containerBasic}
 # Include{containerAdvanced}

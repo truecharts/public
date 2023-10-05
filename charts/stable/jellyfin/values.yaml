@@ -1,11 +1,11 @@
 image:
   repository: tccr.io/truecharts/jellyfin
   pullPolicy: IfNotPresent
-  tag: v10.8.10@sha256:d2c377ee7ea463110a1dda7eb1b231424ad05245aaf95744e76164bd2e593377
+  tag: v10.8.11@sha256:586eebeb787d89028b7891e189bc4bbf82141d67235252781ba72088708734f9
 broadcastProxyImage:
   repository: tccr.io/truecharts/socat
   pullPolicy: IfNotPresent
-  tag: v1.7.4.4@sha256:a88315e45f610b1bbc910d9b9f9ebbab7ac69bf5f03b2cd2b4cc1be09db25c3d
+  tag: v1.7.4.4@sha256:552fea756e51450c281db5d2232986c712008bb226d1881a6318561ce0fb999b
 service:
   main:
     ports:

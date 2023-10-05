@@ -1,12 +1,12 @@
 apiVersion: v2
-appVersion: "0.47.0"
+appVersion: "0.47.3"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 14.0.3
 deprecated: false
 description: "Business intelligence, dashboards, and data visualization tools"
-home: https://truecharts.org/charts/incubator/metabase
+home: https://truecharts.org/charts/stable/metabase
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/metabase.png
 keywords:
   - metabase
@@ -17,10 +17,10 @@ maintainers:
     url: https://truecharts.org
 name: metabase
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/metabase
+  - https://github.com/truecharts/charts/tree/master/charts/stable/metabase
   - https://github.com/metabase/metabase
 type: application
-version: 0.0.2
+version: 0.0.5
 annotations:
   truecharts.org/catagories: |
     - reporting

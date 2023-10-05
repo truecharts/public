@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/projectsend
   pullPolicy: IfNotPresent
-  tag: vlatest@sha256:54b84b8100910556fc8f504eab6136526342a5a81ee2eab5e4f80e53cc25e40f
+  tag: vlatest@sha256:a5bf74f8d721227bf073c6b8e96ac5163d5ef2551c488585976b65e4e36c2ccc
 
 securityContext:
   container:
@@ -20,54 +20,6 @@ service:
 workload:
   main:
     podSpec:
-      initContainers:
-        initconfig:
-          type: install
-          enabled: true
-          imageSelector: image
-          env:
-            DBNAME: "{{ .Values.mariadb.mariadbDatabase }}"
-            DBUSER: "{{ .Values.mariadb.mariadbUsername }}"
-            DBPASS:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
-                key: mariadb-password
-            DBHOST:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
-                key: plainhost
-          command:
-            - /bin/sh
-            - -c
-          args:
-            - |-
-              export configFile="/config/includes/sys.config.php";
-              if [ ! -f $configFile ];
-              then
-                echo "Creating initial config file...";
-                mkdir -p /config/includes;
-                touch $configFile;
-                echo "<?php" >> $configFile;
-                echo "# This is generated on initial setup of this TrueCharts App" >> $configFile;
-                echo "# Do not change below values, or DB connection will fail." >> $configFile;
-                echo "define('DB_DRIVER', 'mysql');" >> $configFile;
-                echo "define('DB_NAME', '$DBNAME');" >> $configFile;
-                echo "define('DB_HOST', '$DBHOST');" >> $configFile;
-                echo "define('DB_USER', '$DBUSER');" >> $configFile;
-                echo "define('DB_PASSWORD', '$DBPASS');" >> $configFile;
-                echo "define('MAX_FILESIZE', $MAX_UPLOAD);" >> $configFile;
-                echo "define('TABLES_PREFIX', 'tbl_');" >> $configFile;
-                echo "# You can manually change below values if you like." >> $configFile;
-                echo "define('SITE_LANG', 'en');" >> $configFile;
-                echo "define('EMAIL_ENCODING', 'utf-8');" >> $configFile;
-                echo "define('DEBUG', false);" >> $configFile;
-                echo "# End of generated config values." >> $configFile;
-                echo "Done!";
-              else
-                echo "Initial config file already exists. Skipping...";
-              fi;
       containers:
         main:
           env:
@@ -79,7 +31,13 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-    targetSelectAll: true
+  projectsend-config:
+    enabled: true
+    type: configmap
+    objectName: projectsend-config
+    mountPath: /config/projectsend/sys.config.php
+    subPath: sys.config.php
+    readOnly: true
   data:
     enabled: true
     mountPath: "/data"

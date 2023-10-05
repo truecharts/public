@@ -1,0 +1,51 @@
+image:
+  repository: tccr.io/truecharts/notifiarr
+  pullPolicy: IfNotPresent
+  tag: v0.6.1@sha256:90bf31597c3523baac1c4689ce59fbd64163f9d70f05f7d6ea535df3c17a3e2b
+
+notifiarr:
+  apikey: "test"
+  upstreams:
+    - 172.16.0.0/16
+  credentials:
+    username: ""
+    password: ""
+
+service:
+  main:
+    ports:
+      main:
+        port: 5454
+        protocol: http
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            TMPDIR: /tmpdir
+            DN_API_KEY: '{{ .Values.notifiarr.apikey }}'
+            DN_BIND_ADDR: '{{ printf "0.0.0.0:%v" .Values.service.main.ports.main.port }}'
+            DN_UPSTREAMS_0: '{{ join " " .Values.notifiarr.upstreams }}'
+            DN_UI_PASSWORD: '{{ printf "%v:%v" .Values.notifiarr.credentials.username .Values.notifiarr.credentials.password }}'
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  machine-id:
+    enabled: true
+    type: hostPath
+    hostPath: /etc/machine-id
+    mountPath: /etc/machine-id
+    readOnly: true
+  tmpdir:
+    enabled: true
+    type: emptyDir
+    mountPath: /tmpdir
+    medium: Memory
+
+portal:
+  open:
+    enabled: true
