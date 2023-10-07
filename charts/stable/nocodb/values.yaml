@@ -25,6 +25,8 @@ workload:
           envFrom:
             - configMapRef:
                 name: configmap
+            - secretRef:
+                name: secrets
           env:
             PORT: "{{ .Values.service.main.ports.main.port }}"
             # User Defined
