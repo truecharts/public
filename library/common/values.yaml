@@ -325,22 +325,22 @@ netshootImage:
 
 tailscaleImage:
   repository: tccr.io/truecharts/tailscale
-  tag: v1.48.1@sha256:53e5c5f8fca62664ad4404ebfb0fb6280404ad3a12c75d28afdbcdc5393b42a5
+  tag: v1.50.1@sha256:164944780322df2d8a2a0bf753991c018b135f342163721f4c20fa84d7f5b031
   pullPolicy: IfNotPresent
 
 codeserverImage:
   repository: tccr.io/truecharts/code-server
-  tag: v4.16.1@sha256:fc3a0b190c3f6eac23ba65fc678fef2c2b37d40a0b6182183de642ca25668816
+  tag: v4.17.1@sha256:4e798a4fb81f27726930c2f96756a2a6e8310833aec65dbb5a60f451ef4188a0
   pullPolicy: IfNotPresent
 
 alpineImage:
   repository: tccr.io/truecharts/alpine
-  tag: v3.18.3@sha256:5391a9572fcfda2ec5a9df99e08d4772f13635041eccfa61e57d49935486d9db
+  tag: v3.18.4@sha256:17cd77e25d3fa829d168caec4db7bb5b52ceeb935d8ca0d1180de6f615553dc4
   pullPolicy: IfNotPresent
 
 scratchImage:
   repository: tccr.io/truecharts/scratch
-  tag: latest@sha256:f4d99ffcd318372f92ecf9433a42348c1150f190c77253f5b73d835389b3da60
+  tag: latest@sha256:3bf74a004e49495307bf61ade401ccde159ce5f3930992ec42e747877df5d558
   pullPolicy: IfNotPresent
 
 kubectlImage:
