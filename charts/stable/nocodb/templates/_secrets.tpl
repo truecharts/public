@@ -1,6 +1,6 @@
 {{/* Define the secrets */}}
 {{- define "nocodb.secrets" -}}
-{{- $secretName := printf "%s-secrets" (include "tc.common.names.fullname" .) }}
+{{- $secretName := printf "%s-secrets" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 
 {{- $auth_jwt_token := randAlphaNum 32 -}}
 {{- with (lookup "v1" "Secret" .Release.Namespace $secretName) -}}
