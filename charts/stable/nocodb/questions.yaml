@@ -18,6 +18,21 @@ questions:
                                     additional_attrs: true
                                     type: dict
                                     attrs:
+                                      - variable: ADMIN_EMAIL
+                                        label: "Admin Email"
+                                        description: "Admin email for nocodb."
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: "admin@localhost"
+                                      - variable: ADMIN_PASSWORD
+                                        label: "Admin Password"
+                                        description: "Admin password for nocodb."
+                                        schema:
+                                          type: string
+                                          default: "sup3rS3cr3tp4ssw0rd"
+                                          required: true
+                                          private: true
                                       - variable: AWS_ACCESS_KEY_ID
                                         label: "AWS Access Key ID"
                                         description: "For Litestream - S3 access key id."
