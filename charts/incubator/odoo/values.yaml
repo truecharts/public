@@ -26,10 +26,6 @@ workload:
           type: install
           enabled: true
           imageSelector: "image"
-          securityContext:
-            readOnlyRootFilesystem: false
-            runAsUser: 101
-            runAsGroup: 101
           env:
             ODOO_RC: /etc/odoo/odoo.conf
           command:
