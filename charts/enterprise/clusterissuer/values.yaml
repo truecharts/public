@@ -59,7 +59,7 @@ clusterIssuer:
 #     # Used primarily for the SCALE GUI
 #     customServer: 'https://acme-staging-v02.api.letsencrypt.org/directory'
 #     email: ""
-#     # Options: HTTP01, cloudflare, route53
+#     # Options: HTTP01, cloudflare, route53, akamai, digitalocean, rfc2136, acmedns
 #     type: ""
 #     # for cloudflare
 #     cfapikey: ""
@@ -82,3 +82,15 @@ clusterIssuer:
 #     tsigKeyName: ""
 #     tsigAlgorithm: ""
 #     rfctsigSecret: ""
+#     # for acmedns
+#     name: sd
+#     acmednsHost: asdf
+#     # Pick one of the bellow acmednsConfig
+#     acmednsConfigJson:
+#     acmednsConfig:
+#       - domain: ""
+#         username: ""
+#         password: ""
+#         fulldomain: ""
+#         subdomain: ""
+#         allowFrom: []
