@@ -1,7 +1,53 @@
 image:
   repository: tccr.io/truecharts/mkvcleaver
-  tag: v1.3.0@sha256:363252799dfa5a7dfbafc260370b34c81ab79ba6f2ec923454bdc4db6a7a835b
+  tag: v23.06.1@sha256:1f1588e45606288affdbdc82d0bd3d2812f998d3069cf99b2a4c84e26d8a98c4
   pullPolicy: IfNotPresent
+
+mkvcleaver:
+  KEEP_APP_RUNNING: false
+  DISPLAY_WIDTH: 1280
+  DISPLAY_HEIGHT: 768
+  SECURE_CONNECTION: false
+  ENABLE_CJK_FONT: false
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+    capabilities:
+      disableS6Caps: true
+      add:
+        - CHOWN
+        - SETGID
+        - SETUID
+        - FOWNER
+        - DAC_OVERRIDE
+        - KILL
+        - NET_BIND_SERVICE
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            VNC_PASSWORD: ""
+          envFrom:
+            - configMapRef:
+                name: "mkvcleaver"
+
+configmap:
+  mkvcleaver:
+    enabled: true
+    data:
+      ENABLE_CJK_FONT: '{{ ternary "1" "0" .Values.mkvcleaver.ENABLE_CJK_FONT }}'
+      KEEP_APP_RUNNING: '{{ ternary "1" "0" .Values.mkvcleaver.KEEP_APP_RUNNING }}'
+      SECURE_CONNECTION: '{{ ternary "1" "0" .Values.mkvcleaver.SECURE_CONNECTION }}'
+      DISPLAY_WIDTH: "{{ .Values.mkvcleaver.DISPLAY_WIDTH }}"
+      DISPLAY_HEIGHT: "{{ .Values.mkvcleaver.DISPLAY_HEIGHT }}"
+
 service:
   main:
     ports:
@@ -16,21 +62,7 @@ service:
         enabled: true
         port: 5900
         targetPort: 5900
-mkvcleaver:
-  KEEP_APP_RUNNING: false
-  DISPLAY_WIDTH: 1280
-  DISPLAY_HEIGHT: 768
-  SECURE_CONNECTION: false
-  ENABLE_CJK_FONT: false
-configmap:
-  mkvcleaver:
-    enabled: true
-    data:
-      ENABLE_CJK_FONT: '{{ ternary "1" "0" .Values.mkvcleaver.ENABLE_CJK_FONT }}'
-      KEEP_APP_RUNNING: '{{ ternary "1" "0" .Values.mkvcleaver.KEEP_APP_RUNNING }}'
-      SECURE_CONNECTION: '{{ ternary "1" "0" .Values.mkvcleaver.SECURE_CONNECTION }}'
-      DISPLAY_WIDTH: "{{ .Values.mkvcleaver.DISPLAY_WIDTH }}"
-      DISPLAY_HEIGHT: "{{ .Values.mkvcleaver.DISPLAY_HEIGHT }}"
+
 persistence:
   config:
     enabled: true
@@ -38,22 +70,7 @@ persistence:
   storage:
     enabled: true
     mountPath: "/storage"
+
 portal:
   open:
     enabled: true
-securityContext:
-  container:
-    readOnlyRootFilesystem: false
-    runAsNonRoot: false
-    runAsUser: 0
-    runAsGroup: 0
-workload:
-  main:
-    podSpec:
-      containers:
-        main:
-          env:
-            VNC_PASSWORD: ""
-          envFrom:
-            - configMapRef:
-                name: "mkvcleaver"
