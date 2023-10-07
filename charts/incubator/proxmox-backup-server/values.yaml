@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/proxmox-backup-server
-  tag: v2.2-7@sha256:dcbaee6378f32c5062518ea39a5e8e1260c3a3c609bcb32bd2dd406b7a9ef0d0
+  tag: v3.0.2@sha256:31e31c6bc27ca6e682eb2819ba69bec7d20bfa928e5642123e620f9be3277d3c
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -9,8 +9,8 @@ securityContext:
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-  pod:
-    fsGroup: 34
+  # pod:
+  #   fsGroup: 34
 
 service:
   main:
