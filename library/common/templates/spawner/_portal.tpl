@@ -151,8 +151,8 @@
         {{- $objectName := ( printf "tcportal-%s" $name ) -}}
         {{- $configMap := dict "enabled" true "name" $objectName "shortName" $objectName "data" $portalData -}}
 
-        {{/* Perform validations */}}
-        {{- include "tc.v1.common.lib.chart.names.validation" (dict "name" $objectName) -}}
+        {{/* Perform validations */}} {{/* Configmaps have a max name length of 253 */}}
+        {{- include "tc.v1.common.lib.chart.names.validation" (dict "name" $objectName "length" 253) -}}
         {{- include "tc.v1.common.lib.configmap.validation" (dict "objectData" $configMap) -}}
         {{- include "tc.v1.common.lib.metadata.validation" (dict "objectData" $configMap "caller" "ConfigMap") -}}
 

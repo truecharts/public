@@ -40,8 +40,8 @@
         {{- end -}}
       {{- end -}}
 
-      {{/* Perform validations */}}
-      {{- include "tc.v1.common.lib.chart.names.validation" (dict "name" $objectName) -}}
+      {{/* Perform validations */}} {{/* Secrets have a max name length of 253 */}}
+      {{- include "tc.v1.common.lib.chart.names.validation" (dict "name" $objectName "length" 253) -}}
       {{- include "tc.v1.common.lib.secret.validation" (dict "objectData" $objectData) -}}
       {{- include "tc.v1.common.lib.metadata.validation" (dict "objectData" $objectData "caller" "Secret") -}}
 

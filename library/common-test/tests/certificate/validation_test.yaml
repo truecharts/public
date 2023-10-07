@@ -5,15 +5,15 @@ release:
   name: test-release-name
   namespace: test-release-namespace
 tests:
-  - it: should fail with name longer than 63 characters
+  - it: should fail with name longer than 253 characters
     set:
       scaleCertificate:
-        my-certificate-super-long-name-that-is-longer-than-63-characters:
+        my-certificate-super-long-name-that-is-longer-than-253-characters-my-certificate-super-long-name-that-is-longer-than-253-characters-my-certificate-super-long-name-that-is-longer-than-253-characters-my-certificate-super-long-long-long-long-long-long-name:
           enabled: true
           id: 1
     asserts:
       - failedTemplate:
-          errorMessage: Name [test-release-name-common-test-my-certificate-super-long-name-that-is-longer-than-63-characters] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
+          errorMessage: Name [test-release-name-common-test-my-certificate-super-long-name-that-is-longer-than-253-characters-my-certificate-super-long-name-that-is-longer-than-253-characters-my-certificate-super-long-name-that-is-longer-than-253-characters-my-certificate-super-long-long-long-long-long-long-name] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 253 characters.
 
   - it: should fail with name starting with underscore
     set:
@@ -23,7 +23,7 @@ tests:
           id: 1
     asserts:
       - failedTemplate:
-          errorMessage: Name [test-release-name-common-test-_my-cert] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
+          errorMessage: Name [test-release-name-common-test-_my-cert] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 253 characters.
 
   - it: should fail with labels not a dict
     set:

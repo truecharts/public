@@ -15,8 +15,8 @@
 
       {{- $objectName := (printf "%s-%s" $fullname $name) -}}
 
-      {{/* Perform validations */}}
-      {{- include "tc.v1.common.lib.chart.names.validation" (dict "name" $objectName) -}}
+      {{/* Perform validations */}} {{/* Secrets have a max name length of 253 */}}
+      {{- include "tc.v1.common.lib.chart.names.validation" (dict "name" $objectName "length" 253) -}}
       {{- include "tc.v1.common.lib.imagePullSecret.validation" (dict "objectData" $objectData) -}}
       {{- include "tc.v1.common.lib.metadata.validation" (dict "objectData" $objectData "caller" "Image Pull Secret") -}}
       {{- $data := include "tc.v1.common.lib.imagePullSecret.createData" (dict "rootCtx" $ "objectData" $objectData) -}}

@@ -33,9 +33,13 @@
 {{- define "tc.v1.common.lib.chart.names.validation" -}}
 
   {{- $name := .name -}}
+  {{- $length := .length -}}
+  {{- if not $length -}}
+    {{- $length = 63 -}}
+  {{- end -}}
 
-  {{- if not (and (mustRegexMatch "^[a-z0-9](-?[a-z0-9]-?)+[a-z0-9]$" $name) (le (len $name) 63)) -}}
-    {{- fail (printf "Name [%s] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters." $name) -}}
+  {{- if not (and (mustRegexMatch "^[a-z0-9](-?[a-z0-9]-?)+[a-z0-9]$" $name) (le (len $name) $length)) -}}
+    {{- fail (printf "Name [%s] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most %v characters." $name $length) -}}
   {{- end -}}
 
 {{- end -}}
