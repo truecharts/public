@@ -1,10 +1,10 @@
 # Blocky Setup Guide
 
-This will guide you through the basic setup of Blocky which is the preferred DNS solution for TrueCharts. This guide will cover basic setup options which will get you up and running and is not all inclusive.  Configuring your devices to use Blocky is out of scope of this guide.
+This will guide you through the basic setup of Blocky which is the preferred DNS solution for TrueCharts. This guide will cover basic setup options which will get you up and running and is not all inclusive. Configuring your devices to use Blocky is out of scope of this guide.
 
 ## Upstream DNS
 
-Blocky has the following DNS entries configured by default.  They can be overridden to your personal preferences or left as default. Here are some common ones:
+Blocky has the following DNS entries configured by default. They can be overridden to your personal preferences or left as default. Here are some common ones:
 
 - 1.1.1.1
 - 1.0.0.1
@@ -23,13 +23,13 @@ Blocky has the following DNS entries configured by default.  They can be overrid
 - 76.76.2.0
 - 76.76.10.0
 
-Blocky supports 3 methods for upstream DNS.  You can use any combination of the below.
+Blocky supports 3 methods for upstream DNS. You can use any combination of the below.
 
 - UDP - Basic DNS
 - DoT - DNS over TLS
 - DoH - DNS over HTTPS
 
-While UDP provides no security for DNS both DoT and DoH will encrypt DNS request. DoH has the added benefit of privacy since DNS traffic will appear as HTTPS traffic.  
+While UDP provides no security for DNS both DoT and DoH will encrypt DNS request. DoH has the added benefit of privacy since DNS traffic will appear as HTTPS traffic.
 
 ### UDP DNS Setup
 
@@ -83,10 +83,10 @@ certain blocklists if you find legitimate traffic being blocked.
 
 ## Networking
 
-If you want to use Blocky on your local network to take advantage of the filtering above, or the k8s-gateway below, you 
+If you want to use Blocky on your local network to take advantage of the filtering above, or the k8s-gateway below, you
 need to setup a static ip address and leave the default setting DNS TCP Service and DNS UDP Service as LoadBalancer.
 
-You need to configure the devices on your network to use the static IP address configured above.  This can be done per device or by changing the DHCP or DNS settings on your router.
+You need to configure the devices on your network to use the static IP address configured above. This can be done per device or by changing the DHCP or DNS settings on your router.
 
 ## k8s-Gateway Configuration
 

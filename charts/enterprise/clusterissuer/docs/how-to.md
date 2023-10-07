@@ -14,7 +14,6 @@ It is important to configure Scale with reliable nameserver to avoid issues hand
 
 ![clusterissuer scale nameservers](img/scale-network-nameserver.png)
 
-
 ## Install clusterissuer App
 
 :::note
@@ -37,7 +36,7 @@ Login to Cloudflare dashboard and go to the [Cloudflare API Tokens](https://dash
 
 ![clusterissuer app card](img/cf-apitokens-template.png)
 
-The recommended  `API Token` permissions are below:
+The recommended `API Token` permissions are below:
 ![clusterissuer app card](img/cf-apitokens-perms.png)
 
 #### Cloudflare ACME Issuer Settings
