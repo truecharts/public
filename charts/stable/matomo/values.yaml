@@ -13,7 +13,6 @@ securityContext:
 workload:
   main:
     podSpec:
-      tty: true
       containers:
         main:
           probes:
@@ -24,7 +23,6 @@ workload:
             startup:
               path: "/index.php"
           env:
-            BITNAMI_DEBUG: true
             APACHE_HTTP_PORT_NUMBER: "{{ .Values.service.main.ports.main.port }}"
             APACHE_HTTPS_PORT_NUMBER: "{{ .Values.service.https.ports.https.port }}"
             MATOMO_DATABASE_PORT_NUMBER: 3306
