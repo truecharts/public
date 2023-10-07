@@ -1,0 +1,36 @@
+image:
+  repository: tccr.io/truecharts/static-web-server
+  pullPolicy: IfNotPresent
+  tag: v2.22.1@sha256:015e53cb61759e5c08f8b559a403e4952415e8dda787a0f5d62988833602a77e
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 38080
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
+            SERVER_ROOT: "/public"
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/public"
+
+portal:
+  open:
+    enabled: true

@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: couchpotato
-version: 5.0.22
+version: 6.0.1
 appVersion: "2021.11.22"
 description: Couchpotato is an automatic NZB and torrent downloader.
 type: application
@@ -15,7 +15,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 12.14.6
+    version: 14.0.9
     # condition:
 maintainers:
   - email: info@truecharts.org

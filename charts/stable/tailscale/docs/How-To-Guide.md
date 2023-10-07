@@ -37,11 +37,14 @@ Also prepare your Tailscale Auth Key for your setup, easy to generate on the pag
 
 Ideally use `tailscale` but you can use any name here.
 
-### Controller
+### Global Pod Options
 
-Leave defaults here.
+This section is hidden by default for TrueNAS SCALE but if you wish to use `Host-Networking` or create an interface inside TrueNAS SCALE (`tailscale0`)
 
-### Container Configuration
+- Click `Expert - Pod Options`
+- Click the checkbox for `Host-Networking` if it isn't enabled
+
+### App Configuration
 
 - `Auth Key`: The key you received from tailscale in prerequisites above
 - `Userspace`: Now enabled by default, as it is _required_ when using local routes and as an exit node (see below). Userspace restricts clients to only accessing the GUI and Samba. This needs to be _unchecked_ if you need to give Tailscale full access to all the features inside TrueNAS SCALE (not just GUI/SMB, but RSYNC, PING and directly connect to other Tailscale IPs, etc). More info in the [Tailscale Userspace Guide](https://tailscale.com/kb/1112/userspace-networking/).

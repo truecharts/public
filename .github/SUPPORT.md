@@ -20,6 +20,10 @@ We also document which versions of TrueNAS will receive TrueCharts updates and f
 | 22.12.0          | `master` | :white_check_mark:     | :white_check_mark:        | :white_check_mark:    | Stable Release as of 2022-12-13                                                                                |
 | 22.12.1          | `master` | :white_check_mark:     | :white_check_mark:        | :white_check_mark:    | Stable Release as of 2023-02-21                                                                                |
 | 22.12.2          | `master` | :white_check_mark:     | :white_check_mark:        | :white_check_mark:    | Stable Release as of 2023-04-11                                                                                |
+| 22.12.3          | `master` | :white_check_mark:     | :white_check_mark:        | :white_check_mark:    | Stable Release as of 2023-06-13                                                                                |
+| 22.12.3.1        | `master` | :white_check_mark:     | :white_check_mark:        | :white_check_mark:    | Stable Release as of 2023-06-20                                                                                |
+| 22.12.3.2        | `master` | :white_check_mark:     | :white_check_mark:        | :white_check_mark:    | Stable Release as of 2023-07-05                                                                                |
+| 22.12.3.3        | `master` | :white_check_mark:     | :white_check_mark:        | :white_check_mark:    | Stable Release as of 2023-07-25                                                                                |
 | Nightly          | `master` | :white_check_mark:     | :x:                       | :white_check_mark:    | Please only submit bug reports during codefreeze                                                               |
 
 :::warning Support Guidelines

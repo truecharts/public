@@ -2,7 +2,6 @@
 portals:
   open:
 # Include{portalLink}
-    path: /guacamole
 questions:
 # Include{global}
 # Include{workload}
@@ -716,7 +715,15 @@ questions:
 # Include{persistenceRoot}
         - variable: recordings
           label: App Recordings Storage
-          description: Stores the Application Recordings.
+          description: Mounts this volume at [/var/lib/guacamole/recordings] in both guacd and client containers
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: drive
+          label: Virtual Drive Storage (guacd)
+          description: Mounts this volume at [/var/lib/guacamole/drive] in the guacd container
           schema:
             additional_attrs: true
             type: dict

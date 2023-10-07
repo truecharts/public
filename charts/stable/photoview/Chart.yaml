@@ -1,0 +1,27 @@
+apiVersion: v2
+appVersion: "2.3.13"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 14.0.9
+description: Photoview is a simple and user-friendly photo gallery.
+home: https://truecharts.org/charts/stable/photoview
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/photoview.png
+keywords:
+  - photo
+  - gallery
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: photoview
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/photoview
+  - https://github.com/photoview/photoview
+version: 10.0.1
+annotations:
+  truecharts.org/catagories: |
+    - media
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

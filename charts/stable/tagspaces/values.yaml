@@ -1,0 +1,37 @@
+image:
+  repository: tccr.io/truecharts/tagspaces-lite-web
+  pullPolicy: IfNotPresent
+  tag: v5.5.2@sha256:b021803519dfbda480d032f7c1812081a419dbfddd7e9b46dfd55566a48ac5a2
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 80
+        port: 5000
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            KEY:
+              secretKeyRef:
+                name: tagspaces-secret
+                key: KEY
+
+persistence:
+  nginx:
+    enabled: true
+    type: emptyDir
+    mountPath: "/var/cache/nginx"
+
+portal:
+  open:
+    enabled: true

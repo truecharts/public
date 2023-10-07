@@ -9,100 +9,78 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-                                - variable: env
-                                  group: "App Configuration"
-                                  label: "Image Environment"
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                      - variable: RINGTOKEN
-                                        label: "RINGTOKEN"
-                                        description: "RINGTOKEN can be left blank for web authenticated."
-                                        schema:
-                                          type: string
-                                          private: true
-                                          default: ""
-                                      - variable: MQTTUSER
-                                        label: "MQTTUSER"
-                                        description: "Set a username for your MQTT instance."
-                                        schema:
-                                          type: string
-                                          default: ""
-                                      - variable: MQTTPASSWORD
-                                        label: "MQTTPASSWORD"
-                                        description: "Set a password for your MQTT instance."
-                                        schema:
-                                          type: string
-                                          default: ""
-                                          private: true
-                                      - variable: MQTTHOST
-                                        label: "MQTTHOST"
-                                        description: "Set the MQTT host cluster url or ip. ex: `mosquitto.ix-mosquitto.svc.cluster.local`."
-                                        schema:
-                                          type: string
-                                          default: ""
-                                      - variable: MQTTPORT
-                                        label: "MQTTPORT"
-                                        description: "Set MQTTPORT to the port that your MQTT uses."
-                                        schema:
-                                          type: int
-                                          default: 1883
-                                      - variable: ENABLECAMERAS
-                                        label: "ENABLECAMERAS"
-                                        description: "Default false since the native Ring component for Home Assistant supports cameras, set to true to enable camera/chime support in this add-on. Access to Chimes cannot be granted to shared users so Chime support requires use of the primary Ring account."
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                      - variable: SNAPSHOTMODE
-                                        label: "SNAPSHOTMODE"
-                                        description: "Set SNAPSHOTMODE to [`Auto``, `Motion`, `Interval`, `All`] or default `disabled`"
-                                        schema:
-                                          type: string
-                                          default: "disabled"
-                                          enum:
-                                            - value: disabled
-                                              description: Disabled
-                                            - value: auto
-                                              description: Auto
-                                            - value: motion
-                                              description: Motion
-                                            - value: interval
-                                              description: Interval
-                                            - value: all
-                                              description: All
-                                      - variable: ENABLEMODES
-                                        label: "ENABLEMODES"
-                                        description: "Enable support for Location Modes for sites without a Ring Alarm Panel."
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                      - variable: ENABLEPANIC
-                                        label: "ENABLEPANIC"
-                                        description: "Enable panic buttons on Alarm Control Panel device."
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                      - variable: BEAMDURATION
-                                        label: "BEAMDURATION"
-                                        description: "Container Variable BEAMDURATION"
-                                        schema:
-                                          type: string
-                                          default: "0"
-                                      - variable: DISARMCODE
-                                        label: "DISARMCODE"
-                                        description: "Used only with Home Assistant, when defined this option causes the Home Assistant Alarm Control Panel integration to require entering this code to disarm the alarm"
-                                        schema:
-                                          type: string
-                                          default: ""
-                                      - variable: RINGLOCATIONIDS
-                                        label: "RINGLOCATIONIDS"
-                                        description: "Array of location Ids in format: [`loc-id`, `loc-id2`], see [Limiting Locations](https://github.com/tsightler/ring-mqtt/wiki/Configuration-Details#limiting-locations) for details."
-                                        schema:
-                                          type: string
-                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
+
+  - variable: ring
+    group: App Configuration
+    label: Ring-Mqtt
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: mqtt_url
+          label: MQTT Url
+          description: URL for connecting to MQTT broker in standard MQTT URL format.
+          schema:
+            type: string
+            required: true
+            default: "mqtt://mosquitto.ix-mosquitto.svc.cluster.local:1883"
+        - variable: livestream_user
+          label: LiveStream User
+          description: Specify a user for RTSP connections.
+          schema:
+            type: string
+            default: ""
+        - variable: livestream_pass
+          label: LiveStream Password
+          description: Specify a password for RTSP connections.
+          schema:
+            type: string
+            private: true
+            default: ""
+        - variable: disarm_code
+          label: Disarm Code
+          description: Home Assistant Alarm Control Panel integration require entering this code to disarm the alarm
+          schema:
+            type: string
+            default: ""
+        - variable: enable_cameras
+          label: Enable Cameras
+          description: Enables support for camera/chimes.
+          schema:
+            type: boolean
+            default: true
+        - variable: enable_modes
+          label: Enable Modes
+          description: Enable support for Location Modes for sites without a Ring Alarm Panel.
+          schema:
+            type: boolean
+            default: false
+        - variable: enable_panic
+          label: Enable Panic
+          description: Enable panic buttons on Alarm Control Panel device.
+          schema:
+            type: boolean
+            default: false
+        - variable: hass_topic
+          label: Hass Topic
+          description: The topic to monitor for Home Assistant restarts (MQTT birth/last will messages)
+          schema:
+            type: string
+            default: "homeassistant/status"
+        - variable: location_ids
+          label: Location Ids
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: location
+                label: Location
+                schema:
+                  type: string
+                  required: true
+                  default: ""
 
 # Include{containerConfig}
 # Include{podOptions}

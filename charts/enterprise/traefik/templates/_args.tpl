@@ -156,24 +156,31 @@ args:
   {{- end }}
   {{- end }}
   {{- end }}
-  {{/* theme.park */}}
+  {{/*
+    For new plugins, add them on the container also
+    https://github.com/truecharts/containers/blob/master/mirror/traefik/Dockerfile
+    moduleName must match on the container and here
+  */}}
   {{- if .Values.middlewares.themePark }}
-  - "--experimental.plugins.traefik-themepark.modulename=github.com/packruler/traefik-themepark"
-  - "--experimental.plugins.traefik-themepark.version={{ .Values.middlewares.themeParkVersion }}"
+  {{/* theme.park */}}
+  - "--experimental.localPlugins.traefik-themepark.modulename=github.com/packruler/traefik-themepark"
   {{- end }}
   {{/* End of theme.park */}}
   {{/* GeoBlock */}}
   {{- if .Values.middlewares.geoBlock }}
-  - "--experimental.plugins.GeoBlock.modulename=github.com/PascalMinder/geoblock"
-  - "--experimental.plugins.GeoBlock.version={{ .Values.middlewares.geoBlockVersion }}"
+  - "--experimental.localPlugins.GeoBlock.modulename=github.com/PascalMinder/geoblock"
   {{- end }}
   {{/* End of GeoBlock */}}
   {{/* RealIP */}}
   {{- if .Values.middlewares.realIP }}
-  - "--experimental.plugins.traefik-real-ip.modulename=github.com/soulbalz/traefik-real-ip"
-  - "--experimental.plugins.traefik-real-ip.version={{ .Values.middlewares.realIPVersion }}"
+  - "--experimental.localPlugins.traefik-real-ip.modulename=github.com/jramsgz/traefik-real-ip"
   {{- end }}
   {{/* End of RealIP */}}
+  {{/* ModSecurity */}}
+  {{- if .Values.middlewares.modsecurity }}
+  - "--experimental.localPlugins.traefik-modsecurity-plugin.modulename=github.com/acouvreur/traefik-modsecurity-plugin"
+  {{- end }}
+  {{/* End of ModSecurity */}}
   {{- with .Values.additionalArguments }}
   {{- range . }}
   - {{ . | quote }}

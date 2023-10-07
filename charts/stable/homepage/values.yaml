@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/homepage
-  tag: v0.6.23@sha256:b58c2ab802eeaf2626aecf60e43925401db8e09588dcedaeb5d6ff0a2cf77684
+  tag: v0.7.1@sha256:f51e1a40b0c683615bcdcf12b2632517a32800b0875f2d64c3a3cb5c4493fb5e
   pullPolicy: IfNotPresent
 service:
   main:
@@ -46,6 +46,14 @@ rbac:
           - get
           - list
       - apiGroups:
+          - traefik.containo.us
+          - traefik.io
+        resources:
+          - ingressroutes
+        verbs:
+          - get
+          - list
+      - apiGroups:
           - metrics.k8s.io
         resources:
           - nodes
@@ -53,3 +61,13 @@ rbac:
         verbs:
           - get
           - list
+      - apiGroups:
+          - apiextensions.k8s.io
+        resources:
+          - customresourcedefinitions/status
+        verbs:
+          - get
+workload:
+  main:
+    podSpec:
+      automountServiceAccountToken: true

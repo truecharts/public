@@ -1,0 +1,75 @@
+image:
+  repository: tccr.io/truecharts/joplin-server
+  tag: v2.13.1@sha256:c1d85a0766491a9fb8257ebdad57310a2f58e0e6c29ee5bbc88b6cc84eb1611a
+  pullPolicy: IfNotPresent
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: "/api/ping"
+              port: "{{ .Values.service.main.ports.main.port }}"
+              httpHeaders:
+                Host: '{{ tpl .Values.workload.main.podSpec.containers.main.env.APP_BASE_URL $ | replace "https://" "" | replace "http://" "" }}'
+            readiness:
+              path: "/api/ping"
+              port: "{{ .Values.service.main.ports.main.port }}"
+              httpHeaders:
+                Host: '{{ tpl .Values.workload.main.podSpec.containers.main.env.APP_BASE_URL $ | replace "https://" "" | replace "http://" "" }}'
+            startup:
+              type: tcp
+              port: "{{ .Values.service.main.ports.main.port }}"
+          env:
+            APP_BASE_URL: ""
+            APP_PORT: "{{ .Values.service.main.ports.main.port }}"
+            DB_CLIENT: "pg"
+            POSTGRES_DATABASE: "{{ .Values.cnpg.main.database }}"
+            POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
+            POSTGRES_PORT: "5432"
+            POSTGRES_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            POSTGRES_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            MAILER_ENABLED: 0
+            MAILER_HOST: ""
+            MAILER_PORT: 465
+            MAILER_SECURE: true
+            MAILER_AUTH_USER: ""
+            MAILER_AUTH_PASSWORD: ""
+            MAILER_NOREPLY_NAME: ""
+            MAILER_NOREPLY_EMAIL: ""
+
+service:
+  main:
+    ports:
+      main:
+        port: 22300
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+
+cnpg:
+  main:
+    enabled: true
+    user: joplin
+    database: joplin
+
+portal:
+  open:
+    enabled: true

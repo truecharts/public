@@ -1,22 +1,22 @@
 image:
   repository: tccr.io/truecharts/immich-server
-  tag: v1.68.0@sha256:c40997f6ee1d50f9eb645a68974d774c8f3e8d488b32ba100bf0183b544c516e
+  tag: v1.81.1@sha256:ca84ec775d436a83fa5f15631fed75da2dcd1bb01ccea6a3071068649886cc7c
   pullPolicy: IfNotPresent
 mlImage:
   repository: tccr.io/truecharts/immich-ml
-  tag: v1.68.0@sha256:93304f38f93a3a7d07897e87b596e109640cfa19f78c81a5cf087517eb68dfed
+  tag: v1.81.1@sha256:cf412e50583f590d6c468d10c0bb12404dea325d81d90432da1d59ab74dd616b
   pullPolicy: IfNotPresent
 webImage:
   repository: tccr.io/truecharts/immich-web
-  tag: v1.68.0@sha256:5210634ebb8defa7795a7b476cc332f078d288d3104aa59e90f381a7491aa746
+  tag: v1.81.1@sha256:a42f949f5bac4e292b921c216aa351b6110123b667ca8084b50b9f4eb4716b60
   pullPolicy: IfNotPresent
 proxyImage:
   repository: tccr.io/truecharts/immich-proxy
-  tag: v1.68.0@sha256:a9fb5f0a893b43194a36decbb7f60c35c1b85c5df23ee1a36b2699a6d68e0e33
+  tag: v1.81.1@sha256:feb275bd3559407535833e86a3fb510603021af473bd04b6ccb14bac35a87422
   pullPolicy: IfNotPresent
 typesenseImage:
   repository: tccr.io/truecharts/immich-typesense
-  tag: v0.24.1@sha256:1e46a13a98670c98b483e0cbbf66f05aa418146e7edf447446ae72f3bb8477ac
+  tag: v0.25.1@sha256:878fa58e17f9ba6223d07530d03139b647300bd2ea185124688b731e3349d705
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -30,8 +30,6 @@ immich:
   enable_ml: true
   enable_typesense: true
   public_login_page_message: Immich
-  disable_reverse_geocoding: false
-  reverse_geocoding_precision: 3
   log_level: log
 
 service:
@@ -162,6 +160,15 @@ persistence:
   video:
     enabled: true
     mountPath: /usr/src/app/upload/encoded-video
+    targetSelector:
+      # Main pod/container is server
+      main:
+        main: {}
+      microservices:
+        microservices: {}
+  externallibrary:
+    enabled: true
+    mountPath: /media
     targetSelector:
       # Main pod/container is server
       main:

@@ -1,8 +1,8 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: alist
-version: 5.0.28
-appVersion: "3.22.1"
+version: 6.0.5
+appVersion: "3.28.0"
 description: Alist program that supports multiple storage, powered by Gin and React
 type: application
 deprecated: false
@@ -21,7 +21,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 12.14.6
+    version: 14.0.9
     # condition:
 maintainers:
   - email: info@truecharts.org

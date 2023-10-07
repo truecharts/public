@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/paperless-ng
   pullPolicy: IfNotPresent
-  tag: v1.16.5@sha256:eaa17518e126a327b9f3ea85509eec8455b08110a7c76451e623b59270e1ffdd
+  tag: v1.17.4@sha256:8c2f279473eea49bfdaf1bf597d897da3009ff619570e250b7d6b4ae4e89e1e5
 
 service:
   main:
@@ -95,3 +95,5 @@ workload:
             PAPERLESS_ADMIN_USER: "admin"
             PAPERLESS_ADMIN_PASSWORD: "admin"
             PAPERLESS_ADMIN_MAIL: "admin@admin.com"
+            PAPERLESS_OCR_LANGUAGE: "eng"
+            PAPERLESS_OCR_LANGUAGES: "eng fra deu spa ita"

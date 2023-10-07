@@ -1,16 +1,8 @@
 {{/* Define the configmap */}}
 {{- define "owntracks.secret" -}}
 
-{{- $configName := printf "%s-secret" (include "tc.common.names.fullname" .) }}
----
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: {{ $configName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
-stringData:
+enabled: true
+data:
   OTR_HTTPPORT: {{ .Values.service.main.ports.main.port | quote }}
   {{- with .Values.owntracks.otr_host }}
   OTR_HOST: {{ . | quote }}

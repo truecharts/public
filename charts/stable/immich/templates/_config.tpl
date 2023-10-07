@@ -27,8 +27,6 @@ configmap:
     enabled: true
     data:
       MICROSERVICES_PORT: {{ .Values.service.microservices.ports.microservices.port | quote }}
-      DISABLE_REVERSE_GEOCODING: {{ .Values.immich.disable_reverse_geocoding | quote }}
-      REVERSE_GEOCODING_PRECISION: {{ .Values.immich.reverse_geocoding_precision | quote }}
       REVERSE_GEOCODING_DUMP_DIRECTORY: {{ .Values.persistence.microcache.targetSelector.microservices.microservices.mountPath }}
 
   {{- if .Values.immich.enable_ml }}
@@ -47,10 +45,9 @@ configmap:
     data:
       NODE_ENV: production
       LOG_LEVEL: {{ .Values.immich.log_level }}
+      IMMICH_MACHINE_LEARNING_ENABLED: {{ .Values.immich.enable_ml | quote }}
       {{- if .Values.immich.enable_ml }}
       IMMICH_MACHINE_LEARNING_URL: {{ printf "http://%v-machinelearning:%v" $fname .Values.service.machinelearning.ports.machinelearning.port }}
-      {{- else }}
-      IMMICH_MACHINE_LEARNING_URL: "false"
       {{- end }}
       TYPESENSE_ENABLED: {{ .Values.immich.enable_typesense | quote }}
       {{- if .Values.immich.enable_typesense }}

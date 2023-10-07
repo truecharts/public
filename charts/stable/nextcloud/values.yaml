@@ -1,27 +1,27 @@
 image:
   repository: tccr.io/truecharts/nextcloud-fpm
   pullPolicy: IfNotPresent
-  tag: v27.0.0@sha256:0810b5cab6f7e927c80225dd5debfede8836759e5b5237b699373cf927057b02
+  tag: v27.1.1@sha256:2593f2d987d70f91d976be99df95a92fc07802e6110bc7ff5a8814a7d5401f3c
 nginxImage:
   repository: tccr.io/truecharts/nginx-unprivileged
   pullPolicy: IfNotPresent
-  tag: v1.25.1@sha256:64b9ff5037b03e721e2ac033d968b4b603d1ba1d4aafa67248444c232be15e02
+  tag: v1.25.2@sha256:c244c1cb771fb7d428239ab1238eb012eaf5477847ec692ab4f711b5eb48c411
 imaginaryImage:
   repository: tccr.io/truecharts/nextcloud-imaginary
   pullPolicy: IfNotPresent
-  tag: v20230401@sha256:9d90b996789ff4e6a700cca97273d86c07b508c627cd1c25d6526fba819797bd
+  tag: v20230401@sha256:bd8e6ea0390c84277c6fa1ed4e03339e1069cb492a3216e969642d82d649495e
 hpbImage:
   repository: tccr.io/truecharts/nextcloud-push-notify
   pullPolicy: IfNotPresent
-  tag: v0.6.3@sha256:01fa824efebf851985b15a0e48d94e89992e26f27f07e593f7751354ed3d0ea6
+  tag: v0.6.3@sha256:b9c35ab123354eeac3996e361f8c30b8e4de6d2ccd69e5179a7c2a101a67b46f
 clamavImage:
   repository: tccr.io/truecharts/clamav
   pullPolicy: IfNotPresent
-  tag: v1.1.0@sha256:ab196d867fcfddedc8dc965d67a2e6824ca65488cf616cc707e9c36efd54e086
+  tag: v1.2.0@sha256:7f9ca042b6e53783269fad32c8d84a22f9ad2c3ebbd717a8b16d1f9c798a2c02
 collaboraImage:
   repository: tccr.io/truecharts/collabora
   pullPolicy: IfNotPresent
-  tag: v23.05.1.3.1@sha256:b1dbcd6f551b75d6a2153ee5a24cfe5e9252e3b71dc629b1b74cb5e29cca97a8
+  tag: v23.05.4.2.1@sha256:9cb6037acc9a286dd78bd158d00221bc074b797b66fee1e4fcd286f2ed4dc28b
 
 nextcloud:
   # Initial Credentials
@@ -121,6 +121,12 @@ nextcloud:
     pm_start_servers: 18
     pm_min_spare_servers: 12
     pm_max_spare_servers: 30
+  opcache:
+    interned_strings_buffer: 32
+    max_accelerated_files: 10000
+    memory_consumption: 128
+    revalidate_freq: 60
+    jit_buffer_size: 128
 
 # Do NOT edit below this line
 workload:
@@ -316,7 +322,7 @@ workload:
               port: "{{ .Values.service.collabora.ports.collabora.targetPort }}"
 
 cronjobs:
-    # Don't change names, it's used in the persistence
+  # Don't change names, it's used in the persistence
   - name: nextcloud-cron
     enabled: true
     schedule: "*/5 * * * *"
@@ -411,6 +417,16 @@ persistence:
         main:
           mountPath: /usr/local/etc/php/conf.d/redis-session.ini
           subPath: redis-session.ini
+          readOnly: true
+  opcache-recommended:
+    enabled: true
+    type: configmap
+    objectName: opcache
+    targetSelector:
+      main:
+        main:
+          mountPath: /usr/local/etc/php/conf.d/opcache-recommended.ini
+          subPath: opcache-recommended.ini
           readOnly: true
   nginx:
     enabled: true

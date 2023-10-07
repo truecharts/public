@@ -1,13 +1,13 @@
 apiVersion: v2
-appVersion: "23.06.2023"
+appVersion: "23.08.2023"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 12.14.6
+    version: 14.0.9
   - condition: mariadb.enabled
     name: mariadb
     repository: https://deps.truecharts.org/
-    version: 7.0.62
+    version: 7.0.70
 description: "A simple, self-hosted, easy-to-use platform for organising and storing information."
 home: https://truecharts.org/charts/stable/bookstack
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/bookstack.png
@@ -27,7 +27,7 @@ name: bookstack
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/bookstack
   - https://www.bookstackapp.com/
-version: 7.0.24
+version: 8.0.2
 annotations:
   truecharts.org/catagories: |
     - media

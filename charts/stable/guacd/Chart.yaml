@@ -1,8 +1,8 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: guacd
-version: 5.0.16
-appVersion: "1.5.2"
+version: 6.0.2
+appVersion: "1.5.3"
 description: Guacd - Apache Guacamole is a clientless remote desktop gateway.
 type: application
 deprecated: false
@@ -18,7 +18,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 12.14.6
+    version: 14.0.9
     # condition:
 maintainers:
   - email: info@truecharts.org

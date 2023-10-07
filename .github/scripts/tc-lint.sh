@@ -147,17 +147,18 @@ function lint_chart(){
         echo "👣 Helm Lint - [$chart_path]"
         helm_lint "$chart_path"
 
-        if [[ ! $(ls $chart_path/ci/*values.yaml) ]]; then
-            echo "👣 Helm Template - [$chart_path]"
-            helm_template "$chart_path"
-        fi
+        # FIXME: Comment out for now as it requires deps installed in linting.
+        # if [[ ! $(ls $chart_path/ci/*values.yaml) ]]; then
+        #     echo "👣 Helm Template - [$chart_path]"
+        #     helm_template "$chart_path"
+        # fi
 
-        for values in $chart_path/ci/*values.yaml; do
-            if [ -f "${values}" ]; then
-                echo "👣 Helm Template - [$values]"
-                helm_template "$chart_path" "$values"
-            fi
-        done
+        # for values in $chart_path/ci/*values.yaml; do
+        #     if [ -f "${values}" ]; then
+        #         echo "👣 Helm Template - [$values]"
+        #         helm_template "$chart_path" "$values"
+        #     fi
+        # done
 
         echo "👣 Chart Version - [$chart_path] against [$target_branch]"
         check_version "$chart_path" "$target_branch"

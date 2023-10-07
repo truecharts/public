@@ -1,7 +1,0 @@
-workload:
-  main:
-    podSpec:
-      containers:
-        main:
-          env:
-            APP_BASE_URL: "http://localhost:{{ .Values.service.main.ports.main.port }}"

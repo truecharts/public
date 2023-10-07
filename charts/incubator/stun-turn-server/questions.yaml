@@ -109,19 +109,19 @@ questions:
           description: "Specify your state or province."
           schema:
             type: string
-            default: "None"
+            default: ""
         - variable: CA_LOCALITY
           label: "CA_LOCALITY"
           description: "Specify your locality."
           schema:
             type: string
-            default: "None"
+            default: ""
         - variable: CA_ORGANIZATION
           label: "CA_ORGANIZATION"
           description: "Specify your organiszation."
           schema:
             type: string
-            default: "None"
+            default: ""
         - variable: DH_LENGTH
           label: "DH_LENGTH"
           description: "Enter your preferred key length (the higher the value the longer it takes to generate the key)."
@@ -140,12 +140,6 @@ questions:
           schema:
             type: string
             default: "0.0.0.0"
-        - variable: UMASK
-          label: "UMASK"
-          description: "Container Variable 000"
-          schema:
-            type: string
-            default: "000"
         - variable: DATA_PERM
           label: "DATA_PERM"
           description: "Container Variable DATAPERM"
@@ -177,7 +171,7 @@ questions:
                               default: 5349
                               required: true
         - variable: udpports
-          label: 'udpports service'
+          label: 'UDP Service Port Configuration'
           description: "UDP Port"
           schema:
             additional_attrs: true
@@ -186,7 +180,7 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: udpports
-                      label: "udpports Service Port Configuration"
+                      label: "UDP Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -202,9 +196,9 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: containerpath
-          label: "containerpath Storage"
-          description: "Container Path stun-turn"
+        - variable: config
+          label: "App Config Storage"
+          description: "Stores the Application Data."
           schema:
             additional_attrs: true
             type: dict

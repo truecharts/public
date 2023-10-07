@@ -3,11 +3,11 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 12.14.6
+    version: 14.0.9
   - condition: mongodb.enabled
     name: mongodb
     repository: https://deps.truecharts.org/
-    version: 6.0.59
+    version: 6.0.67
 deprecated: false
 description: mongo-express is a web-based MongoDB admin interface written in Node.js, Express.js, and Bootstrap3.
 home: https://truecharts.org/charts/stable/mongo-express
@@ -26,7 +26,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/mongo-express
   - https://github.com/mongo-express/mongo-express
 type: application
-version: 1.0.10
+version: 2.0.1
 annotations:
   truecharts.org/catagories: |
     - database

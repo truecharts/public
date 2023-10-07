@@ -17,11 +17,16 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
+  varrun:
+    enabled: false
 portal:
   open:
     enabled: true
 securityContext:
   container:
+    capabilities:
+      add:
+        - NET_RAW
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     allowPrivilegeEscalation: true

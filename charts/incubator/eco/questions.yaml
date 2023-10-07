@@ -10,71 +10,150 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
+  - variable: eco
+    group: App Configuration
+    label: Eco
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: USERNAME
-          label: "USERNAME"
-          description: "Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
+        - variable: game
+          label: Game Configuration
           schema:
-            type: string
-            default: ""
-        - variable: PASSWRD
-          label: "PASSWRD"
-          description: "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: id
+                label: Game Id
+                description: The ID of the container to download at start up.
+                schema:
+                  type: string
+                  required: true
+                  default: "739590"
+              - variable: user
+                label: Steam User
+                description: Leave blank for anonymous login.
+                schema:
+                  type: string
+                  default: ""
+              - variable: password
+                label: Steam Password
+                description: Leave blank for anonymous login.
+                schema:
+                  type: string
+                  default: ""
+              - variable: validate
+                label: Validate
+                description: Validates the game data.
+                schema:
+                  type: boolean
+                  default: true
+              - variable: params
+                label: Game Params
+                schema:
+                  type: list
+                  default: []
+                  required: true
+                  items:
+                    - variable: param
+                      label: Param
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+        - variable: network
+          label: Network Configuration
           schema:
-            type: string
-            private: true
-            default: ""
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: GAME_ID
-          label: "GAME_ID"
-          description: "The GAME_ID that the container download at startup.(https://developer.valvesoftware.com/wiki/Dedicated_Servers_List)"
-          schema:
-            type: string
-            default: "739590"
-        - variable: GAME_PARAMS
-          label: "GAME_PARAMS"
-          description: "Enter your start up commands for the server."
-          schema:
-            type: string
-            default: ""
-        - variable: VALIDATE
-          label: "VALIDATE"
-          description: "Set the Variable to true if you want to validate the installation otherwise leave it blank."
-          schema:
-            type: boolean
-            default: true
-        - variable: DATA_PERM
-          label: "DATA_PERM"
-          description: "Container Variable DATAPERM"
-          schema:
-            type: string
-            default: "770"
-        - variable: UMASK
-          label: "UMASK"
-          description: "Container Variable UMASK"
-          schema:
-            type: string
-            default: "000"
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: PublicServer
+                label: Public Server
+                description: Defines if other players can see server.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: Playtime
+                label: Play time
+                schema:
+                  type: string
+                  default: ""
+              - variable: DiscordAddress
+                label: Discord Address
+                description: Invite link ID for a Discord server.
+                schema:
+                  type: string
+                  default: ""
+              - variable: Password
+                label: Password
+                description: Defines if a server's password.
+                schema:
+                  type: string
+                  default: ""
+              - variable: Description
+                label: Server Name
+                description: Defines the name of the server.
+                schema:
+                  type: string
+                  default: "Truecharts ECO Server"
+              - variable: DetailedDescription
+                label: Detailed Description
+                description: Defines the server's description.
+                schema:
+                  type: string
+                  default: "Vanilla ECO game"
+              - variable: ServerCategory
+                label: Server Category
+                description: Set the server Category.
+                schema:
+                  type: string
+                  default: "None"
+                  enum:
+                    - value: None
+                      description: None
+                    - value: Beginner
+                      description: Beginner
+                    - value: Established
+                      description: Established
+                    - value: BeginnerHard
+                      description: BeginnerHard
+                    - value: Strange
+                      description: Strange
+              - variable: RemoteAddress
+                label: Remote Address
+                description: Public/external IP-address or domain and port number needed to reach the server.
+                schema:
+                  type: string
+                  default: "localhost:3000/"
+              - variable: WebServerUrl
+                label: Web Server Url
+                description: Public/external web sever URL.
+                schema:
+                  type: string
+                  default: "localhost:3001"
+              - variable: Rate
+                label: Rate
+                description: The network rate used to communicate between server and client.
+                schema:
+                  type: int
+                  default: 20
+              - variable: MaxConnections
+                label: Max Connections
+                description: Maximum number of concurrent players (-1 no limits).
+                schema:
+                  type: int
+                  default: -1
+
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+          label: Main Service
+          description: The Primary service on which the Minecraft Server runs on
           schema:
             additional_attrs: true
             type: dict
@@ -82,36 +161,36 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: "Main Service Port Configuration"
+                      label: Main Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 3001
                               required: true
-        - variable: udpgameport
-          label: 'udpgameport service'
-          description: "UDP Game Port"
+        - variable: game
+          label: Game Service
+          description: The Game service.
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
-                    - variable: udpgameport
-                      label: "udpgameport Service Port Configuration"
+                    - variable: game
+                      label: Game Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 3000
@@ -121,16 +200,16 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: steamcmd
-          label: "steamcmd Storage"
-          description: "Container Path serverdatasteamcmd"
+          label: App SteamCMD Storage
+          description: Stores the Application SteamCMD.
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
         - variable: serverfiles
-          label: "serverfiles Storage"
-          description: "Container Path serverdataserverfiles"
+          label: App Server Files Storage
+          description: Stores the Application Server Files.
           schema:
             additional_attrs: true
             type: dict
@@ -139,7 +218,7 @@ questions:
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: "Main Ingress"
+          label: Main Ingress
           schema:
             additional_attrs: true
             type: dict

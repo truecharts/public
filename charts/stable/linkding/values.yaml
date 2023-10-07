@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/linkding
-  tag: v1.19.0@sha256:34bfe7fe951f1f005157b93765e711db1934a1d2bc534922b87c390f358696b1
+  tag: v1.22.1@sha256:3f32710e3088654a183df56ad8a9e0acda42354863aeb9b5f759a41832b346c8
   pullPolicy: IfNotPresent
 service:
   main:
@@ -52,6 +52,5 @@ workload:
             LD_REQUEST_TIMEOUT: 60
             LD_DISABLE_BACKGROUND_TASKS: false
             LD_DISABLE_URL_VALIDATION: false
-            DJANGO_SUPERUSER_USERNAME: "superuser"
-            DJANGO_SUPERUSER_EMAIL: "super@example.com"
-            DJANGO_SUPERUSER_PASSWORD: "somesecret"
+            LD_SUPERUSER_NAME: "superuser"
+            LD_SUPERUSER_PASSWORD: "somesecret"

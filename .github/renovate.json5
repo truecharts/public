@@ -20,6 +20,12 @@
     "fileMatch": ["charts/.+/Chart\\.yaml$"]
   },
   "packageRules": [
+    // Bundle Github Actions
+    {
+      "matchManagers": ["github-actions"],
+      "groupName": "Github-Actions",
+      "automerge": true
+    },
     // Setup datasources for dep updates
     {
       "datasources": ["helm"],
@@ -280,6 +286,11 @@
       "matchDatasources": ["docker"],
       "matchPackagePrefixes": ["tccr.io/truecharts/immich"],
       "groupName": "immich",
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["tccr.io/truecharts/portainer"],
+      "groupName": "portainer",
     },
     {
       "matchDatasources": ["docker"],

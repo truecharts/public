@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/traefik
-  tag: 2.10.1@sha256:049aece2d3e7eddabed1e2e4c4bd03ceba372d3b9f461386b262b6cb69369fcf
+  tag: 2.10.4@sha256:77766fb3eb739197d7e229bfa8afb3a4a740886e3effef474ca4c9efdf65e5ab
   pullPolicy: IfNotPresent
 manifestManager:
   enabled: true
@@ -23,7 +23,7 @@ workload:
               # @default -- "/"
               # path: "/ping"
 
-            # -- Redainess probe configuration
+            # -- Readiness probe configuration
             # @default -- See below
             readiness:
               # -- sets the probe type when not using a custom probe
@@ -47,6 +47,9 @@ workload:
 # Can be overruled per pod
 podOptions:
   automountServiceAccountToken: true
+
+operator:
+  register: true
 
 # -- Use ingressClass. Ignored if Traefik version < 2.3 / kubernetes < 1.18.x
 ingressClass:
@@ -346,6 +349,16 @@ middlewares:
   #       value: "foobar"
   #     - name: X-Header-To-Remove
   #       value: ""
+  customFrameOptionsValue: []
+  # - name: customFrameOptionsValueExample
+  #   value: "SAMEORIGIN"
+  buffering: []
+  # - name: bufferingExample
+  #   maxRequestBodyBytes: 1000000
+  #   memRequestBodyBytes: 1000000
+  #   maxResponseBodyBytes: 1000000
+  #   memResponseBodyBytes: 1000000
+  #   retryExpression: "IsNetworkError() && Attempts() < 2"
   chain: []
   # - name: chainname
   #   middlewares:
@@ -372,7 +385,6 @@ middlewares:
   #   ipStrategy:
   #     depth: 2
   #     excludedIPs: []
-  themeParkVersion: v1.3.0
   themePark: []
   # - name: themeParkName
   # -- Supported apps, lower case name
@@ -384,7 +396,6 @@ middlewares:
   #   theme: themenamehere
   # -- https://theme-park.dev or a self hosted url
   #   baseUrl: https://theme-park.dev
-  realIPVersion: v1.0.3
   # Sets X-Real-Ip with an IP from the X-Forwarded-For or
   # Cf-Connecting-Ip (If from Cloudflare)
   # Evaluation of those headers will go from last to first
@@ -397,7 +408,6 @@ middlewares:
   addPrefix: []
   # - name: addPrefixName
   #   prefix: "/foo"
-  geoBlockVersion: v0.2.4
   geoBlock: []
   # -- https://github.com/PascalMinder/geoblock
   # - name: geoBlockName
@@ -414,6 +424,14 @@ middlewares:
   #   blackListMode: false
   #   countries:
   #     - RU
+  modsecurity: []
+  # - name: modsecurityName
+  #   modSecurityUrl: modSecurity container URL
+  #   timeoutMillis: Configurated  timeout
+  #   maxBodySize: maxBodySize
+  ## Note: body of every request will be buffered in memory while the request is in-flight
+  ## (i.e.: during the security check and during the request processing by traefik and the backend),
+  ## so you may want to tune maxBodySize depending on how much RAM you have.
 
 portalhook:
   enabled: true

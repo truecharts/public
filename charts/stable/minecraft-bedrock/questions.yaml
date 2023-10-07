@@ -9,7 +9,6 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-
                                 - variable: env
                                   group: "App Configuration"
                                   label: "Image Environment"
@@ -17,6 +16,17 @@ questions:
                                     additional_attrs: true
                                     type: dict
                                     attrs:
+                                      - variable: EULA
+                                        label: Minecraft Eula
+                                        schema:
+                                          type: boolean
+                                          required: true
+                                          default: false
+                                      - variable: ENABLE_LAN_VISIBILITY
+                                        label: Enable Lan Visibility
+                                        schema:
+                                          type: boolean
+                                          default: false
                                       - variable: VERSION
                                         label: "Minecraft version"
                                         description: "Options: LATEST, PREVIOUS or version number"
@@ -196,6 +206,7 @@ questions:
                                         schema:
                                           type: boolean
                                           default: false
+
 # Include{containerBasic}
 # Include{containerAdvanced}
 

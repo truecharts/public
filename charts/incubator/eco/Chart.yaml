@@ -1,15 +1,11 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - GameServers
 apiVersion: v2
 appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 14.0.9
 deprecated: false
-description: "This Chart will download and install SteamCMD. It will also install ECO and run it."
+description: A custom SteamCMD chart that runs ECO.
 home: https://truecharts.org/charts/incubator/eco
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/eco.png
 keywords:
@@ -23,6 +19,10 @@ maintainers:
 name: eco
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/eco
-  - https://www.steampowered.com/
+  - https://github.com/ich777/docker-steamcmd-server/tree/eco
 type: application
-version: 2.0.8
+version: 3.1.2
+annotations:
+  truecharts.org/catagories: |
+    - games
+  truecharts.org/SCALE-support: "true"

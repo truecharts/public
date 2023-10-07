@@ -10,7 +10,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: {{ printf "%v-%v" $middlewareData.name "secret" }}
-  namespace: tc-system
+  namespace: {{ $.Release.Namespace }}
 type: Opaque
 stringData:
   users: |
@@ -23,7 +23,7 @@ apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
   name: {{ ternary (printf "%v-%v" $.Release.Name $middlewareData.name) $middlewareData.name $.Values.ingressClass.enabled }}
-  namespace: tc-system
+  namespace: {{ $.Release.Namespace }}
 spec:
   basicAuth:
     secret: {{ printf "%v-%v" $middlewareData.name "secret" }}

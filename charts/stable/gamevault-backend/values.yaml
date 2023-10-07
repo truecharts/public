@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/gamevault-backend
   pullPolicy: IfNotPresent
-  tag: 2.0.0@sha256:1cde674b30dc9abc8ff5958f1cd0bce4382ba65f64bb33fdce35c5a8c12641f6
+  tag: v7.0.0@sha256:b393b9a71c5366c5915865f8924bb2464cb3d9643772db405f63b21b20a824b4
 
 securityContext:
   container:
@@ -16,6 +16,29 @@ service:
       main:
         protocol: http
         port: 8080
+        targetPort: 8080
+
+gamevault:
+  server:
+    admin_username: admin
+    admin_password: password
+    registration_disabled: false
+    account_activation_disabled: false
+    allowed_origins:
+      - "*"
+    log_level: info
+  games:
+    index_interval_in_minutes: 5
+    search_recursive: true
+    file_formats:
+      - ".7z"
+  images:
+    gc_keep_days: 30
+    gc_interval_minutes: 60
+  rawg:
+    api_url: https://api.rawg.io/api
+    api_cache_days: 7
+    api_key: ""
 
 workload:
   main:
@@ -33,11 +56,10 @@ workload:
               path: /api/v1/health
               type: http
           env:
-            SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
             # manually set and change to /games so its easy for users to know where to place their game files.
-            VOLUMES_FILES: /games
-            VOLUMES_IMAGES: /images
-            VOLUMES_LOG: /logs
+            VOLUMES_FILES: "{{.Values.persistence.games.mountPath }}"
+            VOLUMES_IMAGES: "{{.Values.persistence.images.mountPath }}"
+            VOLUMES_LOG: "{{.Values.persistence.logs.mountPath }}"
             # DB
             DB_SYSTEM: POSTGRESQL
             DB_PORT: 5432
@@ -52,22 +74,24 @@ workload:
                 name: cnpg-main-user
                 key: password
             # ADMIN
-            SERVER_ADMIN_USERNAME: "admin"
-            SERVER_ADMIN_PASSWORD: "password"
-            SERVER_REGISTRATION_DISABLED: true
-            SERVER_ACCOUNT_ACTIVATION_DISABLED: false
+            SERVER_ADMIN_USERNAME: "{{ .Values.gamevault.server.admin_username }}"
+            SERVER_ADMIN_PASSWORD: "{{ .Values.gamevault.server.admin_password }}"
+            SERVER_REGISTRATION_DISABLED: "{{ .Values.gamevault.server.registration_disabled }}"
+            SERVER_ACCOUNT_ACTIVATION_DISABLED: "{{ .Values.gamevault.server.account_activation_disabled }}"
             # SERVER
-            SERVER_LOG_LEVEL: info
-            SERVER_CORS_ALLOWED_ORIGINS: "*"
+            SERVER_LOG_LEVEL: "{{ .Values.gamevault.server.log_level }}"
+            SERVER_CORS_ALLOWED_ORIGINS: '{{ join "," .Values.gamevault.server.allowed_origins }}'
             # GAMES
-            GAMES_INDEX_INTERVAL_IN_MINUTES: 5
+            GAMES_INDEX_INTERVAL_IN_MINUTES: "{{ .Values.gamevault.games.index_interval_in_minutes }}"
+            GAMES_SEARCH_RECURSIVE: "{{ .Values.gamevault.games.search_recursive }}"
+            GAMES_SUPPORTED_FILE_FORMATS: '{{ join "," .Values.gamevault.games.file_formats }}'
             # IMAGES
-            IMAGE_GC_KEEP_DAYS: 30
-            IMAGE_GC_INTERVAL_MINUTES: 60
+            IMAGE_GC_KEEP_DAYS: "{{ .Values.gamevault.images.gc_keep_days }}"
+            IMAGE_GC_INTERVAL_MINUTES: "{{ .Values.gamevault.images.gc_interval_minutes }}"
             # RAWG
-            RAWG_API_URL: https://api.rawg.io/api
-            RAWG_API_CACHE_DAYS: 7
-            # RAWG_API_KEY: ""
+            RAWG_API_URL: "{{ .Values.gamevault.rawg.api_url }}"
+            RAWG_API_CACHE_DAYS: "{{ .Values.gamevault.rawg.api_cache_days }}"
+            RAWG_API_KEY: "{{ .Values.gamevault.rawg.api_key }}"
 
 persistence:
   logs:

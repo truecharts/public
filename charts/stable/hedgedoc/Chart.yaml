@@ -1,8 +1,8 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: hedgedoc
-version: 8.0.32
-appVersion: "1.9.8"
+version: 9.0.12
+appVersion: "1.9.9"
 description: HedgeDoc lets you create real-time collaborative markdown notes.
 type: application
 deprecated: false
@@ -15,7 +15,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 12.14.6
+    version: 14.0.9
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts

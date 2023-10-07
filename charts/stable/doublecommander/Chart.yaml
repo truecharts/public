@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "0.8.2"
+appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 12.14.6
+    version: 14.0.9
 description: A free cross platform open source file manager with two panels side by side.
 home: https://truecharts.org/charts/stable/doublecommander
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/doublecommander.png
@@ -22,7 +22,7 @@ sources:
   - https://github.com/linuxserver/docker-doublecommander
   - https://doublecmd.sourceforge.io/
 type: application
-version: 7.0.25
+version: 9.0.10
 annotations:
   truecharts.org/catagories: |
     - media
