@@ -23,7 +23,7 @@ tests:
         equal:
           path: data
           value:
-            .dockerconfigjson: eyJhdXRocyI6eyJyZWdpc3RyeSI6eyJhdXRoIjoiZFhObGNqcHdZWE56IiwiZW1haWwiOiJtYWlsIiwicGFzc3dvcmQiOiJwYXNzIiwidXNlcm5hbWUiOiJ1c2VyIn19fQ==
+            .dockerconfigjson: eyJhdXRocyI6eyJyZWciOnsiYXV0aCI6ImRYTmxjanB3WVhOeiIsImVtYWlsIjoibWFpbCIsInBhc3N3b3JkIjoicGFzcyIsInVzZXJuYW1lIjoidXNlciJ9fX0=
       - documentIndex: *secretDoc
         equal:
           path: type
@@ -48,4 +48,4 @@ tests:
         equal:
           path: data
           value:
-            .dockerconfigjson: eyJhdXRocyI6eyJyZWdpc3RyeSI6eyJhdXRoIjoiZFhObGNqcHpaV055WlhSZmNHRnpjdz09IiwiZW1haWwiOiJtYWlsQGV4YW1wbGUuY29tIiwicGFzc3dvcmQiOiJzZWNyZXRfcGFzcyIsInVzZXJuYW1lIjoidXNlciJ9fX0=
+            .dockerconfigjson: eyJhdXRocyI6eyJxdWF5LmlvIjp7ImF1dGgiOiJkWE5sY2pwelpXTnlaWFJmY0dGemN3PT0iLCJlbWFpbCI6Im1haWxAZXhhbXBsZS5jb20iLCJwYXNzd29yZCI6InNlY3JldF9wYXNzIiwidXNlcm5hbWUiOiJ1c2VyIn19fQ==
