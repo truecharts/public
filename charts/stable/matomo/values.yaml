@@ -2,39 +2,14 @@ image:
   repository: tccr.io/truecharts/matomo
   tag: v4.15.1@sha256:63126e306918e1fa69bb9e13f4a01e68657fbc9f3b8f5ea397a0d13be6229bce
   pullPolicy: IfNotPresent
-service:
-  main:
-    ports:
-      main:
-        protocol: http
-        port: 10172
-        targetPort: 10172
-  https:
-    enabled: true
-    ports:
-      https:
-        enabled: true
-        protocol: https
-        port: 10173
-        targetPort: 10173
-persistence:
-  data:
-    enabled: true
-    mountPath: "/bitnami/matomo"
-mariadb:
-  enabled: true
-  mariadbUsername: matomo
-  mariadbDatabase: matomo
 
-portal:
-  open:
-    enabled: true
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
+
 workload:
   main:
     podSpec:
@@ -96,3 +71,33 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: mariadb-password
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 10172
+        targetPort: 10172
+  https:
+    enabled: true
+    ports:
+      https:
+        enabled: true
+        protocol: https
+        port: 10173
+        targetPort: 10173
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/bitnami/matomo"
+
+mariadb:
+  enabled: true
+  mariadbUsername: matomo
+  mariadbDatabase: matomo
+
+portal:
+  open:
+    enabled: true
