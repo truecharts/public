@@ -6,8 +6,8 @@
 {{- $smtp := .Values.odoo.smtp -}}
 
 {{- $mainPort := .Values.service.main.ports.main.port -}}
-{{- $odooPath := .Values.persistence.odoo.mountPath -}}
-{{- $addonsPath := .Values.persistence.addons.mountPath -}}
+{{- $odooPath := .Values.persistence.odoo.targetSelector.main.main.mountPath -}}
+{{- $addonsPath := .Values.persistence.addons.targetSelector.main.main.mountPath -}}
 
 {{- $pgdb := .Values.cnpg.main.database -}}
 {{- $pguser := .Values.cnpg.main.user -}}
