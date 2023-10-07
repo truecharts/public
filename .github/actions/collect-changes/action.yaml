@@ -50,7 +50,6 @@ runs:
         # Set output to changed charts
         echo "Changed charts: ${CHARTS[*]}"
         printf "::set-output name=addedOrModified::%s\n" "${CHARTS[*]}"
-        
 
     - name: Collect bumped charts after last tag
       id: filter-bumped-charts
