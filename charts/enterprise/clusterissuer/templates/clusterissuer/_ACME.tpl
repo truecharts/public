@@ -11,14 +11,21 @@
 {{- end -}}
 
 {{- range .Values.clusterIssuer.ACME }}
-  {{- if not (mustRegexMatch "^[a-z]+(-?[a-z]){0,63}-?[a-z]+$" .name) -}}
+  {{- if or (not .name) (not (mustRegexMatch "^[a-z]+(-?[a-z]){0,63}-?[a-z]+$" .name)) -}}
     {{- fail "ACME - Expected name to be all lowercase with hyphens, but not start or end with a hyphen" -}}
   {{- end -}}
-  {{- $validTypes := list "HTTP01" "cloudflare" "route53" "digitalocean" "akamai" "rfc2136" -}}
+  {{- $validTypes := list "HTTP01" "cloudflare" "route53" "digitalocean" "akamai" "rfc2136" "acmedns" -}}
   {{- if not (mustHas .type $validTypes) -}}
     {{- fail (printf "Expected ACME type to be one of [%s], but got [%s]" (join ", " $validTypes) .type) -}}
   {{- end -}}
   {{- $issuerSecretName := printf "%s-clusterissuer-secret" .name }}
+  {{- $acmednsDict := dict -}}
+  {{- if and (eq .type "acmedns") (not .acmednsConfigJson) }}
+    {{- range .acmednsConfig }}
+      {{/* Transform to a dict with domain as a key, also remove domain from the dict */}}
+      {{- $_ := set $acmednsDict .domain (omit . "domain") -}}
+    {{- end }}
+  {{- end -}}
 ---
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
@@ -85,6 +92,12 @@ spec:
           tsigSecretSecretRef:
             name: {{ $issuerSecretName }}
             key: rfctsigSecret
+      {{- else if eq .type "acmedns" }}
+        acmeDNS:
+          host: {{ .acmednsHost }}
+          accountSecretRef:
+            name: {{ $issuerSecretName }}
+            key: acmednsJson
       {{- end -}}
     {{- end }}
 ---
@@ -103,5 +116,10 @@ stringData:
   akaccessToken: {{ .akaccessToken | default "" }}
   doaccessToken: {{ .doaccessToken | default "" }}
   rfctsigSecret: {{ $rfctsigSecret }}
-{{- end }}
+{{- if .acmednsConfigJson }}
+  acmednsJson: {{ .acmednsConfigJson }}
+{{- else if $acmednsDict }}
+  acmednsJson: {{ toJson $acmednsDict }}
+{{- end -}}
+  {{- end -}}
 {{- end -}}

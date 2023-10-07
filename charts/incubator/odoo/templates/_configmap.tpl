@@ -6,13 +6,13 @@
 {{- $smtp := .Values.odoo.smtp -}}
 
 {{- $mainPort := .Values.service.main.ports.main.port -}}
-{{- $odooPath := .Values.persistence.odoo.mountPath -}}
-{{- $addonsPath := .Values.persistence.addons.mountPath -}}
+{{- $odooPath := .Values.persistence.odoo.targetSelector.main.main.mountPath -}}
+{{- $addonsPath := .Values.persistence.addons.targetSelector.main.main.mountPath -}}
 
 {{- $pgdb := .Values.cnpg.main.database -}}
 {{- $pguser := .Values.cnpg.main.user -}}
 {{- $pgpassword := .Values.cnpg.main.creds.password | trimAll "\"" -}}
-{{- $pghost := .Values.cnpg.main.creds.host -}}
+{{- $pghost := .Values.cnpg.main.creds.host | trimAll "\"" -}}
 
 {{/* xmlrpc* keys are deprecated and http* keys are used in their place */}}
   {{- $reservedKeys := (list  "data_dir" "addons_path" "http_enable" "http_interface"
