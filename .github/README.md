@@ -417,6 +417,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/qnb59bny5x"><img src="https://avatars.githubusercontent.com/u/108427982?v=4?s=100" width="100px;" alt="qnb59bny5x"/><br /><sub><b>qnb59bny5x</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=qnb59bny5x" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://blog.drndos.sk"><img src="https://avatars.githubusercontent.com/u/5576134?v=4?s=100" width="100px;" alt="Filip Bednárik"/><br /><sub><b>Filip Bednárik</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Adrndos" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/sshcherbinin"><img src="https://avatars.githubusercontent.com/u/92396963?v=4?s=100" width="100px;" alt="Serhii Shcherbinin"/><br /><sub><b>Serhii Shcherbinin</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=sshcherbinin" title="Code">💻</a></td>
     </tr>
   </tbody>
