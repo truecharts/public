@@ -21,7 +21,8 @@ objectData:
                             "email" (tpl .email $rootCtx) "auth" $auth) -}}
   {{- end -}}
 
-  {{- $_ := set $registrySecret "auths" (dict (tpl $objectData.data.registry $rootCtx) $registry) -}}
+  {{- $registryKey := tpl $objectData.data.registry $rootCtx -}}
+  {{- $_ := set $registrySecret "auths" (dict $registryKey $registry) -}}
 
   {{/*
   This should result in something like this:
