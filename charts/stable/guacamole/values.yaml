@@ -12,7 +12,8 @@ guacamole:
     EXTENSION_PRIORITY: ""
   api:
     API_SESSION_TIMEOUT: 60
-  ldap: {}
+  ldap:
+    {}
     # LDAP_HOSTNAME: ""
     # LDAP_USER_BASE_DN: ""
     # LDAP_PORT: 389
@@ -33,10 +34,12 @@ guacamole:
     # LDAP_FOLLOW_REFERRALS: false
     # LDAP_MAX_REFERRAL_HOPS: 5
     # LDAP_OPERATION_TIMEOUT: 30
-  header: {}
+  header:
+    {}
     # HEADER_ENABLED: false
     # HTTP_AUTH_HEADER: REMOTE_USER
-  saml: {}
+  saml:
+    {}
     # SAML_IDP_METADATA_URL: ""
     # SAML_IDP_URL: ""
     # SAML_ENTITY_ID: ""
@@ -46,24 +49,28 @@ guacamole:
     # SAML_COMPRESS_REQUEST: true
     # SAML_COMPRESS_RESPONSE: true
     # SAML_GROUP_ATTRIBUTE: groups
-  proxy: {}
+  proxy:
+    {}
     # REMOTE_IP_VALVE_ENABLED: false
     # PROXY_ALLOWED_IPS_REGEX: ""
     # PROXY_IP_HEADER: ""
     # PROXY_PROTOCOL_HEADER: ""
     # PROXY_BY_HEADER: ""
-  totp: {}
+  totp:
+    {}
     # TOTP_ENABLED: false
     # TOTP_ISSUER: Apache Guacamole
     # TOTP_DIGITS: 6
     # TOTP_PERIOD: 30
     # TOTP_MODE: sha1
-  duo: {}
+  duo:
+    {}
     # DUO_API_HOSTNAME: ""
     # DUO_INTEGRATION_KEY: ""
     # DUO_SECRET_KEY: ""
     # DUO_APPLICATION_KEY: ""
-  radius: {}
+  radius:
+    {}
     # RADIUS_SHARED_SECRET: ""
     # RADIUS_AUTH_PROTOCOL: eap-tls
     # RADIUS_HOSTNAME: ""
@@ -79,7 +86,8 @@ guacamole:
     # RADIUS_TIMEOUT: 60
     # RADIUS_EAP_TTLS_INNER_PROTOCOL: eap-tls
     # RADIUS_NAS_IP: ""
-  openid: {}
+  openid:
+    {}
     # OPENID_AUTHORIZATION_ENDPOINT: ""
     # OPENID_JWKS_ENDPOINT: ""
     # OPENID_ISSUER: ""
@@ -91,7 +99,8 @@ guacamole:
     # OPENID_ALLOWED_CLOCK_SKEW: 30
     # OPENID_MAX_TOKEN_VALIDITY: 300
     # OPENID_MAX_NONCE_VALIDITY: 300
-  cas: {}
+  cas:
+    {}
     # CAS_AUTHORIZATION_ENDPOINT: ""
     # CAS_REDIRECT_URI: ""
     # CAS_CLEARPASS_KEY: ""
@@ -99,7 +108,8 @@ guacamole:
     # CAS_GROUP_FORMAT: plain
     # CAS_GROUP_LDAP_BASE_DN: ""
     # CAS_GROUP_LDAP_ATTRIBUTE: ""
-  json: {}
+  json:
+    {}
     # JSON_SECRET_KEY: ""
     # JSON_TRUSTED_NETWORKS: ""
 
@@ -171,7 +181,7 @@ workload:
           primary: true
           imageSelector: guacdImage
           command:
-           - /opt/guacamole/sbin/guacd
+            - /opt/guacamole/sbin/guacd
           args:
             # Listen Address
             - -b
