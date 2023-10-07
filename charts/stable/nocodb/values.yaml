@@ -30,8 +30,6 @@ workload:
             # User Defined
             NC_PUBLIC_URL: "http://localhost:10226"
             NC_DISABLE_TELE: true
-            NC_ADMIN_EMAIL: "admin@example.com"
-            NC_ADMIN_PASSWORD: "Sup3rS3cr3tp4ssw0rd@!$"
             DISABLE_SPLASH_SCREEN: false
             NC_JWT_EXPIRES_IN: "10h"
             NC_INVITE_ONLY_SIGNUP: false
@@ -53,8 +51,6 @@ workload:
             AWS_SECRET_ACCESS_KEY: ""
             AWS_BUCKET: ""
             AWS_BUCKET_PATH: ""
-            NC_GOOGLE_CLIENT_ID: ""
-            NC_GOOGLE_CLIENT_SECRET: ""
 
 service:
   main:
