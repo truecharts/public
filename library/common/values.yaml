@@ -272,10 +272,20 @@ notes:
     {{- if .Values.iXPortals }}
     ## Connecting externally
     You can use this Chart by opening one of the following links in your browser:
-    
+
     {{- range .Values.iXPortals }}
     - {{ toYaml . }}
     {{- end -}}
+    {{- end -}}
+
+    ## [{{ .Chart.Name }}] Sources
+
+    {{- range .Chart.Sources }}
+    - {{ . }}
+    {{- end -}}
+
+    {{- with .Chart.Annotations.docs }}
+    [See more for {{ $.Chart.Name }} on TrueCharts website]({{ . }})
     {{- end -}}
   footer: |
     ## Documentation
