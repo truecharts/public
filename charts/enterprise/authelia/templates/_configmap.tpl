@@ -223,8 +223,8 @@ data:
         identifier: {{ $notifier.smtp.identifier | quote }}
         subject: {{ $notifier.smtp.subject | quote }}
         startup_check_address: {{ $notifier.smtp.startup_check_address | quote }}
-        disable_require_tls: {{ $notifier.smtp.disable_require_tls | quote }}
-        disable_html_emails: {{ $notifier.smtp.disable_html_emails | quote }}
+        disable_require_tls: {{ $notifier.smtp.disable_require_tls }}
+        disable_html_emails: {{ $notifier.smtp.disable_html_emails }}
         tls:
           server_name: {{ $notifier.smtp.tls.server_name | default $notifier.smtp.host }}
           minimum_version: {{ $notifier.smtp.tls.minimum_version | default "TLS1.2" }}
