@@ -9,33 +9,18 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
                                 - variable: env
                                   label: Image Environment
                                   schema:
                                     additional_attrs: true
                                     type: dict
                                     attrs:
-                                      - variable: APP_URL
-                                        label: App URL
-                                        description: URL at which you will access and share.
-                                        schema:
-                                          type: string
-                                          required: true
-                                          default: ""
                                       - variable: DISABLE_BUILTIN_AUTH
                                         label: Disable Builtin Auth
                                         description: Enable this if using an external auth provider
                                         schema:
                                           type: boolean
                                           default: false
-                                      - variable: ALLOW_BUG_REPORTING
-                                        label: Allow Bug Reporting
-                                        description: Helps upstream developers fix bugs proactively, recommended leave it enabled, but can be optionally disabled.
-                                        schema:
-                                          type: boolean
-                                          default: false
-
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
