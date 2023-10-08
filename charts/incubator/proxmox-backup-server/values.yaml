@@ -9,8 +9,6 @@ securityContext:
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-  pod:
-    fsGroup: 34
 
 service:
   main:
@@ -23,6 +21,10 @@ service:
 workload:
   main:
     podSpec:
+      # It's used in the certificate generation
+      # Without this it exceeds the 64 character limit
+      # This limit comes from the crypt C library.
+      hostname: proxmox-backup-server
       containers:
         main:
           probes:
