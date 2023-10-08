@@ -24,7 +24,7 @@ workload:
       # It's used in the certificate generation
       # Without this it exceeds the 64 character limit
       # This limit comes from the crypt C library.
-      hostname: proxmox-backup-server
+      hostname: pbs
       containers:
         main:
           probes:
