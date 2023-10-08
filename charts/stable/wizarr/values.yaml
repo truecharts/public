@@ -39,6 +39,10 @@ persistence:
   database:
     enabled: true
     mountPath: /data/database
+  varrun:
+    enabled: false
+    type: emptyDir
+    mountPath: /var/run
   nginxrun:
     enabled: true
     type: emptyDir
