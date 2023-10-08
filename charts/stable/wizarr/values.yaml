@@ -27,7 +27,6 @@ workload:
               path: "/"
               type: http
           env:
-            APP_URL: "http://localhost:{{ .Values.service.main.ports.main.port }}"
             DISABLE_BUILTIN_AUTH: false
             ALLOW_BUG_REPORTING: false
 
