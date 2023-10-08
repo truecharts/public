@@ -11,6 +11,13 @@ service:
         targetPort: 5690
         port: 10596
 
+securityContext:
+  container:
+    runAsUser: 0
+    runAsGroup: 0
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+
 workload:
   main:
     podSpec:
@@ -24,8 +31,7 @@ workload:
               path: "/"
               type: http
             startup:
-              path: "/"
-              type: http
+              type: tcp
           env:
             DISABLE_BUILTIN_AUTH: false
 
@@ -33,10 +39,10 @@ persistence:
   database:
     enabled: true
     mountPath: /data/database
-  nginxtmp:
+  nginxrun:
     enabled: true
-    type: emtpyDir
-    mountPath: /var/lib/nginx/tmp
+    type: emptyDir
+    mountPath: /run/nginx
 
 portal:
   open:
