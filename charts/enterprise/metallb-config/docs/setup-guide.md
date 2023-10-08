@@ -27,7 +27,7 @@ Our customized version of MetalLB is only intended for use with other TrueCharts
 Install `metallb` from `operators` train first. There is no config, so just hit save.
 
 If you encounter an error upon install, run the following command as root from system settings -> shell and attempt the install again:
-```k3s kubectl delete  --grace-period 30 --v=4 -k https://github.com/truecharts/manifests/delete```
+`k3s kubectl delete --grace-period 30 --v=4 -k https://github.com/truecharts/manifests/delete`
 
 If you previously had `metallb` installed and encounter an error, delete the old version, then run the above command before proceeding to install the `metallb` operator.
 

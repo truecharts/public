@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/nextcloud-fpm
   pullPolicy: IfNotPresent
-  tag: v27.1.1@sha256:2593f2d987d70f91d976be99df95a92fc07802e6110bc7ff5a8814a7d5401f3c
+  tag: v27.1.1@sha256:9f753f45877cb7e0a3263dc8df4d137469bd45061987426bfdcbf6963b37de8f
 nginxImage:
   repository: tccr.io/truecharts/nginx-unprivileged
   pullPolicy: IfNotPresent
@@ -322,7 +322,7 @@ workload:
               port: "{{ .Values.service.collabora.ports.collabora.targetPort }}"
 
 cronjobs:
-    # Don't change names, it's used in the persistence
+  # Don't change names, it's used in the persistence
   - name: nextcloud-cron
     enabled: true
     schedule: "*/5 * * * *"

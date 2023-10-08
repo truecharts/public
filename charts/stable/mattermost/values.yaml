@@ -9,7 +9,7 @@ workload:
       containers:
         main:
           env:
-            TIMEZONE: '{{ .Values.TZ }}'
+            TIMEZONE: "{{ .Values.TZ }}"
             MM_SQLSETTINGS_DRIVERNAME: "postgres"
             MM_BLEVESETTINGS_INDEXDIR: "/mattermost/bleve-indexes"
             MM_SERVICESETTINGS_SITEURL: "https://test.example.com"
