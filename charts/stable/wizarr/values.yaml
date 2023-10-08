@@ -35,6 +35,10 @@ persistence:
   database:
     enabled: true
     mountPath: /data/database
+  nginxtmp:
+    enabled: true
+    type: emtpyDir
+    mountPath: /var/lib/nginx/tmp
 
 portal:
   open:
