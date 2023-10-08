@@ -5,7 +5,7 @@ image:
 broadcastProxyImage:
   repository: tccr.io/truecharts/socat
   pullPolicy: IfNotPresent
-  tag: v1.7.4.4@sha256:552fea756e51450c281db5d2232986c712008bb226d1881a6318561ce0fb999b
+  tag: v1.7.4.4@sha256:653c100f6042a62ab1d9bfefb366be71ccb32b4720f0afd02896a5ae316bff35
 service:
   main:
     ports:
@@ -70,7 +70,11 @@ workload:
           # - Touch `/tmp/healty` to use with the readiness, liveness and startup probes
           # - Start socat in proxy mode
           # - On exit remove `/tmp/healthy`
-          args: ["-c", "export TARGET_IP=$(getent hosts '{{ printf \"%v-autodiscovery\" (include \"tc.v1.common.lib.chart.names.fullname\" $) }}' | awk '{ print $1 }') && [[ ! -z $TARGET_IP ]] && touch /tmp/healthy && socat UDP-LISTEN:7359,fork,reuseaddr,rcvbuf=8096 UDP4-SENDTO:${TARGET_IP}:7359,rcvbuf=8096 ; rm -rf /tmp/healthy"]
+          args:
+            [
+              "-c",
+              'export TARGET_IP=$(getent hosts ''{{ printf "%v-autodiscovery" (include "tc.v1.common.lib.chart.names.fullname" $) }}'' | awk ''{ print $1 }'') && [[ ! -z $TARGET_IP ]] && touch /tmp/healthy && socat UDP-LISTEN:7359,fork,reuseaddr,rcvbuf=8096 UDP4-SENDTO:${TARGET_IP}:7359,rcvbuf=8096 ; rm -rf /tmp/healthy',
+            ]
           probes:
             readiness:
               enabled: true

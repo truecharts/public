@@ -103,6 +103,7 @@ The last step is adding the `forwardauth` along with the standard `ingress` sett
 - In this example we use the same name as above, or `auth`. Click `Add` to the `Traefik Middlewares` section, and enter your `forwardauth` name.
 
 ![TraefikForwardAuthMiddleware](img/TraefikForwardAuthMiddleware.png)
+
 ### References
 
 The origin material for this guide is available on the [LLDAP Github](https://github.com/lldap/lldap). While further information on Authelia can be found on their [Github](https://github.com/authelia/authelia) and [website](https://www.authelia.com/).

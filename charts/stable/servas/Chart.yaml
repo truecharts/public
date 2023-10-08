@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "0.0.5"
+appVersion: "0.0.6"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.0.3
+    version: 14.0.9
   - condition: mariadb.enabled
     name: mariadb
     repository: https://deps.truecharts.org/
@@ -25,7 +25,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/servas
   - https://github.com/beromir/Servas
 type: application
-version: 0.0.13
+version: 0.0.15
 annotations:
   truecharts.org/catagories: |
     - bookmarks

@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/mattermost
-  tag: v9.1.0@sha256:6a01ebb1adb99531ab0487e9023a9cbb4e7c28fd1af60993f62596f385973c12
+  tag: v9.1.0@sha256:ab8b82b547d8235bdff94d3c523652d5608749698fa9e80a24e09d567f44e4ce
   pullPolicy: IfNotPresent
 
 workload:
@@ -9,7 +9,7 @@ workload:
       containers:
         main:
           env:
-            TIMEZONE: '{{ .Values.TZ }}'
+            TIMEZONE: "{{ .Values.TZ }}"
             MM_SQLSETTINGS_DRIVERNAME: "postgres"
             MM_BLEVESETTINGS_INDEXDIR: "/mattermost/bleve-indexes"
             MM_SERVICESETTINGS_SITEURL: "https://test.example.com"

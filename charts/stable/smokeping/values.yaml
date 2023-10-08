@@ -25,8 +25,8 @@ portal:
 securityContext:
   container:
     capabilities:
-        add:
-          - NET_RAW
+      add:
+        - NET_RAW
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     allowPrivilegeEscalation: true
