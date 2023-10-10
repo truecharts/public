@@ -37,6 +37,9 @@ metrics:
   main:
     enabled: true
     type: "servicemonitor"
+    endpoints:
+      - port: main
+        path: /metrics
 ldap:
   enabled: false
   # name:
