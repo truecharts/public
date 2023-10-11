@@ -90,11 +90,7 @@ workload:
               command:
                 - cat
                 - /tmp/healthy
-ingress:
-  main:
-    # -- allow CORS requests to Jellyfin
-    cors:
-      enabled: false
+
 # -- enable Jellyfin autodiscovery on LAN
 autodiscovery:
   enabled: false

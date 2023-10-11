@@ -77,17 +77,11 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
-                    - variable: cors
-                      label: "CORS"
+                    - variable: allowCors
+                      label: "Allow Cross Origin Requests"
                       schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                        - variable: enabled
-                          label: "Allow Cross Origin Requests"
-                          schema:
-                            type: boolean
-                            default: false
+                        type: boolean
+                        default: false
 # Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}
