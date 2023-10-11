@@ -1,40 +1,15 @@
 image:
   repository: tccr.io/truecharts/matomo
-  tag: v4.15.0@sha256:40ad3f22a62ab52036f064587ff26f5727e517ba87128c98e48bf63ac1fa5e74
+  tag: v4.15.1@sha256:c55dade6cd6fca23ecad2fa5c174562dd9885a56b046047d5762841089fbac46
   pullPolicy: IfNotPresent
-service:
-  main:
-    ports:
-      main:
-        protocol: http
-        port: 10172
-        targetPort: 10172
-  https:
-    enabled: true
-    ports:
-      https:
-        enabled: true
-        protocol: https
-        port: 10173
-        targetPort: 10173
-persistence:
-  data:
-    enabled: true
-    mountPath: "/bitnami/matomo"
-mariadb:
-  enabled: true
-  mariadbUsername: matomo
-  mariadbDatabase: matomo
 
-portal:
-  open:
-    enabled: true
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
+
 workload:
   main:
     podSpec:
@@ -48,7 +23,6 @@ workload:
             startup:
               path: "/index.php"
           env:
-            BITNAMI_DEBUG: true
             APACHE_HTTP_PORT_NUMBER: "{{ .Values.service.main.ports.main.port }}"
             APACHE_HTTPS_PORT_NUMBER: "{{ .Values.service.https.ports.https.port }}"
             MATOMO_DATABASE_PORT_NUMBER: 3306
@@ -96,3 +70,33 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: mariadb-password
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 10172
+        targetPort: 10172
+  https:
+    enabled: true
+    ports:
+      https:
+        enabled: true
+        protocol: https
+        port: 10173
+        targetPort: 10173
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/bitnami/matomo"
+
+mariadb:
+  enabled: true
+  mariadbUsername: matomo
+  mariadbDatabase: matomo
+
+portal:
+  open:
+    enabled: true

@@ -1,13 +1,13 @@
 apiVersion: v2
-appVersion: "4.15.0"
+appVersion: "4.15.1"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.0.1
+    version: 14.0.9
   - condition: mariadb.enabled
     name: mariadb
     repository: https://deps.truecharts.org/
-    version: 7.0.70
+    version: 9.0.26
 description: Matomo is the leading Free/Libre open analytics platform
 home: https://truecharts.org/charts/stable/matomo
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/matomo.png
@@ -23,7 +23,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/matomo
   - https://github.com/bitnami/bitnami-docker-matomo
   - https://github.com/matomo-org/matomo
-version: 8.0.0
+version: 8.0.3
 annotations:
   truecharts.org/catagories: |
     - productivity

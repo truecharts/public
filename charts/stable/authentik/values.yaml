@@ -117,20 +117,20 @@ workload:
               enabled: true
               type: exec
               command:
-               - /lifecycle/ak
-               - healthcheck
+                - /lifecycle/ak
+                - healthcheck
             readiness:
               enabled: true
               type: exec
               command:
-               - /lifecycle/ak
-               - healthcheck
+                - /lifecycle/ak
+                - healthcheck
             startup:
               enabled: true
               type: exec
               command:
-               - /lifecycle/ak
-               - healthcheck
+                - /lifecycle/ak
+                - healthcheck
 
   # ===== Worker =====
   worker:
@@ -158,20 +158,20 @@ workload:
               enabled: true
               type: exec
               command:
-               - /lifecycle/ak
-               - healthcheck
+                - /lifecycle/ak
+                - healthcheck
             readiness:
               enabled: true
               type: exec
               command:
-               - /lifecycle/ak
-               - healthcheck
+                - /lifecycle/ak
+                - healthcheck
             startup:
               enabled: true
               type: exec
               command:
-               - /lifecycle/ak
-               - healthcheck
+                - /lifecycle/ak
+                - healthcheck
 
   # ===== PROXY =====
   proxy:
@@ -196,20 +196,20 @@ workload:
               enabled: true
               type: exec
               command:
-               - /proxy
-               - healthcheck
+                - /proxy
+                - healthcheck
             readiness:
               enabled: true
               type: exec
               command:
-               - /proxy
-               - healthcheck
+                - /proxy
+                - healthcheck
             startup:
               enabled: true
               type: exec
               command:
-               - /proxy
-               - healthcheck
+                - /proxy
+                - healthcheck
 
   # ===== RADIUS =====
   radius:
@@ -234,20 +234,20 @@ workload:
               enabled: true
               type: exec
               command:
-               - /radius
-               - healthcheck
+                - /radius
+                - healthcheck
             readiness:
               enabled: true
               type: exec
               command:
-               - /radius
-               - healthcheck
+                - /radius
+                - healthcheck
             startup:
               enabled: true
               type: exec
               command:
-               - /radius
-               - healthcheck
+                - /radius
+                - healthcheck
 
   # ===== LDAP =====
   ldap:
@@ -272,20 +272,20 @@ workload:
               enabled: true
               type: exec
               command:
-               - /ldap
-               - healthcheck
+                - /ldap
+                - healthcheck
             readiness:
               enabled: true
               type: exec
               command:
-               - /ldap
-               - healthcheck
+                - /ldap
+                - healthcheck
             startup:
               enabled: true
               type: exec
               command:
-               - /ldap
-               - healthcheck
+                - /ldap
+                - healthcheck
 
   # ===== GeoIP Updater =====
   geoip:

@@ -169,6 +169,9 @@ jobs:
           if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
             helm install prometheus-operator truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
           fi
+          if [[ "${{ matrix.chart }}" != "charts/enterprise/traefik" ]]; then
+            helm install traefik truecharts/traefik --namespace traefik --create-namespace --wait
+          fi
 
       - name: Run chart-testing (install)
         run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade
@@ -230,6 +233,9 @@ jobs:
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
             helm install prometheus-operator truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
+          fi
+          if [[ "${{ matrix.chart }}" != "charts/enterprise/traefik" ]]; then
+            helm install traefik truecharts/traefik --namespace traefik --create-namespace --wait
           fi
 
       - name: Run chart-testing (install)
@@ -293,6 +299,9 @@ jobs:
           if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
             helm install prometheus-operator truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
           fi
+          if [[ "${{ matrix.chart }}" != "charts/enterprise/traefik" ]]; then
+            helm install traefik truecharts/traefik --namespace traefik --create-namespace --wait
+          fi
 
       - name: Run chart-testing (install)
         run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade
@@ -354,6 +363,9 @@ jobs:
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
             helm install prometheus-operator truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
+          fi
+          if [[ "${{ matrix.chart }}" != "charts/enterprise/traefik" ]]; then
+            helm install traefik truecharts/traefik --namespace traefik --create-namespace --wait
           fi
 
       - name: Run chart-testing (install)
@@ -417,6 +429,10 @@ jobs:
           if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
             helm install prometheus-operator truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
           fi
+          if [[ "${{ matrix.chart }}" != "charts/enterprise/traefik" ]]; then
+            helm install traefik truecharts/traefik --namespace traefik --create-namespace --wait
+          fi
+
       - name: Run chart-testing (install)
         run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade
 
@@ -477,6 +493,9 @@ jobs:
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
             helm install prometheus-operator truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
+          fi
+          if [[ "${{ matrix.chart }}" != "charts/enterprise/traefik" ]]; then
+            helm install traefik truecharts/traefik --namespace traefik --create-namespace --wait
           fi
 
       - name: Run chart-testing (install)
