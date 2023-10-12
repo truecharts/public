@@ -197,7 +197,7 @@ authentication_backend:
 
     ## The url to the ldap server. Format: <scheme>://<address>[:<port>].
     ## Scheme can be ldap or ldaps in the format (port optional).
-    url: ldap://openldap.default.svc.cluster.local
+    url: ldap://lldap-ldap.ix-lldap.svc.cluster.local:3890
 
     ## Connection Timeout.
     timeout: 5s
@@ -228,10 +228,10 @@ authentication_backend:
     ## otherwise it would break the configuration for that user. Technically, non-unique attributes like 'mail' can also
     ## be used but we don't recommend using them, we instead advise to use the attributes mentioned above
     ## (sAMAccountName and uid) to follow https://www.ietf.org/rfc/rfc2307.txt.
-    username_attribute: ""
+    username_attribute: "uid"
 
     ## An additional dn to define the scope to all users.
-    additional_users_dn: OU=Users
+    additional_users_dn: OU=People
 
     ## The users filter used in search queries to find the user profile based on input filled in login form.
     ## Various placeholders are available in the user filter:
@@ -249,7 +249,7 @@ authentication_backend:
     ##
     ## To allow sign in both with username and email, one can use a filter like
     ## (&(|({username_attribute}={input})({mail_attribute}={input}))(objectClass=person))
-    users_filter: ""
+    users_filter: "(&(|({username_attribute}={input})({mail_attribute}={input}))(objectClass=person))"
 
     ## An additional dn to define the scope of groups.
     additional_groups_dn: OU=Groups
@@ -267,21 +267,21 @@ authentication_backend:
     ##
     ## If your groups use the `groupOfUniqueNames` structure use this instead:
     ##    (&(uniquemember={dn})(objectclass=groupOfUniqueNames))
-    groups_filter: ""
+    groups_filter: "(member={dn})"
 
     ## The attribute holding the name of the group
-    group_name_attribute: ""
+    group_name_attribute: "cn"
 
     ## The attribute holding the mail address of the user. If multiple email addresses are defined for a user, only the
     ## first one returned by the LDAP server is used.
-    mail_attribute: ""
+    mail_attribute: "mail"
 
     ## The attribute holding the display name of the user. This will be used to greet an authenticated user.
-    display_name_attribute: ""
+    display_name_attribute: "displayname"
 
     ## The username of the admin user.
-    user: CN=Authelia,DC=example,DC=com
-    plain_password: ""
+    user: uid=AutheliaSvcAcct,ou=people,DC=example,DC=com
+    plain_password: "Replace this with the AutheliaSvcAcct Password"
 
   ##
   ## File (Authentication Provider)
@@ -545,8 +545,8 @@ notifier:
   smtp:
     enabled: false
     enabledSecret: false
-    host: smtp.mail.svc.cluster.local
-    port: 25
+    host: smtp.gmail.com
+    port: 587
     timeout: 5s
     username: test
     plain_password: test
