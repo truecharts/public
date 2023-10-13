@@ -46,6 +46,7 @@ workload:
               path: /ping
           env:
             READARR__PORT: "{{ .Values.service.main.ports.main.port }}"
+            READARR__AUTHENTICATION_METHOD: "None"
   exportarr:
     enabled: true
     type: Deployment
