@@ -69,7 +69,7 @@ Next, create a new entry under `Configure L2 Advertisements`.
 - **Name**: Enter a basic name for your layer 2 advertisement.
 - **Address Pool Entry:** This should match the **name** of the address pool created above (not the IP range itself).
 
-Finally, click Save!
+Finally, ignore all the other config and click Save!
 
 :::info
 
