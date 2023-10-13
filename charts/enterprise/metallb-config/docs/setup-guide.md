@@ -1,6 +1,14 @@
 # MetalLB Basic Setup
 
-The guide walks through a basic configuration of MetalLB for a single address pool on a layer 2 network. This will allow assigning different IP addresses by app.
+You install and configure MetalLB like any other app.
+
+This guide will allow you to assigning different IP addresses to each app (instead of putting each app on a different 'node port').
+
+:::info
+
+We assume a single address pool on a layer 2 network.
+
+:::
 
 :::warning
 
@@ -20,38 +28,48 @@ Our customized version of MetalLB is only intended for use with other TrueCharts
 
 :::
 
-## 1. Install MetalLB Operator from Operators Train
+## 1. Install MetalLB
 
 ![metallb-apps](img/metallb_guide_apps.png)
 
-Install `metallb` from `operators` train first. There is no config, so just hit save.
+First, install `metallb` (from the operators train). There is no config, so just hit save.
+
+:::info
 
 If you encounter an error upon install, run the following command as root from system settings -> shell and attempt the install again:
 `k3s kubectl delete --grace-period 30 --v=4 -k https://github.com/truecharts/manifests/delete`
 
 If you previously had `metallb` installed and encounter an error, delete the old version, then run the above command before proceeding to install the `metallb` operator.
 
+:::
+
+Next, install and configure MetalLB-Config, as described below.
+
 ## 2. Set Address Pool & L2 Advertisement in MetalLB-Config
 
-Install `metallb-config` from enterprise train and create a new entry under `Configure IP Address Pools Object`
+Click to install `metallb-config` (from enterprise train).
+
+First create a new entry under `Configure IP Address Pools Object`
 
 ![metallb-addpoolbasic](img/metallb_guide_addresspool_basic.png)
 
 - **Name**: Enter a general name for this IP range. Something like _apps_ or _charts_ for this field is fine.
 - **Auto Assign**: if you want MetalLB Services to auto-assign IPs from the configured address pool without needing to specify per app. Recommendation is to keep this checked. You can still specify an IP for apps as needed (see step 3).
 
-Create a single entry under `Configure Address Pools`
+Next, create an entry under `Configure Address Pools`
 
-- **Address Pool Entry:** Specify an IP range for MetalLB to assign IPs that is **OUTSIDE** your current DHCP range on your LAN. For example, if your DHCP range is `192.168.1.100-192.168.1.255`, then your entry can be any range below `192.168.1.100`. This entry can also be specified in CIDR format.
+- **Address Pool Entry:** Specify an IP range for MetalLB to assign IPs that is **OUTSIDE** your current DHCP range on your LAN. Typically you can check your routers admin panel for details. For example, if your router's DHCP range is `192.168.1.100-192.168.1.255`, then your entry can be any range below `192.168.1.100`, e.g. `192.168.1.10-192.168.1.99`. This entry can also be specified in CIDR format.
 
 _For users with VLANs or multiple subnets, you may create create additional address pool objects as needed._
 
-![metallb-l2advertisement](img/metallb_guide_l2advertisement.png)
+Next, create a new entry under `Configure L2 Advertisements`.
 
-Create a new entry under `Configure L2 Advertisements`.
+![metallb-l2advertisement](img/metallb_guide_l2advertisement.png)
 
 - **Name**: Enter a basic name for your layer 2 advertisement.
 - **Address Pool Entry:** This should match the **name** of the address pool created above (not the IP range itself).
+
+Finally, click Save!
 
 :::info
 
@@ -61,13 +79,13 @@ Once installed, `metallb-config` will always show as Stopped.
 
 ## 3. Optional: Specify IP Address per App or Service
 
+With MetalLB installed, it's recommended (but optional) to specify IP specific addresses for your apps when you install and configure them.
+
 ![metallb-specifyIP](img/metallb_guide_specifyIP.png)
 
-With MetalLB installed, it's recommended (but optional) to specify IP addresses for your apps.
+When configuring each app, look under **Networking and Services**, select the `LoadBalancer` Service Type for the Main Service.
 
-For each app, under **Networking and Services**, select `LoadBalancer` Service Type for the Main Service.
-
-In the **LoadBalancer IP** field, specify an IP address that is within the MetalLB address pool that you configured. Apply the same IP address to the **LoadBalancer IP** field on other services within the app.
+In the **LoadBalancer IP** field, specify an IP address that is within the MetalLB address pool that you configured above. Apply the same IP address to the **LoadBalancer IP** field on other services within the app.
 
 ## 4. Disable SCALE's Default LoadBalancer
 
