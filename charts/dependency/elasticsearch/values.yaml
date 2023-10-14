@@ -14,11 +14,17 @@ service:
       main:
         port: 9200
         targetPort: 9200
+        env:
+          ELASTIC_PASSWORD:
+            secretKeyRef:
+              expandObjectName: "{{ if .Values.elasticsearchPassword }}true{{ else }}false{{ end }}"
+              name: '{{ if .Values.elasticsearchPassword }}credentials{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "elasticsearchcreds" }}{{ end }}'
+              key: "elasticsearch-password"
 
-persistence:
-  data:
-    enabled: true
-    mountPath: "/bitnami/mongodb"
+# -- Secret or password
+# One of these options is required, unless used as a dependency for another TrueCharts chart.
+elasticsearchPassword: ""
+existingSecret: ""
 
 portal:
   open:

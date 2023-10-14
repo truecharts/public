@@ -10,6 +10,13 @@ questions:
 # Include{containerAdvanced}
 # Include{containerConfig}
 # Include{podOptions}
+  - variable: elasticsearchPassword
+    group: "App Configuration"
+    label: "Elasticsearch Admin Password"
+    schema:
+      type: string
+      default: ""
+      required: true
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
