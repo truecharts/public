@@ -26,6 +26,11 @@ service:
 elasticsearchPassword: ""
 existingSecret: ""
 
+persistence:
+  data:
+    enabled: true
+    mountPath: "/usr/share/elasticsearch/data"
+
 portal:
   open:
     enabled: false
