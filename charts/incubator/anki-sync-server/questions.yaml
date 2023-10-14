@@ -10,6 +10,29 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: ANKISYNCD_USERNAME
+                                        label: "Default Username"
+                                        description: "Create your default username here"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: "test"
+                                      - variable: ANKISYNCD_PASSWORD
+                                        label: "Default Passowrd"
+                                        description: "Enter default password here"
+                                        schema:
+                                          type: string
+                                          private: true
+                                          required: true
+                                          default: "123456"
 # Include{containerBasic}
 # Include{containerAdvanced}
 
