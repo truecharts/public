@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/nextcloud-fpm
   pullPolicy: IfNotPresent
-  tag: v27.1.1@sha256:1b24bcd2801d24ccda7cc005525ab70b82d23f71cb44dbc159dcc34becc907cd
+  tag: v27.1.2@sha256:ca07e3779d8b43d249a6fddfb9e6d039492afeba6a9e549e1a0b30c10c6e4dc2
 nginxImage:
   repository: tccr.io/truecharts/nginx-unprivileged
   pullPolicy: IfNotPresent
@@ -9,7 +9,7 @@ nginxImage:
 imaginaryImage:
   repository: tccr.io/truecharts/nextcloud-imaginary
   pullPolicy: IfNotPresent
-  tag: v20230401@sha256:bd8e6ea0390c84277c6fa1ed4e03339e1069cb492a3216e969642d82d649495e
+  tag: v20230401@sha256:bcd9a7ded0d9a5d213a62bc0a66e2d55c2756bdea703576eb255831453431f00
 hpbImage:
   repository: tccr.io/truecharts/nextcloud-push-notify
   pullPolicy: IfNotPresent
@@ -21,7 +21,7 @@ clamavImage:
 collaboraImage:
   repository: tccr.io/truecharts/collabora
   pullPolicy: IfNotPresent
-  tag: v23.05.4.2.1@sha256:9cb6037acc9a286dd78bd158d00221bc074b797b66fee1e4fcd286f2ed4dc28b
+  tag: v23.05.5.1.1@sha256:5d8ad6bfdf0827ce1d8c607f73ccbeb0fe532500abec1c11e0b40e17cba27d5c
 
 nextcloud:
   # Initial Credentials

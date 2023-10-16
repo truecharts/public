@@ -2,6 +2,10 @@ image:
   repository: tccr.io/truecharts/frigate
   pullPolicy: IfNotPresent
   tag: v0.12.1@sha256:71c83d1c5454bfee190b450ab89b2889352688b8cf3f832782a47ed82e2c604d
+tensorrtImage:
+  repository: tccr.io/truecharts/frigate-tensorrt
+  pullPolicy: IfNotPresent
+  tag: v0.12.1@sha256:6860328187a2a52b6273d0151a15be10bc69a05e98cf5186d718b5e87a8a2b04
 
 # When this is defined, the contents will be mounted
 # as configmap into the container at /config/config.yml.

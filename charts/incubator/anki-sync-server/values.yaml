@@ -1,7 +1,33 @@
 image:
   repository: tccr.io/truecharts/anki-sync-server
-  tag: v20220516@sha256:444a0ae7b60a08128f3a2f02516ce60c4ca0879c13a6c27fe85db35b1ce4cef6
+  tag: v1.1.14@sha256:3951d969ee43c9a0e69394e49111c55a69d4b5784b1cfe121a0151c29dccd811
   pullPolicy: IfNotPresent
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env:
+            ANKISYNCD_USERNAME: "test"
+            ANKISYNCD_PASSWORD: "123456"
 
 service:
   main:
@@ -16,4 +42,5 @@ persistence:
     mountPath: /app/data
 
 portal:
-  enabled: true
+  open:
+    enabled: true
