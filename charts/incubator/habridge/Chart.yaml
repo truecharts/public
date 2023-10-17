@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: habridge
-version: 5.0.0
+version: 5.0.1
 appVersion: "5.4.1"
 description: Habridge emulates Philips Hue API to other home automation gateways such as an Amazon Echo/Dot or other systems that support Philips Hue.
 type: application
@@ -22,7 +22,7 @@ maintainers:
     name: TrueCharts
     url: https://truecharts.org
 annotations:
-  truecharts.org/catagories: |
+  truecharts.org/categories: |
     - incubator
   truecharts.org/SCALE-support: "true"
   truecharts.org/grade: U

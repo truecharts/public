@@ -86,14 +86,14 @@ questions:
       type: list
       default: []
       items:
-        - variable: catagoryItem
-          label: "Catagory"
+        - variable: categoryItem
+          label: "Category"
           schema:
             additional_attrs: true
             type: dict
             attrs:
               - variable: name
-                label: "Config Catagory Name"
+                label: "Config Category Name"
                 schema:
                   type: string
                   required: true
