@@ -22,23 +22,18 @@ rbac:
       resources:
       - "configmaps"
       - "secrets"
-      # TODO: Enumerate verbs instead of *
       verbs:
-      - "*"
+      - "get"
+      - "list"
+      - "watch"
+      - "create"
+      - "update"
+      - "patch"
+      - "delete"
     - apiGroups:
       - ""
       resources:
       - "namespaces"
-      verbs:
-      - "watch"
-      - "list"
-    # TODO: Roles taken from
-    # https://github.com/emberstack/kubernetes-reflector/blob/main/src/helm/reflector/templates/clusterRole.yaml
-    # Though not sure why it needs to see CRDs?
-    - apiGroups:
-      - "apiextensions.k8s.io"
-      resources:
-      - "customresourcedefinitions"
       verbs:
       - "watch"
       - "list"
@@ -50,12 +45,11 @@ serviceAccount:
 
 securityContext:
   container:
-    runAsUser: 1000
-    # TODO: Check if it works with true
-    readOnlyRootFilesystem: false
+    readOnlyRootFilesystem: true
     runAsNonRoot: true
-  pod:
-    fsGroup: 2000
+
+podOptions:
+  automountServiceAccountToken: true
 
 workload:
   main:
