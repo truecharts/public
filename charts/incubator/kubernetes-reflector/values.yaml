@@ -1,0 +1,84 @@
+image:
+  repository: emberstack/kubernetes-reflector
+  pullPolicy: IfNotPresent
+  tag: 7.1.210
+
+logs:
+  logLevel: Information
+
+env:
+  ES_Serilog__MinimumLevel__Default: Information
+  ES_Reflector__Watcher__Timeout: ""
+  ES_Reflector__Kubernetes__SkipTlsVerify: "false"
+
+operator:
+  register: true
+
+rbac:
+  main:
+    enabled: true
+    primary: true
+    clusterWide: true
+    rules:
+    - apiGroups:
+      - ""
+      resources:
+      - "configmaps"
+      - "secrets"
+      # TODO: Enumerate verbs instead of *
+      verbs:
+      - "*"
+    - apiGroups:
+      - ""
+      resources:
+      - "namespaces"
+      verbs:
+      - "watch"
+      - "list"
+    # TODO: Roles taken from
+    # https://github.com/emberstack/kubernetes-reflector/blob/main/src/helm/reflector/templates/clusterRole.yaml
+    # Though not sure why it needs to see CRDs?
+    - apiGroups:
+      - "apiextensions.k8s.io"
+      resources:
+      - "customresourcedefinitions"
+      verbs:
+      - "watch"
+      - "list"
+
+serviceAccount:
+  main:
+    enabled: true
+    primary: true
+
+securityContext:
+  container:
+    runAsUser: 1000
+    # TODO: Check if it works with true
+    readOnlyRootFilesystem: false
+    runAsNonRoot: true
+  pod:
+    fsGroup: 2000
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /healthz
+            readiness:
+              type: http
+              path: /healthz
+            startup:
+              type: http
+              path: /healthz
+
+service:
+  # Only used for health probes
+  main:
+    ports:
+      main:
+        port: 25080

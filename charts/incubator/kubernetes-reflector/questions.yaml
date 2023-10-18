@@ -1,0 +1,28 @@
+# Include{groups}
+questions:
+# Include{global}
+  - variable: env
+    label: "Logs"
+    group: "App Configuration"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: ES_Serilog__MinimumLevel__Default
+          label: "Log Level"
+          schema:
+            type: string
+            default: "Information"
+            enum:
+              - value: "Verbose"
+                description: "Trace"
+              - value: "Debug"
+                description: "Debug"
+              - value: "Information"
+                description: "Info"
+              - value: "Warning"
+                description: "Warnings"
+              - value: "Error"
+                description: "Errors"
+              - value: "Fatal"
+                description: "Fatal Errors"
