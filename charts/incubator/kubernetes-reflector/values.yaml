@@ -3,9 +3,6 @@ image:
   pullPolicy: IfNotPresent
   tag: 7.1.210
 
-logs:
-  logLevel: Information
-
 env:
   ES_Serilog__MinimumLevel__Default: Information
   ES_Reflector__Watcher__Timeout: ""
