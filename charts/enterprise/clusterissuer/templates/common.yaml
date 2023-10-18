@@ -7,3 +7,5 @@
 {{- include "certmanager.clusterissuer.acme" . }}
 {{- include "certmanager.clusterissuer.selfsigned" . }}
 {{- include "certmanager.clusterissuer.ca" . }}
+
+{{- include "certmanager.clusterissuer.clusterCertificates" . }}
