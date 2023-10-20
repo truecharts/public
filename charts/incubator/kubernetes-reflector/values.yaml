@@ -22,26 +22,26 @@ rbac:
     primary: true
     clusterWide: true
     rules:
-    - apiGroups:
-      - ""
-      resources:
-      - "configmaps"
-      - "secrets"
-      verbs:
-      - "get"
-      - "list"
-      - "watch"
-      - "create"
-      - "update"
-      - "patch"
-      - "delete"
-    - apiGroups:
-      - ""
-      resources:
-      - "namespaces"
-      verbs:
-      - "watch"
-      - "list"
+      - apiGroups:
+          - ""
+        resources:
+          - "configmaps"
+          - "secrets"
+        verbs:
+          - "get"
+          - "list"
+          - "watch"
+          - "create"
+          - "update"
+          - "patch"
+          - "delete"
+      - apiGroups:
+          - ""
+        resources:
+          - "namespaces"
+        verbs:
+          - "watch"
+          - "list"
 
 serviceAccount:
   main:
