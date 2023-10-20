@@ -4,11 +4,6 @@ image:
   pullPolicy: IfNotPresent
   tag: 7.1.210
 
-env:
-  ES_Serilog__MinimumLevel__Default: Information
-  ES_Reflector__Watcher__Timeout: ""
-  ES_Reflector__Kubernetes__SkipTlsVerify: "false"
-
 operator:
   register: true
 
@@ -48,6 +43,10 @@ serviceAccount:
     enabled: true
     primary: true
 
+
+kubernetesReflector:
+  logLevel: Information
+
 workload:
   main:
     podSpec:
@@ -57,6 +56,10 @@ workload:
           securityContext:
             readOnlyRootFilesystem: true
             runAsNonRoot: true
+          env:
+            ES_Serilog__MinimumLevel__Default: Information
+            ES_Reflector__Watcher__Timeout: ""
+            ES_Reflector__Kubernetes__SkipTlsVerify: "false"
           probes:
             liveness:
               type: http

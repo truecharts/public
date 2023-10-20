@@ -1,14 +1,14 @@
 # Include{groups}
 questions:
 # Include{global}
-  - variable: env
-    label: "Logs"
+  - variable: kubernetesReflector
     group: "App Configuration"
+    label: "Kubernetes-Reflector Configuration"
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: ES_Serilog__MinimumLevel__Default
+        - variable: logLevel
           label: "Log Level"
           schema:
             type: string
