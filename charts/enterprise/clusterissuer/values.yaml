@@ -98,9 +98,13 @@ clusterIssuer:
 #         subdomain: ""
 #         allowFrom: []
 
-clusterCertificates: []
-# - nameOverride: mycert
-#   certificateIssuer: selfsigned
-#   hosts:
-#     - my.domain.com
-#     - '*.my.domain.com'
+clusterCertificates:
+  # Namespaces in which the certificates must be available
+  # Accepts comma-separated regex expressions
+  replicationNamespaces: 'ix-.+'
+  certificates:
+  - name: mycert
+    certificateIssuer: selfsigned
+    hosts:
+      - my.domain.com
+      - '*.my.domain.com'

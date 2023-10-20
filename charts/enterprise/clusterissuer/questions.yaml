@@ -333,33 +333,39 @@ questions:
     label: Cluster Wide Certificates (Experimental)
     description: "Creates certificates for use within the entire cluster. Can be used to create wildcard certificates."
     schema:
-      type: list
-      default: []
-      items:
-      - variable: nameOverride
-        label: Certificate Name
-        schema:
-          type: string
-          default: ""
-      - variable: certificateIssuer
-        label: Cert-Manager clusterIssuer
-        description: 'One of the Cert-Manager clusterIssuers defined above'
-        schema:
-          type: string
-          default: ""
-      - variable: hosts
-        label: Certificate Hosts
-        description: "NOTE: Creation of wildcard certificates with an ACME issuer requires a DNSO1 solver to be set up."
+      additional_attrs: true
+      type: dict
+      hidden: true
+      attrs:
+      - variable: certificates
         schema:
           type: list
           default: []
           items:
-            - variable: host
-              label: Host
-              schema:
-                type: string
-                default: ""
-                required: true
+          - variable: name
+            label: Certificate Name
+            schema:
+              type: string
+              default: ""
+          - variable: certificateIssuer
+            label: Cert-Manager clusterIssuer
+            description: 'One of the Cert-Manager clusterIssuers defined above'
+            schema:
+              type: string
+              default: ""
+          - variable: hosts
+            label: Certificate Hosts
+            description: "NOTE: Creation of wildcard certificates with an ACME issuer requires a DNSO1 solver to be set up."
+            schema:
+              type: list
+              default: []
+              items:
+                - variable: host
+                  label: Host
+                  schema:
+                    type: string
+                    default: ""
+                    required: true
 
   - variable: customMetrics
     group: Metrics
