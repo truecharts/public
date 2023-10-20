@@ -73,3 +73,7 @@ workload:
               type: http
               path: /healthz
               port: 25080
+
+service:
+  main:
+    enabled: false
