@@ -61,16 +61,12 @@ workload:
             liveness:
               type: http
               path: /healthz
+              port: 25080
             readiness:
               type: http
               path: /healthz
+              port: 25080
             startup:
               type: http
               path: /healthz
-
-service:
-  # Only used for health probes
-  main:
-    ports:
-      main:
-        port: 25080
+              port: 25080
