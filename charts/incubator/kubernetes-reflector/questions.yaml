@@ -1,6 +1,13 @@
 # Include{groups}
 questions:
 # Include{global}
+# Include{workload}
+# Include{workloadDeployment}
+# Include{replicas1}
+# Include{podSpec}
+# Include{containerMain}
+# Include{containerBasic}
+# Include{containerAdvanced}
   - variable: kubernetesReflector
     group: "App Configuration"
     label: "Kubernetes-Reflector Configuration"
@@ -26,3 +33,10 @@ questions:
                 description: "Errors"
               - value: "Fatal"
                 description: "Fatal Errors"
+# Include{resources}
+# Include{advanced}
+# Include{addons}
+# Include{codeserver}
+# Include{netshoot}
+# Include{vpn}
+# Include{documentation}
