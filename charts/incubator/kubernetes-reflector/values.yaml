@@ -48,19 +48,15 @@ serviceAccount:
     enabled: true
     primary: true
 
-securityContext:
-  container:
-    readOnlyRootFilesystem: true
-    runAsNonRoot: true
-
-podOptions:
-  automountServiceAccountToken: true
-
 workload:
   main:
     podSpec:
+      automountServiceAccountToken: true
       containers:
         main:
+          securityContext:
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
           probes:
             liveness:
               type: http
