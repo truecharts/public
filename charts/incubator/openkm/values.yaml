@@ -40,7 +40,7 @@ persistence:
     volumeSpec:
       configMap:
         name: '{{ include "tc.common.names.fullname" . }}-init'
-        defaultMode: 0777
+        defaultMode: "a+rwx"
 
 postgresql:
   enabled: true
