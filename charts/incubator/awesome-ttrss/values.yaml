@@ -10,29 +10,18 @@ securityContext:
     runAsUser: 0
     runAsGroup: 0
 
-persistence:
-  icons:
+service:
+  main:
     enabled: true
-    targetSelector:
+    ports:
       main:
-        main:
-          mountPath: "/var/www/feed-icons"
-  plugins:
-    enabled: true
-    targetSelector:
-      main:
-        main:
-          mountPath: "/var/www/plugins.local"
-  themes:
-    enabled: true
-    targetSelector:
-      main:
-        main:
-          mountPath: "/var/www/themes.local"
+        enabled: true
+        port: 10246
+        targetPort: 80
 
 workload:
   main:
-    podspec:
+    podSpec:
       containers:
         main:
           probes:
@@ -59,12 +48,26 @@ workload:
               secretKeyRef:
                 name: cnpg-main-user
                 key: password
-service:
-  main:
-    ports:
+
+persistence:
+  icons:
+    enabled: true
+    targetSelector:
       main:
-        port: 10246
-        targetPort: 80
+        main:
+          mountPath: "/var/www/feed-icons"
+  plugins:
+    enabled: true
+    targetSelector:
+      main:
+        main:
+          mountPath: "/var/www/plugins.local"
+  themes:
+    enabled: true
+    targetSelector:
+      main:
+        main:
+          mountPath: "/var/www/themes.local"
 
 cnpg:
   main:
