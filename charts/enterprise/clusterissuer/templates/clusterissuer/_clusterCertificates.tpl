@@ -1,9 +1,7 @@
 {{- define "certmanager.clusterissuer.clusterCertificates" -}}
 {{- if .Values.clusterCertificates -}}
-  {{- $rootCtx := . -}}
   {{- $certs := dict }}
   {{- $secretTemplates := dict }}
-
   {{ $certNamespace := .Values.namespace | default .Values.global.namespace | default .Release.Namespace }}
 
   {{- $reflectorAnnotations := (dict
@@ -25,7 +23,7 @@
   {{- end -}}
 
 {{- $_ := set .Values "cert" $certs }}
-{{/* Render the ClusterWide Certificates(s) */}}
+{{/* Render the ClusterWide Certificate(s) */}}
 {{- include "tc.v1.common.spawner.certificate" . | nindent 0 -}}
 {{- end }}
 {{- end -}}
