@@ -1,8 +1,6 @@
 annotations:
   truecharts.org/SCALE-support: "true"
-  truecharts.org/categories: |
-    - Network-Web
-    - MediaServer-Music
+  truecharts.org/category: Network-Web
 apiVersion: v2
 appVersion: "latest"
 dependencies:
@@ -26,4 +24,4 @@ name: multi-scrobbler
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/multi-scrobbler
 type: application
-version: 2.0.12
+version: 2.0.13

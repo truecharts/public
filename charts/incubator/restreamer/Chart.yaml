@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: restreamer
-version: 2.0.14
+version: 2.0.15
 appVersion: "2.5.0"
 description: "Allows smart free video streaming in real time."
 type: application
@@ -26,9 +26,6 @@ maintainers:
     name: TrueCharts
     url: https://truecharts.org
 annotations:
-  truecharts.org/categories: |
-    - Network-Other
-    - MediaApp-Video
-    - Productivity
+  truecharts.org/category: Network-Other
   truecharts.org/SCALE-support: "true"
   truecharts.org/grade: U

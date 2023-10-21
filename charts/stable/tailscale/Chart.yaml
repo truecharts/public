@@ -19,8 +19,7 @@ name: tailscale
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/tailscale
   - https://github.com/tailscale/tailscale/blob/main/docs/k8s/run.sh
-version: 5.0.9
+version: 5.0.10
 annotations:
-  truecharts.org/categories: |
-    - network
+  truecharts.org/category: network
   truecharts.org/SCALE-support: "true"

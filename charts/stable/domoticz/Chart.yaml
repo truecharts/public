@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: domoticz
-version: 6.0.5
+version: 6.0.6
 appVersion: "2023.2.202"
 description: "Domoticz is a Home Automation System that lets you monitor and configure various devices like Lights, Switches and much more."
 type: application
@@ -22,6 +22,5 @@ maintainers:
     name: TrueCharts
     url: https://truecharts.org
 annotations:
-  truecharts.org/categories: |
-    - incubator
+  truecharts.org/category: incubator
   truecharts.org/SCALE-support: "true"

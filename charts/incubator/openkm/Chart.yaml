@@ -2,7 +2,7 @@ apiVersion: v2
 appVersion: "6.3.12"
 description: OpenKM integrates all essential documents management, collaboration and an advanced search functionality into one easy to use solution.
 name: openkm
-version: 11.0.2
+version: 11.0.3
 kubeVersion: ">=1.16.0-0"
 keywords:
   - openkm
@@ -27,7 +27,6 @@ maintainers:
     name: TrueCharts
     url: https://truecharts.org
 annotations:
-  truecharts.org/categories: |
-    - media
+  truecharts.org/category: media
   truecharts.org/SCALE-support: "true"
   truecharts.org/grade: U

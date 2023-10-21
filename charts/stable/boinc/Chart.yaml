@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: boinc
-version: 6.0.13
+version: 6.0.14
 appVersion: "latest"
 description: BOINC is a platform for high-throughput computing on a large scale (thousands or millions of computers).
 type: application
@@ -22,6 +22,5 @@ maintainers:
     name: TrueCharts
     url: https://truecharts.org
 annotations:
-  truecharts.org/categories: |
-    - incubator
+  truecharts.org/category: incubator
   truecharts.org/SCALE-support: "true"
