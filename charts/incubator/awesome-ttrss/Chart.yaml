@@ -1,24 +1,24 @@
 apiVersion: v2
-appVersion: "v2023-06"
-deprecated: false
-description: Awesome TTRSS aims to provide a powerful Chartized all-in-one solution for Tiny Tiny RSS
-name: awesome-ttrss
-type: application
-version: 4.0.0
 kubeVersion: ">=1.16.0-0"
+name: awesome-ttrss
+version: 4.0.0
+appVersion: "v2023-06"
+description: Awesome TTRSS aims to provide a powerful Chartized all-in-one solution for Tiny Tiny RSS
+type: application
+deprecated: false
+home: https://truecharts.org/charts/incubator/awesome-ttrss
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/awesome-ttrss.png
 keywords:
   - rss
   - tt-rss
   - awesome-ttrss
-home: https://truecharts.org/charts/incubator/awesome-ttrss
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/awesome-ttrss.png
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/awesome-ttrss
   - https://github.com/HenryQW/Awesome-TTRSS
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 14.0.9
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts
