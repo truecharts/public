@@ -1,6 +1,7 @@
 {{- define "certmanager.clusterissuer.clusterCertificates" -}}
 {{- if .Values.clusterCertificates -}}
-  {{- $cert := (.Values.cert | default dict) }}
+  {{- $rootCtx := . -}}
+  {{- $certs := dict }}
   {{- $secretTemplates := dict }}
 
   {{ $certNamespace := .Values.namespace | default .Values.global.namespace | default .Release.Namespace }}
@@ -14,20 +15,18 @@
 
   {{- $_ := set $secretTemplates "annotations" $certAnnotations }}
 
-  {{- range $_, $certValues := .Values.clusterCertificates.certificates }}
-    {{- $_ := set $cert $certValues.name dict }}
-    {{- $_ := set (index $cert ($certValues.name)) "hosts" $certValues.hosts }}
-    {{- $_ := set (index $cert ($certValues.name)) "certificateIssuer" $certValues.certificateIssuer }}
-    {{- $_ := set (index $cert ($certValues.name)) "secretTemplates" $secretTemplates }}
+  {{- range .Values.clusterCertificates.certificates }}
+    {{- $_ := set $certs .name dict }}
+    {{- $_ := set (index $certs (.name)) "enabled" .enabled }}
+    {{- $_ := set (index $certs (.name)) "nameOverride" .name }}
+    {{- $_ := set (index $certs (.name)) "hosts" .hosts }}
+    {{- $_ := set (index $certs (.name)) "certificateIssuer" .certificateIssuer }}
+    {{- $_ := set (index $certs (.name)) "secretTemplates" $secretTemplates }}
   {{- end -}}
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: game-demo
-data:
-  {{- $cert := (.Values.cert | default dict) }}
-  {{ .Values.clusterCertificates.certificates | toYaml | nindent 2}}
+
+{{- $_ := set .Values "cert" $certs }}
+{{/* Render the ClusterWide Certificates(s) */}}
+{{- include "tc.v1.common.spawner.certificate" . | nindent 0 -}}
 {{- end }}
 {{- end -}}
 

@@ -37,6 +37,7 @@ operator:
       - cert-manager
       # TODO: Uncomment when kubernetes-reflector is out of incubator
       # and cluster-wide cert support in not considered experimental
+      #
       # - kubernetes-reflector
     enabled: true
     failOnError: false
@@ -104,6 +105,7 @@ clusterCertificates:
   replicationNamespaces: 'ix-.+'
   certificates:
   - name: mycert
+    enabled: true
     certificateIssuer: selfsigned
     hosts:
       - my.domain.com

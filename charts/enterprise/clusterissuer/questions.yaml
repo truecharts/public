@@ -347,6 +347,11 @@ questions:
             schema:
               type: string
               default: ""
+          - variable: enabled
+            label: Enabled
+            schema:
+              type: boolean
+              default: true
           - variable: certificateIssuer
             label: Cert-Manager clusterIssuer
             description: 'One of the Cert-Manager clusterIssuers defined above'
