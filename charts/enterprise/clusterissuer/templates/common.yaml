@@ -8,4 +8,7 @@
 {{- include "certmanager.clusterissuer.selfsigned" . }}
 {{- include "certmanager.clusterissuer.ca" . }}
 
+{{/* Must be called after the initial loader.apply template,
+     because it overrides .Values.cert in order to generate
+     the additional cluster-wide certificates */}}
 {{- include "certmanager.clusterissuer.clusterCertificates" . }}
