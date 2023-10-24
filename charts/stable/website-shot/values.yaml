@@ -5,6 +5,7 @@ image:
 
 securityContext:
   container:
+    readOnlyRootFilesystem: false
     runAsGroup: 1000
     runAsUser: 1000
 
