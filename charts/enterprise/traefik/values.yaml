@@ -351,9 +351,13 @@ middlewares:
   #       value: ""
   rewriteResponseHeaders: []
   # - name: rewriteResponseHeadersName
-  #   header: "Location"
-  #   regex: "^http://(.+)$"
-  #   replacement: "https://$1"
+  #   headers:
+  #     - name: "Location"
+  #       regex: "^http://(.+)$"
+  #       replacement: "https://$1"
+  #     - name: "Date"
+  #       regex: "^[^,]+,\\s*(.+)$"
+  #       replacement: "$1"
   customFrameOptionsValue: []
   # - name: customFrameOptionsValueExample
   #   value: "SAMEORIGIN"

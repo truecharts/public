@@ -9,7 +9,9 @@ spec:
   plugin:
     rewriteResponseHeaders:
       rewrites:
-        - header: {{ $middlewareData.header }}
-          regex: {{ $middlewareData.regex }}
-          replacement: {{ $middlewareData.replacement }}
+        {{- range $index, $rewriteResponseHeader := $middlewareData.headers }}
+        - header: {{ $rewriteResponseHeader.name }}
+          regex: {{ $rewriteResponseHeader.regex | quote }}
+          replacement: {{ $rewriteResponseHeader.replacement | quote }}
+        {{- end }}
 {{- end -}}
