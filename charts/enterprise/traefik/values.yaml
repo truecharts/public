@@ -349,6 +349,11 @@ middlewares:
   #       value: "foobar"
   #     - name: X-Header-To-Remove
   #       value: ""
+  rewriteResponseHeaders: []
+  # - name: rewriteResponseHeadersName
+  #   header: "Location"
+  #   regex: "^http://(.+)$"
+  #   replacement: "https://$1"
   customFrameOptionsValue: []
   # - name: customFrameOptionsValueExample
   #   value: "SAMEORIGIN"
@@ -367,11 +372,6 @@ middlewares:
   # - name: redirectSchemeName
   #   scheme: https
   #   permanent: true
-  rewriteResponseHeaders: []
-  # - name: rewriteResponseHeadersName
-  #   header: "Location"
-  #   regex: "^http://(.+)$"
-  #   replacement: "https://$1"
   rateLimit: []
   # - name: rateLimitName
   #   average: 300

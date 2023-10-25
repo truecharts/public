@@ -187,10 +187,10 @@ questions:
 # Include{bufferingMiddleware}
 # Include{customRequestHeadersMiddleware}
 # Include{customResponseHeadersMiddleware}
+# Include{rewriteResponseHeadersMiddleware}
 # Include{customFrameOptionsValueMiddleware}
 # Include{chainMiddleware}
 # Include{redirectSchemeMiddleware}
-# Include{rewriteResponseHeadersMiddleware}
 # Include{rateLimitMiddleware}
 # Include{redirectRegexMiddleware}
 # Include{stripPrefixRegexMiddleware}
