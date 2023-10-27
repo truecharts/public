@@ -5,7 +5,8 @@ image:
   tag: 7.1.210
 
 operator:
-  register: true
+  # TODO: Change to true once support is built in for it in common lib
+  register: false
 
 portal:
   open:
