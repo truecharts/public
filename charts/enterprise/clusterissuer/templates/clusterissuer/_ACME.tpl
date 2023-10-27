@@ -25,7 +25,7 @@
       {{/* Transform to a dict with domain as a key, also remove domain from the dict */}}
       {{- $_ := set $acmednsDict .domain (omit . "domain") -}}
     {{- end }}
-  {{- end -}}
+  {{- end }}
 ---
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
