@@ -349,6 +349,15 @@ middlewares:
   #       value: "foobar"
   #     - name: X-Header-To-Remove
   #       value: ""
+  rewriteResponseHeaders: []
+  # - name: rewriteResponseHeadersName
+  #   headers:
+  #     - name: "Location"
+  #       regex: "^http://(.+)$"
+  #       replacement: "https://$1"
+  #     - name: "Date"
+  #       regex: "^[^,]+,\\s*(.+)$"
+  #       replacement: "$1"
   customFrameOptionsValue: []
   # - name: customFrameOptionsValueExample
   #   value: "SAMEORIGIN"
