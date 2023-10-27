@@ -1,7 +1,7 @@
 {{- define "certmanager.clusterissuer.clusterCertificates" -}}
 {{- if .Values.clusterCertificates -}}
   {{- $certs := dict }}
-  {{- $secretTemplates := dict }}
+  {{- $secretTemplates := dict -}}
   {{ $certNamespace := .Values.namespace | default .Values.global.namespace | default .Release.Namespace }}
 
   {{- $reflectorAnnotations := (dict
