@@ -1,7 +1,6 @@
 {{- define "certmanager.clusterissuer.clusterCertificates" -}}
   {{- if .Values.clusterCertificates -}}
     {{- $certs := dict -}}
-    {{- $rootCtx := .rootCtx -}}
     {{- $secretTemplates := dict -}}
     {{ $certNamespace := (include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $ "objectData" $certs "caller" "ClusterCertificates")) -}}
 
