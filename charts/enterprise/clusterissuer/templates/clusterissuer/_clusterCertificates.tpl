@@ -1,8 +1,9 @@
 {{- define "certmanager.clusterissuer.clusterCertificates" -}}
   {{- if .Values.clusterCertificates -}}
     {{- $certs := dict -}}
+    {{- $rootCtx := .rootCtx -}}
     {{- $secretTemplates := dict -}}
-    {{ $certNamespace := .Values.namespace | default .Values.global.namespace | default .Release.Namespace -}}
+    {{ $certNamespace := (include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $ "objectData" $certs "caller" "ClusterCertificates")) -}}
 
     {{- $reflectorAnnotations := (dict
         "reflector.v1.k8s.emberstack.com/reflection-allowed" "true"
