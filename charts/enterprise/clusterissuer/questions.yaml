@@ -328,6 +328,7 @@ questions:
                   required: true
                   valid_chars: '^[a-z]+(-?[a-z]){0,63}-?[a-z]+$'
                   default: "selfsigned"
+
   - variable: clusterCertificates
     group: App Configuration
     label: Cluster Wide Certificates (Experimental)
