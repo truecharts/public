@@ -2,8 +2,8 @@
   {{- if .Values.clusterCertificates -}}
     {{- $certs := dict -}}
     {{- $secretTemplates := dict -}}
-    {{ $certNamespace := (include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $ "objectData" $certs "caller" "ClusterCertificates")) -}}
-  {{ $replicationNamespaces := ".*" }}
+    {{- $certNamespace := (include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $ "objectData" $certs "caller" "ClusterCertificates")) -}}
+  {{- $replicationNamespaces := ".*" -}}
   {{- if .Values.clusterCertificates.replicationNamespaces -}}
     {{- $replicationNamespaces = .Values.clusterCertificates.replicationNamespaces -}}
   {{- else if .Values.ixChartContext -}}
@@ -28,7 +28,7 @@
       {{- $_ := set $currentCert "secretTemplate" $secretTemplates -}}
     {{- end -}}
 
-  {{- $_ := set .Values "cert" $certs }}
+  {{- $_ := set .Values "cert" $certs -}}
   {{/* Render the ClusterWide Certificate(s) */}}
   {{- include "tc.v1.common.spawner.certificate" . | nindent 0 -}}
   {{- end -}}
