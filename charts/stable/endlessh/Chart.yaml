@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: endlessh
-version: 6.0.1
+version: 6.0.3
 appVersion: "2021.11.21"
 description: Endlessh is an SSH tarpit that very slowly sends an endless, random SSH banner.
 type: application
@@ -22,6 +22,5 @@ maintainers:
     name: TrueCharts
     url: https://truecharts.org
 annotations:
-  truecharts.org/catagories: |
-    - incubator
+  truecharts.org/category: incubator
   truecharts.org/SCALE-support: "true"
