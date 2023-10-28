@@ -6,7 +6,8 @@ within the common library.
 {{- $root := .root -}}
 {{- $name := .name -}}
 {{- $hosts := .hosts -}}
-{{- $certificateIssuer := .certificateIssuer }}
+{{- $certificateIssuer := .certificateIssuer -}}
+{{- $certificateSecretTemplate := .secretTemplate }}
 ---
 apiVersion: {{ include "tc.v1.common.capabilities.cert-manager.certificate.apiVersion" $ }}
 kind: Certificate
@@ -27,6 +28,18 @@ spec:
     name: {{ tpl $certificateIssuer $root | quote }}
     kind: ClusterIssuer
     group: cert-manager.io
-
+  {{- if $certificateSecretTemplate }}
+  secretTemplate:
+    {{- $labels := (mustMerge ($certificateSecretTemplate.labels | default dict) (include "tc.v1.common.lib.metadata.allLabels" $root | fromYaml)) -}}
+    {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $root "labels" $labels) | trim) }}
+    labels:
+      {{- . | nindent 6 }}
+    {{- end -}}
+    {{- $annotations := (mustMerge ($certificateSecretTemplate.annotations | default dict) (include "tc.v1.common.lib.metadata.allAnnotations" $root | fromYaml)) -}}
+    {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $root "annotations" $annotations) | trim) }}
+    annotations:
+      {{- . | nindent 6 }}
+    {{- end -}}
+  {{- end -}}
 
 {{- end -}}
