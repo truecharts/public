@@ -85,9 +85,9 @@ NEWPASSWORD
 
 <br />
 
-### Catagories
+### Categories
 
-I use 5 catagories
+I use 5 categories
 
 - `Movies` is used by:
 
@@ -118,8 +118,8 @@ I use 5 catagories
 - `Manga` is for Komga
   - Komga doesn't automatically import, We just decided to give it its own category anyway
 
-While creating these catagories, We _ONLY_ changed the name, no other field was changed, the files once completed, will still go into their own directory as shown below.
+While creating these categories, We _ONLY_ changed the name, no other field was changed, the files once completed, will still go into their own directory as shown below.
 
-![!Structure: NZBGet](images/catagories_files.png)
+![!Structure: NZBGet](images/categories_files.png)
 
 <br />
