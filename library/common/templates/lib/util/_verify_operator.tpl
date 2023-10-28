@@ -23,6 +23,18 @@
       {{- $operatorList = mustAppend $operatorList "traefik" -}}
     {{- end -}}
 
+    {{- $clusterCertificate := false -}}
+    {{- if $.Values.clusterCertificates -}}
+      {{- range $opName := $.Values.clusterCertificates.certificates -}}
+        {{- if .enabled -}}
+          {{- $clusterCertificate = true -}}
+        {{- end -}}
+      {{- end -}}
+      {{- if $clusterCertificate -}}
+        {{- $operatorList = mustAppend $operatorList "kubernetes-reflector" -}}
+      {{- end -}}
+    {{- end -}}
+
     {{- $metrics := false -}}
     {{- range $opName := $.Values.metrics -}}
       {{- if .enabled -}}
