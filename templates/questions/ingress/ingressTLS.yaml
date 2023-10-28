@@ -5,7 +5,7 @@
                         type: string
                         default: ""
                     - variable: secretName
-                      label: Cluster Certificate (Experimental)
+                      label: Cluster Certificate / Certificate Secret (Experimental)
                       description: 'Add the name of your cluster-wide certificate, that you set up in ClusterIssuer App. NOTE: This is an experimental feature, for now you must provide the cert name in the form of "<CLUSTERISSUER_APP_NAME>-clusterissuer-<CLUSTER_CERT_NAME>"'
                       schema:
                         show_if: [["certificateIssuer", "=", ""]]
