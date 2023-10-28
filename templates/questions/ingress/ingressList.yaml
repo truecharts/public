@@ -90,6 +90,13 @@
                 schema:
                   type: string
                   default: ""
+              - variable: secretName
+                label: Cluster Certificate (Experimental)
+                description: 'Add the name of your cluster-wide certificate, that you set up in the ClusterIssuer App. NOTE: This is an experimental feature, for now you must provide the cert name in the form of "<CLUSTERISSUER_APP_NAME>-clusterissuer-<CLUSTER_CERT_NAME>"'
+                schema:
+                  show_if: [["clusterIssuer", "=", ""]]
+                  type: string
+                  default: "<CLUSTERISSUER_APP_NAME>-clusterissuer-<CLUSTER_CERT_NAME>"
               - variable: tls
                 label: TLS-Settings
                 schema:
