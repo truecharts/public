@@ -98,7 +98,7 @@ clusterIssuer:
 clusterCertificates:
   # Namespaces in which the certificates must be available
   # Accepts comma-separated regex expressions
-  replicationNamespaces: 'ix-.+'
+  # replicationNamespaces: 'ix-.*'
   certificates: []
   # - name: mycert
   #   enabled: true
