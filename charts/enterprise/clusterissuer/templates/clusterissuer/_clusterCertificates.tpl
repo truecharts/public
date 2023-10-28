@@ -25,7 +25,7 @@
       {{- $_ := set $currentCert "nameOverride" .name -}}
       {{- $_ := set $currentCert "hosts" .hosts -}}
       {{- $_ := set $currentCert "certificateIssuer" .certificateIssuer -}}
-      {{- $_ := set $currentCert "secretTemplates" $secretTemplates -}}
+      {{- $_ := set $currentCert "secretTemplate" $secretTemplates -}}
     {{- end -}}
 
   {{- $_ := set .Values "cert" $certs }}
