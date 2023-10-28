@@ -351,13 +351,16 @@ questions:
                 label: Certificate Name
                 schema:
                   type: string
+                  required: true
                   default: ""
               - variable: certificateIssuer
                 label: Cert-Manager clusterIssuer
                 description: "One of the Cert-Manager clusterIssuers defined above"
                 schema:
                   type: string
-                  default: ""
+                  required: true
+                  valid_chars: '^[a-z]+(-?[a-z]){0,63}-?[a-z]+$'
+                  default: "selfsigned"
               - variable: hosts
                 label: Certificate Hosts
                 description: "NOTE: Creation of wildcard certificates with an ACME issuer requires a DNSO1 solver to be set up."
