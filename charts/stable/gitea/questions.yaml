@@ -86,7 +86,9 @@ questions:
       type: list
       default: []
       items:
-        - variable: categoryItem
+        # Do not fix this typo, it will break
+        # current installations
+        - variable: catagoryItem
           label: "Category"
           schema:
             additional_attrs: true
