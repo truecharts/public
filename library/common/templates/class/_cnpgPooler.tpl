@@ -12,7 +12,7 @@
   {{- $cnpgClusterLabels := $values.labels -}}
   {{- $cnpgClusterAnnotations := $values.annotations -}}
   {{- $instances := $values.pooler.instances | default 2 -}}
-  {{- if or $values.hibernate $.Values.global.stopAll -}}
+  {{- if or $values.hibernate (include "tc.v1.common.lib.util.stopAll" $) -}}
     {{- $instances = 0 -}}
   {{- end }}
 ---

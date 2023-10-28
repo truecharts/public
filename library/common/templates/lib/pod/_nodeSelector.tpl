@@ -20,7 +20,7 @@ objectData: The object data to be used to render the Pod.
     {{- $selectors = . -}}
   {{- end -}}
 
-  {{- if and $rootCtx.Values.global.stopAll (eq $objectData.type "DaemonSet") }}
+  {{- if and (include "tc.v1.common.lib.util.stopAll" $rootCtx) (eq $objectData.type "DaemonSet") }}
 "non-existing": "true"
   {{ else }}
     {{- range $k, $v := $selectors -}}

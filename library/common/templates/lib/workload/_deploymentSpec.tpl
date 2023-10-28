@@ -15,7 +15,7 @@ objectData:
   {{- if hasKey $objectData "replicas" -}}
     {{- $replicas = $objectData.replicas -}}
   {{- end -}}
-  {{- if $rootCtx.Values.global.stopAll -}}
+  {{- if (include "tc.v1.common.lib.util.stopAll" $rootCtx) -}}
     {{- $replicas = 0 -}}
   {{- end }}
 replicas: {{ $replicas }}

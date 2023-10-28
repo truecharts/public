@@ -10,7 +10,7 @@
   {{- $cnpgClusterLabels := $values.labels -}}
   {{- $cnpgClusterAnnotations := $values.annotations -}}
   {{- $hibernation := "off" -}}
-  {{- if or $values.hibernate $.Values.global.stopAll -}}
+  {{- if or $values.hibernate (include "tc.v1.common.lib.util.stopAll" $) -}}
     {{- $hibernation = "on" -}}
   {{- end }}
 ---

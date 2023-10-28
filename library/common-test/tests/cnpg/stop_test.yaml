@@ -80,3 +80,87 @@ tests:
           path: spec
           content:
             instances: 0
+
+  - it: should set hibernate and 0 instances on ixChartContext - isStopped
+    set:
+      operator:
+        verify:
+          enabled: false
+      global:
+        namespace: ix-something
+        ixChartContext:
+          storageClassName: some-storage-class
+          isStopped: true
+      cnpg:
+        main:
+          enabled: true
+          primary: true
+          user: app
+          database: app
+          hibernate: false
+          instances: 2
+    asserts:
+      - documentIndex: &clusterDoc 0
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: metadata.annotations
+          content:
+            cnpg.io/hibernation: "on"
+      - documentIndex: &poolerDoc 1
+        isKind:
+          of: Pooler
+      - documentIndex: *poolerDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *poolerDoc
+        isSubset:
+          path: spec
+          content:
+            instances: 0
+
+  - it: should not set hibernate and 0 instances on ixChartContext - isStopped
+    set:
+      operator:
+        verify:
+          enabled: false
+      global:
+        namespace: ix-something
+        ixChartContext:
+          storageClassName: some-storage-class
+          isStopped: false
+      cnpg:
+        main:
+          enabled: true
+          primary: true
+          user: app
+          database: app
+          hibernate: false
+          instances: 2
+    asserts:
+      - documentIndex: &clusterDoc 0
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: metadata.annotations
+          content:
+            cnpg.io/hibernation: "off"
+      - documentIndex: &poolerDoc 1
+        isKind:
+          of: Pooler
+      - documentIndex: *poolerDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *poolerDoc
+        isSubset:
+          path: spec
+          content:
+            instances: 2

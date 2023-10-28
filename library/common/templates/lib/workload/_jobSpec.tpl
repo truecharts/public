@@ -17,7 +17,7 @@ objectData:
   {{- if hasKey $objectData "parallelism" -}}
     {{- $parallelism = $objectData.parallelism -}}
   {{- end -}}
-  {{- if $rootCtx.Values.global.stopAll -}}
+  {{- if (include "tc.v1.common.lib.util.stopAll" $rootCtx) -}}
     {{- $parallelism = 0 -}}
   {{- end }}
 backoffLimit: {{ $objectData.backoffLimit | default 5 }}

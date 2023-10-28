@@ -15,7 +15,7 @@ objectData:
   {{- $objectData := .objectData -}}
   {{- $rootCtx := .rootCtx -}}
   {{- $suspend := $objectData.suspend | default false -}}
-  {{- if $rootCtx.Values.global.stopAll -}}
+  {{- if (include "tc.v1.common.lib.util.stopAll" $rootCtx) -}}
     {{- $suspend = true -}}
   {{- end }}
 timeZone: {{ (tpl ($objectData.timezone | default $rootCtx.Values.TZ) $rootCtx) | quote }}
