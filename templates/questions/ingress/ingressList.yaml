@@ -96,7 +96,7 @@
                 schema:
                   show_if: [["clusterIssuer", "=", ""]]
                   type: string
-                  default: "<CLUSTERISSUER_APP_NAME>-clusterissuer-<CLUSTER_CERT_NAME>"
+                  default: ""
               - variable: tls
                 label: TLS-Settings
                 schema:
