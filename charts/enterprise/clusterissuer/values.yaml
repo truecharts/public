@@ -35,10 +35,6 @@ operator:
   verify:
     additionalOperators:
       - cert-manager
-      # TODO: Uncomment when kubernetes-reflector is out of incubator
-      # and cluster-wide cert support in not considered experimental
-      #
-      # - kubernetes-reflector
     enabled: true
     failOnError: false
 
