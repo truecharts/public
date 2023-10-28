@@ -341,16 +341,16 @@ questions:
           type: list
           default: []
           items:
-          - variable: name
-            label: Certificate Name
-            schema:
-              type: string
-              default: ""
           - variable: enabled
             label: Enabled
             schema:
               type: boolean
               default: true
+          - variable: name
+            label: Certificate Name
+            schema:
+              type: string
+              default: ""
           - variable: certificateIssuer
             label: Cert-Manager clusterIssuer
             description: 'One of the Cert-Manager clusterIssuers defined above'
