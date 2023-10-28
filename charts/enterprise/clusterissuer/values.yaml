@@ -94,3 +94,15 @@ clusterIssuer:
 #         fulldomain: ""
 #         subdomain: ""
 #         allowFrom: []
+
+clusterCertificates:
+  # Namespaces in which the certificates must be available
+  # Accepts comma-separated regex expressions
+  # replicationNamespaces: 'ix-.*'
+  certificates: []
+  # - name: mycert
+  #   enabled: true
+  #   certificateIssuer: selfsigned
+  #   hosts:
+  #     - my.domain.com
+  #     - '*.my.domain.com'
