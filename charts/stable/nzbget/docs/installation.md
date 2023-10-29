@@ -120,6 +120,6 @@ I use 5 categories
 
 While creating these categories, We _ONLY_ changed the name, no other field was changed, the files once completed, will still go into their own directory as shown below.
 
-![!Structure: NZBGet](images/categories_files.png)
+![!Structure: NZBGet](images/catagories_files.png)
 
 <br />
