@@ -6,8 +6,8 @@ online archive. Our app is a simple way to install it on your TrueNAS SCALE serv
 ## Requirements
 
 - Installation of the TrueCharts Catalog, starting [here](/manual/SCALE/guides/getting-started)
-- [`CloundNative-PG`
-  operator](/manual/SCALE/guides/getting-started#cnpg-and-prometheus-operators-installation-and-migration-guide-for-older-users)
+- [`Cloudnative-PG`
+  operator](/manual/SCALE/guides/getting-started/#cnpgprometheus-operators-installation-and-migration-guide-for-older-users)
 - Paperless-ngx TrueCharts Chart
 
 ## Media Storage
@@ -64,7 +64,7 @@ options](https://docs.paperless-ngx.com/configuration/#consume_config) for more 
 
 Due to the [Hast Path Validation Safety](/manual/SCALE/guides/add-storage#host-path-validation-safety) checks of TrueNAS
 SCALE, using storage for an application on your TrueNAS SCALE and with a network share at the same time requires a bit
-of work.  See also the [FAQ](/manual/FAQ#why-i-cant-use-host-path-on-both-my-apps-and-sharing-services) regarding this
+of work. See also the [FAQ](/manual/FAQ#why-i-cant-use-host-path-on-both-my-apps-and-sharing-services) regarding this
 topic.
 
 This guide will only describe the Paperless-ngx specific options required to set up importing documents from a network

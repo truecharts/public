@@ -149,18 +149,23 @@ Wait for Nextcloud to fully deploy before proceeding.
 ```bash
 occ upgrade
 ```
+
 ```bash
 occ maintenance:mode --on
 ```
+
 ```bash
 occ maintenance:repair
 ```
+
 ```bash
 occ maintenance:mode --off
 ```
+
 ```bash
 occ db:add-missing-indices
 ```
+
 ```bash
 occ files:scan --all
 ```

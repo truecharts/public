@@ -1,27 +1,27 @@
 image:
   repository: tccr.io/truecharts/nextcloud-fpm
   pullPolicy: IfNotPresent
-  tag: v27.0.2@sha256:367bdda86c95a334189e1396e5a5865f78d6739a7bca1f665290e6a965f51bcf
+  tag: v27.1.2@sha256:887edf83fb88baf48268d464fdd819c66b2d2a1b0685860453f8b2f5bb49aa25
 nginxImage:
   repository: tccr.io/truecharts/nginx-unprivileged
   pullPolicy: IfNotPresent
-  tag: v1.25.2@sha256:2c771e0958986c958a161b22a953919b080845f74209d26bd41f5386e5527afc
+  tag: v1.25.2@sha256:5e4e3c89e98e95ba24155a7d60aa2e79c80aaeb80710bd46bd0d2c33de8f966b
 imaginaryImage:
   repository: tccr.io/truecharts/nextcloud-imaginary
   pullPolicy: IfNotPresent
-  tag: v20230401@sha256:c6c54e1d65440cc7eca7184c437f3f0028679a2ab5124ae26c9fd3008c2df439
+  tag: v20230401@sha256:bcd9a7ded0d9a5d213a62bc0a66e2d55c2756bdea703576eb255831453431f00
 hpbImage:
   repository: tccr.io/truecharts/nextcloud-push-notify
   pullPolicy: IfNotPresent
-  tag: v0.6.3@sha256:e951d53322738ac7155dde6897fe0371e64109fc3c47c7176cb00c2f88e61065
+  tag: v0.6.3@sha256:b9c35ab123354eeac3996e361f8c30b8e4de6d2ccd69e5179a7c2a101a67b46f
 clamavImage:
   repository: tccr.io/truecharts/clamav
   pullPolicy: IfNotPresent
-  tag: v1.2.0@sha256:827369aea735afc1bfe7622c8451445e9f20c37d5e40f4731ab0ed35a72a0043
+  tag: v1.2.0@sha256:fd820db3835862b21526e054481356a6b837772a7701afab12cfefd348c1592e
 collaboraImage:
   repository: tccr.io/truecharts/collabora
   pullPolicy: IfNotPresent
-  tag: v23.05.3.1.1@sha256:c37f7d4698c435cf20251f5f37f60ad3131494a124a42e8ab98c60f1b5f05b14
+  tag: v23.05.5.2.1@sha256:93d389bba40cd0fc064723b2d445e04eeb19c7fa137f36825c91ba01d94bd34e
 
 nextcloud:
   # Initial Credentials
@@ -322,7 +322,7 @@ workload:
               port: "{{ .Values.service.collabora.ports.collabora.targetPort }}"
 
 cronjobs:
-    # Don't change names, it's used in the persistence
+  # Don't change names, it's used in the persistence
   - name: nextcloud-cron
     enabled: true
     schedule: "*/5 * * * *"

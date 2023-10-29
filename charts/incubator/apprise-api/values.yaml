@@ -9,7 +9,7 @@ podSecurityContext:
   fsGroup: 33
 
 securityContext:
-  readOnlyRootFilesystem: False
+  readOnlyRootFilesystem: false
   # runAsNonRoot: false
 
 secretEnv:
@@ -22,7 +22,7 @@ env:
   LOG_LEVEL: INFO
   DEBUG: "no"
   APPRISE_RECURSION_MAX: 1
-  APPRISE_CONFIG_LOCK: no
+  APPRISE_CONFIG_LOCK: false
   APPRISE_ALLOW_SERVICES: ""
   ALLOWED_HOSTS: "*"
   # APPRISE_STATELESS_URLS

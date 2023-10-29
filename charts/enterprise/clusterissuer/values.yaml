@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/scratch
-  tag: latest@sha256:1a9a10a0a5f5cb5fe4b30ac6d9c56ff87ad47f3f3490bafb6938fc155230131b
+  tag: latest@sha256:7f821eeb99d04ac248c47f79cfbcc2482651fea48aff9ec5d2ba0ba34f1f5531
   pullPolicy: IfNotPresent
 manifestManager:
   enabled: true
@@ -59,7 +59,7 @@ clusterIssuer:
 #     # Used primarily for the SCALE GUI
 #     customServer: 'https://acme-staging-v02.api.letsencrypt.org/directory'
 #     email: ""
-#     # Options: HTTP01, cloudflare, route53
+#     # Options: HTTP01, cloudflare, route53, akamai, digitalocean, rfc2136, acmedns
 #     type: ""
 #     # for cloudflare
 #     cfapikey: ""
@@ -82,3 +82,27 @@ clusterIssuer:
 #     tsigKeyName: ""
 #     tsigAlgorithm: ""
 #     rfctsigSecret: ""
+#     # for acmedns
+#     name: sd
+#     acmednsHost: asdf
+#     # Pick one of the bellow acmednsConfig
+#     acmednsConfigJson:
+#     acmednsConfig:
+#       - domain: ""
+#         username: ""
+#         password: ""
+#         fulldomain: ""
+#         subdomain: ""
+#         allowFrom: []
+
+clusterCertificates:
+  # Namespaces in which the certificates must be available
+  # Accepts comma-separated regex expressions
+  # replicationNamespaces: 'ix-.*'
+  certificates: []
+  # - name: mycert
+  #   enabled: true
+  #   certificateIssuer: selfsigned
+  #   hosts:
+  #     - my.domain.com
+  #     - '*.my.domain.com'

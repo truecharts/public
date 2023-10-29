@@ -11,10 +11,10 @@ keywords:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.0.1
+    version: 14.0.9
   - name: cert-manager
     repository: https://charts.jetstack.io
-    version: v1.12.3
+    version: v1.13.1
     alias: certmanager
 kubeVersion: ">=1.16.0-0"
 maintainers:
@@ -27,9 +27,8 @@ sources:
   - https://github.com/cert-manager
   - https://cert-manager.io/
 type: application
-version: 1.0.3
+version: 1.0.4
 annotations:
-  truecharts.org/catagories: |
-    - operators
+  truecharts.org/category: operators
   truecharts.org/SCALE-support: "true"
   truecharts.org/grade: U

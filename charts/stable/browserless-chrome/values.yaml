@@ -1,12 +1,12 @@
 image:
   repository: tccr.io/truecharts/browserless-chrome
-  tag: v1.59.0-chrome@sha256:99c16b500ad4e40914acd9a0993f74b61c13299f24295dc758959bf68c839e58
+  tag: v1.60.2-chrome@sha256:a0652b346c0de87d546a3b07a44fbb85a33026aec20b956cbcb74dc822c2515a
   pullPolicy: IfNotPresent
 
 puppeteerImage:
   repository: tccr.io/truecharts/browserless-chrome-puppeteer13
   pullPolicy: IfNotPresent
-  tag: v1.60.0-puppeteer@sha256:f848649a030fabab2eeb04a7c0a041dadcee4376ef103061d7e7de462933e3ba
+  tag: v1.60.2-puppeteer@sha256:ee352f6eed2fa0c9c2d3ac713c420870e1247f2f76bdc111b722bce6c2a3f752
 
 service:
   main:

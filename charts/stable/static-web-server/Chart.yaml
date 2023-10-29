@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "2.21.1"
+appVersion: "2.23.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.0.1
+    version: 14.0.9
 deprecated: false
 description: A cross-platform, high-performance and asynchronous web server for static files-serving.
 home: https://truecharts.org/charts/stable/static-web-server
@@ -23,9 +23,7 @@ sources:
   - https://github.com/static-web-server/static-web-server
   - https://static-web-server.net
 type: application
-version: 1.0.1
+version: 1.0.5
 annotations:
-  truecharts.org/catagories: |
-    - web-server
-    - networking
+  truecharts.org/category: web-server
   truecharts.org/SCALE-support: "true"

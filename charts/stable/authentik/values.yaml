@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/authentik
-  tag: v2023.8.2@sha256:770d79c334141abafd3ecd60da6921a438ac46ee07e1d22eded6b9ea8245e943
+  tag: v2023.10.2@sha256:6c1bec5507c44dd204b87c6bdba65823f2b214b3a5635ef41680748fddf73fc9
   pullPolicy: IfNotPresent
 
 geoipImage:
@@ -10,17 +10,17 @@ geoipImage:
 
 ldapImage:
   repository: tccr.io/truecharts/authentik-ldap
-  tag: v2023.8.2@sha256:135a73c25b37bff5546da71848f64062c718d1dcb73c1d5707170887b188b317
+  tag: v2023.10.2@sha256:7bf0a1c61021c69f27181ea048cd544c3501f6c21f400099e912f21443263dcf
   pullPolicy: IfNotPresent
 
 radiusImage:
   repository: tccr.io/truecharts/authentik-radius
-  tag: v2023.8.2@sha256:55ce58444bdc939f10a0cd40dd05a3ce6d6018f3d3d25b7c72bc183a3450ac34
+  tag: v2023.10.2@sha256:6f0ada996b949b696ed4ff84c73dfd8b850646c227aaed84b866d238e3c2f440
   pullPolicy: IfNotPresent
 
 proxyImage:
   repository: tccr.io/truecharts/authentik-proxy
-  tag: v2023.8.2@sha256:447d28247d1d44dce5fb6865e765d41577ac67b4da753ca0c8af40b52ba7d499
+  tag: v2023.10.2@sha256:5cf00039a8717167b0397dddd870926349d17fc9785ccc7a5ab3b5f19d79036a
   pullPolicy: IfNotPresent
 
 authentik:
@@ -117,20 +117,20 @@ workload:
               enabled: true
               type: exec
               command:
-               - /lifecycle/ak
-               - healthcheck
+                - /lifecycle/ak
+                - healthcheck
             readiness:
               enabled: true
               type: exec
               command:
-               - /lifecycle/ak
-               - healthcheck
+                - /lifecycle/ak
+                - healthcheck
             startup:
               enabled: true
               type: exec
               command:
-               - /lifecycle/ak
-               - healthcheck
+                - /lifecycle/ak
+                - healthcheck
 
   # ===== Worker =====
   worker:
@@ -158,20 +158,20 @@ workload:
               enabled: true
               type: exec
               command:
-               - /lifecycle/ak
-               - healthcheck
+                - /lifecycle/ak
+                - healthcheck
             readiness:
               enabled: true
               type: exec
               command:
-               - /lifecycle/ak
-               - healthcheck
+                - /lifecycle/ak
+                - healthcheck
             startup:
               enabled: true
               type: exec
               command:
-               - /lifecycle/ak
-               - healthcheck
+                - /lifecycle/ak
+                - healthcheck
 
   # ===== PROXY =====
   proxy:
@@ -196,20 +196,20 @@ workload:
               enabled: true
               type: exec
               command:
-               - /proxy
-               - healthcheck
+                - /proxy
+                - healthcheck
             readiness:
               enabled: true
               type: exec
               command:
-               - /proxy
-               - healthcheck
+                - /proxy
+                - healthcheck
             startup:
               enabled: true
               type: exec
               command:
-               - /proxy
-               - healthcheck
+                - /proxy
+                - healthcheck
 
   # ===== RADIUS =====
   radius:
@@ -234,20 +234,20 @@ workload:
               enabled: true
               type: exec
               command:
-               - /radius
-               - healthcheck
+                - /radius
+                - healthcheck
             readiness:
               enabled: true
               type: exec
               command:
-               - /radius
-               - healthcheck
+                - /radius
+                - healthcheck
             startup:
               enabled: true
               type: exec
               command:
-               - /radius
-               - healthcheck
+                - /radius
+                - healthcheck
 
   # ===== LDAP =====
   ldap:
@@ -272,20 +272,20 @@ workload:
               enabled: true
               type: exec
               command:
-               - /ldap
-               - healthcheck
+                - /ldap
+                - healthcheck
             readiness:
               enabled: true
               type: exec
               command:
-               - /ldap
-               - healthcheck
+                - /ldap
+                - healthcheck
             startup:
               enabled: true
               type: exec
               command:
-               - /ldap
-               - healthcheck
+                - /ldap
+                - healthcheck
 
   # ===== GeoIP Updater =====
   geoip:

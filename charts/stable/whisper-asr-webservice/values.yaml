@@ -1,11 +1,11 @@
 image:
   repository: tccr.io/truecharts/whisper-asr-webservice-cpu
   pullPolicy: IfNotPresent
-  tag: v1.1.1@sha256:a8aa7c7298cdba9bd31e752fcfbd27cbb99a8e478abd81f20c57d868729638b4
+  tag: v1.2.0@sha256:de65f7666d1b1f415aa443d1f6344a45c2b8e26940449a623058eeef692b0699
 gpuImage:
   repository: tccr.io/truecharts/whisper-asr-webservice-gpu
   pullPolicy: IfNotPresent
-  tag: v1.1.1@sha256:64d515e7f6ea8fa03fd36bd67b68125e9ad525222f1ec0b520dd7e5c11dd0530
+  tag: v1.2.0@sha256:57043f2fbc7c0524580a3fa3fcd4b078b21fed919563a611766e8292239d2732
 
 securityContext:
   container:

@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "2023.9.0"
+appVersion: "2023.10.5"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.0.2
+    version: 14.0.9
 deprecated: false
 description: home-assistant App for TrueNAS SCALE
 home: https://truecharts.org/charts/stable/home-assistant
@@ -23,8 +23,7 @@ sources:
   - https://github.com/home-assistant/home-assistant
   - https://github.com/cdr/code-server
 type: application
-version: 20.0.5
+version: 20.0.14
 annotations:
-  truecharts.org/catagories: |
-    - home-automation
+  truecharts.org/category: home-automation
   truecharts.org/SCALE-support: "true"

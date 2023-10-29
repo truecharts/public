@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "6.25.0"
+appVersion: "6.29.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.0.6
+    version: 14.0.9
 description: Calibre is a powerful and easy to use e-book manager.
 home: https://truecharts.org/charts/stable/calibre
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/calibre.png
@@ -18,8 +18,7 @@ name: calibre
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/calibre
   - https://github.com/kovidgoyal/calibre/
-version: 11.0.9
+version: 11.0.23
 annotations:
-  truecharts.org/catagories: |
-    - media
+  truecharts.org/category: media
   truecharts.org/SCALE-support: "true"

@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/tauticord
   pullPolicy: IfNotPresent
-  tag: v3.11.3@sha256:3090db9167f07515e76241e247fe71ebad4b7217cf481e18c21e868f6fd2e5f4
+  tag: v3.12.1@sha256:7e54ab47d4a886c2aa681e69bb6d3b4b2a33cf882723b08cb311e86b7bd5c7fa
 
 securityContext:
   container:
@@ -93,7 +93,7 @@ workload:
             TC_USE_SELF_SIGNED_CERT: false
             TC_USE_24_HOUR_TIME: "{{.Values.tauticord.use_24_hour_time }}"
             TC_USE_FRIENDLY_NAMES: "{{.Values.tauticord.use_friendly_names }}"
-            TC_REFRESH_SECONDS:  "{{.Values.tauticord.refresh_seconds }}"
+            TC_REFRESH_SECONDS: "{{.Values.tauticord.refresh_seconds }}"
             TC_TERMINATE_MESSAGE: "{{.Values.tauticord.terminate_message }}"
             TC_ALLOWS_ANALYTICS: "{{.Values.tauticord.allow_analytics }}"
             # Discord
@@ -107,17 +107,17 @@ workload:
             TC_TAUTULLI_KEY: "{{.Values.tauticord.tautulli.key }}"
             TC_TAUTULLI_URL: "{{.Values.tauticord.tautulli.url }}"
             # Plex
-            TC_PLEX_PASS:  "{{.Values.tauticord.plex.pass }}"
+            TC_PLEX_PASS: "{{.Values.tauticord.plex.pass }}"
             TC_SERVER_NAME: "{{.Values.tauticord.plex.server_name }}"
             # Hide Info
-            TC_HIDE_USERNAMES:  "{{.Values.tauticord.hide.usernames }}"
-            TC_HIDE_PLATFORMS:  "{{.Values.tauticord.hide.platforms }}"
-            TC_HIDE_PLAYER_NAMES:  "{{.Values.tauticord.hide.player_names }}"
-            TC_HIDE_QUALITY:  "{{.Values.tauticord.hide.quality }}"
-            TC_HIDE_BANDWIDTH:  "{{.Values.tauticord.hide.bandwidth }}"
-            TC_HIDE_TRANSCODE:  "{{.Values.tauticord.hide.transcode }}"
-            TC_HIDE_PROGRESS:  "{{.Values.tauticord.hide.progress }}"
-            TC_HIDE_ETA:  "{{.Values.tauticord.hide.eta }}"
+            TC_HIDE_USERNAMES: "{{.Values.tauticord.hide.usernames }}"
+            TC_HIDE_PLATFORMS: "{{.Values.tauticord.hide.platforms }}"
+            TC_HIDE_PLAYER_NAMES: "{{.Values.tauticord.hide.player_names }}"
+            TC_HIDE_QUALITY: "{{.Values.tauticord.hide.quality }}"
+            TC_HIDE_BANDWIDTH: "{{.Values.tauticord.hide.bandwidth }}"
+            TC_HIDE_TRANSCODE: "{{.Values.tauticord.hide.transcode }}"
+            TC_HIDE_PROGRESS: "{{.Values.tauticord.hide.progress }}"
+            TC_HIDE_ETA: "{{.Values.tauticord.hide.eta }}"
             # Stats Cat
             TC_VC_STATS_CATEGORY_NAME: "{{.Values.tauticord.cat_stats.name }}"
             TC_VC_STREAM_COUNT: "{{.Values.tauticord.cat_stats.stream_count_enabled }}"

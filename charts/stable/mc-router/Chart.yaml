@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "1.18.1"
+appVersion: "1.20.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.0.1
+    version: 14.0.9
 deprecated: false
 description: Lightweight multiplexer/proxy for Minecraft-Java servers.
 home: https://truecharts.org/charts/stable/mc-router
@@ -21,8 +21,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/mc-router
   - https://github.com/itzg/mc-router
 type: application
-version: 1.0.0
+version: 1.0.5
 annotations:
-  truecharts.org/catagories: |
-    - minecraft
+  truecharts.org/category: minecraft
   truecharts.org/SCALE-support: "true"

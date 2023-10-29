@@ -10,29 +10,59 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: APPLICATION_URL
+                                        label: Application Url
+                                        description: "Configure it either as http://ip:port or as https://mydomain.tld."
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: "http://localhost:8334"
+                                      - variable: GDRIVE_CLIENT_ID
+                                        label: Google Drive Client ID
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: GDRIVE_CLIENT_SECRET
+                                        label: Google Drive Client Secret
+                                        schema:
+                                          type: string
+                                          private: true
+                                          default: ""
+                                      - variable: DROPBOX_CLIENT_ID
+                                        label: DropBox Client ID
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: ONLYOFFICE_URL
+                                        label: Only Office Url
+                                        schema:
+                                          type: string
+                                          default: ""
+
 # Include{containerBasic}
 # Include{containerAdvanced}
-
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
-        - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: "Main Service Port Configuration"
+                      label: Main Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 8334
@@ -41,9 +71,9 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: appdata
-          label: "appdata Storage"
-          description: "Container Path appdatastate"
+        - variable: data
+          label: App Data Storage
+          description: Stores the Application Data.
           schema:
             additional_attrs: true
             type: dict
@@ -52,7 +82,7 @@ questions:
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: "Main Ingress"
+          label: Main Ingress
           schema:
             additional_attrs: true
             type: dict
@@ -65,14 +95,14 @@ questions:
 # Include{securityContextRoot}
 
               - variable: runAsUser
-                label: "runAsUser"
-                description: "The UserID of the user running the application"
+                label: runAsUser
+                description: The UserID of the user running the application
                 schema:
                   type: int
                   default: 0
               - variable: runAsGroup
-                label: "runAsGroup"
-                description: "The groupID of the user running the application"
+                label: runAsGroup
+                description: The groupID this App of the user running the application
                 schema:
                   type: int
                   default: 0
@@ -80,8 +110,8 @@ questions:
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
               - variable: fsGroup
-                label: "fsGroup"
-                description: "The group that should own ALL storage."
+                label: fsGroup
+                description: The group that should own ALL storage.
                 schema:
                   type: int
                   default: 568

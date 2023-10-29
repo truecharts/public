@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "1.23.1"
+appVersion: "1.23.3"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.0.1
+    version: 14.0.9
 deprecated: false
 description: A fancy self-hosted monitoring tool
 home: https://truecharts.org/charts/stable/uptime-kuma
@@ -21,8 +21,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/uptime-kuma
   - https://github.com/louislam/uptime-kuma
 type: application
-version: 7.0.2
+version: 7.0.7
 annotations:
-  truecharts.org/catagories: |
-    - monitoring
+  truecharts.org/category: monitoring
   truecharts.org/SCALE-support: "true"

@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/invidious
   pullPolicy: IfNotPresent
-  tag: latest@sha256:523835a7cb1bf2a32c8815ec06e9d1ca3c8300bdef3acb1ff2f9599efd6e878b
+  tag: latest@sha256:9bbecb11eb147c7a5d65abf43d826f3e5d88ebceb5889b6c870f2a8075037bb8
 
 securityContext:
   container:
@@ -97,6 +97,7 @@ invidious:
     login_enabled: true
     captcha_enabled: true
     admins: []
+    enable_user_notifications: true
 
   background_jobs:
     channel_threads: 1

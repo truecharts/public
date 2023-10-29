@@ -14,7 +14,7 @@ service:
   main:
     ports:
       main:
-        protocol: http
+        protocol: tcp
         port: 3001
   game:
     enabled: true
@@ -57,16 +57,14 @@ workload:
         main:
           probes:
             liveness:
-              path: "/"
-              type: http
-              port: "{{ .Values.service.main.ports.main.port }}"
-            readiness:
-              path: "/"
-              type: http
-              port: "{{ .Values.service.main.ports.main.port }}"
-            startup:
+              enabled: true
               type: tcp
-              port: "{{ .Values.service.main.ports.main.port }}"
+            readiness:
+              enabled: true
+              type: tcp
+            startup:
+              enabled: true
+              type: tcp
           env:
             STEAMCMD_DIR: "{{ .Values.persistence.steamcmd.mountPath }}"
             SERVER_DIR: "{{ .Values.persistence.serverfiles.mountPath }}"
@@ -87,12 +85,9 @@ persistence:
     enabled: true
     type: configmap
     objectName: eco-network
-    targetSelector:
-      main:
-        main:
-          mountPath: /serverdata/serverfiles/Configs/Network.eco
-          subPath: Network.eco
-          readOnly: true
+    mountPath: /serverdata/serverfiles/Configs/Network.eco
+    subPath: Network.eco
+    readOnly: true
 
 portal:
   open:
