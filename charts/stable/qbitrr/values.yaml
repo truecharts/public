@@ -46,6 +46,8 @@ workload:
               enabled: false
             startup:
               enabled: false
+          env:
+            QBITRR_OVERRIDES_DATA_PATH: /config
 
 persistence:
   config:
