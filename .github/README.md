@@ -48,7 +48,7 @@ For big changes we do have a roadmap, every spot on the roadmap is synced to a T
 
 **Restructure of the Project - TrueNAS SCALE "Bluefin" 22.xx ALPHA 1**
 
-_The current project is hitting internal performance issues, for this reason we need to rework the structure and split some parts of the project into seperate repositories._
+_The current project is hitting internal performance issues, for this reason we need to rework the structure and split some parts of the project into separate repositories._
 
 <br />
 
@@ -60,7 +60,7 @@ _The shared Common (chart) basis, used by all our Charts, needs some significant
 
 **Increased test coverage - TrueNAS SCALE "Bluefin" 22.xx BETA 1**
 
-_With most parts of our project somewhat cleaned up, we need to work on increasing the coverage of our test system. Our unittests should cover all features and we should also take upgrades into account when testing Chart changes_
+_With most parts of our project somewhat cleaned up, we need to work on increasing the coverage of our test system. Our unit tests should cover all features and we should also take upgrades into account when testing Chart changes_
 
 <br />
 
@@ -124,7 +124,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-223-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-225-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -422,6 +422,10 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/qraynaud"><img src="https://avatars.githubusercontent.com/u/65991?v=4?s=100" width="100px;" alt="Quentin Raynaud"/><br /><sub><b>Quentin Raynaud</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Aqraynaud" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://fachschaften.org"><img src="https://avatars.githubusercontent.com/u/22835?v=4?s=100" width="100px;" alt="Felix Schäfer"/><br /><sub><b>Felix Schäfer</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=thegcat" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/jndeverteuil"><img src="https://avatars.githubusercontent.com/u/6644855?v=4?s=100" width="100px;" alt="Julien Nicolas de Verteuil"/><br /><sub><b>Julien Nicolas de Verteuil</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=jndeverteuil" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/gabrieldonadel"><img src="https://avatars.githubusercontent.com/u/11707729?v=4?s=100" width="100px;" alt="Gabriel Donadel Dall'Agnol"/><br /><sub><b>Gabriel Donadel Dall'Agnol</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=gabrieldonadel" title="Documentation">📖</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/jon-stumpf"><img src="https://avatars.githubusercontent.com/u/7144996?v=4?s=100" width="100px;" alt="Jon S. Stumpf"/><br /><sub><b>Jon S. Stumpf</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=jon-stumpf" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>

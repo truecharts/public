@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: rsshub
-version: 8.0.208
+version: 8.0.223
 appVersion: "latest"
 description: RSSHub can generate RSS feeds from pretty much everything
 type: application
@@ -28,6 +28,5 @@ maintainers:
     name: TrueCharts
     url: https://truecharts.org
 annotations:
-  truecharts.org/catagories: |
-    - media
+  truecharts.org/category: media
   truecharts.org/SCALE-support: "true"

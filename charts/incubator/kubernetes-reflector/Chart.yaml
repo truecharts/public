@@ -1,0 +1,31 @@
+apiVersion: v2
+appVersion: "7.1.217"
+deprecated: false
+description: Kubernetes-Reflector is a Kubernetes addon designed to monitor and reflect changes to secrets and configmaps across namespaces
+home: https://truecharts.org/charts/incubator/kubernetes-reflector
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/kubernetes-reflector.png
+keywords:
+  - reflector
+  - secrets
+  - configmaps
+  - cert-manager
+  - certificates
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 14.0.14
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: kubernetes-reflector
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/kubernetes-reflector
+  - https://github.com/emberstack/kubernetes-reflector
+type: application
+version: 0.1.-2
+annotations:
+  truecharts.org/category: operators
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/grade: U

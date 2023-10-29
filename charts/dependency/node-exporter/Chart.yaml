@@ -3,7 +3,7 @@ appVersion: "1.6.1"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.0.14
+    version: 14.1.1
 deprecated: false
 description: Prometheus exporter for hardware and OS metrics exposed by UNIX kernels, with pluggable metric collectors.
 home: https://truecharts.org/charts/dependency/node-exporter
@@ -21,9 +21,8 @@ name: node-exporter
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/dependency/node-exporter
 type: application
-version: 3.0.30
+version: 3.0.32
 annotations:
-  truecharts.org/catagories: |
-    - metrics
+  truecharts.org/category: metrics
   truecharts.org/SCALE-support: "true"
   truecharts.org/grade: U
