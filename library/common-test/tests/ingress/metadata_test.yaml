@@ -51,6 +51,53 @@ tests:
             app.kubernetes.io/managed-by: Helm
             app.kubernetes.io/version: *appVer
 
+  - it: cors metadata should pass
+    set:
+      operator:
+        verify:
+          enabled: false
+      ingress:
+        main:
+          enabled: true
+          allowCors: true
+      service:
+        main:
+          enabled: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 12345
+      workload:
+        my-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: &ingressDocument 2
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDocument
+        equal:
+          path: metadata.annotations
+          value:
+            traefik.ingress.kubernetes.io/router.entrypoints: websecure
+            traefik.ingress.kubernetes.io/router.middlewares: tc-system-tc-opencors-chain@kubernetescrd
+
+      - documentIndex: *ingressDocument
+        equal:
+          path: metadata.labels
+          value:
+            app: common-test-1.0.0
+            release: test-release-name
+            helm-revision: "0"
+            helm.sh/chart: common-test-1.0.0
+            app.kubernetes.io/name: common-test
+            app.kubernetes.io/instance: test-release-name
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/version: *appVer
+
   - it: custom metadata should pass
     set:
       operator:
