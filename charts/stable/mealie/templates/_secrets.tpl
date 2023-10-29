@@ -7,7 +7,6 @@ mealie:
   enabled: true
   data:
     {{/* mealie */}}
-    API_URL: {{ printf "http://%v-mealie:%v" $fullname .Values.service.mealie.ports.mealie.port }}
     THEME_LIGHT_PRIMARY: {{ $mealie.theme.light_primary | default "#E58325" | quote }}
     THEME_LIGHT_ACCENT: {{ $mealie.theme.light_accent | default "#007A99" | quote }}
     THEME_LIGHT_SECONDARY: {{ $mealie.theme.light_secondary | default "#973542" | quote }}
