@@ -18,7 +18,7 @@ You should also enable the codeserver addon as previously discussed.
 
 ## config.toml
 
-Once qBitrr has started access the config.toml file using the previously configured `http://<ip address>:<port>` that was setup for the codeserver addon.
+Once qBitrr has started access the config.toml file using the previously configured by surfing to the url `http://<ip address>:<port>/?folder=/config/.config` that was setup for the codeserver addon. Make sure you are in the `.config` directory and not the `config` directory which is one level above where there another config file is located. 
 
 ### Settings
 
@@ -32,11 +32,11 @@ If `CompletedDownloadFolder` option is not set to `"/completed_downloads"` qBitr
 
 ### qBit
 
-This section has qBittorrent specific settings. Ensure that `Host`, `Port`, `UserName`, and `Password` all match your qBittorrent installation. The host and port can be located using the Heavyscript `heavyscript dns -a` command.
+This section has qBittorrent specific settings. Ensure that `Host`, `Port`, `UserName`, and `Password` all match your qBittorrent installation. The host and port can be located using the Heavyscript `heavyscript dns -a` command. It is not recommended to use internal links for this part.
 
 ### Sonarr/Radarr
 
-The following sections have Sonarr/Radarr specific settings. The template configuration file populates two instances for both Sonarr and Radarr by default. These can be renamed/deleted as needed to match your setup. Ensure that `URI`, `API` and `Category` are set correctly so that qBitrr can communicate with your Sonarr and Radarr installations. The `Category` is what you have set in Sonarr/Radarr to use in qBittorrent (ie. movies, tv).
+The following sections have Sonarr/Radarr specific settings. The template configuration file populates two instances for both Sonarr and Radarr by default. These can be renamed/deleted as needed to match your setup. Ensure that `URI`, `API` and `Category` are set correctly so that qBitrr can communicate with your Sonarr and Radarr installations. Here the internal linking url is recommended, you can find this by looking at the output of `heavyscript dns -a` again (e.g.: `URI = "http://sonarr.ix-sonarr.svc.cluster.local:8989/"`). The `Category` is what you have set in Sonarr/Radarr to use in qBittorrent (ie. movies, tv).
 
 ### Remaining Sonarr/Radarr Configurations
 
