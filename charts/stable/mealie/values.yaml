@@ -101,10 +101,6 @@ persistence:
       main:
         main:
           mountPath: /app/data
-          readOnly: true
-      api:
-        api:
-          mountPath: /app/data
 
 cnpg:
   main:
