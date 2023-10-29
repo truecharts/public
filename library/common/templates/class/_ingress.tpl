@@ -124,6 +124,8 @@ spec:
         {{- $_ := set $cert "id" $tlsValues.scaleCert }}
         {{- $_ := set $cert "nameOverride" $tlsName }}
       secretName: {{ printf "%s-tls-%v" (include "tc.v1.common.lib.chart.names.fullname" $) $index }}
+      {{- else if .clusterCertificate }}
+      secretName: clusterissuer-templated-{{ tpl .clusterCertificate $ }}
       {{- else if .secretName }}
       secretName: {{ tpl .secretName $ | quote }}
       {{- end -}}

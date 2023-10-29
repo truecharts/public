@@ -17,6 +17,10 @@
         {{- $certName = printf "%v-%v" $certName $certValues.nameOverride -}}
       {{- end -}}
 
+      {{- if $certValues.certificateSecretTemplate -}}
+        {{- $certName = printf "%v-%v" "clusterissuer-templated" $name -}}
+      {{- end -}}
+
       {{- include "tc.v1.common.class.certificate" (dict "root" $ "name" $certName "certificateIssuer" $cert.certificateIssuer "hosts" $cert.hosts "secretTemplate" $cert.secretTemplate ) -}}
     {{- end -}}
   {{- end -}}
