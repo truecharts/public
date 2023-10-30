@@ -18,7 +18,7 @@ You should also enable the codeserver addon as previously discussed.
 
 ## config.toml
 
-Once qBitrr has started access the config.toml file using the previously configured by surfing to the url `http://<ip address>:<port>/?folder=/config/.config` that was setup for the codeserver addon. Make sure you are in the `.config` directory and not the `config` directory which is one level above where there another config file is located. 
+Once qBitrr has started access the `config.toml` file using the previously configured by surfing to the url `http://<ip address>:<port>/?folder=/config` that was setup for the codeserver addon.
 
 ### Settings
 
