@@ -4,9 +4,3 @@
                       schema:
                         type: string
                         default: ""
-                    - variable: secretName
-                      label: Custom Certificate Secret (Advanced)'
-                      schema:
-                        show_if: [["certificateIssuer", "=", ""]]
-                        type: string
-                        default: ""
