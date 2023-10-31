@@ -22,7 +22,7 @@
       {{- $_ := set $certs .name dict -}}
       {{- $currentCert := (index $certs (.name)) -}}
       {{- $_ := set $currentCert "enabled" .enabled -}}
-      {{- $_ := set $currentCert "nameOverride" .name -}}
+      {{- $_ := set $currentCert "nameOverride" (printf "%v-%v" "templated" .name) -}}
       {{- $_ := set $currentCert "hosts" .hosts -}}
       {{- $_ := set $currentCert "certificateIssuer" .certificateIssuer -}}
       {{- $_ := set $currentCert "secretTemplate" $secretTemplates -}}
