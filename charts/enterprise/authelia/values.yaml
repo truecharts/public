@@ -545,8 +545,8 @@ notifier:
   smtp:
     enabled: false
     enabledSecret: false
-    host: smtp.gmail.com
-    port: 587
+    host: smtp.mail.svc.cluster.local
+    port: 25
     timeout: 5s
     username: test
     plain_password: test
