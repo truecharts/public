@@ -2,6 +2,7 @@ image:
   repository: tccr.io/truecharts/qbitrr
   pullPolicy: IfNotPresent
   tag: v3.7.13@sha256:2bf63166b9f35b4b98de08acea3add4f1c858a80dc404aea1ce3afb7eb32c93a
+
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -46,6 +47,8 @@ workload:
               enabled: false
             startup:
               enabled: false
+          env:
+            QBITRR_OVERRIDES_DATA_PATH: /config
 
 persistence:
   config:
