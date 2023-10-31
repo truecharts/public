@@ -602,7 +602,7 @@ questions:
                       label: "Host"
                       schema:
                         type: string
-                        default: "smtp.gmail.com"
+                        default: "smtp.mail.svc.cluster.local"
                         required: true
                     - variable: port
                       label: "Port"
