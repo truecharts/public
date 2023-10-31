@@ -148,7 +148,7 @@ nextcloud-config:
     NX_RUN_OPTIMIZE: {{ .Values.nextcloud.general.run_optimize | quote }}
     NX_DEFAULT_PHONE_REGION: {{ .Values.nextcloud.general.default_phone_region | quote }}
     NEXTCLOUD_DATA_DIR: {{ .Values.persistence.data.targetSelector.main.main.mountPath }}
-    NX_FORCE_ENABLE_ALLOW_LOCAL_REMOTE_SERVERS: {{ .Values.nextcloud.general.force_enable_allow_local_remote_servers }}
+    NX_FORCE_ENABLE_ALLOW_LOCAL_REMOTE_SERVERS: {{ .Values.nextcloud.general.force_enable_allow_local_remote_servers | quote }}
 
     {{/* Files */}}
     NX_SHARED_FOLDER_NAME: {{ .Values.nextcloud.files.shared_folder_name | quote }}
