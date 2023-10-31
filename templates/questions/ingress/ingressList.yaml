@@ -128,6 +128,13 @@
                               type: int
                               $ref:
                                 - "definitions/certificate"
+                          - variable: clusterCertificate
+                            label:  Cluster Certificate (Experimental)
+                            description: 'Add the name of your cluster-wide certificate, that you set up in the ClusterIssuer chart. NOTE: This is an experimental feature'
+                            schema:
+                              type: string
+                              show_if: [["clusterIssuer", "=", ""]]
+                              default: ""
                           - variable: secretName
                             label: Use Custom Secret (Advanced)
                             schema:

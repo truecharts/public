@@ -1,8 +1,8 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: qinglong
-version: 6.0.10
-appVersion: "2.16.4"
+version: 6.0.13
+appVersion: "2.16.5"
 description: A timed task management panel that supports typescript, javaScript, python3, and shell
 type: application
 deprecated: false
@@ -16,13 +16,12 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.0.9
+    version: 14.2.0
     # condition:
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts
     url: https://truecharts.org
 annotations:
-  truecharts.org/catagories: |
-    - cloud
+  truecharts.org/category: cloud
   truecharts.org/SCALE-support: "true"
