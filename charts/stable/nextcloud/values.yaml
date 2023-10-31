@@ -36,6 +36,8 @@ nextcloud:
     # IP used for exposing nextcloud,
     # often the loadbalancer IP
     accessIP: ""
+    # Allows Nextcloud to connect to unsecure (http) endpoints
+    force_enable_allow_local_remote_servers: false
   # File settings
   files:
     shared_folder_name: Shared
