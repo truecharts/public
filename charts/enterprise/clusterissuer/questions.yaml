@@ -329,6 +329,59 @@ questions:
                   valid_chars: '^[a-z]+(-?[a-z]){0,63}-?[a-z]+$'
                   default: "selfsigned"
 
+  - variable: clusterCertificates
+    group: App Configuration
+    label: Cluster Wide Certificates (Experimental)
+    description: "Creates certificates for use within the entire cluster. Can be used to create wildcard certificates."
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: certificates
+          label: Cluster Certificates
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: CertEntry
+                label: 'Certificate Entry'
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: Enabled
+                      schema:
+                        type: boolean
+                        default: true
+                    - variable: name
+                      label: Certificate Name
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: certificateIssuer
+                      label: Cert-Manager clusterIssuer
+                      description: "One of the Cert-Manager clusterIssuers defined above"
+                      schema:
+                        type: string
+                        required: true
+                        valid_chars: '^[a-z]+(-?[a-z]){0,63}-?[a-z]+$'
+                        default: "selfsigned"
+                    - variable: hosts
+                      label: Certificate Hosts
+                      description: "NOTE: Creation of wildcard certificates with an ACME issuer requires a DNSO1 solver to be set up."
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: host
+                            label: Host
+                            schema:
+                              type: string
+                              default: ""
+                              required: true
+
   - variable: customMetrics
     group: Metrics
     label: Prometheus Metrics

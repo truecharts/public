@@ -1,11 +1,11 @@
 image:
   repository: tccr.io/truecharts/local-ai
   pullPolicy: IfNotPresent
-  tag: v1.30.0@sha256:d2ef8eef44d66e0610e3499054a0895db276564bdef0f2c45aa0c84f4f20b8bb
+  tag: v1.40.0@sha256:f17bc18198bfb6c2aee2b35fca1adb528ea91fd53be30157de3e9be6f0f4d810
 ffmpegImage:
   repository: tccr.io/truecharts/local-ai-ffmpeg
   pullPolicy: IfNotPresent
-  tag: v1.30.0@sha256:4fcbb5b2f41cc6e0d7c5e2e3da7a80797467d3cefdab66a32b14d317c80921b7
+  tag: v1.40.0@sha256:0c1c603f74fe343940e17fb2f031300e807e30658bffb7de6f65bf96463023f2
 cublasCuda12Image:
   repository: tccr.io/truecharts/local-ai-cublas-cuda12
   pullPolicy: IfNotPresent
@@ -13,7 +13,7 @@ cublasCuda12Image:
 cublasCuda12FfmpegImage:
   repository: tccr.io/truecharts/local-ai-cublas-cuda12-ffmpeg
   pullPolicy: IfNotPresent
-  tag: v1.30.0-cublas-cuda12@sha256:12e8affff4b21d933b1866f25345973de7bb1a8f02643900c7256cb1515a4825
+  tag: v1.30.0-cublas-cuda12@sha256:116099a0df5f55b32eb30894cb1338bef929e0d1fbcecd2b3185da14fb031aa8
 cublasCuda11Image:
   repository: tccr.io/truecharts/local-ai-cublas-cuda11
   pullPolicy: IfNotPresent

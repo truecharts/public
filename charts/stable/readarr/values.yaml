@@ -1,11 +1,11 @@
 image:
   repository: tccr.io/truecharts/readarr
   pullPolicy: IfNotPresent
-  tag: v0.3.6.2232@sha256:bb654c1526b6b9e5c42e6ae0b63cc89155e0f4fe0337807e570426f7b82eb07a
+  tag: v0.3.8.2267@sha256:5e5681c7ec210085f350b9448632614b97ca20a231677a3fb248846cb0775eef
 exportarrImage:
   repository: tccr.io/truecharts/exportarr
   pullPolicy: IfNotPresent
-  tag: v1.5.5@sha256:0dbba4994ac9926e284b5a24fe38e7ca546bcda4b20bbd1ab2444b8bc190d6cb
+  tag: v1.6.0@sha256:ee118701a2ebe8ccb5c25e1003fbed9ef7ce217d4e4b8b6df30cc2a0def818f8
 
 securityContext:
   container:
@@ -34,24 +34,19 @@ workload:
           probes:
             liveness:
               enabled: true
-              ## Set this to true if you wish to specify your own livenessProbe
-              custom: true
-              ## The spec field contains the values for the default livenessProbe.
-              ## If you selected custom: true, this field holds the definition of the livenessProbe.
-              spec:
-                exec:
-                  command:
-                    - /usr/bin/env
-                    - bash
-                    - -c
-                    - curl --fail localhost:8787/api/v1/system/status?apiKey=`IFS=\> && while read -d \< E C; do if [[ $E = "ApiKey" ]]; then echo $C; fi; done < /config/config.xml`
-                failureThreshold: 5
-                initialDelaySeconds: 60
-                periodSeconds: 10
-                successThreshold: 1
-                timeoutSeconds: 10
+              type: http
+              path: /ping
+            readiness:
+              enabled: true
+              type: http
+              path: /ping
+            startup:
+              enabled: true
+              type: http
+              path: /ping
           env:
             READARR__PORT: "{{ .Values.service.main.ports.main.port }}"
+            READARR__AUTHENTICATION_METHOD: "None"
   exportarr:
     enabled: true
     type: Deployment

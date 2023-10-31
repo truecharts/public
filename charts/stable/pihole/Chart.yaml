@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "2023.05.2"
+appVersion: "2023.10.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.0.9
+    version: 14.2.0
 deprecated: false
 description: DNS and Ad-filtering for your network
 home: https://truecharts.org/charts/stable/pihole
@@ -22,9 +22,8 @@ sources:
   - https://github.com/pi-hole
   - https://github.com/pi-hole/docker-pi-hole
 type: application
-version: 11.0.1
+version: 11.0.3
 annotations:
-  truecharts.org/catagories: |
-    - networking
+  truecharts.org/category: networking
   truecharts.org/SCALE-support: "true"
   truecharts.org/grade: U

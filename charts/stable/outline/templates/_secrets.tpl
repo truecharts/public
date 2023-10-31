@@ -1,6 +1,6 @@
 {{/* Define the secrets */}}
 {{- define "outline.secrets" -}}
-{{- $secretName := (printf "%s-outline-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
+{{- $secretName := (printf "%s-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
 
 {{/* Outline wants a HEX 32 char string */}}
 {{- $secret_key := (printf "%x" (randAlphaNum 32)) }}

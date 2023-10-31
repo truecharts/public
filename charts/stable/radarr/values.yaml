@@ -1,11 +1,11 @@
 image:
   repository: tccr.io/truecharts/radarr
   pullPolicy: IfNotPresent
-  tag: v4.7.5.7809@sha256:820cde5c5e1b0719cb6d87392f73193a720212a9bbf4be7e2d666675c1fd04cd
+  tag: v5.0.3.8127@sha256:5a29f9be14aeefadda77ed69a45ff087e1f5227a125a78fd7f1b15291bd01918
 exportarrImage:
   repository: tccr.io/truecharts/exportarr
   pullPolicy: IfNotPresent
-  tag: v1.5.5@sha256:0dbba4994ac9926e284b5a24fe38e7ca546bcda4b20bbd1ab2444b8bc190d6cb
+  tag: v1.6.0@sha256:ee118701a2ebe8ccb5c25e1003fbed9ef7ce217d4e4b8b6df30cc2a0def818f8
 
 securityContext:
   container:

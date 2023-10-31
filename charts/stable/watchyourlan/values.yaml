@@ -1,8 +1,21 @@
 image:
   repository: tccr.io/truecharts/watchyourlan
-  tag: v1.0.3@sha256:62f4b4232b024ad45a9df26959b5619519bb84cc57a0b6800c8a0a0b44409518
+  tag: v1.0.4@sha256:d9e102b153f7195fd72c6d8da13633373948fcee60873ab531e939f42222945c
   pullPolicy: IfNotPresent
-hostNetwork: true
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+    capabilities:
+      add:
+        - NET_RAW
+
+podOptions:
+  hostNetwork: true
+
 watchyourlan:
   gui_ip: "0.0.0.0"
   interfaces:
@@ -10,6 +23,7 @@ watchyourlan:
   theme: darkly
   timeout: 300
   shoutrrr_url: ""
+
 service:
   main:
     ports:
@@ -23,12 +37,7 @@ persistence:
 portal:
   open:
     enabled: true
-securityContext:
-  container:
-    readOnlyRootFilesystem: false
-    runAsNonRoot: false
-    runAsGroup: 0
-    runAsUser: 0
+
 workload:
   main:
     podSpec:

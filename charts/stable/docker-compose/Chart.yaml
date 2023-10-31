@@ -3,7 +3,7 @@ appVersion: "24.0.6"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.0.9
+    version: 14.2.0
 deprecated: false
 description: Dedicated App for using Docker-Compose on TrueNAS SCALE
 home: https://truecharts.org/charts/stable/docker-compose
@@ -20,8 +20,7 @@ name: docker-compose
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/docker-compose
 type: application
-version: 7.0.14
+version: 7.0.19
 annotations:
-  truecharts.org/catagories: |
-    - docker
+  truecharts.org/category: docker
   truecharts.org/SCALE-support: "true"
