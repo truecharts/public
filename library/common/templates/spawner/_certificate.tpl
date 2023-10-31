@@ -17,7 +17,7 @@
         {{- $certName = printf "%v-%v" $certName $certValues.nameOverride -}}
       {{- end -}}
 
-      {{- if $certValues.certificateSecretTemplate -}}
+      {{- if $certValues.secretTemplate -}}
         {{- $certName = printf "%v-%v" "clusterissuer-templated" $name -}}
       {{- end -}}
 
