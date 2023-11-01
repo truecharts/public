@@ -46,7 +46,7 @@ workload:
                 name: cnpg-main-user
                 key: password
             # Host + port
-            DB_HOST: '{{ printf "%s:5432" .Values.cnpg.main.creds.host }}'
+            DB_HOST: '{{ printf "%s:5432" (.Values.cnpg.main.creds.host | trimAll "\"") }}'
             DB_NAME: "{{ .Values.cnpg.main.database }}"
             # App
             LANGUAGE: "{{ .Values.answer.app.language }}"
@@ -74,3 +74,7 @@ cnpg:
 portal:
   open:
     enabled: true
+
+operator:
+  verify:
+    enabled: false
