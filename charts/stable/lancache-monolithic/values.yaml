@@ -5,7 +5,7 @@ image:
 prefillImage:
   repository: tccr.io/truecharts/lancache-prefill
   pullPolicy: IfNotPresent
-  tag: latest@sha256:b0d891ccb2584eb5270505ec1cfcaeb16320757386f5626bc89fa61173c6d395
+  tag: latest@sha256:6ce05d36b070be61dba9f64f8c884d654430d85faf94ebce2aae237c57206726
 
 securityContext:
   container:
@@ -52,6 +52,8 @@ prefill:
   # BattleNet
   battlenet:
     enabled: true
+    # https://tpill90.github.io/battlenet-lancache-prefill/detailed-command-usage/Prefill/#options
+    params: []
     cron: "0 5 * * *"
   # Epic
   epic:
@@ -112,6 +114,7 @@ workload:
             CRON_SCHED_GLOBAL: "{{ .Values.prefill.default_cron }}"
             # BattleNet
             ENABLE_BN: "{{ .Values.prefill.battlenet.enabled }}"
+            PREFILL_PARAMS_BN: '{{ join " " .Values.prefill.battlenet.params }}'
             CRON_SCHED_BN: "{{ .Values.prefill.battlenet.cron }}"
             # Epic
             ENABLE_EPIC: "{{ .Values.prefill.epic.enabled }}"

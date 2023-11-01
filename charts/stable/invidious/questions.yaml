@@ -219,6 +219,12 @@ questions:
                         type: string
                         required: true
                         default: ""
+              - variable: enable_user_notifications
+                label: User Notifications Enabled
+                description: Enable/Disable user notifications.
+                schema:
+                  type: boolean
+                  default: true
         - variable: background_jobs
           label: Background Jobs
           schema:

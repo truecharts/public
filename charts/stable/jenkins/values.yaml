@@ -1,0 +1,61 @@
+image:
+  repository: tccr.io/truecharts/jenkins
+  pullPolicy: IfNotPresent
+  tag: v2.430.0@sha256:f25007d2dc564c2dcbd66c67d5e2e8f9d6c6a76063c554ca26d7c267fbad19b3
+
+security:
+  container:
+    runAsGroup: 1000
+    runAsUser: 1000
+  pod:
+    fsGroup: 1000
+
+# securityContext:
+#   readOnlyRootFilesystem: false
+
+jenkins:
+  java_opts: []
+  jenkins_opts: []
+  jenkins_java_opts: []
+  plugins_force_upgrade: false
+  upgrade_if_no_marker: false
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /login
+            readiness:
+              type: http
+              path: /login
+            startup:
+              type: tcp
+          envFrom:
+            - secretRef:
+                name: "jenkins-secret"
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 10280
+  agent:
+    enabled: true
+    ports:
+      agent:
+        enabled: true
+        port: 50000
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /var/jenkins_home
+
+portal:
+  open:
+    enabled: true

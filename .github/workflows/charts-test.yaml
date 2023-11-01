@@ -50,7 +50,7 @@ jobs:
       detected6: ${{ steps.list-changed.outputs.detected6 }}
     steps:
       - name: Checkout
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
@@ -115,7 +115,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
@@ -127,12 +127,12 @@ jobs:
             helmv3
           helm: "3.9.4"
 
-      - uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1 # v4
+      - uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4
         with:
           python-version: "3.11"
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
+        uses: helm/chart-testing-action@b43128a8b25298e1e7b043b78ea6613844e079b1 # v2.6.0
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
@@ -169,6 +169,9 @@ jobs:
           if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
             helm install prometheus-operator truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
           fi
+          if [[ "${{ matrix.chart }}" != "charts/enterprise/traefik" ]]; then
+            helm install traefik truecharts/traefik --namespace traefik --create-namespace --wait
+          fi
 
       - name: Run chart-testing (install)
         run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade
@@ -185,7 +188,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
@@ -197,12 +200,12 @@ jobs:
             helmv3
           helm: "3.9.4"
 
-      - uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1 # v4
+      - uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4
         with:
           python-version: "3.11"
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
+        uses: helm/chart-testing-action@b43128a8b25298e1e7b043b78ea6613844e079b1 # v2.6.0
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
@@ -230,6 +233,9 @@ jobs:
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
             helm install prometheus-operator truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
+          fi
+          if [[ "${{ matrix.chart }}" != "charts/enterprise/traefik" ]]; then
+            helm install traefik truecharts/traefik --namespace traefik --create-namespace --wait
           fi
 
       - name: Run chart-testing (install)
@@ -247,7 +253,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
@@ -259,12 +265,12 @@ jobs:
             helmv3
           helm: "3.9.4"
 
-      - uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1 # v4
+      - uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4
         with:
           python-version: "3.11"
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
+        uses: helm/chart-testing-action@b43128a8b25298e1e7b043b78ea6613844e079b1 # v2.6.0
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
@@ -292,6 +298,9 @@ jobs:
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
             helm install prometheus-operator truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
+          fi
+          if [[ "${{ matrix.chart }}" != "charts/enterprise/traefik" ]]; then
+            helm install traefik truecharts/traefik --namespace traefik --create-namespace --wait
           fi
 
       - name: Run chart-testing (install)
@@ -309,7 +318,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
@@ -321,12 +330,12 @@ jobs:
             helmv3
           helm: "3.9.4"
 
-      - uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1 # v4
+      - uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4
         with:
           python-version: "3.11"
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
+        uses: helm/chart-testing-action@b43128a8b25298e1e7b043b78ea6613844e079b1 # v2.6.0
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
@@ -354,6 +363,9 @@ jobs:
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
             helm install prometheus-operator truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
+          fi
+          if [[ "${{ matrix.chart }}" != "charts/enterprise/traefik" ]]; then
+            helm install traefik truecharts/traefik --namespace traefik --create-namespace --wait
           fi
 
       - name: Run chart-testing (install)
@@ -371,7 +383,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
@@ -383,12 +395,12 @@ jobs:
             helmv3
           helm: "3.9.4"
 
-      - uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1 # v4
+      - uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4
         with:
           python-version: "3.11"
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
+        uses: helm/chart-testing-action@b43128a8b25298e1e7b043b78ea6613844e079b1 # v2.6.0
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
@@ -417,6 +429,10 @@ jobs:
           if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
             helm install prometheus-operator truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
           fi
+          if [[ "${{ matrix.chart }}" != "charts/enterprise/traefik" ]]; then
+            helm install traefik truecharts/traefik --namespace traefik --create-namespace --wait
+          fi
+
       - name: Run chart-testing (install)
         run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade
 
@@ -432,7 +448,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
@@ -444,12 +460,12 @@ jobs:
             helmv3
           helm: "3.9.4"
 
-      - uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1 # v4
+      - uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4
         with:
           python-version: "3.11"
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
+        uses: helm/chart-testing-action@b43128a8b25298e1e7b043b78ea6613844e079b1 # v2.6.0
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
@@ -477,6 +493,9 @@ jobs:
           fi
           if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
             helm install prometheus-operator truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
+          fi
+          if [[ "${{ matrix.chart }}" != "charts/enterprise/traefik" ]]; then
+            helm install traefik truecharts/traefik --namespace traefik --create-namespace --wait
           fi
 
       - name: Run chart-testing (install)
