@@ -5,31 +5,22 @@ image:
 
 securityContext:
   container:
-    runAsNonRoot: false
     readOnlyRootFilesystem: false
-    runAsUser: 0
-    runAsGroup: 0
-
-service:
-  main:
-    ports:
-      main:
-        protocol: http
-        targetPort: 8000
-        port: 8000
+    runAsUser: 1000
+    runAsGroup: 1000
 
 twofauth:
   app:
-    name: "2FAuth"
+    name: 2FAuth
     debug: false
-    site_owner: "mail@example.com"
-    url: "http://localhost"
+    site_owner: mail@example.com
+    url: http://localhost
     # daily | single
-    log_channel: "daily"
+    log_channel: daily
     # debug | info | notice | warning | error | critical | alert | emergency
-    log_level: "notice"
-    trusted_proxies:
-      - "*"
+    log_level: notice
+    session_lifetime: 120
+    trusted_proxies: []
   mail:
     driver: smtp
     host: smtp.mailtrap.io
@@ -60,16 +51,21 @@ workload:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              path: /infos
+            readiness:
+              path: /infos
+            startup:
+              type: tcp
           env:
-            APP_KEY:
-              secretKeyRef:
-                name: twofauth-secrets
-                key: APP_KEY
-            APP_ENV: local
-            # If you're looking for performance improvements, you could install memcached.
+            # Redis
             CACHE_DRIVER: redis
             SESSION_DRIVER: redis
-            # redis
+            BROADCAST_DRIVER: redis
+            QUEUE_DRIVER: redis
+            REDIS_USERNAME: "{{ .Values.redis.redisUsername }}"
+            REDIS_PORT: 6379
             REDIS_HOST:
               secretKeyRef:
                 expandObjectName: false
@@ -80,27 +76,26 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: redis-password
-            REDIS_PORT: 6379
-            REDIS_USERNAME: "{{ .Values.redis.redisUsername }}"
-            BROADCAST_DRIVER: redis
-            QUEUE_DRIVER: redis
-            SESSION_LIFETIME: 120
-            # mysql
-            DB_CONNECTION: mysql
+            # Postgres
+            DB_CONNECTION: pgsql
+            DB_DATABASE: "{{ .Values.cnpg.main.database }}"
+            DB_USERNAME: "{{ .Values.cnpg.main.user }}"
+            DB_PORT: 5432
             DB_HOST:
               secretKeyRef:
-                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
-                key: plainhost
-            DB_PORT: 3306
-            DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
-            DB_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
+                name: cnpg-main-urls
+                key: host
             DB_PASSWORD:
               secretKeyRef:
-                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
-                key: mariadb-password
-            # config
-            # IS_DEMO_APP: false
+                name: cnpg-main-user
+                key: password
             # APP
+            APP_KEY:
+              secretKeyRef:
+                name: twofauth-secrets
+                key: APP_KEY
+            APP_ENV: local
+            SESSION_LIFETIME: "{{ .Values.twofauth.app.session_lifetime }}"
             APP_NAME: "{{ .Values.twofauth.app.name }}"
             APP_DEBUG: "{{ .Values.twofauth.app.debug }}"
             SITE_OWNER: "{{ .Values.twofauth.app.site_owner }}"
@@ -130,18 +125,27 @@ workload:
             WEBAUTHN_ICON: "{{ .Values.twofauth.webauthn.icon }}"
             WEBAUTHN_USER_VERIFICATION: "{{ .Values.twofauth.webauthn.user_verified }}"
 
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 8000
+        port: 8000
+
 persistence:
   config:
     enabled: true
-    mountPath: "/2fauth"
+    mountPath: /2fauth
 
-mariadb:
-  enabled: true
-  user: twofauth
-  database: twofauth
+cnpg:
+  main:
+    enabled: true
+    user: twofauth
+    database: twofauth
+
 redis:
   enabled: true
-  redisUsername: twofauth
 
 portal:
   open:

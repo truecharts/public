@@ -3,15 +3,11 @@ appVersion: "4.2.2"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.0.3
-  - condition: mariadb.enabled
-    name: mariadb
-    repository: https://deps.truecharts.org/
-    version: 7.0.70
+    version: 14.2.1
   - condition: redis.enabled
     name: redis
     repository: https://deps.truecharts.org
-    version: 7.0.6
+    version: 8.0.38
 deprecated: false
 description: A Web app to manage your 2FA accounts and generate their security codes.
 home: https://truecharts.org/charts/incubator/twofauth
@@ -31,6 +27,5 @@ sources:
 type: application
 version: 0.0.1
 annotations:
-  truecharts.org/catagories: |
-    - auth
+  truecharts.org/catagories: auth
   truecharts.org/SCALE-support: "true"
