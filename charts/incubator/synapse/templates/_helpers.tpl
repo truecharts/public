@@ -3,7 +3,7 @@
 {{- if .Values.matrix.hostname }}
 {{- .Values.matrix.hostname -}}
 {{- else }}
-{{- .Values.ingress.hosts.synapse -}}
+{{- .Values.ingress.main.hosts.synapse -}}
 {{- end }}
 {{- end }}
 
@@ -12,6 +12,6 @@
 {{- if .Values.matrix.hostname }}
 {{- printf "https://%s" .Values.matrix.hostname -}}
 {{- else }}
-{{- printf "https://%s" .Values.ingress.hosts.synapse -}}
+{{- printf "https://%s" .Values.ingress.main.hosts.synapse -}}
 {{- end }}
 {{- end }}
