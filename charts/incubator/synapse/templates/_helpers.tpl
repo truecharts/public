@@ -16,7 +16,8 @@
   {{- with (first .Values.ingress.main.hosts) -}}
     {{- $host = .host -}}
     {{- $serverIngressURL = (printf "https://%v" .host) -}}
-{{- end }}
+  {{- end -}}
+{{- end -}}
 {{- $ingressURL  := .Values.ingress.main.hosts -}}
 {{- if .Values.matrix.hostname }}
 {{- printf "https://%s" .Values.matrix.hostname -}}
