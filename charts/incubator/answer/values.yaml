@@ -10,6 +10,7 @@ service:
       main:
         protocol: http
         port: 9080
+        targetPort: 80
 
 answer:
   app:
@@ -39,7 +40,9 @@ workload:
               type: tcp
           env:
             AUTO_INSTALL: true
-            INSTALL_PORT: "{{ .Values.service.main.ports.main.port }}"
+            # Don't change this, its only used for the initial install
+            # Does not alter the port the app listens on
+            INSTALL_PORT: 80
             DB_TYPE: postgres
             DB_USERNAME: "{{ .Values.cnpg.main.user }}"
             DB_PASSWORD:
