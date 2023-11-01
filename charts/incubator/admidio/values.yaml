@@ -33,21 +33,17 @@ workload:
         main:
           probes:
             liveness:
-              path: "/adm_program/overview.php"
-              type: http
+              path: /adm_program/overview.php
             readiness:
-              path: "/adm_program/overview.php"
-              type: http
+              path: /adm_program/overview.php
             startup:
-              path: "/adm_program/overview.php"
-              type: http
+              type: tcp
           env:
             ADMIDIO_DB_TYPE: postgresql
             # Keep enabled.
             ADMIDIO_LOGIN_FOR_UPDATE: 1
-            ADMIDIO_DB_TABLE_PRAEFIX: "adm"
-            # host + port.
-            ADMIDIO_DB_HOST: '{{ printf "%s:5432" .Values.cnpg.main.creds.host }}'
+            ADMIDIO_DB_TABLE_PRAEFIX: adm
+            ADMIDIO_DB_HOST: '{{ printf "%s:5432" (.Values.cnpg.main.creds.host | trimAll "\"") }}'
             ADMIDIO_DB_NAME: "{{ .Values.cnpg.main.database }}"
             ADMIDIO_DB_USER: "{{ .Values.cnpg.main.user }}"
             ADMIDIO_DB_PASSWORD:
@@ -62,13 +58,13 @@ workload:
 persistence:
   files:
     enabled: true
-    mountPath: "/var/www/admidio/adm_my_files"
+    mountPath: /var/www/admidio/adm_my_files
   themes:
     enabled: true
-    mountPath: "/var/www/admidio/adm_themes"
+    mountPath: /var/www/admidio/adm_themes
   plugins:
     enabled: true
-    mountPath: "/var/www/admidio/adm_plugins"
+    mountPath: /var/www/admidio/adm_plugins
 
 # Enabled postgres
 cnpg:
