@@ -47,6 +47,8 @@ questions:
                             description: rfc2136 (Advanced)
                           - value: HTTP01
                             description: HTTP01 (Experimental)
+                          - value: acmedns
+                            description: ACME DNS (Advanced)
                     - variable: server
                       label: Server
                       description: "Server for ACME, for example: letsencrypt"
@@ -195,7 +197,64 @@ questions:
                         type: string
                         required: true
                         default: ""
-
+                    - variable: acmednsHost
+                      label: ACME DNS host
+                      description: "ACME DNS API server address"
+                      schema:
+                        show_if: [["type", "=", "acmedns"]]
+                        type: string
+                        required: true
+                        default: "https://auth.acme-dns.io"
+                    - variable: acmednsConfig
+                      label: ACME DNS config
+                      description: "ACME DNS per-domain auth configuration"
+                      schema:
+                        show_if: [["type", "=", "acmedns"]]
+                        type: list
+                        default: []
+                        items:
+                          - variable: acmednsEntry
+                            label: 'ACME DNS entry'
+                            schema:
+                              type: dict
+                              attrs:
+                                - variable: domain
+                                  label: Domain
+                                  schema:
+                                    type: string
+                                    required: true
+                                - variable: username
+                                  label: Username
+                                  schema:
+                                    type: string
+                                    required: true
+                                - variable: password
+                                  label: Password
+                                  schema:
+                                    type: string
+                                    required: true
+                                - variable: fulldomain
+                                  label: Full domain
+                                  schema:
+                                    type: string
+                                    required: true
+                                - variable: subdomain
+                                  label: Subdomain
+                                  schema:
+                                    type: string
+                                    required: true
+                                - variable: allowFrom
+                                  label: Allow from
+                                  schema:
+                                    type: list
+                                    default: []
+                                    items:
+                                      - variable: cidr
+                                        label: CIDR
+                                        schema:
+                                          type: ipaddr
+                                          cidr: true
+                                          required: true
         - variable: CA
           label: Certificate Authority Issuer
           schema:
@@ -269,6 +328,59 @@ questions:
                   required: true
                   valid_chars: '^[a-z]+(-?[a-z]){0,63}-?[a-z]+$'
                   default: "selfsigned"
+
+  - variable: clusterCertificates
+    group: App Configuration
+    label: Cluster Wide Certificates (Experimental)
+    description: "Creates certificates for use within the entire cluster. Can be used to create wildcard certificates."
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: certificates
+          label: Cluster Certificates
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: CertEntry
+                label: 'Certificate Entry'
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: Enabled
+                      schema:
+                        type: boolean
+                        default: true
+                    - variable: name
+                      label: Certificate Name
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: certificateIssuer
+                      label: Cert-Manager clusterIssuer
+                      description: "One of the Cert-Manager clusterIssuers defined above"
+                      schema:
+                        type: string
+                        required: true
+                        valid_chars: '^[a-z]+(-?[a-z]){0,63}-?[a-z]+$'
+                        default: "selfsigned"
+                    - variable: hosts
+                      label: Certificate Hosts
+                      description: "NOTE: Creation of wildcard certificates with an ACME issuer requires a DNSO1 solver to be set up."
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: host
+                            label: Host
+                            schema:
+                              type: string
+                              default: ""
+                              required: true
 
   - variable: customMetrics
     group: Metrics

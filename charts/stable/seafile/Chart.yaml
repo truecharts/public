@@ -1,13 +1,13 @@
 apiVersion: v2
-appVersion: "10.0.1"
+appVersion: "11.0.1"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.0.1
+    version: 14.2.0
   - condition: mariadb.enabled
     name: mariadb
     repository: https://deps.truecharts.org/
-    version: 7.0.70
+    version: 9.0.34
 deprecated: false
 description: Reliable and Performant File Sync and Share Solution
 home: https://truecharts.org/charts/stable/seafile
@@ -27,10 +27,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/seafile
   - https://seafile.com
 type: application
-version: 1.0.1
+version: 1.0.6
 annotations:
-  truecharts.org/catagories: |
-    - file-storage
-    - cloud
-    - storage
+  truecharts.org/category: file-storage
   truecharts.org/SCALE-support: "true"

@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/pgadmin4
   pullPolicy: IfNotPresent
-  tag: v7.6.0@sha256:86210d3e4b8ca8688d2788d48e72b0d9c63cb7a3a7a7c944b2881aac844b16f6
+  tag: v7.8.0@sha256:b355acc21dddca01aa2c38a74aea65d0e5613f2418f2a260ac8ec615a47929db
 service:
   main:
     ports:
@@ -17,7 +17,7 @@ portal:
     enabled: true
 securityContext:
   container:
-    runAsNonRoot: false
+    runAsNonRoot: true
     readOnlyRootFilesystem: false
     runAsUser: 5050
     runAsGroup: 5050
@@ -27,6 +27,19 @@ workload:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              path: /misc/ping
+            readiness:
+              enabled: true
+              type: http
+              path: /misc/ping
+            startup:
+              enabled: true
+              type: http
+              path: /misc/ping
           env:
             PGADMIN_DEFAULT_EMAIL: "replace@this.now"
             PGADMIN_DEFAULT_PASSWORD: "changeme"

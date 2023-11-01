@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "0.71.0"
+appVersion: "0.72.2"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.0.1
+    version: 14.2.0
   - condition: redis.enabled
     name: redis
     repository: https://deps.truecharts.org
@@ -25,8 +25,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/outline
   - https://github.com/outline/outline
 type: application
-version: 8.0.1
+version: 8.0.7
 annotations:
-  truecharts.org/catagories: |
-    - productivity
+  truecharts.org/category: productivity
   truecharts.org/SCALE-support: "true"

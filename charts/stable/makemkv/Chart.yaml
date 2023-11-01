@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "23.06.1"
+appVersion: "23.09.1"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.0.1
+    version: 14.2.0
 description: MakeMKV is your one-click solution to convert video that you own into free and patents-unencumbered format that can be played everywhere.
 home: https://truecharts.org/charts/stable/makemkv
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/makemkv.png
@@ -18,8 +18,7 @@ name: makemkv
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/makemkv
   - https://github.com/jlesage/docker-makemkv
-version: 6.0.0
+version: 6.0.5
 annotations:
-  truecharts.org/catagories: |
-    - media
+  truecharts.org/category: media
   truecharts.org/SCALE-support: "true"

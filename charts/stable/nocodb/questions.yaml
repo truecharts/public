@@ -44,18 +44,6 @@ questions:
                                         schema:
                                           type: string
                                           default: ""
-                                      - variable: NC_GOOGLE_CLIENT_ID
-                                        label: "Google Client ID"
-                                        description: "Google client id to enable google authentication."
-                                        schema:
-                                          type: string
-                                          default: ""
-                                      - variable: NC_GOOGLE_CLIENT_SECRET
-                                        label: "Google Client Secret"
-                                        description: "Google client secret to enable google authentication."
-                                        schema:
-                                          type: string
-                                          default: ""
                                       - variable: NC_PUBLIC_URL
                                         label: "Public URL"
                                         description: "Used for sending Email invitations."

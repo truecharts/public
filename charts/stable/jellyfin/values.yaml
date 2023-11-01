@@ -1,11 +1,11 @@
 image:
   repository: tccr.io/truecharts/jellyfin
   pullPolicy: IfNotPresent
-  tag: v10.8.10@sha256:d2c377ee7ea463110a1dda7eb1b231424ad05245aaf95744e76164bd2e593377
+  tag: v10.8.11@sha256:586eebeb787d89028b7891e189bc4bbf82141d67235252781ba72088708734f9
 broadcastProxyImage:
   repository: tccr.io/truecharts/socat
   pullPolicy: IfNotPresent
-  tag: v1.7.4.4@sha256:e0cc54e9885d6f365d0b0f8b77a95a1dd85ba1595b2bf29cb31abe318a383b76
+  tag: v1.7.4.4@sha256:786781861b8febde838c1ccf96cdac1826ad970bc0631a3b8437ce2384e06002
 service:
   main:
     ports:
@@ -70,7 +70,11 @@ workload:
           # - Touch `/tmp/healty` to use with the readiness, liveness and startup probes
           # - Start socat in proxy mode
           # - On exit remove `/tmp/healthy`
-          args: ["-c", "export TARGET_IP=$(getent hosts '{{ printf \"%v-autodiscovery\" (include \"tc.v1.common.lib.chart.names.fullname\" $) }}' | awk '{ print $1 }') && [[ ! -z $TARGET_IP ]] && touch /tmp/healthy && socat UDP-LISTEN:7359,fork,reuseaddr,rcvbuf=8096 UDP4-SENDTO:${TARGET_IP}:7359,rcvbuf=8096 ; rm -rf /tmp/healthy"]
+          args:
+            [
+              "-c",
+              'export TARGET_IP=$(getent hosts ''{{ printf "%v-autodiscovery" (include "tc.v1.common.lib.chart.names.fullname" $) }}'' | awk ''{ print $1 }'') && [[ ! -z $TARGET_IP ]] && touch /tmp/healthy && socat UDP-LISTEN:7359,fork,reuseaddr,rcvbuf=8096 UDP4-SENDTO:${TARGET_IP}:7359,rcvbuf=8096 ; rm -rf /tmp/healthy',
+            ]
           probes:
             readiness:
               enabled: true

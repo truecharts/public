@@ -1,0 +1,11 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.v1.common.loader.init" . }}
+
+{{/* Render secrets for jenkins */}}
+{{- $secret := include "jenkins.secret" . | fromYaml -}}
+{{- if $secret -}}
+  {{- $_ := set .Values.secret "jenkins-secret" $secret -}}
+{{- end -}}
+
+{{/* Render the templates */}}
+{{ include "tc.v1.common.loader.apply" . }}

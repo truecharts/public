@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: tccr.io/truecharts/searxng
-  tag: latest@sha256:53e049c123c8ada1b110dbfccaf2b6666065c4a4e563d5f707042949c76ddb41
+  tag: latest@sha256:a80efa3d335284d0e6cae05ef88b5822c692cb7ad397ac5a63c60f1b2c4f245d
 
 workload:
   main:
@@ -15,13 +15,13 @@ workload:
           probes:
             liveness:
               path: /healthz
-              port: '{{ .Values.service.main.ports.main.port }}'
+              port: "{{ .Values.service.main.ports.main.port }}"
             readiness:
               path: /healthz
-              port: '{{ .Values.service.main.ports.main.port }}'
+              port: "{{ .Values.service.main.ports.main.port }}"
             startup:
               type: tcp
-              port: '{{ .Values.service.main.ports.main.port }}'
+              port: "{{ .Values.service.main.ports.main.port }}"
 
 securityContext:
   container:

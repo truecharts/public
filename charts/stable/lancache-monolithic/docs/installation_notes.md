@@ -20,10 +20,34 @@ Like TrueNAS Scale WebUI.
 
 ## Lancache-Prefill
 
-Basic setup guides from upstream.
+How to use lancache-prefill sidecar
 
-- BattleNet [docs](https://github.com/tpill90/battlenet-lancache-prefill#initial-setup)
+:::info
 
-- Steam [docs](https://github.com/tpill90/steam-lancache-prefill#initial-setup)
+Shell into the main pod, not the _prefill_ pod.
 
-- Epic [docs](https://github.com/tpill90/epic-lancache-prefill#initial-setup)
+:::
+
+### BattleNet
+
+```shell
+cd /data/prefill/BattleNetPrefill/ && ./BattleNetPrefill -h
+```
+
+cron param options [list](https://tpill90.github.io/battlenet-lancache-prefill/detailed-command-usage/Prefill/#options).
+
+### Epic
+
+```shell
+cd /data/prefill/EpicPrefill/ && ./EpicPrefill -h
+```
+
+cron param options [list](https://tpill90.github.io/epic-lancache-prefill/Detailed-Command-Usage/#prefill).
+
+### Steam
+
+```shell
+cd /data/prefill/SteamPrefill/ && ./SteamPrefill -h
+```
+
+cron param options [list](https://tpill90.github.io/steam-lancache-prefill/detailed-command-usage/Prefill/#options).

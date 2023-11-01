@@ -44,7 +44,7 @@ secret:
       {{- end }}
 
       [metrics]
-      ENABLED = {{ .Values.metrics.enabled }}
+      ENABLED = {{ .Values.metrics.main.enabled }}
       {{- range $catindex, $catvalue := .Values.customConfig }}
       {{- if eq $catvalue.name "metrics" }}
       {{- range $index, $value := $catvalue.keys }}

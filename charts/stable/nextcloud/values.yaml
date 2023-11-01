@@ -1,27 +1,27 @@
 image:
   repository: tccr.io/truecharts/nextcloud-fpm
   pullPolicy: IfNotPresent
-  tag: v27.0.2@sha256:367bdda86c95a334189e1396e5a5865f78d6739a7bca1f665290e6a965f51bcf
+  tag: v27.1.3@sha256:8bf0aeb89fca57d936ad12a244f45e12f42699327ceb56c34452a7d413499301
 nginxImage:
   repository: tccr.io/truecharts/nginx-unprivileged
   pullPolicy: IfNotPresent
-  tag: v1.25.2@sha256:6f3ee56001a6c54a6d551dcd47abdd792d26032f95c93ee6189a1a7119f208c6
+  tag: v1.25.2@sha256:5e4e3c89e98e95ba24155a7d60aa2e79c80aaeb80710bd46bd0d2c33de8f966b
 imaginaryImage:
   repository: tccr.io/truecharts/nextcloud-imaginary
   pullPolicy: IfNotPresent
-  tag: v20230401@sha256:cfef62fb7390eca99c22b447fe336f7df39c56b3ec007400d5ccd8e55433b877
+  tag: v20230401@sha256:bcd9a7ded0d9a5d213a62bc0a66e2d55c2756bdea703576eb255831453431f00
 hpbImage:
   repository: tccr.io/truecharts/nextcloud-push-notify
   pullPolicy: IfNotPresent
-  tag: v0.6.3@sha256:e951d53322738ac7155dde6897fe0371e64109fc3c47c7176cb00c2f88e61065
+  tag: v0.6.3@sha256:b9c35ab123354eeac3996e361f8c30b8e4de6d2ccd69e5179a7c2a101a67b46f
 clamavImage:
   repository: tccr.io/truecharts/clamav
   pullPolicy: IfNotPresent
-  tag: v1.2.0@sha256:827369aea735afc1bfe7622c8451445e9f20c37d5e40f4731ab0ed35a72a0043
+  tag: v1.2.1@sha256:f9fe7d0ccd86d1ee0583465a0ccf1cbd4bae7468c4c6297be4b8ca7f73260f42
 collaboraImage:
   repository: tccr.io/truecharts/collabora
   pullPolicy: IfNotPresent
-  tag: v23.05.4.1.1@sha256:bc09f2fc5be83b66610ee4b6c000d918b92f1324ee73f32c1bb92467e6100024
+  tag: v23.05.5.3.1@sha256:ab6d6f66caa6924a1acb7dc0b601591121a4779bc80c904e3ea7b231bbe52720
 
 nextcloud:
   # Initial Credentials
@@ -36,6 +36,8 @@ nextcloud:
     # IP used for exposing nextcloud,
     # often the loadbalancer IP
     accessIP: ""
+    # Allows Nextcloud to connect to unsecure (http) endpoints
+    force_enable_allow_local_remote_servers: false
   # File settings
   files:
     shared_folder_name: Shared
@@ -322,7 +324,7 @@ workload:
               port: "{{ .Values.service.collabora.ports.collabora.targetPort }}"
 
 cronjobs:
-    # Don't change names, it's used in the persistence
+  # Don't change names, it's used in the persistence
   - name: nextcloud-cron
     enabled: true
     schedule: "*/5 * * * *"
