@@ -36,6 +36,13 @@ workload:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              path: /healthz
+            readiness:
+              path: /healthz
+            startup:
+              type: tcp
           env:
             AUTO_INSTALL: true
             INSTALL_PORT: "{{ .Values.service.main.ports.main.port }}"
