@@ -8,9 +8,9 @@
 {{- end -}}
 
 {{/* Render configmap for synapse */}}
-{{- $configmap := include "synapse.configmap" . | fromYaml -}}
+{{- $configmap := include "synapse.config" . | fromYaml -}}
 {{- if $configmap -}}
-  {{- $_ := set .Values.configmap "synapse" $configmap -}}
+  {{- $_ := set .Values.config "synapse" $configmap -}}
 {{- end -}}
 
 {{- $newMiddlewares :=  list "tc-opencors-headers" }}
