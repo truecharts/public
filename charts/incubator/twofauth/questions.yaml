@@ -37,6 +37,11 @@ questions:
                 schema:
                   type: boolean
                   default: false
+              - variable: session_lifetime
+                label: Session Lifetime
+                schema:
+                  type: int
+                  default: 120
               - variable: site_owner
                 label: Site Owner Email
                 schema:
@@ -57,8 +62,7 @@ questions:
                 schema:
                   type: list
                   empty: false
-                  default:
-                    - "*"
+                  default: []
                   required: true
                   items:
                     - variable: proxy
