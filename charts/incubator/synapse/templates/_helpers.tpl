@@ -1,6 +1,6 @@
 {{/* Synapse hostname, derived from either the Values.matrix.hostname override or the Ingress definition */}}
 {{- define "matrix.hostname" -}}
-{{- $ingressURL  := .Values.ingress.main.hosts.synapse -}}
+{{- $ingressURL  := .Values.ingress.main.hosts -}}
 {{- if .Values.matrix.hostname }}
 {{- .Values.matrix.hostname -}}
 {{- else }}
@@ -10,7 +10,7 @@
 
 {{/* Synapse hostname prepended with https:// to form a complete URL */}}
 {{- define "matrix.baseUrl" -}}
-{{- $ingressURL  := .Values.ingress.main.hosts.synapse -}}
+{{- $ingressURL  := .Values.ingress.main.hosts -}}
 {{- if .Values.matrix.hostname }}
 {{- printf "https://%s" .Values.matrix.hostname -}}
 {{- else }}
