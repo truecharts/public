@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/truecharts/traefik
-  tag: 2.10.4@sha256:77766fb3eb739197d7e229bfa8afb3a4a740886e3effef474ca4c9efdf65e5ab
+  tag: v2.10.5@sha256:b277733b5b8d7f9d2761813d97e161c1f64ec77960f9c06adde13868efbc8dce
   pullPolicy: IfNotPresent
 manifestManager:
   enabled: true
@@ -349,6 +349,15 @@ middlewares:
   #       value: "foobar"
   #     - name: X-Header-To-Remove
   #       value: ""
+  rewriteResponseHeaders: []
+  # - name: rewriteResponseHeadersName
+  #   headers:
+  #     - name: "Location"
+  #       regex: "^http://(.+)$"
+  #       replacement: "https://$1"
+  #     - name: "Date"
+  #       regex: "^[^,]+,\\s*(.+)$"
+  #       replacement: "$1"
   customFrameOptionsValue: []
   # - name: customFrameOptionsValueExample
   #   value: "SAMEORIGIN"

@@ -60,6 +60,7 @@ data:
     {{- else }}
     admins: [""]
     {{- end }}
+    enable_user_notifications: {{ $vUserAcc.enable_user_notifications }}
 
     # Background Jobs
     channel_threads: {{ $vBgJobs.channel_threads }}

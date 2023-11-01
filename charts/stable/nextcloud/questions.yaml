@@ -78,6 +78,13 @@ questions:
                   required: true
                   $ref:
                     - "definitions/nodeIP"
+              - variable: force_enable_allow_local_remote_servers
+                label: Force Enable Allow Local Remote Servers
+                description:
+                  Enables 'allow_local_remote_servers' option
+                schema:
+                  type: boolean
+                  default: false
         - variable: files
           label: Files Configuration
           schema:
@@ -613,6 +620,7 @@ questions:
 # Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
+# Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}
               - variable: runAsUser

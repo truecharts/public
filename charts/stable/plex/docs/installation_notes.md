@@ -55,4 +55,3 @@ Plex allows for the installation of plug-ins. Plug-ins can be added using the co
 ![codeserver-upload](./img/plex-codeserver-upload.png)
 
 5. Restart Plex
-

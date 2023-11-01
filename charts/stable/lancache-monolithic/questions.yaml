@@ -123,6 +123,20 @@ questions:
                   default: true
                   show_subquestions_if: true
                   subquestions:
+                    - variable: params
+                      label: Params
+                      description:  list of parameters for BattleNetPrefill.
+                      schema:
+                        type: list
+                        default: []
+                        required: true
+                        items:
+                          - variable: param
+                            label: Param
+                            schema:
+                              type: string
+                              required: true
+                              default: ""
                     - variable: cron
                       label: cron
                       description: Set your cron schedule for the BattleNetPrefill.

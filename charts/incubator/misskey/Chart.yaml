@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "13.14.2"
+appVersion: "2023.9.3"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -29,8 +29,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/misskey
   - https://github.com/misskey-dev/misskey/
 type: application
-version: 4.0.4
+version: 4.0.5
 annotations:
-  truecharts.org/catagories: |
-    - Social
+  truecharts.org/category: Social
   truecharts.org/SCALE-support: "true"
