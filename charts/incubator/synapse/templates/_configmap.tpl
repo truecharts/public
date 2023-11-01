@@ -1,9 +1,7 @@
 {{/* Define the configs */}}
 {{- define "synapse.config" -}}
 
-{{/*
-Synapse hostname, derived from either the Values.matrix.hostname override or the Ingress definition
-*/}}
+{{/* Synapse hostname, derived from either the Values.matrix.hostname override or the Ingress definition */}}
 {{- define "matrix.hostname" -}}
 {{- if .Values.matrix.hostname }}
 {{- .Values.matrix.hostname -}}
@@ -12,9 +10,7 @@ Synapse hostname, derived from either the Values.matrix.hostname override or the
 {{- end }}
 {{- end }}
 
-{{/*
-Synapse hostname prepended with https:// to form a complete URL
-*/}}
+{{/* Synapse hostname prepended with https:// to form a complete URL */}}
 {{- define "matrix.baseUrl" -}}
 {{- if .Values.matrix.hostname }}
 {{- printf "https://%s" .Values.matrix.hostname -}}
