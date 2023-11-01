@@ -1,30 +1,17 @@
 {{/* Define the configs */}}
 {{- define "synapse.secret" -}}
+{{- $pgHost := printf "%v-cnpg-main-rw" (include "tc.v1.common.lib.chart.names.fullname" $) -}}
 {{- $previous := lookup "v1" "Secret" .Release.Namespace "synapse-secret-macaroon" }}
 {{- $msk := randAlphaNum 50 }}
 {{- if $previous }}
 {{- $msk = ( index $previous.data "key" ) | b64dec }}
 {{- end }}
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: synapse-secret-macaroon
-  labels:
-  {{ include "tc.common.labels" . | nindent 4 }}
-  annotations:
-    rollme: {{ randAlphaNum 5 | quote }}
+enabled: true
 data:
   key: {{ $msk | b64enc }}
 ---
 apiVersion: v1
 kind: Secret
-metadata:
-  name: synapse-secret
-  labels:
-  {{ include "tc.common.labels" . | nindent 4 }}
-  annotations:
-    rollme: {{ randAlphaNum 5 | quote }}
 stringData:
   secret.yaml: |
     {{- if .Values.mail.enabled }}
@@ -41,10 +28,10 @@ stringData:
     database:
         name: "psycopg2"
         args:
-          user: "{{ .Values.postgresql.postgresqlUsername }}"
-          password: {{ .Values.postgresql.postgresqlPassword }}
-          database: "{{ .Values.postgresql.postgresqlDatabase }}"
-          host: "{{ printf "%v-%v" .Release.Name "postgresql" }}"
+          user: "{{ .Values.cnpg.main.user }}"
+          password: "{{ .Values.cnpg.main.creds.password }}"
+          database: "{{ .Values.cnpg.main.database }}"
+          host: "{{ printf "%v:5432" $pgHost }}"
           port: "5432"
           cp_min: 5
           cp_max: 10

@@ -41,38 +41,42 @@ service:
         targetPort: 9090
 
 securityContext:
-  allowPrivilegeEscalation: true
+  container:
+    allowPrivilegeEscalation: true
 
 secretEnv: {}
 
-installContainers:
-  generate-signing-key:
-    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    env:
-      - name: SYNAPSE_SERVER_NAME
-        value: "{{ .Values.matrix.serverName }}"
-      - name: SYNAPSE_REPORT_STATS
-        value: "no"
-    command: ["python"]
-    args:
-      - "-m"
-      - "synapse.app.homeserver"
-      - "--config-path"
-      - "/data/homeserver.yaml"
-      - "--config-path"
-      - "/data/secret/secret.yaml"
-      - "--config-path"
-      - "/data/custom.yaml"
-      - "--keys-directory"
-      - "/data/keys"
-      - "--generate-keys"
-    volumeMounts:
-      - name: config
-        mountPath: /data
-      - name: secret
-        mountPath: /data/secret
-      - name: key
-        mountPath: /data/keys
+workload:
+  main:
+    podSpec:
+      installContainers:
+        generate-signing-key:
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          env:
+            - name: SYNAPSE_SERVER_NAME
+              value: "{{ .Values.matrix.serverName }}"
+            - name: SYNAPSE_REPORT_STATS
+              value: "no"
+          command: ["python"]
+          args:
+            - "-m"
+            - "synapse.app.homeserver"
+            - "--config-path"
+            - "/data/homeserver.yaml"
+            - "--config-path"
+            - "/data/secret/secret.yaml"
+            - "--config-path"
+            - "/data/custom.yaml"
+            - "--keys-directory"
+            - "/data/keys"
+            - "--generate-keys"
+          volumeMounts:
+            - name: config
+              mountPath: /data
+            - name: secret
+              mountPath: /data/secret
+            - name: key
+              mountPath: /data/keys
 
 env: {}
 
@@ -308,13 +312,12 @@ coturn:
   enabled: false
 
 # Enabled postgres
-postgresql:
-  env:
-    POSTGRES_INITDB_ARGS: "--encoding=UTF8 --locale=C"
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: synapse
-  postgresqlDatabase: synapse
+cnpg:
+  main:
+    enabled: true
+    user: synapse
+    database: synapse
 
 portal:
-  enabled: true
+  open:
+    enabled: true

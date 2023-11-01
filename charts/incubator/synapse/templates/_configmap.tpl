@@ -1,14 +1,6 @@
 {{/* Define the configs */}}
 {{- define "synapse.config" -}}
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: synapse-config
-  labels:
-  {{ include "tc.common.labels" . | nindent 4 }}
-  annotations:
-    rollme: {{ randAlphaNum 5 | quote }}
+enabled: true
 data:
   homeserver.yaml: |
     server_name: {{ .Values.matrix.serverName }}
