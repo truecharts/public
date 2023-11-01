@@ -20,7 +20,7 @@ service:
 
 admidio:
   organization: "Admidio"
-  mail_relay_host: "hostname.domain.at:25"
+  mail_relay_host: ""
   # DEFAULT, | ​BCRYPT |​ ​SHA512 | ARGON2ID | ARGON2I​
   password_hash_algorithm: "DEFAULT"
   # app url, no trailing slash
@@ -58,13 +58,13 @@ workload:
 persistence:
   files:
     enabled: true
-    mountPath: /var/www/admidio/adm_my_files
+    mountPath: /opt/app-root/src/adm_my_files
   themes:
     enabled: true
-    mountPath: /var/www/admidio/adm_themes
+    mountPath: /opt/app-root/src/adm_themes
   plugins:
     enabled: true
-    mountPath: /var/www/admidio/adm_plugins
+    mountPath: /opt/app-root/src/adm_plugins
 
 # Enabled postgres
 cnpg:
