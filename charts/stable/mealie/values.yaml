@@ -90,6 +90,7 @@ workload:
           envFrom:
             - secretRef:
                 name: frontend
+            - secretRef:
                 name: api
 
 
