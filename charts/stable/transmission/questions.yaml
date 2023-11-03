@@ -30,6 +30,11 @@ questions:
                                           type: string
                                           private: true
                                           default: ""
+                                      - variable: TRANSMISSION__RPC_AUTHENTICATION_REQUIRED
+                                        label: Transmission RPC Authentication Required
+                                        schema:
+                                          type: boolean
+                                          default: false
                                       - variable: TRANSMISSION__ALT_SPEED_ENABLED
                                         label: Transmission Alt Speed Enabled
                                         schema:
@@ -230,11 +235,6 @@ questions:
                                         schema:
                                           type: boolean
                                           default: true
-                                      - variable: TRANSMISSION__RPC_AUTHENTICATION_REQUIRED
-                                        label: Transmission RPC Authentication Required
-                                        schema:
-                                          type: boolean
-                                          default: false
                                       - variable: TRANSMISSION__RPC_BIND_ADDRESS
                                         label: Transmission RPC Bind Address
                                         schema:
