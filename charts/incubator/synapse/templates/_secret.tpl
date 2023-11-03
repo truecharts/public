@@ -12,7 +12,7 @@ data:
 ---
 apiVersion: v1
 kind: Secret
-stringData:
+data:
   secret.yaml: |
     {{- if .Values.mail.enabled }}
     email:
