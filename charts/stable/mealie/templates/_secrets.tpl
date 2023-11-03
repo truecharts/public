@@ -8,7 +8,7 @@ frontend:
   enabled: true
   data:
     {{/* Frontend */}}
-    API_URL: {{ printf "http://%v-api:%v" $fullname .Values.service.api.ports.api.port }}
+    #API_URL: {{ printf "http://%v-api:%v" $fullname .Values.service.api.ports.api.port }}
     THEME_LIGHT_PRIMARY: {{ $frontend.theme.light_primary | default "#E58325" | quote }}
     THEME_LIGHT_ACCENT: {{ $frontend.theme.light_accent | default "#007A99" | quote }}
     THEME_LIGHT_SECONDARY: {{ $frontend.theme.light_secondary | default "#973542" | quote }}
@@ -27,8 +27,8 @@ frontend:
 api:
   enabled: true
   data:
-    API_PORT: {{ .Values.service.api.ports.api.port | quote }}
-    API_DOCS: "true"
+    #API_PORT: {{ .Values.service.api.ports.api.port | quote }}
+    #API_DOCS: "true"
     {{/* Database */}}
     DB_ENGINE: "postgres"
     POSTGRES_PORT: "5432"
