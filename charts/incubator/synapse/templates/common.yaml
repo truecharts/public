@@ -10,7 +10,7 @@
 {{/* Render configmap for synapse */}}
 {{- $configmap := include "synapse.config" . | fromYaml -}}
 {{- if $configmap -}}
-  {{- $_ := set .Values.config "synapse-config" $configmap -}}
+  {{- $_ := set .Values.configmap "synapse-config" $configmap -}}
 {{- end -}}
 
 {{- $newMiddlewares :=  list "tc-opencors-headers" }}
