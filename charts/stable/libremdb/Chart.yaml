@@ -3,7 +3,7 @@ appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.2.1
+    version: 14.2.2
   - condition: redis.enabled
     name: redis
     repository: https://deps.truecharts.org
@@ -27,7 +27,7 @@ sources:
   - https://github.com/zyachel/libremdb
   - https://github.com/PussTheCat-org/docker-libremdb-quay
 type: application
-version: 3.0.249
+version: 3.0.250
 annotations:
   truecharts.org/category: media
   truecharts.org/SCALE-support: "true"

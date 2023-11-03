@@ -3,7 +3,7 @@ appVersion: "4.0.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.2.0
+    version: 14.2.2
   - condition: mariadb.enabled
     name: mariadb
     repository: https://deps.truecharts.org/
@@ -22,7 +22,7 @@ name: monica
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/monica
   - https://github.com/monicahq/monica
-version: 8.0.4
+version: 8.0.5
 annotations:
   truecharts.org/category: crm
   truecharts.org/SCALE-support: "true"
