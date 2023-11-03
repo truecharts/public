@@ -10,8 +10,6 @@ enabled: true
 data:
   key: {{ $msk | b64enc }}
 ---
-apiVersion: v1
-kind: Secret
 data:
   secret.yaml: |
     {{- if .Values.mail.enabled }}
