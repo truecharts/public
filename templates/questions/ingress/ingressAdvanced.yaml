@@ -61,7 +61,7 @@
                                   description: 'Add the name of your cluster-wide certificate, that you set up in the ClusterIssuer chart. NOTE: This is an experimental feature'
                                   schema:
                                     type: string
-                                    show_if: [["clusterIssuer", "=", ""]]
+                                    show_if: [["certificateIssuer", "=", ""]]
                                     default: ""
                                 - variable: secretName
                                   label: 'Use Custom Certificate Secret (Advanced)'
