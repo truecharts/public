@@ -27,6 +27,12 @@
                 schema:
                   type: string
                   default: ""
+              - variable: allowCors
+                label: "Allow Cross Origin Requests"
+                schema:
+                  type: boolean
+                  show_if: [["advanced", "=", true]]
+                  default: false
               - variable: hosts
                 label: Hosts
                 schema:
