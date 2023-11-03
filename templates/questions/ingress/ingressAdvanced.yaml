@@ -12,6 +12,12 @@
                         default: websecure
                         show_if: [["advanced", "=", true]]
                         required: true
+                    - variable: allowCors
+                      label: "Allow Cross Origin Requests"
+                      schema:
+                        type: boolean
+                        show_if: [["advanced", "=", true]]
+                        default: false
                     - variable: ingressClassName
                       label: (Advanced/Optional) IngressClass Name
                       schema:
