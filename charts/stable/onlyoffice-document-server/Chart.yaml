@@ -3,11 +3,11 @@ appVersion: "7.5.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.2.0
+    version: 14.2.2
   - condition: redis.enabled
     name: redis
     repository: https://deps.truecharts.org
-    version: 8.0.37
+    version: 8.0.40
 description: "ONLYOFFICE Document Server is an online office suite comprising viewers and editors for texts, spreadsheets and presentations, fully compatible with Office Open XML formats: .docx, .xlsx, .pptx and enabling collaborative editing in real time."
 home: https://truecharts.org/charts/stable/onlyoffice-document-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/onlyoffice-document-server.png
@@ -23,7 +23,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/onlyoffice-document-server
   - https://github.com/ONLYOFFICE/DocumentServer
   - https://github.com/ONLYOFFICE/Docker-DocumentServer
-version: 12.0.3
+version: 12.0.4
 annotations:
   truecharts.org/category: office
   truecharts.org/SCALE-support: "true"

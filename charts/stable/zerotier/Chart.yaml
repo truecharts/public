@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: zerotier
-version: 6.0.6
+version: 6.0.7
 appVersion: "1.12.2"
 description: ZeroTier is a smart programmable Ethernet switch for planet Earth
 type: application
@@ -16,7 +16,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.2.0
+    version: 14.2.2
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts

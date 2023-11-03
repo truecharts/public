@@ -3,7 +3,7 @@ appVersion: "2.9.2"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.2.0
+    version: 14.2.2
 deprecated: false
 description: Collect your UniFi controller data and report it to an InfluxDB instance, or export it for Prometheus collection.
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/unpoller.png
@@ -22,7 +22,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/unpoller
   - https://github.com/unifi-poller/unifi-poller
 type: application
-version: 7.0.9
+version: 7.0.10
 annotations:
   truecharts.org/category: metrics
   truecharts.org/SCALE-support: "true"
