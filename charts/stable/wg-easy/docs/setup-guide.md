@@ -29,7 +29,7 @@ Set them to `1` and `Enabled`
 
 ### Container Configuration
 
-- Change `WG_HOST` _required_ domain name (or WAN IP if you have a Static IP)
+- Change `WG_HOST` _required_ domain name (or WAN IP if you have a Static IP). A domain name cannot be proxied by cloudflare. ![wg-easy-dns-only](./img/wg-easy-dns-only.png)
 - Change `WG_DEFAULT_ADDRESS` only if it conflicts with other IP addresses on your network
 - Change `WG_DEFAULT_DNS` can be set to your local DNS (eg my PiHole box) or a generic one like `1.1.1.1`
 - Change `ADMIN_PASSWORD` _required_ - Always best to have some security in front of the GUI page
