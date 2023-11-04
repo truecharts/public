@@ -1,19 +1,24 @@
 image:
-  repository: tccr.io/truecharts/jackett
+  repository: bitnami/external-dns
   pullPolicy: IfNotPresent
-  tag: v0.21.1124@sha256:73213b991e587dbc5f80e39cd44a802b180c84293b4a4abc8ce4af79965c9f03
+  tag: 0.13.6@sha256:18d005d256d7d874f8435a26db164c40155f21de949149e5f3891a3ee6401724
 
 securityContext:
   container:
-    readOnlyRootFilesystem: false
+    readOnlyRootFilesystem: true
+    capabilities:
+      drop: ["ALL"]
+
+podOptions:
+  automountServiceAccountToken: true
 
 service:
   main:
     ports:
       main:
         protocol: http
-        targetPort: 9117
-        port: 9117
+        targetPort: 7979
+        port: 7979
 
 workload:
   main:
@@ -27,6 +32,19 @@ workload:
               path: "/healthz"
             startup:
               path: "/healthz"
+
+# -- Whether Role Based Access Control objects like roles and rolebindings should be created
+rbac:
+  main:
+    enabled: true
+    primary: true
+    clusterWide: true
+
+# -- The service account the pods will use to interact with the Kubernetes API
+serviceAccount:
+  main:
+    enabled: true
+    primary: true
 
 persistence:
   config:
