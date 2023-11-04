@@ -17,7 +17,7 @@ How to setup FireZone.
 Most configuration can be left default here but some you want to change.
 
 - Set `Default Client MTU` to a size that works for _your_ network, default is 1280.
-- Set `Client Endpoint` to any of the following, if using a domain it needs to resolve to your public IP so it can not be proxied on CloudFlare.
+- Set `Client Endpoint` to any of the following, if using a domain it needs to resolve to your public IP so it can not be proxied on CloudFlare. ![firezone-dns-only](./img/firezone-dns-only.png)
 
   - publicIP:WG_PORT
   - app.domain.tld:WG_PORT
