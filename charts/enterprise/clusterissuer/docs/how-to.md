@@ -30,6 +30,14 @@ You can setup multiple domains and/or DNS providers with a single `clusterissuer
 
 ### Cloudflare DNS Provider
 
+:::warning DNS
+
+As part of the DNS verification process cert-manager will connect to DNS nameservers assigned by cloudlfare to validate the DNS ACME entry. Any firewall or router rules blocking or modifying DNS traffic will cause this process to fail and prevent the issuance of certificates. Ensure no firewall or router rules are in place blocking or modifying DNS traffic to your assigned nameservers. Your nameservers can be located at the bottom of the cloudflare DNS page.
+
+![cloudflare-nameservers](./img/cloudflare-nameservers.png)
+
+:::
+
 #### Create a Cloudflare API token
 
 Login to Cloudflare dashboard and go to the [Cloudflare API Tokens](https://dash.cloudflare.com/profile/api-tokens) page. Select Edit Zone DNS template.
