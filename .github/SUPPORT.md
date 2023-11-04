@@ -29,7 +29,7 @@ Support for Talos-OS with either Rancher or FluxCD are in early alpha.
 
 ### Supported Versions of Talos-OS
 
-| TrueNAS version  | Branch   | Supported with updates | Accepting Support tickets | Accepting Bug Reports | Notes                                                                                                          |
+| Talos-OS version  | Branch   | Supported with updates | Accepting Support tickets | Accepting Bug Reports | Notes                                                                                                          |
 | ---------------- | -------- | ---------------------- | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------- |
 | 1.5              | `master` | :white_check_mark:                    | :x:                       | :x:                   |          |
 | 1.6              | `master` | :white_check_mark:     | :x:                       | :x:                   |  |
@@ -37,11 +37,11 @@ Support for Talos-OS with either Rancher or FluxCD are in early alpha.
 
 ### Supported Versions of FluxCD
 
-| TrueNAS version  | Branch   | Supported with updates | Accepting Support tickets | Accepting Bug Reports | Notes                                                                                                          |
+| FluxCD version  | Branch   | Supported with updates | Accepting Support tickets | Accepting Bug Reports | Notes                                                                                                          |
 | ---------------- | -------- | ---------------------- | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------- |
 | 1.2.1 or prior             | `master` | :white_check_mark:                    | :x:                       | :x:                   |          |
 
-### Supported Versions of Rancher
+### Rancher Versions of Rancher
 
 | TrueNAS version  | Branch   | Supported with updates | Accepting Support tickets | Accepting Bug Reports | Notes                                                                                                          |
 | ---------------- | -------- | ---------------------- | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------- |
