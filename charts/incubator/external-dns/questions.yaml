@@ -15,6 +15,7 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerAdvanced}
+
   - variable: externaldns
     group: App Configuration
     label: External-DNS Configuration
@@ -27,6 +28,7 @@ questions:
           description: How description the logs are, from info to debug.
           schema:
             type: string
+            required: true
             default: info
               enum:
                 - value: info
@@ -63,6 +65,7 @@ questions:
           description: Provider where the upstream DNS records will be created, eg Cloudflare, Digitalocean or things such as pihole. Some providers need additional args set when using them, please refer to upstream documentation for their usage.
           schema:
             type: string
+            required: true
             default: cloudflare
               enum:
                 - value: akamai
