@@ -214,23 +214,23 @@ questions:
 #                description: vinyldns
 #              - value: vultr
 #                description: vultr
-#        - variable: sources
-#          label: "Sources"
-#          schema:
-#            type: list
-#            default: ["ingress"]
-#            items:
-#            - variable: source
-#              label: source
-#              schema:
-#                type: string
-#                required: true
-#                default: ingress
-#                enum:
-#                  - value: ingress
-#                    description: ingress
-#                  - value: service
-#                    description: service
+        - variable: sources
+          label: "Sources"
+          schema:
+            type: list
+            default: ["ingress"]
+            items:
+            - variable: source
+              label: source
+              schema:
+                type: string
+                required: true
+                default: ingress
+                enum:
+                  - value: ingress
+                    description: ingress
+                  - value: service
+                    description: service
 #        - variable: domainFilters
 #         label: Domain Filters
 #          description: Limit possible target zones by domain suffixes.
