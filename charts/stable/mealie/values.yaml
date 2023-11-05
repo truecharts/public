@@ -87,8 +87,6 @@ workload:
               command:
                 - python
                 - /app/mealie/scripts/healthcheck.py
-          envFrom:
-            - secretRef:
                 name: api
           envFrom:
             - secretRef:
