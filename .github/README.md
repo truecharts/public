@@ -124,7 +124,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-225-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-226-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -426,6 +426,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/jon-stumpf"><img src="https://avatars.githubusercontent.com/u/7144996?v=4?s=100" width="100px;" alt="Jon S. Stumpf"/><br /><sub><b>Jon S. Stumpf</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=jon-stumpf" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Tanguille"><img src="https://avatars.githubusercontent.com/u/91473554?v=4?s=100" width="100px;" alt="Tanguille"/><br /><sub><b>Tanguille</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=Tanguille" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>
