@@ -90,7 +90,6 @@ questions:
 # Include{containerAdvanced}
 # Include{containerConfig}
 # Include{podOptions}
-
   - variable: externaldns
     group: App Configuration
     label: External-DNS Configuration
@@ -288,7 +287,6 @@ questions:
             show_if: [["provider", "=", "pihole"]]
             private: true
             default: ""
-
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
 # Include{serviceList}
