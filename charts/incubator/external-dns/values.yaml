@@ -4,10 +4,11 @@ image:
   tag: v0.13.6
 
 externaldns:
-  source1: "service"
-  source2: "ingress"
+  provider: "inmemory"
+  sources: 
+    - "service"
+    - "ingress"
   domainfilter: "example.com"
-  provider: "cloudflare"
   zoneidfilter: ""
   cloudflareproxied: ""
   registry: ""
