@@ -32,30 +32,30 @@ questions:
             type: string
             required: true
             default: info
-              enum:
-                - value: info
-                  description: info
-                - value: warning
-                  description: warning
-                - value: error
-                  description: error
-                - value: panic
-                  description: panic
-                - value: debug
-                  description: debug
-                - value: fatal
-                  description: fatal
+            enum:
+              - value: info
+                description: info
+              - value: warning
+                description: warning
+              - value: error
+                description: error
+              - value: panic
+                description: panic
+              - value: debug
+                description: debug
+              - value: fatal
+                description: fatal
         - variable: logFormat
           label: Log Foramt
           description: Output logs in either text or Json
           schema:
             type: string
             default: text
-              enum:
-                - value: text
-                  description: text
-                - value: json
-                  description: json
+            enum:
+              - value: text
+                description: text
+              - value: json
+                description: json
         - variable: interval
           label: The interval for DNS updates.
           description: How often the DNS will you update your DNS records
@@ -69,85 +69,85 @@ questions:
             type: string
             required: true
             default: cloudflare
-              enum:
-                - value: akamai
-                  description: akamai
-                - value: alibabacloud
-                  description: alibabacloud
-                - value: aws
-                  description: aws
-                - value: aws-sd
-                  description: aws-sd
-                - value: azure
-                  description: azure
-                - value: azure-dns
-                  description: azure-dns
-                - value: azure-private-dns
-                  description: azure-private-dns
-                - value: bluecat
-                  description: bluecat
-                - value: civo
-                  description: civo
-                - value: cloudflare
-                  description: cloudflare
-                - value: coredns
-                  description: coredns
-                - value: designate
-                  description: designate
-                - value: digitalocean
-                  description: digitalocean
-                - value: dnsimple
-                  description: dnsimple
-                - value: dyn
-                  description: dyn
-                - value: exoscale
-                  description: exoscale
-                - value: gandi
-                  description: gandi
-                - value: godaddy
-                  description: godaddy
-                - value: google
-                  description: google
-                - value: ibmcloud
-                  description: ibmcloud
-                - value: infoblox
-                  description: infoblox
-                - value: inmemory
-                  description: inmemory
-                - value: linode
-                  description: linode
-                - value: ns1
-                  description: ns1
-                - value: oci
-                  description: oci
-                - value: pdns
-                  description: pdns
-                - value: pihole
-                  description: pihole
-                - value: plural
-                  description: plural
-                - value: rcodezero
-                  description: rcodezero
-                - value: rdns
-                  description: rdns
-                - value: rfc2136
-                  description: rfc2136
-                - value: safedns
-                  description: safedns
-                - value: scaleway
-                  description: scaleway
-                - value: skydns
-                  description: skydns
-                - value: tencentcloud
-                  description: tencentcloud
-                - value: transip
-                  description: transip
-                - value: ultradns
-                  description: ultradns
-                - value: vinyldns
-                  description: vinyldns
-                - value: vultr
-                  description: vultr
+            enum:
+              - value: akamai
+                description: akamai
+              - value: alibabacloud
+                description: alibabacloud
+              - value: aws
+                description: aws
+              - value: aws-sd
+                description: aws-sd
+              - value: azure
+                description: azure
+              - value: azure-dns
+                description: azure-dns
+              - value: azure-private-dns
+                description: azure-private-dns
+              - value: bluecat
+                description: bluecat
+              - value: civo
+                description: civo
+              - value: cloudflare
+                description: cloudflare
+              - value: coredns
+                description: coredns
+              - value: designate
+                description: designate
+              - value: digitalocean
+                description: digitalocean
+              - value: dnsimple
+                description: dnsimple
+              - value: dyn
+                description: dyn
+              - value: exoscale
+                description: exoscale
+              - value: gandi
+                description: gandi
+              - value: godaddy
+                description: godaddy
+              - value: google
+                description: google
+              - value: ibmcloud
+                description: ibmcloud
+              - value: infoblox
+                description: infoblox
+              - value: inmemory
+                description: inmemory
+              - value: linode
+                description: linode
+              - value: ns1
+                description: ns1
+              - value: oci
+                description: oci
+              - value: pdns
+                description: pdns
+              - value: pihole
+                description: pihole
+              - value: plural
+                description: plural
+              - value: rcodezero
+                description: rcodezero
+              - value: rdns
+                description: rdns
+              - value: rfc2136
+                description: rfc2136
+              - value: safedns
+                description: safedns
+              - value: scaleway
+                description: scaleway
+              - value: skydns
+                description: skydns
+              - value: tencentcloud
+                description: tencentcloud
+              - value: transip
+                description: transip
+              - value: ultradns
+                description: ultradns
+              - value: vinyldns
+                description: vinyldns
+              - value: vultr
+                description: vultr
         - variable: sources
           label: "Sources"
           schema:
@@ -160,11 +160,11 @@ questions:
               type: string
               required: true
               default: cloudflare
-                enum:
-                  - value: ingress
-                    description: ingress
-                  - value: service
-                    description: service
+              enum:
+                - value: ingress
+                  description: ingress
+                - value: service
+                  description: service
         - variable: domainfilter
           label: Domain Filter
           description: Limit possible target zones by domain suffixes.
@@ -184,22 +184,22 @@ questions:
           schema:
             type: string
             default: txt
-              enum:
-                - value: txt
-                  description: text
-                - value: noop
-                  description: noop
+            enum:
+              - value: txt
+                description: text
+              - value: noop
+                description: noop
         - variable: policy
           label: DNS Synchronization Policy
           description: 	How DNS records are synchronized between sources and providers
           schema:
             type: string
             default: upsert-only
-              enum:
-                - value: upsert-only
-                  description: upsert-only
-                - value: sync
-                  description: sync
+            enum:
+              - value: upsert-only
+                description: upsert-only
+              - value: sync
+                description: sync
         - variable: piholeserver
           label: Pi-Hole Server Address
           description: Actual adresss/FQDN of your Pi-Hole install, such as pihole-web.pihole.svc.cluster.local,
