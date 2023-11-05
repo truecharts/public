@@ -2,8 +2,7 @@
 {{- include "tc.v1.common.loader.init" . }}
 
 {{- $newArgs := (include "externaldns.args" . | fromYaml) }}
-{{- $_ := set .Values "newArgs" $newArgs -}}
-{{- $args := concat ((get .Values.workload.main.podSpec.containers.main "args") | default list)  .Values.newArgs.args }}
+{{- $args := concat ((get .Values.workload.main.podSpec.containers.main "args") | default list)  $newArgs.args }}
 {{- $_ := set .Values.workload.main.podSpec.containers.main "args" $args -}}
 
 {{/* Render the templates */}}
