@@ -4,6 +4,9 @@ image:
   tag: v0.13.6
 
 externaldns:
+  logLevel: "info"
+  logFormat: "text"
+  interval: "1m"
   provider: "inmemory"
   sources: 
     - "service"
