@@ -3,7 +3,6 @@ image:
   tag: v1.0.0-RC1.1@sha256:6df1e795f17af43f082146e471113315487b5f0882f2ee7553d469034d929af1
   pullPolicy: IfNotPresent
 
-
 mealie:
   frontend:
     theme:
@@ -64,10 +63,6 @@ workload:
     podSpec:
       containers:
         main:
-          securityContext:
-            capabilities:
-              add:
-                - NET_BIND_SERVICE
           probes:
             liveness:
               enabled: true
@@ -93,24 +88,12 @@ workload:
             - secretRef:
                 name: api
 
-
-
-
-securityContext:
-  container:
-    runAsNonRoot: false
-    readOnlyRootFilesystem: false
-    runAsUser: 0
-    runAsGroup: 0
-
 service:
   main:
     ports:
       main:
         port: 10018
         protocol: http
-
-
 
 persistence:
   data:
