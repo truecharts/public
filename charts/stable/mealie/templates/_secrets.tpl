@@ -26,6 +26,7 @@ frontend:
 api:
   enabled: true
   data:
+    API_PORT: {{ .Values.service.main.ports.main.port | quote }}
     {{/* Database */}}
     DB_ENGINE: "postgres"
     POSTGRES_PORT: "5432"
