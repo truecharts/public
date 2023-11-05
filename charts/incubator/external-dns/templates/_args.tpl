@@ -1,36 +1,40 @@
 {{- define "external-dns.args" -}}
 args:
   {{- with .Values.external-dns.source1 }}
-  - --source={{ . }}
+  - --source
+  - {{ . }}
   {{- end }}
   {{- with .Values.external-dns.source2 }}
-  - --source={{ . }}
+  - --source
+  - {{ . }}
   {{- end }}
   {{- with .Values.external-dns.domain-filter }}
-  - --domain-filter={{ . }}
+  - --domain-filter
+  - {{ . }}
   {{- end }}
   {{- with .Values.external-dns.provider }}
-  - --provider={{ . }}
+  - --provider
+  - {{ . }}
   {{- end }}
   {{- with .Values.external-dns.cloudflare-proxied }}
-  - --cloudflare-proxied={{ . }}
+  - --cloudflare-proxied
+  - {{ . }}
   {{- end }}
   {{- with .Values.external-dns.registry }}
-  - --registry={{ . }}
+  - --registry
+  - {{ . }}
   {{- end }}
   {{- with .Values.external-dns.policy }}
-  - --policy={{ . }}
+  - --policy
+  - {{ . }}
   {{- end }}
   {{- with .Values.external-dns.pihole-server }}
-  - --pihole-server={{ . }}
+  - --pihole-server
+  - {{ . }}
   {{- end }}
   {{- with .Values.external-dns.pihole-password }}
-  - --pihole-password={{ . }}
+  - --pihole-password
+  - {{ . }}
   {{- end }}
   {{- end }}
 {{- end -}}
-
-  registry: ""
-  policy: ""
-  pihole-server: ""
-  pihole-password: ""
