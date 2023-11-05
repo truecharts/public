@@ -280,21 +280,21 @@ questions:
                 description: upsert-only
               - value: sync
                 description: sync
-#        - variable: piholeServer
-#          label: Pi-Hole Server Address
-#          description: Actual adresss/FQDN of your Pi-Hole install, such as pihole-web.pihole.svc.cluster.local,
-#          schema:
-#            type: string
-#            show_if: [["provider", "=", "pihole"]]
-#            default: ""
-#        - variable: piholePassword
-#          label: Pi-Hole Server Passowrd
-#          description: Password for Pi-Hole
-#          schema:
-#            type: string
-#            show_if: [["provider", "=", "pihole"]]
-#            private: true
-#            default: ""
+        - variable: piholeServer
+          label: Pi-Hole Server Address
+          description: Actual adresss/FQDN of your Pi-Hole install, such as pihole-web.pihole.svc.cluster.local,
+          schema:
+            type: string
+            show_if: [["provider", "=", "pihole"]]
+            default: ""
+        - variable: piholePassword
+          label: Pi-Hole Server Passowrd
+          description: Password for Pi-Hole
+          schema:
+            type: string
+            show_if: [["provider", "=", "pihole"]]
+            private: true
+            default: ""
 # Include{podOptions}
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
