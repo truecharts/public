@@ -8,6 +8,14 @@ This guide will walk you through setting up `clusterissuer`, certificate managem
 - [Traefik](https://truecharts.org/charts/enterprise/traefik/) is installed from enterprise train
 - [Cert-Mananger](https://truecharts.org/charts/operators/cert-manager/) and [Prometheus-Operator](https://truecharts.org/charts/operators/prometheus-operator/) are installed from the operators train
 
+:::warning DNS
+
+As part of the DNS verification process cert-manager will connect to authoritative nameservers to validate the DNS ACME entry. Any firewall or router rules blocking or modifying DNS traffic will cause this process to fail and prevent the issuance of certificates. Ensure no firewall or router rules are in place blocking or modifying DNS traffic to assigned authoritative nameservers. Below is an example of cloudflare assigned authoritative nameservers (these nameservers are unique to each user).
+
+![cloudflare-nameservers](./img/cloudflare-nameservers.png)
+
+:::
+
 ## Set Scale Nameservers
 
 It is important to configure Scale with reliable nameserver to avoid issues handling DNS-01 challenges. Under Network -> Global Configuration-> Nameservers, we recommend setting 1.1.1.1/1.0.0.1 or 8.8.8.8/8.8.4.4.
