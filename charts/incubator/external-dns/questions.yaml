@@ -59,8 +59,8 @@ questions:
             type: string
             default: 1m
         - variable: provider
-          label: DNS Provider
-          description: DNS provider where the DNS records will be created, eg Cloudflare, Digitalocean or things such as pihole. For others refer to upstream documents
+          label: Provider
+          description: Provider where the upstream DNS records will be created, eg Cloudflare, Digitalocean or things such as pihole. For others refer to upstream documents
           schema:
             type: string
             default: cloudflare
