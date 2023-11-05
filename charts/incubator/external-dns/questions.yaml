@@ -258,28 +258,28 @@ questions:
                   type: string
                   default: ""
                   required: true
-#        - variable: registry
-#          label: Registry Type
-#          description: Available registry types are txt, noop
-#          schema:
-#            type: string
-#            default: txt
-#            enum:
-#              - value: txt
-#                description: text
-#              - value: noop
-#                description: noop
-#        - variable: policy
-#          label: DNS Synchronization Policy
-#          description: How DNS records are synchronized between sources and providers
-#          schema:
-#            type: string
-#            default: upsert-only
-#            enum:
-#              - value: upsert-only
-#                description: upsert-only
-#              - value: sync
-#                description: sync
+        - variable: registry
+          label: Registry Type
+          description: Available registry types are txt, noop
+          schema:
+            type: string
+            default: txt
+            enum:
+              - value: txt
+                description: text
+              - value: noop
+                description: noop
+        - variable: policy
+          label: DNS Synchronization Policy
+          description: How DNS records are synchronized between sources and providers
+          schema:
+            type: string
+            default: upsert-only
+            enum:
+              - value: upsert-only
+                description: upsert-only
+              - value: sync
+                description: sync
 #        - variable: piholeServer
 #          label: Pi-Hole Server Address
 #          description: Actual adresss/FQDN of your Pi-Hole install, such as pihole-web.pihole.svc.cluster.local,
