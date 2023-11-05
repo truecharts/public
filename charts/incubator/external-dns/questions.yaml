@@ -31,6 +31,18 @@ questions:
                                         schema:
                                           type: string
                                           default: ""
+                                      - variable: CF_API_EMAIL
+                                        label: Cloudflare API Email
+                                        description: Cloudflare API email if not using the preferred API Token
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: DO_TOKEN
+                                        label: Digitalocean API Key
+                                        description: Needed for read / write access on Digitalocean
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerAdvanced}
