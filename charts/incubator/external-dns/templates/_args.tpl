@@ -3,10 +3,10 @@ args:
   {{- with .Values.externaldns.provider }}
   - --provider={{ . }}
   {{- end -}}
-  {{- with .Values.externaldns.zoneidfilter }}
+  {{- with .Values.externaldns.zoneidFilter }}
   - --zone-id-filter={{ . }}
   {{- end -}}
-  {{- with .Values.externaldns.cloudflareproxied }}
+  {{- with .Values.externaldns.cloudflareProxied }}
   - --cloudflare-proxied={{ tpl . $ }}
   {{- end }}
   - --log-level={{ .Values.externaldns.logLevel }}
@@ -34,15 +34,15 @@ args:
   - --txt-suffix={{ .Values.externaldns.txtSuffix }}
   {{- end -}}
   {{- if .Values.externaldns.namespaced }}
-  - --namespace={{ .Release.externaldns.Namespace }}
+  - --namespace={{ include "tc.v1.common.lib.metadata.namespace" (dict "caller" "External-DNS" "rootCtx" $ "objectData" .Values) }}
   {{- end -}}
-  {{- range .Values.externaldns.domainFilters }}
+  {{- range .Values.externaldns.domainFilter }}
   - --domain-filter={{ . }}
   {{- end -}}
-  {{- with .Values.externaldns.piholeserver }}
+  {{- with .Values.externaldns.piholeServer }}
   - --pihole-server={{ . }}
   {{- end -}}
-  {{- with .Values.externaldns.piholepassword }}
+  {{- with .Values.externaldns.piholePassword }}
   - --pihole-password={{ . }}
   {{- end -}}
 {{- end -}}

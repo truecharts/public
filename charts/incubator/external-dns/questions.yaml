@@ -231,13 +231,13 @@ questions:
                     description: ingress
                   - value: service
                     description: service
-        - variable: domainfilter
+        - variable: domainFilter
           label: Domain Filter
           description: Limit possible target zones by domain suffixes.
           schema:
             type: string
             default: ""
-        - variable: zoneidfilter
+        - variable: zoneidFilter
           label: Cloudflare DNS Zone Filter (optional)
           description: Limit possible target zones by zone IDs. (Optional)
           schema:
@@ -266,14 +266,14 @@ questions:
                 description: upsert-only
               - value: sync
                 description: sync
-        - variable: piholeserver
+        - variable: piholeServer
           label: Pi-Hole Server Address
           description: Actual adresss/FQDN of your Pi-Hole install, such as pihole-web.pihole.svc.cluster.local,
           schema:
             type: string
             show_if: [["provider", "=", "pihole"]]
             default: ""
-        - variable: piholepassword
+        - variable: piholePassword
           label: Pi-Hole Server Passowrd
           description: Password for Pi-Hole
           schema:

@@ -11,14 +11,13 @@ externaldns:
   sources:
     - "service"
     - "ingress"
-  domainfilter: "example.com"
-  zoneidfilter: ""
-  cloudflareproxied: ""
+  domainFilter: "example.com"
+  zoneidFilter: ""
+  cloudflareProxied: ""
   registry: "txt"
   policy: ""
-  piholeserver: ""
-  piholepassword: ""
-
+  piholeServer: ""
+  piholePassword: ""
 
 service:
   main:
