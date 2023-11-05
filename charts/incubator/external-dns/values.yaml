@@ -3,17 +3,17 @@ image:
   pullPolicy: IfNotPresent
   tag: 0.13.6@sha256:18d005d256d7d874f8435a26db164c40155f21de949149e5f3891a3ee6401724
 
-external-dns:
+externaldns:
   source1: "service"
   source2: "ingress"
-  domain-filter: "example.com"
+  domainfilter: "example.com"
   provider: "Cloudflare"
-  zone-id-filter: ""
-  cloudflare-proxied: ""
+  zoneidfilter: ""
+  cloudflareproxied: ""
   registry: ""
   policy: ""
-  pihole-server: ""
-  pihole-password: ""
+  piholeserver: ""
+  piholepassword: ""
 
 securityContext:
   container:

@@ -1,31 +1,34 @@
-{{- define "external-dns.args" -}}
+{{- define "externaldns.args" -}}
 args:
-  {{- with .Values.external-dns.source1 }}
-  - "--source={{ . }}"
+  {{- with .Values.externaldns.source1 }}
+  - --source={{ . }}
   {{- end }}
-  {{- with .Values.external-dns.source2 }}
-  - "--source={{ . }}"
+  {{- with .Values.externaldns.source2 }}
+  - --source={{ . }}
   {{- end }}
-  {{- with .Values.external-dns.domain-filter }}
-  - "--domain-filter={{ . }}"
+  {{- with .Values.externaldns.domainfilter }}
+  - --domain-filter={{ . }}
   {{- end }}
-  {{- with .Values.external-dns.provider }}
-  - "--provider={{ . }}"
+  {{- with .Values.externaldns.provider }}
+  - --provider={{ . }}
   {{- end }}
-  {{- with .Values.external-dns.cloudflare-proxied }}
-  - "--cloudflare-proxied={{ . }}"
+  {{- with .Values.externaldns.zoneidfilter }}
+  - --zone-id-filter={{ . }}
   {{- end }}
-  {{- with .Values.external-dns.registry }}
-  - "--registry={{ . }}"
+  {{- with .Values.externaldns.cloudflareproxied }}
+  - --cloudflare-proxied={{ . }}
   {{- end }}
-  {{- with .Values.external-dns.policy }}
-  - "--policy={{ . }}"
+  {{- with .Values.externaldns.registry }}
+  - --registry={{ . }}
   {{- end }}
-  {{- with .Values.external-dns.pihole-server }}
-  - "--pihole-server={{ . }}"
+  {{- with .Values.externaldns.policy }}
+  - --policy={{ . }}
   {{- end }}
-  {{- with .Values.external-dns.pihole-password }}
-  - "--pihole-password={{ . }}"
+  {{- with .Values.externaldns.piholeserver }}
+  - --pihole-server={{ . }}
+  {{- end }}
+  {{- with .Values.externaldns.piholepassword }}
+  - --pihole-password={{ . }}
   {{- end }}
   {{- end }}
 {{- end -}}
