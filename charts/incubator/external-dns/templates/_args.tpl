@@ -36,8 +36,10 @@ args:
   {{- if .Values.externaldns.namespaced }}
   - --namespace={{ include "tc.v1.common.lib.metadata.namespace" (dict "caller" "External-DNS" "rootCtx" $ "objectData" .Values) }}
   {{- end -}}
-  {{- range .Values.externaldns.domainFilter }}
+  {{- with .Values.externaldns.domainFilter }}
+  {{- range . -}}
   - --domain-filter={{ . }}
+  {{- end -}}
   {{- end -}}
   {{- with .Values.externaldns.piholeServer }}
   - --pihole-server={{ . }}
