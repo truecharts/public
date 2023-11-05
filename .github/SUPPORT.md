@@ -12,7 +12,7 @@ This document highlights which versions of TrueCharts (or rather branches), supp
 
 We also document which versions of TrueNAS will receive TrueCharts updates and for which versions we are accepting bug reports.
 
-### Supported Versions
+### Supported Versions of TrueNAS SCALE
 
 | TrueNAS version  | Branch   | Supported with updates | Accepting Support tickets | Accepting Bug Reports | Notes                                                                                                          |
 | ---------------- | -------- | ---------------------- | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------- |
@@ -22,6 +22,30 @@ We also document which versions of TrueNAS will receive TrueCharts updates and f
 | 23.10.0.1        | `master` | :white_check_mark:     | :white_check_mark:        | :white_check_mark:    | Stable Release as of 2023-10-31                                                                                |
 | Nightly          | `master` | :white_check_mark:     | :x:                       | :white_check_mark:    | Please only submit bug reports during codefreeze                                                               |
 | 23.10.1          | `master` | :white_check_mark:     | :x:                       | :x:                   | To Be Released                                                                                                 |
+
+## TrueCharts on Talos-OS
+
+Support for Talos-OS with either Rancher or FluxCD are in early alpha.
+
+### Supported Versions of Talos-OS
+
+| Talos-OS version  | Branch   | Supported with updates | Accepting Support tickets | Accepting Bug Reports | Notes                                                                                                          |
+| ---------------- | -------- | ---------------------- | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------- |
+| 1.5              | `master` | :white_check_mark:                    | :x:                       | :x:                   |          |
+| 1.6              | `master` | :white_check_mark:     | :x:                       | :x:                   |  |
+
+
+### Supported Versions of FluxCD
+
+| FluxCD version  | Branch   | Supported with updates | Accepting Support tickets | Accepting Bug Reports | Notes                                                                                                          |
+| ---------------- | -------- | ---------------------- | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------- |
+| 1.2.1 or prior             | `master` | :white_check_mark:                    | :x:                       | :x:                   |          |
+
+### Rancher Versions of Rancher
+
+| TrueNAS version  | Branch   | Supported with updates | Accepting Support tickets | Accepting Bug Reports | Notes                                                                                                          |
+| ---------------- | -------- | ---------------------- | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------- |
+| v2.7.9 or prior           | `master` | :white_check_mark:                    | :x:                       | :x:                   |          |
 
 :::warning Support Guidelines
 

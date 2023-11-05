@@ -3,7 +3,7 @@ appVersion: "1.20.5"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.2.2
+    version: 14.2.3
   - condition: memcached.enabled
     name: memcached
     repository: https://deps.truecharts.org/
@@ -30,7 +30,7 @@ sources:
   - https://gitea.com/gitea/helm-chart
   - https://github.com/go-gitea/gitea
 type: application
-version: 14.0.7
+version: 14.0.8
 annotations:
   truecharts.org/category: GIT
   truecharts.org/SCALE-support: "true"

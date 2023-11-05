@@ -3,13 +3,6 @@ image:
   repository: tccr.io/truecharts/plexripper
   tag: v0.14.0@sha256:21dbbc0b199be9a6910bee31611968518f532445bde9a5ea7b848c7566e0d154
 
-securityContext:
-  container:
-    readOnlyRootFilesystem: false
-    runAsNonRoot: false
-    runAsUser: 0
-    runAsGroup: 0
-
 service:
   main:
     ports:
