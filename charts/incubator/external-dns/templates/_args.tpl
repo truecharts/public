@@ -45,5 +45,4 @@ args:
             {{- with .Values.externaldns.piholepassword }}
             - --pihole-password={{ . }}
             {{- end }}
-            - --provider={{ tpl .Values.externaldns.provider $ }}
 {{- end -}}
