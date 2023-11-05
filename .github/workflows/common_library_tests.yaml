@@ -22,9 +22,8 @@ jobs:
       fail-fast: false
       matrix:
         helm-version:
-          - v3.12.1
           - v3.12.3
-          - v3.13.1
+          - latest
     steps:
       - name: Checkout
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
@@ -62,9 +61,8 @@ jobs:
       fail-fast: false
       matrix:
         helm-version:
-          - v3.12.1
           - v3.12.3
-          - v3.13.1
+          - latest
     steps:
       - name: Checkout
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
@@ -106,12 +104,13 @@ jobs:
       matrix:
         # We run tests on k3s version of latest SCALE release and SCALE nightly
         k3s-version:
-          - v1.25.3+k3s1
+          - v1.26
+          - v1.27
+          - v1.28
         # We run tests on Helm version of latest SCALE, fluxcd and latest helm release
         helm-version:
-          - v3.12.1
           - v3.12.3
-          - v3.13.1
+          - latest
         values:
           - basic-values.yaml
           - configmap-values.yaml
@@ -252,12 +251,13 @@ jobs:
       matrix:
         # We run tests on k3s version of latest SCALE release and SCALE nightly
         k3s-version:
-          - v1.25.3+k3s1
+          - v1.26
+          - v1.27
+          - v1.28
         # We run tests on Helm version of latest SCALE release
         helm-version:
-          - v3.12.1
           - v3.12.3
-          - v3.13.1
+          - latest
         values:
           - basic-values.yaml
           - configmap-values.yaml
@@ -315,12 +315,13 @@ jobs:
       matrix:
         # We run tests on k3s version of latest SCALE release and SCALE nightly
         k3s-version:
-          - v1.25.3+k3s1
+          - v1.26
+          - v1.27
+          - v1.28
         # We run tests on Helm version of latest SCALE release
         helm-version:
-          - v3.12.1
           - v3.12.3
-          - v3.13.1
+          - latest
         values:
           - ingress-values.yaml
           - metrics-values.yaml
@@ -374,12 +375,13 @@ jobs:
       matrix:
         # We run tests on k3s version of latest SCALE release and SCALE nightly
         k3s-version:
-          - v1.25.3+k3s1
+          - v1.26
+          - v1.27
+          - v1.28
         # We run tests on Helm version of latest SCALE release
         helm-version:
-          - v3.12.1
           - v3.12.3
-          - v3.13.1
+          - latest
         values:
           - vpn-gluetun-values.yaml
           - vpn-tailscale-values.yaml
