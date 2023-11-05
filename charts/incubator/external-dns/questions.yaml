@@ -193,18 +193,6 @@ questions:
             show_if: [["provider", "=", "pihole"]]
             private: true
             default: ""
-        - variable: hide_labels
-          label: Hide Labels
-          description: Hides containers with a specific label in the UI. Format "label=value"
-          schema:
-            type: list
-            default: []
-            items:
-              - variable: label
-                label: Label
-                schema:
-                  type: string
-                  default: ""
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceExpertRoot}
