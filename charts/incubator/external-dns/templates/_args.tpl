@@ -27,8 +27,8 @@ args:
   {{- with .Values.externaldns.txtOwnerId }}
   - --txt-owner-id={{ . }}
   {{- end -}}
-  {{- if .Values.externaldns.txtPrefix }}
-  - --txt-prefix={{ .Values.externaldns.txtPrefix }}
+  {{- with .Values.externaldns.txtPrefix }}
+  - --txt-prefix={{ . }}
   {{- end -}}
   {{- if and (eq .Values.externaldns.txtPrefix "") (ne .Values.externaldns.txtSuffix "") }}
   - --txt-suffix={{ .Values.externaldns.txtSuffix }}
