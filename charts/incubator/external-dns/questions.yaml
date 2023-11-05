@@ -231,33 +231,33 @@ questions:
                     description: ingress
                   - value: service
                     description: service
-#        - variable: domainFilters
-#         label: Domain Filters
-#          description: Limit possible target zones by domain suffixes.
-#          schema:
-#            type: list
-#            default: []
-#            items:
-#              - variable: domainFilterEntry
-#                label: Domain Filter Entry
-#                schema:
-#                  type: string
-#                  default: ""
-#                  required: true
-#        - variable: zoneidFilters
-#          label: Cloudflare DNS Zone Filter (optional)
-#          description: Limit possible target zones by zone IDs. (Optional)
-#          schema:
-#            type: list
-#            show_if: [["provider", "=", "cloudflare"]]
-#            default: []
-#            items:
-#              - variable: zoneidFilterEntry
-#                label: Zone ID Filter Entry
-#                schema:
-#                  type: string
-#                  default: ""
-#                  required: true
+        - variable: domainFilters
+         label: Domain Filters
+          description: Limit possible target zones by domain suffixes.
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: domainFilterEntry
+                label: Domain Filter Entry
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+        - variable: zoneidFilters
+          label: Cloudflare DNS Zone Filter (optional)
+          description: Limit possible target zones by zone IDs. (Optional)
+          schema:
+            type: list
+            show_if: [["provider", "=", "cloudflare"]]
+            default: []
+            items:
+              - variable: zoneidFilterEntry
+                label: Zone ID Filter Entry
+                schema:
+                  type: string
+                  default: ""
+                  required: true
 #        - variable: registry
 #          label: Registry Type
 #          description: Available registry types are txt, noop
