@@ -40,7 +40,7 @@ spec:
     solvers:
     {{- if eq .type "HTTP01" }}
     - http01:
-        ingress:
+        ingress: {}
     {{- else }}
     - dns01:
       {{- if eq .type "cloudflare" }}
