@@ -3,7 +3,7 @@ appVersion: "13.8.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.2.2
+    version: 14.2.3
   - condition: mariadb.enabled
     name: mariadb
     repository: https://deps.truecharts.org/
@@ -27,7 +27,7 @@ sources:
   - http://piwigo.org/
   - https://github.com/linuxserver/docker-piwigo
 type: application
-version: 7.0.13
+version: 7.0.14
 annotations:
   truecharts.org/category: media
   truecharts.org/SCALE-support: "true"

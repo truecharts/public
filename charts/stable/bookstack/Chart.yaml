@@ -3,7 +3,7 @@ appVersion: "23.10.2023"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.2.2
+    version: 14.2.3
   - condition: mariadb.enabled
     name: mariadb
     repository: https://deps.truecharts.org/
@@ -27,7 +27,7 @@ name: bookstack
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/bookstack
   - https://www.bookstackapp.com/
-version: 8.0.7
+version: 8.0.8
 annotations:
   truecharts.org/category: media
   truecharts.org/SCALE-support: "true"

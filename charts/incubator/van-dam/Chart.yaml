@@ -3,7 +3,7 @@ appVersion: "0.53.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.2.2
+    version: 14.2.3
   - condition: redis.enabled
     name: redis
     repository: https://deps.truecharts.org
@@ -25,7 +25,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/van-dam
   - https://github.com/Floppy/van_dam
 type: application
-version: 0.0.4
+version: 0.0.5
 annotations:
   truecharts.org/category: media
   truecharts.org/SCALE-support: "true"

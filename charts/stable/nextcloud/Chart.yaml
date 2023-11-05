@@ -3,7 +3,7 @@ appVersion: "27.1.3"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.2.2
+    version: 14.2.3
   - condition: redis.enabled
     name: redis
     repository: https://deps.truecharts.org
@@ -29,7 +29,7 @@ sources:
   - https://github.com/nextcloud/docker
   - https://github.com/nextcloud/helm
 type: application
-version: 22.1.4
+version: 22.1.5
 annotations:
   truecharts.org/category: cloud
   truecharts.org/SCALE-support: "true"

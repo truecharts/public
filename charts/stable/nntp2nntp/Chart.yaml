@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: nntp2nntp
-version: 6.0.5
+version: 6.0.6
 appVersion: "0.3.202307"
 description: Nntp2nntp proxy allow you to use your NNTP Account from multiple systems, each with own user name and password.
 type: application
@@ -15,7 +15,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.2.2
+    version: 14.2.3
     # condition:
 maintainers:
   - email: info@truecharts.org
