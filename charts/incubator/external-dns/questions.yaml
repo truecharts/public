@@ -43,6 +43,48 @@ questions:
                                         schema:
                                           type: string
                                           default: ""
+                                      - variable: DNSSIMPLE_OAUTH
+                                        label: DNS Simple OAUTH Key
+                                        description:
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: LINODE_TOKEN
+                                        label: Linode PI Key
+                                        description: Needed for read / write access on Linode
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: OVH_APPLICATION_KEY
+                                        label: OVH Application Key
+                                        description: OVH Application Key
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: OVH_APPLICATION_SECRET
+                                        label: OVH Application Secret
+                                        description: OVH Application Secret
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: OVH_CONSUMER_KEY
+                                        label: OVH Consumer Key
+                                        description: Your OVH Consumer key after validated link
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: SCW_ACCESS_KEY
+                                        label: Scaleway Access Key
+                                        description: Your Scaleway Access Key
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: SCW_SECRET_KEY
+                                        label: Scaleway Secret Key
+                                        description: Your Scaleway Secret Key
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerAdvanced}
