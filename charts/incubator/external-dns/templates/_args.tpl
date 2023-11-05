@@ -2,10 +2,10 @@
 args:
   {{- with .Values.externaldns.provider }}
   - --provider={{ . }}
-  {{- end }}
+  {{- end -}}
   {{- with .Values.externaldns.zoneidfilter }}
   - --zone-id-filter={{ . }}
-  {{- end }}
+  {{- end -}}
   {{- with .Values.externaldns.cloudflareproxied }}
   - --cloudflare-proxied={{ tpl . $ }}
   {{- end }}
@@ -14,35 +14,35 @@ args:
   - --interval={{ .Values.externaldns.interval }}
   {{- if .Values.externaldns.triggerLoopOnEvent }}
   - --events
-  {{- end }}
+  {{- end -}}
   {{- range .Values.externaldns.sources }}
   - --source={{ . }}
-  {{- end }}
+  {{- end -}}
   {{- with .Values.externaldns.policy }}
   - --policy={{ . }}
-  {{- end }}
+  {{- end -}}
   {{- with .Values.externaldns.registry }}
   - --registry={{ . }}
-  {{- end }}
+  {{- end -}}
   {{- if .Values.externaldns.txtOwnerId }}
   - --txt-owner-id={{ .Values.externaldns.txtOwnerId }}
-  {{- end }}
+  {{- end -}}
   {{- if .Values.externaldns.txtPrefix }}
   - --txt-prefix={{ .Values.externaldns.txtPrefix }}
-  {{- end }}
+  {{- end -}}
   {{- if and (eq .Values.externaldns.txtPrefix "") (ne .Values.externaldns.txtSuffix "") }}
   - --txt-suffix={{ .Values.externaldns.txtSuffix }}
-  {{- end }}
+  {{- end -}}
   {{- if .Values.externaldns.namespaced }}
   - --namespace={{ .Release.externaldns.Namespace }}
-  {{- end }}
+  {{- end -}}
   {{- range .Values.externaldns.domainFilters }}
   - --domain-filter={{ . }}
-  {{- end }}
+  {{- end -}}
   {{- with .Values.externaldns.piholeserver }}
   - --pihole-server={{ . }}
-  {{- end }}
+  {{- end -}}
   {{- with .Values.externaldns.piholepassword }}
   - --pihole-password={{ . }}
-  {{- end }}
+  {{- end -}}
 {{- end -}}
