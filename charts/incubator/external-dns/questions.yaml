@@ -91,37 +91,37 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-#        - variable: logLevel
-#          label: Log Verbosity Level
-#          description: How description the logs are, from info to debug.
-#          schema:
-#            type: string
-#            required: true
-#            default: info
-#            enum:
-#              - value: info
-#                description: info
-#             - value: warning
-#                description: warning
-#             - value: error
-#               description: error
-#             - value: panic
-#               description: panic
-#             - value: debug
-#               description: debug
-#             - value: fatal
-#               description: fatal
-        - variable: logFormat
-          label: Log Foramt
-          description: Output logs in either text or Json
+        - variable: logLevel
+          label: Log Verbosity Level
+          description: How description the logs are, from info to debug.
           schema:
             type: string
-            default: text
+            required: true
+            default: info
             enum:
-              - value: text
-                description: text
-              - value: json
-                description: json
+              - value: info
+                description: info
+              - value: warning
+                description: warning
+              - value: error
+                description: error
+              - value: panic
+                description: panic
+              - value: debug
+                description: debug
+              - value: fatal
+                description: fatal
+#        - variable: logFormat
+#          label: Log Foramt
+#          description: Output logs in either text or Json
+#          schema:
+#            type: string
+#            default: text
+#            enum:
+#              - value: text
+#                description: text
+#              - value: json
+#                description: json
         - variable: interval
           label: The interval for DNS updates.
           description: How often the DNS will you update your DNS records
