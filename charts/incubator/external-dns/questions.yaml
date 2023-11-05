@@ -151,20 +151,20 @@ questions:
         - variable: sources
           label: "Sources"
           schema:
-          type: list
-          default: ["ingress"]
-          items:
-          - variable: source
-            label: source
-            schema:
-              type: string
-              required: true
-              default: cloudflare
-              enum:
-                - value: ingress
-                  description: ingress
-                - value: service
-                  description: service
+            type: list
+            default: ["ingress"]
+            items:
+            - variable: source
+              label: source
+              schema:
+                type: string
+                required: true
+                default: cloudflare
+                enum:
+                  - value: ingress
+                    description: ingress
+                  - value: service
+                    description: service
         - variable: domainfilter
           label: Domain Filter
           description: Limit possible target zones by domain suffixes.
