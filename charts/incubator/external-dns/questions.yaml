@@ -111,23 +111,23 @@ questions:
                 description: debug
               - value: fatal
                 description: fatal
-#        - variable: logFormat
-#          label: Log Foramt
-#          description: Output logs in either text or Json
-#          schema:
-#            type: string
-#            default: text
-#            enum:
-#              - value: text
-#                description: text
-#              - value: json
-#                description: json
-#        - variable: interval
-#          label: The interval for DNS updates.
-#          description: How often the DNS will you update your DNS records
-#          schema:
-#            type: string
-#            default: 1m
+        - variable: logFormat
+          label: Log Foramt
+          description: Output logs in either text or Json
+          schema:
+            type: string
+            default: text
+            enum:
+              - value: text
+                description: text
+              - value: json
+                description: json
+        - variable: interval
+          label: The interval for DNS updates.
+          description: How often the DNS will you update your DNS records
+          schema:
+            type: string
+            default: 1m
 #        - variable: provider
 #          label: Provider
 #          description: Provider where the upstream DNS records will be created, eg Cloudflare, Digitalocean or things such as pihole. Some providers need additional args set when using them, please refer to upstream documentation for their usage.
