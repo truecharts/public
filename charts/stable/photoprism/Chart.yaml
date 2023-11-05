@@ -3,7 +3,7 @@ appVersion: "231021"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.2.2
+    version: 14.2.3
   - condition: mariadb.enabled
     name: mariadb
     repository: https://deps.truecharts.org/
@@ -25,7 +25,7 @@ name: photoprism
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/photoprism
   - https://github.com/photoprism/photoprism
-version: 16.0.6
+version: 16.0.7
 annotations:
   truecharts.org/category: media
   truecharts.org/SCALE-support: "true"

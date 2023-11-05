@@ -3,11 +3,11 @@ appVersion: "0.22.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.2.2
+    version: 14.2.3
   - condition: redis.enabled
     name: redis
     repository: https://deps.truecharts.org
-    version: 8.0.40
+    version: 8.0.41
 description: Blocky is a DNS proxy, DNS enhancer and ad-blocker for the local network written in Go
 home: https://truecharts.org/charts/enterprise/blocky
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/blocky.png
@@ -25,7 +25,7 @@ sources:
   - https://0xerr0r.github.io/blocky/
   - https://github.com/0xERR0R/blocky
   - https://github.com/Mozart409/blocky-frontend
-version: 9.0.3
+version: 9.0.4
 annotations:
   truecharts.org/category: network
   truecharts.org/SCALE-support: "true"
