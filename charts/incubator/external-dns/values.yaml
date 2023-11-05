@@ -15,12 +15,6 @@ externaldns:
   piholeserver: ""
   piholepassword: ""
 
-securityContext:
-  container:
-    readOnlyRootFilesystem: true
-    capabilities:
-      drop: ["ALL"]
-
 podOptions:
   automountServiceAccountToken: true
 
