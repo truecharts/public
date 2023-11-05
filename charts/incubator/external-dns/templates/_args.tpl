@@ -3,11 +3,11 @@ args:
   {{- with .Values.externaldns.provider }}
   - --provider={{ . }}
   {{- end -}}
-  {{- with .Values.externaldns.zoneidFilter }}
+  {{- with .Values.externaldns.zoneidFilters }}
   - --zone-id-filter={{ . }}
   {{- end -}}
   {{- with .Values.externaldns.cloudflareProxied }}
-  - --cloudflare-proxied={{ tpl . $ }}
+  - --cloudflare-proxied={{ . }}
   {{- end }}
   - --log-level={{ .Values.externaldns.logLevel }}
   - --log-format={{ .Values.externaldns.logFormat }}

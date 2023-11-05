@@ -231,19 +231,33 @@ questions:
                     description: ingress
                   - value: service
                     description: service
-        - variable: domainFilter
-          label: Domain Filter
+        - variable: domainFilters
+          label: Domain Filters
           description: Limit possible target zones by domain suffixes.
           schema:
-            type: string
-            default: ""
-        - variable: zoneidFilter
+            type: list
+            default: []
+            items:
+              - variable: domainFilterEntry
+                label: Domain Filter Entry
+                schema:
+                  type: string
+                  default: ""
+                  required: true
+        - variable: zoneidFilters
           label: Cloudflare DNS Zone Filter (optional)
           description: Limit possible target zones by zone IDs. (Optional)
           schema:
-            type: boolean
+            type: list
             show_if: [["provider", "=", "cloudflare"]]
-            default: "false"
+            default: []
+            items:
+              - variable: zoneidFilterEntry
+                label: Zone ID Filter Entry
+                schema:
+                  type: string
+                  default: ""
+                  required: true
         - variable: registry
           label: Registry Type
           description: 	Available registry types are txt, noop

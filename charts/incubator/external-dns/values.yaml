@@ -11,8 +11,8 @@ externaldns:
   sources:
     - "service"
     - "ingress"
-  domainFilter: "example.com"
-  zoneidFilter: ""
+  domainFilters: []
+  zoneidFilters: []
   cloudflareProxied: ""
   registry: "txt"
   policy: ""
