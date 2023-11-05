@@ -159,7 +159,7 @@ questions:
               schema:
                 type: string
                 required: true
-                default: cloudflare
+                default: ingress
                 enum:
                   - value: ingress
                     description: ingress
@@ -215,7 +215,7 @@ questions:
             show_if: [["provider", "=", "pihole"]]
             private: true
             default: ""
-            
+
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
 # Include{serviceList}
