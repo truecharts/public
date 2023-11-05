@@ -12,6 +12,25 @@ questions:
 # Include{containerMain}
 
 
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Provider Credentials"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: CF_API_KEY
+                                        label: Cloudflare API Key
+                                        description: Cloudflare API Key if not using the preferred API Token
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: CF_API_EMAIL
+                                        label: Cloudflare API Email
+                                        description: Cloudflare API email if not using the preferred API Token
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerAdvanced}
