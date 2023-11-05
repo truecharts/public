@@ -60,10 +60,89 @@ questions:
             default: 1m
         - variable: provider
           label: Provider
-          description: Provider where the upstream DNS records will be created, eg Cloudflare, Digitalocean or things such as pihole. For others refer to upstream documents
+          description: Provider where the upstream DNS records will be created, eg Cloudflare, Digitalocean or things such as pihole. Some providers need additional args set when using them, please refer to upstream documentation for their usage.
           schema:
             type: string
             default: cloudflare
+              enum:
+                - value: akamai
+                  description: akamai
+                - value: alibabacloud
+                  description: alibabacloud
+                - value: aws
+                  description: aws
+                - value: aws-sd
+                  description: aws-sd
+                - value: azure
+                  description: azure
+                - value: azure-dns
+                  description: azure-dns
+                - value: azure-private-dns
+                  description: azure-private-dns
+                - value: bluecat
+                  description: bluecat
+                - value: civo
+                  description: civo
+                - value: cloudflare
+                  description: cloudflare
+                - value: coredns
+                  description: coredns
+                - value: designate
+                  description: designate
+                - value: digitalocean
+                  description: digitalocean
+                - value: dnsimple
+                  description: dnsimple
+                - value: dyn
+                  description: dyn
+                - value: exoscale
+                  description: exoscale
+                - value: gandi
+                  description: gandi
+                - value: godaddy
+                  description: godaddy
+                - value: google
+                  description: google
+                - value: ibmcloud
+                  description: ibmcloud
+                - value: infoblox
+                  description: infoblox
+                - value: inmemory
+                  description: inmemory
+                - value: linode
+                  description: linode
+                - value: ns1
+                  description: ns1
+                - value: oci
+                  description: oci
+                - value: pdns
+                  description: pdns
+                - value: pihole
+                  description: pihole
+                - value: plural
+                  description: plural
+                - value: rcodezero
+                  description: rcodezero
+                - value: rdns
+                  description: rdns
+                - value: rfc2136
+                  description: rfc2136
+                - value: safedns
+                  description: safedns
+                - value: scaleway
+                  description: scaleway
+                - value: skydns
+                  description: skydns
+                - value: tencentcloud
+                  description: tencentcloud
+                - value: transip
+                  description: transip
+                - value: ultradns
+                  description: ultradns
+                - value: vinyldns
+                  description: vinyldns
+                - value: vultr
+                  description: vultr
         - variable: domainfilter
           label: Domain Filter
           description: Limit possible target zones by domain suffixes.
