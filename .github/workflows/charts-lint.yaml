@@ -47,6 +47,11 @@ jobs:
         run: |
           pip3 install --no-cache-dir pre-commit yamale yamllint
 
+      - name: Install Helm
+        uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # v3
+        with:
+          version: latest
+
       - name: Prep Helm
         run: |
           helm repo add truecharts https://charts.truecharts.org
