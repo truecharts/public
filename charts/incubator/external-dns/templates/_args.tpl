@@ -24,8 +24,8 @@ args:
   {{- with .Values.externaldns.registry }}
   - --registry={{ . }}
   {{- end -}}
-  {{- if .Values.externaldns.txtOwnerId }}
-  - --txt-owner-id={{ .Values.externaldns.txtOwnerId }}
+  {{- with .Values.externaldns.txtOwnerId }}
+  - --txt-owner-id={{ . }}
   {{- end -}}
   {{- if .Values.externaldns.txtPrefix }}
   - --txt-prefix={{ .Values.externaldns.txtPrefix }}
