@@ -8,13 +8,13 @@ externaldns:
   logFormat: "text"
   interval: "1m"
   provider: "inmemory"
-  sources: 
+  sources:
     - "service"
     - "ingress"
   domainfilter: "example.com"
   zoneidfilter: ""
   cloudflareproxied: ""
-  registry: ""
+  registry: "txt"
   policy: ""
   piholeserver: ""
   piholepassword: ""

@@ -14,7 +14,118 @@ questions:
 
 # Include{containerBasic}
 # Include{containerAdvanced}
-
+# Include{containerAdvanced}
+  - variable: externaldns
+    group: App Configuration
+    label: External-DNS Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: logLevel
+          label: Log Verbosity Level
+          description: How description the logs are, from info to debug.
+          schema:
+            type: string
+            default: info
+              enum:
+                - value: info
+                  description: info
+                - value: warning
+                  description: warning
+                - value: error
+                  description: error
+                - value: panic
+                  description: panic
+                - value: debug
+                  description: debug
+                - value: fatal
+                  description: fatal
+        - variable: logFormat
+          label: Log Foramt
+          description: Output logs in either text or Json
+          schema:
+            type: string
+            default: text
+              enum:
+                - value: text
+                  description: text
+                - value: json
+                  description: json
+        - variable: interval
+          label: The interval for DNS updates.
+          description: How often the DNS will you update your DNS records
+          schema:
+            type: string
+            default: 1m
+        - variable: provider
+          label: DNS Provider
+          description: DNS provider where the DNS records will be created, eg Cloudflare, Digitalocean or things such as pihole. For others refer to upstream documents
+          schema:
+            type: string
+            default: cloudflare
+        - variable: domainfilter
+          label: Domain Filter
+          description: Limit possible target zones by domain suffixes.
+          schema:
+            type: string
+            default: ""
+        - variable: zoneidfilter
+          label: Cloudflare DNS Zone Filter (optional)
+          description: Limit possible target zones by zone IDs. (Optional)
+          schema:
+            type: boolean
+            show_if: [["provider", "=", "cloudflare"]]
+            default: "false"
+        - variable: registry
+          label: Registry Type
+          description: 	Available registry types are txt, noop
+          schema:
+            type: string
+            default: txt
+              enum:
+                - value: txt
+                  description: text
+                - value: noop
+                  description: noop
+        - variable: policy
+          label: DNS Synchronization Policy
+          description: 	How DNS records are synchronized between sources and providers
+          schema:
+            type: string
+            default: upsert-only
+              enum:
+                - value: upsert-only
+                  description: upsert-only
+                - value: sync
+                  description: sync
+        - variable: piholeserver
+          label: Pi-Hole Server Address
+          description: Actual adresss/FQDN of your Pi-Hole install, such as pihole-web.pihole.svc.cluster.local,
+          schema:
+            type: string
+            show_if: [["provider", "=", "pihole"]]
+            default: ""
+        - variable: piholepassword
+          label: Pi-Hole Server Passowrd
+          description: Password for Pi-Hole
+          schema:
+            type: string
+            show_if: [["provider", "=", "pihole"]]
+            private: true
+            default: ""
+        - variable: hide_labels
+          label: Hide Labels
+          description: Hides containers with a specific label in the UI. Format "label=value"
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: label
+                label: Label
+                schema:
+                  type: string
+                  default: ""
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceExpertRoot}
