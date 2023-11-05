@@ -19,8 +19,6 @@ externaldns:
   piholeserver: ""
   piholepassword: ""
 
-podOptions:
-  automountServiceAccountToken: true
 
 service:
   main:
@@ -43,16 +41,16 @@ workload:
             startup:
               path: "/healthz"
           env:
-            CF_API_KEY: "YOUR_CLOUDFLARE_API_KEY"
-            CF_API_EMAIL: "YOUR_CLOUDFLARE_EMAIL"
-            DO_TOKEN: "YOUR_DIGITALOCEAN_API_KEY"
-            DNSIMPLE_OAUTH: "YOUR_DNSIMPLE_API_KEY"
-            LINODE_TOKEN: "YOUR_LINODE_API_KEY"
-            OVH_APPLICATION_KEY: "YOUR_OVH_APPLICATION_KEY"
-            OVH_APPLICATION_SECRET: "YOUR_OVH_APPLICATION_SECRET"
-            OVH_CONSUMER_KEY: "YOUR_OVH_CONSUMER_KEY_AFTER_VALIDATED_LINK"
-            SCW_ACCESS_KEY: "<your access key>"
-            SCW_SECRET_KEY: "<your secret key>"
+            CF_API_KEY: ""
+            CF_API_EMAIL: ""
+            DO_TOKEN: ""
+            DNSIMPLE_OAUTH: ""
+            LINODE_TOKEN: ""
+            OVH_APPLICATION_KEY: ""
+            OVH_APPLICATION_SECRET: ""
+            OVH_CONSUMER_KEY: ""
+            SCW_ACCESS_KEY: ""
+            SCW_SECRET_KEY: ""
 
 # -- Whether Role Based Access Control objects like roles and rolebindings should be created
 rbac:
@@ -141,6 +139,8 @@ serviceAccount:
     enabled: true
     primary: true
 
+podOptions:
+  automountServiceAccountToken: true
 
 portal:
   open:
