@@ -101,7 +101,7 @@
                 schema:
                   type: list
                   default: []
-                  show_if: [["clusterIssuer", "=", ""]]
+                  show_if: [["certificateIssuer", "=", ""]]
                   items:
                     - variable: tlsEntry
                       label: Host
@@ -130,7 +130,7 @@
                           - variable: scaleCert
                             label: Use TrueNAS SCALE Certificate (Deprecated)
                             schema:
-                              show_if: [["clusterIssuer", "=", ""]]
+                              show_if: [["certificateIssuer", "=", ""]]
                               type: int
                               $ref:
                                 - "definitions/certificate"
@@ -139,13 +139,13 @@
                             description: 'Add the name of your cluster-wide certificate, that you set up in the ClusterIssuer chart.'
                             schema:
                               type: string
-                              show_if: [["clusterIssuer", "=", ""]]
+                              show_if: [["certificateIssuer", "=", ""]]
                               default: ""
                           - variable: secretName
                             label: Use Custom Secret (Advanced)
                             schema:
                               type: string
-                              show_if: [["clusterIssuer", "=", ""]]
+                              show_if: [["certificateIssuer", "=", ""]]
                               default: ""
               - variable: entrypoint
                 label: Traefik Entrypoint
