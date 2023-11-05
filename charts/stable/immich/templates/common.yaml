@@ -42,7 +42,7 @@
 {{/* Set targetselector for GPU to microservices */}}
 {{- range $gpuEntry := .Values.scaleGPU }}
   {{- if $gpuEntry.gpu -}}
-    {{- $_ := set $gpuEntry.gpu "targetSelector" (dict "microservices" (list "microservices")) -}}
+    {{- $_ := set $gpuEntry "targetSelector" (dict "microservices" (list "microservices")) -}}
   {{- end -}}
 {{- end -}}
 
