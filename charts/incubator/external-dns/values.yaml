@@ -1,7 +1,7 @@
 image:
-  repository: registry.k8s.io/external-dns/external-dns
+  repository: tccr.io/truecharts/external-dns
   pullPolicy: IfNotPresent
-  tag: v0.13.6
+  tag: v0.13.6@sha256:78c942addf7fbc79c384e55bed9a886706c748d744cedf6214d4a50dd7b76d54
 
 externaldns:
   logLevel: "info"
