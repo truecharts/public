@@ -280,6 +280,24 @@ questions:
                 description: upsert-only
               - value: sync
                 description: sync
+        - variable: txtOwnerId
+          label: txt Owner Id
+          description: TXT registry identifier.
+          schema:
+            type: string
+            default: ""
+        - variable: txtPrefix
+          label: txtPrefix
+          description: Prefix to create a TXT record with a name following the pattern prefix.<CNAME record>
+          schema:
+            type: string
+            default: ""
+        - variable: txtSuffix
+          label: txtSuffix
+          description: TXT Suffix to attach
+          schema:
+            type: string
+            default: ""
         - variable: piholeServer
           label: Pi-Hole Server Address
           description: Actual adresss/FQDN of your Pi-Hole install, such as pihole-web.pihole.svc.cluster.local,
