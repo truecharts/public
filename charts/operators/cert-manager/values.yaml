@@ -23,7 +23,7 @@ operator:
 
 certmanager:
   dns01RecursiveNameservers: "1.1.1.1:53,1.0.0.1:53"
-  # Delete cert secret on CR deletion
+  installCRDs: true
   enableCertificateOwnerRef: true
 
 metrics:
