@@ -43,6 +43,7 @@ jobs:
             - 'charts/core/**'
             - 'charts/enterprise/**'
             - 'charts/games/**'
+            - 'charts/operators/**'
       - name: Filter filter-output
         run: echo '${{ toJson(steps.filter.outputs) }}' > changes.json
 
