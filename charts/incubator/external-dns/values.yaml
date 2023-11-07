@@ -44,6 +44,7 @@ workload:
             startup:
               path: "/healthz"
           env:
+            CF_API_TOKEN: ""
             CF_API_KEY: ""
             CF_API_EMAIL: ""
             DO_TOKEN: ""
