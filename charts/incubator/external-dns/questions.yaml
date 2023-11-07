@@ -15,6 +15,12 @@ questions:
                                     additional_attrs: true
                                     type: dict
                                     attrs:
+                                      - variable: CF_API_TOKEN
+                                        label: Cloudflare API Token (preferred)
+                                        description: Cloudflare API Token, optimal when using with Cloudflare
+                                        schema:
+                                          type: string
+                                          default: ""
                                       - variable: CF_API_KEY
                                         label: Cloudflare API Key
                                         description: Cloudflare API Key if not using the preferred API Token
