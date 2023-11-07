@@ -27,7 +27,7 @@ webhooks:
       path: /mutate-postgresql-cnpg-io-v1-backup
       port: 443
   failurePolicy: {{ .Values.webhook.mutating.failurePolicy }}
-  name: mbackup.kb.io
+  name: mbackup.cnpg.io
   rules:
   - apiGroups:
     - postgresql.cnpg.io
@@ -48,7 +48,7 @@ webhooks:
       path: /mutate-postgresql-cnpg-io-v1-cluster
       port: 443
   failurePolicy: {{ .Values.webhook.mutating.failurePolicy }}
-  name: mcluster.kb.io
+  name: mcluster.cnpg.io
   rules:
   - apiGroups:
     - postgresql.cnpg.io
@@ -69,7 +69,7 @@ webhooks:
       path: /mutate-postgresql-cnpg-io-v1-scheduledbackup
       port: 443
   failurePolicy: {{ .Values.webhook.mutating.failurePolicy }}
-  name: mscheduledbackup.kb.io
+  name: mscheduledbackup.cnpg.io
   rules:
   - apiGroups:
     - postgresql.cnpg.io
