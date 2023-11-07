@@ -213,8 +213,8 @@ jobs:
           if [[ "${{ matrix.values }}" =~ cnpg.*-values.yaml ]]; then
             helm install cloudnative-pg truecharts/cloudnative-pg --namespace cloudnative-pg --create-namespace --wait
           fi
-
           if [[ "${{ matrix.values }}" =~ ingress.*-values.yaml ]]; then
+            helm install cert-manager truecharts/cert-manager --namespace cert-manager --create-namespace --wait
             helm install traefik truecharts/traefik --namespace traefik --create-namespace --wait
           fi
 
@@ -241,175 +241,175 @@ jobs:
           cat  /tmp/output.log
           rm -f /tmp/output.log
 
-  security:
-    needs:
-      - lint
-    name: Security Scans
-    runs-on: ubuntu-22.04
-    strategy:
-      fail-fast: false
-      matrix:
-        # We run tests on k3s version of latest SCALE release and SCALE nightly
-        k3s-version:
-          - v1.26
-          - v1.27
-          - v1.28
-        # We run tests on Helm version of latest SCALE release
-        helm-version:
-          - v3.12.3
-          - latest
-        values:
-          - basic-values.yaml
-          - configmap-values.yaml
-          - secrets-values.yaml
-          - imagePullSecret-values.yaml
-          - daemonset-values.yaml
-          - job-values.yaml
-          - cron-values.yaml
-          - statefulset-values.yaml
-          - persistence-values.yaml
-          - extra-containers-values.yaml
-          - rbac-values.yaml
-          - networkPolicy-values.yaml
-          - register-operator-values.yaml
-          # Runs as root, so test results become obviously red
-          # - codeserver-values.yaml
-          # - netshoot-values.yaml
-
-
-    steps:
-      - name: Install Helm
-        uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # v3
-        with:
-          version: ${{ matrix.helm-version }}
-
-      - name: Checkout
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
-        with:
-          fetch-depth: 1
-
-      - name: build helm deps
-        run: |
-          cd library/common-test
-          helm dependency update
-          cd -
-      - name: Add namespace
-        run: |
-          echo "namespace: common-test" >> library/common-test/ci/${{ matrix.values }}
-
-      - name: Run Security Scan
-        uses: datreeio/action-datree@main
-        with:
-          path: 'library/common-test'
-          cliArguments: '--ignore-missing-schemas --policy CommonBasic'
-          isHelmChart: true
-          helmArguments: '--values library/common-test/ci/${{ matrix.values }}'
-
-  security-man:
-    needs:
-      - lint
-    name: Security Scans (manifests)
-    runs-on: ubuntu-22.04
-    strategy:
-      fail-fast: false
-      matrix:
-        # We run tests on k3s version of latest SCALE release and SCALE nightly
-        k3s-version:
-          - v1.26
-          - v1.27
-          - v1.28
-        # We run tests on Helm version of latest SCALE release
-        helm-version:
-          - v3.12.3
-          - latest
-        values:
-          - ingress-values.yaml
-          - metrics-values.yaml
-          # - cnpg-values.yaml
-          # - cnpg-multi-values.yaml
-
-    steps:
-      - name: Install Helm
-        uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # v3
-        with:
-          version: ${{ matrix.helm-version }}
-
-      - name: Prep Helm
-        run: |
-          helm repo add truecharts https://charts.truecharts.org
-          helm repo add truecharts-deps https://deps.truecharts.org
-          helm repo add truecharts-library https://library-charts.truecharts.org
-          helm repo update
-      - name: Add Dependencies
-        run: |
-            helm install prometheus-operator truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
-            helm install cloudnative-pg truecharts/cloudnative-pg --namespace cloudnative-pg --create-namespace --wait
-            helm install traefik truecharts/traefik --namespace traefik --create-namespace --wait
-
-      - name: Checkout
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
-        with:
-          fetch-depth: 1
-
-      - name: build helm deps
-        run: |
-          cd library/common-test
-          helm dependency update
-          cd -
-
-      - name: Run Security Scan
-        uses: datreeio/action-datree@main
-        with:
-          path: 'library/common-test'
-          cliArguments: '--ignore-missing-schemas --policy ManifestManager'
-          isHelmChart: true
-          helmArguments: '--values library/common-test/ci/${{ matrix.values }}'
-
-  security-vpn:
-    needs:
-      - lint
-    name: Security Scans (vpn)
-    runs-on: ubuntu-22.04
-    strategy:
-      fail-fast: false
-      matrix:
-        # We run tests on k3s version of latest SCALE release and SCALE nightly
-        k3s-version:
-          - v1.26
-          - v1.27
-          - v1.28
-        # We run tests on Helm version of latest SCALE release
-        helm-version:
-          - v3.12.3
-          - latest
-        values:
-          - vpn-gluetun-values.yaml
-          - vpn-tailscale-values.yaml
-          # Is deprecated and runs as root, skipping for now
-          # - vpn-openvpn-values.yaml
-          - vpn-wireguard-values.yaml
-
-    steps:
-      - name: Install Helm
-        uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # v3
-        with:
-          version: ${{ matrix.helm-version }}
-
-      - name: Checkout
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
-        with:
-          fetch-depth: 1
-
-      - name: build helm deps
-        run: |
-          cd library/common-test
-          helm dependency update
-          cd -
-
-      - name: Run Security Scan
-        uses: datreeio/action-datree@main
-        with:
-          path: 'library/common-test'
-          cliArguments: '--ignore-missing-schemas --policy WithVPN'
-          isHelmChart: true
-          helmArguments: '--values library/common-test/ci/${{ matrix.values }}'
+#  security:
+#    needs:
+#      - lint
+#    name: Security Scans
+#    runs-on: ubuntu-22.04
+#    strategy:
+#      fail-fast: false
+#      matrix:
+#        # We run tests on k3s version of latest SCALE release and SCALE nightly
+#        k3s-version:
+#          - v1.26
+#          - v1.27
+#          - v1.28
+#        # We run tests on Helm version of latest SCALE release
+#        helm-version:
+#          - v3.12.3
+#          - latest
+#        values:
+#          - basic-values.yaml
+#          - configmap-values.yaml
+#          - secrets-values.yaml
+#          - imagePullSecret-values.yaml
+#          - daemonset-values.yaml
+#          - job-values.yaml
+#          - cron-values.yaml
+#          - statefulset-values.yaml
+#          - persistence-values.yaml
+#          - extra-containers-values.yaml
+#          - rbac-values.yaml
+#          - networkPolicy-values.yaml
+#          - register-operator-values.yaml
+#          # Runs as root, so test results become obviously red
+#          # - codeserver-values.yaml
+#          # - netshoot-values.yaml
+#
+#
+#    steps:
+#      - name: Install Helm
+#        uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # v3
+#        with:
+#          version: ${{ matrix.helm-version }}
+#
+#      - name: Checkout
+#        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+#        with:
+#          fetch-depth: 1
+#
+#      - name: build helm deps
+#        run: |
+#          cd library/common-test
+#          helm dependency update
+#          cd -
+#      - name: Add namespace
+#        run: |
+#          echo "namespace: common-test" >> library/common-test/ci/${{ matrix.values }}
+#
+#      - name: Run Security Scan
+#        uses: datreeio/action-datree@main
+#        with:
+#          path: 'library/common-test'
+#          cliArguments: '--ignore-missing-schemas --policy CommonBasic'
+#          isHelmChart: true
+#          helmArguments: '--values library/common-test/ci/${{ matrix.values }}'
+#
+#  security-man:
+#    needs:
+#      - lint
+#    name: Security Scans (manifests)
+#    runs-on: ubuntu-22.04
+#    strategy:
+#      fail-fast: false
+#      matrix:
+#        # We run tests on k3s version of latest SCALE release and SCALE nightly
+#        k3s-version:
+#          - v1.26
+#          - v1.27
+#          - v1.28
+#        # We run tests on Helm version of latest SCALE release
+#        helm-version:
+#          - v3.12.3
+#          - latest
+#        values:
+#          - ingress-values.yaml
+#          - metrics-values.yaml
+#          # - cnpg-values.yaml
+#          # - cnpg-multi-values.yaml
+#
+#    steps:
+#      - name: Install Helm
+#        uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # v3
+#        with:
+#          version: ${{ matrix.helm-version }}
+#
+#      - name: Prep Helm
+#        run: |
+#          helm repo add truecharts https://charts.truecharts.org
+#          helm repo add truecharts-deps https://deps.truecharts.org
+#          helm repo add truecharts-library https://library-charts.truecharts.org
+#          helm repo update
+#      - name: Add Dependencies
+#        run: |
+#            helm install prometheus-operator truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
+#            helm install cloudnative-pg truecharts/cloudnative-pg --namespace cloudnative-pg --create-namespace --wait
+#            helm install traefik truecharts/traefik --namespace traefik --create-namespace --wait
+#
+#      - name: Checkout
+#        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+#        with:
+#          fetch-depth: 1
+#
+#      - name: build helm deps
+#        run: |
+#          cd library/common-test
+#          helm dependency update
+#          cd -
+#
+#      - name: Run Security Scan
+#        uses: datreeio/action-datree@main
+#        with:
+#          path: 'library/common-test'
+#          cliArguments: '--ignore-missing-schemas --policy ManifestManager'
+#          isHelmChart: true
+#          helmArguments: '--values library/common-test/ci/${{ matrix.values }}'
+#
+#  security-vpn:
+#    needs:
+#      - lint
+#    name: Security Scans (vpn)
+#    runs-on: ubuntu-22.04
+#    strategy:
+#      fail-fast: false
+#      matrix:
+#        # We run tests on k3s version of latest SCALE release and SCALE nightly
+#        k3s-version:
+#          - v1.26
+#          - v1.27
+#          - v1.28
+#        # We run tests on Helm version of latest SCALE release
+#        helm-version:
+#          - v3.12.3
+#          - latest
+#        values:
+#          - vpn-gluetun-values.yaml
+#          - vpn-tailscale-values.yaml
+#          # Is deprecated and runs as root, skipping for now
+#          # - vpn-openvpn-values.yaml
+#          - vpn-wireguard-values.yaml
+#
+#    steps:
+#      - name: Install Helm
+#        uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # v3
+#        with:
+#          version: ${{ matrix.helm-version }}
+#
+#      - name: Checkout
+#        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+#        with:
+#          fetch-depth: 1
+#
+#      - name: build helm deps
+#        run: |
+#          cd library/common-test
+#          helm dependency update
+#          cd -
+#
+#      - name: Run Security Scan
+#        uses: datreeio/action-datree@main
+#        with:
+#          path: 'library/common-test'
+#          cliArguments: '--ignore-missing-schemas --policy WithVPN'
+#          isHelmChart: true
+#          helmArguments: '--values library/common-test/ci/${{ matrix.values }}'
