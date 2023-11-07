@@ -97,326 +97,336 @@ rbac:
     clusterWide: true
     rules:
       - apiGroups:
-          - ""
+        - ""
         resources:
-          - configmaps
+        - configmaps
         verbs:
-          - create
-          - delete
-          - get
-          - list
-          - patch
-          - update
-          - watch
+        - create
+        - delete
+        - get
+        - list
+        - patch
+        - update
+        - watch
       - apiGroups:
-          - ""
+        - ""
         resources:
-          - configmaps/status
+        - configmaps/status
         verbs:
-          - get
-          - patch
-          - update
+        - get
+        - patch
+        - update
       - apiGroups:
-          - ""
+        - ""
         resources:
-          - events
+        - events
         verbs:
-          - create
-          - patch
+        - create
+        - patch
       - apiGroups:
-          - ""
+        - ""
         resources:
-          - namespaces
+        - namespaces
         verbs:
-          - get
-          - list
-          - watch
+        - get
+        - list
+        - watch
       - apiGroups:
-          - ""
+        - ""
         resources:
-          - nodes
+        - nodes
         verbs:
-          - get
-          - list
-          - watch
+        - get
+        - list
+        - watch
       - apiGroups:
-          - ""
+        - ""
         resources:
-          - persistentvolumeclaims
+        - persistentvolumeclaims
         verbs:
-          - create
-          - delete
-          - get
-          - list
-          - patch
-          - watch
+        - create
+        - delete
+        - get
+        - list
+        - patch
+        - watch
       - apiGroups:
-          - ""
+        - ""
         resources:
-          - pods
+        - pods
         verbs:
-          - create
-          - delete
-          - get
-          - list
-          - patch
-          - watch
+        - create
+        - delete
+        - get
+        - list
+        - patch
+        - watch
       - apiGroups:
-          - ""
+        - ""
         resources:
-          - pods/exec
+        - pods/exec
         verbs:
-          - create
-          - delete
-          - get
-          - list
-          - patch
-          - watch
+        - create
+        - delete
+        - get
+        - list
+        - patch
+        - watch
       - apiGroups:
-          - ""
+        - ""
         resources:
-          - pods/status
+        - pods/status
         verbs:
-          - get
+        - get
       - apiGroups:
-          - ""
+        - ""
         resources:
-          - secrets
+        - secrets
         verbs:
-          - create
-          - delete
-          - get
-          - list
-          - patch
-          - update
-          - watch
+        - create
+        - delete
+        - get
+        - list
+        - patch
+        - update
+        - watch
       - apiGroups:
-          - ""
+        - ""
         resources:
-          - secrets/status
+        - secrets/status
         verbs:
-          - get
-          - patch
-          - update
+        - get
+        - patch
+        - update
       - apiGroups:
-          - ""
+        - ""
         resources:
-          - serviceaccounts
+        - serviceaccounts
         verbs:
-          - create
-          - get
-          - list
-          - patch
-          - update
-          - watch
+        - create
+        - get
+        - list
+        - patch
+        - update
+        - watch
       - apiGroups:
-          - ""
+        - ""
         resources:
-          - services
+        - services
         verbs:
-          - create
-          - delete
-          - get
-          - list
-          - patch
-          - update
-          - watch
+        - create
+        - delete
+        - get
+        - list
+        - patch
+        - update
+        - watch
       - apiGroups:
-          - admissionregistration.k8s.io
+        - admissionregistration.k8s.io
         resources:
-          - mutatingwebhookconfigurations
+        - mutatingwebhookconfigurations
         verbs:
-          - get
-          - list
-          - patch
-          - update
+        - get
+        - list
+        - patch
+        - update
       - apiGroups:
-          - admissionregistration.k8s.io
+        - admissionregistration.k8s.io
         resources:
-          - validatingwebhookconfigurations
+        - validatingwebhookconfigurations
         verbs:
-          - get
-          - list
-          - patch
-          - update
+        - get
+        - list
+        - patch
+        - update
       - apiGroups:
-          - apiextensions.k8s.io
+        - apiextensions.k8s.io
         resources:
-          - customresourcedefinitions
+        - customresourcedefinitions
         verbs:
-          - get
-          - list
-          - update
+        - get
+        - list
+        - update
       - apiGroups:
-          - apps
+        - apps
         resources:
-          - deployments
+        - deployments
         verbs:
-          - create
-          - delete
-          - get
-          - list
-          - patch
-          - update
-          - watch
+        - create
+        - delete
+        - get
+        - list
+        - patch
+        - update
+        - watch
       - apiGroups:
-          - batch
+        - batch
         resources:
-          - jobs
+        - jobs
         verbs:
-          - create
-          - delete
-          - get
-          - list
-          - patch
-          - watch
+        - create
+        - delete
+        - get
+        - list
+        - patch
+        - watch
       - apiGroups:
-          - coordination.k8s.io
+        - coordination.k8s.io
         resources:
-          - leases
+        - leases
         verbs:
-          - create
-          - get
-          - update
+        - create
+        - get
+        - update
       - apiGroups:
-          - monitoring.coreos.com
+        - monitoring.coreos.com
         resources:
-          - podmonitors
+        - podmonitors
         verbs:
-          - create
-          - delete
-          - get
-          - list
-          - patch
-          - watch
+        - create
+        - delete
+        - get
+        - list
+        - patch
+        - watch
       - apiGroups:
-          - policy
+        - policy
         resources:
-          - poddisruptionbudgets
+        - poddisruptionbudgets
         verbs:
-          - create
-          - delete
-          - get
-          - list
-          - patch
-          - update
-          - watch
+        - create
+        - delete
+        - get
+        - list
+        - patch
+        - update
+        - watch
       - apiGroups:
-          - postgresql.cnpg.io
+        - postgresql.cnpg.io
         resources:
-          - backups
+        - backups
         verbs:
-          - create
-          - delete
-          - get
-          - list
-          - patch
-          - update
-          - watch
+        - create
+        - delete
+        - get
+        - list
+        - patch
+        - update
+        - watch
       - apiGroups:
-          - postgresql.cnpg.io
+        - postgresql.cnpg.io
         resources:
-          - backups/status
+        - backups/status
         verbs:
-          - get
-          - patch
-          - update
+        - get
+        - patch
+        - update
       - apiGroups:
-          - postgresql.cnpg.io
+        - postgresql.cnpg.io
         resources:
-          - clusters
+        - clusters
         verbs:
-          - create
-          - delete
-          - get
-          - list
-          - patch
-          - update
-          - watch
+        - create
+        - delete
+        - get
+        - list
+        - patch
+        - update
+        - watch
       - apiGroups:
-          - postgresql.cnpg.io
+        - postgresql.cnpg.io
         resources:
-          - clusters/finalizers
+        - clusters/finalizers
         verbs:
-          - update
+        - update
       - apiGroups:
-          - postgresql.cnpg.io
+        - postgresql.cnpg.io
         resources:
-          - clusters/status
+        - clusters/status
         verbs:
-          - get
-          - patch
-          - update
-          - watch
+        - get
+        - patch
+        - update
+        - watch
       - apiGroups:
-          - postgresql.cnpg.io
+        - postgresql.cnpg.io
         resources:
-          - poolers
+        - poolers
         verbs:
-          - create
-          - delete
-          - get
-          - list
-          - patch
-          - update
-          - watch
+        - create
+        - delete
+        - get
+        - list
+        - patch
+        - update
+        - watch
       - apiGroups:
-          - postgresql.cnpg.io
+        - postgresql.cnpg.io
         resources:
-          - poolers/finalizers
+        - poolers/finalizers
         verbs:
-          - update
+        - update
       - apiGroups:
-          - postgresql.cnpg.io
+        - postgresql.cnpg.io
         resources:
-          - poolers/status
+        - poolers/status
         verbs:
-          - get
-          - patch
-          - update
-          - watch
+        - get
+        - patch
+        - update
+        - watch
       - apiGroups:
-          - postgresql.cnpg.io
+        - postgresql.cnpg.io
         resources:
-          - scheduledbackups
+        - scheduledbackups
         verbs:
-          - create
-          - delete
-          - get
-          - list
-          - patch
-          - update
-          - watch
+        - create
+        - delete
+        - get
+        - list
+        - patch
+        - update
+        - watch
       - apiGroups:
-          - postgresql.cnpg.io
+        - postgresql.cnpg.io
         resources:
-          - scheduledbackups/status
+        - scheduledbackups/status
         verbs:
-          - get
-          - patch
-          - update
+        - get
+        - patch
+        - update
       - apiGroups:
-          - rbac.authorization.k8s.io
+        - rbac.authorization.k8s.io
         resources:
-          - rolebindings
+        - rolebindings
         verbs:
-          - create
-          - get
-          - list
-          - patch
-          - update
-          - watch
+        - create
+        - get
+        - list
+        - patch
+        - update
+        - watch
       - apiGroups:
-          - rbac.authorization.k8s.io
+        - rbac.authorization.k8s.io
         resources:
-          - roles
+        - roles
         verbs:
-          - create
-          - get
-          - list
-          - patch
-          - update
-          - watch
+        - create
+        - get
+        - list
+        - patch
+        - update
+        - watch
+      - apiGroups:
+        - snapshot.storage.k8s.io
+        resources:
+        - volumesnapshots
+        verbs:
+        - create
+        - get
+        - list
+        - patch
+        - watch
 
 serviceAccount:
   main:
@@ -488,7 +498,7 @@ configmap:
             - max_tx_duration_seconds:
                 usage: "GAUGE"
                 description: "Maximum duration of a transaction in seconds"
-
+      
         backends_waiting:
           query: |
            SELECT count(*) AS total
@@ -511,7 +521,7 @@ configmap:
             - total:
                 usage: "GAUGE"
                 description: "Total number of backends that are currently waiting on other queries"
-
+      
         pg_database:
           query: |
             SELECT datname
@@ -532,7 +542,7 @@ configmap:
             - mxid_age:
                 usage: "GAUGE"
                 description: "Number of multiple transactions (Multixact) from the frozen XID to the current one"
-
+      
         pg_postmaster:
           query: |
             SELECT EXTRACT(EPOCH FROM pg_postmaster_start_time) AS start_time
@@ -541,16 +551,18 @@ configmap:
             - start_time:
                 usage: "GAUGE"
                 description: "Time at which postgres started (based on epoch)"
-
+      
         pg_replication:
-          query: "SELECT CASE WHEN NOT pg_catalog.pg_is_in_recovery()
+          query: "SELECT CASE WHEN (
+                    NOT pg_catalog.pg_is_in_recovery()
+                    OR pg_catalog.pg_last_wal_receive_lsn() = pg_catalog.pg_last_wal_replay_lsn())
                   THEN 0
                   ELSE GREATEST (0,
                     EXTRACT(EPOCH FROM (now() - pg_catalog.pg_last_xact_replay_timestamp())))
                   END AS lag,
                   pg_catalog.pg_is_in_recovery() AS in_recovery,
                   EXISTS (TABLE pg_stat_wal_receiver) AS is_wal_receiver_up,
-                  (SELECT count(*) FROM pg_stat_replication) AS streaming_replicas"
+                  (SELECT count(*) FROM pg_catalog.pg_stat_replication) AS streaming_replicas"
           metrics:
             - lag:
                 usage: "GAUGE"
@@ -564,14 +576,17 @@ configmap:
             - streaming_replicas:
                 usage: "GAUGE"
                 description: "Number of streaming replicas connected to the instance"
-
+      
         pg_replication_slots:
           query: |
             SELECT slot_name,
               slot_type,
               database,
               active,
-              pg_catalog.pg_wal_lsn_diff(pg_catalog.pg_current_wal_lsn(), restart_lsn)
+              (CASE pg_catalog.pg_is_in_recovery()
+                WHEN TRUE THEN pg_catalog.pg_wal_lsn_diff(pg_catalog.pg_last_wal_receive_lsn(), restart_lsn)
+                ELSE pg_catalog.pg_wal_lsn_diff(pg_catalog.pg_current_wal_lsn(), restart_lsn)
+              END) as pg_wal_lsn_diff
             FROM pg_catalog.pg_replication_slots
             WHERE NOT temporary
           metrics:
@@ -590,7 +605,7 @@ configmap:
             - pg_wal_lsn_diff:
                 usage: "GAUGE"
                 description: "Replication lag in bytes"
-
+      
         pg_stat_archiver:
           query: |
             SELECT archived_count
@@ -631,7 +646,7 @@ configmap:
             - stats_reset_time:
                 usage: "GAUGE"
                 description: "Time at which these statistics were last reset"
-
+      
         pg_stat_bgwriter:
           query: |
             SELECT checkpoints_timed
@@ -676,7 +691,7 @@ configmap:
             - buffers_alloc:
                 usage: "COUNTER"
                 description: "Number of buffers allocated"
-
+      
         pg_stat_database:
           query: |
             SELECT datname
@@ -745,13 +760,14 @@ configmap:
             - blk_write_time:
                 usage: "COUNTER"
                 description: "Time spent writing data file blocks by backends in this database, in milliseconds"
-
+      
         pg_stat_replication:
           primary: true
           query: |
            SELECT usename
              , COALESCE(application_name, '') AS application_name
              , COALESCE(client_addr::text, '') AS client_addr
+             , COALESCE(client_port::text, '') AS client_port
              , EXTRACT(EPOCH FROM backend_start) AS backend_start
              , COALESCE(pg_catalog.age(backend_xmin), 0) AS backend_xmin_age
              , pg_catalog.pg_wal_lsn_diff(pg_catalog.pg_current_wal_lsn(), sent_lsn) AS sent_diff_bytes
@@ -772,6 +788,9 @@ configmap:
             - client_addr:
                 usage: "LABEL"
                 description: "Client IP address"
+            - client_port:
+                usage: "LABEL"
+                description: "Client TCP port"
             - backend_start:
                 usage: "COUNTER"
                 description: "Time when this process was started"
@@ -799,7 +818,7 @@ configmap:
             - replay_lag_seconds:
                 usage: "GAUGE"
                 description: "Time elapsed between flushing recent WAL locally and receiving notification that this standby server has written, flushed and applied it"
-
+      
         pg_settings:
           query: |
             SELECT name,
