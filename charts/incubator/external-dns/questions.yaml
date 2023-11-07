@@ -10,7 +10,7 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
                                 - variable: env
-                                  label: "Provider Credentials"
+                                  label: "Provider Specific Credentials - Main Config Below"
                                   schema:
                                     additional_attrs: true
                                     type: dict
@@ -20,14 +20,12 @@ questions:
                                         description: Cloudflare API Key if not using the preferred API Token
                                         schema:
                                           type: string
-                                          show_if: [["provider", "=", "cloudflare"]]
                                           default: ""
                                       - variable: CF_API_EMAIL
                                         label: Cloudflare API Email
                                         description: Cloudflare API email if not using the preferred API Token
                                         schema:
                                           type: string
-                                          show_if: [["provider", "=", "cloudflare"]]
                                           default: ""
                                       - variable: DO_TOKEN
                                         label: Digitalocean API Key
@@ -40,21 +38,18 @@ questions:
                                         description:
                                         schema:
                                           type: string
-                                          show_if: [["provider", "=", "dnsimple"]]
                                           default: ""
                                       - variable: LINODE_TOKEN
                                         label: Linode PI Key
                                         description: Needed for read / write access on Linode
                                         schema:
                                           type: string
-                                          show_if: [["provider", "=", "linode"]]
                                           default: ""
                                       - variable: OVH_APPLICATION_KEY
                                         label: OVH Application Key
                                         description: OVH Application Key
                                         schema:
                                           type: string
-                                          show_if: [["provider", "=", "ovh"]]
                                           default: ""
                                       - variable: OVH_APPLICATION_SECRET
                                         label: OVH Application Secret
@@ -67,21 +62,18 @@ questions:
                                         description: Your OVH Consumer key after validated link
                                         schema:
                                           type: string
-                                          show_if: [["provider", "=", "ovh"]]
                                           default: ""
                                       - variable: SCW_ACCESS_KEY
                                         label: Scaleway Access Key
                                         description: Your Scaleway Access Key
                                         schema:
                                           type: string
-                                          show_if: [["provider", "=", "scaleway"]]
                                           default: ""
                                       - variable: SCW_SECRET_KEY
                                         label: Scaleway Secret Key
                                         description: Your Scaleway Secret Key
                                         schema:
                                           type: string
-                                          show_if: [["provider", "=", "scaleway"]]
                                           default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
