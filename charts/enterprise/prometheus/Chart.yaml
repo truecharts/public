@@ -3,7 +3,7 @@ appVersion: "2.47.2"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.3.3
+    version: 14.3.4
   - condition: exporters.enabled,exporters.node-exporter.enabled
     name: node-exporter
     repository: https://deps.truecharts.org
@@ -29,7 +29,7 @@ sources:
   - https://github.com/prometheus-community/helm-charts
   - https://github.com/prometheus-operator/kube-prometheus
 type: application
-version: 13.0.14
+version: 13.0.15
 annotations:
   truecharts.org/category: metrics
   truecharts.org/SCALE-support: "true"
