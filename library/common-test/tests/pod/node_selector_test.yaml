@@ -5,10 +5,11 @@ release:
   name: test-release-name
   namespace: test-release-namespace
 tests:
-  - it: should pass with empty nodeSelector
+  - it: should pass without default arch set
     set:
       podOptions:
-        nodeSelector: {}
+        nodeSelector:
+          kubernetes.io/arch: ""
       workload:
         workload-name1:
           enabled: true
@@ -23,6 +24,24 @@ tests:
       - documentIndex: *cronJobDoc
         isNull:
           path: spec.jobTemplate.spec.template.spec.nodeSelector
+
+  - it: should pass with empty nodeSelector
+    set:
+      podOptions:
+        nodeSelector: {}
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: CronJob
+          schedule: "*/1 * * * *"
+          podSpec: {}
+    asserts:
+      - documentIndex: *cronJobDoc
+        equal:
+          path: spec.jobTemplate.spec.template.spec.nodeSelector
+          value:
+            kubernetes.io/arch: amd64
 
   - it: should pass with nodeSelector from "global"
     set:
@@ -44,6 +63,7 @@ tests:
           value:
             disk: ssd
             cpu: intel
+            kubernetes.io/arch: amd64
 
   - it: should set nodeSelector to non-existing on DaemonSet with stopAll
     set:
@@ -225,8 +245,8 @@ tests:
           value:
             disk: hdd
             cpu: amd
-  # Failures
-  - it: should fail with empty value on nodeSelector
+
+  - it: should ignore with empty value on nodeSelector
     set:
       podOptions:
         nodeSelector:
@@ -239,5 +259,8 @@ tests:
           schedule: "*/1 * * * *"
           podSpec: {}
     asserts:
-      - failedTemplate:
-          errorMessage: Expected non-empty value on <nodeSelector> [disk] key.
+      - documentIndex: *cronJobDoc
+        equal:
+          path: spec.jobTemplate.spec.template.spec.nodeSelector
+          value:
+            kubernetes.io/arch: amd64

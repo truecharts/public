@@ -29,6 +29,10 @@ priorityClassName: {{ . }}
 nodeSelector:
     {{- . | nindent 2 }}
   {{- end -}}
+  {{- with (include "tc.v1.common.lib.pod.topologySpreadConstraints" (dict "rootCtx" $rootCtx "objectData" $objectData) | trim) }}
+topologySpreadConstraints:
+    {{- . | nindent 2 }}
+  {{- end -}}
   {{- with (include "tc.v1.common.lib.pod.hostAliases" (dict "rootCtx" $rootCtx "objectData" $objectData) | trim) }}
 hostAliases:
     {{- . | nindent 2 }}

@@ -138,7 +138,11 @@ podOptions:
       - name: ndots
         value: "1"
   hostAliases: []
-  nodeSelector: {}
+  nodeSelector:
+    kubernetes.io/arch: "amd64"
+  # -- Used to enforce a good spread for Deployments and StatefulSets by default
+  defaultSpread: true
+  topologySpreadConstraints: []
   tolerations: []
   schedulerName: ""
   priorityClassName: ""
