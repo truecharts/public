@@ -20,7 +20,8 @@ objectData: The object data to be used to render the Pod.
     {{- $constraints = . -}}
   {{- end -}}
 
-  {{- if and ( or ( eq $objectData.type "Deployment" ) ( eq $objectData.type "StatefulSet" )) $rootCtx.Values.podOptions.defaultSpread -}}
+  {{- $validTypes := (list "Deployment" "StatefulSet") -}}
+  {{- if and (mustHas $objectData.type $validTypes) $rootCtx.Values.podOptions.defaultSpread }}
 - maxSkew: 1
   whenUnsatisfiable: ScheduleAnyway
   topologyKey: "truecharts.org/rack"
@@ -38,7 +39,7 @@ objectData: The object data to be used to render the Pod.
   nodeAffinityPolicy: Honor
   nodeTaintsPolicy: Honor
   {{- end -}}
-  {{ with $constraints }}
-{{ . | toYaml | indent 0 }}
-  {{ end }}
+  {{- with $constraints -}} {{/* TODO: Template this, so we can add some validation around easy to make mistakes. Low Prio */}}
+    {{- . | toYaml | nindent 0 }}
+  {{- end -}}
 {{- end -}}

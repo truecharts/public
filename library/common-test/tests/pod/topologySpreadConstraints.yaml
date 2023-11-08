@@ -5,10 +5,8 @@ release:
   name: test-release-name
   namespace: test-release-namespace
 tests:
-  - it: should pass with empty topologySpreadConstraints
+  - it: should pass with missing topologySpreadConstraints on DaemonSet
     set:
-      podOptions:
-        topologySpreadConstraints: []
       workload:
         workload-name1:
           enabled: true
@@ -23,10 +21,26 @@ tests:
         isNull:
           path: spec.template.spec.topologySpreadConstraints
 
-  - it: should pass defaults with empty topologySpreadConstraints on Deployment
+  - it: should pass with defaultSpread disabled
     set:
       podOptions:
-        topologySpreadConstraints: []
+        defaultSpread: false
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: &deploymentSetDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentSetDoc
+        isNull:
+          path: spec.template.spec.topologySpreadConstraints
+
+  - it: should pass defaults with missing topologySpreadConstraints on Deployment
+    set:
       workload:
         workload-name1:
           enabled: true
@@ -112,8 +126,7 @@ tests:
               topologyKey: truecharts.org/test
               whenUnsatisfiable: ScheduleAnyway
 
-
-  - it: should pass with topologySpreadConstraints from "pod"
+  - it: should pass with multiple topologySpreadConstraints from "pod"
     set:
       podOptions:
         topologySpreadConstraints:
@@ -134,6 +147,13 @@ tests:
               - maxSkew: 1
                 whenUnsatisfiable: ScheduleAnyway
                 topologyKey: "truecharts.org/test2"
+                labelSelector:
+                  matchLabels: {}
+                nodeAffinityPolicy: Honor
+                nodeTaintsPolicy: Honor
+              - maxSkew: 1
+                whenUnsatisfiable: ScheduleAnyway
+                topologyKey: "truecharts.org/test3"
                 labelSelector:
                   matchLabels: {}
                 nodeAffinityPolicy: Honor
@@ -169,4 +189,11 @@ tests:
               nodeAffinityPolicy: Honor
               nodeTaintsPolicy: Honor
               topologyKey: truecharts.org/test2
+              whenUnsatisfiable: ScheduleAnyway
+            - labelSelector:
+                matchLabels: {}
+              maxSkew: 1
+              nodeAffinityPolicy: Honor
+              nodeTaintsPolicy: Honor
+              topologyKey: truecharts.org/test3
               whenUnsatisfiable: ScheduleAnyway

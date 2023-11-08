@@ -95,9 +95,9 @@ spec:
   {{- if not (mustHas $objectData.type $specialTypes) }}
   selector:
     {{- if $objectData.selectorLabels }}
-    {{- tpl ( toYaml $objectData.selectorLabels) $rootCtx | nindent 4 }}
+      {{- tpl (toYaml $objectData.selectorLabels) $rootCtx | nindent 4 }}
     {{- else }}
-    {{- include "tc.v1.common.lib.metadata.selectorLabels" (dict "rootCtx" $rootCtx "objectType" "pod" "objectName" $podValues.shortName) | trim | nindent 4 -}}
+      {{- include "tc.v1.common.lib.metadata.selectorLabels" (dict "rootCtx" $rootCtx "objectType" "pod" "objectName" $podValues.shortName) | trim | nindent 4 -}}
     {{- end }}
   {{- end -}}
   {{- if eq $objectData.type "ExternalIP" -}}
