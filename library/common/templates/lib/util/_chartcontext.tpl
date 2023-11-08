@@ -69,10 +69,13 @@
         {{- $portalHooks := list -}}
         {{- range $hook := ($hooks.items | default list) -}}
           {{- $hookData := (get $hook "data") -}}
-          {{- if $hookData -}}
+          {{- $hookMetaData := (get $hook "metadata") -}}
+          {{- if and $hookData $hookMetaData -}}
             {{/* Filter portalhook-* */}}
-            {{- if hasPrefix $hookData.metadata.name "portalhook-" -}}
-              {{- $portalHooks = mustAppend $portalHooks $hook -}}
+            {{- if $hookMetaData.name -}}
+              {{- if hasPrefix $hookMetaData.name "portalhook-" -}}
+                {{- $portalHooks = mustAppend $portalHooks $hook -}}
+              {{- end -}}
             {{- end -}}
           {{- end -}}
         {{- end -}}

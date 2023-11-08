@@ -132,6 +132,8 @@ jobs:
           - cnpg-values.yaml
           - cnpg-multi-values.yaml
           - register-operator-values.yaml
+          - portal-svc-values.yaml
+          - portal-ingress-values.yaml
 
     steps:
       - name: Checkout
