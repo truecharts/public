@@ -3,7 +3,7 @@ appVersion: "1.15.2"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.2.3
+    version: 14.3.3
   - condition: redis.enabled
     name: redis
     repository: https://deps.truecharts.org
@@ -24,7 +24,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/n8n
   - https://docs.n8n.io/
   - https://github.com/n8n-io/n8n
-version: 9.0.24
+version: 9.0.25
 annotations:
   truecharts.org/category: media
   truecharts.org/SCALE-support: "true"
