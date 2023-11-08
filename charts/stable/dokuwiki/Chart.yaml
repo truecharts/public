@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: dokuwiki
-version: 7.0.31
+version: 7.0.32
 appVersion: "20230404.1"
 description: Dokuwiki is a simple to use and highly versatile Open Source wiki software that doesn't require a database.
 type: application
@@ -15,7 +15,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.3.3
+    version: 14.3.5
     # condition:
 maintainers:
   - email: info@truecharts.org
