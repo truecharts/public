@@ -3,11 +3,11 @@ appVersion: "2.0.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.2.3
+    version: 14.3.3
   - condition: clickhouse.enabled
     name: clickhouse
     repository: https://deps.truecharts.org/
-    version: 7.0.21
+    version: 7.0.22
 deprecated: false
 description: Plausible is lightweight and open source web analytics. No cookies and fully compliant with GDPR, CCPA and PECR.
 home: https://truecharts.org/charts/stable/plausible
@@ -28,7 +28,7 @@ sources:
   - https://github.com/plausible/analytics
   - https://github.com/plausible/hosting
 type: application
-version: 5.0.8
+version: 5.0.9
 annotations:
   truecharts.org/category: analytics
   truecharts.org/SCALE-support: "true"

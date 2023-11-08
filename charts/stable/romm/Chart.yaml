@@ -3,7 +3,7 @@ appVersion: "1.10.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.2.3
+    version: 14.3.3
   - condition: mariadb.enabled
     name: mariadb
     repository: https://deps.truecharts.org/
@@ -29,7 +29,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/romm
   - https://github.com/zurdi15/romm
 type: application
-version: 2.0.10
+version: 2.0.11
 annotations:
   truecharts.org/category: media
   truecharts.org/SCALE-support: "true"
