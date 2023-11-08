@@ -38,7 +38,7 @@
     {{- $length = 63 -}}
   {{- end -}}
 
-  {{- if not (and (mustRegexMatch "^[a-z0-9](-?[a-z0-9]-?)+[a-z0-9]$" $name) (le (len $name) $length)) -}}
+  {{- if not (and (mustRegexMatch "^[a-z0-9]((-?[a-z0-9]-?)*[a-z0-9])?$" $name) (le (len $name) $length)) -}}
     {{- fail (printf "Name [%s] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most %v characters." $name $length) -}}
   {{- end -}}
 
