@@ -3,7 +3,7 @@ appVersion: "4.37.5"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.3.4
+    version: 14.3.5
   - condition: redis.enabled
     name: redis
     repository: https://deps.truecharts.org
@@ -35,7 +35,7 @@ sources:
   - https://github.com/authelia/chartrepo
   - https://github.com/authelia/authelia
 type: application
-version: 19.0.8
+version: 19.0.9
 annotations:
   truecharts.org/category: security
   truecharts.org/SCALE-support: "true"
