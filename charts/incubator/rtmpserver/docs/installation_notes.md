@@ -5,7 +5,7 @@ The app has no configuration. The following is just a basic guide on how to stre
 ## Stream
 
 - This is the URL to use to stream `rtmp://<server_ip>:1935/live/<stream_key>`
-  - Replace <server_ip> and <stream_key> respectively.
+  - Replace` <server_ip> and` `<stream_key>` respectively.
   - Change the port if its not default.
 
 ## View

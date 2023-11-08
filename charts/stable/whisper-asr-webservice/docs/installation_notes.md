@@ -2,7 +2,7 @@
 
 A quick run down on the options available for **whisper-asr-webservice**.
 
-The main service runs a Interactive Swagger API documentation is available at <http://truenas.local:19900/docs>
+The main service runs a Interactive Swagger API documentation is available at `<http://truenas.local:19900/docs>`
 
 ## Models
 
