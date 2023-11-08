@@ -1,7 +1,7 @@
 apiVersion: v2
 appVersion: "5.0.6"
 kubeVersion: ">=1.16.0-0"
-version: 8.0.14
+version: 8.0.15
 name: redmine
 description: Redmine is a flexible project management web application written using Ruby on Rails framework.
 type: application
@@ -19,7 +19,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.2.3
+    version: 14.3.3
 maintainers:
   - email: info@truecharts.org
     name: TrueCharts

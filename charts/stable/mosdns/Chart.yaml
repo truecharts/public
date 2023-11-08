@@ -1,7 +1,7 @@
 apiVersion: v2
 kubeVersion: ">=1.16.0-0"
 name: mosdns
-version: 6.0.8
+version: 6.0.9
 appVersion: "5.3.0"
 description: A location-based pluggable DNS forwarder/splitter.
 type: application
@@ -16,7 +16,7 @@ sources:
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.2.3
+    version: 14.3.3
     # condition:
 maintainers:
   - email: info@truecharts.org

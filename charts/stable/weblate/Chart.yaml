@@ -3,7 +3,7 @@ appVersion: "4.16.4"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.2.3
+    version: 14.3.3
   - condition: redis.enabled
     name: redis
     repository: https://deps.truecharts.org
@@ -25,7 +25,7 @@ sources:
   - https://github.com/WeblateOrg/docker
   - https://github.com/WeblateOrg/docker-compose
   - https://docs.weblate.org/en/latest/
-version: 9.0.6
+version: 9.0.7
 annotations:
   truecharts.org/category: media
   truecharts.org/SCALE-support: "true"

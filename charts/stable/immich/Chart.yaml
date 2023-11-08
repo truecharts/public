@@ -3,7 +3,7 @@ appVersion: "1.85.0"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.2.3
+    version: 14.3.3
   - condition: redis.enabled
     name: redis
     repository: https://deps.truecharts.org
@@ -22,7 +22,7 @@ name: immich
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/immich
   - https://github.com/immich-app/immich
-version: 8.1.33
+version: 8.1.34
 annotations:
   truecharts.org/category: media
   truecharts.org/SCALE-support: "true"
