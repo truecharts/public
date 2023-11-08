@@ -41,6 +41,7 @@
       {{- with (index $selectedIngress.hosts 0) -}}
          {{- $host = .host -}}
       {{- end -}}
+
       {{/* Get the port for the ingress entrypoint */}}
 
       {{- $namespace := "tc-system" -}}
@@ -59,14 +60,38 @@
 
       {{- end -}}
 
-      {{- $traefikportalhook := lookup "v1" "ConfigMap" $namespace "portalhook" -}}
+      {{- $traefikportalhook := lookup "v1" "ConfigMap" $namespace "portalhook" | default dict -}}
+      {{/* If there is no portalhook */}}
+      {{- if not $traefikportalhook -}}
+        {{/* Get all configmaps */}}
+        {{- $hooks := lookup "v1" "ConfigMap" $namespace "" -}}
+
+        {{- $portalHooks := list -}}
+        {{- range $hook := ($hooks.items | default list) -}}
+          {{- $hookData := (get $hook "data") -}}
+          {{- if $hookData -}}
+            {{/* Filter portalhook-* */}}
+            {{- if hasPrefix $hookData.metadata.name "portalhook-" -}}
+              {{- $portalHooks = mustAppend $portalHooks $hook -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+
+        {{/* use the first available portalhook */}}
+        {{- if $portalHooks -}}
+          {{- $traefikportalhook = index $portalHooks 0 -}}
+        {{- end -}}
+      {{- end -}}
+
       {{- $entrypoint := "websecure" -}}
       {{- if $selectedIngress.entrypoint -}}
         {{- $entrypoint = $selectedIngress.entrypoint -}}
       {{- end -}}
       {{- if $traefikportalhook -}}
-        {{- if (index $traefikportalhook.data $entrypoint) -}}
-          {{- $port = (index $traefikportalhook.data $entrypoint) -}}
+        {{- if (get $traefikportalhook.data $entrypoint) -}}
+          {{- $port = (get $traefikportalhook.data $entrypoint) -}}
+        {{- else if $traefikportalhook.data.websecure -}}
+          {{- $port =  $traefikportalhook.data.websecure -}}
         {{- end -}}
       {{- end -}}
     {{- end -}}
