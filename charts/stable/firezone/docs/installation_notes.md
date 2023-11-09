@@ -4,7 +4,7 @@ How to setup FireZone.
 
 ## Web Configuration
 
-- Set a `External Url` to a valid FQDN; "<https://app.mydomain.tld>".
+- Set a `External Url` to a valid FQDN; `https://app.mydomain.tld`.
 - Set a `Trusted Proxies` a single IP for your traefik instance(s) on each box.
 
 ## Admin Configuration

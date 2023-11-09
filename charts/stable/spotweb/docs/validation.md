@@ -15,8 +15,8 @@ Usernames for an administrator in spotweb have some restrictions.
   - root
   - anonymous
 - Following characters are not allowed:
-  - <
-  - \>
+  - `<`
+  - `\>`
 - Regex used to validate the username (you can try live [here](https://regex101.com/r/LA4Io7/1)):
   `^((?!god|mod|spot|admin|drazix|superuser|supervisor|root|anonymous)[^<>])*$`
 
@@ -25,8 +25,8 @@ Usernames for an administrator in spotweb have some restrictions.
 The firstname and lastname in spotweb have some restrictions.
 
 - Following characters are not allowed:
-  - <
-  - \>
+  - `<`
+  - `\>`
 - Minimum lenght of 2 characters is enforced
 - Regex used to validate the firstname and lastname (you can try live [here](https://regex101.com/r/x2KGnU/1)):
   `^([^<>]{2})([^<>]*)$`
