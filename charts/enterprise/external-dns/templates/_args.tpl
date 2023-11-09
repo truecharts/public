@@ -3,7 +3,7 @@ args:
   {{- with .Values.externaldns.provider }}
   - --provider={{ . }}
   {{- end -}}
-  {{- with .Values.externaldns.zoneidFilters }}
+  {{- range .Values.externaldns.zoneidFilters }}
   - --zone-id-filter={{ . }}
   {{- end -}}
   {{- with .Values.externaldns.cloudflareProxied }}
@@ -36,10 +36,8 @@ args:
   {{- if .Values.externaldns.namespaced }}
   - --namespace={{ include "tc.v1.common.lib.metadata.namespace" (dict "caller" "External-DNS" "rootCtx" $ "objectData" .Values) }}
   {{- end -}}
-  {{- with .Values.externaldns.domainFilter }}
-  {{- range . -}}
+  {{- range .Values.externaldns.domainFilters }}
   - --domain-filter={{ . }}
-  {{- end -}}
   {{- end -}}
   {{- with .Values.externaldns.piholeServer }}
   - --pihole-server={{ . }}
