@@ -48,7 +48,7 @@ workload:
             STEAMCMD_DIR: "{{ .Values.persistence.steamcmd.mountPath }}"
             SERVER_DIR: "{{ .Values.persistence.serverfiles.mountPath }}"
             GAME_PORT: "{{ .Values.service.main.ports.main.port }}"
-            GAME_ID: "{{ .Values.cs2.game_.id }}"
+            GAME_ID: "{{ .Values.cs2.game.id }}"
             USERNAME: "{{ .Values.cs2.game.user }}"
             PASSWRD: "{{ .Values.cs2.game.password }}"
             GAME_PARAMS: '{{ join " " .Values.cs2.game.params }}'
