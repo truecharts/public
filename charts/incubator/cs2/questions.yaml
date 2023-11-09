@@ -32,7 +32,7 @@ questions:
                 schema:
                   type: string
                   required: true
-                  default: "739590"
+                  default: "730"
               - variable: user
                 label: Steam User
                 description: Leave blank for anonymous login.
@@ -60,10 +60,8 @@ questions:
                     - -dev
                     - +map
                     - de_inferno
-                    - +game_type
-                    - 0
-                    - +game_mode
-                    - 1
+                    - +game_type 0
+                    - +game_mode 1
                     - -usercon
                   items:
                     - variable: param

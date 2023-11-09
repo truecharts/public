@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/cs2
   pullPolicy: IfNotPresent
-  tag: latest@sha256:CHANGE_ME
+  tag: latest@sha256:24f52ee1c81175980b76914803bc3ca15c02d4217ccc1c0baf414b8cd2d5f44f
 
 securityContext:
   container:
@@ -27,10 +27,8 @@ cs2:
       - -dev
       - +map
       - de_inferno
-      - +game_type
-      - 0
-      - +game_mode
-      - 1
+      - +game_type 0
+      - +game_mode 1
       - -usercon
 
 
