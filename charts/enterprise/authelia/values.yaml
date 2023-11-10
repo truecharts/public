@@ -228,7 +228,7 @@ authentication_backend:
     ## otherwise it would break the configuration for that user. Technically, non-unique attributes like 'mail' can also
     ## be used but we don't recommend using them, we instead advise to use the attributes mentioned above
     ## (sAMAccountName and uid) to follow https://www.ietf.org/rfc/rfc2307.txt.
-    username_attribute: ""
+    username_attribute: "uid"
 
     ## An additional dn to define the scope to all users.
     additional_users_dn: OU=Users
@@ -270,17 +270,17 @@ authentication_backend:
     groups_filter: ""
 
     ## The attribute holding the name of the group
-    group_name_attribute: ""
+    group_name_attribute: "cn"
 
     ## The attribute holding the mail address of the user. If multiple email addresses are defined for a user, only the
     ## first one returned by the LDAP server is used.
-    mail_attribute: ""
+    mail_attribute: "mail"
 
     ## The attribute holding the display name of the user. This will be used to greet an authenticated user.
-    display_name_attribute: ""
+    display_name_attribute: "displayname"
 
     ## The username of the admin user.
-    user: CN=Authelia,DC=example,DC=com
+    user: CN=admin,DC=example,DC=com
     plain_password: ""
 
   ##
