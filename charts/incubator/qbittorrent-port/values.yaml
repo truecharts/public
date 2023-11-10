@@ -3,9 +3,9 @@ image:
   pullPolicy: IfNotPresent
   tag: v4.6.0@sha256:40e04b788988c5c218f02ef6b3a0f3821362e1f36ef01eda535811fffa97e24e
 qbit-port-forwardImage:
-  repository: mjmeli/qbittorrent-port-forward-gluetun-server
+  repository: tccr.io/truecharts/qbit-port-forward
   pullPolicy: IfNotPresent
-  tag: latest@sha256:67d0d21ed792cf80716d4211e7162b6d375af5c12f3cf096c9032ad705dddaa8
+  tag: latest@sha256:e59f632f002a49661fe04305df9d198229dca0af08d7dd71fc547ae410a7ebca
 
 # Gluetun Port Forward settings
 qbit-port-forward:
@@ -31,7 +31,7 @@ service:
         protocol: udp
 workload:
   qbit-port-forward:
-    enabled: true
+    enabled: false
     type: Deployment
     strategy: RollingUpdate
     replicas: 1
