@@ -364,7 +364,7 @@ questions:
                       description: "The url to the ldap server. Format: <scheme>://<address>[:<port>]"
                       schema:
                         type: string
-                        default: "ldap://lldap-ldap.ix-lldap.svc.cluster.local:3890"
+                        default: "ldap://openldap.default.svc.cluster.local"
                         required: true
                     - variable: timeout
                       label: "Connection Timeout"
@@ -437,7 +437,7 @@ questions:
                       description: "The groups filter used in search queries to find the groups of the user."
                       schema:
                         type: string
-                        default: "(&(|({username_attribute}={input})({mail_attribute}={input}))(objectClass=person))"
+                        default: ""
                         required: true
                     - variable: additional_groups_dn
                       label: "Additional Groups DN"
@@ -451,7 +451,7 @@ questions:
                       description: "The groups filter used in search queries to find the groups of the user."
                       schema:
                         type: string
-                        default: "(member={dn})"
+                        default: ""
                         required: true
                     - variable: group_name_attribute
                       label: "Group name Attribute"

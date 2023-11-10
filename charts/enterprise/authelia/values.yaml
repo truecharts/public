@@ -197,7 +197,7 @@ authentication_backend:
 
     ## The url to the ldap server. Format: <scheme>://<address>[:<port>].
     ## Scheme can be ldap or ldaps in the format (port optional).
-    url: ldap://lldap-ldap.ix-lldap.svc.cluster.local:3890
+    url: ldap://openldap.default.svc.cluster.local
 
     ## Connection Timeout.
     timeout: 5s
@@ -231,7 +231,7 @@ authentication_backend:
     username_attribute: "uid"
 
     ## An additional dn to define the scope to all users.
-    additional_users_dn: OU=People
+    additional_users_dn: OU=Users
 
     ## The users filter used in search queries to find the user profile based on input filled in login form.
     ## Various placeholders are available in the user filter:
@@ -249,7 +249,7 @@ authentication_backend:
     ##
     ## To allow sign in both with username and email, one can use a filter like
     ## (&(|({username_attribute}={input})({mail_attribute}={input}))(objectClass=person))
-    users_filter: "(&(|({username_attribute}={input})({mail_attribute}={input}))(objectClass=person))"
+    users_filter: ""
 
     ## An additional dn to define the scope of groups.
     additional_groups_dn: OU=Groups
@@ -267,7 +267,7 @@ authentication_backend:
     ##
     ## If your groups use the `groupOfUniqueNames` structure use this instead:
     ##    (&(uniquemember={dn})(objectclass=groupOfUniqueNames))
-    groups_filter: "(member={dn})"
+    groups_filter: ""
 
     ## The attribute holding the name of the group
     group_name_attribute: "cn"
@@ -280,7 +280,7 @@ authentication_backend:
     display_name_attribute: "displayname"
 
     ## The username of the admin user.
-    user: uid=admin,ou=people,DC=example,DC=com
+    user: CN=admin,DC=example,DC=com
     plain_password: ""
 
   ##
