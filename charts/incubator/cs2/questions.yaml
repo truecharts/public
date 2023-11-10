@@ -44,6 +44,7 @@ questions:
                 description: Leave blank for anonymous login.
                 schema:
                   type: string
+                  private: true
                   default: ""
               - variable: validate
                 label: Validate
