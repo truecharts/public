@@ -7,11 +7,6 @@ qbit-port-forwardImage:
   pullPolicy: IfNotPresent
   tag: latest@sha256:e59f632f002a49661fe04305df9d198229dca0af08d7dd71fc547ae410a7ebca
 
-# Gluetun Port Forward settings
-qbit-port-forward:
-  # It will also deploy the container
-  enabled: false
-
 service:
   main:
     ports:
@@ -31,7 +26,7 @@ service:
         protocol: udp
 workload:
   qbit-port-forward:
-    enabled: false
+    enabled: true
     type: Deployment
     strategy: RollingUpdate
     replicas: 1
