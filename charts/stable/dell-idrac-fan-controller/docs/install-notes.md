@@ -2,7 +2,7 @@
 
 ## iDRAC version
 
-This Docker container only works on Dell PowerEdge servers that support IPMI commands, i.e. < iDRAC 9 firmware 3.30.30.30.
+This Docker container only works on Dell PowerEdge servers that support IPMI commands, i.e. iDRAC 9 firmware 3.30.30.30.
 
 ## How to access iDrac over LAN
 

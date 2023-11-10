@@ -1,11 +1,13 @@
 image:
   repository: tccr.io/truecharts/jackett
   pullPolicy: IfNotPresent
-  tag: v0.21.1106@sha256:7cc58bd877e5b04c60523191834b0f4b1e6cf475794f11f2e24e4d001ad69d3b
+  tag: v0.21.1155@sha256:e4e7cd7c74c8cf5e7086f62e22d6988a6623788d0700f0fcb3379cb29369e94b
 
 securityContext:
   container:
     readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
 
 service:
   main:

@@ -10,7 +10,7 @@ By default, LLDAP will use the following options:
 - Ldap User DN: admin
 - Ldap User Email: admin@admin.com
 - Ldap User Password: password
-- Public URL: <https://lldap.example.com>
+- Public URL:`<https://lldap.example.com>``
 - LDAP port: 3890
 - JWT secret: random (generated on first run)
 
@@ -21,8 +21,8 @@ By default, LLDAP will use the following options:
   - SMTP Encryption: STARTTLS
   - SMTP User: email
   - SMTP Password: password | app password
-  - SMTP From: LLDAP Admin <sender@gmail.com>
-  - SMTP Reply To: Do not reply <noreply@localhost>
+  - SMTP From: LLDAP Admin `<sender@gmail.com>`
+  - SMTP Reply To: Do not reply `<noreply@localhost>`
 
 ## Usage
 

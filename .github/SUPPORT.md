@@ -12,19 +12,40 @@ This document highlights which versions of TrueCharts (or rather branches), supp
 
 We also document which versions of TrueNAS will receive TrueCharts updates and for which versions we are accepting bug reports.
 
-### Supported Versions
+### Supported Versions of TrueNAS SCALE
 
 | TrueNAS version  | Branch   | Supported with updates | Accepting Support tickets | Accepting Bug Reports | Notes                                                                                                          |
 | ---------------- | -------- | ---------------------- | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------- |
-| 22.02.4 or prior | `master` | :x:                    | :x:                       | :x:                   | Advised to update to 22.12.2 release of [TrueNAS SCALE](https://www.truenas.com/docs/scale/scalereleasenotes/) |
-| 22.12.0          | `master` | :white_check_mark:     | :white_check_mark:        | :white_check_mark:    | Stable Release as of 2022-12-13                                                                                |
-| 22.12.1          | `master` | :white_check_mark:     | :white_check_mark:        | :white_check_mark:    | Stable Release as of 2023-02-21                                                                                |
-| 22.12.2          | `master` | :white_check_mark:     | :white_check_mark:        | :white_check_mark:    | Stable Release as of 2023-04-11                                                                                |
-| 22.12.3          | `master` | :white_check_mark:     | :white_check_mark:        | :white_check_mark:    | Stable Release as of 2023-06-13                                                                                |
-| 22.12.3.1        | `master` | :white_check_mark:     | :white_check_mark:        | :white_check_mark:    | Stable Release as of 2023-06-20                                                                                |
-| 22.12.3.2        | `master` | :white_check_mark:     | :white_check_mark:        | :white_check_mark:    | Stable Release as of 2023-07-05                                                                                |
-| 22.12.3.3        | `master` | :white_check_mark:     | :white_check_mark:        | :white_check_mark:    | Stable Release as of 2023-07-25                                                                                |
+| 22.12.4.1 or prior| `master` | :x:                    | :x:                       | :x:                   | Update to 23.10.X Supported Version [TrueNAS SCALE](https://www.truenas.com/docs/scale/23.10/)                |
+| 22.12.4.2        | `master` | :white_check_mark:     | :white_check_mark:        | :x:                   | Stable Release as of 2023-10-13 Recommended to update to 23.10.x  [TrueNAS SCALE](https://www.truenas.com/docs/scale/23.10/) |
+| 23.10.0          | `master` | :white_check_mark:     | :white_check_mark:        | :white_check_mark:    | Stable Release as of 2023-10-24                                                                                |
+| 23.10.0.1        | `master` | :white_check_mark:     | :white_check_mark:        | :white_check_mark:    | Stable Release as of 2023-10-31                                                                                |
 | Nightly          | `master` | :white_check_mark:     | :x:                       | :white_check_mark:    | Please only submit bug reports during codefreeze                                                               |
+| 23.10.1          | `master` | :white_check_mark:     | :x:                       | :x:                   | To Be Released                                                                                                 |
+
+## TrueCharts on Talos-OS
+
+Support for Talos-OS with either Rancher or FluxCD are in early alpha.
+
+### Supported Versions of Talos-OS
+
+| Talos-OS version  | Branch   | Supported with updates | Accepting Support tickets | Accepting Bug Reports | Notes                                                                                                          |
+| ---------------- | -------- | ---------------------- | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------- |
+| 1.5              | `master` | :white_check_mark:                    | :x:                       | :x:                   |          |
+| 1.6              | `master` | :white_check_mark:     | :x:                       | :x:                   |  |
+
+
+### Supported Versions of FluxCD
+
+| FluxCD version  | Branch   | Supported with updates | Accepting Support tickets | Accepting Bug Reports | Notes                                                                                                          |
+| ---------------- | -------- | ---------------------- | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------- |
+| 1.2.1 or prior             | `master` | :white_check_mark:                    | :x:                       | :x:                   |          |
+
+### Rancher Versions of Rancher
+
+| TrueNAS version  | Branch   | Supported with updates | Accepting Support tickets | Accepting Bug Reports | Notes                                                                                                          |
+| ---------------- | -------- | ---------------------- | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------- |
+| v2.7.9 or prior           | `master` | :white_check_mark:                    | :x:                       | :x:                   |          |
 
 :::warning Support Guidelines
 

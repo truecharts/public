@@ -27,7 +27,7 @@ webhooks:
       path: /validate-postgresql-cnpg-io-v1-backup
       port: 9443
   failurePolicy: {{ .Values.webhook.validating.failurePolicy }}
-  name: vbackup.kb.io
+  name: vbackup.cnpg.io
   rules:
   - apiGroups:
     - postgresql.cnpg.io
@@ -48,7 +48,7 @@ webhooks:
       path: /validate-postgresql-cnpg-io-v1-cluster
       port: 443
   failurePolicy: {{ .Values.webhook.validating.failurePolicy }}
-  name: vcluster.kb.io
+  name: vcluster.cnpg.io
   rules:
   - apiGroups:
     - postgresql.cnpg.io
@@ -69,7 +69,7 @@ webhooks:
       path: /validate-postgresql-cnpg-io-v1-scheduledbackup
       port: 443
   failurePolicy: {{ .Values.webhook.validating.failurePolicy }}
-  name: vscheduledbackup.kb.io
+  name: vscheduledbackup.cnpg.io
   rules:
   - apiGroups:
     - postgresql.cnpg.io
@@ -90,7 +90,7 @@ webhooks:
       path: /validate-postgresql-cnpg-io-v1-pooler
       port: 443
   failurePolicy: {{ .Values.webhook.validating.failurePolicy }}
-  name: vpooler.kb.io
+  name: vpooler.cnpg.io
   rules:
     - apiGroups:
         - postgresql.cnpg.io
