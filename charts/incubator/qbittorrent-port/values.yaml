@@ -1,0 +1,69 @@
+image:
+  repository: tccr.io/truecharts/qbittorrent
+  pullPolicy: IfNotPresent
+  tag: v4.6.0@sha256:40e04b788988c5c218f02ef6b3a0f3821362e1f36ef01eda535811fffa97e24e
+qbit-port-forwardImage:
+  repository: mjmeli/qbittorrent-port-forward-gluetun-server
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:67d0d21ed792cf80716d4211e7162b6d375af5c12f3cf096c9032ad705dddaa8
+service:
+  main:
+    ports:
+      main:
+        port: 10095
+        targetPort: 8080
+  torrent:
+    enabled: true
+    ports:
+      torrent:
+        enabled: true
+        port: 6881
+        protocol: tcp
+      torrentudp:
+        enabled: true
+        port: 6881
+        protocol: udp
+workload:
+  qbit-port-forward:
+    enabled: true
+    type: Deployment
+    strategy: RollingUpdate
+    replicas: 1
+    podSpec:
+      containers:
+        exportarr:
+          primary: true
+          enabled: true
+          imageSelector: qbit-port-forwardImage
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            QBT_USERNAME: admin
+            QBT_PASSWORD: adminadmin
+            QBT_ADDR: http://localhost:8080
+            GTN_ADDR: http://localhost:8000
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+additionalVolumes:
+  - name: qbittorrent-scripts
+    emptyDir: {}
+    ## When you want to enable automatic port configuration at startup, adjust this to:
+    # configMap:
+    #   name: <RELEASENAME>-scripts
+    #   defaultMode: "511"
+additionalVolumeMounts:
+  - mountPath: "/config/custom-cont-init.d"
+    name: qbittorrent-scripts
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
