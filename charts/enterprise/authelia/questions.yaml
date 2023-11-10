@@ -478,7 +478,7 @@ questions:
                       description: "The username of the admin user used to connect to LDAP."
                       schema:
                         type: string
-                        default: "uid=admin,ou=people,DC=example,DC=com"
+                        default: "CN=admin,ou=people,DC=example,DC=com"
                         required: true
                     - variable: plain_password
                       label: "Password"
