@@ -5,6 +5,11 @@ portals:
 questions:
 # Include{global}
 # Include{workload}
+# Include{workloadDeployment}
+
+# Include{replicas1}
+# Include{podSpec}
+# Include{containerMain}
                                 - variable: qbit-port-forward
                                   label: Gluetun Port Forwarding
                                   schema:
@@ -31,12 +36,6 @@ questions:
                                               schema:
                                                 type: string
                                                 default: ""
-# Include{workloadDeployment}
-
-# Include{replicas1}
-# Include{podSpec}
-# Include{containerMain}
-
 
 # Include{containerBasic}
 # Include{containerAdvanced}
