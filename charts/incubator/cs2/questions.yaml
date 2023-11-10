@@ -30,9 +30,9 @@ questions:
                 label: Game Id
                 description: The ID of the container to download at start up.
                 schema:
-                  type: string
+                  type: int
                   required: true
-                  default: "730"
+                  default: 730
               - variable: user
                 label: Steam User
                 description: Leave blank for anonymous login.
