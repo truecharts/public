@@ -6,6 +6,12 @@ qbit-port-forwardImage:
   repository: mjmeli/qbittorrent-port-forward-gluetun-server
   pullPolicy: IfNotPresent
   tag: latest@sha256:67d0d21ed792cf80716d4211e7162b6d375af5c12f3cf096c9032ad705dddaa8
+
+# Gluetun Port Forward settings
+qbit-port-forward:
+  # It will also deploy the container
+  enabled: false
+
 service:
   main:
     ports:
@@ -31,7 +37,7 @@ workload:
     replicas: 1
     podSpec:
       containers:
-        exportarr:
+        qbit-port-forward:
           primary: true
           enabled: true
           imageSelector: qbit-port-forwardImage
@@ -47,6 +53,7 @@ workload:
             QBT_PASSWORD: adminadmin
             QBT_ADDR: http://localhost:8080
             GTN_ADDR: http://localhost:8000
+
 persistence:
   config:
     enabled: true
