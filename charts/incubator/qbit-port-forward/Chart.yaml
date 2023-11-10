@@ -1,0 +1,27 @@
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 14.3.5
+deprecated: false
+description: A script for automatically setting qBittorrent's listening port from Gluetun's control server.
+home: https://truecharts.org/charts/incubator/qbit-control-server
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/qbit-control-server.png
+keywords:
+  - qbit-control-server
+  - Downloaders
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: qbitrr
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/qbit-control-server
+  - https://github.com/mjmeli/qbittorrent-port-forward-gluetun-server
+type: application
+version: 0.0.1
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Downloaders
