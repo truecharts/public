@@ -6,8 +6,6 @@ qbitportforwardImage:
   repository: tccr.io/truecharts/qbit-port-forward
   pullPolicy: IfNotPresent
   tag: latest@sha256:e59f632f002a49661fe04305df9d198229dca0af08d7dd71fc547ae410a7ebca
-qbitportforward:
-  enabled: false
 service:
   main:
     ports:
