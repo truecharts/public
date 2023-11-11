@@ -45,8 +45,8 @@ workload:
             startup:
               enabled: false
           env:
-            QBT_USERNAME: admin
-            QBT_PASSWORD: adminadmin
+            QBT_USERNAME: "{{ .Values.qbitportforward.QBT_USERNAME }}"
+            QBT_PASSWORD: "{{ .Values.qbitportforward.QBT_PASSWORD }}"
             QBT_ADDR: http://localhost:8080
             GTN_ADDR: http://localhost:8000
 persistence:
