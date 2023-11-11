@@ -1,0 +1,37 @@
+suite: storageClass name test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should generate correct name
+    set:
+      storageClass:
+        example1:
+          enabled: true
+          provisioner: some.provisioner.io
+        example2:
+          enabled: true
+          provisioner: some.provisioner.io
+    asserts:
+      - documentIndex: &storageClassDoc 0
+        isKind:
+          of: StorageClass
+      - documentIndex: *storageClassDoc
+        isAPIVersion:
+          of: storage.k8s.io/v1
+      - documentIndex: *storageClassDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-example1
+      - documentIndex: &otherStorageClassDoc 1
+        isKind:
+          of: StorageClass
+      - documentIndex: *otherStorageClassDoc
+        isAPIVersion:
+          of: storage.k8s.io/v1
+      - documentIndex: *otherStorageClassDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-example2
