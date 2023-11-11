@@ -17,7 +17,7 @@ service:
       main:
         enabled: true
         port: 9078
-        protocol: TCP
+        protocol: http
         targetPort: 9078
 
 persistence:
