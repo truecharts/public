@@ -2,6 +2,10 @@ image:
   repository: tccr.io/truecharts/qbittorrent
   pullPolicy: IfNotPresent
   tag: v4.6.0@sha256:40e04b788988c5c218f02ef6b3a0f3821362e1f36ef01eda535811fffa97e24e
+qbitportforwardImage:
+  repository: tccr.io/truecharts/qbit-port-forward
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:e59f632f002a49661fe04305df9d198229dca0af08d7dd71fc547ae410a7ebca
 service:
   main:
     ports:
@@ -19,6 +23,30 @@ service:
         enabled: true
         port: 6881
         protocol: udp
+workload:
+  qbitportforward:
+    enabled: true
+    type: Deployment
+    strategy: RollingUpdate
+    replicas: 1
+    podSpec:
+      containers:
+        qbitportforward:
+          primary: true
+          enabled: true
+          imageSelector: qbitportforwardImage
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            QBT_USERNAME: admin
+            QBT_PASSWORD: adminadmin
+            QBT_ADDR: http://localhost:8080
+            GTN_ADDR: http://localhost:8000
 persistence:
   config:
     enabled: true
