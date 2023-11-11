@@ -10,5 +10,10 @@
 {{- $_ := set .Values.configmap "qbittorrent-scripts" $configmap -}}
 {{- end -}}
 
+{{/* Disable [qbit-port-forward] if requested */}}
+{{- if not .Values.qbit-port-forward.enabled.true -}}
+  {{- $_ := set .Values.workload.qbit-port-forward "enabled" false -}}
+{{- end -}}
+
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}
