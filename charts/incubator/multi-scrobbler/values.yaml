@@ -12,12 +12,9 @@ securityContext:
 
 service:
   main:
-    enabled: true
     ports:
       main:
-        enabled: true
         port: 9078
-        protocol: http
         targetPort: 9078
 
 persistence:
