@@ -7,6 +7,9 @@ qbit-port-forwardImage:
   pullPolicy: IfNotPresent
   tag: latest@sha256:e59f632f002a49661fe04305df9d198229dca0af08d7dd71fc547ae410a7ebca
 
+qbit-port-forward:
+  enabled: false
+
 service:
   main:
     ports:
