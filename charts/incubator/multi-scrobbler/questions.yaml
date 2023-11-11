@@ -15,13 +15,7 @@ questions:
 
 # Include{containerConfig}
 # Include{serviceRoot}
-        - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
@@ -42,16 +36,8 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: config
-          label: "config Storage"
-          description: "Container Path homenodeconfig"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
-        - variable: logs
-          label: "logs Storage"
-          description: "Container Path homenodeapplogs"
+          label: "App Config Storage"
+          description: "Stores the Application Configuration."
           schema:
             additional_attrs: true
             type: dict
