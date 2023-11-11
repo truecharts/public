@@ -12,7 +12,7 @@
 
 {{/* Disable [qbitportforward] if requested */}}
 {{- if not .Values.qbitportforward.enabled true -}}
-  {{- $_ := set .Values.workload.qbit-port-forward "enabled" false -}}
+  {{- $_ := set .Values.workload.qbitportforward "enabled" false -}}
 {{- end -}}
 
 {{/* Render the templates */}}
