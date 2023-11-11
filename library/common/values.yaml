@@ -561,6 +561,16 @@ webhook:
     type: mutating
     webhooks: []
 
+
+# priorityClass:
+#   example:
+#     provisioner: some.provisioner.io
+#     enabled: true
+#     value: 1000000
+#     preemptionPolicy: PreemptLowerPriority
+#     globalDefault: false
+#     description: "some description"
+
 # # -- create storageClasses on demand
 # storageClass:
 #   example:

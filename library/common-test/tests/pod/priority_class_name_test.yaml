@@ -58,7 +58,7 @@ tests:
 
   - it: should pass with priorityClassName from "pod" with tpl
     set:
-      priorityClass: some-other-priority-class
+      priorityClassTest: some-other-priority-class
       podOptions:
         priorityClassName: some-priority-class
       workload:
@@ -67,7 +67,7 @@ tests:
           primary: true
           type: Deployment
           podSpec:
-            priorityClassName: "{{ .Values.priorityClass }}"
+            priorityClassName: "{{ .Values.priorityClassTest }}"
     asserts:
       - documentIndex: *deploymentDoc
         equal:

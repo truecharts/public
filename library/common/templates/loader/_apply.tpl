@@ -13,6 +13,9 @@
   {{/* Render ConfigMap(s) */}}
   {{- include "tc.v1.common.spawner.configmap" . | nindent 0 -}}
 
+  {{/* Render priorityclass(s) */}}
+  {{- include "tc.v1.common.spawner.priorityclass" . | nindent 0 -}}
+
   {{/* Render Certificate(s) */}}
   {{- include "tc.v1.common.spawner.scaleCertificate" . | nindent 0 -}}
 
