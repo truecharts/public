@@ -7,9 +7,10 @@ release:
 tests:
   - it: should fail with annotations not a dict
     set:
-      volumeClaimTemplates:
+      persistence:
         volume1:
           enabled: true
+          type: vct
           annotations: not-a-dict
       workload:
         main:
@@ -23,9 +24,10 @@ tests:
 
   - it: should fail with labels not a dict
     set:
-      volumeClaimTemplates:
+      persistence:
         volume1:
           enabled: true
+          type: vct
           labels: not-a-dict
       workload:
         main:
@@ -39,9 +41,10 @@ tests:
 
   - it: should fail with pod targetSelector not a map
     set:
-      volumeClaimTemplates:
+      persistence:
         volume1:
           enabled: true
+          type: vct
           targetSelector: not-a-map
       workload:
         main:
@@ -51,7 +54,7 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: Volume Claim Templates - Expected <targetSelector> to be [dict], but got [string]
+          errorMessage: Persistence - Expected [targetSelector] to be [dict], but got [string]
 
   - it: should fail without storageClassName in ixChartContext
     set:
@@ -59,9 +62,10 @@ tests:
         namespace: ix-namespace
         ixChartContext:
           storageClassName: ""
-      volumeClaimTemplates:
+      persistence:
         volume1:
           enabled: true
+          type: vct
       workload:
         main:
           enabled: true
@@ -70,7 +74,7 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: Volume Claim Templates - Expected non-empty <global.ixChartContext.storageClassName>
+          errorMessage: PVC - Expected non-empty <global.ixChartContext.storageClassName>
 
   - it: should fail without storageClassName in ixChartContext with SCALE-ZFS explicitly set
     set:
@@ -78,9 +82,10 @@ tests:
         namespace: ix-namespace
         ixChartContext:
           storageClassName: ""
-      volumeClaimTemplates:
+      persistence:
         volume1:
           enabled: true
+          type: vct
           storageClass: SCALE-ZFS
       workload:
         main:
@@ -90,13 +95,14 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: Volume Claim Templates - Expected non-empty <global.ixChartContext.storageClassName> on [SCALE-ZFS] storageClass
+          errorMessage: PVC - Expected non-empty <global.ixChartContext.storageClassName> on [SCALE-ZFS] storageClass
 
   - it: should fail with invalid accessMode
     set:
-      volumeClaimTemplates:
+      persistence:
         volume1:
           enabled: true
+          type: vct
           accessModes:
             - not-an-access-mode
       workload:
@@ -107,4 +113,4 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: Volume Claim Templates - Expected <accessModes> entry to be one of [ReadWriteOnce, ReadOnlyMany, ReadWriteMany, ReadWriteOncePod], but got [not-an-access-mode]
+          errorMessage: PVC - Expected <accessModes> entry to be one of [ReadWriteOnce, ReadOnlyMany, ReadWriteMany, ReadWriteOncePod], but got [not-an-access-mode]

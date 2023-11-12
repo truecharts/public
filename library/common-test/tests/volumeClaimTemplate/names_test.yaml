@@ -1,4 +1,4 @@
-suite: volumeClaimTemplates name test
+suite: volumeClaimTemplate name test
 templates:
   - common.yaml
 release:
@@ -7,11 +7,13 @@ release:
 tests:
   - it: should generate correct name
     set:
-      volumeClaimTemplates:
+      persistence:
         my-volume1:
           enabled: true
+          type: vct
         my-volume2:
           enabled: true
+          type: vct
       workload:
         main:
           enabled: true
@@ -28,8 +30,8 @@ tests:
       - documentIndex: *statefulSetDoc
         equal:
           path: spec.volumeClaimTemplates[0].metadata.name
-          value: my-volume1
+          value: test-release-name-common-test-my-volume1
       - documentIndex: *statefulSetDoc
         equal:
           path: spec.volumeClaimTemplates[1].metadata.name
-          value: my-volume2
+          value: test-release-name-common-test-my-volume2

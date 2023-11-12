@@ -1,0 +1,77 @@
+suite: pv name test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should generate correct name
+    set:
+      persistence:
+        my-volume1:
+          enabled: true
+          type: pvc
+          static:
+            mode: nfs
+            share: /someshare
+            server: someserver
+        my-volume2:
+          enabled: true
+          type: pvc
+          static:
+            mode: smb
+            share: someshare
+            server: someserver
+            username: someuser
+            password: someuserpoassword
+    asserts:
+      - documentIndex: &pvDoc 0
+        isKind:
+          of: PersistentVolume
+      - documentIndex: *pvDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *pvDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-volume1-2156988893
+      - documentIndex: &pvcDoc 1
+        isKind:
+          of: PersistentVolumeClaim
+      - documentIndex: *pvcDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *pvcDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-volume1-2156988893
+      - documentIndex: &secretDoc 2
+        isKind:
+          of: Secret
+      - documentIndex: *secretDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *secretDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-volume2-2027162030
+      - documentIndex: &pvDoc 3
+        isKind:
+          of: PersistentVolume
+      - documentIndex: *pvDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *pvDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-volume2-2027162030
+      - documentIndex: &otherPvcDoc 4
+        isKind:
+          of: PersistentVolumeClaim
+      - documentIndex: *otherPvcDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *otherPvcDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-volume2-2027162030

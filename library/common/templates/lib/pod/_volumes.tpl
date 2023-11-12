@@ -29,6 +29,10 @@ objectData: The object data to be used to render the Pod.
 
       {{/* If targetSelector is set, check if pod is selected */}}
       {{- else if $persistence.targetSelector -}}
+        {{- if not (kindIs "map" $persistence.targetSelector) -}}
+          {{- fail (printf "Persistence - Expected [targetSelector] to be [dict], but got [%s]" (kindOf $persistence.targetSelector)) -}}
+        {{- end -}}
+
         {{- if (mustHas $objectData.shortName (keys $persistence.targetSelector)) -}}
           {{- $selected = true -}}
         {{- end -}}

@@ -40,6 +40,7 @@ tests:
           primary: false
           type: Job
           podSpec:
+            restartPolicy: Never
             containers:
               container-name1:
                 enabled: true
@@ -57,6 +58,26 @@ tests:
           type: emptyDir
           mountPath: "{{ .Values.some_path }}"
           targetSelectAll: true
+        nfs-vol-pvc:
+          enabled: true
+          type: pvc
+          static:
+            mode: nfs
+            share: /someshare
+            server: someserver
+          mountPath: /nfs-mount
+          targetSelectAll: true
+        smb-vol-pvc:
+          enabled: true
+          type: pvc
+          static:
+            mode: smb
+            share: someshare
+            server: someserver
+            username: someuser
+            password: someuserpoassword
+          mountPath: /smb-mount
+          targetSelectAll: true
     asserts:
       - documentIndex: &deploymentDoc 0
         isKind:
@@ -73,10 +94,38 @@ tests:
             readOnly: false
       - documentIndex: *deploymentDoc
         contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: nfs-vol-pvc
+            mountPath: /nfs-mount
+            readOnly: false
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: smb-vol-pvc
+            mountPath: /smb-mount
+            readOnly: false
+      - documentIndex: *deploymentDoc
+        contains:
           path: spec.template.spec.containers[1].volumeMounts
           content:
             name: shared-vol
             mountPath: /some/path
+            readOnly: false
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: nfs-vol-pvc
+            mountPath: /nfs-mount
+            readOnly: false
+      - documentIndex: *deploymentDoc
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: smb-vol-pvc
+            mountPath: /smb-mount
             readOnly: false
       - documentIndex: &jobDoc 1
         isKind:
@@ -93,10 +142,38 @@ tests:
             readOnly: false
       - documentIndex: *jobDoc
         contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: nfs-vol-pvc
+            mountPath: /nfs-mount
+            readOnly: false
+      - documentIndex: *jobDoc
+        contains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: smb-vol-pvc
+            mountPath: /smb-mount
+            readOnly: false
+      - documentIndex: *jobDoc
+        contains:
           path: spec.template.spec.containers[1].volumeMounts
           content:
             name: shared-vol
             mountPath: /some/path
+            readOnly: false
+      - documentIndex: *jobDoc
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: nfs-vol-pvc
+            mountPath: /nfs-mount
+            readOnly: false
+      - documentIndex: *jobDoc
+        contains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: smb-vol-pvc
+            mountPath: /smb-mount
             readOnly: false
 
   - it: should pass with volume on primary workload and container
@@ -124,6 +201,7 @@ tests:
           primary: false
           type: Job
           podSpec:
+            restartPolicy: Never
             containers:
               container-name1:
                 enabled: true
@@ -155,12 +233,33 @@ tests:
             name: some-vol
             mountPath: /some/path
             readOnly: true
+      - documentIndex: *deploymentDoc
+        notContains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: some-vol
+            mountPath: /some/path
+            readOnly: true
       - documentIndex: &jobDoc 1
         isKind:
           of: Job
       - documentIndex: *jobDoc
         isAPIVersion:
           of: batch/v1
+      - documentIndex: *jobDoc
+        notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: some-vol
+            mountPath: /some/path
+            readOnly: true
+      - documentIndex: *jobDoc
+        notContains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: some-vol
+            mountPath: /some/path
+            readOnly: true
 
   - it: should pass with volume with selected pod and container
     set:
@@ -187,6 +286,7 @@ tests:
           primary: false
           type: Job
           podSpec:
+            restartPolicy: Never
             containers:
               container-name1:
                 enabled: true
@@ -217,6 +317,13 @@ tests:
         isAPIVersion:
           of: apps/v1
       - documentIndex: *deploymentDoc
+        notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: some-vol
+            mountPath: /some/path
+            readOnly: true
+      - documentIndex: *deploymentDoc
         contains:
           path: spec.template.spec.containers[1].volumeMounts
           content:
@@ -232,6 +339,13 @@ tests:
       - documentIndex: *jobDoc
         contains:
           path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: some-vol
+            mountPath: /some/path
+            readOnly: true
+      - documentIndex: *jobDoc
+        notContains:
+          path: spec.template.spec.containers[1].volumeMounts
           content:
             name: some-vol
             mountPath: /some/path
@@ -262,6 +376,7 @@ tests:
           primary: false
           type: Job
           podSpec:
+            restartPolicy: Never
             containers:
               container-name1:
                 enabled: true
@@ -311,61 +426,19 @@ tests:
         isAPIVersion:
           of: batch/v1
       - documentIndex: *jobDoc
-        contains:
+        notContains:
           path: spec.template.spec.containers[0].volumeMounts
           content:
-            mountPath: /dev/shm
-            name: devshm
-            readOnly: false
+            name: some-vol
+            mountPath: /some/path
+            readOnly: true
       - documentIndex: *jobDoc
-        contains:
-          path: spec.template.spec.containers[0].volumeMounts
-          content:
-            mountPath: /shared
-            name: shared
-            readOnly: false
-      - documentIndex: *jobDoc
-        contains:
-          path: spec.template.spec.containers[0].volumeMounts
-          content:
-            mountPath: /tmp
-            name: tmp
-            readOnly: false
-      - documentIndex: *jobDoc
-        contains:
-          path: spec.template.spec.containers[0].volumeMounts
-          content:
-            mountPath: /var/logs
-            name: varlogs
-            readOnly: false
-      - documentIndex: *jobDoc
-        contains:
+        notContains:
           path: spec.template.spec.containers[1].volumeMounts
           content:
-            mountPath: /dev/shm
-            name: devshm
-            readOnly: false
-      - documentIndex: *jobDoc
-        contains:
-          path: spec.template.spec.containers[1].volumeMounts
-          content:
-            mountPath: /shared
-            name: shared
-            readOnly: false
-      - documentIndex: *jobDoc
-        contains:
-          path: spec.template.spec.containers[1].volumeMounts
-          content:
-            mountPath: /tmp
-            name: tmp
-            readOnly: false
-      - documentIndex: *jobDoc
-        contains:
-          path: spec.template.spec.containers[1].volumeMounts
-          content:
-            mountPath: /var/logs
-            name: varlogs
-            readOnly: false
+            name: some-vol
+            mountPath: /some/path
+            readOnly: true
 
   - it: should pass with volume with selected pod and containers and specific values
     set:
@@ -392,6 +465,7 @@ tests:
           primary: false
           type: Job
           podSpec:
+            restartPolicy: Never
             containers:
               container-name1:
                 enabled: true
@@ -446,6 +520,22 @@ tests:
       - documentIndex: *jobDoc
         isAPIVersion:
           of: batch/v1
+      - documentIndex: *jobDoc
+        notContains:
+          path: spec.template.spec.containers[0].volumeMounts
+          content:
+            name: some-vol
+            mountPath: /some/other/path
+            readOnly: false
+            mountPropagation: None
+            subPath: /some/sub/path
+      - documentIndex: *jobDoc
+        notContains:
+          path: spec.template.spec.containers[1].volumeMounts
+          content:
+            name: some-vol
+            mountPath: /some/path
+            readOnly: true
 
   - it: should pass with volume with selected pod and containers and specific values from tpl
     set:
@@ -611,347 +701,6 @@ tests:
             mountPath: /some/path
             readOnly: true
 
-  - it: should pass with vct mounted
-    set:
-      image: *image
-      workload:
-        workload-name:
-          enabled: true
-          primary: true
-          type: StatefulSet
-          podSpec:
-            containers:
-              container-name1:
-                enabled: true
-                primary: true
-                imageSelector: image
-                probes: *probes
-        workload-name2:
-          enabled: true
-          primary: false
-          type: StatefulSet
-          podSpec:
-            containers:
-              container-name1:
-                enabled: true
-                primary: true
-                imageSelector: image
-                probes: *probes
-      persistence:
-        vct-vol:
-          enabled: true
-          type: vct
-          size: 50Gi
-          targetSelector:
-            workload-name:
-              container-name1:
-                mountPath: /some/path
-    asserts:
-      - documentIndex: &statefulSetDoc 0
-        isKind:
-          of: StatefulSet
-      - documentIndex: *statefulSetDoc
-        isAPIVersion:
-          of: apps/v1
-      - documentIndex: *statefulSetDoc
-        contains:
-          path: spec.template.spec.containers[0].volumeMounts
-          content:
-            name: vct-vol
-            mountPath: /some/path
-            readOnly: false
-      - documentIndex: &otherStatefulSetDoc 1
-        isKind:
-          of: StatefulSet
-      - documentIndex: *otherStatefulSetDoc
-        isAPIVersion:
-          of: apps/v1
-
-  - it: should pass with volume from persistenceList with selected pod and containers and specific values from tpl
-    set:
-      some_path: /some/other/path
-      some_propagation: None
-      some_sub_path: /some/sub/path
-      image: *image
-      workload:
-        workload-name:
-          enabled: true
-          primary: true
-          type: Deployment
-          podSpec:
-            containers:
-              container-name1:
-                enabled: true
-                primary: true
-                imageSelector: image
-                probes: *probes
-              container-name2:
-                enabled: true
-                primary: false
-                imageSelector: image
-                probes: *probes
-      persistenceList:
-        - enabled: true
-          type: emptyDir
-          mountPath: /some/path
-          readOnly: true
-          targetSelector:
-            workload-name:
-              container-name1:
-                mountPath: "{{ .Values.some_path }}"
-                readOnly: false
-                mountPropagation: "{{ .Values.some_propagation }}"
-                subPath: "{{ .Values.some_sub_path }}"
-              container-name2: {}
-    asserts:
-      - documentIndex: &deploymentDoc 0
-        isKind:
-          of: Deployment
-      - documentIndex: *deploymentDoc
-        isAPIVersion:
-          of: apps/v1
-      - documentIndex: *deploymentDoc
-        contains:
-          path: spec.template.spec.containers[0].volumeMounts
-          content:
-            name: persist-list-0
-            mountPath: /some/other/path
-            readOnly: false
-            mountPropagation: None
-            subPath: /some/sub/path
-      - documentIndex: *deploymentDoc
-        contains:
-          path: spec.template.spec.containers[1].volumeMounts
-          content:
-            name: persist-list-0
-            mountPath: /some/path
-            readOnly: true
-
-  - it: should pass with volume from persistenceList with name
-    set:
-      image: *image
-      workload:
-        workload-name:
-          enabled: true
-          primary: true
-          type: Deployment
-          podSpec:
-            containers:
-              container-name1:
-                enabled: true
-                primary: true
-                imageSelector: image
-                probes: *probes
-      persistenceList:
-        - name: some-vol
-          enabled: true
-          type: emptyDir
-          mountPath: /some/path
-          readOnly: true
-    asserts:
-      - documentIndex: &deploymentDoc 0
-        isKind:
-          of: Deployment
-      - documentIndex: *deploymentDoc
-        isAPIVersion:
-          of: apps/v1
-      - documentIndex: *deploymentDoc
-        contains:
-          path: spec.template.spec.containers[0].volumeMounts
-          content:
-            name: some-vol
-            mountPath: /some/path
-            readOnly: true
-
-  - it: should pass with device from deviceList with name
-    set:
-      image: *image
-      workload:
-        workload-name:
-          enabled: true
-          primary: true
-          type: Deployment
-          podSpec:
-            containers:
-              container-name1:
-                enabled: true
-                primary: true
-                imageSelector: image
-                probes: *probes
-      deviceList:
-        - name: some-vol
-          enabled: true
-          type: device
-          hostPath: /dev/sda
-          readOnly: true
-    asserts:
-      - documentIndex: &deploymentDoc 0
-        isKind:
-          of: Deployment
-      - documentIndex: *deploymentDoc
-        isAPIVersion:
-          of: apps/v1
-      - documentIndex: *deploymentDoc
-        contains:
-          path: spec.template.spec.containers[0].volumeMounts
-          content:
-            name: some-vol
-            mountPath: /dev/sda
-            readOnly: true
-
-  - it: should pass with device from deviceList without name
-    set:
-      image: *image
-      workload:
-        workload-name:
-          enabled: true
-          primary: true
-          type: Deployment
-          podSpec:
-            containers:
-              container-name1:
-                enabled: true
-                primary: true
-                imageSelector: image
-                probes: *probes
-      deviceList:
-        - enabled: true
-          type: device
-          hostPath: /dev/sda
-          readOnly: true
-    asserts:
-      - documentIndex: &deploymentDoc 0
-        isKind:
-          of: Deployment
-      - documentIndex: *deploymentDoc
-        isAPIVersion:
-          of: apps/v1
-      - documentIndex: *deploymentDoc
-        contains:
-          path: spec.template.spec.containers[0].volumeMounts
-          content:
-            name: device-0
-            mountPath: /dev/sda
-            readOnly: true
-
-  - it: should pass with volume from persistenceList and from persistence
-    set:
-      image: *image
-      workload:
-        workload-name:
-          enabled: true
-          primary: true
-          type: Deployment
-          podSpec:
-            containers:
-              container-name1:
-                enabled: true
-                primary: true
-                imageSelector: image
-                probes: *probes
-      persistence:
-        some-vol:
-          enabled: true
-          type: emptyDir
-          mountPath: /some/path
-      persistenceList:
-        - name: some-other-vol
-          enabled: true
-          type: emptyDir
-          mountPath: /some/other/path
-    asserts:
-      - documentIndex: &deploymentDoc 0
-        isKind:
-          of: Deployment
-      - documentIndex: *deploymentDoc
-        isAPIVersion:
-          of: apps/v1
-      - documentIndex: *deploymentDoc
-        contains:
-          path: spec.template.spec.containers[0].volumeMounts
-          content:
-            name: some-vol
-            mountPath: /some/path
-            readOnly: false
-      - documentIndex: *deploymentDoc
-        contains:
-          path: spec.template.spec.containers[0].volumeMounts
-          content:
-            name: some-other-vol
-            mountPath: /some/other/path
-            readOnly: false
-
-  - it: should default mountPath to hostPath on device type
-    set:
-      image: *image
-      workload:
-        workload-name1:
-          enabled: true
-          primary: true
-          type: Deployment
-          podSpec:
-            containers:
-              container-name1:
-                enabled: true
-                primary: true
-                imageSelector: image
-                probes: *probes
-      persistence:
-        dev01:
-          enabled: true
-          type: device
-          hostPath: /dev/sda
-    asserts:
-      - documentIndex: &deploymentDoc 0
-        isKind:
-          of: Deployment
-      - documentIndex: *deploymentDoc
-        isAPIVersion:
-          of: apps/v1
-      - documentIndex: *deploymentDoc
-        contains:
-          path: spec.template.spec.containers[0].volumeMounts
-          content:
-            name: dev01
-            mountPath: /dev/sda
-            readOnly: false
-
-  - it: should use mountPath if given instead of hostPath on device type
-    set:
-      image: *image
-      workload:
-        workload-name1:
-          enabled: true
-          primary: true
-          type: Deployment
-          podSpec:
-            containers:
-              container-name1:
-                enabled: true
-                primary: true
-                imageSelector: image
-                probes: *probes
-      persistence:
-        dev01:
-          enabled: true
-          type: device
-          hostPath: /dev/sda
-          mountPath: /dev/sdb
-    asserts:
-      - documentIndex: &deploymentDoc 0
-        isKind:
-          of: Deployment
-      - documentIndex: *deploymentDoc
-        isAPIVersion:
-          of: apps/v1
-      - documentIndex: *deploymentDoc
-        contains:
-          path: spec.template.spec.containers[0].volumeMounts
-          content:
-            name: dev01
-            mountPath: /dev/sdb
-            readOnly: false
-
   # Failures
   - it: should fail with invalid mountPropagation
     set:
@@ -970,7 +719,7 @@ tests:
       persistence:
         vol-name:
           enabled: true
-          type: pvc
+          type: emptyDir
           mountPath: /some/path
           mountPropagation: HostToContainer
           targetSelector:
@@ -989,7 +738,7 @@ tests:
       persistence:
         vol-name:
           enabled: true
-          type: pvc
+          type: emptyDir
           mountPath: /some/path
           targetSelector:
             workload-name:
@@ -1007,7 +756,7 @@ tests:
       persistence:
         vol-name:
           enabled: true
-          type: pvc
+          type: emptyDir
           mountPath: /some/path
           targetSelector:
             workload-name:
@@ -1025,7 +774,7 @@ tests:
       persistence:
         vol-name:
           enabled: true
-          type: pvc
+          type: emptyDir
           mountPath: ""
           targetSelector:
             workload-name:
@@ -1042,7 +791,7 @@ tests:
       persistence:
         vol-name:
           enabled: true
-          type: pvc
+          type: emptyDir
           targetSelector:
             workload-name:
               container-name1:
@@ -1059,7 +808,7 @@ tests:
       persistence:
         vol-name:
           enabled: true
-          type: pvc
+          type: emptyDir
           targetSelector:
             workload-name: string
     asserts:
@@ -1074,33 +823,9 @@ tests:
       persistence:
         vol-name:
           enabled: true
-          type: pvc
+          type: emptyDir
           targetSelector:
             workload-name: {}
     asserts:
       - failedTemplate:
           errorMessage: Persistence - Expected non-empty <targetSelector.workload-name>
-
-  - it: should fail with device in persistenceList
-    set:
-      image: *image
-      workload:
-        workload-name: *workload
-      persistenceList:
-        - enabled: true
-          type: device
-    asserts:
-      - failedTemplate:
-          errorMessage: Persistence List - type [device] should be defined in deviceList only
-
-  - it: should fail with non-device in deviceList
-    set:
-      image: *image
-      workload:
-        workload-name: *workload
-      deviceList:
-        - enabled: true
-          type: emptyDir
-    asserts:
-      - failedTemplate:
-          errorMessage: Device List - Only [device] type can be defined in deviceList, but got [emptyDir]

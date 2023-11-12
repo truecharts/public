@@ -13,7 +13,6 @@ objectData: The object data of the pvc
     If storageClass is defined on the objectData:
       *  "-" returns "", which means requesting a PV without class
       *  "SCALE-ZFS" returns the value set on Values.global.ixChartContext.storageClassName
-      (*)  "SCALE-SMB" returns the value set on Values.global.ixChartContext.smbStorageClassName (Example for the future)
       *   Else return the original defined storageClass
 
     Else if we are in an ixChartContext, always return the storageClassName defined on the ixChartContext

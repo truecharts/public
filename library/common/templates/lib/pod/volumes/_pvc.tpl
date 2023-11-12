@@ -8,7 +8,7 @@ objectData: The object data to be used to render the volume.
   {{- $rootCtx := .rootCtx -}}
   {{- $objectData := .objectData -}}
 
-  {{- $pvcName := (printf "%s-%s" (include "tc.v1.common.lib.chart.names.fullname" $rootCtx) $objectData.shortName) -}}
+  {{- $pvcName := include "tc.v1.common.lib.storage.pvc.name" (dict "rootCtx" $rootCtx "objectName" $objectData.shortName "objectData" $objectData) -}}
   {{- with $objectData.existingClaim -}}
     {{- $pvcName = tpl . $rootCtx -}}
   {{- end }}

@@ -8,15 +8,15 @@ objectData: The object data to be used to render the Pod.
   {{- $rootCtx := .rootCtx -}}
   {{- $objectData := .objectData -}}
 
-  {{- range $name, $vctValues := $rootCtx.Values.volumeClaimTemplates -}}
+  {{- range $name, $vctValues := $rootCtx.Values.persistence -}}
 
-    {{- if $vctValues.enabled -}}
+    {{- if and $vctValues.enabled (eq $vctValues.type "vct") -}}
       {{- $vct := (mustDeepCopy $vctValues) -}}
 
       {{- $selected := false -}}
       {{- $_ := set $vct "shortName" $name -}}
 
-      {{- include "tc.v1.common.lib.vct.validation" (dict "objectData" $vct) -}}
+      {{- include "tc.v1.common.lib.persistence.validation" (dict "objectData" $vct) -}}
       {{- include "tc.v1.common.lib.chart.names.validation" (dict "name" $vct.shortName) -}}
       {{- include "tc.v1.common.lib.metadata.validation" (dict "objectData" $vct "caller" "Volume Claim Templates") -}}
 
@@ -40,7 +40,7 @@ objectData: The object data to be used to render the Pod.
           {{- $vctSize = tpl . $rootCtx -}}
         {{- end }}
 - metadata:
-    name: {{ $vct.shortName }}
+    name: {{ include "tc.v1.common.lib.storage.pvc.name" (dict "rootCtx" $rootCtx "objectName" $vct.shortName "objectData" $vctValues) }}
     {{- $labels := $vct.labels | default dict -}}
     {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "labels" $labels) | trim) }}
     labels:
@@ -52,14 +52,7 @@ objectData: The object data to be used to render the Pod.
       {{- . | nindent 6 }}
     {{- end }}
   spec:
-    {{- with (include "tc.v1.common.lib.storage.storageClassName" (dict "rootCtx" $rootCtx "objectData" $vct "caller" "Volume Claim Templates") | trim) }}
-    storageClassName: {{ . }}
-    {{- end }}
-    accessModes:
-      {{- include "tc.v1.common.lib.pvc.accessModes" (dict "rootCtx" $rootCtx "objectData" $vct "caller" "Volume Claim Templates") | trim | nindent 6 }}
-    resources:
-      requests:
-        storage: {{ $vctSize }}
+      {{- include "tc.v1.common.lib.storage.pvc.spec" (dict "rootCtx" $rootCtx "objectData" $vctValues) | trim | nindent 4 }}
       {{- end -}}
     {{- end -}}
   {{- end -}}

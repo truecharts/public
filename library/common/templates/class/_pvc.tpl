@@ -1,4 +1,4 @@
-{{/* PVC Class */}}
+{{/* PersistentVolumeClaim Class */}}
 {{/* Call this template:
 {{ include "tc.v1.common.class.pvc" (dict "rootCtx" $ "objectData" $objectData) }}
 
@@ -7,6 +7,10 @@ objectData:
   name: The name of the PVC.
   labels: The labels of the PVC.
   annotations: The annotations of the PVC.
+  size: The size of the PVC. (Default: 1Gi)
+  volumeName: The name of the volume to bind to. (Default: "")
+  retain: Whether to retain the PVC after deletion. (Default: false)
+  storageClass: The storage class to use. (Absent)
 */}}
 
 {{- define "tc.v1.common.class.pvc" -}}
@@ -43,15 +47,5 @@ metadata:
     {{- . | nindent 4 }}
   {{- end }}
 spec:
-  accessModes:
-    {{- include "tc.v1.common.lib.pvc.accessModes" (dict "rootCtx" $rootCtx "objectData" $objectData "caller" "PVC") | trim | nindent 4 }}
-  resources:
-    requests:
-      storage: {{ $pvcSize }}
-  {{- with $objectData.volumeName }}
-  volumeName: {{ tpl . $rootCtx }}
-  {{- end -}}
-  {{- with (include "tc.v1.common.lib.storage.storageClassName" (dict "rootCtx" $rootCtx "objectData" $objectData "caller" "PVC") | trim) }}
-  storageClassName: {{ . }}
-  {{- end -}}
+  {{- include "tc.v1.common.lib.storage.pvc.spec" (dict "rootCtx" $rootCtx "objectData" $objectData) | trim | nindent 2 }}
 {{- end -}}

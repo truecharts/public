@@ -45,25 +45,11 @@ spec:
 
   storage:
     pvcTemplate:
-      {{- with (include "tc.v1.common.lib.storage.storageClassName" ( dict "rootCtx" $ "objectData" $values.storage )) | trim }}
-      storageClassName: {{ . }}
-      {{- end }}
-      accessModes:
-        - ReadWriteOnce
-      resources:
-        requests:
-          storage: {{ tpl ($values.storage.walsize | default $.Values.fallbackDefaults.vctSize) $ | quote }}
+      {{- include "tc.v1.common.lib.storage.pvc.spec" (dict "rootCtx" $ "objectData" $values.storage) | trim | nindent 6 }}
 
   walStorage:
     pvcTemplate:
-      {{- with (include "tc.v1.common.lib.storage.storageClassName" ( dict "rootCtx" $ "objectData" $values.storage )) | trim }}
-      storageClassName: {{ . }}
-      {{- end }}
-      accessModes:
-        - ReadWriteOnce
-      resources:
-        requests:
-          storage: {{ tpl ($values.storage.walsize | default $.Values.fallbackDefaults.vctSize) $ | quote }}
+      {{- include "tc.v1.common.lib.storage.pvc.spec" (dict "rootCtx" $ "objectData" $values.walStorage) | trim | nindent 6 }}
 
   monitoring:
     enablePodMonitor: {{ $values.monitoring.enablePodMonitor | default true }}

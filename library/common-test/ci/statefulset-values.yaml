@@ -36,9 +36,10 @@ workload:
               type: http
               port: "{{ .Values.service.main.ports.main.port }}"
 
-volumeClaimTemplates:
+persistence:
   data:
     mountPath: /data
+    type: vct
     accessMode: "ReadWriteOnce"
     size: 1Gi
 

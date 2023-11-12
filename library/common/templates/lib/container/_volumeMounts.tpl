@@ -10,21 +10,16 @@ objectData: The object data to be used to render the container.
 
   {{- $volMounts := list -}}
 
-  {{- $codeServerIgnoredTypes := (list "configmap" "secret") -}}
-  {{- $keys := (list "persistence") -}}
-  {{- if eq $objectData.podType "StatefulSet" -}}
-    {{- $keys = mustAppend $keys "volumeClaimTemplates" -}}
-  {{- end -}}
+  {{- $codeServerIgnoredTypes := (list "configmap" "secret" "vct") -}}
 
-  {{- range $key := $keys -}}
-    {{- range $persistenceName, $persistenceValues := (get $rootCtx.Values $key) -}}
-      {{- if $persistenceValues.enabled -}}
-        {{/* Dont try to mount configmap/sercet to codeserver */}}
-        {{- if not (and (eq $objectData.shortName "codeserver") (mustHas $persistenceValues.type $codeServerIgnoredTypes)) -}}
-          {{- $volMount := (fromJson (include "tc.v1.common.lib.container.volumeMount.isSelected" (dict "persistenceName" $persistenceName "persistenceValues" $persistenceValues "objectData" $objectData "key" $key))) -}}
-          {{- if $volMount -}}
-            {{- $volMounts = mustAppend $volMounts $volMount -}}
-          {{- end -}}
+  {{- range $persistenceName, $persistenceValues := $rootCtx.Values.persistence -}}
+    {{/* TLDR: Enabled + Not VCT without STS */}}
+    {{- if and $persistenceValues.enabled (not (and (eq $persistenceValues.type "vct") (ne $objectData.podType "StatefulSet"))) -}}
+      {{/* Dont try to mount configmap/sercet/vct to codeserver */}}
+      {{- if not (and (eq $objectData.shortName "codeserver") (mustHas $persistenceValues.type $codeServerIgnoredTypes)) -}}
+        {{- $volMount := (fromJson (include "tc.v1.common.lib.container.volumeMount.isSelected" (dict "persistenceName" $persistenceName "persistenceValues" $persistenceValues "objectData" $objectData))) -}}
+        {{- if $volMount -}}
+          {{- $volMounts = mustAppend $volMounts $volMount -}}
         {{- end -}}
       {{- end -}}
     {{- end -}}
@@ -37,20 +32,20 @@ objectData: The object data to be used to render the container.
     {{- $_ := set $volMount "mountPropagation" (tpl $volMount.mountPropagation $rootCtx) -}}
 
     {{- if not $volMount.mountPath -}}
-      {{- fail (printf "%s - Expected non-empty <mountPath>" (camelcase $volMount.key)) -}}
+      {{- fail (printf "Persistence - Expected non-empty <mountPath>") -}}
     {{- end -}}
 
     {{- if not (hasPrefix "/" $volMount.mountPath) -}}
-      {{- fail (printf "%s - Expected <mountPath> to start with a forward slash [/]" (camelcase $volMount.key)) -}}
+      {{- fail (printf "Persistence - Expected <mountPath> to start with a forward slash [/]") -}}
     {{- end -}}
 
     {{- $propagationTypes := (list "None" "HostToContainer" "Bidirectional") -}}
     {{- if and $volMount.mountPropagation (not (mustHas $volMount.mountPropagation $propagationTypes)) -}}
-      {{- fail (printf "%s - Expected <mountPropagation> to be one of [%s], but got [%s]" (camelcase $volMount.key) (join ", " $propagationTypes) $volMount.mountPropagation) -}}
+      {{- fail (printf "Persistence - Expected <mountPropagation> to be one of [%s], but got [%s]" (join ", " $propagationTypes) $volMount.mountPropagation) -}}
     {{- end -}}
 
     {{- if not (kindIs "bool" $volMount.readOnly) -}}
-      {{- fail (printf "%s - Expected <readOnly> to be [boolean], but got [%s]" (camelcase $volMount.key) (kindOf $volMount.readOnly)) -}}
+      {{- fail (printf "Persistence - Expected <readOnly> to be [boolean], but got [%s]" (kindOf $volMount.readOnly)) -}}
     {{- end }}
 - name: {{ $volMount.name }}
   mountPath: {{ $volMount.mountPath }}
@@ -69,12 +64,10 @@ objectData: The object data to be used to render the container.
   {{- $persistenceName := .persistenceName -}}
   {{- $persistenceValues := .persistenceValues -}}
   {{- $objectData := .objectData -}}
-  {{- $key := .key -}}
 
   {{/* Initialize from the default values */}}
   {{- $volMount := dict -}}
   {{- $_ := set $volMount "name" $persistenceName -}}
-  {{- $_ := set $volMount "key" $key -}}
   {{- if eq $persistenceValues.type "device" -}} {{/* On devices use the hostPath as default if mountpath is not defined */}}
     {{- $_ := set $volMount "mountPath" ($persistenceValues.mountPath | default $persistenceValues.hostPath | default "") -}}
   {{- else -}}
@@ -86,7 +79,7 @@ objectData: The object data to be used to render the container.
 
   {{- $return := false -}}
   {{/* If targetSelectAll is set, means all pods/containers */}} {{/* targetSelectAll does not make sense for vct */}}
-  {{- if and $persistenceValues.targetSelectAll (ne $key "volumeClaimTemplates") -}}
+  {{- if and $persistenceValues.targetSelectAll (ne $persistenceValues.type "vct") -}}
     {{- $return = true -}}
     {{/* Set custom path on autopermissions container */}}
     {{- if and (eq $objectData.shortName "autopermissions") $persistenceValues.autoPermissions -}}
@@ -107,15 +100,19 @@ objectData: The object data to be used to render the container.
 
   {{/* Else if selector is defined */}}
   {{- else if $persistenceValues.targetSelector -}}
+    {{- if not (kindIs "map" $persistenceValues.targetSelector) -}}
+      {{- fail (printf "Persistence - Expected [targetSelector] to be a [dict] but got [%s]" (kindOf $persistenceValues.targetSelector)) -}}
+    {{- end -}}
+
     {{/* If pod is selected */}}
     {{- if mustHas $objectData.podShortName ($persistenceValues.targetSelector | keys) -}}
       {{- $selectorValues := (get $persistenceValues.targetSelector $objectData.podShortName) -}}
       {{- if not (kindIs "map" $selectorValues) -}}
-        {{- fail (printf "%s - Expected <targetSelector.%s> to be a [dict], but got [%s]" (camelcase $key) $objectData.podShortName (kindOf $selectorValues)) -}}
+        {{- fail (printf "Persistence - Expected <targetSelector.%s> to be a [dict], but got [%s]" $objectData.podShortName (kindOf $selectorValues)) -}}
       {{- end -}}
 
       {{- if not $selectorValues -}}
-        {{- fail (printf "%s - Expected non-empty <targetSelector.%s>" (camelcase $key) $objectData.podShortName) -}}
+        {{- fail (printf "Persistence - Expected non-empty <targetSelector.%s>" $objectData.podShortName) -}}
       {{- end -}}
 
       {{/* If container is selected */}}
