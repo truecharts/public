@@ -9,7 +9,7 @@
 secret:
 enabled: true
 data:
-key: {{ $msk | b64enc }}
+  key: {{ $msk | b64enc }}
   secret.yaml: |
     {{- if .Values.mail.enabled }}
     email:
