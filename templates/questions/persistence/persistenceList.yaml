@@ -119,14 +119,14 @@
                   type: string
                   default: 256Gi
               - variable: storageClass
-                label: storageClass (Advanced)
-                description: sets the storageClass to something other than iX default. Only for advanced usecases!
+                label: 'storageClass (Advanced)'
+                description: 'sets the storageClass to something other than iX default. Only for advanced usecases!'
                 schema:
                   show_if: [["type", "=", "pvc"]]
                   type: string
                   default: ""
               - variable: static
-                label: Static Fixed PVC Bindings (Experimental)
+                label: 'Static Fixed PVC Bindings (Experimental)'
                 description: Link a PVC to a specific storage location
                 schema:
                   show_if: [["type", "=", "pvc"]]
@@ -185,7 +185,7 @@
                         show_if: [["mode", "=", "smb"]]
                         default: ""
               - variable: volumeSnapshots
-                label: Volume Snapshots (Experimental)
+                label: 'Volume Snapshots (Experimental)'
                 description: Add an entry to the list to force creation of a volumeSnapshot of this PVC
                 schema:
                   show_if: [["type", "=", "pvc"]]
@@ -200,13 +200,13 @@
                         attrs:
                           - variable: name
                             label: Name
-                            description: WARNING: renaming this, means deletion of the snapshot with the old name!
+                            description: 'WARNING: renaming this, means deletion of the snapshot with the old name!'
                             schema:
                               type: string
                               default: "mysnapshot"
                               required: true
                           - variable: volumeSnapshotClassName
-                            label: volumeSnapshot Class Name (Advanced)
+                            label: 'volumeSnapshot Class Name (Advanced)'
                             description: For use with PVCs using a non-default storageClass
                             schema:
                               type: string
