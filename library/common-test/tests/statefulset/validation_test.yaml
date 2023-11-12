@@ -16,7 +16,7 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: StatefulSet - Expected <strategy> to be one of [OnDelete, RollingUpdate], but got [not-a-strategy]
+          errorMessage: StatefulSet - Expected [strategy] to be one of [OnDelete, RollingUpdate], but got [not-a-strategy]
 
   - it: should fail with rollingUpdate not a dict
     set:
@@ -30,7 +30,7 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: StatefulSet - Expected <rollingUpdate> to be a dictionary, but got [string]
+          errorMessage: StatefulSet - Expected [rollingUpdate] to be a dictionary, but got [string]
 
   - it: should fail with namespace longer than 63 characters
     set:

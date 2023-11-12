@@ -40,7 +40,7 @@ tests:
           labels: "not a dict"
     asserts:
       - failedTemplate:
-          errorMessage: Service Account - Expected <labels> to be a dictionary, but got [string]
+          errorMessage: Service Account - Expected [labels] to be a dictionary, but got [string]
 
   - it: should fail with annotations not a dict
     set:
@@ -51,7 +51,7 @@ tests:
           annotations: "not a dict"
     asserts:
       - failedTemplate:
-          errorMessage: Service Account - Expected <annotations> to be a dictionary, but got [string]
+          errorMessage: Service Account - Expected [annotations] to be a dictionary, but got [string]
 
   - it: should fail with more than 1 primary service accounts
     set:

@@ -13,7 +13,7 @@
       {{- if not (kindIs "invalid" $secret.enabled) -}}
         {{- $enabled = $secret.enabled -}}
       {{- else -}}
-        {{- fail (printf "Secret - Expected the defined key [enabled] in <secret.%s> to not be empty" $name) -}}
+        {{- fail (printf "Secret - Expected the defined key [enabled] in [secret.%s] to not be empty" $name) -}}
       {{- end -}}
     {{- end -}}
 

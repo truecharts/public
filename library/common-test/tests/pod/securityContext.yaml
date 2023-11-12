@@ -572,7 +572,7 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: Pod - Expected non-empty <.Values.securityContext.pod>
+          errorMessage: Pod - Expected non-empty [.Values.securityContext.pod]
 
   - it: should fail with empty fsGroup
     set:
@@ -587,7 +587,7 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: Pod - Expected non-empty <fsGroup>
+          errorMessage: Pod - Expected non-empty [fsGroup]
 
   - it: should fail with empty fsGroupChangePolicy
     set:
@@ -603,7 +603,7 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: Pod - Expected non-empty <fsGroupChangePolicy>
+          errorMessage: Pod - Expected non-empty [fsGroupChangePolicy]
 
   - it: should fail with invalid fsGroupChangePolicy
     set:
@@ -619,7 +619,7 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: Pod - Expected <fsGroupChangePolicy> to be one of [Always, OnRootMismatch], but got [invalid]
+          errorMessage: Pod - Expected [fsGroupChangePolicy] to be one of [Always, OnRootMismatch], but got [invalid]
 
   - it: should fail with empty name in sysctls
     set:
@@ -638,7 +638,7 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: Pod - Expected non-empty <name> in <sysctls>
+          errorMessage: Pod - Expected non-empty [name] in [sysctls]
 
   - it: should fail with empty value in sysctls
     set:
@@ -657,7 +657,7 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: Pod - Expected non-empty <value> in <sysctls>
+          errorMessage: Pod - Expected non-empty [value] in [sysctls]
 
   - it: should fail with non unique supplementalGroups
     set:
@@ -676,4 +676,4 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: Pod - Expected <supplementalGroups> to have only unique values, but got [1000, 44, 107, 44, 568]
+          errorMessage: Pod - Expected [supplementalGroups] to have only unique values, but got [1000, 44, 107, 44, 568]

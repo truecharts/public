@@ -63,7 +63,7 @@ objectData: The object data to be used to render the container.
   {{- end -}}
 
   {{- if not $rootCtx.Values.securityContext.container -}}
-    {{- fail "Container - Expected non-empty <.Values.securityContext.container>" -}}
+    {{- fail "Container - Expected non-empty [.Values.securityContext.container]" -}}
   {{- end -}}
 
   {{/* Initialize from the "global" options */}}
@@ -78,7 +78,7 @@ objectData: The object data to be used to render the container.
   {{- range $key := (list "runAsUser" "runAsGroup") -}}
     {{- $value := (get $secContext $key) -}}
     {{- if not (mustHas (kindOf $value) (list "float64" "int" "int64")) -}}
-      {{- fail (printf "Container - Expected <securityContext.%s> to be [int], but got [%v] of type [%s]" $key $value (kindOf $value)) -}}
+      {{- fail (printf "Container - Expected [securityContext.%s] to be [int], but got [%v] of type [%s]" $key $value (kindOf $value)) -}}
     {{- end -}}
   {{- end -}}
 
@@ -103,27 +103,27 @@ objectData: The object data to be used to render the container.
   {{- range $key := (list "privileged" "allowPrivilegeEscalation" "runAsNonRoot" "readOnlyRootFilesystem") -}}
     {{- $value := (get $secContext $key) -}}
     {{- if not (kindIs "bool" $value) -}}
-      {{- fail (printf "Container - Expected <securityContext.%s> to be [bool], but got [%s] of type [%s]" $key $value (kindOf $value)) -}}
+      {{- fail (printf "Container - Expected [securityContext.%s] to be [bool], but got [%s] of type [%s]" $key $value (kindOf $value)) -}}
     {{- end -}}
   {{- end -}}
 
   {{- if not $secContext.seccompProfile -}}
-    {{- fail "Container - Expected <securityContext.seccompProfile> to be defined" -}}
+    {{- fail "Container - Expected [securityContext.seccompProfile] to be defined" -}}
   {{- end -}}
 
   {{- $profiles := (list "RuntimeDefault" "Localhost" "Unconfined") -}}
   {{- if not (mustHas $secContext.seccompProfile.type $profiles) -}}
-    {{- fail (printf "Container - Expected <securityContext.seccompProfile> to be one of [%s], but got [%s]" (join ", " $profiles) $secContext.seccompProfile.type) -}}
+    {{- fail (printf "Container - Expected [securityContext.seccompProfile] to be one of [%s], but got [%s]" (join ", " $profiles) $secContext.seccompProfile.type) -}}
   {{- end -}}
 
   {{- if eq $secContext.seccompProfile.type "Localhost" -}}
     {{- if not $secContext.seccompProfile.profile -}}
-      {{- fail "Container - Expected <securityContext.seccompProfile.profile> to be defined on type [Localhost]" -}}
+      {{- fail "Container - Expected [securityContext.seccompProfile.profile] to be defined on type [Localhost]" -}}
     {{- end -}}
   {{- end -}}
 
   {{- if not $secContext.capabilities -}}
-    {{- fail "Container - Expected <securityContext.capabilities> to be defined" -}}
+    {{- fail "Container - Expected [securityContext.capabilities] to be defined" -}}
   {{- end -}}
 
   {{- $tempObjectData := (dict "shortName" $objectData.podShortName "primary" $objectData.podPrimary) -}}
@@ -144,7 +144,7 @@ objectData: The object data to be used to render the container.
   {{- if eq (int $secContext.runAsUser) 0 -}}
 
     {{- if not (kindIs "bool" $secContext.capabilities.disableS6Caps) -}}
-      {{- fail (printf "Container - Expected <securityContext.capabilities.disableS6Caps> to be [bool], but got [%s] of type [%s]" $secContext.capabilities.disableS6Caps (kindOf $secContext.capabilities.disableS6Caps)) -}}
+      {{- fail (printf "Container - Expected [securityContext.capabilities.disableS6Caps] to be [bool], but got [%s] of type [%s]" $secContext.capabilities.disableS6Caps (kindOf $secContext.capabilities.disableS6Caps)) -}}
     {{- end -}}
 
     {{- $addCap := $secContext.capabilities.add -}}
@@ -163,17 +163,17 @@ objectData: The object data to be used to render the container.
   {{- range $key := (list "add" "drop") -}}
     {{- $item := (get $secContext.capabilities $key) -}}
     {{- if not (kindIs "slice" $item) -}}
-      {{- fail (printf "Container - Expected <securityContext.capabilities.%s> to be [list], but got [%s]" $key (kindOf $item)) -}}
+      {{- fail (printf "Container - Expected [securityContext.capabilities.%s] to be [list], but got [%s]" $key (kindOf $item)) -}}
     {{- end -}}
 
     {{- range $item -}}
       {{- if not (kindIs "string" .) -}}
-        {{- fail (printf "Container - Expected items of <securityContext.capabilities.%s> to be [string], but got [%s]" $key (kindOf .)) -}}
+        {{- fail (printf "Container - Expected items of [securityContext.capabilities.%s] to be [string], but got [%s]" $key (kindOf .)) -}}
       {{- end -}}
     {{- end -}}
 
     {{- if not (deepEqual (uniq $item) $item) -}}
-      {{- fail (printf "Container - Expected items of <securityContext.capabilities.%s> to be unique, but got [%s]" $key (join ", " $item)) -}}
+      {{- fail (printf "Container - Expected items of [securityContext.capabilities.%s] to be unique, but got [%s]" $key (join ", " $item)) -}}
     {{- end -}}
   {{- end -}}
 

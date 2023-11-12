@@ -210,7 +210,7 @@ tests:
                 probes: {}
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected non-empty <probes>
+          errorMessage: Container - Expected non-empty [probes]
 
   - it: should fail without liveness defined
     set:
@@ -233,7 +233,7 @@ tests:
                     enabled: false
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected <probes.liveness> to be defined
+          errorMessage: Container - Expected [probes.liveness] to be defined
 
   - it: should fail without readiness defined
     set:
@@ -256,7 +256,7 @@ tests:
                     enabled: false
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected <probes.readiness> to be defined
+          errorMessage: Container - Expected [probes.readiness] to be defined
 
   - it: should fail without startup defined
     set:
@@ -279,7 +279,7 @@ tests:
                     enabled: false
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected <probes.startup> to be defined
+          errorMessage: Container - Expected [probes.startup] to be defined
 
   - it: should fail with invalid type
     set:
@@ -334,7 +334,7 @@ tests:
                     enabled: false
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected <probes> <successThreshold> to be 1 on [liveness] probe
+          errorMessage: Container - Expected [probes] [successThreshold] to be 1 on [liveness] probe
 
   - it: should fail with successThreshold more than 1 on startup
     set:
@@ -363,7 +363,7 @@ tests:
                     enabled: false
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected <probes> <successThreshold> to be 1 on [startup] probe
+          errorMessage: Container - Expected [probes] [successThreshold] to be 1 on [startup] probe
 
   - it: should fail with initialDelaySeconds not a number
     set:
@@ -392,7 +392,7 @@ tests:
                     enabled: false
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected <probes> <initialDelaySeconds> to be a number, but got [invalid]
+          errorMessage: Container - Expected [probes] [initialDelaySeconds] to be a number, but got [invalid]
 
   - it: should fail with failureThreshold not a number
     set:
@@ -421,7 +421,7 @@ tests:
                     enabled: false
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected <probes> <failureThreshold> to be a number, but got [invalid]
+          errorMessage: Container - Expected [probes] [failureThreshold] to be a number, but got [invalid]
 
   - it: should fail with successThreshold not a number
     set:
@@ -450,7 +450,7 @@ tests:
                     enabled: false
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected <probes> <successThreshold> to be a number, but got [invalid]
+          errorMessage: Container - Expected [probes] [successThreshold] to be a number, but got [invalid]
 
   - it: should fail with timeoutSeconds not a number
     set:
@@ -479,7 +479,7 @@ tests:
                     enabled: false
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected <probes> <timeoutSeconds> to be a number, but got [invalid]
+          errorMessage: Container - Expected [probes] [timeoutSeconds] to be a number, but got [invalid]
 
   - it: should fail with periodSeconds not a number
     set:
@@ -508,7 +508,7 @@ tests:
                     enabled: false
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected <probes> <periodSeconds> to be a number, but got [invalid]
+          errorMessage: Container - Expected [probes] [periodSeconds] to be a number, but got [invalid]
 
   - it: should fail with empty command on exec type
     set:
@@ -535,7 +535,7 @@ tests:
                     enabled: false
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected non-empty <probes> <command> on [exec] type
+          errorMessage: Container - Expected non-empty [probes] [command] on [exec] type
 
   - it: should fail with empty port on grpc type
     set:
@@ -562,7 +562,7 @@ tests:
                     enabled: false
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected non-empty <probes> <port> on [grpc] type
+          errorMessage: Container - Expected non-empty [probes] [port] on [grpc] type
 
   - it: should fail with empty port on tcp type
     set:
@@ -589,7 +589,7 @@ tests:
                     enabled: false
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected non-empty <probes> <port> on [tcp] type
+          errorMessage: Container - Expected non-empty [probes] [port] on [tcp] type
 
   - it: should fail with empty port on http type
     set:
@@ -616,7 +616,7 @@ tests:
                     enabled: false
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected non-empty <probes> <port> on [http] type
+          errorMessage: Container - Expected non-empty [probes] [port] on [http] type
 
   - it: should fail with invalid path on http type
     set:
@@ -644,7 +644,7 @@ tests:
                     enabled: false
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected <probes> <path> to start with a forward slash [/] on <http> type
+          errorMessage: Container - Expected [probes] [path] to start with a forward slash [/] on [http] type
 
   - it: should fail with empty value in http headers
     set:
@@ -673,4 +673,4 @@ tests:
                     enabled: false
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected non-empty <value> on <httpHeaders>
+          errorMessage: Container - Expected non-empty [value] on [httpHeaders]

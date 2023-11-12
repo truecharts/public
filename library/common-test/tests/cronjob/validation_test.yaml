@@ -16,7 +16,7 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: CronJob - Expected <concurrencyPolicy> to be one of [Allow, Forbid, Replace], but got [not-a-policy]
+          errorMessage: CronJob - Expected [concurrencyPolicy] to be one of [Allow, Forbid, Replace], but got [not-a-policy]
 
   - it: should fail with empty schedule
     set:
@@ -29,7 +29,7 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: CronJob - Expected non-empty <schedule>
+          errorMessage: CronJob - Expected non-empty [schedule]
 
   - it: should fail with invalid completionMode (make sure job validation kicks in)
     set:
@@ -43,7 +43,7 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: Job - Expected <completionMode> to be one of [Indexed, NonIndexed], but got [not-a-mode]
+          errorMessage: Job - Expected [completionMode] to be one of [Indexed, NonIndexed], but got [not-a-mode]
 
   - it: should fail with namespace longer than 63 characters
     set:

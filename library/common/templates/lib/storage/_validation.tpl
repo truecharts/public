@@ -12,7 +12,7 @@ objectData:
 
   {{- $types := (list "pvc" "vct" "emptyDir" "nfs" "hostPath" "ixVolume" "secret" "configmap" "device") -}}
   {{- if not (mustHas $objectData.type $types) -}}
-    {{- fail (printf "Persistence - Expected <type> to be one of [%s], but got [%s]" (join ", " $types) $objectData.type) -}}
+    {{- fail (printf "Persistence - Expected [type] to be one of [%s], but got [%s]" (join ", " $types) $objectData.type) -}}
   {{- end -}}
 
   {{- if and $objectData.static $objectData.static.mode -}}
@@ -38,7 +38,7 @@ objectData:
   {{- end -}}
 
   {{- if and $objectData.targetSelector (not (kindIs "map" $objectData.targetSelector)) -}}
-    {{- fail (printf "Persistence - Expected <targetSelector> to be [dict], but got [%s]" (kindOf $objectData.targetSelector)) -}}
+    {{- fail (printf "Persistence - Expected [targetSelector] to be [dict], but got [%s]" (kindOf $objectData.targetSelector)) -}}
   {{- end -}}
 
 {{- end -}}

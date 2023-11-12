@@ -77,7 +77,7 @@ tests:
           labels: "not a dict"
     asserts:
       - failedTemplate:
-          errorMessage: Webhook - Expected <labels> to be a dictionary, but got [string]
+          errorMessage: Webhook - Expected [labels] to be a dictionary, but got [string]
 
   - it: should fail with annotations not a dict
     set:
@@ -88,7 +88,7 @@ tests:
           annotations: "not a dict"
     asserts:
       - failedTemplate:
-          errorMessage: Webhook - Expected <annotations> to be a dictionary, but got [string]
+          errorMessage: Webhook - Expected [annotations] to be a dictionary, but got [string]
 
   - it: should fail with invalid type
     set:
@@ -98,7 +98,7 @@ tests:
           type: "not valid"
     asserts:
       - failedTemplate:
-          errorMessage: Webhook - Expected <type> in <webhook.my-webhook> to be one of [validating, mutating], but got [not valid]
+          errorMessage: Webhook - Expected [type] in [webhook.my-webhook] to be one of [validating, mutating], but got [not valid]
 
   - it: should fail without type
     set:
@@ -108,7 +108,7 @@ tests:
           type:
     asserts:
       - failedTemplate:
-          errorMessage: Webhook - Expected <type> in <webhook.my-webhook> to not be empty
+          errorMessage: Webhook - Expected [type] in [webhook.my-webhook] to not be empty
 
   - it: should fail with empty webhooks
     set:
@@ -119,7 +119,7 @@ tests:
           webhooks: []
     asserts:
       - failedTemplate:
-          errorMessage: Webhook - Expected <webhooks> in <webhook.my-webhook> to not be empty
+          errorMessage: Webhook - Expected [webhooks] in [webhook.my-webhook] to not be empty
 
   - it: should fail with webhooks not a list
     set:
@@ -130,7 +130,7 @@ tests:
           webhooks: "not a list"
     asserts:
       - failedTemplate:
-          errorMessage: Webhook - Expected <webhooks> in <webhook.my-webhook> to be a list, but got [string]
+          errorMessage: Webhook - Expected [webhooks] in [webhook.my-webhook] to be a list, but got [string]
 
   - it: should fail with empty enabled
     set:
@@ -139,7 +139,7 @@ tests:
           enabled:
     asserts:
       - failedTemplate:
-          errorMessage: Webhook - Expected the defined key [enabled] in <webhook.my-webhook> to not be empty
+          errorMessage: Webhook - Expected the defined key [enabled] in [webhook.my-webhook] to not be empty
 
   - it: should fail without name in webhook
     set:
@@ -154,7 +154,7 @@ tests:
               rules: *rules
     asserts:
       - failedTemplate:
-          errorMessage: Webhook - Expected <name> in <webhook.my-webhook> to not be empty
+          errorMessage: Webhook - Expected [name] in [webhook.my-webhook] to not be empty
 
   - it: should fail with invalid failurePolicy
     set:
@@ -171,7 +171,7 @@ tests:
               rules: *rules
     asserts:
       - failedTemplate:
-          errorMessage: Webhook - Expected <failurePolicy> in <webhook.my-webhook.webhook1> to be one of [Ignore, Fail], but got [not valid]
+          errorMessage: Webhook - Expected [failurePolicy] in [webhook.my-webhook.webhook1] to be one of [Ignore, Fail], but got [not valid]
 
   - it: should fail with invalid matchPolicy
     set:
@@ -188,7 +188,7 @@ tests:
               rules: *rules
     asserts:
       - failedTemplate:
-          errorMessage: Webhook - Expected <matchPolicy> in <webhook.my-webhook.webhook1> to be one of [Exact, Equivalent], but got [not valid]
+          errorMessage: Webhook - Expected [matchPolicy] in [webhook.my-webhook.webhook1] to be one of [Exact, Equivalent], but got [not valid]
 
   - it: should fail with defined reinvocationPolicy in validating webhook
     set:
@@ -205,7 +205,7 @@ tests:
               rules: *rules
     asserts:
       - failedTemplate:
-          errorMessage: Webhook - Expected [mutating] type in <webhook.my-webhook.webhook1> when <reinvocationPolicy> is defined
+          errorMessage: Webhook - Expected [mutating] type in [webhook.my-webhook.webhook1] when [reinvocationPolicy] is defined
 
   - it: should fail with not valid reinvocationPolicy
     set:
@@ -222,7 +222,7 @@ tests:
               rules: *rules
     asserts:
       - failedTemplate:
-          errorMessage: Webhook - Expected <reinvocationPolicy> in <webhook.my-webhook.webhook1> to be one of [Never, IfNeeded], but got [not valid]
+          errorMessage: Webhook - Expected [reinvocationPolicy] in [webhook.my-webhook.webhook1] to be one of [Never, IfNeeded], but got [not valid]
 
   - it: should fail with invalid sideEffects
     set:
@@ -239,7 +239,7 @@ tests:
               rules: *rules
     asserts:
       - failedTemplate:
-          errorMessage: Webhook - Expected <sideEffects> in <webhook.my-webhook.webhook1> to be one of [None, NoneOnDryRun], but got [not valid]
+          errorMessage: Webhook - Expected [sideEffects] in [webhook.my-webhook.webhook1] to be one of [None, NoneOnDryRun], but got [not valid]
 
   - it: should fail with empty timeoutSeconds
     set:
@@ -256,7 +256,7 @@ tests:
               rules: *rules
     asserts:
       - failedTemplate:
-          errorMessage: Webhook - Expected the defined key <timeoutSeconds> in <webhook.my-webhook.webhook1> to not be empty
+          errorMessage: Webhook - Expected the defined key [timeoutSeconds] in [webhook.my-webhook.webhook1] to not be empty
 
   - it: should fail with timeoutSeconds not integer
     set:
@@ -273,7 +273,7 @@ tests:
               rules: *rules
     asserts:
       - failedTemplate:
-          errorMessage: Webhook - Expected <timeoutSeconds> in <webhook.my-webhook.webhook1> to be an integer, but got [string]
+          errorMessage: Webhook - Expected [timeoutSeconds] in [webhook.my-webhook.webhook1] to be an integer, but got [string]
 
   - it: should fail with timeoutSeconds less that 1
     set:
@@ -290,7 +290,7 @@ tests:
               rules: *rules
     asserts:
       - failedTemplate:
-          errorMessage: Webhook - Expected <timeoutSeconds> in <webhook.my-webhook.webhook1> to be greater than 0, but got [0]
+          errorMessage: Webhook - Expected [timeoutSeconds] in [webhook.my-webhook.webhook1] to be greater than 0, but got [0]
 
   - it: should fail with timeoutSeconds greater than 30
     set:
@@ -307,7 +307,7 @@ tests:
               rules: *rules
     asserts:
       - failedTemplate:
-          errorMessage: Webhook - Expected <timeoutSeconds> in <webhook.my-webhook.webhook1> to be less than 30, but got [31]
+          errorMessage: Webhook - Expected [timeoutSeconds] in [webhook.my-webhook.webhook1] to be less than 30, but got [31]
 
   - it: should fail without clientConfig
     set:
@@ -322,7 +322,7 @@ tests:
                 - v1
     asserts:
       - failedTemplate:
-          errorMessage: Webhook - Expected <clientConfig> in <webhook.my-webhook.webhook1> to not be empty
+          errorMessage: Webhook - Expected [clientConfig] in [webhook.my-webhook.webhook1] to not be empty
 
   - it: should fail with both service and url defined
     set:
@@ -342,7 +342,7 @@ tests:
               rules: *rules
     asserts:
       - failedTemplate:
-          errorMessage: Webhook - Expected either <url> or <service> in <webhook.my-webhook.webhook1> to be defined, but got both
+          errorMessage: Webhook - Expected either [url] or [service] in [webhook.my-webhook.webhook1] to be defined, but got both
 
   - it: should fail without service name
     set:
@@ -360,7 +360,7 @@ tests:
               rules: *rules
     asserts:
       - failedTemplate:
-          errorMessage: Webhook - Expected <service.name> in <webhook.my-webhook.webhook1> to not be empty
+          errorMessage: Webhook - Expected [service.name] in [webhook.my-webhook.webhook1] to not be empty
 
   - it: should fail without service namespace
     set:
@@ -378,7 +378,7 @@ tests:
               rules: *rules
     asserts:
       - failedTemplate:
-          errorMessage: Webhook - Expected <service.namespace> in <webhook.my-webhook.webhook1> to not be empty
+          errorMessage: Webhook - Expected [service.namespace] in [webhook.my-webhook.webhook1] to not be empty
 
   - it: should fail without rules
     set:
@@ -393,7 +393,7 @@ tests:
               clientConfig: *clientConfig
     asserts:
       - failedTemplate:
-          errorMessage: Webhook - Expected <rules> in <webhook.my-webhook.webhook1> to not be empty
+          errorMessage: Webhook - Expected [rules] in [webhook.my-webhook.webhook1] to not be empty
 
   - it: should fail with rules not a list
     set:
@@ -409,7 +409,7 @@ tests:
               rules: "not a list"
     asserts:
       - failedTemplate:
-          errorMessage: Webhook - Expected <rules> in <webhook.my-webhook.webhook1> to be a list, but got [string]
+          errorMessage: Webhook - Expected [rules] in [webhook.my-webhook.webhook1] to be a list, but got [string]
 
   - it: should fail with empty apiGroups in rule
     set:
@@ -429,7 +429,7 @@ tests:
                     - pods
     asserts:
       - failedTemplate:
-          errorMessage: Webhook - Expected <apiGroups> in <webhook.my-webhook.webhook1> to not be empty
+          errorMessage: Webhook - Expected [apiGroups] in [webhook.my-webhook.webhook1] to not be empty
 
   - it: should fail with empty apiVersions in rule
     set:
@@ -449,7 +449,7 @@ tests:
                     - pods
     asserts:
       - failedTemplate:
-          errorMessage: Webhook - Expected <apiGroups> in <webhook.my-webhook.webhook1> to not be empty
+          errorMessage: Webhook - Expected [apiGroups] in [webhook.my-webhook.webhook1] to not be empty
 
   - it: should fail with empty operations in rule
     set:
@@ -471,7 +471,7 @@ tests:
                     - pods
     asserts:
       - failedTemplate:
-          errorMessage: Webhook - Expected <operations> in <webhook.my-webhook.webhook1> to not be empty
+          errorMessage: Webhook - Expected [operations] in [webhook.my-webhook.webhook1] to not be empty
 
   - it: should fail with invalid scope
     set:
@@ -496,4 +496,4 @@ tests:
                   scope: "not valid"
     asserts:
       - failedTemplate:
-          errorMessage: Webhook - Expected <scope> in <webhook.my-webhook.webhook1> to be one of [Cluster, Namespaced, *], but got [not valid]
+          errorMessage: Webhook - Expected [scope] in [webhook.my-webhook.webhook1] to be one of [Cluster, Namespaced, *], but got [not valid]

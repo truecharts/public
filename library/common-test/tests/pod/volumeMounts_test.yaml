@@ -728,7 +728,7 @@ tests:
                 mountPropagation: invalid
     asserts:
       - failedTemplate:
-          errorMessage: Persistence - Expected <mountPropagation> to be one of [None, HostToContainer, Bidirectional], but got [invalid]
+          errorMessage: Persistence - Expected [mountPropagation] to be one of [None, HostToContainer, Bidirectional], but got [invalid]
 
   - it: should fail with non-boolean readOnly
     set:
@@ -746,7 +746,7 @@ tests:
                 readOnly: invalid
     asserts:
       - failedTemplate:
-          errorMessage: Persistence - Expected <readOnly> to be [boolean], but got [string]
+          errorMessage: Persistence - Expected [readOnly] to be [boolean], but got [string]
 
   - it: should fail with empty readOnly
     set:
@@ -764,7 +764,7 @@ tests:
                 readOnly:
     asserts:
       - failedTemplate:
-          errorMessage: Persistence - Expected <readOnly> to be [boolean], but got [invalid]
+          errorMessage: Persistence - Expected [readOnly] to be [boolean], but got [invalid]
 
   - it: should fail with empty mountPath
     set:
@@ -781,7 +781,7 @@ tests:
               container-name1: {}
     asserts:
       - failedTemplate:
-          errorMessage: Persistence - Expected non-empty <mountPath>
+          errorMessage: Persistence - Expected non-empty [mountPath]
 
   - it: should fail with mountPath not starting with /
     set:
@@ -798,7 +798,7 @@ tests:
                 mountPath: some/path
     asserts:
       - failedTemplate:
-          errorMessage: Persistence - Expected <mountPath> to start with a forward slash [/]
+          errorMessage: Persistence - Expected [mountPath] to start with a forward slash [/]
 
   - it: should fail with non-dict targetSelect.workloadName
     set:
@@ -813,7 +813,7 @@ tests:
             workload-name: string
     asserts:
       - failedTemplate:
-          errorMessage: Persistence - Expected <targetSelector.workload-name> to be a [dict], but got [string]
+          errorMessage: Persistence - Expected [targetSelector.workload-name] to be a [dict], but got [string]
 
   - it: should fail with empty targetSelect.workloadName
     set:
@@ -828,4 +828,4 @@ tests:
             workload-name: {}
     asserts:
       - failedTemplate:
-          errorMessage: Persistence - Expected non-empty <targetSelector.workload-name>
+          errorMessage: Persistence - Expected non-empty [targetSelector.workload-name]

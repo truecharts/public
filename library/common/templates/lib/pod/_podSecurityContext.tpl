@@ -9,7 +9,7 @@ objectData: The object data to be used to render the Pod.
   {{- $objectData := .objectData -}}
 
   {{- if not $rootCtx.Values.securityContext.pod -}}
-    {{- fail "Pod - Expected non-empty <.Values.securityContext.pod>" -}}
+    {{- fail "Pod - Expected non-empty [.Values.securityContext.pod]" -}}
   {{- end -}}
 
   {{/* Initialize from the "global" option */}}
@@ -62,7 +62,7 @@ objectData: The object data to be used to render the Pod.
   {{- $_ := set $secContext "supplementalGroups" (concat $secContext.supplementalGroups (list 568)) -}}
 
   {{- if not (deepEqual $secContext.supplementalGroups (mustUniq $secContext.supplementalGroups)) -}}
-    {{- fail (printf "Pod - Expected <supplementalGroups> to have only unique values, but got [%s]" (join ", " $secContext.supplementalGroups)) -}}
+    {{- fail (printf "Pod - Expected [supplementalGroups] to have only unique values, but got [%s]" (join ", " $secContext.supplementalGroups)) -}}
   {{- end -}}
 
   {{- $portRange := fromJson (include "tc.v1.common.lib.helpers.securityContext.getPortRange" (dict "rootCtx" $rootCtx "objectData" $objectData)) -}}
@@ -75,19 +75,19 @@ objectData: The object data to be used to render the Pod.
   {{- end -}}
 
   {{- if or (kindIs "invalid" $secContext.fsGroup) (eq (toString $secContext.fsGroup) "") -}}
-    {{- fail "Pod - Expected non-empty <fsGroup>" -}}
+    {{- fail "Pod - Expected non-empty [fsGroup]" -}}
   {{- end -}}
 
   {{/* Used by the fixedEnv template */}}
   {{- $_ := set $objectData.podSpec "calculatedFSGroup" $secContext.fsGroup -}}
 
   {{- if not $secContext.fsGroupChangePolicy -}}
-    {{- fail "Pod - Expected non-empty <fsGroupChangePolicy>" -}}
+    {{- fail "Pod - Expected non-empty [fsGroupChangePolicy]" -}}
   {{- end -}}
 
   {{- $policies := (list "Always" "OnRootMismatch") -}}
   {{- if not (mustHas $secContext.fsGroupChangePolicy $policies) -}}
-    {{- fail (printf "Pod - Expected <fsGroupChangePolicy> to be one of [%s], but got [%s]" (join ", " $policies) $secContext.fsGroupChangePolicy) -}}
+    {{- fail (printf "Pod - Expected [fsGroupChangePolicy] to be one of [%s], but got [%s]" (join ", " $policies) $secContext.fsGroupChangePolicy) -}}
   {{- end }}
 fsGroup: {{ include "tc.v1.common.helper.makeIntOrNoop" $secContext.fsGroup }}
 fsGroupChangePolicy: {{ $secContext.fsGroupChangePolicy }}
@@ -103,10 +103,10 @@ supplementalGroups: []
 sysctls:
     {{- range . }}
     {{- if not .name -}}
-      {{- fail "Pod - Expected non-empty <name> in <sysctls>" -}}
+      {{- fail "Pod - Expected non-empty [name] in [sysctls]" -}}
     {{- end -}}
     {{- if not .value -}}
-      {{- fail "Pod - Expected non-empty <value> in <sysctls>" -}}
+      {{- fail "Pod - Expected non-empty [value] in [sysctls]" -}}
     {{- end }}
   - name: {{ tpl .name $rootCtx | quote }}
     value: {{ tpl .value $rootCtx | quote }}

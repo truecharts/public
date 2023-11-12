@@ -14,12 +14,12 @@ objectData: The object data to be used to render the volume.
   {{- end -}}
 
   {{- if not $objectData.hostPath -}}
-    {{- fail "Persistence - Expected non-empty <hostPath> on <device> type" -}}
+    {{- fail "Persistence - Expected non-empty [hostPath] on [device] type" -}}
   {{- end -}}
   {{- $hostPath := tpl $objectData.hostPath $rootCtx -}}
 
   {{- if not (hasPrefix "/" $hostPath) -}}
-    {{- fail "Persistence - Expected <hostPath> to start with a forward slash [/] on <device> type" -}}
+    {{- fail "Persistence - Expected [hostPath] to start with a forward slash [/] on [device] type" -}}
   {{- end -}}
 
   {{- $charDevices := (list "tty") -}}
@@ -42,7 +42,7 @@ objectData: The object data to be used to render the volume.
 
   {{- $types := (list "DirectoryOrCreate" "Directory" "FileOrCreate" "File" "Socket" "CharDevice" "BlockDevice") -}}
   {{- if and $hostPathType (not (mustHas $hostPathType $types)) -}}
-    {{- fail (printf "Persistence - Expected <hostPathType> to be one of [%s], but got [%s]" (join ", " $types) $hostPathType) -}}
+    {{- fail (printf "Persistence - Expected [hostPathType] to be one of [%s], but got [%s]" (join ", " $types) $hostPathType) -}}
   {{- end }}
 - name: {{ $objectData.shortName }}
   hostPath:

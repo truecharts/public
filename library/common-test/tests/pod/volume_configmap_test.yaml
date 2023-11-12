@@ -153,7 +153,7 @@ tests:
           type: configmap
     asserts:
       - failedTemplate:
-          errorMessage: Persistence - Expected non-empty <objectName> on <configmap> type
+          errorMessage: Persistence - Expected non-empty [objectName] on [configmap] type
 
   - it: should fail with empty objectName in configmap
     set:
@@ -170,7 +170,7 @@ tests:
           objectName: ""
     asserts:
       - failedTemplate:
-          errorMessage: Persistence - Expected non-empty <objectName> on <configmap> type
+          errorMessage: Persistence - Expected non-empty [objectName] on [configmap] type
 
   - it: should fail with defaultMode not a string in configmap
     set:
@@ -189,7 +189,7 @@ tests:
           defaultMode: 1234
     asserts:
       - failedTemplate:
-          errorMessage: Persistence - Expected <defaultMode> to be [string], but got [float64]
+          errorMessage: Persistence - Expected [defaultMode] to be [string], but got [float64]
 
   - it: should fail with defaultMode not in format of "0000"-"0777" in configmap
     set:
@@ -208,7 +208,7 @@ tests:
           defaultMode: "123"
     asserts:
       - failedTemplate:
-          errorMessage: Persistence - Expected <defaultMode> to have be in format of ["0777"], but got ["123"]
+          errorMessage: Persistence - Expected [defaultMode] to have be in format of ["0777"], but got ["123"]
 
   - it: should fail without key in items in configmap
     set:
@@ -229,7 +229,7 @@ tests:
               path: some-path
     asserts:
       - failedTemplate:
-          errorMessage: Persistence - Expected non-empty <items.key>
+          errorMessage: Persistence - Expected non-empty [items.key]
 
   - it: should fail without path in items in configmap
     set:
@@ -250,7 +250,7 @@ tests:
               path: ""
     asserts:
       - failedTemplate:
-          errorMessage: Persistence - Expected non-empty <items.path>
+          errorMessage: Persistence - Expected non-empty [items.path]
 
   - it: should fail with optional not bool
     set:
@@ -268,4 +268,4 @@ tests:
           optional: not-a-bool
     asserts:
       - failedTemplate:
-          errorMessage: Persistence - Expected <optional> to be [bool], but got [string]
+          errorMessage: Persistence - Expected [optional] to be [bool], but got [string]

@@ -38,7 +38,7 @@ tests:
           data: *data
     asserts:
       - failedTemplate:
-          errorMessage: Image Pull Secret - Expected <labels> to be a dictionary, but got [string]
+          errorMessage: Image Pull Secret - Expected [labels] to be a dictionary, but got [string]
 
   - it: should fail with annotations not a dict
     set:
@@ -49,7 +49,7 @@ tests:
           data: *data
     asserts:
       - failedTemplate:
-          errorMessage: Image Pull Secret - Expected <annotations> to be a dictionary, but got [string]
+          errorMessage: Image Pull Secret - Expected [annotations] to be a dictionary, but got [string]
 
   - it: should fail with data not a dict
     set:
@@ -59,7 +59,7 @@ tests:
           data: "not a dict"
     asserts:
       - failedTemplate:
-          errorMessage: Image Pull Secret - Expected <data> to be a dictionary, but got [string]
+          errorMessage: Image Pull Secret - Expected [data] to be a dictionary, but got [string]
 
   - it: should fail with empty data
     set:
@@ -69,7 +69,7 @@ tests:
           data: {}
     asserts:
       - failedTemplate:
-          errorMessage: Image Pull Secret - Expected non-empty <data>
+          errorMessage: Image Pull Secret - Expected non-empty [data]
 
   - it: should fail with empty registry key
     set:
@@ -84,7 +84,7 @@ tests:
             email: mail
     asserts:
       - failedTemplate:
-          errorMessage: Image Pull Secret - Expected non-empty <registry>
+          errorMessage: Image Pull Secret - Expected non-empty [registry]
 
   - it: should fail with empty username key
     set:
@@ -99,7 +99,7 @@ tests:
             email: mail
     asserts:
       - failedTemplate:
-          errorMessage: Image Pull Secret - Expected non-empty <username>
+          errorMessage: Image Pull Secret - Expected non-empty [username]
 
   - it: should fail with empty password key
     set:
@@ -114,7 +114,7 @@ tests:
             email: mail
     asserts:
       - failedTemplate:
-          errorMessage: Image Pull Secret - Expected non-empty <password>
+          errorMessage: Image Pull Secret - Expected non-empty [password]
 
   - it: should fail with empty email key
     set:
@@ -129,7 +129,7 @@ tests:
             email: ""
     asserts:
       - failedTemplate:
-          errorMessage: Image Pull Secret - Expected non-empty <email>
+          errorMessage: Image Pull Secret - Expected non-empty [email]
 
   - it: should fail with namespace longer than 63 characters
     set:

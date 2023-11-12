@@ -123,7 +123,7 @@ tests:
           medium: not-a-valid-medium
     asserts:
       - failedTemplate:
-          errorMessage: Persistence - Expected [medium] to be one of ["", Memory], but got [not-a-valid-medium] on <emptyDir> type
+          errorMessage: Persistence - Expected [medium] to be one of ["", Memory], but got [not-a-valid-medium] on [emptyDir] type
 
   - it: should fail with invalid size format
     set:
@@ -140,4 +140,4 @@ tests:
           size: not-a-valid-size
     asserts:
       - failedTemplate:
-          errorMessage: Persistence Expected <size> to have one of the following formats [(Suffixed with E/P/T/G/M/K - eg. 1G), (Suffixed with Ei/Pi/Ti/Gi/Mi/Ki - eg. 1Gi), (Plain Integer in bytes - eg. 1024), (Exponent - eg. 134e6)], but got [not-a-valid-size]
+          errorMessage: Persistence Expected [size] to have one of the following formats [(Suffixed with E/P/T/G/M/K - eg. 1G), (Suffixed with Ei/Pi/Ti/Gi/Mi/Ki - eg. 1Gi), (Plain Integer in bytes - eg. 1024), (Exponent - eg. 134e6)], but got [not-a-valid-size]

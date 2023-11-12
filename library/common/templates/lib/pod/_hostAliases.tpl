@@ -22,11 +22,11 @@ objectData: The object data to be used to render the Pod.
 
   {{- range $aliases -}}
     {{- if not .ip -}}
-      {{- fail (printf "Expected non-empty <ip> value on <hostAliases>.") -}}
+      {{- fail (printf "Expected non-empty [ip] value on [hostAliases].") -}}
     {{- end -}}
 
     {{- if not .hostnames -}}
-      {{- fail (printf "Expected non-empty <hostames> list on <hostAliases>.") -}}
+      {{- fail (printf "Expected non-empty [hostames] list on [hostAliases].") -}}
     {{- end }}
 - ip: {{ tpl .ip $rootCtx }}
   hostnames:

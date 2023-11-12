@@ -11,17 +11,17 @@ objectData: The object data to be used to render the container.
   {{- $refs := (list "configMapRef" "secretRef") -}}
   {{- range $envFrom := $objectData.envFrom -}}
     {{- if and (not $envFrom.secretRef) (not $envFrom.configMapRef) -}}
-      {{- fail (printf "Container - Expected <envFrom> entry to have one of [%s]" (join ", " $refs)) -}}
+      {{- fail (printf "Container - Expected [envFrom] entry to have one of [%s]" (join ", " $refs)) -}}
     {{- end -}}
 
     {{- if and $envFrom.secretRef $envFrom.configMapRef -}}
-      {{- fail (printf "Container - Expected <envFrom> entry to have only one of [%s], but got both" (join ", " $refs)) -}}
+      {{- fail (printf "Container - Expected [envFrom] entry to have only one of [%s], but got both" (join ", " $refs)) -}}
     {{- end -}}
 
     {{- range $ref := $refs -}}
       {{- with (get $envFrom $ref) -}}
         {{- if not .name -}}
-          {{- fail (printf "Container - Expected non-empty <envFrom.%s.name>" $ref) -}}
+          {{- fail (printf "Container - Expected non-empty [envFrom.%s.name]" $ref) -}}
         {{- end -}}
 
         {{- $objectName := tpl .name $rootCtx -}}
@@ -31,7 +31,7 @@ objectData: The object data to be used to render the container.
           {{- if not (kindIs "invalid" .expandObjectName) -}}
             {{- $expandName = .expandObjectName -}}
           {{- else -}}
-            {{- fail (printf "Container - Expected the defined key [expandObjectName] in <envFrom.%s> to not be empty" $ref) -}}
+            {{- fail (printf "Container - Expected the defined key [expandObjectName] in [envFrom.%s] to not be empty" $ref) -}}
           {{- end -}}
         {{- end -}}
 
@@ -58,7 +58,7 @@ objectData: The object data to be used to render the container.
           {{- end -}}
 
             {{- if not $object -}}
-              {{- fail (printf "Container - Expected %s [%s] defined in <envFrom> to exist" $source $objectName) -}}
+              {{- fail (printf "Container - Expected %s [%s] defined in [envFrom] to exist" $source $objectName) -}}
             {{- end -}}
           {{- range $k, $v := $object.data -}}
             {{- include "tc.v1.common.helper.container.envDupeCheck" (dict "rootCtx" $rootCtx "objectData" $objectData "source" (printf "%s - %s" $source $objectName) "key" $k) -}}

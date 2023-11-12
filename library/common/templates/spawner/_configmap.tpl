@@ -13,7 +13,7 @@
       {{- if not (kindIs "invalid" $configmap.enabled) -}}
         {{- $enabled = $configmap.enabled -}}
       {{- else -}}
-        {{- fail (printf "ConfigMap - Expected the defined key [enabled] in <configmap.%s> to not be empty" $name) -}}
+        {{- fail (printf "ConfigMap - Expected the defined key [enabled] in [configmap.%s] to not be empty" $name) -}}
       {{- end -}}
     {{- end -}}
 

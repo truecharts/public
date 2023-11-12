@@ -12,12 +12,12 @@ objectData: The object data to be used to render the container.
   {{- $probeTypes := (list "http" "https" "tcp" "grpc" "exec") -}}
 
   {{- if not $objectData.probes -}}
-    {{- fail "Container - Expected non-empty <probes>" -}}
+    {{- fail "Container - Expected non-empty [probes]" -}}
   {{- end -}}
 
   {{- range $key := $probeNames -}}
     {{- if not (get $objectData.probes $key) -}}
-      {{- fail (printf "Container - Expected <probes.%s> to be defined" $key) -}}
+      {{- fail (printf "Container - Expected [probes.%s] to be defined" $key) -}}
     {{- end -}}
   {{- end -}}
 
@@ -81,13 +81,13 @@ objectData: The object data to be used to render the container.
   {{- range $key := $keys -}}
     {{- $number := get $timeouts $key -}}
     {{- if not (mustHas (kindOf $number) (list "float64" "int" "int64")) -}}
-      {{- fail (printf "Container - Expected <probes> <%s> to be a number, but got [%v]" $key $number) -}}
+      {{- fail (printf "Container - Expected [probes] [%s] to be a number, but got [%v]" $key $number) -}}
     {{- end -}}
   {{- end -}}
 
   {{- if mustHas $probeName (list "liveness" "startup") -}}
     {{- if ne (int $timeouts.successThreshold) 1 -}}
-      {{- fail (printf "Container - Expected <probes> <successThreshold> to be 1 on [%s] probe" $probeName) -}}
+      {{- fail (printf "Container - Expected [probes] [successThreshold] to be 1 on [%s] probe" $probeName) -}}
     {{- end -}}
   {{- end }}
 initialDelaySeconds: {{ $timeouts.initialDelaySeconds }}

@@ -126,7 +126,7 @@ tests:
               - operator: Invalid
     asserts:
       - failedTemplate:
-          errorMessage: Expected <tolerations.operator> to be one of [Exists, Equal] but got [Invalid]
+          errorMessage: Expected [tolerations.operator] to be one of [Exists, Equal] but got [Invalid]
 
   - it: should fail with empty key and operator set to Equal
     set:
@@ -141,7 +141,7 @@ tests:
                 value: value
     asserts:
       - failedTemplate:
-          errorMessage: Expected non-empty <tolerations.key> and <tolerations.value> with <tolerations.operator> set to [Equal]
+          errorMessage: Expected non-empty [tolerations.key] and [tolerations.value] with [tolerations.operator] set to [Equal]
 
   - it: should fail with empty value and operator set to Equal
     set:
@@ -156,7 +156,7 @@ tests:
                 key: key
     asserts:
       - failedTemplate:
-          errorMessage: Expected non-empty <tolerations.key> and <tolerations.value> with <tolerations.operator> set to [Equal]
+          errorMessage: Expected non-empty [tolerations.key] and [tolerations.value] with [tolerations.operator] set to [Equal]
 
   - it: should fail with value set and operator set to Exists
     set:
@@ -171,7 +171,7 @@ tests:
                 value: value
     asserts:
       - failedTemplate:
-          errorMessage: Expected empty <tolerations.value> with <tolerations.operator> set to [Exists], but got [value]
+          errorMessage: Expected empty [tolerations.value] with [tolerations.operator] set to [Exists], but got [value]
 
   - it: should fail with effect set to Invalid
     set:
@@ -186,7 +186,7 @@ tests:
                 effect: Invalid
     asserts:
       - failedTemplate:
-          errorMessage: Expected <tolerations.effect> to be one of [NoExecute, NoSchedule, PreferNoSchedule], but got [Invalid]
+          errorMessage: Expected [tolerations.effect] to be one of [NoExecute, NoSchedule, PreferNoSchedule], but got [Invalid]
 
   - it: should fail with tolerationSeconds not a number
     set:
@@ -201,4 +201,4 @@ tests:
                 tolerationSeconds: not-a-number
     asserts:
       - failedTemplate:
-          errorMessage: Expected <tolerations.tolerationSeconds> to be a number, but got [not-a-number]
+          errorMessage: Expected [tolerations.tolerationSeconds] to be a number, but got [not-a-number]

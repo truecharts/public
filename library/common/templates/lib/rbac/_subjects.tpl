@@ -10,8 +10,8 @@ objectData: The object data to be used to render the RBAC.
   {{- $objectData := .objectData -}}
 
   {{- range $objectData.subjects }}
-- kind: {{ tpl (required "RBAC - Expected non-empty <rbac.subjects.kind>" .kind) $rootCtx | quote }}
-  name: {{ tpl (required "RBAC - Expected non-empty <rbac.subjects.name>" .name) $rootCtx | quote }}
-  apiGroup: {{ tpl (required "RBAC - Expected non-empty <rbac.subjects.apiGroup>" .apiGroup) $rootCtx | quote }}
+- kind: {{ tpl (required "RBAC - Expected non-empty [rbac.subjects.kind]" .kind) $rootCtx | quote }}
+  name: {{ tpl (required "RBAC - Expected non-empty [rbac.subjects.name]" .name) $rootCtx | quote }}
+  apiGroup: {{ tpl (required "RBAC - Expected non-empty [rbac.subjects.apiGroup]" .apiGroup) $rootCtx | quote }}
   {{- end -}}
 {{- end -}}

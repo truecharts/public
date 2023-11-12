@@ -41,7 +41,7 @@ objectData is object containing the data of the pod
 
       {{- end -}}
     {{- else -}}
-      {{- fail "External Interface - Expected non empty <ixExternalInterfaceConfigurationNames>" -}}
+      {{- fail "External Interface - Expected non empty [ixExternalInterfaceConfigurationNames]" -}}
     {{- end -}}
   {{- end -}}
 

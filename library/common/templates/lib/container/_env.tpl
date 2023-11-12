@@ -24,7 +24,7 @@ objectData: The object data to be used to render the container.
   valueFrom:
       {{- $refs := (list "configMapKeyRef" "secretKeyRef" "fieldRef") -}}
       {{- if or (ne (len ($v | keys)) 1) (not (mustHas ($v | keys | first) $refs)) -}}
-        {{- fail (printf "Container - Expected <env> with a ref to have one of [%s], but got [%s]" (join ", " $refs) (join ", " ($v | keys | sortAlpha))) -}}
+        {{- fail (printf "Container - Expected [env] with a ref to have one of [%s], but got [%s]" (join ", " $refs) (join ", " ($v | keys | sortAlpha))) -}}
       {{- end -}}
 
       {{- $name := "" -}}
@@ -35,11 +35,11 @@ objectData: The object data to be used to render the container.
     {{ $key }}:
           {{- $obj := get $v $key -}}
           {{- if not $obj.name -}}
-            {{- fail (printf "Container - Expected non-empty <env.%s.name>" $key) -}}
+            {{- fail (printf "Container - Expected non-empty [env.%s.name]" $key) -}}
           {{- end -}}
 
           {{- if not $obj.key -}}
-            {{- fail (printf "Container - Expected non-empty <env.%s.key>" $key) -}}
+            {{- fail (printf "Container - Expected non-empty [env.%s.key]" $key) -}}
           {{- end }}
       key: {{ $obj.key | quote }}
 
@@ -50,7 +50,7 @@ objectData: The object data to be used to render the container.
             {{- if not (kindIs "invalid" $obj.expandObjectName) -}}
               {{- $expandName = $obj.expandObjectName -}}
             {{- else -}}
-              {{- fail (printf "Container - Expected the defined key [expandObjectName] in <env.%s> to not be empty" $k) -}}
+              {{- fail (printf "Container - Expected the defined key [expandObjectName] in [env.%s] to not be empty" $k) -}}
             {{- end -}}
           {{- end -}}
 
@@ -72,7 +72,7 @@ objectData: The object data to be used to render the container.
             {{- $data = (get $data $name) -}}
 
             {{- if not $data -}}
-              {{- fail (printf "Container - Expected in <env> the referenced %s [%s] to be defined" (camelcase $item) $name) -}}
+              {{- fail (printf "Container - Expected in [env] the referenced %s [%s] to be defined" (camelcase $item) $name) -}}
             {{- end -}}
 
             {{- $found := false -}}
@@ -83,7 +83,7 @@ objectData: The object data to be used to render the container.
             {{- end -}}
 
             {{- if not $found -}}
-              {{- fail (printf "Container - Expected in <env> the referenced key [%s] in %s [%s] to be defined" $obj.key (camelcase $item) $name) -}}
+              {{- fail (printf "Container - Expected in [env] the referenced key [%s] in %s [%s] to be defined" $obj.key (camelcase $item) $name) -}}
             {{- end -}}
 
             {{- $name = (printf "%s-%s" (include "tc.v1.common.lib.chart.names.fullname" $rootCtx) $name) -}}
@@ -95,7 +95,7 @@ objectData: The object data to be used to render the container.
       {{- if hasKey $v "fieldRef" }}
     fieldRef:
         {{- if not $v.fieldRef.fieldPath -}}
-          {{- fail "Container - Expected non-empty <env.fieldRef.fieldPath>" -}}
+          {{- fail "Container - Expected non-empty [env.fieldRef.fieldPath]" -}}
         {{- end }}
       fieldPath: {{ $v.fieldRef.fieldPath | quote }}
         {{- if $v.fieldRef.apiVersion }}

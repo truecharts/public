@@ -16,7 +16,7 @@
 
       {{- $types := (list "Deployment" "StatefulSet" "DaemonSet" "Job" "CronJob") -}}
       {{- if not (mustHas $workload.type $types) -}}
-        {{- fail (printf "Workload - Expected <type> to be one of [%s], but got [%s]" (join ", " $types) $workload.type) -}}
+        {{- fail (printf "Workload - Expected [type] to be one of [%s], but got [%s]" (join ", " $types) $workload.type) -}}
       {{- end -}}
 
       {{- $hasEnabled = true -}}

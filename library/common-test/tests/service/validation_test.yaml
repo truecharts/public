@@ -87,7 +87,7 @@ tests:
               primary: true
     asserts:
       - failedTemplate:
-          errorMessage: Service - Expected <annotations> to be a dictionary, but got [string]
+          errorMessage: Service - Expected [annotations] to be a dictionary, but got [string]
 
   - it: should fail with labels not a dict
     set:
@@ -102,7 +102,7 @@ tests:
               primary: true
     asserts:
       - failedTemplate:
-          errorMessage: Service - Expected <labels> to be a dictionary, but got [string]
+          errorMessage: Service - Expected [labels] to be a dictionary, but got [string]
 
   - it: should fail with pod targetSelector not a string
     set:
@@ -118,7 +118,7 @@ tests:
               primary: true
     asserts:
       - failedTemplate:
-          errorMessage: Service - Expected <targetSelector> to be [string], but got [map]
+          errorMessage: Service - Expected [targetSelector] to be [string], but got [map]
 
   - it: should fail with container targetSelector not a string
     set:
@@ -134,7 +134,7 @@ tests:
                 container: not-a-string
     asserts:
       - failedTemplate:
-          errorMessage: Service - Expected <port.targetSelector> to be [string], but got [map]
+          errorMessage: Service - Expected [port.targetSelector] to be [string], but got [map]
 
   - it: should fail with selected pod not defined
     set:
@@ -194,7 +194,7 @@ tests:
               protocol: not-a-protocol
     asserts:
       - failedTemplate:
-          errorMessage: Service - Expected <port.protocol> to be one of [tcp, udp, http, https] but got [not-a-protocol]
+          errorMessage: Service - Expected [port.protocol] to be one of [tcp, udp, http, https] but got [not-a-protocol]
 
   - it: should fail without port number
     set:
@@ -209,7 +209,7 @@ tests:
               port:
     asserts:
       - failedTemplate:
-          errorMessage: Service - Expected non-empty <port.port>
+          errorMessage: Service - Expected non-empty [port.port]
 
   - it: should fail with invalid service type
     set:
@@ -224,7 +224,7 @@ tests:
               primary: true
     asserts:
       - failedTemplate:
-          errorMessage: Service - Expected <type> to be one of [ClusterIP, LoadBalancer, NodePort, ExternalName, ExternalIP] but got [not-a-type]
+          errorMessage: Service - Expected [type] to be one of [ClusterIP, LoadBalancer, NodePort, ExternalName, ExternalIP] but got [not-a-type]
 
   - it: should fail with invalid ipFamilyPolicy
     set:
@@ -247,7 +247,7 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: Service - Expected <ipFamilyPolicy> to be one of [SingleStack, PreferDualStack, RequireDualStack], but got [not-a-policy]
+          errorMessage: Service - Expected [ipFamilyPolicy] to be one of [SingleStack, PreferDualStack, RequireDualStack], but got [not-a-policy]
 
   - it: should fail with empty externalIP
     set:
@@ -264,7 +264,7 @@ tests:
               port: 12345
     asserts:
       - failedTemplate:
-          errorMessage: EndpointSlice - Expected non-empty <externalIP>
+          errorMessage: EndpointSlice - Expected non-empty [externalIP]
 
   - it: should fail with externalIP not a string
     set:
@@ -282,7 +282,7 @@ tests:
               port: 12345
     asserts:
       - failedTemplate:
-          errorMessage: EndpointSlice - Expected <externalIP> to be a [string], but got [slice]
+          errorMessage: EndpointSlice - Expected [externalIP] to be a [string], but got [slice]
 
   - it: should fail with ipFamilies not a list
     set:
@@ -305,7 +305,7 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: Service - Expected <ipFamilies> to be a list, but got a [string]
+          errorMessage: Service - Expected [ipFamilies] to be a list, but got a [string]
 
   - it: should fail with invalid ipFamilies
     set:
@@ -329,7 +329,7 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: Service - Expected <ipFamilies> to be one of [IPv4, IPv6], but got [not-a-family]
+          errorMessage: Service - Expected [ipFamilies] to be one of [IPv4, IPv6], but got [not-a-family]
 
   - it: should fail with invalid externalTrafficPolicy
     set:
@@ -352,7 +352,7 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: Service - Expected <externalTrafficPolicy> to be one of [Cluster, Local], but got [not-a-policy]
+          errorMessage: Service - Expected [externalTrafficPolicy] to be one of [Cluster, Local], but got [not-a-policy]
 
   - it: should fail with invalid externalName
     set:
@@ -375,7 +375,7 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: Service - Expected non-empty <externalName> on ExternalName service type.
+          errorMessage: Service - Expected non-empty [externalName] on ExternalName service type.
 
   - it: should fail with invalid sessionAffinity
     set:
@@ -398,7 +398,7 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: Service - Expected <sessionAffinity> to be one of [ClientIP, None], but got [not-an-affinity]
+          errorMessage: Service - Expected [sessionAffinity] to be one of [ClientIP, None], but got [not-an-affinity]
 
   - it: should fail with invalid timeoutSeconds in sessionAffinityConfig
     set:
@@ -424,7 +424,7 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: Service - Expected <sessionAffinityConfig.clientIP.timeoutSeconds> to be between [0 - 86400], but got [-1]
+          errorMessage: Service - Expected [sessionAffinityConfig.clientIP.timeoutSeconds] to be between [0 - 86400], but got [-1]
 
   - it: should fail without nodePort number on NodePort
     set:
@@ -447,7 +447,7 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: Service - Expected non-empty <nodePort> on NodePort service type
+          errorMessage: Service - Expected non-empty [nodePort] on NodePort service type
 
   - it: should fail with nodePort lower than the minimum on NodePort
     set:
@@ -472,7 +472,7 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: Service - Expected <nodePort> to be higher than [10000], but got [9999]
+          errorMessage: Service - Expected [nodePort] to be higher than [10000], but got [9999]
 
   - it: should fail with empty expandObjectName
     set:
@@ -496,7 +496,7 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: Service - Expected the defined key [expandObjectName] in <secret.service-name1> to not be empty
+          errorMessage: Service - Expected the defined key [expandObjectName] in [secret.service-name1] to not be empty
 
   - it: should fail with namespace longer than 63 characters
     set:

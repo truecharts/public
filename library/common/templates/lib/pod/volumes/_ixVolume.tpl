@@ -14,12 +14,12 @@ objectData: The object data to be used to render the volume.
   {{- end -}}
 
   {{- if not $objectData.datasetName -}}
-    {{- fail "Persistence - Expected non-empty <datasetName> on <ixVolume> type" -}}
+    {{- fail "Persistence - Expected non-empty [datasetName] on [ixVolume] type" -}}
   {{- end -}}
   {{- $datasetName := tpl $objectData.datasetName $rootCtx -}}
 
   {{- if not $rootCtx.Values.ixVolumes -}}
-    {{- fail "Persistence - Expected non-empty <ixVolumes> in values on <ixVolume> type" -}}
+    {{- fail "Persistence - Expected non-empty [ixVolumes] in values on [ixVolume] type" -}}
   {{- end -}}
 
   {{- $hostPath := "" -}}
@@ -36,16 +36,16 @@ objectData: The object data to be used to render the volume.
     {{- range $rootCtx.Values.ixVolumes -}}
       {{- $datasets = mustAppend $datasets (base .hostPath) -}}
     {{- end -}}
-    {{- fail (printf "Persistence - Expected <datasetName> [%s] to exist on <ixVolumes> list, but list contained [%s] on <ixVolume> type" $datasetName (join ", " $datasets)) -}}
+    {{- fail (printf "Persistence - Expected [datasetName] [%s] to exist on [ixVolumes] list, but list contained [%s] on [ixVolume] type" $datasetName (join ", " $datasets)) -}}
   {{- end -}}
 
   {{- if not (hasPrefix "/" $hostPath) -}}
-    {{- fail "Persistence - Expected normalized path from <ixVolumes> to start with a forward slash [/] on <ixVolume> type" -}}
+    {{- fail "Persistence - Expected normalized path from [ixVolumes] to start with a forward slash [/] on [ixVolume] type" -}}
   {{- end -}}
 
   {{- $types := (list "DirectoryOrCreate" "Directory" "FileOrCreate" "File" "Socket" "CharDevice" "BlockDevice") -}}
   {{- if and $hostPathType (not (mustHas $hostPathType $types)) -}}
-    {{- fail (printf "Persistence - Expected <hostPathType> to be one of [%s], but got [%s]" (join ", " $types) $hostPathType) -}}
+    {{- fail (printf "Persistence - Expected [hostPathType] to be one of [%s], but got [%s]" (join ", " $types) $hostPathType) -}}
   {{- end }}
 - name: {{ $objectData.shortName }}
   hostPath:

@@ -1,7 +1,7 @@
 {{- define "tc.v1.common.spawner.extraTpl" -}}
   {{- range $item := .Values.extraTpl }}
     {{- if not $item -}}
-      {{- fail "Extra tpl - Expected non-empty <extraTpl> item" -}}
+      {{- fail "Extra tpl - Expected non-empty [extraTpl] item" -}}
     {{- end }}
 ---
     {{- if kindIs "string" $item }}

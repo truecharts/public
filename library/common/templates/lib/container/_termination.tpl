@@ -21,7 +21,7 @@ objectData: The object data to be used to render the container.
 
       {{- $policies := (list "File" "FallbackToLogsOnError") -}}
       {{- if not (mustHas $policy $policies) -}}
-        {{- fail (printf "Container - Expected <termination.messagePolicy> to be one of [%s], but got [%s]" (join ", " $policies) $policy) -}}
+        {{- fail (printf "Container - Expected [termination.messagePolicy] to be one of [%s], but got [%s]" (join ", " $policies) $policy) -}}
       {{- end -}}
 
       {{- $_ := set $termination "messagePolicy" $policy -}}

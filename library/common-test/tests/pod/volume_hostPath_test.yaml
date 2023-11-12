@@ -75,7 +75,7 @@ tests:
           hostPath: ""
     asserts:
       - failedTemplate:
-          errorMessage: Persistence - Expected non-empty <hostPath> on <hostPath> type
+          errorMessage: Persistence - Expected non-empty [hostPath] on [hostPath] type
 
   - it: should fail with relative hostPath
     set:
@@ -92,7 +92,7 @@ tests:
           hostPath: some-path
     asserts:
       - failedTemplate:
-          errorMessage: Persistence - Expected <hostPath> to start with a forward slash [/] on <hostPath> type
+          errorMessage: Persistence - Expected [hostPath] to start with a forward slash [/] on [hostPath] type
 
   - it: should fail with invalid hostPathType
     set:
@@ -110,4 +110,4 @@ tests:
           hostPathType: invalid
     asserts:
       - failedTemplate:
-          errorMessage: Persistence - Expected <hostPathType> to be one of [DirectoryOrCreate, Directory, FileOrCreate, File, Socket, CharDevice, BlockDevice], but got [invalid]
+          errorMessage: Persistence - Expected [hostPathType] to be one of [DirectoryOrCreate, Directory, FileOrCreate, File, Socket, CharDevice, BlockDevice], but got [invalid]

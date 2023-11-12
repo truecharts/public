@@ -138,7 +138,7 @@ tests:
                   invalid: {}
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected <lifecycle> <hook> to be one of [preStop, postStart], but got [invalid]
+          errorMessage: Container - Expected [lifecycle] [hook] to be one of [preStop, postStart], but got [invalid]
 
   - it: should fail with empty lifecycle type
     set:
@@ -159,7 +159,7 @@ tests:
                     command: []
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected non-empty <lifecycle> <type>
+          errorMessage: Container - Expected non-empty [lifecycle] [type]
 
   - it: should fail with invalid lifecycle type
     set:
@@ -181,7 +181,7 @@ tests:
                     command: []
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected <lifecycle> <type> to be one of [exec, http, https], but got [invalid]
+          errorMessage: Container - Expected [lifecycle] [type] to be one of [exec, http, https], but got [invalid]
 
   - it: should fail with empty command on exec lifecycle type
     set:
@@ -203,7 +203,7 @@ tests:
                     command: []
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected non-empty <lifecycle> <command> on [exec] type
+          errorMessage: Container - Expected non-empty [lifecycle] [command] on [exec] type
 
   - it: should fail with empty port on http lifecycle type
     set:
@@ -225,7 +225,7 @@ tests:
                     port: ""
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected non-empty <lifecycle> <port> on [http] type
+          errorMessage: Container - Expected non-empty [lifecycle] [port] on [http] type
 
   - it: should fail with path not starting with / on http lifecycle type
     set:
@@ -248,7 +248,7 @@ tests:
                     path: "api/v1"
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected <lifecycle> <path> to start with a forward slash [/] on <http> type
+          errorMessage: Container - Expected [lifecycle] [path] to start with a forward slash [/] on [http] type
 
   - it: should fail with empty value on httpHeaders on http lifecycle type
     set:
@@ -272,4 +272,4 @@ tests:
                       key: ""
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected non-empty <value> on <httpHeaders>
+          errorMessage: Container - Expected non-empty [value] on [httpHeaders]

@@ -16,7 +16,7 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: Deployment - Expected <strategy> to be one of [Recreate, RollingUpdate], but got [not-a-strategy]
+          errorMessage: Deployment - Expected [strategy] to be one of [Recreate, RollingUpdate], but got [not-a-strategy]
 
   - it: should fail with rollingUpdate not a dict
     set:
@@ -30,7 +30,7 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: Deployment - Expected <rollingUpdate> to be a dictionary, but got [string]
+          errorMessage: Deployment - Expected [rollingUpdate] to be a dictionary, but got [string]
 
   - it: should fail with namespace longer than 63 characters
     set:

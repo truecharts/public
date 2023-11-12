@@ -13,15 +13,15 @@ objectData: The object data to be used to render the container.
   {{- with $objectData.lifecycle -}}
     {{- range $hook, $hookValues := . -}}
       {{- if not (mustHas $hook $hooks) -}}
-        {{- fail (printf "Container - Expected <lifecycle> <hook> to be one of [%s], but got [%s]" (join ", " $hooks) $hook) -}}
+        {{- fail (printf "Container - Expected [lifecycle] [hook] to be one of [%s], but got [%s]" (join ", " $hooks) $hook) -}}
       {{- end -}}
 
       {{- if not $hookValues.type -}}
-        {{- fail "Container - Expected non-empty <lifecycle> <type>" -}}
+        {{- fail "Container - Expected non-empty [lifecycle] [type]" -}}
       {{- end -}}
 
       {{- if not (mustHas $hookValues.type $types) -}}
-        {{- fail (printf "Container - Expected <lifecycle> <type> to be one of [%s], but got [%s]" (join ", " $types) $hookValues.type) -}}
+        {{- fail (printf "Container - Expected [lifecycle] [type] to be one of [%s], but got [%s]" (join ", " $types) $hookValues.type) -}}
       {{- end }}
 {{ $hook }}:
       {{- if eq $hookValues.type "exec" -}}

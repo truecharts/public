@@ -10,7 +10,7 @@ objectData: The object data to be used to render the container.
   {{- $caller := .caller -}}
 
   {{- if not $objectData.command -}}
-    {{- fail (printf "Container - Expected non-empty <%s> <command> on [exec] type" $caller) -}}
+    {{- fail (printf "Container - Expected non-empty [%s] [command] on [exec] type" $caller) -}}
   {{- end }}
 exec:
   command:

@@ -10,7 +10,7 @@ objectData: The service object data
   {{- $objectData := .objectData }}
 
   {{- if not $objectData.externalName -}}
-    {{- fail "Service - Expected non-empty <externalName> on ExternalName service type." -}}
+    {{- fail "Service - Expected non-empty [externalName] on ExternalName service type." -}}
   {{- end }}
 
 type: ExternalName

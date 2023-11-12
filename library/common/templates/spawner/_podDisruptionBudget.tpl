@@ -12,7 +12,7 @@
       {{- if not (kindIs "invalid" $pdb.enabled) -}}
         {{- $enabled = $pdb.enabled -}}
       {{- else -}}
-        {{- fail (printf "Pod Disruption Budget - Expected the defined key [enabled] in <podDisruptionBudget.%s> to not be empty" $name) -}}
+        {{- fail (printf "Pod Disruption Budget - Expected the defined key [enabled] in [podDisruptionBudget.%s] to not be empty" $name) -}}
       {{- end -}}
     {{- end -}}
 

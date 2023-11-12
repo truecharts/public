@@ -13,7 +13,7 @@
       {{- if not (kindIs "invalid" $mutatingWebhookConfiguration.enabled) -}}
         {{- $enabled = $mutatingWebhookConfiguration.enabled -}}
       {{- else -}}
-        {{- fail (printf "Webhook - Expected the defined key [enabled] in <webhook.%s> to not be empty" $name) -}}
+        {{- fail (printf "Webhook - Expected the defined key [enabled] in [webhook.%s] to not be empty" $name) -}}
       {{- end -}}
     {{- end -}}
 

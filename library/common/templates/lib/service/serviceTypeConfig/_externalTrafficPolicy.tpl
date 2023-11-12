@@ -14,7 +14,7 @@ objectData: The service object data
     {{- $policies := (list "Cluster" "Local") -}}
 
     {{- if not (mustHas $policy $policies) -}}
-      {{- fail (printf "Service - Expected <externalTrafficPolicy> to be one of [%s], but got [%s]" (join ", " $policies) $policy) -}}
+      {{- fail (printf "Service - Expected [externalTrafficPolicy] to be one of [%s], but got [%s]" (join ", " $policies) $policy) -}}
     {{- end }}
 externalTrafficPolicy: {{ $policy }}
   {{- end -}}

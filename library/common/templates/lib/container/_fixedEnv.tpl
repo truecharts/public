@@ -20,13 +20,13 @@ objectData: The object data to be used to render the container.
   {{- end -}}
 
   {{- if not (deepEqual $nvidiaCaps (mustUniq $nvidiaCaps)) -}}
-    {{- fail (printf "Container - Expected <fixedEnv.NVIDIA_CAPS> to have only unique values, but got [%s]" (join ", " $nvidiaCaps)) -}}
+    {{- fail (printf "Container - Expected [fixedEnv.NVIDIA_CAPS] to have only unique values, but got [%s]" (join ", " $nvidiaCaps)) -}}
   {{- end -}}
 
   {{- $caps := (list "all" "compute" "utility" "graphics" "video") -}}
   {{- range $cap := $nvidiaCaps -}}
     {{- if not (mustHas $cap $caps) -}}
-      {{- fail (printf "Container - Expected <fixedEnv.NVIDIA_CAPS> entry to be one of [%s], but got [%s]" (join ", " $caps) $cap) -}}
+      {{- fail (printf "Container - Expected [fixedEnv.NVIDIA_CAPS] entry to be one of [%s], but got [%s]" (join ", " $caps) $cap) -}}
     {{- end -}}
   {{- end -}}
 

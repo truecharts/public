@@ -13,7 +13,7 @@
       {{- if not (kindIs "invalid" $priorityclass.enabled) -}}
         {{- $enabled = $priorityclass.enabled -}}
       {{- else -}}
-        {{- fail (printf "Priority Class - Expected the defined key [enabled] in <priorityclass.%s> to not be empty" $name) -}}
+        {{- fail (printf "Priority Class - Expected the defined key [enabled] in [priorityclass.%s] to not be empty" $name) -}}
       {{- end -}}
     {{- end -}}
 

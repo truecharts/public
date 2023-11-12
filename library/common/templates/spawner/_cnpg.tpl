@@ -8,7 +8,7 @@
       {{- if not (kindIs "invalid" $cnpg.enabled) -}}
         {{- $enabled = $cnpg.enabled -}}
       {{- else -}}
-        {{- fail (printf "cnpg - Expected the defined key [enabled] in <cnpg.%s> to not be empty" $name) -}}
+        {{- fail (printf "cnpg - Expected the defined key [enabled] in [cnpg.%s] to not be empty" $name) -}}
       {{- end -}}
     {{- end -}}
 

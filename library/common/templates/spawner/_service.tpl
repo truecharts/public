@@ -25,7 +25,7 @@
         {{- if not (kindIs "invalid" $objectData.expandObjectName) -}}
           {{- $expandName = $objectData.expandName -}}
         {{- else -}}
-          {{- fail (printf "Service - Expected the defined key [expandObjectName] in <secret.%s> to not be empty" $name) -}}
+          {{- fail (printf "Service - Expected the defined key [expandObjectName] in [secret.%s] to not be empty" $name) -}}
         {{- end -}}
       {{- end -}}
 

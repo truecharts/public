@@ -46,7 +46,7 @@ objectData: The object data to be used to render the container.
 
   {{- range $GPUValues := $rootCtx.Values.scaleGPU -}}
     {{- if not $GPUValues.gpu -}}
-      {{- fail "Container - Expected non-empty <scaleGPU.gpu>" -}}
+      {{- fail "Container - Expected non-empty [scaleGPU.gpu]" -}}
     {{- end -}}
 
     {{- $selected := false -}}
@@ -55,7 +55,7 @@ objectData: The object data to be used to render the container.
     {{- if $GPUValues.targetSelector -}}
       {{- range $podName, $containers := $GPUValues.targetSelector -}}
         {{- if not $containers -}}
-          {{- fail "Container - Expected non-empty list under pod in <scaleGPU.targetSelector>" -}}
+          {{- fail "Container - Expected non-empty list under pod in [scaleGPU.targetSelector]" -}}
         {{- end -}}
 
         {{- if and (eq $podName $objectData.podShortName) (mustHas $objectData.shortName $containers) -}}
@@ -76,7 +76,7 @@ objectData: The object data to be used to render the container.
     {{- range $gpu := $gpuResource -}}
       {{- range $k, $v := $gpu -}}
         {{- if or (kindIs "invalid" $v) (eq (toString $v) "") -}}
-          {{- fail "Container - Expected non-empty <scaleGPU> <value>" -}}
+          {{- fail "Container - Expected non-empty [scaleGPU] [value]" -}}
         {{- end -}} {{/* Don't try to schedule 0 GPUs */}}
         {{- if gt (int $v) 0 }}
 {{ $k }}: {{ $v | quote }}
@@ -112,12 +112,12 @@ resources: The resources object
 
   {{- range $category := (list "requests") -}} {{/* We can also add "limits" here if we want to require them */}}
     {{- if not (get $resources $category) -}}
-      {{- fail (printf "Container - Expected non-empty <resources.%s>" $category) -}}
+      {{- fail (printf "Container - Expected non-empty [resources.%s]" $category) -}}
     {{- end -}}
 
     {{- range $type := $resourceTypes -}}
       {{- if not (get (get $resources $category) $type) -}}
-        {{- fail (printf "Container - Expected non-empty <resources.%s.%s>" $category $type) -}}
+        {{- fail (printf "Container - Expected non-empty [resources.%s.%s]" $category $type) -}}
       {{- end -}}
     {{- end -}}
   {{- end -}}
@@ -130,7 +130,7 @@ resources: The resources object
         {{- $resourceValue := (get $resourceCategory $type) -}}
         {{- if $resourceValue -}} {{/* Only try to match defined values */}}
           {{- if not (mustRegexMatch (get $regex $type) (toString $resourceValue)) -}}
-            {{- fail (printf "Container - Expected <resources.%s.%s> to have one of the following formats [%s], but got [%s]" $key $type (get $errorMsg $type) $resourceValue) -}}
+            {{- fail (printf "Container - Expected [resources.%s.%s] to have one of the following formats [%s], but got [%s]" $key $type (get $errorMsg $type) $resourceValue) -}}
           {{- end -}}
         {{- end -}}
       {{- end -}}

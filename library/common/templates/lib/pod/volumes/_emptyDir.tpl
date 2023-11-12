@@ -21,12 +21,12 @@ objectData: The object data to be used to render the volume.
     {{/* Size: https://regex101.com/r/NNPV2D/1 */}}
     {{- if not (mustRegexMatch "^[1-9][0-9]*([EPTGMK]i?|e[0-9]+)?$" (toString $size)) -}}
       {{- $formats := "(Suffixed with E/P/T/G/M/K - eg. 1G), (Suffixed with Ei/Pi/Ti/Gi/Mi/Ki - eg. 1Gi), (Plain Integer in bytes - eg. 1024), (Exponent - eg. 134e6)" -}}
-      {{- fail (printf "Persistence Expected <size> to have one of the following formats [%s], but got [%s]" $formats $size) -}}
+      {{- fail (printf "Persistence Expected [size] to have one of the following formats [%s], but got [%s]" $formats $size) -}}
     {{- end -}}
   {{- end -}}
 
   {{- if and $medium (ne $medium "Memory") -}}
-    {{- fail (printf "Persistence - Expected [medium] to be one of [\"\", Memory], but got [%s] on <emptyDir> type" $medium)  -}}
+    {{- fail (printf "Persistence - Expected [medium] to be one of [\"\", Memory], but got [%s] on [emptyDir] type" $medium)  -}}
   {{- end }}
 - name: {{ $objectData.shortName }}
   {{- if or $medium $size }}

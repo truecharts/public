@@ -10,11 +10,11 @@ objectData: The object data of the service
   {{- $objectData := .objectData -}}
 
   {{- if not $objectData.externalIP -}}
-    {{- fail "EndpointSlice - Expected non-empty <externalIP>" -}}
+    {{- fail "EndpointSlice - Expected non-empty [externalIP]" -}}
   {{- end -}}
 
   {{- if not (kindIs "string" $objectData.externalIP) -}} {{/* Only single IP is supported currently on this lib */}}
-    {{- fail (printf "EndpointSlice - Expected <externalIP> to be a [string], but got [%s]" (kindOf $objectData.externalIP)) -}}
+    {{- fail (printf "EndpointSlice - Expected [externalIP] to be a [string], but got [%s]" (kindOf $objectData.externalIP)) -}}
   {{- end }}
 - addresses:
   - {{ tpl $objectData.externalIP $rootCtx }}

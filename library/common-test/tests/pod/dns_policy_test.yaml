@@ -106,4 +106,4 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: Expected <dnsPolicy> to be one of [ClusterFirst, ClusterFirstWithHostNet, Default, None], but got [Invalid]
+          errorMessage: Expected [dnsPolicy] to be one of [ClusterFirst, ClusterFirstWithHostNet, Default, None], but got [Invalid]

@@ -12,11 +12,11 @@ objectData:
   {{- $caller := .caller -}}
 
   {{- if and $objectData.labels (not (kindIs "map" $objectData.labels)) -}}
-    {{- fail (printf "%s - Expected <labels> to be a dictionary, but got [%v]" $caller (kindOf $objectData.labels)) -}}
+    {{- fail (printf "%s - Expected [labels] to be a dictionary, but got [%v]" $caller (kindOf $objectData.labels)) -}}
   {{- end -}}
 
   {{- if and $objectData.annotations (not (kindIs "map" $objectData.annotations)) -}}
-    {{- fail (printf "%s - Expected <annotations> to be a dictionary, but got [%v]" $caller (kindOf $objectData.annotations)) -}}
+    {{- fail (printf "%s - Expected [annotations] to be a dictionary, but got [%v]" $caller (kindOf $objectData.annotations)) -}}
   {{- end -}}
 
 {{- end -}}

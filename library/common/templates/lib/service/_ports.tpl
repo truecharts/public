@@ -48,12 +48,12 @@ objectData: The object data of the service
   targetPort: {{ $targetPort | default $port }} {{/* If no targetPort, default to port */}}
       {{- if (eq $objectData.type "NodePort") -}}
         {{- if not $nodePort -}}
-          {{- fail "Service - Expected non-empty <nodePort> on NodePort service type" -}}
+          {{- fail "Service - Expected non-empty [nodePort] on NodePort service type" -}}
         {{- end -}}
 
         {{- $minNodePort := int $rootCtx.Values.global.minNodePort -}}
         {{- if (lt $nodePort $minNodePort) -}}
-          {{- fail (printf "Service - Expected <nodePort> to be higher than [%v], but got [%v]" $minNodePort $nodePort) -}}
+          {{- fail (printf "Service - Expected [nodePort] to be higher than [%v], but got [%v]" $minNodePort $nodePort) -}}
         {{- end }}
   nodePort: {{ $nodePort }}
       {{- end -}}

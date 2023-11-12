@@ -49,7 +49,7 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: Workload - Expected <type> to be one of [Deployment, StatefulSet, DaemonSet, Job, CronJob], but got [not-valid-type]
+          errorMessage: Workload - Expected [type] to be one of [Deployment, StatefulSet, DaemonSet, Job, CronJob], but got [not-valid-type]
 
   - it: should fail without podSpec
     set:
@@ -60,7 +60,7 @@ tests:
           type: Deployment
     asserts:
       - failedTemplate:
-          errorMessage: Workload - Expected <podSpec> key to exist
+          errorMessage: Workload - Expected [podSpec] key to exist
 
   - it: should fail without primary enabled workload
     set:
@@ -107,7 +107,7 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: Workload - Expected <labels> to be a dictionary, but got [string]
+          errorMessage: Workload - Expected [labels] to be a dictionary, but got [string]
 
   - it: should fail with annotations not a dict
     set:
@@ -120,4 +120,4 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: Workload - Expected <annotations> to be a dictionary, but got [string]
+          errorMessage: Workload - Expected [annotations] to be a dictionary, but got [string]

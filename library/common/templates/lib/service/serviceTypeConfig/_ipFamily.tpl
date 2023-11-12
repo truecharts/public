@@ -14,13 +14,13 @@ objectData: The service object data
 
     {{- $stacks := (list "SingleStack" "PreferDualStack" "RequireDualStack") -}}
     {{- if not (mustHas $famPolicy $stacks) -}}
-      {{- fail (printf "Service - Expected <ipFamilyPolicy> to be one of [%s], but got [%s]" (join ", " $stacks) $famPolicy) -}}
+      {{- fail (printf "Service - Expected [ipFamilyPolicy] to be one of [%s], but got [%s]" (join ", " $stacks) $famPolicy) -}}
     {{- end }}
 ipFamilyPolicy: {{ $famPolicy }}
   {{- end -}}
 
   {{- if and $objectData.ipFamilies (not (kindIs "slice" $objectData.ipFamilies)) -}}
-    {{- fail (printf "Service - Expected <ipFamilies> to be a list, but got a [%s]" (kindOf $objectData.ipFamilies)) -}}
+    {{- fail (printf "Service - Expected [ipFamilies] to be a list, but got a [%s]" (kindOf $objectData.ipFamilies)) -}}
   {{- end -}}
 
   {{- with $objectData.ipFamilies }}
@@ -30,7 +30,7 @@ ipFamilies:
 
       {{- $stacks := (list "IPv4" "IPv6") -}}
       {{- if not (mustHas $ipFam $stacks) -}}
-        {{- fail (printf "Service - Expected <ipFamilies> to be one of [%s], but got [%s]" (join ", " $stacks) $ipFam) -}}
+        {{- fail (printf "Service - Expected [ipFamilies] to be one of [%s], but got [%s]" (join ", " $stacks) $ipFam) -}}
       {{- end }}
   - {{ $ipFam }}
     {{- end -}}

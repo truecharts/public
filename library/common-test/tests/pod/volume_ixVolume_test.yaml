@@ -118,7 +118,7 @@ tests:
           datasetname: ""
     asserts:
       - failedTemplate:
-          errorMessage: Persistence - Expected non-empty <datasetName> on <ixVolume> type
+          errorMessage: Persistence - Expected non-empty [datasetName] on [ixVolume] type
 
   - it: should fail with empty ixVolumes
     set:
@@ -136,7 +136,7 @@ tests:
           datasetName: ix-app
     asserts:
       - failedTemplate:
-          errorMessage: Persistence - Expected non-empty <ixVolumes> in values on <ixVolume> type
+          errorMessage: Persistence - Expected non-empty [ixVolumes] in values on [ixVolume] type
 
   - it: should fail with wrong ixVolumes
     set:
@@ -156,7 +156,7 @@ tests:
           datasetName: ix-app
     asserts:
       - failedTemplate:
-          errorMessage: Persistence - Expected <datasetName> [ix-app] to exist on <ixVolumes> list, but list contained [ix-wrong-app, ix-other-app] on <ixVolume> type
+          errorMessage: Persistence - Expected [datasetName] [ix-app] to exist on [ixVolumes] list, but list contained [ix-wrong-app, ix-other-app] on [ixVolume] type
 
   - it: should fail with invalid hostPathType
     set:
@@ -176,4 +176,4 @@ tests:
           hostPathType: invalid
     asserts:
       - failedTemplate:
-          errorMessage: Persistence - Expected <hostPathType> to be one of [DirectoryOrCreate, Directory, FileOrCreate, File, Socket, CharDevice, BlockDevice], but got [invalid]
+          errorMessage: Persistence - Expected [hostPathType] to be one of [DirectoryOrCreate, Directory, FileOrCreate, File, Socket, CharDevice, BlockDevice], but got [invalid]

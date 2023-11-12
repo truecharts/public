@@ -47,7 +47,7 @@ tests:
           labels: "not a dict"
     asserts:
       - failedTemplate:
-          errorMessage: RBAC - Expected <labels> to be a dictionary, but got [string]
+          errorMessage: RBAC - Expected [labels] to be a dictionary, but got [string]
 
   - it: should fail with annotations not a dict
     set:
@@ -58,7 +58,7 @@ tests:
           annotations: "not a dict"
     asserts:
       - failedTemplate:
-          errorMessage: RBAC - Expected <annotations> to be a dictionary, but got [string]
+          errorMessage: RBAC - Expected [annotations] to be a dictionary, but got [string]
 
   - it: should fail with more than 1 primary rbac
     set:
@@ -94,7 +94,7 @@ tests:
           primary: true
     asserts:
       - failedTemplate:
-          errorMessage: RBAC - Expected non-empty <rbac.rules>
+          errorMessage: RBAC - Expected non-empty [rbac.rules]
 
   - it: should fail without apiGroups in rules in rbac
     set:
@@ -109,7 +109,7 @@ tests:
                 - get
     asserts:
       - failedTemplate:
-          errorMessage: RBAC - Expected non-empty <rbac.rules.apiGroups>
+          errorMessage: RBAC - Expected non-empty [rbac.rules.apiGroups]
 
   - it: should fail without resources in rules in rbac
     set:
@@ -124,7 +124,7 @@ tests:
                 - get
     asserts:
       - failedTemplate:
-          errorMessage: RBAC - Expected non-empty <rbac.rules.resources>
+          errorMessage: RBAC - Expected non-empty [rbac.rules.resources]
 
   - it: should fail without verbs in rules in rbac
     set:
@@ -139,7 +139,7 @@ tests:
                 - pods
     asserts:
       - failedTemplate:
-          errorMessage: RBAC - Expected non-empty <rbac.rules.verbs>
+          errorMessage: RBAC - Expected non-empty [rbac.rules.verbs]
 
   - it: should fail with empty entry in resources in rules in rbac
     set:
@@ -157,7 +157,7 @@ tests:
                 - get
     asserts:
       - failedTemplate:
-          errorMessage: RBAC - Expected non-empty entry in <rbac.rules.resources>
+          errorMessage: RBAC - Expected non-empty entry in [rbac.rules.resources]
 
   - it: should fail with empty entry in verbs in rules in rbac
     set:
@@ -175,7 +175,7 @@ tests:
                 - ""
     asserts:
       - failedTemplate:
-          errorMessage: RBAC - Expected non-empty entry in <rbac.rules.verbs>
+          errorMessage: RBAC - Expected non-empty entry in [rbac.rules.verbs]
 
   - it: should fail with empty kind in subjects in rbac
     set:
@@ -200,7 +200,7 @@ tests:
               apiGroup: my-apiGroup
     asserts:
       - failedTemplate:
-          errorMessage: RBAC - Expected non-empty <rbac.subjects.kind>
+          errorMessage: RBAC - Expected non-empty [rbac.subjects.kind]
 
   - it: should fail with empty name in subjects in rbac
     set:
@@ -225,7 +225,7 @@ tests:
               apiGroup: my-apiGroup
     asserts:
       - failedTemplate:
-          errorMessage: RBAC - Expected non-empty <rbac.subjects.name>
+          errorMessage: RBAC - Expected non-empty [rbac.subjects.name]
 
   - it: should fail with empty apiGroup in subjects in rbac
     set:
@@ -250,7 +250,7 @@ tests:
               apiGroup: ""
     asserts:
       - failedTemplate:
-          errorMessage: RBAC - Expected non-empty <rbac.subjects.apiGroup>
+          errorMessage: RBAC - Expected non-empty [rbac.subjects.apiGroup]
 
   - it: should fail with namespace longer than 63 characters
     set:

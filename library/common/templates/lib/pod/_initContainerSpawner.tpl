@@ -34,12 +34,12 @@ objectData: The object data to be used to render the Pod.
     {{- if $enabled -}}
 
       {{- if not ($containerValues.type) -}}
-        {{- fail "InitContainer - Expected non-empty <type>" -}}
+        {{- fail "InitContainer - Expected non-empty [type]" -}}
       {{- end -}}
 
       {{- $containerType := tpl $containerValues.type $rootCtx -}}
       {{- if not (mustHas $containerType $types) -}}
-        {{- fail (printf "InitContainer - Expected <type> to be one of [%s], but got [%s]" (join ", " $types) $containerType) -}}
+        {{- fail (printf "InitContainer - Expected [type] to be one of [%s], but got [%s]" (join ", " $types) $containerType) -}}
       {{- end -}}
 
       {{- $container := (mustDeepCopy $containerValues) -}}

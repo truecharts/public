@@ -25,7 +25,7 @@ objectData: The object data of the pvc
   {{- range $accessModes -}}
     {{- $mode := tpl . $rootCtx -}}
     {{- if not (mustHas $mode $validAccessModes) -}}
-      {{- fail (printf "%s - Expected <accessModes> entry to be one of [%s], but got [%s]" $caller (join ", " $validAccessModes) $mode) -}}
+      {{- fail (printf "%s - Expected [accessModes] entry to be one of [%s], but got [%s]" $caller (join ", " $validAccessModes) $mode) -}}
     {{- end }}
 - {{ $mode }}
   {{- end -}}

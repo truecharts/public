@@ -13,7 +13,7 @@
       {{- if not (kindIs "invalid" $storageclass.enabled) -}}
         {{- $enabled = $storageclass.enabled -}}
       {{- else -}}
-        {{- fail (printf "StorageClass - Expected the defined key [enabled] in <storageclass.%s> to not be empty" $name) -}}
+        {{- fail (printf "StorageClass - Expected the defined key [enabled] in [storageclass.%s] to not be empty" $name) -}}
       {{- end -}}
     {{- end -}}
 

@@ -9,7 +9,7 @@ objectData: The object data to be used to render the volume.
   {{- $objectData := .objectData -}}
 
   {{- if not $objectData.objectName -}}
-    {{- fail "Persistence - Expected non-empty <objectName> on <configmap> type" -}}
+    {{- fail "Persistence - Expected non-empty [objectName] on [configmap] type" -}}
   {{- end -}}
 
   {{- $objectName := tpl $objectData.objectName $rootCtx -}}
@@ -21,7 +21,7 @@ objectData: The object data to be used to render the volume.
   {{- if $expandName -}}
     {{- $object := (get $rootCtx.Values.configmap $objectName) -}}
     {{- if and (not $object) (not $objectData.optional) -}}
-      {{- fail (printf "Persistence - Expected configmap [%s] defined in <objectName> to exist" $objectName) -}}
+      {{- fail (printf "Persistence - Expected configmap [%s] defined in [objectName] to exist" $objectName) -}}
     {{- end -}}
 
     {{- $objectName = (printf "%s-%s" (include "tc.v1.common.lib.chart.names.fullname" $rootCtx) $objectName) -}}
@@ -30,14 +30,14 @@ objectData: The object data to be used to render the volume.
   {{- $optional := false -}}
   {{- if hasKey $objectData "optional" -}}
     {{- if not (kindIs "bool" $objectData.optional) -}}
-      {{- fail (printf "Persistence - Expected <optional> to be [bool], but got [%s]" (kindOf $objectData.optional)) -}}
+      {{- fail (printf "Persistence - Expected [optional] to be [bool], but got [%s]" (kindOf $objectData.optional)) -}}
     {{- end -}}
     {{- $optional = $objectData.optional -}}
   {{- end -}}
 
   {{- $defMode := "" -}}
   {{- if (and $objectData.defaultMode (not (kindIs "string" $objectData.defaultMode))) -}}
-    {{- fail (printf "Persistence - Expected <defaultMode> to be [string], but got [%s]" (kindOf $objectData.defaultMode)) -}}
+    {{- fail (printf "Persistence - Expected [defaultMode] to be [string], but got [%s]" (kindOf $objectData.defaultMode)) -}}
   {{- end -}}
 
   {{- with $objectData.defaultMode -}}
@@ -45,7 +45,7 @@ objectData: The object data to be used to render the volume.
   {{- end -}}
 
   {{- if and $defMode (not (mustRegexMatch "^[0-9]{4}$" $defMode)) -}}
-    {{- fail (printf "Persistence - Expected <defaultMode> to have be in format of [\"0777\"], but got [%q]" $defMode) -}}
+    {{- fail (printf "Persistence - Expected [defaultMode] to have be in format of [\"0777\"], but got [%q]" $defMode) -}}
   {{- end }}
 - name: {{ $objectData.shortName }}
   configMap:
@@ -58,10 +58,10 @@ objectData: The object data to be used to render the volume.
     items:
       {{- range . -}}
         {{- if not .key -}}
-          {{- fail "Persistence - Expected non-empty <items.key>" -}}
+          {{- fail "Persistence - Expected non-empty [items.key]" -}}
         {{- end -}}
         {{- if not .path -}}
-          {{- fail "Persistence - Expected non-empty <items.path>" -}}
+          {{- fail "Persistence - Expected non-empty [items.path]" -}}
         {{- end }}
     - key: {{ tpl .key $rootCtx }}
       path: {{ tpl .path $rootCtx }}

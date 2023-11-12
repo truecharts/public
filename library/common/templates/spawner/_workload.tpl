@@ -34,7 +34,7 @@
 
       {{/* Set the podSpec so it doesn't fail on nil pointer */}}
       {{- if not (hasKey $objectData "podSpec") -}}
-        {{- fail "Workload - Expected <podSpec> key to exist" -}}
+        {{- fail "Workload - Expected [podSpec] key to exist" -}}
       {{- end -}}
 
       {{/* Call class to create the object */}}

@@ -9,16 +9,16 @@ objectData: The object data to be used to render the volume.
   {{- $objectData := .objectData -}}
 
   {{- if not $objectData.path -}}
-    {{- fail "Persistence - Expected non-empty <path> on <nfs> type" -}}
+    {{- fail "Persistence - Expected non-empty [path] on [nfs] type" -}}
   {{- end -}}
 
   {{- $path := tpl $objectData.path $rootCtx -}}
   {{- if not (hasPrefix "/" $path) -}}
-    {{- fail "Persistence - Expected <path> to start with a forward slash [/] on <nfs> type" -}}
+    {{- fail "Persistence - Expected [path] to start with a forward slash [/] on [nfs] type" -}}
   {{- end -}}
 
   {{- if not $objectData.server -}}
-    {{- fail "Persistence - Expected non-empty <server> on <nfs> type" -}}
+    {{- fail "Persistence - Expected non-empty [server] on [nfs] type" -}}
   {{- end }}
 - name: {{ $objectData.shortName }}
   nfs:

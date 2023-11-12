@@ -32,20 +32,20 @@ objectData: The object data to be used to render the container.
     {{- $_ := set $volMount "mountPropagation" (tpl $volMount.mountPropagation $rootCtx) -}}
 
     {{- if not $volMount.mountPath -}}
-      {{- fail (printf "Persistence - Expected non-empty <mountPath>") -}}
+      {{- fail (printf "Persistence - Expected non-empty [mountPath]") -}}
     {{- end -}}
 
     {{- if not (hasPrefix "/" $volMount.mountPath) -}}
-      {{- fail (printf "Persistence - Expected <mountPath> to start with a forward slash [/]") -}}
+      {{- fail (printf "Persistence - Expected [mountPath] to start with a forward slash [/]") -}}
     {{- end -}}
 
     {{- $propagationTypes := (list "None" "HostToContainer" "Bidirectional") -}}
     {{- if and $volMount.mountPropagation (not (mustHas $volMount.mountPropagation $propagationTypes)) -}}
-      {{- fail (printf "Persistence - Expected <mountPropagation> to be one of [%s], but got [%s]" (join ", " $propagationTypes) $volMount.mountPropagation) -}}
+      {{- fail (printf "Persistence - Expected [mountPropagation] to be one of [%s], but got [%s]" (join ", " $propagationTypes) $volMount.mountPropagation) -}}
     {{- end -}}
 
     {{- if not (kindIs "bool" $volMount.readOnly) -}}
-      {{- fail (printf "Persistence - Expected <readOnly> to be [boolean], but got [%s]" (kindOf $volMount.readOnly)) -}}
+      {{- fail (printf "Persistence - Expected [readOnly] to be [boolean], but got [%s]" (kindOf $volMount.readOnly)) -}}
     {{- end }}
 - name: {{ $volMount.name }}
   mountPath: {{ $volMount.mountPath }}
@@ -108,11 +108,11 @@ objectData: The object data to be used to render the container.
     {{- if mustHas $objectData.podShortName ($persistenceValues.targetSelector | keys) -}}
       {{- $selectorValues := (get $persistenceValues.targetSelector $objectData.podShortName) -}}
       {{- if not (kindIs "map" $selectorValues) -}}
-        {{- fail (printf "Persistence - Expected <targetSelector.%s> to be a [dict], but got [%s]" $objectData.podShortName (kindOf $selectorValues)) -}}
+        {{- fail (printf "Persistence - Expected [targetSelector.%s] to be a [dict], but got [%s]" $objectData.podShortName (kindOf $selectorValues)) -}}
       {{- end -}}
 
       {{- if not $selectorValues -}}
-        {{- fail (printf "Persistence - Expected non-empty <targetSelector.%s>" $objectData.podShortName) -}}
+        {{- fail (printf "Persistence - Expected non-empty [targetSelector.%s]" $objectData.podShortName) -}}
       {{- end -}}
 
       {{/* If container is selected */}}

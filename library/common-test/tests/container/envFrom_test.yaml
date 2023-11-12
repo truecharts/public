@@ -134,7 +134,7 @@ tests:
                       name: invalid-name
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected <envFrom> entry to have one of [configMapRef, secretRef]
+          errorMessage: Container - Expected [envFrom] entry to have one of [configMapRef, secretRef]
 
   - it: it should fail with both refs in the same entry
     set:
@@ -158,7 +158,7 @@ tests:
                       name: secret-name
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected <envFrom> entry to have only one of [configMapRef, secretRef], but got both
+          errorMessage: Container - Expected [envFrom] entry to have only one of [configMapRef, secretRef], but got both
 
   - it: it should fail with empty name in configMapRef
     set:
@@ -180,7 +180,7 @@ tests:
                       name: ""
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected non-empty <envFrom.configMapRef.name>
+          errorMessage: Container - Expected non-empty [envFrom.configMapRef.name]
 
   - it: it should fail with empty name in secretRef
     set:
@@ -202,7 +202,7 @@ tests:
                       name: ""
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected non-empty <envFrom.secretRef.name>
+          errorMessage: Container - Expected non-empty [envFrom.secretRef.name]
 
   - it: it should fail without defined configmap
     set:
@@ -230,7 +230,7 @@ tests:
                       name: configmap-other-name
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected ConfigMap [configmap-other-name] defined in <envFrom> to exist
+          errorMessage: Container - Expected ConfigMap [configmap-other-name] defined in [envFrom] to exist
 
   - it: it should fail without defined secret
     set:
@@ -258,7 +258,7 @@ tests:
                       name: secret-other-name
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected Secret [secret-other-name] defined in <envFrom> to exist
+          errorMessage: Container - Expected Secret [secret-other-name] defined in [envFrom] to exist
 
 
   - it: it should fail empty expandObjectName
@@ -282,4 +282,4 @@ tests:
                       name: '{{ printf "secret-name" }}'
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected the defined key [expandObjectName] in <envFrom.secretRef> to not be empty
+          errorMessage: Container - Expected the defined key [expandObjectName] in [envFrom.secretRef] to not be empty

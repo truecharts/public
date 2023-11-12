@@ -11,12 +11,12 @@ objectData:
   {{- $objectData := .objectData -}}
 
   {{- if and $objectData.targetSelector (not (kindIs "string" $objectData.targetSelector)) -}}
-    {{- fail (printf "Service - Expected <targetSelector> to be [string], but got [%s]" (kindOf $objectData.targetSelector)) -}}
+    {{- fail (printf "Service - Expected [targetSelector] to be [string], but got [%s]" (kindOf $objectData.targetSelector)) -}}
   {{- end -}}
 
   {{- $svcTypes := (list "ClusterIP" "LoadBalancer" "NodePort" "ExternalName" "ExternalIP") -}}
   {{- if and $objectData.type (not (mustHas $objectData.type $svcTypes)) -}}
-    {{- fail (printf "Service - Expected <type> to be one of [%s] but got [%s]" (join ", " $svcTypes) $objectData.type) -}}
+    {{- fail (printf "Service - Expected [type] to be one of [%s] but got [%s]" (join ", " $svcTypes) $objectData.type) -}}
   {{- end -}}
 
   {{- $hasEnabledPort := false -}}
@@ -26,17 +26,17 @@ objectData:
         {{- $hasEnabledPort = true -}}
 
         {{- if and $port.targetSelector (not (kindIs "string" $port.targetSelector)) -}}
-          {{- fail (printf "Service - Expected <port.targetSelector> to be [string], but got [%s]" (kindOf $port.targetSelector)) -}}
+          {{- fail (printf "Service - Expected [port.targetSelector] to be [string], but got [%s]" (kindOf $port.targetSelector)) -}}
         {{- end -}}
 
         {{- if not $port.port -}}
-          {{- fail (printf "Service - Expected non-empty <port.port>") -}}
+          {{- fail (printf "Service - Expected non-empty [port.port]") -}}
         {{- end -}}
 
         {{- $protocolTypes := (list "tcp" "udp" "http" "https") -}}
         {{- if $port.protocol -}}
           {{- if not (mustHas (tpl $port.protocol $rootCtx) $protocolTypes) -}}
-            {{- fail (printf "Service - Expected <port.protocol> to be one of [%s] but got [%s]" (join ", " $protocolTypes) $port.protocol) -}}
+            {{- fail (printf "Service - Expected [port.protocol] to be one of [%s] but got [%s]" (join ", " $protocolTypes) $port.protocol) -}}
           {{- end -}}
         {{- end -}}
 

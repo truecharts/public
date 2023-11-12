@@ -14,16 +14,16 @@ objectData:
     {{- $completionMode := $objectData.completionMode -}}
 
     {{- if not (mustHas $completionMode (list "Indexed" "NonIndexed")) -}}
-      {{- fail (printf "Job - Expected <completionMode> to be one of [Indexed, NonIndexed], but got [%v]" $completionMode) -}}
+      {{- fail (printf "Job - Expected [completionMode] to be one of [Indexed, NonIndexed], but got [%v]" $completionMode) -}}
     {{- end -}}
 
     {{- if eq $completionMode "Indexed" -}}
       {{- if not $objectData.completions -}}
-        {{- fail "Job - Expected <completions> to be set when <completionMode> is set to [Indexed]" -}}
+        {{- fail "Job - Expected [completions] to be set when [completionMode] is set to [Indexed]" -}}
       {{- end -}}
 
       {{- if not $objectData.parallelism -}}
-        {{- fail "Job - Expected <parallelism> to be set when <completionMode> is set to [Indexed]" -}}
+        {{- fail "Job - Expected [parallelism] to be set when [completionMode] is set to [Indexed]" -}}
       {{- end -}}
     {{- end -}}
 

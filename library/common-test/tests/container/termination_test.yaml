@@ -143,4 +143,4 @@ tests:
                   messagePolicy: SomeInvalidPolicy
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected <termination.messagePolicy> to be one of [File, FallbackToLogsOnError], but got [SomeInvalidPolicy]
+          errorMessage: Container - Expected [termination.messagePolicy] to be one of [File, FallbackToLogsOnError], but got [SomeInvalidPolicy]

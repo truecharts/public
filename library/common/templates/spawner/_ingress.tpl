@@ -56,7 +56,7 @@
       {{- end -}}
       {{- end -}}
     {{- else if $ingress.required -}}
-      {{- fail (printf "Ingress - <ingress.%s> is set to be [required] and cannot be disabled" $name) -}}
+      {{- fail (printf "Ingress - [ingress.%s] is set to be [required] and cannot be disabled" $name) -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}

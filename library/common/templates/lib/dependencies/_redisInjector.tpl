@@ -16,7 +16,7 @@ This template generates a random password and ensures it persists across updates
   {{- end -}}
 
   {{- $redisUser := .Values.redis.redisUsername -}}
-  {{- if not $redisUser -}}{{/* If you try to print a nil value it will print as <nil> */}}
+  {{- if not $redisUser -}}{{/* If you try to print a nil value it will print as [nil] */}}
     {{- $redisUser = "" -}}
   {{- end -}}
   {{/* Prepare data */}}

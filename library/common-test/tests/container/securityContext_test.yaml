@@ -742,7 +742,7 @@ tests:
                 probes: *probes
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected non-empty <.Values.securityContext.container>
+          errorMessage: Container - Expected non-empty [.Values.securityContext.container]
 
   - it: should fail with readOnlyRootFilesystem not a bool
     set:
@@ -763,7 +763,7 @@ tests:
                   readOnlyRootFilesystem: "true"
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected <securityContext.readOnlyRootFilesystem> to be [bool], but got [true] of type [string]
+          errorMessage: Container - Expected [securityContext.readOnlyRootFilesystem] to be [bool], but got [true] of type [string]
 
   - it: should fail with allowPrivilegeEscalation not a bool
     set:
@@ -784,7 +784,7 @@ tests:
                   allowPrivilegeEscalation: "true"
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected <securityContext.allowPrivilegeEscalation> to be [bool], but got [true] of type [string]
+          errorMessage: Container - Expected [securityContext.allowPrivilegeEscalation] to be [bool], but got [true] of type [string]
 
   - it: should fail with privileged not a bool
     set:
@@ -805,7 +805,7 @@ tests:
                   privileged: "true"
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected <securityContext.privileged> to be [bool], but got [true] of type [string]
+          errorMessage: Container - Expected [securityContext.privileged] to be [bool], but got [true] of type [string]
 
   - it: should fail with runAsUser not an int
     set:
@@ -826,7 +826,7 @@ tests:
                   runAsUser: "568"
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected <securityContext.runAsUser> to be [int], but got [568] of type [string]
+          errorMessage: Container - Expected [securityContext.runAsUser] to be [int], but got [568] of type [string]
 
   - it: should fail with runAsGroup not an int
     set:
@@ -847,7 +847,7 @@ tests:
                   runAsGroup: "568"
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected <securityContext.runAsGroup> to be [int], but got [568] of type [string]
+          errorMessage: Container - Expected [securityContext.runAsGroup] to be [int], but got [568] of type [string]
 
   - it: should fail without seccompProfile
     set:
@@ -869,7 +869,7 @@ tests:
                 probes: *probes
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected <securityContext.seccompProfile> to be defined
+          errorMessage: Container - Expected [securityContext.seccompProfile] to be defined
 
   - it: should fail with invalid seccompProfile
     set:
@@ -891,7 +891,7 @@ tests:
                     type: invalid
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected <securityContext.seccompProfile> to be one of [RuntimeDefault, Localhost, Unconfined], but got [invalid]
+          errorMessage: Container - Expected [securityContext.seccompProfile] to be one of [RuntimeDefault, Localhost, Unconfined], but got [invalid]
 
   - it: should fail without profile on seccompProfile Localhost
     set:
@@ -914,7 +914,7 @@ tests:
                     profile: ""
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected <securityContext.seccompProfile.profile> to be defined on type [Localhost]
+          errorMessage: Container - Expected [securityContext.seccompProfile.profile] to be defined on type [Localhost]
 
   - it: should fail without capabilities
     set:
@@ -936,7 +936,7 @@ tests:
                 probes: *probes
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected <securityContext.capabilities> to be defined
+          errorMessage: Container - Expected [securityContext.capabilities] to be defined
 
   - it: should fail capabilities.add not a list
     set:
@@ -958,7 +958,7 @@ tests:
                     add: invalid
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected <securityContext.capabilities.add> to be [list], but got [string]
+          errorMessage: Container - Expected [securityContext.capabilities.add] to be [list], but got [string]
 
   - it: should fail capabilities.drop not a list
     set:
@@ -980,7 +980,7 @@ tests:
                     drop: invalid
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected <securityContext.capabilities.drop> to be [list], but got [string]
+          errorMessage: Container - Expected [securityContext.capabilities.drop] to be [list], but got [string]
 
   - it: should fail capabilities.disableS6Caps not a bool
     set:
@@ -1005,7 +1005,7 @@ tests:
                     disableS6Caps: not-bool
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected <securityContext.capabilities.disableS6Caps> to be [bool], but got [not-bool] of type [string]
+          errorMessage: Container - Expected [securityContext.capabilities.disableS6Caps] to be [bool], but got [not-bool] of type [string]
 
   - it: should fail with duplicate capabilities.add
     set:
@@ -1029,7 +1029,7 @@ tests:
                       - CHOWN
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected items of <securityContext.capabilities.add> to be unique, but got [CHOWN, CHOWN]
+          errorMessage: Container - Expected items of [securityContext.capabilities.add] to be unique, but got [CHOWN, CHOWN]
 
   - it: should fail with duplicate capabilities.drop
     set:
@@ -1053,4 +1053,4 @@ tests:
                       - CHOWN
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected items of <securityContext.capabilities.drop> to be unique, but got [CHOWN, CHOWN]
+          errorMessage: Container - Expected items of [securityContext.capabilities.drop] to be unique, but got [CHOWN, CHOWN]

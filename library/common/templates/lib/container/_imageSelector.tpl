@@ -18,15 +18,15 @@ objectData: The object data to be used to render the container.
   {{- if hasKey $rootCtx.Values $selector -}}
     {{- $imageObj = get $rootCtx.Values $selector -}}
   {{- else -}}
-    {{- fail (printf "Container - Expected <.Values.%s> to exist" $selector) -}}
+    {{- fail (printf "Container - Expected [.Values.%s] to exist" $selector) -}}
   {{- end -}}
 
   {{- if not $imageObj.repository -}}
-    {{- fail (printf "Container - Expected non-empty <.Values.%s.repository>" $selector) -}}
+    {{- fail (printf "Container - Expected non-empty [.Values.%s.repository]" $selector) -}}
   {{- end -}}
 
   {{- if not $imageObj.tag -}}
-    {{- fail (printf "Container - Expected non-empty <.Values.%s.tag>" $selector) -}}
+    {{- fail (printf "Container - Expected non-empty [.Values.%s.tag]" $selector) -}}
   {{- end -}}
 
   {{- if not $imageObj.pullPolicy -}}
@@ -35,7 +35,7 @@ objectData: The object data to be used to render the container.
 
   {{- $policies := (list "IfNotPresent" "Always" "Never") -}}
   {{- if not (mustHas $imageObj.pullPolicy $policies) -}}
-    {{- fail (printf "Container - Expected <.Values.%s.pullPolicy> to be one of [%s], but got [%s]" $selector (join ", " $policies) $imageObj.pullPolicy) -}}
+    {{- fail (printf "Container - Expected [.Values.%s.pullPolicy] to be one of [%s], but got [%s]" $selector (join ", " $policies) $imageObj.pullPolicy) -}}
   {{- end -}}
 
   {{- $imageObj | toJson -}}

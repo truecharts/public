@@ -13,7 +13,7 @@ tests:
           annotations: not-a-dict
     asserts:
       - failedTemplate:
-          errorMessage: Persistence - Expected <annotations> to be a dictionary, but got [string]
+          errorMessage: Persistence - Expected [annotations] to be a dictionary, but got [string]
 
   - it: should fail with labels not a dict
     set:
@@ -23,7 +23,7 @@ tests:
           labels: not-a-dict
     asserts:
       - failedTemplate:
-          errorMessage: Persistence - Expected <labels> to be a dictionary, but got [string]
+          errorMessage: Persistence - Expected [labels] to be a dictionary, but got [string]
 
   - it: should fail with pod targetSelector not a map
     set:
@@ -33,7 +33,7 @@ tests:
           targetSelector: not-a-map
     asserts:
       - failedTemplate:
-          errorMessage: Persistence - Expected <targetSelector> to be [dict], but got [string]
+          errorMessage: Persistence - Expected [targetSelector] to be [dict], but got [string]
 
   - it: should fail with invalid type
     set:
@@ -43,7 +43,7 @@ tests:
           type: not-a-type
     asserts:
       - failedTemplate:
-          errorMessage: Persistence - Expected <type> to be one of [pvc, vct, emptyDir, nfs, hostPath, ixVolume, secret, configmap, device], but got [not-a-type]
+          errorMessage: Persistence - Expected [type] to be one of [pvc, vct, emptyDir, nfs, hostPath, ixVolume, secret, configmap, device], but got [not-a-type]
 
   - it: should fail with invalid accessMode
     set:
@@ -54,7 +54,7 @@ tests:
             - not-an-access-mode
     asserts:
       - failedTemplate:
-          errorMessage: PVC - Expected <accessModes> entry to be one of [ReadWriteOnce, ReadOnlyMany, ReadWriteMany, ReadWriteOncePod], but got [not-an-access-mode]
+          errorMessage: PVC - Expected [accessModes] entry to be one of [ReadWriteOnce, ReadOnlyMany, ReadWriteMany, ReadWriteOncePod], but got [not-an-access-mode]
 
   - it: should fail without storageClassName in ixChartContext
     set:
@@ -68,7 +68,7 @@ tests:
           type: pvc
     asserts:
       - failedTemplate:
-          errorMessage: PVC - Expected non-empty <global.ixChartContext.storageClassName>
+          errorMessage: PVC - Expected non-empty [global.ixChartContext.storageClassName]
 
   - it: should fail without storageClassName in ixChartContext with SCALE-ZFS explicitly set
     set:
@@ -83,7 +83,7 @@ tests:
           storageClass: SCALE-ZFS
     asserts:
       - failedTemplate:
-          errorMessage: PVC - Expected non-empty <global.ixChartContext.storageClassName> on [SCALE-ZFS] storageClass
+          errorMessage: PVC - Expected non-empty [global.ixChartContext.storageClassName] on [SCALE-ZFS] storageClass
 
   - it: should fail with non-existent configmap
     set:
@@ -107,7 +107,7 @@ tests:
                 enabled: true
     asserts:
       - failedTemplate:
-          errorMessage: Persistence - Expected configmap [my-non-existent-configmap] defined in <objectName> to exist
+          errorMessage: Persistence - Expected configmap [my-non-existent-configmap] defined in [objectName] to exist
 
   - it: should fail with non-existent secret
     set:
@@ -131,7 +131,7 @@ tests:
                 enabled: true
     asserts:
       - failedTemplate:
-          errorMessage: Persistence - Expected secret [my-non-existent-secret] defined in <objectName> to exist
+          errorMessage: Persistence - Expected secret [my-non-existent-secret] defined in [objectName] to exist
 
   - it: should fail with namespace longer than 63 characters
     set:
@@ -169,7 +169,7 @@ tests:
             share: /someshare
     asserts:
       - failedTemplate:
-          errorMessage: NFS CSI - Expected <server> to be non-empty
+          errorMessage: NFS CSI - Expected [server] to be non-empty
 
   - it: should fail without share on pvc static nfs
     set:
@@ -182,7 +182,7 @@ tests:
             server: someserver
     asserts:
       - failedTemplate:
-          errorMessage: NFS CSI - Expected <share> to be non-empty
+          errorMessage: NFS CSI - Expected [share] to be non-empty
 
   - it: should fail without server on pvc static smb
     set:
@@ -195,7 +195,7 @@ tests:
             share: someshare
     asserts:
       - failedTemplate:
-          errorMessage: SMB CSI - Expected <server> to be non-empty
+          errorMessage: SMB CSI - Expected [server] to be non-empty
 
   - it: should fail without share on pvc static smb
     set:
@@ -208,7 +208,7 @@ tests:
             server: someserver
     asserts:
       - failedTemplate:
-          errorMessage: SMB CSI - Expected <share> to be non-empty
+          errorMessage: SMB CSI - Expected [share] to be non-empty
 
   - it: should fail without CSI when in ixChartContext on pvc static smb
     set:
@@ -254,7 +254,7 @@ tests:
             server: someserver
     asserts:
       - failedTemplate:
-          errorMessage: SMB CSI - Expected <username> to be non-empty
+          errorMessage: SMB CSI - Expected [username] to be non-empty
 
   - it: should fail without password on pvc static smb
     set:
@@ -269,7 +269,7 @@ tests:
             username: someuser
     asserts:
       - failedTemplate:
-          errorMessage: SMB CSI - Expected <password> to be non-empty
+          errorMessage: SMB CSI - Expected [password] to be non-empty
 
   - it: should fail with server starting with // on pvc static smb
     set:
@@ -285,7 +285,7 @@ tests:
             password: someuserpoassword
     asserts:
       - failedTemplate:
-          errorMessage: SMB CSI - Did not expect <server> to start with [//]
+          errorMessage: SMB CSI - Did not expect [server] to start with [//]
 
   - it: should fail with share starting with / on pvc static smb
     set:
@@ -301,7 +301,7 @@ tests:
             password: someuserpoassword
     asserts:
       - failedTemplate:
-          errorMessage: SMB CSI - Did not expect <share> to start with [/]
+          errorMessage: SMB CSI - Did not expect [share] to start with [/]
 
   - it: should fail without share starting with / on pvc static nfs
     set:
@@ -315,7 +315,7 @@ tests:
             server: someserver
     asserts:
       - failedTemplate:
-          errorMessage: NFS CSI - Expected <share> to start with [/]
+          errorMessage: NFS CSI - Expected [share] to start with [/]
 
   - it: should fail with empty key on mountOptions in pvc static nfs
     set:
@@ -331,7 +331,7 @@ tests:
             - key: ""
     asserts:
       - failedTemplate:
-          errorMessage: NFS CSI - Expected key in <mountOptions> to be non-empty
+          errorMessage: NFS CSI - Expected key in [mountOptions] to be non-empty
 
   - it: should fail with empty key on mountOptions in pvc static smb
     set:
@@ -349,7 +349,7 @@ tests:
             - key: ""
     asserts:
       - failedTemplate:
-          errorMessage: SMB CSI - Expected key in <mountOptions> to be non-empty
+          errorMessage: SMB CSI - Expected key in [mountOptions] to be non-empty
 
   - it: should fail with item in mountOptions not a map in pvc static smb
     set:
@@ -367,7 +367,7 @@ tests:
             - not-a-map
     asserts:
       - failedTemplate:
-          errorMessage: SMB CSI - Expected <mountOption> item to be a dict, but got [string]
+          errorMessage: SMB CSI - Expected [mountOption] item to be a dict, but got [string]
 
   - it: should fail with item in mountOptions not a map in pvc static nfs
     set:
@@ -383,7 +383,7 @@ tests:
             - not-a-map
     asserts:
       - failedTemplate:
-          errorMessage: NFS CSI - Expected <mountOption> item to be a dict, but got [string]
+          errorMessage: NFS CSI - Expected [mountOption] item to be a dict, but got [string]
 
   - it: should fail with invalid static mode
     set:

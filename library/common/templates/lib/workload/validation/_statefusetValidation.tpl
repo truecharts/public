@@ -14,7 +14,7 @@ objectData:
 
     {{- $strategies := (list "OnDelete" "RollingUpdate") -}}
     {{- if not (mustHas $strategy $strategies) -}}
-      {{- fail (printf "StatefulSet - Expected <strategy> to be one of [%s], but got [%v]" (join ", " $strategies) $strategy) -}}
+      {{- fail (printf "StatefulSet - Expected [strategy] to be one of [%s], but got [%v]" (join ", " $strategies) $strategy) -}}
     {{- end -}}
 
   {{- end -}}
@@ -23,7 +23,7 @@ objectData:
     {{- $rollUp := $objectData.rollingUpdate -}}
 
     {{- if and $rollUp (not (kindIs "map" $rollUp)) -}}
-      {{- fail (printf "StatefulSet - Expected <rollingUpdate> to be a dictionary, but got [%v]" (kindOf $rollUp)) -}}
+      {{- fail (printf "StatefulSet - Expected [rollingUpdate] to be a dictionary, but got [%v]" (kindOf $rollUp)) -}}
     {{- end -}}
 
   {{- end -}}

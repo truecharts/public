@@ -10,7 +10,7 @@ objectData: The object data to be used to render the container.
   {{- $caller := .caller -}}
 
    {{- if not $objectData.port -}}
-    {{- fail (printf "Container - Expected non-empty <%s> <port> on [tcp] type" $caller) -}}
+    {{- fail (printf "Container - Expected non-empty [%s] [port] on [tcp] type" $caller) -}}
   {{- end -}}
 
   {{- $port := $objectData.port -}}

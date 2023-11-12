@@ -36,7 +36,7 @@ tests:
                 type: ""
     asserts:
       - failedTemplate:
-          errorMessage: InitContainer - Expected non-empty <type>
+          errorMessage: InitContainer - Expected non-empty [type]
 
   - it: should fail with invalid type on init container
     set:
@@ -68,4 +68,4 @@ tests:
                 type: invalid
     asserts:
       - failedTemplate:
-          errorMessage: InitContainer - Expected <type> to be one of [system, init, install, upgrade], but got [invalid]
+          errorMessage: InitContainer - Expected [type] to be one of [system, init, install, upgrade], but got [invalid]

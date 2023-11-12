@@ -194,7 +194,7 @@ tests:
                     invalidKeyRef: {}
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected <env> with a ref to have one of [configMapKeyRef, secretKeyRef, fieldRef], but got [invalidKeyRef]
+          errorMessage: Container - Expected [env] with a ref to have one of [configMapKeyRef, secretKeyRef, fieldRef], but got [invalidKeyRef]
 
   - it: it should fail with more than one ref
     set:
@@ -217,7 +217,7 @@ tests:
                     secretKeyRef: {}
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected <env> with a ref to have one of [configMapKeyRef, secretKeyRef, fieldRef], but got [configMapKeyRef, secretKeyRef]
+          errorMessage: Container - Expected [env] with a ref to have one of [configMapKeyRef, secretKeyRef, fieldRef], but got [configMapKeyRef, secretKeyRef]
 
   - it: it should fail with empty name in configMapKeyRef
     set:
@@ -241,7 +241,7 @@ tests:
                       key: key
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected non-empty <env.configMapKeyRef.name>
+          errorMessage: Container - Expected non-empty [env.configMapKeyRef.name]
 
   - it: it should fail with empty key in configMapKeyRef
     set:
@@ -265,7 +265,7 @@ tests:
                       key: ""
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected non-empty <env.configMapKeyRef.key>
+          errorMessage: Container - Expected non-empty [env.configMapKeyRef.key]
 
   - it: it should fail with empty name in secretKeyRef
     set:
@@ -289,7 +289,7 @@ tests:
                       key: key
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected non-empty <env.secretKeyRef.name>
+          errorMessage: Container - Expected non-empty [env.secretKeyRef.name]
 
   - it: it should fail with empty key in secretKeyRef
     set:
@@ -313,7 +313,7 @@ tests:
                       key: ""
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected non-empty <env.secretKeyRef.key>
+          errorMessage: Container - Expected non-empty [env.secretKeyRef.key]
 
   - it: it should fail with referenced secret not defined
     set:
@@ -337,7 +337,7 @@ tests:
                       key: somekey
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected in <env> the referenced Secret [secret-name] to be defined
+          errorMessage: Container - Expected in [env] the referenced Secret [secret-name] to be defined
 
   - it: it should fail with referenced configmap not defined
     set:
@@ -361,7 +361,7 @@ tests:
                       key: somekey
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected in <env> the referenced Configmap [configmap-name] to be defined
+          errorMessage: Container - Expected in [env] the referenced Configmap [configmap-name] to be defined
 
   - it: it should fail with referenced key in configmap not defined
     set:
@@ -391,7 +391,7 @@ tests:
                       key: somekey
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected in <env> the referenced key [somekey] in Configmap [configmap-name] to be defined
+          errorMessage: Container - Expected in [env] the referenced key [somekey] in Configmap [configmap-name] to be defined
 
   - it: it should fail with referenced key in secret not defined
     set:
@@ -421,7 +421,7 @@ tests:
                       key: somekey
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected in <env> the referenced key [somekey] in Secret [secret-name] to be defined
+          errorMessage: Container - Expected in [env] the referenced key [somekey] in Secret [secret-name] to be defined
 
   - it: it should fail with empty fieldPath in fieldRef
     set:
@@ -444,7 +444,7 @@ tests:
                       fieldPath: ""
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected non-empty <env.fieldRef.fieldPath>
+          errorMessage: Container - Expected non-empty [env.fieldRef.fieldPath]
 
   - it: it should fail empty expandObjectName
     set:
@@ -469,4 +469,4 @@ tests:
                       key: secret-key
     asserts:
       - failedTemplate:
-          errorMessage: Container - Expected the defined key [expandObjectName] in <env.key1> to not be empty
+          errorMessage: Container - Expected the defined key [expandObjectName] in [env.key1] to not be empty

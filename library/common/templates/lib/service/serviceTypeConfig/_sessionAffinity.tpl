@@ -13,7 +13,7 @@ objectData: The service object data
     {{- $affinity := tpl . $rootCtx -}}
     {{- $affinities := (list "ClientIP" "None") -}}
     {{- if not (mustHas $affinity $affinities) -}}
-      {{- fail (printf "Service - Expected <sessionAffinity> to be one of [%s], but got [%s]" (join ", " $affinities) $affinity) -}}
+      {{- fail (printf "Service - Expected [sessionAffinity] to be one of [%s], but got [%s]" (join ", " $affinities) $affinity) -}}
     {{- end }}
 sessionAffinity: {{ $affinity }}
     {{- if eq $affinity "ClientIP" -}}
@@ -28,7 +28,7 @@ sessionAffinity: {{ $affinity }}
           {{- $timeout = int $timeout -}}
           {{- if and $timeout (mustHas (kindOf $timeout) (list "float64" "int64" "int")) -}}
             {{- if or (lt $timeout 0) (gt $timeout 86400) -}}
-              {{- fail (printf "Service - Expected <sessionAffinityConfig.clientIP.timeoutSeconds> to be between [0 - 86400], but got [%v]" $timeout) -}}
+              {{- fail (printf "Service - Expected [sessionAffinityConfig.clientIP.timeoutSeconds] to be between [0 - 86400], but got [%v]" $timeout) -}}
             {{- end }}
 sessionAffinityConfig:
   clientIP:

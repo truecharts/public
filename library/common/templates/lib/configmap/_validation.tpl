@@ -11,11 +11,11 @@ objectData:
   {{- $objectData := .objectData -}}
 
   {{- if not $objectData.data -}}
-    {{- fail "ConfigMap - Expected non-empty <data>" -}}
+    {{- fail "ConfigMap - Expected non-empty [data]" -}}
   {{- end -}}
 
   {{- if not (kindIs "map" $objectData.data) -}}
-    {{- fail (printf "ConfigMap - Expected <data> to be a dictionary, but got [%v]" (kindOf $objectData.data)) -}}
+    {{- fail (printf "ConfigMap - Expected [data] to be a dictionary, but got [%v]" (kindOf $objectData.data)) -}}
   {{- end -}}
 
 {{- end -}}
