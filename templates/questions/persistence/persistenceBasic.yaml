@@ -92,6 +92,72 @@
                   show_if: [["type", "=", "pvc"]]
                   type: string
                   default: 256Gi
+              - variable: storageClass
+                label: storageClass (Advanced)
+                description: sets the storageClass to something other than iX default. Only for advanced usecases!
+                schema:
+                  show_if: [["type", "=", "pvc"]]
+                  type: string
+                  default: ""
+              - variable: static
+                label: Static Fixed PVC Bindings (Experimental)
+                description: Link a PVC to a specific storage location
+                schema:
+                  show_if: [["type", "=", "pvc"]]
+                  type: dict
+                  additional_attrs: true
+                  attrs:
+                    - variable: mode
+                      label: mode
+                      description: |
+                        disabled: use normal dynamic PVCs
+                        smb: connect to an SMB share
+                        nfs: connect to an NFS share
+                      schema:
+                        type: string
+                        default: "disabled"
+                        enum:
+                          - value: "disabled"
+                            description: disabled
+                          - value: smb
+                            description: smb
+                          - variable: nfs
+                            label: nfs
+                    - variable: server
+                      label: Server
+                      description: server to connect to
+                      schema:
+                        type: string
+                        show_if: [["mode", "!=", "disabled"]]
+                        default: "myserver"
+                    - variable: share
+                      label: Share
+                      description: share to connect to
+                      schema:
+                        type: string
+                        show_if: [["mode", "!=", "disabled"]]
+                        default: "/myshare"
+                    - variable: user
+                      label: User
+                      description: connecting user
+                      schema:
+                        type: string
+                        show_if: [["mode", "=", "smb"]]
+                        default: "myuser"
+                    - variable: domain
+                      label: Domain
+                      description: user domain
+                      schema:
+                        type: string
+                        show_if: [["mode", "=", "smb"]]
+                        default: ""
+                    - variable: password
+                      label: Password
+                      description: connecting password
+                      schema:
+                        type: string
+                        show_if: [["mode", "=", "smb"]]
+                        default: ""
               - variable: volumeSnapshots
                 label: Volume Snapshots (Experimental)
                 description: Add an entry to the list to force creation of a volumeSnapshot of this PVC
@@ -119,3 +185,4 @@
                             schema:
                               type: string
                               default: ""
+
