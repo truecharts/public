@@ -6,11 +6,15 @@
 {{- if $previous }}
 {{- $msk = ( index $previous.data "key" ) | b64dec }}
 {{- end }}
+
+secret-macaroon:
+enabled: true
+data:
+  key: {{ $msk | b64enc }}
+
 secret:
 enabled: true
 data:
-key: {{ $msk | b64enc }}
-stringData:
   secret.yaml: |
     {{- if .Values.mail.enabled }}
     email:
