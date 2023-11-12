@@ -26,10 +26,16 @@ stringData:
     database:
         name: "psycopg2"
         args:
-          user: "{{ .Values.postgresql.postgresqlUsername }}"
-          password: {{ .Values.postgresql.postgresqlPassword }}
-          database: "{{ .Values.postgresql.postgresqlDatabase }}"
-          host: "{{ printf "%v-%v" .Release.Name "postgresql" }}"
+          user: "{{ .Values.cnpg.main.user }}"
+          password:
+            secretKeyRef:
+              name: cnpg-main-user
+              key: password
+          database: "{{ .Values.cnpg.main.database }}"
+          host:
+            secretKeyRef:
+              name: cnpg-main-urls
+              key: host
           port: "5432"
           cp_min: 5
           cp_max: 10
