@@ -93,7 +93,7 @@
                   type: string
                   default: 256Gi
               - variable: static
-                label: Static Fixed PVC Bindings
+                label: Static Fixed PVC Bindings (Experimental)
                 description: Link a PVC to a specific storage location
                 schema:
                   show_if: [["type", "=", "pvc"]]
