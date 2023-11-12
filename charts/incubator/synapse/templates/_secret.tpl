@@ -10,6 +10,7 @@ secret:
 enabled: true
 data:
   key: {{ $msk | b64enc }}
+stringData:
   secret.yaml: |
     {{- if .Values.mail.enabled }}
     email:
@@ -25,10 +26,10 @@ data:
     database:
         name: "psycopg2"
         args:
-          user: "{{ .Values.cnpg.main.user }}"
-          password: "{{ .Values.cnpg.main.creds.password }}"
-          database: "{{ .Values.cnpg.main.database }}"
-          host: "{{ printf "%v:5432" $pgHost }}"
+          user: "{{ .Values.postgresql.postgresqlUsername }}"
+          password: {{ .Values.postgresql.postgresqlPassword }}
+          database: "{{ .Values.postgresql.postgresqlDatabase }}"
+          host: "{{ printf "%v-%v" .Release.Name "postgresql" }}"
           port: "5432"
           cp_min: 5
           cp_max: 10
