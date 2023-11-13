@@ -10,43 +10,39 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: ADDRESS
+                                        label: "ADDRESS"
+                                        description: "Hosted IP Address"
+                                        schema:
+                                          type: string
+                                          default: "0.0.0.0"
+                                      - variable: IMGUR_CLIENT_ID
+                                        label: "IMGUR_CLIENT_ID"
+                                        description: "Imgur Client ID"
+                                        schema:
+                                          type: string
+                                          default: "546c25a59c58ad7"
+                                      - variable: FORCE_WEBP
+                                        label: "FORCE_WEBP"
+                                        description: "Force WEBP to reduce bandwidth"
+                                        schema:
+                                          type: string
+                                          default: "0"
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: ADDRESS
-          label: "ADDRESS"
-          description: "Hosted IP Address"
-          schema:
-            type: string
-            default: "0.0.0.0"
-        - variable: IMGUR_CLIENT_ID
-          label: "IMGUR_CLIENT_ID"
-          description: "Imgur Client ID"
-          schema:
-            type: string
-            default: "546c25a59c58ad7"
-        - variable: FORCE_WEBP
-          label: "FORCE_WEBP"
-          description: "Force WEBP to reduce bandwidth"
-          schema:
-            type: string
-            default: "0"
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
-        - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
