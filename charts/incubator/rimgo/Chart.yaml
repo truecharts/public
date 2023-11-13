@@ -1,12 +1,9 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Network-Web
 apiVersion: v2
 appVersion: "latest"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 15.0.1
 deprecated: false
 description: "Alternative Imgur front-end"
 home: https://truecharts.org/charts/incubator/rimgo
@@ -23,4 +20,7 @@ name: rimgo
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/rimgo
 type: application
-version: 2.0.23
+version: 3.0.0
+annotations:
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Network-Web
