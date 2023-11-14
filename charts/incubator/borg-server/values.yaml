@@ -1,0 +1,43 @@
+image:
+  repository: tccr.io/truecharts/borg-sever
+  pullPolicy: IfNotPresent
+  tag: v2.1.1@sha256:f6393846ace658d7c9d2ae70b26d2a0dce293fbdbed04f97c7d0c6a40b9edaa9
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: tcp
+        targetPort: 22
+        port: 8022
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            BORG_UID: "{{ .Values.securityContext.container.PUID }}"
+            BORG_GID: "{{ .Values.securityContext.pod.fsGroup }}"
+
+
+persistence:
+  borg:
+    enabled: true
+    mountPath: "/var/lib/docker-borg"
+  backups:
+    enabled: true
+    mountPath: "/home/borg/backups"
+  ssh:
+    enabled: true
+    mountPath: "/home/borg/.ssh"
+
+portal:
+  open:
+    enabled: false
