@@ -1,13 +1,12 @@
 apiVersion: v2
 appVersion: "latest"
 deprecated: false
-description: Cert-Manager is a kubernetes-aware certificate manager
-home: https://truecharts.org/charts/operators/cert-manager
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/cert-manager.png
+description: Velero is a kubernetes-native backup solution
+home: https://truecharts.org/charts/operators/velero
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/velero.png
 keywords:
-  - cert-manager
-  - certificates
-  - security
+  - velero
+  - backup
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -21,7 +20,7 @@ maintainers:
   - email: info@truecharts.org
     name: TrueCharts
     url: https://truecharts.org
-name: cert-manager
+name: velero
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/operators/cert-manager
   - https://github.com/cert-manager
