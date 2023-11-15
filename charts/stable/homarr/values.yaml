@@ -9,7 +9,7 @@ workload:
       containers:
         main:
           env:
-            PORT "{{ .Values.service.main.ports.main.port }}"
+            PORT: "{{ .Values.service.main.ports.main.port }}"
 
 service:
   main:
