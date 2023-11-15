@@ -113,6 +113,15 @@ for idx in $(eval echo "{0..$length}"); do
               elif [[ "$name" =~ "velero" ]]; then
                   helm dependency build "$charts_path/$train_chart/Chart.yaml" || \
                   helm dependency update "$charts_path/$train_chart/Chart.yaml"|| exit 1
+              elif [[ "$name" =~ "metallb" ]]; then
+                  helm dependency build "$charts_path/$train_chart/Chart.yaml" || \
+                  helm dependency update "$charts_path/$train_chart/Chart.yaml"|| exit 1
+              elif [[ "$name" =~ "cloudnative-pg" ]]; then
+                  helm dependency build "$charts_path/$train_chart/Chart.yaml" || \
+                  helm dependency update "$charts_path/$train_chart/Chart.yaml"|| exit 1
+              elif [[ "$name" =~ "kube-prometheus-stack" ]]; then
+                  helm dependency build "$charts_path/$train_chart/Chart.yaml" || \
+                  helm dependency update "$charts_path/$train_chart/Chart.yaml"|| exit 1
               elif [[ "$name" =~ "cert-manager" ]]; then
                   helm dependency build "$charts_path/$train_chart/Chart.yaml" --verify --keyring $gpg_dir/certman.gpg || \
                   helm dependency update "$charts_path/$train_chart/Chart.yaml" --verify --keyring $gpg_dir/certman.gpg || exit 1
@@ -129,6 +138,12 @@ for idx in $(eval echo "{0..$length}"); do
                   helm verify $cache_path/$repo_dir/$name-$version.tgz --keyring $gpg_dir/certman.gpg || exit 1
                 elif [[ "$name" =~ "velero" ]]; then
                    echo "Velero is not signed..."
+                elif [[ "$name" =~ "metallb" ]]; then
+                   echo "metallb is not signed..."
+                elif [[ "$name" =~ "cloudnative-pg" ]]; then
+                   echo "cloudnative-pg is not signed..."
+                elif [[ "$name" =~ "kube-prometheus-stack" ]]; then
+                   echo "kube-prometheus-stack is not signed..."
                 elif [[ ! "$train_chart" =~ incubator\/.* ]]; then
                   echo "Validating dependency signature..."
                   helm verify $cache_path/$repo_dir/$name-$version.tgz --keyring $gpg_dir/pubring.gpg || \
@@ -143,6 +158,15 @@ for idx in $(eval echo "{0..$length}"); do
                   helm dependency build "$charts_path/$train_chart/Chart.yaml" || \
                   helm dependency update "$charts_path/$train_chart/Chart.yaml"|| exit 1
               elif [[ "$name" =~ "velero" ]]; then
+                  helm dependency build "$charts_path/$train_chart/Chart.yaml" || \
+                  helm dependency update "$charts_path/$train_chart/Chart.yaml"|| exit 1
+              elif [[ "$name" =~ "metallb" ]]; then
+                  helm dependency build "$charts_path/$train_chart/Chart.yaml" || \
+                  helm dependency update "$charts_path/$train_chart/Chart.yaml"|| exit 1
+              elif [[ "$name" =~ "cloudnative-pg" ]]; then
+                  helm dependency build "$charts_path/$train_chart/Chart.yaml" || \
+                  helm dependency update "$charts_path/$train_chart/Chart.yaml"|| exit 1
+              elif [[ "$name" =~ "kube-prometheus-stack" ]]; then
                   helm dependency build "$charts_path/$train_chart/Chart.yaml" || \
                   helm dependency update "$charts_path/$train_chart/Chart.yaml"|| exit 1
               elif [[ "$name" =~ "cert-manager" ]]; then

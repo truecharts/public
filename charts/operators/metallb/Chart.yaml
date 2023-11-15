@@ -11,6 +11,10 @@ dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
     version: 14.3.5
+  - name: metallb
+    repository: https://metallb.github.io/metallb
+    version: 0.13.12
+    alias: metallb
 kubeVersion: ">=1.16.0-0"
 maintainers:
   - email: info@truecharts.org
@@ -22,7 +26,7 @@ sources:
   - https://github.com/metallb/metallb
   - https://metallb.universe.tf
 type: application
-version: 10.0.11
+version: 11.0.0
 annotations:
   truecharts.org/category: operators
   truecharts.org/SCALE-support: "true"
