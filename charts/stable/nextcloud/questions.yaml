@@ -457,10 +457,28 @@ questions:
                   subquestions:
                     - variable: url
                       label: URL
+                      description: |
+                        The public FQDN and port of the OnlyOffice Document Server
                       schema:
                         type: string
                         required: true
                         default: ""
+                    - variable: internal_url
+                      label: Internal URL
+                      description: |
+                        The internal FQDN and port of the OnlyOffice Document Server
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: verify_ssl
+                      label: Verify SSL (Advanced)
+                      description: |
+                        Skip SSL verification when connecting to OnlyOffice Document Server
+                      schema:
+                        type: boolean
+                        required: true
+                        default: true
                     - variable: jwt
                       label: JWT
                       schema:

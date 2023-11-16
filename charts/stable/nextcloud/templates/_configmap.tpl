@@ -184,6 +184,9 @@ nextcloud-config:
     NX_ONLYOFFICE: {{ .Values.nextcloud.onlyoffice.enabled | quote }}
     {{- if .Values.nextcloud.onlyoffice.enabled }}
     NX_ONLYOFFICE_URL: {{ .Values.nextcloud.onlyoffice.url | quote }}
+    NX_ONLYOFFICE_INTERNAL_URL: {{ .Values.nextcloud.onlyoffice.internal_url | quote }}
+    NX_ONLYOFFICE_VERIFY_SSL: {{ .Values.nextcloud.onlyoffice.verify_ssl | quote }}
+    NX_ONLYOFFICE_NEXTCLOUD_INTERNAL_URL: {{ printf "http://%v:%v" $fullname .Values.service.main.ports.main.port }}
     NX_ONLYOFFICE_JWT: {{ .Values.nextcloud.onlyoffice.jwt | quote }}
     NX_ONLYOFFICE_JWT_HEADER: {{ .Values.nextcloud.onlyoffice.jwt_header | quote }}
     {{- end }}
