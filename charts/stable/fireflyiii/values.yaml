@@ -55,11 +55,11 @@ workload:
                 key: redis-password
             STATIC_CRON_TOKEN:
               secretKeyRef:
-                name: secrets
+                name: firefly-secrets
                 key: STATIC_CRON_TOKEN
             APP_KEY:
               secretKeyRef:
-                name: secrets
+                name: firefly-secrets
                 key: APP_KEY
 
 service:

@@ -21,7 +21,7 @@ metrics:
     enabled: true
     type: "servicemonitor"
     endpoints:
-      - port: metrics
+      - port: main
         path: /metrics
     prometheusRule:
       enabled: false
