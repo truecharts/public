@@ -3,11 +3,20 @@ image:
   tag: latest@sha256:664fb9f54bacca0a59728d1394e0bae84f1e6066da3b5d7809c691551611ac19
   pullPolicy: IfNotPresent
 
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+
 service:
   main:
     ports:
       main:
         port: 8282
+        protocol: tcp
+        targetPort: 80
 
 persistence:
   database:
@@ -16,6 +25,7 @@ persistence:
   logos:
     enabled: true
     mountPath: "/var/www/html/images/uploads/logos"
+
 portal:
   open:
     enabled: true
