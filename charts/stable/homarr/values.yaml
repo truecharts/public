@@ -12,7 +12,7 @@ workload:
             PORT: "{{ .Values.service.main.ports.main.port }}"
             NEXTAUTH_SECRET:
                   secretKeyRef:
-                    name: secrets
+                    name: homarr-secrets
                     key: NEXTAUTH_SECRET
 
 service:
