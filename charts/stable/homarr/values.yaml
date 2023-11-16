@@ -9,7 +9,6 @@ workload:
       containers:
         main:
           env:
-            PORT: "{{ .Values.service.main.ports.main.port }}"
             NEXTAUTH_SECRET:
                   secretKeyRef:
                     name: homarr-secrets
@@ -20,6 +19,7 @@ service:
     ports:
       main:
         port: 10245
+        targetPort: 7575
 
 persistence:
   config:
