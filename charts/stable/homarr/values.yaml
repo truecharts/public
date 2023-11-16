@@ -10,6 +10,10 @@ workload:
         main:
           env:
             PORT: "{{ .Values.service.main.ports.main.port }}"
+            NEXTAUTH_SECRET:
+                  secretKeyRef:
+                    name: secrets
+                    key: NEXTAUTH_SECRET
 
 service:
   main:
