@@ -1,4 +1,4 @@
-{{- define “homarr.secrets” -}}
+{{- define "homarr.secrets" -}}
 {{- $secretName := (printf "%s-homarr-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
 {{- $secret := randAlphaNum 32 -}}
 {{- with (lookup "v1" "Secret" .Release.Namespace $secretName) -}}
