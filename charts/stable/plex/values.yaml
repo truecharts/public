@@ -19,7 +19,6 @@ persistence:
     mountPath: "/transcode"
     type: emptyDir
     medium: Memory
-    size: "{{ $.Values.resources.limits.memory }}"
     targetSelectAll: true
 
 plex:
