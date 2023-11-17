@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/mongodb
+  repository: bitnami/mongodb
   pullPolicy: IfNotPresent
-  tag: v7.0.3@sha256:b1f2af7d594e23158886e6b4f279b34491f261e9d26d7a370ad36950214f04de
-
+  tag: 7.0.3@sha256:a7e4de9a179ed97842c5f7345ac47644606b94f37487ae1b49c7cc275cab5383
 workload:
   main:
     replicas: 1
@@ -42,7 +41,6 @@ workload:
                     - /bin/bash
                     - -ec
                     - echo "db.runCommand(\"ping\")" | mongosh --host localhost --port 27017 ${MONGODB_DATABASE} --quiet
-
             # -- Redainess probe configuration
             # @default -- See below
             readiness:
@@ -59,7 +57,6 @@ workload:
                     - /bin/bash
                     - -ec
                     - echo "db.runCommand(\"ping\")" | mongosh --host localhost --port 27017 ${MONGODB_DATABASE} --quiet
-
             # -- Startup probe configuration
             # @default -- See below
             startup:
@@ -75,43 +72,35 @@ workload:
                     - /bin/bash
                     - -ec
                     - echo "db.runCommand(\"ping\")" | mongosh --host localhost --port 27017 ${MONGODB_DATABASE} --quiet
-
 service:
   main:
     ports:
       main:
         port: 27017
         targetPort: 27017
-
 securityContext:
   container:
     runAsGroup: 0
     readOnlyRootFilesystem: false
-
 persistence:
   data:
     enabled: true
     mountPath: "/bitnami/mongodb"
-
 mongodbUsername: "test"
 mongodbDatabase: "test"
 mongodbRootPassword: "testroot"
-
 # -- Secret or password
 # One of these options is required, unless used as a dependency for another TrueCharts chart.
 mongodbPassword: ""
 existingSecret: ""
-
 secret:
   credentials:
     enabled: true
     data:
       mongodb-password: '{{ ( .Values.mongodbPassword | default "empty" ) }}'
       mongodb-root-password: '{{ ( .Values.mongodbRootPassword | default "empty" ) }}'
-
 portal:
   open:
     enabled: false
-
 manifestManager:
   enabled: false

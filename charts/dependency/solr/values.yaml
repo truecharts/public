@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/solr
+  repository: bitnami/solr
   pullPolicy: IfNotPresent
-  tag: v9.4.0@sha256:5decbd701a699c7e7eb76f12bb1115db06fdb5aae1d16ac54a1ae6a7b7157b6a
-
+  tag: 9.4.0@sha256:9a30d8e5ec3ba147325008ec0734e52e578904a7ac4eefa6127e936aadba9544
 workload:
   main:
     replicas: 1
@@ -19,7 +18,6 @@ workload:
                 expandObjectName: "{{ if .Values.solrPassword }}true{{ else }}false{{ end }}"
                 name: '{{ if .Values.solrPassword }}credentials{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "solrcreds" }}{{ end }}'
                 key: "solr-password"
-
           # -- Probe configuration
           # -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
           # @default -- See below
@@ -45,7 +43,6 @@ workload:
                       else
                         until curl --fail localhost:8983/solr/"${SOLR_CORES}"/admin/ping; do sleep 2; done
                       fi;
-
             # -- Redainess probe configuration
             # @default -- See below
             readiness:
@@ -87,47 +84,39 @@ workload:
                       else
                         until curl --fail localhost:8983/solr/"${SOLR_CORES}"/admin/ping; do sleep 2; done
                       fi;
-
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 1001
     runAsGroup: 0
-
 service:
   main:
     ports:
       main:
         port: 8983
         targetPort: 8983
-
 persistence:
   db:
     enabled: true
     mountPath: "/bitnami/solr"
-
 # Currently only single core is supported, with multiple cores, probes will fail.
 solrCores: "testcore"
 solrEnableAuthentication: "yes"
 solrUsername: "test"
 # Used to pass a comma separated list of optional options like '-XX:G1HeapRegionSize=8m'
 solrOpts: ""
-
 # -- Secret or password
 # One of these options is required, unless used as a dependency for another TrueCharts chart.
 existingSecret: ""
 solrPassword: ""
-
 secret:
   credentials:
     enabled: true
     data:
       solr-password: '{{ ( .Values.solrPassword | default "empty" ) }}'
-
 portal:
   open:
     enabled: true
-
 manifestManager:
   enabled: false

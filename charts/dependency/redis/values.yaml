@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/redis
+  repository: bitnami/redis
   pullPolicy: IfNotPresent
-  tag: v7.2.3@sha256:583d852032f7537c271db380ed3f500de8ece51b66ac6315b66dd195bed28740
-
+  tag: 7.2.3@sha256:f7db3a51e2726109819b50004c3bbf8f1c792723af274f88532b8c3e64fcde0b
 workload:
   main:
     replicas: 1
@@ -45,12 +44,10 @@ workload:
                 - sh
                 - -c
                 - /health/ping_readiness_local.sh 2
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsGroup: 0
-
 configmap:
   health:
     enabled: true
@@ -123,30 +120,25 @@ configmap:
         "$script_dir/ping_liveness_local.sh" $1 || exit_status=$?
         "$script_dir/ping_liveness_master.sh" $1 || exit_status=$?
         exit $exit_status
-
 secret:
   credentials:
     enabled: true
     data:
       redis-password: '{{ ( .Values.redisPassword | default "nothing" ) }}'
-
 # -- Secret or password
 # One of these options is required, unless used as a dependency for another TrueCharts chart.
 redisPassword: ""
 existingSecret: ""
-
 service:
   main:
     ports:
       main:
         port: 6379
         targetPort: 6379
-
 volumeClaimTemplates:
   data:
     enabled: true
     mountPath: "/bitnami/redis"
-
 persistence:
   redis-health:
     enabled: true
@@ -167,10 +159,8 @@ persistence:
         path: ping_liveness_local_and_master.sh
       - key: ping_readiness_local_and_master.sh
         path: ping_readiness_local_and_master.sh
-
 portal:
   open:
     enabled: false
-
 manifestManager:
   enabled: false
