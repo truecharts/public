@@ -101,6 +101,14 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
+        - variable: transcode
+          label: Temporary Transcode Storage
+          description: Temporarily stores data during a transcode.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
