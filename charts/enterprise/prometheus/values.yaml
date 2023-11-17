@@ -1,15 +1,12 @@
 image:
-  repository: tccr.io/truecharts/prometheus
-  tag: v2.47.2@sha256:92397b84686557a47be6a91fd80d1fe375301f150982ec9c0fb1a45c44ecedfa
-
+  repository: bitnami/prometheus
+  tag: 2.47.2@sha256:e04c2d5d5cc86aa4f59b8cc645ef51ca81c70ed7a7abfa1aaafaaa7e868b44ad
 thanosImage:
   repository: tccr.io/truecharts/thanos
   tag: v0.32.5@sha256:4cea5ca36f1567993344c3375b9a80d8073dbc8d530656644d36c90683f96464
-
 alertmanagerImage:
   repository: tccr.io/truecharts/alertmanager
   tag: v0.26.0@sha256:f0bbf30d4901be33855b0fb4b71e3d7410b872a33b9d08cd2d7ed576505e40a8
-
 global:
   labels: {}
 workload:
@@ -26,7 +23,6 @@ workload:
               enabled: false
             startup:
               enabled: false
-
 service:
   main:
     selectorLabels:
@@ -59,7 +55,6 @@ service:
         port: 10901
         targetPort: 10901
         protocol: http
-
 ingress:
   main:
     enabled: false
@@ -67,20 +62,16 @@ ingress:
     enabled: false
   thanos:
     enabled: false
-
 ####
 ## Operator Config
 ####
-
 env:
   PROMETHEUS_CONFIG_RELOADER:
     configMapKeyRef:
       name: prometheus-operator-config
       key: prometheus-config-reloader
-
 podOptions:
   automountServiceAccountToken: true
-
 rbac:
   main:
     enabled: true
@@ -178,16 +169,13 @@ rbac:
           - get
           - list
           - watch
-
 # -- The service account the pods will use to interact with the Kubernetes API
 serviceAccount:
   main:
     enabled: true
     primary: true
-
 securityContext:
   readOnlyRootFilesystem: false
-
 probes:
   # -- Liveness probe configuration
   # @default -- See below
@@ -198,7 +186,6 @@ probes:
         path: "/metrics"
         port: promop
         scheme: HTTP
-
   # -- Redainess probe configuration
   # @default -- See below
   readiness:
@@ -208,7 +195,6 @@ probes:
         path: "/metrics"
         port: promop
         scheme: HTTP
-
   # -- Startup probe configuration
   # @default -- See below
   startup:
@@ -218,7 +204,6 @@ probes:
         path: "/metrics"
         port: promop
         scheme: HTTP
-
 operator:
   ## Create a servicemonitor for the operator
   ##
@@ -238,7 +223,6 @@ operator:
     ## ref: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config
     ##
     relabelings: []
-
   ## Prometheus Configmap-reload image to use for reloading configmaps
   ## defaults to Bitnami Prometheus Operator (ref: https://hub.docker.com/r/tccr.io/truecharts/prometheus-operator/tags/)
   ##
@@ -251,7 +235,6 @@ operator:
       capabilities:
         drop:
           - ALL
-
     livenessProbe:
       enabled: true
       initialDelaySeconds: 10
@@ -259,7 +242,6 @@ operator:
       timeoutSeconds: 5
       failureThreshold: 6
       successThreshold: 1
-
     readinessProbe:
       enabled: true
       initialDelaySeconds: 15
@@ -267,7 +249,6 @@ operator:
       timeoutSeconds: 5
       failureThreshold: 6
       successThreshold: 1
-
 ####
 ## Prometheus Config (Spawned by Operator)
 ####
@@ -326,7 +307,6 @@ prometheus:
     capabilities:
       drop:
         - ALL
-
   serviceMonitor:
     ## @param prometheus.serviceMonitor.enabled Creates a ServiceMonitor to monitor Prometheus itself
     ##
@@ -842,7 +822,6 @@ prometheus:
   ## @param prometheus.portName Port name used for the pods and governing service. This defaults to web
   ##
   portName: main
-
 ####
 ## Alert Manager Config
 ####
@@ -1120,7 +1099,6 @@ alertmanager:
   ## @param alertmanager.configSelector Namespaces to be selected for AlertmanagerConfig discovery. If nil, only check own namespace. This defaults to {}
   ##
   configSelector: {}
-
 ####
 ## Exporters
 ####
@@ -1138,14 +1116,12 @@ exporters:
     ## @param exporters.kube-state-metrics.enabled Enable kube-state-metrics
     ##
     enabled: true
-
 ## @param kube-state-metrics [object] Node Exporter deployment configuration
 ##
 kube-state-metrics:
   serviceMonitor:
     enabled: true
     honorLabels: true
-
 ## Component scraping for kubelet and kubelet hosted cAdvisor
 ##
 kubelet:
@@ -1361,7 +1337,6 @@ kubeProxy:
   ## @param kubeProxy.enabled Create a ServiceMonitor to scrape the kube-proxy Service
   ##
   enabled: false
-
 portal:
   open:
     enabled: true

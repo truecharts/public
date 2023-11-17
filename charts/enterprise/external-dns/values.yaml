@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/external-dns
+  repository: registry.k8s.io/external-dns/external-dns
   pullPolicy: IfNotPresent
-  tag: v0.14.0@sha256:5ce70afd1d4f2d35310aa6097f810d9701cd62866df255906548dfe26c6c8b6a
-
+  tag: v0.14.0@sha256:474077b3dfccb3021db0a6638274967d0f64ce60dd9730a6f464bee2f78b046f
 externaldns:
   logLevel: "info"
   logFormat: "text"
@@ -22,7 +21,6 @@ externaldns:
   txtOwnerId: ""
   txtPrefix: ""
   txtSuffix: ""
-
 service:
   main:
     ports:
@@ -30,7 +28,6 @@ service:
         protocol: http
         targetPort: 7979
         port: 7979
-
 workload:
   main:
     podSpec:
@@ -55,7 +52,6 @@ workload:
             OVH_CONSUMER_KEY: ""
             SCW_ACCESS_KEY: ""
             SCW_SECRET_KEY: ""
-
 # -- Whether Role Based Access Control objects like roles and rolebindings should be created
 rbac:
   main:
@@ -65,87 +61,83 @@ rbac:
     rules:
       - apiGroups: [""]
         resources: ["nodes"]
-        verbs: ["list","watch"]
+        verbs: ["list", "watch"]
       - apiGroups: [""]
         resources: ["pods"]
-        verbs: ["get","watch","list"]
+        verbs: ["get", "watch", "list"]
       - apiGroups: [""]
-        resources: ["services","endpoints"]
-        verbs: ["get","watch","list"]
-      - apiGroups: ["extensions","networking.k8s.io"]
+        resources: ["services", "endpoints"]
+        verbs: ["get", "watch", "list"]
+      - apiGroups: ["extensions", "networking.k8s.io"]
         resources: ["ingresses"]
-        verbs: ["get","watch","list"]
+        verbs: ["get", "watch", "list"]
       - apiGroups: ["networking.istio.io"]
         resources: ["gateways"]
-        verbs: ["get","watch","list"]
+        verbs: ["get", "watch", "list"]
       - apiGroups: ["networking.istio.io"]
         resources: ["virtualservices"]
-        verbs: ["get","watch","list"]
+        verbs: ["get", "watch", "list"]
       - apiGroups: ["getambassador.io"]
-        resources: ["hosts","ingresses"]
-        verbs: ["get","watch","list"]
+        resources: ["hosts", "ingresses"]
+        verbs: ["get", "watch", "list"]
       - apiGroups: ["projectcontour.io"]
         resources: ["httpproxies"]
-        verbs: ["get","watch","list"]
+        verbs: ["get", "watch", "list"]
       - apiGroups: ["externaldns.k8s.io"]
         resources: ["dnsendpoints"]
-        verbs: ["get","watch","list"]
+        verbs: ["get", "watch", "list"]
       - apiGroups: ["externaldns.k8s.io"]
         resources: ["dnsendpoints/status"]
         verbs: ["*"]
       - apiGroups: ["gateway.networking.k8s.io"]
         resources: ["gateways"]
-        verbs: ["get","watch","list"]
+        verbs: ["get", "watch", "list"]
       - apiGroups: ["gateway.networking.k8s.io"]
         resources: ["httproutes"]
-        verbs: ["get","watch","list"]
+        verbs: ["get", "watch", "list"]
       - apiGroups: [""]
         resources: ["namespaces"]
-        verbs: ["get","watch","list"]
+        verbs: ["get", "watch", "list"]
       - apiGroups: ["gateway.networking.k8s.io"]
         resources: ["grpcroutes"]
-        verbs: ["get","watch","list"]
+        verbs: ["get", "watch", "list"]
       - apiGroups: ["gateway.networking.k8s.io"]
         resources: ["tlsroutes"]
-        verbs: ["get","watch","list"]
+        verbs: ["get", "watch", "list"]
       - apiGroups: ["gateway.networking.k8s.io"]
         resources: ["tcproutes"]
-        verbs: ["get","watch","list"]
+        verbs: ["get", "watch", "list"]
       - apiGroups: ["gateway.networking.k8s.io"]
         resources: ["udproutes"]
-        verbs: ["get","watch","list"]
-      - apiGroups: ["gloo.solo.io","gateway.solo.io"]
-        resources: ["proxies","virtualservices"]
-        verbs: ["get","watch","list"]
+        verbs: ["get", "watch", "list"]
+      - apiGroups: ["gloo.solo.io", "gateway.solo.io"]
+        resources: ["proxies", "virtualservices"]
+        verbs: ["get", "watch", "list"]
       - apiGroups: ["configuration.konghq.com"]
         resources: ["tcpingresses"]
-        verbs: ["get","watch","list"]
+        verbs: ["get", "watch", "list"]
       - apiGroups: ["traefik.containo.us", "traefik.io"]
         resources: ["ingressroutes", "ingressroutetcps", "ingressrouteudps"]
-        verbs: ["get","watch","list"]
+        verbs: ["get", "watch", "list"]
       - apiGroups: ["route.openshift.io"]
         resources: ["routes"]
-        verbs: ["get","watch","list"]
+        verbs: ["get", "watch", "list"]
       - apiGroups: ["zalando.org"]
         resources: ["routegroups"]
-        verbs: ["get","watch","list"]
+        verbs: ["get", "watch", "list"]
       - apiGroups: ["zalando.org"]
         resources: ["routegroups/status"]
-        verbs: ["patch","update"]
+        verbs: ["patch", "update"]
       - apiGroups: ["cis.f5.com"]
         resources: ["virtualservers"]
-        verbs: ["get","watch","list"]
-
-
+        verbs: ["get", "watch", "list"]
 # -- The service account the pods will use to interact with the Kubernetes API
 serviceAccount:
   main:
     enabled: true
     primary: true
-
 podOptions:
   automountServiceAccountToken: true
-
 portal:
   open:
     enabled: false

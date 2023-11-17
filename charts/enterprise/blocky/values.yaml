@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/blocky
-  tag: v0.22.0@sha256:385055de8ad0b9074d2057d054768d649b8289c5dd566367e0b6289ba5d661a4
+  repository: spx01/blocky
+  tag: v0.22@sha256:7def473b1b553b730dd38ba0bc436fc732193c15d35681aa0b0eb962dd6350aa
   pullPolicy: IfNotPresent
-
 k8sgatewayImage:
   repository: tccr.io/truecharts/k8s_gateway
   pullPolicy: IfNotPresent
@@ -35,7 +34,6 @@ workload:
               command:
                 - /app/blocky
                 - healthcheck
-
 # -- Blocky Config File content
 blockyConfig: {}
 # upstream:
@@ -46,7 +44,6 @@ blockyConfig: {}
 blocky:
   # -- Enable prometheus annotations
   enablePrometheus: true
-
 service:
   main:
     enabled: true
@@ -95,7 +92,6 @@ service:
         port: 5353
         protocol: udp
         targetPort: 5353
-
 ## TODO Add support for SCALE certificates and certificates secrets here
 certFile: ""
 keyFile: ""
@@ -105,7 +101,6 @@ logTimestamp: true
 logPrivacy: false
 dohUserAgent: ""
 minTlsServeVersion: 1.2
-
 # -- set the default DNS upstream servers
 # Primarily designed for inclusion in the TrueNAS SCALE GUI
 defaultUpstreams:
@@ -125,13 +120,12 @@ defaultUpstreams:
   - 76.223.122.150
   - 76.76.2.0
   - 76.76.10.0
-
 # -- set additional upstreams
 # Primarily designed for inclusion in the TrueNAS SCALE GUI
 upstreams:
-  #  - name: group2
-  #    dnsservers:
-  #      - 1.1.1.1
+#  - name: group2
+#    dnsservers:
+#      - 1.1.1.1
 
 # -- set bootstrap dns (not needed)
 # Ensures bootstrap encryption and ensure it doesn't use k8s dns
@@ -140,18 +134,15 @@ bootstrapDns:
   upstream: ""
   # -- IP's linked to upstream DoT/DoH DNS name
   ips: []
-
 # -- set additional bootstrap dns (not needed, only used if bootstrapDns is set)
-additionalBootstrapDns:
-  []
-  # - upstream: ""
-  #   ips: []
+additionalBootstrapDns: []
+# - upstream: ""
+#   ips: []
 
 # -- Return empty answer for these queries
 filtering:
   # -- Ensures filtering by query type
   queryTypes: []
-
 # -- Set manual custom DNS resolution
 customDNS:
   customTTL: 1h
@@ -162,7 +153,6 @@ customDNS:
   mapping: []
   # - domain: something.com
   #   dnsserver: 192.168.178.1
-
 # -- Setup client-name lookup
 clientLookup:
   # -- upstream used for client-name lookup
@@ -171,7 +161,6 @@ clientLookup:
   clients:
   # - domain: laptop
   #   ips: []
-
 # -- Setup caching
 caching:
   minTime: 5m
@@ -182,7 +171,6 @@ caching:
   prefetchThreshold: 5
   prefetchMaxItemsCount: 0
   cacheTimeNegative: 30m
-
 # -- set conditional settings
 # Primarily designed for inclusion in the TrueNAS SCALE GUI
 conditional:
@@ -192,7 +180,6 @@ conditional:
   mapping: []
   # - domain: something.com
   #   dnsserver: 192.168.178.1
-
 # -- set blocking settings using Lists
 # Primarily designed for inclusion in the TrueNAS SCALE GUI
 blocking:
@@ -231,7 +218,6 @@ blocking:
   # - name: default
   #   groups:
   #     - ads
-
 # -- configure using hostsfile for lookups
 # Allows for using the hosts configured in kubernetes and such
 hostsFile:
@@ -239,7 +225,6 @@ hostsFile:
   filePath: /etc/hosts
   hostsTTL: 60m
   refreshPeriod: 30m
-
 ## TODO: add this with postgresql support as well
 # queryLog:
 #   type: csv
@@ -247,20 +232,16 @@ hostsFile:
 #   logRetentionDays: 0
 #   creationAttempts: 3
 #   CreationCooldown: 2
-
 podOptions:
   automountServiceAccountToken: true
-
 portal:
   open:
     enabled: false
-
 serviceAccount:
   main:
     # -- Specifies whether a service account should be created
     enabled: true
     primary: true
-
 # -- Create a ClusterRole and ClusterRoleBinding
 # @default -- See below
 rbac:
@@ -287,21 +268,16 @@ rbac:
         verbs:
           - list
           - watch
-
 k8sgateway:
   enabled: true
   # -- TTL for non-apex responses (in seconds)
   ttl: 300
-
   # -- Limit what kind of resources to watch, e.g. watchedResources: ["Ingress"]
   watchedResources: []
-
   # -- Service name of a secondary DNS server (should be `serviceName.namespace`)
   secondary: ""
-
   # -- Override the default `serviceName.namespace` domain apex
   apex: ""
-
   # -- list of processed domains
   domains: []
   # -- Delegated domain
@@ -320,7 +296,6 @@ k8sgateway:
     options:
       - name: tls_servername
         value: cloudflare-dns.com
-
 metrics:
   main:
     # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
@@ -330,7 +305,6 @@ metrics:
     endpoints:
       - port: main
         path: /metrics
-
     # -- Enable and configure Prometheus Rules for the chart under this key.
     # @default -- See values.yaml
     prometheusRule:
@@ -338,21 +312,18 @@ metrics:
       labels: {}
       # -- Configure additionial rules for the chart under this key.
       # @default -- See prometheusrules.yaml
-      rules:
-        []
-        # - alert: UnifiPollerAbsent
-        #   annotations:
-        #     description: Unifi Poller has disappeared from Prometheus service discovery.
-        #     summary: Unifi Poller is down.
-        #   expr: |
-        #     absent(up{job=~".*unifi-poller.*"} == 1)
-        #   for: 5m
-        #   labels:
-        #     severity: critical
-
+      rules: []
+      # - alert: UnifiPollerAbsent
+      #   annotations:
+      #     description: Unifi Poller has disappeared from Prometheus service discovery.
+      #     summary: Unifi Poller is down.
+      #   expr: |
+      #     absent(up{job=~".*unifi-poller.*"} == 1)
+      #   for: 5m
+      #   labels:
+      #     severity: critical
 redis:
   enabled: true
-
 # CANNOT be defined in above yaml section
 queryLog:
   # optional one of: mysql, postgresql, csv, csv-client. If empty, log to console
@@ -366,7 +337,6 @@ queryLog:
   creationAttempts: 3
   # optional: Time between the creation attempts, default: 2s
   creationCooldown: 2s
-
 cnpg:
   main:
     enabled: false
