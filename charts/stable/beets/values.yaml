@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/beets
+  repository: ghcr.io/linuxserver/beets
   pullPolicy: IfNotPresent
-  tag: v1.6.0@sha256:d45260afb66a42941aac55503296868bb6dee35118751604f941aee2f7c9e2c3
-
+  tag: version-1.6.0@sha256:0cbd1e5eb1107948c96d04bb5bd85c6c296d0a5394ee73e3bfa2ea453dd0491a
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -17,7 +15,6 @@ service:
         port: 8337
         protocol: http
         targetPort: 8337
-
 workload:
   main:
     podSpec:
@@ -34,12 +31,10 @@ workload:
               type: http
               path: /
           env: {}
-
 persistence:
   config:
     enabled: true
     mountPath: /config
-
 portal:
   open:
     enabled: true

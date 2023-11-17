@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/avidemux
-  tag: v23.11.1@sha256:b317b25d5e73d39c345f925dfbf6405762da16200a8264b93744332639117477
+  repository: jlesage/avidemux
+  tag: v23.11.1@sha256:7f242e328251ceeda72d0b6d3f3ba7efa92c2556e1467f254e5501216baea239
   pullPolicy: IfNotPresent
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -25,14 +23,12 @@ service:
         port: 10273
         protocol: tcp
         targetPort: 5900
-
 avidemux:
   KEEP_APP_RUNNING: false
   DISPLAY_WIDTH: 1280
   DISPLAY_HEIGHT: 768
   SECURE_CONNECTION: false
   ENABLE_CJK_FONT: false
-
 configmap:
   avidemux:
     enabled: true
@@ -42,7 +38,6 @@ configmap:
       SECURE_CONNECTION: '{{ ternary "1" "0" .Values.avidemux.SECURE_CONNECTION }}'
       DISPLAY_WIDTH: "{{ .Values.avidemux.DISPLAY_WIDTH }}"
       DISPLAY_HEIGHT: "{{ .Values.avidemux.DISPLAY_HEIGHT }}"
-
 workload:
   main:
     podSpec:
@@ -58,7 +53,6 @@ workload:
                 name: "avidemux"
           env:
             VNC_PASSWORD: ""
-
 persistence:
   config:
     enabled: true
@@ -66,7 +60,6 @@ persistence:
   storage:
     enabled: true
     mountPath: /storage
-
 portal:
   open:
     enabled: true

@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/cyberchef
-  tag: v10.5.2@sha256:e6ec16267d2ec610af3941a45d9b9a137780f4434b505ee76a031850513a3a7e
+  repository: mpepping/cyberchef
+  tag: v10.5.2@sha256:51cbc1463da6a93a6884268e01759e860288226cf6e2613b3d97e054be82849a
   pullPolicy: IfNotPresent
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -17,7 +15,6 @@ service:
         port: 10219
         protocol: http
         targetPort: 8000
-
 workload:
   main:
     podSpec:
@@ -34,7 +31,6 @@ workload:
               type: http
               path: /
           env: {}
-
 portal:
   open:
     enabled: true

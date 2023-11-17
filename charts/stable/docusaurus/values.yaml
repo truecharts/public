@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/docusaurus
+  repository: awesometic/docusaurus
   pullPolicy: IfNotPresent
-  tag: latest@sha256:53df5c58a9baade51eecf30e9432b6c603f0b7bdefd34f3feb0e27dbc1ff36a5
-
+  tag: latest@sha256:ad9aecaca3fc4d89b99dc8b431122c5888fb97d60762edbe05b773f21e889461
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -17,7 +15,6 @@ service:
         protocol: http
         targetPort: 80
         port: 13080
-
 workload:
   main:
     podSpec:
@@ -29,12 +26,10 @@ workload:
             AUTO_UPDATE: true
             WEBSITE_NAME: "Docusaurus HomeLab Website"
             TEMPLATE: classic
-
 persistence:
   config:
     enabled: true
     mountPath: /docusaurus
-
 portal:
   open:
     enabled: true

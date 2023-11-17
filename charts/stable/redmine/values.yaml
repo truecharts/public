@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/redmine
+  repository: redmine
   pullPolicy: IfNotPresent
-  tag: v5.0.6@sha256:011a94f5f6628a45119fa37f5aea1c11a6fc3c6a46d13bc8011b30b47fd50d3d
+  tag: 5.0.6@sha256:a1b33b13e73d3308f748bfdb8bc639f472c6467cf2a855cdd1b187d8dab58ba1
 redmine:
   plugins_migrate: true
   no_db_migrate: false
@@ -19,7 +19,6 @@ persistence:
 cnpg:
   main:
     enabled: true
-
     user: redmine
     database: redmine
 portal:

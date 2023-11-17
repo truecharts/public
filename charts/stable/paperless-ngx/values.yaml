@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/paperless-ng
+  repository: ghcr.io/paperless-ngx/paperless-ngx
   pullPolicy: IfNotPresent
-  tag: v1.17.4@sha256:8c2f279473eea49bfdaf1bf597d897da3009ff619570e250b7d6b4ae4e89e1e5
-
+  tag: 1.17.4@sha256:2daa90449bc5a57ce6b58792f873f0da6d09039b74caa9f89e28010e40ef770e
 service:
   main:
     ports:
       main:
         targetPort: 8000
         port: 10140
-
 persistence:
   data:
     enabled: true
@@ -22,28 +20,23 @@ persistence:
     mountPath: "/media"
   varrun:
     enabled: false
-
 redis:
   enabled: true
   redisUsername: default
-
 cnpg:
   main:
     enabled: true
     user: paperless-ng
     database: paperless-ng
-
 portal:
   open:
     enabled: true
-
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 workload:
   main:
     podSpec:

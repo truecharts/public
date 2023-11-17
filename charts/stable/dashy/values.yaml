@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/dashy
-  tag: v2.1.1@sha256:6e96a896d292b6e84cbdc265b18a2884e7b2528b7cae06f0eb6f6ec8d228afb9
+  repository: lissy93/dashy
+  tag: 2.1.1@sha256:ce9bcd037b8756cfe91c69b246e2914a154a852ff1b03bd3c23c87febba2f6f8
   pullPolicy: IfNotPresent
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -17,18 +15,15 @@ service:
         port: 10310
         protocol: http
         targetPort: 80
-
 dashy:
   # Enable config file mount from host path
   enabled: false
   configFileHostPath: ""
   configFileHostReadOnly: true
-
 # Leave empty if you plan to use config file from host path
-dashyConfig:
-  {}
-  # pageInfo:
-  #   title: Home Lab
+dashyConfig: {}
+# pageInfo:
+#   title: Home Lab
 
 workload:
   main:
@@ -62,12 +57,10 @@ workload:
                   command:
                     - node
                     - /app/services/healthcheck
-
 persistence:
   icons:
     enabled: true
     mountPath: /app/public/item-icons
-
 portal:
   open:
     enabled: true

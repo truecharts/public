@@ -1,12 +1,10 @@
 image:
-  repository: tccr.io/truecharts/jackett
+  repository: ghcr.io/linuxserver/jackett
   pullPolicy: IfNotPresent
-  tag: v0.21.1155@sha256:e5422906419a2f5ddd24028d22c41e7abbf9133dc5ac87a06491cbbfe495f9cd
-
+  tag: 0.21.1155@sha256:5c408d64cb2385a3ee2934c8a5773eaadd5cd114e6b338328d60ab964ec0c88c
 portal:
   open:
     enabled: false
-
 workload:
   main:
     podSpec:

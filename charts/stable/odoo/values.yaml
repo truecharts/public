@@ -1,23 +1,19 @@
 image:
-  repository: tccr.io/truecharts/odoo
+  repository: docker.io/odoo
   pullPolicy: IfNotPresent
-  tag: v17.0.0@sha256:273c7889d13dc40336e1618918e989aac3955311b11cbf9843b85fffc20a9248
-
+  tag: 17.0@sha256:92bb6095ddcc2a6ab16645d988dfb4b2e61444a6371a20706d32f6b27904192b
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsUser: 101
     runAsGroup: 101
-
 service:
   main:
     ports:
       main:
         port: 8069
-
 odoo:
   additionalConf: []
-
 workload:
   main:
     podSpec:
@@ -54,7 +50,6 @@ workload:
               path: /web/health
           env:
             ODOO_RC: /etc/odoo/odoo.conf
-
 persistence:
   odoo:
     enabled: true
@@ -86,14 +81,12 @@ persistence:
           mountPath: /etc/odoo/odoo.conf
           subPath: odoo.conf
           readOnly: true
-
 # Enabled postgres
 cnpg:
   main:
     enabled: true
     user: odoo
     database: odoo
-
 portal:
   open:
     enabled: true

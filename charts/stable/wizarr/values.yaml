@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/wizarr
+  repository: ghcr.io/wizarrrr/wizarr
   pullPolicy: IfNotPresent
-  tag: v3.4.8@sha256:c35e30f2addedb958a63233b54e48e6ff7934b9e0eaab3b6c2da21eb3c774808
-
+  tag: 3.4.8@sha256:d29f1f6482695ab49624dadf9a652a2ce55edef92c73726fd286e18d73aaca7d
 service:
   main:
     ports:
@@ -10,14 +9,12 @@ service:
         protocol: http
         targetPort: 5690
         port: 10596
-
 securityContext:
   container:
     runAsUser: 0
     runAsGroup: 0
     runAsNonRoot: false
     readOnlyRootFilesystem: false
-
 workload:
   main:
     podSpec:
@@ -34,7 +31,6 @@ workload:
               type: tcp
           env:
             DISABLE_BUILTIN_AUTH: false
-
 persistence:
   database:
     enabled: true
@@ -47,7 +43,6 @@ persistence:
     enabled: true
     type: emptyDir
     mountPath: /run/nginx
-
 portal:
   open:
     enabled: true

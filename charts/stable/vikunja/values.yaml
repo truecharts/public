@@ -1,6 +1,6 @@
 image:
-  repository: tccr.io/truecharts/vikunja-api
-  tag: v0.21.0@sha256:7daa4340774f26a66813805e4f431603359b20303d0a3f75ae85b4ba689d5322
+  repository: vikunja/api
+  tag: 0.21.0@sha256:e541ef5599d08f50a24e8de1fd8136f9d0a7ef514916fac6d6bf8ac6c7c16712
   pullPolicy: IfNotPresent
 frontendImage:
   repository: tccr.io/truecharts/vikunja-frontend
@@ -9,7 +9,6 @@ frontendImage:
 nginxImage:
   repository: tccr.io/truecharts/nginx
   tag: v1.25.3@sha256:e8cfecf859034f6b8c309801631dd8d906949e3265bf5a0868c5c4a952b6b230
-
 workload:
   main:
     podSpec:
@@ -54,7 +53,6 @@ workload:
             startup:
               type: http
               port: "{{ .Values.service.main.ports.main.port }}"
-
 vikunja:
   service:
     jwtttl: 259200
@@ -158,13 +156,11 @@ vikunja:
       clientid: ""
       clientsecret: ""
       redirecturl: ""
-
 service:
   main:
     ports:
       main:
         port: 10220
-
 persistence:
   files:
     enabled: true
@@ -199,14 +195,11 @@ cnpg:
     enabled: true
     user: vikunja
     database: vikunja
-
 redis:
   enabled: true
-
 portal:
   open:
     enabled: true
-
 securityContext:
   container:
     readOnlyRootFilesystem: false

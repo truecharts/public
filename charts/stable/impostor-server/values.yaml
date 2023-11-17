@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/impostor-server
+  repository: aeonlucid/impostor
   pullPolicy: IfNotPresent
-  tag: v1.8.4@sha256:358fe61d204be13419c8140124bb9d8bfbc8d699361a090a7de5b08b07397dbd
+  tag: v1.8.4@sha256:b01df7535ba5f39d01eb3c6620199d8bc6e3182d9c685307eb21001d7ad23273
 nightlyImage:
   repository: tccr.io/truecharts/impostor-server-nightly
   pullPolicy: IfNotPresent
@@ -16,7 +16,6 @@ service:
 portal:
   open:
     enabled: true
-
 workload:
   main:
     podSpec:

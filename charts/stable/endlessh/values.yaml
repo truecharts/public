@@ -1,14 +1,12 @@
 image:
-  repository: tccr.io/truecharts/endlessh
+  repository: ghcr.io/linuxserver/endlessh
   pullPolicy: IfNotPresent
-  tag: v2021.11.21@sha256:0ae05ee37bfbb92df870ef7b85ec56d04b99f22d3e924695cbd61e9cb0169050
-
+  tag: 2021.11.21@sha256:d1f67963c18ccfc995338c96276ec7563ff5661ddd3cd2ecd554b0c8526ea1a9
 securityContext:
   container:
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -16,7 +14,6 @@ service:
         targetPort: 2222
         protocol: tcp
         port: 10128
-
 workload:
   main:
     podSpec:
@@ -30,12 +27,10 @@ workload:
             startup:
               enabled: false
           env: {}
-
 persistence:
   config:
     enabled: true
     mountPath: /config
-
 portal:
   open:
     enabled: false

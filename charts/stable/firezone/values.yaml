@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/firezone
+  repository: firezone/firezone
   pullPolicy: IfNotPresent
-  tag: v0.7.36@sha256:05d59332f657cdc04d73ca01fec10f2f3806f88b212e0b03876e0102b4dd0b16
-
+  tag: 0.7.36@sha256:e44d84d836a4df35558944c3109ebc54beea9868fd0cec5db8dee78e57ff3f59
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -14,7 +13,6 @@ securityContext:
       add:
         - NET_ADMIN
         - SYS_MODULE
-
 service:
   main:
     ports:
@@ -28,7 +26,6 @@ service:
         enabled: true
         protocol: udp
         port: 51820
-
 firezone:
   web:
     external_url: "https://example.com"
@@ -61,7 +58,6 @@ firezone:
     checks_interval: 43200
   other:
     telemetry_enabled: false
-
 workload:
   main:
     podSpec:
@@ -153,18 +149,15 @@ workload:
             CONNECTIVITY_CHECKS_INTERVAL: "{{ .Values.firezone.connectivity.checks_interval }}"
             # Telemetry
             TELEMETRY_ENABLED: "{{ .Values.firezone.other.telemetry_enabled }}"
-
 persistence:
   config:
     enabled: true
     mountPath: "/var/firezone"
-
 cnpg:
   main:
     enabled: true
     user: firezone
     database: firezone
-
 portal:
   open:
     enabled: true

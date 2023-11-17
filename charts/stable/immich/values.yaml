@@ -1,6 +1,6 @@
 image:
-  repository: tccr.io/truecharts/immich-server
-  tag: v1.86.0@sha256:5076626aa795fb1b9caa958eb0215deee910ab64a06e451765f80bd13d2f43a7
+  repository: altran1502/immich-server
+  tag: v1.86.0@sha256:b04b0cb5db7f954d1d7a9c9792f9feedcaaabed03b2f251ef7c6a8169be10086
   pullPolicy: IfNotPresent
 mlImage:
   repository: tccr.io/truecharts/immich-ml
@@ -18,20 +18,17 @@ typesenseImage:
   repository: tccr.io/truecharts/immich-typesense
   tag: v0.25.1@sha256:878fa58e17f9ba6223d07530d03139b647300bd2ea185124688b731e3349d705
   pullPolicy: IfNotPresent
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 immich:
   enable_ml: true
   enable_typesense: true
   public_login_page_message: Immich
   log_level: log
-
 service:
   main:
     # Main service targets the proxy
@@ -98,7 +95,6 @@ service:
         port: 10002
         protocol: http
         targetSelector: typesense
-
 persistence:
   mlcache:
     enabled: true
@@ -175,17 +171,14 @@ persistence:
         main: {}
       microservices:
         microservices: {}
-
 cnpg:
   main:
     enabled: true
     user: immich
     database: immich
-
 redis:
   enabled: true
   redisUsername: default
-
 portal:
   open:
     enabled: true

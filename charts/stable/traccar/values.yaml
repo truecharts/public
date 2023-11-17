@@ -1,6 +1,6 @@
 image:
-  repository: tccr.io/truecharts/traccar
-  tag: 5.3@sha256:3c7b0a6617c8684485077475fa7132d8ce9c5c2d07bfdc910d334f076b6bf900
+  repository: traccar/traccar
+  tag: 5.9@sha256:72b25823a856f6968ea4e41250c6e008ec973712b1fae739e24a1f06428769c8
   pullPolicy: IfNotPresent
 service:
   main:
@@ -15,13 +15,11 @@ persistence:
 cnpg:
   main:
     enabled: true
-
     user: traccar
     database: traccar
 portal:
   open:
     enabled: true
-
 workload:
   main:
     podSpec:

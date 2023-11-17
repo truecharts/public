@@ -1,21 +1,18 @@
 image:
-  repository: tccr.io/truecharts/flaresolverr
+  repository: ghcr.io/flaresolverr/flaresolverr
   pullPolicy: IfNotPresent
-  tag: v3.3.10@sha256:77d9d3d04ba76ed9e8235676e9610727afbc8e6d028f6f22039e9c4d56a1d744
-
+  tag: v3.3.10@sha256:1f7b2f31d423382c14c7f8fb69795f05bcfa6f508cfac32763d3fede5d07c7da
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
       main:
         port: 8191
-
 workload:
   main:
     podSpec:
@@ -31,12 +28,10 @@ workload:
             LOG_HTML: false
             # At this time none of the captcha solvers work, defaults to none.
             CAPTCHA_SOLVER: none
-
 persistence:
   config:
     enabled: true
     mountPath: /config
-
 portal:
   open:
     enabled: false

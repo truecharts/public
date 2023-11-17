@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/blog
+  repository: m1k1o/blog
   pullPolicy: IfNotPresent
-  tag: latest@sha256:b11ca1374d7ca68ef012b1d61b3fa432eded86aed5add3538808eb7e0093828c
-
+  tag: latest@sha256:42060a897a0fd93ac898b8cbb5ccd64a25174bc094259ec025d0b6fffac72219
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -17,7 +15,6 @@ service:
         port: 10111
         protocol: http
         targetPort: 80
-
 workload:
   main:
     podSpec:
@@ -51,18 +48,15 @@ workload:
                 key: host
             BLOG_NICK: username
             BLOG_PASS: password
-
 persistence:
   data:
     enabled: true
     mountPath: /var/www/html/data
-
 cnpg:
   main:
     enabled: true
     user: blog
     database: blog
-
 portal:
   open:
     enabled: true

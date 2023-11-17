@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/domoticz
+  repository: ghcr.io/linuxserver/domoticz
   pullPolicy: IfNotPresent
-  tag: v2023.2.20231116@sha256:5de39c22a7092f6d3dafdf7d3114f70c33a5fa3b57529a0af64ff031c44ec12e
-
+  tag: 2023.2.20231109@sha256:5d029bf7b21f8806f16b7d5695287ce14aac4c75460e353d9d7c582238ff584c
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -30,7 +28,6 @@ service:
         enabled: true
         targetPort: 1443
         port: 1443
-
 workload:
   main:
     podSpec:
@@ -45,12 +42,10 @@ workload:
               type: tcp
           env:
             WEBROOT: "domoticz"
-
 persistence:
   config:
     enabled: true
     mountPath: /config
-
 portal:
   open:
     enabled: true

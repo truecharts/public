@@ -1,22 +1,19 @@
 image:
-  repository: tccr.io/truecharts/ddclient
+  repository: ghcr.io/linuxserver/ddclient
   pullPolicy: IfNotPresent
-  tag: v3.11.1@sha256:7e5e5fffa33df191440ded9fabbf59e851a06e2706b8474d854af0d57dfe6b72
-
+  tag: 3.11.1@sha256:0410e723c326bfe5b434439894bc1883f79fa1e844359a17a1095cb97736da92
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-
 workload:
   main:
     podSpec:
@@ -30,12 +27,10 @@ workload:
             startup:
               enabled: false
           env: {}
-
 persistence:
   config:
     enabled: true
     mountPath: /config
-
 portal:
   open:
     enabled: false

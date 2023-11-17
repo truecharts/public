@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/servas
+  repository: beromir/servas
   pullPolicy: IfNotPresent
-  tag: v0.0.6@sha256:8003e2d7440500ec16692175154c5d334746b884ae3a9ea8d8f28f8ef6977522
-
+  tag: 0.0.6@sha256:8176a581f6c44598afde453667d6e5dd230d23cbb423d9d84655180cc57675cd
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -17,7 +15,6 @@ service:
         protocol: http
         targetPort: 80
         port: 11080
-
 workload:
   main:
     podSpec:
@@ -57,18 +54,15 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: mariadb-password
-
 persistence:
   nginx:
     enabled: true
     mountPath: "/var/run/nginx"
     type: emptyDir
-
 mariadb:
   enabled: true
   mariadbUsername: servas
   mariadbDatabase: servas
-
 portal:
   open:
     enabled: true

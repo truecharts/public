@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/it-tools
+  repository: corentinth/it-tools
   pullPolicy: IfNotPresent
-  tag: v2023.11.2@sha256:ff52633a87164d509afd9f492ff5a3d0a6d1a001039607b6a6cdabe86e94145b
-
+  tag: "2023.11.2-7d94e11@sha256:8f6447888ec720a22e5c296592657b5c0b792d441cabe0ea894cafbcdde9cb63\r"
 service:
   main:
     ports:
@@ -10,13 +9,11 @@ service:
         protocol: http
         targetPort: 80
         port: 18082
-
 persistence:
   cache:
     enabled: true
     type: emptyDir
     mountPath: "/var/cache/nginx"
-
 portal:
   open:
     enabled: true

@@ -1,15 +1,13 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/spaceengineers
-  tag: latest@sha256:5485c3fe13e73608d6f1f212ac7868dc91096e491ca6c556d20eeb1791da7447
-
+  repository: devidian/spaceengineers
+  tag: latest@sha256:62a64e58a1aa399af7fc9e5db682c2fa7f27002d8879e98270606da1112cb1e5
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -30,11 +28,9 @@ service:
         protocol: http
         enabled: true
         port: 18080
-
 spaceengineers:
   instance_name: "TestInstance"
   public_ip: "1.2.3.4"
-
 workload:
   main:
     podSpec:
@@ -79,7 +75,6 @@ workload:
           env:
             INSTANCE_NAME: "{{ .Values.spaceengineers.instance_name }}"
             PUBLIC_IP: "{{ .Values.spaceengineers.public_ip }}"
-
 persistence:
   steamcmd:
     enabled: true
@@ -93,7 +88,6 @@ persistence:
   instances:
     enabled: true
     mountPath: /appdata/space-engineers/instances
-
 portal:
   open:
     enabled: false

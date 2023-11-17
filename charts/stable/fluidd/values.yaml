@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/fluidd
-  tag: v1.26.3@sha256:6038543663dc4cfeb426102dc63e70de70084c926b7911ebeac7bdc5af4304ff
+  repository: ghcr.io/fluidd-core/fluidd
+  tag: v1.26.3@sha256:90de851b0c4076c2575a0ebe91292a7bc21ddfb7f2d900a5ac2f20ab6f42768e
   pullPolicy: IfNotPresent
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 workload:
   main:
     podSpec:
@@ -26,14 +24,12 @@ workload:
               type: http
               path: /
           env: {}
-
 service:
   main:
     ports:
       main:
         port: 10224
         targetPort: 80
-
 portal:
   open:
     enabled: true

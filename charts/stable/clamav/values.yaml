@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/clamav
+  repository: clamav/clamav
   pullPolicy: IfNotPresent
-  tag: v1.2.1@sha256:f9fe7d0ccd86d1ee0583465a0ccf1cbd4bae7468c4c6297be4b8ca7f73260f42
-
+  tag: 1.2.1@sha256:5968dbccd6c38ec86f2c7503070207d9a11bbdd7bee4c05ecf649fef2d3987c9
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 clamav:
   report_path: "/logs"
   # User Defined
@@ -19,7 +17,6 @@ clamav:
   date_format: "+%m-%d-%Y_%H.%M.%S"
   log_file_name: "clamscan_report"
   extra_args: ""
-
 service:
   main:
     ports:
@@ -35,12 +32,10 @@ service:
         port: 7357
         protocol: http
         targetPort: 7357
-
 cronjob:
   annotations: {}
   failedJobsHistoryLimit: 5
   successfulJobsHistoryLimit: 2
-
 workload:
   main:
     podSpec:
@@ -68,7 +63,6 @@ workload:
             CLAMAV_NO_MILTERD: true
             CLAMD_STARTUP_TIMEOUT: 1800
             FRESHCLAM_CHECKS: 1
-
 persistence:
   sigdatabase:
     enabled: true
@@ -83,7 +77,6 @@ persistence:
     enabled: true
     mountPath: /logs
     targetSelectAll: true
-
 portal:
   open:
     enabled: false

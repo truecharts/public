@@ -1,6 +1,6 @@
 image:
-  repository: tccr.io/truecharts/bungeecord
-  tag: v2022.4.1@sha256:b21a2b80aa272bb7ae40b4af1256eee5e0129b0ed4a5224424187e083720678d
+  repository: itzg/bungeecord
+  tag: 2022.4.1@sha256:254fd22429257cd003aec6deb3713ce2bd647e62cf6c2ea0d08a8d58165b8d3f
   pullPolicy: Always
 j11Image:
   repository: tccr.io/truecharts/bungeecord-java11
@@ -10,7 +10,6 @@ j8Image:
   repository: tccr.io/truecharts/bungeecord-java8
   tag: v2022.4.1@sha256:240694a8f4028188f11d1ba198f656eedf0ac00cf881535cd97b4f1a86ae3231
   pullPolicy: Always
-
 service:
   main:
     ports:
@@ -23,7 +22,6 @@ service:
       rcon:
         enabled: true
         port: 25578
-
 workload:
   main:
     podSpec:
@@ -56,7 +54,6 @@ workload:
             # JVM_OPTS: ""
             # JVM_XX_OPTS: ""
             # PLUGINS: ""
-
 persistence:
   config:
     enabled: true
@@ -67,7 +64,6 @@ persistence:
   plugins:
     enabled: true
     mountPath: "/plugins"
-
 portal:
   open:
     enabled: false

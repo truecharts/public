@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/spotweb
+  repository: jbaten/spotweb
   pullPolicy: IfNotPresent
-  tag: v1.5.4@sha256:be432498a6b9fd6b8a447bfe5e841791a4fcc4a8de829bbc054df73714c91296
+  tag: 1.5.4@sha256:2769c489b0030cc75c3152069a6a194517d9e59c8988f1832ddcde673afe579d
 service:
   main:
     ports:
@@ -11,7 +11,6 @@ service:
 cnpg:
   main:
     enabled: true
-
     user: spotweb
     database: spotweb
 portal:

@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/cryptofolio
-  tag: v2.2.0@sha256:13238d3b7d67366276dbfa0ac8cf648c6aad2aa23b7d048113d64c4073f89cdf
+  repository: xtrendence/cryptofolio
+  tag: V.2.2.0@sha256:e6e6612bb94c877b5e31853c639761d09076180fe0a6c4fdb0fb91f73d9f480e
   pullPolicy: IfNotPresent
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -17,7 +15,6 @@ service:
         port: 10007
         protocol: http
         targetPort: 80
-
 workload:
   main:
     podSpec:
@@ -34,12 +31,10 @@ workload:
               type: http
               path: /
           env: {}
-
 persistence:
   data:
     enabled: true
     mountPath: /var/www/html/api/data
-
 portal:
   open:
     enabled: true

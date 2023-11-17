@@ -1,19 +1,17 @@
 image:
-  repository: tccr.io/truecharts/deepstack-cpu
+  repository: deepquestai/deepstack
   pullPolicy: IfNotPresent
-  tag: v2022.01.1@sha256:494b5bec44924da7789d6093464e2c41d4d8866aa4db54d6e3dcbecb7ae84d48
+  tag: cpu-2022.01.1@sha256:4320be73987468b3040b2ca63daf2d3935c4d469b53aa40efb6176858488b500
 gpuImage:
   repository: tccr.io/truecharts/deepstack-gpu
   pullPolicy: IfNotPresent
   tag: 2022.01.1@sha256:8df0f00903427234b7786e3bbe9ecfbc852a34d22509823e360336f1f04b41ba
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -21,13 +19,11 @@ service:
         port: 10049
         protocol: http
         targetPort: 5000
-
 deepstack:
   vision_face: true
   vision_detection: true
   vision_scene: true
   vision_enhance: true
-
 configmap:
   deepstack:
     enabled: true
@@ -36,7 +32,6 @@ configmap:
       VISION-DETECTION: '{{ ternary "True" "False" .Values.deepstack.vision_detection }}'
       VISION-SCENE: '{{ ternary "True" "False" .Values.deepstack.vision_scene }}'
       VISION-ENHANCE: '{{ ternary "True" "False" .Values.deepstack.vision_enhance }}'
-
 workload:
   main:
     podSpec:
@@ -65,7 +60,6 @@ workload:
           envFrom:
             - configMapRef:
                 name: "deepstack"
-
 persistence:
   data:
     enabled: true
@@ -73,7 +67,6 @@ persistence:
   modelstore:
     enabled: true
     mountPath: /modelstore/detection
-
 portal:
   open:
     enabled: true

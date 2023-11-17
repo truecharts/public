@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/static-web-server
+  repository: ghcr.io/static-web-server/static-web-server
   pullPolicy: IfNotPresent
-  tag: v2.24.1@sha256:aec7b81c9a228273a1985d52775f95d67b542ce013de5b3a3169a6c6012e53d7
-
+  tag: 2.24.1@sha256:951f2dfb153ccccc3b6c3f44016180c88fc3cd3206808023182e8c85b93ebfe5
 service:
   main:
     ports:
       main:
         protocol: http
         port: 38080
-
 workload:
   main:
     podSpec:
@@ -25,12 +23,10 @@ workload:
               type: tcp
             startup:
               type: tcp
-
 persistence:
   config:
     enabled: true
     mountPath: "/public"
-
 portal:
   open:
     enabled: true

@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/nzbget
+  repository: ghcr.io/onedr0p/nzbget
   pullPolicy: IfNotPresent
-  tag: v21.1@sha256:08bbf5b40643e7e695e3cd44ce5255160e2ee178ea1b27f19cff23aaef570061
+  tag: v21.1@sha256:14c199509abe449de183a4722e9a87ad25b2a6aafddc258483e6d006ae864ca6
 service:
   main:
     ports:
@@ -15,7 +15,6 @@ persistence:
 portal:
   open:
     enabled: true
-
 workload:
   main:
     podSpec:

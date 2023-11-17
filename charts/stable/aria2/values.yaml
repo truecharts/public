@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/aria2-pro
-  tag: latest@sha256:08a35fe3204c00dbdc609b1abc8c05c349764c3caecb9dadb970dc470c5b1f41
+  repository: p3terx/aria2-pro
+  tag: latest@sha256:086d1a37c586edb07ec0fb956bf9edd89d1d38d138ad5309ff96d510c8c9a011
   pullPolicy: IfNotPresent
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -23,7 +21,6 @@ service:
         enabled: true
         port: 6888
         protocol: tcp
-
 workload:
   main:
     podSpec:
@@ -44,12 +41,10 @@ workload:
             UPDATE_TRACKERS: false
             CUSTOM_TRACKER_URL: "https://trackerslist.com/all_aria2.txt"
             RPC_SECRET: "ChangemeNow"
-
 persistence:
   config:
     enabled: true
     mountPath: /config
-
 portal:
   open:
     enabled: false

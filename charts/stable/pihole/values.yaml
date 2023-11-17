@@ -1,14 +1,12 @@
 image:
-  repository: tccr.io/truecharts/pihole
+  repository: pihole/pihole
   pullPolicy: IfNotPresent
-  tag: v2023.10.0@sha256:a122d1cc365faa58637d8486f7e4a67f6a38c7b770c130eb1d879713563392b9
-
+  tag: 2023.10.0@sha256:562766abc805d5005bb2d2aa5d4bbf2d9b347380b1ea4504fb59b2100500f672
 pihole:
   webPassword: "somepassword"
   dnsServers:
     - "9.9.9.9"
     - "149.112.112.112"
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -22,7 +20,6 @@ securityContext:
         - SETFCAP
         - SETPCAP
         - KILL
-
 workload:
   main:
     podSpec:
@@ -41,7 +38,6 @@ workload:
             startup:
               type: http
               path: /admin/index.php
-
 service:
   main:
     ports:
@@ -63,7 +59,6 @@ service:
         protocol: udp
         port: 53
         targetPort: 53
-
 persistence:
   config:
     enabled: true
@@ -71,7 +66,6 @@ persistence:
   dnsmasq:
     enabled: true
     mountPath: "/etc/dnsmasq.d"
-
 portal:
   open:
     enabled: true

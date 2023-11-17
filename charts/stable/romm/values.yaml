@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/romm
+  repository: ghcr.io/zurdi15/romm
   pullPolicy: IfNotPresent
-  tag: v1.10.0@sha256:a0ca07a718598cf85d1cdcb3658fbcdebe86d8be86cece141abde992ffaba1f8
-
+  tag: 1.10@sha256:d6c2eb5df269c2d7988f8a58c4df9a81115e8d4e5fd7902c3ce77709c540e3e2
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -17,12 +15,10 @@ service:
         protocol: http
         targetPort: 80
         port: 10680
-
 romm:
   auth:
     user: "admin"
     pass: "admin"
-
 workload:
   main:
     podSpec:
@@ -70,7 +66,6 @@ workload:
             ENABLE_EXPERIMENTAL_REDIS: true
             ROMM_AUTH_USERNAME: "{{ .Values.romm.auth.user}}"
             ROMM_AUTH_PASSWORD: "{{ .Values.romm.auth.pass}}"
-
 persistence:
   library:
     enabled: true
@@ -81,15 +76,12 @@ persistence:
   logs:
     enabled: true
     mountPath: /romm/logs
-
 mariadb:
   enabled: true
   mariadbUsername: romm
   mariadbDatabase: romm
-
 redis:
   enabled: true
-
 portal:
   open:
     enabled: true
