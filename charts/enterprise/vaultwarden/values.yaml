@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/vaultwarden
+  repository: docker.io/vaultwarden/server
   pullPolicy: IfNotPresent
-  tag: v1.30.0@sha256:57bc723900152d5401473f9e458bed388c253f034eeae878984216166cd14967
+  tag: 1.30.0@sha256:27638a2ae977d66d99891c06562ff9ba78a60869d2e5a94cf2953f1d03fde12f
 manifestManager:
   enabled: true
 service:
@@ -10,7 +10,6 @@ service:
       main:
         port: 10102
         targetPort: 8080
-
 workload:
   main:
     podSpec:
@@ -22,13 +21,11 @@ workload:
               secretKeyRef:
                 name: cnpg-main-urls
                 key: std
-
           envFrom:
             - configMapRef:
                 name: vaultwardenconfig
             - secretRef:
                 name: vaultwardensecret
-
 database:
   # -- Database type,
   # must be one of: 'sqlite', 'mysql' or 'postgresql'.
@@ -42,7 +39,6 @@ database:
   # maxConnections: 10
   ## Connection retries during startup, 0 for infinite. 1 second between retries.
   # retries: 15
-
 # Set Bitwarden_rs application variables
 vaultwarden:
   # -- Allow any user to sign-up
@@ -84,7 +80,6 @@ vaultwarden:
     disableAdminToken: false
     ## Token for admin login, will be generated if not defined. https://github.com/dani-garcia/bitwarden_rs/wiki/Enabling-admin-page
     # token:
-
   # Enable SMTP. https://github.com/dani-garcia/bitwarden_rs/wiki/SMTP-configuration
   smtp:
     enabled: false
@@ -112,7 +107,6 @@ vaultwarden:
     # user: ""
     ## SMTP password. Required is user is specified, ignored if no user provided.
     # password: ""
-
   ## Enable Yubico OTP authentication. https://github.com/dani-garcia/bitwarden_rs/wiki/Enabling-Yubikey-OTP-authentication
   yubico:
     enabled: false
@@ -121,13 +115,11 @@ vaultwarden:
     ## Yubico ID and Secret Key.
     # clientId:
     # secretKey:
-
   ## Enable Mobile Push Notifications. You must obtain and ID and Key here: https://bitwarden.com/host
   push:
     enabled: false
     # installationId:
     # installationKey:
-
   ## Logging options. https://github.com/dani-garcia/bitwarden_rs/wiki/Logging
   log:
     # Log to file.
@@ -136,7 +128,6 @@ vaultwarden:
     level: "trace"
     ## Log timestamp format. See https://docs.rs/chrono/0.4.15/chrono/format/strftime/index.html. Defaults to time in milliseconds.
     # timeFormat: ""
-
   icons:
     # Disables download of external icons. Setting to true will still serve icons from cache (/data/icon_cache). TTL will default to zero.
     disableDownload: false
@@ -144,18 +135,15 @@ vaultwarden:
     # cache: 2592000
     ## Cache time-to-live for icons that were not available. 0 means no purging.
     # cacheFailed: 259200
-
 persistence:
   data:
     enabled: true
     mountPath: "/data"
-
 cnpg:
   main:
     enabled: true
     user: vaultwarden
     database: vaultwarden
-
 portal:
   open:
     enabled: true

@@ -1,6 +1,6 @@
 image:
-  repository: tccr.io/truecharts/scratch
-  tag: latest@sha256:7f821eeb99d04ac248c47f79cfbcc2482651fea48aff9ec5d2ba0ba34f1f5531
+  repository: hello-world
+  tag: latest@sha256:88ec0acaa3ec199d3b7eaf73588f4518c25f9d34f58ce9a0df68429c5af48e8d
   pullPolicy: IfNotPresent
 manifestManager:
   enabled: true
@@ -18,7 +18,6 @@ workload:
               enabled: false
             startup:
               enabled: false
-
 service:
   main:
     enabled: false
@@ -26,18 +25,15 @@ service:
       main:
         enabled: false
         port: 9999
-
 portal:
   open:
     enabled: false
-
 operator:
   verify:
     additionalOperators:
       - cert-manager
     enabled: true
     failOnError: false
-
 clusterIssuer:
   selfSigned:
     enabled: true
