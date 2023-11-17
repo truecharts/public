@@ -1,13 +1,11 @@
 image:
-  repository: tccr.io/truecharts/channels-dvr
+  repository: fancybits/channels-dvr
   pullPolicy: Always
-  tag: latest@sha256:f23cc37905cc863b434e10e4c98ce80dec010f3e02148ec511e0af26ff46be0c
-
+  tag: latest@sha256:d9af0820c5afc50b620ad70f2574e9f9c5d2b8244eadb3075df785ebeb87fbb6
 tveImage:
   repository: tccr.io/truecharts/channels-dvr-tve
   pullPolicy: Always
   tag: latest@sha256:b3cbf843705d5803fb5ba2b86b8c3daf338cf9d5d7ab8799009c0decd730d704
-
 service:
   main:
     ports:
@@ -15,7 +13,6 @@ service:
         port: 8089
         protocol: http
         targetPort: 8089
-
 persistence:
   config:
     enabled: true
@@ -23,11 +20,9 @@ persistence:
   recordings:
     enabled: true
     mountPath: /shares/DVR
-
 portal:
   open:
     enabled: true
-
 workload:
   main:
     podSpec:

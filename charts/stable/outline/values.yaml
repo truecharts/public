@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/outline
+  repository: outlinewiki/outline
   pullPolicy: IfNotPresent
-  tag: v0.72.2@sha256:ead80ba877fdc1f2f7d8929226d7fac08cc7877a1a3883b081f71d5bd39f9473
+  tag: 0.73.0@sha256:c5cdc2f5785708207f5d645e4f6e5c3ee946785013dcc08fbee5be945b82cc55
 service:
   main:
     ports:
@@ -17,7 +17,6 @@ cnpg:
     enabled: true
     user: outline
     database: outline
-
 portal:
   open:
     enabled: true

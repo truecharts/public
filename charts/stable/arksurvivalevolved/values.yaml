@@ -1,15 +1,13 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/arksurvivalevolved
-  tag: latest@sha256:aed9ed77dc839841f8b497a5df35f78511c6e60bcd4ef5b62172671374013a26
-
+  repository: ich777/steamcmd
+  tag: arkse@sha256:e9c0f374a60639064d8562d5500a2a381666ca28a7440b37d801b8cb79eac4ac
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     enabled: true
@@ -37,7 +35,6 @@ service:
         enabled: true
         protocol: tcp
         port: 27020
-
 ark:
   # setting pass for rcon
   srv_admin_pass: "123456789"
@@ -57,7 +54,6 @@ ark:
   custom_map: ""
   server_name: ""
   validate: false
-
 workload:
   main:
     podSpec:
@@ -76,7 +72,6 @@ workload:
           envFrom:
             - secretRef:
                 name: "ark-secrets"
-
 persistence:
   steamcmd:
     enabled: true
@@ -84,7 +79,6 @@ persistence:
   serverfiles:
     enabled: true
     mountPath: /serverdata/serverfiles
-
 portal:
   open:
     enabled: false

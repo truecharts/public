@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/airdcpp-webclient
+  repository: docker.io/gangefors/airdcpp-webclient
   pullPolicy: IfNotPresent
-  tag: v2.12.1@sha256:64837b35ac262c7227143f1e0972016b82ff1c74d6c430146e42ed1b0ba26fd4
-
+  tag: 2.12.1@sha256:32b51131ae9070a8de2ad81d8dab9f6dd868357b8f0404b42cd4c59778df57dc
 workload:
   main:
     podSpec:
@@ -19,7 +18,6 @@ workload:
               type: tcp
               path: /
           env: {}
-
 service:
   main:
     ports:
@@ -51,12 +49,10 @@ service:
         protocol: udp
         port: 21248
         targetPort: 21248
-
 persistence:
   config:
     enabled: true
     mountPath: /.airdcpp
-
 portal:
   open:
     enabled: true

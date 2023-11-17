@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/joplin-server
-  tag: v2.13.4@sha256:0194cb623b57536357537412df8411b02e735b33315b5f71ae49aef6722f3ca8
+  repository: joplin/server
+  tag: 2.13.4-beta@sha256:c7ee375d069d86f9d450b2bff524cf70c455e19d6186e8f80940dcefb40186b2
   pullPolicy: IfNotPresent
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 workload:
   main:
     podSpec:
@@ -52,24 +50,20 @@ workload:
             MAILER_AUTH_PASSWORD: ""
             MAILER_NOREPLY_NAME: ""
             MAILER_NOREPLY_EMAIL: ""
-
 service:
   main:
     ports:
       main:
         port: 22300
-
 persistence:
   config:
     enabled: true
     mountPath: "/config"
-
 cnpg:
   main:
     enabled: true
     user: joplin
     database: joplin
-
 portal:
   open:
     enabled: true

@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/syncthing
+  repository: syncthing/syncthing
   pullPolicy: IfNotPresent
-  tag: v1.26.1@sha256:2aefe75fc449dff609218100db2645387c273000f3ea4ca5334ff190238e9f57
-
+  tag: 1.26.1@sha256:bb168b3c84de0302f13702ba71eaa01b8be5af9b5a18859bbe59b1929cb6fc6b
 workload:
   main:
     podSpec:
@@ -15,7 +14,6 @@ workload:
               path: /rest/noauth/health
             startup:
               path: /rest/noauth/health
-
 service:
   main:
     ports:
@@ -45,12 +43,10 @@ service:
         port: 21027
         targetPort: 21027
         protocol: udp
-
 persistence:
   config:
     enabled: true
     mountPath: "/var/syncthing"
-
 portal:
   open:
     enabled: true

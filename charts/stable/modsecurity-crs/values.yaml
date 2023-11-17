@@ -1,22 +1,19 @@
 image:
-  repository: tccr.io/truecharts/modsecurity-crs-apache
+  repository: owasp/modsecurity-crs
   pullPolicy: IfNotPresent
-  tag: v3.3.4@sha256:c1e6aaa4d31250e2d7ed38e72926bf8bdd9f98c16e11744efebd7d4d1d2f7a9a
-
+  tag: 3.3.4-apache-202307110507@sha256:f12883887647f68f68644a9b0150a852b2306fee9eec784a2d16a92856db7df6
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
       main:
         protocol: http
         port: 8081
-
 workload:
   main:
     podSpec:
@@ -34,7 +31,6 @@ workload:
             MODSEC_DATA_DIR: "{{ .Values.persistence.data.mountPath }}"
             MODSEC_TMP_DIR: "{{ .Values.persistence.temp.mountPath }}"
             MODSEC_UPLOAD_DIR: "{{ .Values.persistence.upload.mountPath }}"
-
 persistence:
   data:
     enabled: true
@@ -48,7 +44,6 @@ persistence:
     enabled: true
     type: emptyDir
     mountPath: /modsecurity/upload
-
 portal:
   open:
     enabled: true

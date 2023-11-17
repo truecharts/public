@@ -1,22 +1,19 @@
 image:
-  repository: tccr.io/truecharts/game-server-monitor
+  repository: discordgsm/discord-game-server-monitor
   pullPolicy: IfNotPresent
-  tag: v2.15.0@sha256:fff1ef3adf04ca770be78af379cd2d169b292b83a1ddce63269543abeebd6238
-
+  tag: 2.14.0@sha256:d625e466593e213ffe43ed7decb650a21eda81dfc3df517a987c87f74b09de74
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
       main:
         port: 10230
         protocol: http
-
 gsm:
   # Server Config
   workers: 2
@@ -35,7 +32,6 @@ gsm:
   # factorio
   factorio_username: ""
   factorio_auth_token: ""
-
 workload:
   main:
     podSpec:
@@ -62,18 +58,15 @@ workload:
               --timeout {{ .Values.gsm.timeout }} & \
               python -u main.py
           env: {}
-
 persistence:
   config:
     enabled: true
     mountPath: /app/data
-
 cnpg:
   main:
     enabled: true
     database: discord_gsm
     user: discord_gsm
-
 portal:
   open:
     enabled: true

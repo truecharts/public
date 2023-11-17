@@ -1,6 +1,6 @@
 image:
-  repository: tccr.io/truecharts/ser2sock
-  tag: latest@sha256:230a81ceecd4da4a792e2daa89af02230998fe9edeec1379e49cf799d36ae754
+  repository: tenstartups/ser2sock
+  tag: latest@sha256:379d9338c720da30b63dc4cf2ecea07eb89dac7d62d5c79047294fffe97ae559
   pullPolicy: Always
 service:
   main:
@@ -28,7 +28,6 @@ affinity: {}
 portal:
   open:
     enabled: true
-
 workload:
   main:
     podSpec:

@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/nocodb
-  tag: v0.202.7@sha256:bb7a394d9b764ad777cb05937d28d91ff5a4471d33e7a189b7beb924a3433dd6
+  repository: nocodb/nocodb
+  tag: 0.202.5@sha256:a7284e44f648b6d89284061c80394d39178f8be6c8d85c7d063f98b482a44764
   pullPolicy: IfNotPresent
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 workload:
   main:
     podSpec:
@@ -51,28 +49,23 @@ workload:
             AWS_SECRET_ACCESS_KEY: ""
             AWS_BUCKET: ""
             AWS_BUCKET_PATH: ""
-
 service:
   main:
     ports:
       main:
         port: 10226
-
 persistence:
   data:
     enabled: true
     mountPath: "/usr/app/data"
-
 cnpg:
   main:
     enabled: true
     user: nocodb
     database: nocodb
-
 redis:
   enabled: true
   redisUsername: default
-
 portal:
   open:
     enabled: true

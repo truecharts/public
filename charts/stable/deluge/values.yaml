@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/deluge
+  repository: ghcr.io/linuxserver/deluge
   pullPolicy: IfNotPresent
-  tag: v2.1.1@sha256:fb4841fbf1184c0ac2ef1712fdcf41a5253b916aaca1fead2093be257c5959bd
-
+  tag: version-2.1.1-r6@sha256:026d9007c2583f6e25a8467c58f870c04df29ca9f788b809b6d59d20ae4b2199
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -31,7 +29,6 @@ service:
         port: 51413
         targetPort: 51413
         protocol: udp
-
 workload:
   main:
     podSpec:
@@ -48,7 +45,6 @@ workload:
               type: http
               path: /
           env: {}
-
 persistence:
   config:
     enabled: true

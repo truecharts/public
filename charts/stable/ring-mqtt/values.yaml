@@ -1,15 +1,13 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/ring-mqtt
-  tag: v5.6.3@sha256:1e1f503a4a8f47c7edf0d96b53bc8a5867b203f560e5a547773c6116540ee794
-
+  repository: tsightler/ring-mqtt
+  tag: 5.6.3@sha256:e3a3781921b2fad0ced8c3db05f82f5a70fe3ef3037213f5b201a49507c17dbd
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsGroup: 0
     runAsUser: 0
-
 service:
   main:
     ports:
@@ -25,7 +23,6 @@ service:
         protocol: tcp
         targetPort: 8554
         port: 8554
-
 ring:
   mqtt_url: "mqtt://localhost:1883"
   mqtt_options: ""
@@ -38,7 +35,6 @@ ring:
   hass_topic: "homeassistant/status"
   ring_topic: "ring"
   location_ids": []
-
 workload:
   main:
     podSpec:
@@ -51,7 +47,6 @@ workload:
               enabled: false
             startup:
               enabled: false
-
 persistence:
   data:
     enabled: true
@@ -66,7 +61,6 @@ persistence:
           mountPath: /data/config.json
           subPath: config.json
           readOnly: true
-
 portal:
   open:
     enabled: false

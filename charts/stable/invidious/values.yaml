@@ -1,22 +1,19 @@
 image:
-  repository: tccr.io/truecharts/invidious
+  repository: quay.io/invidious/invidious
   pullPolicy: IfNotPresent
-  tag: latest@sha256:62f180e6a795c1ff3927d865693d5ca9879274e30b1de3986800b183fd157096
-
+  tag: latest@sha256:ee8c1c07775d8ad13ee215eba067b94f368db9a66b3c0aa8fd0d53f67169645b
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsGroup: 0
     runAsUser: 0
-
 service:
   main:
     ports:
       main:
         port: 10594
         protocol: http
-
 workload:
   main:
     podSpec:
@@ -69,7 +66,6 @@ workload:
           envFrom:
             - configMapRef:
                 name: invidious-config
-
 invidious:
   network:
     inbound:
@@ -83,29 +79,24 @@ invidious:
       use_quic: false
       cookies: []
       force_resolve: "ipv4"
-
   logging:
     output: STDOUT
     log_level: "Info"
-
   features:
     popular_enabled: true
     statistics_enabled: false
-
   users_accounts:
     registration_enabled: true
     login_enabled: true
     captcha_enabled: true
     admins: []
     enable_user_notifications: true
-
   background_jobs:
     channel_threads: 1
     channel_refresh_interval: 30m
     full_refresh: false
     feed_threads: 1
     decrypt_polling: false
-
   jobs:
     clear_expired_items:
       enable: true
@@ -113,11 +104,9 @@ invidious:
       enable: true
     refresh_feeds:
       enable: true
-
   captcha:
     captcha_api_url: "https://api.anti-captcha.com"
     captcha_key: ""
-
   miscellaneous:
     banner: ""
     use_pubsub_feeds: false
@@ -125,7 +114,6 @@ invidious:
     dmca_content: []
     cache_annotations: false
     playlist_length_limit: 500
-
   default_user_preferences:
     internationalization:
       locale: en-US
@@ -164,7 +152,6 @@ invidious:
       show_nick: true
       automatic_instance_redirect: false
       extend_desc: false
-
 cnpg:
   main:
     enabled: true
@@ -172,7 +159,6 @@ cnpg:
     # DB User cannot be changed
     # hardcoded from upstream
     user: kemal
-
 portal:
   open:
     enabled: true

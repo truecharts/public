@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/mealie
-  tag: v1.0.0@sha256:02863d49987ff9f24a3313233bb34eb7b1e4cbb040b42217ad0b6f8c284ba8d6
+  repository: ghcr.io/mealie-recipes/mealie
+  tag: v1.0.0-RC1.1@sha256:6df1e795f17af43f082146e471113315487b5f0882f2ee7553d469034d929af1
   pullPolicy: IfNotPresent
-
 mealie:
   frontend:
     theme:
@@ -57,7 +56,6 @@ mealie:
       id_attribute: uid
       name_attribute: name
       mail_attribute: mail
-
 workload:
   main:
     podSpec:
@@ -87,14 +85,12 @@ workload:
                 name: frontend
             - secretRef:
                 name: api
-
 service:
   main:
     ports:
       main:
         port: 10018
         protocol: http
-
 persistence:
   data:
     enabled: true
@@ -102,13 +98,11 @@ persistence:
       main:
         main:
           mountPath: /app/data
-
 cnpg:
   main:
     enabled: true
     user: mealie
     database: mealie
-
 portal:
   open:
     enabled: true

@@ -1,19 +1,17 @@
 image:
-  repository: tccr.io/truecharts/lancache-monolithic
+  repository: lancachenet/monolithic
   pullPolicy: IfNotPresent
-  tag: latest@sha256:eb23244b951e999cd1f0731fb8cc8a3aaa21c929ed20b8d35f47b1ce0f2af995
+  tag: latest@sha256:b72d6b909b9e3fb7b521e90aab97479f7977bf6bee97e89a095e1afdbd6d3b85
 prefillImage:
   repository: tccr.io/truecharts/lancache-prefill
   pullPolicy: IfNotPresent
   tag: latest@sha256:6ce05d36b070be61dba9f64f8c884d654430d85faf94ebce2aae237c57206726
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -29,7 +27,6 @@ service:
         port: 10280
         targetPort: 443
         protocol: https
-
 monolithic:
   cache_domains_repo: "https://github.com/uklans/cache-domains.git"
   cache_domains_branch: "master"
@@ -40,7 +37,6 @@ monolithic:
   cache_max_age: "3560d"
   cache_index_size: 500m
   no_fetch: false
-
 prefill:
   # sidecar
   enabled: true
@@ -67,7 +63,6 @@ prefill:
     # https://tpill90.github.io/steam-lancache-prefill/detailed-command-usage/Prefill/#options
     params: []
     cron: "0 2 * * *"
-
 workload:
   main:
     podSpec:
@@ -126,7 +121,6 @@ workload:
             CRON_SCHED_STEAM: "{{ .Values.prefill.steam.cron }}"
             DATA_PERM: 770
             USER: root
-
 persistence:
   config:
     enabled: true
@@ -138,7 +132,6 @@ persistence:
     enabled: true
     mountPath: /data/prefill
     targetSelectAll: true
-
 portal:
   open:
     enabled: false

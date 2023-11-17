@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/rsshub
+  repository: diygod/rsshub
   pullPolicy: IfNotPresent
-  tag: latest@sha256:9f182845bb7f723526c78d53e08084c98d17c1d0224a9d921b74423a6ecc094a
+  tag: latest@sha256:bb64f1a720dc0c1986930d12a3af56b2ae37703b95f9d649e1b0987becf6ecb8
 browserlessImage:
   repository: tccr.io/truecharts/browserless-chrome
   tag: v1.60.2-chrome@sha256:a0652b346c0de87d546a3b07a44fbb85a33026aec20b956cbcb74dc822c2515a
@@ -13,7 +13,6 @@ service:
 # Enabled redis
 redis:
   enabled: true
-
   redisUsername: default
 additionalContainers:
   browserless:

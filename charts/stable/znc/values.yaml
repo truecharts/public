@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/znc
+  repository: ghcr.io/linuxserver/znc
   pullPolicy: IfNotPresent
-  tag: v1.8.2@sha256:0ab6fdc237a53547a4b4c5ea382eff06ffc9ce3a8b160f00b20734bce632fd9e
+  tag: 1.8.2@sha256:f1f9d204c120f1d7dd33693e94945f7847d0f2b680f3b8dfbb77f5096e5af0a7
 service:
   main:
     ports:

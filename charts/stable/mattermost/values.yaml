@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/mattermost
-  tag: v9.3.0@sha256:9d40bfb47bdac2a8f7ea4c31b8538ff12135ffa28271ec7f1287a23f0cece631
+  repository: mattermost/mattermost-enterprise-edition
+  tag: release-9.3@sha256:d8b04448e4d61f6283bb5a1b00a3e42bf9aee18e07166e6a4c8bac30435c0dd8
   pullPolicy: IfNotPresent
-
 workload:
   main:
     podSpec:
@@ -20,7 +19,6 @@ service:
       main:
         port: 10239
         targetPort: 8065
-
 persistence:
   config:
     enabled: true
@@ -40,13 +38,11 @@ persistence:
   bleveindexes:
     enabled: true
     mountPath: "/mattermost/bleve-indexes"
-
 cnpg:
   main:
     enabled: true
     user: mattermost
     database: mattermost
-
 portal:
   open:
     enabled: true

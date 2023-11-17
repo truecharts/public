@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/local-ai
+  repository: quay.io/go-skynet/local-ai
   pullPolicy: IfNotPresent
-  tag: v1.40.0@sha256:f17bc18198bfb6c2aee2b35fca1adb528ea91fd53be30157de3e9be6f0f4d810
+  tag: v1.40.0@sha256:3aac12d7637c905afdac67ee33351594eaa58fe77eeeb145f114f45e5f358cf3
 ffmpegImage:
   repository: tccr.io/truecharts/local-ai-ffmpeg
   pullPolicy: IfNotPresent
@@ -22,21 +22,18 @@ cublasCuda11FfmpegImage:
   repository: tccr.io/truecharts/local-ai-cublas-cuda11-ffmpeg
   pullPolicy: IfNotPresent
   tag: v1.40.0-cublas-cuda11@sha256:9c21382a0056463209742d703284349292e198f48144da594530e1aad34fcb1e
-
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
       main:
         protocol: http
         port: 8080
-
 localai:
   # Specify a build type. Available: cublas, openblas, clblas.
   build_type: "openblas"
@@ -49,7 +46,6 @@ localai:
   preload_models: []
   #    url: github:go-skynet/model-gallery/gpt4all-j.yaml
   # UPLOAD_LIMIT
-
 workload:
   main:
     podSpec:
@@ -80,7 +76,6 @@ workload:
             GALLERIES: "{{ toJson .Values.localai.galleries }}"
             PRELOAD_MODELS: "{{ toJson .Values.localai.preload_models }}"
             CORS_ALLOW_ORIGINS: "{{ .Values.localai.cors_allow_origins }}"
-
 persistence:
   models:
     enabled: true
@@ -88,7 +83,6 @@ persistence:
   images:
     enabled: true
     mountPath: "/images"
-
 portal:
   open:
     enabled: false

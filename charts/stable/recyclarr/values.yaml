@@ -1,15 +1,13 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/recyclarr
-  tag: v6.0.2@sha256:1e4fefc526d63c6a4ae034eb03def2c0fa44696ad8ad9c3743ffebc5d74875f2
-
+  repository: ghcr.io/recyclarr/recyclarr
+  tag: 6.0.2@sha256:02add40feae0569401b5020528e06419b47046723d0bb4bef1e82325e9eefdad
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-
 workload:
   main:
     podSpec:
@@ -33,13 +31,11 @@ workload:
               enabled: false
           env:
             CRON_SCHEDULE: "@daily"
-
 persistence:
   config:
     enabled: true
     mountPath: /config
     targetSelectAll: true
-
 portal:
   open:
     enabled: false

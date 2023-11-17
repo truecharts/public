@@ -1,19 +1,17 @@
 image:
-  repository: tccr.io/truecharts/whisper-asr-webservice-cpu
+  repository: onerahmet/openai-whisper-asr-webservice
   pullPolicy: IfNotPresent
-  tag: v1.2.3@sha256:698275e8b443007bb72610582ae5c58d39ab32ca8bffde21c4cd445e5ed25c46
+  tag: "v1.2.3@sha256:a94b6bbbea73578896112dee36d9b71783b8b4696c4eedc2ae75eb129ca24339\r"
 gpuImage:
   repository: tccr.io/truecharts/whisper-asr-webservice-gpu
   pullPolicy: IfNotPresent
   tag: v1.2.3@sha256:a7ff156cc750ef34c71176a98cf1245e3c62599568d73482557667382a25d705
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 workload:
   main:
     podSpec:
@@ -33,7 +31,6 @@ workload:
           env:
             ASR_MODEL: tiny
             ASR_ENGINE: faster_whisper
-
 service:
   main:
     ports:
@@ -41,7 +38,6 @@ service:
         protocol: http
         targetPort: 9000
         port: 19900
-
 persistence:
   pip:
     enabled: true
@@ -55,7 +51,6 @@ persistence:
   faster-whisper:
     enabled: true
     mountPath: "/root/.cache/faster_whisper"
-
 portal:
   open:
     enabled: true

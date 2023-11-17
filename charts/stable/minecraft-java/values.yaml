@@ -1,6 +1,6 @@
 image:
-  repository: tccr.io/truecharts/minecraft-java
-  tag: v2023.8.3@sha256:8e5cfbad3f834145641410670f8323a256b5486faeb57d9190151c84b27d59a3
+  repository: itzg/minecraft-server
+  tag: 2023.8.3@sha256:2af12eac3a7106882e23d1b2435358db841c4302d213532e415255fbbd36c826
   pullPolicy: Always
 j20Image:
   repository: tccr.io/truecharts/minecraft-java20
@@ -54,7 +54,6 @@ j8j9Image:
   repository: tccr.io/truecharts/minecraft-java8-openj9
   tag: v2023.8.3@sha256:a1b64e05cd8cb62b85d05b7d5de1d59ed660fedf36b7a7c11b9ba0b46ba2813c
   pullPolicy: Always
-
 service:
   main:
     enabled: true
@@ -73,7 +72,6 @@ service:
       rcon:
         enabled: true
         port: 25575
-
 workload:
   main:
     podSpec:
@@ -183,12 +181,10 @@ workload:
             # CF_OVERRIDES_SKIP_EXISTING
             # CF_PARALLEL_DOWNLOADS
             # CF_SET_LEVEL_FROM
-
 persistence:
   data:
     enabled: true
     mountPath: "/data"
-
 portal:
   open:
     enabled: false

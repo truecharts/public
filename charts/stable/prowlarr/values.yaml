@@ -1,16 +1,14 @@
 image:
-  repository: tccr.io/truecharts/prowlarr
-  tag: v1.10.2.4064@sha256:af0f92f015771895d4c5be67809b4b4b9f9d93149a2c7a44251fc9c619257fa2
+  repository: ghcr.io/onedr0p/prowlarr-develop
+  tag: 1.10.2.4064@sha256:f33e0d64d6155ea677e70652347cb0d6e7a957e50b57fc7175a0abc01ed0b068
   pullPolicy: IfNotPresent
 exportarrImage:
   repository: tccr.io/truecharts/exportarr
   pullPolicy: IfNotPresent
   tag: v1.6.0@sha256:ee118701a2ebe8ccb5c25e1003fbed9ef7ce217d4e4b8b6df30cc2a0def818f8
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
-
 service:
   main:
     ports:
@@ -25,7 +23,6 @@ service:
         enabled: true
         port: 9697
         targetSelector: exportarr
-
 workload:
   main:
     podSpec:
@@ -76,7 +73,6 @@ workload:
             # Set a date from which to start the backfill
             # PROWLARR__BACKFILL_SINCE_DATE: 1970-01-01
             CONFIG: "/config/config.xml"
-
 persistence:
   config:
     enabled: true
@@ -88,7 +84,6 @@ persistence:
         exportarr:
           mountPath: /config
           readOnly: true
-
 metrics:
   main:
     enabled: true
@@ -99,7 +94,6 @@ metrics:
     targetSelector: metrics
     prometheusRule:
       enabled: false
-
 portal:
   open:
     enabled: true

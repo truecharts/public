@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/mc-router
+  repository: itzg/mc-router
   pullPolicy: IfNotPresent
-  tag: v1.20.0@sha256:70d247c6385241a6f52f81cd317bcf66d59f7efdd58609f0ad29af1cf5d9cded
-
+  tag: 1.20.0@sha256:2d71957240073e51648e8848b8b3aa083ec9a3ab75ca32dbaac951b83efd12f1
 service:
   main:
     ports:
@@ -14,11 +13,9 @@ service:
       minecraft:
         enabled: true
         port: 25565
-
 mcrouter:
   host_minecraft: []
   #  - "minecraft.local=minecraft-java.ix-minecraft-java.svc.cluster.local:25565"
-
 workload:
   main:
     podSpec:
@@ -37,7 +34,6 @@ workload:
           env:
             API_BINDING: ":{{ .Values.service.main.ports.main.port }}"
             PORT: "{{ .Values.service.minecraft.ports.minecraft.port }}"
-
 portal:
   open:
     enabled: false

@@ -1,27 +1,25 @@
 image:
-  repository: tccr.io/truecharts/frigate
+  repository: ghcr.io/blakeblackshear/frigate
   pullPolicy: IfNotPresent
-  tag: v0.12.1@sha256:71c83d1c5454bfee190b450ab89b2889352688b8cf3f832782a47ed82e2c604d
+  tag: 0.12.1@sha256:bb7f7e76a13eccef0b12704e5851cc774a12af1f12df387d6a70a796a3e938c3
 tensorrtImage:
   repository: tccr.io/truecharts/frigate-tensorrt
   pullPolicy: IfNotPresent
   tag: v0.12.1@sha256:d4896f1ceb70f4b370b714d6cf20e44d7921f33419c296d46ef670364c5eebc7
-
 # When this is defined, the contents will be mounted
 # as configmap into the container at /config/config.yml.
-frigateConfig:
-  {}
-  # -- https://docs.frigate.video/configuration/
-  # mqtt:
-  #   enabled: False
-  # cameras:
-  #   dummy:
-  #     enabled: False
-  #     ffmpeg:
-  #       inputs:
-  #         - path: rtsp://127.0.0.1:554/rtsp
-  #           roles:
-  #             - detect
+frigateConfig: {}
+# -- https://docs.frigate.video/configuration/
+# mqtt:
+#   enabled: False
+# cameras:
+#   dummy:
+#     enabled: False
+#     ffmpeg:
+#       inputs:
+#         - path: rtsp://127.0.0.1:554/rtsp
+#           roles:
+#             - detect
 
 workload:
   main:
@@ -41,14 +39,12 @@ workload:
                 cp /dummy-config/config.yml.dummy /config/config.yml
                 echo "Config file copied, you can now edit it at /config/config.yml"
               fi
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -82,7 +78,6 @@ service:
         port: 8555
         protocol: udp
         targetPort: 8555
-
 persistence:
   media:
     enabled: true
@@ -95,7 +90,6 @@ persistence:
       main:
         main: {}
         init-config: {}
-
 portal:
   open:
     enabled: true

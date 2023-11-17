@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/meshcentral
+  repository: ghcr.io/ylianst/meshcentral
   pullPolicy: IfNotPresent
-  tag: v1.1.16@sha256:b4538a19cf73ac3285411d80e7deae5f4d8cd013d3764c8bb75fdf453ac9aee5
-
+  tag: 1.1.16@sha256:cea9e1044bcc4a38187bc8833fe462d671d80971ee4dbd56ce6539d7daaba4ff
 workload:
   main:
     podSpec:
@@ -11,14 +10,12 @@ workload:
           command:
             - node
             - meshcentral/meshcentral
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 # - Values with the character _ in-front of them are pruned. Add or remove _ to disable or enable options
 # - More in-depth info for each options can be found here: https://github.com/Ylianst/MeshCentral/blob/master/meshcentral-config-schema.json
 # - Check for this chart's specific info in our webpage https://truecharts.org
@@ -300,7 +297,6 @@ meshcentral:
       credentials:
         username: ""
         password: ""
-
   # - Any settings in this section is used as default setting for all domains
   _domaindefaults:
     title: Default Title
@@ -950,7 +946,6 @@ meshcentral:
               enabled: false
               # - When set, limits what OIDC groups are mirrored into MeshCentral user groups.
               filter: []
-
 service:
   main:
     ports:
@@ -972,12 +967,10 @@ service:
   #       enabled: true
   #       port: 9971
   #       targetPort: 9971
-
 mongodb:
   enabled: true
   mongodbUsername: meshcentral
   mongodbDatabase: meshcentral
-
 persistence:
   data:
     enabled: true
@@ -1003,7 +996,6 @@ persistence:
     objectName: mesh-secret
     mountPath: /opt/meshcentral/meshcentral-data/config.json
     subPath: config.json
-
 portal:
   open:
     enabled: true

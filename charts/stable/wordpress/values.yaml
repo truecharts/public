@@ -1,13 +1,11 @@
 image:
-  repository: tccr.io/truecharts/wordpress
+  repository: bitnami/wordpress
   pullPolicy: IfNotPresent
-  tag: v6.4.1@sha256:c3a325b558475ec7e77c7c7b5f32647ecab92556d954580935e583ba092cea24
-
+  tag: 6.4.1@sha256:c4b1a2e041cbda666fce8fe8b3790bc7ef305f88b64304ba2c2ebb1c5d0e29b8
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsGroup: 0
-
 workload:
   main:
     podSpec:
@@ -18,7 +16,6 @@ workload:
                 name: env-config
             - secretRef:
                 name: env-secret
-
 wordpress:
   user: user
   pass: bitnami
@@ -27,14 +24,12 @@ wordpress:
   last_name: TrueCharts
   blog_name: Truecharts Blog
   enable_reverse_proxy_headers: true
-
 smtp:
   enabled: false
   host: ""
   port: 587
   user: ""
   pass: ""
-
 php-config:
   PHP_ENABLE_OPCACHE: "yes"
   PHP_EXPOSE_PHP: ""
@@ -44,24 +39,20 @@ php-config:
   PHP_MEMORY_LIMIT: 512M
   PHP_POST_MAX_SIZE: ""
   PHP_UPLOAD_MAX_FILESIZE: ""
-
 service:
   main:
     ports:
       main:
         protocol: http
         port: 10591
-
 persistence:
   config:
     enabled: true
     mountPath: /bitnami/wordpress
-
 mariadb:
   enabled: true
   mariadbUsername: wordpress
   mariadbDatabase: wordpress
-
 portal:
   open:
     enabled: true

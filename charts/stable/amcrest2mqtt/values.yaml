@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/amcrest2mqtt
-  tag: v1.0.16@sha256:3f7154baa1187aa1e5f7fe7d8416c9e165da33ac651a482a3a261aed74560f56
+  repository: dchesterton/amcrest2mqtt
+  tag: 1.0.16@sha256:5a503bcf7b39bd846ca60be1846ce8b73eae979fd074f2a31e14462f85447260
   pullPolicy: IfNotPresent
-
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-
 workload:
   main:
     podSpec:
@@ -43,7 +41,6 @@ workload:
             MQTT_USERNAME: "mqttuser"
             # -- Password used to connect to the MQTT broker
             MQTT_PASSWORD: "changeme"
-
 portal:
   open:
     enabled: false

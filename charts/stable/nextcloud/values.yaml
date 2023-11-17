@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/nextcloud-fpm
+  repository: docker.io/nextcloud
   pullPolicy: IfNotPresent
-  tag: v27.1.3@sha256:517609d65d5cbdc5827dc8ae3f209aa546b43ede3a038ac4b2b1011a5f13d118
+  tag: 27.1.3-fpm@sha256:729681baf946bf94588965c8cbf9385c2fb119e76d17c1a465cb16276d82c555
 nginxImage:
   repository: tccr.io/truecharts/nginx-unprivileged
   pullPolicy: IfNotPresent
@@ -22,7 +22,6 @@ collaboraImage:
   repository: tccr.io/truecharts/collabora
   pullPolicy: IfNotPresent
   tag: v23.05.5.4.1@sha256:0ce2644cd5587c04d8aa62b94b2a62f8a0aee3110c3f36ddd3e4d54475432ac9
-
 nextcloud:
   # Initial Credentials
   credentials:
@@ -129,7 +128,6 @@ nextcloud:
     memory_consumption: 128
     revalidate_freq: 60
     jit_buffer_size: 128
-
 # Do NOT edit below this line
 workload:
   # Nextcloud php-fpm
@@ -322,7 +320,6 @@ workload:
               enabled: true
               type: tcp
               port: "{{ .Values.service.collabora.ports.collabora.targetPort }}"
-
 cronjobs:
   # Don't change names, it's used in the persistence
   - name: nextcloud-cron
@@ -339,7 +336,6 @@ cronjobs:
       - echo "Running [occ preview:pre-generate] ..."
       - occ preview:pre-generate
       - echo "Finished [occ preview:pre-generate]"
-
 service:
   # Main service links to ingress easier
   # That's why the nginx is swapped with nextcloud
@@ -398,7 +394,6 @@ service:
         port: 9980
         targetPort: 9980
         targetSelector: collabora
-
 persistence:
   php-tune:
     enabled: true
@@ -501,17 +496,14 @@ persistence:
         nginx:
           mountPath: /var/www/html/data
           readOnly: true
-
 cnpg:
   main:
     enabled: true
     user: nextcloud
     database: nextcloud
-
 redis:
   enabled: true
   username: default
-
 portal:
   open:
     enabled: true

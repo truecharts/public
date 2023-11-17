@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/adguard-home
-  tag: v0.107.41@sha256:469f067eebd096123d64d870cc07e31ab7523feb9bb17cada6086a0f55e6067a
+  repository: adguard/adguardhome
+  tag: v0.107.41@sha256:5d418f5b949cbdc08841bbfc2e70ec4903e3b8e394da010e02b3bf1ca6711219
   pullPolicy: IfNotPresent
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 workload:
   main:
     podSpec:
@@ -37,7 +35,6 @@ workload:
             - --port
             - "{{ .Values.service.main.ports.main.port }}"
           env: {}
-
 service:
   main:
     ports:
@@ -109,7 +106,6 @@ service:
         protocol: udp
         port: 8853
         targetPort: 8853
-
 persistence:
   config:
     enabled: true
@@ -117,7 +113,6 @@ persistence:
   data:
     enabled: true
     mountPath: /opt/adguardhome/work
-
 portal:
   open:
     enabled: true

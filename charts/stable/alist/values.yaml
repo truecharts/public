@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/alist
+  repository: xhofe/alist
   pullPolicy: IfNotPresent
-  tag: v3.28.0@sha256:51162849515cb38a9705935d810cce98ef6867f2f88cdbd346a541410c4430dd
-
+  tag: v3.28.0@sha256:1e931c57d9de771f75c5c853231f215ffd8a684563323fa42138beda8ff42e5a
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -17,7 +15,6 @@ service:
         targetPort: 5244
         protocol: http
         port: 10167
-
 workload:
   main:
     podSpec:
@@ -34,12 +31,10 @@ workload:
               type: http
               path: /
           env: {}
-
 persistence:
   data:
     enabled: true
     mountPath: /opt/alist/data
-
 portal:
   open:
     enabled: true

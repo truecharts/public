@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/traggo
+  repository: traggo/server
   pullPolicy: IfNotPresent
-  tag: 0.3.0@sha256:da54bc28294c70301e6c21dca992a57f88831f1ea1da4a6d742597ee2e5af098
+  tag: 0.3.0@sha256:edd1e34852975d1179d24e279b280e9a84bcd1dd7da22b499a083d1af69fb999
 traggo:
   username: admin
   password: admin
@@ -20,7 +20,6 @@ persistence:
 portal:
   open:
     enabled: true
-
 workload:
   main:
     podSpec:
