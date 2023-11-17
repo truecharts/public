@@ -1,10 +1,10 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "tc.v1.common.loader.init" . }}
 
-{{/* Render configmap for linkwarden */}}
-{{- $configmapFile := include "linkwarden.config" . | fromYaml -}}
-{{- if $configmapFile -}}
-  {{- $_ := set .Values.configmap "linkwarden-config" $configmapFile -}}
+{{/* Render secrets for Linkwarden */}}
+{{- $secrets := include "linkwarden.secrets" . | fromYaml -}}
+{{- if $secrets -}}
+  {{- $_ := set .Values.secret "linkwarden-secrets" $secrets -}}
 {{- end -}}
 
 {{/* Render the templates */}}

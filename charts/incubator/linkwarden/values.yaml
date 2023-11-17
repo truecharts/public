@@ -3,10 +3,16 @@ image:
   pullPolicy: IfNotPresent
   tag: v2.2.1@sha256:c948cdcf683ec7b6c634eb2a0e184e270e167401d41ef8e82f7ff64c61f39f9c
 
-env:
-  ADDRESS: 0.0.0.0
-  IMGUR_CLIENT_ID: 546c25a59c58ad7
-  FORCE_WEBP: "0"
+config:
+  pagination_take_count: 20
+  storage_folder: "/data"
+  autoscroll_timeout: 30
+  disable_registration: false
+  archive_limit: 5
+  smtp:
+    enabled: false
+    from: ""
+    server: ""
 
 securityContext:
   container:
@@ -40,14 +46,14 @@ workload:
                 name: linkwarden-secrets
                 key: NEXTAUTH_SECRET
             NEXTAUTH_URL: "http://localhost:{{ .Values.service.main.ports.main.port }}"
-            PAGINATION_TAKE_COUNT: "20"
-            STORAGE_FOLDER: "/data"
-            AUTOSCROLL_TIMEOUT: "30"
-            NEXT_PUBLIC_DISABLE_REGISTRATION: "false"
-            RE_ARCHIVE_LIMIT: "5"
-            NEXT_PUBLIC_EMAIL_PROVIDER: ""
-            EMAIL_FROM: ""
-            EMAIL_SERVER: ""
+            PAGINATION_TAKE_COUNT: "{{ .Values.config.pagination_take_count }}"
+            STORAGE_FOLDER: "{{ .Values.config.storage_folder }}"
+            AUTOSCROLL_TIMEOUT: "{{ .Values.config.autoscroll_timeout }}"
+            NEXT_PUBLIC_DISABLE_REGISTRATION: "{{ .Values.config.disable_registration }}"
+            RE_ARCHIVE_LIMIT: "{{ .Values.config.archive_limit }}"
+            NEXT_PUBLIC_EMAIL_PROVIDER: "{{ .Values.config.smtp.enabled }}"
+            EMAIL_FROM: "{{ .Values.config.smtp.from }}"
+            EMAIL_SERVER: "{{ .Values.config.smtp.server }}"
 
 persistence:
   data:

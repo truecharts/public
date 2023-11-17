@@ -12,63 +12,71 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
-                                - variable: env
-                                  group: "App Configuration"
-                                  label: "Image Environment"
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                      - variable: PAGINATION_TAKE_COUNT
-                                        label: "PAGINATION_TAKE_COUNT"
-                                        description: "The numbers of Links to fetch every time you reach to the bottom of the webpage"
-                                        schema:
-                                          type: int
-                                          default: 20
-                                      - variable: STORAGE_FOLDER
-                                        label: "STORAGE_FOLDER"
-                                        description: "The folder to store your Screenshot's, PDF's, and profile photos."
-                                        schema:
-                                          type: string
-                                          default: "/data"
-                                      - variable: AUTOSCROLL_TIMEOUT
-                                        label: "AUTOSCROLL_TIMEOUT"
-                                        description: "The amount of time to wait for the website to be archived (in seconds)."
-                                        schema:
-                                          type: int
-                                          default: 30
-                                      - variable: NEXT_PUBLIC_DISABLE_REGISTRATION
-                                        label: "NEXT_PUBLIC_DISABLE_REGISTRATION"
-                                        description: "If set to true, registration willl be disabled."
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                      - variable: RE_ARCHIVE_LIMIT
-                                        label: "RE_ARCHIVE_LIMIT"
-                                        description: "Adjusts how often a user can trigger a new archive for each link (in minutes)."
-                                        schema:
-                                          type: int
-                                          default: 5
-                                      - variThat sensitive string that starts with smtp://... .able: NEXT_PUBLIC_EMAIL_PROVIDER
-                                        label: "NEXT_PUBLIC_EMAIL_PROVIDER"
-                                        description: "If set to true, email will be enabled and you'll need to define the next two variables below."
-                                        schema:
-                                          type: string
-                                          default: ""
-                                      - variable: EMAIL_FROM
-                                        label: "EMAIL_FROM"
-                                        description: "The email that will send the verification emails."
-                                        schema:
-                                          type: string
-                                          default: ""
-                                      - variable: EMAIL_SERVER
-                                        label: "EMAIL_SERVER"
-                                        description: "That sensitive string that starts with smtp://... ."
-                                        schema:
-                                          type: string
-                                          default: ""
 # Include{containerConfig}
 # Include{podOptions}
+  - variable: config
+    label: ""
+    group: "App Configuration"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: pagination_take_count
+          label: "Pagination Take Count"
+          description: "The numbers of Links to fetch every time you reach to the bottom of the webpage"
+          schema:
+            type: int
+            default: 20
+        - variable: storage_folder
+          label: "Storage Folder"
+          description: "The folder to store your Screenshot's, PDF's, and profile photos."
+          schema:
+            type: string
+            default: "/data"
+        - variable: autoscroll_timeout
+          label: "Autoscroll Timeout"
+          description: "The amount of time to wait for the website to be archived (in seconds)."
+          schema:
+            type: int
+            default: 30
+        - variable: disable_registration
+          label: "Disable User Registration"
+          description: "If set to true, registration willl be disabled."
+          schema:
+            type: boolean
+            default: false
+        - variable: archive_limit
+          label: "Archive Limit"
+          description: "Adjusts how often a user can trigger a new archive for each link (in minutes)."
+          schema:
+            type: int
+            default: 5
+        - variable: smtp
+          label: "SMTP Settings (Email)"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Enable SMTP Support"
+                description: "If set to true, email will be enabled and you'll need to define the next two variables below."
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: from
+                      label: "SMTP sender e-mail address"
+                      description: "The email that will send the verification emails."
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: server
+                      label: "SMTP Server"
+                      description: "That sensitive string that starts with smtp://... ."
+                      schema:
+                        type: string
+                        default: ""
 # Include{serviceRoot}
         - variable: main
           label: Main Service
@@ -124,13 +132,13 @@ questions:
                 description: "The UserID of the user running the application"
                 schema:
                   type: int
-                  default: 568
+                  default: 0
               - variable: runAsGroup
                 label: "runAsGroup"
                 description: "The groupID of the user running the application"
                 schema:
                   type: int
-                  default: 568
+                  default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
