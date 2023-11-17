@@ -27,12 +27,6 @@ questions:
           schema:
             type: int
             default: 20
-        - variable: storage_folder
-          label: "Storage Folder"
-          description: "The folder to store your Screenshot's, PDF's, and profile photos."
-          schema:
-            type: string
-            default: "/data"
         - variable: autoscroll_timeout
           label: "Autoscroll Timeout"
           description: "The amount of time to wait for the website to be archived (in seconds)."
