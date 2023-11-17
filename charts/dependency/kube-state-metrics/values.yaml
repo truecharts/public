@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/kube-state-metrics
+  repository: bitnami/kube-state-metrics
   pullPolicy: IfNotPresent
-  tag: v2.10.1@sha256:530be32074f4810085dbc6473ea9383e31b00f5c3337da5a4011a5c91ee71b71
-
+  tag: 2.10.1@sha256:6819ee084fdb0ddee851ffcda90833d4e5b991987bdd1fbe4804ade61f47ccdb
 service:
   main:
     ports:
@@ -16,7 +15,6 @@ service:
         enabled: true
         protocol: http
         port: 8081
-
 workload:
   main:
     podSpec:
@@ -51,28 +49,22 @@ workload:
             # - --resources=verticalpodautoscalers
             - --resources=validatingwebhookconfigurations
             - --resources=volumeattachments
-
           probes:
             liveness:
               path: /healthz
               port: main
-
             readiness:
               path: /healthz
               port: main
-
             startup:
               type: tcp
               port: main
-
 podOptions:
   automountServiceAccountToken: true
-
 serviceAccount:
   main:
     enabled: true
     primary: true
-
 rbac:
   main:
     enabled: true
@@ -281,9 +273,8 @@ rbac:
           - watch
       - apiGroups: ["discovery.k8s.io"]
         resources:
-        - endpointslices
+          - endpointslices
         verbs: ["list", "watch"]
-
 metrics:
   main:
     # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
@@ -300,18 +291,16 @@ metrics:
       labels: {}
       # -- Configure additionial rules for the chart under this key.
       # @default -- See prometheusrules.yaml
-      rules:
-        []
-        # - alert: UnifiPollerAbsent
-        #   annotations:
-        #     description: Unifi Poller has disappeared from Prometheus service discovery.
-        #     summary: Unifi Poller is down.
-        #   expr: |
-        #     absent(up{job=~".*unifi-poller.*"} == 1)
-        #   for: 5m
-        #   labels:
-        #     severity: critical
-
+      rules: []
+      # - alert: UnifiPollerAbsent
+      #   annotations:
+      #     description: Unifi Poller has disappeared from Prometheus service discovery.
+      #     summary: Unifi Poller is down.
+      #   expr: |
+      #     absent(up{job=~".*unifi-poller.*"} == 1)
+      #   for: 5m
+      #   labels:
+      #     severity: critical
 portal:
   open:
     enabled: false
