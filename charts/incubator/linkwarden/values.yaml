@@ -1,0 +1,65 @@
+image:
+  repository: ghcr.io/linkwarden/linkwarden
+  pullPolicy: IfNotPresent
+  tag: v2.2.1@sha256:c948cdcf683ec7b6c634eb2a0e184e270e167401d41ef8e82f7ff64c61f39f9c
+
+env:
+  ADDRESS: 0.0.0.0
+  IMGUR_CLIENT_ID: 546c25a59c58ad7
+  FORCE_WEBP: "0"
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 2985
+        targetPort: 3000
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DATABASE_URL:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: std
+            POSTGRES_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            NEXTAUTH_SECRET:
+              secretKeyRef:
+                name: linkwarden-secrets
+                key: NEXTAUTH_SECRET
+            NEXTAUTH_URL: "http://localhost:{{ .Values.service.main.ports.main.port }}"
+            PAGINATION_TAKE_COUNT: "20"
+            STORAGE_FOLDER: "/data"
+            AUTOSCROLL_TIMEOUT: "30"
+            NEXT_PUBLIC_DISABLE_REGISTRATION: "false"
+            RE_ARCHIVE_LIMIT: "5"
+            NEXT_PUBLIC_EMAIL_PROVIDER: ""
+            EMAIL_FROM: ""
+            EMAIL_SERVER: ""
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data/data"
+
+cnpg:
+  main:
+    enabled: true
+    database: linkwarden
+    user: linkwarden
+
+portal:
+  open:
+    enabled: true
