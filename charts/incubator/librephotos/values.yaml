@@ -3,11 +3,11 @@ image:
   tag: latest@sha256:3ded92c9ba78c238c2837841f394d86d7246ffb082dae6ad54127383d4022156
   pullPolicy: IfNotPresent
 frontendImage:
-  repository: tccr.io/truecharts/librephotos-frontend
-  tag: v2022w6@sha256:9cb2cb4865197d460405fecd79bdd7808333443cb2089753825f7f97365a53a3
+  repository: reallibrephotos/librephotos-frontend
+  tag: latest@sha256:541b044d439e9790623405409ab57c92810def8a1e701b5f4f7d4f9421e7240a
 proxyImage:
-  repository: tccr.io/truecharts/librephotos-proxy
-  tag: v2022w6@sha256:c147eaa3e96348e44132958ca871114a2ce240f0fa3604f738801317af09a160
+  repository: reallibrephotos/librephotos-proxy
+  tag: latest@sha256:b45c74482bc409b113fcb7519beb9acb646e6d24bc36fed69afd3df39a0aa8e3
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false

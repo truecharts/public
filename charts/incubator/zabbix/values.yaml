@@ -3,24 +3,24 @@ image:
   tag: 6.4.7-ubuntu@sha256:f50fcb5aafa0a13b31e443fa5bd7a32c655c8c4a586bcb0a9f7d143e8f943beb
   pullPolicy: IfNotPresent
 frontendImage:
-  repository: tccr.io/truecharts/zabbix-web
-  tag: 6.2.7@sha256:0e819e67912de672093ad41b5f140b8d29f094652f5aa395f8e34c6cb6f38922
+  repository: zabbix/zabbix-web-nginx-pgsql
+  tag: 6.4.8-ubuntu@sha256:f7f5a72f31285c3be4663e2edcb67599800c3870a1bb7d867015ad2d49281352
   pullPolicy: IfNotPresent
 agent2Image:
-  repository: tccr.io/truecharts/zabbix-agent2
-  tag: 6.2.7@sha256:b31bee64d39d81cf8dc0ec34bd75daac27b693f7d3479291db3511cb8134b5cb
+  repository: zabbix/zabbix-agent2
+  tag: 6.4.8-ubuntu@sha256:387ce66949e73a374d16ad1198638d748b8553e89346f558e1a89a1d530f4fec
   pullPolicy: IfNotPresent
 snmptrapsImage:
-  repository: tccr.io/truecharts/zabbix-snmptraps
-  tag: 6.2.7@sha256:1f74067d505b3908cd585ee43f9d683abc970954bdfac582a8728ec2a334cdc3
+  repository: zabbix/zabbix-snmptraps
+  tag: 6.4.8-ubuntu@sha256:2f8cb03a265f491d50ee90a9ca47badb40bca7bf0217eea13b9a71c56ff2907d
   pullPolicy: IfNotPresent
 javaGatewayImage:
-  repository: tccr.io/truecharts/zabbix-java-gateway
-  tag: 6.2.7@sha256:50be517bfa07aec2c8fbd664323cd8cacec203ecab2cee8533cb8c0129cad85d
+  repository: zabbix/zabbix-java-gateway
+  tag: 6.4.8-ubuntu@sha256:162696f8944d7b8204fd749d8efbaefd25709435af19f801066cb7dd49ddda48
   pullPolicy: IfNotPresent
 webServiceImage:
-  repository: tccr.io/truecharts/zabbix-web-service
-  tag: 6.2.7@sha256:104c982c53f062d40b41b80fb280a5ea3e67ede25ab8547e239689f8951fcbc4
+  repository: zabbix/zabbix-web-service
+  tag: 6.4.8-ubuntu@sha256:0972a91e7aa5c3c6de98756c6ae4c07025620958ff5e8b59aa3175cf52fbdcf2
   pullPolicy: IfNotPresent
 tty: true
 securityContext:

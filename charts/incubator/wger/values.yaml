@@ -3,8 +3,8 @@ image:
   tag: latest@sha256:71bbd3c4185f7a92bd0d95b928a019fa76d2b88f629c918a7627fbbaa632e64e
   pullPolicy: IfNotPresent
 nginxImage:
-  repository: tccr.io/truecharts/nginx
-  tag: 1.24.0@sha256:7eee831d79f11786149bd02a0d4d438057772285ec7b62fc2976ee70676707fa
+  repository: nginx
+  tag: 1.25.3@sha256:86e53c4c16a6a276b204b0fd3a8143d86547c967dc8258b3d47c3a21bb68d3c6
   pullPolicy: IfNotPresent
 securityContext:
   runAsNonRoot: false

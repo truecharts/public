@@ -4,8 +4,8 @@ image:
   tag: 0.5.1@sha256:4c4f6e7a31f574a2034e0807bf874e03e350c8931d4477521fae2b3f3e2aecfe
 slimImage:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/pastey-slim
-  tag: v0.5.1@sha256:acde8ecaf0216a57e1ee4e449884a09b9d8493bcb69185ed74436489dabbece5
+  repository: cesura/pastey
+  tag: 0.5.1-slim@sha256:dc994c07aa45ce94e7f67958c4d03a6dac95f56427e7113500f0e88a258d3b13
 securityContext:
   container:
     runAsNonRoot: false

@@ -3,12 +3,12 @@ image:
   pullPolicy: IfNotPresent
   tag: 20-jammy-thin.s6-v0.57.0@sha256:1f86ec6b48d9a080dcb6d07ed92f25e4a142857d0002b70cd13c69695b39ac69
 liteImage:
-  repository: tccr.io/truecharts/scrypted-lite
-  tag: v0.44.0@sha256:c81fd27344ad17c3d91d2a650c803ba12c99278a6e1fda6928d6a9aeb452b4c1
+  repository: ghcr.io/koush/scrypted
+  tag: 20-jammy-thin.s6-v0.57.0@sha256:1f86ec6b48d9a080dcb6d07ed92f25e4a142857d0002b70cd13c69695b39ac69
   pullPolicy: Always
 fullImage:
-  repository: tccr.io/truecharts/scrypted-full
-  tag: v0.44.0@sha256:f696f03034da40244a77d17e46c9cc61f7be3e8f9451244a3758ba896b0c3d0d
+  repository: ghcr.io/koush/scrypted
+  tag: 20-jammy-thin.s6-v0.57.0@sha256:1f86ec6b48d9a080dcb6d07ed92f25e4a142857d0002b70cd13c69695b39ac69
   pullPolicy: Always
 securityContext:
   container:
