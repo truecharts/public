@@ -45,7 +45,6 @@ workload:
               secretKeyRef:
                 name: linkwarden-secrets
                 key: NEXTAUTH_SECRET
-            NEXTAUTH_URL: "http://localhost:{{ .Values.service.main.ports.main.port }}"
             PAGINATION_TAKE_COUNT: "{{ .Values.config.pagination_take_count }}"
             STORAGE_FOLDER: "{{ .Values.config.storage_folder }}"
             AUTOSCROLL_TIMEOUT: "{{ .Values.config.autoscroll_timeout }}"
