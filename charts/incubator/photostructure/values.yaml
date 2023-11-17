@@ -1,22 +1,19 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/photostructure
-  tag: v2.1.0@sha256:0c75885bdbb8bd64826af1ad36c12b3533aa6317cfbad2be4c5205368014ad80
-
+  repository: photostructure/server
+  tag: v2.1.0-alpha.7@sha256:ccd309179a5aa61d7601752bc79bf6304cc4257c907a614812ddaef8f422cb54
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsGroup: 0
     runAsUser: 0
-
 service:
   main:
     ports:
       main:
         protocol: http
         port: 1787
-
 workload:
   main:
     podSpec:
@@ -25,7 +22,6 @@ workload:
           env:
             PS_HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
             PS_LOG_LEVEL: "error"
-
 persistence:
   config:
     enabled: true
@@ -39,7 +35,6 @@ persistence:
   tempscratchdisk:
     enabled: true
     mountPath: /ps/tmp
-
 portal:
   open:
     enabled: true

@@ -1,26 +1,21 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/dontstarvetogether
-  tag: latest@sha256:4e6b786b097ab97d5dc0aeac7850024c655500d58ac40eb3386a4cde677e23a7
-
+  repository: ich777/steamcmd
+  tag: dontstarve@sha256:fa59153f4b6d807f8856df50b93e338b9979e26fea713279441001b891436943
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 secretEnv:
   USERNAME: ""
   PASSWRD: ""
-
 env:
   CAVES: "true"
   FORCE_X64: "true"
   GAME_ID: "343050"
   VALIDATE: false
-
 probes:
   liveness:
     enabled: false
@@ -28,7 +23,6 @@ probes:
     enabled: false
   startup:
     enabled: false
-
 service:
   main:
     ports:
@@ -52,7 +46,6 @@ service:
         port: 27016
         protocol: UDP
         targetPort: 27016
-
 persistence:
   serverfiles:
     enabled: true
@@ -63,6 +56,5 @@ persistence:
   token:
     enabled: true
     mountPath: /serverdata/.klei/DoNotStarveTogether
-
 portal:
   enabled: true

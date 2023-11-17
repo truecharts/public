@@ -2,8 +2,8 @@ env:
   SQLITE_DATABASE: db_name.db
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/sqlite-web
-  tag: latest@sha256:ff2f70ca861c4d25d93f6486507c8de89a966fb001c2f1161db5f0bf4bee905d
+  repository: coleifer/sqlite-web
+  tag: latest@sha256:b0d4094b883ee274d2242d8e5b4173f40e56a1d137660cf78d67c87164db9490
 persistence:
   data:
     enabled: true
@@ -21,6 +21,5 @@ service:
         port: 8080
         protocol: TCP
         targetPort: 8080
-
 portal:
   enabled: true

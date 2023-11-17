@@ -1,23 +1,19 @@
 image:
-  repository: tccr.io/truecharts/piaware
-  tag: v7.2@sha256:96a88db0579aa7da4bb38429e97139b9027cc64e8786fd1b0b9902470734c3b9
+  repository: mikenye/piaware
+  tag: v9.0@sha256:439c082d6bfc9028e6aa3e07cbbae1574e24bab88f520742e26c092c51c54247
   pullPolicy: IfNotPresent
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 service:
   main:
     ports:
       main:
         port: 10092
         targetPort: 8080
-
 persistence:
   config:
     enabled: true

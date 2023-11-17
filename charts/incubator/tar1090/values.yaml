@@ -5,8 +5,8 @@ env:
   MLATHOST: <MLATHOST>
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/tar1090
-  tag: latest@sha256:03f3d70e72730ff1d902cdd55a887d3d047d639c39c4136a433ef4ecf41156a9
+  repository: mikenye/tar1090
+  tag: latest@sha256:3051d7efe6152d7103ff7dd785772e9b67b6eb115000e6c07fc7fca87875919f
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -21,6 +21,5 @@ service:
         port: 8078
         protocol: TCP
         targetPort: 80
-
 portal:
   enabled: true

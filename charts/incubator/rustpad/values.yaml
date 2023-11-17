@@ -4,8 +4,8 @@ env:
   SQLITE_URI: sqlite:///persist/rustpad_db.db
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/rustpad
-  tag: latest@sha256:4e19871a499b98942021f2ad4a4a1b2187fa62fdeaedc78cefcc8191b354c699
+  repository: ekzhang/rustpad
+  tag: latest@sha256:8e70cdb0d34a76ee1590546087a88709f5b89ae14ffbebc9514880782ba37959
 persistence:
   storagedatabase:
     enabled: true
@@ -23,6 +23,5 @@ service:
         port: 3030
         protocol: TCP
         targetPort: 3030
-
 portal:
   enabled: true

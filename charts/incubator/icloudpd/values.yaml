@@ -1,15 +1,13 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/icloudpd
-  tag: latest@sha256:ab4b90c22a3bf93d6045cd26733447b143a66d5c9100a91c9bbea27f0443a838
-
+  repository: boredazfcuk/icloudpd
+  tag: latest@sha256:e582d839b020fc5da6ba2612dffa74c29725a0a677789e822118372ede2af512
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsGroup: 0
     runAsUser: 0
-
 icloudpd:
   apple_id: your@appleid.com
   authentication_type: 2FA
@@ -68,7 +66,6 @@ icloudpd:
   # gotify_server_url: ""
   # bark_device_key: ""
   # bark_server: ""
-
 workload:
   main:
     podSpec:
@@ -114,14 +111,12 @@ workload:
               enabled: false
             startup:
               enabled: false
-
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-
 persistence:
   config:
     enabled: true
@@ -129,7 +124,6 @@ persistence:
   data:
     enabled: true
     mountPath: /home/apps/iCloud
-
 portal:
   open:
     enabled: false

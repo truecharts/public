@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/van-dam
+  repository: ghcr.io/floppy/van_dam
   pullPolicy: IfNotPresent
-  tag: v0.53.0@sha256:2b018bb41c253810ba9d01fe6764dc30a2ff653444007d383f85c6537c6cc358
-
+  tag: 0.54.0@sha256:e1300f42a01398417c45996bc8b0257e320d7021778d42ce571b2374d935fb55
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -17,7 +15,6 @@ service:
         protocol: http
         targetPort: 3214
         port: 3214
-
 workload:
   main:
     podSpec:
@@ -37,21 +34,17 @@ workload:
               secretKeyRef:
                 name: vandam-secrets
                 key: SECRET_KEY_BASE
-
 persistence:
   libraries:
     enabled: true
     mountPath: "/libraries"
-
 cnpg:
   main:
     enabled: true
     user: vandam
     database: vandam
-
 redis:
   enabled: true
-
 portal:
   open:
     enabled: true

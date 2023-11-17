@@ -3,8 +3,8 @@ env:
   GAME_PARAMS: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/counterstrike2d
-  tag: latest@sha256:86580b1dba85da3ee01b53990a4cd514141bd878ee0fd72c961703cfe664c6b6
+  repository: ich777/cs2dserver
+  tag: latest@sha256:ed6eb65c882c8a1c278688db45973a57aab3868377f0be9cc7320d99152f3fef
 persistence:
   serverfiles:
     enabled: true
@@ -29,6 +29,5 @@ service:
         port: 36963
         protocol: UDP
         targetPort: 36963
-
 portal:
   enabled: true

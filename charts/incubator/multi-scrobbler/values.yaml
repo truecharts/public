@@ -1,27 +1,23 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/multi-scrobbler
-  tag: v0.6.1@sha256:a08454006d704a1ca96a6dcb89f28556b636c5f131f58eca37014d54bfd74474
-
+  repository: foxxmd/multi-scrobbler
+  tag: 0.6.1@sha256:c35ab149c393c556ab8131f63016ae6cd08a7b3f0e5d90b98b90f14a08fe12ed
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsGroup: 0
     runAsUser: 0
-
 service:
   main:
     ports:
       main:
         port: 9078
         targetPort: 9078
-
 persistence:
   config:
     enabled: true
     mountPath: /config
-
 portal:
   open:
     enabled: true

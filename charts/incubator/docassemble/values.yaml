@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/docassemble
+  repository: jhpyle/docassemble
   pullPolicy: IfNotPresent
-  tag: latest@sha256:665fbaf35a7548e0418947a8d1e193416fffd0a8a738cb2603310137a6fd16d1
-
+  tag: latest@sha256:b20ae1bcac80a620411343f627f9cb89cf4bf77e05f85d1541ef87570dcd8633
 service:
   main:
     ports:
@@ -15,11 +14,9 @@ service:
       rcon:
         enabled: true
         port: 25575
-
 docassemble:
   hostname: docassemble.example.com
   behind_loadbalancer: false
-
 workload:
   main:
     podSpec:
@@ -49,7 +46,6 @@ workload:
             PORT: "{{ .Values.service.main.ports.main.port }}"
             BEHINDHTTPSLOADBALANCER: "{{ .Values.docassemble.behind_loadbalancer }}"
             DAHOSTNAME: "{{ .Values.docassemble.hostname }}"
-
 persistence:
   config:
     enabled: true
@@ -66,14 +62,12 @@ persistence:
   files:
     enabled: true
     mountPath: "/usr/share/docassemble/files"
-
 # Enabled postgres
 cnpg:
   main:
     enabled: true
     user: docassemble
     database: docassemble
-
 portal:
   open:
     enabled: true

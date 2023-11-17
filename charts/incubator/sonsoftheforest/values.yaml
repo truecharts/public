@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/sonsoftheforest
+  repository: ich777/steamcmd
   pullPolicy: IfNotPresent
-  tag: latest@sha256:e435b582929c81473862460a9305751b0cf79413ecc8599332b0104e0da603ab
-
+  tag: sonsoftheforest@sha256:8b7590087f32f15265c35a32227c123d695b1cff14132c5fb27b62da93aa51f5
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -30,7 +28,6 @@ service:
         enabled: true
         protocol: udp
         port: 9700
-
 sonsoftheforest:
   game:
     id: "2465200"
@@ -99,7 +96,6 @@ sonsoftheforest:
       GameSetting.Survival.ColdPenalties: "off"
       GameSetting.Survival.ReducedFoodInContainers: false
       GameSetting.Survival.SingleUssonsoftheforestntainers: false
-
 workload:
   main:
     podSpec:
@@ -121,7 +117,6 @@ workload:
             PASSWRD: "{{ .Values.sonsoftheforest.game.password }}"
             GAME_PARAMS: '{{ join " " .Values.sonsoftheforest.game.params }}'
             VALIDATE: "{{ .Values.sonsoftheforest.game.validate }}"
-
 persistence:
   steamcmd:
     enabled: true
@@ -139,7 +134,6 @@ persistence:
           mountPath: /serverdata/serverfiles/userdata/dedicatedserver.cfg
           subPath: dedicatedserver.cfg
           readOnly: true
-
 portal:
   open:
     enabled: false

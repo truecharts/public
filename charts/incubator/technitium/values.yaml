@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/technitium
+  repository: technitium/dns-server
   pullPolicy: IfNotPresent
-  tag: v11.3.0@sha256:e7a2cc08975130129dd6c31058af58b32c22336d752242d623acbbf045698046
-
+  tag: 11.5@sha256:a8f77174d8aa1da5afccd43cbbe7ce728ef22a15544e1bfe9826a268f7150c1d
 securityContext:
   container:
     runAsNonRoot: false
@@ -10,13 +9,11 @@ securityContext:
     allowPrivilegeEscalation: true
     runAsUser: 0
     runAsGroup: 0
-
 # Not sure if those will work on k8s
 # - "443:443/tcp" #DNS-over-HTTPS service
 # - "80:80/tcp" #DNS-over-HTTPS service certbot certificate renewal
 # Note sure if this will work with traefik
 # - "8053:8053/tcp" #DNS-over-HTTPS using reverse proxy
-
 service:
   main:
     ports:
@@ -66,7 +63,6 @@ service:
         protocol: tcp
         port: 10204
         targetPort: 8053
-
 workload:
   main:
     podSpec:
@@ -90,12 +86,10 @@ workload:
             DNS_SERVER_FORWARDERS: "1.1.1.1,8.8.8.8"
             # Udp, Tcp, Tls, Https, HttpsJson
             DNS_SERVER_FORWARDER_PROTOCOL: "Tcp"
-
 persistence:
   config:
     enabled: true
     mountPath: "/etc/dns/config"
-
 portal:
   open:
     enabled: true

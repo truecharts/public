@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/xware
-  tag: latest@sha256:ada617dcee94930d6f3da1bcc4e02a209cf4090e891a3233f08587a171ef2fd4
+  repository: caiguai/docker-xware
+  tag: latest@sha256:0aea5c81ecbe16258f324926cbcf8a0b8b460d8b4be3bbe9c2e06c0df92dadf5
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -23,6 +23,5 @@ service:
     ports:
       main:
         enabled: false
-
 portal:
   enabled: false

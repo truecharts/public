@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/pixelserv-tls
-  tag: latest@sha256:64d7cf54725a9f10c05e893029ae8cded6a46fdac0148063e2969df5efc3877b
+  repository: imthai/pixelserv-tls
+  tag: latest@sha256:782d101d2fbbd48a4aeb4594c92743d556213b0d72598e2a65ebfb1a549b48e1
 persistence:
   certficatesdir:
     enabled: true
@@ -28,6 +28,5 @@ service:
         port: 443
         protocol: HTTP
         targetPort: 443
-
 portal:
   enabled: true

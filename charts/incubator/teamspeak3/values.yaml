@@ -1,16 +1,13 @@
 image:
-  repository: tccr.io/truecharts/teamspeak
+  repository: teamspeak
   pullPolicy: IfNotPresent
-  tag: v3.13.7@sha256:4a989cccfeb26025b5c67319ec46f787083f43356f2bfda286b5da9fea41c7a8
-
+  tag: 3.13.7@sha256:cfdeb278e1838b9db4b47f493af0b45cad30586d5f97af2a87eb90f86a0d6467
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 #  9987 default voice
 # 10011 server query
 # 30033 file transport
@@ -35,14 +32,11 @@ service:
         enabled: true
         port: 30033
         targetPort: 30033
-
 env:
   TS3SERVER_LICENSE: "accept"
-
 persistence:
   data:
     enabled: true
     mountPath: "/var/ts3server"
-
 portal:
   enabled: false

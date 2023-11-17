@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/songkong
-  tag: latest@sha256:08ec1d64a5ac7f3eec40d52e7e947ee61bf418e4476c8da5e70124827cf18e2d
+  repository: songkong/songkong
+  tag: latest@sha256:7b91b238587d6abb7e7e7e0586e5d5af005bc66f8fb39910f11c326206bc63e8
 persistence:
   music:
     enabled: true
@@ -23,6 +23,5 @@ service:
         port: 4567
         protocol: TCP
         targetPort: 4567
-
 portal:
   enabled: true

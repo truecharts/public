@@ -1,12 +1,10 @@
 image:
-  repository: tccr.io/truecharts/openbooks
+  repository: evanbuss/openbooks
   pullPolicy: IfNotPresent
-  tag: 4.5.0@sha256:fe1b693d63397e01a5673b8b16180539c1cb952abfe4ebfb58d0950ab9886adc
-
+  tag: 4.5.0@sha256:3f2e59a75b68950d57cfec5dc2b1b31d6c6b02706097c70b5438499b59fbdea2
 securityContext:
   container:
     readOnlyRootFilesystem: false
-
 openbooks:
   user_name: truecharts
   server: irc.irchighway.net:6697
@@ -16,7 +14,6 @@ openbooks:
   persist: false
   no_browser_downloads: false
   tls: true
-
 workload:
   main:
     podSpec:
@@ -32,14 +29,12 @@ workload:
             startup:
               path: "/"
               type: http
-
 service:
   main:
     ports:
       main:
         protocol: http
         port: 10608
-
 persistence:
   books:
     enabled: true
@@ -47,7 +42,6 @@ persistence:
   logs:
     enabled: true
     mountPath: /books/logs
-
 portal:
   open:
     enabled: true

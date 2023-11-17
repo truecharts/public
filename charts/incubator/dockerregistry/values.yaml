@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/dockerregistry
-  tag: v2@sha256:30949e8125d6a582af9c1bd9f30c24f4d017e7ba21021bb7b9f7bce629c43a64
+  repository: registry
+  tag: 2@sha256:8a60daaa55ab0df4607c4d8625b96b97b06fd2e6ca8528275472963c4ae8afa0
 persistence:
   datastoragepath:
     enabled: true
@@ -20,6 +20,5 @@ service:
         port: 5000
         protocol: TCP
         targetPort: 5000
-
 portal:
   enabled: true

@@ -7,8 +7,8 @@ env:
   START_VARS: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/redm
-  tag: latest@sha256:2c7101d825dab1bcbd377a226213b0642fb512fe714eb85b575e269710df7e2b
+  repository: ich777/redmserver
+  tag: latest@sha256:501b1669e90e39c41e92ec9ad3bbb119eba3675b01116afb9be16115fe4a489c
 persistence:
   serverfiles:
     enabled: true
@@ -58,6 +58,5 @@ service:
         port: 30120
         protocol: UDP
         targetPort: 30120
-
 portal:
   enabled: true

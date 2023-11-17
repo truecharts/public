@@ -1,22 +1,19 @@
 image:
-  repository: tccr.io/truecharts/midarr-server
-  tag: v3.1.0@sha256:5d85789b1a43cd6f7b133ae129d9f1dae4b97773e6c9f54b48094b1c86b47422
+  repository: ghcr.io/midarrlabs/midarr-server
+  tag: v4.1.2@sha256:d84c027ea3a7f0f523708a4aead9911afd61e0f10e3e86a2413ca6adcf3896b3
   pullPolicy: IfNotPresent
-
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
       main:
         port: 10347
         targetPort: 4000
-
 midarr:
   admin:
     mail: admin@example.com
@@ -32,7 +29,6 @@ midarr:
   sonarr:
     base_url: ""
     api_key: ""
-
 workload:
   main:
     podSpec:
@@ -45,13 +41,11 @@ workload:
           envFrom:
             - secretRef:
                 name: "midarr-secrets"
-
 cnpg:
   main:
     enabled: true
     user: midarr
     database: midarr
-
 portal:
   open:
     enabled: true

@@ -21,8 +21,8 @@ env:
   UMASK: "000"
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/neverwinternights-ee
-  tag: latest@sha256:a1903e34cfbd20a3f972021a46704e87bf4ec2834e93da52cdf7a1fb8e4c6386
+  repository: ich777/nwnee-server
+  tag: latest@sha256:589b9781c341981b4eb9882a7862f3e48b8584dfc757c4255a47416decac320b
 persistence:
   serverfiles:
     enabled: true
@@ -47,6 +47,5 @@ service:
         port: 5121
         protocol: UDP
         targetPort: 5121
-
 portal:
   enabled: true

@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/vlmcsd-kms-server
-  tag: latest@sha256:27e806a1729fd17c46cd7e757e49683f15b0cf2d6d34dd06ec10c67f05594021
+  repository: mikolatero/vlmcsd
+  tag: latest@sha256:217a03280410aa06bca7dd1b4e3e206317ba740a990d90683462fb21b17c9e7d
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -23,6 +23,5 @@ service:
     ports:
       main:
         enabled: false
-
 portal:
   enabled: false

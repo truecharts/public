@@ -1,23 +1,19 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/phpmyadmin
-  tag: latest@sha256:732483189d167c9fd787dd9c6f090dec05aac5f8b8c81898ad4ae1494c9e888e
-
+  repository: phpmyadmin/phpmyadmin
+  tag: 5.2.1@sha256:67ba2550fd004399ab0b95b64021a88ea544011e566a9a1995180a3decb6410d
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 env:
   MYSQL_PASSWORD: root
   MYSQL_USER: root
   PMA_HOST: 192.168.70.99
   PMA_PORT: "3306"
   # PMA_ABSOLUTE_URI: ""
-
 service:
   main:
     ports:
@@ -25,6 +21,5 @@ service:
         port: 8080
         protocol: HTTP
         targetPort: 80
-
 portal:
   enabled: true

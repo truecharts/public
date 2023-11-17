@@ -1,16 +1,13 @@
 image:
-  repository: tccr.io/truecharts/leantime
+  repository: leantime/leantime
   pullPolicy: IfNotPresent
-  tag: 2.3.20@sha256:9deb8d1ce82747db28737522312e3f92a3834e0f22073bf9e4de73eb1fd8cc9a
-
+  tag: 2.4.7@sha256:f4327024cbd0ba0b2caba729eeac3d447fcfc442641685e1a56e4b772db48fe9
 securityContext:
   runAsNonRoot: false
   readOnlyRootFilesystem: false
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 env:
   LEAN_DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
   LEAN_DB_USER: "{{ .Values.mariadb.mariadbUsername }}"
@@ -27,19 +24,16 @@ env:
     secretKeyRef:
       name: leantime-secrets
       key: LEAN_SESSION_PASSWORD
-
 service:
   main:
     ports:
       main:
         port: 10117
         targetPort: 80
-
 mariadb:
   enabled: true
   mariadbUsername: leantime
   mariadbDatabase: leantime
   existingSecret: "mariadbcreds"
-
 portal:
   enabled: true

@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/trango
-  tag: latest@sha256:8d3c2dcd79a85a1907e5ca661983a3e19ef1d351ae2cfd8e96567a6175f9d9e3
+  repository: tak786/trango-self-hosted
+  tag: latest@sha256:ba9ffeb9152ccf7afe68d404f44fab1fdc7d461801f0504a52f33c7c3e818648
 persistence:
   config:
     enabled: true
@@ -28,6 +28,5 @@ service:
         port: 7755
         protocol: TCP
         targetPort: 80
-
 portal:
   enabled: true

@@ -1,9 +1,7 @@
 image:
-  repository: tccr.io/truecharts/answer
+  repository: answerdev/answer
   pullPolicy: IfNotPresent
-  tag: v1.2.0@sha256:70a578170bca4a7a1040d44cb5ff143d5e9c2c2f32f9d48f1ad4519d61c35451
-
-
+  tag: 1.2.0@sha256:9b7fd1410df5587e56d446741760ecbd63d342c5e50587d3570e33282cf9cd77
 service:
   main:
     ports:
@@ -11,7 +9,6 @@ service:
         protocol: http
         port: 9080
         targetPort: 80
-
 answer:
   app:
     language: en-US
@@ -25,7 +22,6 @@ answer:
     name: admin
     password: super-secret-password
     email: admin@example.com
-
 workload:
   main:
     podSpec:
@@ -63,22 +59,18 @@ workload:
             ADMIN_NAME: "{{ .Values.answer.admin.name }}"
             ADMIN_PASSWORD: "{{ .Values.answer.admin.password }}"
             ADMIN_EMAIL: "{{ .Values.answer.admin.email }}"
-
 persistence:
   data:
     enabled: true
     mountPath: /data
-
 cnpg:
   main:
     enabled: true
     user: answer
     database: answer
-
 portal:
   open:
     enabled: true
-
 operator:
   verify:
     enabled: false

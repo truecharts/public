@@ -1,20 +1,16 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/chivalry-medievalwarfare
-  tag: latest@sha256:fab8500043940e1eabd181ebf72fe37ef26e5ce3b6447a191584a7f3bd51a9bf
-
+  repository: ich777/steamcmd
+  tag: chivalrymw@sha256:4c7d2b30d07b2ba596bec1dd3afe52755583a483b14d9c3d4810704a36260364
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 secretEnv:
   USERNAME: ""
   PASSWRD: ""
-
 env:
   ADMIN_PWD: adminDocker
   GAME_ID: "220070"
@@ -22,7 +18,6 @@ env:
   GAME_PARAMS_EXTRA: -seekfreeloadingserver
   MAP: aocffa-moor_p
   VALIDATE: true
-
 probes:
   liveness:
     enabled: false
@@ -30,7 +25,6 @@ probes:
     enabled: false
   startup:
     enabled: false
-
 service:
   main:
     ports:
@@ -54,7 +48,6 @@ service:
         port: 27015
         protocol: UDP
         targetPort: 27015
-
 persistence:
   serverfiles:
     enabled: true
@@ -62,6 +55,5 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-
 portal:
   enabled: true

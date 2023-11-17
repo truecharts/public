@@ -1,26 +1,21 @@
 image:
-  repository: tccr.io/truecharts/alpine
+  repository: alpine
   pullPolicy: IfNotPresent
-  tag: latest@sha256:17cd77e25d3fa829d168caec4db7bb5b52ceeb935d8ca0d1180de6f615553dc4
-
+  tag: 3.18.4@sha256:eece025e432126ce23f223450a0326fbebde39cdf496a85d8c016293fc851978
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-
 workload:
   main:
     enabled: false
-
 portal:
   open:
     enabled: false
-
 operator:
   register: true
-
 velero:
   namespace:
     labels:
@@ -38,14 +33,12 @@ velero:
         value: privileged
       - key: pod-security.kubernetes.io/warn-version
         value: latest
-
   # Resource requests/limits to specify for the Velero deployment.
   # https://velero.io/docs/v1.6/customize-installation/#customize-resource-requests-and-limits
   resources:
     limits:
       cpu: 4000m
       memory: 4Gi
-
   # Init containers to add to the Velero deployment's pod spec. At least one plugin provider image is required.
   # If the value is a string then it is evaluated as a template.
   initContainers:
@@ -67,10 +60,8 @@ velero:
       volumeMounts:
         - mountPath: /target
           name: plugins
-
   # Whether to deploy the node-agent daemonset.
   deployNodeAgent: true
-
   nodeAgent:
     podVolumePath: /var/lib/kubelet/pods
     privileged: true
@@ -80,7 +71,6 @@ velero:
       limits:
         cpu: 2000m
         memory: 2048Mi
-
   ##
   ## Parameters for the `default` BackupStorageLocation and VolumeSnapshotLocation,
   ## and additional server settings.
@@ -88,23 +78,17 @@ velero:
   configuration:
     ## Please do not use, use .Values.backupStorageLocation instead
     backupStorageLocation: []
-
     ## Please do not use, use .Values.volumeSnapshotLocation instead
     volumeSnapshotLocation: []
-
   ## Please do not use, use .Values.schedules instead
   schedules: {}
-
 manifestManager:
   enabled: false
-
 # Parameters for the BackupStorageLocation(s). Configure multiple by adding other element(s) to the backupStorageLocation slice.
 # See https://velero.io/docs/v1.6/api-types/backupstoragelocation/
 backupStorageLocation: []
-
 # Parameters for the VolumeSnapshotLocation(s). Configure multiple by adding other element(s) to the volumeSnapshotLocation slice.
 # See https://velero.io/docs/v1.6/api-types/volumesnapshotlocation/
 volumeSnapshotLocation: []
-
 # Backup schedules to create.
 schedules: []

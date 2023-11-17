@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/ghost
-  tag: 5.45.1@sha256:c6e81a7ad4133ab981bcc49f65a367adf5185371cc9271464cd300048021e74a
+  repository: ghost
+  tag: 5.73.1@sha256:1a505da1f3985e35ae920a68697e146f23242503c8ea9b13823efd0bf75e0306
   pullPolicy: IfNotPresent
-
 env:
   # db env
   database__client: "mysql"
@@ -51,24 +50,20 @@ env:
     secretKeyRef:
       name: mariadbcreds
       key: mariadb-password
-
 service:
   main:
     ports:
       main:
         port: 10166
         targetPort: 10166
-
 persistence:
   content:
     enabled: true
     mountPath: "/var/lib/ghost/content"
-
 mariadb:
   enabled: true
   mariadbUsername: ghost
   mariadbDatabase: ghost
   existingSecret: "mariadbcreds"
-
 portal:
   enabled: true

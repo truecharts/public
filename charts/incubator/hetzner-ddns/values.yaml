@@ -4,8 +4,8 @@ env:
   ZONE_NAME: example.com
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/hetzner-ddns
-  tag: latest@sha256:87009e3ba99b4cf30c8e8800885b1e5e488fad78db026304d40c59030c0b4be1
+  repository: kutzilla/hetzner-ddns
+  tag: latest@sha256:b827c9203391994382e4a08927fc15c04d3a023bacc15b22480bc8250e787387
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -26,6 +26,5 @@ service:
     ports:
       main:
         enabled: false
-
 portal:
   enabled: false

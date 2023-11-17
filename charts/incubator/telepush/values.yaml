@@ -1,22 +1,19 @@
 image:
-  repository: tccr.io/truecharts/telepush
+  repository: ghcr.io/muety/telepush
   pullPolicy: IfNotPresent
-  tag: v4.1.1@sha256:43d1b195c96a73254aaae38efc862b55cfc6ec50d8f098366086076b14890cb2
-
+  tag: 4.1.1@sha256:3238c403f93d4004a406f6bc19f5e83957efb6287bfc1498136d747b8f44908a
 service:
   main:
     ports:
       main:
         protocol: http
         port: 8080
-
 telepush:
   # webhook | poll
   mode: webhook
   token: ""
   ratelimit: 100
   cmdratelimit: 10
-
 workload:
   main:
     podSpec:
@@ -37,12 +34,10 @@ workload:
             APP_TOKEN: "{{ .Values.telepush.token }}"
             APP_RATE_LIMIT: "{{ .Values.telepush.ratelimit }}"
             APP_CMD_RATE_LIMIT: "{{ .Values.telepush.cmdratelimit }}"
-
 persistence:
   data:
     enabled: true
     mountPath: "/srv/data"
-
 portal:
   open:
     enabled: false

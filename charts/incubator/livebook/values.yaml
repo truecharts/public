@@ -2,8 +2,8 @@ env:
   LIVEBOOK_PASSWORD: livebookiscool
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/livebook
-  tag: latest@sha256:5083b5d5cc02f9698c040f568091c1fb46a0880cfdaa62b6584fb5b08b78ee3e
+  repository: livebook/livebook
+  tag: latest@sha256:99c321de38ad781df509cfd3e452805f04627589a435645faa889a963bd7d1f5
 persistence:
   data:
     enabled: true
@@ -21,6 +21,5 @@ service:
         port: 8787
         protocol: TCP
         targetPort: 8080
-
 portal:
   enabled: true

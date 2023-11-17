@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/owntracks
+  repository: owntracks/recorder
   pullPolicy: IfNotPresent
-  tag: 0.9.3@sha256:797eb8958677b80bbb438251f75a51984b578c4919f0fe2c3a9bbf0e866a8b43
-
+  tag: 0.9.6@sha256:eaa3afb70f74167d93056a1277309d256e2349a3df3628a885f2658b9672a703
 owntracks:
   otr_host: ""
   otr_port: 1883
@@ -13,14 +12,12 @@ owntracks:
   otr_browserapikey: ""
   otr_serverlabel: OwnTracks
   otr_lmdbsize: 104857600000
-
 service:
   main:
     ports:
       main:
         port: 8083
         protocol: http
-
 workload:
   main:
     podSpec:
@@ -42,7 +39,6 @@ workload:
           envFrom:
             - secretRef:
                 name: "secret"
-
 persistence:
   store:
     enabled: true
@@ -50,7 +46,6 @@ persistence:
   config:
     enabled: true
     mountPath: /config
-
 portal:
   open:
     enabled: true

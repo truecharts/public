@@ -1,26 +1,21 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/fireshare
-  tag: 1.2.8@sha256:9a8893666987d6a2a0ee18281ef55632630d3eee904886194372f9fe2961c068
-
+  repository: shaneisrael/fireshare
+  tag: v1.2.14@sha256:045177976e16c18cc2b1269bc3a2058f802450a5de9cc147997dc148c757d4bf
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 secretEnv:
   ADMIN_PASSWORD: "changeme"
-
 env:
   SECRET_KEY:
     secretKeyRef:
       name: fireshare-secrets
       key: SECRET_KEY
   MINUTES_BETWEEN_VIDEO_SCANS: 5
-
 service:
   main:
     ports:
@@ -28,7 +23,6 @@ service:
         port: 10287
         protocol: HTTP
         targetPort: 80
-
 persistence:
   data:
     enabled: true
@@ -39,6 +33,5 @@ persistence:
   videos:
     enabled: true
     mountPath: /videos
-
 portal:
   enabled: true

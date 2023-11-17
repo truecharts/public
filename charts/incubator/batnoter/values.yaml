@@ -1,16 +1,13 @@
 image:
-  repository: tccr.io/truecharts/batnoter
-  tag: latest@sha256:bd3da99f035e858ad26d03e12dbe3bd101f8408a080a80658111058e860eabd9
+  repository: ghcr.io/batnoter/batnoter/batnoter-ui
+  tag: latest@sha256:9916463b41965035cc695b27bc8f3bf0fdc5923f5046d8fbd857d206b2d120a4
   pullPolicy: IfNotPresent
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 service:
   main:
     ports:
@@ -18,6 +15,5 @@ service:
         port: 10351
         protocol: HTTP
         targetPort: 3000
-
 portal:
   enabled: true

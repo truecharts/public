@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/fileshelter
-  tag: latest@sha256:3eb29b83a5ff465d94798a38a4c6535c429040f054972d82ce211f394283c760
+  repository: epoupon/fileshelter
+  tag: latest@sha256:0ed70bdc5197566dedfa7e49bc2c92d71d279562993664ecf9554c7b4374e8c3
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -23,6 +23,5 @@ service:
     ports:
       main:
         enabled: false
-
 portal:
   enabled: false

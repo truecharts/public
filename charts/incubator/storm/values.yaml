@@ -6,8 +6,8 @@ env:
   STORM_API_KEY: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/storm
-  tag: latest@sha256:223613418ebb3f4063765a1670aa01d127cf65a5fa392641b259fb2a5c039c35
+  repository: ghcr.io/relvacode/storm
+  tag: latest@sha256:9f50d643af5a83424331a93a212e320407a1a1577f0202e6141f7f5245d2711a
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -22,6 +22,5 @@ service:
         port: 8221
         protocol: TCP
         targetPort: 8221
-
 portal:
   enabled: true

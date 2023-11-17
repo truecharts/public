@@ -9,8 +9,8 @@ env:
   YOURLS_USER: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/yourls
-  tag: latest@sha256:9e5e11b7733dfed36aa90decc1f6b7d0bbb627128c3b9e80f7adb2a1fefb0cf8
+  repository: yourls
+  tag: latest@sha256:a20b1d952e5dfc5efaa127a4a3ba8a8fff1c50a0bc626890c6cfea275bc550ea
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -25,6 +25,5 @@ service:
         port: 80
         protocol: TCP
         targetPort: 80
-
 portal:
   enabled: true

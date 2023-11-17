@@ -1,21 +1,17 @@
 image:
-  repository: tccr.io/truecharts/zusam
-  tag: 0.5.3@sha256:477f1744f0f716361af553e90bfd8c23cec19e35bb3fb5c21e965ddf5551f341
+  repository: zusam/zusam
+  tag: 0.5.4@sha256:5a1581e6cd5fed185a1e858ad0256914ec9245a1bcc8df22d9e475651160e642
   pullPolicy: IfNotPresent
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 secretEnv:
   INIT_USER: email@domain.com
   INIT_GROUP: zusam
   INIT_PASSWORD: changeme
-
 env:
   DOMAIN: localhost
   LANG: en
@@ -48,7 +44,6 @@ env:
   CRON_CLEAN_FILES: 604800
   CRON_CLEAN_MESSAGES: 604800
   CRON_CLEAN_GROUPS: 2592000
-
 service:
   main:
     ports:
@@ -56,11 +51,9 @@ service:
         port: 10283
         targetPort: 8080
         protocol: HTTP
-
 persistence:
   data:
     enabled: true
     mountPath: /zusam/data
-
 portal:
   enabled: true

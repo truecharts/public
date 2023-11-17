@@ -2,8 +2,8 @@ env:
   PREVENT_SIGNUPS: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/dailynotes
-  tag: latest@sha256:2fb4e6f3e031c83420f3d87ea174550495c348cc8bd08672da5658dd3e38df05
+  repository: m0ngr31/dailynotes
+  tag: latest@sha256:fee45ab299434cbc9d4a380f28a29448eac52284a3adb6b0854bdf38fd9a1b12
 persistence:
   config:
     enabled: true
@@ -21,6 +21,5 @@ service:
         port: 5000
         protocol: TCP
         targetPort: 5000
-
 portal:
   enabled: true

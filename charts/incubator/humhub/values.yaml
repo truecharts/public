@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/humhub
-  tag: latest@sha256:8b1b3bb64dd53f86f35cc418756d84d4eb17298e3f0c679e35bf2abbb3490ab7
+  repository: ghcr.io/siwatinc/humhub
+  tag: latest@sha256:5350a151dfc8e1ca9b5fb75b81455baad85b668fdbe9c707c126a4ad3f64caf9
 persistence:
   config:
     enabled: true
@@ -20,6 +20,5 @@ service:
         port: 85
         protocol: TCP
         targetPort: 80
-
 portal:
   enabled: true

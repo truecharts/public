@@ -1,20 +1,16 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/apprise-api
-  tag: 1.2.0@sha256:5cf484c5d1689dcea1f28b8b089508150e122abf3bd8ee90131a03d68a4c95ca
-
+  repository: caronc/apprise
+  tag: v0.9.5@sha256:3301daff63ae435e69ac6c3acf5ceb3832d5b40d639b59f73163e3238adb2fe7
 podSecurityContext:
   runAsGroup: 33
   runAsUser: 33
   fsGroup: 33
-
 securityContext:
   readOnlyRootFilesystem: false
   # runAsNonRoot: false
-
 secretEnv:
   SECRET_KEY: "abc123"
-
 env:
   APPRISE_CONFIG_DIR: /config
   APPRISE_STATEFUL_MODE: hash
@@ -26,7 +22,6 @@ env:
   APPRISE_ALLOW_SERVICES: ""
   ALLOWED_HOSTS: "*"
   # APPRISE_STATELESS_URLS
-
 service:
   main:
     ports:
@@ -34,11 +29,9 @@ service:
         port: 8000
         protocol: HTTP
         targetPort: 8000
-
 persistence:
   config:
     enabled: true
     mountPath: /config
-
 portal:
   enabled: true

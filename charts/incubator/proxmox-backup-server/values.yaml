@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/proxmox-backup-server
-  tag: v3.0.2@sha256:31e31c6bc27ca6e682eb2819ba69bec7d20bfa928e5642123e620f9be3277d3c
+  repository: ayufan/proxmox-backup-server
+  tag: v3.0.2@sha256:7466aa309840f73dbccb6c0f237748384f95273ee1e61f07674c86e3238c006a
   pullPolicy: IfNotPresent
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -17,7 +15,6 @@ service:
         targetPort: 8007
         protocol: https
         port: 8007
-
 workload:
   main:
     podSpec:
@@ -34,7 +31,6 @@ workload:
               type: https
             startup:
               type: tcp
-
 persistence:
   config:
     enabled: true
@@ -51,7 +47,6 @@ persistence:
     enabled: true
     type: emptyDir
     mountPath: /run
-
 portal:
   open:
     enabled: true

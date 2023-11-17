@@ -1,27 +1,22 @@
 image:
-  repository: tccr.io/truecharts/self-service-password
+  repository: tiredofit/self-service-password
   pullPolicy: IfNotPresent
-  tag: 5.3.1@sha256:ec141efccd9b04c03feb6f10c37a97f6271e1891ac8ecd7b34a5ee71d90e3795
-
+  tag: 5.3.3@sha256:22702382af64ccb68a6f6cfee934632b67fa01c58185307470b992b11615cc55
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 env:
   SETUP_MODE: "manual"
   ENABLE_RESET_LOG: true
-
 service:
   main:
     ports:
       main:
         port: 10182
         targetPort: 80
-
 persistence:
   config:
     enabled: true
@@ -29,6 +24,5 @@ persistence:
   logs:
     enabled: true
     mountPath: "/www/logs"
-
 portal:
   enabled: true

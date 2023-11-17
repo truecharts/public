@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/tanoshi
-  tag: latest@sha256:8e471c679e5319c0d9d9bf25f5eaa4a470ca979a73ffa36e7ae295ad4f4edea3
+  repository: faldez/tanoshi
+  tag: latest@sha256:bb6ce408c3786e33092fc59ef85d2221c16dc48c7b70eaf6bf8ec4df9701f1bf
 persistence:
   directoryconfig:
     enabled: true
@@ -20,6 +20,5 @@ service:
         port: 80
         protocol: TCP
         targetPort: 80
-
 portal:
   enabled: true

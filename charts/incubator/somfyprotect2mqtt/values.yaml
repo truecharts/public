@@ -1,16 +1,13 @@
 image:
-  repository: tccr.io/truecharts/somfyprotect2mqtt
+  repository: minims/somfyprotect2mqtt
   pullPolicy: IfNotPresent
-  tag: v0.2.9@sha256:96adf01880eb7569f86cc8b0637c9d0f2504df29ca336ba76456111c19c0c874
-
+  tag: 2023.11.1@sha256:19fdf79ee019b22fd5872d61b86d82f75aa418a5bf87da8272337f0dd3af922f
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 somfyprotect2mqtt:
   somfy:
     username: admin
@@ -31,14 +28,12 @@ somfyprotect2mqtt:
   delay_site: 10
   delay_device: 60
   manual_snapshot: false
-
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-
 probes:
   liveness:
     enabled: false
@@ -46,7 +41,6 @@ probes:
     enabled: false
   startup:
     enabled: false
-
 persistence:
   configfile:
     enabled: true

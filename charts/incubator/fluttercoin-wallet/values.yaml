@@ -6,8 +6,8 @@ env:
   UMASK: "000"
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/fluttercoin-wallet
-  tag: latest@sha256:ca357f95aa9d6c9e6b6e0b57a8c4a2e81d8e89d55c6f36c48a240059d59f3fa8
+  repository: ich777/fluttercoin
+  tag: latest@sha256:6a5a8796019044220846b479e13f9967ed283623b6ebd03ef1bbd1504eefaf66
 persistence:
   datapath:
     enabled: true
@@ -41,6 +41,5 @@ service:
         port: 7408
         protocol: TCP
         targetPort: 7408
-
 portal:
   enabled: true

@@ -2,8 +2,8 @@ env:
   UMASK: "000"
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/flextv
-  tag: latest@sha256:b54a48395fdf0e8cd03c74c1fd40e57d3b57a40f75dcdaaac1b289fa73a743bd
+  repository: jcreynolds/flextv
+  tag: latest@sha256:5a322ebf61462ab66188cee1fd110b4b8b4bfe845ae51925946a74ddcc802a6d
 persistence:
   config:
     enabled: true
@@ -29,6 +29,5 @@ service:
         port: 5667
         protocol: TCP
         targetPort: 443
-
 portal:
   enabled: true

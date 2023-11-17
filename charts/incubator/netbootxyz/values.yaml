@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/netbootxyz
+  repository: ghcr.io/netbootxyz/netbootxyz
   pullPolicy: IfNotPresent
-  tag: v0.6.7@sha256:5a02a07a856c8a5130d0fa1726a8f7f94724a55d7ddb5d4305a21fda28291d26
-
+  tag: 0.6.7-nbxyz25@sha256:ba206c3851b90ef3a01eecd3942464032a6d638fc5f624c648861ad089af41f6
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 workload:
   main:
     podSpec:
@@ -24,7 +22,6 @@ workload:
               type: http
           env:
             MENU_VERSION: ""
-
 service:
   main:
     ports:
@@ -48,11 +45,9 @@ service:
         port: 69
         protocol: udp
         targetPort: 69
-
 ingress:
   assets:
     autoLink: true
-
 persistence:
   config:
     enabled: true
@@ -60,7 +55,6 @@ persistence:
   assets:
     enabled: true
     mountPath: /assets
-
 portal:
   open:
     enabled: true

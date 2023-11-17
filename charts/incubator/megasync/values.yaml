@@ -1,15 +1,13 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/megasync
-  tag: vlatest@sha256:d94f4c81412cd0ea25dadeaae5f58e5f654a82eb9b71adfad622f38d8bd0112b
-
+  repository: ich777/megasync
+  tag: latest@sha256:6c65468d9ed5b55ed6a08fec8e47421c81988b38cf48112308a03ca5a856eaec
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -17,7 +15,6 @@ service:
         port: 8080
         protocol: http
         targetPort: 8080
-
 workload:
   main:
     podSpec:
@@ -27,7 +24,6 @@ workload:
             DATA_DIR: "{{ .Values.persistence.data.mountPath }}"
             CUSTOM_RES_H: "600"
             CUSTOM_RES_W: "800"
-
 persistence:
   data:
     enabled: true
@@ -36,7 +32,6 @@ persistence:
     enabled: true
     mountPath: /mnt/host
     readOnly: true
-
 portal:
   open:
     enabled: true

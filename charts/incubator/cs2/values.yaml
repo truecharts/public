@@ -1,21 +1,18 @@
 image:
-  repository: tccr.io/truecharts/cs2
+  repository: ghcr.io/ich777/steamcmd
   pullPolicy: IfNotPresent
-  tag: latest@sha256:24f52ee1c81175980b76914803bc3ca15c02d4217ccc1c0baf414b8cd2d5f44f
-
+  tag: cs2@sha256:6ad0bbd91d6fcefc2b5b3538ecb84d69f5f777a369c12c83ab9c320b071e7f40
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
       main:
         protocol: udp
         port: 27015
-
 cs2:
   game:
     id: 730
@@ -30,8 +27,6 @@ cs2:
       - +game_type 0
       - +game_mode 1
       - -usercon
-
-
 workload:
   main:
     podSpec:
@@ -53,7 +48,6 @@ workload:
             PASSWRD: "{{ .Values.cs2.game.password }}"
             GAME_PARAMS: '{{ join " " .Values.cs2.game.params }}'
             VALIDATE: "{{ .Values.cs2.game.validate }}"
-
 persistence:
   steamcmd:
     enabled: true
@@ -61,7 +55,6 @@ persistence:
   serverfiles:
     enabled: true
     mountPath: /serverdata/serverfiles
-
 portal:
   open:
     enabled: false

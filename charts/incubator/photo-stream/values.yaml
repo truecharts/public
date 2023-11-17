@@ -5,8 +5,8 @@ env:
   TITLE: Photo Stream for TrueCharts
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/photo-stream
-  tag: latest@sha256:9a0fa375ef7d6b4c651ac0e5c10e78df6747cf85d687381433136f0f8bc8bbd2
+  repository: waschinski/photo-stream
+  tag: latest@sha256:fa30eb2631cd15bda74cb3157177252e51539dec29c824f1c3ce0fd79d8e09ec
 persistence:
   storageimages:
     enabled: true
@@ -24,6 +24,5 @@ service:
         port: 4000
         protocol: HTTP
         targetPort: 4000
-
 portal:
   enabled: true

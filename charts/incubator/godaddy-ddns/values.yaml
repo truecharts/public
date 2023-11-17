@@ -4,8 +4,8 @@ env:
   GODADDY_DOMAINS: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/godaddy-ddns
-  tag: latest@sha256:7669a48dad9864418b028ebe2b885c08658b3d397a2214fc56cd1eae2c0620d4
+  repository: jwater7/godaddy-publicip-updater
+  tag: latest@sha256:fd454790cf528241a1599da8374a0330ecfa1b49179d4aa8582526949ebb0180
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -26,6 +26,5 @@ service:
     ports:
       main:
         enabled: false
-
 portal:
   enabled: false

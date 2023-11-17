@@ -3,8 +3,8 @@ env:
   TVH_URL: http://username:password@tvheadendip:9981
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/tvhproxy
-  tag: latest@sha256:56b803cbe346ffc137ffae1f237981db6011dc93cb746bfc9714b99796fcba18
+  repository: chvb/docker-tvhproxy
+  tag: latest@sha256:e27e4c750121fd95cb1d109c6802d3bdddf42f51c4dc4404cc0eec184397fd79
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -25,6 +25,5 @@ service:
     ports:
       main:
         enabled: false
-
 portal:
   enabled: false

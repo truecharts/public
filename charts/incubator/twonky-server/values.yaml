@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/twonky-server
-  tag: latest@sha256:4dc179df8d92227c6bb12c60eb4956507e2ebac7df8c57b647f47b6cc52d2b80
+  repository: dtjs48jkt/twonkyserver
+  tag: latest@sha256:0d8ed9d9ec5f0408314c5ce76659955368c8c67f5ab1d74cb1e45236de9bda7d
 persistence:
   config:
     enabled: true
@@ -23,6 +23,5 @@ service:
         port: 9000
         protocol: TCP
         targetPort: 9000
-
 portal:
   enabled: true

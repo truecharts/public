@@ -1,22 +1,19 @@
 image:
-  repository: tccr.io/truecharts/plex-meta-manager
+  repository: meisnate12/plex-meta-manager
   pullPolicy: IfNotPresent
-  tag: v1.19.0@sha256:302c3b396f4af2cb789cb36aa7540bc501a7d4aeb108090f7b6aff8e85680110
-
+  tag: v1.19.1@sha256:25dd08a1940e7c26617d50fe24197d2986fe6857c50f6d12f6991d01e4dc425c
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-
 pmm:
   run: false
   no_countdown: true
@@ -24,7 +21,6 @@ pmm:
     - "00:00"
   # plex_url: ""
   # plex_token: ""
-
 workload:
   main:
     podSpec:
@@ -57,13 +53,11 @@ workload:
           envFrom:
             - secretRef:
                 name: "secret"
-
 persistence:
   config:
     enabled: true
     mountPath: /config
     targetSelectAll: true
-
 portal:
   open:
     enabled: false

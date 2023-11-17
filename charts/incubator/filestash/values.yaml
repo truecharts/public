@@ -1,15 +1,13 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/filestash
-  tag: latest@sha256:fdf1d947d1aeb0dcd2532dbbb4af1b8bae06e077e7fb9ce66b0a7d59ba18bd1e
-
+  repository: machines/filestash
+  tag: latest@sha256:558ab112b8d13d4e6d97f95dbc5050dd3ec8c699dd98766c45974ab9b9bdbf62
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -17,7 +15,6 @@ service:
         protocol: http
         targetPort: 8334
         port: 8334
-
 workload:
   main:
     podSpec:
@@ -29,12 +26,10 @@ workload:
             GDRIVE_CLIENT_SECRET: ""
             DROPBOX_CLIENT_ID: ""
             ONLYOFFICE_URL: ""
-
 persistence:
   data:
     enabled: true
     mountPath: /app/data/state
-
 portal:
   open:
     enabled: true

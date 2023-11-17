@@ -1,25 +1,20 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/theforest
-  tag: latest@sha256:abd92c6ebfbf1bde76b35ad1e46aebd03974b601a754cf915820959fd9e73056
-
+  repository: ich777/steamcmd
+  tag: theforest@sha256:8c4ebfbc3def4ad1b740ba4bd7228043028d83fcae45491a083c0930accec2b0
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 secretEnv:
   USERNAME: ""
   PASSWRD: ""
-
 env:
   GAME_ID: "556450"
   GAME_PARAMS: ""
   VALIDATE: false
-
 probes:
   liveness:
     enabled: false
@@ -27,7 +22,6 @@ probes:
     enabled: false
   startup:
     enabled: false
-
 service:
   main:
     ports:
@@ -51,7 +45,6 @@ service:
         port: 27016
         protocol: UDP
         targetPort: 27016
-
 persistence:
   serverfiles:
     enabled: true
@@ -59,6 +52,5 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-
 portal:
   enabled: true

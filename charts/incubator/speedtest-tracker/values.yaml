@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/speedtest-tracker
-  tag: latest@sha256:77fbe15f6bad2371442f1a76cc9e084f45b202ad171ec5acfd449444e60f7a41
+  repository: ghcr.io/alexjustesen/speedtest-tracker
+  tag: v0.13.3@sha256:9e912ccc0fadaa3523e8d53398f5436703805cae463adf3255c9d7cc6cd130e8
   pullPolicy: IfNotPresent
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -17,7 +15,6 @@ service:
         port: 8765
         protocol: https
         targetPort: 443
-
 workload:
   main:
     enabled: true
@@ -37,18 +34,15 @@ workload:
             secretKeyRef:
               name: cnpg-main-user
               key: password
-
 persistence:
   config:
     enabled: true
     mountPath: /config
-
 cnpg:
   main:
     enabled: true
     user: speedtest_tracker
     database: speedtest_tracker
-
 portal:
   open:
     enabled: true

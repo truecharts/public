@@ -4,8 +4,8 @@ env:
   GAME_VERSION: 0.8.2
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/xonotic
-  tag: latest@sha256:c27ad890fe4737e91e2f62745103c8befed840194bf0ea3aeac5a5cb2b430371
+  repository: ich777/xonotic
+  tag: latest@sha256:11db0aee615782a9b48833dbe838c0a3868a77726d88fba664087dc44713ce1e
 persistence:
   serverfiles:
     enabled: true
@@ -30,6 +30,5 @@ service:
         port: 26000
         protocol: UDP
         targetPort: 26000
-
 portal:
   enabled: true

@@ -1,15 +1,12 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/invitarr
-  tag: latest@sha256:5b4cef064f29027cdfdcd6e31e1a35e5c6cc977f1e22b276af8e8224fc72caa2
-
+  repository: piratify/invitarr
+  tag: latest@sha256:78a82851aa167e89a5f5d6f025d81ad8b4c08856f166a92f960e4a57a9c264d9
 env:
   token: ""
-
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 probes:
   liveness:
     enabled: false
@@ -17,22 +14,18 @@ probes:
     enabled: false
   startup:
     enabled: false
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-
 persistence:
   config:
     enabled: true
     mountPath: /app/app/config
-
 portal:
   enabled: false

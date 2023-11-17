@@ -1,15 +1,13 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/unturned
-  tag: latest@sha256:7688a521164ade3b0731bc381b9ffd53733ebb87566acb4a2b47f36d9534f70d
-
+  repository: ich777/steamcmd
+  tag: unturned@sha256:e63219b8f66766faad0ba71ebfcfb53961c07932951d67e1eebbd570b1e726dd
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     enabled: true
@@ -25,7 +23,6 @@ service:
         enabled: true
         protocol: tcp
         port: 27016
-
 workload:
   main:
     podSpec:
@@ -47,7 +44,6 @@ workload:
             ROCKET_MOD: ""
             ROCKET_URL: https://ci.rocketmod.net/job/Rocket.Unturned/lastSuccessfulBuild/artifact/Rocket.Unturned/bin/Release/Rocket.zip
             VALIDATE: false
-
 persistence:
   serverfiles:
     enabled: true
@@ -55,7 +51,6 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-
 portal:
   open:
     enabled: false

@@ -1,22 +1,17 @@
 image:
-  repository: tccr.io/truecharts/bender
-  tag: v1.0.3@sha256:28728f8b8d485c295ab19e96e6f90df111f6e0aa048b7d679222c63e4bf759b5
+  repository: jez500/bender
+  tag: 1.0.3@sha256:32983833590fb1662742065cbd2ff209e0d913cd373a46f075aa482aa7ee5fc9
   pullPolicy: IfNotPresent
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 securityContext:
   runAsNonRoot: false
   readOnlyRootFilesystem: false
-
 bender:
   init_assets: true
-
 env:
   INIT_ASSETS: '{{ ternary "1" "0" .Values.bender.init_assets }}'
-
 service:
   main:
     ports:
@@ -24,11 +19,9 @@ service:
         port: 10353
         protocol: HTTP
         targetPort: 8080
-
 persistence:
   config:
     enabled: true
     mountPath: /app/static
-
 portal:
   enabled: true

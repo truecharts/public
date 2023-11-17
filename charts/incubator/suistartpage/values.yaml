@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/suistartpage
-  tag: latest@sha256:ff558229637988720cf6e3ab888b4e7b2642b4a5fddfc3378fbb91d68636a2c9
+  repository: corneliousjd/sui-startpage
+  tag: latest@sha256:0a4728be5ebed65e501c23444cb3b1f65f7a96e3bb36cff08450b3be0f45934e
 persistence:
   appdata:
     enabled: true
@@ -20,6 +20,5 @@ service:
         port: 8489
         protocol: TCP
         targetPort: 80
-
 portal:
   enabled: true

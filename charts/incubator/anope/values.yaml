@@ -11,8 +11,8 @@ env:
   UMASK: "000"
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/anope
-  tag: latest@sha256:db7fe61af11aa50ec63ed50b7718081aca3e8e1176a7b122ddd5f33089d62866
+  repository: ich777/anope
+  tag: latest@sha256:2fd46d7763de04607785af06a2a31966f4f5b857a12a1895fc4e0bd7b7c626db
 persistence:
   datapath:
     enabled: true
@@ -36,6 +36,5 @@ service:
     ports:
       main:
         enabled: false
-
 portal:
   enabled: false

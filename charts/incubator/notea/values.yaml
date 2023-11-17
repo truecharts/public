@@ -4,8 +4,8 @@ env:
   STORE_USER: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/notea
-  tag: latest@sha256:8de4f944d16259d9c58886ec4e88451ae803d84a556eb1eca065d9938f6a2a5f
+  repository: diamkil/notea
+  tag: latest@sha256:e331f787662bafb3722845045ac1753a084bf16b71b43c820e84dc5af6fe2aa1
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -26,6 +26,5 @@ service:
     ports:
       main:
         enabled: false
-
 portal:
   enabled: false

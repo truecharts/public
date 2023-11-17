@@ -1,17 +1,14 @@
 image:
-  repository: tccr.io/truecharts/linkace
-  tag: 1.12.0@sha256:ab1019d0532158ec9c31e86c7ee8df69cba32741f0b9d2d6e68b950ce0b6261d
+  repository: linkace/linkace
+  tag: v1.13.0-simple@sha256:b1af60405d8c57a261f9612c5d47a8b5ea1b632caa3f96798dee33709bf90384
   pullPolicy: IfNotPresent
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
   fsGroup: 82
-
 # secretEnv:
 #   CRON_TOKEN: ""
 #   AWS_ACCESS_KEY_ID: ""
@@ -26,7 +23,6 @@ podSecurityContext:
 #   MAIL_USERNAME: ""
 #   MAIL_PASSWORD: ""
 #   MAIL_ENCRYPTION: "tls"
-
 env:
   # Internal Envs
   DB_CONNECTION: "mysql"
@@ -66,7 +62,6 @@ env:
     secretKeyRef:
       name: linkace-secrets
       key: APP_KEY
-
 # Set cron every 15 min, official docs says every minute, but seems excesive.
 # It just checks for dead links and sends a request to WayBack Machine to archive.
 cronjob:
@@ -74,14 +69,12 @@ cronjob:
   annotations: {}
   failedJobsHistoryLimit: 5
   successfulJobsHistoryLimit: 2
-
 service:
   main:
     ports:
       main:
         port: 10160
         targetPort: 80
-
 persistence:
   logs:
     enabled: true
@@ -89,16 +82,13 @@ persistence:
   backups:
     enabled: true
     mountPath: "/app/storage/app/backups"
-
 mariadb:
   enabled: true
   mariadbUsername: linkace
   mariadbDatabase: linkace
   existingSecret: "mariadbcreds"
-
 redis:
   enabled: true
   existingSecret: "rediscreds"
-
 portal:
   enabled: true

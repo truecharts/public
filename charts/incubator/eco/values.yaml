@@ -1,15 +1,13 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/eco
-  tag: latest@sha256:b68c9690ea433e1d94363ebf5384342652ab2d9316a2d71c740202669c76aca5
-
+  repository: ich777/steamcmd
+  tag: eco@sha256:7b58e4cff85e87dda0e3638b2d449aef088c25db7ae6f672bfd85f9da02e7f2a
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -23,7 +21,6 @@ service:
         enabled: true
         protocol: udp
         port: 3000
-
 eco:
   game:
     id: 739590
@@ -49,7 +46,6 @@ eco:
     Rate: 20
     MaxConnections: -1
     UPnPEnabled: false
-
 workload:
   main:
     podSpec:
@@ -73,7 +69,6 @@ workload:
             PASSWRD: "{{ .Values.eco.game.password }}"
             GAME_PARAMS: '{{ join " " .Values.eco.game.params }}'
             VALIDATE: "{{ .Values.eco.game.validate }}"
-
 persistence:
   steamcmd:
     enabled: true
@@ -88,7 +83,6 @@ persistence:
     mountPath: /serverdata/serverfiles/Configs/Network.eco
     subPath: Network.eco
     readOnly: true
-
 portal:
   open:
     enabled: true

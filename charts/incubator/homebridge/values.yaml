@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/homebridge
+  repository: homebridge/homebridge
   pullPolicy: IfNotPresent
-  tag: v2023-01@sha256:fa0512d8b38d20d4078b0f403c23c17716a045fcb4dc723b896461a766e22ee9
-
+  tag: latest@sha256:7b2158a23017294ded9420c80176b89bd7adbb2ef8f33ee933bef6818992e9c8
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 workload:
   main:
     podSpec:
@@ -17,19 +15,16 @@ workload:
         main:
           env:
             HOMEBRIDGE_CONFIG_UI: 1
-
 service:
   main:
     ports:
       main:
         protocol: http
         port: 8581
-
 persistence:
   config:
     enabled: true
     mountPath: /homebridge
-
 portal:
   open:
     enabled: true

@@ -11,8 +11,8 @@ env:
   WORKER: Unraid
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/xmrig
-  tag: latest@sha256:5f65aeab57a1a5e0989c9cac51904628351bdda4ebb31af11139de4860855ef2
+  repository: lnxd/xmrig
+  tag: latest@sha256:ca138a54b0bfd76400dab458df69bcd4b379146bb31eb5c231a61a2d5789c7ce
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -33,6 +33,5 @@ service:
     ports:
       main:
         enabled: false
-
 portal:
   enabled: false

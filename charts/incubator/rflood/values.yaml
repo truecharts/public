@@ -1,19 +1,15 @@
 image:
-  repository: tccr.io/truecharts/rflood
+  repository: cr.hotio.dev/hotio/rflood
   pullPolicy: IfNotPresent
-  tag: latest@sha256:1bb88cdb7118f700624d29e4d3fb40877ae9f856907215e1f5efa2b56206a557
-
+  tag: latest@sha256:7f0e1a136befab8de5c31f5fd6d3d968ca1217d266c11b8aae91e29c2b20433a
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 env:
   FLOOD_AUTH: false
-
 service:
   main:
     ports:
@@ -21,11 +17,9 @@ service:
         port: 3000
         protocol: HTTP
         targetPort: 3000
-
 persistence:
   config:
     enabled: true
     mountPath: /config
-
 portal:
   enabled: true

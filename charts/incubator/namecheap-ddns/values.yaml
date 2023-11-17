@@ -4,8 +4,8 @@ env:
   APP_PASSWORD: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/namecheap-ddns
-  tag: latest@sha256:fcb0cacda3094eeca539289014d115207e005d2beefb279b31c07351d006d79a
+  repository: edchamberlain/namecheap_ddns
+  tag: latest@sha256:fb6e8ad8647cf37b4e82a084d52e2c5b2fc0f3d4ceaa83690f7edf4a16eed19b
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -26,6 +26,5 @@ service:
     ports:
       main:
         enabled: false
-
 portal:
   enabled: false

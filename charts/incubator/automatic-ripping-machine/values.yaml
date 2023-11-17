@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/automatic-ripping-machine
+  repository: automaticrippingmachine/automatic-ripping-machine
   pullPolicy: IfNotPresent
-  tag: v2.6.60@sha256:80794ea2bcf0372856f83c980ee65f26eacd3253b9c97215e686fb85e2df969b
-
+  tag: 2.6.60@sha256:926706003d444c0cb6493ba56a19e30ccc5730df95fcaeb7a2989ca6d0ce98c3
 securityContext:
   container:
     runAsNonRoot: false
@@ -10,7 +9,6 @@ securityContext:
     runAsUser: 0
     runAsGroup: 0
     allowPrivilegeEscalation: true
-
 service:
   main:
     ports:
@@ -18,7 +16,6 @@ service:
         protocol: http
         targetPort: 8080
         port: 10683
-
 workload:
   main:
     podSpec:
@@ -28,7 +25,6 @@ workload:
             # default media perms
             ARM_UID: "{{ .Values.securityContext.container.PUID }}"
             ARM_GID: "{{ .Values.securityContext.pod.fsGroup }}"
-
 persistence:
   config:
     enabled: true
@@ -36,7 +32,6 @@ persistence:
   arm:
     enabled: true
     mountPath: "/home/arm"
-
 portal:
   open:
     enabled: true

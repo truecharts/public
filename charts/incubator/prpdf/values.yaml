@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/prpdf
-  tag: latest@sha256:24f9af41ea3ce484cb0aecac43e1b4261c0442d8877faf2ef8161fb9303de97e
+  repository: knex666/prpdf
+  tag: latest@sha256:0291963dc53848cef76b6cc22efc3cff9a336eed056f3dffe13b8347f9ab7473
 persistence:
   config:
     enabled: true
@@ -32,6 +32,5 @@ service:
     ports:
       main:
         enabled: false
-
 portal:
   enabled: false

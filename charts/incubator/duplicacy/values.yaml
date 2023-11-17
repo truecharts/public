@@ -1,16 +1,13 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/duplicacy
-  tag: latest@sha256:1c5a6f92d6856d1f8c56c47566f78a383b702e73a5cc573cd0b6fd5c6ea197c0
-
+  repository: cr.hotio.dev/hotio/duplicacy
+  tag: latest@sha256:b2c30bc96e9b7e946d97c64ee543440994845ba3f74ff87e5de9ce797ab06347
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 service:
   main:
     ports:
@@ -18,7 +15,6 @@ service:
         port: 3875
         protocol: HTTP
         targetPort: 3875
-
 persistence:
   config:
     enabled: true
@@ -29,6 +25,5 @@ persistence:
   logs:
     enabled: true
     mountPath: /logs
-
 portal:
   enabled: true

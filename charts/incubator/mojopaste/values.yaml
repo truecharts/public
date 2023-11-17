@@ -2,8 +2,8 @@ env:
   PASTE_ENABLE_CHARTS: "0"
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/mojopaste
-  tag: latest@sha256:ca5766afbe0cbf24412ea90ba9e1cb74810cb4c4e21b9883e69a3a2cff57409f
+  repository: jhthorsen/mojopaste
+  tag: latest@sha256:cbabffb2553418628948c397f2fde1662efd2a7559a6c24104b363c528299f97
 persistence:
   data:
     enabled: true
@@ -21,6 +21,5 @@ service:
         port: 3300
         protocol: TCP
         targetPort: 8080
-
 portal:
   enabled: true

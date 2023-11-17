@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/fotosho
-  tag: latest@sha256:43f0b6e33cf9924f9523c28f8bddf80f6ef83e340cee2d4dbdf1eae99d8682c8
+  repository: advplyr/fotosho
+  tag: latest@sha256:49dc426c6bdaf99927df571a7084eb6d7f593ea76ab8a99c5c7e1c9fccc77e12
 persistence:
   config:
     enabled: true
@@ -26,6 +26,5 @@ service:
         port: 13377
         protocol: TCP
         targetPort: 80
-
 portal:
   enabled: true

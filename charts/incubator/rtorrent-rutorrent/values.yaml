@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/rutorrent-crazymax
+  repository: crazymax/rtorrent-rutorrent
   pullPolicy: IfNotPresent
-  tag: vlatest@sha256:352d49bfd4857dd52f50397563ce86464051861870217bec2e02bd328f80f038
-
+  tag: latest@sha256:becff10cdd3d324bf075eccf61dfd90e6fc10e565e0ed2793a093dee65fb1034
 securityContext:
   container:
     PUID: 33
@@ -10,7 +9,6 @@ securityContext:
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -51,7 +49,6 @@ service:
       rtinc:
         enabled: true
         port: 50000
-
 workload:
   main:
     podSpec:
@@ -64,7 +61,6 @@ workload:
             XMLRPC_PORT: "{{ .Values.service.xmlrpc.ports.xmlrpc.port }}"
             WEBDAV_PORT: "{{ .Values.service.webdav.ports.webdav.port }}"
             RT_INC_PORT: "{{ .Values.service.rtinc.ports.rtinc.port }}"
-
 persistence:
   data:
     enabled: true
@@ -75,7 +71,6 @@ persistence:
   passwd:
     enabled: true
     mountPath: "/passwd"
-
 portal:
   open:
     enabled: true

@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/steam-headless
+  repository: josh5/steam-headless
   pullPolicy: IfNotPresent
-  tag: vlatest@sha256:b1e4ca51e5651809eb739562dc4e1ee6ca498f03fdd042d1614e557314d1c504
-
+  tag: latest@sha256:0bb1588b01c4efa7416a54ebf782642913867142b81c6ed2cfe91cbc04f6dc74
 securityContext:
   container:
     privileged: true
@@ -10,7 +9,6 @@ securityContext:
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 workload:
   main:
     podSpec:
@@ -37,14 +35,12 @@ workload:
             # SUNSHINE_PASS: ""
             # USER_PASSWORD: ""
             ENABLE_EVDEV_INPUTS: false
-
 service:
   main:
     ports:
       main:
         protocol: http
         port: 8083
-
 persistence:
   home:
     enabled: true
@@ -55,7 +51,6 @@ persistence:
   flatpak:
     enabled: true
     mountPath: /var/lib/flatpak
-
 portal:
   open:
     enabled: true

@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/watcharr
+  repository: ghcr.io/sbondco/watcharr
   pullPolicy: IfNotPresent
-  tag: v1.16.1@sha256:0759f67ac6868998b0dc918f4240ae764fcc2e93289096c8e4c80319e6940ac6
-
+  tag: "v1.21.1@sha256:ba67ff03788cc6f0d58787cbb8853e063409f7291b02445a96c3c6f580249497\r"
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -17,14 +15,12 @@ service:
         protocol: http
         targetPort: 3080
         port: 10684
-
 watcharr:
   mode: prod
   jellyfin_host: ""
   signup_enabled: true
   tmdb_key: ""
   debug: false
-
 workload:
   main:
     podSpec:
@@ -40,12 +36,10 @@ workload:
               secretKeyRef:
                 name: watcharr-secrets
                 key: JWT_SECRET
-
 persistence:
   data:
     enabled: true
     mountPath: "/data"
-
 portal:
   open:
     enabled: true

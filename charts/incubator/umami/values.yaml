@@ -1,19 +1,15 @@
 image:
-  repository: tccr.io/truecharts/umami
-  tag: 1.40.0@sha256:ea8ec5f2e91ffb6f7033c47769366c572d88058919a9a64d539eab4fef9c1497
+  repository: ghcr.io/umami-software/umami
+  tag: postgresql-v2.8.0@sha256:0099e9c3b321d7e93fd6d539070faf6a19db07f6bbf21ddf39019a874dd25145
   pullPolicy: IfNotPresent
-
 securityContext:
   readOnlyRootFilesystem: false
-
 podSecurityContext:
   runAsUser: 1001
   runAsGroup: 1001
-
 envFrom:
   - secretRef:
       name: '{{ include "tc.common.names.fullname" . }}-secret'
-
 umami:
   force_ssl: true
   hostname: ""
@@ -27,7 +23,6 @@ umami:
   ignore_ip:
     - "1.1.1.1"
     - "2.2.2.2"
-
 env:
   PORT: "{{ .Values.service.main.ports.main.port }}"
   DATABASE_TYPE: postgresql
@@ -45,19 +40,16 @@ env:
   DISABLE_LOGIN: '{{ ternary "1" "0" .Values.umami.disable_login }}'
   DISABLE_TELEMETRY: '{{ ternary "1" "0" .Values.umami.disable_telemetry }}'
   IGNORE_IP: '{{ join "," .Values.umami.ignore_ip }}'
-
 service:
   main:
     ports:
       main:
         port: 10381
         protocol: HTTP
-
 postgresql:
   enabled: true
   existingSecret: "dbcreds"
   postgresqlUsername: umami
   postgresqlDatabase: umami
-
 portal:
   enabled: true

@@ -1,18 +1,15 @@
 image:
-  repository: tccr.io/truecharts/vocechat-server
+  repository: privoce/vocechat-server
   pullPolicy: IfNotPresent
-  tag: v0.3.38@sha256:a2af75f54ed922a0803f14d0839a25d51d5bc0f6127e972bcf5ee798efcfa5b8
-
+  tag: v0.3.40@sha256:d79034f37fda90a101f5f974605d485cf87253b770f1193b55008206b6aaa02a
 service:
   main:
     ports:
       main:
         protocol: http
         port: 3009
-
 vocechat:
   frontend_url: localhost:3009
-
 workload:
   main:
     podSpec:
@@ -23,12 +20,10 @@ workload:
             - 0.0.0.0:{{ .Values.service.main.ports.main.port }}
             - --network.frontend_url
             - "{{ .Values.vocechat.frontend_url }}"
-
 persistence:
   data:
     enabled: true
     mountPath: "/home/vocechat-server/data"
-
 portal:
   open:
     enabled: true

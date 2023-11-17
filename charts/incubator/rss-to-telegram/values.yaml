@@ -4,8 +4,8 @@ env:
   TOKEN: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/rss-to-telegram
-  tag: latest@sha256:0c78ca34b035beb92a0a1fa2c0aeed23bae1d65d609dcdf084b1de8021920f50
+  repository: bokker/rss.to.telegram
+  tag: latest@sha256:2119027f7d883bfd9beb15c7e110db1a32ee7bae98af8cd3b3638c07f32c21d8
 persistence:
   config:
     enabled: true
@@ -29,6 +29,5 @@ service:
     ports:
       main:
         enabled: false
-
 portal:
   enabled: false

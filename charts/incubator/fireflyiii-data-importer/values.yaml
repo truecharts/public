@@ -1,16 +1,13 @@
 image:
-  repository: tccr.io/truecharts/fireflyiii-fidi
+  repository: fireflyiii/data-importer
   pullPolicy: IfNotPresent
-  tag: 0.9.16@sha256:53462b22258af5dabe98919f6c0c4ebaf7bc22c597ba840320fc208f13c3a745
-
+  tag: version-0.9.16@sha256:60d28f48839ce420b4333335204a0cbfd858634b5e505db04e758d7dbd335aa7
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 secretEnv:
   # User Defined
   FIREFLY_III_ACCESS_TOKEN: ""
@@ -18,12 +15,10 @@ secretEnv:
   NORDIGEN_KEY: ""
   SPECTRE_APP_ID: ""
   SPECTRE_SECRET: ""
-
 env:
   # User Defined
   FIREFLY_III_URL: ""
   VANITY_URL: ""
-
 service:
   main:
     ports:
@@ -31,6 +26,5 @@ service:
         port: 10580
         protocol: HTTP
         targetPort: 8080
-
 portal:
   enabled: true

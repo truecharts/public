@@ -2,8 +2,8 @@ env:
   HOME: /root
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/cloudcommander
-  tag: latest@sha256:3b7888ba817460f0ea451d6b0c3a9904528f85edaebe4dee123f012934f36028
+  repository: coderaiser/cloudcmd
+  tag: latest@sha256:4db6bd81e57346d62159cb4db6c4e92ce60ed9bc77bfdd9030987a532d80262d
 persistence:
   appdata:
     enabled: true
@@ -24,6 +24,5 @@ service:
         port: 8765
         protocol: TCP
         targetPort: 8000
-
 portal:
   enabled: true

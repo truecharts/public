@@ -1,20 +1,16 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/ra-rom-processor
-  tag: latest@sha256:9fe8d82fb90ba6bd4761ffb910ba490a542306db25c0b37a66a8d6b6c8d611c6
-
+  repository: randomninjaatk/raromprocessor
+  tag: latest@sha256:008771978efb162794c6e525eb46055af6707ca5254b20bff514081e17066397
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 secretEnv:
   ScreenscraperPassword: ""
   ScreenscraperUsername: ""
-
 env:
   AquireRomSets: false
   AutoStart: false
@@ -25,7 +21,6 @@ env:
   ScriptInterval: "1h"
   keepBackupsOfImportedRoms: true
   skyscraperLanguagePreference: "en"
-
 probes:
   liveness:
     enabled: false
@@ -33,14 +28,12 @@ probes:
     enabled: false
   startup:
     enabled: false
-
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-
 persistence:
   config:
     enabled: true
@@ -57,6 +50,5 @@ persistence:
   backup:
     enabled: true
     mountPath: /backup
-
 portal:
   enabled: false

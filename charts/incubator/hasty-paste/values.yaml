@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/hasty-paste
+  repository: ghcr.io/enchant97/hasty-paste
   pullPolicy: IfNotPresent
-  tag: 1.9.0@sha256:428aec44d95d061a8d357fa122175e067703b906483c9168a9b95cdb66c107da
-
+  tag: 1.9.0@sha256:fbbb670ac9b201bf0a47feaa7b1588b5b5c4657bbf49518f9534f12e8e80ce3d
 hastyPaste:
   new_at_index: false
   enable_public_list: false
@@ -22,11 +21,9 @@ hastyPaste:
     favicon: ""
     css_file: ""
     hide_version: false
-
 envFrom:
   - secretRef:
       name: '{{ include "tc.common.names.fullname" . }}-secret'
-
 probes:
   liveness:
     enabled: true
@@ -52,23 +49,19 @@ probes:
         command:
           - /bin/sh
           - health-check.sh
-
 service:
   main:
     ports:
       main:
         protocol: HTTP
         port: 10601
-
 persistence:
   config:
     enabled: true
     mountPath: /app/data
-
 redis:
   enabled: true
   existingSecret: rediscreds
   redisUsername: default
-
 portal:
   enabled: true

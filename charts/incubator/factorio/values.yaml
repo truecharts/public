@@ -1,15 +1,13 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/factorio
-  tag: vstable@sha256:110b9147fd5535d4ee6d5b1845b6e0a071a9e8bc4bfe854654c1fa2530d1bd16
-
+  repository: factoriotools/factorio
+  tag: stable@sha256:8ee8fe75ede1ab8c81df47416f1aa0710c1f55fbeb99a0859432a7ac8b496397
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsGroup: 0
     runAsUser: 0
-
 service:
   main:
     ports:
@@ -23,7 +21,6 @@ service:
         enabled: true
         port: 27015
         protocol: tcp
-
 workload:
   main:
     podSpec:
@@ -48,12 +45,10 @@ workload:
             TOKEN: ""
             UPDATE_MODS_ON_START: ""
             USERNAME: ""
-
 persistence:
   config:
     enabled: true
     mountPath: /factorio
-
 portal:
   open:
     enabled: false

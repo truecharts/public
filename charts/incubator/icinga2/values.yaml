@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/icinga2
-  tag: 2.13.7@sha256:064fd01b8fbf9d6c6d20fd4b6b9a6dc9340cea12dcd3ced39f7901a571abb163
+  repository: jordan/icinga2
+  tag: 2.14.0@sha256:b837ec9eac774921715c1d7ab178e859550cca955d6e120df5886b79ad1f7b28
   pullPolicy: IfNotPresent
-
 env:
   DEFAULT_MYSQL_USER: icinga2
   DEFAULT_MYSQL_HOST:
@@ -17,15 +16,12 @@ env:
     secretKeyRef:
       name: mariadbcreds
       key: mariadb-root-password
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 service:
   main:
     ports:
@@ -46,7 +42,6 @@ service:
         enabled: true
         port: 10116
         targetPort: 5665
-
 persistence:
   config:
     enabled: true
@@ -60,12 +55,10 @@ persistence:
   ssmtp:
     enabled: true
     mountPath: "/etc/ssmtp"
-
 mariadb:
   enabled: true
   mariadbUsername: icinga2
   mariadbDatabase: icinga2
   existingSecret: "mariadbcreds"
-
 portal:
   enabled: true

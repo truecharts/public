@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/tachidesk-docker
-  tag: latest@sha256:3a19b630d9ca31cbc2f130c8fbedf2aa1b6aea1d62b1a47661b221e63311ae16
+  repository: ghcr.io/suwayomi/tachidesk
+  tag: latest@sha256:2782f5b40fafccb21ff6bdbaed7594804c2aa043ba9a42727a19fb6e07397fbb
 persistence:
   appdata:
     enabled: true
@@ -26,6 +26,5 @@ service:
         port: 4567
         protocol: TCP
         targetPort: 4567
-
 portal:
   enabled: true

@@ -1,20 +1,16 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/7daystodie
-  tag: latest@sha256:77bcd385fe8d75e6bcca90eab21143e2e165b32a289136ccc95c52eb4bd12bad
-
+  repository: ich777/steamcmd
+  tag: 7dtd@sha256:bce95372ad7869d373785f6997f4491709898d937b931a5cacb2f2abfc65b8ff
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 secretEnv:
   USERNAME: ""
   PASSWRD: ""
-
 env:
   ENABLE_BEPINEX: false
   BACKUP_FILES: false
@@ -24,11 +20,9 @@ env:
   GAME_PARAMS: "-logfile 7DaysToDie_Data/output_log.txt $@"
   SERVERCONFIG: serverconfig.xml
   VALIDATE: false
-
 probes:
   startup:
     failureThreshold: 360
-
 service:
   main:
     ports:
@@ -92,7 +86,6 @@ service:
         port: 27015
         protocol: UDP
         targetPort: 27015
-
 persistence:
   serverfiles:
     enabled: true
@@ -100,6 +93,5 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-
 portal:
   enabled: true

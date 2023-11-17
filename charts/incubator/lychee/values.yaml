@@ -1,23 +1,19 @@
 image:
-  repository: tccr.io/truecharts/lychee-laravel
+  repository: lycheeorg/lychee-laravel
   pullPolicy: IfNotPresent
-  tag: 4.7.3@sha256:4193a77faec43e2ed5560d8fa074b60d3bcc5c84fd5ad6e8a6947f0bcc808162
-
+  tag: v4.13.0@sha256:40eebc538f460ace2cb9abc9e8ba1a97615d1cfa4092aff2c3b9677d5494f171
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 service:
   main:
     ports:
       main:
         port: 10017
         targetPort: 80
-
 # secretEnv:
 #   PUSHER_APP_KEY: ""
 #   PUSHER_APP_SECRET: ""
@@ -31,7 +27,6 @@ service:
 #   MAIL_PASSWORD: ""
 #   MAIL_PORT: "587"
 #   MAIL_ENCRYPTION: "tls"
-
 env:
   # Internal Envs
   TIMEZONE: "{{ .Values.TZ }}"
@@ -71,7 +66,6 @@ env:
     secretKeyRef:
       name: lychee-secrets
       key: APP_KEY
-
 persistence:
   conf:
     enabled: true
@@ -82,16 +76,13 @@ persistence:
   uploads:
     enabled: true
     mountPath: "/uploads"
-
 postgresql:
   enabled: true
   existingSecret: "dbcreds"
   postgresqlUsername: lychee
   postgresqlDatabase: lychee
-
 redis:
   enabled: true
   existingSecret: "rediscreds"
-
 portal:
   enabled: true

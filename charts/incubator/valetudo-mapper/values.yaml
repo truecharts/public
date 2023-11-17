@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/valetudo-mapper
-  tag: latest@sha256:1231e2c599ca3f64e3e67d60be7cb6c6eda6962ae3cef9b2c8b6a1945a75fec9
+  repository: rand256/valetudo-mapper
+  tag: latest@sha256:4ca244330be0baf945db767b6d4d80e7c0f786ba372e8e2509b005183522b717
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -23,6 +23,5 @@ service:
     ports:
       main:
         enabled: false
-
 portal:
   enabled: false

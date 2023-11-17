@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/glauth
-  tag: latest@sha256:6447de431d0d9ffcd490a555a90cc3c00a315af6d579e160bd9e19ce82a5fd5f
+  repository: glauth/glauth
+  tag: latest@sha256:550bc43c9b8e3a622be4ab89df0b63f382cbee189a7efc4b327f520e345212d8
 persistence:
   config:
     enabled: true
@@ -36,6 +36,5 @@ service:
         port: 5555
         protocol: HTTP
         targetPort: 5555
-
 portal:
   enabled: true

@@ -3,8 +3,8 @@ env:
   TOKEN: 1a2b3c4d5e6f71a2b3c4d5e6f71a2b3c4d5e6f7b
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/github-backup
-  tag: latest@sha256:7209e1606631a7ee71dcff591eb5e82cfb5ff9b909d6e9cfe38bbeba27851fd8
+  repository: lnxd/github-backup
+  tag: latest@sha256:029a39d990316e7df10ed5c29fcd722f9736b35d801773955b095492d6e1ff36
 persistence:
   backuplocation:
     enabled: true
@@ -31,6 +31,5 @@ service:
     ports:
       main:
         enabled: false
-
 portal:
   enabled: false

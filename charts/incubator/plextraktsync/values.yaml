@@ -1,32 +1,27 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/plextraktsync
-  tag: v0.27.7@sha256:cefad9eed53955d91f1020d95c5f09f0f96c8cc5e89bcd25036cd6dd786d2a5d
-
+  repository: ghcr.io/taxel/plextraktsync
+  tag: 0.27.11@sha256:ccc9d992339e3bf2754f1b4f5c6419e2b05a39a191c265669adefd9bf7b1607c
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-
 plextraktsync:
   cron_enabled: true
   task: ""
   schedule: "0 */6 * * *"
-
 cronjob:
   annotations: {}
   failedJobsHistoryLimit: 5
   successfulJobsHistoryLimit: 2
-
 workload:
   main:
     podSpec:
@@ -41,12 +36,10 @@ workload:
               enabled: false
             startup:
               enabled: false
-
 persistence:
   config:
     enabled: true
     mountPath: /app/config
-
 portal:
   open:
     enabled: false

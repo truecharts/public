@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/dvblink
-  tag: latest@sha256:59cb771732ceaec8d7229c40769021bba76e03c10efd8f1973987de343061238
+  repository: chvb/docker-dvblink
+  tag: latest@sha256:7d6068e9b96630ca51b25b4d67f45497893bb48ac861b9150f97a65a20dcb839
 persistence:
   dvblink:
     enabled: true
@@ -36,6 +36,5 @@ service:
         port: 2222
         protocol: TCP
         targetPort: 22
-
 portal:
   enabled: true

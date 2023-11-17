@@ -1,13 +1,11 @@
 image:
-  repository: tccr.io/truecharts/gravity
+  repository: ghcr.io/beryju/gravity
   pullPolicy: IfNotPresent
-  tag: v0.6.8@sha256:290b9e12ffbd412e02803fc11c61de1731b69dd761e4c1af39b7b0d863bc5261
-
+  tag: v0.6.18@sha256:8790e38117ba7af2c9accc6a487f23b0f2558a4831c1130600f077bfd6ecc02e
 securityContext:
   container:
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -27,7 +25,6 @@ service:
         protocol: udp
         targetPort: 53
         port: 53
-
 workload:
   main:
     podSpec:
@@ -43,12 +40,10 @@ workload:
                 name: gravity-secret
                 key: ADMIN_TOKEN
             INSTANCE_LISTEN: "0.0.0.0"
-
 persistence:
   data:
     enabled: true
     mountPath: "/data"
-
 portal:
   open:
     enabled: true
