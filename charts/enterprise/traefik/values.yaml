@@ -1,6 +1,6 @@
 image:
-  repository: tccr.io/truecharts/traefik
-  tag: v2.10.5@sha256:b277733b5b8d7f9d2761813d97e161c1f64ec77960f9c06adde13868efbc8dce
+  repository: traefik
+  tag: v2.10.5@sha256:948978f7ec62f137a79f8af7044a1785bd7868706ef2c8cba9c88db688d08661
   pullPolicy: IfNotPresent
 manifestManager:
   enabled: true
@@ -22,7 +22,6 @@ workload:
               # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
               # @default -- "/"
               # path: "/ping"
-
             # -- Readiness probe configuration
             # @default -- See below
             readiness:
@@ -32,7 +31,6 @@ workload:
               # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
               # @default -- "/"
               # path: "/ping"
-
             # -- Startup probe configuration
             # @default -- See below
             startup:
@@ -42,15 +40,12 @@ workload:
               # -- If a HTTP probe is used (default for HTTP/HTTPS services) this path is used
               # @default -- "/"
               # path: "/ping"
-
 # -- Options for all pods
 # Can be overruled per pod
 podOptions:
   automountServiceAccountToken: true
-
 operator:
   register: true
-
 # -- Use ingressClass. Ignored if Traefik version < 2.3 / kubernetes < 1.18.x
 ingressClass:
   # true is not unit-testable yet, pending https://github.com/rancher/helm-unittest/pull/12
@@ -58,7 +53,6 @@ ingressClass:
   isDefaultClass: false
   # Use to force a networking.k8s.io API Version for certain CI/CD applications. E.g. "v1beta1"
   fallbackApiVersion: ""
-
 # -- Create an IngressRoute for the dashboard
 ingressRoute:
   dashboard:
@@ -72,22 +66,19 @@ ingressRoute:
 providers:
   kubernetesCRD:
     enabled: true
-    namespaces:
-      []
-      # - "default"
+    namespaces: []
+    # - "default"
   kubernetesIngress:
     enabled: true
     # labelSelector: environment=production,method=traefik
-    namespaces:
-      []
-      # - "default"
+    namespaces: []
+    # - "default"
     # IP used for Kubernetes Ingress endpoints
     publishedService:
       enabled: true
       # Published Kubernetes Service to copy status from. Format: namespace/servicename
       # By default this Traefik service
       # pathOverride: ""
-
 # -- Logs
 # https://docs.traefik.io/observability/logs/
 logs:
@@ -105,31 +96,27 @@ logs:
     # them to the selected output. In some cases, this option can greatly help performances.
     # bufferingSize: 100
     # Filtering https://docs.traefik.io/observability/access-logs/#filtering
-    filters:
-      {}
-      # statuscodes: "200,300-302"
-      # retryattempts: true
-      # minduration: 10ms
+    filters: {}
+    # statuscodes: "200,300-302"
+    # retryattempts: true
+    # minduration: 10ms
     # Fields
     # https://docs.traefik.io/observability/access-logs/#limiting-the-fieldsincluding-headers
     fields:
       general:
         defaultmode: keep
-        names:
-          {}
-          # Examples:
-          # ClientUsername: drop
+        names: {}
+        # Examples:
+        # ClientUsername: drop
       headers:
         defaultmode: drop
-        names:
-          {}
-          # Examples:
-          # User-Agent: redact
-          # Authorization: drop
-          # Content-Type: keep
+        names: {}
+        # Examples:
+        # User-Agent: redact
+        # Authorization: drop
+        # Content-Type: keep
     # -- Set the format of Access Logs to be either Common Log Format or JSON. For more information: https://doc.traefik.io/traefik/observability/access-logs/#format
     format: common
-
 metrics:
   main:
     enabled: false
@@ -138,10 +125,8 @@ metrics:
       - port: metrics
         path: /metrics
     targetSelector: metrics
-
 globalArguments:
   - "--global.checknewversion"
-
 ##
 # -- Additional arguments to be passed at Traefik's binary
 # All available options available on https://docs.traefik.io/reference/static-configuration/cli/
@@ -149,7 +134,6 @@ globalArguments:
 additionalArguments:
   - "--serverstransport.insecureskipverify=true"
   - "--providers.kubernetesingress.allowexternalnameservices=true"
-
 # -- TLS Options to be created as TLSOption CRDs
 # https://doc.traefik.io/tccr.io/truecharts/https/tls/#tls-options
 # Example:
@@ -167,7 +151,6 @@ tlsOptions:
       - TLS_AES_128_GCM_SHA256
       - TLS_AES_256_GCM_SHA384
       - TLS_CHACHA20_POLY1305_SHA256
-
 # -- Options for the main traefik service, where the entrypoints traffic comes from
 # from.
 service:
@@ -258,7 +241,6 @@ service:
           enabled: false
   # udp:
   #   enabled: false
-
 # -- Whether Role Based Access Control objects like roles and rolebindings should be created
 rbac:
   main:
@@ -310,13 +292,11 @@ rbac:
           - get
           - list
           - watch
-
 # -- The service account the pods will use to interact with the Kubernetes API
 serviceAccount:
   main:
     enabled: true
     primary: true
-
 # -- SCALE Middleware Handlers
 middlewares:
   basicAuth: []
@@ -441,16 +421,13 @@ middlewares:
   ## Note: body of every request will be buffered in memory while the request is in-flight
   ## (i.e.: during the security check and during the request processing by traefik and the backend),
   ## so you may want to tune maxBodySize depending on how much RAM you have.
-
 portalhook:
   enabled: true
-
 persistence:
   plugins:
     enabled: true
     mountPath: "/plugins-storage"
     type: emptyDir
-
 portal:
   open:
     enabled: true

@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/mariadb
+  repository: bitnami/mariadb
   pullPolicy: IfNotPresent
-  tag: v11.1.3@sha256:18e6da279a02195276246aaf985fabde46bd2a58051fc4e7ee65e1c986e7a717
-
+  tag: 11.1.3@sha256:ec252de855742584bb2dace25f5cd83ccfdde4f61961cca00fc29a1d5200c2aa
 workload:
   main:
     podSpec:
@@ -43,43 +42,35 @@ workload:
                 - /bin/bash
                 - -ec
                 - "until /opt/bitnami/scripts/mariadb/healthcheck.sh; do sleep 2; done"
-
 service:
   main:
     ports:
       main:
         port: 3306
         targetPort: 3306
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsGroup: 0
-
 secret:
   credentials:
     enabled: true
     data:
       mariadb-password: '{{ ( .Values.mariadbPassword | default "empty" ) }}'
       mariadb-root-password: '{{ ( .Values.mariadbRootPassword | default "empty" ) }}'
-
 persistence:
   data:
     enabled: true
     mountPath: "/bitnami/mariadb"
-
 mariadbUsername: "test"
 mariadbDatabase: "test"
 mariadbRootPassword: "testroot"
-
 # -- Secret or password
 # One of these options is required, unless used as a dependency for another TrueCharts chart.
 mariadbPassword: ""
 existingSecret: ""
-
 portal:
   open:
     enabled: false
-
 manifestManager:
   enabled: false

@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/node-exporter
+  repository: bitnami/node-exporter
   pullPolicy: IfNotPresent
-  tag: v1.7.0@sha256:a9ff702f0d7de85ba46707493b4fd46d37ae45e34611dcc296345bb410882553
-
+  tag: 1.7.0@sha256:68d9e82bc1c876bdf78bc6a81965f1f32344087dd56bbec052acac8237d86cf8
 service:
   main:
     ports:
       main:
         protocol: http
         port: 9910
-
 workload:
   main:
     type: DaemonSet
@@ -29,19 +27,15 @@ workload:
             liveness:
               path: /
               port: main
-
             readiness:
               path: /
               port: main
-
             startup:
               type: tcp
               port: main
-
 podOptions:
   hostNetwork: true
   hostPID: true
-
 persistence:
   host:
     enabled: true
@@ -61,7 +55,6 @@ persistence:
     hostPath: /sys
     mountPath: /hostsys
     readOnly: true
-
 metrics:
   main:
     # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
@@ -78,18 +71,16 @@ metrics:
       labels: {}
       # -- Configure additionial rules for the chart under this key.
       # @default -- See prometheusrules.yaml
-      rules:
-        []
-        # - alert: UnifiPollerAbsent
-        #   annotations:
-        #     description: Unifi Poller has disappeared from Prometheus service discovery.
-        #     summary: Unifi Poller is down.
-        #   expr: |
-        #     absent(up{job=~".*unifi-poller.*"} == 1)
-        #   for: 5m
-        #   labels:
-        #     severity: critical
-
+      rules: []
+      # - alert: UnifiPollerAbsent
+      #   annotations:
+      #     description: Unifi Poller has disappeared from Prometheus service discovery.
+      #     summary: Unifi Poller is down.
+      #   expr: |
+      #     absent(up{job=~".*unifi-poller.*"} == 1)
+      #   for: 5m
+      #   labels:
+      #     severity: critical
 portal:
   open:
     enabled: false
