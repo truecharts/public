@@ -1,13 +1,11 @@
 image:
-  repository: tccr.io/truecharts/browserless-chrome
-  tag: v1.60.2-chrome@sha256:a0652b346c0de87d546a3b07a44fbb85a33026aec20b956cbcb74dc822c2515a
+  repository: browserless/chrome
+  tag: 1.60.2-chrome-stable@sha256:7db5e3aad20c201abaa03bbbc868a55ef96574cda0e67ccb7e4e032053ecb87d
   pullPolicy: IfNotPresent
-
 puppeteerImage:
   repository: tccr.io/truecharts/browserless-chrome-puppeteer13
   pullPolicy: IfNotPresent
   tag: v1.61.0-puppeteer@sha256:a2fd28d192a8476f2bbd808971a1c416b8a0cbc88a51839a9e47b866cfa4d44b
-
 service:
   main:
     ports:
@@ -15,7 +13,6 @@ service:
         port: 10194
         protocol: http
         targetPort: 3000
-
 workload:
   main:
     podSpec:
@@ -58,7 +55,6 @@ workload:
 
             # PREBOOT_CHROME: true
             TOKEN: ""
-
 persistence:
   downloads:
     enabled: true
@@ -66,7 +62,6 @@ persistence:
   metrics:
     enabled: true
     mountPath: /metrics
-
 portal:
   open:
     enabled: true

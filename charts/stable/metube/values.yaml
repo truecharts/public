@@ -1,6 +1,6 @@
 image:
-  repository: tccr.io/truecharts/metube
-  tag: v2023-08@sha256:3b6bedac0e9da810b73de6c1c727a0b1f704f932f5e8067a1498bda1c583e791
+  repository: alexta69/metube
+  tag: 2023-11-15@sha256:199e29154cb46d3ff20b241f9c7085ecead5f154c31080bdaa8edd0a86037eb5
   pullPolicy: IfNotPresent
 service:
   main:
@@ -18,7 +18,6 @@ persistence:
 portal:
   open:
     enabled: true
-
 workload:
   main:
     podSpec:

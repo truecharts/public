@@ -1,12 +1,10 @@
 image:
-  repository: tccr.io/truecharts/lldap
+  repository: docker.io/nitnelave/lldap
   pullPolicy: IfNotPresent
-  tag: v0.5.0@sha256:ccd16a39d97e7c7ed4e76b70e4333ab7c9cd510506319fd2af164d5c947c8f02
-
+  tag: v0.5.0-debian@sha256:872610a32c9c2bc1392fbd934fa5a355d70b467b92032637ea017c5717c2f1bf
 securityContext:
   container:
     readOnlyRootFilesystem: false
-
 service:
   main:
     ports:
@@ -18,7 +16,6 @@ service:
       ldap:
         enabled: true
         port: 3890
-
 workload:
   main:
     podSpec:
@@ -57,18 +54,15 @@ workload:
               secretKeyRef:
                 name: cnpg-main-urls
                 key: std
-
 persistence:
   data:
     enabled: true
     mountPath: "/data"
-
 cnpg:
   main:
     enabled: true
     user: lldap
     database: lldap
-
 portal:
   open:
     enabled: true

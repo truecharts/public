@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/deconz
-  tag: v2.24.1@sha256:3ce8c20f7ad145a5f72fa4445298a6fa673ef3a7528de3a94cebd2b13dc53118
+  repository: deconzcommunity/deconz
+  tag: 2.24.1@sha256:5f5eb75a3211ceff46151066ef3abdf1d76a93af2683cc2b9db5faeae375b954
   pullPolicy: IfNotPresent
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 workload:
   main:
     podSpec:
@@ -33,7 +31,6 @@ workload:
             # -- Enable VNC access to the container to view the deCONZ ZigBee mesh
             DECONZ_VNC_MODE: 1
             DECONZ_VNC_PASSWORD: ""
-
 service:
   main:
     ports:
@@ -51,12 +48,10 @@ service:
       vnc:
         enabled: true
         port: 10002
-
 persistence:
   config:
     enabled: true
     mountPath: "/opt/deCONZ"
-
 portal:
   open:
     enabled: true

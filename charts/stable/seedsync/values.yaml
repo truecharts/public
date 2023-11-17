@@ -1,14 +1,12 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/seedsync
-  tag: latest@sha256:e8e69dcebd7cd9b15af6484736e6d51df49d0e2757e067b1fe8b9b820c6780d1
-
+  repository: ipsingh06/seedsync
+  tag: latest@sha256:78715911d1c3510c3dcc595a109778e541faa4f6ebb836b0e396e840509a2c33
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsGroup: 0
     runAsUser: 0
-
 service:
   main:
     ports:
@@ -16,7 +14,6 @@ service:
         port: 8800
         protocol: http
         targetPort: 8800
-
 persistence:
   config:
     enabled: true
@@ -24,7 +21,6 @@ persistence:
   downloads:
     enabled: true
     mountPath: /downloads
-
 portal:
   open:
     enabled: true

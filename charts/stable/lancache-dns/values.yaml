@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/lancache-dns
+  repository: lancachenet/lancache-dns
   pullPolicy: IfNotPresent
-  tag: latest@sha256:9de67e9a32730d8f4c1223eb368f92ef89ea93a9e373ac49b249cc58936335f2
-
+  tag: latest@sha256:b27344af0fdcaf411008382ada3b36c4727ba557e6b91c9d94ef6ef30e0cd95a
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 workload:
   main:
     podSpec:
@@ -36,7 +34,6 @@ workload:
             DISABLE_ORIGIN: false
             DISABLE_SONY: false
             DISABLE_SQUARE: false
-
 service:
   main:
     ports:
@@ -48,7 +45,6 @@ service:
         protocol: udp
         port: 53
         targetPort: 53
-
 portal:
   open:
     enabled: false

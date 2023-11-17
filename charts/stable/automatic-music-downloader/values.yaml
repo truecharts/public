@@ -1,22 +1,19 @@
 image:
-  repository: tccr.io/truecharts/automatic-music-downloader
+  repository: randomninjaatk/amd
   pullPolicy: IfNotPresent
-  tag: latest@sha256:541eff647695209e9071e9483f434420e2d333068865e75e9db40b045e1a8358
-
+  tag: latest@sha256:3ad88a180cd45d98a6a0d6da6239cb1d62a0c8ef5a17da264b5cfcb96ba05c7b
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-
 workload:
   main:
     podSpec:
@@ -57,7 +54,6 @@ workload:
             PLEXTOKEN: "plextoken"
             ALBUM_TYPE_FILTER: "COMPILE"
             POSTPROCESSTHREADS: 1
-
 persistence:
   config:
     enabled: true
@@ -65,7 +61,6 @@ persistence:
   data:
     enabled: true
     mountPath: /downloads-amd
-
 portal:
   open:
     enabled: false

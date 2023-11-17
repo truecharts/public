@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/transmission
+  repository: ghcr.io/onedr0p/transmission
   pullPolicy: IfNotPresent
-  tag: v4.0.4@sha256:fbd0491a86b60942f00bec5f4552e05d00a75464e5956808dd88d31b095e259c
-
+  tag: 4.0.4@sha256:49ddee07a78a22a2ba9ca26662f8c9d3b582138361116c15d0ad31c6fa7192f7
 service:
   main:
     ports:
@@ -19,7 +18,6 @@ service:
         enabled: true
         port: 51414
         protocol: udp
-
 workload:
   main:
     podSpec:
@@ -108,15 +106,12 @@ workload:
             # TRANSMISSION__UTP_ENABLED: true
             # TRANSMISSION__WATCH_DIR: "/watch"
             # TRANSMISSION__WATCH_DIR_ENABLED: false
-
 persistence:
   config:
     enabled: true
     mountPath: "/config"
-
 portal:
   open:
     enabled: true
-
 manifestManager:
   enabled: false

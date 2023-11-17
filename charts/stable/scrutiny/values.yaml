@@ -1,14 +1,13 @@
 image:
-  repository: tccr.io/truecharts/scrutiny
+  repository: ghcr.io/analogj/scrutiny
   pullPolicy: IfNotPresent
-  tag: v0.7.2@sha256:0d141d741f7292ead1cad85faa25092599a755f861f5b77e89922aefa1459f6e
+  tag: v0.7.2-omnibus@sha256:dd3d4df5f5bced5a1932ca77f2dfe4dd2b7f2c1124996c6c061b7f7fc47750f9
 service:
   main:
     ports:
       main:
         targetPort: 8080
         port: 10151
-
 persistence:
   varrun:
     enabled: true
@@ -24,11 +23,9 @@ persistence:
     hostPath: "/run/udev"
     mountPath: "/run/udev"
     readOnly: true
-
 portal:
   open:
     enabled: true
-
 securityContext:
   container:
     runAsNonRoot: false
@@ -43,7 +40,6 @@ securityContext:
         - SYS_ADMIN
     runAsUser: 0
     runAsGroup: 0
-
 workload:
   main:
     podSpec:

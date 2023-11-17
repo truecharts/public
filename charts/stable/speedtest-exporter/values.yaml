@@ -1,6 +1,6 @@
 image:
-  repository: tccr.io/truecharts/speedtest-exporter
-  tag: v3.5.4@sha256:439843d93db9c27e55469e691a4c25f918d0007f042a0dbf9551256645bd690d
+  repository: ghcr.io/miguelndecarvalho/speedtest-exporter
+  tag: v3.5.4@sha256:f1064d49124c7fc45faabb87c6c876a2fd04e92b3dc14d4b871301217ba30fed
   pullPolicy: IfNotPresent
 service:
   main:
@@ -9,7 +9,6 @@ service:
         enabled: true
         protocol: tcp
         port: 9798
-
 metrics:
   main:
     enabled: true
@@ -20,7 +19,6 @@ metrics:
         interval: 1h
     prometheusRule:
       enabled: false
-
 portal:
   open:
     enabled: false

@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/whisparr
+  repository: ghcr.io/onedr0p/whisparr-nightly
   pullPolicy: IfNotPresent
-  tag: 0.1.0.53@sha256:3f330945d677782fdf3276d79725b6cee2bbf0c2887bf3c7dd8e96829f127616
+  tag: 0.1.0.53@sha256:5a6ce55522afa84195cd723447f987f63a19009a37e2779b861a65aec940572b
 service:
   main:
     ports:
@@ -16,7 +16,6 @@ persistence:
 portal:
   open:
     enabled: true
-
 workload:
   main:
     podSpec:

@@ -1,13 +1,11 @@
 image:
-  repository: tccr.io/truecharts/portainer-ce
-  tag: v2.19.2@sha256:73931f73d0dd73967d812036bde3feb56ae39a84b8c8ec6d3c198cc96a6be64c
+  repository: portainer/portainer-ce
+  tag: 2.19.2@sha256:52f514125b5ae0948debc8f501d77ac621a2605e8e28309c72c9d6bb0eb2b2b2
   pullPolicy: IfNotPresent
-
 beImage:
   repository: tccr.io/truecharts/portainer-be
   tag: v2.19.2@sha256:804be45bf0172deef67484426a7765c9ebf9839b36f060d383a0ca655ce9a11c
   pullPolicy: IfNotPresent
-
 portainer:
   # Logo URL
   logo: ""
@@ -59,7 +57,6 @@ persistence:
 portal:
   open:
     enabled: true
-
 workload:
   main:
     podSpec:

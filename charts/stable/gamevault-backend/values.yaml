@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/gamevault-backend
+  repository: phalcode/gamevault-backend
   pullPolicy: IfNotPresent
-  tag: v9.0.4@sha256:ec7676ac69a36ac24e8cf1fc9856a47c4da27488ab30157c7e313596f3b327e5
-
+  tag: 9.0.4@sha256:108f8d8263b6d71501b8970c2bc8785166cd7a7f3c3861a77f80ae2bf7a7613e
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -17,7 +15,6 @@ service:
         protocol: http
         port: 8080
         targetPort: 8080
-
 gamevault:
   server:
     admin_username: admin
@@ -39,7 +36,6 @@ gamevault:
     api_url: https://api.rawg.io/api
     api_cache_days: 7
     api_key: ""
-
 workload:
   main:
     podSpec:
@@ -92,7 +88,6 @@ workload:
             RAWG_API_URL: "{{ .Values.gamevault.rawg.api_url }}"
             RAWG_API_CACHE_DAYS: "{{ .Values.gamevault.rawg.api_cache_days }}"
             RAWG_API_KEY: "{{ .Values.gamevault.rawg.api_key }}"
-
 persistence:
   logs:
     enabled: true
@@ -103,13 +98,11 @@ persistence:
   games:
     enabled: true
     mountPath: /games
-
 cnpg:
   main:
     enabled: true
     user: gamevault
     database: gamevault
-
 portal:
   open:
     enabled: false

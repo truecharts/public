@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/seafile
-  tag: v11.0.1@sha256:739776a752c782455ff9a9466506aa35d086e3888a9050e63a980b805ba08c96
+  repository: seafileltd/seafile-mc
+  tag: 11.0.1@sha256:31dbc0c3bb849134001b87deb03e24936740181a0756f95b4df3655ac5e85f81
   pullPolicy: IfNotPresent
-
 service:
   main:
     ports:
@@ -10,14 +9,12 @@ service:
         port: 13080
         protocol: http
         targetPort: 80
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 workload:
   main:
     podSpec:
@@ -39,17 +36,14 @@ workload:
             SEAFILE_ADMIN_EMAIL: me@example.com
             SEAFILE_ADMIN_PASSWORD: a_very_secret_password
             FORCE_HTTPS_IN_CONF: false
-
 persistence:
   storage:
     enabled: true
     mountPath: "/shared/seafile"
-
 mariadb:
   enabled: true
   mariadbUsername: seafile
   mariadbDatabase: seafile
-
 portal:
   open:
     enabled: true

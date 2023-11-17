@@ -1,6 +1,6 @@
 image:
-  repository: tccr.io/truecharts/libreddit
-  tag: latest@sha256:efad4611764d4f0609d773451b4b72de0e132d3a5dda824d4f8bb35c7e5d3d0b
+  repository: libreddit/libreddit
+  tag: latest@sha256:e79a5d6f6836b5a9351340433b1c26e8571ded943a5318f41ae939d314434c84
   pullPolicy: IfNotPresent
 libreddit:
   theme: system
@@ -36,7 +36,6 @@ configmap:
 portal:
   open:
     enabled: true
-
 workload:
   main:
     podSpec:

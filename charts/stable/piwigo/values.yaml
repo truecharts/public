@@ -1,28 +1,24 @@
 image:
-  repository: tccr.io/truecharts/piwigo
+  repository: ghcr.io/linuxserver/piwigo
   pullPolicy: IfNotPresent
-  tag: v13.8.0@sha256:8fadb90a34226d798ab697fb1360a9529557dedddcfc3cc8dfb03ab426fb5be8
-
+  tag: 13.8.0@sha256:7087886dce4be1608907e3fb0c8b668225dc457efbabd4a82d26c39a9b9d2bf4
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
       main:
         targetPort: 80
         port: 10027
-
 piwigo:
   language: en_US
   admin_user: admin
   admin_pass: admin123
   admin_email: admin@email.com
-
 workload:
   main:
     podSpec:
@@ -43,7 +39,6 @@ workload:
                     ( touch "/config/POSTSETUP" && echo "Created POSTSETUP!") || \
                     ( echo "Failed to create POSTSETUP file..." && exit 1 )
                   fi
-
 persistence:
   config:
     enabled: true
@@ -55,12 +50,10 @@ persistence:
     size: 256Gi
   varrun:
     enabled: true
-
 mariadb:
   enabled: true
   mariadbUsername: piwigo
   mariadbDatabase: piwigo
-
 portal:
   open:
     enabled: true

@@ -1,6 +1,6 @@
 image:
-  repository: tccr.io/truecharts/hammond
-  tag: 1.0.0@sha256:c8df8ddfb95c7b836f5022052ec9ea2c515803d6b3787b7725828a47e5f70b14
+  repository: akhilrex/hammond
+  tag: 1.0.0@sha256:07e73c226c3bae8863a0aff1530d84d5edd68308264e42375d1af61ad9955be4
   pullPolicy: IfNotPresent
 service:
   main:
@@ -18,7 +18,6 @@ persistence:
 portal:
   open:
     enabled: true
-
 workload:
   main:
     podSpec:

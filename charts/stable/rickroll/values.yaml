@@ -1,22 +1,19 @@
 image:
-  repository: tccr.io/truecharts/rickroll
+  repository: modem7/docker-rickroll
   pullPolicy: IfNotPresent
-  tag: vlatest@sha256:92e3df5b7b877a60b00592a79462111f3b86620b912335b6498dad38568462e4
-
+  tag: latest@sha256:2f486289b21ec2cc771570e2a403df359a5c717afa685dc02f884b28df4397d5
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
       main:
         protocol: http
         port: 10289
-
 workload:
   main:
     podSpec:
@@ -35,7 +32,6 @@ workload:
             HEIGHT: "100vh"
             WIDTH: "100%"
             HEADLINE: ""
-
 portal:
   open:
     enabled: true

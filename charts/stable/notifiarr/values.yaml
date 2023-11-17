@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/notifiarr
+  repository: golift/notifiarr
   pullPolicy: IfNotPresent
-  tag: v0.7.0@sha256:02102bc33691d6aaa9132f53244b12cf2b1294d992903614819402614d1c92dd
-
+  tag: 0.7.0@sha256:5080028cabe9169a84ebfeab0d38df1496a56965fa72a1072397e13dac5cf9bc
 notifiarr:
   apikey: "test"
   upstreams:
@@ -10,14 +9,12 @@ notifiarr:
   credentials:
     username: ""
     password: ""
-
 service:
   main:
     ports:
       main:
         port: 5454
         protocol: http
-
 workload:
   main:
     podSpec:
@@ -29,7 +26,6 @@ workload:
             DN_BIND_ADDR: '{{ printf "0.0.0.0:%v" .Values.service.main.ports.main.port }}'
             DN_UPSTREAMS_0: '{{ join " " .Values.notifiarr.upstreams }}'
             DN_UI_PASSWORD: '{{ printf "%v:%v" .Values.notifiarr.credentials.username .Values.notifiarr.credentials.password }}'
-
 persistence:
   config:
     enabled: true
@@ -45,7 +41,6 @@ persistence:
     type: emptyDir
     mountPath: /tmpdir
     medium: Memory
-
 portal:
   open:
     enabled: true

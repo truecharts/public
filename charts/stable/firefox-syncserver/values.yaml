@@ -1,9 +1,8 @@
 image:
-  repository: tccr.io/truecharts/firefox-syncserver
+  repository: ghcr.io/crazy-max/firefox-syncserver
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: v1.8.0@sha256:13d5d1beae0e7ea4298224abbc415de837200b8402d676e856601a63dc8432ed
-
+  tag: 1.8.0@sha256:ab1a959d8105c478f0f1523c8c3bbdc53bb8d44f325501b93297bc80cf627da6
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -11,7 +10,6 @@ securityContext:
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 workload:
   main:
     podSpec:
@@ -36,26 +34,22 @@ workload:
                 name: cnpg-main-urls
                 key: std
             FF_SYNCSERVER_SECRET: "changeme"
-
 service:
   main:
     ports:
       main:
         port: 10051
         targetPort: 5000
-
 persistence:
   config:
     enabled: true
     mountPath: "/config"
-
 # Enabled postgres
 cnpg:
   main:
     enabled: true
     user: firefox-syncserver
     database: firefox-syncserver
-
 portal:
   open:
     enabled: true

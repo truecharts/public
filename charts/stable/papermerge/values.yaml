@@ -1,22 +1,19 @@
 image:
-  repository: tccr.io/truecharts/papermerge
+  repository: papermerge/papermerge
   pullPolicy: IfNotPresent
-  tag: v2.1.9@sha256:b87fe0209a685badebab23d678ea8c9a5aba799df413c73f3c4ad40ade629574
-
+  tag: 2.1.9@sha256:f3b1d8f73892eeddb0e1515d1891f98ba0c6f53698fa9eb126191fb4c55fc828
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
       main:
         targetPort: 8000
         port: 10141
-
 workload:
   main:
     podSpec:
@@ -49,24 +46,20 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: plainhost
-
 persistence:
   config:
     enabled: true
     mountPath: "/config"
   varrun:
     enabled: true
-
 redis:
   enabled: true
   redisUsername: papermerge
-
 cnpg:
   main:
     enabled: true
     user: papermerge
     database: papermerge
-
 portal:
   open:
     enabled: true

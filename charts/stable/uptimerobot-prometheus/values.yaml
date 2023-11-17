@@ -1,6 +1,6 @@
 image:
-  repository: tccr.io/truecharts/prometheus-uptimerobot-exporter
-  tag: v0.0.1@sha256:15e110bcbf474b43afda8b92868702db9c0c7a405266c724e3e9546990a97316
+  repository: billimek/prometheus-uptimerobot-exporter
+  tag: 0.0.1@sha256:f14ccd7aad0e0ef19dc5c5c359b0921030a769e2505acec5b913d749281327be
   pullPolicy: IfNotPresent
 service:
   main:
@@ -17,7 +17,6 @@ metrics:
         path: /metrics
     prometheusRule:
       enabled: false
-
 portal:
   open:
     enabled: false

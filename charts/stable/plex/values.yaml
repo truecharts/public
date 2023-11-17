@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/plex
+  repository: ghcr.io/onedr0p/plex
   pullPolicy: IfNotPresent
-  tag: v1.32.7.7621@sha256:fd52669459983dbdfd0f888de61cf3bd1bf57f52855af37841ce9795887d5470
+  tag: 1.32.7.7621-871adbd44@sha256:f9f77dc5e17cab9fae5ece663a64d026e3c75142b3b60bb4a52bf061957412be
 service:
   main:
     ports:
@@ -9,7 +9,6 @@ service:
         protocol: http
         port: 32400
         targetPort: 32400
-
 persistence:
   config:
     enabled: true
@@ -20,14 +19,12 @@ persistence:
     type: emptyDir
     medium: Memory
     targetSelectAll: true
-
 plex:
   # User Defined
   serverIP: "127.0.0.1"
   additionalAdvertiseURL: ""
   disableGDM: true
   requireHTTPS: false
-
 workload:
   main:
     podSpec:
@@ -50,7 +47,6 @@ workload:
             # User Defined
             ALLOWED_NETWORKS: "172.16.0.0/12,10.0.0.0/8,192.168.0.0/16"
             PLEX_CLAIM: ""
-
 portal:
   open:
     enabled: true

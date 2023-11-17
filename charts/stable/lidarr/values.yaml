@@ -1,16 +1,14 @@
 image:
-  repository: tccr.io/truecharts/lidarr
+  repository: ghcr.io/onedr0p/lidarr-develop
   pullPolicy: IfNotPresent
-  tag: v2.0.1.3769@sha256:23f196906c63ddbcb299d961a191cc5131fb41e3fc5721b85837f4358464f9e1
+  tag: 2.0.2.3782@sha256:ce84367f7a1fb03de55dc849350cb349eb4bc1a32ef3b1154c63ce6c564f40af
 exportarrImage:
   repository: tccr.io/truecharts/exportarr
   pullPolicy: IfNotPresent
   tag: v1.6.0@sha256:ee118701a2ebe8ccb5c25e1003fbed9ef7ce217d4e4b8b6df30cc2a0def818f8
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
-
 service:
   main:
     ports:
@@ -25,7 +23,6 @@ service:
         enabled: true
         port: 8687
         targetSelector: exportarr
-
 workload:
   main:
     podSpec:
@@ -85,7 +82,6 @@ workload:
             # enable gathering unknown queue items
             # ENABLE_UNKNOWN_QUEUE_ITEMS: false
             CONFIG: "/config/config.xml"
-
 persistence:
   config:
     enabled: true
@@ -97,7 +93,6 @@ persistence:
         exportarr:
           mountPath: /config
           readOnly: true
-
 metrics:
   main:
     enabled: true
@@ -108,7 +103,6 @@ metrics:
     targetSelector: metrics
     prometheusRule:
       enabled: false
-
 portal:
   open:
     enabled: true

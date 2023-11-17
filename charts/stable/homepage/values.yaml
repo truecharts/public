@@ -1,6 +1,6 @@
 image:
-  repository: tccr.io/truecharts/homepage
-  tag: v0.8.0@sha256:74ed6efbb9728cf482faa93fd4e697afcbdf4ec30ab0cd1c969d8727cc6f8d86
+  repository: ghcr.io/gethomepage/homepage
+  tag: v0.8.0@sha256:3360078ec3f28c8f25e8c24d8a700489f289b522fba4e1f7bb3f1c1337415dc8
   pullPolicy: IfNotPresent
 service:
   main:
@@ -16,12 +16,10 @@ persistence:
 portal:
   open:
     enabled: true
-
 serviceAccount:
   main:
     enabled: true
     primary: true
-
 rbac:
   main:
     enabled: true
