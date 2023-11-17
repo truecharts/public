@@ -49,3 +49,7 @@ Then you need to do the same to set up the subdomain for each app you want to ex
 It's also possible to set up access to all apps at once by using a wildcard `*` subdomain public hostname, and then adding a CNAME record in the DNS settings with name=`*` and target equal to the target in the CNAME record for the parent domain, but this is not recommended due to security concerns.
 
 :::
+
+### Without traefik
+
+If you've not set up traefik and ingress, and exposing the ports using the normal loadbalancer, you only need to set up each app individually, and set `URL` to `<TrueNAS Local IP>:<PORT of app>` for each app.
