@@ -27,9 +27,9 @@ module.exports = {
                 major=$(echo $version | cut -d. -f1)
                 minor=$(echo $version | cut -d. -f2)
                 patch=$(echo $version | cut -d. -f3)
-                minor=$(expr $minor + 1)
+                major=$(expr major + 1)
                 echo "Replacing $version with $major.$minor.$patch"
-                sed -i "s/^version:.*/version: $\{major\}.$\{minor\}.$\{patch\}/g" /{{{packageFileDir}}}/Chart.yaml
+                sed -i "s/^version:.*/version: $\{major\}.$\{minor\}.$\{patch\}/g" {{{packageFileDir}}}/Chart.yaml
                 cat {{{packageFileDir}}}/Chart.yaml
                 `,
         ],
@@ -49,7 +49,7 @@ module.exports = {
                 patch=$(echo $version | cut -d. -f3)
                 minor=$(expr $minor + 1)
                 echo "Replacing $version with $major.$minor.$patch"
-                sed -i "s/^version:.*/version: $\{major\}.$\{minor\}.$\{patch\}/g" /{{{packageFileDir}}}/Chart.yaml
+                sed -i "s/^version:.*/version: $\{major\}.$\{minor\}.$\{patch\}/g" {{{packageFileDir}}}/Chart.yaml
                 cat {{{packageFileDir}}}/Chart.yaml
                 `,
         ],
@@ -67,9 +67,9 @@ module.exports = {
                 major=$(echo $version | cut -d. -f1)
                 minor=$(echo $version | cut -d. -f2)
                 patch=$(echo $version | cut -d. -f3)
-                minor=$(expr $minor + 1)
+                patch=$(expr patch + 1)
                 echo "Replacing $version with $major.$minor.$patch"
-                sed -i "s/^version:.*/version: $\{major\}.$\{minor\}.$\{patch\}/g" /{{{packageFileDir}}}/Chart.yaml
+                sed -i "s/^version:.*/version: $\{major\}.$\{minor\}.$\{patch\}/g" {{{packageFileDir}}}/Chart.yaml
                 cat {{{packageFileDir}}}/Chart.yaml
                 `,
         ],
