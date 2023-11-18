@@ -10,5 +10,5 @@
 kimai-secret:
   enabled: true
   data:
-    APP_SECRET: "{{ $app_secret }}"
+    APP_SECRET: {{ $app_secret }}
 {{- end -}}
