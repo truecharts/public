@@ -27,6 +27,9 @@ portal:
 securityContext:
   container:
     readOnlyRootFilesystem: false
+    runAsNonRoot: true
+    runAsUser: 999
+    runAsGroup: 999
 workload:
   main:
     podSpec:
