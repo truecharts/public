@@ -21,6 +21,7 @@ jobs:
     - uses: dorny/paths-filter@v2
       id: filter
       with:
+        token: ${{ secrets.BOT_TOKEN }}
         list-files: shell
         filters: |
           addedOrModified:
