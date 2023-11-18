@@ -9,7 +9,7 @@ objectData: The object data to be used to render the Pod.
   {{- $objectData := .objectData -}}
 
   {{- if not $rootCtx.Values.securityContext.pod -}}
-    {{- fail "Pod - Expected non-empty [.Values.securityContext.pod]" -}}
+    {{- fail "Pod - Expected non-empty [securityContext.pod]" -}}
   {{- end -}}
 
   {{/* Initialize from the "global" option */}}
@@ -35,28 +35,59 @@ objectData: The object data to be used to render the Pod.
 
   {{- $deviceGroups := (list 5 10 20 24) -}}
   {{- $deviceAdded := false -}}
+  {{- $hostUsers := false -}}
+  {{- $hostUserPersistence := (list "configmap" "secret" "emptyDir" "downwardAPI" "projected") -}}
+  {{- $podSelected := false -}}
+
   {{- range $persistenceName, $persistenceValues := $rootCtx.Values.persistence -}}
     {{- if $persistenceValues.enabled -}}
-      {{- if eq $persistenceValues.type "device" -}}
-        {{- if $persistenceValues.targetSelectAll -}}
-          {{- $deviceAdded = true -}}
-        {{- else if $persistenceValues.targetSelector -}}
-          {{- if mustHas $objectData.shortName ($persistenceValues.targetSelector | keys) -}}
-            {{- $deviceAdded = true -}}
-          {{- end -}}
-        {{- else if $objectData.podPrimary -}}
-          {{- $deviceAdded = true -}}
+      {{- if $persistenceValues.targetSelectAll -}}
+        {{- $podSelected = true -}}
+      {{- else if and $persistenceValues.targetSelector (kindIs "map" $persistenceValues.targetSelector) -}}
+        {{- if mustHas $objectData.shortName ($persistenceValues.targetSelector | keys) -}}
+          {{- $podSelected = true -}}
         {{- end -}}
+      {{- else if $objectData.podPrimary -}}
+        {{- $podSelected = true -}}
       {{- end -}}
+    {{- end -}}
+
+    {{- if $podSelected -}}
+      {{- if eq $persistenceValues.type "device" -}}
+        {{- $deviceAdded = true -}}
+      {{- end -}}
+
+      {{- if not (mustHas $persistenceValues.type $hostUserPersistence) -}}
+        {{- $hostUsers = true -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{/* Make sure no host "things" are used */}}
+  {{- $hostNet := (eq (include "tc.v1.common.lib.pod.hostNetwork" (dict "rootCtx" $rootCtx "objectData" $objectData)) "true") -}}
+  {{- $hostPID := (eq (include "tc.v1.common.lib.pod.hostPID" (dict "rootCtx" $rootCtx "objectData" $objectData)) "true") -}}
+  {{- $hostIPC := (eq (include "tc.v1.common.lib.pod.hostIPC" (dict "rootCtx" $rootCtx "objectData" $objectData)) "true") -}}
+  {{- if or $hostIPC $hostNet $hostPID -}}
+    {{- $hostUsers = true -}}
+  {{- end }}
+
+  {{- range $containerName, $containerValues := $objectData.podSpec.containers -}}
+    {{- $secContContainer := fromJson (include "tc.v1.common.lib.container.securityContext.calculate" (dict "rootCtx" $rootCtx "objectData" $containerValues)) }}
+    {{- if or $secContContainer.allowPrivilegeEscalation $secContContainer.privileged $secContContainer.capabilities.add
+        (not $secContContainer.readOnlyRootFilesystem) (not $secContContainer.runAsNonRoot)
+        (lt ($secContContainer.runAsUser | int) 1) (lt ($secContContainer.runAsGroup | int) 1) -}}
+      {{- $hostUsers = true -}}
     {{- end -}}
   {{- end -}}
 
   {{- if $gpuAdded -}}
     {{- $_ := set $secContext "supplementalGroups" (concat $secContext.supplementalGroups (list 44 107)) -}}
+    {{- $hostUsers = true -}}
   {{- end -}}
 
   {{- if $deviceAdded -}}
     {{- $_ := set $secContext "supplementalGroups" (concat $secContext.supplementalGroups $deviceGroups) -}}
+    {{- $hostUsers = true -}}
   {{- end -}}
 
   {{- $_ := set $secContext "supplementalGroups" (concat $secContext.supplementalGroups (list 568)) -}}
@@ -101,6 +132,7 @@ supplementalGroups: []
   {{- end -}}
   {{- with $secContext.sysctls }}
 sysctls:
+    {{- $hostUsers = true -}}
     {{- range . }}
     {{- if not .name -}}
       {{- fail "Pod - Expected non-empty [name] in [sysctls]" -}}
@@ -114,4 +146,7 @@ sysctls:
   {{- else }}
 sysctls: []
   {{- end -}}
+
+  {{/* Used by _hostUsers.tpl */}}
+  {{- $_ := set $objectData.podSpec "calculatedHostUsers" $hostUsers -}}
 {{- end -}}

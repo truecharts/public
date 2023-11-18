@@ -572,7 +572,7 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: Pod - Expected non-empty [.Values.securityContext.pod]
+          errorMessage: Pod - Expected non-empty [securityContext.pod]
 
   - it: should fail with empty fsGroup
     set:

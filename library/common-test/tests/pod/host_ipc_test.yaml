@@ -1,0 +1,78 @@
+suite: pod hostIPC test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with hostIPC disabled from "global"
+    set:
+      podOptions:
+        hostIPC: false
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.hostIPC
+          value: false
+
+  - it: should pass with hostIPC enabled from "global"
+    set:
+      podOptions:
+        hostIPC: true
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: *deploymentDoc
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.hostIPC
+          value: true
+
+  - it: should pass with disabled hostIPC from pod
+    set:
+      podOptions:
+        hostIPC: true
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            hostIPC: false
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.hostIPC
+          value: false
+
+  - it: should pass with enabled hostIPC from pod
+    set:
+      podOptions:
+        hostIPC: false
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            hostIPC: true
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.hostIPC
+          value: true

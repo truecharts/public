@@ -16,6 +16,7 @@ imagePullSecrets:
   {{- end }}
 hostNetwork: {{ include "tc.v1.common.lib.pod.hostNetwork" (dict "rootCtx" $rootCtx "objectData" $objectData) }}
 hostPID: {{ include "tc.v1.common.lib.pod.hostPID" (dict "rootCtx" $rootCtx "objectData" $objectData) }}
+hostIPC: {{ include "tc.v1.common.lib.pod.hostIPC" (dict "rootCtx" $rootCtx "objectData" $objectData) }}
 shareProcessNamespace: {{ include "tc.v1.common.lib.pod.shareProcessNamespace" (dict "rootCtx" $rootCtx "objectData" $objectData) }}
 enableServiceLinks: {{ include "tc.v1.common.lib.pod.enableServiceLinks" (dict "rootCtx" $rootCtx "objectData" $objectData) }}
 restartPolicy: {{ include "tc.v1.common.lib.pod.restartPolicy" (dict "rootCtx" $rootCtx "objectData" $objectData) }}
@@ -50,6 +51,7 @@ tolerations:
   {{- end }}
 securityContext:
   {{- include "tc.v1.common.lib.pod.securityContext" (dict "rootCtx" $rootCtx "objectData" $objectData) | trim | nindent 2 }}
+hostUsers: {{ include "tc.v1.common.lib.pod.hostUsers" (dict "rootCtx" $rootCtx "objectData" $objectData) }}
   {{- if $objectData.podSpec.containers }}
 containers:
     {{- include "tc.v1.common.lib.pod.containerSpawner" (dict "rootCtx" $rootCtx "objectData" $objectData) | trim | nindent 2 -}}
