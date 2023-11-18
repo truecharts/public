@@ -75,6 +75,23 @@
         {{/* Call class to create the object */}}
         {{- include "tc.v1.common.class.pvc" (dict "rootCtx" $ "objectData" $objectData) -}}
       {{- end -}}
+
+      {{- if eq $objectData.type "iscsi" -}}
+        {{- if or $objectData.iscsi.authSession $objectData.iscsi.authDiscovery -}}
+          {{/* Set the name of the PVC */}}
+          {{- $_ := set $objectData "name" (include "tc.v1.common.lib.storage.pvc.name" (dict "rootCtx" $ "objectName" $name "objectData" $objectData)) -}}
+          {{- $_ := set $objectData "shortName" $name -}}
+
+          {{- $secretData := (dict
+                                "name" $objectData.name
+                                "labels" ($objectData.labels | default dict)
+                                "annotations" ($objectData.annotations | default dict)
+                                "type" "kubernetes.io/iscsi-chap"
+                                "data" (include "tc.v1.common.lib.storage.iscsi.chap" (dict "rootCtx" $ "objectData" $objectData) | fromJson)
+                              ) -}}
+          {{- include "tc.v1.common.class.secret" (dict "rootCtx" $ "objectData" $secretData) -}}
+        {{- end -}}
+      {{- end -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}

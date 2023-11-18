@@ -224,6 +224,28 @@ persistence:
     mountPath: /dev/shm
     medium: Memory
     targetSelectAll: true
+#  iscsi:
+#    enabled: true
+#    type: iscsi
+#    mountPath: /dev/shm
+#    iscsi:
+#      targetPortal: 10.0.2.15:3260
+#      portals: ['10.0.2.16:3260', '10.0.2.17:3260'] #optional
+#      iqn: iqn.2001-04.com.example:storage.kube.sys1.xyz
+#      lun: 0
+#      fsType: ext4 #Optional
+#      iscsiInterface: default #Optional
+#      initiatorName: iqn.1994-05.com.redhat:node1 #Optional
+#      authSession:
+#        username: "someusername"
+#        password: "somepassword"
+#        usernameInitiator: "someusernameInitiator"
+#        passwordInitiator: "somepasswordInitiator"
+#      authDiscovery:
+#        username: "someusername"
+#        password: "somepassword"
+#        usernameInitiator: "someusernameInitiator"
+#        passwordInitiator: "somepasswordInitiator"
 #  vct:
 #    enabled: true
 #    type: vct

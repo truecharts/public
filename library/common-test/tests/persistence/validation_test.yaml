@@ -43,7 +43,7 @@ tests:
           type: not-a-type
     asserts:
       - failedTemplate:
-          errorMessage: Persistence - Expected [type] to be one of [pvc, vct, emptyDir, nfs, hostPath, ixVolume, secret, configmap, device], but got [not-a-type]
+          errorMessage: Persistence - Expected [type] to be one of [pvc, vct, emptyDir, nfs, iscsi, hostPath, ixVolume, secret, configmap, device], but got [not-a-type]
 
   - it: should fail with invalid accessMode
     set:
