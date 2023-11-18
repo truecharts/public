@@ -23,14 +23,36 @@ module.exports = {
       matchUpdateTypes: ["major"],
       postUpgradeTasks: {
         commands: [
-          `version=$(grep '^version:' {{{parentDir}}}/Chart.yaml | awk '{print $2}')
+          `
+                if test -f "./charts/stable/{{{parentDir}}}/Chart.yaml"; then
+                  train="stable"
+                elif test -f "./charts/incubator/{{{parentDir}}}/Chart.yaml"; then
+                  train="incubator"
+                elif test -f "./charts/SCALE/{{{parentDir}}}/Chart.yaml"; then
+                  train="SCALE"
+                elif test -f "./charts/library/{{{parentDir}}}/Chart.yaml"; then
+                  train="library"
+                elif test -f "./charts/dependency/{{{parentDir}}}/Chart.yaml"; then
+                  train="dependency"
+                elif test -f "./charts/core/{{{parentDir}}}/Chart.yaml"; then
+                  train="core"
+                elif test -f "./charts/games/{{{parentDir}}}/Chart.yaml"; then
+                  train="games"
+                elif test -f "./charts/enterprise/{{{parentDir}}}/Chart.yaml"; then
+                  train="enterprise"
+                elif test -f "./charts/operators/{{{parentDir}}}/Chart.yaml"; then
+                  train="operators"
+                else
+                  train="incubator"
+                fi
+                version=$(grep '^version:' {{{parentDir}}}/Chart.yaml | awk '{print $2}')
                 major=$(echo $version | cut -d. -f1)
                 minor=$(echo $version | cut -d. -f2)
                 patch=$(echo $version | cut -d. -f3)
-                major=$(expr $minor + 1)
+                minor=$(expr $minor + 1)
                 echo "Replacing $version with $major.$minor.$patch"
-                sed -i "s/^version:.*/version: $\{major\}.$\{minor\}.$\{patch\}/g" {{{parentDir}}}/Chart.yaml
-                cat {{{parentDir}}}/Chart.yaml
+                sed -i "s/^version:.*/version: $\{major\}.$\{minor\}.$\{patch\}/g" ./charts/${train}/{{{parentDir}}}/Chart.yaml
+                cat ./charts/${train}/{{{parentDir}}}/Chart.yaml
                 `,
         ],
       },
@@ -43,14 +65,36 @@ module.exports = {
       matchUpdateTypes: ["minor"],
       postUpgradeTasks: {
         commands: [
-          `version=$(grep '^version:' {{{parentDir}}}/Chart.yaml | awk '{print $2}')
+          `
+                if test -f "./charts/stable/{{{parentDir}}}/Chart.yaml"; then
+                  train="stable"
+                elif test -f "./charts/incubator/{{{parentDir}}}/Chart.yaml"; then
+                  train="incubator"
+                elif test -f "./charts/SCALE/{{{parentDir}}}/Chart.yaml"; then
+                  train="SCALE"
+                elif test -f "./charts/library/{{{parentDir}}}/Chart.yaml"; then
+                  train="library"
+                elif test -f "./charts/dependency/{{{parentDir}}}/Chart.yaml"; then
+                  train="dependency"
+                elif test -f "./charts/core/{{{parentDir}}}/Chart.yaml"; then
+                  train="core"
+                elif test -f "./charts/games/{{{parentDir}}}/Chart.yaml"; then
+                  train="games"
+                elif test -f "./charts/enterprise/{{{parentDir}}}/Chart.yaml"; then
+                  train="enterprise"
+                elif test -f "./charts/operators/{{{parentDir}}}/Chart.yaml"; then
+                  train="operators"
+                else
+                  train="incubator"
+                fi
+                version=$(grep '^version:' {{{parentDir}}}/Chart.yaml | awk '{print $2}')
                 major=$(echo $version | cut -d. -f1)
                 minor=$(echo $version | cut -d. -f2)
                 patch=$(echo $version | cut -d. -f3)
                 minor=$(expr $minor + 1)
                 echo "Replacing $version with $major.$minor.$patch"
-                sed -i "s/^version:.*/version: $\{major\}.$\{minor\}.$\{patch\}/g" {{{parentDir}}}/Chart.yaml
-                cat {{{parentDir}}}/Chart.yaml
+                sed -i "s/^version:.*/version: $\{major\}.$\{minor\}.$\{patch\}/g" ./charts/${train}/{{{parentDir}}}/Chart.yaml
+                cat ./charts/${train}/{{{parentDir}}}/Chart.yaml
                 `,
         ],
       },
@@ -63,14 +107,36 @@ module.exports = {
       matchUpdateTypes: ["patch", "digest", "pin"],
       postUpgradeTasks: {
         commands: [
-          `version=$(grep '^version:' {{{parentDir}}}/Chart.yaml | awk '{print $2}')
+          `
+                if test -f "./charts/stable/{{{parentDir}}}/Chart.yaml"; then
+                  train="stable"
+                elif test -f "./charts/incubator/{{{parentDir}}}/Chart.yaml"; then
+                  train="incubator"
+                elif test -f "./charts/SCALE/{{{parentDir}}}/Chart.yaml"; then
+                  train="SCALE"
+                elif test -f "./charts/library/{{{parentDir}}}/Chart.yaml"; then
+                  train="library"
+                elif test -f "./charts/dependency/{{{parentDir}}}/Chart.yaml"; then
+                  train="dependency"
+                elif test -f "./charts/core/{{{parentDir}}}/Chart.yaml"; then
+                  train="core"
+                elif test -f "./charts/games/{{{parentDir}}}/Chart.yaml"; then
+                  train="games"
+                elif test -f "./charts/enterprise/{{{parentDir}}}/Chart.yaml"; then
+                  train="enterprise"
+                elif test -f "./charts/operators/{{{parentDir}}}/Chart.yaml"; then
+                  train="operators"
+                else
+                  train="incubator"
+                fi
+                version=$(grep '^version:' {{{parentDir}}}/Chart.yaml | awk '{print $2}')
                 major=$(echo $version | cut -d. -f1)
                 minor=$(echo $version | cut -d. -f2)
                 patch=$(echo $version | cut -d. -f3)
-                patch=$(expr $minor + 1)
+                minor=$(expr $minor + 1)
                 echo "Replacing $version with $major.$minor.$patch"
-                sed -i "s/^version:.*/version: $\{major\}.$\{minor\}.$\{patch\}/g" {{{parentDir}}}/Chart.yaml
-                cat {{{parentDir}}}/Chart.yaml
+                sed -i "s/^version:.*/version: $\{major\}.$\{minor\}.$\{patch\}/g" ./charts/${train}/{{{parentDir}}}/Chart.yaml
+                cat ./charts/${train}/{{{parentDir}}}/Chart.yaml
                 `,
         ],
       },
