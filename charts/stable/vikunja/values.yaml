@@ -3,12 +3,12 @@ image:
   tag: 0.21.0@sha256:e541ef5599d08f50a24e8de1fd8136f9d0a7ef514916fac6d6bf8ac6c7c16712
   pullPolicy: IfNotPresent
 frontendImage:
-  repository: tccr.io/truecharts/vikunja-frontend
-  tag: v0.21.0@sha256:8c3d3a21f2667d925348be5ec922614ab1f3fa77b99b8866fea02d1ff312c3dc
+  repository: vikunja/frontend
+  tag: 0.21.0@sha256:fdd4582979beee4a6bef2d4d8e3744809b82ab2e198d708a829d7189a0ad9882
   pullPolicy: IfNotPresent
 nginxImage:
-  repository: tccr.io/truecharts/nginx
-  tag: v1.25.3@sha256:e8cfecf859034f6b8c309801631dd8d906949e3265bf5a0868c5c4a952b6b230
+  repository: nginx
+  tag: 1.25.3@sha256:86e53c4c16a6a276b204b0fd3a8143d86547c967dc8258b3d47c3a21bb68d3c6
 workload:
   main:
     podSpec:
@@ -209,3 +209,4 @@ securityContext:
     capabilities:
       add:
         - NET_BIND_SERVICE
+updated: true

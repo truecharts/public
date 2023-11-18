@@ -3,9 +3,9 @@ image:
   pullPolicy: IfNotPresent
   tag: 10.8.12@sha256:1be5ae7af68d43d1c1bd6e96e9dc15f57bc1a7340339a0305ac1295d9d752d32
 broadcastProxyImage:
-  repository: tccr.io/truecharts/socat
+  repository: docker.io/alpine/socat
   pullPolicy: IfNotPresent
-  tag: v1.7.4.4@sha256:0c7216854d8093dcc619d3128bbb669cc79852b848f537d512c49743e615e57c
+  tag: 1.7.4.4@sha256:68c452d456e6ca949ed347d3f4d1d954852ab62910b90e5a04931d632e498f85
 service:
   main:
     ports:
@@ -93,3 +93,4 @@ workload:
 # -- enable Jellyfin autodiscovery on LAN
 autodiscovery:
   enabled: false
+updated: true

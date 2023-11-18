@@ -3,20 +3,20 @@ image:
   tag: v1.86.0@sha256:b04b0cb5db7f954d1d7a9c9792f9feedcaaabed03b2f251ef7c6a8169be10086
   pullPolicy: IfNotPresent
 mlImage:
-  repository: tccr.io/truecharts/immich-ml
-  tag: v1.86.0@sha256:9b335bed2347348ac560eac635704bdc8ef54b20dc09ac394d42439b9fb811d0
+  repository: altran1502/immich-machine-learning
+  tag: v1.86.0@sha256:4f745b74a3d534fde87ba8ae3c7de97c1504596188d6da3fd38a2777acacda8a
   pullPolicy: IfNotPresent
 webImage:
-  repository: tccr.io/truecharts/immich-web
-  tag: v1.86.0@sha256:bb05a7f344b87f43293aa0afc4e5a03c34d779a70db332d1ab169ab7005d016d
+  repository: altran1502/immich-web
+  tag: v1.86.0@sha256:f2e806d4cbe7e443de0c004e7d6bc585b00e1d187913591fdc1fca944143026d
   pullPolicy: IfNotPresent
 proxyImage:
-  repository: tccr.io/truecharts/immich-proxy
-  tag: v1.86.0@sha256:172edfda6d74f8911f48e23b4459ca64b868e5957b7e8640c9139da2520f4062
+  repository: altran1502/immich-proxy
+  tag: v1.86.0@sha256:96a557932b457fba8eb38d1d0d476f2e07fa8971d8a926886ebc543a6b35f012
   pullPolicy: IfNotPresent
 typesenseImage:
-  repository: tccr.io/truecharts/immich-typesense
-  tag: v0.25.1@sha256:878fa58e17f9ba6223d07530d03139b647300bd2ea185124688b731e3349d705
+  repository: typesense/typesense
+  tag: 0.25.1@sha256:3724f68156097114d07790e1c8bfaaca13b12eaecd602776d30d9933029064c7
   pullPolicy: IfNotPresent
 securityContext:
   container:
@@ -182,3 +182,4 @@ redis:
 portal:
   open:
     enabled: true
+updated: true

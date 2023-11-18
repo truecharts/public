@@ -3,9 +3,9 @@ image:
   pullPolicy: IfNotPresent
   tag: 0.3.10.2287@sha256:c8e4418f32af29d42d4c277dd3696a4c5d905965053a937f66c2c3773c973466
 exportarrImage:
-  repository: tccr.io/truecharts/exportarr
+  repository: ghcr.io/onedr0p/exportarr
   pullPolicy: IfNotPresent
-  tag: v1.6.0@sha256:ee118701a2ebe8ccb5c25e1003fbed9ef7ce217d4e4b8b6df30cc2a0def818f8
+  tag: v1.6.0@sha256:b522e128509b766cf66f847190fccd225ff194dc76775fe6a215f2dd3010cac2
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -106,3 +106,4 @@ metrics:
 portal:
   open:
     enabled: true
+updated: true

@@ -3,8 +3,8 @@ image:
   pullPolicy: IfNotPresent
   tag: latest@sha256:33e24d67e8b51f1b3ef87877199433e33729eaa6139f731f4ee1b518baf64710
 browserlessImage:
-  repository: tccr.io/truecharts/browserless-chrome
-  tag: v1.60.2-chrome@sha256:a0652b346c0de87d546a3b07a44fbb85a33026aec20b956cbcb74dc822c2515a
+  repository: browserless/chrome
+  tag: 1.60.2-chrome-stable@sha256:7db5e3aad20c201abaa03bbbc868a55ef96574cda0e67ccb7e4e032053ecb87d
 service:
   main:
     ports:
@@ -59,3 +59,4 @@ workload:
             YOUTUBE_KEY: ""
             TELEGRAM_TOKEN: ""
             LASTFM_API_KEY: ""
+updated: true

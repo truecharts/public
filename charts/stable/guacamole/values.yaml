@@ -3,9 +3,9 @@ image:
   pullPolicy: IfNotPresent
   tag: 1.5.3@sha256:a41b2d7fd9e0983978edef1bb9074d66a8dd8a641045beaaea6a218e13d3a8e4
 guacdImage:
-  repository: tccr.io/truecharts/guacamole-server
+  repository: guacamole/guacd
   pullPolicy: IfNotPresent
-  tag: v1.5.3@sha256:581c98350ad3134b8af996f82f8c1b90e96f035c7d1bb012f4291dbce8f48b53
+  tag: 1.5.3@sha256:d95ad4919cdc1588c9c9ee26b9fc98f5b8ae61b33b5d7998db351acb307dc975
 guacamole:
   general:
     EXTENSION_PRIORITY: ""
@@ -258,3 +258,4 @@ cnpg:
 portal:
   open:
     enabled: true
+updated: true

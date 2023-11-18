@@ -2,11 +2,11 @@ image:
   repository: bitnami/prometheus
   tag: 2.48.0@sha256:43de9da8d70cff6b862daedd3afd323465bee5ab87ef2f67a1811bf15a39019a
 thanosImage:
-  repository: tccr.io/truecharts/thanos
-  tag: v0.32.5@sha256:4cea5ca36f1567993344c3375b9a80d8073dbc8d530656644d36c90683f96464
+  repository: quay.io/thanos/thanos
+  tag: v0.32.5@sha256:3e5c47dd3a0bfc6c595036c1c49c7ca95979a89c1fb93ee4cdee3bf5d296f944
 alertmanagerImage:
-  repository: tccr.io/truecharts/alertmanager
-  tag: v0.26.0@sha256:f0bbf30d4901be33855b0fb4b71e3d7410b872a33b9d08cd2d7ed576505e40a8
+  repository: bitnami/alertmanager
+  tag: 0.26.0@sha256:3da5256271a71100d822125dc4af6466f7f2d0a4a1680ba6c01087207be95192
 global:
   labels: {}
 workload:
@@ -1340,3 +1340,4 @@ kubeProxy:
 portal:
   open:
     enabled: true
+updated: true

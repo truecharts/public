@@ -3,9 +3,9 @@ image:
   pullPolicy: IfNotPresent
   tag: v27.1.3@sha256:517609d65d5cbdc5827dc8ae3f209aa546b43ede3a038ac4b2b1011a5f13d118
 nginxImage:
-  repository: tccr.io/truecharts/nginx-unprivileged
+  repository: nginxinc/nginx-unprivileged
   pullPolicy: IfNotPresent
-  tag: v1.25.3@sha256:1bba1131cb28a9a43b8b72c1c543cbf60679cb72be9d4432527f6074d1dadf96
+  tag: 1.25.3@sha256:d47e89176fcf7a83aaf220ea1c560cb232cb9646144eec5be742575df5d9ccc5
 imaginaryImage:
   repository: tccr.io/truecharts/nextcloud-imaginary
   pullPolicy: IfNotPresent
@@ -15,13 +15,13 @@ hpbImage:
   pullPolicy: IfNotPresent
   tag: v0.6.3@sha256:b9c35ab123354eeac3996e361f8c30b8e4de6d2ccd69e5179a7c2a101a67b46f
 clamavImage:
-  repository: tccr.io/truecharts/clamav
+  repository: clamav/clamav
   pullPolicy: IfNotPresent
-  tag: v1.2.1@sha256:f9fe7d0ccd86d1ee0583465a0ccf1cbd4bae7468c4c6297be4b8ca7f73260f42
+  tag: 1.2.1@sha256:5968dbccd6c38ec86f2c7503070207d9a11bbdd7bee4c05ecf649fef2d3987c9
 collaboraImage:
-  repository: tccr.io/truecharts/collabora
+  repository: collabora/code
   pullPolicy: IfNotPresent
-  tag: v23.05.5.4.1@sha256:0ce2644cd5587c04d8aa62b94b2a62f8a0aee3110c3f36ddd3e4d54475432ac9
+  tag: 23.05.5.4.1@sha256:27dc4f9ade2f60f8730ac84c9405ae715798b1c4a15ee4bd0ad4f94e610aba3e
 nextcloud:
   # Initial Credentials
   credentials:
@@ -507,3 +507,4 @@ redis:
 portal:
   open:
     enabled: true
+updated: true

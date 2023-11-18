@@ -3,9 +3,9 @@ image:
   pullPolicy: IfNotPresent
   tag: 0.12.1@sha256:bb7f7e76a13eccef0b12704e5851cc774a12af1f12df387d6a70a796a3e938c3
 tensorrtImage:
-  repository: tccr.io/truecharts/frigate-tensorrt
+  repository: ghcr.io/blakeblackshear/frigate
   pullPolicy: IfNotPresent
-  tag: v0.12.1@sha256:d4896f1ceb70f4b370b714d6cf20e44d7921f33419c296d46ef670364c5eebc7
+  tag: 0.12.1-tensorrt@sha256:db6e62d94206803011307296242ee6bfcc185bcf4eb6f68a6fdab8fa7f03a3fb
 # When this is defined, the contents will be mounted
 # as configmap into the container at /config/config.yml.
 frigateConfig: {}
@@ -93,3 +93,4 @@ persistence:
 portal:
   open:
     enabled: true
+updated: true

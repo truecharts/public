@@ -3,9 +3,9 @@ image:
   pullPolicy: IfNotPresent
   tag: latest@sha256:2a553da484913c21218907c93adf05bba8cd73a746311c88a5a604e3128f6048
 backendImage:
-  repository: tccr.io/truecharts/kitchenowl-backend
+  repository: tombursch/kitchenowl
   pullPolicy: IfNotPresent
-  tag: latest@sha256:5ce539a5878a534d53b61536e10a1f87ff7a2adecc9e2626674911d451638ca3
+  tag: latest@sha256:3a1a74b6de2323e7306f19330e29cc91c2968c3d51eabf1ed464064173ae9df8
 service:
   main:
     enabled: true
@@ -118,3 +118,4 @@ cnpg:
     enabled: true
     user: kitchenowl
     database: kitchenowl
+updated: true
