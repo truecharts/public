@@ -3,9 +3,9 @@ image:
   pullPolicy: IfNotPresent
   tag: v1.8.4@sha256:b01df7535ba5f39d01eb3c6620199d8bc6e3182d9c685307eb21001d7ad23273
 nightlyImage:
-  repository: tccr.io/truecharts/impostor-server-nightly
+  repository: aeonlucid/impostor
   pullPolicy: IfNotPresent
-  tag: vnightly@sha256:0144b558371c3b619bfaa947120108b96ad7100c96588df0d93b2b9b1c533b4f
+  tag: nightly@sha256:d50e3969809d5bad471f64e22a3b4d1ed1ad8273b168bd931f7e342874034979
 service:
   main:
     ports:
@@ -36,3 +36,4 @@ workload:
             IMPOSTOR_AntiCheat__BanIpFromGame: true
             IMPOSTOR_Debug__GameRecorderEnabled: false
             IMPOSTOR_Debug__GameRecorderPath: ""
+updated: true

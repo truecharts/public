@@ -252,6 +252,31 @@
       "labels": ["update/docker/general/non-major", "automerge"],
       "matchPaths": ["charts/dependency/**", "charts/SCALE/**", "charts/library/**", "charts/stable/**", "templates/app/**"],
     },
+
+    {
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": ["major"],
+      "commitMessagePrefix": "feat(images)!: ",
+      "labels": ["renovate/image", "dep/major"],
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": ["minor"],
+      "semanticCommitType": "feat",
+      "labels": ["renovate/image", "dep/minor"],
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": ["patch"],
+      "semanticCommitType": "fix",
+      "labels": ["renovate/image", "dep/patch"],
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": ["digest"],
+      "semanticCommitType": "fix",
+      "labels": ["renovate/image", "dep/digest"],
+    },
     //
     // Tag semantic version type based on regex
     //
@@ -391,54 +416,6 @@
       "matchDatasources": ["docker"],
       "matchPackagePrefixes": ["tccr.io/truecharts/ersatztv"],
       "groupName": "ersatztv",
-    },
-    // Setup datasources for github actions
-    {
-      "matchManagers": ["github-actions"],
-      "commitMessageTopic": "github-action {{depName}} [skip ci]",
-      "automerge": true,
-    },
-    {
-      "matchDatasources": ["docker"],
-      "enabled": true,
-      "automerge": true,
-      "matchUpdateTypes": ["major", "minor", "patch", "digest", "pin"],
-      "pinDigests": true,
-    },
-    {
-      "matchDatasources": ["docker"],
-      "semanticCommitScope": "images",
-      "separateMinorPatch": true,
-      "automerge": true,
-    },
-    // add labels according to package and update types
-    {
-      "matchDatasources": ["docker"],
-      "matchUpdateTypes": ["major"],
-      "commitMessagePrefix": "feat(images)!: ",
-      "labels": ["renovate/image", "dep/major", "automerge"],
-      "automerge": true,
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchUpdateTypes": ["minor"],
-      "semanticCommitType": "feat",
-      "labels": ["renovate/image", "dep/minor", "automerge"],
-      "automerge": true,
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchUpdateTypes": ["patch"],
-      "semanticCommitType": "fix",
-      "labels": ["renovate/image", "dep/patch", "automerge"],
-      "automerge": true,
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchUpdateTypes": ["digest"],
-      "semanticCommitType": "fix",
-      "labels": ["renovate/image", "dep/digest", "automerge"],
-      "automerge": true,
     },
     // matchPackagePatterns
     {
@@ -705,11 +682,6 @@
       "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-.+$",
       "matchPackageNames": ["corentinth/it-tools"],
       "automerge": true,
-    },
-    {
-      "matchDatasources": ["docker"],
-      "automerge": true,
-      "matchUpdateTypes": ["major", "minor", "patch", "digest", "pin"],
     },
     //
     // Version strategies
