@@ -1,11 +1,11 @@
 image:
-  repository: tccr.io/truecharts/qbittorrent
+  repository: ghcr.io/onedr0p/qbittorrent
   pullPolicy: IfNotPresent
-  tag: v4.6.0@sha256:40e04b788988c5c218f02ef6b3a0f3821362e1f36ef01eda535811fffa97e24e
+  tag: 4.6.0@sha256:cb6259df3be61a5108bc4f85b09a523fc4b250589ca9b315ef927cbdf779afb6
 qbitportforwardImage:
-  repository: tccr.io/truecharts/qbit-port-forward
+  repository: mjmeli/qbittorrent-port-forward-gluetun-server
   pullPolicy: IfNotPresent
-  tag: latest@sha256:e59f632f002a49661fe04305df9d198229dca0af08d7dd71fc547ae410a7ebca
+  tag: latest@sha256:67d0d21ed792cf80716d4211e7162b6d375af5c12f3cf096c9032ad705dddaa8
 qbitportforward:
   enabled: false
 service:
@@ -47,8 +47,8 @@ workload:
           env:
             QBT_USERNAME: "{{ .Values.qbitportforward.QBT_USERNAME }}"
             QBT_PASSWORD: "{{ .Values.qbitportforward.QBT_PASSWORD }}"
-            QBT_ADDR: http://localhost:8080
-            GTN_ADDR: http://localhost:8000
+            QBT_ADDR: "{{ .Values.qbitportforward.QBT_ADDR }}"
+            GTN_ADDR: "{{ .Values.qbitportforward.GTN_ADDR }}"
 persistence:
   config:
     enabled: true

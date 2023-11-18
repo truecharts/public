@@ -43,6 +43,18 @@ questions:
                 schema:
                   type: string
                   default: "adminadmin"
+              - variable: QBT_ADDR
+                label: qBittorrent Internal URL
+                description: qBittorrent Internal URL (ie. http://qbittorrent.ix-qbittorrent.svc.cluster.local:10095)
+                schema:
+                  type: string
+                  default: "http://qbittorrent.ix-qbittorrent.svc.cluster.local:10095"
+              - variable: GTN_ADDR
+                label: Gluetun Internal URL
+                description: Gluetun Internal URL (ie. http://qbittorrent-gluetun.ix-qbittorrent.svc.cluster.local:8000)
+                schema:
+                  type: string
+                  default: "http://qbittorrent-gluetun.ix-qbittorrent.svc.cluster.local:8000"
 
 # Include{podOptions}
 # Include{serviceRoot}
