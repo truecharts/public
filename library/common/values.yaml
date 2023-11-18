@@ -326,7 +326,10 @@ ixCertificates: []
 ixVolumes: []
 
 # -- (docs/imagePullSecrets.md)
-imagePullSecret: []
+imagePullSecret: {}
+
+# -- (docs/imagePullSecrets.md)
+imagePullSecretList: []
 
 # -- (docs/configmap.md)
 configmap: {}
@@ -436,7 +439,7 @@ alpineImage:
 
 scratchImage:
   repository: tccr.io/truecharts/scratch
-  tag: latest@sha256:e7d1aaa6e29e7bcf3e3f13a8fc41803ca81b2614f72d11287ca4dcab4850bd99
+  tag: latest@sha256:7f821eeb99d04ac248c47f79cfbcc2482651fea48aff9ec5d2ba0ba34f1f5531
   pullPolicy: IfNotPresent
 
 kubectlImage:
@@ -497,6 +500,26 @@ ingress:
   main:
     # -- Enables or disables the ingress
     enabled: false
+
+    # -- Adds integrations to ingress
+#    integration:
+#      homepage:
+#        enabled: true
+#        # Default: chart name
+#        name: somename
+#        # Default: chart description
+#        description: some description
+#        group: somegroup
+#        # Default: chart icon
+#        icon: icon.png
+#        pod-selector: ""
+#        widget:
+#          # Default: chartname
+#          type: "sometype"
+#          # Default: host-path of first ingress
+#          url: "https://example.com"
+#          custom:
+#            - somesetting: some value
 
     # -- Make this the primary ingress (used in probes, notes, etc...).
     # If there is more than 1 ingress, make sure that only 1 ingress is marked as primary.
