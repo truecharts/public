@@ -173,7 +173,8 @@ tests:
           path: spec.template.spec.volumes
           content:
             name: tmp
-            emptyDir: {}
+            emptyDir:
+              medium: Memory
       - documentIndex: *jobDoc
         contains:
           path: spec.template.spec.containers[0].volumeMounts
@@ -508,7 +509,8 @@ tests:
           path: spec.template.spec.volumes
           content:
             name: tmp
-            emptyDir: {}
+            emptyDir:
+              medium: Memory
       - documentIndex: *jobDoc
         contains:
           path: spec.template.spec.containers[0].volumeMounts

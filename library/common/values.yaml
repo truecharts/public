@@ -204,6 +204,7 @@ persistence:
     enabled: true
     type: emptyDir
     mountPath: /var/logs
+    medium: Memory
     targetSelectAll: true
   varrun:
     enabled: true
@@ -215,6 +216,7 @@ persistence:
     enabled: true
     type: emptyDir
     mountPath: /tmp
+    medium: Memory
     targetSelectAll: true
   devshm:
     enabled: true
