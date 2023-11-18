@@ -71,7 +71,7 @@ tests:
             volumeSnapshotContentName: some-name
     asserts:
       - failedTemplate:
-          errorMessage: VolumeSnapshot - Expected non empty [name]
+          errorMessage: Volume Snapshot - Expected non empty [name]
 
   - it: should fail without source object
     set:
@@ -80,7 +80,7 @@ tests:
           enabled: true
     asserts:
       - failedTemplate:
-          errorMessage: VolumeSnapshot - Expected non empty [source]
+          errorMessage: Volume Snapshot - Expected non empty [source]
 
   - it: should fail without a valid source
     set:
@@ -91,7 +91,7 @@ tests:
             invalid: invalid
     asserts:
       - failedTemplate:
-          errorMessage: VolumeSnapshot - Expected exactly one of the valid source types [volumeSnapshotContentName, persistentVolumeClaimName]. Found [0]
+          errorMessage: Volume Snapshot - Expected exactly one of the valid source types [volumeSnapshotContentName, persistentVolumeClaimName]. Found [0]
 
   - it: should fail with more than one valid source
     set:
@@ -103,4 +103,14 @@ tests:
             persistentVolumeClaimName: some-pvc-name
     asserts:
       - failedTemplate:
-          errorMessage: VolumeSnapshot - Expected exactly one of the valid source types [volumeSnapshotContentName, persistentVolumeClaimName]. Found [2]
+          errorMessage: Volume Snapshot - Expected exactly one of the valid source types [volumeSnapshotContentName, persistentVolumeClaimName]. Found [2]
+
+
+  - it: should fail with empty enabled
+    set:
+      volumeSnapshots:
+        - name: example1
+          enabled:
+    asserts:
+      - failedTemplate:
+          errorMessage: Volume Snapshot - Expected the defined key [enabled] in [volumeSnapshots.0] to not be empty

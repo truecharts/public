@@ -320,6 +320,7 @@ persistenceList: []
 
 deviceList: []
 
+volumeSnapshotClass: []
 volumeSnapshots: []
 # volumeSnapshots:
 #   - name: "mycustomsnapshot"
@@ -703,6 +704,15 @@ webhook:
 #     allowVolumeExpansion: true
 #     volumeBindingMode: Immediate
 #     mountOptions: []
+
+# # -- create volumeSnapshotClass on demand
+# volumeSnapshotClass:
+#   example:
+#     enabled: true
+#     driver: some.driver.io
+#     deletionPolicy: Retain
+#     isDefault: false
+#     parameters: {}
 
 metrics:
   main:

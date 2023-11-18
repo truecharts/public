@@ -11,7 +11,7 @@ objectData:
   {{- $objectData := .objectData -}}
 
   {{- if not $objectData.source -}}
-    {{- fail "VolumeSnapshot - Expected non empty [source]" -}}
+    {{- fail "Volume Snapshot - Expected non empty [source]" -}}
   {{- end -}}
 
   {{- $sourceTypes := (list "volumeSnapshotContentName" "persistentVolumeClaimName") -}}
@@ -23,7 +23,7 @@ objectData:
   {{- end -}}
 
   {{- if ne $sourceCount 1 -}}
-    {{- fail (printf "VolumeSnapshot - Expected exactly one of the valid source types [%s]. Found [%d]" (join ", " $sourceTypes) $sourceCount) -}}
+    {{- fail (printf "Volume Snapshot - Expected exactly one of the valid source types [%s]. Found [%d]" (join ", " $sourceTypes) $sourceCount) -}}
   {{- end -}}
 
 {{- end -}}
