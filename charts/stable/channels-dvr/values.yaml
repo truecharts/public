@@ -3,9 +3,9 @@ image:
   pullPolicy: Always
   tag: latest@sha256:d9af0820c5afc50b620ad70f2574e9f9c5d2b8244eadb3075df785ebeb87fbb6
 tveImage:
-  repository: tccr.io/truecharts/channels-dvr-tve
+  repository: fancybits/channels-dvr
   pullPolicy: Always
-  tag: latest@sha256:b3cbf843705d5803fb5ba2b86b8c3daf338cf9d5d7ab8799009c0decd730d704
+  tag: tve@sha256:0da2bdcf835c7cf4ad0817dba09a857ccf523f7b4a4d00b46d7f917f7e5b11f1
 service:
   main:
     ports:
@@ -39,3 +39,4 @@ workload:
             startup:
               port: 8089
               type: http
+updated: true

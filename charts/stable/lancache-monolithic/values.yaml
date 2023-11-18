@@ -3,9 +3,9 @@ image:
   pullPolicy: IfNotPresent
   tag: latest@sha256:b72d6b909b9e3fb7b521e90aab97479f7977bf6bee97e89a095e1afdbd6d3b85
 prefillImage:
-  repository: tccr.io/truecharts/lancache-prefill
+  repository: ich777/lancache-prefill
   pullPolicy: IfNotPresent
-  tag: latest@sha256:6ce05d36b070be61dba9f64f8c884d654430d85faf94ebce2aae237c57206726
+  tag: latest@sha256:68a63d842ffdbf87292647f9b16e57e34d66f1f6f8b05944b8aa2ea4f86dc8ff
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -135,3 +135,4 @@ persistence:
 portal:
   open:
     enabled: false
+updated: true

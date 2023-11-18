@@ -3,20 +3,20 @@ image:
   tag: 2023.10.3@sha256:1bfa11413b928f5831b56933aa09816a05f435fb5df7b652fbf9838548a7f561
   pullPolicy: IfNotPresent
 geoipImage:
-  repository: tccr.io/truecharts/geoipupdate
-  tag: v6.0.0@sha256:e057484036265c5bde379556463eed605f68f72016f328404202fb293f02a76a
+  repository: ghcr.io/maxmind/geoipupdate
+  tag: v6.0.0@sha256:e0d5c1dee7379d360e0f355557542d9672c616215dfdd5aaf917382de84cb84c
   pullPolicy: IfNotPresent
 ldapImage:
-  repository: tccr.io/truecharts/authentik-ldap
-  tag: v2023.10.3@sha256:aae476ded2b470fcdf81cb7b0c63e338ee60a8260aedf631d7bd9715720f3d32
+  repository: ghcr.io/goauthentik/ldap
+  tag: 2023.10.3@sha256:9672bbe043b4cf4169d1639cf6d940314341332a64d0fc54cc84ea8e15ae7595
   pullPolicy: IfNotPresent
 radiusImage:
-  repository: tccr.io/truecharts/authentik-radius
-  tag: v2023.10.3@sha256:a13a2ff2d56b927ddea7adb04ce3e766a075e744ea4b920e9828da8c8eab1a23
+  repository: ghcr.io/goauthentik/radius
+  tag: 2023.10.3@sha256:0ce39df4c5c6fe15d59fdc9266fa74db3c6bdc0363f7b332b6d2746cde40d107
   pullPolicy: IfNotPresent
 proxyImage:
-  repository: tccr.io/truecharts/authentik-proxy
-  tag: v2023.10.3@sha256:1c5c10c8c1f7383cf870c633a9fdd622c9ed83858eee977489de8181da7a98b0
+  repository: ghcr.io/goauthentik/proxy
+  tag: 2023.10.3@sha256:774db24ed31ecf064216f376e55a2e3fb5076c28840f0fddcb42567226edee3f
   pullPolicy: IfNotPresent
 authentik:
   credentials:
@@ -495,3 +495,4 @@ metrics:
         path: /metrics
     prometheusRule:
       enabled: false
+updated: true
