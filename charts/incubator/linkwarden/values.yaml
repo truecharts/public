@@ -4,6 +4,7 @@ image:
   tag: v2.2.1@sha256:c948cdcf683ec7b6c634eb2a0e184e270e167401d41ef8e82f7ff64c61f39f9c
 
 config:
+  nextauth_url: ""
   pagination_take_count: 20
   autoscroll_timeout: 30
   disable_registration: false
@@ -44,7 +45,8 @@ workload:
               secretKeyRef:
                 name: linkwarden-secrets
                 key: NEXTAUTH_SECRET
-            NEXTAUTH_URL: "http://localhost:3000/api/v1/auth"
+            NEXTAUTH_URL: "{{ .Values.config.nextauth_url }}"
+            NEXTAUTH_URL_INTERNAL: "{{ .Values.chartContext.APPURL }}"
             PAGINATION_TAKE_COUNT: "{{ .Values.config.pagination_take_count }}"
             STORAGE_FOLDER: "data"
             AUTOSCROLL_TIMEOUT: "{{ .Values.config.autoscroll_timeout }}"

@@ -21,9 +21,15 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+        - variable: nextauth_url
+          label: "Public URL"
+          description: "This is the public-facing URL that Linkwarden will be hosted on."
+          schema:
+            type: string
+            default: "http://example.com"
         - variable: pagination_take_count
           label: "Pagination Take Count"
-          description: "The numbers of Links to fetch every time you reach to the bottom of the webpage"
+          description: "The numbers of Links to fetch every time you reach to the bottom of the webpage."
           schema:
             type: int
             default: 20
