@@ -23,6 +23,8 @@ objectData: The object data to be used to render the volume.
       {{- $formats := "(Suffixed with E/P/T/G/M/K - eg. 1G), (Suffixed with Ei/Pi/Ti/Gi/Mi/Ki - eg. 1Gi), (Plain Integer in bytes - eg. 1024), (Exponent - eg. 134e6)" -}}
       {{- fail (printf "Persistence Expected [size] to have one of the following formats [%s], but got [%s]" $formats $size) -}}
     {{- end -}}
+  {{- else if eq $medium "Memory" -}}
+    {{- $size = $rootCtx.Values.resources.limits.memory -}}
   {{- end -}}
 
   {{- if and $medium (ne $medium "Memory") -}}

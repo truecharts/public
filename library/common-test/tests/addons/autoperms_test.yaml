@@ -175,6 +175,7 @@ tests:
             name: tmp
             emptyDir:
               medium: Memory
+              sizeLimit: 8Gi
       - documentIndex: *jobDoc
         contains:
           path: spec.template.spec.containers[0].volumeMounts
@@ -511,6 +512,7 @@ tests:
             name: tmp
             emptyDir:
               medium: Memory
+              sizeLimit: 8Gi
       - documentIndex: *jobDoc
         contains:
           path: spec.template.spec.containers[0].volumeMounts
