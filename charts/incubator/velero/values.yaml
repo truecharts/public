@@ -1,7 +1,7 @@
 image:
-  repository: alpine
+  repository: tccr.io/truecharts/alpine
   pullPolicy: IfNotPresent
-  tag: 3.18.4@sha256:eece025e432126ce23f223450a0326fbebde39cdf496a85d8c016293fc851978
+  tag: latest@sha256:17cd77e25d3fa829d168caec4db7bb5b52ceeb935d8ca0d1180de6f615553dc4
 service:
   main:
     enabled: false
