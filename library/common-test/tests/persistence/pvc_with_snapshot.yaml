@@ -1,0 +1,79 @@
+suite: persistence pvc with snapshots test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should generate correct pvc and snapshot
+    set:
+      persistence:
+        my-volume1:
+          enabled: true
+          type: pvc
+          volumeSnapshots:
+            - name: example1
+              enabled: true
+              volumeSnapshotClassName: some-name
+        my-volume2:
+          enabled: true
+          type: pvc
+          volumeSnapshots:
+            - name: example1
+              enabled: true
+              volumeSnapshotClassName: some-name
+    asserts:
+      - documentIndex: &pvcDoc 0
+        isKind:
+          of: PersistentVolumeClaim
+      - documentIndex: *pvcDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *pvcDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-volume1
+      - documentIndex: &volumeSnapshotDoc 1
+        isKind:
+          of: VolumeSnapshot
+      - documentIndex: *volumeSnapshotDoc
+        isAPIVersion:
+          of: snapshot.storage.k8s.io/v1
+      - documentIndex: *volumeSnapshotDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-volume1-example1
+      - documentIndex: *volumeSnapshotDoc
+        equal:
+          path: spec
+          value:
+            volumeSnapshotClassName: some-name
+            source:
+              persistentVolumeClaimName: test-release-name-common-test-my-volume1
+      - documentIndex: &otherPvcDoc 2
+        isKind:
+          of: PersistentVolumeClaim
+      - documentIndex: *otherPvcDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *otherPvcDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-volume2
+      - documentIndex: &otherVolumeSnapshotDoc 3
+        isKind:
+          of: VolumeSnapshot
+      - documentIndex: *otherVolumeSnapshotDoc
+        isAPIVersion:
+          of: snapshot.storage.k8s.io/v1
+      - documentIndex: *otherVolumeSnapshotDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-volume2-example1
+      - documentIndex: *otherVolumeSnapshotDoc
+        equal:
+          path: spec
+          value:
+            volumeSnapshotClassName: some-name
+            source:
+              persistentVolumeClaimName: test-release-name-common-test-my-volume2

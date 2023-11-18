@@ -30,10 +30,13 @@ tests:
             annotation1: "{{ .Values.annotation1 }}"
             annotation2: annotation2
     asserts:
-      - documentIndex: &storageClassDoc 0
+      - documentIndex: &priorityClassDoc 0
         isKind:
           of: PriorityClass
-      - documentIndex: *storageClassDoc
+      - documentIndex: &priorityClassDoc 0
+        isAPIVersion:
+          of: scheduling.k8s.io/v1
+      - documentIndex: *priorityClassDoc
         equal:
           path: metadata.annotations
           value:
@@ -41,7 +44,7 @@ tests:
             annotation2: annotation2
             g_annotation1: global_annotation1
             g_annotation2: global_annotation2
-      - documentIndex: *storageClassDoc
+      - documentIndex: *priorityClassDoc
         equal:
           path: metadata.labels
           value:

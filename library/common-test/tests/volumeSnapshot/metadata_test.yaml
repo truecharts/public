@@ -1,4 +1,4 @@
-suite: storageClass metadata test
+suite: volumeSnapshot metadata test
 templates:
   - common.yaml
 chart:
@@ -7,7 +7,7 @@ release:
   name: test-release-name
   namespace: test-release-namespace
 tests:
-  - it: should pass with storageClass created with labels and annotations
+  - it: should pass with volumeSnapshot created with labels and annotations
     set:
       label1: label1
       label2: global_label2
@@ -20,10 +20,11 @@ tests:
         annotations:
           g_annotation1: global_annotation1
           g_annotation2: "{{ .Values.annotation2 }}"
-      storageClass:
-        example1:
+      volumeSnapshots:
+        - name: example1
           enabled: true
-          provisioner: some.provisioner.io
+          source:
+            volumeSnapshotContentName: some-name
           labels:
             label1: "{{ .Values.label1 }}"
             label2: label2
@@ -31,13 +32,13 @@ tests:
             annotation1: "{{ .Values.annotation1 }}"
             annotation2: annotation2
     asserts:
-      - documentIndex: &storageClassDoc 0
+      - documentIndex: &volumeSnapshotDoc 0
         isKind:
-          of: StorageClass
-      - documentIndex: *storageClassDoc
+          of: VolumeSnapshot
+      - documentIndex: &volumeSnapshotDoc 0
         isAPIVersion:
-          of: storage.k8s.io/v1
-      - documentIndex: *storageClassDoc
+          of: snapshot.storage.k8s.io/v1
+      - documentIndex: *volumeSnapshotDoc
         equal:
           path: metadata.annotations
           value:
@@ -45,7 +46,7 @@ tests:
             annotation2: annotation2
             g_annotation1: global_annotation1
             g_annotation2: global_annotation2
-      - documentIndex: *storageClassDoc
+      - documentIndex: *volumeSnapshotDoc
         equal:
           path: metadata.labels
           value:

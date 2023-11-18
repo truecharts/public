@@ -1,0 +1,106 @@
+suite: volumeSnapshot spec test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should generate correct spec
+    set:
+      volumeSnapshots:
+        - name: example1
+          enabled: true
+          source:
+            volumeSnapshotContentName: some-name
+        - name: example2
+          enabled: true
+          source:
+            persistentVolumeClaimName: some-pvc-name
+    asserts:
+      - documentIndex: &volumeSnapshotDoc 0
+        isKind:
+          of: VolumeSnapshot
+      - documentIndex: *volumeSnapshotDoc
+        isAPIVersion:
+          of: snapshot.storage.k8s.io/v1
+      - documentIndex: *volumeSnapshotDoc
+        equal:
+          path: spec
+          value:
+            source:
+              volumeSnapshotContentName: some-name
+      - documentIndex: &otherVolumeSnapshotDoc 1
+        isKind:
+          of: VolumeSnapshot
+      - documentIndex: *otherVolumeSnapshotDoc
+        isAPIVersion:
+          of: snapshot.storage.k8s.io/v1
+      - documentIndex: *otherVolumeSnapshotDoc
+        equal:
+          path: spec
+          value:
+            source:
+              persistentVolumeClaimName: some-pvc-name
+
+  - it: should generate correct spec with volumeSnapshotClass
+    set:
+      volumeSnapshots:
+        - name: example1
+          enabled: true
+          volumeSnapshotClassName: some-class
+          source:
+            volumeSnapshotContentName: some-name
+    asserts:
+      - documentIndex: &volumeSnapshotDoc 0
+        isKind:
+          of: VolumeSnapshot
+      - documentIndex: *volumeSnapshotDoc
+        equal:
+          path: spec
+          value:
+            volumeSnapshotClassName: some-class
+            source:
+              volumeSnapshotContentName: some-name
+
+  # Failures
+  - it: should fail without name
+    set:
+      volumeSnapshots:
+        - enabled: true
+          source:
+            volumeSnapshotContentName: some-name
+    asserts:
+      - failedTemplate:
+          errorMessage: VolumeSnapshot - Expected non empty [name]
+
+  - it: should fail without source object
+    set:
+      volumeSnapshots:
+        - name: example1
+          enabled: true
+    asserts:
+      - failedTemplate:
+          errorMessage: VolumeSnapshot - Expected non empty [source]
+
+  - it: should fail without a valid source
+    set:
+      volumeSnapshots:
+        - name: example1
+          enabled: true
+          source:
+            invalid: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: VolumeSnapshot - Expected exactly one of the valid source types [volumeSnapshotContentName, persistentVolumeClaimName]. Found [0]
+
+  - it: should fail with more than one valid source
+    set:
+      volumeSnapshots:
+        - name: example1
+          enabled: true
+          source:
+            volumeSnapshotContentName: some-name
+            persistentVolumeClaimName: some-pvc-name
+    asserts:
+      - failedTemplate:
+          errorMessage: VolumeSnapshot - Expected exactly one of the valid source types [volumeSnapshotContentName, persistentVolumeClaimName]. Found [2]

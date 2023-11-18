@@ -307,10 +307,27 @@ persistence:
 #      driver: "somedriver"
 #      # Custom CSI definition here
 #      csi: {}
+#  example-volumesnapshot:
+#    enabled: true
+#    type: pvc
+#    mountPath: /shared
+#    targetSelectAll: true
+#    volumeSnapshots:
+#      - name: "mysnapshot"
+#        volumeSnapshotClassName: "mysnapshotclass" (optional)
 
 persistenceList: []
 
 deviceList: []
+
+volumeSnapshots: []
+# volumeSnapshots:
+#   - name: "mycustomsnapshot"
+#     volumeSnapshotClassName: "mycustomsnapshot" (optional)
+#     source:
+#       # pick one
+#       persistentVolumeClaimName: "mypvcname" (does not get altered)
+#       volumeSnapshotContentName: "mysnapshotname"
 
 # -- Injected from SCALE middleware
 # Only for reference here

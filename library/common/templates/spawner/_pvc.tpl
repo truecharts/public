@@ -74,6 +74,29 @@
 
         {{/* Call class to create the object */}}
         {{- include "tc.v1.common.class.pvc" (dict "rootCtx" $ "objectData" $objectData) -}}
+
+        {{/* Create VolumeSnapshots */}}
+        {{- range $volSnap := $objectData.volumeSnapshots -}}
+
+          {{/* Create a copy of the volumesnapshot */}}
+          {{- $volSnapData := (mustDeepCopy $volSnap) -}}
+          {{/* PVC FullName - Snapshot Name*/}}
+          {{- $snapshotName := printf "%s-%s" $objectData.name $volSnap.name -}}
+
+          {{/* Perform validations */}} {{/* volumesnapshots have a max name length of 253 */}}
+          {{- include "tc.v1.common.lib.chart.names.validation" (dict "name" $snapshotName "length" 253) -}}
+          {{- include "tc.v1.common.lib.metadata.validation" (dict "objectData" $volSnapData "caller" "PVC - VolumeSnapshot") -}}
+
+          {{/* Set the name of the volumesnapshot */}}
+          {{- $_ := set $volSnapData "name" $snapshotName -}}
+          {{- $_ := set $volSnapData "shortName" $volSnap.name -}}
+          {{- $_ := set $volSnapData "source" (dict "persistentVolumeClaimName" $objectData.name) -}}
+
+          {{- include "tc.v1.common.lib.volumesnapshot.validation" (dict "objectData" $volSnapData) -}}
+
+          {{/* Call class to create the object */}}
+          {{- include "tc.v1.common.class.volumesnapshot" (dict "rootCtx" $ "objectData" $volSnapData) -}}
+        {{- end -}}
       {{- end -}}
 
       {{- if eq $objectData.type "iscsi" -}}
