@@ -97,3 +97,8 @@ workload:
               secretKeyRef:
                 name: sabnzbdsecret
                 key: SABNZBD__API_KEY
+
+sabnzbd:
+  api_key:
+    enabled: false
+    # secret:
