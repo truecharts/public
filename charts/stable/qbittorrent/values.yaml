@@ -8,6 +8,10 @@ qbitportforwardImage:
   tag: latest@sha256:67d0d21ed792cf80716d4211e7162b6d375af5c12f3cf096c9032ad705dddaa8
 qbitportforward:
   enabled: false
+  QBT_USERNAME: "admin"
+  QBT_PASSWORD: "adminadmin"
+  QBT_ADDR: "http://qbittorrent.ix-qbittorrent.svc.cluster.local:10095"
+  GTN_ADDR: "http://qbittorrent-gluetun.ix-qbittorrent.svc.cluster.local:8000"
 service:
   main:
     ports:
