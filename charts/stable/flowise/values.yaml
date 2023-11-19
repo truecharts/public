@@ -1,22 +1,19 @@
 image:
-  repository: tccr.io/truecharts/flowise
+  repository: flowiseai/flowise
   pullPolicy: IfNotPresent
-  tag: v1.4.1@sha256:9d55f0a33476cd688316b70985c12c91fcb9ff8404d8966afcf87134fefa1514
-
+  tag: 1.4.1@sha256:54d0a804fd4c3dad788a6eefcadf435756c081a00546620307852dfeaa3e8a45
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
       main:
         protocol: http
         port: 3000
-
 workload:
   main:
     podSpec:
@@ -66,7 +63,6 @@ workload:
                 key: PASSPHRASE
             # TOOL_FUNCTION_BUILTIN_DEP
             # TOOL_FUNCTION_EXTERNAL_DEP
-
 persistence:
   api:
     enabled: true
@@ -74,13 +70,11 @@ persistence:
   logs:
     enabled: true
     mountPath: "/config/logs"
-
 cnpg:
   main:
     enabled: true
     user: flowise
     database: flowise
-
 portal:
   open:
     enabled: true

@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/filebot
-  tag: v23.11.1@sha256:1301ef8f2d6d80a8b337f84ffd09029595c465ee3fe8fdc306c135a6dc7d7714
+  repository: jlesage/filebot
+  tag: v23.11.1@sha256:040f74f971fc220d58d4cdb9da63d19c8d55609bbee7f315ee76855758051f35
   pullPolicy: IfNotPresent
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -23,7 +21,6 @@ service:
         enabled: true
         port: 10269
         targetPort: 5900
-
 filebot:
   KEEP_APP_RUNNING: false
   DISPLAY_WIDTH: 1280
@@ -49,7 +46,6 @@ filebot:
   AMC_CUSTOM_OPTIONS: ""
   AMC_INSTALL_PKGS: ""
   USE_FILEBOT_BETA: false
-
 configmap:
   filebot:
     enabled: true
@@ -78,7 +74,6 @@ configmap:
       AMC_CUSTOM_OPTIONS: "{{ .Values.filebot.AMC_CUSTOM_OPTIONS }}"
       AMC_INSTALL_PKGS: "{{ .Values.filebot.AMC_INSTALL_PKGS }}"
       USE_FILEBOT_BETA: '{{ ternary "1" "0" .Values.filebot.USE_FILEBOT_BETA }}'
-
 workload:
   main:
     podSpec:
@@ -101,7 +96,6 @@ workload:
           envFrom:
             - configMapRef:
                 name: "filebot"
-
 persistence:
   config:
     enabled: true
@@ -115,7 +109,6 @@ persistence:
   output:
     enabled: true
     mountPath: /output
-
 portal:
   open:
     enabled: true

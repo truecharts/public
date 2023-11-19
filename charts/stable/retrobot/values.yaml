@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/retrobot
+  repository: rossimo/retrobot
   pullPolicy: IfNotPresent
-  tag: latest@sha256:b6528e37e04178d8abfb7f463180fc375fa4c04f60e5931f07b6796d9ca62a5c
+  tag: latest@sha256:4f1fb6e74e795baa565ba8c4e9502b1f06d1a74d985c9c02e7159cc25d4e01cb
 service:
   main:
     enabled: false
@@ -15,7 +15,6 @@ persistence:
 portal:
   open:
     enabled: false
-
 workload:
   main:
     podSpec:

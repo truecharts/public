@@ -50,7 +50,7 @@ jobs:
       - name: Install Helm
         uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # v3
         with:
-          version: latest
+          version: v3.13.2
 
       - name: Prep Helm
         run: |
@@ -58,6 +58,10 @@ jobs:
           helm repo add truecharts-deps https://deps.truecharts.org
           helm repo add truecharts-library https://library-charts.truecharts.org
           helm repo add jetstack https://charts.jetstack.io
+          helm repo add vmwaretanzu https://vmware-tanzu.github.io/helm-charts
+          helm repo add cnpg https://cloudnative-pg.github.io/charts
+          helm repo add metallb https://metallb.github.io/metallb
+          helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
           helm repo update
 
       - name: Collect changes (branch-based)

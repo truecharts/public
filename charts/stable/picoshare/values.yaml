@@ -1,14 +1,12 @@
 image:
-  repository: tccr.io/truecharts/picoshare
-  tag: v1.4.1@sha256:375324af640650d01d879bd7d71b59298267d1687486032a75766769f0b0e163
+  repository: mtlynch/picoshare
+  tag: 1.4.1@sha256:0373b57465518a26429891831f993752a7b51bb18d581b6b06527ea478fb6ab5
   pullPolicy: IfNotPresent
-
 service:
   main:
     ports:
       main:
         port: 10209
-
 workload:
   main:
     podSpec:
@@ -24,12 +22,10 @@ workload:
             LITESTREAM_ACCESS_KEY_ID: ""
             LITESTREAM_SECRET_ACCESS_KEY: ""
             LITESTREAM_RETENTION: 72h
-
 persistence:
   data:
     enabled: true
     mountPath: "/data"
-
 portal:
   open:
     enabled: true

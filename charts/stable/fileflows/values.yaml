@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/fileflows
-  tag: v23.11.0@sha256:e04ddf474bcb000d40f3796fd1f0c1c1f691c082b138827099d4205f52b579e1
+  repository: revenz/fileflows
+  tag: 23.11@sha256:ea9afc7235f5a7caf2110b5a1c860e4b5d482576471f7a0e0e294c20f80982b2
   pullPolicy: IfNotPresent
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 workload:
   main:
     podSpec:
@@ -26,14 +24,12 @@ workload:
               type: http
               path: /
           env: {}
-
 service:
   main:
     ports:
       main:
         port: 10242
         targetPort: 5000
-
 persistence:
   data:
     enabled: true
@@ -47,7 +43,6 @@ persistence:
   media:
     enabled: true
     mountPath: /media
-
 portal:
   open:
     enabled: true

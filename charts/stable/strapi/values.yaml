@@ -1,6 +1,6 @@
 image:
-  repository: tccr.io/truecharts/strapi
-  tag: v4.14.5@sha256:adb33a17e50cce14ed2d0c9004f5e752f006e02493a51a8cb1957347a97f7f81
+  repository: naskio/strapi
+  tag: 4.15.4-alpine@sha256:a3cac6a221d7ced95e7bf765ec0dc4c8c167986a9aa7a302f7a732c2777548e6
   pullPolicy: Always
 service:
   main:
@@ -15,7 +15,6 @@ persistence:
 cnpg:
   main:
     enabled: true
-
     user: strapi
     database: strapi
 portal:

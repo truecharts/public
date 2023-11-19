@@ -1,15 +1,13 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/sftpgo
-  tag: v2.5.5@sha256:4c0b4909ec63a9e5329d39beaff51cf860fcc63107b6671609caaf4cf684b442
-
+  repository: ghcr.io/drakkan/sftpgo
+  tag: v2.5.5@sha256:2509f5a637908b0a559bdc150b33345cbadbf7e4c9b05ea1ca3bd5e767781648
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -49,7 +47,6 @@ service:
         port: 10080
         protocol: tcp
         targetPort: 10080
-
 workload:
   main:
     podSpec:
@@ -63,7 +60,6 @@ workload:
             SFTPGO_FTPD__PASSIVE_PORT_RANGE__END: "50100"
             SFTPGO_FTPD__PASSIVE_PORT_RANGE__START: "50000"
             SFTPGO_WEBDAVD__BINDINGS__0__PORT: "10080"
-
 persistence:
   backupdirectory:
     enabled: true
@@ -77,7 +73,6 @@ persistence:
   shareaccess:
     enabled: true
     mountPath: /shareaccess
-
 portal:
   open:
     enabled: true

@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/babybuddy
+  repository: ghcr.io/linuxserver/babybuddy
   pullPolicy: IfNotPresent
-  tag: v2.1.2@sha256:27d5682bb748d9c143fa715a098ddeb29d31626207e19a2c89fea814c0a6e89e
-
+  tag: 2.1.2@sha256:b0619e7134a64121c3ece659b845086a19798ad4dd2befac882952e9a100c7ec
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -17,7 +15,6 @@ service:
         port: 10069
         protocol: http
         targetPort: 8000
-
 workload:
   main:
     podSpec:
@@ -37,18 +34,15 @@ workload:
               secretKeyRef:
                 name: cnpg-main-urls
                 key: host
-
 persistence:
   config:
     enabled: true
     mountPath: /config
-
 cnpg:
   main:
     enabled: true
     user: babybuddy
     database: babybuddy
-
 portal:
   open:
     enabled: true

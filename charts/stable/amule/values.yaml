@@ -1,15 +1,13 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/amule
-  tag: latest@sha256:08ac5dd2895ac3ebbee27dbee5ddff5cdbd1fc36624aff0651976d5eee52b217
-
+  repository: tchabaud/amule
+  tag: latest@sha256:66351396337f50b40613222c5c47adfbc8685eb631b38e73f217358f54182d64
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsGroup: 0
     runAsUser: 0
-
 service:
   main:
     ports:
@@ -33,7 +31,6 @@ service:
         port: 4672
         protocol: udp
         targetPort: 4672
-
 workload:
   main:
     podSpec:
@@ -52,7 +49,6 @@ workload:
           env:
             WEBUI_PWD: ""
             WEBUI_TEMPLATE: default
-
 persistence:
   complete:
     enabled: true
@@ -63,7 +59,6 @@ persistence:
   incomplete:
     enabled: true
     mountPath: /temp
-
 portal:
   open:
     enabled: true

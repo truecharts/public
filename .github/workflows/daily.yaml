@@ -245,6 +245,11 @@ jobs:
           helm repo add truecharts https://charts.truecharts.org
           helm repo add truecharts-library https://library-charts.truecharts.org
           helm repo add truecharts-deps https://deps.truecharts.org
+          helm repo add jetstack https://charts.jetstack.io
+          helm repo add vmwaretanzu https://vmware-tanzu.github.io/helm-charts
+          helm repo add cnpg https://cloudnative-pg.github.io/charts
+          helm repo add metallb https://metallb.github.io/metallb
+          helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
           helm repo update
 
       - name: Checkout
@@ -360,7 +365,7 @@ jobs:
   lock-threads:
     runs-on: ubuntu-latest
     steps:
-      - uses: dessant/lock-threads@be8aa5be94131386884a6da4189effda9b14aa21 # v4
+      - uses: dessant/lock-threads@d42e5f49803f3c4e14ffee0378e31481265dda22 # v5
         with:
           github-token: ${{ secrets.BOT_TOKEN }}
           issue-inactive-days: "7"

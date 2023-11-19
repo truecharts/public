@@ -1,12 +1,11 @@
 image:
-  repository: tccr.io/truecharts/kitchenowl-web
+  repository: tombursch/kitchenowl-web
   pullPolicy: IfNotPresent
-  tag: latest@sha256:febbaa121178c608478f70d3af27b12611f5a4d48eced80ef103334597b21d6f
+  tag: latest@sha256:df7ef030a002b982350bf8b65a7916b0cd4785842f3e3c7b386ce974c146c4b6
 backendImage:
-  repository: tccr.io/truecharts/kitchenowl-backend
+  repository: tombursch/kitchenowl
   pullPolicy: IfNotPresent
-  tag: latest@sha256:ae81d4f4af9a03ce1764261a15a5e362419b3794c201caac8485e04e81c04563
-
+  tag: latest@sha256:2abf15bff27459e45ea9bc807e11a4cd0f3c7cdf2c1ffc1fc52d6a4abece1f49
 service:
   main:
     enabled: true
@@ -28,7 +27,6 @@ service:
         protocol: http
         targetPort: 5000
         port: 10247
-
 persistence:
   data:
     enabled: true
@@ -36,18 +34,15 @@ persistence:
       backend:
         backend:
           mountPath: /data
-
 portal:
   open:
     enabled: true
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 workload:
   main:
     type: Deployment
@@ -117,10 +112,10 @@ workload:
               enabled: true
               type: tcp
               port: "{{ .Values.service.backend.ports.backend.targetPort }}"
-
 # Enabled postgres
 cnpg:
   main:
     enabled: true
     user: kitchenowl
     database: kitchenowl
+updated: true

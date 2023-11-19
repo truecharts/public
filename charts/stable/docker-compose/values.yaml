@@ -1,9 +1,8 @@
 image:
-  repository: tccr.io/truecharts/docker-in-docker
+  repository: docker
   pullPolicy: IfNotPresent
-  tag: v24.0.7@sha256:151a5f602aae8305be20f9e35fe7d51451b9d9eefe939d02b15c6195684b3726
+  tag: 24.0.7-dind@sha256:1dfc375736e448806602211e09a9b1390eb110548dcb839eef374da357ca5f5d
 hostNetwork: true
-
 securityContext:
   container:
     privileged: true
@@ -13,7 +12,6 @@ securityContext:
     runAsUser: 0
     runAsGroup: 0
     fsGroup: 0
-
 service:
   main:
     enabled: true
@@ -22,7 +20,6 @@ service:
       main:
         port: 2376
         type: https
-
 workload:
   main:
     podSpec:
@@ -62,12 +59,10 @@ workload:
     type: StatefulSet
     replicas: 1
     strategy: RollingUpdate
-
 persistence:
   docker-certs-ca:
     enabled: true
     mountPath: /config
-
 volumeClaimTemplates:
   docker-certs-client:
     enabled: true
@@ -75,7 +70,6 @@ volumeClaimTemplates:
   docker:
     enabled: true
     mountPath: /var/lib/docker
-
 portal:
   open:
     enabled: false

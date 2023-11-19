@@ -1,7 +1,12 @@
 image:
-  repository: tccr.io/truecharts/whisparr
+  repository: ghcr.io/hotio/whisparr
   pullPolicy: IfNotPresent
-  tag: 0.1.0.53@sha256:3f330945d677782fdf3276d79725b6cee2bbf0c2887bf3c7dd8e96829f127616
+  tag: nightly-2.0.0.289@sha256:e3f787b4de77c03e4244447bb308f17cbb3bc3013fb8a34202b04a0d9d1a5093
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     ports:
@@ -16,7 +21,6 @@ persistence:
 portal:
   open:
     enabled: true
-
 workload:
   main:
     podSpec:

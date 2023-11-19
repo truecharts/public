@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/bookstack
+  repository: ghcr.io/linuxserver/bookstack
   pullPolicy: IfNotPresent
-  tag: v23.10.20231030@sha256:3c9dd24ee7b12ba79274df4e3f1dcaec6b5137b0e27d0147376031a24ab39656
-
+  tag: 23.10.20231030@sha256:15f63a10e7bcd99b4f772f85aba74a9eced650aae75888794d38944c898766ca
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -17,7 +15,6 @@ service:
         port: 10112
         protocol: http
         targetPort: 80
-
 workload:
   main:
     podSpec:
@@ -41,17 +38,14 @@ workload:
               secretKeyRef:
                 name: secrets
                 key: APP_KEY
-
 persistence:
   config:
     enabled: true
     mountPath: /config
-
 mariadb:
   enabled: true
   mariadbUsername: bookstack
   mariadbDatabase: bookstack
-
 portal:
   open:
     enabled: true

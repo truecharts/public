@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/shlink
+  repository: shlinkio/shlink
   pullPolicy: IfNotPresent
-  tag: v3.6.4@sha256:7d60a3f5d8040ba576e3de5d39aae5ec7cdddc8b9c5b4424ded51ed187f8f822
-
+  tag: 3.6.4@sha256:a7a5ec1c6bf54043f47b45c462978e57b9381b910bdb5a211f862d33e5ee73b2
 service:
   main:
     ports:
@@ -13,22 +12,18 @@ cnpg:
     enabled: true
     user: shlink
     database: shlink
-
 redis:
   enabled: true
   redisUsername: "default"
-
 portal:
   open:
     enabled: false
-
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 workload:
   main:
     podSpec:

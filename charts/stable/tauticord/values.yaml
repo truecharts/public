@@ -1,22 +1,19 @@
 image:
-  repository: tccr.io/truecharts/tauticord
+  repository: ghcr.io/nwithan8/tauticord
   pullPolicy: IfNotPresent
-  tag: v3.12.1@sha256:7e54ab47d4a886c2aa681e69bb6d3b4b2a33cf882723b08cb311e86b7bd5c7fa
-
+  tag: 3.12.1@sha256:16e3e60f14e6c27e9db2c0c148338ee1fd3963e0ec8af11be85e70279b43b6d9
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-
 tauticord:
   refresh_seconds: 15
   terminate_message: "Your stream has ended."
@@ -76,7 +73,6 @@ tauticord:
     name: "Performance"
     monitor_cpu_enabled: false
     monitor_memory_enabled: false
-
 workload:
   main:
     podSpec:
@@ -151,12 +147,10 @@ workload:
             TC_VC_PERFORMANCE_CATEGORY_NAME: "{{.Values.tauticord.cat_performance.name }}"
             TC_MONITOR_CPU: "{{.Values.tauticord.cat_performance.monitor_cpu_enabled }}"
             TC_MONITOR_MEMORY: "{{.Values.tauticord.cat_performance.monitor_memory_enabled }}"
-
 persistence:
   logs:
     enabled: true
     mountPath: "/logs"
-
 portal:
   open:
     enabled: false

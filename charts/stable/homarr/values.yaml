@@ -1,7 +1,17 @@
 image:
-  repository: tccr.io/truecharts/homarr
-  tag: v0.13.4@sha256:ac61ed7667bf4eb18bef09a735ecebf453e9e0dbf993dd73d25e526164bbf009
+  repository: ghcr.io/ajnart/homarr
+  tag: 0.14.1@sha256:2c5458d5014dcd23b138159ef74e013e060ddd16ba80d4dcacb6c33647fcf139
   pullPolicy: IfNotPresent
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            NEXTAUTH_SECRET:
+              secretKeyRef:
+                name: homarr-secrets
+                key: NEXTAUTH_SECRET
 service:
   main:
     ports:
@@ -15,6 +25,9 @@ persistence:
   icons:
     enabled: true
     mountPath: "/app/public/icons"
+  data:
+    enabled: true
+    mountPath: "/data"
 portal:
   open:
     enabled: true

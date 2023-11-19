@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/etesync
+  repository: victorrds/etesync
   pullPolicy: IfNotPresent
-  tag: 0.11.0@sha256:47478da0d1b3ab18d5bfbcd4537fa80305ace94746b01c32e609c7e9e663d860
-
+  tag: 0.11.0@sha256:816cfadd28d36f4d1b8969009d59c51253b07e5ef3ad9f8e9cf03d8dc59ffa50
 securityContext:
   container:
     runAsUser: 373
@@ -10,13 +9,11 @@ securityContext:
     readOnlyRootFilesystem: false
   pod:
     fsGroup: 373
-
 # Docker image configuration docs:
 # https://github.com/victor-rds/docker-etebase#settings-and-customization
 
 # EteSync configuration docs:
 # https://github.com/etesync/server#configuration
-
 workload:
   main:
     podSpec:
@@ -38,12 +35,10 @@ workload:
             AUTO_SIGNUP: false
             LANGUAGE_CODE: "en-us"
             TIME_ZONE: "{{ .Values.TZ }}"
-
             # Debugging
             DEBUG: false
             SHELL_DEBUG: false
             DEBUG_DJANGO: false
-
             # Postgres
             DB_ENGINE: postgres
             DATABASE_NAME: "{{ .Values.cnpg.main.database }}"
@@ -72,7 +67,6 @@ service:
       main:
         protocol: http
         port: 10254
-
 persistence:
   app:
     enabled: true
@@ -84,17 +78,14 @@ persistence:
     mountPath: "/data/secret.txt"
     subPath: "secret.txt"
     objectName: "etesync-secret"
-
 # Enabled postgres
 cnpg:
   main:
     enabled: true
     user: etesync
     database: etesync
-
 redis:
   enabled: true
-
 portal:
   open:
     enabled: true

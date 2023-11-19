@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/airsonic-advanced
-  tag: v11.0.0@sha256:b6a1b30ecc3e16c39ca56392cd13d55af80235b57ec2d27c2e5f1a21fec34bd9
+  repository: airsonicadvanced/airsonic-advanced
+  tag: edge-latest@sha256:18de305bce05d47a885a40e6fbeecbf26ebc1ea815cedcce4be1f533a39bd3e8
   pullPolicy: IfNotPresent
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: true
     runAsUser: 568
     runAsGroup: 568
-
 workload:
   main:
     podSpec:
@@ -38,7 +36,6 @@ workload:
               secretKeyRef:
                 name: cnpg-main-user
                 key: password
-
 service:
   main:
     ports:
@@ -46,14 +43,12 @@ service:
         port: 10122
         protocol: http
         targetPort: 4040
-
 # Enabled postgres
 cnpg:
   main:
     enabled: true
     user: airsonic-advanced
     database: airsonic-advanced
-
 persistence:
   config:
     enabled: true
@@ -67,7 +62,6 @@ persistence:
   playlists:
     enabled: true
     mountPath: /playlists
-
 portal:
   open:
     enabled: true

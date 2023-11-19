@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/littlelink-server
+  repository: ghcr.io/techno-tim/littlelink-server
   pullPolicy: IfNotPresent
-  tag: latest@sha256:991f3dc8bdbd66b72f1bd76a564acf9113a777a2b0bb59b205741fcd3aa03241
+  tag: latest@sha256:27000f5b4e615595b715e356a325dc57d0d30a23e21b3cc59a123f5bf0a8651e
 service:
   main:
     ports:
@@ -31,7 +31,6 @@ littlelink:
 portal:
   open:
     enabled: true
-
 workload:
   main:
     podSpec:

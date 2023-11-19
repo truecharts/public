@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/rsnapshot
+  repository: ghcr.io/linuxserver/rsnapshot
   pullPolicy: IfNotPresent
-  tag: v1.4.5@sha256:ce0e84e1fa1f87cae749ee867f66f6cff6abef35ccdbf212a0b1a8793b6ca0f7
+  tag: 1.4.5@sha256:bf4aea63d81606a38669035d540df4d7ec9eb664ed05c0fc0c0a05d12923cf55
 service:
   main:
     enabled: false

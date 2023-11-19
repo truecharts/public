@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/quassel-core
+  repository: ghcr.io/linuxserver/quassel-core
   pullPolicy: IfNotPresent
-  tag: v0.14.0@sha256:44ad6e0bb90772bedcee1d51c9e69a28db35de17d438516d6157ec45185abdc6
+  tag: 0.14.0@sha256:16489c23e2170aa2cb989aacc97acc223c1df3101031bb5574502bdb55e44d81
 service:
   main:
     ports:
@@ -21,7 +21,6 @@ persistence:
 cnpg:
   main:
     enabled: true
-
     user: quassel-core
     database: quassel-core
 portal:

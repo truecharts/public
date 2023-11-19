@@ -101,8 +101,24 @@
       "matchDatasources": ["helm"],
       "automerge": false,
       "matchUpdateTypes": [
-        "minor",
-        "patch"
+        "minor"
+      ],
+      "enabled": true,
+      "bumpVersion": "patch",
+      "labels": ["update/helm/general/non-major", "automerge"],
+      "groupName": "helm general non-major",
+      "matchPaths": ["charts/enterprise/**", "charts/operators/**"],
+      "schedule": [
+        "before 10pm on tuesday"
+      ],
+    },
+    {
+      "matchDatasources": ["helm"],
+      "automerge": true,
+      "matchUpdateTypes": [
+        "digest",
+        "patch",
+        "pin"
       ],
       "enabled": true,
       "bumpVersion": "patch",
@@ -128,13 +144,30 @@
         "before 10pm on tuesday"
       ],
     },
+
     {
       "matchDatasources": ["helm"],
-      "automerge": false,
+      "automerge": true,
       "enabled": true,
       "matchUpdateTypes": [
-        "minor",
-        "patch"
+        "minor"
+      ],
+      "bumpVersion": "patch",
+      "labels": ["update/helm/general/non-major", "automerge"],
+      "groupName": "helm general non-major",
+      "matchPaths": ["charts/incubator/**", "charts/SCALE/**", "charts/dev/**", "charts/stable/**", "templates/app/**"],
+      "schedule": [
+        "before 10pm on tuesday"
+      ],
+    },
+    {
+      "matchDatasources": ["helm"],
+      "automerge": true,
+      "enabled": true,
+      "matchUpdateTypes": [
+        "digest",
+        "patch",
+        "pin"
       ],
       "bumpVersion": "patch",
       "labels": ["update/helm/general/non-major", "automerge"],
@@ -145,7 +178,7 @@
       ],
     },
     //
-    // Tag updates for semantic tags on enterprise and operatorApps
+    // Tag updates for semantic Docker tags on enterprise and operatorApps
     //
     {
       "matchDatasources": ["docker"],
@@ -162,13 +195,13 @@
         "minor",
       ],
       "enabled": true,
-      "bumpVersion": "patch",
+      "bumpVersion": "minor",
       "labels": ["update/docker/enterprise/minor"],
       "matchPaths": ["charts/enterprise/**", "charts/operators/**"],
     },
     {
       "matchDatasources": ["docker"],
-      "automerge": false,
+      "automerge": true,
       "matchUpdateTypes": [
         "patch",
         "digest",
@@ -181,7 +214,7 @@
     },
     {
       "matchDatasources": ["docker"],
-      "automerge": false,
+      "automerge": true,
       "matchUpdateTypes": [
         "patch",
         "digest",
@@ -240,9 +273,19 @@
     },
     {
       "matchDatasources": ["docker"],
-      "automerge": false,
+      "automerge": true,
       "matchUpdateTypes": [
         "minor",
+      ],
+      "bumpVersion": "minor",
+      "enabled": true,
+      "labels": ["update/docker/general/non-major", "automerge"],
+      "matchPaths": ["charts/dependency/**", "charts/SCALE/**", "charts/library/**", "charts/stable/**", "templates/app/**"],
+    },
+    {
+      "matchDatasources": ["docker"],
+      "automerge": true,
+      "matchUpdateTypes": [
         "patch",
         "digest",
         "pin",
@@ -251,6 +294,31 @@
       "enabled": true,
       "labels": ["update/docker/general/non-major", "automerge"],
       "matchPaths": ["charts/dependency/**", "charts/SCALE/**", "charts/library/**", "charts/stable/**", "templates/app/**"],
+    },
+
+    {
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": ["major"],
+      "commitMessagePrefix": "feat(images)!: ",
+      "labels": ["renovate/image", "dep/major"],
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": ["minor"],
+      "semanticCommitType": "feat",
+      "labels": ["renovate/image", "dep/minor"],
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": ["patch"],
+      "semanticCommitType": "fix",
+      "labels": ["renovate/image", "dep/patch"],
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": ["digest"],
+      "semanticCommitType": "fix",
+      "labels": ["renovate/image", "dep/digest"],
     },
     //
     // Tag semantic version type based on regex
@@ -391,6 +459,305 @@
       "matchDatasources": ["docker"],
       "matchPackagePrefixes": ["tccr.io/truecharts/ersatztv"],
       "groupName": "ersatztv",
-    }
+    },
+    // matchPackagePatterns
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>14)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "matchPackagePatterns": ["^bitnami/postgresql$"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d{4})-(?<minor>\\d{2})-(?<patch>\\d{2})$",
+      "matchPackagePatterns": ["^.*oznu\\/homebridge$"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d+)-(?<minor>\\d+)-(?<patch>\\d+)$",
+      "matchPackagePatterns": ["^jupyter\\/.+$"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-ubuntu$",
+      "matchPackagePatterns": ["^zabbix\\/zabbix-.*$"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^stable-(?<major>\\d{1})(?<minor>\\d{1})(?<patch>\\d{2}).*$",
+      "matchPackagePatterns": ["^jitsi\\/.*$"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "matchPackagePatterns": ["^penpot\\/.*$"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^\\d*-jammy-(?<variant>.+)-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "matchPackagePatterns": ["^.+\\/koush\\/scrypted$"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^version-(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-.*$",
+      "matchPackagePatterns": ["^.*linuxserver\\/deluge$"],
+      "automerge": true,
+    },
+    // matchPackageNames
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-postgres-tomcat$",
+      "matchPackageNames": ["xwiki"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^version-(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "matchPackageNames": ["fireflyiii/core"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-\\d+\\.\\d+\\.\\d+$",
+      "matchPackageNames": ["netboxcommunity/netbox"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d{2})(?<minor>\\d{2})(?<patch>\\d{2})$",
+      "matchPackageNames": ["photoprism/photoprism"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "matchPackageNames": ["cloudflare/cloudflared"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^version-(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "matchPackageNames": ["linuxserver/calibre-web"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^version-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "matchPackageNames": ["linuxserver/heimdall"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^postgresql-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "matchPackageNames": ["ghcr.io/umami-software/umami"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^version-v(?<major>\\d+)\\.(?<minor>\\d+)\\.?(?<patch>\\d*)$",
+      "matchPackageNames": ["linuxserver/mylar3"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^[a-z0-9]{9}-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-go\\d+\\.\\d+\\.\\d+$",
+      "matchPackageNames": ["storjlabs/storagenode"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-php8\\.0-apache$",
+      "matchPackageNames": ["joyqi/typecho"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^v\\.(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "matchPackageNames": ["difegue/lanraragi"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^RELEASE\\.(?<major>\\d+)-(?<minor>\\d+)-(?<patch>\\d+)T\\d+-\\d+-\\d+Z$",
+      "matchPackageNames": ["minio/minio"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^RELEASE\\.(?<major>\\d+)-(?<minor>\\d+)-(?<patch>\\d+)T\\d+-\\d+-\\d+Z$",
+      "matchPackageNames": ["minio/mc"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^apache-(?<major>\\d+)\\.(?<minor>\\d+)\\.?(?<patch>\\d*)-prod$",
+      "matchPackageNames": ["kimai/kimai2"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d+)-(?<minor>\\d+)-(?<patch>\\d+)$",
+      "matchPackageNames": ["rssbridge/rss-bridge"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d+)-(?<minor>\\d+)-(?<patch>\\d+)$",
+      "matchPackageNames": ["alexta69/metube"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^focal-(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "matchPackageNames": ["codeproject/senseai-server"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^latest-(?<major>\\d+)-(?<minor>\\d+)-(?<patch>\\d+)$",
+      "matchPackageNames": ["wangqiru/ttrss"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)(-\\d+)?$",
+      "matchPackageNames": ["kiwix/kiwix-serve"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-omnibus$",
+      "matchPackageNames": ["ghcr.io/analogj/scrutiny"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d+)-(?<minor>\\d+)-(?<patch>\\d+)$",
+      "matchPackageNames": ["diygod/rsshub"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-amd64(nvidia)?$",
+      "matchPackageNames": ["blakeblackshear/frigate"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d{1,4})\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "matchPackageNames": ["kopia/kopia"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d{4})\\.(?<minor>\\d{1,2})\\.(?<patch>\\d{1,2).*$",
+      "matchPackageNames": ["alicevision/meshroom"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d{4})\\.(?<minor>\\d{1,2})\\.(?<patch>\\d{1,2})$",
+      "matchPackageNames": ["itzg/bungeecord"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^java8-(?<major>\\d{4})\\.(?<minor>\\d{1,2})\\.(?<patch>\\d{1,2})$",
+      "matchPackageNames": ["itzg/bungeecord"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^java11-(?<major>\\d{4})\\.(?<minor>\\d{1,2})\\.(?<patch>\\d{1,2})$",
+      "matchPackageNames": ["itzg/bungeecord"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^java17-(?<major>\\d{4})\\.(?<minor>\\d{1,2})\\.(?<patch>\\d{1,2})$",
+      "matchPackageNames": ["itzg/bungeecord"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d{4})\\.(?<minor>\d{1,2})\\.(?<patch>\\d{1,2})(-java\\d{1,2}.*)?$",
+      "matchPackageNames": ["itzg/minecraft-server"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d{4})(?<minor>\\d{2})(?<patch>\\d{2})$",
+      "matchPackageNames": ["ankicommunity/anki-sync-server"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)-jdk17$",
+      "matchPackageNames": ["jenkins/jenkins"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^x64-v(?<major>\\d*)\\.(?<minor>\\d*)\\.(?<patch>\\d*)$",
+      "matchPackageNames": ["housewrecker/gaps"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d*)\\.(?<minor>\\d*)\\.(?<patch>\\d*)-\\d*$",
+      "matchPackageNames": ["sameersbn/apt-cacher-ng"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^release-(?<major>\\d*)\\.(?<minor>\\d*)$",
+      "matchPackageNames": ["mattermost/mattermost-enterprise-edition"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-.+$",
+      "matchPackageNames": ["corentinth/it-tools"],
+      "automerge": true,
+    },
+    //
+    // Version strategies
+    //
+    // Versioning for linuxserver two-three digit container versions
+    {
+      "packagePatterns": ["^linuxserver\\/","^deepquestai\\/"],
+      "versionScheme": "regex:^(?<compatibility>.*?(\\d+\\.)??)(?<major>\\d+)\\.(?<minor>\\d+)\\.?(?<patch>\\d+)?(-r?p?\\d)?$"
+    },
+    {
+      "matchDatasources": [
+        "docker"
+      ],
+      "versioning": "loose",
+      "matchPackageNames": [
+        "ghcr.io/onedr0p/plex",
+        "ghcr.io/onedr0p/qbittorrent",
+        "sirfragalot/hyperion.ng",
+      ],
+    },
+    {
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchPackageNames": [
+        "quay.io/helmpack/chart-releaser",
+        "jnorwood/helm-docs",
+        "quay.io/git-chglog/git-chglog"
+      ],
+      "automerge": false,
+      "matchUpdateTypes": ["major", "minor", "patch", "digest", "pin"],
+      "labels": ["renovate/image", "ci"],
+    },
+
   ]
 }
