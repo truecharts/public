@@ -29,6 +29,7 @@ service:
         protocol: udp
   gluetun:
     enabled: true
+    type: ClusterIP
     ports:
       gluetun:
         enabled: true
