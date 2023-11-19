@@ -30,6 +30,33 @@ questions:
 
 # Include{containerConfig}
 # Include{podOptions}
+  - variable: sabnzbd
+    label: ""
+    group: "App Configuration"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: api_key
+          label: "API Key"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Manually set API key"
+                description: "This is only required when enabling metrics"
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: secret
+                      label: "API Key"
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
 # Include{serviceRoot}
 # Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
@@ -98,6 +125,7 @@ questions:
 
 # Include{resources}
 # Include{metrics}
+# Include{prometheusRule}
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}

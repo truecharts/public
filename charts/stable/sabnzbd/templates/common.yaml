@@ -7,5 +7,11 @@
   {{- $_ := set .Values.service.metrics "enabled" false -}}
 {{- end -}}
 
+{{/* Render secrets for sabnzbd */}}
+{{- $secret := include "sabnzbd.secrets" . | fromYaml -}}
+{{- if $secret -}}
+  {{- $_ := set .Values.secret "sabnzbdsecret" $secret -}}
+{{- end -}}
+
 {{/* Render the templates */}}
 {{- include "tc.v1.common.loader.apply" . -}}
