@@ -10,8 +10,6 @@ qbitportforward:
   enabled: false
   QBT_USERNAME: "admin"
   QBT_PASSWORD: "adminadmin"
-  QBT_ADDR: "http://qbittorrent.ix-qbittorrent.svc.cluster.local:10095"
-  GTN_ADDR: "http://qbittorrent-gluetun.ix-qbittorrent.svc.cluster.local:8000"
 service:
   main:
     ports:
@@ -51,8 +49,8 @@ workload:
           env:
             QBT_USERNAME: "{{ .Values.qbitportforward.QBT_USERNAME }}"
             QBT_PASSWORD: "{{ .Values.qbitportforward.QBT_PASSWORD }}"
-            QBT_ADDR: "{{ .Values.qbitportforward.QBT_ADDR }}"
-            GTN_ADDR: "{{ .Values.qbitportforward.GTN_ADDR }}"
+            QBT_ADDR: "{{ printf "http://%v:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.main.ports.main.port }}  "
+            GTN_ADDR: "{{ printf "http://%v-gluetun:8000" (include "tc.v1.common.lib.chart.names.fullname" $) }}"
 persistence:
   config:
     enabled: true
