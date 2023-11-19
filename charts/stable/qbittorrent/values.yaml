@@ -31,6 +31,7 @@ service:
     enabled: true
     ports:
       gluetun:
+        enabled: true
         port: 8000
         targetPort: 8000
         protocol: http
