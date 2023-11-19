@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/nextcloud-fpm
   pullPolicy: IfNotPresent
-  tag: v27.1.3@sha256:517609d65d5cbdc5827dc8ae3f209aa546b43ede3a038ac4b2b1011a5f13d118
+  tag: v27.1.3@sha256:adac91d64cdbbef29e44a1bbd95349636e7558334267a1adc231cab5dc8e0a2f
 nginxImage:
   repository: nginxinc/nginx-unprivileged
   pullPolicy: IfNotPresent
@@ -21,7 +21,7 @@ clamavImage:
 collaboraImage:
   repository: collabora/code
   pullPolicy: IfNotPresent
-  tag: 23.05.5.4.1@sha256:27dc4f9ade2f60f8730ac84c9405ae715798b1c4a15ee4bd0ad4f94e610aba3e
+  tag: 23.05.5.4.1@sha256:a8cce07c949aa59cea0a7f1f220266a1a6d886c717c3b5005782baf6f384d645
 nextcloud:
   # Initial Credentials
   credentials:
@@ -112,6 +112,8 @@ nextcloud:
     # Only add the OnlyOffice settings
     enabled: false
     url: ""
+    internal_url: ""
+    verify_ssl: true
     jwt: ""
     jwt_header: Authorization
   # PHP settings

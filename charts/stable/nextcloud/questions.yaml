@@ -456,11 +456,28 @@ questions:
                   show_subquestions_if: true
                   subquestions:
                     - variable: url
-                      label: URL
+                      label: Public URL
+                      description: |
+                        The public FQDN and port of the OnlyOffice Document Server
                       schema:
                         type: string
                         required: true
                         default: ""
+                    - variable: internal_url
+                      label: Internal URL
+                      description: |
+                        The internal FQDN and port of the OnlyOffice Document Server
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: verify_ssl
+                      label: Verify SSL (Advanced)
+                      description: |
+                        Verify SSL when connecting to OnlyOffice Document Server
+                      schema:
+                        type: boolean
+                        default: true
                     - variable: jwt
                       label: JWT
                       schema:
