@@ -9,6 +9,7 @@ questions:
 
 # Include{replicas1}
 # Include{podSpec}
+# Include{podOptions}
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
@@ -54,6 +55,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
