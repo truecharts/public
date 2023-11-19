@@ -101,8 +101,24 @@
       "matchDatasources": ["helm"],
       "automerge": false,
       "matchUpdateTypes": [
-        "minor",
-        "patch"
+        "minor"
+      ],
+      "enabled": true,
+      "bumpVersion": "patch",
+      "labels": ["update/helm/general/non-major", "automerge"],
+      "groupName": "helm general non-major",
+      "matchPaths": ["charts/enterprise/**", "charts/operators/**"],
+      "schedule": [
+        "before 10pm on tuesday"
+      ],
+    },
+    {
+      "matchDatasources": ["helm"],
+      "automerge": true,
+      "matchUpdateTypes": [
+        "digest",
+        "patch",
+        "pin"
       ],
       "enabled": true,
       "bumpVersion": "patch",
@@ -128,13 +144,30 @@
         "before 10pm on tuesday"
       ],
     },
+
     {
       "matchDatasources": ["helm"],
-      "automerge": false,
+      "automerge": true,
       "enabled": true,
       "matchUpdateTypes": [
-        "minor",
-        "patch"
+        "minor"
+      ],
+      "bumpVersion": "patch",
+      "labels": ["update/helm/general/non-major", "automerge"],
+      "groupName": "helm general non-major",
+      "matchPaths": ["charts/incubator/**", "charts/SCALE/**", "charts/dev/**", "charts/stable/**", "templates/app/**"],
+      "schedule": [
+        "before 10pm on tuesday"
+      ],
+    },
+    {
+      "matchDatasources": ["helm"],
+      "automerge": true,
+      "enabled": true,
+      "matchUpdateTypes": [
+        "digest",
+        "patch",
+        "pin"
       ],
       "bumpVersion": "patch",
       "labels": ["update/helm/general/non-major", "automerge"],
@@ -145,7 +178,7 @@
       ],
     },
     //
-    // Tag updates for semantic tags on enterprise and operatorApps
+    // Tag updates for semantic Docker tags on enterprise and operatorApps
     //
     {
       "matchDatasources": ["docker"],
@@ -162,13 +195,13 @@
         "minor",
       ],
       "enabled": true,
-      "bumpVersion": "patch",
+      "bumpVersion": "minor",
       "labels": ["update/docker/enterprise/minor"],
       "matchPaths": ["charts/enterprise/**", "charts/operators/**"],
     },
     {
       "matchDatasources": ["docker"],
-      "automerge": false,
+      "automerge": true,
       "matchUpdateTypes": [
         "patch",
         "digest",
@@ -181,7 +214,7 @@
     },
     {
       "matchDatasources": ["docker"],
-      "automerge": false,
+      "automerge": true,
       "matchUpdateTypes": [
         "patch",
         "digest",
@@ -240,9 +273,19 @@
     },
     {
       "matchDatasources": ["docker"],
-      "automerge": false,
+      "automerge": true,
       "matchUpdateTypes": [
         "minor",
+      ],
+      "bumpVersion": "minor",
+      "enabled": true,
+      "labels": ["update/docker/general/non-major", "automerge"],
+      "matchPaths": ["charts/dependency/**", "charts/SCALE/**", "charts/library/**", "charts/stable/**", "templates/app/**"],
+    },
+    {
+      "matchDatasources": ["docker"],
+      "automerge": true,
+      "matchUpdateTypes": [
         "patch",
         "digest",
         "pin",
