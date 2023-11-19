@@ -27,13 +27,13 @@ service:
       dataingest:
         enabled: true
         port: 9997
-        protocol: HTTP
+        protocol: http
         targetPort: 9997
   main:
     ports:
       main:
         port: 8000
-        protocol: HTTP
+        protocol: http
         targetPort: 8000
   management:
     enabled: true
@@ -41,7 +41,7 @@ service:
       management:
         enabled: true
         port: 8089
-        protocol: HTTP
+        protocol: http
         targetPort: 8089
 
 persistence:
