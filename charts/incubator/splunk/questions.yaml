@@ -18,41 +18,42 @@ questions:
 
   - variable: splunk
     group: App Configuration
-    label: Splunk Configuration
+    label: "Splunk Configuration"
     schema:
       additional_attrs: true
       type: dict
       attrs:
         - variable: acceptLicense
-          label: Accept License
-          description: Arguments to start Splunk with.
+          label: "Accept License"
+          description: "Arguments to start Splunk with."
           schema:
             type: boolean
             default: true
         - variable: password
-          label: Splunk Password
-          description: Splunk Web UI admin password.
+          label: "Splunk Password"
+          description: "Splunk Web UI admin password."
           schema:
             type: string
             private: true
             default: ""
         - variable: extraArgs
-          label: Extra Startup Arg
+          label: "Extra Startup Arguments"
           schema:
             type: list
             default: []
             items:
               - variable: argEntry
-                label: Arg Entry
+                label: "Arg Entry"
                 schema:
                   type: string
                   required: true
                   default: ""
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
-          label: Main Service
-          description: The Primary service on which the healthcheck runs, often the webUI
+          label: "Main Service"
+          description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
             type: dict
@@ -158,8 +159,8 @@ questions:
 # Include{ingressTraefik}
 # Include{ingressAdvanced}
 # Include{ingressList}
+# Include{securityContextRoot}
 
-# Include{podSecurityContextRoot}
         - variable: runAsUser
           label: runAsUser
           description: The UserID of the user running the application
