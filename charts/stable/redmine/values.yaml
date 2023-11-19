@@ -29,7 +29,7 @@ securityContext:
     readOnlyRootFilesystem: false
     runAsUser: 999
     runAsGroup: 999
-podOptions:
+  pod:
     fsGroup: 999
 workload:
   main:
