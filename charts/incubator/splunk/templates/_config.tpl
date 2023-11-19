@@ -14,14 +14,8 @@
   {{- end -}}
 {{- end }}
 
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: {{ $splunkSecret }}
-  labels:
-    {{- include "tc.v1.common.lib.metadata.allLabels" . | nindent 4 }}
-stringData:
+enabled: true
+data:
   {{- with $argList }}
   SPLUNK_START_ARGS: {{ join " " . | quote }}
   {{- end }}

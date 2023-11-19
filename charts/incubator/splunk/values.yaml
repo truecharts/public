@@ -16,9 +16,9 @@ splunk:
   password: changeme
   extraArgs: []
 
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.v1.common.names.fullname" . }}-splunk-config'
+# envFrom:
+#   - secretRef:
+#       name: '{{ include "tc.v1.common.names.fullname" . }}-splunk-config'
 
 service:
   dataingest:
@@ -43,6 +43,15 @@ service:
         port: 8089
         protocol: http
         targetPort: 8089
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - secretRef:
+                name: "secret"
+
 
 persistence:
   appcreds:
