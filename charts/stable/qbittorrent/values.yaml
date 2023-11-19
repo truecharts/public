@@ -27,6 +27,12 @@ service:
         enabled: true
         port: 6881
         protocol: udp
+  gluetun:
+    enabled: true
+    ports:
+      gluetun:
+        port: 8000
+        targetPort: 8000
 workload:
   qbitportforward:
     enabled: true
