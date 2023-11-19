@@ -33,6 +33,7 @@ service:
       gluetun:
         port: 8000
         targetPort: 8000
+        protocol: http
 workload:
   qbitportforward:
     enabled: true
