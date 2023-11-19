@@ -3,8 +3,8 @@ image:
   pullPolicy: IfNotPresent
   tag: cpu-0.33.0@sha256:5011038046b50882281b418614b55f8f5db4ced31c42c297ede2d513c53ab105
 gpuImage:
-  repository: tccr.io/truecharts/lama-cleaner-gpu
-  tag: v0.33.0@sha256:ed5fb07e6810668b078b6d2afc8fbca9ccb691dbaf5bd99231e82a5ca841ec4f
+  repository: cwq1913/lama-cleaner
+  tag: gpu-0.33.0@sha256:c52f131701d4c21eae1f898ee59cdc26c73ccbe45b6cb8e75bf4b60989dd5015
   pullPolicy: Always
 lamacleaner:
   model: lama
@@ -44,3 +44,4 @@ workload:
         main:
           command: lama-cleaner
           imageSelector: image
+updated: true

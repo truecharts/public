@@ -3,9 +3,9 @@ image:
   pullPolicy: IfNotPresent
   tag: "v1.2.3@sha256:a94b6bbbea73578896112dee36d9b71783b8b4696c4eedc2ae75eb129ca24339\r"
 gpuImage:
-  repository: tccr.io/truecharts/whisper-asr-webservice-gpu
+  repository: onerahmet/openai-whisper-asr-webservice
   pullPolicy: IfNotPresent
-  tag: v1.2.3@sha256:a7ff156cc750ef34c71176a98cf1245e3c62599568d73482557667382a25d705
+  tag: "v1.2.3-gpu@sha256:0e78dd19e44589ed84eaf928ff7e0754476fa8692fd6856d58dea903efb80354\r"
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -54,3 +54,4 @@ persistence:
 portal:
   open:
     enabled: true
+updated: true

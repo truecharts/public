@@ -3,56 +3,56 @@ image:
   tag: 2023.8.3@sha256:2af12eac3a7106882e23d1b2435358db841c4302d213532e415255fbbd36c826
   pullPolicy: Always
 j20Image:
-  repository: tccr.io/truecharts/minecraft-java20
-  tag: latest@sha256:52da6b824428fb62e2c693913c94b8b6f7a95df203af895313cf9675e380be92
+  repository: itzg/minecraft-server
+  tag: 2023.8.3-java20@sha256:29023fbcfd3a36ae403f9879c780090ba63109525af901dddf249e544cafecef
   pullPolicy: Always
 j20AlpineImage:
-  repository: tccr.io/truecharts/minecraft-java20-alpine
-  tag: v2023.8.3@sha256:5dc54147180d2fb65068820d3c1e7da54e8d8ab84a3835ec29149c3d37ea55ad
+  repository: itzg/minecraft-server
+  tag: 2023.8.3-java20-alpine@sha256:2f005c2417abd30b66c640fae0953a687550256bc1e18e59d90800311338e8a9
   pullPolicy: Always
 j17j9Image:
-  repository: tccr.io/truecharts/minecraft-java17-openj9
-  tag: v2023.8.3@sha256:53f74c56e0d09edacec266da179e9fd60ec392e00552546b58637757561f172c
+  repository: itzg/minecraft-server
+  tag: 2023.8.3-java17-openj9@sha256:1598bacb87b18984257501acbc8fb3d6babbd4a1c4dd188f0877fc3e600f3fdd
   pullPolicy: Always
 j17jdkImage:
-  repository: tccr.io/truecharts/minecraft-java17-jdk
-  tag: v2023.8.2@sha256:d69de906ed094a980b444469078b4093accfe517cb3d2a676160434415ae759a
+  repository: itzg/minecraft-server
+  tag: 2023.8.2-java17-jdk@sha256:e2d7c26bad68318d0f3f08c405455cbb6372f5df352bc7d11c62a14119b7d76a
   pullPolicy: Always
 j17gceImage:
-  repository: tccr.io/truecharts/minecraft-java17-graalvm-ce
-  tag: latest@sha256:5d48f9f41c76c13f77a6d6fd6b957f98715d7582d0e2b07fcc6eedd721784695
+  repository: itzg/minecraft-server
+  tag: 2023.8.3-java17-graalvm-ce@sha256:9e7a9b67db056ae94eb3dd98b6d02b86112638dd306747090a77766ca0e01447
   pullPolicy: Always
 j17alpineImage:
-  repository: tccr.io/truecharts/minecraft-java17-alpine
-  tag: v2023.8.2@sha256:3656b2e0c71b48a1c5bd719e822f3ef62fe805b9f33a0bd4cc10602d6e98436c
+  repository: itzg/minecraft-server
+  tag: 2023.8.2-java17-alpine@sha256:7035083e6b0e7c77c0bff1601ad061eb35547621933fc070af831ee8d10b665f
   pullPolicy: Always
 j11Image:
-  repository: tccr.io/truecharts/minecraft-java11
-  tag: latest@sha256:1273d872ca87b15377a10ffa4b8c7df1f44ab06563764cd2475df4498786c6f6
+  repository: itzg/minecraft-server
+  tag: 2023.8.3-java11@sha256:536223fac6f3c576907ea22640124942094b87bf94edabb1f106218d90274374
   pullPolicy: Always
 j11jdkImage:
-  repository: tccr.io/truecharts/minecraft-java11-jdk
-  tag: v2023.8.3@sha256:d744d739f59356442d17d8c4682a7f3e361aedbc001a63a8469aeed48703bd0f
+  repository: itzg/minecraft-server
+  tag: 2023.8.3-java11-jdk@sha256:13c6f5ccce16d7d599bd3bce355209c39714eab9b7f93701b4ce11627e38031b
   pullPolicy: Always
 j11j9Image:
-  repository: tccr.io/truecharts/minecraft-java11-openj9
-  tag: v2023.8.2@sha256:1518df63c00fd4aac9268155c81e7892ae354b5c36da67a6fe5d62c396664394
+  repository: itzg/minecraft-server
+  tag: 2023.8.2-java11-openj9@sha256:02df151227425a530102e88caea1a0f12f52fea94682a451d7a150279d8dafe0
   pullPolicy: Always
 j8Image:
-  repository: tccr.io/truecharts/minecraft-java8
-  tag: latest@sha256:c833fc5d90ca8437d96f37e0a7b227dd52d288d66b494617282f4c733880255a
+  repository: itzg/minecraft-server
+  tag: 2023.8.3-java8@sha256:caba3fd4044ea240a859d7c63a50a278dbd6f4163bf50b922aa36e4109b8023f
   pullPolicy: Always
 j8gceImage:
-  repository: tccr.io/truecharts/minecraft-java8-graalvm-ce
-  tag: latest@sha256:43c3c3e338e09a8344edb2f4ea633319b4e11825eb7c8081658b66834390d22e
+  repository: itzg/minecraft-server
+  tag: 2023.8.3-java8-graalvm-ce@sha256:bc4b660b13f99398c21b83915034e640a8c6ee5021f6fb34e1a8b091cada8d97
   pullPolicy: Always
 j8jdkImage:
-  repository: tccr.io/truecharts/minecraft-java8-jdk
-  tag: v2023.8.3@sha256:dd99450d39cd38e80c8b5a96bb04f983b122be4b8dfc6ca6979320b3181b8925
+  repository: itzg/minecraft-server
+  tag: 2023.8.3-java8-jdk@sha256:eaec7a499b74c084a1a390a79fa2d88fef08ca39f9bb0e5c31a2943a3025f91c
   pullPolicy: Always
 j8j9Image:
-  repository: tccr.io/truecharts/minecraft-java8-openj9
-  tag: v2023.8.3@sha256:a1b64e05cd8cb62b85d05b7d5de1d59ed660fedf36b7a7c11b9ba0b46ba2813c
+  repository: itzg/minecraft-server
+  tag: 2023.8.3-java8-openj9@sha256:fc05cd0ae9b37a638e2549001d951c662b359a355e3c6ba28d7e0454e71b14cd
   pullPolicy: Always
 service:
   main:
@@ -188,3 +188,4 @@ persistence:
 portal:
   open:
     enabled: false
+updated: true

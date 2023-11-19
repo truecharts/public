@@ -50,19 +50,19 @@ velero:
   # If the value is a string then it is evaluated as a template.
   initContainers:
     - name: opeebs-velero-plugin
-      image: openebs/velero-plugin:1.9.0
+      image: openebs/velero-plugin:1.9.0@sha256:f89855c12dd0a9bfd1afb9a75b051f6cb0452c4c073df9fc7fff4d7983eff341
       imagePullPolicy: IfNotPresent
       volumeMounts:
         - mountPath: /target
           name: plugins
     - name: velero-plugin-for-csi
-      image: velero/velero-plugin-for-csi:v0.6.0
+      image: velero/velero-plugin-for-csi:v0.6.0@sha256:fc07d1897a65d7728543b2fae9feddad087b5e7f45f45c3adaeda2ef4996fd50
       imagePullPolicy: IfNotPresent
       volumeMounts:
         - mountPath: /target
           name: plugins
     - name: velero-plugin-for-aws
-      image: velero/velero-plugin-for-aws:v1.8.0
+      image: velero/velero-plugin-for-aws:v1.8.0@sha256:466d4ee963de87b28e38098f5f91401bde514c7c2449ea6da4009be626a08f6c
       imagePullPolicy: IfNotPresent
       volumeMounts:
         - mountPath: /target

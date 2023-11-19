@@ -3,8 +3,8 @@ image:
   tag: 2.19.2@sha256:52f514125b5ae0948debc8f501d77ac621a2605e8e28309c72c9d6bb0eb2b2b2
   pullPolicy: IfNotPresent
 beImage:
-  repository: tccr.io/truecharts/portainer-be
-  tag: v2.19.2@sha256:804be45bf0172deef67484426a7765c9ebf9839b36f060d383a0ca655ce9a11c
+  repository: portainer/portainer-ee
+  tag: 2.19.2@sha256:f1d369b5b8f83765119d8f511586140ab6811d922c1c557916e5c9118af99014
   pullPolicy: IfNotPresent
 portainer:
   # Logo URL
@@ -74,3 +74,4 @@ workload:
             startup:
               port: 9443
               type: https
+updated: true
