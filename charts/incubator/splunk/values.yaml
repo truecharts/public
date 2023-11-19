@@ -18,7 +18,7 @@ splunk:
 
 envFrom:
   - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-splunk-config'
+      name: '{{ include "tc.v1.common.names.fullname" . }}-splunk-config'
 
 service:
   dataingest:
