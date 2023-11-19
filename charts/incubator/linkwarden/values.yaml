@@ -37,16 +37,11 @@ workload:
               secretKeyRef:
                 name: cnpg-main-urls
                 key: std
-            POSTGRES_PASSWORD:
-              secretKeyRef:
-                name: cnpg-main-user
-                key: password
             NEXTAUTH_SECRET:
               secretKeyRef:
                 name: linkwarden-secrets
                 key: NEXTAUTH_SECRET
             NEXTAUTH_URL: "{{ .Values.config.nextauth_url }}"
-            NEXTAUTH_URL_INTERNAL: "{{ .Values.chartContext.APPURL }}"
             PAGINATION_TAKE_COUNT: "{{ .Values.config.pagination_take_count }}"
             STORAGE_FOLDER: "data"
             AUTOSCROLL_TIMEOUT: "{{ .Values.config.autoscroll_timeout }}"
