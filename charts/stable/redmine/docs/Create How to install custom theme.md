@@ -5,16 +5,18 @@ This tutorial explains installing the https://github.com/mrliptontea/PurpleMine2
 ## Setup configuration
 Default configuration with PVC storage
 
-Add additional app storage as PVC with Mount path /usr/src/redmine/public/themes
+Add additional app storage as PVC with Mount path `/usr/src/redmine/public/themes`
 
 
-![image](https://github.com/truecharts/website/assets/42300339/8eabd72d-a6b4-46ef-a093-c6977f78daf3)
+![image](img/image1.png)
+
+You might also want to add `/usr/src/redmine/plugins` folder as PVC mount. This is the folder where you need to unzip your plugins if you want to use some.
 
 
 As of the time of writing the app is not running normally when created with settings RunAsUser 568 RunAsGroup 568
 
 
-![image](https://github.com/truecharts/website/assets/42300339/87689e67-16c9-4835-8bb5-2d63d4032145)
+![image](img/image2.png)
 
 
 changing the configuration to RunAsUser 999 RunAsGroup 999 solves the issue. Check this ticket for details
@@ -71,7 +73,7 @@ sudo mc
 ```
 To launch the moonlight commander app. I navigate to my SMB share and to the mounted PVC path and copy the files over
 
-![image](https://github.com/truecharts/website/assets/42300339/857f94bb-d3c8-4d29-a933-9404fc31c2b1)
+![image](img/image3.png)
 
 
 ## Change permissions of the themes files
@@ -81,7 +83,7 @@ Now we need to exit moonlight commander and navigate to the mounted themes folde
 cd /mnt/mounted_pvc/redmine/redmine-persist-list-0
 ls - la
 ```
-![image](https://github.com/truecharts/website/assets/42300339/009d858c-b3cc-42a9-99bd-d4c5ae196804)
+![image](img/image4.png)
 
 
 I also copied the standard Redmine themes alternate and classic to this folder
@@ -96,7 +98,7 @@ sudo chmod -R 775 PurpleMine2-master
 ```
 Repeat this commands for every theme folder you copied. And double check that owner have been changed and the permissions applied
 
-![image](https://github.com/truecharts/website/assets/42300339/429dfbef-03d8-4934-b031-5531a673ca86)
+![image](img/image5.png)
 
 ## Unmount volumes and launch the app
 Now you can unmount the volume using HeavyScript command
@@ -111,4 +113,4 @@ Open the Redmine web page. Sign in with your new password for Admin.
 
 Go to Administration -> Settings -> Display. Pick the newly added theme
 
-![image](https://github.com/truecharts/website/assets/42300339/adc3a743-4bef-4d41-9506-aca45edcdd86)
+![image](img/image6.png)
