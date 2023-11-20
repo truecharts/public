@@ -5,6 +5,8 @@
 {{- if not .Values.metrics.main.enabled -}}
   {{- $_ := set .Values.workload.exportarr "enabled" false -}}
   {{- $_ := set .Values.service.metrics "enabled" false -}}
+{{- else -}}
+  {{- $_ := set .Values.workload.exportarr.podSpec.containers.exportarr.env "APIKEY" .Values.metrics.main.apiKey -}}
 {{- end -}}
 
 {{/* Render the templates */}}
