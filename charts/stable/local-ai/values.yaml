@@ -3,25 +3,25 @@ image:
   pullPolicy: IfNotPresent
   tag: v1.40.0@sha256:3aac12d7637c905afdac67ee33351594eaa58fe77eeeb145f114f45e5f358cf3
 ffmpegImage:
-  repository: tccr.io/truecharts/local-ai-ffmpeg
+  repository: quay.io/go-skynet/local-ai
   pullPolicy: IfNotPresent
-  tag: v1.40.0@sha256:0c1c603f74fe343940e17fb2f031300e807e30658bffb7de6f65bf96463023f2
+  tag: v1.40.0-ffmpeg@sha256:94c778847b34bc6cb7c6767731be15cc33767dd05159aed4af08ea52b401200e
 cublasCuda12Image:
-  repository: tccr.io/truecharts/local-ai-cublas-cuda12
+  repository: quay.io/go-skynet/local-ai
   pullPolicy: IfNotPresent
-  tag: v1.40.0-cublas@sha256:da43881bdfe7c8f2affebe5b33ef916ee6227c742baa9869282bc6bb5b3f741b
+  tag: v1.40.0-cublas-cuda12@sha256:b1ce4420bb9f46cc101d1e6d0a4867da3090bb3f86c36f92bab538162f05752e
 cublasCuda12FfmpegImage:
-  repository: tccr.io/truecharts/local-ai-cublas-cuda12-ffmpeg
+  repository: quay.io/go-skynet/local-ai
   pullPolicy: IfNotPresent
-  tag: v1.40.0-cublas-cuda12@sha256:2839da7155a63ee46988468c78e72e71720edd9069645a37e6aafc7b5039a4c8
+  tag: v1.40.0-cublas-cuda12-ffmpeg@sha256:42fae783cbffab75c0e409b758b3cf2dbd773b8f8b04169de4e6ad02e6084ba9
 cublasCuda11Image:
-  repository: tccr.io/truecharts/local-ai-cublas-cuda11
+  repository: quay.io/go-skynet/local-ai
   pullPolicy: IfNotPresent
-  tag: v1.40.0-cublas@sha256:8a24cfa26b79ea127f465b6b41af10678e38efa65f65c389de180fa722383bcc
+  tag: v1.40.0-cublas-cuda11@sha256:1af527795ae1b6e04ccc02d531756710966c33e31356ddeefba88d1cae8d4e83
 cublasCuda11FfmpegImage:
-  repository: tccr.io/truecharts/local-ai-cublas-cuda11-ffmpeg
+  repository: quay.io/go-skynet/local-ai
   pullPolicy: IfNotPresent
-  tag: v1.40.0-cublas-cuda11@sha256:9c21382a0056463209742d703284349292e198f48144da594530e1aad34fcb1e
+  tag: v1.40.0-cublas-cuda11-ffmpeg@sha256:fc16b363e9071ed2dc5ec40b91c20bda764301fd4422439288bdcbb986761a28
 securityContext:
   container:
     runAsNonRoot: false
@@ -86,3 +86,4 @@ persistence:
 portal:
   open:
     enabled: false
+updated: true

@@ -3,12 +3,12 @@ image:
   tag: 2022.4.1@sha256:254fd22429257cd003aec6deb3713ce2bd647e62cf6c2ea0d08a8d58165b8d3f
   pullPolicy: Always
 j11Image:
-  repository: tccr.io/truecharts/bungeecord-java11
-  tag: v2022.4.1@sha256:faad46c04fc6e729e94630fc73a259b5aaea7eae9e5334ccaad2381eb0e0313d
+  repository: itzg/bungeecord
+  tag: java11-2022.4.1@sha256:33c5185872d54533e996490523c61c01d24d38c412c7021ff1f5e8bc4f9f7e45
   pullPolicy: Always
 j8Image:
-  repository: tccr.io/truecharts/bungeecord-java8
-  tag: v2022.4.1@sha256:240694a8f4028188f11d1ba198f656eedf0ac00cf881535cd97b4f1a86ae3231
+  repository: itzg/bungeecord
+  tag: java8-2022.4.1@sha256:112285cf835ce5777f7222238963bbbd4e49ef1150900b92d561d68c0807d14a
   pullPolicy: Always
 service:
   main:
@@ -67,3 +67,4 @@ persistence:
 portal:
   open:
     enabled: false
+updated: true
