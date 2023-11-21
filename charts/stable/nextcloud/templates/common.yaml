@@ -11,7 +11,7 @@
 
 {{/* Create hostAliases (resolve ingress host to Node/LB IP) */}}
 {{- $hostAlias := (list (dict
-    "ip" .Values.nextcloud.general.accessIP
+    "ip" (.Values.nextcloud.general.accessIP | default "127.0.0.1")
     "hostnames" (
       list (include "nextcloud.accesshost" $)
     )
