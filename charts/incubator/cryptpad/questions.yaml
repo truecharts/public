@@ -10,6 +10,19 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: CPAD_MAIN_DOMAIN
+                                        label: CPAD_MAIN_DOMAIN
+                                        description: Enter your main Cryptpad Main Domain here
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
 

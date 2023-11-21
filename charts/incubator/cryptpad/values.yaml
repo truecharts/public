@@ -26,6 +26,7 @@ workload:
               type: http
               path: /
           env:
+            CPAD_MAIN_DOMAIN: "https://your-main-domain.com"
             CPAD_CONF: /cryptpad/config/config.js
 
 persistence:
