@@ -51,32 +51,6 @@ questions:
           schema:
             type: int
             default: 5
-        - variable: smtp
-          label: "SMTP Settings (Email)"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-              - variable: enabled
-                label: "Enable SMTP Support"
-                description: "If set to true, email will be enabled and you'll need to define the next two variables below."
-                schema:
-                  type: boolean
-                  default: false
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: from
-                      label: "SMTP sender e-mail address"
-                      description: "The email that will send the verification emails."
-                      schema:
-                        type: string
-                        default: ""
-                    - variable: server
-                      label: "SMTP Server"
-                      description: "That sensitive string that starts with smtp://... ."
-                      schema:
-                        type: string
-                        default: ""
 # Include{serviceRoot}
         - variable: main
           label: Main Service

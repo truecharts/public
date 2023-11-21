@@ -9,10 +9,6 @@ config:
   autoscroll_timeout: 30
   disable_registration: false
   archive_limit: 5
-  smtp:
-    enabled: false
-    from: ""
-    server: ""
 
 securityContext:
   container:
@@ -47,9 +43,6 @@ workload:
             AUTOSCROLL_TIMEOUT: "{{ .Values.config.autoscroll_timeout }}"
             NEXT_PUBLIC_DISABLE_REGISTRATION: "{{ .Values.config.disable_registration }}"
             RE_ARCHIVE_LIMIT: "{{ .Values.config.archive_limit }}"
-            NEXT_PUBLIC_EMAIL_PROVIDER: "{{ .Values.config.smtp.enabled }}"
-            EMAIL_FROM: "{{ .Values.config.smtp.from }}"
-            EMAIL_SERVER: "{{ .Values.config.smtp.server }}"
 
 persistence:
   data:
