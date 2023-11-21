@@ -1,10 +1,10 @@
 image:
-  repository: tccr.io/truecharts/rsshub
+  repository: diygod/rsshub
   pullPolicy: IfNotPresent
-  tag: latest@sha256:9f182845bb7f723526c78d53e08084c98d17c1d0224a9d921b74423a6ecc094a
+  tag: latest@sha256:1bae8d48ea8b3dd37728634bb5a33d1362aab8c0c55f4e73b2628f33daa4e5e1
 browserlessImage:
-  repository: tccr.io/truecharts/browserless-chrome
-  tag: v1.60.2-chrome@sha256:a0652b346c0de87d546a3b07a44fbb85a33026aec20b956cbcb74dc822c2515a
+  repository: browserless/chrome
+  tag: 1.60.2-chrome-stable@sha256:7db5e3aad20c201abaa03bbbc868a55ef96574cda0e67ccb7e4e032053ecb87d
 service:
   main:
     ports:
@@ -13,7 +13,6 @@ service:
 # Enabled redis
 redis:
   enabled: true
-
   redisUsername: default
 additionalContainers:
   browserless:
@@ -60,3 +59,4 @@ workload:
             YOUTUBE_KEY: ""
             TELEGRAM_TOKEN: ""
             LASTFM_API_KEY: ""
+updated: true

@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/navidrome
+  repository: deluan/navidrome
   pullPolicy: IfNotPresent
-  tag: 0.49.3@sha256:8a415419867682cd91a202131e728404d51662fc3b084565e143a4f121da9851
-
+  tag: 0.50.0@sha256:2cf4442b0099a5810cfaf2aa0a6718ced41222d3c41551a8dbc4949a885bb089
 workload:
   main:
     podSpec:
@@ -14,14 +13,12 @@ workload:
             ND_LOGLEVEL: info
             ND_SESSIONTIMEOUT: 24h
             ND_ENABLETRANSCODINGCONFIG: false
-
 service:
   main:
     ports:
       main:
         port: 4533
         targetPort: 4533
-
 persistence:
   data:
     enabled: true
@@ -29,7 +26,6 @@ persistence:
   music:
     enabled: true
     mountPath: /music
-
 portal:
   open:
     enabled: true

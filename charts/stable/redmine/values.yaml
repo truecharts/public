@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/redmine
+  repository: redmine
   pullPolicy: IfNotPresent
-  tag: v5.0.6@sha256:011a94f5f6628a45119fa37f5aea1c11a6fc3c6a46d13bc8011b30b47fd50d3d
+  tag: 5.0.6@sha256:71e7eb88d854435e6c988372c5a3e761724bb27536cda6606b02166dc548c364
 redmine:
   plugins_migrate: true
   no_db_migrate: false
@@ -19,7 +19,6 @@ persistence:
 cnpg:
   main:
     enabled: true
-
     user: redmine
     database: redmine
 portal:
@@ -28,6 +27,10 @@ portal:
 securityContext:
   container:
     readOnlyRootFilesystem: false
+    runAsUser: 999
+    runAsGroup: 999
+  pod:
+    fsGroup: 999
 workload:
   main:
     podSpec:

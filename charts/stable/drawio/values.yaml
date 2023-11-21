@@ -1,22 +1,19 @@
 image:
-  repository: tccr.io/truecharts/drawio
-  tag: v22.1.2@sha256:fab744c972536bd85bb1b4752a3eff92ce9fcec9c029e6ad85a76ab90474ebde
+  repository: jgraph/drawio
+  tag: 22.1.3@sha256:1a56da5d792c0048e50bbac34266a9c10bcc5e99f708e0db995906c0449bb288
   pullPolicy: IfNotPresent
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
       main:
         port: 10214
         targetPort: 8080
-
 workload:
   main:
     podSpec:
@@ -33,7 +30,6 @@ workload:
               type: http
               path: /
           env: {}
-
 portal:
   open:
     enabled: true

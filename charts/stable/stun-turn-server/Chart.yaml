@@ -8,8 +8,8 @@ dependencies:
     repository: https://library-charts.truecharts.org
     version: 14.3.5
 deprecated: false
-description: "This is a Basic STUN &amp; TURN server that was mainly created for Nextcloud Talk."
-home: https://truecharts.org/charts/incubator/stun-turn-server
+description: "This is a Basic STUN & TURN server that was mainly created for Nextcloud Talk."
+home: https://truecharts.org/charts/stable/stun-turn-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/stun-turn-server.png
 keywords:
   - stun-turn-server
@@ -21,6 +21,7 @@ maintainers:
     url: https://truecharts.org
 name: stun-turn-server
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/stun-turn-server
+  - https://github.com/truecharts/charts/tree/master/charts/stable/stun-turn-server
+  - https://hub.docker.com/r/ich777/stun-turn-server
 type: application
-version: 3.0.6
+version: 3.0.7

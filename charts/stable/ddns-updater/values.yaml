@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/ddns-updater
-  tag: v2.5.0@sha256:db89f9000799e0c0dee06b2f370b7400db158c9d499a548e289af811eab6f05c
+  repository: qmcgaw/ddns-updater
+  tag: v2.5.0@sha256:6e5dd1066de1f4ea3ca8d0a8982ab65231e1687a7c519a86c133a788eafa2085
   pullPolicy: IfNotPresent
-
 service:
   main:
     ports:
       main:
         port: 10227
         protocol: http
-
 workload:
   main:
     podSpec:
@@ -42,12 +40,10 @@ workload:
             LOG_LEVEL: "info"
             LOG_CALLER: "hidden"
             SHOUTRRR_ADDRESSES: ""
-
 persistence:
   data:
     enabled: true
     mountPath: /updater/data
-
 portal:
   open:
     enabled: true

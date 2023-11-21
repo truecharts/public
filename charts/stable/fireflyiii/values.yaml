@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/fireflyiii-core
+  repository: fireflyiii/core
   pullPolicy: IfNotPresent
-  tag: v6.0.30@sha256:1da37c3b491a4f9ac73cefb82987b02184bfd9810e6f90d2472cd23e278a898c
-
+  tag: version-6.0.30@sha256:ab8bfe097e84c99d477236160541244fd587beab3d2a66a34032a30a6ca7cd17
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 workload:
   main:
     podSpec:
@@ -61,36 +59,30 @@ workload:
               secretKeyRef:
                 name: firefly-secrets
                 key: APP_KEY
-
 service:
   main:
     ports:
       main:
         port: 10082
         targetPort: 8080
-
 persistence:
   data:
     enabled: true
     mountPath: "/var/www/html/storage/upload"
-
 cronjob:
   schedule: "0 3 * * *"
   annotations: {}
   failedJobsHistoryLimit: 5
   successfulJobsHistoryLimit: 2
-
 # Enabled redis
 redis:
   enabled: true
-
 # Enabled postgres
 cnpg:
   main:
     enabled: true
     user: firefly
     database: firefly
-
 portal:
   open:
     enabled: true

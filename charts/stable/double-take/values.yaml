@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/double-take
+  repository: docker.io/jakowenko/double-take
   pullPolicy: IfNotPresent
-  tag: 1.13.1@sha256:4bf165d90b8a57774a4ef363952dfd21e79978d306af1a0bc103096c8f7a87d6
-
+  tag: 1.13.1@sha256:2bba786a0bd828e654ce6e281fe363c1ea33ebcfc5a5d714716530e8425f3e2a
 service:
   main:
     ports:
       main:
         targetPort: 3000
         port: 10200
-
 workload:
   main:
     podSpec:
@@ -26,12 +24,10 @@ workload:
               type: http
               path: /
           env: {}
-
 persistence:
   data:
     enabled: true
     mountPath: /.storage
-
 portal:
   open:
     enabled: true

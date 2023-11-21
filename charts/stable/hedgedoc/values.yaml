@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/hedgedoc
+  repository: quay.io/hedgedoc/hedgedoc
   pullPolicy: IfNotPresent
-  tag: v1.9.9@sha256:ff96fa696244508019164f33b71cb7575be408ea678555f5a90945df6eea593f
+  tag: 1.9.9@sha256:c29606e2a143a9b02bde6e159727e6ac3206b18d19eeba5c17e911e492a0911c
 service:
   main:
     ports:
@@ -19,7 +19,6 @@ cnpg:
 portal:
   open:
     enabled: true
-
 workload:
   main:
     podSpec:

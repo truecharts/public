@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/chevereto
+  repository: ghcr.io/rodber/chevereto-free
   pullPolicy: IfNotPresent
-  tag: v1.6.2@sha256:cdc290aec4bec537d50b7ec97587691f1115ba0d4ffbe78956c4a37b9f565c85
-
+  tag: 1.6.2@sha256:2e3a78eff5ade90d72cceb63fa9dba4b539f1def55debc0c23b15fb08d6e549b
 securityContext:
   container:
     runAsNonRoot: false
@@ -10,12 +9,10 @@ securityContext:
     runAsUser: 0
     runAsGroup: 0
     fsGroup: 33
-
 chevereto:
   https: false
   disable_update_http: true
   disable_update_cli: true
-
 configmap:
   chevereto:
     enabled: true
@@ -23,7 +20,6 @@ configmap:
       CHEVERETO_HTTPS: '{{ ternary "1" "0" .Values.chevereto.https }}'
       CHEVERETO_DISABLE_UPDATE_HTTP: '{{ ternary "1" "0" .Values.chevereto.disable_update_http }}'
       CHEVERETO_DISABLE_UPDATE_CLI: '{{ ternary "1" "0" .Values.chevereto.disable_update_cli }}'
-
 service:
   main:
     ports:
@@ -31,7 +27,6 @@ service:
         targetPort: 80
         protocol: http
         port: 10197
-
 workload:
   main:
     podSpec:
@@ -66,7 +61,6 @@ workload:
           envFrom:
             - configMapRef:
                 name: "chevereto"
-
 persistence:
   storage:
     enabled: true
@@ -74,12 +68,10 @@ persistence:
   content:
     enabled: true
     mountPath: /var/www/html/content/
-
 mariadb:
   enabled: true
   mariadbUsername: chevereto
   mariadbDatabase: chevereto
-
 portal:
   open:
     enabled: true

@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/smokeping
+  repository: ghcr.io/linuxserver/smokeping
   pullPolicy: IfNotPresent
-  tag: version-2.7.3-r5@sha256:e56ba2420901250afb865a7e03e43956dcff17503ce44c48b20064980a42f5a4
+  tag: 2.8.2@sha256:9c2cc2c3d2990b2d4f4e515e3dc83590f46680bcfee0715384628eacc4048563
 strategy:
   type: Recreate
 service:

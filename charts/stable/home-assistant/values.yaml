@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/home-assistant
+  repository: homeassistant/home-assistant
   pullPolicy: IfNotPresent
-  tag: v2023.11.2@sha256:941dac7d30b1dab808123172d4cc52e1d106c6bdd66335f173daa65078588bfb
+  tag: 2023.11.2@sha256:400f20c77f52ac31334c1e73a2f19b2d6e5820757d1d476f01960b1efed31949
 service:
   main:
     ports:
@@ -17,7 +17,6 @@ workload:
           enabled: true
           imageSelector: image
           command: /config/init/init.sh
-
 # # Enable devices to be discoverable
 # hostNetwork: true
 
@@ -46,7 +45,6 @@ persistence:
     targetSelector:
       main:
         init: {}
-
 configmap:
   init:
     enabled: true
@@ -145,11 +143,9 @@ cnpg:
     enabled: true
     user: home-assistant
     database: home-assistant
-
 portal:
   open:
     enabled: true
-
 securityContext:
   container:
     readOnlyRootFilesystem: false

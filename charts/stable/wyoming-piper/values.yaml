@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/wyoming-piper
+  repository: rhasspy/wyoming-piper
   pullPolicy: IfNotPresent
-  tag: v1.4.0@sha256:4978b5edd897f580aac04b018166c50a7409cb686658c0c97e8bafd055edab12
-
+  tag: 1.4.0@sha256:4c3c056e043aa15e85bbca1ba4b15b9a866b49d50d9c778475179a747e25f489
 wyoming_piper:
   voice: en_US-lessac-medium
   speaker: 0
@@ -10,7 +9,6 @@ wyoming_piper:
   noise_scale: "0.667"
   noise_w: "0.333"
   max_piper_procs: 1
-
 workload:
   main:
     podSpec:
@@ -39,7 +37,6 @@ workload:
             - "{{ .Values.wyoming_piper.noise_w }}"
             - --max-piper-procs
             - "{{ .Values.wyoming_piper.max_piper_procs }}"
-
 service:
   main:
     ports:
@@ -47,12 +44,10 @@ service:
         port: 10200
         protocol: tcp
         targetPort: 10200
-
 persistence:
   config:
     enabled: true
     mountPath: /data
-
 portal:
   open:
     enabled: false

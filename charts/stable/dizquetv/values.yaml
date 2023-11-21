@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/dizquetv
+  repository: vexorian/dizquetv
   pullPolicy: IfNotPresent
-  tag: v1.5.0@sha256:6c8d24854c8533d31f35a5328ecee14ebe25a48ff8f73dd73f29012bdc5bb11b
-
+  tag: 1.5.0@sha256:546db2911585f4a54ba0d15dbd057ae8fbdbc75bf4b5f844fd79bd5ee1cbc83d
 service:
   main:
     ports:
       main:
         port: 10071
         targetPort: 8000
-
 workload:
   main:
     podSpec:
@@ -26,12 +24,10 @@ workload:
               type: http
               path: /
           env: {}
-
 persistence:
   config:
     enabled: true
     mountPath: /home/node/app/.dizquetv
-
 portal:
   open:
     enabled: true

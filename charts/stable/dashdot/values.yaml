@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/dashdot
-  tag: v5.2.3@sha256:9dd541c659d5f9bb363140ac1cd126f96732c0aced1deebe934d06e31e7d6d1c
+  repository: mauricenino/dashdot
+  tag: 5.2.3@sha256:f21cc99a818b57165a1f3ac5808d3166e7aa693ae9c4c992a80d7b054278a33b
   pullPolicy: IfNotPresent
-
 securityContext:
   container:
     runAsNonRoot: false
@@ -15,14 +14,12 @@ securityContext:
         - SYS_RAWIO
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
       main:
         port: 10044
         protocol: http
-
 workload:
   main:
     podSpec:
@@ -93,7 +90,6 @@ workload:
             # DASHDOT_OVERRIDE_STORAGE_BRANDS: ""
             # DASHDOT_OVERRIDE_STORAGE_SIZES: ""
             # DASHDOT_OVERRIDE_STORAGE_TYPES: ""
-
 persistence:
   host-mnt:
     enabled: true
@@ -107,7 +103,6 @@ persistence:
     hostPath: /dev/mem
     mountPath: /dev/mem
     readOnly: true
-
 portal:
   open:
     enabled: true
