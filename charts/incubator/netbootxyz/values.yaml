@@ -9,6 +9,9 @@ securityContext:
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
+    capabilities:
+      add:
+        - SYS_CHROOT
 
 workload:
   main:
