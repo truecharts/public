@@ -25,7 +25,8 @@ workload:
             startup:
               type: http
               path: /
-          env: {}
+          env:
+            CPAD_CONF: /cryptpad/config/config.js
 
 persistence:
   blobpath:
@@ -62,6 +63,14 @@ service:
         port: 3001
         protocol: tcp
         targetPort: 3001
+  websocket:
+    enabled: true
+    ports:
+      websocket:
+        enabled: true
+        port: 3003
+        protocol: tcp
+        targetPort: 3003
 
 portal:
   open:
