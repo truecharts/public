@@ -55,5 +55,10 @@
   ) -}}
 {{- end -}}
 
+{{- $envList := .Values.workload.main.podSpec.containers.main.envList -}}
+{{- if $envList -}}
+  {{- $_ := set .Values.workload.microservices.podSpec.containers.microservices "envList" $envList -}}
+{{- end -}}
+
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}
