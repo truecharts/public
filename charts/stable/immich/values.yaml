@@ -150,14 +150,3 @@ portal:
     enabled: true
 
 updated: true
-
-
-operator:
-  verify:
-    enabled: false
-
-persistenceList:
-  - name: abc
-    enabled: true
-    mountPath: /test
-    type: pvc
