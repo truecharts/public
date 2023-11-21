@@ -8,7 +8,7 @@ command:
   - -c
   - |
     echo "Pinging [{{ $url }}] until it is ready..."
-    until wget --spider --quiet "{{ $url }}"; do
+    until wget --spider --quiet --timeout=3 --tries 1 "{{ $url }}"; do
       echo "Waiting for [{{ $url }}] to be ready..."
       sleep 2
     done
