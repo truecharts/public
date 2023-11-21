@@ -9,6 +9,18 @@
   {{- $_ := mustMergeOverwrite .Values.configmap $configmaps -}}
 {{- end -}}
 
+{{/* Create hostAliases (resolve ingress host to Node/LB IP) */}}
+{{- $hostAlias := (list (dict
+    "ip" .Values.nextcloud.general.accessIP
+    "hostnames" (
+      list (include "nextcloud.accesshost" $)
+    )
+  )) -}}
+
+{{/* Add [hostAliases] to nextcloud and collabora pod */}}
+{{- $_ := set .Values.workload.main.podSpec "hostAliases" $hostAlias -}}
+{{- $_ := set .Values.workload.collabora.podSpec "hostAliases" $hostAlias -}}
+
 {{/* Add [init perms] container to nextcloud */}}
 {{- if not (get .Values.workload.main.podSpec "initContainers") -}}
   {{- $_ := set .Values.workload.main.podSpec "initContainers" dict -}}
