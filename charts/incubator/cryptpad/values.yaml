@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/cryptpad
-  tag: latest@sha256:34094a8d0491a70f4debb669779a2fef671b1c25d58daf55e5b446e03420a52b
+  repository: cryptpad/cryptpad
+  tag: version-5.5.0@sha256:e39fefe674fd5b6c61029a8e233fcb50237acf60e60ac677f9b76446b23104ef
 
 securityContext:
   container:
@@ -25,7 +25,9 @@ workload:
             startup:
               type: http
               path: /
-          env: {}
+          env:
+            CPAD_MAIN_DOMAIN: "https://your-main-domain.com"
+            CPAD_CONF: /cryptpad/config/config.js
 
 persistence:
   blobpath:
@@ -34,9 +36,6 @@ persistence:
   blockpath:
     enabled: true
     mountPath: /cryptpad/block
-  configpath:
-    enabled: true
-    mountPath: /cryptpad/config/config.js
   customizepath:
     enabled: true
     mountPath: /cryptpad/customize
@@ -62,6 +61,14 @@ service:
         port: 3001
         protocol: tcp
         targetPort: 3001
+  websocket:
+    enabled: true
+    ports:
+      websocket:
+        enabled: true
+        port: 3003
+        protocol: tcp
+        targetPort: 3003
 
 portal:
   open:

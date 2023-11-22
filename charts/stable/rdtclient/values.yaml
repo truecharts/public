@@ -3,9 +3,9 @@ image:
   pullPolicy: IfNotPresent
   tag: 2.0.46@sha256:4d501c324825b34b820b65c4f0056892f52a62127b563ec4a86fea49b0c24b1d
 aria2Image:
-  repository: tccr.io/truecharts/aria2-pro
+  repository: p3terx/aria2-pro
   pullPolicy: IfNotPresent
-  tag: vlatest@sha256:08a35fe3204c00dbdc609b1abc8c05c349764c3caecb9dadb970dc470c5b1f41
+  tag: latest@sha256:086d1a37c586edb07ec0fb956bf9edd89d1d38d138ad5309ff96d510c8c9a011
 
 securityContext:
   container:
