@@ -45,15 +45,14 @@ workload:
             liveness:
               enabled: true
               type: http
-              path: /Jack/status/20
+              path: /
             readiness:
               enabled: true
               type: http
-              path: /Jack/status/20
+              path: /
             startup:
               enabled: true
-              type: http
-              path: /Jack/status/20
+              type: tcp
 
 persistence:
   nitter-config:
