@@ -40,7 +40,7 @@ persistence:
   nitter-config:
     enabled: true
     type: configmap
-    objectName: odoo-config
+    objectName: nitter-config
     mountPath: /src/nitter.conf
     subPath: nitter.conf
     readOnly: true
