@@ -1,6 +1,7 @@
 {{/* Define the configmap */}}
 {{- define "nitter.configmaps" -}}
 {{- $fullname := (include "tc.v1.common.lib.chart.names.fullname" $) -}}
+{{- $secretName := (printf "%s-nitter-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
 
 {{- $config := .Values.nitter.config -}}
 {{- $general := .Values.nitter.general -}}
