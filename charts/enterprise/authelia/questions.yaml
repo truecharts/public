@@ -231,7 +231,7 @@ questions:
         - variable: name
           label: "Cookie Name"
           description: |
-            The name of the session cookie. By default this is set to authelia_session. 
+            The name of the session cookie. By default this is set to authelia_session.
             It’s mostly useful to change this if you are doing development or running multiple instances of Authelia.
           schema:
             type: string
@@ -240,9 +240,9 @@ questions:
         - variable: same_site
           label: "SameSite Value"
           description: |
-            You can read about the SameSite cookie in detail on the MDN. In short setting SameSite to Lax is generally 
-            the most desirable option for Authelia. None is not recommended unless you absolutely know what you’re doing 
-            and trust all the protected apps. Strict is not going to work in many use cases and we have not tested it in 
+            You can read about the SameSite cookie in detail on the MDN. In short setting SameSite to Lax is generally
+            the most desirable option for Authelia. None is not recommended unless you absolutely know what you’re doing
+            and trust all the protected apps. Strict is not going to work in many use cases and we have not tested it in
             this state but it’s available as an option anyway.
           schema:
             type: string
@@ -255,7 +255,7 @@ questions:
         - variable: expiration
           label: "Expiration Time"
           description: |
-            The period of time before the cookie expires and the session is destroyed. This is overriden by 
+            The period of time before the cookie expires and the session is destroyed. This is overriden by
             remember_me_duration when the remember me box is checked.
           schema:
             type: string
@@ -264,7 +264,7 @@ questions:
         - variable: inactivity
           label: "Inactivity Time"
           description: |
-            The period of time the user can be inactive for until the session is destroyed when the remember me box is 
+            The period of time the user can be inactive for until the session is destroyed when the remember me box is
             not checked or is otherwise disabled. Useful if you want long session timers but don’t want unused devices to be vulnerable.
           schema:
             type: string
@@ -273,7 +273,7 @@ questions:
         - variable: remember_me_duration
           label: "Remember-Me duration"
           description: |
-            The period of time before the cookie expires and the session is destroyed when the remember me box is checked, a user 
+            The period of time before the cookie expires and the session is destroyed when the remember me box is checked, a user
             selecting this option negates the inactivity timeout. Setting this to -1 disables this feature entirely.
           schema:
             type: string
@@ -296,7 +296,7 @@ questions:
         - variable: find_time
           label: "Find Time"
           description: |
-            The period of time analyzed for failed attempts. For example if you set max_retries to 3 and find_time to 
+            The period of time analyzed for failed attempts. For example if you set max_retries to 3 and find_time to
             2m this means the user must have 3 failed logins in 2 minutes.
           schema:
             type: string
@@ -305,7 +305,7 @@ questions:
         - variable: ban_time
           label: "Ban Duration"
           description: |
-            The period of time the user is banned for after meeting the max_retries and find_time configuration. 
+            The period of time the user is banned for after meeting the max_retries and find_time configuration.
             After this duration the account will be able to login again.
           schema:
             type: string
@@ -314,8 +314,8 @@ questions:
   - variable: authentication_backend
     group: "App Configuration"
     label: "Authentication Backend Provider"
-    description: | 
-      Used for verifying user passwords and retrieve information such as email 
+    description: |
+      Used for verifying user passwords and retrieve information such as email
       address and groups users belong to.
     schema:
       additional_attrs: true
@@ -707,8 +707,8 @@ questions:
         - variable: default_policy
           label: "Default Policy"
           description: |
-            The default policy defines the policy applied if no rules section apply to the information known about the request. 
-            It is recommended that this is configured to deny for security reasons. Sites which you do not wish to secure at all 
+            The default policy defines the policy applied if no rules section apply to the information known about the request.
+            It is recommended that this is configured to deny for security reasons. Sites which you do not wish to secure at all
             with Authelia should not be configured in your reverse proxy to perform authentication with Authelia at all for performance reasons.
           schema:
             type: string
@@ -780,7 +780,7 @@ questions:
                     - variable: policy
                       label: "Policy"
                       description: |
-                        The specific policy to apply to the selected rule. This is not criteria for a match, this is the 
+                        The specific policy to apply to the selected rule. This is not criteria for a match, this is the
                         action to take when a match is made.
                       schema:
                         type: string
@@ -797,9 +797,9 @@ questions:
                     - variable: subject
                       label: "Subject"
                       description: |
-                        This criteria matches identifying characteristics about the subject. Currently this is either 
-                        user or groups the user belongs to. This allows you to effectively control exactly what each user is 
-                        authorized to access or to specifically require two-factor authentication to specific users. Subjects 
+                        This criteria matches identifying characteristics about the subject. Currently this is either
+                        user or groups the user belongs to. This allows you to effectively control exactly what each user is
+                        authorized to access or to specifically require two-factor authentication to specific users. Subjects
                         are prefixed with either user: or group: to identify which part of the identity to check.
                       schema:
                         type: list
@@ -1010,7 +1010,7 @@ questions:
                                 - variable: consent_mode
                                   label: "Consent Mode"
                                   description: |
-                                    Configures the consent mode. This can be set to auto (default), explicit (consent required every time) or 
+                                    Configures the consent mode. This can be set to auto (default), explicit (consent required every time) or
                                     implicit (automatically assumes consent for every authorization, never asking the user if they wish to give consent.)
                                   schema:
                                     type: string

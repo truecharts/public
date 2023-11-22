@@ -296,19 +296,19 @@ questions:
               - variable: log_level
                 label: Log Level
                 schema:
-                  type: string
+                  type: int
                   required: true
-                  default: "2"
+                  default: 2
                   enum:
-                    - value: "0"
+                    - value: 0
                       description: Debug
-                    - value: "1"
+                    - value: 1
                       description: Info
-                    - value: "2"
+                    - value: 2
                       description: Warning
-                    - value: "3"
+                    - value: 3
                       description: Error
-                    - value: "4"
+                    - value: 4
                       description: Fatal
               - variable: log_date_format
                 label: Log Date Format
