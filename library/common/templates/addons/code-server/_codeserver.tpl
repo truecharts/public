@@ -40,11 +40,12 @@ It will include / inject the required templates based on the given values.
     {{- $_ := set $ingressValues "nameOverride" "codeserver" -}}
 
     {{/* Determine the target service name & port */}}
-    {{- $svcName := printf "%v-codeserver" (include "tc.v1.common.names.fullname" .) -}}
+    {{- $svcName := printf "%v-codeserver" (include "tc.v1.common.lib.chart.names.fullname" .) -}}
     {{- $svcPort := .Values.addons.codeserver.service.ports.codeserver.port -}}
     {{- range $_, $host := $ingressValues.hosts -}}
       {{- $_ := set (index $host.paths 0) "service" (dict "name" $svcName "port" $svcPort) -}}
     {{- end -}}
+    {{- $_ := set $ingressValues "name" $svcName -}}
     {{- $_ := set $ "ObjectValues" (dict "ingress" $ingressValues) -}}
     {{- include "tc.v1.common.class.ingress" $ -}}
     {{- $_ := unset $ "ObjectValues" -}}
