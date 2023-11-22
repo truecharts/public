@@ -7,6 +7,9 @@
 {{- $cache := .Values.nitter.cache -}}
 {{- $preferences := .Values.nitter.preferences -}}
 
+{{- $redisHost := .Values.redis.creds.plainhost | trimAll "\"" -}}
+{{- $redisPass := .Values.redis.creds.redisPassword | trimAll "\"" -}}
+
 {{- $hmacKey := randAlphaNum 32 -}}
 
  {{- with lookup "v1" "Secret" .Release.Namespace $fullname -}}
@@ -30,8 +33,8 @@ nitter-config:
     redisPort = 6379
     redisConnections = 20
     redisMaxConnections = 30
-    redisHost = {{ .Values.redis.url.plain | trimAll "\"" | quote }}
-    redisPassword = {{ .Values.redis.redisPassword | trimAll "\"" | quote }}
+    redisHost = {{ $redisHost }}
+    redisPassword = {{ $redisPass }}
     listMinutes = {{ $cache.listMinutes }}
     rssMinutes = {{ $cache.rssMinutes }}
 
