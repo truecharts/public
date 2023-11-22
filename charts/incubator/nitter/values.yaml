@@ -37,7 +37,7 @@ service:
         port: 10606
 
 persistence:
-  nitter-conf:
+  nitter-config:
     enabled: true
     type: configmap
     objectName: odoo-config
