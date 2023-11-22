@@ -73,6 +73,12 @@ questions:
                         type: string
                         show_if: [["server", "=", "custom"]]
                         default: 'https://acme-staging-v02.api.letsencrypt.org/directory'
+                    - variable: caBundle
+                      label: Trusted CA for private ACME server
+                      description: "CABundle for private ACME server, in base 64"
+                      schema:
+                        type: string
+                        show_if: [["server", "=", "custom"]]
                     - variable: email
                       label: Email
                       description: "Email adress to use for certificate issuing must match your DNS provider email when required"
