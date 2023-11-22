@@ -26,7 +26,6 @@ workload:
             BORG_UID: "{{ .Values.securityContext.container.PUID }}"
             BORG_GID: "{{ .Values.securityContext.pod.fsGroup }}"
 
-
 persistence:
   borg:
     enabled: true
