@@ -6,9 +6,6 @@
 {{- if $configmaps -}}
   {{- $_ := mustMergeOverwrite .Values.configmap $configmaps -}}
 {{- end -}}
-{{- if $secrets -}}
-  {{- $_ := set .Values.secret "nitter-secrets" $secrets -}}
-{{- end -}}
 
 {{/* Render the templates */}}
 {{- include "tc.v1.common.loader.apply" . -}}

@@ -1,7 +1,6 @@
 {{/* Define the configmap */}}
 {{- define "nitter.configmaps" -}}
 {{- $fullname := (include "tc.v1.common.lib.chart.names.fullname" $) -}}
-{{- $secretName := (printf "%s-nitter-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
 
 {{- $config := .Values.nitter.config -}}
 {{- $general := .Values.nitter.general -}}
@@ -10,7 +9,7 @@
 
 {{- $hmacKey := randAlphaNum 32 -}}
 
- {{- with lookup "v1" "Secret" .Release.Namespace $secretName -}}
+ {{- with lookup "v1" "Secret" .Release.Namespace $fullname -}}
    {{- $hmacKey = index .data "hmacKey" | b64dec -}}
  {{- end }}
 
