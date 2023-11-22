@@ -124,7 +124,7 @@ jobs:
             # Add truechart source
             tcsource="https://github.com/truecharts/charts/tree/master/charts/$train/$chartname" go-yq -i '.sources += env(tcsource)' "${chart}/Chart.yaml"
             # Get the container image name that was parsed out of the Dockerfile for the website.
-            container=$(cat website/docs/charts/description_list.md | grep "\[${chartname}\]" | cut -f3 -d '|' | grep -v 'Not Found' || echo "" || echo "failed-container-fetch") 
+            container=$(cat website/docs/charts/description_list.md | grep "\[${chartname}\]" | cut -f3 -d '|' | grep -v 'Not Found' || echo "" || echo "failed-container-fetch")
             # Convert the container image name to a URL.
             if [ ! -z "$container" ]; then
               prefix=""
