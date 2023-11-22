@@ -20,7 +20,7 @@ nitter-config:
   enabled: true
   data:
     nitter.conf: |
-     [Server]
+    [Server]
     https = false
     address = "0.0.0.0"
     staticDir = "./public"
@@ -56,4 +56,5 @@ nitter-config:
     proxyVideos = {{ $preferences.proxyVideos }}
     hlsPlayback = {{ $preferences.hlsPlayback }}
     infiniteScroll = {{ $preferences.infiniteScroll }}
+  {{- end -}}
 {{- end -}}
