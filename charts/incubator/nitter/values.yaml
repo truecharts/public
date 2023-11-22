@@ -3,6 +3,14 @@ image:
   pullPolicy: IfNotPresent
   tag: latest@sha256:c0275459df4de2331a1ceac61c42be30a8731e168f582851134b5ec25af75171
 
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 8080
+        port: 10606
+
 nitter:
   general:
     title: nitter
@@ -28,13 +36,24 @@ nitter:
     hlsPlayback: false
     infiniteScroll: false
 
-service:
+workload:
   main:
-    ports:
-      main:
-        protocol: http
-        targetPort: 8080
-        port: 10606
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              path: /Jack/status/20
+            readiness:
+              enabled: true
+              type: http
+              path: /Jack/status/20
+            startup:
+              enabled: true
+              type: http
+              path: /Jack/status/20
 
 persistence:
   nitter-config:
