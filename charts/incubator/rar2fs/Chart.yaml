@@ -1,0 +1,28 @@
+apiVersion: v2
+appVersion: "latest"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 14.3.5
+deprecated: false
+description: FUSE file system for reading RAR archives.
+home: https://truecharts.org/charts/incubator/rar2fs
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/rar2fs.png
+keywords:
+  - rar2fs
+  - archives
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: rar2fs
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/rar2fs
+  - https://ghcr.io/zimme/rar2fs
+  - https://github.com/zimme/docker-rar2fs
+type: application
+version: 0.0.1
+annotations:
+  truecharts.org/category: archives
+  truecharts.org/SCALE-support: "true"
