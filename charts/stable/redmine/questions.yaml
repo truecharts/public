@@ -85,13 +85,13 @@ questions:
                 description: "The UserID of the user running the application"
                 schema:
                   type: int
-                  default: 568
+                  default: 999
               - variable: runAsGroup
                 label: "runAsGroup"
                 description: "The groupID this App of the user running the application"
                 schema:
                   type: int
-                  default: 568
+                  default: 999
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
@@ -100,7 +100,7 @@ questions:
                 description: "The group that should own ALL storage."
                 schema:
                   type: int
-                  default: 568
+                  default: 999
 
 # Include{resources}
 # Include{advanced}

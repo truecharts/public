@@ -1,67 +1,38 @@
 image:
   repository: altran1502/immich-server
-  tag: v1.86.0@sha256:b04b0cb5db7f954d1d7a9c9792f9feedcaaabed03b2f251ef7c6a8169be10086
+  tag: v1.88.1@sha256:87dd30e8938ec894d1a05b5ce436fd12d432f4f76992f85495b84a2f9d2b2583
   pullPolicy: IfNotPresent
 mlImage:
   repository: altran1502/immich-machine-learning
-  tag: v1.86.0@sha256:4f745b74a3d534fde87ba8ae3c7de97c1504596188d6da3fd38a2777acacda8a
-  pullPolicy: IfNotPresent
-webImage:
-  repository: altran1502/immich-web
-  tag: v1.86.0@sha256:f2e806d4cbe7e443de0c004e7d6bc585b00e1d187913591fdc1fca944143026d
-  pullPolicy: IfNotPresent
-proxyImage:
-  repository: altran1502/immich-proxy
-  tag: v1.86.0@sha256:96a557932b457fba8eb38d1d0d476f2e07fa8971d8a926886ebc543a6b35f012
+  tag: v1.88.1@sha256:68391160d4fca56382a3eb8eff969f1728fed019bd8d737cab5d64950512d333
   pullPolicy: IfNotPresent
 typesenseImage:
   repository: typesense/typesense
   tag: 0.25.1@sha256:3724f68156097114d07790e1c8bfaaca13b12eaecd602776d30d9933029064c7
   pullPolicy: IfNotPresent
+
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
+
 immich:
   enable_ml: true
   enable_typesense: true
   public_login_page_message: Immich
   log_level: log
+
 service:
   main:
-    # Main service targets the proxy
-    targetSelector: proxy
+    # Main service targets the server
+    targetSelector: main
     ports:
       main:
         port: 10323
         protocol: http
-        targetSelector: proxy
-        targetPort: 8080
-  server:
-    enabled: true
-    type: ClusterIP
-    # Server is the main container
-    targetSelector: main
-    ports:
-      server:
-        enabled: true
-        primary: true
-        port: 10001
-        protocol: http
         targetSelector: main
-  web:
-    enabled: true
-    type: ClusterIP
-    targetSelector: web
-    ports:
-      web:
-        enabled: true
-        primary: true
-        port: 10000
-        protocol: http
-        targetSelector: web
   microservices:
     enabled: true
     type: ClusterIP
@@ -95,6 +66,7 @@ service:
         port: 10002
         protocol: http
         targetSelector: typesense
+
 persistence:
   mlcache:
     enabled: true
@@ -162,24 +134,19 @@ persistence:
         main: {}
       microservices:
         microservices: {}
-  externallibrary:
-    enabled: true
-    mountPath: /media
-    targetSelector:
-      # Main pod/container is server
-      main:
-        main: {}
-      microservices:
-        microservices: {}
+
 cnpg:
   main:
     enabled: true
     user: immich
     database: immich
+
 redis:
   enabled: true
   redisUsername: default
+
 portal:
   open:
     enabled: true
+
 updated: true

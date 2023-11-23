@@ -35,6 +35,9 @@ spec:
   acme:
     email: {{ .email }}
     server: {{ if eq .server "custom" }}{{ .customServer }}{{ else }}{{ .server }}{{ end }}
+    {{- if .caBundle }}
+    caBundle: {{ .caBundle }}
+    {{- end }}
     privateKeySecretRef:
       name: {{ .name }}-acme-clusterissuer-account-key
     solvers:
