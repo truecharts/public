@@ -252,7 +252,7 @@ jobs:
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         with:
           fetch-depth: 1
-          repository: truecharts/catalog
+          repository: ac1dburnz/catalog
           token: ${{ secrets.BOT_TOKEN }}
           ref: staging
           path: catalog
