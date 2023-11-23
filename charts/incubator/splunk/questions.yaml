@@ -6,54 +6,50 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+
 # Include{containerBasic}
 # Include{containerAdvanced}
 
   - variable: splunk
     group: App Configuration
-    label: Splunk Configuration
+    label: "Splunk Configuration"
     schema:
       additional_attrs: true
       type: dict
       attrs:
         - variable: acceptLicense
-          label: Accept License
-          description: Arguments to start Splunk with.
+          label: "Accept License"
+          description: "Arguments to start Splunk with."
           schema:
             type: boolean
             default: true
         - variable: password
-          label: Splunk Password
-          description: Splunk Web UI admin password.
+          label: "Splunk Password"
+          description: "Splunk Web UI admin password."
           schema:
             type: string
             private: true
             default: ""
         - variable: extraArgs
-          label: Extra Startup Arg
+          label: "Extra Startup Arguments"
           schema:
             type: list
             default: []
             items:
               - variable: argEntry
-                label: Arg Entry
+                label: "Arg Entry"
                 schema:
                   type: string
                   required: true
                   default: ""
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
-        - variable: main
-          label: Main Service
-          description: The Primary service on which the healthcheck runs, often the webUI
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
@@ -154,20 +150,19 @@ questions:
 # Include{ingressTraefik}
 # Include{ingressAdvanced}
 # Include{ingressList}
-
-# Include{podSecurityContextRoot}
-        - variable: runAsUser
-          label: runAsUser
-          description: The UserID of the user running the application
-          schema:
-            type: int
-            default: 0
-        - variable: runAsGroup
-          label: runAsGroup
-          description: The groupID this App of the user running the application
-          schema:
-            type: int
-            default: 0
+# Include{securityContextRoot}
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID this App of the user running the application"
+                schema:
+                  type: int
+                  default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
