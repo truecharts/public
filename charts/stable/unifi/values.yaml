@@ -48,6 +48,14 @@ persistence:
   config:
     enabled: true
     mountPath: "/usr/lib/unifi"
+    subPath: "data"
+  logs:
+    enabled: true
+    mountPath: "/usr/lib/unifi/logs"
+    type: "emptyDir"
+  certs:
+    enabled: true
+    mountPath: "/usr/lib/unifi/cert"
 portal:
   open:
     enabled: true
