@@ -20,129 +20,117 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: PORT
-          label: "PORT"
-          description: "If you change this variable you have to create two new port forwardings with the corresponding ports one for TCP and one for UDP."
-          schema:
-            type: string
-            default: "5349"
         - variable: SECRET
-          label: "SECRET"
+          label: "Secret"
           description: "Create your own secret and enter it here or leave empty and the server creats a secret that is stored into secret.txt in the main directory of the container (generate it for example in a linux terminal with the command openssl rand -hex 32 without quotes)."
           schema:
             type: string
             default: ""
         - variable: REALM
-          label: "REALM"
+          label: "Realm"
           description: "Your hostname (eg example.org without quotes)."
           schema:
             type: string
             default: ""
         - variable: CERT_FILE
-          label: "CERT_FILE"
+          label: "Certificate File"
           description: "Name of the certification file (leave empty if the server should create one or replace it with your own)."
           schema:
             type: string
             default: "cert.pem"
         - variable: PRIVKEY_FILE
-          label: "PRIVKEY_FILE"
+          label: "Private Key File"
           description: "Name of the private key file (leave empty if the server should create one or replace it with your own)."
           schema:
             type: string
             default: "privkey.pem"
         - variable: DH_FILE
-          label: "DH_FILE"
+          label: "DiffieHellman Key File"
           description: "Name of the DiffieHellman key file (leave empty if the server should create one or replace it with your own - also plase look under the Show more settings tab if you want to generate a bigger or smaller key default is 2048)."
           schema:
             type: string
             default: "dhparam.pem"
         - variable: DISPLAY_SECRETS
-          label: "DISPLAY_SECRETS"
+          label: "Display Secrets"
           description: "Display your secrets in the log (set to true or leave empty to disable it)."
           schema:
             type: string
             default: "true"
         - variable: CA_COUNTRY
-          label: "CA_COUNTRY"
+          label: "Certificate Country Code"
           description: "Country code for your certificate if the server should create one (two letters eg US without quotes - also plase look under the Show more settings tab there are more settings for generating your certificate)."
           schema:
             type: string
             default: ""
         - variable: EXTRA_PARAMS
-          label: "EXTRA_PARAMS"
+          label: "Extra Parameters"
           description: "Here you can enter your Extra Startup Parameters if needed (you can get a full list of commands from here httpsgithub.comcoturncoturnwikiturnserver)"
           schema:
             type: string
             default: ""
         - variable: TOTAL_QUOTA
-          label: "TOTAL_QUOTA"
+          label: "Total Quota"
           description: "Total allocations quota global limit on concurrent allocations (only change if you know what you are doing)."
           schema:
             type: string
             default: "100"
         - variable: MAX_BPS
-          label: "MAX_BPS"
+          label: "Maximum BPS"
           description: "Max bytes-per-second bandwidth a TURN session is allowed to handle (input and output network streams are treated separately). Anything above that limit will be dropped or temporary suppressed - within the available buffer limits (only change if you know what you are doing)."
           schema:
             type: string
             default: "0"
         - variable: CIPHER_LIST
-          label: "CIPHER_LIST"
+          label: "Cipher List"
           description: "Allowed OpenSSL cipher list for TLSDTLS connections (only change if you know what you are doing)."
           schema:
             type: string
             default: "ECDHE-RSA-AES256-GCM-SHA512:DHE-RSA-AES256-GCM-SHA512:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384"
         - variable: CERT_LENGTH
-          label: "CERT_LENGTH"
+          label: "Certificate Length"
           description: "Enter your preferred key length (the higher the value the longer it takes to generate the certificate)."
           schema:
             type: string
             default: "2048"
         - variable: CERT_VALID_DAYS
-          label: "CERT_VALID_DAYS"
+          label: "Certificate Expiration Length"
           description: "Specify how long that the certificate should be valid in days."
           schema:
             type: string
             default: "3650"
         - variable: CA_STATE_PROV
-          label: "CA_STATE_PROV"
+          label: "Certificate State/Province"
           description: "Specify your state or province."
           schema:
             type: string
             default: ""
         - variable: CA_LOCALITY
-          label: "CA_LOCALITY"
+          label: "Certificate Lcality"
           description: "Specify your locality."
           schema:
             type: string
             default: ""
         - variable: CA_ORGANIZATION
-          label: "CA_ORGANIZATION"
-          description: "Specify your organiszation."
+          label: "Certificate Organization"
+          description: "Specify your organization."
           schema:
             type: string
             default: ""
         - variable: DH_LENGTH
-          label: "DH_LENGTH"
+          label: "Key Length"
           description: "Enter your preferred key length (the higher the value the longer it takes to generate the key)."
           schema:
             type: string
             default: "2048"
         - variable: CLI_PASSWORD
-          label: "CLI_PASSWORD"
+          label: "CLI Password"
           description: "Enter your CLI password or leave empty if you want that the server creates a random one (please note that you have to manually enable the console with the --cli-port PORT - PORT stands for your preferred port - in the Extra Startup Parameters and create the corresponding port)."
           schema:
             type: string
             default: ""
-        - variable: LISTENING_IP
-          label: "LISTENING_IP"
-          description: "Specify the listening port (only change if you know what you are doing)."
-          schema:
-            type: string
-            default: "0.0.0.0"
         - variable: DATA_PERM
-          label: "DATA_PERM"
-          description: "Container Variable DATAPERM"
+          label: "Data Permissions"
+          description: "Container Data Permissions"
           schema:
             type: string
             default: "770"

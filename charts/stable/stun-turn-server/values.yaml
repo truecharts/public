@@ -55,7 +55,7 @@ workload:
             EXTRA_PARAMS: ""
             LISTENING_IP: 0.0.0.0
             MAX_BPS: "0"
-            PORT: "5349"
+            PORT: "{{ .Values.service.main.ports.main.port }}"
             PRIVKEY_FILE: privkey.pem
             REALM: ""
             SECRET: ""
