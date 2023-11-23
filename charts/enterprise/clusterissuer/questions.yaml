@@ -74,8 +74,8 @@ questions:
                         show_if: [["server", "=", "custom"]]
                         default: 'https://acme-staging-v02.api.letsencrypt.org/directory'
                     - variable: caBundle
-                      label: Trusted CA for private ACME server
-                      description: "CABundle for private ACME server, in base 64"
+                      label: Trusted CABundle for private ACME server
+                      description: "Trusted CABundle for private ACME server, encoded in base64"
                       schema:
                         type: string
                         show_if: [["server", "=", "custom"]]
