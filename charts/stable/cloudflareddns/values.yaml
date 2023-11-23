@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/cloudflareddns
+  repository: ghcr.io/hotio/cloudflareddns
   pullPolicy: IfNotPresent
-  tag: latest@sha256:ee164b54817539233805f8729d008cf5ee6f45bc3e22fbbd99df4bbeb86d380e
-
+  tag: latest@sha256:9444304d45a38ef4b683780ed184bfa583ab9138cef92f1a3fdc81cc7227f81b
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 cloudflareddns:
   user: your.cf.email@example.com
   api_token: ""
@@ -36,7 +34,6 @@ service:
     ports:
       main:
         enabled: false
-
 workload:
   main:
     podSpec:
@@ -53,12 +50,10 @@ workload:
             - secretRef:
                 name: "secret"
           env: {}
-
 persistence:
   config:
     enabled: true
     mountPath: /config
-
 portal:
   open:
     enabled: false

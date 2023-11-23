@@ -1,0 +1,143 @@
+image:
+  repository: registry.k8s.io/external-dns/external-dns
+  pullPolicy: IfNotPresent
+  tag: v0.14.0@sha256:474077b3dfccb3021db0a6638274967d0f64ce60dd9730a6f464bee2f78b046f
+externaldns:
+  logLevel: "info"
+  logFormat: "text"
+  interval: "1m"
+  provider: "inmemory"
+  sources:
+    - "service"
+    - "ingress"
+  domainFilters: []
+  zoneidFilters: []
+  cloudflareProxied: ""
+  registry: "txt"
+  policy: ""
+  piholeServer: ""
+  piholePassword: ""
+  triggerLoopOnEvent: "false"
+  txtOwnerId: ""
+  txtPrefix: ""
+  txtSuffix: ""
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 7979
+        port: 7979
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: "/healthz"
+            readiness:
+              path: "/healthz"
+            startup:
+              path: "/healthz"
+          env:
+            CF_API_TOKEN: ""
+            CF_API_KEY: ""
+            CF_API_EMAIL: ""
+            DO_TOKEN: ""
+            DNSIMPLE_OAUTH: ""
+            LINODE_TOKEN: ""
+            OVH_APPLICATION_KEY: ""
+            OVH_APPLICATION_SECRET: ""
+            OVH_CONSUMER_KEY: ""
+            SCW_ACCESS_KEY: ""
+            SCW_SECRET_KEY: ""
+# -- Whether Role Based Access Control objects like roles and rolebindings should be created
+rbac:
+  main:
+    enabled: true
+    primary: true
+    clusterWide: true
+    rules:
+      - apiGroups: [""]
+        resources: ["nodes"]
+        verbs: ["list", "watch"]
+      - apiGroups: [""]
+        resources: ["pods"]
+        verbs: ["get", "watch", "list"]
+      - apiGroups: [""]
+        resources: ["services", "endpoints"]
+        verbs: ["get", "watch", "list"]
+      - apiGroups: ["extensions", "networking.k8s.io"]
+        resources: ["ingresses"]
+        verbs: ["get", "watch", "list"]
+      - apiGroups: ["networking.istio.io"]
+        resources: ["gateways"]
+        verbs: ["get", "watch", "list"]
+      - apiGroups: ["networking.istio.io"]
+        resources: ["virtualservices"]
+        verbs: ["get", "watch", "list"]
+      - apiGroups: ["getambassador.io"]
+        resources: ["hosts", "ingresses"]
+        verbs: ["get", "watch", "list"]
+      - apiGroups: ["projectcontour.io"]
+        resources: ["httpproxies"]
+        verbs: ["get", "watch", "list"]
+      - apiGroups: ["externaldns.k8s.io"]
+        resources: ["dnsendpoints"]
+        verbs: ["get", "watch", "list"]
+      - apiGroups: ["externaldns.k8s.io"]
+        resources: ["dnsendpoints/status"]
+        verbs: ["*"]
+      - apiGroups: ["gateway.networking.k8s.io"]
+        resources: ["gateways"]
+        verbs: ["get", "watch", "list"]
+      - apiGroups: ["gateway.networking.k8s.io"]
+        resources: ["httproutes"]
+        verbs: ["get", "watch", "list"]
+      - apiGroups: [""]
+        resources: ["namespaces"]
+        verbs: ["get", "watch", "list"]
+      - apiGroups: ["gateway.networking.k8s.io"]
+        resources: ["grpcroutes"]
+        verbs: ["get", "watch", "list"]
+      - apiGroups: ["gateway.networking.k8s.io"]
+        resources: ["tlsroutes"]
+        verbs: ["get", "watch", "list"]
+      - apiGroups: ["gateway.networking.k8s.io"]
+        resources: ["tcproutes"]
+        verbs: ["get", "watch", "list"]
+      - apiGroups: ["gateway.networking.k8s.io"]
+        resources: ["udproutes"]
+        verbs: ["get", "watch", "list"]
+      - apiGroups: ["gloo.solo.io", "gateway.solo.io"]
+        resources: ["proxies", "virtualservices"]
+        verbs: ["get", "watch", "list"]
+      - apiGroups: ["configuration.konghq.com"]
+        resources: ["tcpingresses"]
+        verbs: ["get", "watch", "list"]
+      - apiGroups: ["traefik.containo.us", "traefik.io"]
+        resources: ["ingressroutes", "ingressroutetcps", "ingressrouteudps"]
+        verbs: ["get", "watch", "list"]
+      - apiGroups: ["route.openshift.io"]
+        resources: ["routes"]
+        verbs: ["get", "watch", "list"]
+      - apiGroups: ["zalando.org"]
+        resources: ["routegroups"]
+        verbs: ["get", "watch", "list"]
+      - apiGroups: ["zalando.org"]
+        resources: ["routegroups/status"]
+        verbs: ["patch", "update"]
+      - apiGroups: ["cis.f5.com"]
+        resources: ["virtualservers"]
+        verbs: ["get", "watch", "list"]
+# -- The service account the pods will use to interact with the Kubernetes API
+serviceAccount:
+  main:
+    enabled: true
+    primary: true
+podOptions:
+  automountServiceAccountToken: true
+portal:
+  open:
+    enabled: false

@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/mongo-express
+  repository: docker.io/mongo-express
   pullPolicy: IfNotPresent
-  tag: latest@sha256:939fb036c9b96206968303840d2a9a09b9a682fa44106d1902377d77e32f39c6
-
+  tag: latest@sha256:e8f1096fc88d5566df50923b4b3556f74510ae9e0a8f0f29e4b854d444b30b18
 service:
   main:
     ports:
@@ -10,11 +9,9 @@ service:
         protocol: http
         targetPort: 8081
         port: 18081
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
-
 workload:
   main:
     podSpec:
@@ -33,7 +30,6 @@ workload:
               type: http
               httpHeaders:
                 Authorization: '{{ printf "Basic %s" ((printf "%s:%s" .Values.workload.main.podSpec.containers.main.env.ME_CONFIG_BASICAUTH_USERNAME .Values.workload.main.podSpec.containers.main.env.ME_CONFIG_BASICAUTH_PASSWORD) | b64enc) }}'
-
           env:
             ME_CONFIG_MONGODB_PORT: ""
             ME_CONFIG_MONGODB_SERVER: ""
@@ -44,10 +40,8 @@ workload:
             ME_CONFIG_MONGODB_AUTH_DATABASE: ""
             ME_CONFIG_MONGODB_AUTH_USERNAME: ""
             ME_CONFIG_MONGODB_AUTH_PASSWORD: ""
-
 mongodb:
   enabled: false
-
 portal:
   open:
     enabled: true

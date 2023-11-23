@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/metabase
+  repository: metabase/metabase
   pullPolicy: IfNotPresent
-  tag: v0.47.6@sha256:a6ec7e8f7ec375299f598230f7f1710f2467f7f6976e387a1a8855d69bbc904f
-
+  tag: v0.47.8@sha256:0341a3a282cd9ebbceae7f14a02fffb7a8205ac23632ada0817cd68f413b07e6
 service:
   main:
     ports:
       main:
         protocol: http
         port: 13030
-
 workload:
   main:
     podSpec:
@@ -30,19 +28,16 @@ workload:
               secretKeyRef:
                 name: cnpg-main-user
                 key: password
-
 persistence:
   plugins:
     enabled: true
     mountPath: "/plugins"
-
 # Enabled postgres
 cnpg:
   main:
     enabled: true
     user: metabase
     database: metabase
-
 portal:
   open:
     enabled: true

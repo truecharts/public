@@ -1,28 +1,23 @@
 image:
-  repository: tccr.io/truecharts/authentik
-  tag: v2023.10.2@sha256:6c1bec5507c44dd204b87c6bdba65823f2b214b3a5635ef41680748fddf73fc9
+  repository: ghcr.io/goauthentik/server
+  tag: 2023.10.3@sha256:1bfa11413b928f5831b56933aa09816a05f435fb5df7b652fbf9838548a7f561
   pullPolicy: IfNotPresent
-
 geoipImage:
-  repository: tccr.io/truecharts/geoipupdate
-  tag: v6.0.0@sha256:e057484036265c5bde379556463eed605f68f72016f328404202fb293f02a76a
+  repository: ghcr.io/maxmind/geoipupdate
+  tag: v6.0.0@sha256:e0d5c1dee7379d360e0f355557542d9672c616215dfdd5aaf917382de84cb84c
   pullPolicy: IfNotPresent
-
 ldapImage:
-  repository: tccr.io/truecharts/authentik-ldap
-  tag: v2023.10.2@sha256:7bf0a1c61021c69f27181ea048cd544c3501f6c21f400099e912f21443263dcf
+  repository: ghcr.io/goauthentik/ldap
+  tag: 2023.10.3@sha256:9672bbe043b4cf4169d1639cf6d940314341332a64d0fc54cc84ea8e15ae7595
   pullPolicy: IfNotPresent
-
 radiusImage:
-  repository: tccr.io/truecharts/authentik-radius
-  tag: v2023.10.2@sha256:6f0ada996b949b696ed4ff84c73dfd8b850646c227aaed84b866d238e3c2f440
+  repository: ghcr.io/goauthentik/radius
+  tag: 2023.10.3@sha256:0ce39df4c5c6fe15d59fdc9266fa74db3c6bdc0363f7b332b6d2746cde40d107
   pullPolicy: IfNotPresent
-
 proxyImage:
-  repository: tccr.io/truecharts/authentik-proxy
-  tag: v2023.10.2@sha256:5cf00039a8717167b0397dddd870926349d17fc9785ccc7a5ab3b5f19d79036a
+  repository: ghcr.io/goauthentik/proxy
+  tag: 2023.10.3@sha256:774db24ed31ecf064216f376e55a2e3fb5076c28840f0fddcb42567226edee3f
   pullPolicy: IfNotPresent
-
 authentik:
   credentials:
     # Only works on initial install
@@ -86,7 +81,6 @@ authentik:
     ldap:
       enabled: false
       token: ""
-
 # ===== DO NOT EDIT BELOW THIS LINE =====
 workload:
   # ===== Server =====
@@ -131,7 +125,6 @@ workload:
               command:
                 - /lifecycle/ak
                 - healthcheck
-
   # ===== Worker =====
   worker:
     enabled: true
@@ -172,7 +165,6 @@ workload:
               command:
                 - /lifecycle/ak
                 - healthcheck
-
   # ===== PROXY =====
   proxy:
     enabled: true
@@ -210,7 +202,6 @@ workload:
               command:
                 - /proxy
                 - healthcheck
-
   # ===== RADIUS =====
   radius:
     enabled: true
@@ -248,7 +239,6 @@ workload:
               command:
                 - /radius
                 - healthcheck
-
   # ===== LDAP =====
   ldap:
     enabled: true
@@ -286,7 +276,6 @@ workload:
               command:
                 - /ldap
                 - healthcheck
-
   # ===== GeoIP Updater =====
   geoip:
     enabled: true
@@ -314,7 +303,6 @@ workload:
               enabled: false
             startup:
               enabled: false
-
 service:
   # Server HTTPS
   main:
@@ -463,20 +451,16 @@ persistence:
       geoip:
         geoip:
           mountPath: /usr/share/GeoIP
-
 cnpg:
   main:
     enabled: true
     user: authentik
     database: authentik
-
 redis:
   enabled: true
-
 portal:
   open:
     enabled: true
-
 metrics:
   # FIXME: Metrics do not work yet
   servermetrics:
@@ -511,3 +495,4 @@ metrics:
         path: /metrics
     prometheusRule:
       enabled: false
+updated: true

@@ -1,22 +1,19 @@
 image:
-  repository: tccr.io/truecharts/ghostfolio
+  repository: ghostfolio/ghostfolio
   pullPolicy: IfNotPresent
-  tag: v2.16.0@sha256:ecf073479b557c98efcb10619decadaca3d1fbff7be98465568c9969d911ab28
-
+  tag: 2.25.1@sha256:c7caf143bb3e7d08eccb71c9ec9095eec2f7d33e198540c73756cbedabc052d3
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
       main:
         port: 3333
         targetPort: 3333
-
 workload:
   main:
     podSpec:
@@ -56,16 +53,13 @@ workload:
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: redis-password
             REDIS_PORT: "6379"
-
 cnpg:
   main:
     enabled: true
     user: ghostfolio
     database: ghostfolio
-
 redis:
   enabled: true
-
 portal:
   open:
     enabled: true

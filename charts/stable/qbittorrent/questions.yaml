@@ -16,6 +16,34 @@ questions:
 # Include{containerAdvanced}
 
 # Include{containerConfig}
+  - variable: qbitportforward
+    group: App Configuration
+    label: Gluetun Port Forwarding
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: enabled
+          label: Enable Gluetun Port Forwarding Automation
+          description: Enable and configure Gluetun Port Forwarding Automation.
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: QBT_USERNAME
+                label: qBittorrent Username
+                description: qBittorrent WebUI Username
+                schema:
+                  type: string
+                  default: "admin"
+              - variable: QBT_PASSWORD
+                label: qBittorrent Password
+                description: qBittorrent WebUI Password
+                schema:
+                  type: string
+                  default: "adminadmin"
+
 # Include{podOptions}
 # Include{serviceRoot}
 # Include{serviceMain}

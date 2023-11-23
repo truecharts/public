@@ -1,6 +1,6 @@
 image:
-  repository: tccr.io/truecharts/unifi
-  tag: v7.5.176@sha256:53469ef9de47ce791dc2838b07189a2f418d6d845db5783d841a5bc4c5429efd
+  repository: ghcr.io/goofball222/unifi
+  tag: v7.5.187@sha256:742313ec48b1ab5008d74041114a0aec4b4c18cdff26f2967ed6e98d3b97cb51
   pullPolicy: IfNotPresent
 service:
   main:
@@ -47,7 +47,15 @@ service:
 persistence:
   config:
     enabled: true
-    mountPath: "/unifi"
+    mountPath: "/usr/lib/unifi"
+    subPath: "data"
+  logs:
+    enabled: true
+    mountPath: "/usr/lib/unifi/logs"
+    type: "emptyDir"
+  certs:
+    enabled: true
+    mountPath: "/usr/lib/unifi/cert"
 portal:
   open:
     enabled: true

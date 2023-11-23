@@ -1,8 +1,7 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/searxng
-  tag: latest@sha256:a80efa3d335284d0e6cae05ef88b5822c692cb7ad397ac5a63c60f1b2c4f245d
-
+  repository: searxng/searxng
+  tag: latest@sha256:65f1eac6769451d0b1f9ed55d91981f3110a253fb9b61c0e5cefa2ddd97cf1b2
 workload:
   main:
     podSpec:
@@ -22,30 +21,25 @@ workload:
             startup:
               type: tcp
               port: "{{ .Values.service.main.ports.main.port }}"
-
 securityContext:
   container:
     runAsGroup: 0
     runAsUser: 0
     capabilities:
       disableS6Caps: true
-
       add:
         - SETUID
         - SETGID
-
 service:
   main:
     ports:
       main:
         port: 8080
         protocol: http
-
 persistence:
   config:
     enabled: true
     mountPath: /etc/searxng
-
 portal:
   open:
     enabled: true

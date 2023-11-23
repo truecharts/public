@@ -1,18 +1,15 @@
 image:
-  repository: tccr.io/truecharts/anonaddy
-  tag: v0.14.1@sha256:5ec8379d750553a662ea009b1c1e61e5cae670ef0ac7161f09f0c1cfa3a204fe
+  repository: anonaddy/anonaddy
+  tag: 0.14.1@sha256:4e651dee9aa2c037ff4c9593db41feda8fc04edf9a82de8e60e79f0e92c5a47a
   pullPolicy: IfNotPresent
-
 strategy:
   type: Recreate
-
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -26,7 +23,6 @@ service:
         enabled: true
         port: 25
         targetPort: 25
-
 workload:
   main:
     podSpec:
@@ -83,20 +79,16 @@ workload:
               secretKeyRef:
                 name: anonaddy-secrets
                 key: ANONADDY_SECRET
-
 persistence:
   config:
     enabled: true
     mountPath: /config
-
 redis:
   enabled: true
-
 mariadb:
   enabled: true
   mariadbUsername: anonaddy
   mariadbDatabase: anonaddy
-
 portal:
   open:
     enabled: true

@@ -1,14 +1,12 @@
 image:
-  repository: tccr.io/truecharts/couchpotato
+  repository: ghcr.io/linuxserver/couchpotato
   pullPolicy: IfNotPresent
-  tag: v2021.11.22@sha256:8ae544711733eb7b9cffc7c98d08e5ae863615b4c2ce01921130e53cc0c3126a
-
+  tag: latest@sha256:f846573965e3daf1bb8c9c49bb18ddcbc90ba98bd036eb8a42ebf4c46957cf4a
 securityContext:
   container:
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -16,7 +14,6 @@ service:
         targetPort: 5050
         protocol: http
         port: 10139
-
 workload:
   main:
     podSpec:
@@ -33,12 +30,10 @@ workload:
               type: http
               path: /
           env: {}
-
 persistence:
   config:
     enabled: true
     mountPath: /config
-
 portal:
   open:
     enabled: true

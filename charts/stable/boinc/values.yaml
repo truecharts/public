@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/boinc
+  repository: ghcr.io/linuxserver/boinc
   pullPolicy: IfNotPresent
-  tag: latest@sha256:b9b325e2cb58588a83dea6203e496a4fb248d34dbb9cd6cb3b43a8ce03b4684c
-
+  tag: latest@sha256:c1f6bfa10e4cb11d5644d22ed33e3c844ed508d9e1a18e842ea56c20557313b9
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -17,7 +15,6 @@ service:
         targetPort: 8080
         protocol: http
         port: 10142
-
 workload:
   main:
     podSpec:
@@ -25,12 +22,10 @@ workload:
         main:
           env:
             PASSWORD: ""
-
 persistence:
   config:
     enabled: true
     mountPath: /config
-
 portal:
   open:
     enabled: true

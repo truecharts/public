@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/commento-plusplus
-  tag: v1.8.7@sha256:9e64c97771e6d875c465fd047bc98978c7ffc4ff6c0841a878c790753a8cfca1
+  repository: caroga/commentoplusplus
+  tag: v1.8.7@sha256:f3233882b3bd27378eaa6e25b0ffecbb450e2cb2f003c5ae8fd8d80e3bbbdbfe
   pullPolicy: IfNotPresent
-
 service:
   main:
     ports:
       main:
         port: 10240
         protocol: http
-
 workload:
   main:
     podSpec:
@@ -41,13 +39,11 @@ workload:
               secretKeyRef:
                 name: cnpg-main-urls
                 key: std
-
 cnpg:
   main:
     enabled: true
     user: comment-plusplus
     database: comment-plusplus
-
 portal:
   open:
     enabled: true

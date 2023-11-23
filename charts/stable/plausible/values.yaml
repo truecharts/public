@@ -1,14 +1,12 @@
 image:
-  repository: tccr.io/truecharts/plausible
+  repository: plausible/analytics
   pullPolicy: IfNotPresent
-  tag: v2.0.0@sha256:1ef59e863cfdcddc308d4ec743091bc8eda4f62e16b269cf4d778c89b8c02a68
-
+  tag: v2.0.0@sha256:5bf2057948e1d5d12ef61f446c4945a336d3bcdf9b96293a1d6fc275f3c56eb5
 service:
   main:
     ports:
       main:
         port: 10277
-
 # Plausible self-hosting documentation
 # https://plausible.io/docs/self-hosting
 plausible:
@@ -19,12 +17,10 @@ plausible:
     log_failed_login_attempts: false
     # Logging
     log_level: warn
-
   # Database
   db:
     clickhouse_flush_interval_ms: 5000
     clickhouse_max_buffer_size: 10000
-
   # Mailer/SMTP Setup
   email:
     mailer_email: hello@plausible.local
@@ -42,18 +38,15 @@ plausible:
     mailgun_base_uri: ""
     mandrill_api_key: ""
     sendgrid_api_key: ""
-
   # IP Geolocation
   # todo(investigate where automatic updates are stored and configure storage accordingly)
   maxmind:
     license_key: ""
     edition: GeoLite2-City
-
   # Google Search Integration
   google:
     client_id: ""
     client_secret: ""
-
 workload:
   main:
     podSpec:
@@ -114,18 +107,15 @@ workload:
               path: /api/health
             startup:
               type: tcp
-
 cnpg:
   main:
     enabled: true
     user: plausible
     database: plausible
-
 clickhouse:
   enabled: true
   clickhouseUsername: plausible
   clickhouseDatabase: plausible
-
 portal:
   open:
     enabled: true

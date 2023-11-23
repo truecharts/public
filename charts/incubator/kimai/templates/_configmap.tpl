@@ -16,8 +16,8 @@ kimai-config:
     DB_BASE: {{ .Values.mariadb.mariadbUsername }}
     {{/* Admin credentials */}}
     ADMINMAIL: {{ .Values.kimai.credentials.adminMail }}
-    ADMINPASS: {{ .Values.kimai.credentials.adminPass }}
+    ADMINPASS: {{ .Values.kimai.credentials.adminPass | quote }}
     {{/* Trusted Hosts */}}
     TRUSTED_HOSTS: {{ join "," $trusted_hosts }}
-    memory_limit: 256M
+    memory_limit: "256M"
 {{- end -}}

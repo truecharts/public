@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/podgrab
+  repository: akhilrex/podgrab
   pullPolicy: Always
-  tag: v1.0.0@sha256:4f12ed1458991f2918990a7041a8d4e4ff84232e5dc0bf57d14acb70debb0103
+  tag: 1.0.0@sha256:bce133f3f5111381f63d9341313fa7ce7e16209068e8a06e6db2c4ed33972b87
 service:
   main:
     ports:
@@ -22,7 +22,6 @@ persistence:
 portal:
   open:
     enabled: true
-
 workload:
   main:
     podSpec:

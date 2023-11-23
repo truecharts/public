@@ -1,0 +1,28 @@
+apiVersion: v2
+appVersion: "0.14.0"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 14.3.5
+deprecated: false
+description: ExternalDNS synchronizes exposed Kubernetes Services and Ingresses with DNS providers.
+home: https://truecharts.org/charts/enterprise/external-dns
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/external-dns.png
+keywords:
+  - external-dns
+  - k8s
+  - kubernetes
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: external-dns
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/enterprise/external-dns
+  - https://github.com/kubernetes-sigs/external-dns
+type: application
+version: 1.0.5
+annotations:
+  truecharts.org/category: networking
+  truecharts.org/SCALE-support: "true"

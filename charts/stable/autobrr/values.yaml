@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/autobrr
+  repository: ghcr.io/autobrr/autobrr
   pullPolicy: IfNotPresent
-  tag: v1.33.0@sha256:82fbc60578cbc9a80554cac3187534d1e169fc6ce260db110c3575d5fe177a9e
-
+  tag: v1.33.0@sha256:e7e39742d4340e3f361f7d645115c796e539671a98dcad02f5ee969dce71a393
 service:
   main:
     ports:
@@ -10,7 +9,6 @@ service:
         port: 7474
         protocol: http
         targetPort: 7474
-
 workload:
   main:
     podSpec:
@@ -38,12 +36,10 @@ workload:
                 - /bin/sh
                 - -c
                 - curl --fail localhost:7474/
-
 persistence:
   config:
     enabled: true
     mountPath: /config
-
 portal:
   open:
     enabled: true

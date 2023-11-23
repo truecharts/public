@@ -1,22 +1,14 @@
 image:
-  repository: tccr.io/truecharts/immich-server
-  tag: v1.83.0@sha256:ce9d89a4d5cad3af4ccd735a52053139dfbd384d9ec294fbb95e4815ae93e6a5
+  repository: altran1502/immich-server
+  tag: v1.88.1@sha256:87dd30e8938ec894d1a05b5ce436fd12d432f4f76992f85495b84a2f9d2b2583
   pullPolicy: IfNotPresent
 mlImage:
-  repository: tccr.io/truecharts/immich-ml
-  tag: v1.83.0@sha256:95f1abed8e2b1deb3e3262316c50cccf23bcd30f9e2e8d0b8df0d600d07665d0
-  pullPolicy: IfNotPresent
-webImage:
-  repository: tccr.io/truecharts/immich-web
-  tag: v1.83.0@sha256:8d79c0a16f5971dbb489ce51331ce6a701a530f74b5890f5e77b55754cd9a31d
-  pullPolicy: IfNotPresent
-proxyImage:
-  repository: tccr.io/truecharts/immich-proxy
-  tag: v1.83.0@sha256:dbbdecf1aa6659065326f9c2aa2e56ddaa4fe6eac9c35f16d7636d794c62d0a7
+  repository: altran1502/immich-machine-learning
+  tag: v1.88.1@sha256:68391160d4fca56382a3eb8eff969f1728fed019bd8d737cab5d64950512d333
   pullPolicy: IfNotPresent
 typesenseImage:
-  repository: tccr.io/truecharts/immich-typesense
-  tag: v0.25.1@sha256:878fa58e17f9ba6223d07530d03139b647300bd2ea185124688b731e3349d705
+  repository: typesense/typesense
+  tag: 0.25.1@sha256:3724f68156097114d07790e1c8bfaaca13b12eaecd602776d30d9933029064c7
   pullPolicy: IfNotPresent
 
 securityContext:
@@ -34,37 +26,13 @@ immich:
 
 service:
   main:
-    # Main service targets the proxy
-    targetSelector: proxy
+    # Main service targets the server
+    targetSelector: main
     ports:
       main:
         port: 10323
         protocol: http
-        targetSelector: proxy
-        targetPort: 8080
-  server:
-    enabled: true
-    type: ClusterIP
-    # Server is the main container
-    targetSelector: main
-    ports:
-      server:
-        enabled: true
-        primary: true
-        port: 10001
-        protocol: http
         targetSelector: main
-  web:
-    enabled: true
-    type: ClusterIP
-    targetSelector: web
-    ports:
-      web:
-        enabled: true
-        primary: true
-        port: 10000
-        protocol: http
-        targetSelector: web
   microservices:
     enabled: true
     type: ClusterIP
@@ -166,15 +134,6 @@ persistence:
         main: {}
       microservices:
         microservices: {}
-  externallibrary:
-    enabled: true
-    mountPath: /media
-    targetSelector:
-      # Main pod/container is server
-      main:
-        main: {}
-      microservices:
-        microservices: {}
 
 cnpg:
   main:
@@ -189,3 +148,5 @@ redis:
 portal:
   open:
     enabled: true
+
+updated: true
