@@ -40,6 +40,9 @@ persistence:
   destination:
     enabled: true
     mountPath: "/destination"
+  fuse:
+    enabled: true
+    mountPath: "/dev/fuse"
 
 portal:
   open:
