@@ -26,7 +26,7 @@ jobs:
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           fetch-depth: 1
-          repository: truecharts/helm-staging
+          repository: ac1dburnz/helm-staging
           token: ${{ secrets.BOT_TOKEN }}
           path: helm
 
@@ -47,8 +47,8 @@ jobs:
       - name: Commit Helm Changes
         run: |
           cd helm
-          git config user.name "TrueCharts-Bot"
-          git config user.email "bot@truecharts.org"
+          git config user.name "ac1dburnz"
+          git config user.email "ac1dburnez@gmail.com"
           git add --all
           git commit -sm "Commit released Helm Charts for TrueCharts" || exit 0
           git push
