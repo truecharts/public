@@ -8,21 +8,22 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
-
-                                - variable: env
-                                  group: "App Configuration"
-                                  label: "Image Environment"
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                      - variable: CRON_SCHEDULE
-                                        label: "CRON_SCHEDULE"
-                                        description: Standard cron syntax for how often you want Recyclarr to run.
-                                        schema:
-                                          type: string
-                                          default: "@daily"
+# Include{containerBasic}
+# Include{containerAdvanced}
+  - variable: recyclarr
+    group: App Configuration
+    label: Recyclarr Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: cronSchedule
+          label: "Sync cron schedule"
+          description: Standard cron syntax for how often you want Recyclarr to run.
+          schema:
+            type: string
+            default: "@daily"
+# Include{containerConfig}
 # Include{podOptions}
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
