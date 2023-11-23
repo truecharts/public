@@ -87,6 +87,8 @@ questions:
                                               description: Vanilla
                                             - value: FORGE
                                               description: Forge
+                                            - value: NEOFORGE
+                                              description: Neoforge
                                             - value: FABRIC
                                               description: Fabric
                                             - value: SPIGOT
@@ -183,6 +185,24 @@ questions:
                                           type: string
                                           default: ""
                                           show_if: [[TYPE, "=", "FORGE"]]
+                                      - variable: NEOFORGE_VERSION
+                                        label: Neoforge Version
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          show_if: [[TYPE, "=", "NEOFORGE"]]
+                                      - variable: NEOFORGE_INSTALLER
+                                        label: Neoforge Installer
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          show_if: [[TYPE, "=", "NEOFORGE"]]
+                                      - variable: NEOFORGE_INSTALLER_URL
+                                        label: Neoforge Installer URL
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          show_if: [[TYPE, "=", "NEOFORGE"]]
                                       - variable: FABRIC_LOADER_VERSION
                                         label: Fabric Loader Version
                                         schema:
