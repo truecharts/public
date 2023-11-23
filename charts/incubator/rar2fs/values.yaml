@@ -42,7 +42,9 @@ persistence:
     mountPath: "/destination"
   fuse:
     enabled: true
-    mountPath: "/dev/fuse"
+    type: device
+    hostPath: /dev/fuse
+    hostPathType: BlockDevice
 
 portal:
   open:
