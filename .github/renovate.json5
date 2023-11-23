@@ -293,7 +293,7 @@
     {
       "matchDatasources": ["docker"],
       "versioning": "regex:^v(?<major>\\d+)-(?<minor>\\d+)$",
-      "matchPackagePrefixes": ["tccr.io/truecharts/jupyter"],
+      "matchPackagePrefixes": ["jupyter"],
       "groupName": "jupyter",
     },
     {
@@ -309,7 +309,7 @@
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/portainer"],
+      "matchPackagePrefixes": ["portainer"],
       "groupName": "portainer",
     },
     {
@@ -319,7 +319,7 @@
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/webtop"],
+      "matchPackagePrefixes": ["https://lscr.io/linuxserver/webtop"],
       "groupName": "webtop",
     },
     {
@@ -334,7 +334,7 @@
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/vikunja"],
+      "matchPackagePrefixes": ["vikunja"],
       "groupName": "vikunja",
     },
     {
@@ -344,12 +344,12 @@
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/bungeecord"],
+      "matchPackagePrefixes": ["itzg/bungeecord"],
       "groupName": "bungeecord",
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/minecraft-java"],
+      "matchPackagePrefixes": ["itzg/minecraft-java"],
       "groupName": "minecraft-java",
     },
     {
