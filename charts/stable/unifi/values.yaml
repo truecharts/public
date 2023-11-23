@@ -47,8 +47,10 @@ service:
 persistence:
   config:
     enabled: true
-    mountPath: "/usr/lib/unifi"
-    subPath: "data"
+    mountPath: "/usr/lib/unifi/olddata"
+  certs:
+    enabled: true
+    mountPath: "/usr/lib/unifi/data"
   logs:
     enabled: true
     mountPath: "/usr/lib/unifi/logs"
