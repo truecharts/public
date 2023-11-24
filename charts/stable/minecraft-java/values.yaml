@@ -1,59 +1,64 @@
 image:
   repository: itzg/minecraft-server
-  tag: 2023.8.3@sha256:2af12eac3a7106882e23d1b2435358db841c4302d213532e415255fbbd36c826
+  tag: 2023.8.3@sha256:cb98ad8c143ab0cf83351ec6a9fd76256152f7b310988f9aa1acfaaf4aacbc77
   pullPolicy: Always
-j20Image:
+j21Image:
   repository: itzg/minecraft-server
-  tag: 2023.8.3-java20@sha256:29023fbcfd3a36ae403f9879c780090ba63109525af901dddf249e544cafecef
+  tag: 2023.11.1-java21@sha256:312de713187f40206d2433f6c76c4f1f5efe993dcf7c0f842b8a7e0274bd5edd
   pullPolicy: Always
-j20AlpineImage:
+j21graalvmImage:
   repository: itzg/minecraft-server
-  tag: 2023.8.3-java20-alpine@sha256:2f005c2417abd30b66c640fae0953a687550256bc1e18e59d90800311338e8a9
+  tag: 2023.11.1-java21-graalvm@sha256:49d25c5aa26dd67326f4626ae015dcf5033ed6e9178587dce915a04b16de6ac0
+  pullPolicy: Always
+j21alpineImage:
+  repository: itzg/minecraft-server
+  tag: 2023.11.1-java21-alpine@sha256:18c2c81eff7ce4a630b676f99223fcb8aa20c525f3b8ae1cd6fbf612d5d39cf0
   pullPolicy: Always
 j17j9Image:
   repository: itzg/minecraft-server
-  tag: 2023.8.3-java17-openj9@sha256:1598bacb87b18984257501acbc8fb3d6babbd4a1c4dd188f0877fc3e600f3fdd
+  tag: 2023.11.1-java17-openj9@sha256:6e3078b58bb3728c0ccdf18402712faab39624cfcc24a72ef237d31579fd2bdc
   pullPolicy: Always
 j17jdkImage:
   repository: itzg/minecraft-server
-  tag: 2023.8.2-java17-jdk@sha256:e2d7c26bad68318d0f3f08c405455cbb6372f5df352bc7d11c62a14119b7d76a
+  tag: 2023.11.1-java17-jdk@sha256:e8ddd3a22c01937554332dae55bce53a0149740ccf22a6105138126382dfee38
   pullPolicy: Always
-j17gceImage:
+j17graalvmImage:
   repository: itzg/minecraft-server
-  tag: 2023.8.3-java17-graalvm-ce@sha256:9e7a9b67db056ae94eb3dd98b6d02b86112638dd306747090a77766ca0e01447
+  tag: 2023.11.1-java17-graalvm@sha256:1ede29fa5a96bd278d64400f548dde321c7c0762922c1097f17ba5c6a6f047f6
   pullPolicy: Always
 j17alpineImage:
   repository: itzg/minecraft-server
-  tag: 2023.8.2-java17-alpine@sha256:7035083e6b0e7c77c0bff1601ad061eb35547621933fc070af831ee8d10b665f
+  tag: 2023.11.1-java17-alpine@sha256:c330401db62f07fbf447eef1c269394e8690d6b659f679821315f5c4c6463849
   pullPolicy: Always
 j11Image:
   repository: itzg/minecraft-server
-  tag: 2023.8.3-java11@sha256:536223fac6f3c576907ea22640124942094b87bf94edabb1f106218d90274374
+  tag: 2023.11.1-java11@sha256:749a17891fb0a2b211062fc2d7a3dd97e0fc76e71e9a908906ec8310cc8aaf95
   pullPolicy: Always
 j11jdkImage:
   repository: itzg/minecraft-server
-  tag: 2023.8.3-java11-jdk@sha256:13c6f5ccce16d7d599bd3bce355209c39714eab9b7f93701b4ce11627e38031b
+  tag: 2023.11.1-java11-jdk@sha256:d8167b33d2da2d8f5ca1e41b9a170c07561b59497b4206140796ba2e98569a2a
   pullPolicy: Always
 j11j9Image:
   repository: itzg/minecraft-server
-  tag: 2023.8.2-java11-openj9@sha256:02df151227425a530102e88caea1a0f12f52fea94682a451d7a150279d8dafe0
+  tag: 2023.11.1-java11-openj9@sha256:f327ea42b512896544fc7b44f1029d311ebf79312863a2ceb909ea6570ccf410
   pullPolicy: Always
 j8Image:
   repository: itzg/minecraft-server
-  tag: 2023.8.3-java8@sha256:caba3fd4044ea240a859d7c63a50a278dbd6f4163bf50b922aa36e4109b8023f
+  tag: 2023.11.1-java8@sha256:cf744e3945c3a3c3dd4c4f98e639f9b959c73d6766217dda42fdf91fc9f80b27
   pullPolicy: Always
-j8gceImage:
+j8graalvmImage:
   repository: itzg/minecraft-server
-  tag: 2023.8.3-java8-graalvm-ce@sha256:bc4b660b13f99398c21b83915034e640a8c6ee5021f6fb34e1a8b091cada8d97
+  tag: 2023.11.1-java8-graalvm-ce@sha256:8a878a24266f5d6c8d448b28f8c8bcc6d167cc5f5c10e629913c9a58db0d7cad
   pullPolicy: Always
 j8jdkImage:
   repository: itzg/minecraft-server
-  tag: 2023.8.3-java8-jdk@sha256:eaec7a499b74c084a1a390a79fa2d88fef08ca39f9bb0e5c31a2943a3025f91c
+  tag: 2023.11.1-java8-jdk@sha256:3810bf10ff4f637851a950c47b2c4eb6de377b3afdde25ebcb16d263f536c6dd
   pullPolicy: Always
 j8j9Image:
   repository: itzg/minecraft-server
-  tag: 2023.8.3-java8-openj9@sha256:fc05cd0ae9b37a638e2549001d951c662b359a355e3c6ba28d7e0454e71b14cd
+  tag: 2023.11.1-java8-openj9@sha256:076c6a872b241df47580064171e67ff6d9b1826134169fe4201c5cedd3456f58
   pullPolicy: Always
+
 service:
   main:
     enabled: true
@@ -72,6 +77,7 @@ service:
       rcon:
         enabled: true
         port: 25575
+
 workload:
   main:
     podSpec:
@@ -188,4 +194,3 @@ persistence:
 portal:
   open:
     enabled: false
-updated: true
