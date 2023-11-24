@@ -16,7 +16,7 @@ service:
         protocol: tcp
       torrentudp:
         enabled: true
-        port: 51414
+        port: "{{ .Values.service.torrent.ports.torrent.port }}"
         protocol: udp
 workload:
   main:
