@@ -1,0 +1,17 @@
+{{- range $index, $middlewareData := .Values.middlewares.rewriteResponseBody }}
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: {{ ternary (printf "%v-%v" $.Release.Name $middlewareData.name) $middlewareData.name $.Values.ingressClass.enabled }}
+  namespace: {{ $.Release.Namespace }}
+spec:
+  plugin:
+    plugin-rewritebody:
+      lastModified: "true"
+      rewrites:
+        {{- range $index, $rewriteResponseHeader := $middlewareData.headers }}
+        - regex: {{ $rewriteResponseHeader.regex | quote }}
+          replacement: {{ $rewriteResponseHeader.replacement | quote }}
+        {{- end }}
+{{- end -}}
