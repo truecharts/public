@@ -88,6 +88,13 @@ workload:
           imageSelector: alpineImage
           command:
             - /bin/bash
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
           args:
             - -c
             - |
