@@ -74,6 +74,7 @@ jobs:
             echo "Attempting to sync primary tag with appversion for: ${chartname}"
             local tag="$(cat ${chart}/values.yaml | grep '^  tag: ' | awk -F" " '{ print $2 }' | head -1)"
             tag="${tag%%@*}"
+            tag="${tag##\"}"
             tag="${tag:-auto}"
             tag=$(echo $tag | sed "s/release-//g")
             tag=$(echo $tag | sed "s/release_//g")
