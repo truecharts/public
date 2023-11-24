@@ -87,7 +87,7 @@ workload:
           type: init
           imageSelector: alpineImage
           command:
-            - /bin/bash
+            - /bin/sh
           probes:
             liveness:
               enabled: false
