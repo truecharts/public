@@ -74,8 +74,8 @@ portal:
 securityContext:
   container:
     readOnlyRootFilesystem: false
-    runAsGroup: 568
-    runAsUser: 568
+    runAsGroup: 0
+    runAsUser: 0
 workload:
   main:
     podSpec:
