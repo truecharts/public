@@ -48,16 +48,16 @@ persistence:
   config:
     enabled: true
     targetSelector:
-      unifi:
-        unifi:
+      main:
+        main:
           mountPath: /usr/lib/unifi/olddata
         migrate:
           mountPath: /usr/lib/unifi/olddata
   data:
     enabled: true
     targetSelector:
-      unifi:
-        unifi:
+      main:
+        main:
           mountPath: /usr/lib/unifi/data
         migrate:
           mountPath: /usr/lib/unifi/data
