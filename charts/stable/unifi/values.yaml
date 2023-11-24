@@ -74,8 +74,8 @@ portal:
 securityContext:
   container:
     readOnlyRootFilesystem: false
-    runAsGroup: 999
-    runAsUser: 999
+    runAsGroup: 568
+    runAsUser: 568
 workload:
   main:
     podSpec:
@@ -84,6 +84,7 @@ workload:
           env:
             RUN_CHOWN: false
             DB_MONGO_LOCAL: true
+      initContainers:
         migrate:
           enabled: true
           type: init
