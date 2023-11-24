@@ -81,7 +81,9 @@ workload:
     podSpec:
       containers:
         main:
-          env: {}
+          env:
+            RUN_CHOWN: false
+            DB_MONGO_LOCAL: true
         migrate:
           enabled: true
           type: init
