@@ -82,7 +82,7 @@ workload:
       containers:
         main:
           env:
-            RUN_CHOWN: false
+            RUN_CHOWN: true
             DB_MONGO_LOCAL: true
       initContainers:
         migrate:
