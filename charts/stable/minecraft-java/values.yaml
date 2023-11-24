@@ -65,7 +65,7 @@ service:
       query:
         enabled: true
         protocol: udp
-        port: 25565
+        port: "{{ .Values.service.main.ports.main.port }}"
   rcon:
     enabled: true
     ports:
