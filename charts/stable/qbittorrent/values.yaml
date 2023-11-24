@@ -25,7 +25,7 @@ service:
         protocol: tcp
       torrentudp:
         enabled: true
-        port: 6881
+        port: "{{ .Values.service.torrent.ports.torrent.port }}"
         protocol: udp
   gluetun:
     enabled: true
