@@ -1,0 +1,41 @@
+        - variable: rewriteResponseBody
+          label: Rewrite Response Body
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: rewriteResponseBodyEntry
+                label: ""
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: name
+                      label: Name
+                      schema:
+                        type: string
+                        required: true
+                    - variable: headers
+                      label: HTML body sections to replace
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: bodyEntry
+                            label: ""
+                            schema:
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: regex
+                                  label: Regex
+                                  description: The value of the HTML code to match. Accepts regex expression.
+                                  schema:
+                                    type: string
+                                    default: ""
+                                - variable: replacement
+                                  label: Replacement Regex
+                                  description: The replacement HTML code to substitute. Accepts regex expression.
+                                  schema:
+                                    type: string
+                                    default: ""

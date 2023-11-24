@@ -10,8 +10,8 @@ spec:
     plugin-rewritebody:
       lastModified: "true"
       rewrites:
-        {{- range $index, $rewriteResponseHeader := $middlewareData.headers }}
-        - regex: {{ $rewriteResponseHeader.regex | quote }}
-          replacement: {{ $rewriteResponseHeader.replacement | quote }}
+        {{- range $index, $rewriteResponseBody := $middlewareData.headers }}
+        - regex: {{ $rewriteResponseBody.regex | quote }}
+          replacement: {{ $rewriteResponseBody.replacement | quote }}
         {{- end }}
 {{- end -}}

@@ -338,6 +338,11 @@ middlewares:
   #     - name: "Date"
   #       regex: "^[^,]+,\\s*(.+)$"
   #       replacement: "$1"
+  rewriteResponseBody: []
+  # - name: rewriteResponseBodyName
+  #   headers:
+  #     - regex = "foo"
+  #       replacement = "bar"
   customFrameOptionsValue: []
   # - name: customFrameOptionsValueExample
   #   value: "SAMEORIGIN"
