@@ -47,10 +47,20 @@ service:
 persistence:
   config:
     enabled: true
-    mountPath: "/usr/lib/unifi/olddata"
+    targetSelector:
+      main:
+        main:
+          mountPath: /usr/lib/unifi/olddata
+        migrate:
+          mountPath: /usr/lib/unifi/olddata
   data:
     enabled: true
-    mountPath: "/usr/lib/unifi/data"
+    targetSelector:
+      main:
+        main:
+          mountPath: /usr/lib/unifi/data
+        migrate:
+          mountPath: /usr/lib/unifi/data
   logs:
     enabled: true
     mountPath: "/usr/lib/unifi/logs"
@@ -64,11 +74,39 @@ portal:
 securityContext:
   container:
     readOnlyRootFilesystem: false
-    runAsGroup: 999
-    runAsUser: 999
+    runAsGroup: 0
+    runAsUser: 0
 workload:
   main:
     podSpec:
       containers:
         main:
-          env: {}
+          env:
+            RUN_CHOWN: true
+            DB_MONGO_LOCAL: true
+      initContainers:
+        migrate:
+          enabled: true
+          type: init
+          imageSelector: alpineImage
+          command:
+            - /bin/sh
+          args:
+            - -c
+            - |
+              newdatadir="/usr/lib/unifi/data"
+              olddatadir="/usr/lib/unifi/olddata/data"
+              # Check the dir exists
+              [ ! -d "$newdatadir" ] && echo "$newdatadir missing" && exit 1
+              # Check if there is a data/data dir to migrate
+              [ ! -d "$olddatadir" ] && echo "No $olddatadir dir found. Migration skipped" && exit 0
+
+              # Check if the new data dir is empty, ignoring the old data dir
+              dirs=$(ls -A "$newdatadir" | grep -v "data")
+              if [ -n "$dirs" ]; then
+                echo "New data dir is empty. Migrating data one level up"
+                mv $olddatadir/* $newdatadir || echo "Failed to move data" && exit 1
+                # Remove the data/data dir
+                rm -rf $olddatadir
+                echo "Data migration complete"
+              fi
