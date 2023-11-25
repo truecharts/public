@@ -8,11 +8,11 @@ tests:
   - it: should generate correct spec
     set:
       volumeSnapshots:
-        - name: example1
+        example1:
           enabled: true
           source:
             volumeSnapshotContentName: some-name
-        - name: example2
+        example2:
           enabled: true
           source:
             persistentVolumeClaimName: some-pvc-name
@@ -45,7 +45,7 @@ tests:
   - it: should generate correct spec with volumeSnapshotClass
     set:
       volumeSnapshots:
-        - name: example1
+        example1:
           enabled: true
           volumeSnapshotClassName: some-class
           source:
@@ -63,20 +63,10 @@ tests:
               volumeSnapshotContentName: some-name
 
   # Failures
-  - it: should fail without name
-    set:
-      volumeSnapshots:
-        - enabled: true
-          source:
-            volumeSnapshotContentName: some-name
-    asserts:
-      - failedTemplate:
-          errorMessage: Volume Snapshot - Expected non empty [name]
-
   - it: should fail without source object
     set:
       volumeSnapshots:
-        - name: example1
+        example1:
           enabled: true
     asserts:
       - failedTemplate:
@@ -85,7 +75,7 @@ tests:
   - it: should fail without a valid source
     set:
       volumeSnapshots:
-        - name: example1
+        example1:
           enabled: true
           source:
             invalid: invalid
@@ -96,7 +86,7 @@ tests:
   - it: should fail with more than one valid source
     set:
       volumeSnapshots:
-        - name: example1
+        example1:
           enabled: true
           source:
             volumeSnapshotContentName: some-name
@@ -104,7 +94,6 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: Volume Snapshot - Expected exactly one of the valid source types [volumeSnapshotContentName, persistentVolumeClaimName]. Found [2]
-
 
   - it: should fail with empty enabled
     set:

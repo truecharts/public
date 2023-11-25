@@ -6,14 +6,14 @@
 {{- define "tc.v1.common.spawner.velero.backupstoragelocation" -}}
   {{- $fullname := include "tc.v1.common.lib.chart.names.fullname" $ -}}
 
-  {{- range $backupStorageLoc := .Values.backupStorageLocation -}}
+  {{- range $name, $backupStorageLoc := .Values.backupStorageLocation -}}
 
     {{- $enabled := false -}}
     {{- if hasKey $backupStorageLoc "enabled" -}}
       {{- if not (kindIs "invalid" $backupStorageLoc.enabled) -}}
         {{- $enabled = $backupStorageLoc.enabled -}}
       {{- else -}}
-        {{- fail (printf "Backup Storage Location - Expected the defined key [enabled] in [backupStorageLocation.%s] to not be empty" $backupStorageLoc.name) -}}
+        {{- fail (printf "Backup Storage Location - Expected the defined key [enabled] in [backupStorageLocation.%s] to not be empty" $name) -}}
       {{- end -}}
     {{- end -}}
 
@@ -33,14 +33,10 @@
       {{/* Create a copy of the backupstoragelocation */}}
       {{- $objectData := (mustDeepCopy $backupStorageLoc) -}}
 
-      {{- if not $backupStorageLoc.name -}}
-        {{- fail "Backup Storage Location - Expected non-empty [name]" -}}
-      {{- end -}}
-
-      {{- $objectName := (printf "%s-%s" $fullname $backupStorageLoc.name) -}}
+      {{- $objectName := (printf "%s-%s" $fullname $name) -}}
       {{- if hasKey $objectData "expandObjectName" -}}
         {{- if not $objectData.expandObjectName -}}
-          {{- $objectName = $backupStorageLoc.name -}}
+          {{- $objectName = $name -}}
         {{- end -}}
       {{- end -}}
 
@@ -55,7 +51,7 @@
 
       {{/* Set the name of the backupstoragelocation */}}
       {{- $_ := set $objectData "name" $objectName -}}
-      {{- $_ := set $objectData "shortName" $backupStorageLoc.name -}}
+      {{- $_ := set $objectData "shortName" $name -}}
 
       {{/* Create secret with creds for provider, if the provider is not matched, it will skip creation */}}
       {{- include "tc.v1.common.lib.velero.provider.secret" (dict "rootCtx" $ "objectData" $objectData "prefix" "bsl") -}}

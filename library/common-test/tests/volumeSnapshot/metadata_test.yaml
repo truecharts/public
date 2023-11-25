@@ -21,7 +21,7 @@ tests:
           g_annotation1: global_annotation1
           g_annotation2: "{{ .Values.annotation2 }}"
       volumeSnapshots:
-        - name: example1
+        example1:
           enabled: true
           source:
             volumeSnapshotContentName: some-name

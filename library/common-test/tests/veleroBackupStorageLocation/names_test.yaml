@@ -8,8 +8,9 @@ tests:
   - it: should generate correct name
     set:
       backupStorageLocation:
-        - enabled: true
-          name: my-snap1
+        my-snap1:
+          enabled: true
+
           objectStorage:
             bucket: my-bucket
           provider: aws
@@ -17,8 +18,8 @@ tests:
             aws:
               id: my-id
               key: my-key
-        - enabled: true
-          name: my-snap2
+        my-snap2:
+          enabled: true
           objectStorage:
             bucket: my-bucket
           provider: aws

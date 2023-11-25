@@ -8,15 +8,15 @@ tests:
   - it: should generate correct name
     set:
       volumeSnapshotLocation:
-        - enabled: true
-          name: my-snap1
+        my-snap1:
+          enabled: true
           provider: aws
           credential:
             aws:
               id: my-id
               key: my-key
-        - enabled: true
-          name: my-snap2
+        my-snap2:
+          enabled: true
           provider: aws
           credential:
             aws:

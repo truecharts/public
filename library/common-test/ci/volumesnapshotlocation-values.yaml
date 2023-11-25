@@ -43,16 +43,15 @@ manifestManager:
 # Parameters for the VolumeSnapshotLocation(s). Configure multiple by adding other element(s) to the volumeSnapshotLocation slice.
 # See https://velero.io/docs/v1.6/api-types/volumesnapshotlocation/
 volumeSnapshotLocation:
-  # name is the name of the volume snapshot location where snapshots are being taken. Required.
-- name: test
-  enabled: true
-  # provider is the name for the volume snapshot provider.
-  provider: aws
-  credential:
-    # AWS/s3 credentials to be put into secret (mandatory if provider == aws/s3)
-    aws:
-      id: fdgsdfghsdfgh
-      key: dfgdfhsdfgh
-  # Additional provider-specific configuration. See link above
-  # for details of required/optional fields for your provider.
-  config: {}
+  test:
+    enabled: true
+    # provider is the name for the volume snapshot provider.
+    provider: aws
+    credential:
+      # AWS/s3 credentials to be put into secret (mandatory if provider == aws/s3)
+      aws:
+        id: fdgsdfghsdfgh
+        key: dfgdfhsdfgh
+    # Additional provider-specific configuration. See link above
+    # for details of required/optional fields for your provider.
+    config: {}

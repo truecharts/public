@@ -8,8 +8,8 @@ tests:
   - it: should generate correct spec with aws provider and credential
     set:
       backupStorageLocation:
-        - enabled: true
-          name: my-snap1
+        my-snap1:
+          enabled: true
           provider: aws
           credential:
             aws:
@@ -53,8 +53,8 @@ tests:
   - it: should generate correct spec with s3 provider and credential
     set:
       backupStorageLocation:
-        - enabled: true
-          name: my-snap1
+        my-snap1:
+          enabled: true
           provider: s3
           credential:
             s3:
@@ -98,8 +98,8 @@ tests:
   - it: should generate correct spec with provided provider and credential
     set:
       backupStorageLocation:
-        - enabled: true
-          name: my-snap1
+        my-snap1:
+          enabled: true
           provider: my-provider
           credential:
             name: my-credential
@@ -130,8 +130,8 @@ tests:
       region: us-east-1
       useS3PathStyle: true
       backupStorageLocation:
-        - enabled: true
-          name: my-snap1
+        my-snap1:
+          enabled: true
           provider: aws
           objectStorage:
             bucket: my-bucket
@@ -171,8 +171,8 @@ tests:
       region: us-east-1
       useS3PathStyle: true
       backupStorageLocation:
-        - enabled: true
-          name: my-snap1
+        my-snap1:
+          enabled: true
           provider: aws
           accessMode: ReadOnly
           objectStorage:
@@ -211,8 +211,8 @@ tests:
   - it: should generate correct spec with provided objectStorage prefix and caCert
     set:
       backupStorageLocation:
-        - enabled: true
-          name: my-snap1
+        my-snap1:
+          enabled: true
           provider: aws
           accessMode: ReadOnly
           objectStorage:
@@ -247,8 +247,8 @@ tests:
   - it: should generate correct spec with provided backupSyncPeriod
     set:
       backupStorageLocation:
-        - enabled: true
-          name: my-snap1
+        my-snap1:
+          enabled: true
           provider: aws
           backupSyncPeriod: 1h
           objectStorage:
@@ -280,8 +280,8 @@ tests:
   - it: should generate correct spec with provided validationFrequency
     set:
       backupStorageLocation:
-        - enabled: true
-          name: my-snap1
+        my-snap1:
+          enabled: true
           provider: aws
           validationFrequency: 1h
           objectStorage:
@@ -311,24 +311,11 @@ tests:
               bucket: my-bucket
 
   # Failures
-  - it: should fail without name
-    set:
-      backupStorageLocation:
-        - enabled: true
-          provider: aws
-          credential:
-            aws:
-              id: my-id
-              key: my-key
-    asserts:
-      - failedTemplate:
-          errorMessage: Backup Storage Location - Expected non-empty [name]
-
   - it: should fail without provider
     set:
       backupStorageLocation:
-        - enabled: true
-          name: my-snap1
+        my-snap1:
+          enabled: true
           credential:
             aws:
               id: my-id
@@ -340,8 +327,8 @@ tests:
   - it: should fail without credential
     set:
       backupStorageLocation:
-        - enabled: true
-          name: my-snap1
+        my-snap1:
+          enabled: true
           provider: my-provider
     asserts:
       - failedTemplate:
@@ -350,8 +337,8 @@ tests:
   - it: should fail without credential.name
     set:
       backupStorageLocation:
-        - enabled: true
-          name: my-snap1
+        my-snap1:
+          enabled: true
           provider: my-provider
           credential:
             key: my-key
@@ -362,8 +349,8 @@ tests:
   - it: should fail without credential.key
     set:
       backupStorageLocation:
-        - enabled: true
-          name: my-snap1
+        my-snap1:
+          enabled: true
           provider: my-provider
           credential:
             name: my-name
@@ -374,8 +361,8 @@ tests:
   - it: should fail without credential.aws.id with provider aws
     set:
       backupStorageLocation:
-        - enabled: true
-          name: my-snap1
+        my-snap1:
+          enabled: true
           provider: aws
           credential:
             aws:
@@ -387,8 +374,8 @@ tests:
   - it: should fail without credential.aws.key with provider aws
     set:
       backupStorageLocation:
-        - enabled: true
-          name: my-snap1
+        my-snap1:
+          enabled: true
           provider: aws
           credential:
             aws:
@@ -400,8 +387,8 @@ tests:
   - it: should fail invalid accessMode
     set:
       backupStorageLocation:
-        - enabled: true
-          name: my-snap1
+        my-snap1:
+          enabled: true
           provider: aws
           accessMode: invalid
           credential:
@@ -415,8 +402,8 @@ tests:
   - it: should fail without objectStorage
     set:
       backupStorageLocation:
-        - enabled: true
-          name: my-snap1
+        my-snap1:
+          enabled: true
           provider: aws
           credential:
             aws:
@@ -429,8 +416,8 @@ tests:
   - it: should fail without objectStorage.bucket
     set:
       backupStorageLocation:
-        - enabled: true
-          name: my-snap1
+        my-snap1:
+          enabled: true
           provider: aws
           objectStorage:
             prefix: my-prefix

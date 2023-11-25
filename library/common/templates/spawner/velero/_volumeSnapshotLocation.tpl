@@ -6,14 +6,14 @@
 {{- define "tc.v1.common.spawner.velero.volumesnapshotlocation" -}}
   {{- $fullname := include "tc.v1.common.lib.chart.names.fullname" $ -}}
 
-  {{- range $volSnapLoc := .Values.volumeSnapshotLocation -}}
+  {{- range $name, $volSnapLoc := .Values.volumeSnapshotLocation -}}
 
     {{- $enabled := false -}}
     {{- if hasKey $volSnapLoc "enabled" -}}
       {{- if not (kindIs "invalid" $volSnapLoc.enabled) -}}
         {{- $enabled = $volSnapLoc.enabled -}}
       {{- else -}}
-        {{- fail (printf "Volume Snapshot Location - Expected the defined key [enabled] in [volumeSnapshotLocation.%s] to not be empty" $volSnapLoc.name) -}}
+        {{- fail (printf "Volume Snapshot Location - Expected the defined key [enabled] in [volumeSnapshotLocation.%s] to not be empty" $name) -}}
       {{- end -}}
     {{- end -}}
 
@@ -33,14 +33,10 @@
       {{/* Create a copy of the volumesnapshotlocation */}}
       {{- $objectData := (mustDeepCopy $volSnapLoc) -}}
 
-      {{- if not $volSnapLoc.name -}}
-        {{- fail "Volume Snapshot Location - Expected non-empty [name]" -}}
-      {{- end -}}
-
-      {{- $objectName := (printf "%s-%s" $fullname $volSnapLoc.name) -}}
+      {{- $objectName := (printf "%s-%s" $fullname $name) -}}
       {{- if hasKey $objectData "expandObjectName" -}}
         {{- if not $objectData.expandObjectName -}}
-          {{- $objectName = $volSnapLoc.name -}}
+          {{- $objectName = $name -}}
         {{- end -}}
       {{- end -}}
 
@@ -55,7 +51,7 @@
 
       {{/* Set the name of the volumesnapshotlocation */}}
       {{- $_ := set $objectData "name" $objectName -}}
-      {{- $_ := set $objectData "shortName" $volSnapLoc.name -}}
+      {{- $_ := set $objectData "shortName" $name -}}
 
       {{/* Create secret with creds for provider, if the provider is not matched, it will skip creation */}}
       {{- include "tc.v1.common.lib.velero.provider.secret" (dict "rootCtx" $ "objectData" $objectData "prefix" "vsl") -}}

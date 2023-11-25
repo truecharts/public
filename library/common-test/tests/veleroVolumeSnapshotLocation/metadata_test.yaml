@@ -21,8 +21,8 @@ tests:
           g_annotation1: global_annotation1
           g_annotation2: "{{ .Values.annotation2 }}"
       volumeSnapshotLocation:
-        - enabled: true
-          name: my-snap
+        my-snap:
+          enabled: true
           labels:
             label1: "{{ .Values.label1 }}"
             label2: label2
