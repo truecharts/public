@@ -1,0 +1,94 @@
+suite: velero schedule spec test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should generate correct spec with provided provider and credential
+    set:
+      schedules:
+        my-sched:
+          enabled: true
+          schedule: "0 2 * * *"
+    asserts:
+      - documentIndex: &scheduleDoc 0
+        isKind:
+          of: Schedule
+      - documentIndex: *scheduleDoc
+        isAPIVersion:
+          of: velero.io/v1
+      - documentIndex: *scheduleDoc
+        equal:
+          path: spec
+          value:
+            schedule: "0 2 * * *"
+
+  - it: should generate correct spec with useOwnerReferencesInBackup
+    set:
+      schedules:
+        my-sched:
+          enabled: true
+          schedule: "0 2 * * *"
+          useOwnerReferencesInBackup: true
+    asserts:
+      - documentIndex: &scheduleDoc 0
+        isKind:
+          of: Schedule
+      - documentIndex: *scheduleDoc
+        isAPIVersion:
+          of: velero.io/v1
+      - documentIndex: *scheduleDoc
+        equal:
+          path: spec
+          value:
+            schedule: "0 2 * * *"
+            useOwnerReferencesInBackup: true
+
+  - it: should generate correct spec with template
+    set:
+      schedules:
+        my-sched:
+          enabled: true
+          schedule: "0 2 * * *"
+          template:
+            ttl: 720h
+            includeClusterResources: true
+            snapshotVolumes: true
+    asserts:
+      - documentIndex: &scheduleDoc 0
+        isKind:
+          of: Schedule
+      - documentIndex: *scheduleDoc
+        isAPIVersion:
+          of: velero.io/v1
+      - documentIndex: *scheduleDoc
+        equal:
+          path: spec
+          value:
+            schedule: "0 2 * * *"
+            template:
+              ttl: 720h
+              includeClusterResources: true
+              snapshotVolumes: true
+
+  # Failures
+  - it: should fail without schedule
+    set:
+      schedules:
+        my-sched:
+          enabled: true
+    asserts:
+      - failedTemplate:
+          errorMessage: Velero Schedule - Expected non-empty [schedule]
+
+  - it: should fail with useOwnerReferencesInBackup not a bool
+    set:
+      schedules:
+        my-sched:
+          enabled: true
+          schedule: "0 2 * * *"
+          useOwnerReferencesInBackup: "true"
+    asserts:
+      - failedTemplate:
+          errorMessage: Velero Schedule - Expected [useOwnerReferencesInBackup] to be a boolean
