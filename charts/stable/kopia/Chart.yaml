@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "0.13.0"
+appVersion: v0.15.0
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -19,7 +19,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/kopia
   - https://kopia.io/docs/installation/#docker-images
   - https://github.com/kopia/kopia
-version: 8.0.0
+version: 8.1.0
 annotations:
   truecharts.org/category: utility
   truecharts.org/SCALE-support: "true"
