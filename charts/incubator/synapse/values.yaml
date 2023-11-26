@@ -47,15 +47,15 @@ securityContext:
 workload:
   main:
     podSpec:
-      installContainers:
+      initContainers:
         generate-signing-key:
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          type: install
+          imageSelector: image
           env:
-            - name: SYNAPSE_SERVER_NAME
-              value: "{{ .Values.matrix.serverName }}"
-            - name: SYNAPSE_REPORT_STATS
-              value: "no"
-          command: ["python"]
+            SYNAPSE_SERVER_NAME: "{{ .Values.matrix.serverName }}"
+            SYNAPSE_REPORT_STATS: "no"
+          command: 
+            - "python"
           args:
             - "-m"
             - "synapse.app.homeserver"
@@ -68,30 +68,36 @@ workload:
             - "--keys-directory"
             - "/data/keys"
             - "--generate-keys"
-          volumeMounts:
-            - name: config
-              mountPath: /data
-            - name: secret
-              mountPath: /data/secret
-            - name: key
-              mountPath: /data/keys
 
 persistence:
   config:
     enabled: true
     type: configMap
     objectName: synapse-config
-    mountPath: /data
-    readOnly: false
+    targetSelector:
+      main:
+        main:
+          mountPath: /data
+        generate-signing-key:
+          mountPath: /data
   secret:
     enabled: true
     type: secret
     objectName: synapse-secret
-    mountPath: /data/secret
-    readOnly: false
+    targetSelector:
+      main:
+        main:
+          mountPath: /data/secret
+        generate-signing-key:
+          mountPath: /data/secret
   key:
     enabled: true
-    mountPath: "/data/keys"
+    targetSelector:
+      main:
+        main:
+          mountPath: /data/keys
+        generate-signing-key:
+          mountPath: /data/keys    
   media:
     enabled: true
     mountPath: "/data/media_store"
