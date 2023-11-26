@@ -8,51 +8,51 @@
 {{- end }}
 
 secret-macaroon:
-enabled: true
-data:
-  key: {{ $msk | b64enc }}
+  enabled: true
+  data:
+    key: {{ $msk | b64enc }}
 
 secret:
-enabled: true
-data:
-  secret.yaml: |
-    {{- if .Values.mail.enabled }}
-    email:
-      enable_notifs: {{ .Values.mail.enabled }}
-      notif_from: {{ .Values.mail.from }}
-      smtp_host: {{ .Values.mail.host }}
-      smtp_port: {{ .Values.mail.port }}
-      smtp_user: {{ .Values.mail.username }}
-      smtp_pass: {{ .Values.mail.password }}
-      require_transport_security: {{ .Values.mail.requireTransportSecurity }}
-    {{- end }}
-
-    database:
-        name: "psycopg2"
-        args:
-          user: "{{ .Values.cnpg.main.user }}"
-          password:
-            secretKeyRef:
-              name: cnpg-main-user
-              key: password
-          database: "{{ .Values.cnpg.main.database }}"
-          host:
-            secretKeyRef:
-              name: cnpg-main-urls
-              key: host
-          port: "5432"
-          cp_min: 5
-          cp_max: 10
-          sslmode: "disable"
-
-    {{- if .Values.matrix.sharedSecret }}
-    registration_shared_secret: {{ .Values.matrix.sharedSecret }}
-    {{- end }}
-
-    macaroon_secret_key: {{ $msk }}
-
-    {{- if .Values.coturn.enabled -}}
-    turn_shared_secret: {{ include "matrix.coturn.sharedSecret" . }}
-    {{- end }}
+  enabled: true
+  data:
+    secret.yaml: |
+      {{- if .Values.mail.enabled }}
+      email:
+        enable_notifs: {{ .Values.mail.enabled }}
+        notif_from: {{ .Values.mail.from }}
+        smtp_host: {{ .Values.mail.host }}
+        smtp_port: {{ .Values.mail.port }}
+        smtp_user: {{ .Values.mail.username }}
+        smtp_pass: {{ .Values.mail.password }}
+        require_transport_security: {{ .Values.mail.requireTransportSecurity }}
+      {{- end }}
+  
+      database:
+          name: "psycopg2"
+          args:
+            user: "{{ .Values.cnpg.main.user }}"
+            password:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            database: "{{ .Values.cnpg.main.database }}"
+            host:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            port: "5432"
+            cp_min: 5
+            cp_max: 10
+            sslmode: "disable"
+  
+      {{- if .Values.matrix.sharedSecret }}
+      registration_shared_secret: {{ .Values.matrix.sharedSecret }}
+      {{- end }}
+  
+      macaroon_secret_key: {{ $msk }}
+  
+      {{- if .Values.coturn.enabled -}}
+      turn_shared_secret: {{ include "matrix.coturn.sharedSecret" . }}
+      {{- end }}
 
 {{- end }}
