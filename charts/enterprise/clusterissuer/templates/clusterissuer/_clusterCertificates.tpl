@@ -33,4 +33,3 @@
   {{- include "tc.v1.common.spawner.certificate" . | nindent 0 -}}
   {{- end -}}
 {{- end -}}
-

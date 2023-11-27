@@ -1,21 +1,35 @@
+{{- define "nextcloud.accessurl" -}}
+  {{- $accessUrl := .Values.chartContext.APPURL -}}
+  {{- if or (contains "127.0.0.1" $accessUrl) (contains "localhost" $accessUrl) -}}
+    {{- if .Values.nextcloud.general.accessIP -}}
+      {{- $prot := "http" -}}
+      {{- $host := .Values.nextcloud.general.accessIP -}}
+      {{- $port := .Values.service.main.ports.main.port -}}
+      {{/*
+        Allowing here to override protocol and port
+        should be enough to make it work with any rev proxy
+      */}}
+      {{- $accessUrl = printf "%v://%v:%v" $prot $host $port -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- $accessUrl -}}
+{{- end -}}
+
+{{- define "nextcloud.accesshost" -}}
+  {{- $accessUrl := (include "nextcloud.accessurl" $) -}}
+  {{- $accessHost := regexReplaceAll ".*://(.*)" $accessUrl "${1}" -}}
+  {{- $accessHost = regexReplaceAll "(.*):.*" $accessHost "${1}" -}}
+
+  {{- $accessHost -}}
+{{- end -}}
+
 {{/* Define the configmap */}}
 {{- define "nextcloud.configmaps" -}}
 {{- $fullname := (include "tc.v1.common.lib.chart.names.fullname" $) -}}
-{{- $accessUrl := .Values.chartContext.APPURL -}}
-{{- if or (contains "127.0.0.1" $accessUrl) (contains "localhost" $accessUrl) -}}
-  {{- if .Values.nextcloud.general.accessIP -}}
-    {{- $prot := "http" -}}
-    {{- $host := .Values.nextcloud.general.accessIP -}}
-    {{- $port := .Values.service.main.ports.main.port -}}
-    {{/*
-      Allowing here to override protocol and port
-      should be enough to make it work with any rev proxy
-    */}}
-    {{- $accessUrl = printf "%v://%v:%v" $prot $host $port -}}
-  {{- end -}}
-{{- end -}}
-{{- $accessHost := regexReplaceAll ".*://(.*)" $accessUrl "${1}" -}}
-{{- $accessHost = regexReplaceAll "(.*):.*" $accessUrl "${1}" -}}
+{{- $fqdn := (include "tc.v1.common.lib.chart.names.fqdn" $) -}}
+{{- $accessUrl := (include "nextcloud.accessurl" $) -}}
+{{- $accessHost := (include "nextcloud.accesshost" $) -}}
 {{- $accessHostPort := regexReplaceAll ".*://(.*)" $accessUrl "${1}" -}}
 {{- $accessProtocol := regexReplaceAll "(.*)://.*" $accessUrl "${1}" -}}
 {{- $redisHost := .Values.redis.creds.plainhost | trimAll "\"" -}}
@@ -184,6 +198,9 @@ nextcloud-config:
     NX_ONLYOFFICE: {{ .Values.nextcloud.onlyoffice.enabled | quote }}
     {{- if .Values.nextcloud.onlyoffice.enabled }}
     NX_ONLYOFFICE_URL: {{ .Values.nextcloud.onlyoffice.url | quote }}
+    NX_ONLYOFFICE_INTERNAL_URL: {{ .Values.nextcloud.onlyoffice.internal_url | quote }}
+    NX_ONLYOFFICE_VERIFY_SSL: {{ .Values.nextcloud.onlyoffice.verify_ssl | quote }}
+    NX_ONLYOFFICE_NEXTCLOUD_INTERNAL_URL: {{ printf "http://%v.svc.cluster.local:%v" $fqdn .Values.service.main.ports.main.port }}
     NX_ONLYOFFICE_JWT: {{ .Values.nextcloud.onlyoffice.jwt | quote }}
     NX_ONLYOFFICE_JWT_HEADER: {{ .Values.nextcloud.onlyoffice.jwt_header | quote }}
     {{- end }}

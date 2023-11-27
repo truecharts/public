@@ -8,8 +8,8 @@ Inspired by Kubernetes DNS, Kubernetes' cluster-internal DNS server, ExternalDNS
 
 ### Prerequisites (required for Support on TrueCharts Discord)
 
- - Traefik
- - Clusterissuer / Cert-manager installed (vital if exposed externally)
+- Traefik
+- Clusterissuer / Cert-manager installed (vital if exposed externally)
 
 Please follow the [Getting Started](https://truecharts.org/manual/SCALE/guides/getting-started) guide on the [Truecharts](https://truecharts.org) website.
 
@@ -21,7 +21,7 @@ This guide will cover 2 scenarios, `Cloudflare` and `Pi-Hole` / `Pihole`, for mo
 
 These instructions taken from [external-dns cloudflare tutorial](https://github.com/kubernetes-sigs/external-dns/blob/master/docs/tutorials/cloudflare.md)
 
-#### Step 1: 
+#### Step 1:
 
 Enter `CF_API_TOKEN` (preferred) or `CF_API_EMAIL`/`CF_API_KEY`
 
@@ -29,7 +29,7 @@ Enter `CF_API_TOKEN` (preferred) or `CF_API_EMAIL`/`CF_API_KEY`
 
 #### Step 2:
 
-Enter preferences for Logs and DNS updates (I suggest >5m to prevent log spam) and select `cloudflare` as provider and select sources. I find  `ingress` and `service` covers everything. If you want to filter by multiple domains add your `Domain Filter Entry`
+Enter preferences for Logs and DNS updates (I suggest >5m to prevent log spam) and select `cloudflare` as provider and select sources. I find `ingress` and `service` covers everything. If you want to filter by multiple domains add your `Domain Filter Entry`
 
 ![Cloudflare App Config 1](img/Cloudflare-App-Config-1.png)
 

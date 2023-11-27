@@ -31,7 +31,7 @@ After creating the cluster certificate, verify it is working by checking the `Ap
 
 After you have verified the certificate was created successfully, edit the settings of the app you wish to use it for and go to the _Ingress_ section.
 
-If you have previously used a single domain certificate from clusterissuer, remove the specified issuer name. Then, click on _Show Advanced Settings_  and add a _TLS_ entry. Enter the name of your cluster certificate, and the certificate host(s) which it will be used for. These are usually the same as your app host(s), unless you wish to use more than one certificate. Save the chart.
+If you have previously used a single domain certificate from clusterissuer, remove the specified issuer name. Then, click on _Show Advanced Settings_ and add a _TLS_ entry. Enter the name of your cluster certificate, and the certificate host(s) which it will be used for. These are usually the same as your app host(s), unless you wish to use more than one certificate. Save the chart.
 
 :::note
 

@@ -8,7 +8,7 @@ It is important that rules are created in the correct order in Authelia. Rules a
 
 :::
 
-All rules requiring Authelia authentication were configured with `two_factor` (2FA). If you do not want 2FA on some or all rules replace the Policy with `one_factor` 
+All rules requiring Authelia authentication were configured with `two_factor` (2FA). If you do not want 2FA on some or all rules replace the Policy with `one_factor`
 
 ## API Rule
 

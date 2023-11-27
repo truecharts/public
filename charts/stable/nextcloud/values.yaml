@@ -1,11 +1,11 @@
 image:
   repository: tccr.io/truecharts/nextcloud-fpm
   pullPolicy: IfNotPresent
-  tag: v27.1.3@sha256:adac91d64cdbbef29e44a1bbd95349636e7558334267a1adc231cab5dc8e0a2f
+  tag: v27.1.3@sha256:2c8a099719abd904ec430e16a55d9f746b2a70d20e4449b2ab7ac8f29ed1f7f4
 nginxImage:
   repository: nginxinc/nginx-unprivileged
   pullPolicy: IfNotPresent
-  tag: 1.25.3@sha256:d47e89176fcf7a83aaf220ea1c560cb232cb9646144eec5be742575df5d9ccc5
+  tag: 1.25.3@sha256:a4cb3ee8f71116750ae3dc857031b7c74ec3b21df3d878e1c63204c206553e46
 imaginaryImage:
   repository: tccr.io/truecharts/nextcloud-imaginary
   pullPolicy: IfNotPresent
@@ -112,6 +112,8 @@ nextcloud:
     # Only add the OnlyOffice settings
     enabled: false
     url: ""
+    internal_url: ""
+    verify_ssl: true
     jwt: ""
     jwt_header: Authorization
   # PHP settings

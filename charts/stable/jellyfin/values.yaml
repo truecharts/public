@@ -5,7 +5,7 @@ image:
 broadcastProxyImage:
   repository: docker.io/alpine/socat
   pullPolicy: IfNotPresent
-  tag: 1.7.4.4@sha256:514b2bfe1d0a2e03f2b4824cb3fb71777b5d228933474acec224f6351f9fd95b
+  tag: 1.7.4.4@sha256:7528e3194467c5207b7d9af72298c7a871955639decaf463c6a4cde6fb66a1a4
 service:
   main:
     ports:
@@ -70,7 +70,9 @@ workload:
           # - Touch `/tmp/healty` to use with the readiness, liveness and startup probes
           # - Start socat in proxy mode
           # - On exit remove `/tmp/healthy`
-          args: ["-c", 'export TARGET_IP=$(getent hosts ''{{ printf "%v-autodiscovery" (include "tc.v1.common.lib.chart.names.fullname" $) }}'' | awk ''{ print $1 }'') && [[ ! -z $TARGET_IP ]] && touch /tmp/healthy && socat UDP-LISTEN:7359,fork,reuseaddr,rcvbuf=8096 UDP4-SENDTO:${TARGET_IP}:7359,rcvbuf=8096 ; rm -rf /tmp/healthy']
+          args:
+            - "-c"
+            - 'export TARGET_IP=$(getent hosts ''{{ printf "%v-autodiscovery" (include "tc.v1.common.lib.chart.names.fullname" $) }}'' | awk ''{ print $1 }'') && [[ ! -z $TARGET_IP ]] && touch /tmp/healthy && socat UDP-LISTEN:7359,fork,reuseaddr,rcvbuf=8096 UDP4-SENDTO:${TARGET_IP}:7359,rcvbuf=8096 ; rm -rf /tmp/healthy'
           probes:
             readiness:
               enabled: true

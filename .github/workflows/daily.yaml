@@ -74,6 +74,7 @@ jobs:
             echo "Attempting to sync primary tag with appversion for: ${chartname}"
             local tag="$(cat ${chart}/values.yaml | grep '^  tag: ' | awk -F" " '{ print $2 }' | head -1)"
             tag="${tag%%@*}"
+            tag="${tag##\"}"
             tag="${tag:-auto}"
             tag=$(echo $tag | sed "s/release-//g")
             tag=$(echo $tag | sed "s/release_//g")
@@ -124,7 +125,7 @@ jobs:
             # Add truechart source
             tcsource="https://github.com/truecharts/charts/tree/master/charts/$train/$chartname" go-yq -i '.sources += env(tcsource)' "${chart}/Chart.yaml"
             # Get the container image name that was parsed out of the Dockerfile for the website.
-            container=$(cat website/docs/charts/description_list.md | grep "\[${chartname}\]" | cut -f3 -d '|' | grep -v 'Not Found' || echo "")
+            container=$(cat website/docs/charts/description_list.md | grep "\[${chartname}\]" | cut -f3 -d '|' | grep -v 'Not Found' || echo "" || echo "failed-container-fetch")
             # Convert the container image name to a URL.
             if [ ! -z "$container" ]; then
               prefix=""
@@ -200,7 +201,7 @@ jobs:
             echo "Correcting Chart.yaml for Train: ${train}..."
             for chart in $(ls "charts/${train}"); do
               echo "Correcting Chart.yaml for Chart: ${chart}..."
-              sync_tag "charts/${train}/${chart}" "${chart}" "${train}"
+              sync_tag "charts/${train}/${chart}" "${chart}" "${train}" || echo "failed"
             done
           done
 
@@ -365,7 +366,7 @@ jobs:
   lock-threads:
     runs-on: ubuntu-latest
     steps:
-      - uses: dessant/lock-threads@d42e5f49803f3c4e14ffee0378e31481265dda22 # v5
+      - uses: dessant/lock-threads@1bf7ec25051fe7c00bdd17e6a7cf3d7bfb7dc771 # v5
         with:
           github-token: ${{ secrets.BOT_TOKEN }}
           issue-inactive-days: "7"

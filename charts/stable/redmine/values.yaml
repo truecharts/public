@@ -1,7 +1,7 @@
 image:
   repository: redmine
   pullPolicy: IfNotPresent
-  tag: 5.0.6@sha256:a1b33b13e73d3308f748bfdb8bc639f472c6467cf2a855cdd1b187d8dab58ba1
+  tag: 5.1.0@sha256:77d3d822a4cf1a26f68fd3d8d602f599101e92a22ff0c1dacbea3441ce83b9be
 redmine:
   plugins_migrate: true
   no_db_migrate: false
@@ -27,6 +27,10 @@ portal:
 securityContext:
   container:
     readOnlyRootFilesystem: false
+    runAsUser: 999
+    runAsGroup: 999
+  pod:
+    fsGroup: 999
 workload:
   main:
     podSpec:

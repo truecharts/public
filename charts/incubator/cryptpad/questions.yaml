@@ -10,6 +10,19 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: CPAD_MAIN_DOMAIN
+                                        label: CPAD_MAIN_DOMAIN
+                                        description: Enter your main Cryptpad Main Domain here
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
 
@@ -59,6 +72,28 @@ questions:
                             schema:
                               type: int
                               default: 3001
+                              required: true
+        - variable: websocket
+          label: 'Websocket Port'
+          description: "Port for Websocket connections"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: websocket
+                      label: "Websocket Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 3003
                               required: true
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
