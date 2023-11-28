@@ -14,9 +14,9 @@ service:
   main:
     ports:
       main:
-        port: 8080
         protocol: http
         targetPort: 80
+        port: 8080
 
 humhub:
   debug: true
