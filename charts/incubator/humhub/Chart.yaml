@@ -1,19 +1,20 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Network-Web
 apiVersion: v2
-appVersion: "latest"
+appVersion: "1.13.2"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    version: 14.3.5
+  - condition: mariadb.enabled
+    name: mariadb
+    repository: https://deps.truecharts.org/
+    version: 7.0.70
 deprecated: false
-description: HumHub is a free social network software and framework built to give you the tools to make communication and collaboration easy and successful. The Database is at 'localhost', username is 'humhub', the database name is 'humhub', there are no password (local user)
+description: feature rich and highly flexible OpenSource Social Network Kit written in PHP.
 home: https://truecharts.org/charts/incubator/humhub
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/humhub.png
 keywords:
   - humhub
-  - Network-Web
+  - Social-Network
 kubeVersion: ">=1.16.0-0"
 maintainers:
   - email: info@truecharts.org
@@ -22,5 +23,9 @@ maintainers:
 name: humhub
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/humhub
+  - https://github.com/mriedmann/humhub-docker
 type: application
-version: 2.0.8
+version: 3.0.0
+annotations:
+  truecharts.org/category: social
+  truecharts.org/SCALE-support: "true"
