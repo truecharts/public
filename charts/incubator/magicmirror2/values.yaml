@@ -43,7 +43,7 @@ persistence:
     enabled: true
     type: configmap
     objectName: magicmirror-config-env
-    mountPath: /tmp/config.env
+    mountPath: /magicmirror2/config.env
     subPath: config.env
     readOnly: true
   # Mounts a modified default config file to a "tmp" which the entrypoint,
