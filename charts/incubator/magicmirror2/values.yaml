@@ -52,7 +52,7 @@ persistence:
     enabled: true
     type: configmap
     objectName: magicmirror-config
-    mountPath: /tmp/config.js.template
+    mountPath: /magicmirror2/config.js.template
     subPath: config.js.template
     readOnly: true
 
