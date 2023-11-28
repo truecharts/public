@@ -59,16 +59,16 @@ workload:
             HUMHUB_PROTO: "{{ .Values.humhub.proto }}"
             HUMHUB_HOST: "{{ .Values.humhub.host }}"
             # Mailer install setup
-            HUMHUB_MAILER_SYSTEM_EMAIL_ADDRESS: "{{ .Values.humhub.host.mailer.sys_address }}"
-            HUMHUB_MAILER_SYSTEM_EMAIL_NAME: "{{ .Values.humhub.host.mailer.sys_name }}"
+            HUMHUB_MAILER_SYSTEM_EMAIL_ADDRESS: "{{ .Values.humhub.mailer.sys_address }}"
+            HUMHUB_MAILER_SYSTEM_EMAIL_NAME: "{{ .Values.humhub.mailer.sys_name }}"
             # php | smtp
-            HUMHUB_MAILER_TRANSPORT_TYPE: "{{ .Values.humhub.host.mailer.type }}"
-            HUMHUB_MAILER_HOSTNAME: "{{ .Values.humhub.host.mailer.hostname }}"
-            HUMHUB_MAILER_PORT: "{{ .Values.humhub.host.mailer.port }}"
-            HUMHUB_MAILER_USERNAME: "{{ .Values.humhub.host.mailer.user }}"
-            HUMHUB_MAILER_PASSWORD: "{{ .Values.humhub.host.mailer.password }}"
-            HUMHUB_MAILER_ENCRYPTION: "{{ .Values.humhub.host.mailer.encrypt }}"
-            HUMHUB_MAILER_ALLOW_SELF_SIGNED_CERTS: "{{ .Values.humhub.host.mailer.allow_self_sign_certs }}"
+            HUMHUB_MAILER_TRANSPORT_TYPE: "{{ .Values.humhub.mailer.type }}"
+            HUMHUB_MAILER_HOSTNAME: "{{ .Values.humhub.mailer.hostname }}"
+            HUMHUB_MAILER_PORT: "{{ .Values.humhub.mailer.port }}"
+            HUMHUB_MAILER_USERNAME: "{{ .Values.humhub.mailer.user }}"
+            HUMHUB_MAILER_PASSWORD: "{{ .Values.humhub.mailer.password }}"
+            HUMHUB_MAILER_ENCRYPTION: "{{ .Values.humhub.mailer.encrypt }}"
+            HUMHUB_MAILER_ALLOW_SELF_SIGNED_CERTS: "{{ .Values.humhub.mailer.allow_self_sign_certs }}"
             # Cache Config
             HUMHUB_CACHE_EXPIRE_TIME: 3600
             # do not expose
