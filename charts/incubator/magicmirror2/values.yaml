@@ -30,8 +30,6 @@ workload:
       containers:
         main:
           env:
-            UID: "{{ .Values.securityContext.container.PUID }}"
-            GID: "{{ .Values.securityContext.pod.fsGroup }}"
             DATA_DIR: "{{ .Values.persistence.config.mountPath }}"
             FORCE_UPDATE: "{{ .Values.magicmirror.force_update }}"
             FORCE_UPDATE_MODULES: "{{ .Values.magicmirror.force_update_modules }}"
