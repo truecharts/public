@@ -22,6 +22,11 @@ humhub:
   debug: true
   proto: https
   host: localhost:8080
+  admin:
+    login: admin
+    password: test
+    email: humhub@example.com
+
   mailer:
     sys_address: noreply@example.com
     sys_name: HumHub
@@ -51,24 +56,6 @@ workload:
                 name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: plainhost
             HUMHUB_DB_NAME: "{{ .Values.mariadb.mariadbDatabase }}"
-            # not needed; just documented.
-            # HUMHUB_AUTO_INSTALL: 1
-            # 0 | 1
-            HUMHUB_DEBUG: "{{ .Values.humhub.debug }}"
-            # http; https
-            HUMHUB_PROTO: "{{ .Values.humhub.proto }}"
-            HUMHUB_HOST: "{{ .Values.humhub.host }}"
-            # Mailer install setup
-            HUMHUB_MAILER_SYSTEM_EMAIL_ADDRESS: "{{ .Values.humhub.mailer.sys_address }}"
-            HUMHUB_MAILER_SYSTEM_EMAIL_NAME: "{{ .Values.humhub.mailer.sys_name }}"
-            # php | smtp
-            HUMHUB_MAILER_TRANSPORT_TYPE: "{{ .Values.humhub.mailer.type }}"
-            HUMHUB_MAILER_HOSTNAME: "{{ .Values.humhub.mailer.hostname }}"
-            HUMHUB_MAILER_PORT: "{{ .Values.humhub.mailer.port }}"
-            HUMHUB_MAILER_USERNAME: "{{ .Values.humhub.mailer.user }}"
-            HUMHUB_MAILER_PASSWORD: "{{ .Values.humhub.mailer.password }}"
-            HUMHUB_MAILER_ENCRYPTION: "{{ .Values.humhub.mailer.encrypt }}"
-            HUMHUB_MAILER_ALLOW_SELF_SIGNED_CERTS: "{{ .Values.humhub.mailer.allow_self_sign_certs }}"
             # Cache Config
             HUMHUB_CACHE_EXPIRE_TIME: 3600
             # do not expose
@@ -85,11 +72,31 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: redis-password
+            HUMHUB_AUTO_INSTALL: 1
+            # 0 | 1
+            HUMHUB_DEBUG: "{{ .Values.humhub.debug }}"
+            # http | https
+            HUMHUB_PROTO: "{{ .Values.humhub.proto }}"
+            HUMHUB_HOST: "{{ .Values.humhub.host }}"
+            HUMHUB_ADMIN_LOGIN: "{{ .Values.humhub.admin.login }}"
+            HUMHUB_ADMIN_EMAIL    : "{{ .Values.humhub.admin.email }}"
+            HUMHUB_ADMIN_PASSWORD : "{{ .Values.humhub.admin.password }}"
+            # Mailer install setup
+            HUMHUB_MAILER_SYSTEM_EMAIL_ADDRESS: "{{ .Values.humhub.mailer.sys_address }}"
+            HUMHUB_MAILER_SYSTEM_EMAIL_NAME: "{{ .Values.humhub.mailer.sys_name }}"
+            # php | smtp
+            HUMHUB_MAILER_TRANSPORT_TYPE: "{{ .Values.humhub.mailer.type }}"
+            HUMHUB_MAILER_HOSTNAME: "{{ .Values.humhub.mailer.hostname }}"
+            HUMHUB_MAILER_PORT: "{{ .Values.humhub.mailer.port }}"
+            HUMHUB_MAILER_USERNAME: "{{ .Values.humhub.mailer.user }}"
+            HUMHUB_MAILER_PASSWORD: "{{ .Values.humhub.mailer.password }}"
+            HUMHUB_MAILER_ENCRYPTION: "{{ .Values.humhub.mailer.encrypt }}"
+            HUMHUB_MAILER_ALLOW_SELF_SIGNED_CERTS: "{{ .Values.humhub.mailer.allow_self_sign_certs }}"
 
 persistence:
   config:
     enabled: true
-    mountPath: :/var/www/localhost/htdocs/protected/config
+    mountPath: /var/www/localhost/htdocs/protected/config
   assets:
     enabled: true
     mountPath: /var/www/localhost/htdocs/assets

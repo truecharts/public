@@ -33,6 +33,28 @@ questions:
           schema:
             type: string
             default: "localhost:8080"
+        - variable: admin
+          label: Admin Credentials
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: login
+                label: Login UserName
+                schema:
+                  type: string
+                  default: ""
+              - variable: password
+                label: Login Password
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+              - variable: email
+                label: Login Email
+                schema:
+                  type: string
+                  default: ""
         - variable: mailer
           label: Mailer Credentials
           schema:
