@@ -31,32 +31,32 @@ workload:
       containers:
         main:
           env:
-            # CUSTOM ENV VARIABLES DEFINED
-            PORT: "{{ .Values.service.main.ports.main.port }}"
-            ADDRESS: 0.0.0.0
-            HTTPS: false
             UID: "{{ .Values.securityContext.container.PUID }}"
             GID: "{{ .Values.securityContext.pod.fsGroup }}"
             DATA_DIR: "{{ .Values.persistence.config.mountPath }}"
             FORCE_UPDATE: "{{ .Values.magicmirror.force_update }}"
             FORCE_UPDATE_MODULES: "{{ .Values.magicmirror.force_update_modules }}"
-            LANG: "{{ .Values.magicmirror.lang }}"
-            TIME_FORMAT: "{{ .Values.magicmirror.time_format }}"
-            UNITS: "{{ .Values.magicmirror.units }}"
-            IPWHITELIST: '{{ join "," .Values.magicmirror.ipWhitelist }}'
 
 persistence:
   config:
     enabled: true
     mountPath: /magicmirror2
+  # generates values for custom variables.
+  magicmirror-config-env:
+    enabled: true
+    type: configmap
+    objectName: magicmirror2-config-env
+    mountPath: /tmp/config.env
+    subPath: config.env
+    readOnly: true
   # Mounts a modified default config file to a "tmp" which the entrypoint,
   # copies to the config location if it does not exist.
   magicmirror-config:
     enabled: true
     type: configmap
-    objectName: magicmirror-config
-    mountPath: /tmp/config.js
-    subPath: config.js
+    objectName: magicmirror2-config
+    mountPath: /tmp/config.js.template
+    subPath: config.js.template
     readOnly: true
 
 portal:

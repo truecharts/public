@@ -1,11 +1,25 @@
 {{/* Define the configmap */}}
-{{- define "magicmirror.configmaps" -}}
+{{- define "magicmirror2.configmaps" -}}
 {{- $fullname := (include "tc.v1.common.lib.chart.names.fullname" $) -}}
 
-magicmirror-config:
+{{- $magicmirror := .Values.magicmirror -}}
+
+magicmirror2-config-env:
   enabled: true
   data:
-    config.js: |
+    config.env: |
+     ADDRESS={{ $magicmirror.address }}
+     PORT=":{{ .Values.service.main.ports.main.port }}"
+     HTTPS=false
+     IPWHITELIST={{ $magicmirror.ipWhitelist }}
+     LANG={{ $magicmirror.lang }}
+     TIME_FORMAT={{ $magicmirror.time_format }}
+     UNITS={{ $magicmirror.units }}
+
+magicmirror2-config:
+  enabled: true
+  data:
+    config.js.template: |
      /* Magic Mirror Config Sample
     *
     * By Michael Teeuw http://michaelteeuw.nl
