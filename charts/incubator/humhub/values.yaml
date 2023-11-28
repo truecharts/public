@@ -1,7 +1,7 @@
 image:
-  repository: ghcr.io/siwatinc/humhub
+  repository: mriedmann/humhub
   pullPolicy: IfNotPresent
-  tag: latest@sha256:5350a151dfc8e1ca9b5fb75b81455baad85b668fdbe9c707c126a4ad3f64caf9
+  tag: 1.15.0@sha256:79ef7272cdc8b41d5576d43dbb73f45d4f8dcbb8476202d2cc0a326013687711
 securityContext:
   container:
     readOnlyRootFilesystem: false
