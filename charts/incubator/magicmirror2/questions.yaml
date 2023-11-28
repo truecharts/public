@@ -61,19 +61,6 @@ questions:
                 description: "Metric"
               - value: "imperial"
                 description: "Imperial"
-        - variable: ipWhitelist
-          label: ZSTD Params
-          description: The list of IPs from which you are allowed to access the MagicMirror.
-          schema:
-            type: list
-            default: []
-            items:
-              - variable: ip
-                label: whitelist IP
-                schema:
-                  type: string
-                  required: true
-                  default: ""
 
 # Include{containerConfig}
 # Include{podOptions}

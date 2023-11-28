@@ -23,7 +23,6 @@ magicmirror:
   lang: "en"
   time_format: "24"
   units: metric
-  ipWhitelist: []
 
 workload:
   main:
@@ -45,7 +44,7 @@ persistence:
   magicmirror-config-env:
     enabled: true
     type: configmap
-    objectName: magicmirror2-config-env
+    objectName: magicmirror-config-env
     mountPath: /tmp/config.env
     subPath: config.env
     readOnly: true
@@ -54,7 +53,7 @@ persistence:
   magicmirror-config:
     enabled: true
     type: configmap
-    objectName: magicmirror2-config
+    objectName: magicmirror-config
     mountPath: /tmp/config.js.template
     subPath: config.js.template
     readOnly: true
