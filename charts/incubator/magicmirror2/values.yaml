@@ -50,7 +50,7 @@ persistence:
     enabled: true
     type: configmap
     objectName: magicmirror-config
-    mountPath: /magicmirror2/config.js.template
+    mountPath: /tmp/config.js.template
     subPath: config.js.template
     readOnly: false
   # generates values for custom variables.
@@ -58,7 +58,7 @@ persistence:
     enabled: true
     type: configmap
     objectName: magicmirror-config-env
-    mountPath: /magicmirror2/config.env
+    mountPath: /tmp/config.env
     subPath: config.env
     readOnly: false
 
