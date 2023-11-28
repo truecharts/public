@@ -1,5 +1,5 @@
 {{/* Define the configmap */}}
-{{- define "odoo.configmaps" -}}
+{{- define "magicmirror.configmaps" -}}
 {{- $fullname := (include "tc.v1.common.lib.chart.names.fullname" $) -}}
 
 magicmirror-config:
