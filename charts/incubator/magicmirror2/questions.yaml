@@ -39,6 +39,12 @@ questions:
           schema:
             type: string
             default: "en"
+        - variable: locale
+          label: Locale
+          description: The locale of the interface.
+          schema:
+            type: string
+            default: "en-US"
         - variable: time_format
           label: Time Format
           description: The form of time notation that will be used.

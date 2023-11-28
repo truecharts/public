@@ -21,6 +21,7 @@ magicmirror:
   force_update: false
   force_update_modules: false
   lang: "en"
+  locale: "en-US"
   time_format: "24"
   units: metric
 
@@ -33,11 +34,25 @@ workload:
             DATA_DIR: "{{ .Values.persistence.config.mountPath }}"
             FORCE_UPDATE: "{{ .Values.magicmirror.force_update }}"
             FORCE_UPDATE_MODULES: "{{ .Values.magicmirror.force_update_modules }}"
+            # custom variables
+            PORT: ":{{ .Values.service.main.ports.main.port }}"
+            LANG: "{{ .Values.magicmirror.lang }}"
+            LOCALE: "{{ .Values.magicmirror.locale }}"
+            TIME_FORMAT: "{{ .Values.magicmirror.time_format }}"
+            UNITS: "{{ .Values.magicmirror.units }}"
 
 persistence:
   config:
     enabled: true
     mountPath: /magicmirror2
+  # Mounts a modified template config file to use custom env variables.
+  magicmirror-config:
+    enabled: true
+    type: configmap
+    objectName: magicmirror-config
+    mountPath: /magicmirror2/config.js.template
+    subPath: config.js.template
+    readOnly: false
   # generates values for custom variables.
   magicmirror-config-env:
     enabled: true
@@ -45,16 +60,7 @@ persistence:
     objectName: magicmirror-config-env
     mountPath: /magicmirror2/config.env
     subPath: config.env
-    readOnly: true
-  # Mounts a modified default config file to a "tmp" which the entrypoint,
-  # copies to the config location if it does not exist.
-  magicmirror-config:
-    enabled: true
-    type: configmap
-    objectName: magicmirror-config
-    mountPath: /magicmirror2/config.js.template
-    subPath: config.js.template
-    readOnly: true
+    readOnly: false
 
 portal:
   open:

@@ -8,9 +8,9 @@ magicmirror-config-env:
   enabled: true
   data:
     config.env: |
-      ADDRESS={{ $magicmirror.address }}
       PORT=":{{ .Values.service.main.ports.main.port }}"
       LANG={{ $magicmirror.lang }}
+      LOCALE={{ $magicmirror.locale }}
       TIME_FORMAT={{ $magicmirror.time_format }}
       UNITS={{ $magicmirror.units }}
 
@@ -18,34 +18,39 @@ magicmirror-config:
   enabled: true
   data:
     config.js.template: |
-      /* Magic Mirror Config Sample
+      /* MagicMirror² Config Sample
       *
-      * By Michael Teeuw http://michaelteeuw.nl
+      * By Michael Teeuw https://michaelteeuw.nl
       * MIT Licensed.
       *
       * For more information on how you can configure this file
-      * See https://github.com/MichMich/MagicMirror#configuration
+      * see https://docs.magicmirror.builders/configuration/introduction.html
+      * and https://docs.magicmirror.builders/modules/configuration.html
       *
+      * You can use environment variables using a `config.js.template` file instead of `config.js`
+      * which will be converted to `config.js` while starting. For more information
+      * see https://docs.magicmirror.builders/configuration/introduction.html#enviromnent-variables
       */
-
-      var config = {
-        /*************** DO NOT CHANGE FOLLOWING VALUES ***************/
-        address: "${ADDRESS}",
+      let config = {
+        address: "0.0.0.0",	// Address to listen on
         port: ${PORT},
-        useHttps: false,
-        serverOnly: "true",
-        /*************** EDIT THE BELOW THIS LINE ONLY ***************/
+        basePath: "/",			// The URL path where MagicMirror² is hosted. If you are using a Reverse proxy
+                      // you must set the sub path here. basePath must end with a /
+        ipWhitelist: [],	// Set [] to allow all IP addresses
+                                    // or add a specific IPv4 of 192.168.1.5 :
+                                    // ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.1.5"],
+                                    // or IPv4 range of 192.168.3.0 --> 192.168.3.15 use CIDR format :
+                                    // ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.3.0/28"],
 
-        ipWhitelist: [],  // Set [] to allow all IP addresses
-                          // or add a specific IPv4 of 192.168.1.5 :
-                          // ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.1.5"],
-                          // or IPv4 range of 192.168.3.0 --> 192.168.3.15 use CIDR format :
-                          // ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.3.0/28"],
+        useHttps: false, 		// Support HTTPS or not, default "false" will use HTTP
+        httpsPrivateKey: "", 	// HTTPS private key path, only require when useHttps is true
+        httpsCertificate: "", 	// HTTPS Certificate path, only require when useHttps is true
 
         language: "${LANG}",
-        timeFormat: "{TIME_FORMAT}",
+        locale: "${LOCALE}",
+        logLevel: ["INFO", "LOG",, "DEBUG", "WARN", "ERROR"], // Add "DEBUG" for even more logging
+        timeFormat: ${TIME_FORMAT},
         units: "${UNITS}",
-
         modules: [
           {
             module: "alert",
@@ -65,8 +70,9 @@ magicmirror-config:
             config: {
               calendars: [
                 {
+                  fetchInterval: 7 * 24 * 60 * 60 * 1000,
                   symbol: "calendar-check",
-                  url: "webcal://www.calendarlabs.com/ical-calendar/ics/76/US_Holidays.ics"
+                  url: "https://ics.calendarlabs.com/76/mm3137/US_Holidays.ics"
                 }
               ]
             }
@@ -74,42 +80,7 @@ magicmirror-config:
           {
             module: "compliments",
             position: "lower_third"
-          },
-          {
-            module: "currentweather",
-            position: "top_right",
-            config: {
-              location: "New York",
-              locationID: "", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
-              appid: "YOUR_OPENWEATHER_API_KEY"
-            }
-          },
-          {
-            module: "weatherforecast",
-            position: "top_right",
-            header: "Weather Forecast",
-            config: {
-              location: "New York",
-              locationID: "5128581", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
-              appid: "YOUR_OPENWEATHER_API_KEY"
-            }
-          },
-          {
-            module: "newsfeed",
-            position: "bottom_bar",
-            config: {
-              feeds: [
-                {
-                  title: "New York Times",
-                  url: "http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml"
-                }
-              ],
-              showSourceTitle: true,
-              showPublishDate: true,
-              broadcastNewsFeeds: true,
-              broadcastNewsUpdates: true
-            }
-          },
+          }
         ]
       };
 
