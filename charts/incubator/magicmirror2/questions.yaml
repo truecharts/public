@@ -10,10 +10,10 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-# Include{containerConfig}
   - variable: magicmirror
     group: App Configuration
     label: Magic Mirror 2 Configuration
@@ -33,25 +33,63 @@ questions:
           schema:
             type: boolean
             default: false
-# Include{serviceRoot}
-        - variable: main
-          label: Main Service
-          description: The Primary service on which the healthcheck runs, often the webUI
+        - variable: lang
+          label: Language
+          description: The language of the interface. (Not all elements will be localized.)
           schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+            type: string
+            default: "en"
+        - variable: time_format
+          label: Time Format
+          description: The form of time notation that will be used.
+          schema:
+            type: string
+            default: "24"
+            enum:
+              - value: "24"
+                description: "24 Hours"
+              - value: "12"
+                description: "12 Hours"
+        - variable: units
+          label: Units
+          description: The units that will be used in the default weather modules.
+          schema:
+            type: string
+            default: "metric"
+            enum:
+              - value: "metric"
+                description: "Metric"
+              - value: "imperial"
+                description: "Imperial"
+        - variable: ipWhitelist
+          label: ZSTD Params
+          description: The list of IPs from which you are allowed to access the MagicMirror.
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: ip
+                label: whitelist IP
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+
+# Include{containerConfig}
+# Include{podOptions}
+# Include{serviceRoot}
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: Main Service Port Configuration
+                      label: "Main Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: Port
-                            description: This port exposes the container port on the service
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 10590
@@ -61,8 +99,8 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: config
-          label: App Config Storage
-          description: Stores the Application Configuration.
+          label: "App Config Storage"
+          description: "Stores the Application Configuration."
           schema:
             additional_attrs: true
             type: dict
@@ -71,7 +109,7 @@ questions:
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: Main Ingress
+          label: "Main Ingress"
           schema:
             additional_attrs: true
             type: dict
@@ -81,29 +119,29 @@ questions:
 # Include{ingressTraefik}
 # Include{ingressAdvanced}
 # Include{ingressList}
+# Include{securityContextRoot}
 
-# Include{podSecurityContextRoot}
-        - variable: runAsUser
-          label: runAsUser
-          description: The UserID of the user running the application
-          schema:
-            type: int
-            default: 0
-        - variable: runAsGroup
-          label: runAsGroup
-          description: The groupID this App of the user running the application
-          schema:
-            type: int
-            default: 0
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID this App of the user running the application"
+                schema:
+                  type: int
+                  default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-        - variable: fsGroup
-          label: fsGroup
-          description: The group that should own ALL storage.
-          schema:
-            type: int
-            default: 568
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
+                schema:
+                  type: int
+                  default: 568
 
 # Include{resources}
 # Include{advanced}

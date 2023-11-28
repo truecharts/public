@@ -1,20 +1,12 @@
 {{/* Define the configmap */}}
-{{- define "magicmirror.config" -}}
+{{- define "odoo.configmaps" -}}
+{{- $fullname := (include "tc.v1.common.lib.chart.names.fullname" $) -}}
 
-{{- $configName := printf "%s-magicmirror-config" (include "tc.common.names.fullname" .) }}
-{{- $configEnvName := printf "%s-magicmirror-env" (include "tc.common.names.fullname" .) }}
-
----
-
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ $configName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
-data:
-  config.js: |
-    /* Magic Mirror Config Sample
+magicmirror-config:
+  enabled: true
+  data:
+    config.js: |
+     /* Magic Mirror Config Sample
     *
     * By Michael Teeuw http://michaelteeuw.nl
     * MIT Licensed.
@@ -26,21 +18,21 @@ data:
 
     var config = {
       /*************** DO NOT CHANGE FOLLOWING VALUES ***************/
-      address: "0.0.0.0",
-      port: {{ .Values.service.main.ports.main.targetPort }},
-      useHttps: false,
+      address: "${ADDRESS}",
+      port: ${PORT},
+      useHttps: ${HTTPS},
       serverOnly: "true",
       /*************** EDIT THE BELOW THIS LINE ONLY ***************/
 
-      ipWhitelist: [],  // Set [] to allow all IP addresses
+      ipWhitelist: [${IPWHITELIST}],  // Set [] to allow all IP addresses
                         // or add a specific IPv4 of 192.168.1.5 :
                         // ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.1.5"],
                         // or IPv4 range of 192.168.3.0 --> 192.168.3.15 use CIDR format :
                         // ["127.0.0.1", "::ffff:127.0.0.1", "::1", "::ffff:192.168.3.0/28"],
 
-      language: "en",
-      timeFormat: 24,
-      units: "metric",
+      language: "${LANG}",
+      timeFormat: "{TIME_FORMAT}",
+      units: "${UNITS}",
 
       modules: [
         {
@@ -112,18 +104,4 @@ data:
     /*************** DO NOT EDIT THE LINE BELOW ***************/
     if (typeof module !== "undefined") {module.exports = config;}
 
----
-
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ $configEnvName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
-data:
-  DATA_DIR: /magicmirror2
-  UID: {{ .Values.security.PUID | quote }}
-  GID: {{ .Values.podSecurityContext.fsGroup | quote }}
-  FORCE_UPDATE: {{ .Values.magicmirror.force_update | quote }}
-  FORCE_UPDATE_MODULES: {{ .Values.magicmirror.force_update_modules | quote }}
 {{- end -}}
