@@ -44,6 +44,38 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
+        - variable: cache
+          label: "App Cache Storage"
+          description: "Stores the Application Cache."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: playlists
+          label: "App PlayLists Storage"
+          description: "Stores the Application PlayLists."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: podcast
+          label: "App Podcast Storage"
+          description: "Stores the Application Podcast."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: music
+          label: "App Music Storage"
+          description: "Stores the Application Music."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

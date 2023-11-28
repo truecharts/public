@@ -2,25 +2,49 @@ image:
   repository: sentriz/gonic
   pullPolicy: IfNotPresent
   tag: v0.16.1@sha256:bad4b20f03399c14398e4f1b72d90406417037c72e9e8777838dab90b3f181af
-# env:
-#   GONIC_MUSIC_PATH:
-#   GONIC_PODCAST_PATH:
-#   GONIC_CACHE_PATH:
-service:
-  main:
-    ports:
-      main:
-        port: 10023
-        targetPort: 80
-persistence:
-  data:
-    enabled: true
-    mountPath: "/data"
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 10023
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GONIC_LISTEN_ADDR: ":{{ .Values.service.main.ports.main.port }}"
+            GONIC_DB_PATH: "{{ .Values.persistence.data.mountPath }}/gonic.db"
+            GONIC_CACHE_PATH: "{{ .Values.persistence.cache.mountPath }}"
+            GONIC_PLAYLISTS_PATH : "{{ .Values.persistence.playlists.mountPath }}"
+            GONIC_PODCAST_PATH: "{{ .Values.persistence.podcast.mountPath }}"
+            GONIC_MUSIC_PATH: "{{ .Values.persistence.music.mountPath }}"
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+  cache:
+    enabled: true
+    mountPath: /cache
+  playlists:
+    enabled: true
+    mountPath: /playlists
+  podcast:
+    enabled: true
+    mountPath: /podcast
+  music:
+    enabled: true
+    mountPath: /music
+
+portal:
+  open:
+    enabled: true
