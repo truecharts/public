@@ -38,7 +38,7 @@ workload:
             FORCE_UPDATE: "{{ .Values.magicmirror.force_update }}"
             FORCE_UPDATE_MODULES: "{{ .Values.magicmirror.force_update_modules }}"
             # custom variables
-            PORT: ":{{ .Values.service.main.ports.main.port }}"
+            PORT: "{{ .Values.service.main.ports.main.port }}"
             LANG: "{{ .Values.magicmirror.lang }}"
             LOCALE: "{{ .Values.magicmirror.locale }}"
             TIME_FORMAT: "{{ .Values.magicmirror.time_format }}"
