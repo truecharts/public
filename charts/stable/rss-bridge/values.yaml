@@ -1,25 +1,21 @@
 image:
-  repository: rssbridge/rss-bridge
-  tag: 2023-09-24@sha256:b8f5cdcee9a14406399eab4229cfd404f6451d64e7158456b7f6216e530d95ff
+  repository: ghcr.io/rss-bridge/rss-bridge
+  tag: latest@sha256:f79db9793f70a5a53d358197abf56c65933626b3eacaa99b86e8cbc60d267a4f
   pullPolicy: IfNotPresent
-service:
-  main:
-    ports:
-      main:
-        port: 10225
-persistence:
-  config:
-    enabled: true
-    mountPath: "/config"
-portal:
-  open:
-    enabled: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 10225
+
 workload:
   main:
     podSpec:
@@ -27,3 +23,12 @@ workload:
         main:
           env:
             HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+
+portal:
+  open:
+    enabled: true
