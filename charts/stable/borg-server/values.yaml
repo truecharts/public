@@ -25,6 +25,10 @@ workload:
           env:
             BORG_UID: "{{ .Values.securityContext.container.PUID }}"
             BORG_GID: "{{ .Values.securityContext.pod.fsGroup }}"
+          securityContext:
+            capabilities:
+              add:
+                - SYS_CHROOT
 
 persistence:
   borg:
