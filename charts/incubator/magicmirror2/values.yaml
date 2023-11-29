@@ -2,6 +2,10 @@ image:
   repository: karsten13/magicmirror
   pullPolicy: IfNotPresent
   tag: v2.25.0@sha256:d0cb9a3ba57af3e0c498953dbda891bc25f5a3a327cbc651ee7cf4ed139f970c
+fatImage:
+  repository: karsten13/magicmirror
+  pullPolicy: IfNotPresent
+  tag: v2.25.0_fat@sha256:784d5e27a23e1db19c47e2ca007aa29963aef3ac030b4dbeab622e6fc1beb503
 
 securityContext:
   container:
@@ -30,6 +34,7 @@ workload:
     podSpec:
       containers:
         main:
+          imageSelector: image
           args:
             - npm
             - run
