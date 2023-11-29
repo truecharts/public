@@ -2,18 +2,6 @@
 {{- define "magicmirror.configmaps" -}}
 {{- $fullname := (include "tc.v1.common.lib.chart.names.fullname" $) -}}
 
-{{- $magicmirror := .Values.magicmirror -}}
-
-magicmirror-config-env:
-  enabled: true
-  data:
-    config.env: |
-      PORT=":{{ .Values.service.main.ports.main.port }}"
-      LANG={{ $magicmirror.lang }}
-      LOCALE={{ $magicmirror.locale }}
-      TIME_FORMAT={{ $magicmirror.time_format }}
-      UNITS={{ $magicmirror.units }}
-
 magicmirror-config:
   enabled: true
   data:

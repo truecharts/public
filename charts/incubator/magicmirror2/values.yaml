@@ -1,14 +1,7 @@
 image:
-  repository: ghcr.io/ich777/magic-mirror2
+  repository: karsten13/magicmirror
   pullPolicy: IfNotPresent
-  tag: latest@sha256:74aff42d6e3acba42f65051bd8a2d5f22fd1ac7e7eecd203712ccbdc6159b14f
-
-securityContext:
-  container:
-    runAsNonRoot: false
-    readOnlyRootFilesystem: false
-    runAsUser: 0
-    runAsGroup: 0
+  tag: v2.25.0@sha256:d0cb9a3ba57af3e0c498953dbda891bc25f5a3a327cbc651ee7cf4ed139f970c
 
 service:
   main:
@@ -30,8 +23,11 @@ workload:
     podSpec:
       containers:
         main:
+          args:
+            - npm
+            - run
+            - server
           env:
-            DATA_DIR: "{{ .Values.persistence.config.mountPath }}"
             FORCE_UPDATE: "{{ .Values.magicmirror.force_update }}"
             FORCE_UPDATE_MODULES: "{{ .Values.magicmirror.force_update_modules }}"
             # custom variables
@@ -44,22 +40,20 @@ workload:
 persistence:
   config:
     enabled: true
-    mountPath: /magicmirror2
+    mountPath: /opt/magic_mirror/config
+  modules:
+    enabled: true
+    mountPath: /opt/magic_mirror/modules
+  css:
+    enabled: true
+    mountPath: /opt/magic_mirror/css
   # Mounts a modified template config file to use custom env variables.
   magicmirror-config:
     enabled: true
     type: configmap
     objectName: magicmirror-config
-    mountPath: /tmp/config.js.template
+    mountPath: /opt/magic_mirror/config/config.js.template
     subPath: config.js.template
-    readOnly: false
-  # generates values for custom variables.
-  magicmirror-config-env:
-    enabled: true
-    type: configmap
-    objectName: magicmirror-config-env
-    mountPath: /tmp/config.env
-    subPath: config.env
     readOnly: false
 
 portal:
