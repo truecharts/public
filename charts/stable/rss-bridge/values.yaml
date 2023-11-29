@@ -9,6 +9,8 @@ securityContext:
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
+    pods:
+      fsGroup: 33
 
 service:
   main:
@@ -28,6 +30,10 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+  php:
+    enabled: true
+    type: emptyDir
+    mountPath: "/run/php"
 
 portal:
   open:
