@@ -1,5 +1,5 @@
     tag=$1
-	
+
     tag=$(echo $tag | sed "s/@.*//g") # Strip everything after '@' (e.g., "v1.2.3@sha256:abc123" -> "v1.2.3")
 
     # Remove 'version-' prefix if it exists (e.g., "version-a78f38c1" -> "a78f38c1")
