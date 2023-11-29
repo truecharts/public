@@ -102,14 +102,24 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: config
-          label: "config Storage"
+          label: App Config Storage
+          description: Stores the Application Config.
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
         - variable: zerotier
-          label: "Zerotier Storage"
+          label: App Zerotier Storage
+          description: Stores the Application Zerotier.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: mkworld
+          label: App Mkworld Storage
+          description: Stores the Application Mkworld.
           schema:
             additional_attrs: true
             type: dict

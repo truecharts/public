@@ -50,6 +50,9 @@ persistence:
   zerotier:
     enabled: true
     mountPath: /var/lib/zerotier-one
+  mkworld:
+    enabled: true
+    mountPath: /etc/zt-mkworld
 
 portal:
   open:
