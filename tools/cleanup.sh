@@ -1,3 +1,4 @@
+#!/usr/bin/env sh
     tag=$1
 
     tag=$(echo $tag | sed "s/@.*//g") # Strip everything after '@' (e.g., "v1.2.3@sha256:abc123" -> "v1.2.3")
