@@ -7,9 +7,12 @@ securityContext:
   container:
     PUID: 33
     runAsNonRoot: false
+    allowPrivilegeEscalation: true
+    privileged: true
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
+
 
 service:
   main:
