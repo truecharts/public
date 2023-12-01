@@ -17,3 +17,4 @@ args:
   - "{{ $piper.noise_w }}"
   - --max-piper-procs
   - "{{ $piper.max_piper_procs }}"
+{{- end -}}
