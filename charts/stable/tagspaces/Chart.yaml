@@ -1,29 +1,29 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
 apiVersion: v2
-appVersion: "5.5.2"
+appVersion: 5.5.2
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 deprecated: false
 description: TagSpaces is an offline, open source, document manager with tagging support.
 home: https://truecharts.org/charts/stable/tagspaces
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/tagspaces.png
 keywords:
-  - tagspaces
-  - documents
-kubeVersion: ">=1.16.0-0"
+    - tagspaces
+    - documents
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: tagspaces
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/tagspaces
-  - https://github.com/tagspaces/tagspaces
+    - https://github.com/truecharts/charts/tree/master/charts/stable/tagspaces
+    - https://github.com/tagspaces/tagspaces
 type: application
 version: 0.0.12
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: media
-  truecharts.org/SCALE-support: "true"

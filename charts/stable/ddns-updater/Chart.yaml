@@ -1,26 +1,26 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: network
 apiVersion: v2
-appVersion: "2.5.0"
+appVersion: 2.5.0
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 description: Light container updating DNS A and/or AAAA records periodically for multiple DNS providers
 home: https://truecharts.org/charts/stable/ddns-updater
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ddns-updater.png
 keywords:
-  - ddns-updater
-kubeVersion: ">=1.16.0-0"
+    - ddns-updater
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: ddns-updater
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/ddns-updater
-  - https://github.com/qdm12/ddns-updater
+    - https://github.com/truecharts/charts/tree/master/charts/stable/ddns-updater
+    - https://github.com/qdm12/ddns-updater
 version: 6.0.9
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: network
-  truecharts.org/SCALE-support: "true"

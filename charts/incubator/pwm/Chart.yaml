@@ -1,29 +1,29 @@
 annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Security
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Security
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 11.1.2
 deprecated: false
 description: PWM is a free and opensource password self-service application enabling end-users to reset their enterprise password themselves.
 home: https://truecharts.org/charts/incubator/pwm
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pwm.png
 keywords:
-  - pwm
-  - Security
-kubeVersion: ">=1.16.0-0"
+    - pwm
+    - Security
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: pwm
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/pwm
-  - https://github.com/pwm-project/pwm
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/pwm
+    - https://github.com/pwm-project/pwm
 type: application
 version: 2.0.9

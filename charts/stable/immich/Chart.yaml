@@ -1,30 +1,30 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
 apiVersion: v2
-appVersion: "1.88.2"
+appVersion: 1.88.2
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.5.0
-  - condition: redis.enabled
-    name: redis
-    repository: https://deps.truecharts.org
-    version: 6.0.66
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.5.0
+    - condition: redis.enabled
+      name: redis
+      repository: https://deps.truecharts.org
+      version: 6.0.66
 description: High performance self-hosted photo and video backup solution.
 home: https://truecharts.org/charts/stable/immich
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/immich.png
 keywords:
-  - photos
-kubeVersion: ">=1.16.0-0"
+    - photos
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: immich
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/immich
-  - https://github.com/immich-app/immich
+    - https://github.com/truecharts/charts/tree/master/charts/stable/immich
+    - https://github.com/immich-app/immich
 version: 9.0.2
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: media
-  truecharts.org/SCALE-support: "true"

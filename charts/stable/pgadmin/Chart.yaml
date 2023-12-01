@@ -1,30 +1,30 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: management
 apiVersion: v2
 appVersion: "7.8"
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 deprecated: false
 description: Web-Based postgresql database management utility
 home: https://truecharts.org/charts/stable/pgadmin
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pgadmin.png
 keywords:
-  - pgadmin
-  - db
-  - database
-kubeVersion: ">=1.16.0-0"
+    - pgadmin
+    - db
+    - database
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: pgadmin
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/pgadmin
-  - https://www.pgadmin.org/
+    - https://github.com/truecharts/charts/tree/master/charts/stable/pgadmin
+    - https://www.pgadmin.org/
 type: application
 version: 11.0.11
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: management
-  truecharts.org/SCALE-support: "true"

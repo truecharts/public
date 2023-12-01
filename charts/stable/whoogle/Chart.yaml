@@ -1,29 +1,29 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
 apiVersion: v2
-appVersion: "0.8.4"
+appVersion: 0.8.4
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 description: A self-hosted, ad-free, privacy-respecting metasearch engine
 home: https://truecharts.org/charts/stable/whoogle
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/whoogle.png
 keywords:
-  - whoogle
-  - search
-  - open source
-  - privacy
-kubeVersion: ">=1.16.0-0"
+    - whoogle
+    - search
+    - open source
+    - privacy
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: whoogle
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/whoogle
-  - https://github.com/benbusby/whoogle-search
+    - https://github.com/truecharts/charts/tree/master/charts/stable/whoogle
+    - https://github.com/benbusby/whoogle-search
 version: 7.0.11
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: media
-  truecharts.org/SCALE-support: "true"

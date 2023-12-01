@@ -1,35 +1,35 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: life
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
-  - condition: postgresql.enabled
-    name: postgresql
-    repository: https://deps.truecharts.org/
-    version: 11.0.31
-  - condition: redis.enabled
-    name: redis
-    repository: https://deps.truecharts.org
-    version: 5.0.33
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 11.1.2
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://deps.truecharts.org/
+      version: 11.0.31
+    - condition: redis.enabled
+      name: redis
+      repository: https://deps.truecharts.org
+      version: 5.0.33
 description: Workout Manager is a free, open source web application that helps you manage your personal workouts, weight and diet plans and can also be used as a simple gym management utility.
 home: https://truecharts.org/charts/incubator/wger
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/wger.png
 keywords:
-  - workout
-kubeVersion: ">=1.16.0-0"
+    - workout
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: wger
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/wger
-  - https://github.com/wger-project/wger
-  - https://github.com/wger-project/docker
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/wger
+    - https://github.com/wger-project/wger
+    - https://github.com/wger-project/docker
 version: 5.0.0
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: life
-  truecharts.org/SCALE-support: "true"

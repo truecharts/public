@@ -1,30 +1,30 @@
 annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Network-Management
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Network-Management
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 11.1.2
 deprecated: false
 description: Gets external IP via DIG command ( OpenDNS , Cloudflare, google ) on a scheduled basis that can be customized. Also includes the ability to alert you via pushover if the IP changes.
 home: https://truecharts.org/charts/incubator/external-ip
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/external-ip.png
 keywords:
-  - external-ip
-  - Network-Management
-  - Network-Other
-kubeVersion: ">=1.16.0-0"
+    - external-ip
+    - Network-Management
+    - Network-Other
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: external-ip
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/external-ip
-  - https://github.com/xavier-hernandez/docker-external-ip
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/external-ip
+    - https://github.com/xavier-hernandez/docker-external-ip
 type: application
 version: 2.0.9

@@ -1,29 +1,29 @@
 annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Network-DNS
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Network-DNS
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 11.1.2
 deprecated: false
-description: "Dynamic DNS for Amazon Route 53‎ on a time-based schedule"
+description: Dynamic DNS for Amazon Route 53‎ on a time-based schedule
 home: https://truecharts.org/charts/incubator/ddns-route53
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ddns-route53.png
 keywords:
-  - ddns-route53
-  - Network-DNS
-kubeVersion: ">=1.16.0-0"
+    - ddns-route53
+    - Network-DNS
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: ddns-route53
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/ddns-route53
-  - https://github.com/crazy-max/ddns-route53
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/ddns-route53
+    - https://github.com/crazy-max/ddns-route53
 type: application
 version: 2.0.10

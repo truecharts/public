@@ -1,28 +1,28 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
 apiVersion: v2
-appVersion: "2.5.300"
+appVersion: 2.5.300
+dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 description: Make documentation a joy to write using Wiki.js's beautiful and intuitive interface!
-name: wikijs
-version: 12.0.10
-kubeVersion: ">=1.16.0-0"
-keywords:
-  - wiki
-  - wikijs
 home: https://truecharts.org/charts/stable/wikijs
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/wikijs.png
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/wikijs
-  - https://docs.requarks.io/install/docker
-  - https://github.com/Requarks/wiki
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+keywords:
+    - wiki
+    - wikijs
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: media
-  truecharts.org/SCALE-support: "true"
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+name: wikijs
+sources:
+    - https://github.com/truecharts/charts/tree/master/charts/stable/wikijs
+    - https://docs.requarks.io/install/docker
+    - https://github.com/Requarks/wiki
+version: 12.0.10

@@ -1,31 +1,31 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: incubator
 apiVersion: v2
-kubeVersion: ">=1.16.0-0"
-name: pydio-cells
-version: 8.0.0
-appVersion: "4.0.6"
-description: Pydio-cells is the nextgen file sharing platform for organizations.
-type: application
+appVersion: 4.0.6
+dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 11.1.2
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://deps.truecharts.org/
+      version: 5.0.35
 deprecated: false
+description: Pydio-cells is the nextgen file sharing platform for organizations.
 home: https://truecharts.org/charts/incubator/pydio-cells
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pydio-cells.png
 keywords:
-  - pydio-cells
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/pydio-cells
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
-  - condition: mariadb.enabled
-    name: mariadb
-    repository: https://deps.truecharts.org/
-    version: 5.0.35
+    - pydio-cells
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: incubator
-  truecharts.org/SCALE-support: "true"
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+name: pydio-cells
+sources:
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/pydio-cells
+type: application
+version: 8.0.0

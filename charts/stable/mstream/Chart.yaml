@@ -1,30 +1,30 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
 apiVersion: v2
-appVersion: "5.11.4"
+appVersion: 5.11.4
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 description: A personal music streaming server
 home: https://truecharts.org/charts/stable/mstream
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/mstream.png
 keywords:
-  - mstream
-  - server
-  - music
-kubeVersion: ">=1.16.0-0"
+    - mstream
+    - server
+    - music
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: mstream
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/mstream
-  - https://github.com/linuxserver/docker-mstream
-  - https://mstream.io/
+    - https://github.com/truecharts/charts/tree/master/charts/stable/mstream
+    - https://github.com/linuxserver/docker-mstream
+    - https://mstream.io/
 type: application
 version: 7.0.24
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: media
-  truecharts.org/SCALE-support: "true"

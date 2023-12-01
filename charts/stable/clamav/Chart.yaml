@@ -1,29 +1,29 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: utilities
 apiVersion: v2
-appVersion: "1.2.1"
+appVersion: 1.2.1
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 description: ClamAV is an open source antivirus engine for detecting trojans, viruses, malware & other malicious threats.
 home: https://truecharts.org/charts/stable/clamav
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/clamav.png
 keywords:
-  - clamav
-  - antivirus
-kubeVersion: ">=1.16.0-0"
+    - clamav
+    - antivirus
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: clamav
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/clamav
-  - https://github.com/Cisco-Talos/clamav
-  - https://docs.clamav.net/
+    - https://github.com/truecharts/charts/tree/master/charts/stable/clamav
+    - https://github.com/Cisco-Talos/clamav
+    - https://docs.clamav.net/
 type: application
 version: 7.0.13
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: utilities
-  truecharts.org/SCALE-support: "true"

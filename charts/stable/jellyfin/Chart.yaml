@@ -1,28 +1,28 @@
+annotations:
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
 apiVersion: v2
-appVersion: "10.8.13"
+appVersion: 10.8.13
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 deprecated: false
 description: Jellyfin is a Free Software Media System
 home: https://truecharts.org/charts/stable/jellyfin
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/jellyfin.png
 keywords:
-  - jellyfin
-  - plex
-  - emby
-kubeVersion: ">=1.16.0-0"
+    - jellyfin
+    - plex
+    - emby
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: jellyfin
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/jellyfin
-  - https://github.com/jellyfin/jellyfin
+    - https://github.com/truecharts/charts/tree/master/charts/stable/jellyfin
+    - https://github.com/jellyfin/jellyfin
 type: application
 version: 15.0.29
-annotations:
-  truecharts.org/category: media
-  truecharts.org/SCALE-support: "true"

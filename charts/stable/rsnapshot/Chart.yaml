@@ -1,26 +1,25 @@
+annotations:
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: incubator
 apiVersion: v2
-kubeVersion: ">=1.16.0-0"
-name: rsnapshot
-version: 6.0.21
-appVersion: "1.4.5"
-description: Rsnapshot is a filesystem snapshot utility based on rsync.
-type: application
+appVersion: 1.4.5
+dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 deprecated: false
+description: Rsnapshot is a filesystem snapshot utility based on rsync.
 home: https://truecharts.org/charts/stable/rsnapshot
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/rsnapshot.png
 keywords:
-  - rsnapshot
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/rsnapshot
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
-    # condition:
+    - rsnapshot
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-annotations:
-  truecharts.org/category: incubator
-  truecharts.org/SCALE-support: "true"
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+name: rsnapshot
+sources:
+    - https://github.com/truecharts/charts/tree/master/charts/stable/rsnapshot
+type: application
+version: 6.0.21

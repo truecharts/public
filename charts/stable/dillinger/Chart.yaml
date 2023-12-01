@@ -1,28 +1,27 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: incubator
 apiVersion: v2
-kubeVersion: ">=1.16.0-0"
-name: dillinger
-version: 6.0.19
-appVersion: "3.39.1"
-description: Dillinger is a cloud-enabled, mobile-ready, offline-storage, AngularJS powered HTML5 Markdown editor.
-type: application
+appVersion: 3.39.1
+dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 deprecated: false
+description: Dillinger is a cloud-enabled, mobile-ready, offline-storage, AngularJS powered HTML5 Markdown editor.
 home: https://truecharts.org/charts/stable/dillinger
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/dillinger.png
 keywords:
-  - dillinger
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/dillinger
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
-    # condition:
+    - dillinger
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: incubator
-  truecharts.org/SCALE-support: "true"
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+name: dillinger
+sources:
+    - https://github.com/truecharts/charts/tree/master/charts/stable/dillinger
+type: application
+version: 6.0.19

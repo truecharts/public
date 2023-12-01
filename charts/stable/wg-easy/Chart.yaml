@@ -1,30 +1,30 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: networking
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 deprecated: false
 description: The easiest way to run WireGuard VPN + Web-based Admin UI.
 home: https://truecharts.org/charts/stable/wg-easy
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/wg-easy.png
 keywords:
-  - wg-easy
-  - wireguard
-  - weejewel
-kubeVersion: ">=1.16.0-0"
+    - wg-easy
+    - wireguard
+    - weejewel
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: wg-easy
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/wg-easy
-  - https://github.com/WeeJeWel/wg-easy
+    - https://github.com/truecharts/charts/tree/master/charts/stable/wg-easy
+    - https://github.com/WeeJeWel/wg-easy
 type: application
 version: 5.0.9
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: networking
-  truecharts.org/SCALE-support: "true"

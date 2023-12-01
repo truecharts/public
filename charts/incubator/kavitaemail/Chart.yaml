@@ -1,31 +1,30 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: email
 apiVersion: v2
-kubeVersion: ">=1.16.0-0"
-name: kavitaemail
-version: 2.0.12
-appVersion: "0.1.14"
-description: Simple email relay server for kavita.
-type: application
+appVersion: 0.1.14
+dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 11.1.2
 deprecated: false
+description: Simple email relay server for kavita.
 home: https://truecharts.org/charts/incubator/kavitaemail
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/kavitaemail.png
 keywords:
-  - kavitaemail
-  - email
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/kavitaemail
-  - https://truecharts.org/charts/incubator/kavitaemail
-  - https://github.com/Kareadita/KavitaEmail
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
-    # condition:
+    - kavitaemail
+    - email
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: email
-  truecharts.org/SCALE-support: "true"
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+name: kavitaemail
+sources:
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/kavitaemail
+    - https://truecharts.org/charts/incubator/kavitaemail
+    - https://github.com/Kareadita/KavitaEmail
+type: application
+version: 2.0.12

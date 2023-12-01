@@ -1,34 +1,34 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: cloud
 apiVersion: v2
-kubeVersion: ">=1.16.0-0"
-name: meshcentral
-version: 11.0.14
-appVersion: "1.1.16"
-description: MeshCentral is a full computer management web site
-type: application
+appVersion: 1.1.16
+dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://deps.truecharts.org/
+      version: 6.0.67
 deprecated: false
+description: MeshCentral is a full computer management web site
 home: https://truecharts.org/charts/stable/meshcentral
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/meshcentral.png
 keywords:
-  - meshcentral
-  - teamviewer
-  - rdp
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/meshcentral
-  - https://github.com/Ylianst/MeshCentral
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
-  - condition: mongodb.enabled
-    name: mongodb
-    repository: https://deps.truecharts.org/
-    version: 6.0.67
+    - meshcentral
+    - teamviewer
+    - rdp
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: cloud
-  truecharts.org/SCALE-support: "true"
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+name: meshcentral
+sources:
+    - https://github.com/truecharts/charts/tree/master/charts/stable/meshcentral
+    - https://github.com/Ylianst/MeshCentral
+type: application
+version: 11.0.14

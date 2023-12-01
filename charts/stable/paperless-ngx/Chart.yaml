@@ -1,34 +1,34 @@
+annotations:
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: productivity
 apiVersion: v2
-kubeVersion: ">=1.16.0-0"
-name: paperless-ngx
-version: 3.0.1
-appVersion: "2.0.1"
-description: Paperless-ngx is an application by Daniel Quinn and contributors that indexes your scanned documents.
-type: application
+appVersion: 2.0.1
+dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
+    - condition: redis.enabled
+      name: redis
+      repository: https://deps.truecharts.org
+      version: 7.0.6
 deprecated: false
+description: Paperless-ngx is an application by Daniel Quinn and contributors that indexes your scanned documents.
 home: https://truecharts.org/charts/stable/paperless-ngx
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/paperless-ngx.png
 keywords:
-  - paperless-ng
-  - paperless-ngx
-  - documents
-  - paper
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/paperless-ngx
-  - https://github.com/paperless-ngx/paperless-ngx
-  - https://paperless-ngx.readthedocs.io/en/latest/
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
-  - condition: redis.enabled
-    name: redis
-    repository: https://deps.truecharts.org
-    version: 7.0.6
+    - paperless-ng
+    - paperless-ngx
+    - documents
+    - paper
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-annotations:
-  truecharts.org/category: productivity
-  truecharts.org/SCALE-support: "true"
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+name: paperless-ngx
+sources:
+    - https://github.com/truecharts/charts/tree/master/charts/stable/paperless-ngx
+    - https://github.com/paperless-ngx/paperless-ngx
+    - https://paperless-ngx.readthedocs.io/en/latest/
+type: application
+version: 3.0.1

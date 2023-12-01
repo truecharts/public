@@ -1,29 +1,29 @@
 annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Network-DNS
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Network-DNS
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 11.1.2
 deprecated: false
-description: "A very simple DNS server to connect to DNS-over-HTTPS service. This is similar to my other Pihole-with-DoH Chart, without Pihole."
+description: A very simple DNS server to connect to DNS-over-HTTPS service. This is similar to my other Pihole-with-DoH Chart, without Pihole.
 home: https://truecharts.org/charts/incubator/dns-doh-companion
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/dns-doh-companion.png
 keywords:
-  - dns-doh-companion
-  - Network-DNS
-kubeVersion: ">=1.16.0-0"
+    - dns-doh-companion
+    - Network-DNS
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: dns-doh-companion
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/dns-doh-companion
-  - https://developers.cloudflare.com/1.1.1.1/dns-over-https/cloudflared-proxy/
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/dns-doh-companion
+    - https://developers.cloudflare.com/1.1.1.1/dns-over-https/cloudflared-proxy/
 type: application
 version: 2.0.15

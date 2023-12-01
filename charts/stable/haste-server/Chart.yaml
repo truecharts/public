@@ -1,30 +1,30 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: utilities
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 description: Simple text sharing
 home: https://truecharts.org/charts/stable/haste-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/haste-server.png
 keywords:
-  - haste
-  - hastebin
-  - haste-server
-  - pastebin
-kubeVersion: ">=1.16.0-0"
+    - haste
+    - hastebin
+    - haste-server
+    - pastebin
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: haste-server
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/haste-server
-  - https://github.com/seejohnrun/haste-server
-  - https://github.com/k8s-at-home/container-images
+    - https://github.com/truecharts/charts/tree/master/charts/stable/haste-server
+    - https://github.com/seejohnrun/haste-server
+    - https://github.com/k8s-at-home/container-images
 version: 10.0.9
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: utilities
-  truecharts.org/SCALE-support: "true"

@@ -1,31 +1,31 @@
 annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Security
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Security
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 11.1.2
 deprecated: false
-description: 'A secure SOCKS5 proxy. Shadowsocks is a free and open-source encryption protocol project, widely used in China to circumvent Internet censorship. It was created in 2012 by a Chinese programmer named "clowwindy", and multiple implementations of the protocol have been made available since. Can be used with any SOCKS or Shadowsocks client.'
+description: A secure SOCKS5 proxy. Shadowsocks is a free and open-source encryption protocol project, widely used in China to circumvent Internet censorship. It was created in 2012 by a Chinese programmer named "clowwindy", and multiple implementations of the protocol have been made available since. Can be used with any SOCKS or Shadowsocks client.
 home: https://truecharts.org/charts/incubator/shadowsocks
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/shadowsocks.png
 keywords:
-  - shadowsocks
-  - Security
-  - Network-Proxy
-  - Network-VPN
-kubeVersion: ">=1.16.0-0"
+    - shadowsocks
+    - Security
+    - Network-Proxy
+    - Network-VPN
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: shadowsocks
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/shadowsocks
-  - https://github.com/shadowsocks/shadowsocks-libev/blob/master/docker/alpine/README.md
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/shadowsocks
+    - https://github.com/shadowsocks/shadowsocks-libev/blob/master/docker/alpine/README.md
 type: application
 version: 2.0.9

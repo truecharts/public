@@ -1,26 +1,25 @@
+annotations:
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: incubator
 apiVersion: v2
-kubeVersion: ">=1.16.0-0"
-name: boinc
-version: 6.0.25
-appVersion: "latest"
-description: BOINC is a platform for high-throughput computing on a large scale (thousands or millions of computers).
-type: application
+appVersion: latest
+dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 deprecated: false
+description: BOINC is a platform for high-throughput computing on a large scale (thousands or millions of computers).
 home: https://truecharts.org/charts/stable/boinc
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/boinc.png
 keywords:
-  - boinc
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/boinc
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
-    # condition:
+    - boinc
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-annotations:
-  truecharts.org/category: incubator
-  truecharts.org/SCALE-support: "true"
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+name: boinc
+sources:
+    - https://github.com/truecharts/charts/tree/master/charts/stable/boinc
+type: application
+version: 6.0.25

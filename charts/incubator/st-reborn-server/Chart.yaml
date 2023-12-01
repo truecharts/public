@@ -1,29 +1,29 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: games
 apiVersion: v2
-kubeVersion: ">=1.16.0-0"
-name: st-reborn-server
-version: 2.0.9
-appVersion: "1.2.0"
-description: Skyrim Together Reborn server files.
-type: application
+appVersion: 1.2.0
+dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 11.1.2
 deprecated: false
+description: Skyrim Together Reborn server files.
 home: https://truecharts.org/charts/incubator/st-reborn-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/st-reborn-server.png
 keywords:
-  - st-reborn-server
-  - gameserver
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/st-reborn-server
-  - https://github.com/tiltedphoques/TiltedEvolution
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    - st-reborn-server
+    - gameserver
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: games
-  truecharts.org/SCALE-support: "true"
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+name: st-reborn-server
+sources:
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/st-reborn-server
+    - https://github.com/tiltedphoques/TiltedEvolution
+type: application
+version: 2.0.9

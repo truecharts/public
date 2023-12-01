@@ -1,32 +1,32 @@
 annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Network-Other
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Network-Other
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 11.1.2
 deprecated: false
-description: "This Chart will run apt-mirror and Apache2. This allows you to create a local apt mirror for Debian packages."
+description: This Chart will run apt-mirror and Apache2. This allows you to create a local apt mirror for Debian packages.
 home: https://truecharts.org/charts/incubator/debian-apt-mirror
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/debian-apt-mirror.png
 keywords:
-  - debian-apt-mirror
-  - Network-Other
-  - Productivity
-  - Tools-Utilities
-  - Drivers
-kubeVersion: ">=1.16.0-0"
+    - debian-apt-mirror
+    - Network-Other
+    - Productivity
+    - Tools-Utilities
+    - Drivers
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: debian-apt-mirror
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/debian-apt-mirror
-  - https://www.debian.org/
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/debian-apt-mirror
+    - https://www.debian.org/
 type: application
 version: 2.0.9

@@ -1,31 +1,31 @@
 annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Productivity
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Productivity
 apiVersion: v2
-appVersion: "7.55.10"
+appVersion: 7.55.10
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 11.1.2
 deprecated: false
-description: "JFrog’s Artifactory open source project was created to speed up development cycles using binary repositories. It’s the world’s most advanced repository manager, creating a single place for teams to manage all their binary artifacts efficiently."
+description: JFrog’s Artifactory open source project was created to speed up development cycles using binary repositories. It’s the world’s most advanced repository manager, creating a single place for teams to manage all their binary artifacts efficiently.
 home: https://truecharts.org/charts/incubator/artifactory-oss
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/artifactory-oss.png
 keywords:
-  - artifactory-oss
-  - Productivity
-  - Tools-Utilities
-kubeVersion: ">=1.16.0-0"
+    - artifactory-oss
+    - Productivity
+    - Tools-Utilities
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: artifactory-oss
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/artifactory-oss
-  - https://jfrog.com/
-  - https://registry.hub.docker.com/r/docker.bintray.io/jfrog/artifactory-oss
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/artifactory-oss
+    - https://jfrog.com/
+    - https://registry.hub.docker.com/r/docker.bintray.io/jfrog/artifactory-oss
 type: application
 version: 2.0.19

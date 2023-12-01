@@ -1,28 +1,27 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: incubator
 apiVersion: v2
-kubeVersion: ">=1.16.0-0"
-name: wireshark
-version: 5.0.0
-appVersion: "3.6.5"
-description: Wireshark is the worlds foremost and widely-used network protocol analyzer.
-type: application
+appVersion: 3.6.5
+dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 11.1.2
 deprecated: false
+description: Wireshark is the worlds foremost and widely-used network protocol analyzer.
 home: https://truecharts.org/charts/incubator/wireshark
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/wireshark.png
 keywords:
-  - wireshark
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/wireshark
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
-    # condition:
+    - wireshark
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: incubator
-  truecharts.org/SCALE-support: "true"
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+name: wireshark
+sources:
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/wireshark
+type: application
+version: 5.0.0

@@ -1,33 +1,33 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
-  - condition: redis.enabled
-    name: redis
-    repository: https://deps.truecharts.org
-    version: 6.0.66
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
+    - condition: redis.enabled
+      name: redis
+      repository: https://deps.truecharts.org
+      version: 6.0.66
 deprecated: false
 description: A free and open source alternative Twitter front-end focused on privacy and performance.
 home: https://truecharts.org/charts/incubator/nitter
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/nitter.png
 keywords:
-  - nitter
-  - libre
-kubeVersion: ">=1.16.0-0"
+    - nitter
+    - libre
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: nitter
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/nitter
-  - https://github.com/zedeus/nitter
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/nitter
+    - https://github.com/zedeus/nitter
 type: application
 version: 2.0.0
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: media
-  truecharts.org/SCALE-support: "true"

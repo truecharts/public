@@ -1,27 +1,27 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 description: Serial to Socket Redirector
 home: https://truecharts.org/charts/stable/ser2sock
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ser2sock.png
 keywords:
-  - ser2sock
-kubeVersion: ">=1.16.0-0"
+    - ser2sock
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: ser2sock
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/ser2sock
-  - https://github.com/nutechsoftware/ser2sock
-  - https://github.com/tenstartups/ser2sock
+    - https://github.com/truecharts/charts/tree/master/charts/stable/ser2sock
+    - https://github.com/nutechsoftware/ser2sock
+    - https://github.com/tenstartups/ser2sock
 version: 10.0.10
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: media
-  truecharts.org/SCALE-support: "true"

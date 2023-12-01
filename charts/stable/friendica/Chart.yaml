@@ -1,35 +1,35 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: social
 apiVersion: v2
 appVersion: "2023.05"
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
-  - condition: mariadb.enabled
-    name: mariadb
-    repository: https://deps.truecharts.org/
-    version: 7.0.70
-  - condition: redis.enabled
-    name: redis
-    repository: https://deps.truecharts.org
-    version: 6.0.66
-description: "Welcome to the free social web"
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://deps.truecharts.org/
+      version: 7.0.70
+    - condition: redis.enabled
+      name: redis
+      repository: https://deps.truecharts.org
+      version: 6.0.66
+description: Welcome to the free social web
 home: https://truecharts.org/charts/stable/friendica
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/friendica.png
 keywords:
-  - friend
-  - social
-kubeVersion: ">=1.16.0-0"
+    - friend
+    - social
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: friendica
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/friendica
-  - https://friendi.ca/
+    - https://github.com/truecharts/charts/tree/master/charts/stable/friendica
+    - https://friendi.ca/
 version: 9.0.9
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: social
-  truecharts.org/SCALE-support: "true"

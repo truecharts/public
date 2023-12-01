@@ -1,29 +1,29 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: productivity
 apiVersion: v2
 appVersion: "2.433"
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 deprecated: false
 description: The gold standard in devops tools for running CI/CD pipelines.
 home: https://truecharts.org/charts/stable/jenkins
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/jenkins.png
 keywords:
-  - jenkins
-  - productivity
-kubeVersion: ">=1.16.0-0"
+    - jenkins
+    - productivity
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: jenkins
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/jenkins
-  - https://github.com/jenkinsci/docker
+    - https://github.com/truecharts/charts/tree/master/charts/stable/jenkins
+    - https://github.com/jenkinsci/docker
 type: application
 version: 4.1.17
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: productivity
-  truecharts.org/SCALE-support: "true"

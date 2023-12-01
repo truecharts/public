@@ -1,30 +1,30 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: HomeAutomation
 apiVersion: v2
-appVersion: "3.0.5"
+appVersion: 3.0.5
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 13.2.2
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 13.2.2
 deprecated: false
 description: A administrative platform for devices flashed with Tasmota.
 home: https://truecharts.org/charts/incubator/tasmoadmin
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/tasmoadmin.png
 keywords:
-  - tasmoadmin
-  - HomeAutomation
-  - Network-Management
-kubeVersion: ">=1.16.0-0"
+    - tasmoadmin
+    - HomeAutomation
+    - Network-Management
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: tasmoadmin
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/tasmoadmin
-  - https://github.com/TasmoAdmin/TasmoAdmin
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/tasmoadmin
+    - https://github.com/TasmoAdmin/TasmoAdmin
 type: application
 version: 4.0.10
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: HomeAutomation
-  truecharts.org/SCALE-support: "true"

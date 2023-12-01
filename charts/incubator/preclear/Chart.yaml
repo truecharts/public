@@ -1,32 +1,32 @@
 annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Productivity
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Productivity
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 11.1.2
 deprecated: false
 description: A utility to "burn-in" a new disk, before adding it to your array has been requested several times.  Also requested is a process to "pre-clear" a hard disk before adding it to your array.  When a special "signature" is detected, the lengthy "clearing" step otherwise performed by TrueNAS is skipped.
 home: https://truecharts.org/charts/incubator/preclear
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/preclear.png
 keywords:
-  - preclear
-  - Productivity
-  - Tools-Utilities
-kubeVersion: ">=1.16.0-0"
+    - preclear
+    - Productivity
+    - Tools-Utilities
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: preclear
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/preclear
-  - https://forums.TrueNAS.net/topic/2732-preclear_disksh-a-new-utility-to-burn-in-and-pre-clear-disks-for-quick-add/
-  - https://registry.hub.docker.com/r/binhex/arch-preclear/
-  - https://github.com/binhex/documentation
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/preclear
+    - https://forums.TrueNAS.net/topic/2732-preclear_disksh-a-new-utility-to-burn-in-and-pre-clear-disks-for-quick-add/
+    - https://registry.hub.docker.com/r/binhex/arch-preclear/
+    - https://github.com/binhex/documentation
 type: application
 version: 2.0.10

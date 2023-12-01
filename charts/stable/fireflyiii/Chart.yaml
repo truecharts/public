@@ -1,33 +1,33 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: finacial
 apiVersion: v2
-appVersion: "6.0.30"
+appVersion: 6.0.30
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
-  - condition: redis.enabled
-    name: redis
-    repository: https://deps.truecharts.org
-    version: 6.0.66
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
+    - condition: redis.enabled
+      name: redis
+      repository: https://deps.truecharts.org
+      version: 6.0.66
 deprecated: false
 description: A free and open source personal finance manager
 home: https://truecharts.org/charts/stable/fireflyiii
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/fireflyiii.png
 keywords:
-  - fireflyiii
-  - finacial
-kubeVersion: ">=1.16.0-0"
+    - fireflyiii
+    - finacial
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: fireflyiii
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/fireflyiii
-  - https://github.com/firefly-iii/firefly-iii/
+    - https://github.com/truecharts/charts/tree/master/charts/stable/fireflyiii
+    - https://github.com/firefly-iii/firefly-iii/
 type: application
 version: 21.0.18
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: finacial
-  truecharts.org/SCALE-support: "true"

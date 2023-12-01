@@ -1,28 +1,28 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: network
 apiVersion: v2
-kubeVersion: ">=1.16.0-0"
-name: zerotier
-version: 6.0.11
-appVersion: "1.12.2"
-description: ZeroTier is a smart programmable Ethernet switch for planet Earth
-type: application
+appVersion: 1.12.2
+dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 deprecated: false
+description: ZeroTier is a smart programmable Ethernet switch for planet Earth
 home: https://truecharts.org/charts/stable/zerotier
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/zerotier.png
 keywords:
-  - zerotier
-  - network
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/zerotier
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+    - zerotier
+    - network
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: network
-  truecharts.org/SCALE-support: "true"
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+name: zerotier
+sources:
+    - https://github.com/truecharts/charts/tree/master/charts/stable/zerotier
+type: application
+version: 6.0.11

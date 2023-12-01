@@ -1,27 +1,27 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: ai
 apiVersion: v2
-appVersion: "1.4.0"
+appVersion: 1.4.0
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 11.1.2
 description: A standalone, self-hosted, fast, free and Open Source Artificial Intelligence microserver for any platform, any language.
 home: https://truecharts.org/charts/incubator/senseai-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/senseai-server.png
 keywords:
-  - ai
-  - senseai
-kubeVersion: ">=1.16.0-0"
+    - ai
+    - senseai
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: senseai-server
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/senseai-server
-  - https://github.com/codeproject/CodeProject.SenseAI
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/senseai-server
+    - https://github.com/codeproject/CodeProject.SenseAI
 version: 2.0.9
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: ai
-  truecharts.org/SCALE-support: "true"

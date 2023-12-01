@@ -1,26 +1,25 @@
+annotations:
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: incubator
 apiVersion: v2
-kubeVersion: ">=1.16.0-0"
-name: dokuwiki
-version: 7.0.33
-appVersion: "20230404.1.0"
-description: Dokuwiki is a simple to use and highly versatile Open Source wiki software that doesn't require a database.
-type: application
+appVersion: 20230404.1.0
+dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 deprecated: false
+description: Dokuwiki is a simple to use and highly versatile Open Source wiki software that doesn't require a database.
 home: https://truecharts.org/charts/stable/dokuwiki
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/dokuwiki.png
 keywords:
-  - dokuwiki
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/dokuwiki
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
-    # condition:
+    - dokuwiki
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-annotations:
-  truecharts.org/category: incubator
-  truecharts.org/SCALE-support: "true"
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+name: dokuwiki
+sources:
+    - https://github.com/truecharts/charts/tree/master/charts/stable/dokuwiki
+type: application
+version: 7.0.33

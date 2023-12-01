@@ -1,28 +1,28 @@
 annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Network
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Network
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 deprecated: false
-description: "This is a Basic STUN & TURN server that was mainly created for Nextcloud Talk."
+description: This is a Basic STUN & TURN server that was mainly created for Nextcloud Talk.
 home: https://truecharts.org/charts/stable/stun-turn-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/stun-turn-server.png
 keywords:
-  - stun-turn-server
-  - Network
-kubeVersion: ">=1.16.0-0"
+    - stun-turn-server
+    - Network
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: stun-turn-server
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/stun-turn-server
+    - https://github.com/truecharts/charts/tree/master/charts/stable/stun-turn-server
 type: application
 version: 3.0.9

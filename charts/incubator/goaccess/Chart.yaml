@@ -1,28 +1,28 @@
 annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Other
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Other
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 11.1.2
 deprecated: false
 description: GoAccess is an open source real-time web log analyzer and interactive viewer that runs in a terminal in *nix systems or through your browser. It provides fast and valuable HTTP statistics for system administrators that require a visual server report on the fly.
 home: https://truecharts.org/charts/incubator/goaccess
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/goaccess.png
 keywords:
-  - goaccess
-  - Other
-kubeVersion: ">=1.16.0-0"
+    - goaccess
+    - Other
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: goaccess
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/goaccess
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/goaccess
 type: application
 version: 2.0.8

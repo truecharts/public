@@ -1,24 +1,24 @@
+annotations:
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
 apiVersion: v2
-appVersion: "22.1.5"
+appVersion: 22.1.5
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 description: Drawio is free online diagram software.
 home: https://truecharts.org/charts/stable/drawio
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/drawio.png
 keywords:
-  - drawio
-kubeVersion: ">=1.16.0-0"
+    - drawio
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: drawio
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/drawio
-  - https://github.com/jgraph/drawio
+    - https://github.com/truecharts/charts/tree/master/charts/stable/drawio
+    - https://github.com/jgraph/drawio
 version: 6.0.27
-annotations:
-  truecharts.org/category: media
-  truecharts.org/SCALE-support: "true"

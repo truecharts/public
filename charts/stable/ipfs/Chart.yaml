@@ -1,29 +1,29 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: storage
 apiVersion: v2
-appVersion: "0.24.0"
+appVersion: 0.24.0
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 deprecated: false
 description: IPFS is a global, versioned, peer-to-peer Interplanetary Filesystem.
 home: https://truecharts.org/charts/stable/ipfs
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ipfs.png
 keywords:
-  - ipfs
-  - kubo
-kubeVersion: ">=1.16.0-0"
+    - ipfs
+    - kubo
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: ipfs
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/ipfs
-  - https://github.com/ipfs/kubo
+    - https://github.com/truecharts/charts/tree/master/charts/stable/ipfs
+    - https://github.com/ipfs/kubo
 type: application
 version: 7.0.14
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: storage
-  truecharts.org/SCALE-support: "true"

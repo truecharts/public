@@ -1,30 +1,30 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: search
 apiVersion: v2
-appVersion: "9.4.0"
+appVersion: 9.4.0
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 15.3.1
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 15.3.1
 deprecated: false
 description: Apache Solr
 home: https://truecharts.org/charts/dependency/solr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/solr.png
 keywords:
-  - solr
-  - apache
-  - search
-kubeVersion: ">=1.16.0-0"
+    - solr
+    - apache
+    - search
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: solr
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/dependency/solr
-  - https://github.com/apache/solr
+    - https://github.com/truecharts/charts/tree/master/charts/dependency/solr
+    - https://github.com/apache/solr
 type: application
 version: 7.0.0
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: search
-  truecharts.org/SCALE-support: "true"

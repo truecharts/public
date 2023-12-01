@@ -1,31 +1,31 @@
 annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Cloud
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Cloud
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 11.1.2
 deprecated: false
-description: "RSS-proxy 2+ allows you to do create an ATOM or JSON feed of almost static/dynamic websites or feeds (web to feed), just by analyzing just the HTML structure."
+description: RSS-proxy 2+ allows you to do create an ATOM or JSON feed of almost static/dynamic websites or feeds (web to feed), just by analyzing just the HTML structure.
 home: https://truecharts.org/charts/incubator/rss-proxy
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/rss-proxy.png
 keywords:
-  - rss-proxy
-  - Cloud
-  - Tools-Utilities
-  - Network-Web
-kubeVersion: ">=1.16.0-0"
+    - rss-proxy
+    - Cloud
+    - Tools-Utilities
+    - Network-Web
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: rss-proxy
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/rss-proxy
-  - https://github.com/damoeb/rss-proxy
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/rss-proxy
+    - https://github.com/damoeb/rss-proxy
 type: application
 version: 2.0.9

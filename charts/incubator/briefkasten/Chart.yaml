@@ -1,32 +1,32 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: bookmark
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
-  - condition: postgresql.enabled
-    name: postgresql
-    repository: https://deps.truecharts.org/
-    version: 11.0.31
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 11.1.2
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://deps.truecharts.org/
+      version: 11.0.31
 deprecated: false
 description: Self-hosted bookmarking application.
 home: https://truecharts.org/charts/incubator/briefkasten
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/briefkasten.png
 keywords:
-  - bookmark
-kubeVersion: ">=1.16.0-0"
+    - bookmark
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: briefkasten
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/briefkasten
-  - https://github.com/ndom91/briefkasten
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/briefkasten
+    - https://github.com/ndom91/briefkasten
 type: application
 version: 0.0.16
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: bookmark
-  truecharts.org/SCALE-support: "true"

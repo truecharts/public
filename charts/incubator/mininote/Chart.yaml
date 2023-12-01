@@ -1,30 +1,30 @@
 annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Productivity
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Productivity
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 11.1.2
 deprecated: false
-description: "A simple, self-hosted, encrypted Markdown note-taking app built with Vue 3, and Express."
+description: A simple, self-hosted, encrypted Markdown note-taking app built with Vue 3, and Express.
 home: https://truecharts.org/charts/incubator/mininote
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/mininote.png
 keywords:
-  - mininote
-  - Productivity
-  - Tools-Utilities
-kubeVersion: ">=1.16.0-0"
+    - mininote
+    - Productivity
+    - Tools-Utilities
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: mininote
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/mininote
-  - https://github.com/muety/mininote
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/mininote
+    - https://github.com/muety/mininote
 type: application
 version: 2.0.9

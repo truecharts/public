@@ -1,30 +1,30 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Cloud
 apiVersion: v2
 appVersion: "1.1"
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 description: A dead simple URL shortener.
 home: https://truecharts.org/charts/stable/simply-shorten
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/simply-shorten.png
 keywords:
-  - simply-shorten
-  - Cloud
-  - Productivity
-  - Network-Web
-kubeVersion: ">=1.16.0-0"
+    - simply-shorten
+    - Cloud
+    - Productivity
+    - Network-Web
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: simply-shorten
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/simply-shorten
-  - https://gitlab.com/draganczukp/simply-shorten
+    - https://github.com/truecharts/charts/tree/master/charts/stable/simply-shorten
+    - https://gitlab.com/draganczukp/simply-shorten
 type: application
 version: 5.0.9
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: Cloud
-  truecharts.org/SCALE-support: "true"

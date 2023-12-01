@@ -1,29 +1,29 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: productivity
 apiVersion: v2
-appVersion: "1.0.0"
+appVersion: 1.0.0
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 11.1.2
 deprecated: false
-description: "Drone by Harness™ is a modern Continuous Integration platform"
+description: Drone by Harness™ is a modern Continuous Integration platform
 home: https://truecharts.org/charts/incubator/drone-runner
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/drone-runner.png
 keywords:
-  - drone
-  - productivity
-kubeVersion: ">=1.16.0-0"
+    - drone
+    - productivity
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: drone-runner
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/drone-runner
-  - https://docs.drone.io
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/drone-runner
+    - https://docs.drone.io
 type: application
 version: 3.0.9
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: productivity

@@ -1,29 +1,29 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: browser
 apiVersion: v2
-appVersion: "116.0.3"
+appVersion: 116.0.3
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 deprecated: false
 description: a free and open-source web browser developed by the Mozilla Foundation and its subsidiary, the Mozilla Corporation.
 home: https://truecharts.org/charts/stable/firefox
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/firefox.png
 keywords:
-  - firefox
-  - browser
-kubeVersion: ">=1.16.0-0"
+    - firefox
+    - browser
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: firefox
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/firefox
-  - https://github.com/linuxserver/docker-firefox
+    - https://github.com/truecharts/charts/tree/master/charts/stable/firefox
+    - https://github.com/linuxserver/docker-firefox
 type: application
 version: 7.0.20
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: browser
-  truecharts.org/SCALE-support: "true"

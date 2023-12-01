@@ -1,43 +1,43 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: security
 apiVersion: v2
-appVersion: "4.37.5"
+appVersion: 4.37.5
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
-  - condition: redis.enabled
-    name: redis
-    repository: https://deps.truecharts.org
-    version: 8.0.44
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
+    - condition: redis.enabled
+      name: redis
+      repository: https://deps.truecharts.org
+      version: 8.0.44
 deprecated: false
 description: Authelia is a Single Sign-On Multi-Factor portal for web apps
 home: https://truecharts.org/charts/enterprise/authelia
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/authelia.png
 keywords:
-  - authelia
-  - authentication
-  - login
-  - SSO
-  - Authentication
-  - Security
-  - Two-Factor
-  - U2F
-  - YubiKey
-  - Push Notifications
-  - LDAP
-kubeVersion: ">=1.16.0-0"
+    - authelia
+    - authentication
+    - login
+    - SSO
+    - Authentication
+    - Security
+    - Two-Factor
+    - U2F
+    - YubiKey
+    - Push Notifications
+    - LDAP
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: authelia
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/enterprise/authelia
-  - https://github.com/authelia/chartrepo
-  - https://github.com/authelia/authelia
+    - https://github.com/truecharts/charts/tree/master/charts/enterprise/authelia
+    - https://github.com/authelia/chartrepo
+    - https://github.com/authelia/authelia
 type: application
 version: 19.0.13
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: security
-  truecharts.org/SCALE-support: "true"

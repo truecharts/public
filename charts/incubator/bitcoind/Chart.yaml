@@ -1,31 +1,32 @@
 annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Tools-Utilities
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Tools-Utilities
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 11.1.2
 deprecated: false
-description: "Support the Bitcoin network by hosting your own node! This template provides a full Bitcoin Core node, built in a verifiably trustless way.\n"
+description: |
+    Support the Bitcoin network by hosting your own node! This template provides a full Bitcoin Core node, built in a verifiably trustless way.
 home: https://truecharts.org/charts/incubator/bitcoind
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/bitcoind.png
 keywords:
-  - bitcoind
-  - Tools-Utilities
-  - Network-Other
-  - Crypto
-kubeVersion: ">=1.16.0-0"
+    - bitcoind
+    - Tools-Utilities
+    - Network-Other
+    - Crypto
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: bitcoind
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/bitcoind
-  - https://bitcoin.org/
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/bitcoind
+    - https://bitcoin.org/
 type: application
 version: 2.0.9

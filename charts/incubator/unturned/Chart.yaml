@@ -1,29 +1,29 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: GameServers
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 13.2.2
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 13.2.2
 deprecated: false
 description: Unturned SteamCMD
 home: https://truecharts.org/charts/incubator/unturned
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/unturned.png
 keywords:
-  - unturned
-  - GameServers
-kubeVersion: ">=1.16.0-0"
+    - unturned
+    - GameServers
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: unturned
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/unturned
-  - https://github.com/ich777/docker-steamcmd-server/tree/unturned
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/unturned
+    - https://github.com/ich777/docker-steamcmd-server/tree/unturned
 type: application
 version: 3.0.5
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: GameServers
-  truecharts.org/SCALE-support: "true"

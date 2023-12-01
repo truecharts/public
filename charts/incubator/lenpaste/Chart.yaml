@@ -1,30 +1,30 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: productivity
 apiVersion: v2
-appVersion: "1.1.1"
+appVersion: 1.1.1
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
-  - condition: postgresql.enabled
-    name: postgresql
-    repository: https://deps.truecharts.org/
-    version: 11.0.31
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 11.1.2
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://deps.truecharts.org/
+      version: 11.0.31
 description: Lenpaste is a web service that allows you to share notes anonymously
 home: https://truecharts.org/charts/incubator/lenpaste
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/lenpaste.png
 keywords:
-  - lenpaste
-kubeVersion: ">=1.16.0-0"
+    - lenpaste
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: lenpaste
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/lenpaste
-  - https://git.lcomrade.su/root/lenpaste
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/lenpaste
+    - https://git.lcomrade.su/root/lenpaste
 version: 3.0.22
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: productivity
-  truecharts.org/SCALE-support: "true"

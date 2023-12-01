@@ -1,27 +1,27 @@
+annotations:
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
 apiVersion: v2
-appVersion: "2023.11.16"
+appVersion: 2023.11.16
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 deprecated: false
 description: Web GUI for youtube-dl.
 home: https://truecharts.org/charts/stable/metube
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/metube.png
 keywords:
-  - metube
-  - media
-kubeVersion: ">=1.16.0-0"
+    - metube
+    - media
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: metube
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/metube
-  - https://github.com/alexta69/metube
+    - https://github.com/truecharts/charts/tree/master/charts/stable/metube
+    - https://github.com/alexta69/metube
 type: application
 version: 8.0.11
-annotations:
-  truecharts.org/category: media
-  truecharts.org/SCALE-support: "true"

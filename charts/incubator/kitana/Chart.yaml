@@ -1,31 +1,31 @@
 annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: HomeAutomation
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: HomeAutomation
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 11.1.2
 deprecated: false
-description: 'Kitana exposes your Plex plugin interfaces "to the outside world". It does that by authenticating against Plex.TV, then connecting to the Plex Media Server you tell it to, and essentially proxying the plugin UI. It has full PMS connection awareness and allows you to connect locally, remotely, or even via relay.'
+description: Kitana exposes your Plex plugin interfaces "to the outside world". It does that by authenticating against Plex.TV, then connecting to the Plex Media Server you tell it to, and essentially proxying the plugin UI. It has full PMS connection awareness and allows you to connect locally, remotely, or even via relay.
 home: https://truecharts.org/charts/incubator/kitana
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/kitana.png
 keywords:
-  - kitana
-  - HomeAutomation
-  - Tools-Utilities
-  - MediaApp-Other
-kubeVersion: ">=1.16.0-0"
+    - kitana
+    - HomeAutomation
+    - Tools-Utilities
+    - MediaApp-Other
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: kitana
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/kitana
-  - https://github.com/pannal/Kitana
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/kitana
+    - https://github.com/pannal/Kitana
 type: application
 version: 2.0.10

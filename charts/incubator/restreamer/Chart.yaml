@@ -1,32 +1,31 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Network-Other
 apiVersion: v2
-kubeVersion: ">=1.16.0-0"
-name: restreamer
-version: 2.0.13
-appVersion: "2.5.0"
-description: "Allows smart free video streaming in real time."
-type: application
+appVersion: 2.5.0
+dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 11.1.2
 deprecated: false
+description: Allows smart free video streaming in real time.
 home: https://truecharts.org/charts/incubator/restreamer
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/restreamer.png
 keywords:
-  - restreamer
-  - Network-Other
-  - MediaApp-Video
-  - Productivity
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/restreamer
-  - https://datarhei.github.io/restreamer/
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
-    # condition:
+    - restreamer
+    - Network-Other
+    - MediaApp-Video
+    - Productivity
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: Network-Other
-  truecharts.org/SCALE-support: "true"
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+name: restreamer
+sources:
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/restreamer
+    - https://datarhei.github.io/restreamer/
+type: application
+version: 2.0.13

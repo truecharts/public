@@ -1,30 +1,30 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
 apiVersion: v2
-appVersion: "4.3.2"
+appVersion: 4.3.2
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
-  - condition: mongodb.enabled
-    name: mongodb
-    repository: https://deps.truecharts.org
-    version: 6.0.67
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://deps.truecharts.org
+      version: 6.0.67
 description: YoutubeDL-Material is a Material Design frontend for youtube-dl.
 home: https://truecharts.org/charts/stable/youtubedl-material
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/youtubedl-material.png
 keywords:
-  - youtube
-kubeVersion: ">=1.16.0-0"
+    - youtube
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: youtubedl-material
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/youtubedl-material
-  - https://github.com/Tzahi12345/YoutubeDL-Material
+    - https://github.com/truecharts/charts/tree/master/charts/stable/youtubedl-material
+    - https://github.com/Tzahi12345/YoutubeDL-Material
 version: 6.0.10
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: media
-  truecharts.org/SCALE-support: "true"

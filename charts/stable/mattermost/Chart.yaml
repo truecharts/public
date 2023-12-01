@@ -1,29 +1,29 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: hosting
 apiVersion: v2
 appVersion: "9.3"
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 description: Mattermost is an open source platform for secure collaboration across the entire software development lifecycle.
 home: https://truecharts.org/charts/stable/mattermost
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/mattermost.png
 keywords:
-  - team
-  - mattermost
-  - development
-kubeVersion: ">=1.16.0-0"
+    - team
+    - mattermost
+    - development
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: mattermost
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/mattermost
-  - https://github.com/mattermost/mattermost-server
-  - https://github.com/mattermost/docker
+    - https://github.com/truecharts/charts/tree/master/charts/stable/mattermost
+    - https://github.com/mattermost/mattermost-server
+    - https://github.com/mattermost/docker
 version: 9.0.55
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: hosting
-  truecharts.org/SCALE-support: "true"

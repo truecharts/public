@@ -1,33 +1,33 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: productivity
 apiVersion: v2
-appVersion: "2.0.35"
+appVersion: 2.0.35
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
-  - condition: mariadb.enabled
-    name: mariadb
-    repository: https://deps.truecharts.org/
-    version: 9.0.40
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://deps.truecharts.org/
+      version: 9.0.40
 description: Kimai is a free, open source and online time-tracking software designed for small businesses and freelancers.
 home: https://truecharts.org/charts/incubator/kimai
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/kimai.png
 keywords:
-  - kimai
-  - time
-  - tracking
-kubeVersion: ">=1.16.0-0"
+    - kimai
+    - time
+    - tracking
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: kimai
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/kimai
-  - https://github.com/kevinpapst/kimai2
-  - https://github.com/tobybatch/kimai2
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/kimai
+    - https://github.com/kevinpapst/kimai2
+    - https://github.com/tobybatch/kimai2
 version: 8.0.9
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: productivity
-  truecharts.org/SCALE-support: "true"

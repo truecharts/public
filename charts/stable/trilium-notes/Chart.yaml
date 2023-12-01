@@ -1,29 +1,29 @@
+annotations:
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
 apiVersion: v2
-appVersion: "0.62.3"
+appVersion: 0.62.3
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 deprecated: false
 description: Trilium Notes is a hierarchical note taking application with focus on building large personal knowledge bases.
 home: https://truecharts.org/charts/stable/trilium-notes
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/trilium-notes.png
 keywords:
-  - trilium
-  - notes
-  - note
-  - information
-kubeVersion: ">=1.16.0-0"
+    - trilium
+    - notes
+    - note
+    - information
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: trilium-notes
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/trilium-notes
-  - https://github.com/zadam/trilium
+    - https://github.com/truecharts/charts/tree/master/charts/stable/trilium-notes
+    - https://github.com/zadam/trilium
 type: application
 version: 9.1.1
-annotations:
-  truecharts.org/category: media
-  truecharts.org/SCALE-support: "true"

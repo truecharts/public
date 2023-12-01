@@ -1,26 +1,26 @@
+annotations:
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: organizers
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 deprecated: false
 description: HTPC/Homelab Services Organizer
 home: https://truecharts.org/charts/stable/organizr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/organizr.png
 keywords:
-  - organizr
-kubeVersion: ">=1.16.0-0"
+    - organizr
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: organizr
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/organizr
-  - https://github.com/causefx/Organizr
+    - https://github.com/truecharts/charts/tree/master/charts/stable/organizr
+    - https://github.com/causefx/Organizr
 type: application
 version: 15.0.12
-annotations:
-  truecharts.org/category: organizers
-  truecharts.org/SCALE-support: "true"

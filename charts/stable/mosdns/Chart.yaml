@@ -1,29 +1,28 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: networking
 apiVersion: v2
-kubeVersion: ">=1.16.0-0"
-name: mosdns
-version: 6.0.12
-appVersion: "5.3.1"
-description: A location-based pluggable DNS forwarder/splitter.
-type: application
+appVersion: 5.3.1
+dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 deprecated: false
+description: A location-based pluggable DNS forwarder/splitter.
 home: https://truecharts.org/charts/stable/mosdns
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/mosdns.png
 keywords:
-  - mosdns
-  - dns
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/mosdns
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
-    # condition:
+    - mosdns
+    - dns
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: networking
-  truecharts.org/SCALE-support: "true"
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+name: mosdns
+sources:
+    - https://github.com/truecharts/charts/tree/master/charts/stable/mosdns
+type: application
+version: 6.0.12

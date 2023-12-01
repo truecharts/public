@@ -1,38 +1,38 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: GIT
 apiVersion: v2
-appVersion: "1.21.1"
+appVersion: 1.21.1
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
-  - condition: memcached.enabled
-    name: memcached
-    repository: https://deps.truecharts.org/
-    version: 6.0.77
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
+    - condition: memcached.enabled
+      name: memcached
+      repository: https://deps.truecharts.org/
+      version: 6.0.77
 deprecated: false
 description: Self hosted GIT repositories
 home: https://truecharts.org/charts/stable/gitea
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/gitea.png
 keywords:
-  - git
-  - issue tracker
-  - code review
-  - wiki
-  - gitea
-  - gogs
-kubeVersion: ">=1.16.0-0"
+    - git
+    - issue tracker
+    - code review
+    - wiki
+    - gitea
+    - gogs
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: gitea
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/gitea
-  - https://gitea.com/gitea/helm-chart
-  - https://github.com/go-gitea/gitea
+    - https://github.com/truecharts/charts/tree/master/charts/stable/gitea
+    - https://gitea.com/gitea/helm-chart
+    - https://github.com/go-gitea/gitea
 type: application
 version: 14.0.13
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: GIT
-  truecharts.org/SCALE-support: "true"

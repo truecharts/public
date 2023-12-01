@@ -1,32 +1,32 @@
 annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Cloud
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Cloud
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 11.1.2
 deprecated: false
-description: "FileShelter is a self-hosted software that allows you to easily share files over the Internet. Just upload one or more files and get an URL back!"
+description: FileShelter is a self-hosted software that allows you to easily share files over the Internet. Just upload one or more files and get an URL back!
 home: https://truecharts.org/charts/incubator/fileshelter
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/fileshelter.png
 keywords:
-  - fileshelter
-  - Cloud
-  - Tools-Utilities
-  - Network-Web
-  - Network-FTP
-kubeVersion: ">=1.16.0-0"
+    - fileshelter
+    - Cloud
+    - Tools-Utilities
+    - Network-Web
+    - Network-FTP
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: fileshelter
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/fileshelter
-  - https://github.com/epoupon/fileshelter
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/fileshelter
+    - https://github.com/epoupon/fileshelter
 type: application
 version: 2.0.12

@@ -1,33 +1,33 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: incubator
 apiVersion: v2
-kubeVersion: ">=1.16.0-0"
-name: chevereto
-version: 8.0.9
-appVersion: "1.6.2"
-description: Chevereto is an image hosting software that allows you to create a beautiful and full-featured image hosting website on your own server.
-type: application
+appVersion: 1.6.2
+dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://deps.truecharts.org/
+      version: 7.0.70
 deprecated: false
+description: Chevereto is an image hosting software that allows you to create a beautiful and full-featured image hosting website on your own server.
 home: https://truecharts.org/charts/stable/chevereto
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/chevereto.png
 keywords:
-  - chevereto
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/chevereto
-  - https://chevereto-free.github.io/setup/system/environment.html#image-handling-variables
-  - https://github.com/rodber/chevereto-free
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
-  - condition: mariadb.enabled
-    name: mariadb
-    repository: https://deps.truecharts.org/
-    version: 7.0.70
+    - chevereto
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: incubator
-  truecharts.org/SCALE-support: "true"
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+name: chevereto
+sources:
+    - https://github.com/truecharts/charts/tree/master/charts/stable/chevereto
+    - https://chevereto-free.github.io/setup/system/environment.html#image-handling-variables
+    - https://github.com/rodber/chevereto-free
+type: application
+version: 8.0.9

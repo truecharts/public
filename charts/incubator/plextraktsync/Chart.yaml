@@ -1,30 +1,30 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Tools-Utilities
 apiVersion: v2
-appVersion: "0.27.7"
+appVersion: 0.27.7
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 deprecated: false
 description: Two-way-sync between trakt.tv and Plex Media Server.
 home: https://truecharts.org/charts/incubator/plextraktsync
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/plextraktsync.png
 keywords:
-  - plextraktsync
-  - Tools-Utilities
-  - MediaApp-Other
-kubeVersion: ">=1.16.0-0"
+    - plextraktsync
+    - Tools-Utilities
+    - MediaApp-Other
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: plextraktsync
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/plextraktsync
-  - https://github.com/Taxel/PlexTraktSync
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/plextraktsync
+    - https://github.com/Taxel/PlexTraktSync
 type: application
 version: 4.0.6
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: Tools-Utilities
-  truecharts.org/SCALE-support: "true"

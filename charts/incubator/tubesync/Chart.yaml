@@ -1,32 +1,32 @@
 annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Downloaders
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Downloaders
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 11.1.2
 deprecated: false
-description: "TubeSync is a PVR (personal video recorder) for YouTube. Or, like Sonarr but for YouTube (with a built-in download client). It is designed to synchronize channels and playlists from YouTube to local directories and update your media server once media is downloaded."
+description: TubeSync is a PVR (personal video recorder) for YouTube. Or, like Sonarr but for YouTube (with a built-in download client). It is designed to synchronize channels and playlists from YouTube to local directories and update your media server once media is downloaded.
 home: https://truecharts.org/charts/incubator/tubesync
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/tubesync.png
 keywords:
-  - tubesync
-  - Downloaders
-  - MediaApp-Video
-  - MediaServer-Video
-kubeVersion: ">=1.16.0-0"
+    - tubesync
+    - Downloaders
+    - MediaApp-Video
+    - MediaServer-Video
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: tubesync
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/tubesync
-  - https://github.com/meeb/tubesync
-  - https://registry.hub.docker.com/r/ghcr.io/meeb/tubesync
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/tubesync
+    - https://github.com/meeb/tubesync
+    - https://registry.hub.docker.com/r/ghcr.io/meeb/tubesync
 type: application
 version: 2.0.13

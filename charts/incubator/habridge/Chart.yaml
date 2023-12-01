@@ -1,28 +1,27 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: incubator
 apiVersion: v2
-kubeVersion: ">=1.16.0-0"
-name: habridge
-version: 5.0.0
-appVersion: "5.4.1"
-description: Habridge emulates Philips Hue API to other home automation gateways such as an Amazon Echo/Dot or other systems that support Philips Hue.
-type: application
+appVersion: 5.4.1
+dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 11.1.2
 deprecated: false
+description: Habridge emulates Philips Hue API to other home automation gateways such as an Amazon Echo/Dot or other systems that support Philips Hue.
 home: https://truecharts.org/charts/incubator/habridge
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/habridge.png
 keywords:
-  - habridge
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/habridge
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
-    # condition:
+    - habridge
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: incubator
-  truecharts.org/SCALE-support: "true"
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+name: habridge
+sources:
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/habridge
+type: application
+version: 5.0.0

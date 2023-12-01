@@ -1,26 +1,26 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
 apiVersion: v2
-appVersion: "3.6.2"
+appVersion: 3.6.2
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 description: An *arr Request Bot for Discord
 home: https://truecharts.org/charts/stable/doplarr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/doplarr.png
 keywords:
-  - doplarr
-kubeVersion: ">=1.16.0-0"
+    - doplarr
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: doplarr
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/doplarr
-  - https://github.com/kiranshila/Doplarr
+    - https://github.com/truecharts/charts/tree/master/charts/stable/doplarr
+    - https://github.com/kiranshila/Doplarr
 version: 6.0.9
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: media
-  truecharts.org/SCALE-support: "true"

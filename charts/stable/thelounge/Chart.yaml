@@ -1,30 +1,30 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: utilities
 apiVersion: v2
-appVersion: "4.4.1"
+appVersion: 4.4.1
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 description: The Lounge, modern web IRC client designed for self-hosting
 home: https://truecharts.org/charts/stable/thelounge
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/thelounge.png
 keywords:
-  - thelounge
-  - IRC
-  - The Lounge
-  - docker
-  - thelounge-docker
-kubeVersion: ">=1.16.0-0"
+    - thelounge
+    - IRC
+    - The Lounge
+    - docker
+    - thelounge-docker
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: thelounge
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/thelounge
-  - https://github.com/thelounge/thelounge
+    - https://github.com/truecharts/charts/tree/master/charts/stable/thelounge
+    - https://github.com/thelounge/thelounge
 version: 10.0.19
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: utilities
-  truecharts.org/SCALE-support: "true"

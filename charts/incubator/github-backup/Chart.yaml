@@ -1,28 +1,28 @@
 annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Backup
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Backup
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 11.1.2
 deprecated: false
 description: Like to maintain your own data? Automatically backup your github account to your Unraid server on a schedule.
 home: https://truecharts.org/charts/incubator/github-backup
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/github-backup.png
 keywords:
-  - github-backup
-  - Backup
-kubeVersion: ">=1.16.0-0"
+    - github-backup
+    - Backup
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: github-backup
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/github-backup
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/github-backup
 type: application
 version: 2.0.8

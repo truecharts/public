@@ -1,29 +1,28 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: cloud
 apiVersion: v2
-kubeVersion: ">=1.16.0-0"
-name: qinglong
-version: 6.0.18
-appVersion: "2.16.5"
-description: A timed task management panel that supports typescript, javaScript, python3, and shell
-type: application
+appVersion: 2.16.5
+dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 deprecated: false
+description: A timed task management panel that supports typescript, javaScript, python3, and shell
 home: https://truecharts.org/charts/stable/qinglong
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/qinglong.png
 keywords:
-  - qinglong
-  - task
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/qinglong
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
-    # condition:
+    - qinglong
+    - task
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: cloud
-  truecharts.org/SCALE-support: "true"
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
+name: qinglong
+sources:
+    - https://github.com/truecharts/charts/tree/master/charts/stable/qinglong
+type: application
+version: 6.0.18

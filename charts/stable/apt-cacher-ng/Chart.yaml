@@ -1,31 +1,31 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Network-Proxy
 apiVersion: v2
-appVersion: "3.7.4"
+appVersion: 3.7.4
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 deprecated: false
 description: Apt-Cacher NG is a caching proxy, specialized for package files from Linux distributors, primarily for Debian (and Debian based) distributions but not limited to those.
 home: https://truecharts.org/charts/stable/apt-cacher-ng
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/apt-cacher-ng.png
 keywords:
-  - apt-cacher-ng
-  - Network-Proxy
-  - Network-Other
-  - Tools-Utilities
-kubeVersion: ">=1.16.0-0"
+    - apt-cacher-ng
+    - Network-Proxy
+    - Network-Other
+    - Tools-Utilities
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: apt-cacher-ng
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/apt-cacher-ng
-  - https://www.unix-ag.uni-kl.de/~bloch/acng/
+    - https://github.com/truecharts/charts/tree/master/charts/stable/apt-cacher-ng
+    - https://www.unix-ag.uni-kl.de/~bloch/acng/
 type: application
 version: 5.0.9
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Network-Proxy

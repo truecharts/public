@@ -1,30 +1,30 @@
 annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Network-Messenger
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Network-Messenger
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 11.1.2
 deprecated: false
 description: Creates a simple webpage for Slack invite signups
 home: https://truecharts.org/charts/incubator/slack-invite
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/slack-invite.png
 keywords:
-  - slack-invite
-  - Network-Messenger
-  - Productivity
-kubeVersion: ">=1.16.0-0"
+    - slack-invite
+    - Network-Messenger
+    - Productivity
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: slack-invite
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/slack-invite
-  - httpss://github.com/ninthwalker/slack-invite
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/slack-invite
+    - httpss://github.com/ninthwalker/slack-invite
 type: application
 version: 2.0.9

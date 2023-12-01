@@ -1,29 +1,29 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: customization
 apiVersion: v2
 appVersion: "1.14"
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 deprecated: false
 description: Custom themes for your favorite apps!
 home: https://truecharts.org/charts/stable/theme-park
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/theme-park.png
 keywords:
-  - theme-park
-  - customization
-kubeVersion: ">=1.16.0-0"
+    - theme-park
+    - customization
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: theme-park
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/theme-park
-  - https://github.com/gilbn/theme.park
+    - https://github.com/truecharts/charts/tree/master/charts/stable/theme-park
+    - https://github.com/gilbn/theme.park
 type: application
 version: 6.0.10
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: customization
-  truecharts.org/SCALE-support: "true"

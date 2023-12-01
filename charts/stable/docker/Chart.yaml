@@ -1,25 +1,25 @@
+annotations:
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: docker
 apiVersion: v2
 appVersion: 24.0.7
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 deprecated: false
 description: Dedicated App for using Docker-in-Docker
 home: https://truecharts.org/charts/stable/docker
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/docker.png
 keywords:
-  - docker
-kubeVersion: ">=1.16.0-0"
+    - docker
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: docker
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/docker
+    - https://github.com/truecharts/charts/tree/master/charts/stable/docker
 type: application
 version: 1.0.4
-annotations:
-  truecharts.org/category: docker
-  truecharts.org/SCALE-support: "true"

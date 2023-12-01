@@ -1,29 +1,29 @@
 annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Productivity
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Productivity
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 11.1.2
 deprecated: false
-description: "Mocodo est un logiciel d'aide  l'enseignement et  la conception des bases de donnes relationnelles."
+description: Mocodo est un logiciel d'aide  l'enseignement et  la conception des bases de donnes relationnelles.
 home: https://truecharts.org/charts/incubator/mocodo-mcd
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/mocodo-mcd.png
 keywords:
-  - mocodo-mcd
-  - Productivity
-kubeVersion: ">=1.16.0-0"
+    - mocodo-mcd
+    - Productivity
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: mocodo-mcd
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/mocodo-mcd
-  - https://rawgit.com/laowantong/mocodo/master/doc/fr_refman.html#utiliser_mocodo_en_ligne_de_commande
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/mocodo-mcd
+    - https://rawgit.com/laowantong/mocodo/master/doc/fr_refman.html#utiliser_mocodo_en_ligne_de_commande
 type: application
 version: 2.0.11

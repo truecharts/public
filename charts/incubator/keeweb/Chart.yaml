@@ -1,30 +1,30 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Productivity
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 11.1.2
 description: This webapp is a browser and desktop password manager compatible with KeePass databases. It doesn't require any server or additional resources. The app can run either in browser, or as a desktop app.
 home: https://truecharts.org/charts/incubator/keeweb
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/keeweb.png
 keywords:
-  - keeweb
-  - Productivity
-  - Tools-Utilities
-  - Network-Web
-  - Network-Management
-kubeVersion: ">=1.16.0-0"
+    - keeweb
+    - Productivity
+    - Tools-Utilities
+    - Network-Web
+    - Network-Management
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: keeweb
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/keeweb
-  - https://github.com/keeweb/keeweb
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/keeweb
+    - https://github.com/keeweb/keeweb
 version: 2.0.10
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: Productivity
-  truecharts.org/SCALE-support: "true"

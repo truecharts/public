@@ -1,32 +1,32 @@
 annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Cloud
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Cloud
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 11.1.2
 deprecated: false
-description: "FileGator is a free, open-source, self-hosted web application for managing files and folders."
+description: FileGator is a free, open-source, self-hosted web application for managing files and folders.
 home: https://truecharts.org/charts/incubator/filegator
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/filegator.png
 keywords:
-  - filegator
-  - Cloud
-  - Productivity
-  - Tools-Utilities
-  - Network-FTP
-kubeVersion: ">=1.16.0-0"
+    - filegator
+    - Cloud
+    - Productivity
+    - Tools-Utilities
+    - Network-FTP
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: filegator
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/filegator
-  - https://github.com/filegator/filegator
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/filegator
+    - https://github.com/filegator/filegator
 type: application
 version: 2.0.9

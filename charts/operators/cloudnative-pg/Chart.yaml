@@ -1,35 +1,35 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: operators
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
+dependencies:
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
+    - alias: cloudnative-pg
+      name: cloudnative-pg
+      repository: https://cloudnative-pg.github.io/charts
+      version: 0.19.1
 deprecated: false
 description: CloudNativePG is a clustered postgresql database operator
 home: https://truecharts.org/charts/operators/cloudnative-pg
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/cloudnative-pg.png
 keywords:
-  - database
-  - cloudnative-pg
-  - cnpg
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
-  - name: cloudnative-pg
-    repository: https://cloudnative-pg.github.io/charts
-    version: 0.19.1
-    alias: cloudnative-pg
-kubeVersion: ">=1.16.0-0"
+    - database
+    - cloudnative-pg
+    - cnpg
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: cloudnative-pg
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/operators/cloudnative-pg
-  - https://github.com/cloudnative-pg
-  - https://cloudnative-pg.io/
+    - https://github.com/truecharts/charts/tree/master/charts/operators/cloudnative-pg
+    - https://github.com/cloudnative-pg
+    - https://cloudnative-pg.io/
 type: application
 version: 3.0.0
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: operators
-  truecharts.org/SCALE-support: "true"

@@ -1,29 +1,29 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: auth
 apiVersion: v2
-appVersion: "3.2.0"
+appVersion: 3.2.0
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 deprecated: false
 description: OpenSource Radius implementation
 home: https://truecharts.org/charts/stable/freeradius
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/freeradius.png
 keywords:
-  - radius
-  - auth
-kubeVersion: ">=1.16.0-0"
+    - radius
+    - auth
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: freeradius
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/freeradius
-  - https://freeradius.org/
+    - https://github.com/truecharts/charts/tree/master/charts/stable/freeradius
+    - https://freeradius.org/
 type: application
 version: 10.0.10
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: auth
-  truecharts.org/SCALE-support: "true"

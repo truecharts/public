@@ -1,34 +1,34 @@
 annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Cloud
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Cloud
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 11.1.2
 deprecated: false
-description: "This is a Server based on Golang, which allows you to serve WebP images on the fly. It will convert jpg,jpeg,png files by default, this can be customized by editing the config.json."
+description: This is a Server based on Golang, which allows you to serve WebP images on the fly. It will convert jpg,jpeg,png files by default, this can be customized by editing the config.json.
 home: https://truecharts.org/charts/incubator/webp-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/webp-server.png
 keywords:
-  - webp-server
-  - Cloud
-  - Productivity
-  - Tools-Utilities
-  - MediaServer-Photos
-  - Network-Web
-  - Network-FTP
-kubeVersion: ">=1.16.0-0"
+    - webp-server
+    - Cloud
+    - Productivity
+    - Tools-Utilities
+    - MediaServer-Photos
+    - Network-Web
+    - Network-FTP
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: webp-server
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/webp-server
-  - https://github.com/webp-sh/webp_server_go
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/webp-server
+    - https://github.com/webp-sh/webp_server_go
 type: application
 version: 2.0.16

@@ -1,38 +1,38 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: productivity
 apiVersion: v2
-appVersion: "2.7.4"
+appVersion: 2.7.4
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
-  - condition: postgresql.enabled
-    name: postgresql
-    repository: https://deps.truecharts.org/
-    version: 11.0.31
-  - condition: redis.enabled
-    name: redis
-    repository: https://deps.truecharts.org
-    version: 5.0.33
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 11.1.2
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://deps.truecharts.org/
+      version: 11.0.31
+    - condition: redis.enabled
+      name: redis
+      repository: https://deps.truecharts.org
+      version: 5.0.33
 deprecated: false
 description: Kutt is a modern URL shortener with support for custom domains. Shorten URLs, manage your links and view the click rate statistics.
 home: https://truecharts.org/charts/incubator/kutt
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/kutt.png
 keywords:
-  - kutt
-  - link
-  - short
-kubeVersion: ">=1.16.0-0"
+    - kutt
+    - link
+    - short
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: kutt
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/kutt
-  - https://github.com/thedevs-network/kutt
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/kutt
+    - https://github.com/thedevs-network/kutt
 type: application
 version: 7.0.0
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: productivity
-  truecharts.org/SCALE-support: "true"

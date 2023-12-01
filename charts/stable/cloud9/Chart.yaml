@@ -1,31 +1,31 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
 apiVersion: v2
-appVersion: "1.29.2"
+appVersion: 1.29.2
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 description: A complete web based IDE with terminal access
 home: https://truecharts.org/charts/stable/cloud9
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/cloud9.png
 keywords:
-  - cloud9
-  - ide
-  - terminal
-  - web
-kubeVersion: ">=1.16.0-0"
+    - cloud9
+    - ide
+    - terminal
+    - web
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: cloud9
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/cloud9
-  - https://aws.amazon.com/cloud9/
-  - https://github.com/c9/core
+    - https://github.com/truecharts/charts/tree/master/charts/stable/cloud9
+    - https://aws.amazon.com/cloud9/
+    - https://github.com/c9/core
 type: application
 version: 8.0.9
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: media
-  truecharts.org/SCALE-support: "true"

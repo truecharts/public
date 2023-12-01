@@ -1,28 +1,28 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: games
 apiVersion: v2
-appVersion: "1.5.6"
+appVersion: 1.5.6
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 deprecated: false
 description: Satisfactory Dedicated Server
 home: https://truecharts.org/charts/stable/satisfactory
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/satisfactory.png
 keywords:
-  - satisfactory
-kubeVersion: ">=1.16.0-0"
+    - satisfactory
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: satisfactory
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/satisfactory
-  - https://github.com/wolveix/satisfactory-server
+    - https://github.com/truecharts/charts/tree/master/charts/stable/satisfactory
+    - https://github.com/wolveix/satisfactory-server
 type: application
 version: 6.0.14
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: games
-  truecharts.org/SCALE-support: "true"

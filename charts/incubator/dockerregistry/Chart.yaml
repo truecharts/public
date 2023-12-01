@@ -1,33 +1,34 @@
 annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Cloud
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Cloud
 apiVersion: v2
 appVersion: "2"
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 11.1.2
 deprecated: false
-description: "Docker Registry is used to store and distribute Docker images using HTTP API. This allows you host your own private Registry and store your images. Uses official Chart Registry image @ https://hub.Chart.com/_/registry/\n"
+description: |
+    Docker Registry is used to store and distribute Docker images using HTTP API. This allows you host your own private Registry and store your images. Uses official Chart Registry image @ https://hub.Chart.com/_/registry/
 home: https://truecharts.org/charts/incubator/dockerregistry
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/dockerregistry.png
 keywords:
-  - dockerregistry
-  - Cloud
-  - Network-Management
-  - Productivity
-  - Tools-Utilities
-kubeVersion: ">=1.16.0-0"
+    - dockerregistry
+    - Cloud
+    - Network-Management
+    - Productivity
+    - Tools-Utilities
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: dockerregistry
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/dockerregistry
-  - https://github.com/distribution/distribution
-  - https://registry.hub.docker.com/_/registry/
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/dockerregistry
+    - https://github.com/distribution/distribution
+    - https://registry.hub.docker.com/_/registry/
 type: application
 version: 2.0.12

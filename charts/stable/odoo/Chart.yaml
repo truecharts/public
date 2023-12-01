@@ -1,34 +1,34 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: productivity
 apiVersion: v2
 appVersion: "17.0"
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 deprecated: false
 description: All-in-one business software. Beautiful. Easy-to-use. CRM, Accounting, PM, HR, Procurement, Point of Sale, MRP, Marketing, etc.
 home: https://truecharts.org/charts/stable/odoo
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/odoo.png
 keywords:
-  - odoo
-  - crm
-  - pm
-  - hr
-  - accounting
-  - mrp
-  - marketing
-kubeVersion: ">=1.16.0-0"
+    - odoo
+    - crm
+    - pm
+    - hr
+    - accounting
+    - mrp
+    - marketing
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: odoo
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/odoo
-  - https://github.com/odoo/docker
+    - https://github.com/truecharts/charts/tree/master/charts/stable/odoo
+    - https://github.com/odoo/docker
 type: application
 version: 14.0.17
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: productivity
-  truecharts.org/SCALE-support: "true"

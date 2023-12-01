@@ -1,31 +1,31 @@
+annotations:
+    max_scale_version: 23.10.1
+    min_scale_version: 22.12.4
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: database
 apiVersion: v2
-appVersion: "14.7.0"
+appVersion: 14.7.0
 dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+    - name: common
+      repository: https://library-charts.truecharts.org
+      version: 14.3.5
 deprecated: false
 description: PostgresSQL
 home: https://truecharts.org/charts/incubator/postgresql
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/postgresql.png
 keywords:
-  - postgres
-  - postgressql
-  - dtabase
-  - sql
-kubeVersion: ">=1.16.0-0"
+    - postgres
+    - postgressql
+    - dtabase
+    - sql
+kubeVersion: '>=1.16.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    - email: info@truecharts.org
+      name: TrueCharts
+      url: https://truecharts.org
 name: postgresql
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/postgresql
-  - https://www.postgresql.org/
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/postgresql
+    - https://www.postgresql.org/
 type: application
 version: 14.0.6
-annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
-  truecharts.org/category: database
-  truecharts.org/SCALE-support: "true"
