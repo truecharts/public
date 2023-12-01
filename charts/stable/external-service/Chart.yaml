@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: "3.18.4"
+appVersion: 3.18.5
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -20,7 +20,7 @@ name: external-service
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/external-service
 type: application
-version: 10.0.10
+version: 10.0.11
 annotations:
   min_scale_version: "22.12.4"
   max_scale_version: "23.10.1"
