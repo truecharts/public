@@ -11,87 +11,83 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-                                - variable: env
-                                  group: App Configuration
-                                  label: Image Environment
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                      - variable: ScreenscraperUsername
-                                        label: Screenscraper Username
-                                        description: Username for screenscraper.fr.
-                                        schema:
-                                          type: string
-                                          default: ""
-                                      - variable: ScreenscraperPassword
-                                        label: Screenscraper Password
-                                        description: Password for screenscraper.fr.
-                                        schema:
-                                          type: string
-                                          default: ""
-                                      - variable: AutoStart
-                                        label: Auto Start
-                                        description: If checked runs script automatically on startup
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                          show_subquestions_if: true
-                                          subquestions:
-                                            - variable: ScriptInterval
-                                              label: Script Interval
-                                              description: "Amount of time between each script run | #s or #m or #h or #d  s = seconds, m = minutes, h = hours, d = days."
-                                              schema:
-                                                type: string
-                                                default: 1h
-                                      - variable: DeDupe
-                                        label: DeDupe
-                                        description: If checked this setting further reduces the final ROMs list per platform, by removing duplicates.
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                      - variable: AquireRomSets
-                                        label: Aquire Rom Sets
-                                        description: Enabling this will have the script attempt to pull valid ROM sets from archive.org for processing.
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                          show_subquestions_if: true
-                                          subquestions:
-                                            - variable: ConcurrentDownloadThreads
-                                              label: Concurrent Download Threads
-                                              description: Number of concurrent threads to increase download speeds.
-                                              schema:
-                                                type: int
-                                                default: 5
-                                      - variable: EnableUnsupportedPlatforms
-                                        label: Enable Unsupported Platforms
-                                        description: Enabling this will allow the script to import and scrape ROMs for platforms without RA hashes.
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                      - variable: ScrapeMetadata
-                                        label: Scrape Metadata
-                                        description: Enabling this will allow the script to process the ROMs with skyscraper.
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                      - variable: keepBackupsOfImportedRoms
-                                        label: keep Backups Of Imported Roms
-                                        description: If unchecked this setting will only keep a single copy of each ROM, reduces the required amount of storage space.
-                                        schema:
-                                          type: boolean
-                                          default: true
-                                      - variable: skyscraperLanguagePreference
-                                        label: Skyscaper Language
-                                        description: Set to preferred language for Metadata.
-                                        schema:
-                                          type: string
-                                          default: en
-# Include{containerBasic}
-# Include{containerAdvanced}
-# Include{containerConfig}
-# Include{podOptions}
+                                                              - variable: env
+                                                                group: "App Configuration"
+                                                                label: "Image Environment"
+                                                                schema:
+                                                                  additional_attrs: true
+                                                                  type: dict
+                                                                  attrs:
+                                                                    - variable: ScreenscraperUsername
+                                                                      label: Screenscraper Username
+                                                                      description: Username for screenscraper.fr.
+                                                                      schema:
+                                                                        type: string
+                                                                        default: ""
+                                                                    - variable: ScreenscraperPassword
+                                                                      label: Screenscraper Password
+                                                                      description: Password for screenscraper.fr.
+                                                                      schema:
+                                                                        type: string
+                                                                        default: ""
+                                                                    - variable: AutoStart
+                                                                      label: Auto Start
+                                                                      description: If checked runs script automatically on startup
+                                                                      schema:
+                                                                        type: boolean
+                                                                        default: false
+                                                                        show_subquestions_if: true
+                                                                        subquestions:
+                                                                          - variable: ScriptInterval
+                                                                            label: Script Interval
+                                                                            description: "Amount of time between each script run | #s or #m or #h or #d  s = seconds, m = minutes, h = hours, d = days."
+                                                                            schema:
+                                                                              type: string
+                                                                              default: 1h
+                                                                    - variable: DeDupe
+                                                                      label: DeDupe
+                                                                      description: If checked this setting further reduces the final ROMs list per platform, by removing duplicates.
+                                                                      schema:
+                                                                        type: boolean
+                                                                        default: false
+                                                                    - variable: AquireRomSets
+                                                                      label: Aquire Rom Sets
+                                                                      description: Enabling this will have the script attempt to pull valid ROM sets from archive.org for processing.
+                                                                      schema:
+                                                                        type: boolean
+                                                                        default: false
+                                                                        show_subquestions_if: true
+                                                                        subquestions:
+                                                                          - variable: ConcurrentDownloadThreads
+                                                                            label: Concurrent Download Threads
+                                                                            description: Number of concurrent threads to increase download speeds.
+                                                                            schema:
+                                                                              type: int
+                                                                              default: 5
+                                                                    - variable: EnableUnsupportedPlatforms
+                                                                      label: Enable Unsupported Platforms
+                                                                      description: Enabling this will allow the script to import and scrape ROMs for platforms without RA hashes.
+                                                                      schema:
+                                                                        type: boolean
+                                                                        default: false
+                                                                    - variable: ScrapeMetadata
+                                                                      label: Scrape Metadata
+                                                                      description: Enabling this will allow the script to process the ROMs with skyscraper.
+                                                                      schema:
+                                                                        type: boolean
+                                                                        default: false
+                                                                    - variable: keepBackupsOfImportedRoms
+                                                                      label: keep Backups Of Imported Roms
+                                                                      description: If unchecked this setting will only keep a single copy of each ROM, reduces the required amount of storage space.
+                                                                      schema:
+                                                                        type: boolean
+                                                                        default: true
+                                                                    - variable: skyscraperLanguagePreference
+                                                                      label: Skyscaper Language
+                                                                      description: Set to preferred language for Metadata.
+                                                                      schema:
+                                                                        type: string
+                                                                        default: en
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
 # Include{serviceList}
@@ -135,31 +131,30 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{persistenceBasic}
 # Include{persistenceList}
 
-# Include{securityContextRoot}
-              - variable: runAsUser
-                label: runAsUser
-                description: The UserID of the user running the application.
-                schema:
-                  type: int
-                  default: 0
-              - variable: runAsGroup
-                label: runAsGroup
-                description: The groupID this App of the user running the application.
-                schema:
-                  type: int
-                  default: 0
+# Include{podSecurityContextRoot}
+        - variable: runAsUser
+          label: runAsUser
+          description: The UserID of the user running the application.
+          schema:
+            type: int
+            default: 0
+        - variable: runAsGroup
+          label: runAsGroup
+          description: The groupID this App of the user running the application.
+          schema:
+            type: int
+            default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-              - variable: fsGroup
-                label: "fsGroup"
-                description: "The group that should own ALL storage."
-                schema:
-                  type: int
-                  default: 568
+        - variable: fsGroup
+          label: fsGroup
+          description: The group that should own ALL storage.
+          schema:
+            type: int
+            default: 568
 
 # Include{resources}
 # Include{advanced}
