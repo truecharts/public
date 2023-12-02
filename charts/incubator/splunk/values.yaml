@@ -30,6 +30,14 @@ service:
         port: 8000
         protocol: http
         targetPort: 8000
+  hec:
+    enabled: true
+    ports:
+      hec:
+        enabled: true
+        port: 8088
+        protocol: http
+        targetPort: 8088
   management:
     enabled: true
     ports:
