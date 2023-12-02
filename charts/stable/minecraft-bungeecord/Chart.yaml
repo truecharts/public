@@ -1,5 +1,7 @@
+annotations:
+  "truecharts.org/category": proxy
 apiVersion: v2
-appVersion: "2022.4.1"
+appVersion: 2022.4.1
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -23,6 +25,3 @@ sources:
   - https://github.com/itzg/docker-bungeecord
 type: application
 version: 5.0.10
-annotations:
-  truecharts.org/category: proxy
-  truecharts.org/SCALE-support: "true"
