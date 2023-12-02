@@ -1,30 +1,40 @@
+kubeVersion: '>=1.24.0'
 apiVersion: v2
-appVersion: "2.0.4.3802"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
-deprecated: false
+name: lidarr
+version: 17.0.25
+appVersion: 2.0.4.3802
 description: Looks and smells like Sonarr but made for music
 home: https://truecharts.org/charts/stable/lidarr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/lidarr.png
-keywords:
-  - lidarr
-  - torrent
-  - usenet
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: lidarr
+deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/lidarr
-  - https://github.com/Lidarr/Lidarr
-type: application
-version: 17.0.25
+- https://github.com/Lidarr/Lidarr
+- https://github.com/truecharts/charts/tree/master/charts/stable/lidarr
+- https://ghcr.io/onedr0p/lidarr-develop
+maintainers:
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
+keywords:
+- lidarr
+- torrent
+- usenet
+dependencies:
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
+  max_scale_version: 23.10.1
+  'max_scale_version:': 23.10.1
+  min_scale_version: 22.12.4
+  'min_scale_version:': 22.12.4
+  'truecharts.org/SCALE-support:': "true"
   truecharts.org/category: media
-  truecharts.org/SCALE-support: "true"
+  'truecharts.org/category:': unsorted
+  'truecharts.org/max_helm_version:': "3.13"
+  'truecharts.org/min_helm_version:': "3.12"
+  truecharts.org/train: stable

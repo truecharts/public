@@ -1,29 +1,37 @@
+kubeVersion: '>=1.24.0'
 apiVersion: v2
-appVersion: "latest"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
-deprecated: false
+name: ps3netsrv
+version: 2.0.9
+appVersion: latest
 description: Allows Multiman or Webman to play game backups.
 home: https://truecharts.org/charts/incubator/ps3netsrv
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ps3netsrv.png
-keywords:
-  - ps3netsrv
-  - Network-Other
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: ps3netsrv
+deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/ps3netsrv
-  - https://github.com/aldostools/webMAN-MOD/tree/master/_Projects_/ps3netsrv
-type: application
-version: 2.0.9
+- https://github.com/aldostools/webMAN-MOD/tree/master/_Projects_/ps3netsrv
+- https://github.com/truecharts/charts/tree/master/charts/incubator/ps3netsrv
+- https://github.com/truecharts/containers/tree/master/mirrorps3netsrv
+maintainers:
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
+keywords:
+- ps3netsrv
+- Network-Other
+dependencies:
+- name: common
+  version: 11.1.2
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
+  'max_scale_version:': 23.10.1
+  'min_scale_version:': 22.12.4
+  'truecharts.org/SCALE-support:': "true"
   truecharts.org/category: Network-Other
-  truecharts.org/SCALE-support: "true"
+  'truecharts.org/category:': unsorted
+  'truecharts.org/max_helm_version:': "3.13"
+  'truecharts.org/min_helm_version:': "3.12"
+  truecharts.org/train: incubator

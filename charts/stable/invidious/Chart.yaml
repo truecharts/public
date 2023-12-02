@@ -1,29 +1,39 @@
+kubeVersion: '>=1.24.0'
 apiVersion: v2
-appVersion: "latest"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+name: invidious
+version: 6.0.23
+appVersion: latest
 description: Open source alternative front-end to YouTube.
 home: https://truecharts.org/charts/stable/invidious
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/invidious.png
-keywords:
-  - invidious
-  - youtube
-  - media
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: invidious
+deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/invidious
-  - https://github.com/iv-org/invidious
-  - https://docs.invidious.io/installation/#docker
-version: 6.0.22
+- https://docs.invidious.io/installation/#docker
+- https://github.com/truecharts/charts/tree/master/charts/stable/invidious
+- https://quay.io/invidious/invidious
+- https://github.com/iv-org/invidious
+maintainers:
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
+keywords:
+- invidious
+- youtube
+- media
+dependencies:
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
+  'max_scale_version:': 23.10.1
+  'min_scale_version:': 22.12.4
+  'truecharts.org/SCALE-support:': "true"
   truecharts.org/category: media
-  truecharts.org/SCALE-support: "true"
+  'truecharts.org/category:': unsorted
+  'truecharts.org/max_helm_version:': "3.13"
+  'truecharts.org/min_helm_version:': "3.12"
+  truecharts.org/train: stable

@@ -1,3 +1,5 @@
+annotations:
+  "truecharts.org/category": cloud
 apiVersion: v2
 appVersion: 27.1.4
 dependencies:
@@ -29,7 +31,4 @@ sources:
   - https://github.com/nextcloud/docker
   - https://github.com/nextcloud/helm
 type: application
-version: 22.2.10
-annotations:
-  truecharts.org/category: cloud
-  truecharts.org/SCALE-support: "true"
+version: 22.2.12
