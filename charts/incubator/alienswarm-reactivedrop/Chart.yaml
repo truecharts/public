@@ -1,38 +1,32 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: alienswarm-reactivedrop
 version: 2.0.9
 appVersion: latest
-description: 'This Chart will download and install SteamCMD. It will also install
-  Alien Swarm: Reactive Drop and run it.'
+description:
+  "This Chart will download and install SteamCMD. It will also install
+  Alien Swarm: Reactive Drop and run it."
 home: https://truecharts.org/charts/incubator/alienswarm-reactivedrop
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/alienswarm-reactivedrop.png
 deprecated: false
 sources:
-- https://github.com/truecharts/charts/tree/master/charts/incubator/alienswarm-reactivedrop
-- https://github.com/truecharts/containers/tree/master/mirroralienswarm-reactivedrop
-- https://www.steampowered.com/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/alienswarm-reactivedrop
+  - https://github.com/truecharts/containers/tree/master/mirroralienswarm-reactivedrop
+  - https://www.steampowered.com/
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- alienswarm-reactivedrop
-- GameServers
+  - alienswarm-reactivedrop
+  - GameServers
 dependencies:
-- name: common
-  version: 11.1.2
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 11.1.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  'max_scale_version:': 23.10.1
-  'min_scale_version:': 22.12.4
-  'truecharts.org/SCALE-support:': "true"
   truecharts.org/category: GameServers
-  'truecharts.org/category:': unsorted
-  'truecharts.org/max_helm_version:': "3.13"
-  'truecharts.org/min_helm_version:': "3.12"
-  truecharts.org/train: incubator

@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: omada-controller
 version: 10.0.34
@@ -8,29 +8,22 @@ home: https://truecharts.org/charts/stable/omada-controller
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/omada-controller.png
 deprecated: false
 sources:
-- https://hub.docker.com/r/mbentley/omada-controller
-- https://github.com/mbentley/docker-omada-controller
-- https://github.com/truecharts/charts/tree/master/charts/stable/omada-controller
+  - https://hub.docker.com/r/mbentley/omada-controller
+  - https://github.com/mbentley/docker-omada-controller
+  - https://github.com/truecharts/charts/tree/master/charts/stable/omada-controller
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- omada-controller
+  - omada-controller
 dependencies:
-- name: common
-  version: 14.3.5
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.3.5
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  'max_scale_version:': 23.10.1
-  'min_scale_version:': 22.12.4
-  'truecharts.org/SCALE-support:': "true"
   truecharts.org/category: media
-  'truecharts.org/category:': unsorted
-  'truecharts.org/max_helm_version:': "3.13"
-  'truecharts.org/min_helm_version:': "3.12"
-  truecharts.org/train: stable

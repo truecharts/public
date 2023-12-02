@@ -1,40 +1,34 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: pure-ftpd
 version: 2.0.9
 appVersion: latest
-description: Pure-FTPd is a free (BSD), secure, production-quality and standard-conformant
+description:
+  Pure-FTPd is a free (BSD), secure, production-quality and standard-conformant
   FTP server. [br]Creating user by using console "pure-pw useradd admin -u 99 -g 100
   -d /home/admin -m"[/br]
 home: https://truecharts.org/charts/incubator/pure-ftpd
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pure-ftpd.png
 deprecated: false
 sources:
-- https://www.pureftpd.org/project/pure-ftpd/
-- https://github.com/truecharts/charts/tree/master/charts/incubator/pure-ftpd
-- https://github.com/truecharts/containers/tree/master/mirrorpure-ftpd
+  - https://www.pureftpd.org/project/pure-ftpd/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/pure-ftpd
+  - https://github.com/truecharts/containers/tree/master/mirrorpure-ftpd
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- pure-ftpd
-- Tools-Utilities
-- Network-FTP
+  - pure-ftpd
+  - Tools-Utilities
+  - Network-FTP
 dependencies:
-- name: common
-  version: 11.1.2
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 11.1.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  'max_scale_version:': 23.10.1
-  'min_scale_version:': 22.12.4
-  'truecharts.org/SCALE-support:': "true"
   truecharts.org/category: Tools-Utilities
-  'truecharts.org/category:': unsorted
-  'truecharts.org/max_helm_version:': "3.13"
-  'truecharts.org/min_helm_version:': "3.12"
-  truecharts.org/train: incubator

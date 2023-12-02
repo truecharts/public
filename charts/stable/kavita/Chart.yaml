@@ -1,40 +1,34 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: kavita
 version: 6.0.10
 appVersion: 0.7.8
-description: Kavita is a rocket fueled self-hosted digital library which supports
+description:
+  Kavita is a rocket fueled self-hosted digital library which supports
   a vast array of file formats
 home: https://truecharts.org/charts/stable/kavita
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/kavita.png
 deprecated: false
 sources:
-- https://www.kavitareader.com
-- https://github.com/truecharts/charts/tree/master/charts/stable/kavita
-- https://hub.docker.com/r/kizaing/kavita
+  - https://www.kavitareader.com
+  - https://github.com/truecharts/charts/tree/master/charts/stable/kavita
+  - https://hub.docker.com/r/kizaing/kavita
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- kavita
-- manga
-- library
-- book
+  - kavita
+  - manga
+  - library
+  - book
 dependencies:
-- name: common
-  version: 14.3.5
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.3.5
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  'max_scale_version:': 23.10.1
-  'min_scale_version:': 22.12.4
-  'truecharts.org/SCALE-support:': "true"
   truecharts.org/category: media
-  'truecharts.org/category:': unsorted
-  'truecharts.org/max_helm_version:': "3.13"
-  'truecharts.org/min_helm_version:': "3.12"
-  truecharts.org/train: stable
