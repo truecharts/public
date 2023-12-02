@@ -1,5 +1,7 @@
+annotations:
+  "truecharts.org/category": games
 apiVersion: v2
-appVersion: "1.8.4"
+appVersion: 1.8.4
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
@@ -19,7 +21,4 @@ name: impostor-server
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/impostor-server
 type: application
-version: 5.0.11
-annotations:
-  truecharts.org/category: games
-  truecharts.org/SCALE-support: "true"
+version: 5.0.12

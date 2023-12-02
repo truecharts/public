@@ -1,29 +1,38 @@
+kubeVersion: '>=1.24.0'
 apiVersion: v2
-appVersion: "23.10.4.25"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.5.0
-deprecated: false
-description: ClickHouse is a column-oriented database management system (DBMS) for online analytical processing of queries (OLAP).
+name: clickhouse
+version: 8.0.0
+appVersion: 23.10.5.20
+description: ClickHouse is a column-oriented database management system (DBMS) for
+  online analytical processing of queries (OLAP).
 home: https://truecharts.org/charts/dependency/clickhouse
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/clickhouse.png
-keywords:
-  - database
-  - clickhouse
-  - sql
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: clickhouse
+deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/dependency/clickhouse
-  - https://clickhouse.com/
-type: application
-version: 7.0.29
+- https://github.com/truecharts/charts/tree/master/charts/dependency/clickhouse
+- https://hub.docker.com/r/clickhouse/clickhouse-server
+- https://clickhouse.com/
+maintainers:
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
+keywords:
+- database
+- clickhouse
+- sql
+dependencies:
+- name: common
+  version: 15.3.1
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
-  truecharts.org/category: database
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+  truecharts.org/category: database
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: dependency

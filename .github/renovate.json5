@@ -38,7 +38,7 @@
       "enabled": true,
       "pinDigests": true,
       "automerge": false,
-      ""autoApprove": true,
+      "autoApprove": true,
       "separateMinorPatch": true,
       "commitMessageTopic": "container image {{depName}}",
       "commitMessageExtra": "to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}@{{newDigestShort}}",
