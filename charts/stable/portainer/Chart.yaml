@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: portainer
 version: 5.0.17
@@ -8,30 +8,23 @@ home: https://truecharts.org/charts/stable/portainer
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/portainer.png
 deprecated: false
 sources:
-- https://docs.portainer.io/start/install-ce/server
-- https://docs.portainer.io/start/install/server
-- https://github.com/truecharts/charts/tree/master/charts/stable/portainer
-- https://hub.docker.com/r/portainer/portainer-ce
+  - https://docs.portainer.io/start/install-ce/server
+  - https://docs.portainer.io/start/install/server
+  - https://github.com/truecharts/charts/tree/master/charts/stable/portainer
+  - https://hub.docker.com/r/portainer/portainer-ce
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- portainer
+  - portainer
 dependencies:
-- name: common
-  version: 14.3.5
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.3.5
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  'max_scale_version:': 23.10.1
-  'min_scale_version:': 22.12.4
-  'truecharts.org/SCALE-support:': "true"
   truecharts.org/category: management
-  'truecharts.org/category:': unsorted
-  'truecharts.org/max_helm_version:': "3.13"
-  'truecharts.org/min_helm_version:': "3.12"
-  truecharts.org/train: stable

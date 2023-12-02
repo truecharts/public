@@ -1,9 +1,10 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: twonky-server
 version: 2.0.19
 appVersion: latest
-description: TwonkyMedia server (TMS) is DLNA-compliant UPnP AV server software from
+description:
+  TwonkyMedia server (TMS) is DLNA-compliant UPnP AV server software from
   PacketVideo. TwonkyMedia server can be used to share and stream media to most UPnP
   AV or DLNA-compliant clients, in addition to non-UPnP devices through the HTML,
   RSS, and JSON supported front ends.
@@ -11,32 +12,25 @@ home: https://truecharts.org/charts/incubator/twonky-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/twonky-server.png
 deprecated: false
 sources:
-- https://github.com/H2CK/twonkyserver
-- https://github.com/truecharts/charts/tree/master/charts/incubator/twonky-server
-- https://github.com/truecharts/containers/tree/master/mirrortwonky-server
+  - https://github.com/H2CK/twonkyserver
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/twonky-server
+  - https://github.com/truecharts/containers/tree/master/mirrortwonky-server
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- twonky-server
-- MediaServer-Video
-- MediaServer-Music
-- MediaServer-Other
+  - twonky-server
+  - MediaServer-Video
+  - MediaServer-Music
+  - MediaServer-Other
 dependencies:
-- name: common
-  version: 11.1.2
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 11.1.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  'max_scale_version:': 23.10.1
-  'min_scale_version:': 22.12.4
-  'truecharts.org/SCALE-support:': "true"
   truecharts.org/category: MediaServer-Video
-  'truecharts.org/category:': unsorted
-  'truecharts.org/max_helm_version:': "3.13"
-  'truecharts.org/min_helm_version:': "3.12"
-  truecharts.org/train: incubator

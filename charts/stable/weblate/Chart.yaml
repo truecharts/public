@@ -1,47 +1,41 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: weblate
 version: 9.0.9
 appVersion: 4.16.4
-description: Weblate is a copylefted libre software web-based continuous localization
+description:
+  Weblate is a copylefted libre software web-based continuous localization
   system
 home: https://truecharts.org/charts/stable/weblate
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/weblate.png
 deprecated: false
 sources:
-- https://hub.docker.com/r/weblate/weblate
-- https://github.com/WeblateOrg/docker-compose
-- https://docs.weblate.org/en/latest/
-- https://github.com/WeblateOrg/weblate
-- https://github.com/WeblateOrg/docker
-- https://github.com/truecharts/charts/tree/master/charts/stable/weblate
+  - https://hub.docker.com/r/weblate/weblate
+  - https://github.com/WeblateOrg/docker-compose
+  - https://docs.weblate.org/en/latest/
+  - https://github.com/WeblateOrg/weblate
+  - https://github.com/WeblateOrg/docker
+  - https://github.com/truecharts/charts/tree/master/charts/stable/weblate
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- translate
+  - translate
 dependencies:
-- name: common
-  version: 14.3.5
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
-- name: redis
-  version: 6.0.66
-  repository: https://deps.truecharts.org
-  condition: redis.enabled
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.3.5
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 6.0.66
+    repository: https://deps.truecharts.org
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  'max_scale_version:': 23.10.1
-  'min_scale_version:': 22.12.4
-  'truecharts.org/SCALE-support:': "true"
   truecharts.org/category: media
-  'truecharts.org/category:': unsorted
-  'truecharts.org/max_helm_version:': "3.13"
-  'truecharts.org/min_helm_version:': "3.12"
-  truecharts.org/train: stable

@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: linkace
 version: 8.0.0
@@ -8,44 +8,37 @@ home: https://truecharts.org/charts/incubator/linkace
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/linkace.png
 deprecated: false
 sources:
-- https://github.com/linkace/linkace
-- https://www.linkace.org/docs/
-- https://github.com/truecharts/charts/tree/master/charts/incubator/linkace
-- https://github.com/truecharts/containers/tree/master/mirrorlinkace
+  - https://github.com/linkace/linkace
+  - https://www.linkace.org/docs/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/linkace
+  - https://github.com/truecharts/containers/tree/master/mirrorlinkace
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- linkace
+  - linkace
 dependencies:
-- name: common
-  version: 11.1.2
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
-- name: mariadb
-  version: 5.0.35
-  repository: https://deps.truecharts.org/
-  condition: mariadb.enabled
-  alias: ""
-  tags: []
-  import-values: []
-- name: redis
-  version: 5.0.33
-  repository: https://deps.truecharts.org
-  condition: redis.enabled
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 11.1.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: mariadb
+    version: 5.0.35
+    repository: https://deps.truecharts.org/
+    condition: mariadb.enabled
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 5.0.33
+    repository: https://deps.truecharts.org
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  'max_scale_version:': 23.10.1
-  'min_scale_version:': 22.12.4
-  'truecharts.org/SCALE-support:': "true"
   truecharts.org/category: media
-  'truecharts.org/category:': unsorted
-  'truecharts.org/max_helm_version:': "3.13"
-  'truecharts.org/min_helm_version:': "3.12"
-  truecharts.org/train: incubator

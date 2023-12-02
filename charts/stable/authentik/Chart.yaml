@@ -1,47 +1,39 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: authentik
 version: 15.0.24
 appVersion: 2023.10.4
-description: Authentik is an open-source Identity Provider focused on flexibility
+description:
+  Authentik is an open-source Identity Provider focused on flexibility
   and versatility.
 home: https://truecharts.org/charts/stable/authentik
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/authentik.png
 deprecated: false
 sources:
-- https://github.com/goauthentik/authentik
-- https://goauthentik.io/docs/
-- https://github.com/truecharts/charts/tree/master/charts/stable/authentik
-- https://ghcr.io/goauthentik/server
+  - https://github.com/goauthentik/authentik
+  - https://goauthentik.io/docs/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/authentik
+  - https://ghcr.io/goauthentik/server
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- authentik
+  - authentik
 dependencies:
-- name: common
-  version: 14.3.5
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
-- name: redis
-  version: 8.0.44
-  repository: https://deps.truecharts.org
-  condition: redis.enabled
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.3.5
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 8.0.44
+    repository: https://deps.truecharts.org
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  'max_scale_version:': 23.10.1
-  min_scale_version: 22.12.4
-  'min_scale_version:': 22.12.4
-  'truecharts.org/SCALE-support:': "true"
   truecharts.org/category: authentication
-  'truecharts.org/category:': unsorted
-  'truecharts.org/max_helm_version:': "3.13"
-  'truecharts.org/min_helm_version:': "3.12"
-  truecharts.org/train: stable

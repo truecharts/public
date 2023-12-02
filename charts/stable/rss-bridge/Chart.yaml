@@ -1,37 +1,31 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: rss-bridge
 version: 6.0.9
 appVersion: 2023.09.24
-description: RSS-Bridge is a PHP project capable of generating RSS and Atom feeds
+description:
+  RSS-Bridge is a PHP project capable of generating RSS and Atom feeds
   for websites that don't have one.
 home: https://truecharts.org/charts/stable/rss-bridge
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/rss-bridge.png
 deprecated: false
 sources:
-- https://github.com/RSS-Bridge/rss-bridge
-- https://github.com/truecharts/charts/tree/master/charts/stable/rss-bridge
-- https://hub.docker.com/r/rssbridge/rss-bridge
+  - https://github.com/RSS-Bridge/rss-bridge
+  - https://github.com/truecharts/charts/tree/master/charts/stable/rss-bridge
+  - https://hub.docker.com/r/rssbridge/rss-bridge
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- rss-bridge
+  - rss-bridge
 dependencies:
-- name: common
-  version: 14.3.5
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.3.5
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  'max_scale_version:': 23.10.1
-  'min_scale_version:': 22.12.4
-  'truecharts.org/SCALE-support:': "true"
   truecharts.org/category: media
-  'truecharts.org/category:': unsorted
-  'truecharts.org/max_helm_version:': "3.13"
-  'truecharts.org/min_helm_version:': "3.12"
-  truecharts.org/train: stable

@@ -1,46 +1,39 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: awesome-ttrss
 version: 3.0.23
 appVersion: 2022-04
-description: Awesome TTRSS aims to provide a powerful Chartized all-in-one solution
+description:
+  Awesome TTRSS aims to provide a powerful Chartized all-in-one solution
   for Tiny Tiny RSS
 home: https://truecharts.org/charts/incubator/awesome-ttrss
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/awesome-ttrss.png
 deprecated: false
 sources:
-- https://github.com/HenryQW/Awesome-TTRSS
-- https://github.com/truecharts/charts/tree/master/charts/incubator/awesome-ttrss
-- https://github.com/truecharts/containers/tree/master/mirrorawesome-ttrss
+  - https://github.com/HenryQW/Awesome-TTRSS
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/awesome-ttrss
+  - https://github.com/truecharts/containers/tree/master/mirrorawesome-ttrss
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- tt-rss
-- awesome-ttrss
+  - tt-rss
+  - awesome-ttrss
 dependencies:
-- name: common
-  version: 11.1.2
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
-- name: postgresql
-  version: 11.0.31
-  repository: https://deps.truecharts.org/
-  condition: postgresql.enabled
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 11.1.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: postgresql
+    version: 11.0.31
+    repository: https://deps.truecharts.org/
+    condition: postgresql.enabled
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  'max_scale_version:': 23.10.1
-  'min_scale_version:': 22.12.4
-  'truecharts.org/SCALE-support:': "true"
   truecharts.org/category: media
-  'truecharts.org/category:': unsorted
-  truecharts.org/grade: U
-  'truecharts.org/max_helm_version:': "3.13"
-  'truecharts.org/min_helm_version:': "3.12"
-  truecharts.org/train: incubator

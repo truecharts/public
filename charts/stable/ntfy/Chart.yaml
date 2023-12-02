@@ -1,37 +1,31 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: ntfy
 version: 6.1.0
 appVersion: 2.8.0
-description: ntfy is a simple HTTP-based pub-sub notification service. It allows you
+description:
+  ntfy is a simple HTTP-based pub-sub notification service. It allows you
   to send notifications to your phone or desktop via scripts from any computer.
 home: https://truecharts.org/charts/stable/ntfy
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ntfy.png
 deprecated: false
 sources:
-- https://github.com/binwiederhier/ntfy/
-- https://github.com/truecharts/charts/tree/master/charts/stable/ntfy
-- https://hub.docker.com/r/binwiederhier/ntfy
+  - https://github.com/binwiederhier/ntfy/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/ntfy
+  - https://hub.docker.com/r/binwiederhier/ntfy
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- ntfy
+  - ntfy
 dependencies:
-- name: common
-  version: 14.3.5
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.3.5
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  'max_scale_version:': 23.10.1
-  'min_scale_version:': 22.12.4
-  'truecharts.org/SCALE-support:': "true"
   truecharts.org/category: media
-  'truecharts.org/category:': unsorted
-  'truecharts.org/max_helm_version:': "3.13"
-  'truecharts.org/min_helm_version:': "3.12"
-  truecharts.org/train: stable

@@ -1,39 +1,33 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: jdownloader2
 version: 12.0.11
 appVersion: 23.11.2
-description: JDownloader is a free, open-source download management tool with a huge
+description:
+  JDownloader is a free, open-source download management tool with a huge
   community of developers that makes downloading as easy and fast as it should be.
 home: https://truecharts.org/charts/stable/jdownloader2
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/jdownloader2.png
 deprecated: false
 sources:
-- https://github.com/jlesage/docker-jdownloader-2
-- https://jdownloader.org/
-- https://github.com/truecharts/charts/tree/master/charts/stable/jdownloader2
-- https://hub.docker.com/r/jlesage/jdownloader-2
+  - https://github.com/jlesage/docker-jdownloader-2
+  - https://jdownloader.org/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/jdownloader2
+  - https://hub.docker.com/r/jlesage/jdownloader-2
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- jdownloader
-- download
+  - jdownloader
+  - download
 dependencies:
-- name: common
-  version: 14.3.5
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.3.5
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  'max_scale_version:': 23.10.1
-  'min_scale_version:': 22.12.4
-  'truecharts.org/SCALE-support:': "true"
   truecharts.org/category: downloads
-  'truecharts.org/category:': unsorted
-  'truecharts.org/max_helm_version:': "3.13"
-  'truecharts.org/min_helm_version:': "3.12"
-  truecharts.org/train: stable
