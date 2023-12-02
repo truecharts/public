@@ -1,32 +1,37 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: autoscan
 version: 5.0.25
 appVersion: latest
-description:
-  Autoscan replaces the default Plex and Emby behaviour for picking up
+description: Autoscan replaces the default Plex and Emby behaviour for picking up
   file changes on the file system.
 home: https://truecharts.org/charts/stable/autoscan
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/autoscan.png
 deprecated: false
 sources:
-  - https://hotio.dev/containers/autoscan
-  - ""
-  - https://github.com/truecharts/charts/tree/master/charts/stable/autoscan
+- https://hotio.dev/containers/autoscan
+- ""
+- https://github.com/truecharts/charts/tree/master/charts/stable/autoscan
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - autoscan
-  - media
+- autoscan
+- media
 dependencies:
-  - name: common
-    version: 14.3.5
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable

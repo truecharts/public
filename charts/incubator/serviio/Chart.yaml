@@ -1,37 +1,42 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: serviio
 version: 2.0.9
 appVersion: latest
-description:
-  Serviio is a freeware media server designed to let users stream music,
+description: Serviio is a freeware media server designed to let users stream music,
   video, or image files to DLNA compliant televisions, Blu-ray players, game consoles,
   and Android or Windows Mobile devices on a home network.
 home: https://truecharts.org/charts/incubator/serviio
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/serviio.png
 deprecated: false
 sources:
-  - https://serviio.org/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/serviio
-  - https://github.com/truecharts/containers/tree/master/mirrorserviio
+- https://github.com/truecharts/charts/tree/master/charts/incubator/serviio
+- https://github.com/truecharts/containers/tree/master/mirrorserviio
+- https://serviio.org/
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - serviio
-  - MediaServer-Video
-  - MediaServer-Music
-  - MediaServer-Books
-  - MediaServer-Photos
-  - MediaServer-Other
+- serviio
+- MediaServer-Video
+- MediaServer-Music
+- MediaServer-Books
+- MediaServer-Photos
+- MediaServer-Other
 dependencies:
-  - name: common
-    version: 11.1.2
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 11.1.2
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
   truecharts.org/category: MediaServer-Video
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator

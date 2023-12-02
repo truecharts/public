@@ -1,33 +1,38 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: metallb-config
 version: 3.0.11
 appVersion: latest
-description:
-  A network load-balancer implementation for Kubernetes using standard
+description: A network load-balancer implementation for Kubernetes using standard
   routing protocols
 home: https://truecharts.org/charts/enterprise/metallb-config
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/metallb-config.png
 deprecated: false
 sources:
-  - https://github.com/metallb/metallb
-  - https://metallb.universe.tf
-  - https://github.com/truecharts/charts/tree/master/charts/enterprise/metallb-config
-  - https://hub.docker.com/_/hello-world
+- https://github.com/truecharts/charts/tree/master/charts/enterprise/metallb-config
+- https://hub.docker.com/_/hello-world
+- https://github.com/metallb/metallb
+- https://metallb.universe.tf
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - metallb
-  - loadbalancer
+- metallb
+- loadbalancer
 dependencies:
-  - name: common
-    version: 14.3.5
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
   truecharts.org/category: core
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: enterprise

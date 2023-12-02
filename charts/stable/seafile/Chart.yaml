@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: seafile
 version: 1.0.13
@@ -8,32 +8,38 @@ home: https://truecharts.org/charts/stable/seafile
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/seafile.png
 deprecated: false
 sources:
-  - https://seafile.com
-  - https://github.com/truecharts/charts/tree/master/charts/stable/seafile
-  - https://hub.docker.com/r/seafileltd/seafile-mc
+- https://seafile.com
+- https://github.com/truecharts/charts/tree/master/charts/stable/seafile
+- https://hub.docker.com/r/seafileltd/seafile-mc
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - seafile
-  - files
-  - cloud
-  - file-storage
+- seafile
+- files
+- cloud
+- file-storage
 dependencies:
-  - name: common
-    version: 14.3.5
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-  - name: mariadb
-    version: 9.0.40
-    repository: https://deps.truecharts.org/
-    condition: mariadb.enabled
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
+- name: mariadb
+  version: 9.0.40
+  repository: https://deps.truecharts.org/
+  condition: mariadb.enabled
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
   truecharts.org/category: file-storage
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
