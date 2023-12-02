@@ -1,27 +1,30 @@
+kubeVersion: ">=1.24.0"
 apiVersion: v2
-appVersion: "23.05.5.4.1"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
-deprecated: false
+name: collabora
+version: 2.0.17
+appVersion: 23.05.5.4.1
 description: An awesome, Online Office suite image suitable for home use.
 home: https://truecharts.org/charts/stable/collabora
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/collabora.png
+deprecated: false
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/collabora
+  - https://hub.docker.com/r/collabora/code
+  - https://github.com/CollaboraOnline/online
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
   - office
   - document
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: collabora
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/collabora
-  - https://github.com/CollaboraOnline/online
-type: application
-version: 2.0.17
+dependencies:
+  - name: common
+    version: 14.3.5
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   truecharts.org/category: office
-  truecharts.org/SCALE-support: "true"

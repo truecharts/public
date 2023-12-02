@@ -1,27 +1,30 @@
+kubeVersion: ">=1.24.0"
 apiVersion: v2
-appVersion: "1.43.2"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+name: netdata
+version: 6.0.15
+appVersion: 1.43.2
 description: Netdata is high-fidelity infrastructure monitoring and troubleshooting.
 home: https://truecharts.org/charts/stable/netdata
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/netdata.png
+deprecated: false
+sources:
+  - https://github.com/netdata
+  - https://github.com/truecharts/charts/tree/master/charts/stable/netdata
+  - https://hub.docker.com/r/netdata/netdata
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
   - netdata
   - monitoring
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: netdata
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/netdata
-  - https://github.com/netdata
-version: 6.0.15
+dependencies:
+  - name: common
+    version: 14.3.5
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
   truecharts.org/category: utilities
-  truecharts.org/SCALE-support: "true"

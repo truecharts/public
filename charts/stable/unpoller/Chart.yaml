@@ -1,30 +1,33 @@
+kubeVersion: ">=1.24.0"
 apiVersion: v2
-appVersion: "2.9.4"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
-deprecated: false
-description: Collect your UniFi controller data and report it to an InfluxDB instance, or export it for Prometheus collection.
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/unpoller.png
+name: unpoller
+version: 7.0.15
+appVersion: 2.9.4
+description:
+  Collect your UniFi controller data and report it to an InfluxDB instance,
+  or export it for Prometheus collection.
 home: https://truecharts.org/charts/stable/unpoller
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/unpoller.png
+deprecated: false
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/unpoller
+  - https://ghcr.io/unpoller/unpoller
+  - https://github.com/unifi-poller/unifi-poller
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
   - unifi
   - unifi-poller
   - metrics
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: unpoller
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/unpoller
-  - https://github.com/unifi-poller/unifi-poller
-type: application
-version: 7.0.15
+dependencies:
+  - name: common
+    version: 14.3.5
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
   truecharts.org/category: metrics
-  truecharts.org/SCALE-support: "true"

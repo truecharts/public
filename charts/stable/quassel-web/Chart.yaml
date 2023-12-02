@@ -1,28 +1,28 @@
+kubeVersion: ">=1.24.0"
 apiVersion: v2
-kubeVersion: ">=1.16.0-0"
 name: quassel-web
 version: 6.0.9
-appVersion: "2021.12.16"
+appVersion: 2021.12.16
 description: Quassel-web is a web client for Quassel.
-type: application
-deprecated: false
 home: https://truecharts.org/charts/stable/quassel-web
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/quassel-web.png
-keywords:
-  - quassel-web
+deprecated: false
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/quassel-web
+  - https://ghcr.io/linuxserver/quassel-web
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - quassel-web
 dependencies:
   - name: common
-    repository: https://library-charts.truecharts.org
     version: 14.3.5
-    # condition:
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
   truecharts.org/category: incubator
-  truecharts.org/SCALE-support: "true"

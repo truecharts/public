@@ -1,28 +1,33 @@
+kubeVersion: ">=1.24.0"
 apiVersion: v2
-appVersion: "1.8.3"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+name: komga
+version: 10.1.0
+appVersion: 1.8.3
 description: A comics/mangas server to serve/stream pages via API
 home: https://truecharts.org/charts/stable/komga
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/komga.png
+deprecated: false
+sources:
+  - https://github.com/gotson/komga
+  - https://github.com/truecharts/charts/tree/master/charts/stable/komga
+  - https://hub.docker.com/r/gotson/komga
+  - https://komga.org/
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
   - komga
   - comics
   - mangas
   - server
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: komga
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/komga
-  - https://komga.org/
-  - https://github.com/gotson/komga
-version: 10.1.0
+dependencies:
+  - name: common
+    version: 14.3.5
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   truecharts.org/category: media
-  truecharts.org/SCALE-support: "true"

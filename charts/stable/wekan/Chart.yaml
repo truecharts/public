@@ -1,32 +1,38 @@
+kubeVersion: ">=1.24.0"
 apiVersion: v2
+name: wekan
+version: 10.3.0
 appVersion: "7.21"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
-  - condition: mongodb.enabled
-    name: mongodb
-    repository: https://deps.truecharts.org
-    version: 6.0.67
 description: WeKan - Open Source kanban
 home: https://truecharts.org/charts/stable/wekan
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/wekan.png
+deprecated: false
+sources:
+  - https://github.com/wekan/wekan
+  - https://wekan.github.io/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/wekan
+  - https://hub.docker.com/r/wekanteam/wekan
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
   - wekan
   - kanban
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: wekan
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/wekan
-  - https://github.com/wekan/wekan
-  - https://wekan.github.io/
-version: 10.3.0
+dependencies:
+  - name: common
+    version: 14.3.5
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: mongodb
+    version: 6.0.67
+    repository: https://deps.truecharts.org
+    condition: mongodb.enabled
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  min_scale_version: "22.12.4"
-  max_scale_version: "23.10.1"
   truecharts.org/category: productivity
-  truecharts.org/SCALE-support: "true"
