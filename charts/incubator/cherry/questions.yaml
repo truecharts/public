@@ -12,6 +12,8 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
+# Include{containerConfig}
+# Include{podOptions}
 
   - variable: cherry
     group: App Configuration
@@ -52,8 +54,7 @@ questions:
             type: string
             private: true
             default: ""
-# Include{containerConfig}
-# Include{podOptions}
+
 # Include{serviceRoot}
         - variable: main
           label: Main Service

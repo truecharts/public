@@ -12,6 +12,8 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
+# Include{containerConfig}
+# Include{podOptions}
 
   - variable: radicale
     group: App Configuration
@@ -219,8 +221,7 @@ questions:
                 schema:
                   type: boolean
                   default: true
-# Include{containerConfig}
-# Include{podOptions}
+
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

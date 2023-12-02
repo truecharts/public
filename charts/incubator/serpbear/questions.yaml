@@ -12,6 +12,8 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
+# Include{containerConfig}
+# Include{podOptions}
 
   - variable: serpbear
     group: App Configuration
@@ -56,8 +58,7 @@ questions:
           schema:
             type: int
             default: 24
-# Include{containerConfig}
-# Include{podOptions}
+
 # Include{serviceRoot}
         - variable: main
           label: Main Service

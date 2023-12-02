@@ -25,6 +25,8 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
+# Include{containerConfig}
+# Include{podOptions}
 
   - variable: restreamer
     group: App Configuration
@@ -587,8 +589,7 @@ questions:
                         type: string
                         default: ""
                         required: true
-# Include{containerConfig}
-# Include{podOptions}
+
 # Include{serviceRoot}
         - variable: main
           label: Main Service

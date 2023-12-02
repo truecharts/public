@@ -10,6 +10,8 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
+# Include{containerConfig}
+# Include{podOptions}
 
   - variable: snowflake
     group: App Configuration
@@ -103,8 +105,7 @@ questions:
           schema:
             type: string
             default: ""
-# Include{containerConfig}
-# Include{podOptions}
+
 # Include{serviceExpertRoot}
             default: true
 # Include{serviceList}

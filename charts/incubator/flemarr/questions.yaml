@@ -10,7 +10,8 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
-
+# Include{containerConfig}
+# Include{podOptions}
   - variable: flemarr
     group: App Configuration
     label: Flemarr Configuration
@@ -27,8 +28,7 @@ questions:
             required: true
             valid_chars: '^\/([a-zA-Z0-9._-]+(\s?[a-zA-Z0-9._-]+|\/?))+$'
             default: ""
-# Include{containerConfig}
-# Include{podOptions}
+
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
 # Include{serviceList}

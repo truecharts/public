@@ -12,7 +12,8 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
-
+# Include{containerConfig}
+# Include{podOptions}
   - variable: microbin
     group: App Configuration
     label: Microbin Configuration
@@ -113,8 +114,7 @@ questions:
           schema:
             type: int
             default: 1
-# Include{containerConfig}
-# Include{podOptions}
+
 # Include{serviceRoot}
         - variable: main
           label: Main Service

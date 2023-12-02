@@ -13,6 +13,8 @@ questions:
 
 # Include{containerBasic}
 # Include{containerAdvanced}
+# Include{containerConfig}
+# Include{podOptions}
 
   - variable: splunk
     group: App Configuration
@@ -46,8 +48,7 @@ questions:
                   type: string
                   required: true
                   default: ""
-# Include{containerConfig}
-# Include{podOptions}
+
 # Include{serviceRoot}
 # Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}

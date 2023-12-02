@@ -12,6 +12,8 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
+# Include{containerConfig}
+# Include{podOptions}
 
   - variable: briefkasten
     group: App Configuration
@@ -108,8 +110,7 @@ questions:
                 schema:
                   type: string
                   default: ""
-# Include{containerConfig}
-# Include{podOptions}
+
 # Include{serviceRoot}
         - variable: main
           label: Main Service

@@ -12,7 +12,8 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
-
+# Include{containerConfig}
+# Include{podOptions}
   - variable: noisedash
     group: App Configuration
     label: Noisedash Configuration
@@ -27,8 +28,7 @@ questions:
             type: int
             required: true
             default: 10737418240
-# Include{containerConfig}
-# Include{podOptions}
+
 # Include{serviceRoot}
         - variable: main
           label: Main Service

@@ -12,6 +12,8 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
+# Include{containerConfig}
+# Include{podOptions}
 
   - variable: plik
     group: App Configuration
@@ -514,8 +516,7 @@ questions:
                 schema:
                   type: string
                   default: https://eu.api.ovh.com/1.0
-# Include{containerConfig}
-# Include{podOptions}
+
 # Include{serviceRoot}
         - variable: main
           label: Main Service
