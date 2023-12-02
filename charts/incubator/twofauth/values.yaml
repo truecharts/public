@@ -137,6 +137,10 @@ persistence:
   config:
     enabled: true
     mountPath: /2fauth
+  nginx:
+    enabled: true
+    type: emptyDir
+    mountPath: /run/nginx
 
 cnpg:
   main:
