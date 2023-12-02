@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: splunk
-version: 4.0.0
+version: 4.1.0
 appVersion: 9.1.2
 description: This is a Chartfile for Splunk designed for OpenShift and TrueNAS based
   on Alpine Linux - https://www.splunk.com
@@ -12,6 +12,7 @@ sources:
 - https://splunk.github.io/docker-splunk
 - https://github.com/truecharts/charts/tree/master/charts/incubator/splunk
 - https://hub.docker.com/r/splunk/splunk
+type: application
 maintainers:
 - name: TrueCharts
   email: info@truecharts.org
