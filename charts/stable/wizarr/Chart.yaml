@@ -1,8 +1,8 @@
 kubeVersion: '>=1.24.0'
 apiVersion: v2
+version: 3.0.12
+appVersion: 3.5.1
 name: wizarr
-version: 3.0.11
-appVersion: 3.5.2
 description: A automatic user invitation system for Plex.
 home: https://truecharts.org/charts/stable/wizarr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/wizarr.png
@@ -11,6 +11,7 @@ sources:
 - https://github.com/Wizarrrr/wizarr
 - https://github.com/truecharts/charts/tree/master/charts/stable/wizarr
 - https://ghcr.io/wizarrrr/wizarr
+type: application
 maintainers:
 - name: TrueCharts
   email: info@truecharts.org
