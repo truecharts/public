@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/tt-rss
+  repository: ghcr.io/k8s-at-home/tt-rss
   pullPolicy: IfNotPresent
-  tag: v2.0.9113@sha256:ef3e084ba91d3e9ed32af6b948e17c88e33223fa80ffe5c8bb4d5dac9aa0e9b9
+  tag: v2.0.9113@sha256:217951fc8f013623923850c865d87509172914fc01f9227559e3d6e6096c15b3
 service:
   main:
     ports:
@@ -21,7 +21,6 @@ persistence:
 cnpg:
   main:
     enabled: true
-
     user: tt-rss
     database: tt-rss
 portal:

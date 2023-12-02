@@ -4,7 +4,7 @@
 {{/* Render secrets for outline */}}
 {{- $secrets := include "outline.secrets" . | fromYaml -}}
 {{- if $secrets -}}
-{{- $_ := set .Values.secret "secrets" $secrets -}}
+  {{- $_ := set .Values.secret "secrets" $secrets -}}
 {{- end -}}
 
 {{/* Render the templates */}}

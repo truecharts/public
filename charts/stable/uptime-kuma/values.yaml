@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/uptime-kuma
+  repository: louislam/uptime-kuma
   pullPolicy: IfNotPresent
-  tag: v1.23.3@sha256:edb10a6c39c2cf016992ccd2d28ee89d8ffb20e817cbba2911180543ad5795f7
+  tag: 1.23.7-debian@sha256:658b77607d872913cc1217e43e2288d35dd712c3d943c7c21fab0dfbd471b8ad
 security:
   PUID: 0
 service:
@@ -21,11 +21,10 @@ metrics:
     enabled: true
     type: "servicemonitor"
     endpoints:
-      - port: metrics
+      - port: main
         path: /metrics
     prometheusRule:
       enabled: false
-
 securityContext:
   container:
     runAsNonRoot: false

@@ -1,30 +1,40 @@
+kubeVersion: '>=1.24.0'
 apiVersion: v2
-appVersion: "5.0.6"
-kubeVersion: ">=1.16.0-0"
-version: 8.0.7
 name: redmine
-description: Redmine is a flexible project management web application written using Ruby on Rails framework.
-type: application
+version: 8.2.1
+appVersion: 5.1.1
+description: Redmine is a flexible project management web application written using
+  Ruby on Rails framework.
 home: https://truecharts.org/charts/stable/redmine
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/redmine.png
-keywords:
-  - project
-  - management
-  - time
-  - tracking
-  - ticket
+deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/redmine
-  - https://github.com/redmine/redmine
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.0.9
+- https://github.com/redmine/redmine
+- https://github.com/truecharts/charts/tree/master/charts/stable/redmine
+- https://hub.docker.com/_/redmine
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
+keywords:
+- project
+- management
+- time
+- tracking
+- ticket
+dependencies:
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
-  truecharts.org/catagories: |
-    - productivity
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
   truecharts.org/SCALE-support: "true"
+  truecharts.org/category: productivity
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable

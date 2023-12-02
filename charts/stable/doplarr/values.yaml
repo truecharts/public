@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/doplarr
-  tag: 3.6.2@sha256:ca3632a6f7b981c4b2231628f79d46b4a551f8fc28749ed1c93152ccd5693dc5
+  repository: ghcr.io/kiranshila/doplarr
+  tag: v3.6.2@sha256:7fbd2250cc871787150a3d33be4f5d168c8eb1436c1c064c0a9533ebb7a9098a
   pullPolicy: IfNotPresent
-
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-
 # TODO needs secretEnv variables
 workload:
   main:
@@ -40,7 +38,6 @@ workload:
             RADARR__API: ""
             DISCORD__ROLE_ID: ""
             DISCORD__TOKEN: ""
-
 portal:
   open:
     enabled: false

@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/syslog-ng
+  repository: balabit/syslog-ng
   pullPolicy: IfNotPresent
-  tag: v4.4.0@sha256:2d6d03f0565072b0c4bb4e0490c39e78538db481e3a6e30db189e4c40bbd219a
+  tag: 4.5.0@sha256:28b7e3f5bbf2c248dfe05aa8df1915a58bcb64dd431c824d402ca417f1085338
 service:
   main:
     ports:

@@ -1,28 +1,27 @@
 image:
   repository: tccr.io/truecharts/nextcloud-fpm
   pullPolicy: IfNotPresent
-  tag: v27.1.2@sha256:ca07e3779d8b43d249a6fddfb9e6d039492afeba6a9e549e1a0b30c10c6e4dc2
+  tag: v27.1.4@sha256:6bd558570dcebd0dd9c56df158eca7893e5926f1130b810101c2f67888502c07
 nginxImage:
-  repository: tccr.io/truecharts/nginx-unprivileged
+  repository: nginxinc/nginx-unprivileged
   pullPolicy: IfNotPresent
-  tag: v1.25.2@sha256:60f974caa481a4d2c504528ca8d0759554ee08c91aaecc13428b4b19694f8b4c
+  tag: 1.25.3@sha256:a4cb3ee8f71116750ae3dc857031b7c74ec3b21df3d878e1c63204c206553e46
 imaginaryImage:
   repository: tccr.io/truecharts/nextcloud-imaginary
   pullPolicy: IfNotPresent
-  tag: v20230401@sha256:bcd9a7ded0d9a5d213a62bc0a66e2d55c2756bdea703576eb255831453431f00
+  tag: v20230401@sha256:906a7a832f95f208bc1f3c09e31ea93902fb07048eaa83fdfc033e7b4cf957c1
 hpbImage:
   repository: tccr.io/truecharts/nextcloud-push-notify
   pullPolicy: IfNotPresent
   tag: v0.6.3@sha256:b9c35ab123354eeac3996e361f8c30b8e4de6d2ccd69e5179a7c2a101a67b46f
 clamavImage:
-  repository: tccr.io/truecharts/clamav
+  repository: clamav/clamav
   pullPolicy: IfNotPresent
-  tag: v1.2.0@sha256:7f9ca042b6e53783269fad32c8d84a22f9ad2c3ebbd717a8b16d1f9c798a2c02
+  tag: 1.2.1@sha256:5968dbccd6c38ec86f2c7503070207d9a11bbdd7bee4c05ecf649fef2d3987c9
 collaboraImage:
-  repository: tccr.io/truecharts/collabora
+  repository: collabora/code
   pullPolicy: IfNotPresent
-  tag: v23.05.5.2.1@sha256:93d389bba40cd0fc064723b2d445e04eeb19c7fa137f36825c91ba01d94bd34e
-
+  tag: 23.05.5.4.1@sha256:a8cce07c949aa59cea0a7f1f220266a1a6d886c717c3b5005782baf6f384d645
 nextcloud:
   # Initial Credentials
   credentials:
@@ -36,6 +35,8 @@ nextcloud:
     # IP used for exposing nextcloud,
     # often the loadbalancer IP
     accessIP: ""
+    # Allows Nextcloud to connect to unsecure (http) endpoints
+    force_enable_allow_local_remote_servers: false
   # File settings
   files:
     shared_folder_name: Shared
@@ -111,6 +112,8 @@ nextcloud:
     # Only add the OnlyOffice settings
     enabled: false
     url: ""
+    internal_url: ""
+    verify_ssl: true
     jwt: ""
     jwt_header: Authorization
   # PHP settings
@@ -127,7 +130,6 @@ nextcloud:
     memory_consumption: 128
     revalidate_freq: 60
     jit_buffer_size: 128
-
 # Do NOT edit below this line
 workload:
   # Nextcloud php-fpm
@@ -320,7 +322,6 @@ workload:
               enabled: true
               type: tcp
               port: "{{ .Values.service.collabora.ports.collabora.targetPort }}"
-
 cronjobs:
   # Don't change names, it's used in the persistence
   - name: nextcloud-cron
@@ -337,7 +338,6 @@ cronjobs:
       - echo "Running [occ preview:pre-generate] ..."
       - occ preview:pre-generate
       - echo "Finished [occ preview:pre-generate]"
-
 service:
   # Main service links to ingress easier
   # That's why the nginx is swapped with nextcloud
@@ -396,7 +396,6 @@ service:
         port: 9980
         targetPort: 9980
         targetSelector: collabora
-
 persistence:
   php-tune:
     enabled: true
@@ -499,17 +498,15 @@ persistence:
         nginx:
           mountPath: /var/www/html/data
           readOnly: true
-
 cnpg:
   main:
     enabled: true
     user: nextcloud
     database: nextcloud
-
 redis:
   enabled: true
   username: default
-
 portal:
   open:
     enabled: true
+updated: true

@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/czkawka
+  repository: jlesage/czkawka
   pullPolicy: IfNotPresent
-  tag: v23.10.1@sha256:b99360b22f2b05e176da8782f37b0a25d6d4577c0c9169be3cc1c7e62ec00a57
-
+  tag: v23.11.2@sha256:226d304c31e006963f800eb9c918f216f0b244b7a24d4f4535d09290b97806b4
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -25,14 +23,12 @@ service:
         port: 10259
         protocol: tcp
         targetPort: 5900
-
 czkawka:
   KEEP_APP_RUNNING: false
   DISPLAY_WIDTH: 1280
   DISPLAY_HEIGHT: 768
   SECURE_CONNECTION: false
   ENABLE_CJK_FONT: false
-
 configmap:
   czkawka:
     enabled: true
@@ -42,7 +38,6 @@ configmap:
       SECURE_CONNECTION: '{{ ternary "1" "0" .Values.czkawka.SECURE_CONNECTION }}'
       DISPLAY_WIDTH: "{{ .Values.czkawka.DISPLAY_WIDTH }}"
       DISPLAY_HEIGHT: "{{ .Values.czkawka.DISPLAY_HEIGHT }}"
-
 workload:
   main:
     podSpec:
@@ -68,7 +63,6 @@ workload:
           envFrom:
             - configMapRef:
                 name: "czkawka"
-
 persistence:
   config:
     enabled: true
@@ -79,7 +73,6 @@ persistence:
   trash:
     enabled: true
     mountPath: /trash
-
 portal:
   open:
     enabled: true

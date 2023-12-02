@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/friendica
+  repository: friendica
   pullPolicy: IfNotPresent
-  tag: v2022.06@sha256:0c01909d34af35f7194d3af200adb8bf9031f2c22531f16ebba33807f055e1cd
-
+  tag: 2023.05@sha256:b6ddb347b65bb8c9cd5f9cd91dcad8afd48a1360a7bf6fbea6c11f17970950a4
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 workload:
   main:
     podSpec:
@@ -58,14 +56,12 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: redis-password
-
 service:
   main:
     ports:
       main:
         port: 10058
         targetPort: 80
-
 persistence:
   varrun:
     enabled: true
@@ -75,15 +71,12 @@ persistence:
   data:
     enabled: true
     mountPath: /data
-
 redis:
   enabled: true
-
 mariadb:
   enabled: true
   mariadbUsername: friendica
   mariadbDatabase: friendica
-
 portal:
   open:
     enabled: true

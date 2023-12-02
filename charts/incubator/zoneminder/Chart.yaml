@@ -1,32 +1,39 @@
+kubeVersion: '>=1.24.0'
 apiVersion: v2
-appVersion: "latest"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
-deprecated: false
-description: "Zoneminder is the top Linux video camera security and surveillance solution."
+name: zoneminder
+version: 2.0.13
+appVersion: latest
+description: Zoneminder is the top Linux video camera security and surveillance solution.
 home: https://truecharts.org/charts/incubator/zoneminder
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/zoneminder.png
-keywords:
-  - zoneminder
-  - home
-  - automation
-  - cctv
-  - utilities
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: zoneminder
+deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/zoneminder
-  - https://zoneminder.com/
-type: application
-version: 2.0.13
+- https://zoneminder.com/
+- https://github.com/truecharts/charts/tree/master/charts/incubator/zoneminder
+- https://github.com/truecharts/containers/tree/master/mirrorzoneminder
+maintainers:
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
+keywords:
+- zoneminder
+- home
+- automation
+- cctv
+- utilities
+dependencies:
+- name: common
+  version: 11.1.2
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
   truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - utilities
-    - cctv
+  truecharts.org/category: utilities
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator

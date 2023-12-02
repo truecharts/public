@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/sabnzbd
+  repository: ghcr.io/onedr0p/sabnzbd
   pullPolicy: IfNotPresent
-  tag: v4.1.0@sha256:f1e7c2ff3f06dd175ebb7faf989ae0c3acf1050b25ef6795673b924e87c0276d
+  tag: 4.1.0@sha256:f2f39716cf0c4bc40dc70f7f86037cdf43f06c05b8f33a360ab7bc5371250f8d
 service:
   main:
     ports:
@@ -15,7 +15,6 @@ persistence:
 portal:
   open:
     enabled: true
-
 workload:
   main:
     podSpec:

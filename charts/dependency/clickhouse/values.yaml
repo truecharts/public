@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/clickhouse
+  repository: clickhouse/clickhouse-server
   pullPolicy: IfNotPresent
-  tag: v23.9.2.56@sha256:c6f46cf1f37eac7e9fe443c91fc3b4e39907599e67bde5ea3f4cd40275ddaf19
-
+  tag: 23.10.5.20@sha256:8d66487fa921fd942647182cf1b18355b0760329942f4965084c2a9ce46bef7a
 workload:
   main:
     replicas: 1
@@ -28,7 +27,6 @@ workload:
             startup:
               type: http
               path: /ping
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -41,7 +39,6 @@ securityContext:
     #     - IPC_LOCK
     #     - NET_ADMIN
     #     - SYS_NICE
-
 service:
   main:
     ports:
@@ -49,30 +46,24 @@ service:
         port: 8123
         protocol: http
         targetPort: 8123
-
 persistence:
   data:
     enabled: true
     mountPath: /var/lib/clickhouse
-
 clickhouseDatabase: "test"
 clickhouseUsername: "test"
 clickhouseDefaultAccessManagement: 0
-
 # -- Secret or password
 # One of these options is required, unless used as a dependency for another TrueCharts chart.
 clickhousePassword: ""
 existingSecret: ""
-
 secret:
   credentials:
     enabled: true
     data:
       clickhouse-password: '{{ ( .Values.clickhousePassword | default "empty" ) }}'
-
 portal:
   open:
     enabled: false
-
 manifestManager:
   enabled: false

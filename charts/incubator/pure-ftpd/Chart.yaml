@@ -1,30 +1,39 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - Tools-Utilities
-    - Network-FTP
+kubeVersion: '>=1.24.0'
 apiVersion: v2
-appVersion: "latest"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
-deprecated: false
-description: Pure-FTPd is a free (BSD), secure, production-quality and standard-conformant FTP server. [br]Creating user by using console "pure-pw useradd admin -u 99 -g 100 -d /home/admin -m"[/br]
+name: pure-ftpd
+version: 2.0.9
+appVersion: latest
+description: Pure-FTPd is a free (BSD), secure, production-quality and standard-conformant
+  FTP server. [br]Creating user by using console "pure-pw useradd admin -u 99 -g 100
+  -d /home/admin -m"[/br]
 home: https://truecharts.org/charts/incubator/pure-ftpd
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pure-ftpd.png
-keywords:
-  - pure-ftpd
-  - Tools-Utilities
-  - Network-FTP
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: pure-ftpd
+deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/pure-ftpd
-  - https://www.pureftpd.org/project/pure-ftpd/
-type: application
-version: 2.0.9
+- https://github.com/truecharts/charts/tree/master/charts/incubator/pure-ftpd
+- https://github.com/truecharts/containers/tree/master/mirrorpure-ftpd
+- https://www.pureftpd.org/project/pure-ftpd/
+maintainers:
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
+keywords:
+- pure-ftpd
+- Tools-Utilities
+- Network-FTP
+dependencies:
+- name: common
+  version: 11.1.2
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
+annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Tools-Utilities
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator

@@ -1,6 +1,6 @@
 image:
-  repository: tccr.io/truecharts/xwiki
-  tag: v15.8.0-postgres@sha256:f077842e5ae010317517ad4ff0385df0a35f496a0e27169e00a1a931474adc9a
+  repository: xwiki
+  tag: 15.10.0-postgres-tomcat@sha256:ed0c7cdc4708994f90bcaf3285f7120bf13f7fc901a15e4b2ae13f6cd6cbce50
   pullPolicy: IfNotPresent
 service:
   main:
@@ -15,7 +15,6 @@ persistence:
 cnpg:
   main:
     enabled: true
-
     user: xwiki
     database: xwiki
 portal:

@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/emulatorjs
+  repository: ghcr.io/linuxserver/emulatorjs
   pullPolicy: IfNotPresent
-  tag: v1.7.2@sha256:479a27b42a8c39aba778dbce4373b152242495b0411399224c6abe99d6e1e96f
-
+  tag: 1.7.3@sha256:263feb12593e15445b6f9e11a42216a9f03c57a4a4e78ab5ed33f7377f2eb808
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -30,11 +28,9 @@ service:
         enabled: true
         targetPort: 4001
         port: 10138
-
 ingress:
   front:
     autoLink: true
-
 workload:
   main:
     podSpec:
@@ -51,7 +47,6 @@ workload:
               type: http
               path: /
           env: {}
-
 persistence:
   config:
     enabled: true
@@ -59,7 +54,6 @@ persistence:
   data:
     enabled: true
     mountPath: /data
-
 portal:
   open:
     enabled: true

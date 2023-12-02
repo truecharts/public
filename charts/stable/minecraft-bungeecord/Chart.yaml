@@ -1,9 +1,11 @@
+annotations:
+  "truecharts.org/category": proxy
 apiVersion: v2
-appVersion: "2022.4.1"
+appVersion: 2022.4.1
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.0.9
+    version: 14.3.5
 deprecated: false
 description: the front-end of a cluster of minecraft-java containers.
 home: https://truecharts.org/charts/stable/minecraft-bungeecord
@@ -22,9 +24,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/minecraft-bungeecord
   - https://github.com/itzg/docker-bungeecord
 type: application
-version: 5.0.1
-annotations:
-  truecharts.org/catagories: |
-    - proxy
-    - minecraft
-  truecharts.org/SCALE-support: "true"
+version: 5.0.10

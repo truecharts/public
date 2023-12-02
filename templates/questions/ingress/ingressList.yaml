@@ -27,6 +27,12 @@
                 schema:
                   type: string
                   default: ""
+              - variable: allowCors
+                label: "Allow Cross Origin Requests"
+                schema:
+                  type: boolean
+                  show_if: [["advanced", "=", true]]
+                  default: false
               - variable: hosts
                 label: Hosts
                 schema:
@@ -84,8 +90,8 @@
                                               label: Service Port
                                               schema:
                                                 type: int
-              - variable: clusterIssuer
-                label: clusterIssuer
+              - variable: certificateIssuer
+                label: certificateIssuer
                 description: 'add the name of your cert-manager clusterIssuer here for automatic tls certificates. Cannot be used combined with tls option below'
                 schema:
                   type: string
@@ -95,7 +101,7 @@
                 schema:
                   type: list
                   default: []
-                  show_if: [["clusterIssuer", "=", ""]]
+                  show_if: [["certificateIssuer", "=", ""]]
                   items:
                     - variable: tlsEntry
                       label: Host
@@ -115,7 +121,7 @@
                                     type: string
                                     default: ""
                                     required: true
-                          - variable: clusterIssuer
+                          - variable: certificateIssuer
                             label: Use Cert-Manager clusterIssuer
                             description: 'add the name of your Cert-Manager clusterIssuer here for automatic tls certificates.'
                             schema:
@@ -124,15 +130,22 @@
                           - variable: scaleCert
                             label: Use TrueNAS SCALE Certificate (Deprecated)
                             schema:
-                              show_if: [["clusterIssuer", "=", ""]]
+                              show_if: [["certificateIssuer", "=", ""]]
                               type: int
                               $ref:
                                 - "definitions/certificate"
+                          - variable: clusterCertificate
+                            label:  'Cluster Certificate (Advanced)'
+                            description: 'Add the name of your cluster-wide certificate, that you set up in the ClusterIssuer chart.'
+                            schema:
+                              type: string
+                              show_if: [["certificateIssuer", "=", ""]]
+                              default: ""
                           - variable: secretName
                             label: Use Custom Secret (Advanced)
                             schema:
                               type: string
-                              show_if: [["clusterIssuer", "=", ""]]
+                              show_if: [["certificateIssuer", "=", ""]]
                               default: ""
               - variable: entrypoint
                 label: Traefik Entrypoint

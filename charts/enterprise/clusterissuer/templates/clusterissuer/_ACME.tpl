@@ -25,7 +25,7 @@
       {{/* Transform to a dict with domain as a key, also remove domain from the dict */}}
       {{- $_ := set $acmednsDict .domain (omit . "domain") -}}
     {{- end }}
-  {{- end -}}
+  {{- end }}
 ---
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
@@ -35,12 +35,15 @@ spec:
   acme:
     email: {{ .email }}
     server: {{ if eq .server "custom" }}{{ .customServer }}{{ else }}{{ .server }}{{ end }}
+    {{- if .caBundle }}
+    caBundle: {{ .caBundle }}
+    {{- end }}
     privateKeySecretRef:
       name: {{ .name }}-acme-clusterissuer-account-key
     solvers:
     {{- if eq .type "HTTP01" }}
     - http01:
-        ingress:
+        ingress: {}
     {{- else }}
     - dns01:
       {{- if eq .type "cloudflare" }}

@@ -1,29 +1,37 @@
+kubeVersion: '>=1.24.0'
 apiVersion: v2
-appVersion: "0.9.0"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.0.9
-deprecated: false
+name: phpldapadmin
+version: 10.0.9
+appVersion: 0.9.0
 description: Web-based LDAP browser to manage your LDAP server
 home: https://truecharts.org/charts/stable/phpldapadmin
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/phpldapadmin.png
-keywords:
-  - phpldapadmin
-  - openldap
-  - userrights
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: phpldapadmin
+deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/phpldapadmin
-  - https://gitlab.v2.rancher.geohub.space/g3s/i3s/i3s-helm-catalog
-type: application
-version: 10.0.1
+- https://gitlab.v2.rancher.geohub.space/g3s/i3s/i3s-helm-catalog
+- https://github.com/truecharts/charts/tree/master/charts/stable/phpldapadmin
+- https://hub.docker.com/r/osixia/phpldapadmin
+maintainers:
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
+keywords:
+- phpldapadmin
+- openldap
+- userrights
+dependencies:
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
-  truecharts.org/catagories: |
-    - management
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
   truecharts.org/SCALE-support: "true"
+  truecharts.org/category: management
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable

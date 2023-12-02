@@ -1,21 +1,19 @@
 image:
-  repository: tccr.io/truecharts/qbitrr
+  repository: feramance/qbitrr
   pullPolicy: IfNotPresent
-  tag: v3.7.9@sha256:c3d5ea35074837827c7d6694c0b381d530c484bce21997359ad5655c98b0f3ea
+  tag: v3.8.8@sha256:76167d8a60985db5b8b0478cd38cd462d56cca96330e9e363dc7b9f02deb58e0
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-
 workload:
   main:
     podSpec:
@@ -46,7 +44,8 @@ workload:
               enabled: false
             startup:
               enabled: false
-
+          env:
+            QBITRR_OVERRIDES_DATA_PATH: /config
 persistence:
   config:
     enabled: true
@@ -58,7 +57,6 @@ persistence:
   downloads:
     enabled: true
     mountPath: /completed_downloads
-
 portal:
   open:
     enabled: false

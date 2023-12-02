@@ -1,22 +1,19 @@
 image:
-  repository: tccr.io/truecharts/projectsend
+  repository: ghcr.io/linuxserver/projectsend
   pullPolicy: IfNotPresent
-  tag: vlatest@sha256:514a8ccd830aeebd5db6a900b15de61c9b2e83ad76e9a00c98a58ae24ebf906e
-
+  tag: latest@sha256:246003cbbda71686e877ff43e5e12c91f5b79876a20ce749a303474a509806c8
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
       main:
         targetPort: 80
         port: 10127
-
 workload:
   main:
     podSpec:
@@ -26,7 +23,6 @@ workload:
             MAX_UPLOAD: 5000
             PHP_MEMORY_LIMIT: "512M"
             PHP_MAX_FILE_UPLOAD: 200
-
 persistence:
   config:
     enabled: true
@@ -43,12 +39,10 @@ persistence:
     mountPath: "/data"
   varrun:
     enabled: true
-
 mariadb:
   enabled: true
   mariadbUsername: projectsend
   mariadbDatabase: projectsend
-
 portal:
   open:
     enabled: true

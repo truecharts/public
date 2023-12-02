@@ -1,6 +1,6 @@
 image:
-  repository: tccr.io/truecharts/n8n
-  tag: v1.12.0@sha256:3d2d586bdfc6a6655cb487b05f6fe506415856767bb30d2745dc6386625e680f
+  repository: n8nio/n8n
+  tag: 1.19.4@sha256:b5277ea2bc4224bf8e586359b14827dca812b5518062b42f09fe32c09bb4667e
   pullPolicy: IfNotPresent
 timezoneandlocale: {}
 # N8N_DEFAULT_LOCALE: "en"
@@ -96,12 +96,10 @@ persistence:
 # Enabled redis
 redis:
   enabled: true
-
 # Enabled postgres
 cnpg:
   main:
     enabled: true
-
     user: n8n
     database: n8n
 portal:

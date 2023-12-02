@@ -1,6 +1,6 @@
 image:
-  repository: tccr.io/truecharts/onlyoffice-ds
-  tag: v7.5.0@sha256:7b0f98493745e730bb790743ae5f0c21681bc8c5c9754a60554de79c87e8add0
+  repository: onlyoffice/documentserver
+  tag: 7.5.1@sha256:4194452493e2f49f138f893afb8f75e49f24b4ce956694aa2b62657727d2e04d
   pullPolicy: IfNotPresent
 service:
   main:
@@ -12,13 +12,11 @@ service:
 cnpg:
   main:
     enabled: true
-
     user: onlyoffice
     database: onlyoffice
 # Enabled redis
 redis:
   enabled: true
-
 portal:
   open:
     enabled: true

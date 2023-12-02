@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/shlink-web-client
+  repository: shlinkio/shlink-web-client
   pullPolicy: IfNotPresent
-  tag: v3.10.2@sha256:0d5b507ea2c269eec52c23a4d69d7b836dffab8fd20fb239fc7f31cb206fca0b
-
+  tag: 3.10.2@sha256:b96145d258f69e8c364d82a6a6f7278ddd472ead04b06f09b0d835bb9342e6af
 service:
   main:
     ports:
@@ -10,11 +9,9 @@ service:
         targetPort: 80
         port: 10154
         protocol: http
-
 portal:
   open:
     enabled: true
-
 securityContext:
   container:
     readOnlyRootFilesystem: false

@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: "2023"
+appVersion: "2023.10.20"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.0.9
+    version: 14.3.5
 deprecated: false
 description: Jupyter a web based IDE
 home: https://truecharts.org/charts/stable/jupyter
@@ -22,8 +22,6 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/jupyter
   - https://github.com/jupyter/docker-stacks
 type: application
-version: 5.0.41
+version: 5.0.48
 annotations:
-  truecharts.org/catagories: |
-    - Cloud
-  truecharts.org/SCALE-support: "true"
+  "truecharts.org/category": Cloud

@@ -86,10 +86,10 @@ Use the [Gluetun VPN Add-on Setup Guide](https://truecharts.org/manual/SCALE/gui
 
     |          Setting                                   |         Value                  |          Explanation                                                                 |
     |------------------------------------------------    |----------------------------    |----------------------------------------------------------------------------------    |
-    | Default Torrent Management Mode:                   | Automatic                      | This is to automatically move the files torrents based on catagory                   |
-    | When Torrent Category changed:                     | Relocate Torrent               | This is to automatically move the files torrents based on catagory                   |
-    | When Default Save Path changed:                    | Relocate Affected Torrents     | This is to automatically move the files torrents based on catagory                   |
-    | When Category Save Path changed:                   | Relocate Affected Torrents     | This is to automatically move the files torrents based on catagory                   |
+    | Default Torrent Management Mode:                   | Automatic                      | This is to automatically move the files torrents based on category                   |
+    | When Torrent Category changed:                     | Relocate Torrent               | This is to automatically move the files torrents based on category                   |
+    | When Default Save Path changed:                    | Relocate Affected Torrents     | This is to automatically move the files torrents based on category                   |
+    | When Category Save Path changed:                   | Relocate Affected Torrents     | This is to automatically move the files torrents based on category                   |
     | Default Save Path:                                 | `/qbitvpn/complete `           | Set this to what you set your dataset mountpoint as                                  |
     | Keep incomplete torrents in:                       | `/qbitvpn/temp`                | Keep incomplete torrents in a folder no apps are monitoring                          |
     | Copy .torrent files for finished downloads to:     | `/qbitvpn/backup`              | Its nice to have a backup folder of all your `.torrents` in the event of a crash     |
