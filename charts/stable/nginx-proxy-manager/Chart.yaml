@@ -1,33 +1,45 @@
+kubeVersion: '>=1.24.0'
 apiVersion: v2
-appVersion: "2.10.4"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
-  - condition: mariadb.enabled
-    name: mariadb
-    repository: https://deps.truecharts.org/
-    version: 7.0.70
-deprecated: false
+name: nginx-proxy-manager
+version: 5.0.12
+appVersion: 2.10.4
 description: Managing Nginx proxy hosts with a simple, powerful interface.
 home: https://truecharts.org/charts/stable/nginx-proxy-manager
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/nginx-proxy-manager.png
-keywords:
-  - nginx-proxy-manager
-  - nginx
-  - reverse-proxy
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: nginx-proxy-manager
+deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/nginx-proxy-manager
-  - https://github.com/NginxProxyManager/nginx-proxy-manager
-  - https://nginxproxymanager.com/
-type: application
-version: 5.0.11
+- https://hub.docker.com/r/jc21/nginx-proxy-manager
+- https://github.com/NginxProxyManager/nginx-proxy-manager
+- https://nginxproxymanager.com/
+- https://github.com/truecharts/charts/tree/master/charts/stable/nginx-proxy-manager
+maintainers:
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
+keywords:
+- nginx-proxy-manager
+- nginx
+- reverse-proxy
+dependencies:
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
+- name: mariadb
+  version: 7.0.70
+  repository: https://deps.truecharts.org/
+  condition: mariadb.enabled
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
-  truecharts.org/category: networking
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
   truecharts.org/SCALE-support: "true"
+  truecharts.org/category: networking
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable

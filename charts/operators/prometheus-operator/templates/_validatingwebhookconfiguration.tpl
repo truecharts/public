@@ -11,7 +11,6 @@ metadata:
   name:  {{ include "tc.v1.common.lib.chart.names.fullname" $ }}-admission
   labels:
   {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $ "labels" $labels) | trim) }}
-    app: {{ include "tc.v1.common.lib.chart.names.fullname" $ }}-admission
     {{- . | nindent 4 }}
   {{- end }}
   {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $ "annotations" $annotations) | trim) }}

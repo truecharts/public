@@ -8,27 +8,31 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
-                                - variable: env
-                                  group: "App Configuration"
-                                  label: "Image Environment"
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                      - variable: COMPOSE_FILE
-                                        label: Docker Compose File
-                                        description: Path of the compose file you want to load. You MUST mount the storage yourself
-                                        schema:
-                                          type: string
-                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
+
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
 # Include{serviceList}
+# Include{persistenceRoot}
+        - variable: source
+          label: "App Source Storage"
+          description: "Stores the Application Source."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: destination
+          label: "App Destination Storage"
+          description: "Stores the Application Destination."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
 # Include{persistenceList}
 # Include{securityContextRoot}
 
@@ -52,8 +56,8 @@ questions:
                 description: "The group that should own ALL storage."
                 schema:
                   type: int
-                  default: 0
-# Include{ingressList}
+                  default: 568
+
 # Include{resources}
 # Include{advanced}
 # Include{addons}
