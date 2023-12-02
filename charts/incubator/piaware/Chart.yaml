@@ -1,28 +1,41 @@
-annotations:
-    max_scale_version: 23.10.1
-    min_scale_version: 22.12.4
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: media
+kubeVersion: '>=1.16.0-0'
 apiVersion: v2
+name: piaware
+version: 9.0.0
 appVersion: "7.2"
-dependencies:
-    - name: common
-      repository: https://library-charts.truecharts.org
-      version: 11.1.2
 description: Program for forwarding ADS-B data to FlightAware
 home: https://truecharts.org/charts/incubator/piaware
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/piaware.png
-keywords:
-    - piaware
-    - flight-aware
-    - flight-tracker
-kubeVersion: '>=1.16.0-0'
-maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-name: piaware
+deprecated: false
 sources:
-    - https://github.com/truecharts/charts/tree/master/charts/incubator/piaware
-    - https://github.com/flightaware/piaware
-version: 9.0.0
+- https://github.com/flightaware/piaware
+- https://github.com/truecharts/charts/tree/master/charts/incubator/piaware
+- https://github.com/truecharts/containers/tree/master/mirrorpiaware
+maintainers:
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
+keywords:
+- piaware
+- flight-aware
+- flight-tracker
+dependencies:
+- name: common
+  version: 11.1.2
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
+annotations:
+  'category:': unsorted
+  max_scale_version: 23.10.1
+  'max_scale_version:': 23.10.1
+  min_scale_version: 22.12.4
+  'min_scale_version:': "22.12"
+  truecharts.org/SCALE-support: "true"
+  'truecharts.org/SCALE-support:': "true"
+  truecharts.org/category: media
+  'truecharts.org/max_helm_version:': "3.13"
+  'truecharts.org/min_helm_version:': "3.12"
+  truecharts.org/train: incubator

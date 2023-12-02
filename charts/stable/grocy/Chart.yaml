@@ -1,26 +1,38 @@
-annotations:
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: Home-Automation
+kubeVersion: '>=1.16.0-0'
 apiVersion: v2
+name: grocy
+version: 15.0.26
 appVersion: 4.0.3
-dependencies:
-    - name: common
-      repository: https://library-charts.truecharts.org
-      version: 14.3.5
-deprecated: false
-description: ERP beyond your fridge - grocy is a web-based self-hosted groceries & household management solution for your home
+description: ERP beyond your fridge - grocy is a web-based self-hosted groceries &
+  household management solution for your home
 home: https://truecharts.org/charts/stable/grocy
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/grocy.png
-keywords:
-    - grocy
-kubeVersion: '>=1.16.0-0'
-maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-name: grocy
+deprecated: false
 sources:
-    - https://github.com/truecharts/charts/tree/master/charts/stable/grocy
-    - https://github.com/grocy/grocy
-type: application
-version: 15.0.26
+- https://github.com/grocy/grocy
+- https://github.com/truecharts/charts/tree/master/charts/stable/grocy
+- https://ghcr.io/linuxserver/grocy
+maintainers:
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
+keywords:
+- grocy
+dependencies:
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
+annotations:
+  'category:': unsorted
+  'max_scale_version:': 23.10.1
+  'min_scale_version:': "22.12"
+  truecharts.org/SCALE-support: "true"
+  'truecharts.org/SCALE-support:': "true"
+  truecharts.org/category: Home-Automation
+  'truecharts.org/max_helm_version:': "3.13"
+  'truecharts.org/min_helm_version:': "3.12"
+  truecharts.org/train: stable

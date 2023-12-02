@@ -1,29 +1,40 @@
-annotations:
-    max_scale_version: 23.10.1
-    min_scale_version: 22.12.4
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: Downloaders
+kubeVersion: '>=1.16.0-0'
 apiVersion: v2
+name: qflood
+version: 2.0.14
 appVersion: latest
-dependencies:
-    - name: common
-      repository: https://library-charts.truecharts.org
-      version: 11.1.2
-deprecated: false
 description: Chart with qBittorrent and the Flood UI.
 home: https://truecharts.org/charts/incubator/qflood
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/qflood.png
-keywords:
-    - qflood
-    - Downloaders
-kubeVersion: '>=1.16.0-0'
-maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-name: qflood
+deprecated: false
 sources:
-    - https://github.com/truecharts/charts/tree/master/charts/incubator/qflood
-    - https://hotio.dev/containers/qflood
-type: application
-version: 2.0.14
+- https://hotio.dev/containers/qflood
+- https://github.com/truecharts/charts/tree/master/charts/incubator/qflood
+- https://github.com/truecharts/containers/tree/master/mirrorqflood
+maintainers:
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
+keywords:
+- qflood
+- Downloaders
+dependencies:
+- name: common
+  version: 11.1.2
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
+annotations:
+  'category:': unsorted
+  max_scale_version: 23.10.1
+  'max_scale_version:': 23.10.1
+  min_scale_version: 22.12.4
+  'min_scale_version:': "22.12"
+  truecharts.org/SCALE-support: "true"
+  'truecharts.org/SCALE-support:': "true"
+  truecharts.org/category: Downloaders
+  'truecharts.org/max_helm_version:': "3.13"
+  'truecharts.org/min_helm_version:': "3.12"
+  truecharts.org/train: incubator

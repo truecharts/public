@@ -1,27 +1,39 @@
-annotations:
-    max_scale_version: 23.10.1
-    min_scale_version: 22.12.4
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: incubator
+kubeVersion: '>=1.16.0-0'
 apiVersion: v2
+name: mysql-workbench
+version: 6.0.24
 appVersion: 8.0.34
-dependencies:
-    - name: common
-      repository: https://library-charts.truecharts.org
-      version: 14.3.5
-deprecated: false
-description: MySQL Workbench is a unified visual tool for database architects, developers and DBAs.
+description: MySQL Workbench is a unified visual tool for database architects, developers
+  and DBAs.
 home: https://truecharts.org/charts/stable/mysql-workbench
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/mysql-workbench.png
-keywords:
-    - mysql-workbench
-kubeVersion: '>=1.16.0-0'
-maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-name: mysql-workbench
+deprecated: false
 sources:
-    - https://github.com/truecharts/charts/tree/master/charts/stable/mysql-workbench
-type: application
-version: 6.0.24
+- https://github.com/truecharts/charts/tree/master/charts/stable/mysql-workbench
+- https://ghcr.io/linuxserver/mysql-workbench
+maintainers:
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
+keywords:
+- mysql-workbench
+dependencies:
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
+annotations:
+  'category:': unsorted
+  max_scale_version: 23.10.1
+  'max_scale_version:': 23.10.1
+  min_scale_version: 22.12.4
+  'min_scale_version:': "22.12"
+  truecharts.org/SCALE-support: "true"
+  'truecharts.org/SCALE-support:': "true"
+  truecharts.org/category: incubator
+  'truecharts.org/max_helm_version:': "3.13"
+  'truecharts.org/min_helm_version:': "3.12"
+  truecharts.org/train: stable

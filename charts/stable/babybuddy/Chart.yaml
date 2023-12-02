@@ -1,29 +1,42 @@
-annotations:
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: media
+kubeVersion: '>=1.16.0-0'
 apiVersion: v2
+name: babybuddy
+version: 13.0.25
 appVersion: 2.1.2
-dependencies:
-    - name: common
-      repository: https://library-charts.truecharts.org
-      version: 14.3.5
-description: Helps caregivers track sleep, feedings, diaper changes, tummy time and more to learn about and predict baby's needs without (as much) guess work.
+description: Helps caregivers track sleep, feedings, diaper changes, tummy time and
+  more to learn about and predict baby's needs without (as much) guess work.
 home: https://truecharts.org/charts/stable/babybuddy
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/babybuddy.png
-keywords:
-    - baby
-    - buddy
-    - tracker
-    - parents
-    - parenting
-kubeVersion: '>=1.16.0-0'
-maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-name: babybuddy
+deprecated: false
 sources:
-    - https://github.com/truecharts/charts/tree/master/charts/stable/babybuddy
-    - https://github.com/babybuddy/babybuddy
-type: application
-version: 13.0.25
+- https://github.com/babybuddy/babybuddy
+- https://github.com/truecharts/charts/tree/master/charts/stable/babybuddy
+- https://ghcr.io/linuxserver/babybuddy
+maintainers:
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
+keywords:
+- baby
+- buddy
+- tracker
+- parents
+- parenting
+dependencies:
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
+annotations:
+  'category:': unsorted
+  'max_scale_version:': 23.10.1
+  'min_scale_version:': "22.12"
+  truecharts.org/SCALE-support: "true"
+  'truecharts.org/SCALE-support:': "true"
+  truecharts.org/category: media
+  'truecharts.org/max_helm_version:': "3.13"
+  'truecharts.org/min_helm_version:': "3.12"
+  truecharts.org/train: stable

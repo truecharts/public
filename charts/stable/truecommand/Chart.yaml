@@ -1,27 +1,38 @@
-annotations:
-    max_scale_version: 23.10.1
-    min_scale_version: 22.12.4
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: Administration
+kubeVersion: '>=1.16.0-0'
 apiVersion: v2
+name: truecommand
+version: 15.0.9
 appVersion: "2.2"
-dependencies:
-    - name: common
-      repository: https://library-charts.truecharts.org
-      version: 14.3.5
-deprecated: false
 description: Aggregated management of TrueNAS devices
 home: https://truecharts.org/charts/stable/truecommand
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/truecommand.png
-keywords:
-    - truecommand
-kubeVersion: '>=1.16.0-0'
-maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-name: truecommand
+deprecated: false
 sources:
-    - https://github.com/truecharts/charts/tree/master/charts/stable/truecommand
-type: application
-version: 15.0.9
+- https://github.com/truecharts/charts/tree/master/charts/stable/truecommand
+- https://hub.docker.com/r/ixsystems/truecommand
+maintainers:
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
+keywords:
+- truecommand
+dependencies:
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
+annotations:
+  'category:': unsorted
+  max_scale_version: 23.10.1
+  'max_scale_version:': 23.10.1
+  min_scale_version: 22.12.4
+  'min_scale_version:': "22.12"
+  truecharts.org/SCALE-support: "true"
+  'truecharts.org/SCALE-support:': "true"
+  truecharts.org/category: Administration
+  'truecharts.org/max_helm_version:': "3.13"
+  'truecharts.org/min_helm_version:': "3.12"
+  truecharts.org/train: stable

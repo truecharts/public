@@ -1,29 +1,40 @@
-annotations:
-    max_scale_version: 23.10.1
-    min_scale_version: 22.12.4
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: media
+kubeVersion: '>=1.16.0-0'
 apiVersion: v2
+name: watcharr
+version: 1.1.0
 appVersion: 1.21.1
-dependencies:
-    - name: common
-      repository: https://library-charts.truecharts.org
-      version: 14.3.5
-deprecated: false
 description: Open source, self-hostable watched list
 home: https://truecharts.org/charts/stable/watcharr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/watcharr.png
-keywords:
-    - watcharr
-    - media
-kubeVersion: '>=1.16.0-0'
-maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-name: watcharr
+deprecated: false
 sources:
-    - https://github.com/truecharts/charts/tree/master/charts/stable/watcharr
-    - https://github.com/sbondCo/Watcharr
-type: application
-version: 1.1.0
+- https://github.com/sbondCo/Watcharr
+- https://github.com/truecharts/charts/tree/master/charts/stable/watcharr
+- https://github.com/truecharts/containers/tree/master/mirrorwatcharr
+maintainers:
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
+keywords:
+- watcharr
+- media
+dependencies:
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
+annotations:
+  'category:': unsorted
+  max_scale_version: 23.10.1
+  'max_scale_version:': 23.10.1
+  min_scale_version: 22.12.4
+  'min_scale_version:': "22.12"
+  truecharts.org/SCALE-support: "true"
+  'truecharts.org/SCALE-support:': "true"
+  truecharts.org/category: media
+  'truecharts.org/max_helm_version:': "3.13"
+  'truecharts.org/min_helm_version:': "3.12"
+  truecharts.org/train: stable

@@ -1,31 +1,42 @@
-annotations:
-    max_scale_version: 23.10.1
-    min_scale_version: 22.12.4
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: Cloud
+kubeVersion: '>=1.16.0-0'
 apiVersion: v2
+name: vlmcsd-kms-server
+version: 2.0.9
 appVersion: latest
-dependencies:
-    - name: common
-      repository: https://library-charts.truecharts.org
-      version: 11.1.2
-deprecated: false
 description: vlmcsd is a replacement for Microsoft's KMS server.
 home: https://truecharts.org/charts/incubator/vlmcsd-kms-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/vlmcsd-kms-server.png
-keywords:
-    - vlmcsd-kms-server
-    - Cloud
-    - Tools-Utilities
-    - Network-Other
-kubeVersion: '>=1.16.0-0'
-maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-name: vlmcsd-kms-server
+deprecated: false
 sources:
-    - https://github.com/truecharts/charts/tree/master/charts/incubator/vlmcsd-kms-server
-    - https://github.com/mikolatero/docker-vlmcsd
-type: application
-version: 2.0.9
+- https://github.com/mikolatero/docker-vlmcsd
+- https://github.com/truecharts/charts/tree/master/charts/incubator/vlmcsd-kms-server
+- https://github.com/truecharts/containers/tree/master/mirrorvlmcsd-kms-server
+maintainers:
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
+keywords:
+- vlmcsd-kms-server
+- Cloud
+- Tools-Utilities
+- Network-Other
+dependencies:
+- name: common
+  version: 11.1.2
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
+annotations:
+  'category:': unsorted
+  max_scale_version: 23.10.1
+  'max_scale_version:': 23.10.1
+  min_scale_version: 22.12.4
+  'min_scale_version:': "22.12"
+  truecharts.org/SCALE-support: "true"
+  'truecharts.org/SCALE-support:': "true"
+  truecharts.org/category: Cloud
+  'truecharts.org/max_helm_version:': "3.13"
+  'truecharts.org/min_helm_version:': "3.12"
+  truecharts.org/train: incubator

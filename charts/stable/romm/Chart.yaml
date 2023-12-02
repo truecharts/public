@@ -1,37 +1,54 @@
-annotations:
-    max_scale_version: 23.10.1
-    min_scale_version: 22.12.4
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: media
+kubeVersion: '>=1.16.0-0'
 apiVersion: v2
+name: romm
+version: 2.0.13
 appVersion: "1.10"
-dependencies:
-    - name: common
-      repository: https://library-charts.truecharts.org
-      version: 14.3.5
-    - condition: mariadb.enabled
-      name: mariadb
-      repository: https://deps.truecharts.org/
-      version: 7.0.70
-    - condition: redis.enabled
-      name: redis
-      repository: https://deps.truecharts.org
-      version: 7.0.6
-deprecated: false
 description: game library manager focused in retro gaming
 home: https://truecharts.org/charts/stable/romm
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/romm.png
-keywords:
-    - romm
-    - rom-manager
-kubeVersion: '>=1.16.0-0'
-maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-name: romm
+deprecated: false
 sources:
-    - https://github.com/truecharts/charts/tree/master/charts/stable/romm
-    - https://github.com/zurdi15/romm
-type: application
-version: 2.0.13
+- https://github.com/zurdi15/romm
+- https://github.com/truecharts/charts/tree/master/charts/stable/romm
+- https://ghcr.io/zurdi15/romm
+maintainers:
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
+keywords:
+- romm
+- rom-manager
+dependencies:
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
+- name: mariadb
+  version: 7.0.70
+  repository: https://deps.truecharts.org/
+  condition: mariadb.enabled
+  alias: ""
+  tags: []
+  import-values: []
+- name: redis
+  version: 7.0.6
+  repository: https://deps.truecharts.org
+  condition: redis.enabled
+  alias: ""
+  tags: []
+  import-values: []
+annotations:
+  'category:': unsorted
+  max_scale_version: 23.10.1
+  'max_scale_version:': 23.10.1
+  min_scale_version: 22.12.4
+  'min_scale_version:': "22.12"
+  truecharts.org/SCALE-support: "true"
+  'truecharts.org/SCALE-support:': "true"
+  truecharts.org/category: media
+  'truecharts.org/max_helm_version:': "3.13"
+  'truecharts.org/min_helm_version:': "3.12"
+  truecharts.org/train: stable

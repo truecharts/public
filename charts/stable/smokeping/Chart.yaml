@@ -1,27 +1,39 @@
-annotations:
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: media
+kubeVersion: '>=1.16.0-0'
 apiVersion: v2
+name: smokeping
+version: 7.0.13
 appVersion: 2.8.2
-dependencies:
-    - name: common
-      repository: https://library-charts.truecharts.org
-      version: 14.3.5
 description: Keep track of your network latency.
 home: https://truecharts.org/charts/stable/smokeping
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/smokeping.png
-keywords:
-    - smokeping
-    - network
-    - latency
-kubeVersion: '>=1.16.0-0'
-maintainers:
-    - email: info@truecharts.org
-      name: TrueCharts
-      url: https://truecharts.org
-name: smokeping
+deprecated: false
 sources:
-    - https://github.com/truecharts/charts/tree/master/charts/stable/smokeping
-    - https://oss.oetiker.ch/smokeping/
-type: application
-version: 7.0.13
+- https://oss.oetiker.ch/smokeping/
+- https://github.com/truecharts/charts/tree/master/charts/stable/smokeping
+- https://ghcr.io/linuxserver/smokeping
+maintainers:
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
+keywords:
+- smokeping
+- network
+- latency
+dependencies:
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
+annotations:
+  'category:': unsorted
+  'max_scale_version:': 23.10.1
+  'min_scale_version:': "22.12"
+  truecharts.org/SCALE-support: "true"
+  'truecharts.org/SCALE-support:': "true"
+  truecharts.org/category: media
+  'truecharts.org/max_helm_version:': "3.13"
+  'truecharts.org/min_helm_version:': "3.12"
+  truecharts.org/train: stable
