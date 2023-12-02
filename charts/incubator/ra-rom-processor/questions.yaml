@@ -8,9 +8,6 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
-
                                                               - variable: env
                                                                 group: "App Configuration"
                                                                 label: "Image Environment"
@@ -88,6 +85,10 @@ questions:
                                                                       schema:
                                                                         type: string
                                                                         default: en
+# Include{containerBasic}
+# Include{containerAdvanced}
+# Include{containerConfig}
+# Include{podOptions}
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
 # Include{serviceList}
