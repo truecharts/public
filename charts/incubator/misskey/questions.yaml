@@ -12,7 +12,8 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
-
+# Include{containerConfig}
+# Include{podOptions}
   - variable: misskey
     group: App Configuration
     label: Misskey Configuration
@@ -153,7 +154,6 @@ questions:
                         type: string
                         required: true
                         default: ""
-# Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
           label: Main Service

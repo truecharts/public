@@ -10,27 +10,23 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: LOG_LEVEL
-          label: "LOG_LEVEL"
-          schema:
-            type: string
-            default: "info"
-        - variable: UMASK
-          label: "UMASK"
-          schema:
-            type: string
-            default: "000"
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: LOG_LEVEL
+                                        label: "LOG_LEVEL"
+                                        schema:
+                                          type: string
+                                          default: "info"
+                                      - variable: UMASK
+                                        label: "UMASK"
+                                        schema:
+                                          type: string
+                                          default: "000"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

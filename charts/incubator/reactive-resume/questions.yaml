@@ -13,6 +13,8 @@ questions:
 
 # Include{containerBasic}
 # Include{containerAdvanced}
+# Include{containerConfig}
+# Include{podOptions}
 
   - variable: reactiveresume
     group: App Configuration
@@ -140,8 +142,7 @@ questions:
                   default: 345600000
                   min: 1
 
-# Include{containerConfig}
-# Include{podOptions}
+
 # Include{serviceRoot}
 # Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}

@@ -10,29 +10,25 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: DEFAULTADMIN
-          label: "DEFAULTADMIN"
-          description: "Default user name."
-          schema:
-            type: string
-            default: "admin"
-        - variable: DEFAULTADMINPWD
-          label: "DEFAULTADMINPWD"
-          description: "Default user password."
-          schema:
-            type: string
-            default: "1234"
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: DEFAULTADMIN
+                                        label: "DEFAULTADMIN"
+                                        description: "Default user name."
+                                        schema:
+                                          type: string
+                                          default: "admin"
+                                      - variable: DEFAULTADMINPWD
+                                        label: "DEFAULTADMINPWD"
+                                        description: "Default user password."
+                                        schema:
+                                          type: string
+                                          default: "1234"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

@@ -14,67 +14,66 @@ questions:
 # Include{containerAdvanced}
 
 # Include{containerConfig}
-  - variable: secretEnv
-    group: App Configuration
-    label: Image Secrets
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: FIREFLY_III_ACCESS_TOKEN
-          label: Firefly III Access Token
-          description: Access Token for Firefly III.
-          schema:
-            type: string
-            required: true
-            default: ""
-        - variable: NORDIGEN_ID
-          label: Nordigen ID
-          description: Your Nordigen Client ID.
-          schema:
-            type: string
-            default: ""
-        - variable: NORDIGEN_KEY
-          label: Nordigen Key
-          description: Your Nordigen Client SECRET.
-          schema:
-            type: string
-            private: true
-            default: ""
-        - variable: SPECTRE_APP_ID
-          label: Spectre App ID
-          description: Your Spectre / Salt Edge Client ID.
-          schema:
-            type: string
-            default: ""
-        - variable: SPECTRE_SECRET
-          label: Spectre Secret
-          description: Is your Spectre / Salt Edge Client secret.
-          schema:
-            type: string
-            private: true
-            default: ""
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: FIREFLY_III_URL
-          label: Firefly III URL
-          description: "Internal URL for Firefly III. `http(s)://` is needed."
-          schema:
-            type: string
-            required: true
-            default: ""
-        - variable: VANITY_URL
-          label: Vanity URL
-          description: "External URL for Firefly III. `http(s)://` is needed."
-          schema:
-            type: string
-            required: true
-            default: ""
+# Include{podOptions}
+# Include{serviceRoot}
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: FIREFLY_III_ACCESS_TOKEN
+                                        label: Firefly III Access Token
+                                        description: Access Token for Firefly III.
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+                                      - variable: NORDIGEN_ID
+                                        label: Nordigen ID
+                                        description: Your Nordigen Client ID.
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: NORDIGEN_KEY
+                                        label: Nordigen Key
+                                        description: Your Nordigen Client SECRET.
+                                        schema:
+                                          type: string
+                                          private: true
+                                          default: ""
+                                      - variable: SPECTRE_APP_ID
+                                        label: Spectre App ID
+                                        description: Your Spectre / Salt Edge Client ID.
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: SPECTRE_SECRET
+                                        label: Spectre Secret
+                                        description: Is your Spectre / Salt Edge Client secret.
+                                        schema:
+                                          type: string
+                                          private: true
+                                          default: ""
+                                      - variable: FIREFLY_III_URL
+                                        label: Firefly III URL
+                                        description: "Internal URL for Firefly III. `http(s)://` is needed."
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+                                      - variable: VANITY_URL
+                                        label: Vanity URL
+                                        description: "External URL for Firefly III. `http(s)://` is needed."
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+# Include{containerBasic}
+# Include{containerAdvanced}
+# Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: Main Service
@@ -115,28 +114,28 @@ questions:
 # Include{ingressAdvanced}
 # Include{ingressList}
 
-# Include{podSecurityContextRoot}
-        - variable: runAsUser
-          label: runAsUser
-          description: The UserID of the user running the application
-          schema:
-            type: int
-            default: 0
-        - variable: runAsGroup
-          label: runAsGroup
-          description: The groupID this App of the user running the application
-          schema:
-            type: int
-            default: 0
+# Include{securityContextRoot}
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-        - variable: fsGroup
-          label: fsGroup
-          description: The group that should own ALL storage.
-          schema:
-            type: int
-            default: 568
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
+                schema:
+                  type: int
+                  default: 568
 
 # Include{resources}
 # Include{advanced}

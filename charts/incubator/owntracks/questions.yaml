@@ -12,7 +12,8 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
-
+# Include{containerConfig}
+# Include{podOptions}
   - variable: owntracks
     group: App Configuration
     label: OwnTracks Configuration
@@ -79,7 +80,6 @@ questions:
             type: int
             required: true
             default: 104857600000
-# Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
           label: Main Service

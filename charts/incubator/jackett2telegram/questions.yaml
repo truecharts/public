@@ -11,44 +11,40 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: secretEnv
-    group: App Configuration
-    label: Image Secrets
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: TOKEN
-          label: Token
-          description: Telegram Bot Token.
-          schema:
-            type: string
-            required: true
-            private: true
-            default: ""
-        - variable: CHATID
-          label: Chat ID
-          description: Telegram Bot Chat ID.
-          schema:
-            type: string
-            private: true
-            required: true
-            default: ""
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: DELAY
-          label: Delay
-          description: Delay in seconds.
-          schema:
-            type: int
-            required: true
-            default: 600
+                                - variable: env
+                                  group: App Configuration
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: TOKEN
+                                        label: Token
+                                        description: Telegram Bot Token.
+                                        schema:
+                                          type: string
+                                          required: true
+                                          private: true
+                                          default: ""
+                                      - variable: CHATID
+                                        label: Chat ID
+                                        description: Telegram Bot Chat ID.
+                                        schema:
+                                          type: string
+                                          private: true
+                                          required: true
+                                          default: ""
+                                      - variable: DELAY
+                                        label: Delay
+                                        description: Delay in seconds.
+                                        schema:
+                                          type: int
+                                          required: true
+                                          default: 600
+# Include{containerBasic}
+# Include{containerAdvanced}
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
 # Include{serviceList}
@@ -72,27 +68,27 @@ questions:
 # Include{persistenceList}
 # Include{securityContextRoot}
 
-        - variable: runAsUser
-          label: runAsUser
-          description: The UserID of the user running the application
-          schema:
-            type: int
-            default: 568
-        - variable: runAsGroup
-          label: runAsGroup
-          description: The groupID this App of the user running the application
-          schema:
-            type: int
-            default: 568
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
+                schema:
+                  type: int
+                  default: 568
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
+                schema:
+                  type: int
+                  default: 568
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-        - variable: fsGroup
-          label: fsGroup
-          description: The group that should own ALL storage.
-          schema:
-            type: int
-            default: 568
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
+                schema:
+                  type: int
+                  default: 568
 
 # Include{resources}
 # Include{advanced}

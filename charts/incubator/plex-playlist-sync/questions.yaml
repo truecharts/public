@@ -11,7 +11,8 @@ questions:
 
 # Include{containerBasic}
 # Include{containerAdvanced}
-
+# Include{containerConfig}
+# Include{podOptions}
   - variable: pps
     group: App Configuration
     label: Plex Playlist Sync
@@ -134,7 +135,6 @@ questions:
                   type: int
                   default: 84000
 
-# Include{podOptions}
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
 # Include{serviceList}

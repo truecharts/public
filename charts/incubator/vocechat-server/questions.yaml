@@ -13,6 +13,8 @@ questions:
 
 # Include{containerBasic}
 # Include{containerAdvanced}
+# Include{containerConfig}
+# Include{podOptions}
 
   - variable: vocechat
     group: App Configuration
@@ -28,8 +30,7 @@ questions:
             required: true
             default: "http://localhost:3009"
 
-# Include{containerConfig}
-# Include{podOptions}
+
 # Include{serviceRoot}
 # Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}

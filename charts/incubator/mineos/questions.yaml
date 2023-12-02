@@ -14,41 +14,39 @@ questions:
 # Include{containerAdvanced}
 
 # Include{containerConfig}
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: USER_NAME
-          label: "USER NAME"
-          description: "User Login for the Web Interface."
-          schema:
-            type: string
-            required: true
-            default: ""
-        - variable: USER_PASSWORD
-          label: "USER PASSWORD"
-          description: "User Password for the Web Interface."
-          schema:
-            type: string
-            private: true
-            required: true
-            default: ""
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: USE_HTTPS
-          label: "USE HTTPS"
-          description: "Should the web interface use HTTPS(true) or HTTP?(false)"
-          schema:
-            type: boolean
-            default: false
+# Include{podOptions}
+# Include{serviceRoot}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: USER_NAME
+                                        label: "USER NAME"
+                                        description: "User Login for the Web Interface."
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+                                      - variable: USER_PASSWORD
+                                        label: "USER PASSWORD"
+                                        description: "User Password for the Web Interface."
+                                        schema:
+                                          type: string
+                                          private: true
+                                          required: true
+                                          default: ""
+                                      - variable: USE_HTTPS
+                                        label: "USE HTTPS"
+                                        description: "Should the web interface use HTTPS(true) or HTTP?(false)"
+                                        schema:
+                                          type: boolean
+                                          default: false
+# Include{containerBasic}
+# Include{containerAdvanced}
+# Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
@@ -453,12 +451,12 @@ questions:
                 schema:
                   type: int
                   default: 0
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}

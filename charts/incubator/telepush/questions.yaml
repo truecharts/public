@@ -13,6 +13,8 @@ questions:
 
 # Include{containerBasic}
 # Include{containerAdvanced}
+# Include{containerConfig}
+# Include{podOptions}
 
   - variable: telepush
     group: App Configuration
@@ -55,8 +57,6 @@ questions:
             default: 10
             min: 1
 
-# Include{containerConfig}
-# Include{podOptions}
 # Include{serviceRoot}
 # Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}

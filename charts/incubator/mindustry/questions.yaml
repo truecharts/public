@@ -10,41 +10,37 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: GAME_V
-          label: "GAME_V"
-          description: "Preferred game version goes here (set to latest to download the latest and check on every startup if there is a newer version available)"
-          schema:
-            type: string
-            default: "latest"
-        - variable: SRV_NAME
-          label: "SRV_NAME"
-          description: "Servername goes here"
-          schema:
-            type: string
-            default: "DockerMindustry"
-        - variable: GAME_PARAMS
-          label: "GAME_PARAMS"
-          description: "Extra startup Parameters if needed (leave empty if not needed)"
-          schema:
-            type: string
-            default: ""
-        - variable: UMASK
-          label: "UMASK"
-          description: "Permissions for newly created files. Dont change unless you are knowing what you are doing!"
-          schema:
-            type: string
-            default: "000"
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: GAME_V
+                                        label: "GAME_V"
+                                        description: "Preferred game version goes here (set to latest to download the latest and check on every startup if there is a newer version available)"
+                                        schema:
+                                          type: string
+                                          default: "latest"
+                                      - variable: SRV_NAME
+                                        label: "SRV_NAME"
+                                        description: "Servername goes here"
+                                        schema:
+                                          type: string
+                                          default: "DockerMindustry"
+                                      - variable: GAME_PARAMS
+                                        label: "GAME_PARAMS"
+                                        description: "Extra startup Parameters if needed (leave empty if not needed)"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: UMASK
+                                        label: "UMASK"
+                                        description: "Permissions for newly created files. Dont change unless you are knowing what you are doing!"
+                                        schema:
+                                          type: string
+                                          default: "000"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

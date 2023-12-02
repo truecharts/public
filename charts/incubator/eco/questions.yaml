@@ -13,7 +13,8 @@ questions:
 
 # Include{containerBasic}
 # Include{containerAdvanced}
-
+# Include{containerConfig}
+# Include{podOptions}
   - variable: eco
     group: App Configuration
     label: Eco
@@ -148,8 +149,6 @@ questions:
                   type: int
                   default: -1
 
-# Include{containerConfig}
-# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: Main Service
