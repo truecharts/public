@@ -13,34 +13,33 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: TITLE
-          label: TITLE
-          schema:
-            type: string
-            default: TrueCharts Photo Stream collection.
-        - variable: AUTHOR_NAME
-          label: "AUTHOR_NAME"
-          schema:
-            type: string
-            default: "TrueCharts"
-        - variable: DESCRIPTION
-          label: "DESCRIPTION"
-          schema:
-            type: string
-            default: "My TrueCharts Photo Stream collection."
-        - variable: SHOW_OFFICIAL_GITHUB
-          label: SHOW_OFFICIAL_GITHUB
-          schema:
-            type: string
-            default: "0"
-# Include{containerConfig}
+                                - variable: env
+                                  group: App Configuration
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: TITLE
+                                        label: TITLE
+                                        schema:
+                                          type: string
+                                          default: TrueCharts Photo Stream collection.
+                                      - variable: AUTHOR_NAME
+                                        label: "AUTHOR_NAME"
+                                        schema:
+                                          type: string
+                                          default: "TrueCharts"
+                                      - variable: DESCRIPTION
+                                        label: "DESCRIPTION"
+                                        schema:
+                                          type: string
+                                          default: "My TrueCharts Photo Stream collection."
+                                      - variable: SHOW_OFFICIAL_GITHUB
+                                        label: SHOW_OFFICIAL_GITHUB
+                                        schema:
+                                          type: string
+                                          default: "0"
 # Include{serviceRoot}
         - variable: main
           label: Main Service

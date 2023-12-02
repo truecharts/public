@@ -13,25 +13,24 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: ADMIN_PASSWORD
-          label: "ADMIN_PASSWORD"
-          description: "The admin account password"
-          schema:
-            type: string
-            default: ""
-        - variable: MINUTES_BETWEEN_VIDEO_SCANS
-          label: "MINUTES_BETWEEN_VIDEO_SCANS"
-          description: "How often in minutes Fireshare will scan for new videos"
-          schema:
-            type: int
-            default: 5
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: ADMIN_PASSWORD
+                                        label: "ADMIN_PASSWORD"
+                                        description: "The admin account password"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: MINUTES_BETWEEN_VIDEO_SCANS
+                                        label: "MINUTES_BETWEEN_VIDEO_SCANS"
+                                        description: "How often in minutes Fireshare will scan for new videos"
+                                        schema:
+                                          type: int
+                                          default: 5
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

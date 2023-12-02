@@ -13,42 +13,41 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: MYSQL_USER
-          label: MYSQL User
-          schema:
-            type: string
-            default: ""
-        - variable: MYSQL_PASSWORD
-          label: MYSQL Password
-          schema:
-            type: string
-            default: ""
-        - variable: PMA_HOST
-          label: PWA Host
-          description: define address/host name of the db
-          schema:
-            type: string
-            default: "192.168.70.99"
-        - variable: PMA_PORT
-          label: PWA Port
-          description: define port of the MySQL server
-          schema:
-            type: string
-            default: "3306"
-        - variable: PMA_ABSOLUTE_URI
-          label: PWA Absolute URi
-          description: The full URL to phpMyAdmin
-          schema:
-            type: string
-            default: ""
-# Include{containerConfig}
+                                - variable: env
+                                  group: App Configuration
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: MYSQL_USER
+                                        label: MYSQL User
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: MYSQL_PASSWORD
+                                        label: MYSQL Password
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: PMA_HOST
+                                        label: PWA Host
+                                        description: define address/host name of the db
+                                        schema:
+                                          type: string
+                                          default: "192.168.70.99"
+                                      - variable: PMA_PORT
+                                        label: PWA Port
+                                        description: define port of the MySQL server
+                                        schema:
+                                          type: string
+                                          default: "3306"
+                                      - variable: PMA_ABSOLUTE_URI
+                                        label: PWA Absolute URi
+                                        description: The full URL to phpMyAdmin
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{serviceRoot}
         - variable: main
           label: Main Service

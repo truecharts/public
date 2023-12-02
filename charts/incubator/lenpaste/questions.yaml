@@ -13,56 +13,55 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: LENPASTE_ADMIN_NAME
-          label: Admin Name
-          description: Name of the administrator of this server.
-          schema:
-            type: string
-            default: ""
-        - variable: LENPASTE_ADMIN_MAIL
-          label: Admin Mail
-          description: Email of the administrator of this server.
-          schema:
-            type: string
-            default: ""
-        - variable: LENPASTE_DB_CLEANUP_PERIOD
-          label: DB Cleanup Period
-          description: Interval at which the DB is cleared of expired but not yet deleted pastes.
-          schema:
-            type: string
-            default: 3h
-        - variable: LENPASTE_ROBOTS_DISALLOW
-          label: Disallow Robots
-          description: Prohibits search engine crawlers from indexing site using robots.txt file.
-          schema:
-            type: boolean
-            default: true
-        - variable: LENPASTE_TITLE_MAX_LENGTH
-          label: Title Max Length
-          description: Maximum length of the paste title.
-          schema:
-            type: int
-            default: 100
-        - variable: LENPASTE_BODY_MAX_LENGTH
-          label: Body Max Length
-          description: Maximum length of the paste body.
-          schema:
-            type: int
-            default: 100
-        - variable: LENPASTE_MAX_PASTE_LIFETIME
-          label: Max Paste Lifetime
-          description: Maximum lifetime of the paste. Examples 10m, 1h 30m, 12h, 7w, 30d, 365d.
-          schema:
-            type: string
-            default: unlimited
-# Include{containerConfig}
+                                - variable: env
+                                  group: App Configuration
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: LENPASTE_ADMIN_NAME
+                                        label: Admin Name
+                                        description: Name of the administrator of this server.
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: LENPASTE_ADMIN_MAIL
+                                        label: Admin Mail
+                                        description: Email of the administrator of this server.
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: LENPASTE_DB_CLEANUP_PERIOD
+                                        label: DB Cleanup Period
+                                        description: Interval at which the DB is cleared of expired but not yet deleted pastes.
+                                        schema:
+                                          type: string
+                                          default: 3h
+                                      - variable: LENPASTE_ROBOTS_DISALLOW
+                                        label: Disallow Robots
+                                        description: Prohibits search engine crawlers from indexing site using robots.txt file.
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: LENPASTE_TITLE_MAX_LENGTH
+                                        label: Title Max Length
+                                        description: Maximum length of the paste title.
+                                        schema:
+                                          type: int
+                                          default: 100
+                                      - variable: LENPASTE_BODY_MAX_LENGTH
+                                        label: Body Max Length
+                                        description: Maximum length of the paste body.
+                                        schema:
+                                          type: int
+                                          default: 100
+                                      - variable: LENPASTE_MAX_PASTE_LIFETIME
+                                        label: Max Paste Lifetime
+                                        description: Maximum lifetime of the paste. Examples 10m, 1h 30m, 12h, 7w, 30d, 365d.
+                                        schema:
+                                          type: string
+                                          default: unlimited
 # Include{serviceRoot}
         - variable: main
           label: Main Service

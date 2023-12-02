@@ -13,28 +13,27 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: APPPATH
-          label: App Path
-          description: Folder containing the game.
-          schema:
-            type: string
-            required: true
-            default: ""
-        - variable: APPFILE
-          label: App File
-          description: Game executable file.
-          schema:
-            type: string
-            required: true
-            default: ""
-# Include{containerConfig}
+                                - variable: env
+                                  group: App Configuration
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: APPPATH
+                                        label: App Path
+                                        description: Folder containing the game.
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+                                      - variable: APPFILE
+                                        label: App File
+                                        description: Game executable file.
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
 # Include{serviceRoot}
         - variable: main
           label: Main Service

@@ -13,31 +13,30 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: tg_user
-          label: "Username"
-          schema:
-            type: string
-            default: ""
-            required: true
-        - variable: tg_pass
-          label: "Password"
-          schema:
-            type: string
-            default: ""
-            required: true
-            private: true
-        - variable: TIMETAGGER_LOG_LEVEL
-          label: "TIMETAGGER_LOG_LEVEL"
-          schema:
-            type: string
-            default: "info"
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: tg_user
+                                        label: "Username"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          required: true
+                                      - variable: tg_pass
+                                        label: "Password"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          required: true
+                                          private: true
+                                      - variable: TIMETAGGER_LOG_LEVEL
+                                        label: "TIMETAGGER_LOG_LEVEL"
+                                        schema:
+                                          type: string
+                                          default: "info"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

@@ -13,19 +13,18 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: SQLITE_DATABASE
-          label: "SQLITE_DATABASE"
-          description: "This is the database file that will be loaded in the web browser."
-          schema:
-            type: string
-            default: "db_name.db"
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: SQLITE_DATABASE
+                                        label: "SQLITE_DATABASE"
+                                        description: "This is the database file that will be loaded in the web browser."
+                                        schema:
+                                          type: string
+                                          default: "db_name.db"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

@@ -11,64 +11,63 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
+                                                              - variable: env
+                                                                group: "App Configuration"
+                                                                label: "Image Environment"
+                                                                schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: SMTP_USER
+                                        label: SMTP Username
+                                        description: Set the SMTP username
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+                                      - variable: SMTP_PASS
+                                        label: SMTP Password
+                                        description: Set the SMTP password
+                                        schema:
+                                          type: string
+                                          required: true
+                                          private: true
+                                          default: ""
                                 - variable: env
-                                  group: "App Configuration"
-                                  label: "Image Environment"
+                                  group: App Configuration
+                                  label: Image Environment
                                   schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: SMTP_USER
-          label: SMTP Username
-          description: Set the SMTP username
-          schema:
-            type: string
-            required: true
-            default: ""
-        - variable: SMTP_PASS
-          label: SMTP Password
-          description: Set the SMTP password
-          schema:
-            type: string
-            required: true
-            private: true
-            default: ""
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: SMTP_HOST
-          label: SMTP Host
-          description: Set the SMTP host
-          schema:
-            type: string
-            required: true
-            default: ""
-        - variable: SMTP_PORT
-          label: SMTP Port
-          description: Set the SMTP port
-          schema:
-            type: int
-            required: true
-            default: 587
-        - variable: SEND_ADDR
-          label: Sender Address
-          description: Set the sender email
-          schema:
-            type: string
-            required: true
-            default: ""
-        - variable: DISP_NAME
-          label: Display Name
-          description: Set the display name
-          schema:
-            type: string
-            required: true
-            default: ""
-# Include{containerConfig}
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: SMTP_HOST
+                                        label: SMTP Host
+                                        description: Set the SMTP host
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+                                      - variable: SMTP_PORT
+                                        label: SMTP Port
+                                        description: Set the SMTP port
+                                        schema:
+                                          type: int
+                                          required: true
+                                          default: 587
+                                      - variable: SEND_ADDR
+                                        label: Sender Address
+                                        description: Set the sender email
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+                                      - variable: DISP_NAME
+                                        label: Display Name
+                                        description: Set the display name
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
 # Include{serviceRoot}
         - variable: main
           label: Main Service

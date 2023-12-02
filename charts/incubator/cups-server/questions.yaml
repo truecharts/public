@@ -13,20 +13,19 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: ADMIN_PASSWORD
-          label: "ADMIN_PASSWORD"
-          schema:
-            type: string
-            private: true
-            required: true
-            default: ""
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: ADMIN_PASSWORD
+                                        label: "ADMIN_PASSWORD"
+                                        schema:
+                                          type: string
+                                          private: true
+                                          required: true
+                                          default: ""
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

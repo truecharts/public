@@ -11,44 +11,43 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
+                                                              - variable: env
+                                                                group: "App Configuration"
+                                                                label: "Image Environment"
+                                                                schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: TOKEN
+                                        label: Token
+                                        description: Telegram Bot Token.
+                                        schema:
+                                          type: string
+                                          required: true
+                                          private: true
+                                          default: ""
+                                      - variable: CHATID
+                                        label: Chat ID
+                                        description: Telegram Bot Chat ID.
+                                        schema:
+                                          type: string
+                                          private: true
+                                          required: true
+                                          default: ""
                                 - variable: env
-                                  group: "App Configuration"
-                                  label: "Image Environment"
+                                  group: App Configuration
+                                  label: Image Environment
                                   schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: TOKEN
-          label: Token
-          description: Telegram Bot Token.
-          schema:
-            type: string
-            required: true
-            private: true
-            default: ""
-        - variable: CHATID
-          label: Chat ID
-          description: Telegram Bot Chat ID.
-          schema:
-            type: string
-            private: true
-            required: true
-            default: ""
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: DELAY
-          label: Delay
-          description: Delay in seconds.
-          schema:
-            type: int
-            required: true
-            default: 600
-# Include{containerConfig}
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: DELAY
+                                        label: Delay
+                                        description: Delay in seconds.
+                                        schema:
+                                          type: int
+                                          required: true
+                                          default: 600
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
 # Include{serviceList}

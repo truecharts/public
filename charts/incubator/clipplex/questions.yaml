@@ -13,40 +13,39 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: PLEX_TOKEN
-          label: "Plex Token"
-          schema:
-            type: string
-            required: true
-            private: true
-            default: ""
-        - variable: STREAMABLE_LOGIN
-          label: "Streamable Login"
-          description: "Optionally set the streamable login"
-          schema:
-            type: string
-            default: ""
-        - variable: STREAMABLE_PASSWORD
-          label: "Streamable Password"
-          description: "Optionally streamable Password"
-          schema:
-            type: string
-            private: true
-            default: ""
-        - variable: PLEX_URL
-          label: "Plex URL"
-          schema:
-            type: string
-            required: true
-            default: ""
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: PLEX_TOKEN
+                                        label: "Plex Token"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          private: true
+                                          default: ""
+                                      - variable: STREAMABLE_LOGIN
+                                        label: "Streamable Login"
+                                        description: "Optionally set the streamable login"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: STREAMABLE_PASSWORD
+                                        label: "Streamable Password"
+                                        description: "Optionally streamable Password"
+                                        schema:
+                                          type: string
+                                          private: true
+                                          default: ""
+                                      - variable: PLEX_URL
+                                        label: "Plex URL"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
 
-# Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
           label: Main Service
