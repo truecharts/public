@@ -65,6 +65,28 @@ questions:
                               type: int
                               default: 8000
                               required: true
+        - variable: hec
+          label: HTTP Event Collector service
+          description: The service for the Splunk HTTP Event Collector (HEC)
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: hec
+                      label: HTTP Event Collector Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 8088
+                              required: true
         - variable: management
           label: management service
           description: HTTPS API
