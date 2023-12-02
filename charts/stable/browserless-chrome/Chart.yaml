@@ -1,26 +1,39 @@
+kubeVersion: '>=1.24.0'
 apiVersion: v2
-appVersion: "1.60.2-chr"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
-description: Browserless is a web-service that allows for remote clients to connect, drive, and execute headless work
+name: browserless-chrome
+version: 6.0.18
+appVersion: 1.60.2
+description: Browserless is a web-service that allows for remote clients to connect,
+  drive, and execute headless work
 home: https://truecharts.org/charts/stable/browserless-chrome
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/browserless-chrome.png
-keywords:
-  - browserless
-  - chrome
-  - puppeteer
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: browserless-chrome
+deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/browserless-chrome
-  - https://docs.browserless.io/docs/docker.html
-version: 6.0.18
+- https://docs.browserless.io/docs/docker.html
+- https://github.com/truecharts/charts/tree/master/charts/stable/browserless-chrome
+- https://hub.docker.com/r/browserless/chrome
+maintainers:
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
+keywords:
+- browserless
+- chrome
+- puppeteer
+dependencies:
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
+  'max_scale_version:': 23.10.1
+  'min_scale_version:': 22.12.4
+  'truecharts.org/SCALE-support:': "true"
   truecharts.org/category: productivity
-  truecharts.org/SCALE-support: "true"
+  'truecharts.org/category:': unsorted
+  'truecharts.org/max_helm_version:': "3.13"
+  'truecharts.org/min_helm_version:': "3.12"
+  truecharts.org/train: stable
