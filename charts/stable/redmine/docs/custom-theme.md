@@ -64,6 +64,7 @@ So I'm downloading the theme from https://github.com/mrliptontea/PurpleMine2
 And Unzip it to my SMB share folder.
 
 Now in TrueNas shell I use
+
 ```
 sudo mc
 ```
@@ -91,7 +92,7 @@ Chage the owner of the files with the following command
 
 ```
 sudo chown -R root:apps PurpleMine2-master
-sudo chmod -R 775 PurpleMine2-master 
+sudo chmod -R 775 PurpleMine2-master
 ```
 
 Repeat this commands for every theme folder you copied. And double check that owner have been changed and the permissions applied
