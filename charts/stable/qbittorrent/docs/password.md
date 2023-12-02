@@ -14,4 +14,4 @@ As of qBittorrent 4.6.1 the default password of `adminadmin` is no longer used. 
 
 ![qbittorent-password](./images/qbittorrent-password.png)
 
-4. Use the randomly generated password to login to the WebUI. You may continue to use this password or change it in the qBittorent settings.
+4. Use the randomly generated password to login to the WebUI. You must change it in the qBittorent settings after you login as it will generate a new random password each time qBittorent is started until a password is set.
