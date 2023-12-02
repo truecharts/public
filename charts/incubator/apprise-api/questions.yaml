@@ -10,13 +10,11 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-                                                              - variable: env
-                                                                group: "App Configuration"
-                                                                label: "Image Environment"
-                                                                schema:
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
                                     additional_attrs: true
                                     type: dict
                                     attrs:
@@ -27,13 +25,6 @@ questions:
                                           type: string
                                           required: true
                                           default: ""
-                                - variable: env
-                                  group: App Configuration
-                                  label: Image Environment
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
                                       - variable: APPRISE_STATEFUL_MODE
                                         label: Apprise Stateful Mode
                                         description: Stores the server configuration data.

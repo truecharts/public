@@ -13,12 +13,12 @@ questions:
 # Include{containerMain}
 
 
-  - variable: env
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
                                       - variable: CUSTOM_RES_W
                                         label: "Resolution Width"
                                         schema:

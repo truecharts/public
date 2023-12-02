@@ -9,12 +9,12 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-  - variable: env
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
                                       - variable: GAME_ID
                                         label: "Game ID"
                                         description: "The Game ID that the container downloads at startup."

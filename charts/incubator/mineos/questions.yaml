@@ -14,12 +14,12 @@ questions:
 # Include{containerAdvanced}
 
 # Include{containerConfig}
-  - variable: env
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
         - variable: USER_NAME
           label: "USER NAME"
           description: "User Login for the Web Interface."
