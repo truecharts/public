@@ -1,40 +1,45 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: mongo-express
 version: 2.0.9
 appVersion: latest
-description:
-  mongo-express is a web-based MongoDB admin interface written in Node.js,
+description: mongo-express is a web-based MongoDB admin interface written in Node.js,
   Express.js, and Bootstrap3.
 home: https://truecharts.org/charts/stable/mongo-express
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/mongo-express.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/mongo-express
-  - https://hub.docker.com/_/mongo-express
-  - https://github.com/mongo-express/mongo-express
+- https://github.com/mongo-express/mongo-express
+- https://github.com/truecharts/charts/tree/master/charts/stable/mongo-express
+- https://hub.docker.com/_/mongo-express
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - mongo
-  - mongodb
-  - database
+- mongo
+- mongodb
+- database
 dependencies:
-  - name: common
-    version: 14.3.5
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-  - name: mongodb
-    version: 6.0.67
-    repository: https://deps.truecharts.org/
-    condition: mongodb.enabled
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
+- name: mongodb
+  version: 6.0.67
+  repository: https://deps.truecharts.org/
+  condition: mongodb.enabled
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
   truecharts.org/category: database
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable

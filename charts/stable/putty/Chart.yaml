@@ -1,32 +1,37 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: putty
 version: 5.0.12
 appVersion: 23.11.2
-description:
-  PuTTY is a free and open-source terminal emulator, serial console and
+description: PuTTY is a free and open-source terminal emulator, serial console and
   network file transfer application.
 home: https://truecharts.org/charts/stable/putty
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/putty.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/putty
-  - https://hub.docker.com/r/jlesage/putty
-  - https://github.com/jlesage/docker-putty
+- https://github.com/jlesage/docker-putty
+- https://github.com/truecharts/charts/tree/master/charts/stable/putty
+- https://hub.docker.com/r/jlesage/putty
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - ssh
-  - putty
+- ssh
+- putty
 dependencies:
-  - name: common
-    version: 14.3.5
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
   truecharts.org/category: utilities
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
