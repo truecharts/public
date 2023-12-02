@@ -11,10 +11,10 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-                                                              - variable: env
-                                                                group: "App Configuration"
-                                                                label: "Image Environment"
-                                                                schema:
+                                - variable: env
+                                  group: App Configuration
+                                  label: Image Environment
+                                  schema:
                                     additional_attrs: true
                                     type: dict
                                     attrs:
@@ -33,13 +33,6 @@ questions:
                                           required: true
                                           private: true
                                           default: ""
-                                - variable: env
-                                  group: App Configuration
-                                  label: Image Environment
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
                                       - variable: SMTP_HOST
                                         label: SMTP Host
                                         description: Set the SMTP host
@@ -68,6 +61,10 @@ questions:
                                           type: string
                                           required: true
                                           default: ""
+# Include{containerBasic}
+# Include{containerAdvanced}
+# Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: Main Service

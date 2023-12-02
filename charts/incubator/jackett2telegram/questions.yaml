@@ -11,10 +11,10 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-                                                              - variable: env
-                                                                group: "App Configuration"
-                                                                label: "Image Environment"
-                                                                schema:
+                                - variable: env
+                                  group: App Configuration
+                                  label: Image Environment
+                                  schema:
                                     additional_attrs: true
                                     type: dict
                                     attrs:
@@ -34,13 +34,6 @@ questions:
                                           private: true
                                           required: true
                                           default: ""
-                                - variable: env
-                                  group: App Configuration
-                                  label: Image Environment
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
                                       - variable: DELAY
                                         label: Delay
                                         description: Delay in seconds.
@@ -48,6 +41,10 @@ questions:
                                           type: int
                                           required: true
                                           default: 600
+# Include{containerBasic}
+# Include{containerAdvanced}
+# Include{containerConfig}
+# Include{podOptions}
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
 # Include{serviceList}

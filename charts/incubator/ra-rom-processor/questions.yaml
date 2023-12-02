@@ -11,10 +11,10 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-                                                              - variable: env
-                                                                group: "App Configuration"
-                                                                label: "Image Environment"
-                                                                schema:
+                                - variable: env
+                                  group: App Configuration
+                                  label: Image Environment
+                                  schema:
                                     additional_attrs: true
                                     type: dict
                                     attrs:
@@ -30,13 +30,6 @@ questions:
                                         schema:
                                           type: string
                                           default: ""
-                                - variable: env
-                                  group: App Configuration
-                                  label: Image Environment
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
                                       - variable: AutoStart
                                         label: Auto Start
                                         description: If checked runs script automatically on startup
@@ -95,6 +88,10 @@ questions:
                                         schema:
                                           type: string
                                           default: en
+# Include{containerBasic}
+# Include{containerAdvanced}
+# Include{containerConfig}
+# Include{podOptions}
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
 # Include{serviceList}

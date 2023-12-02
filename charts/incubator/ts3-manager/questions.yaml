@@ -31,6 +31,10 @@ questions:
                                           private: true
                                           required: false
                                           default: ""
+# Include{containerBasic}
+# Include{containerAdvanced}
+# Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

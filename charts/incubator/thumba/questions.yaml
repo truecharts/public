@@ -13,10 +13,10 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-                                                              - variable: env
-                                                                group: "App Configuration"
-                                                                label: "Image Environment"
-                                                                schema:
+                                - variable: env
+                                  group: App Configuration
+                                  label: Image Environment
+                                  schema:
                                     additional_attrs: true
                                     type: dict
                                     attrs:
@@ -46,18 +46,15 @@ questions:
                                           default: ""
                                           required: true
                                           private: true
-                                - variable: env
-                                  group: App Configuration
-                                  label: Image Environment
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
                                       - variable: NEXT_PUBLIC_HOST
                                         label: Next Public Host
                                         schema:
                                           type: string
                                           default: "http://localhost"
+# Include{containerBasic}
+# Include{containerAdvanced}
+# Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: Main Service
