@@ -89,6 +89,8 @@ questions:
                                               description: Vanilla
                                             - value: FORGE
                                               description: Forge
+                                            - value: NEOFORGE
+                                              description: NeoForge
                                             - value: FABRIC
                                               description: Fabric
                                             - value: SPIGOT
@@ -185,6 +187,12 @@ questions:
                                           type: string
                                           default: ""
                                           show_if: [[TYPE, "=", "FORGE"]]
+                                      - variable: NEOFORGE_VERSION
+                                        label: NeoForge Version
+                                        schema:
+                                          type: string
+                                          default: "47.1.79"
+                                          show_if: [[TYPE, "=", "NEOFORGE"]]
                                       - variable: FABRIC_LOADER_VERSION
                                         label: Fabric Loader Version
                                         schema:

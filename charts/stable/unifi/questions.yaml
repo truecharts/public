@@ -139,6 +139,15 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
+        - variable: config
+          label: "App Config Storage"
+          description: "Stores the Application Configuration."
+          schema:
+            additional_attrs: true
+            hidden: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
         - variable: data
           label: "App Config Storage"
           description: "Stores the Application Configuration."
