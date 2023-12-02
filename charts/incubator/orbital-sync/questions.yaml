@@ -8,8 +8,7 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-                               - variable: env
-                                  group: App Configuration
+                                - variable: env
                                   label: Image Environment
                                   schema:
                                     additional_attrs: true
