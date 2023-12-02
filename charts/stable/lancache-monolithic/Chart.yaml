@@ -1,32 +1,37 @@
-kubeVersion: ">=1.16.0-0"
+kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: lancache-monolithic
 version: 5.1.10
 appVersion: latest
-description:
-  A monolithic lancache service capable of caching all CDNs in a single
+description: A monolithic lancache service capable of caching all CDNs in a single
   instance.
 home: https://truecharts.org/charts/stable/lancache-monolithic
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/lancache-monolithic.png
 deprecated: false
 sources:
-  - https://github.com/lancachenet/monolithic
-  - https://github.com/truecharts/charts/tree/master/charts/stable/lancache-monolithic
-  - https://hub.docker.com/r/lancachenet/monolithic
+- https://hub.docker.com/r/lancachenet/monolithic
+- https://github.com/lancachenet/monolithic
+- https://github.com/truecharts/charts/tree/master/charts/stable/lancache-monolithic
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - monolithic
-  - lancache
+- monolithic
+- lancache
 dependencies:
-  - name: common
-    version: 14.3.5
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
-  "truecharts.org/category": gaming
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: gaming
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable

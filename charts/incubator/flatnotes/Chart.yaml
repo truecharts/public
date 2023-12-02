@@ -1,31 +1,36 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: flatnotes
 version: 2.0.10
 appVersion: 2.1.1
-description:
-  A database-less note taking web app that utilizes a flat folder of markdown
+description: A database-less note taking web app that utilizes a flat folder of markdown
   files for storage.
 home: https://truecharts.org/charts/incubator/flatnotes
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/flatnotes.png
 deprecated: false
 sources:
-  - https://github.com/Dullage/flatnotes
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/flatnotes
-  - https://github.com/truecharts/containers/tree/master/mirrorflatnotes
+- https://github.com/Dullage/flatnotes
+- https://github.com/truecharts/charts/tree/master/charts/incubator/flatnotes
+- https://github.com/truecharts/containers/tree/master/mirrorflatnotes
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - notes
+- notes
 dependencies:
-  - name: common
-    version: 11.1.2
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 11.1.2
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
   truecharts.org/category: productivity
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator

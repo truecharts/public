@@ -1,33 +1,38 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: jackett2telegram
 version: 0.0.5
 appVersion: 1.9.0
-description:
-  Self-hosted Telegram Python Bot that dumps posts from Jackett RSS feeds
+description: Self-hosted Telegram Python Bot that dumps posts from Jackett RSS feeds
   to a Telegram chat.
 home: https://truecharts.org/charts/incubator/jackett2telegram
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/jackett2telegram.png
 deprecated: false
 sources:
-  - https://github.com/danimart1991/jackett2telegram
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/jackett2telegram
-  - https://github.com/truecharts/containers/tree/master/mirrorjackett2telegram
+- https://github.com/truecharts/charts/tree/master/charts/incubator/jackett2telegram
+- https://github.com/truecharts/containers/tree/master/mirrorjackett2telegram
+- https://github.com/danimart1991/jackett2telegram
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - jackett2telegram
-  - media
-  - automations
+- jackett2telegram
+- media
+- automations
 dependencies:
-  - name: common
-    version: 11.1.2
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 11.1.2
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator

@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: emulatorjs
 version: 6.0.21
@@ -9,25 +9,25 @@ home: https://truecharts.org/charts/stable/emulatorjs
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/emulatorjs.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/emulatorjs
-  - https://ghcr.io/linuxserver/emulatorjs
+- https://github.com/truecharts/charts/tree/master/charts/stable/emulatorjs
+- https://ghcr.io/linuxserver/emulatorjs
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - emulatorjs
+- emulatorjs
 dependencies:
-  - name: common
-    version: 14.3.5
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
-  max_scale_version: "23.10.1"
-  min_scale_version: "22.12.4"
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: emulator
   truecharts.org/max_helm_version: "3.13"

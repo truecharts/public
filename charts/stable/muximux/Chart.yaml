@@ -1,35 +1,40 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: muximux
 version: 7.0.9
 appVersion: "057352e8"
-description:
-  A lightweight portal to view & manage your HTPC apps without having to
+description: A lightweight portal to view & manage your HTPC apps without having to
   run anything more than a PHP enabled webserver
 home: https://truecharts.org/charts/stable/muximux
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/muximux.png
 deprecated: false
 sources:
-  - https://github.com/linuxserver/docker-muximux
-  - https://github.com/mescon/Muximux
-  - https://github.com/truecharts/charts/tree/master/charts/stable/muximux
-  - https://ghcr.io/linuxserver/muximux
+- https://github.com/linuxserver/docker-muximux
+- https://github.com/mescon/Muximux
+- https://github.com/truecharts/charts/tree/master/charts/stable/muximux
+- https://ghcr.io/linuxserver/muximux
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - muximux
-  - htpc
-  - manage
-  - portal
+- muximux
+- htpc
+- manage
+- portal
 dependencies:
-  - name: common
-    version: 14.3.5
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
