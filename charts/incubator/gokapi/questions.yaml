@@ -13,9 +13,8 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
+  - variable: env
+    label: Image Environment
     schema:
       additional_attrs: true
       type: dict
@@ -33,13 +32,6 @@ questions:
             required: true
             private: true
             default: ""
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
         - variable: GOKAPI_LENGTH_ID
           label: "GOKAPI_LENGTH_ID"
           description: "Sets the length of the download IDs."

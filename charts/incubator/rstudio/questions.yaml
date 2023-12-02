@@ -13,9 +13,8 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Environment"
+  - variable: env
+    label: Image Environment
     schema:
       additional_attrs: true
       type: dict
@@ -33,13 +32,6 @@ questions:
             type: string
             private: true
             default: ""
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
         - variable: DISABLE_AUTH
           label: Disable Auth
           description: Disable authentication for RStudio Server.

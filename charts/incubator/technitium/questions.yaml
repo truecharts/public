@@ -15,12 +15,12 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-                                - variable: env
-                                  label: Image Environment
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
+  - variable: env
+    label: Image Environment
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
                                       - variable: DNS_SERVER_ADMIN_PASSWORD
                                         label: "DNS Server Admin Password"
                                         description: "DNS web console admin user password."

@@ -42,9 +42,8 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
+  - variable: env
+    label: Image Environment
     schema:
       additional_attrs: true
       type: dict
@@ -61,13 +60,6 @@ questions:
             type: string
             default: ""
             private: true
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
         - variable: NEKO_SCREEN
           label: "NEKO_SCREEN"
           description: "Resolution after startup. Only Admins can change this later."

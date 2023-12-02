@@ -13,9 +13,8 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
+  - variable: env
+    label: Image Environment
     schema:
       additional_attrs: true
       type: dict
@@ -40,13 +39,6 @@ questions:
             type: string
             private: true
             default: ""
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
         - variable: PLEX_URL
           label: "Plex URL"
           schema:

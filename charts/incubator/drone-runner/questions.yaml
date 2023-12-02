@@ -14,8 +14,7 @@ questions:
 # Include{containerAdvanced}
 
   - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
+    label: Image Environment
     schema:
       additional_attrs: true
       type: dict
@@ -39,13 +38,6 @@ questions:
                 description: "http"
               - value: "https"
                 description: "https"
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
         - variable: DRONE_RPC_SECRET
           label: "DRONE_RPC_SECRET"
           description: "DRONE RPC SECRET"

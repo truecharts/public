@@ -14,8 +14,7 @@ questions:
 # Include{containerAdvanced}
 
   - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
+    label: Image Environment
     schema:
       additional_attrs: true
       type: dict
@@ -26,13 +25,6 @@ questions:
           schema:
             type: string
             default: ""
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
         - variable: JWT_SECRET
           label: "JWT SECRET"
           description: "Secret for decrypting and encrypting the token"

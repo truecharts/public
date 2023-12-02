@@ -13,9 +13,8 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
+  - variable: env
+    label: Image Environment
     schema:
       additional_attrs: true
       type: dict
@@ -46,13 +45,6 @@ questions:
           schema:
             type: string
             default: ""
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
         - variable: SITENAME
           label: "SITENAME"
           description: "Custom site name."

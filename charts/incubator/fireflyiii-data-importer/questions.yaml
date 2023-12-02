@@ -14,10 +14,10 @@ questions:
 # Include{containerAdvanced}
 
 # Include{containerConfig}
-  - variable: secretEnv
-    group: App Configuration
-    label: Image Secrets
-    schema:
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
       additional_attrs: true
       type: dict
       attrs:
