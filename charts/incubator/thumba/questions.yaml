@@ -55,8 +55,8 @@ questions:
 # Include{podOptions}
 # Include{serviceRoot}
         - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+          label: Main Service
+          description: The Primary service on which the healthcheck runs, often the webUI
           schema:
             additional_attrs: true
             type: dict
@@ -108,7 +108,6 @@ questions:
 # Include{ingressTraefik}
 # Include{ingressAdvanced}
 # Include{ingressList}
-
 # Include{securityContextRoot}
 
               - variable: runAsUser
