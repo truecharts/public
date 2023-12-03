@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: plex-utills
 version: 5.0.10
@@ -8,25 +8,25 @@ home: https://truecharts.org/charts/stable/plex-utills
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/plex-utills.png
 deprecated: false
 sources:
-  - https://hub.docker.com/r/jkirkcaldy/plex-utills
-  - https://github.com/jkirkcaldy/plex-utills
-  - https://github.com/truecharts/charts/tree/master/charts/stable/plex-utills
+- https://github.com/jkirkcaldy/plex-utills
+- https://github.com/truecharts/charts/tree/master/charts/stable/plex-utills
+- https://hub.docker.com/r/jkirkcaldy/plex-utills
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - plex-utills
-  - Tools-Utilities
-  - MediaApp-Other
+- plex-utills
+- Tools-Utilities
+- MediaApp-Other
 dependencies:
-  - name: common
-    version: 14.3.5
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

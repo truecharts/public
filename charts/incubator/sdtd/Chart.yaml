@@ -1,33 +1,32 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: sdtd
 version: 4.0.2
 appVersion: latest
-description:
-  This chart will download and install SteamCMD. It will also install 7
+description: This chart will download and install SteamCMD. It will also install 7
   Days to Die and run it.
 home: https://truecharts.org/charts/incubator/sdtd
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/sdtd.png
 deprecated: false
 sources:
-  - https://www.steampowered.com/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/sdtd
-  - https://github.com/truecharts/containers/tree/master/mirror7daystodie
+- https://www.steampowered.com/
+- https://github.com/truecharts/charts/tree/master/charts/incubator/sdtd
+- https://github.com/truecharts/containers/tree/master/mirror7daystodie
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - sevendaystodie
-  - game-servers
+- sevendaystodie
+- game-servers
 dependencies:
-  - name: common
-    version: 11.1.2
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 11.1.2
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

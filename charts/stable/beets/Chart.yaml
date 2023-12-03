@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: beets
 version: 8.0.27
@@ -8,28 +8,28 @@ home: https://truecharts.org/charts/stable/beets
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/beets.png
 deprecated: false
 sources:
-  - https://ghcr.io/linuxserver/beets
-  - https://beets.io/
-  - https://github.com/linuxserver/docker-beets
-  - https://github.com/truecharts/charts/tree/master/charts/stable/beets
+- https://github.com/truecharts/charts/tree/master/charts/stable/beets
+- https://ghcr.io/linuxserver/beets
+- https://beets.io/
+- https://github.com/linuxserver/docker-beets
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - music
-  - library
-  - manager
-  - player
-  - beets
+- music
+- library
+- manager
+- player
+- beets
 dependencies:
-  - name: common
-    version: 14.3.5
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

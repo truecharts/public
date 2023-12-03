@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: typecho
 version: 8.0.2
@@ -8,31 +8,31 @@ home: https://truecharts.org/charts/incubator/typecho
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/typecho.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/containers/tree/master/mirrortypecho
-  - https://github.com/typecho/typecho
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/typecho
+- https://github.com/typecho/typecho
+- https://github.com/truecharts/charts/tree/master/charts/incubator/typecho
+- https://github.com/truecharts/containers/tree/master/mirrortypecho
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - typecho
-  - blog
+- typecho
+- blog
 dependencies:
-  - name: common
-    version: 11.1.2
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-  - name: mariadb
-    version: 5.0.35
-    repository: https://deps.truecharts.org/
-    condition: mariadb.enabled
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 11.1.2
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
+- name: mariadb
+  version: 5.0.35
+  repository: https://deps.truecharts.org/
+  condition: mariadb.enabled
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

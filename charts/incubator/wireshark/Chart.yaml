@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: wireshark
 version: 5.0.2
@@ -8,22 +8,22 @@ home: https://truecharts.org/charts/incubator/wireshark
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/wireshark.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/wireshark
-  - https://github.com/truecharts/containers/tree/master/mirrorwireshark
+- https://github.com/truecharts/charts/tree/master/charts/incubator/wireshark
+- https://github.com/truecharts/containers/tree/master/mirrorwireshark
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - wireshark
+- wireshark
 dependencies:
-  - name: common
-    version: 11.1.2
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 11.1.2
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

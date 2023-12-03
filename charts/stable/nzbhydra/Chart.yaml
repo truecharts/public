@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: nzbhydra
 version: 16.1.4
@@ -8,21 +8,21 @@ home: https://truecharts.org/charts/stable/nzbhydra
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/nzbhydra.png
 deprecated: true
 sources:
-  - https://github.com/theotherp/nzbhydra2
-  - https://github.com/truecharts/charts/tree/master/charts/stable/nzbhydra
-  - https://ghcr.io/geek-cookbook/nzbhydra2
+- https://github.com/theotherp/nzbhydra2
+- https://github.com/truecharts/charts/tree/master/charts/stable/nzbhydra
+- https://ghcr.io/geek-cookbook/nzbhydra2
 maintainers: []
 keywords:
-  - nzbhydra
-  - usenet
+- nzbhydra
+- usenet
 dependencies:
-  - name: common
-    version: 14.3.5
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

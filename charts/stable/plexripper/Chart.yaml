@@ -1,38 +1,37 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: plexripper
 version: 5.0.5
 appVersion: 0.14.0
-description:
-  A multi-platform media downloader that indexes and downloads content
+description: A multi-platform media downloader that indexes and downloads content
   from your accessible Plex servers.
 home: https://truecharts.org/charts/stable/plexripper
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/plexripper.png
 deprecated: false
 sources:
-  - https://github.com/PlexRipper/PlexRipper/
-  - https://github.com/truecharts/charts/tree/master/charts/stable/plexripper
-  - https://hub.docker.com/r/plexripper/plexripper
+- https://hub.docker.com/r/plexripper/plexripper
+- https://github.com/PlexRipper/PlexRipper/
+- https://github.com/truecharts/charts/tree/master/charts/stable/plexripper
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - plexripper
-  - Backup
-  - Downloaders
-  - MediaApp-Video
-  - MediaApp-Music
-  - MediaApp-Photos
-  - MediaApp-Other
+- plexripper
+- Backup
+- Downloaders
+- MediaApp-Video
+- MediaApp-Music
+- MediaApp-Photos
+- MediaApp-Other
 dependencies:
-  - name: common
-    version: 14.3.5
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

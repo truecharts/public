@@ -1,40 +1,39 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: chevereto
 version: 8.0.10
 appVersion: 1.6.2
-description:
-  Chevereto is an image hosting software that allows you to create a beautiful
+description: Chevereto is an image hosting software that allows you to create a beautiful
   and full-featured image hosting website on your own server.
 home: https://truecharts.org/charts/stable/chevereto
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/chevereto.png
 deprecated: false
 sources:
-  - https://ghcr.io/rodber/chevereto-free
-  - https://chevereto-free.github.io/setup/system/environment.html#image-handling-variables
-  - https://github.com/rodber/chevereto-free
-  - https://github.com/truecharts/charts/tree/master/charts/stable/chevereto
+- https://chevereto-free.github.io/setup/system/environment.html#image-handling-variables
+- https://github.com/rodber/chevereto-free
+- https://github.com/truecharts/charts/tree/master/charts/stable/chevereto
+- https://ghcr.io/rodber/chevereto-free
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - chevereto
+- chevereto
 dependencies:
-  - name: common
-    version: 14.3.5
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-  - name: mariadb
-    version: 7.0.70
-    repository: https://deps.truecharts.org/
-    condition: mariadb.enabled
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
+- name: mariadb
+  version: 7.0.70
+  repository: https://deps.truecharts.org/
+  condition: mariadb.enabled
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

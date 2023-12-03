@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: cryptpad
 version: 4.0.2
@@ -8,25 +8,25 @@ home: https://truecharts.org/charts/incubator/cryptpad
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/cryptpad.png
 deprecated: false
 sources:
-  - https://cryptpad.fr/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/cryptpad
-  - https://hub.docker.com/r/cryptpad/cryptpad
+- https://cryptpad.fr/
+- https://github.com/truecharts/charts/tree/master/charts/incubator/cryptpad
+- https://hub.docker.com/r/cryptpad/cryptpad
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - cryptpad
-  - Productivity
-  - Security
+- cryptpad
+- Productivity
+- Security
 dependencies:
-  - name: common
-    version: 14.3.5
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

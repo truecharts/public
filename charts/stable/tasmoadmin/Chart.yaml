@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: tasmoadmin
 version: 4.0.12
@@ -8,25 +8,25 @@ home: https://truecharts.org/charts/incubator/tasmoadmin
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/tasmoadmin.png
 deprecated: false
 sources:
-  - https://github.com/TasmoAdmin/TasmoAdmin
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/tasmoadmin
-  - https://github.com/truecharts/containers/tree/master/mirrortasmoadmin
+- https://github.com/TasmoAdmin/TasmoAdmin
+- https://github.com/truecharts/charts/tree/master/charts/incubator/tasmoadmin
+- https://github.com/truecharts/containers/tree/master/mirrortasmoadmin
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - tasmoadmin
-  - HomeAutomation
-  - Network-Management
+- tasmoadmin
+- HomeAutomation
+- Network-Management
 dependencies:
-  - name: common
-    version: 13.2.2
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 13.2.2
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

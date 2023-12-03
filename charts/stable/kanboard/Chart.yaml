@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: kanboard
 version: 13.0.11
@@ -8,24 +8,24 @@ home: https://truecharts.org/charts/stable/kanboard
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/kanboard.png
 deprecated: false
 sources:
-  - https://github.com/kanboard/kanboard
-  - https://github.com/truecharts/charts/tree/master/charts/stable/kanboard
-  - https://hub.docker.com/r/kanboard/kanboard
+- https://github.com/kanboard/kanboard
+- https://github.com/truecharts/charts/tree/master/charts/stable/kanboard
+- https://hub.docker.com/r/kanboard/kanboard
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - kanboard
-  - kanban
+- kanboard
+- kanban
 dependencies:
-  - name: common
-    version: 14.3.5
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

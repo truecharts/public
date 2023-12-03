@@ -1,35 +1,34 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: metatube
 version: 2.0.12
 appVersion: latest
-description:
-  MetaTube downloads video from YouTube and can add metadata from a specified
+description: MetaTube downloads video from YouTube and can add metadata from a specified
   metadata provider on the downloaded file.
 home: https://truecharts.org/charts/incubator/metatube
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/metatube.png
 deprecated: false
 sources:
-  - https://github.com/JVT038/MetaTube
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/metatube
-  - https://github.com/truecharts/containers/tree/master/mirrormetatube
+- https://github.com/JVT038/MetaTube
+- https://github.com/truecharts/charts/tree/master/charts/incubator/metatube
+- https://github.com/truecharts/containers/tree/master/mirrormetatube
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - metatube
-  - Downloaders
-  - Productivity
-  - Tools-Utilities
+- metatube
+- Downloaders
+- Productivity
+- Tools-Utilities
 dependencies:
-  - name: common
-    version: 11.1.2
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 11.1.2
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

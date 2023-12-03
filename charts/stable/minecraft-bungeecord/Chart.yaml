@@ -1,27 +1,37 @@
-annotations:
-  "truecharts.org/category": proxy
+kubeVersion: '>=1.24.0'
 apiVersion: v2
+name: minecraft-bungeecord
+version: 5.0.11
 appVersion: 2022.4.1
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
-deprecated: false
 description: the front-end of a cluster of minecraft-java containers.
 home: https://truecharts.org/charts/stable/minecraft-bungeecord
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/minecraft-bungeecord.png
-keywords:
-  - minecraft-bungeecord
-  - gameserver
-  - minecraft
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: minecraft-bungeecord
+deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/minecraft-bungeecord
-  - https://github.com/itzg/docker-bungeecord
-type: application
-version: 5.0.11
+- https://github.com/itzg/docker-bungeecord
+- https://github.com/truecharts/charts/tree/master/charts/stable/minecraft-bungeecord
+- https://hub.docker.com/r/itzg/bungeecord
+maintainers:
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
+keywords:
+- minecraft-bungeecord
+- gameserver
+- minecraft
+dependencies:
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
+annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: proxy
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable

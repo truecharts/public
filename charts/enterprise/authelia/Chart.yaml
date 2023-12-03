@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: authelia
 version: 19.0.14
@@ -8,41 +8,41 @@ home: https://truecharts.org/charts/enterprise/authelia
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/authelia.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/enterprise/authelia
-  - https://ghcr.io/authelia/authelia
-  - https://github.com/authelia/chartrepo
-  - https://github.com/authelia/authelia
+- https://ghcr.io/authelia/authelia
+- https://github.com/authelia/chartrepo
+- https://github.com/authelia/authelia
+- https://github.com/truecharts/charts/tree/master/charts/enterprise/authelia
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - authelia
-  - authentication
-  - login
-  - SSO
-  - Authentication
-  - Security
-  - Two-Factor
-  - U2F
-  - YubiKey
-  - Push Notifications
-  - LDAP
+- authelia
+- authentication
+- login
+- SSO
+- Authentication
+- Security
+- Two-Factor
+- U2F
+- YubiKey
+- Push Notifications
+- LDAP
 dependencies:
-  - name: common
-    version: 14.3.5
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-  - name: redis
-    version: 8.0.44
-    repository: https://deps.truecharts.org
-    condition: redis.enabled
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
+- name: redis
+  version: 8.0.44
+  repository: https://deps.truecharts.org
+  condition: redis.enabled
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

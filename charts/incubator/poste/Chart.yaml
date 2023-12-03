@@ -1,38 +1,37 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: poste
 version: 2.0.14
 appVersion: latest
-description:
-  "FREE version of Poste.io, full mail server solution. POP3, SMTP, IMAP,
-  Spamassassin, WebMail, WebAdmin. "
+description: 'FREE version of Poste.io, full mail server solution. POP3, SMTP, IMAP,
+  Spamassassin, WebMail, WebAdmin. '
 home: https://truecharts.org/charts/incubator/poste
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/poste.png
 deprecated: false
 sources:
-  - https://poste.io/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/poste
-  - https://github.com/truecharts/containers/tree/master/mirrorposte
+- https://poste.io/
+- https://github.com/truecharts/charts/tree/master/charts/incubator/poste
+- https://github.com/truecharts/containers/tree/master/mirrorposte
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - poste
-  - Cloud
-  - Productivity
-  - Tools-Utilities
-  - Network-Web
-  - Network-Other
-  - Network-Messenger
+- poste
+- Cloud
+- Productivity
+- Tools-Utilities
+- Network-Web
+- Network-Other
+- Network-Messenger
 dependencies:
-  - name: common
-    version: 11.1.2
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 11.1.2
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: sourcegraph
 version: 2.0.20
@@ -8,27 +8,27 @@ home: https://truecharts.org/charts/incubator/sourcegraph
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/sourcegraph.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/sourcegraph
-  - https://github.com/truecharts/containers/tree/master/mirrorsourcegraph
+- https://github.com/truecharts/charts/tree/master/charts/incubator/sourcegraph
+- https://github.com/truecharts/containers/tree/master/mirrorsourcegraph
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - sourcegraph
-  - Backup
-  - Cloud
-  - Network-Web
-  - Productivity
-  - Tools-Utilities
+- sourcegraph
+- Backup
+- Cloud
+- Network-Web
+- Productivity
+- Tools-Utilities
 dependencies:
-  - name: common
-    version: 11.1.2
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 11.1.2
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

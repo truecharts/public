@@ -1,33 +1,32 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: tailscale
 version: 5.1.18
 appVersion: 1.54.0
-description:
-  Tailscale lets you connect your devices and users together in your own
+description: Tailscale lets you connect your devices and users together in your own
   secure virtual private network
 home: https://truecharts.org/charts/stable/tailscale
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/tailscale.png
 deprecated: false
 sources:
-  - https://github.com/tailscale/tailscale/blob/main/docs/k8s/run.sh
-  - https://github.com/truecharts/charts/tree/master/charts/stable/tailscale
-  - https://hub.docker.com/r/tailscale/tailscale
+- https://github.com/tailscale/tailscale/blob/main/docs/k8s/run.sh
+- https://github.com/truecharts/charts/tree/master/charts/stable/tailscale
+- https://hub.docker.com/r/tailscale/tailscale
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - vpn
-  - tailscale
+- vpn
+- tailscale
 dependencies:
-  - name: common
-    version: 14.3.5
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

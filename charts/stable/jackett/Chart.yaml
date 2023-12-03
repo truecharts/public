@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: jackett
 version: 16.0.5
@@ -8,25 +8,25 @@ home: https://truecharts.org/charts/stable/jackett
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/jackett.png
 deprecated: false
 sources:
-  - https://ghcr.io/linuxserver/jackett
-  - https://github.com/Jackett/Jackett
-  - https://github.com/truecharts/charts/tree/master/charts/stable/jackett
+- https://github.com/Jackett/Jackett
+- https://github.com/truecharts/charts/tree/master/charts/stable/jackett
+- https://ghcr.io/linuxserver/jackett
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - jackett
-  - torrent
-  - usenet
+- jackett
+- torrent
+- usenet
 dependencies:
-  - name: common
-    version: 14.3.5
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

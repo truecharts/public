@@ -1,35 +1,34 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: firefox-desktop-g3
 version: 2.0.20
 appVersion: latest
-description:
-  Headless Ubuntu/Xfce Charts with VNC/noVNC for diagramming, image editing
+description: Headless Ubuntu/Xfce Charts with VNC/noVNC for diagramming, image editing
   and 2D/3D drawing
 home: https://truecharts.org/charts/incubator/firefox-desktop-g3
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/firefox-desktop-g3.png
 deprecated: false
 sources:
-  - https://github.com/accetto/headless-drawing-g3/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/firefox-desktop-g3
-  - https://github.com/truecharts/containers/tree/master/mirrorfirefox-desktop-g3
+- https://github.com/truecharts/containers/tree/master/mirrorfirefox-desktop-g3
+- https://github.com/accetto/headless-drawing-g3/
+- https://github.com/truecharts/charts/tree/master/charts/incubator/firefox-desktop-g3
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - firefox-desktop-g3
-  - Productivity
-  - Tools-Utilities
-  - Network-Web
+- firefox-desktop-g3
+- Productivity
+- Tools-Utilities
+- Network-Web
 dependencies:
-  - name: common
-    version: 11.1.2
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 11.1.2
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

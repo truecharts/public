@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: pihole
 version: 11.1.9
@@ -8,25 +8,25 @@ home: https://truecharts.org/charts/stable/pihole
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pihole.png
 deprecated: false
 sources:
-  - https://pi-hole.net/
-  - https://github.com/pi-hole
-  - https://github.com/pi-hole/docker-pi-hole
-  - https://github.com/truecharts/charts/tree/master/charts/stable/pihole
-  - https://hub.docker.com/r/pihole/pihole
+- https://github.com/truecharts/charts/tree/master/charts/stable/pihole
+- https://hub.docker.com/r/pihole/pihole
+- https://pi-hole.net/
+- https://github.com/pi-hole
+- https://github.com/pi-hole/docker-pi-hole
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - DNS
+- DNS
 dependencies:
-  - name: common
-    version: 14.3.5
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4
