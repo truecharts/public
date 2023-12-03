@@ -11,33 +11,33 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-                      - variable: env
-                        label: Image Environment
-                        schema:
-                          additional_attrs: true
-                          type: dict
-                          attrs:
-                            - variable: USER_NAME
-                              label: "USER NAME"
-                              description: "User Login for the Web Interface."
-                              schema:
-                                type: string
-                                required: true
-                                default: ""
-                            - variable: USER_PASSWORD
-                              label: "USER PASSWORD"
-                              description: "User Password for the Web Interface."
-                              schema:
-                                type: string
-                                private: true
-                                required: true
-                                default: ""
-                            - variable: USE_HTTPS
-                              label: "USE HTTPS"
-                              description: "Should the web interface use HTTPS(true) or HTTP?(false)"
-                              schema:
-                                type: boolean
-                                default: false
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: USER_NAME
+                                        label: "USER NAME"
+                                        description: "User Login for the Web Interface."
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+                                      - variable: USER_PASSWORD
+                                        label: "USER PASSWORD"
+                                        description: "User Password for the Web Interface."
+                                        schema:
+                                          type: string
+                                          private: true
+                                          required: true
+                                          default: ""
+                                      - variable: USE_HTTPS
+                                        label: "USE HTTPS"
+                                        description: "Should the web interface use HTTPS(true) or HTTP?(false)"
+                                        schema:
+                                          type: boolean
+                                          default: false
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
