@@ -12,7 +12,8 @@ questions:
 # Include{containerMain}
 
                                 - variable: env
-                                  label: Image Environment
+                                  group: "App Configuration"
+                                  label: "Image Environment"
                                   schema:
                                     additional_attrs: true
                                     type: dict
@@ -109,6 +110,7 @@ questions:
 # Include{ingressList}
 
 # Include{securityContextRoot}
+
               - variable: runAsUser
                 label: "runAsUser"
                 description: "The UserID of the user running the application"
