@@ -8,39 +8,39 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: TOKEN
+                                        label: Token
+                                        description: Telegram Bot Token.
+                                        schema:
+                                          type: string
+                                          required: true
+                                          private: true
+                                          default: ""
+                                      - variable: CHATID
+                                        label: Chat ID
+                                        description: Telegram Bot Chat ID.
+                                        schema:
+                                          type: string
+                                          private: true
+                                          required: true
+                                          default: ""
+                                      - variable: DELAY
+                                        label: Delay
+                                        description: Delay in seconds.
+                                        schema:
+                                          type: int
+                                          required: true
+                                          default: 600
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: TOKEN
-          label: Token
-          description: Telegram Bot Token.
-          schema:
-            type: string
-            required: true
-            private: true
-            default: ""
-        - variable: CHATID
-          label: Chat ID
-          description: Telegram Bot Chat ID.
-          schema:
-            type: string
-            private: true
-            required: true
-            default: ""
-        - variable: DELAY
-          label: Delay
-          description: Delay in seconds.
-          schema:
-            type: int
-            required: true
-            default: 600
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceExpertRoot}
