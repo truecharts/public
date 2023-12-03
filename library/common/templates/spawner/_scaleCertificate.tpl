@@ -7,8 +7,12 @@
   {{- $fullname := include "tc.v1.common.lib.chart.names.fullname" $ -}}
 
   {{- range $name, $certificate := .Values.scaleCertificate -}}
+    {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
+                    "rootCtx" $ "objectData" $certificate
+                    "name" $name "caller" "Scale Certificate"
+                    "key" "scaleCertificate")) -}}
 
-    {{- if $certificate.enabled -}}
+    {{- if eq $enabled "true" -}}
 
       {{/* Create a copy of the certificate */}}
       {{- $objectData := (mustDeepCopy $certificate) -}}

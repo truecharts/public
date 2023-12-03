@@ -7,28 +7,12 @@
   {{- $fullname := include "tc.v1.common.lib.chart.names.fullname" $ -}}
 
   {{- range $name, $secret := .Values.secret -}}
+    {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
+                    "rootCtx" $ "objectData" $secret
+                    "name" $name "caller" "Secret"
+                    "key" "secret")) -}}
 
-    {{- $enabled := false -}}
-    {{- if hasKey $secret "enabled" -}}
-      {{- if not (kindIs "invalid" $secret.enabled) -}}
-        {{- $enabled = $secret.enabled -}}
-      {{- else -}}
-        {{- fail (printf "Secret - Expected the defined key [enabled] in [secret.%s] to not be empty" $name) -}}
-      {{- end -}}
-    {{- end -}}
-
-    {{- if kindIs "string" $enabled -}}
-      {{- $enabled = tpl $enabled $ -}}
-
-      {{/* After tpl it becomes a string, not a bool */}}
-      {{-  if eq $enabled "true" -}}
-        {{- $enabled = true -}}
-      {{- else if eq $enabled "false" -}}
-        {{- $enabled = false -}}
-      {{- end -}}
-    {{- end -}}
-
-    {{- if $enabled -}}
+    {{- if eq $enabled "true" -}}
 
       {{/* Create a copy of the secret */}}
       {{- $objectData := (mustDeepCopy $secret) -}}

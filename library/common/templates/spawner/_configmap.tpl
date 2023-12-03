@@ -8,28 +8,12 @@
 
   {{- range $name, $configmap := .Values.configmap -}}
 
-    {{- $enabled := false -}}
-    {{- if hasKey $configmap "enabled" -}}
-      {{- if not (kindIs "invalid" $configmap.enabled) -}}
-        {{- $enabled = $configmap.enabled -}}
-      {{- else -}}
-        {{- fail (printf "ConfigMap - Expected the defined key [enabled] in [configmap.%s] to not be empty" $name) -}}
-      {{- end -}}
-    {{- end -}}
+    {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
+                    "rootCtx" $ "objectData" $configmap
+                    "name" $name "caller" "ConfigMap"
+                    "key" "configmap")) -}}
 
-
-    {{- if kindIs "string" $enabled -}}
-      {{- $enabled = tpl $enabled $ -}}
-
-      {{/* After tpl it becomes a string, not a bool */}}
-      {{-  if eq $enabled "true" -}}
-        {{- $enabled = true -}}
-      {{- else if eq $enabled "false" -}}
-        {{- $enabled = false -}}
-      {{- end -}}
-    {{- end -}}
-
-    {{- if $enabled -}}
+    {{- if eq $enabled "true" -}}
 
       {{/* Create a copy of the configmap */}}
       {{- $objectData := (mustDeepCopy $configmap) -}}

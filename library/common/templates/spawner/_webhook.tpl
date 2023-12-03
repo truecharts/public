@@ -8,27 +8,12 @@
 
   {{- range $name, $mutatingWebhookConfiguration := .Values.webhook -}}
 
-    {{- $enabled := false -}}
-    {{- if hasKey $mutatingWebhookConfiguration "enabled" -}}
-      {{- if not (kindIs "invalid" $mutatingWebhookConfiguration.enabled) -}}
-        {{- $enabled = $mutatingWebhookConfiguration.enabled -}}
-      {{- else -}}
-        {{- fail (printf "Webhook - Expected the defined key [enabled] in [webhook.%s] to not be empty" $name) -}}
-      {{- end -}}
-    {{- end -}}
+    {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
+                    "rootCtx" $ "objectData" $mutatingWebhookConfiguration
+                    "name" $name "caller" "Webhook"
+                    "key" "webhook")) -}}
 
-    {{- if kindIs "string" $enabled -}}
-      {{- $enabled = tpl $enabled $ -}}
-
-      {{/* After tpl it becomes a string, not a bool */}}
-      {{-  if eq $enabled "true" -}}
-        {{- $enabled = true -}}
-      {{- else if eq $enabled "false" -}}
-        {{- $enabled = false -}}
-      {{- end -}}
-    {{- end -}}
-
-    {{- if $enabled -}}
+    {{- if eq $enabled "true" -}}
 
       {{/* Create a copy of the mutatingWebhookConfiguration */}}
       {{- $objectData := (mustDeepCopy $mutatingWebhookConfiguration) -}}

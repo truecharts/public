@@ -5,7 +5,13 @@
 
 {{- define "tc.v1.common.spawner.portal" -}}
     {{- range $name, $portal := .Values.portal -}}
-      {{- if $portal.enabled -}}
+
+      {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
+                      "rootCtx" $ "objectData" $portal
+                      "name" $name "caller" "Portal"
+                      "key" "portal")) -}}
+
+      {{- if eq $enabled "true" -}}
 
         {{/* Create a copy of the portal */}}
         {{- $objectData := (mustDeepCopy $portal) -}}

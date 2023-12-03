@@ -8,27 +8,12 @@
 
   {{- range $name, $volumesnapshot := .Values.volumeSnapshots -}}
 
-    {{- $enabled := false -}}
-    {{- if hasKey $volumesnapshot "enabled" -}}
-      {{- if not (kindIs "invalid" $volumesnapshot.enabled) -}}
-        {{- $enabled = $volumesnapshot.enabled -}}
-      {{- else -}}
-        {{- fail (printf "Volume Snapshot - Expected the defined key [enabled] in [volumeSnapshots.%v] to not be empty" $name) -}}
-      {{- end -}}
-    {{- end -}}
+    {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
+                    "rootCtx" $ "objectData" $volumesnapshot
+                    "name" $name "caller" "Volume Snapshot"
+                    "key" "volumeSnapshots")) -}}
 
-    {{- if kindIs "string" $enabled -}}
-      {{- $enabled = tpl $enabled $ -}}
-
-      {{/* After tpl it becomes a string, not a bool */}}
-      {{-  if eq $enabled "true" -}}
-        {{- $enabled = true -}}
-      {{- else if eq $enabled "false" -}}
-        {{- $enabled = false -}}
-      {{- end -}}
-    {{- end -}}
-
-    {{- if $enabled -}}
+    {{- if eq $enabled "true" -}}
 
       {{/* Create a copy of the volumesnapshot */}}
       {{- $objectData := (mustDeepCopy $volumesnapshot) -}}

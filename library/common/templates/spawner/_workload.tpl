@@ -11,7 +11,12 @@
 
   {{- range $name, $workload := .Values.workload -}}
 
-    {{- if $workload.enabled -}}
+    {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
+                    "rootCtx" $ "objectData" $workload
+                    "name" $name "caller" "Workload"
+                    "key" "workload")) -}}
+
+    {{- if eq $enabled "true" -}}
 
       {{/* Create a copy of the workload */}}
       {{- $objectData := (mustDeepCopy $workload) -}}

@@ -10,8 +10,12 @@
   {{- include "tc.v1.common.lib.rbac.primaryValidation" $ -}}
 
   {{- range $name, $rbac := .Values.rbac -}}
+    {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
+                    "rootCtx" $ "objectData" $rbac
+                    "name" $name "caller" "RBAC"
+                    "key" "rbac")) -}}
 
-    {{- if $rbac.enabled -}}
+    {{- if eq $enabled "true" -}}
 
       {{/* Create a copy of the configmap */}}
       {{- $objectData := (mustDeepCopy $rbac) -}}

@@ -7,7 +7,12 @@
 
   {{- range $name, $persistence := .Values.persistence -}}
 
-    {{- if $persistence.enabled -}}
+    {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
+                    "rootCtx" $ "objectData" $persistence
+                    "name" $name "caller" "Persistence"
+                    "key" "persistence")) -}}
+
+    {{- if eq $enabled "true" -}}
 
       {{/* Create a copy of the persistence */}}
       {{- $objectData := (mustDeepCopy $persistence) -}}

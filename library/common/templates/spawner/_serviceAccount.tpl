@@ -10,8 +10,12 @@
   {{- include "tc.v1.common.lib.serviceAccount.primaryValidation" $ -}}
 
   {{- range $name, $serviceAccount := .Values.serviceAccount -}}
+    {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
+                    "rootCtx" $ "objectData" $serviceAccount
+                    "name" $name "caller" "Service Account"
+                    "key" "serviceAccount")) -}}
 
-    {{- if $serviceAccount.enabled -}}
+    {{- if eq $enabled "true" -}}
 
       {{/* Create a copy of the configmap */}}
       {{- $objectData := (mustDeepCopy $serviceAccount) -}}

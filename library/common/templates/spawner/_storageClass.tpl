@@ -8,28 +8,12 @@
 
   {{- range $name, $storageclass := .Values.storageClass -}}
 
-    {{- $enabled := false -}}
-    {{- if hasKey $storageclass "enabled" -}}
-      {{- if not (kindIs "invalid" $storageclass.enabled) -}}
-        {{- $enabled = $storageclass.enabled -}}
-      {{- else -}}
-        {{- fail (printf "StorageClass - Expected the defined key [enabled] in [storageclass.%s] to not be empty" $name) -}}
-      {{- end -}}
-    {{- end -}}
+    {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
+                    "rootCtx" $ "objectData" $storageclass
+                    "name" $name "caller" "Storage Class"
+                    "key" "storageClass")) -}}
 
-
-    {{- if kindIs "string" $enabled -}}
-      {{- $enabled = tpl $enabled $ -}}
-
-      {{/* After tpl it becomes a string, not a bool */}}
-      {{-  if eq $enabled "true" -}}
-        {{- $enabled = true -}}
-      {{- else if eq $enabled "false" -}}
-        {{- $enabled = false -}}
-      {{- end -}}
-    {{- end -}}
-
-    {{- if $enabled -}}
+    {{- if eq $enabled "true" -}}
 
       {{/* Create a copy of the storageclass */}}
       {{- $objectData := (mustDeepCopy $storageclass) -}}
