@@ -10,34 +10,36 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: FLATNOTES_USERNAME
+                                        label: Username
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+                                      - variable: FLATNOTES_PASSWORD
+                                        label: Password
+                                        schema:
+                                          type: string
+                                          private: true
+                                          required: true
+                                          default: ""
+                                      - variable: FLATNOTES_SESSION_EXPIRY_DAYS
+                                        label: Session Expiry Days
+                                        schema:
+                                          type: int
+                                          default: 30
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-                                                              - variable: env
-                                                                group: "App Configuration"
-                                                                label: "Image Environment"
-                                                                schema:
-                                                                  additional_attrs: true
-                                                                  type: dict
-                                                                  attrs:
-                                                                    - variable: FLATNOTES_USERNAME
-                                                                      label: Username
-                                                                      schema:
-                                                                        type: string
-                                                                        required: true
-                                                                        default: ""
-                                                                    - variable: FLATNOTES_PASSWORD
-                                                                      label: Password
-                                                                      schema:
-                                                                        type: string
-                                                                        private: true
-                                                                        required: true
-                                                                        default: ""
-                                                                    - variable: FLATNOTES_SESSION_EXPIRY_DAYS
-                                                                      label: Session Expiry Days
-                                                                      schema:
-                                                                        type: int
-                                                                        default: 30
+# Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: Main Service
