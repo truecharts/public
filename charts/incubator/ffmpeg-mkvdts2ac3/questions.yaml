@@ -8,41 +8,41 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: script
+                                        label: "script"
+                                        description: "encode.sh or mkvdts2ac3.sh"
+                                        schema:
+                                          type: string
+                                          default: "encode.sh"
+                                      - variable: parameters
+                                        label: "parameters"
+                                        description: "Parameters for FFmpeg"
+                                        schema:
+                                          type: string
+                                          default: "-map 0;-vcodec copy;-scodec copy;-acodec ac3;-b:a 640k"
+                                      - variable: output_format
+                                        label: "output_format"
+                                        description: "Format of output file."
+                                        schema:
+                                          type: string
+                                          default: "mkv"
+                                      - variable: mkvdts2ac3_params
+                                        label: "mkvdts2ac3_params"
+                                        description: "Parameters for mkvdts2ac3"
+                                        schema:
+                                          type: string
+                                          default: "--compress none;-d;-n;-w /output;--new"
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: script
-          label: "script"
-          description: "encode.sh or mkvdts2ac3.sh"
-          schema:
-            type: string
-            default: "encode.sh"
-        - variable: parameters
-          label: "parameters"
-          description: "Parameters for FFmpeg"
-          schema:
-            type: string
-            default: "-map 0;-vcodec copy;-scodec copy;-acodec ac3;-b:a 640k"
-        - variable: output_format
-          label: "output_format"
-          description: "Format of output file."
-          schema:
-            type: string
-            default: "mkv"
-        - variable: mkvdts2ac3_params
-          label: "mkvdts2ac3_params"
-          description: "Parameters for mkvdts2ac3"
-          schema:
-            type: string
-            default: "--compress none;-d;-n;-w /output;--new"
-# Include{serviceExpertRoot}
+# Include{containerConfig}
+# Include{podOptions}
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}

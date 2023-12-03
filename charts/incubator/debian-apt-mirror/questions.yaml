@@ -10,39 +10,35 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: FORCE_UPDATE
-          label: "FORCE_UPDATE"
-          description: "Force update from the packages on every startrestart of the container."
-          schema:
-            type: string
-            default: "false"
-        - variable: DATA_PERM
-          label: "DATA_PERM"
-          schema:
-            type: string
-            default: "770"
-        - variable: UMASK
-          label: "UMASK"
-          schema:
-            type: string
-            default: "0000"
-        - variable: APACHE2_PORT
-          label: "APACHE2_PORT"
-          description: "If you change this value you also have to delete the old port mapping and create a new one with the appropriate port mapping."
-          schema:
-            type: string
-            default: "980"
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: FORCE_UPDATE
+                                        label: "FORCE_UPDATE"
+                                        description: "Force update from the packages on every startrestart of the container."
+                                        schema:
+                                          type: string
+                                          default: "false"
+                                      - variable: DATA_PERM
+                                        label: "DATA_PERM"
+                                        schema:
+                                          type: string
+                                          default: "770"
+                                      - variable: UMASK
+                                        label: "UMASK"
+                                        schema:
+                                          type: string
+                                          default: "0000"
+                                      - variable: APACHE2_PORT
+                                        label: "APACHE2_PORT"
+                                        description: "If you change this value you also have to delete the old port mapping and create a new one with the appropriate port mapping."
+                                        schema:
+                                          type: string
+                                          default: "980"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: electrum
-version: 2.0.10
+version: 2.0.11
 appVersion: latest
 description: Electrum is a Bitcoin wallet focused on speed and simplicity, with low
   resource usage. It uses remote servers that handle the most complicated parts of
@@ -10,9 +10,9 @@ home: https://truecharts.org/charts/incubator/electrum
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/electrum.png
 deprecated: false
 sources:
+- https://github.com/truecharts/containers/tree/master/mirrorelectrum
 - https://electrum.org/
 - https://github.com/truecharts/charts/tree/master/charts/incubator/electrum
-- https://github.com/truecharts/containers/tree/master/mirrorelectrum
 maintainers:
 - name: TrueCharts
   email: info@truecharts.org

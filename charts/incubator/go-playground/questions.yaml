@@ -10,27 +10,23 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: APP_DEBUG
-          label: "APP_DEBUG"
-          schema:
-            type: string
-            default: "false"
-        - variable: APP_CLEAN_INTERVAL
-          label: "APP_CLEAN_INTERVAL"
-          schema:
-            type: string
-            default: "10m"
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: APP_DEBUG
+                                        label: "APP_DEBUG"
+                                        schema:
+                                          type: string
+                                          default: "false"
+                                      - variable: APP_CLEAN_INTERVAL
+                                        label: "APP_CLEAN_INTERVAL"
+                                        schema:
+                                          type: string
+                                          default: "10m"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

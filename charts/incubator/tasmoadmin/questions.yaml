@@ -10,28 +10,24 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: TASMO_DEBUG
-          label: "Tasmo Debug"
-          schema:
-            type: string
-            required: true
-            default: "1"
-            enum:
-              - value: "0"
-                description: "False"
-              - value: "1"
-                description: "True"
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: TASMO_DEBUG
+                                        label: "Tasmo Debug"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: "1"
+                                          enum:
+                                            - value: "0"
+                                              description: "False"
+                                            - value: "1"
+                                              description: "True"
 # Include{podOptions}
 # Include{serviceRoot}
 # Include{serviceMain}

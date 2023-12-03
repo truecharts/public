@@ -10,53 +10,49 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: TUBESYNC_WORKERS
-          label: "TUBESYNC_WORKERS"
-          description: "If you add a significant amount of work due to adding many large channels you may need to increase the number of background workers. Try around ~4 at most, although the absolute maximum allowed is 8. Default is 2."
-          schema:
-            type: string
-            default: "2"
-        - variable: HTTP_USER
-          label: "HTTP_USER"
-          description: "Sets the username for HTTP basic authentication. Default is none."
-          schema:
-            type: string
-            default: ""
-        - variable: HTTP_PASS
-          label: "HTTP_PASS"
-          description: "Sets the password for HTTP basic authentication. Default is none."
-          schema:
-            type: string
-            default: ""
-        - variable: DATABASE_CONNECTION
-          label: "DATABASE_CONNECTION"
-          description: "Optional external database connection details. Ex mysqluserpass@hostportdatabase. Default is none."
-          schema:
-            type: string
-            default: ""
-        - variable: TUBESYNC_HOSTS
-          label: "TUBESYNC_HOSTS"
-          description: "Djangos ALLOWEDHOSTS. Ex tubesync.example.com,otherhost.com. Default is none."
-          schema:
-            type: string
-            default: ""
-        - variable: TUBESYNC_DEBUG
-          label: "TUBESYNC_DEBUG"
-          description: "Enable debugging. Default is False. "
-          schema:
-            type: string
-            default: "False"
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: TUBESYNC_WORKERS
+                                        label: "TUBESYNC_WORKERS"
+                                        description: "If you add a significant amount of work due to adding many large channels you may need to increase the number of background workers. Try around ~4 at most, although the absolute maximum allowed is 8. Default is 2."
+                                        schema:
+                                          type: string
+                                          default: "2"
+                                      - variable: HTTP_USER
+                                        label: "HTTP_USER"
+                                        description: "Sets the username for HTTP basic authentication. Default is none."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: HTTP_PASS
+                                        label: "HTTP_PASS"
+                                        description: "Sets the password for HTTP basic authentication. Default is none."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: DATABASE_CONNECTION
+                                        label: "DATABASE_CONNECTION"
+                                        description: "Optional external database connection details. Ex mysqluserpass@hostportdatabase. Default is none."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: TUBESYNC_HOSTS
+                                        label: "TUBESYNC_HOSTS"
+                                        description: "Djangos ALLOWEDHOSTS. Ex tubesync.example.com,otherhost.com. Default is none."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: TUBESYNC_DEBUG
+                                        label: "TUBESYNC_DEBUG"
+                                        description: "Enable debugging. Default is False. "
+                                        schema:
+                                          type: string
+                                          default: "False"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

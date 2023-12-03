@@ -8,59 +8,59 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: DELAY
+                                        label: "DELAY"
+                                        description: "Container Variable DELAY"
+                                        schema:
+                                          type: string
+                                          default: "5m"
+                                      - variable: PROVIDER
+                                        label: "PROVIDER"
+                                        description: "Container Variable PROVIDER"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: NOTIFICATION_TYPE
+                                        label: "NOTIFICATION_TYPE"
+                                        description: "Container Variable NOTIFICATIONTYPE"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: PUSHOVER_TOKEN
+                                        label: "PUSHOVER_TOKEN"
+                                        description: "Container Variable PUSHOVERTOKEN"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: PUSHOVER_USER
+                                        label: "PUSHOVER_USER"
+                                        description: "Container Variable PUSHOVERUSER"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: PUSHOVER_TITLE
+                                        label: "PUSHOVER_TITLE"
+                                        description: "Container Variable PUSHOVERTITLE"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: RECOVERY_ALERT
+                                        label: "RECOVERY_ALERT"
+                                        description: "Container Variable RECOVERYALERT"
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: DELAY
-          label: "DELAY"
-          description: "Container Variable DELAY"
-          schema:
-            type: string
-            default: "5m"
-        - variable: PROVIDER
-          label: "PROVIDER"
-          description: "Container Variable PROVIDER"
-          schema:
-            type: string
-            default: ""
-        - variable: NOTIFICATION_TYPE
-          label: "NOTIFICATION_TYPE"
-          description: "Container Variable NOTIFICATIONTYPE"
-          schema:
-            type: string
-            default: ""
-        - variable: PUSHOVER_TOKEN
-          label: "PUSHOVER_TOKEN"
-          description: "Container Variable PUSHOVERTOKEN"
-          schema:
-            type: string
-            default: ""
-        - variable: PUSHOVER_USER
-          label: "PUSHOVER_USER"
-          description: "Container Variable PUSHOVERUSER"
-          schema:
-            type: string
-            default: ""
-        - variable: PUSHOVER_TITLE
-          label: "PUSHOVER_TITLE"
-          description: "Container Variable PUSHOVERTITLE"
-          schema:
-            type: string
-            default: ""
-        - variable: RECOVERY_ALERT
-          label: "RECOVERY_ALERT"
-          description: "Container Variable RECOVERYALERT"
-          schema:
-            type: string
-            default: ""
-# Include{serviceExpertRoot}
+# Include{containerConfig}
+# Include{podOptions}
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceList}

@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: privatebin
-version: 3.0.30
+version: 3.0.31
 appVersion: 1.5.1
 description: PrivateBin is a minimalist, open source online pastebin where the server
   has zero knowledge of pasted data.
@@ -9,10 +9,10 @@ home: https://truecharts.org/charts/incubator/privatebin
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/privatebin.png
 deprecated: false
 sources:
-- https://github.com/truecharts/charts/tree/master/charts/incubator/privatebin
 - https://github.com/truecharts/containers/tree/master/mirrorprivatebin
-- https://privatebin.info/
 - https://github.com/PrivateBin/PrivateBin
+- https://privatebin.info/
+- https://github.com/truecharts/charts/tree/master/charts/incubator/privatebin
 maintainers:
 - name: TrueCharts
   email: info@truecharts.org

@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: radicale
-version: 2.0.11
+version: 2.0.12
 appVersion: 3.1.8.2
 description: Radicale is a small but powerful CalDAV (calendars, to-do lists) and
   CardDAV (contacts) server.
@@ -10,10 +10,10 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/radicale.png
 deprecated: false
 sources:
 - https://github.com/Kozea/Radicale
-- https://github.com/truecharts/charts/tree/master/charts/incubator/radicale
-- https://github.com/truecharts/containers/tree/master/mirrorradicale
 - https://github.com/tomsquest/docker-radicale
 - https://radicale.org/
+- https://github.com/truecharts/charts/tree/master/charts/incubator/radicale
+- https://github.com/truecharts/containers/tree/master/mirrorradicale
 maintainers:
 - name: TrueCharts
   email: info@truecharts.org

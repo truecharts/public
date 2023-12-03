@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: hexchat
-version: 2.0.9
+version: 2.0.10
 appVersion: latest
 description: HexChat is an IRC client based on XChat, but unlike XChat it’s completely
   free for both Windows and Unix-like systems. Since XChat is open source, it’s perfectly
@@ -11,11 +11,11 @@ home: https://truecharts.org/charts/incubator/hexchat
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/hexchat.png
 deprecated: false
 sources:
-- https://github.com/truecharts/charts/tree/master/charts/incubator/hexchat
-- https://github.com/truecharts/containers/tree/master/mirrorhexchat
 - https://hexchat.github.io/
 - https://registry.hub.docker.com/r/binhex/arch-hexchat/
 - https://github.com/binhex/documentation
+- https://github.com/truecharts/charts/tree/master/charts/incubator/hexchat
+- https://github.com/truecharts/containers/tree/master/mirrorhexchat
 maintainers:
 - name: TrueCharts
   email: info@truecharts.org

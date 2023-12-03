@@ -13,7 +13,8 @@ questions:
 
 # Include{containerBasic}
 # Include{containerAdvanced}
-
+# Include{containerConfig}
+# Include{podOptions}
   - variable: nitter
     group: App Configuration
     label: Nitter Configuration
@@ -173,8 +174,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-
-# Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
           label: Main Service

@@ -10,29 +10,25 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: GAME_PARAMS
-          label: "GAME_PARAMS"
-          description: "Enter your extra start up commands for the server here otherwise leave empty."
-          schema:
-            type: string
-            default: ""
-        - variable: GAME_PORT
-          label: "GAME_PORT"
-          description: "Only change if you know what you are doing (intital GAMEPORT  Dont forget to create create a new UDP port mapping with the corresponding port and to delete the old port from the template)"
-          schema:
-            type: string
-            default: "27016"
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: GAME_PARAMS
+                                        label: "GAME_PARAMS"
+                                        description: "Enter your extra start up commands for the server here otherwise leave empty."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: GAME_PORT
+                                        label: "GAME_PORT"
+                                        description: "Only change if you know what you are doing (intital GAMEPORT  Dont forget to create create a new UDP port mapping with the corresponding port and to delete the old port from the template)"
+                                        schema:
+                                          type: string
+                                          default: "27016"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

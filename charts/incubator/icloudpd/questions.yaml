@@ -12,7 +12,8 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
-
+# Include{containerConfig}
+# Include{podOptions}
   - variable: icloudpd
     group: App Configuration
     label: iCloud PD Configuration
@@ -211,8 +212,7 @@ questions:
                 description: Gotify
               - value: Bark
                 description: Bark
-# Include{containerConfig}
-# Include{podOptions}
+
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
 # Include{serviceList}

@@ -11,6 +11,8 @@ questions:
 
 # Include{containerBasic}
 # Include{containerAdvanced}
+# Include{containerConfig}
+# Include{podOptions}
 
   - variable: sonsoftheforest
     group: App Configuration
@@ -415,8 +417,7 @@ questions:
                         type: boolean
                         default: false
 
-# Include{containerConfig}
-# Include{podOptions}
+
 # Include{serviceRoot}
         - variable: main
           label: Main Service

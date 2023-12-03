@@ -13,6 +13,8 @@ questions:
 
 # Include{containerBasic}
 # Include{containerAdvanced}
+# Include{containerConfig}
+# Include{podOptions}
 
   - variable: docassemble
     group: App Configuration
@@ -33,8 +35,7 @@ questions:
             type: boolean
             default: false
 
-# Include{containerConfig}
-# Include{podOptions}
+
 # Include{serviceRoot}
 # Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}

@@ -16,6 +16,6 @@ Synapse hostname prepended with https:// to form a complete URL
 {{- if .Values.matrix.hostname }}
 {{- printf "https://%s" .Values.matrix.hostname -}}
 {{- else }}
-{{- printf "https://%s" .Values.ingress.hosts.synapse -}}
+{{- printf "https://%s" "TBD" -}}
 {{- end }}
 {{- end }}

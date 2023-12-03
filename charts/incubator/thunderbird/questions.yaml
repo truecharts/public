@@ -11,47 +11,47 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: THUNDERBIRD_V
+                                        label: "THUNDERBIRD_V"
+                                        description: "Enter your preferred version or latest to grab the latest version."
+                                        schema:
+                                          type: string
+                                          default: "latest"
+                                      - variable: THUNDERBIRD_LANG
+                                        label: "THUNDERBIRD_LANG"
+                                        description: "Enter your preferred language here (eg en-US, you can get a full list here https://archive.mozilla.org/pub/thunderbird/releases/latest/README.txt)"
+                                        schema:
+                                          type: string
+                                          default: "en-US"
+                                      - variable: CUSTOM_RES_W
+                                        label: "CUSTOM_RES_W"
+                                        description: "Enter your preferred screen width"
+                                        schema:
+                                          type: int
+                                          default: 1280
+                                      - variable: CUSTOM_RES_H
+                                        label: "CUSTOM_RES_H"
+                                        description: "Enter your preferred screen height"
+                                        schema:
+                                          type: int
+                                          default: 768
+                                      - variable: DATA_PERM
+                                        label: "DATA_PERM"
+                                        description: "Data permissions for /thunderbird folder"
+                                        schema:
+                                          type: int
+                                          default: 770
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: THUNDERBIRD_V
-          label: "THUNDERBIRD_V"
-          description: "Enter your preferred version or latest to grab the latest version."
-          schema:
-            type: string
-            default: "latest"
-        - variable: THUNDERBIRD_LANG
-          label: "THUNDERBIRD_LANG"
-          description: "Enter your preferred language here (eg en-US, you can get a full list here https://archive.mozilla.org/pub/thunderbird/releases/latest/README.txt)"
-          schema:
-            type: string
-            default: "en-US"
-        - variable: CUSTOM_RES_W
-          label: "CUSTOM_RES_W"
-          description: "Enter your preferred screen width"
-          schema:
-            type: int
-            default: 1280
-        - variable: CUSTOM_RES_H
-          label: "CUSTOM_RES_H"
-          description: "Enter your preferred screen height"
-          schema:
-            type: int
-            default: 768
-        - variable: DATA_PERM
-          label: "DATA_PERM"
-          description: "Data permissions for /thunderbird folder"
-          schema:
-            type: int
-            default: 770
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
@@ -108,12 +108,12 @@ questions:
                 schema:
                   type: int
                   default: 0
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
