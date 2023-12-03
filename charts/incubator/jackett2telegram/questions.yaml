@@ -15,6 +15,7 @@ questions:
                                     additional_attrs: true
                                     type: dict
                                     attrs:
+                                      - variable: USERNAME
                                       - variable: TOKEN
                                         label: Token
                                         description: Telegram Bot Token.
@@ -64,6 +65,7 @@ questions:
             attrs:
 # Include{persistenceList}
 # Include{securityContextRoot}
+
               - variable: runAsUser
                 label: "runAsUser"
                 description: "The UserID of the user running the application"
@@ -72,7 +74,7 @@ questions:
                   default: 0
               - variable: runAsGroup
                 label: "runAsGroup"
-                description: "The groupID this App of the user running the application"
+                description: "The groupID of the user running the application"
                 schema:
                   type: int
                   default: 0
