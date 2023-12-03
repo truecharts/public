@@ -13,12 +13,13 @@ objectData: The object data to be used to render the volume.
   {{- end -}}
 
   {{- $objectName := tpl $objectData.objectName $rootCtx -}}
-  {{- $expandName := true -}}
-  {{- if kindIs "bool" $objectData.expandObjectName -}}
-    {{- $expandName = $objectData.expandObjectName -}}
-  {{- end -}}
 
-  {{- if $expandName -}}
+  {{- $expandName := (include "tc.v1.common.lib.util.expandName" (dict
+                  "rootCtx" $rootCtx "objectData" $objectData
+                  "name" $objectData.shortName "caller" "Secret"
+                  "key" "secret")) -}}
+
+  {{- if eq $expandName "true" -}}
     {{- $object := (get $rootCtx.Values.secret $objectName) -}}
     {{- $certObject := (get $rootCtx.Values.scaleCertificate $objectName) -}}
     {{- if and (not $object) (not $certObject) (not $objectData.optional) -}}

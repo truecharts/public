@@ -45,27 +45,12 @@ objectData: The object data to be used to render the container.
 
           {{- $name = tpl $obj.name $rootCtx -}}
 
-          {{- $expandName := true -}}
-          {{- if (hasKey $obj "expandObjectName") -}}
-            {{- if not (kindIs "invalid" $obj.expandObjectName) -}}
-              {{- $expandName = $obj.expandObjectName -}}
-            {{- else -}}
-              {{- fail (printf "Container - Expected the defined key [expandObjectName] in [env.%s] to not be empty" $k) -}}
-            {{- end -}}
-          {{- end -}}
+          {{- $expandName := (include "tc.v1.common.lib.util.expandName" (dict
+                          "rootCtx" $rootCtx "objectData" $obj
+                          "name" $k "caller" "Container"
+                          "key" "env")) -}}
 
-          {{- if kindIs "string" $expandName -}}
-            {{- $expandName = tpl $expandName $rootCtx -}}
-
-            {{/* After tpl it becomes a string, not a bool */}}
-            {{-  if eq $expandName "true" -}}
-              {{- $expandName = true -}}
-            {{- else if eq $expandName "false" -}}
-              {{- $expandName = false -}}
-            {{- end -}}
-          {{- end -}}
-
-          {{- if $expandName -}}
+          {{- if eq $expandName "true" -}}
             {{- $item := ($key | trimSuffix "KeyRef" | lower) -}}
 
             {{- $data := (get $rootCtx.Values $item) -}}

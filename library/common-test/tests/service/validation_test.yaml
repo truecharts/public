@@ -496,7 +496,7 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: Service - Expected the defined key [expandObjectName] in [secret.service-name1] to not be empty
+          errorMessage: Service - Expected the defined key [expandObjectName] in [service.service-name1] to not be empty
 
   - it: should fail with namespace longer than 63 characters
     set:

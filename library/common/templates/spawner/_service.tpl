@@ -23,22 +23,17 @@
       {{/* Init object name */}}
       {{- $objectName := $name -}}
 
-      {{/* Default expandName to true */}}
-      {{- $expandName := true -}}
-      {{- if (hasKey $objectData "expandObjectName") -}}
-        {{- if not (kindIs "invalid" $objectData.expandObjectName) -}}
-          {{- $expandName = $objectData.expandName -}}
-        {{- else -}}
-          {{- fail (printf "Service - Expected the defined key [expandObjectName] in [secret.%s] to not be empty" $name) -}}
-        {{- end -}}
-      {{- end -}}
+      {{- $expandName := (include "tc.v1.common.lib.util.expandName" (dict
+                      "rootCtx" $ "objectData" $objectData
+                      "name" $name "caller" "Service"
+                      "key" "service")) -}}
 
-      {{- if $expandName -}}
+      {{- if eq $expandName "true" -}}
         {{/* Expand the name of the service if expandName resolves to true */}}
         {{- $objectName = $fullname -}}
       {{- end -}}
 
-      {{- if and $expandName (not $objectData.primary) -}}
+      {{- if and (eq $expandName "true") (not $objectData.primary) -}}
         {{/* If the service is not primary append its name to fullname */}}
         {{- $objectName = (printf "%s-%s" $fullname $name) -}}
       {{- end -}}
