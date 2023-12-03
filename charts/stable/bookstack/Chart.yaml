@@ -1,43 +1,44 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: bookstack
-version: 8.0.11
+version: 8.0.12
 appVersion: 23.10.20231030
-description: A simple, self-hosted, easy-to-use platform for organising and storing
+description:
+  A simple, self-hosted, easy-to-use platform for organising and storing
   information.
 home: https://truecharts.org/charts/stable/bookstack
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/bookstack.png
 deprecated: false
 sources:
-- https://www.bookstackapp.com/
-- https://github.com/truecharts/charts/tree/master/charts/stable/bookstack
-- https://ghcr.io/linuxserver/bookstack
+  - https://www.bookstackapp.com/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/bookstack
+  - https://ghcr.io/linuxserver/bookstack
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- bookstack
-- book
-- stack
-- organizer
-- server
-- hosted
+  - bookstack
+  - book
+  - stack
+  - organizer
+  - server
+  - hosted
 dependencies:
-- name: common
-  version: 14.3.5
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
-- name: mariadb
-  version: 7.0.70
-  repository: https://deps.truecharts.org/
-  condition: mariadb.enabled
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.3.5
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: mariadb
+    version: 7.0.70
+    repository: https://deps.truecharts.org/
+    condition: mariadb.enabled
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

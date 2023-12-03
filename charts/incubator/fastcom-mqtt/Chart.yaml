@@ -1,7 +1,7 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: fastcom-mqtt
-version: 2.0.10
+version: 2.0.11
 appVersion: latest
 description: |
   Chart Chart with Fast.com CLI sending data directly to MQTT Broker
@@ -9,24 +9,24 @@ home: https://truecharts.org/charts/incubator/fastcom-mqtt
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/fastcom-mqtt.png
 deprecated: false
 sources:
-- https://github.com/simonjenny/fastcom-mqtt
-- https://github.com/truecharts/charts/tree/master/charts/incubator/fastcom-mqtt
-- https://github.com/truecharts/containers/tree/master/mirrorfastcom-mqtt
+  - https://github.com/simonjenny/fastcom-mqtt
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/fastcom-mqtt
+  - https://github.com/truecharts/containers/tree/master/mirrorfastcom-mqtt
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- fastcom-mqtt
-- HomeAutomation
+  - fastcom-mqtt
+  - HomeAutomation
 dependencies:
-- name: common
-  version: 11.1.2
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 11.1.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

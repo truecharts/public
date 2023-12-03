@@ -1,34 +1,34 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: rapidphotodownloader
-version: 2.0.12
+version: 2.0.13
 appVersion: latest
 description: This Chart will download and install Rapid Photo Downloader.
 home: https://truecharts.org/charts/incubator/rapidphotodownloader
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/rapidphotodownloader.png
 deprecated: false
 sources:
-- https://www.damonlynch.net/rapid/
-- https://github.com/truecharts/charts/tree/master/charts/incubator/rapidphotodownloader
-- https://github.com/truecharts/containers/tree/master/mirrorrapidphotodownloader
+  - https://www.damonlynch.net/rapid/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/rapidphotodownloader
+  - https://github.com/truecharts/containers/tree/master/mirrorrapidphotodownloader
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- rapidphotodownloader
-- MediaApp-Photos
-- Productivity
-- Tools-Utilities
-- Backup
+  - rapidphotodownloader
+  - MediaApp-Photos
+  - Productivity
+  - Tools-Utilities
+  - Backup
 dependencies:
-- name: common
-  version: 11.1.2
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 11.1.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

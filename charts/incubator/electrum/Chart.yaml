@@ -1,35 +1,36 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: electrum
-version: 2.0.11
+version: 2.0.12
 appVersion: latest
-description: Electrum is a Bitcoin wallet focused on speed and simplicity, with low
+description:
+  Electrum is a Bitcoin wallet focused on speed and simplicity, with low
   resource usage. It uses remote servers that handle the most complicated parts of
   the Bitcoin system, and it allows you to recover your wallet from a secret phrase.
 home: https://truecharts.org/charts/incubator/electrum
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/electrum.png
 deprecated: false
 sources:
-- https://github.com/truecharts/containers/tree/master/mirrorelectrum
-- https://electrum.org/
-- https://github.com/truecharts/charts/tree/master/charts/incubator/electrum
+  - https://github.com/truecharts/containers/tree/master/mirrorelectrum
+  - https://electrum.org/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/electrum
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- electrum
-- Network-Other
-- Productivity
-- Tools-Utilities
+  - electrum
+  - Network-Other
+  - Productivity
+  - Tools-Utilities
 dependencies:
-- name: common
-  version: 11.1.2
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 11.1.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

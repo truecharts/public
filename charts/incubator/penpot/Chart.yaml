@@ -1,46 +1,46 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: penpot
-version: 3.0.1
+version: 3.0.2
 appVersion: 1.18.1
 description: Open Source design and prototyping platform.
 home: https://truecharts.org/charts/incubator/penpot
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/penpot.png
 deprecated: false
 sources:
-- https://github.com/penpot/penpot
-- https://github.com/truecharts/charts/tree/master/charts/incubator/penpot
-- https://github.com/truecharts/containers/tree/master/mirrorpenpot-frontend
+  - https://github.com/penpot/penpot
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/penpot
+  - https://github.com/truecharts/containers/tree/master/mirrorpenpot-frontend
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- penpot
-- media
-- design
+  - penpot
+  - media
+  - design
 dependencies:
-- name: common
-  version: 11.1.2
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
-- name: postgresql
-  version: 11.0.31
-  repository: https://deps.truecharts.org/
-  condition: postgresql.enabled
-  alias: ""
-  tags: []
-  import-values: []
-- name: redis
-  version: 5.0.33
-  repository: https://deps.truecharts.org
-  condition: redis.enabled
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 11.1.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: postgresql
+    version: 11.0.31
+    repository: https://deps.truecharts.org/
+    condition: postgresql.enabled
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 5.0.33
+    repository: https://deps.truecharts.org
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

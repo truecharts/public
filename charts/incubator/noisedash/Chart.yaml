@@ -1,30 +1,30 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: noisedash
-version: 2.0.13
+version: 2.0.14
 appVersion: 0.6.9
 description: Self-hosted web tool for generating ambient noises
 home: https://truecharts.org/charts/incubator/noisedash
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/noisedash.png
 deprecated: false
 sources:
-- https://github.com/kaythomas0/noisedash
-- https://github.com/truecharts/charts/tree/master/charts/incubator/noisedash
-- https://github.com/truecharts/containers/tree/master/mirrornoisedash
+  - https://github.com/kaythomas0/noisedash
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/noisedash
+  - https://github.com/truecharts/containers/tree/master/mirrornoisedash
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- noise
+  - noise
 dependencies:
-- name: common
-  version: 11.1.2
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 11.1.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

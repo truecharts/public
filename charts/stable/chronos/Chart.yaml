@@ -1,33 +1,34 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: chronos
-version: 5.0.9
+version: 5.0.10
 appVersion: "0.2"
-description: Chronos is a small container to run and schedule Python 3.7 scripts.
+description:
+  Chronos is a small container to run and schedule Python 3.7 scripts.
   You can create virtual enviroments, edit your scripts, install Pip dependencies,
   view execution logs, and debug your scripts, all from the sleek web UI.
 home: https://truecharts.org/charts/stable/chronos
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/chronos.png
 deprecated: false
 sources:
-- https://github.com/truecharts/charts/tree/master/charts/stable/chronos
-- https://hub.docker.com/r/simsemand/chronos
-- https://github.com/simse/chronos
+  - https://github.com/truecharts/charts/tree/master/charts/stable/chronos
+  - https://hub.docker.com/r/simsemand/chronos
+  - https://github.com/simse/chronos
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- chronos
-- Tools-Utilities
+  - chronos
+  - Tools-Utilities
 dependencies:
-- name: common
-  version: 14.3.5
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.3.5
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

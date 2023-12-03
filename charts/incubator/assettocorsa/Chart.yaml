@@ -1,32 +1,33 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: assettocorsa
-version: 2.0.10
+version: 2.0.11
 appVersion: latest
-description: This Chart will download and install SteamCMD. It will also install AssettoCorsa
+description:
+  This Chart will download and install SteamCMD. It will also install AssettoCorsa
   and run it.
 home: https://truecharts.org/charts/incubator/assettocorsa
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/assettocorsa.png
 deprecated: false
 sources:
-- https://www.assettocorsa.net/
-- https://github.com/truecharts/charts/tree/master/charts/incubator/assettocorsa
-- https://github.com/truecharts/containers/tree/master/mirrorassettocorsa
+  - https://www.assettocorsa.net/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/assettocorsa
+  - https://github.com/truecharts/containers/tree/master/mirrorassettocorsa
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- assettocorsa
-- GameServers
+  - assettocorsa
+  - GameServers
 dependencies:
-- name: common
-  version: 11.1.2
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 11.1.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

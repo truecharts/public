@@ -1,34 +1,34 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: grav
-version: 8.0.28
+version: 8.0.29
 appVersion: 1.7.43
 description: A Fast, Simple, and Flexible, file-based Web-platform.
 home: https://truecharts.org/charts/stable/grav
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/grav.png
 deprecated: false
 sources:
-- https://github.com/linuxserver/docker-grav
-- https://github.com/truecharts/charts/tree/master/charts/stable/grav
-- https://ghcr.io/linuxserver/grav
-- https://github.com/getgrav/grav/
+  - https://github.com/linuxserver/docker-grav
+  - https://github.com/truecharts/charts/tree/master/charts/stable/grav
+  - https://ghcr.io/linuxserver/grav
+  - https://github.com/getgrav/grav/
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- grav
-- web
-- platform
-- file
+  - grav
+  - web
+  - platform
+  - file
 dependencies:
-- name: common
-  version: 14.3.5
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.3.5
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

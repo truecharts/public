@@ -1,7 +1,7 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: pritunl
-version: 2.0.10
+version: 2.0.11
 appVersion: latest
 description: |
   Run a Pritunl VPN Server [br][br]
@@ -9,24 +9,24 @@ home: https://truecharts.org/charts/incubator/pritunl
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pritunl.png
 deprecated: false
 sources:
-- https://pritunl.com/
-- https://github.com/truecharts/charts/tree/master/charts/incubator/pritunl
-- https://github.com/truecharts/containers/tree/master/mirrorpritunl
+  - https://pritunl.com/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/pritunl
+  - https://github.com/truecharts/containers/tree/master/mirrorpritunl
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- pritunl
-- Network-Other
+  - pritunl
+  - Network-Other
 dependencies:
-- name: common
-  version: 11.1.2
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 11.1.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

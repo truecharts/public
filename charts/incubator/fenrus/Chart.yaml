@@ -1,30 +1,30 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: fenrus
-version: 2.0.10
+version: 2.0.11
 appVersion: latest
 description: "Fenrus is a home page / personal dashboard with smart apps.   \n"
 home: https://truecharts.org/charts/incubator/fenrus
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/fenrus.png
 deprecated: false
 sources:
-- https://github.com/truecharts/containers/tree/master/mirrorfenrus
-- https://github.com/truecharts/charts/tree/master/charts/incubator/fenrus
+  - https://github.com/truecharts/containers/tree/master/mirrorfenrus
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/fenrus
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- fenrus
-- Productivity
+  - fenrus
+  - Productivity
 dependencies:
-- name: common
-  version: 11.1.2
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 11.1.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

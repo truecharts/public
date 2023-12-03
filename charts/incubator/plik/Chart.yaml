@@ -1,38 +1,38 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: plik
-version: 0.0.12
+version: 0.0.13
 appVersion: 1.3.6
 description: A scalable file uploading system with multiple backends.
 home: https://truecharts.org/charts/incubator/plik
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/plik.png
 deprecated: false
 sources:
-- https://github.com/truecharts/charts/tree/master/charts/incubator/plik
-- https://github.com/truecharts/containers/tree/master/mirrorplik
-- https://github.com/root-gg/plik
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/plik
+  - https://github.com/truecharts/containers/tree/master/mirrorplik
+  - https://github.com/root-gg/plik
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- plik
-- files
+  - plik
+  - files
 dependencies:
-- name: common
-  version: 11.1.2
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
-- name: postgresql
-  version: 11.0.31
-  repository: https://deps.truecharts.org/
-  condition: postgresql.enabled
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 11.1.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: postgresql
+    version: 11.0.31
+    repository: https://deps.truecharts.org/
+    condition: postgresql.enabled
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

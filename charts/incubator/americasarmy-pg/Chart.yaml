@@ -1,32 +1,33 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: americasarmy-pg
-version: 2.0.11
+version: 2.0.12
 appVersion: latest
-description: 'This Chart will download and install SteamCMD. It will also install
-  America''s Army: Proving Grounds and run it.'
+description:
+  "This Chart will download and install SteamCMD. It will also install
+  America's Army: Proving Grounds and run it."
 home: https://truecharts.org/charts/incubator/americasarmy-pg
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/americasarmy-pg.png
 deprecated: false
 sources:
-- https://www.americasarmy.com/
-- https://github.com/truecharts/charts/tree/master/charts/incubator/americasarmy-pg
-- https://github.com/truecharts/containers/tree/master/mirroramericasarmy-pg
+  - https://www.americasarmy.com/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/americasarmy-pg
+  - https://github.com/truecharts/containers/tree/master/mirroramericasarmy-pg
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- americasarmy-pg
-- GameServers
+  - americasarmy-pg
+  - GameServers
 dependencies:
-- name: common
-  version: 11.1.2
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 11.1.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4
