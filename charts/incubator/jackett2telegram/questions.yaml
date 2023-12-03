@@ -10,6 +10,7 @@ questions:
 # Include{containerMain}
 
                                 - variable: env
+                                  group: App Configuration
                                   label: Image Environment
                                   schema:
                                     additional_attrs: true
@@ -40,7 +41,6 @@ questions:
                                           default: 600
 # Include{containerBasic}
 # Include{containerAdvanced}
-
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceExpertRoot}
