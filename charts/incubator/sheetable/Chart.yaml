@@ -1,39 +1,40 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: sheetable
 version: 3.0.25
 appVersion: "0.8"
-description: SheetAble is an easy to use music sheet organiser for all the music enthusiasts
+description:
+  SheetAble is an easy to use music sheet organiser for all the music enthusiasts
   out there.
 home: https://truecharts.org/charts/incubator/sheetable
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/sheetable.png
 deprecated: false
 sources:
-- https://github.com/SheetAble
-- https://github.com/truecharts/charts/tree/master/charts/incubator/sheetable
-- https://github.com/truecharts/containers/tree/master/mirrorsheetable
-- https://sheetable.net/docs
+  - https://sheetable.net/docs
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/sheetable
+  - https://github.com/truecharts/containers/tree/master/mirrorsheetable
+  - https://github.com/SheetAble
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- sheetable
+  - sheetable
 dependencies:
-- name: common
-  version: 11.1.2
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
-- name: postgresql
-  version: 11.0.31
-  repository: https://deps.truecharts.org/
-  condition: postgresql.enabled
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 11.1.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: postgresql
+    version: 11.0.31
+    repository: https://deps.truecharts.org/
+    condition: postgresql.enabled
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

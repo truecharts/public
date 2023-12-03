@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: umami
 version: 3.0.25
@@ -8,31 +8,31 @@ home: https://truecharts.org/charts/incubator/umami
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/umami.png
 deprecated: false
 sources:
-- https://github.com/truecharts/charts/tree/master/charts/incubator/umami
-- https://github.com/truecharts/containers/tree/master/mirrorumami
-- https://github.com/umami-software/umami
+  - https://github.com/truecharts/containers/tree/master/mirrorumami
+  - https://github.com/umami-software/umami
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/umami
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- umami
-- google analytics
+  - umami
+  - google analytics
 dependencies:
-- name: common
-  version: 11.1.2
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
-- name: postgresql
-  version: 11.0.31
-  repository: https://deps.truecharts.org/
-  condition: postgresql.enabled
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 11.1.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: postgresql
+    version: 11.0.31
+    repository: https://deps.truecharts.org/
+    condition: postgresql.enabled
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

@@ -1,34 +1,35 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: jmzhomeproxy
 version: 2.0.11
 appVersion: latest
-description: Proxy is in quotes because I couldn't think of a better name. There is
+description:
+  Proxy is in quotes because I couldn't think of a better name. There is
   nothing overly special about this other than using it as a simple and easy to use
   dashboard for all your self-hosted services.
 home: https://truecharts.org/charts/incubator/jmzhomeproxy
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/jmzhomeproxy.png
 deprecated: false
 sources:
-- https://github.com/JmzTaylor/homelab_proxy/
-- https://github.com/truecharts/charts/tree/master/charts/incubator/jmzhomeproxy
-- https://github.com/truecharts/containers/tree/master/mirrorjmzhomeproxy
+  - https://github.com/JmzTaylor/homelab_proxy/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/jmzhomeproxy
+  - https://github.com/truecharts/containers/tree/master/mirrorjmzhomeproxy
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- jmzhomeproxy
-- Cloud
-- Network-Web
+  - jmzhomeproxy
+  - Cloud
+  - Network-Web
 dependencies:
-- name: common
-  version: 11.1.2
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 11.1.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: thelounge
 version: 10.0.20
@@ -8,27 +8,27 @@ home: https://truecharts.org/charts/stable/thelounge
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/thelounge.png
 deprecated: false
 sources:
-- https://github.com/thelounge/thelounge
-- https://github.com/truecharts/charts/tree/master/charts/stable/thelounge
-- https://hub.docker.com/r/thelounge/thelounge
+  - https://github.com/thelounge/thelounge
+  - https://github.com/truecharts/charts/tree/master/charts/stable/thelounge
+  - https://hub.docker.com/r/thelounge/thelounge
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- thelounge
-- IRC
-- The Lounge
-- docker
-- thelounge-docker
+  - thelounge
+  - IRC
+  - The Lounge
+  - docker
+  - thelounge-docker
 dependencies:
-- name: common
-  version: 14.3.5
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.3.5
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

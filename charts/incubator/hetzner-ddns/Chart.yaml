@@ -1,32 +1,33 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: hetzner-ddns
 version: 2.0.11
 appVersion: latest
-description: This Chart will allow you to use the Hetzner DNS Service (https://www.hetzner.com/dns-console)
+description:
+  This Chart will allow you to use the Hetzner DNS Service (https://www.hetzner.com/dns-console)
   as a Dynamic DNS (DDNS) Provider.
 home: https://truecharts.org/charts/incubator/hetzner-ddns
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/hetzner-ddns.png
 deprecated: false
 sources:
-- https://github.com/truecharts/containers/tree/master/mirrorhetzner-ddns
-- https://github.com/kutzilla/docker-hetzner-ddns
-- https://github.com/truecharts/charts/tree/master/charts/incubator/hetzner-ddns
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/hetzner-ddns
+  - https://github.com/truecharts/containers/tree/master/mirrorhetzner-ddns
+  - https://github.com/kutzilla/docker-hetzner-ddns
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- hetzner-ddns
-- Network-DNS
+  - hetzner-ddns
+  - Network-DNS
 dependencies:
-- name: common
-  version: 11.1.2
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 11.1.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

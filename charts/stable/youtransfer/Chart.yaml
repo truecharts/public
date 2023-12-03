@@ -1,33 +1,34 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: youtransfer
 version: 4.0.10
 appVersion: latest
-description: YouTransfer is a simple but elegant self-hosted file transfer sharing
+description:
+  YouTransfer is a simple but elegant self-hosted file transfer sharing
   solution.
 home: https://truecharts.org/charts/stable/youtransfer
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/youtransfer.png
 deprecated: false
 sources:
-- https://github.com/YouTransfer/YouTransfer
-- https://github.com/truecharts/charts/tree/master/charts/stable/youtransfer
-- https://hub.docker.com/r/remie/youtransfer
+  - https://github.com/YouTransfer/YouTransfer
+  - https://github.com/truecharts/charts/tree/master/charts/stable/youtransfer
+  - https://hub.docker.com/r/remie/youtransfer
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- youtransfer
-- Cloud
-- Tools-Utilities
+  - youtransfer
+  - Cloud
+  - Tools-Utilities
 dependencies:
-- name: common
-  version: 14.3.5
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.3.5
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

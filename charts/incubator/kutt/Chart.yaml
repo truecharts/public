@@ -1,47 +1,48 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: kutt
 version: 7.0.2
 appVersion: 2.7.4
-description: Kutt is a modern URL shortener with support for custom domains. Shorten
+description:
+  Kutt is a modern URL shortener with support for custom domains. Shorten
   URLs, manage your links and view the click rate statistics.
 home: https://truecharts.org/charts/incubator/kutt
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/kutt.png
 deprecated: false
 sources:
-- https://github.com/truecharts/containers/tree/master/mirrorkutt
-- https://github.com/thedevs-network/kutt
-- https://github.com/truecharts/charts/tree/master/charts/incubator/kutt
+  - https://github.com/thedevs-network/kutt
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/kutt
+  - https://github.com/truecharts/containers/tree/master/mirrorkutt
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- kutt
-- link
-- short
+  - kutt
+  - link
+  - short
 dependencies:
-- name: common
-  version: 11.1.2
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
-- name: postgresql
-  version: 11.0.31
-  repository: https://deps.truecharts.org/
-  condition: postgresql.enabled
-  alias: ""
-  tags: []
-  import-values: []
-- name: redis
-  version: 5.0.33
-  repository: https://deps.truecharts.org
-  condition: redis.enabled
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 11.1.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: postgresql
+    version: 11.0.31
+    repository: https://deps.truecharts.org/
+    condition: postgresql.enabled
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 5.0.33
+    repository: https://deps.truecharts.org
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

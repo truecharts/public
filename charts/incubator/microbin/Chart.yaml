@@ -1,31 +1,32 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: microbin
 version: 2.0.12
 appVersion: 1.2.1
-description: MicroBin is a super tiny, feature rich, configurable, self-contained
+description:
+  MicroBin is a super tiny, feature rich, configurable, self-contained
   and self-hosted paste bin web application.
 home: https://truecharts.org/charts/incubator/microbin
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/microbin.png
 deprecated: false
 sources:
-- https://github.com/szabodanika/microbin
-- https://github.com/truecharts/charts/tree/master/charts/incubator/microbin
-- https://github.com/truecharts/containers/tree/master/mirrormicrobin
+  - https://github.com/szabodanika/microbin
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/microbin
+  - https://github.com/truecharts/containers/tree/master/mirrormicrobin
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- microbin
+  - microbin
 dependencies:
-- name: common
-  version: 11.1.2
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 11.1.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

@@ -1,41 +1,42 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: photoprism
 version: 16.1.1
 appVersion: "231128"
-description: PhotoPrismÂ® is a server-based application for browsing, organizing and
+description:
+  PhotoPrismÂ® is a server-based application for browsing, organizing and
   sharing your personal photo collection
 home: https://truecharts.org/charts/stable/photoprism
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/photoprism.png
 deprecated: false
 sources:
-- https://github.com/photoprism/photoprism
-- https://github.com/truecharts/charts/tree/master/charts/stable/photoprism
-- https://hub.docker.com/r/photoprism/photoprism
+  - https://github.com/photoprism/photoprism
+  - https://github.com/truecharts/charts/tree/master/charts/stable/photoprism
+  - https://hub.docker.com/r/photoprism/photoprism
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- photos
-- photoprism
-- pictures
-- sharing
+  - photos
+  - photoprism
+  - pictures
+  - sharing
 dependencies:
-- name: common
-  version: 14.3.5
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
-- name: mariadb
-  version: 7.0.70
-  repository: https://deps.truecharts.org/
-  condition: mariadb.enabled
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.3.5
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: mariadb
+    version: 7.0.70
+    repository: https://deps.truecharts.org/
+    condition: mariadb.enabled
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

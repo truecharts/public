@@ -1,32 +1,33 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: ersatztv
 version: 0.0.9
 appVersion: 0.7.4
-description: ErsatzTV configuring and streaming custom live channels using your media
+description:
+  ErsatzTV configuring and streaming custom live channels using your media
   library.
 home: https://truecharts.org/charts/incubator/ersatztv
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ersatztv.png
 deprecated: false
 sources:
-- https://github.com/jasongdove/ErsatzTV
-- https://github.com/truecharts/charts/tree/master/charts/incubator/ersatztv
-- https://github.com/truecharts/containers/tree/master/mirrorersatztv
+  - https://github.com/jasongdove/ErsatzTV
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/ersatztv
+  - https://github.com/truecharts/containers/tree/master/mirrorersatztv
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- ersatztv
-- media
+  - ersatztv
+  - media
 dependencies:
-- name: common
-  version: 11.1.2
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 11.1.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

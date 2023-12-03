@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: invitarr
 version: 2.0.11
@@ -8,26 +8,26 @@ home: https://truecharts.org/charts/incubator/invitarr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/invitarr.png
 deprecated: false
 sources:
-- https://github.com/Sleepingpirates/Invitarr
-- https://github.com/truecharts/charts/tree/master/charts/incubator/invitarr
-- https://github.com/truecharts/containers/tree/master/mirrorinvitarr
+  - https://github.com/Sleepingpirates/Invitarr
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/invitarr
+  - https://github.com/truecharts/containers/tree/master/mirrorinvitarr
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- invitarr
-- HomeAutomation
-- Tools-Utilities
-- Other
+  - invitarr
+  - HomeAutomation
+  - Tools-Utilities
+  - Other
 dependencies:
-- name: common
-  version: 11.1.2
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 11.1.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

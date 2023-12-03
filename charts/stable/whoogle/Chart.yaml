@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: whoogle
 version: 7.0.12
@@ -8,26 +8,26 @@ home: https://truecharts.org/charts/stable/whoogle
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/whoogle.png
 deprecated: false
 sources:
-- https://github.com/benbusby/whoogle-search
-- https://github.com/truecharts/charts/tree/master/charts/stable/whoogle
-- https://hub.docker.com/r/benbusby/whoogle-search
+  - https://github.com/benbusby/whoogle-search
+  - https://github.com/truecharts/charts/tree/master/charts/stable/whoogle
+  - https://hub.docker.com/r/benbusby/whoogle-search
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- whoogle
-- search
-- open source
-- privacy
+  - whoogle
+  - search
+  - open source
+  - privacy
 dependencies:
-- name: common
-  version: 14.3.5
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.3.5
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

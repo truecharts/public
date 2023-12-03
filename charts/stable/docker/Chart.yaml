@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: docker
 version: 1.0.5
@@ -8,22 +8,22 @@ home: https://truecharts.org/charts/stable/docker
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/docker.png
 deprecated: false
 sources:
-- https://hub.docker.com/_/docker
-- https://github.com/truecharts/charts/tree/master/charts/stable/docker
+  - https://github.com/truecharts/charts/tree/master/charts/stable/docker
+  - https://hub.docker.com/_/docker
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- docker
+  - docker
 dependencies:
-- name: common
-  version: 14.3.5
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.3.5
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

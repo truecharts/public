@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: navidrome
 version: 16.0.13
@@ -8,25 +8,25 @@ home: https://truecharts.org/charts/stable/navidrome
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/navidrome.png
 deprecated: false
 sources:
-- https://github.com/deluan/navidrome
-- https://github.com/truecharts/charts/tree/master/charts/stable/navidrome
-- https://hub.docker.com/r/deluan/navidrome
+  - https://hub.docker.com/r/deluan/navidrome
+  - https://github.com/deluan/navidrome
+  - https://github.com/truecharts/charts/tree/master/charts/stable/navidrome
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- navidrome
-- music
-- streaming
+  - navidrome
+  - music
+  - streaming
 dependencies:
-- name: common
-  version: 14.3.5
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.3.5
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

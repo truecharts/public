@@ -1,9 +1,10 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: shadowsocks
 version: 2.0.11
 appVersion: latest
-description: A secure SOCKS5 proxy. Shadowsocks is a free and open-source encryption
+description:
+  A secure SOCKS5 proxy. Shadowsocks is a free and open-source encryption
   protocol project, widely used in China to circumvent Internet censorship. It was
   created in 2012 by a Chinese programmer named "clowwindy", and multiple implementations
   of the protocol have been made available since. Can be used with any SOCKS or Shadowsocks
@@ -12,26 +13,26 @@ home: https://truecharts.org/charts/incubator/shadowsocks
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/shadowsocks.png
 deprecated: false
 sources:
-- https://github.com/shadowsocks/shadowsocks-libev/blob/master/docker/alpine/README.md
-- https://github.com/truecharts/charts/tree/master/charts/incubator/shadowsocks
-- https://github.com/truecharts/containers/tree/master/mirrorshadowsocks
+  - https://github.com/shadowsocks/shadowsocks-libev/blob/master/docker/alpine/README.md
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/shadowsocks
+  - https://github.com/truecharts/containers/tree/master/mirrorshadowsocks
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- shadowsocks
-- Security
-- Network-Proxy
-- Network-VPN
+  - shadowsocks
+  - Security
+  - Network-Proxy
+  - Network-VPN
 dependencies:
-- name: common
-  version: 11.1.2
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 11.1.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

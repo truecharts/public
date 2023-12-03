@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: ts3-manager
 version: 2.0.11
@@ -8,25 +8,25 @@ home: https://truecharts.org/charts/incubator/ts3-manager
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ts3-manager.png
 deprecated: false
 sources:
-- https://github.com/truecharts/charts/tree/master/charts/incubator/ts3-manager
-- https://github.com/truecharts/containers/tree/master/mirrorts3-manager
-- https://github.com/joni1802/ts3-manager/
+  - https://github.com/joni1802/ts3-manager/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/ts3-manager
+  - https://github.com/truecharts/containers/tree/master/mirrorts3-manager
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- ts3-manager
-- teamspeak
-- teamspeak3
+  - ts3-manager
+  - teamspeak
+  - teamspeak3
 dependencies:
-- name: common
-  version: 11.1.2
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 11.1.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

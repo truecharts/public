@@ -1,36 +1,37 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: mojopaste
 version: 2.0.11
 appVersion: latest
-description: Mojopaste is a pastebin application. There's about one million of these
+description:
+  Mojopaste is a pastebin application. There's about one million of these
   out there, but if you have the need to run something internally at work or you just
   fancy having your own pastebin, this is your application.
 home: https://truecharts.org/charts/incubator/mojopaste
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/mojopaste.png
 deprecated: false
 sources:
-- https://github.com/truecharts/containers/tree/master/mirrormojopaste
-- https://github.com/jhthorsen/app-mojopaste
-- https://github.com/truecharts/charts/tree/master/charts/incubator/mojopaste
+  - https://github.com/truecharts/containers/tree/master/mirrormojopaste
+  - https://github.com/jhthorsen/app-mojopaste
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/mojopaste
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- mojopaste
-- Cloud
-- Productivity
-- Tools-Utilities
-- Network-Web
+  - mojopaste
+  - Cloud
+  - Productivity
+  - Tools-Utilities
+  - Network-Web
 dependencies:
-- name: common
-  version: 11.1.2
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 11.1.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

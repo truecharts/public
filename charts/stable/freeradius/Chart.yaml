@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: freeradius
 version: 10.0.11
@@ -8,24 +8,24 @@ home: https://truecharts.org/charts/stable/freeradius
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/freeradius.png
 deprecated: false
 sources:
-- https://freeradius.org/
-- https://github.com/truecharts/charts/tree/master/charts/stable/freeradius
-- https://github.com/truecharts/containers/tree/master/mirrorfreeradius
+  - https://freeradius.org/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/freeradius
+  - https://github.com/truecharts/containers/tree/master/mirrorfreeradius
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- radius
-- auth
+  - radius
+  - auth
 dependencies:
-- name: common
-  version: 14.3.5
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.3.5
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

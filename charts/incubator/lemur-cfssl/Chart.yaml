@@ -1,33 +1,34 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: lemur-cfssl
 version: 2.0.11
 appVersion: latest
-description: Lemur manages TLS certificate creation. While not able to issue certificates
+description:
+  Lemur manages TLS certificate creation. While not able to issue certificates
   itself, Lemur acts as a broker between CAs and environments providing a central
   portal for developers to issue TLS certificates with 'sane' defaults.
 home: https://truecharts.org/charts/incubator/lemur-cfssl
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/lemur-cfssl.png
 deprecated: false
 sources:
-- https://github.com/Netflix/lemur
-- https://github.com/truecharts/charts/tree/master/charts/incubator/lemur-cfssl
-- https://github.com/truecharts/containers/tree/master/mirrorlemur-cfssl
+  - https://github.com/Netflix/lemur
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/lemur-cfssl
+  - https://github.com/truecharts/containers/tree/master/mirrorlemur-cfssl
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- lemur-cfssl
-- Tools-Utilities
+  - lemur-cfssl
+  - Tools-Utilities
 dependencies:
-- name: common
-  version: 11.1.2
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 11.1.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

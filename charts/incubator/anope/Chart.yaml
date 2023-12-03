@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: anope
 version: 2.0.12
@@ -8,26 +8,26 @@ home: https://truecharts.org/charts/incubator/anope
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/anope.png
 deprecated: false
 sources:
-- https://thelounge.chat/
-- https://github.com/truecharts/charts/tree/master/charts/incubator/anope
-- https://github.com/truecharts/containers/tree/master/mirroranope
+  - https://github.com/truecharts/containers/tree/master/mirroranope
+  - https://thelounge.chat/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/anope
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- anope
-- Network-Other
-- Productivity
-- Tools-Utilities
+  - anope
+  - Network-Other
+  - Productivity
+  - Tools-Utilities
 dependencies:
-- name: common
-  version: 11.1.2
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 11.1.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4
