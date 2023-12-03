@@ -10,79 +10,68 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: USERNAME
-          label: "USERNAME"
-          description: "Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
-          schema:
-            type: string
-            default: ""
-        - variable: PASSWRD
-          label: "PASSWRD"
-          description: "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
-          schema:
-            type: string
-            private: true
-            default: ""
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: GAME_ID
-          label: "GAME_ID"
-          description: "The GAME_ID that the container download at startup.(https://developer.valvesoftware.com/wiki/Dedicated_Servers_List)"
-          schema:
-            type: string
-            default: "233780"
-        - variable: GAME_PARAMS
-          label: "GAME_PARAMS"
-          description: "Enter your start up commands for the server.Note To change the Port of the server please click on Show more settings button, dont forget to change the other ports."
-          schema:
-            type: string
-            default: ""
-        - variable: VALIDATE
-          label: "VALIDATE"
-          description: "Set the Variable to true if you want to validate the installation otherwise leave it blank."
-          schema:
-            type: boolean
-            default: true
-        - variable: MARIA_DB_ROOT_PWD
-          label: "MARIA_DB_ROOT_PWD"
-          description: "Enter the preffered root password of the database."
-          schema:
-            type: string
-            default: "ExileMod"
-        - variable: WORKSHOP_MAN_INST
-          label: "WORKSHOP_MAN_INST"
-          description: "Please set to true (without quotes) if you want to install the Workshopcontent for ExileMod manually since the account you specified above must have a valid game purchase for ArmA3 (you could also use one account to download the dedicated server files and another to install the Workshop files).A COMPLETE HOW TO WILL BE IN THE CONSOLEWARNING Please let this variable set to true if you initially set it to true."
-          schema:
-            type: string
-            default: ""
-        - variable: GAME_PORT
-          label: "GAME_PORT"
-          description: "Container Variable GAMEPORT"
-          schema:
-            type: string
-            default: "2302"
-        - variable: EXILEMOD_SERVER_URL
-          label: "EXILEMOD_SERVER_URL"
-          description: "Change only if you know what you are doing!"
-          schema:
-            type: string
-            default: "http://www.exilemod.com/ExileServer-1.0.4a.zip"
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: USERNAME
+                                        label: "USERNAME"
+                                        description: "Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: PASSWRD
+                                        label: "PASSWRD"
+                                        description: "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
+                                        schema:
+                                          type: string
+                                          private: true
+                                          default: ""
+                                      - variable: GAME_ID
+                                        label: "GAME_ID"
+                                        description: "The GAME_ID that the container download at startup.(https://developer.valvesoftware.com/wiki/Dedicated_Servers_List)"
+                                        schema:
+                                          type: string
+                                          default: "233780"
+                                      - variable: GAME_PARAMS
+                                        label: "GAME_PARAMS"
+                                        description: "Enter your start up commands for the server.Note To change the Port of the server please click on Show more settings button, dont forget to change the other ports."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: VALIDATE
+                                        label: "VALIDATE"
+                                        description: "Set the Variable to true if you want to validate the installation otherwise leave it blank."
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: MARIA_DB_ROOT_PWD
+                                        label: "MARIA_DB_ROOT_PWD"
+                                        description: "Enter the preffered root password of the database."
+                                        schema:
+                                          type: string
+                                          default: "ExileMod"
+                                      - variable: WORKSHOP_MAN_INST
+                                        label: "WORKSHOP_MAN_INST"
+                                        description: "Please set to true (without quotes) if you want to install the Workshopcontent for ExileMod manually since the account you specified above must have a valid game purchase for ArmA3 (you could also use one account to download the dedicated server files and another to install the Workshop files).A COMPLETE HOW TO WILL BE IN THE CONSOLEWARNING Please let this variable set to true if you initially set it to true."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: GAME_PORT
+                                        label: "GAME_PORT"
+                                        description: "Container Variable GAMEPORT"
+                                        schema:
+                                          type: string
+                                          default: "2302"
+                                      - variable: EXILEMOD_SERVER_URL
+                                        label: "EXILEMOD_SERVER_URL"
+                                        description: "Change only if you know what you are doing!"
+                                        schema:
+                                          type: string
+                                          default: "http://www.exilemod.com/ExileServer-1.0.4a.zip"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

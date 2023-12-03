@@ -10,23 +10,19 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: HOME
-          label: "HOME"
-          description: "Container Variable HOME"
-          schema:
-            type: string
-            default: "/root"
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: HOME
+                                        label: "HOME"
+                                        description: "Container Variable HOME"
+                                        schema:
+                                          type: string
+                                          default: "/root"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

@@ -12,6 +12,7 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
+# Include{podOptions}
   - variable: kimai
     group: App Configuration
     label: Kimai
@@ -54,7 +55,6 @@ questions:
                   type: string
                   default: ""
                   required: true
-# Include{podOptions}
 # Include{serviceRoot}
 # Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}

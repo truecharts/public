@@ -11,6 +11,8 @@ questions:
 
 # Include{containerBasic}
 # Include{containerAdvanced}
+# Include{containerConfig}
+# Include{podOptions}
 
   - variable: smtprelay
     group: App Configuration
@@ -88,8 +90,7 @@ questions:
                         required: true
                         default: ""
 
-# Include{containerConfig}
-# Include{podOptions}
+
 # Include{serviceRoot}
 # Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}

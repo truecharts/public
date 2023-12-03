@@ -8,35 +8,35 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: GODADDY_API_KEY
+                                        label: "GODADDY_API_KEY"
+                                        description: "Use the key from your godaddy account"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: GODADDY_API_SECRET
+                                        label: "GODADDY_API_SECRET"
+                                        description: "Use the secret from your godaddy account "
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: GODADDY_DOMAINS
+                                        label: "GODADDY_DOMAINS"
+                                        description: "A comma-separated list of domains that youd like to update. For example mydomain.com or mydomain.com,anotherdomain.com"
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: GODADDY_API_KEY
-          label: "GODADDY_API_KEY"
-          description: "Use the key from your godaddy account"
-          schema:
-            type: string
-            default: ""
-        - variable: GODADDY_API_SECRET
-          label: "GODADDY_API_SECRET"
-          description: "Use the secret from your godaddy account "
-          schema:
-            type: string
-            default: ""
-        - variable: GODADDY_DOMAINS
-          label: "GODADDY_DOMAINS"
-          description: "A comma-separated list of domains that youd like to update. For example mydomain.com or mydomain.com,anotherdomain.com"
-          schema:
-            type: string
-            default: ""
-# Include{serviceExpertRoot}
+# Include{containerConfig}
+# Include{podOptions}
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceList}

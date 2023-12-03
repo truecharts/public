@@ -10,29 +10,25 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: MALOJA_HOST
-          label: "MALOJA_HOST"
-          description: "Specifies to Maloja what address to listen on (should not change)"
-          schema:
-            type: string
-            default: "0.0.0.0"
-        - variable: MALOJA_DATA_DIRECTORY
-          label: "MALOJA_DATA_DIRECTORY"
-          description: "Specifies to Maloja which directory to use for dataconfiguration files"
-          schema:
-            type: string
-            default: "/config"
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: MALOJA_HOST
+                                        label: "MALOJA_HOST"
+                                        description: "Specifies to Maloja what address to listen on (should not change)"
+                                        schema:
+                                          type: string
+                                          default: "0.0.0.0"
+                                      - variable: MALOJA_DATA_DIRECTORY
+                                        label: "MALOJA_DATA_DIRECTORY"
+                                        description: "Specifies to Maloja which directory to use for dataconfiguration files"
+                                        schema:
+                                          type: string
+                                          default: "/config"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

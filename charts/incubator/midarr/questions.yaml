@@ -13,6 +13,8 @@ questions:
 
 # Include{containerBasic}
 # Include{containerAdvanced}
+# Include{containerConfig}
+# Include{podOptions}
   - variable: midarr
     group: App Configuration
     label: Midarr Configuration
@@ -107,8 +109,6 @@ questions:
                   private: true
                   required: true
                   default: ""
-# Include{containerConfig}
-# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: Main Service

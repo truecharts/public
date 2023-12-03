@@ -10,32 +10,28 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: ALLOWED_TYPES
-          label: "ALLOWED_TYPES"
-          schema:
-            type: string
-            default: "jpg,png,jpeg,bmp,gif"
-        - variable: QUALITY
-          label: "QUALITY"
-          schema:
-            type: string
-            default: "80"
-        - variable: ENABLE_AVIF
-          label: "ENABLE_AVIF"
-          schema:
-            type: string
-            default: "false"
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: ALLOWED_TYPES
+                                        label: "ALLOWED_TYPES"
+                                        schema:
+                                          type: string
+                                          default: "jpg,png,jpeg,bmp,gif"
+                                      - variable: QUALITY
+                                        label: "QUALITY"
+                                        schema:
+                                          type: string
+                                          default: "80"
+                                      - variable: ENABLE_AVIF
+                                        label: "ENABLE_AVIF"
+                                        schema:
+                                          type: string
+                                          default: "false"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

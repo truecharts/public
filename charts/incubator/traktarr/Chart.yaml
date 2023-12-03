@@ -1,28 +1,36 @@
+kubeVersion: '>=1.24.0'
 apiVersion: v2
-appVersion: "latest"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
-deprecated: false
+name: traktarr
+version: 2.0.11
+appVersion: latest
 description: Script to add new series and movies to Sonarr/Radarr based on Trakt lists.
 home: https://truecharts.org/charts/incubator/traktarr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/traktarr.png
-keywords:
-  - traktarr
-  - Tools-Utilities
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: traktarr
+deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/traktarr
-  - https://github.com/l3uddz/traktarr
-type: application
-version: 2.0.10
+- https://github.com/l3uddz/traktarr
+- https://github.com/truecharts/charts/tree/master/charts/incubator/traktarr
+- https://github.com/truecharts/containers/tree/master/mirrortraktarr
+maintainers:
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
+keywords:
+- traktarr
+- Tools-Utilities
+dependencies:
+- name: common
+  version: 11.1.2
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
-  truecharts.org/category: Tools-Utilities
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+  truecharts.org/category: Tools-Utilities
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator

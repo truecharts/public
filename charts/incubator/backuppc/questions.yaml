@@ -13,6 +13,8 @@ questions:
 
 # Include{containerBasic}
 # Include{containerAdvanced}
+# Include{containerConfig}
+# Include{podOptions}
 
   - variable: backuppc
     group: App Configuration
@@ -88,7 +90,7 @@ questions:
                   type: boolean
                   default: false
 
-# Include{containerConfig}
+
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

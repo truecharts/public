@@ -10,59 +10,55 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: CUSTOM_RES_W
-          label: "CUSTOM_RES_W"
-          description: "Enter the preferred resolution width"
-          schema:
-            type: string
-            default: "1800"
-        - variable: CUSTOM_RES_H
-          label: "CUSTOM_RES_H"
-          description: "Enter the preferred resolution height"
-          schema:
-            type: string
-            default: "1000"
-        - variable: ROOT_PWD
-          label: "ROOT_PWD"
-          description: "Please choose a strong password for your root account!"
-          schema:
-            type: string
-            default: ""
-        - variable: DATA_PERM
-          label: "DATA_PERM"
-          description: "Container Variable DATAPERM"
-          schema:
-            type: string
-            default: "770"
-        - variable: USER_LOCALES
-          label: "USER_LOCALES"
-          description: "Enter your prefered locales, you can find a full list of supported languages in usrsharei18nSUPPORTED (eg enUS.UTF-8 UTF8 or deDE.UTF-8 UTF-8,...)"
-          schema:
-            type: string
-            default: "en_US.UTF-8 UTF-8"
-        - variable: DEV
-          label: "DEV"
-          description: "Container Variable DEV"
-          schema:
-            type: string
-            default: ""
-        - variable: UMASK
-          label: "UMASK"
-          description: "Container Variable UMASK"
-          schema:
-            type: string
-            default: "0000"
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: CUSTOM_RES_W
+                                        label: "CUSTOM_RES_W"
+                                        description: "Enter the preferred resolution width"
+                                        schema:
+                                          type: string
+                                          default: "1800"
+                                      - variable: CUSTOM_RES_H
+                                        label: "CUSTOM_RES_H"
+                                        description: "Enter the preferred resolution height"
+                                        schema:
+                                          type: string
+                                          default: "1000"
+                                      - variable: ROOT_PWD
+                                        label: "ROOT_PWD"
+                                        description: "Please choose a strong password for your root account!"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: DATA_PERM
+                                        label: "DATA_PERM"
+                                        description: "Container Variable DATAPERM"
+                                        schema:
+                                          type: string
+                                          default: "770"
+                                      - variable: USER_LOCALES
+                                        label: "USER_LOCALES"
+                                        description: "Enter your prefered locales, you can find a full list of supported languages in usrsharei18nSUPPORTED (eg enUS.UTF-8 UTF8 or deDE.UTF-8 UTF-8,...)"
+                                        schema:
+                                          type: string
+                                          default: "en_US.UTF-8 UTF-8"
+                                      - variable: DEV
+                                        label: "DEV"
+                                        description: "Container Variable DEV"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: UMASK
+                                        label: "UMASK"
+                                        description: "Container Variable UMASK"
+                                        schema:
+                                          type: string
+                                          default: "0000"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

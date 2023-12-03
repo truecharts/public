@@ -10,31 +10,27 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: DBTYPE
-          label: "DBTYPE"
-          description: "Container Variable DBTYPE"
-          schema:
-            type: string
-            required: true
-            default: "sqlite"
-        - variable: DBNAME
-          label: "DBNAME"
-          description: "Container Variable DBNAME"
-          schema:
-            type: string
-            required: true
-            default: "data/tasmobackup"
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: DBTYPE
+                                        label: "DBTYPE"
+                                        description: "Container Variable DBTYPE"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: "sqlite"
+                                      - variable: DBNAME
+                                        label: "DBNAME"
+                                        description: "Container Variable DBNAME"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: "data/tasmobackup"
 # Include{podOptions}
 # Include{serviceRoot}
 # Include{serviceMain}
