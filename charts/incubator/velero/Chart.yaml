@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: velero
 version: 0.0.5
@@ -8,32 +8,32 @@ home: https://truecharts.org/charts/incubator/velero
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/velero.png
 deprecated: false
 sources:
-- https://github.com/cert-manager
-- https://cert-manager.io/
-- https://github.com/truecharts/charts/tree/master/charts/incubator/velero
-- https://github.com/truecharts/containers/tree/master/mirroralpine
+  - https://github.com/cert-manager
+  - https://cert-manager.io/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/velero
+  - https://github.com/truecharts/containers/tree/master/mirroralpine
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- velero
-- backup
+  - velero
+  - backup
 dependencies:
-- name: common
-  version: 15.3.1
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
-- name: velero
-  version: 5.1.4
-  repository: https://vmware-tanzu.github.io/helm-charts
-  condition: ""
-  alias: velero
-  tags: []
-  import-values: []
+  - name: common
+    version: 15.3.1
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: velero
+    version: 5.1.4
+    repository: https://vmware-tanzu.github.io/helm-charts
+    condition: ""
+    alias: velero
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

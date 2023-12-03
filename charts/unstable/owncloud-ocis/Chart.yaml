@@ -1,0 +1,42 @@
+kubeVersion: ">=1.24.0"
+apiVersion: v2
+name: owncloud-ocis
+version: 11.0.20
+appVersion: 3.0.0
+description: ownCloud Infinite Scale is a self-hosted file sync and share server.
+home: https://truecharts.org/charts/incubator/owncloud-ocis
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/owncloud-ocis.png
+deprecated: false
+sources:
+  - https://owncloud.dev/ocis/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/owncloud-ocis
+  - https://github.com/truecharts/containers/tree/master/mirrorocis
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - owncloud
+  - ocis
+  - infinite
+  - scale
+  - self-hosted
+  - sync
+  - share
+  - server
+dependencies:
+  - name: common
+    version: 13.2.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
