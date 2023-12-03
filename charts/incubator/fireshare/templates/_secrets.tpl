@@ -1,8 +1,5 @@
 {{/* Define the secrets */}}
 {{- define "fireshare.secrets" -}}
-
-{{/* Define the secrets */}}
-{{- define "fireshare.secrets" -}}
 {{- $secretName := (printf "%s-fireshare-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
 
 {{- $secretKey := randAlphaNum 32 -}}
