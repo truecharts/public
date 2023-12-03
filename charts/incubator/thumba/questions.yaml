@@ -12,45 +12,44 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-                                                              - variable: env
-                                                                group: "App Configuration"
-                                                                label: "Image Environment"
-                                                                schema:
-                                                                  additional_attrs: true
-                                                                  type: dict
-                                                                  attrs:
-                                                                    - variable: GOOGLE_SEARCH_KEY
-                                                                      label: Google Search Key
-                                                                      schema:
-                                                                        type: string
-                                                                        default: ""
-                                                                        required: true
-                                                                    - variable: GOOGLE_SEARCH_CX
-                                                                      label: Google Search CX
-                                                                      schema:
-                                                                        type: string
-                                                                        default: ""
-                                                                        required: true
-                                                                        private: true
-                                                                    - variable: THUM_KEY_ID
-                                                                      label: Thum Key ID
-                                                                      schema:
-                                                                        type: string
-                                                                        default: ""
-                                                                        required: true
-                                                                    - variable: THUM_KEY_SECRET
-                                                                      label: Thum Key Secret
-                                                                      schema:
-                                                                        type: string
-                                                                        default: ""
-                                                                        required: true
-                                                                        private: true
-                                                                    - variable: NEXT_PUBLIC_HOST
-                                                                      label: Next Public Host
-                                                                      schema:
-                                                                        type: string
-                                                                        default: "http://localhost"
+  - variable: env
+    group: "App Configuration"
+    label: "Image Environment"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: GOOGLE_SEARCH_KEY
+          label: Google Search Key
+          schema:
+            type: string
+            default: ""
+            required: true
+        - variable: GOOGLE_SEARCH_CX
+          label: Google Search CX
+          schema:
+            type: string
+            default: ""
+            required: true
+            private: true
+        - variable: THUM_KEY_ID
+          label: Thum Key ID
+          schema:
+            type: string
+            default: ""
+            required: true
+        - variable: THUM_KEY_SECRET
+          label: Thum Key Secret
+          schema:
+            type: string
+            default: ""
+            required: true
+            private: true
+        - variable: NEXT_PUBLIC_HOST
+          label: Next Public Host
+          schema:
+            type: string
+            default: "http://localhost"
 # Include{serviceRoot}
         - variable: main
           label: Main Service
