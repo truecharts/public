@@ -30,7 +30,7 @@ workload:
             VERBOSE: false
           envFrom:
             - secretRef:
-                name: '{{ include "tc.common.names.fullname" . }}-config'
+                name: "orbital-secrets"
           probes:
             liveness:
               enabled: false
