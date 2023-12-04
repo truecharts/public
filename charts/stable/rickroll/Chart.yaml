@@ -1,31 +1,31 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: rickroll
-version: 3.0.21
+version: 3.0.22
 appVersion: latest
 description: Self-hosted Rick Roll chart.
 home: https://truecharts.org/charts/stable/rickroll
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/rickroll.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/rickroll
-  - https://hub.docker.com/r/modem7/docker-rickroll
-  - https://github.com/modem7/docker-rickroll
+- https://github.com/modem7/docker-rickroll
+- https://github.com/truecharts/charts/tree/master/charts/stable/rickroll
+- https://hub.docker.com/r/modem7/docker-rickroll
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - rickroll
-  - media
+- rickroll
+- media
 dependencies:
-  - name: common
-    version: 14.3.5
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4
