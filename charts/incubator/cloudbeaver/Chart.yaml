@@ -1,8 +1,8 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: cloudbeaver
-version: 2.0.19
-appVersion: latest
+version: 3.0.0
+appVersion: 23.3.0
 description: Cloud Database Manager (Official Chart)
 home: https://truecharts.org/charts/incubator/cloudbeaver
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/cloudbeaver.png
@@ -21,7 +21,7 @@ keywords:
   - Tools-Utilities
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
