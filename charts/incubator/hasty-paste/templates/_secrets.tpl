@@ -1,5 +1,5 @@
 {{/* Define the secret */}}
-{{- define "hastyPaste.secret" -}}
+{{- define "hastyPaste.secrets" -}}
 {{- $secretName := (printf "%s-hastyPaste-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
 enabled: true
 data:
