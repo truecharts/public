@@ -4,7 +4,7 @@
 {{/* Render secrets for hastyPasty */}}
 {{- $secrets := include "hastyPaste.secrets" . | fromYaml -}}
 {{- if $secrets -}}
-  {{- $_ := set .Values.secret "hastyPasty-secrets" $secrets -}}
+  {{- $_ := set .Values.secret "hastyPaste-secrets" $secrets -}}
 {{- end -}}
 
 {{/* Render the templates */}}
