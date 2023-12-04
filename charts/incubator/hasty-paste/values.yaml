@@ -30,7 +30,7 @@ workload:
         main:
           envFrom:
             - secretRef:
-                name: "hastyPaste.secret"
+                name: "hastyPaste-secrets"
           probes:
             liveness:
               enabled: true
