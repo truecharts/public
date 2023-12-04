@@ -4,7 +4,7 @@
 {{/* Render secrets for orbital-sync */}}
 {{- $secrets := include "orbital.secrets" . | fromYaml -}}
 {{- if $secrets -}}
-  {{- $_ := set .Values.secret "secrets" $secrets -}}
+  {{- $_ := set .Values.secret "orbital-secrets" $secrets -}}
 {{- end -}}
 
 {{/* Render the templates */}}
