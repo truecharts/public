@@ -1,8 +1,8 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: orbital-sync
-version: 2.0.10
-appVersion: 1.3.0
+version: 3.0.0
+appVersion: 1.5.2
 description: Orbital Sync synchronizes multiple Pi-hole instances for high availability.
 home: https://truecharts.org/charts/incubator/orbital-sync
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/orbital-sync.png
@@ -21,7 +21,7 @@ keywords:
   - DNS
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 15.3.1
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

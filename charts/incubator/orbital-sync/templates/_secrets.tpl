@@ -1,16 +1,8 @@
-{{- define "orbital.hosts" -}}
-
-{{- $secretName := printf "%s-config" (include "tc.common.names.fullname" .) }}
-
----
-
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: {{ $secretName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
+{{/* Define the secrets */}}
+{{- define "orbital.secrets" -}}
+{{- $secretName := (printf "%s-orbital-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
+{{- $orbitalprevious := lookup "v1" "Secret" .Release.Namespace $secretName }}
+enabled: true
 data:
   PRIMARY_HOST_BASE_URL: {{ .Values.orbital.primary_host_base_url | b64enc }}
   PRIMARY_HOST_PASSWORD: {{ .Values.orbital.primary_host_password | b64enc }}
