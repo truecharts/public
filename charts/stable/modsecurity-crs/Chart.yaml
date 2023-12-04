@@ -1,33 +1,34 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: modsecurity-crs
-version: 0.0.6
+version: 0.0.7
 appVersion: 3.3.4
-description: ModSecurity is an open source, cross platform Web Application Firewall
+description:
+  ModSecurity is an open source, cross platform Web Application Firewall
   (WAF) engine.
 home: https://truecharts.org/charts/stable/modsecurity-crs
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/modsecurity-crs.png
 deprecated: false
 sources:
-- https://github.com/coreruleset/modsecurity-crs-docker
-- https://github.com/truecharts/charts/tree/master/charts/stable/modsecurity-crs
-- https://hub.docker.com/r/owasp/modsecurity-crs
+  - https://github.com/coreruleset/modsecurity-crs-docker
+  - https://github.com/truecharts/charts/tree/master/charts/stable/modsecurity-crs
+  - https://hub.docker.com/r/owasp/modsecurity-crs
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- modsecurity-crs
-- waf
-- networking
+  - modsecurity-crs
+  - waf
+  - networking
 dependencies:
-- name: common
-  version: 13.2.2
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 13.2.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

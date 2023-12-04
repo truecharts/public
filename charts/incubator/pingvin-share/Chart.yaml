@@ -1,31 +1,31 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: pingvin-share
-version: 0.0.24
+version: 0.0.25
 appVersion: 0.10.2
 description: A self-hosted file sharing platform and an alternative for WeTransfer.
 home: https://truecharts.org/charts/incubator/pingvin-share
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pingvin-share.png
 deprecated: false
 sources:
-- https://github.com/stonith404/pingvin-share
-- https://github.com/truecharts/charts/tree/master/charts/incubator/pingvin-share
-- https://github.com/truecharts/containers/tree/master/mirrorpingvin-share
+  - https://github.com/stonith404/pingvin-share
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/pingvin-share
+  - https://github.com/truecharts/containers/tree/master/mirrorpingvin-share
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- pingvin-share
-- productivity
+  - pingvin-share
+  - productivity
 dependencies:
-- name: common
-  version: 11.1.2
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 11.1.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4
