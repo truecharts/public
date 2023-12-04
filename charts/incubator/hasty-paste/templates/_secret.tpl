@@ -1,17 +1,8 @@
 {{/* Define the secret */}}
 {{- define "hastyPaste.secret" -}}
-
-{{- $secretName := printf "%s-secret" (include "tc.common.names.fullname" .) }}
-
----
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: {{ $secretName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
-stringData:
+{{- $secretName := (printf "%s-hastyPaste-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
+enabled: true
+data:
   {{- $redis := .Values.redis -}}
   {{- $redisPass := $redis.redisPassword | trimAll "\"" -}}
   {{- $redisUser := $redis.redisUsername }}
