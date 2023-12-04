@@ -108,7 +108,7 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: Expected <restartPolicy to be [Always] for [Deployment] but got [Never]
+          errorMessage: Expected [restartPolicy] to be [Always] for [Deployment] but got [Never]
 
   - it: should fail with restartPolicy to Never on DaemonSet
     set:
@@ -122,7 +122,7 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: Expected <restartPolicy to be [Always] for [DaemonSet] but got [Never]
+          errorMessage: Expected [restartPolicy] to be [Always] for [DaemonSet] but got [Never]
 
   - it: should fail with restartPolicy to Never on StatefulSet
     set:
@@ -136,7 +136,7 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: Expected <restartPolicy to be [Always] for [StatefulSet] but got [Never]
+          errorMessage: Expected [restartPolicy] to be [Always] for [StatefulSet] but got [Never]
 
   - it: should fail with restartPolicy to invalid on global
     set:
@@ -150,7 +150,7 @@ tests:
           podSpec: {}
     asserts:
       - failedTemplate:
-          errorMessage: Expected <restartPolicy to be one of [Never, Always, OnFailure] but got [invalid]
+          errorMessage: Expected [restartPolicy] to be one of [Never, Always, OnFailure] but got [invalid]
 
   - it: should fail with restartPolicy to invalid-policy on pod
     set:
@@ -165,4 +165,4 @@ tests:
             restartPolicy: invalid-policy
     asserts:
       - failedTemplate:
-          errorMessage: Expected <restartPolicy to be one of [Never, Always, OnFailure] but got [invalid-policy]
+          errorMessage: Expected [restartPolicy] to be one of [Never, Always, OnFailure] but got [invalid-policy]

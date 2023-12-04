@@ -8,7 +8,7 @@
       {{- $certValues := $cert -}}
       {{- $certName := $fullname -}}
 
-      {{/* set defaults */}}
+      {{/* set defaults */}} {{/* FIXME: the primary template does not exist */}}
       {{- if and (not $certValues.nameOverride) (ne $name (include "tc.v1.common.lib.util.cert.primary" $)) -}}
         {{- $_ := set $certValues "nameOverride" $name -}}
       {{- end -}}

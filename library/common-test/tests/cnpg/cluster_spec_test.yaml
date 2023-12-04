@@ -1,0 +1,370 @@
+suite: cnpg cluster spec test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should generate correct spec
+    set:
+      operator:
+        verify:
+          enabled: false
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+    asserts:
+      - documentIndex: &clusterDoc 1
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *clusterDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg
+      - documentIndex: *clusterDoc
+        equal:
+          path: spec
+          value:
+            enableSuperuserAccess: true
+            primaryUpdateStrategy: unsupervised
+            primaryUpdateMethod: switchover
+            logLevel: info
+            instances: 2
+            nodeMaintenanceWindow:
+              reusePVC: true
+              inProgress: false
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+              requests:
+                cpu: 10m
+                memory: 50Mi
+            storage:
+              pvcTemplate:
+                accessModes:
+                  - ReadWriteOnce
+                resources:
+                  requests:
+                    storage: 100Gi
+            walStorage:
+              pvcTemplate:
+                accessModes:
+                  - ReadWriteOnce
+                resources:
+                  requests:
+                    storage: 100Gi
+            bootstrap:
+              initdb:
+                secret:
+                  name: test-release-name-common-test-cnpg-my-pg-user
+                database: test-db
+                owner: test-user
+                dataChecksums: false
+
+  - it: should override options
+    set:
+      operator:
+        verify:
+          enabled: false
+      ext1: some-extension
+      ext2: some-other-extension
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          cluster:
+            enableSuperuserAccess: false
+            primaryUpdateStrategy: supervised
+            primaryUpdateMethod: restart
+            logLevel: debug
+            instances: 3
+            initdb:
+              dataChecksums: true
+              encoding: some-encoding
+              localeCollate: some-locale
+              localeCtype: some-locale
+              walSegmentSize: 16
+              postInitApplicationSQL:
+                - CREATE EXTENSION IF NOT EXISTS {{ .Values.ext1 }};
+                - CREATE EXTENSION IF NOT EXISTS {{ .Values.ext2 }};
+              postInitSQL:
+                - CREATE EXTENSION IF NOT EXISTS {{ .Values.ext1 }}1;
+                - CREATE EXTENSION IF NOT EXISTS {{ .Values.ext2 }}2;
+              postInitTemplateSQL:
+                - CREATE EXTENSION IF NOT EXISTS {{ .Values.ext1 }}1;
+                - CREATE EXTENSION IF NOT EXISTS {{ .Values.ext2 }}2;
+            nodeMaintenanceWindow:
+              reusePVC: false
+              inProgress: true
+            resources:
+              limits:
+                cpu: 2000m
+                memory: 4Gi
+              requests:
+                cpu: 20m
+                memory: 100Mi
+            storage:
+              size: 200Gi
+              accessModes:
+                - ReadWriteMany
+            walStorage:
+              size: 200Gi
+              accessModes:
+                - ReadWriteMany
+    asserts:
+      - documentIndex: *clusterDoc
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        equal:
+          path: spec
+          value:
+            enableSuperuserAccess: false
+            primaryUpdateStrategy: supervised
+            primaryUpdateMethod: restart
+            logLevel: debug
+            instances: 3
+            nodeMaintenanceWindow:
+              reusePVC: false
+              inProgress: true
+            resources:
+              limits:
+                cpu: 2000m
+                memory: 4Gi
+              requests:
+                cpu: 20m
+                memory: 100Mi
+            storage:
+              pvcTemplate:
+                accessModes:
+                  - ReadWriteMany
+                resources:
+                  requests:
+                    storage: 200Gi
+            walStorage:
+              pvcTemplate:
+                accessModes:
+                  - ReadWriteMany
+                resources:
+                  requests:
+                    storage: 200Gi
+            bootstrap:
+              initdb:
+                secret:
+                  name: test-release-name-common-test-cnpg-my-pg-user
+                database: test-db
+                owner: test-user
+                dataChecksums: true
+                encoding: some-encoding
+                localeCollate: some-locale
+                localeCtype: some-locale
+                walSegmentSize: 16
+                postInitApplicationSQL:
+                  - CREATE EXTENSION IF NOT EXISTS some-extension;
+                  - CREATE EXTENSION IF NOT EXISTS some-other-extension;
+                postInitSQL:
+                  - CREATE EXTENSION IF NOT EXISTS some-extension1;
+                  - CREATE EXTENSION IF NOT EXISTS some-other-extension2;
+                postInitTemplateSQL:
+                  - CREATE EXTENSION IF NOT EXISTS some-extension1;
+                  - CREATE EXTENSION IF NOT EXISTS some-other-extension2;
+
+  - it: should override resources from top level
+    set:
+      operator:
+        verify:
+          enabled: false
+      resources:
+        limits:
+          cpu: 2000m
+          memory: 4Gi
+        requests:
+          cpu: 20m
+          memory: 100Mi
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+    asserts:
+      - documentIndex: *clusterDoc
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            resources:
+              limits:
+                cpu: 2000m
+                memory: 4Gi
+              requests:
+                cpu: 20m
+                memory: 100Mi
+
+  - it: should pass with custom-conf
+    set:
+      operator:
+        verify:
+          enabled: false
+      cnpg:
+        my-pg:
+          enabled: true
+          user: app
+          database: app
+          cluster:
+            postgresql:
+              key1: value1
+              key2: '{{ printf "test-tpl" }}'
+            preloadLibraries:
+              - pg_stat_statements
+              - pg_cron
+    asserts:
+      - documentIndex: *clusterDoc
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            postgresql:
+              parameters:
+                key1: value1
+                key2: test-tpl
+              shared_preload_libraries:
+                - pg_stat_statements
+                - pg_cron
+
+  - it: should pass with timescaledb
+    set:
+      operator:
+        verify:
+          enabled: false
+      cnpg:
+        my-pg:
+          enabled: true
+          user: app
+          database: app
+          type: timescaledb
+          cluster:
+            initdb:
+              postInitApplicationSQL:
+                - CREATE EXTENSION IF NOT EXISTS some-extension;
+            postgresql:
+              key1: value1
+              key2: '{{ printf "test-tpl" }}'
+            preloadLibraries:
+              - pg_stat_statements
+              - pg_cron
+    asserts:
+      - documentIndex: *clusterDoc
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            postgresql:
+              parameters:
+                key1: value1
+                key2: test-tpl
+              shared_preload_libraries:
+                - pg_stat_statements
+                - pg_cron
+                - timescaledb
+            bootstrap:
+              initdb:
+                secret:
+                  name: test-release-name-common-test-cnpg-my-pg-user
+                database: app
+                owner: app
+                dataChecksums: false
+                postInitApplicationSQL:
+                  - CREATE EXTENSION IF NOT EXISTS some-extension;
+                  - CREATE EXTENSION IF NOT EXISTS timescaledb;
+
+  - it: should pass with enabled monitoring
+    set:
+      operator:
+        verify:
+          enabled: false
+      cnpg:
+        my-pg:
+          enabled: true
+          user: app
+          database: app
+          type: timescaledb
+          monitoring:
+            enablePodMonitor: true
+    asserts:
+      - documentIndex: *clusterDoc
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        equal:
+          path: spec.monitoring
+          value:
+            enablePodMonitor: true
+            disableDefaultQueries: false
+
+  - it: should pass with override monitoring
+    set:
+      operator:
+        verify:
+          enabled: false
+      cnpg:
+        my-pg:
+          enabled: true
+          user: app
+          database: app
+          type: timescaledb
+          monitoring:
+            enablePodMonitor: true
+            disableDefaultQueries: true
+            customQueries:
+              - name: test-query
+                query: test-query
+                metrics:
+                  - a-gauge:
+                      usage: GAUGE
+                      description: test-metric
+                  - a-counter:
+                      usage: COUNTER
+                      description: test-metric
+              - name: test-query2
+                query: test-query2
+                metrics:
+                  - a-gauge:
+                      usage: GAUGE
+                      description: test-metric
+                  - a-counter:
+                      usage: COUNTER
+                      description: test-metric
+              - name: test-query3
+                query: test-query3
+                expandObjectName: false
+                key: test-key
+    asserts:
+      - documentIndex: *clusterDoc
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        equal:
+          path: spec.monitoring
+          value:
+            enablePodMonitor: true
+            disableDefaultQueries: true
+            customQueriesConfigMap:
+              - name: test-release-name-common-test-cnpg-my-pg-test-query
+                key: custom-queries
+              - name: test-release-name-common-test-cnpg-my-pg-test-query2
+                key: custom-queries
+              - name: test-query3
+                key: test-key

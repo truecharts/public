@@ -1,102 +1,100 @@
 {{/* Renders the cnpg objects required by the chart */}}
 {{- define "tc.v1.common.spawner.cnpg" -}}
-  {{/* Generate named cnpges as required */}}
-  {{- range $name, $cnpg := $.Values.cnpg }}
 
-    {{- $enabled := false -}}
-    {{- if hasKey $cnpg "enabled" -}}
-      {{- if not (kindIs "invalid" $cnpg.enabled) -}}
-        {{- $enabled = $cnpg.enabled -}}
-      {{- else -}}
-        {{- fail (printf "cnpg - Expected the defined key [enabled] in [cnpg.%s] to not be empty" $name) -}}
-      {{- end -}}
+  {{- $fullname := include "tc.v1.common.lib.chart.names.fullname" $ -}}
+
+  {{- range $name, $cnpg := $.Values.cnpg -}}
+
+    {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
+                    "rootCtx" $ "objectData" $cnpg
+                    "name" $name "caller" "CNPG"
+                    "key" "cnpg")) -}}
+
+    {{/* Create a copy */}}
+    {{- $objectData := mustDeepCopy $cnpg -}}
+    {{- $objectName := printf "%s-cnpg-%s" $fullname $name -}}
+
+    {{/* Set the name */}}
+    {{- $_ := set $objectData "name" $objectName -}}
+    {{/* Short name is the one that defined on the chart*/}}
+    {{- $_ := set $objectData "shortName" $name -}}
+    {{/* Set the cluster name */}}
+    {{- $_ := set $objectData "clusterName" (include "tc.v1.common.lib.cnpg.clusterName" (dict "objectData" $objectData)) -}}
+
+    {{/* Handle recovery string */}}
+    {{- $recoveryValue := "" -}}
+    {{- $recoveryKey := "recovery-string" -}}
+    {{- $recoveryConfigMapName := printf "cnpg-%s-%s" $objectData.shortName $recoveryKey -}}
+
+    {{/* If there are previous configmap, fetch value */}}
+    {{- with (lookup "v1" "ConfigMap" $.Release.Namespace $recoveryConfigMapName) -}}
+      {{- $recoveryValue = (index .data $recoveryKey) -}}
     {{- end -}}
 
-    {{- if kindIs "string" $enabled -}}
-      {{- $enabled = tpl $enabled $ -}}
-
-      {{/* After tpl it becomes a string, not a bool */}}
-      {{-  if eq $enabled "true" -}}
-        {{- $enabled = true -}}
-      {{- else if eq $enabled "false" -}}
-        {{- $enabled = false -}}
-      {{- end -}}
+    {{/* If forced recovery is requested... */}}
+    {{- if $objectData.forceRecovery -}}
+      {{- $recoveryValue = randAlphaNum 5 -}}
     {{- end -}}
 
+    {{/* Recreate the configmap if there is a recovery value */}}
+    {{- if $recoveryValue -}}
+      {{- $_ := set $objectData "recoveryValue" $recoveryValue -}}
+      {{- $recConfig := include "tc.v1.common.lib.cnpg.configmap.recoverystring" (dict "recoveryString" $recoveryValue "recoveryKey" $recoveryKey) | fromYaml -}}
+      {{- $_ := set $.Values.configmap $recoveryConfigMapName $recConfig -}}
+    {{- end -}}
 
-      {{- $cnpgValues := $cnpg }}
-      {{- $cnpgName := include "tc.v1.common.lib.chart.names.fullname" $ }}
-      {{- $_ := set $cnpgValues "shortName" $name }}
+    {{- if eq $enabled "true" -}}
 
-      {{/* set defaults */}}
-      {{- $_ := set $cnpgValues "nameOverride" ( printf "cnpg-%v" $name ) }}
+      {{/* Handle Backups/ScheduledBackups */}}
+      {{- if and (hasKey $objectData "backups") $objectData.backups.enabled -}}
 
-      {{- $cnpgName := printf "%v-%v" $cnpgName $cnpgValues.nameOverride }}
+        {{/* Create Backups */}}
+        {{- include "tc.v1.common.lib.cnpg.spawner.backups" (dict "rootCtx" $ "objectData" $objectData) -}}
 
-      {{- $_ := set $cnpgValues "name" $cnpgName }}
+        {{/* Create ScheduledBackups */}}
+        {{- include "tc.v1.common.lib.cnpg.spawner.scheduledBackups" (dict "rootCtx" $ "objectData" $objectData) -}}
 
-    {{- if $enabled -}}
-      {{- $_ := set $ "ObjectValues" (dict "cnpg" $cnpgValues) }}
-      {{- include "tc.v1.common.class.cnpg.cluster" $ }}
+        {{/* Create secret for backup store */}}
+        {{- include "tc.v1.common.lib.cnpg.provider.secret.spawner" (dict "rootCtx" $ "objectData" $objectData "type" "backup") -}}
+      {{- end -}}
 
-      {{- $_ := set $cnpgValues.pooler "type" "rw" }}
-      {{- if not $cnpgValues.acceptRO }}
-      {{- include "tc.v1.common.class.cnpg.pooler" $ }}
-      {{- else }}
-      {{- include "tc.v1.common.class.cnpg.pooler" $ }}
-      {{- $_ := set $cnpgValues.pooler "type" "ro" }}
-      {{- include "tc.v1.common.class.cnpg.pooler" $ }}
-      {{- end }}
+      {{/* Handle Pooler(s) */}}
+      {{- include "tc.v1.common.lib.cnpg.spawner.pooler" (dict "rootCtx" $ "objectData" $objectData) -}}
 
-    {{- end }}
+      {{/* Handle Cluster */}}
+      {{/* Validate Cluster */}}
+      {{- include "tc.v1.common.lib.cnpg.cluster.validation" (dict "objectData" $objectData) -}}
 
+      {{- if and (eq $objectData.mode "recovery") (eq $objectData.recovery.method "object_store") -}}
+        {{/* Create secret for recovery store */}}
+        {{- include "tc.v1.common.lib.cnpg.provider.secret.spawner" (dict "rootCtx" $ "objectData" $objectData "type" "recovery") -}}
+      {{- end -}}
 
-    {{- $dbPass := "" }}
-    {{- $dbprevious := lookup "v1" "Secret" $.Release.Namespace ( printf "%s-user" $cnpgValues.name ) }}
-    {{- if or $enabled $dbprevious -}}
-      {{/* Inject the required secrets */}}
+      {{/* Create the Cluster object */}}
+      {{- include "tc.v1.common.class.cnpg.cluster" (dict "rootCtx" $ "objectData" $objectData) -}}
 
-      {{- if $dbprevious }}
-        {{- $dbPass = ( index $dbprevious.data "password" ) | b64dec }}
-      {{- else }}
-        {{- $dbPass = $cnpgValues.password | default ( randAlphaNum 62 ) }}
-      {{- end }}
+      {{/* TODO: Create configmaps for cluster.monitoring.customQueries */}}
+    {{- end -}}
 
-      {{- $std := ( ( printf "postgresql://%v:%v@%v-rw:5432/%v" $cnpgValues.user $dbPass $cnpgValues.name $cnpgValues.database  ) | quote ) }}
-      {{- $nossl := ( ( printf "postgresql://%v:%v@%v-rw:5432/%v?sslmode=disable" $cnpgValues.user $dbPass $cnpgValues.name $cnpgValues.database  ) | quote ) }}
-      {{- $porthost := ( ( printf "%s-rw:5432" $cnpgValues.name ) | quote ) }}
-      {{- $host := ( ( printf "%s-rw" $cnpgValues.name ) | quote ) }}
-      {{- $jdbc := ( ( printf "jdbc:postgresql://%v-rw:5432/%v" $cnpgValues.name $cnpgValues.database  ) | quote ) }}
+    {{/* Fetch db pass from Secret */}}
+    {{- $dbPass := "" -}}
+    {{- with (lookup "v1" "Secret" $.Release.Namespace (printf "%s-user" $objectData.name)) -}}
+      {{- $dbPass = (index .data "password") | b64dec -}}
+    {{- end -}}
 
-      {{- $userSecret := include "tc.v1.common.lib.cnpg.secret.user" (dict "values" $cnpgValues "dbPass" $dbPass ) | fromYaml }}
-      {{- if $userSecret }}
-        {{- $_ := set $.Values.secret ( printf "cnpg-%s-user" $cnpgValues.shortName ) $userSecret }}
-      {{- end }}
+    {{/* Either enebled or if there was a dbpass fetched. Required to keep the generated password around */}}
+    {{- if or (eq $enabled "true") $dbPass -}}
+      {{/* If enabled or dbPass fetched from secret, recreate the secret */}}
+      {{- if not $dbPass -}}
+        {{/* Use provided password or fallback to generating new password */}}
+        {{- $dbPass = $objectData.password | default (randAlphaNum 62) -}}
+      {{- end -}}
+      {{/* Set password back to password field */}}
+      {{- $_ := set $objectData "password" $dbPass -}}
 
-      {{- $urlSecret := include "tc.v1.common.lib.cnpg.secret.urls" (dict "std" $std "nossl" $nossl "porthost" $porthost "host" $host "jdbc" $jdbc) | fromYaml }}
-      {{- if $urlSecret }}
-        {{- $_ := set $.Values.secret ( printf "cnpg-%s-urls" $cnpgValues.shortName ) $urlSecret }}
-      {{- end }}
+      {{/* Handle DB Credentials Secret, will also inject creds to cnpg.creds */}}
+      {{- include "tc.v1.common.lib.cnpg.db.credentials.secrets" (dict "rootCtx" $ "cnpg" $cnpg "objectData" $objectData) -}}
+    {{- end -}}
 
-      {{- $_ := set $cnpgValues.creds "password" ( $dbPass | quote ) }}
-      {{- $_ := set $cnpgValues.creds "std" $std }}
-      {{- $_ := set $cnpgValues.creds "nossl" $nossl }}
-      {{- $_ := set $cnpgValues.creds "porthost" $porthost }}
-      {{- $_ := set $cnpgValues.creds "host" $host }}
-      {{- $_ := set $cnpgValues.creds "jdbc" $jdbc }}
-
-      {{- if $cnpgValues.monitoring }}
-        {{- if $cnpgValues.monitoring.enablePodMonitor }}
-          {{- $poolermetrics :=  include "tc.v1.common.lib.cnpg.metrics.pooler" (dict "poolerName" ( printf "%s-rw" $cnpgValues.name) ) | fromYaml }}
-
-          {{- $_ := set $.Values.metrics ( printf "cnpg-%s-rw" $cnpgValues.shortName ) $poolermetrics }}
-          {{- if $cnpgValues.acceptRO }}
-            {{- $poolermetricsRO :=  include "tc.v1.common.lib.cnpg.metrics.pooler" (dict "poolerName" ( printf "%s-ro" $cnpgValues.name) ) | fromYaml }}
-            {{- $_ := set $.Values.metrics ( printf "cnpg-%s-ro" $cnpgValues.shortName ) $poolermetricsRO }}
-          {{- end }}
-        {{- end }}
-      {{- end }}
-
-    {{- end }}
-  {{- end }}
+  {{- end -}}
 {{- end -}}

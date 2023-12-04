@@ -1,0 +1,33 @@
+suite: cnpg recovery configmap test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should create configmap with recovery string when forceRecovery is enabled
+    set:
+      operator:
+        verify:
+          enabled: false
+      cnpg:
+        my-pg:
+          enabled: true
+          forceRecovery: true
+          user: test-user
+          database: test-db
+    asserts:
+      - documentIndex: &configMapDoc 2
+        isKind:
+          of: ConfigMap
+      - documentIndex: *configMapDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *configMapDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg-recovery-string
+      - documentIndex: *configMapDoc
+        matchRegex:
+          path: data.recovery-string
+          pattern: ^[a-zA-Z0-9]{5}$

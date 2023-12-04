@@ -1,0 +1,62 @@
+suite: cnpg backup name test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should generate correct name
+    set:
+      operator:
+        verify:
+          enabled: false
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          backups:
+            enabled: true
+            target: primary
+            retentionPolicy: 10d
+            provider: azure
+            destinationPath: some-path
+            azure:
+              connectionString: some-connection-string
+            manualBackups:
+              - name: today
+        my-pg2:
+          enabled: true
+          user: test-user
+          database: test-db
+          backups:
+            enabled: true
+            target: primary
+            retentionPolicy: 10d
+            provider: azure
+            destinationPath: some-path
+            azure:
+              connectionString: some-connection-string
+            manualBackups:
+              - name: other
+    asserts:
+      - documentIndex: &backupDoc 0
+        isKind:
+          of: Backup
+      - documentIndex: *backupDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *backupDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg-backup-today
+      - documentIndex: &otherbackupDoc 3
+        isKind:
+          of: Backup
+      - documentIndex: *otherbackupDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *otherbackupDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg2-backup-other

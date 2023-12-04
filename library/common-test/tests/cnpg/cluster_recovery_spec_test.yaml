@@ -1,0 +1,532 @@
+suite: cnpg cluster recovery spec test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should generate correct spec with recovery/backup
+    set:
+      operator:
+        verify:
+          enabled: false
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          mode: recovery
+          recovery:
+            method: backup
+            backupName: some-backup-name
+    asserts:
+      - documentIndex: &clusterDoc 1
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *clusterDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg
+      - documentIndex: *clusterDoc
+        equal:
+          path: spec
+          value:
+            enableSuperuserAccess: true
+            primaryUpdateStrategy: unsupervised
+            primaryUpdateMethod: switchover
+            logLevel: info
+            instances: 2
+            nodeMaintenanceWindow:
+              reusePVC: true
+              inProgress: false
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+              requests:
+                cpu: 10m
+                memory: 50Mi
+            storage:
+              pvcTemplate:
+                accessModes:
+                  - ReadWriteOnce
+                resources:
+                  requests:
+                    storage: 100Gi
+            walStorage:
+              pvcTemplate:
+                accessModes:
+                  - ReadWriteOnce
+                resources:
+                  requests:
+                    storage: 100Gi
+            bootstrap:
+              recovery:
+                secret:
+                  name: test-release-name-common-test-cnpg-my-pg-user
+                owner: test-user
+                database: test-db
+                backup:
+                  name: some-backup-name
+
+  - it: should generate correct spec with recovery/objectStore (google)
+    set:
+      operator:
+        verify:
+          enabled: false
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          mode: recovery
+          recovery:
+            method: object_store
+            provider: google
+            google:
+              applicationCredentials: some-credentials
+              bucket: some-bucket
+              path: some-path
+            pitrTarget:
+              time: "2021-01-01T00:00:00Z"
+    asserts:
+      - documentIndex: &secretDoc 2
+        isKind:
+          of: Secret
+      - documentIndex: *secretDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *secretDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg-provider-recovery-google-creds
+      - documentIndex: *secretDoc
+        equal:
+          path: stringData
+          value:
+            APPLICATION_CREDENTIALS: some-credentials
+      - documentIndex: &clusterDoc 1
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *clusterDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            bootstrap:
+              recovery:
+                secret:
+                  name: test-release-name-common-test-cnpg-my-pg-user
+                owner: test-user
+                database: test-db
+                source: objectStoreRecoveryCluster
+                recoveryTarget:
+                  targetTime: "2021-01-01T00:00:00Z"
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            externalClusters:
+              - name: objectStoreRecoveryCluster
+                barmanObjectStore:
+                  destinationPath: gs://some-bucket/some-path
+                  endpointURL: null
+                  googleCredentials:
+                    applicationCredentials:
+                      key: APPLICATION_CREDENTIALS
+                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-google-creds
+                    gkeEnvironment: false
+
+  - it: should generate correct spec with recovery/objectStore (google - destinationPath)
+    set:
+      operator:
+        verify:
+          enabled: false
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          mode: recovery
+          recovery:
+            method: object_store
+            provider: google
+            destinationPath: gs://some-bucket
+            google:
+              applicationCredentials: some-credentials
+            pitrTarget:
+              time: "2021-01-01T00:00:00Z"
+    asserts:
+      - documentIndex: &secretDoc 2
+        isKind:
+          of: Secret
+      - documentIndex: *secretDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *secretDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg-provider-recovery-google-creds
+      - documentIndex: *secretDoc
+        equal:
+          path: stringData
+          value:
+            APPLICATION_CREDENTIALS: some-credentials
+      - documentIndex: &clusterDoc 1
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *clusterDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            bootstrap:
+              recovery:
+                secret:
+                  name: test-release-name-common-test-cnpg-my-pg-user
+                owner: test-user
+                database: test-db
+                source: objectStoreRecoveryCluster
+                recoveryTarget:
+                  targetTime: "2021-01-01T00:00:00Z"
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            externalClusters:
+              - name: objectStoreRecoveryCluster
+                barmanObjectStore:
+                  destinationPath: gs://some-bucket
+                  endpointURL: null
+                  googleCredentials:
+                    applicationCredentials:
+                      key: APPLICATION_CREDENTIALS
+                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-google-creds
+                    gkeEnvironment: false
+
+  - it: should generate correct spec with recovery/objectStore (s3)
+    set:
+      operator:
+        verify:
+          enabled: false
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          mode: recovery
+          recovery:
+            method: object_store
+            provider: s3
+            s3:
+              accessKey: some-access-key
+              secretKey: some-secret-key
+              bucket: some-bucket
+              path: some-path
+              region: some-region
+    asserts:
+      - documentIndex: &secretDoc 2
+        isKind:
+          of: Secret
+      - documentIndex: *secretDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *secretDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg-provider-recovery-s3-creds
+      - documentIndex: *secretDoc
+        equal:
+          path: stringData
+          value:
+            ACCESS_KEY_ID: some-access-key
+            ACCESS_SECRET_KEY: some-secret-key
+      - documentIndex: &clusterDoc 1
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *clusterDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            bootstrap:
+              recovery:
+                secret:
+                  name: test-release-name-common-test-cnpg-my-pg-user
+                owner: test-user
+                database: test-db
+                source: objectStoreRecoveryCluster
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            externalClusters:
+              - name: objectStoreRecoveryCluster
+                barmanObjectStore:
+                  destinationPath: s3://some-bucket/some-path
+                  endpointURL: https://s3.some-region.amazonaws.com
+                  s3Credentials:
+                    accessKeyId:
+                      key: ACCESS_KEY_ID
+                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-s3-creds
+                    secretAccessKey:
+                      key: ACCESS_SECRET_KEY
+                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-s3-creds
+
+  - it: should generate correct spec with recovery/objectStore (s3 - destinationPath/endpointURL)
+    set:
+      operator:
+        verify:
+          enabled: false
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          mode: recovery
+          recovery:
+            method: object_store
+            provider: s3
+            destinationPath: s3://some-bucket
+            endpointURL: some-endpoint-url
+            s3:
+              accessKey: some-access-key
+              secretKey: some-secret-key
+    asserts:
+      - documentIndex: &secretDoc 2
+        isKind:
+          of: Secret
+      - documentIndex: *secretDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *secretDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg-provider-recovery-s3-creds
+      - documentIndex: *secretDoc
+        equal:
+          path: stringData
+          value:
+            ACCESS_KEY_ID: some-access-key
+            ACCESS_SECRET_KEY: some-secret-key
+      - documentIndex: &clusterDoc 1
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *clusterDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            bootstrap:
+              recovery:
+                secret:
+                  name: test-release-name-common-test-cnpg-my-pg-user
+                owner: test-user
+                database: test-db
+                source: objectStoreRecoveryCluster
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            externalClusters:
+              - name: objectStoreRecoveryCluster
+                barmanObjectStore:
+                  destinationPath: s3://some-bucket
+                  endpointURL: some-endpoint-url
+                  s3Credentials:
+                    accessKeyId:
+                      key: ACCESS_KEY_ID
+                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-s3-creds
+                    secretAccessKey:
+                      key: ACCESS_SECRET_KEY
+                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-s3-creds
+
+  - it: should generate correct spec with recovery/objectStore (azure)
+    set:
+      operator:
+        verify:
+          enabled: false
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          mode: recovery
+          recovery:
+            method: object_store
+            provider: azure
+            azure:
+              connectionString: some-connection-string
+              storageAccount: some-storage-account
+              serviceName: some-service-name
+              containerName: some-container-name
+              path: some-path
+    asserts:
+      - documentIndex: &secretDoc 2
+        isKind:
+          of: Secret
+      - documentIndex: *secretDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *secretDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg-provider-recovery-azure-creds
+      - documentIndex: *secretDoc
+        equal:
+          path: stringData
+          value:
+            CONNECTION_STRING: some-connection-string
+            STORAGE_ACCOUNT: some-storage-account
+            STORAGE_KEY: ""
+            STORAGE_SAS_TOKEN: ""
+      - documentIndex: &clusterDoc 1
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *clusterDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            bootstrap:
+              recovery:
+                secret:
+                  name: test-release-name-common-test-cnpg-my-pg-user
+                owner: test-user
+                database: test-db
+                source: objectStoreRecoveryCluster
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            externalClusters:
+              - name: objectStoreRecoveryCluster
+                barmanObjectStore:
+                  destinationPath: https://some-storage-account.some-service-name.core.windows.net/some-container-name/some-path
+                  endpointURL: null
+                  azureCredentials:
+                    connectionString:
+                      key: CONNECTION_STRING
+                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-azure-creds
+                    storageAccount:
+                      key: STORAGE_ACCOUNT
+                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-azure-creds
+                    storageKey:
+                      key: STORAGE_KEY
+                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-azure-creds
+                    storageSasToken:
+                      key: STORAGE_SAS_TOKEN
+                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-azure-creds
+
+  - it: should generate correct spec with recovery/objectStore (azure - destinationPath)
+    set:
+      operator:
+        verify:
+          enabled: false
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          mode: recovery
+          recovery:
+            method: object_store
+            provider: azure
+            destinationPath: https://some-storage-account.some-service-name.core.windows.net/some-container-name
+            azure:
+              connectionString: some-connection-string
+    asserts:
+      - documentIndex: &secretDoc 2
+        isKind:
+          of: Secret
+      - documentIndex: *secretDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *secretDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg-provider-recovery-azure-creds
+      - documentIndex: *secretDoc
+        equal:
+          path: stringData
+          value:
+            CONNECTION_STRING: some-connection-string
+            STORAGE_ACCOUNT: ""
+            STORAGE_KEY: ""
+            STORAGE_SAS_TOKEN: ""
+      - documentIndex: &clusterDoc 1
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *clusterDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            bootstrap:
+              recovery:
+                secret:
+                  name: test-release-name-common-test-cnpg-my-pg-user
+                owner: test-user
+                database: test-db
+                source: objectStoreRecoveryCluster
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            externalClusters:
+              - name: objectStoreRecoveryCluster
+                barmanObjectStore:
+                  destinationPath: https://some-storage-account.some-service-name.core.windows.net/some-container-name
+                  endpointURL: null
+                  azureCredentials:
+                    connectionString:
+                      key: CONNECTION_STRING
+                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-azure-creds
+                    storageAccount:
+                      key: STORAGE_ACCOUNT
+                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-azure-creds
+                    storageKey:
+                      key: STORAGE_KEY
+                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-azure-creds
+                    storageSasToken:
+                      key: STORAGE_SAS_TOKEN
+                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-azure-creds

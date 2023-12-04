@@ -11,15 +11,14 @@ tests:
         verify:
           enabled: false
       cnpg:
-        main:
+        mypg:
           enabled: true
-          primary: true
           user: app
           database: app
           instances: 2
           hibernate: true
     asserts:
-      - documentIndex: &clusterDoc 0
+      - documentIndex: &clusterDoc 1
         isKind:
           of: Cluster
       - documentIndex: *clusterDoc
@@ -30,7 +29,7 @@ tests:
           path: metadata.annotations
           content:
             cnpg.io/hibernation: "on"
-      - documentIndex: &poolerDoc 1
+      - documentIndex: &poolerDoc 0
         isKind:
           of: Pooler
       - documentIndex: *poolerDoc
@@ -50,15 +49,14 @@ tests:
       global:
         stopAll: true
       cnpg:
-        main:
+        mypg:
           enabled: true
-          primary: true
           user: app
           database: app
           hibernate: false
           instances: 2
     asserts:
-      - documentIndex: &clusterDoc 0
+      - documentIndex: *clusterDoc
         isKind:
           of: Cluster
       - documentIndex: *clusterDoc
@@ -69,7 +67,7 @@ tests:
           path: metadata.annotations
           content:
             cnpg.io/hibernation: "on"
-      - documentIndex: &poolerDoc 1
+      - documentIndex: *poolerDoc
         isKind:
           of: Pooler
       - documentIndex: *poolerDoc
@@ -92,15 +90,14 @@ tests:
           storageClassName: some-storage-class
           isStopped: true
       cnpg:
-        main:
+        mypg:
           enabled: true
-          primary: true
           user: app
           database: app
           hibernate: false
           instances: 2
     asserts:
-      - documentIndex: &clusterDoc 0
+      - documentIndex: *clusterDoc
         isKind:
           of: Cluster
       - documentIndex: *clusterDoc
@@ -111,7 +108,7 @@ tests:
           path: metadata.annotations
           content:
             cnpg.io/hibernation: "on"
-      - documentIndex: &poolerDoc 1
+      - documentIndex: *poolerDoc
         isKind:
           of: Pooler
       - documentIndex: *poolerDoc
@@ -134,15 +131,14 @@ tests:
           storageClassName: some-storage-class
           isStopped: false
       cnpg:
-        main:
+        mypg:
           enabled: true
-          primary: true
           user: app
           database: app
           hibernate: false
           instances: 2
     asserts:
-      - documentIndex: &clusterDoc 0
+      - documentIndex: *clusterDoc
         isKind:
           of: Cluster
       - documentIndex: *clusterDoc
@@ -153,7 +149,7 @@ tests:
           path: metadata.annotations
           content:
             cnpg.io/hibernation: "off"
-      - documentIndex: &poolerDoc 1
+      - documentIndex: *poolerDoc
         isKind:
           of: Pooler
       - documentIndex: *poolerDoc

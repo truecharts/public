@@ -1,0 +1,161 @@
+suite: cnpg scheduled backup stop test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with hibernate
+    set:
+      operator:
+        verify:
+          enabled: false
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          hibernate: true
+          backups:
+            enabled: true
+            target: primary
+            retentionPolicy: 10d
+            provider: azure
+            destinationPath: some-path
+            azure:
+              connectionString: some-connection-string
+            scheduledBackups:
+              - name: daily
+                schedule: "0 0 * * *"
+                suspend: false
+                backupOwnerReference: self
+    asserts:
+      - documentIndex: &backupDoc 0
+        isKind:
+          of: ScheduledBackup
+      - documentIndex: *backupDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *backupDoc
+        equal:
+          path: spec.suspend
+          value: true
+
+  - it: should set suspend on stopAll
+    set:
+      operator:
+        verify:
+          enabled: false
+      global:
+        stopAll: true
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          hibernate: false
+          backups:
+            enabled: true
+            target: primary
+            retentionPolicy: 10d
+            provider: azure
+            destinationPath: some-path
+            azure:
+              connectionString: some-connection-string
+            scheduledBackups:
+              - name: daily
+                schedule: "0 0 * * *"
+                suspend: false
+                backupOwnerReference: self
+    asserts:
+      - documentIndex: &backupDoc 0
+        isKind:
+          of: ScheduledBackup
+      - documentIndex: *backupDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *backupDoc
+        equal:
+          path: spec.suspend
+          value: true
+
+  - it: should set suspend on ixChartContext - isStopped (true)
+    set:
+      operator:
+        verify:
+          enabled: false
+      global:
+        namespace: ix-something
+        ixChartContext:
+          storageClassName: some-storage-class
+          isStopped: true
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          hibernate: false
+          backups:
+            enabled: true
+            target: primary
+            retentionPolicy: 10d
+            provider: azure
+            destinationPath: some-path
+            azure:
+              connectionString: some-connection-string
+            scheduledBackups:
+              - name: daily
+                schedule: "0 0 * * *"
+                suspend: false
+                backupOwnerReference: self
+    asserts:
+      - documentIndex: &backupDoc 0
+        isKind:
+          of: ScheduledBackup
+      - documentIndex: *backupDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *backupDoc
+        equal:
+          path: spec.suspend
+          value: true
+
+  - it: should not suspend on ixChartContext - isStopped (false)
+    set:
+      operator:
+        verify:
+          enabled: false
+      global:
+        namespace: ix-something
+        ixChartContext:
+          storageClassName: some-storage-class
+          isStopped: false
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          hibernate: false
+          backups:
+            enabled: true
+            target: primary
+            retentionPolicy: 10d
+            provider: azure
+            destinationPath: some-path
+            azure:
+              connectionString: some-connection-string
+            scheduledBackups:
+              - name: daily
+                schedule: "0 0 * * *"
+                backupOwnerReference: self
+    asserts:
+      - documentIndex: &backupDoc 0
+        isKind:
+          of: ScheduledBackup
+      - documentIndex: *backupDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *backupDoc
+        equal:
+          path: spec.suspend
+          value: false

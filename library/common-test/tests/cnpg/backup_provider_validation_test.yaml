@@ -1,0 +1,156 @@
+suite: cnpg backup provider validation test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should fail with invalid provider
+    set:
+      operator:
+        verify:
+          enabled: false
+      cnpg:
+        my-pg:
+          enabled: true
+          backups:
+            enabled: true
+            provider: invalid
+            manualBackups:
+              - name: today
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG Backup - Expected [backups.provider] to be one of [azure, s3, google], but got [invalid]
+
+  - it: should fail with missing "provider" object
+    set:
+      operator:
+        verify:
+          enabled: false
+      cnpg:
+        my-pg:
+          enabled: true
+          backups:
+            enabled: true
+            provider: azure
+            manualBackups:
+              - name: today
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG Backup - Expected [backups.azure] to be defined when [backups.provider] is set to [azure]
+
+  - it: should fail with missing storageAccount or connectionString with azure provider
+    set:
+      operator:
+        verify:
+          enabled: false
+      cnpg:
+        my-pg:
+          enabled: true
+          backups:
+            enabled: true
+            provider: azure
+            azure:
+              storageKey: test
+            manualBackups:
+              - name: today
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG Backup - Expected [backups.azure.storageAccount] OR [backups.azure.connectionString] to be defined and non-empty when provider is set to [azure]
+
+  - it: should fail with missing storageKey or storageSasToken with azure provider
+    set:
+      operator:
+        verify:
+          enabled: false
+      cnpg:
+        my-pg:
+          enabled: true
+          backups:
+            enabled: true
+            provider: azure
+            azure:
+              storageAccount: test
+            manualBackups:
+              - name: today
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG Backup - Expected [backups.azure.storageKey] OR [backups.azure.storageSasToken] to be defined and non-empty when provider is set to [azure]
+
+  - it: should fail with both storageKey and storageSasToken defined with azure provider
+    set:
+      operator:
+        verify:
+          enabled: false
+      cnpg:
+        my-pg:
+          enabled: true
+          backups:
+            enabled: true
+            provider: azure
+            azure:
+              storageAccount: test
+              storageKey: test
+              storageSasToken: test
+            manualBackups:
+              - name: today
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG Backup - Expected only one of [backups.azure.storageKey, backups.azure.storageSasToken] to be defined and non-empty when provider is set to [azure]
+
+  - it: should fail with applicationCredentials missing with google provider
+    set:
+      operator:
+        verify:
+          enabled: false
+      cnpg:
+        my-pg:
+          enabled: true
+          backups:
+            enabled: true
+            provider: google
+            google:
+              gkeEnvironment: false
+            manualBackups:
+              - name: today
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG Backup - Expected [backups.google.applicationCredentials] to be defined and non-empty when provider is set to [google]
+
+  - it: should fail with accessKey missing with s3 provider
+    set:
+      operator:
+        verify:
+          enabled: false
+      cnpg:
+        my-pg:
+          enabled: true
+          backups:
+            enabled: true
+            provider: s3
+            s3:
+              secretKey: test
+            manualBackups:
+              - name: today
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG Backup - Expected [backups.s3.accessKey] to be defined and non-empty when provider is set to [s3]
+
+  - it: should fail with secretKey missing with s3 provider
+    set:
+      operator:
+        verify:
+          enabled: false
+      cnpg:
+        my-pg:
+          enabled: true
+          backups:
+            enabled: true
+            provider: s3
+            s3:
+              accessKey: test
+            manualBackups:
+              - name: today
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG Backup - Expected [backups.s3.secretKey] to be defined and non-empty when provider is set to [s3]

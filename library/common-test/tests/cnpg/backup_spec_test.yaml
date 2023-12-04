@@ -1,0 +1,61 @@
+suite: cnpg backup spec test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should generate correct spec
+    set:
+      operator:
+        verify:
+          enabled: false
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          backups:
+            enabled: true
+            target: primary
+            retentionPolicy: 10d
+            provider: azure
+            destinationPath: some-path
+            azure:
+              connectionString: some-connection-string
+            manualBackups:
+              - name: today
+              - name: before-upgrade
+    asserts:
+      - documentIndex: &cnpgDoc 0
+        isKind:
+          of: Backup
+      - documentIndex: *cnpgDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *cnpgDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg-backup-today
+      - documentIndex: *cnpgDoc
+        equal:
+          path: spec
+          value:
+            cluster:
+              name: test-release-name-common-test-cnpg-my-pg
+      - documentIndex: &otherCnpgDoc 1
+        isKind:
+          of: Backup
+      - documentIndex: *otherCnpgDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *otherCnpgDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg-backup-before-upgrade
+      - documentIndex: *otherCnpgDoc
+        equal:
+          path: spec
+          value:
+            cluster:
+              name: test-release-name-common-test-cnpg-my-pg
