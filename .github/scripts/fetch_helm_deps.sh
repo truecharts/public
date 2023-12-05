@@ -96,7 +96,9 @@ for idx in $(eval echo "{0..$length}"); do
 
             # tmp hotpatch for cert-manager
             if [[ !  "$dep_url" == "https"* ]]; then
-              dep_url="https://charts.jetstack.io/${dep_url}"
+              if [[ "$name" =~ "cert-manager" ]]; then
+                dep_url="https://charts.jetstack.io/${dep_url}"
+              fi
             fi
 
             echo ""
