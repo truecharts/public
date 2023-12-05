@@ -1,28 +1,36 @@
+kubeVersion: ">=1.24.0"
 apiVersion: v2
-appVersion: "2.0.2.8"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
-deprecated: false
+name: acestream
+version: 3.0.2
+appVersion: 2.0.2.8
 description: IPTV service providing streaming, playlist, search engine and epg.
 home: https://truecharts.org/charts/incubator/acestream
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/acestream.png
+deprecated: false
+sources:
+  - https://github.com/vstavrinov/acestream-service
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/acestream
+  - https://github.com/truecharts/containers/tree/master/mirroracestream
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
   - acestream
   - MediaServer-Video
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: acestream
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/acestream
-  - https://github.com/vstavrinov/acestream-service
-type: application
-version: 3.0.0
+dependencies:
+  - name: common
+    version: 11.1.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  truecharts.org/category: MediaServer-Video
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+  truecharts.org/category: MediaServer-Video
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator

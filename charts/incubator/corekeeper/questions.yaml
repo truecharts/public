@@ -8,67 +8,60 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: USERNAME
+                                        label: "USERNAME"
+                                        description: "Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: PASSWRD
+                                        label: "PASSWRD"
+                                        description: "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
+                                        schema:
+                                          type: string
+                                          private: true
+                                          default: ""
+                                      - variable: GAME_ID
+                                        label: "GAME_ID"
+                                        description: "The GAMEID that the container downloads at startup.If you want to install a static or beta version of the game change the value to 896660 -beta YOURBRANCH (without quotes, replace YOURBRANCH with the branch or version you want to install)."
+                                        schema:
+                                          type: string
+                                          default: "1963720"
+                                      - variable: WORLD_NAME
+                                        label: "WORLD_NAME"
+                                        description: "Enter your prefered world name here."
+                                        schema:
+                                          type: string
+                                          default: "Core Keeper Docker"
+                                      - variable: WORLD_INDEX
+                                        label: "WORLD_INDEX"
+                                        description: "Only change when you know what you are doing!"
+                                        schema:
+                                          type: string
+                                          default: "0"
+                                      - variable: GAME_PARAMS
+                                        label: "GAME_PARAMS"
+                                        description: "Enter your extra start up commands for the server here otherwise leave empty."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: VALIDATE
+                                        label: "VALIDATE"
+                                        description: "Set the Variable to true if you want to validate the installation otherwise leave it blank."
+                                        schema:
+                                          type: boolean
+                                          default: true
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: USERNAME
-          label: "USERNAME"
-          description: "Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
-          schema:
-            type: string
-            default: ""
-        - variable: PASSWRD
-          label: "PASSWRD"
-          description: "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
-          schema:
-            type: string
-            private: true
-            default: ""
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: GAME_ID
-          label: "GAME_ID"
-          description: "The GAMEID that the container downloads at startup.If you want to install a static or beta version of the game change the value to 896660 -beta YOURBRANCH (without quotes, replace YOURBRANCH with the branch or version you want to install)."
-          schema:
-            type: string
-            default: "1963720"
-        - variable: WORLD_NAME
-          label: "WORLD_NAME"
-          description: "Enter your prefered world name here."
-          schema:
-            type: string
-            default: "Core Keeper Docker"
-        - variable: WORLD_INDEX
-          label: "WORLD_INDEX"
-          description: "Only change when you know what you are doing!"
-          schema:
-            type: string
-            default: "0"
-        - variable: GAME_PARAMS
-          label: "GAME_PARAMS"
-          description: "Enter your extra start up commands for the server here otherwise leave empty."
-          schema:
-            type: string
-            default: ""
-        - variable: VALIDATE
-          label: "VALIDATE"
-          description: "Set the Variable to true if you want to validate the installation otherwise leave it blank."
-          schema:
-            type: boolean
-            default: true
-# Include{serviceExpertRoot}
+# Include{containerConfig}
+# Include{podOptions}
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}

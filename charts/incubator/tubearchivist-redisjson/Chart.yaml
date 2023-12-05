@@ -1,27 +1,36 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: MediaServer-Other
+kubeVersion: ">=1.24.0"
 apiVersion: v2
-appVersion: "latest"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
-deprecated: false
-description: 'This is a dependancy Chart for the application "TubeArchivist"'
+name: tubearchivist-redisjson
+version: 2.0.17
+appVersion: latest
+description: This is a dependancy Chart for the application "TubeArchivist"
 home: https://truecharts.org/charts/incubator/tubearchivist-redisjson
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/tubearchivist-redisjson.png
+deprecated: false
+sources:
+  - https://github.com/RedisJSON/RedisJSON
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/tubearchivist-redisjson
+  - https://github.com/truecharts/containers/tree/master/mirrortubearchivist-redisjson
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
   - tubearchivist-redisjson
   - MediaServer-Other
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: tubearchivist-redisjson
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/tubearchivist-redisjson
-  - https://github.com/RedisJSON/RedisJSON
-type: application
-version: 2.0.15
+dependencies:
+  - name: common
+    version: 11.1.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: MediaServer-Other
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator

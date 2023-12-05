@@ -1,33 +1,45 @@
+kubeVersion: ">=1.24.0"
 apiVersion: v2
+name: libremdb
+version: 3.0.320
 appVersion: latest
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
-  - condition: redis.enabled
-    name: redis
-    repository: https://deps.truecharts.org
-    version: 6.0.66
-deprecated: false
 description: A free & open source IMDb front-end.
 home: https://truecharts.org/charts/stable/libremdb
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/libremdb.png
+deprecated: false
+sources:
+  - https://quay.io/pussthecatorg/libremdb
+  - https://github.com/zyachel/libremdb
+  - https://github.com/PussTheCat-org/docker-libremdb-quay
+  - https://github.com/truecharts/charts/tree/master/charts/stable/libremdb
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
   - libremdb
   - media
   - imdb
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: libremdb
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/libremdb
-  - https://github.com/zyachel/libremdb
-  - https://github.com/PussTheCat-org/docker-libremdb-quay
-type: application
-version: 3.0.308
+dependencies:
+  - name: common
+    version: 14.3.5
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 6.0.66
+    repository: https://deps.truecharts.org
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  truecharts.org/category: media
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
   truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable

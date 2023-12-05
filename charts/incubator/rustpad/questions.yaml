@@ -10,35 +10,31 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: EXPIRY_DAYS
-          label: "EXPIRY_DAYS"
-          description: "The number of days that inactive documents are kept in memory before being garbage collected by the server (default 1)."
-          schema:
-            type: string
-            default: "1"
-        - variable: RUST_LOG
-          label: "RUST_LOG"
-          description: "Directives that control application logging. (errorwarninfodebugtrace)"
-          schema:
-            type: string
-            default: "info"
-        - variable: SQLITE_URI
-          label: "SQLITE_URI"
-          description: "A SQLite connection string used for persistence."
-          schema:
-            type: string
-            default: "sqlite:///persist/rustpad_db.db"
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: EXPIRY_DAYS
+                                        label: "EXPIRY_DAYS"
+                                        description: "The number of days that inactive documents are kept in memory before being garbage collected by the server (default 1)."
+                                        schema:
+                                          type: string
+                                          default: "1"
+                                      - variable: RUST_LOG
+                                        label: "RUST_LOG"
+                                        description: "Directives that control application logging. (errorwarninfodebugtrace)"
+                                        schema:
+                                          type: string
+                                          default: "info"
+                                      - variable: SQLITE_URI
+                                        label: "SQLITE_URI"
+                                        description: "A SQLite connection string used for persistence."
+                                        schema:
+                                          type: string
+                                          default: "sqlite:///persist/rustpad_db.db"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

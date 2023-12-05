@@ -10,47 +10,43 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: EXTRA_PARAMS
-          label: "EXTRA_PARAMS"
-          description: "Leave empty if not needed (eg -upnp, -dns,... without quotes)"
-          schema:
-            type: string
-            default: "-bind=0.0.0.0"
-        - variable: CUSTOM_RES_H
-          label: "CUSTOM_RES_H"
-          description: "Minimum screen hight 768 pixels"
-          schema:
-            type: string
-            default: "768"
-        - variable: UMASK
-          label: "UMASK"
-          description: "Container Variable UMASK"
-          schema:
-            type: string
-            default: "000"
-        - variable: DATA_PERM
-          label: "DATA_PERM"
-          description: "Container Variable DATAPERM"
-          schema:
-            type: string
-            default: "770"
-        - variable: CUSTOM_RES_W
-          label: "CUSTOM_RES_W"
-          description: "Minimum screen width 1024 pixels"
-          schema:
-            type: string
-            default: "1024"
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: EXTRA_PARAMS
+                                        label: "EXTRA_PARAMS"
+                                        description: "Leave empty if not needed (eg -upnp, -dns,... without quotes)"
+                                        schema:
+                                          type: string
+                                          default: "-bind=0.0.0.0"
+                                      - variable: CUSTOM_RES_H
+                                        label: "CUSTOM_RES_H"
+                                        description: "Minimum screen hight 768 pixels"
+                                        schema:
+                                          type: string
+                                          default: "768"
+                                      - variable: UMASK
+                                        label: "UMASK"
+                                        description: "Container Variable UMASK"
+                                        schema:
+                                          type: string
+                                          default: "000"
+                                      - variable: DATA_PERM
+                                        label: "DATA_PERM"
+                                        description: "Container Variable DATAPERM"
+                                        schema:
+                                          type: string
+                                          default: "770"
+                                      - variable: CUSTOM_RES_W
+                                        label: "CUSTOM_RES_W"
+                                        description: "Minimum screen width 1024 pixels"
+                                        schema:
+                                          type: string
+                                          default: "1024"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

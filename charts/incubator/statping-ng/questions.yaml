@@ -13,6 +13,8 @@ questions:
 
 # Include{containerBasic}
 # Include{containerAdvanced}
+# Include{containerConfig}
+# Include{podOptions}
   - variable: statping
     group: App Configuration
     label: Statping Configuration
@@ -125,8 +127,6 @@ questions:
             type: boolean
             default: false
 
-# Include{containerConfig}
-# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

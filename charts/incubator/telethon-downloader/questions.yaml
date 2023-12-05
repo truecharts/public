@@ -8,47 +8,47 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: TG_AUTHORIZED_USER_ID
+                                        label: "TG_AUTHORIZED_USER_ID"
+                                        description: "Container Variable TGAUTHORIZEDUSERID"
+                                        schema:
+                                          type: string
+                                          default: " "
+                                      - variable: TG_API_ID
+                                        label: "TG_API_ID"
+                                        description: "Container Variable TGAPIID"
+                                        schema:
+                                          type: string
+                                          default: " "
+                                      - variable: TG_API_HASH
+                                        label: "TG_API_HASH"
+                                        description: "Container Variable TGAPIHASH"
+                                        schema:
+                                          type: string
+                                          default: " "
+                                      - variable: TG_BOT_TOKEN
+                                        label: "TG_BOT_TOKEN"
+                                        description: "Container Variable TGBOTTOKEN"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: TG_PROGRESS_DOWNLOAD
+                                        label: "TG_PROGRESS_DOWNLOAD"
+                                        description: "Container Variable TGPROGRESSDOWNLOAD"
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: TG_AUTHORIZED_USER_ID
-          label: "TG_AUTHORIZED_USER_ID"
-          description: "Container Variable TGAUTHORIZEDUSERID"
-          schema:
-            type: string
-            default: " "
-        - variable: TG_API_ID
-          label: "TG_API_ID"
-          description: "Container Variable TGAPIID"
-          schema:
-            type: string
-            default: " "
-        - variable: TG_API_HASH
-          label: "TG_API_HASH"
-          description: "Container Variable TGAPIHASH"
-          schema:
-            type: string
-            default: " "
-        - variable: TG_BOT_TOKEN
-          label: "TG_BOT_TOKEN"
-          description: "Container Variable TGBOTTOKEN"
-          schema:
-            type: string
-            default: ""
-        - variable: TG_PROGRESS_DOWNLOAD
-          label: "TG_PROGRESS_DOWNLOAD"
-          description: "Container Variable TGPROGRESSDOWNLOAD"
-          schema:
-            type: string
-            default: ""
-# Include{serviceExpertRoot}
+# Include{containerConfig}
+# Include{podOptions}
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}

@@ -10,45 +10,46 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  group: App Configuration
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: MYSQL_USER
+                                        label: MYSQL User
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: MYSQL_PASSWORD
+                                        label: MYSQL Password
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: PMA_HOST
+                                        label: PWA Host
+                                        description: define address/host name of the db
+                                        schema:
+                                          type: string
+                                          default: "192.168.70.99"
+                                      - variable: PMA_PORT
+                                        label: PWA Port
+                                        description: define port of the MySQL server
+                                        schema:
+                                          type: string
+                                          default: "3306"
+                                      - variable: PMA_ABSOLUTE_URI
+                                        label: PWA Absolute URi
+                                        description: The full URL to phpMyAdmin
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: MYSQL_USER
-          label: MYSQL User
-          schema:
-            type: string
-            default: ""
-        - variable: MYSQL_PASSWORD
-          label: MYSQL Password
-          schema:
-            type: string
-            default: ""
-        - variable: PMA_HOST
-          label: PWA Host
-          description: define address/host name of the db
-          schema:
-            type: string
-            default: "192.168.70.99"
-        - variable: PMA_PORT
-          label: PWA Port
-          description: define port of the MySQL server
-          schema:
-            type: string
-            default: "3306"
-        - variable: PMA_ABSOLUTE_URI
-          label: PWA Absolute URi
-          description: The full URL to phpMyAdmin
-          schema:
-            type: string
-            default: ""
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: Main Service
@@ -89,28 +90,28 @@ questions:
 # Include{ingressAdvanced}
 # Include{ingressList}
 
-# Include{podSecurityContextRoot}
-        - variable: runAsUser
-          label: runAsUser
-          description: The UserID of the user running the application
-          schema:
-            type: int
-            default: 0
-        - variable: runAsGroup
-          label: runAsGroup
-          description: The groupID this App of the user running the application
-          schema:
-            type: int
-            default: 0
+# Include{securityContextRoot}
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-        - variable: fsGroup
-          label: fsGroup
-          description: The group that should own ALL storage.
-          schema:
-            type: int
-            default: 568
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
+                schema:
+                  type: int
+                  default: 568
 
 # Include{resources}
 # Include{advanced}
