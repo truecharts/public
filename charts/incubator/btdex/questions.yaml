@@ -10,27 +10,23 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: DISPLAY_WIDTH
-          label: "DISPLAY_WIDTH"
-          schema:
-            type: string
-            default: "1440|1680"
-        - variable: DISPLAY_HEIGHT
-          label: "DISPLAY_HEIGHT"
-          schema:
-            type: string
-            default: "800|900|1050"
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: DISPLAY_WIDTH
+                                        label: "DISPLAY_WIDTH"
+                                        schema:
+                                          type: string
+                                          default: "1440|1680"
+                                      - variable: DISPLAY_HEIGHT
+                                        label: "DISPLAY_HEIGHT"
+                                        schema:
+                                          type: string
+                                          default: "800|900|1050"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

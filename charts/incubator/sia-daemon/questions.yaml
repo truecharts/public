@@ -10,29 +10,25 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: SIA_WALLET_PASSWORD
-          label: "SIA_WALLET_PASSWORD"
-          description: "Container Variable SIAWALLETPASSWORD"
-          schema:
-            type: string
-            default: ""
-        - variable: SIA_API_PASSWORD
-          label: "SIA_API_PASSWORD"
-          description: "Container Variable SIAAPIPASSWORD"
-          schema:
-            type: string
-            default: ""
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: SIA_WALLET_PASSWORD
+                                        label: "SIA_WALLET_PASSWORD"
+                                        description: "Container Variable SIAWALLETPASSWORD"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: SIA_API_PASSWORD
+                                        label: "SIA_API_PASSWORD"
+                                        description: "Container Variable SIAAPIPASSWORD"
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

@@ -1,17 +1,13 @@
 {{/* Define the secrets */}}
 {{- define "fireshare.secrets" -}}
----
+{{- $secretName := (printf "%s-fireshare-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
 
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: fireshare-secrets
+{{- $secretKey := randAlphaNum 32 -}}
+
+ {{- with lookup "v1" "Secret" .Release.Namespace $secretName -}}
+   {{- $secretKey = index .data "SECRET_KEY" | b64dec -}}
+ {{- end }}
+enabled: true
 data:
-  {{- with (lookup "v1" "Secret" .Release.Namespace "fireshare-secrets") }}
-  SECRET_KEY: {{ index .data "SECRET_KEY" }}
-  {{- else }}
-  SECRET_KEY: {{ randAlphaNum 32 | b64enc }}
-  {{- end }}
-
+  SECRET_KEY: {{ $secretKey }}
 {{- end -}}

@@ -10,33 +10,29 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: LMP_V
-          label: "LMP_V"
-          description: "Enter the prefered version (valid options are latest and nightly both without quotes)."
-          schema:
-            type: string
-            default: "latest"
-        - variable: UMASK
-          label: "UMASK"
-          schema:
-            type: string
-            default: "0000"
-        - variable: DATA_PERM
-          label: "DATA_PERM"
-          schema:
-            type: string
-            default: "770"
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: LMP_V
+                                        label: "LMP_V"
+                                        description: "Enter the prefered version (valid options are latest and nightly both without quotes)."
+                                        schema:
+                                          type: string
+                                          default: "latest"
+                                      - variable: UMASK
+                                        label: "UMASK"
+                                        schema:
+                                          type: string
+                                          default: "0000"
+                                      - variable: DATA_PERM
+                                        label: "DATA_PERM"
+                                        schema:
+                                          type: string
+                                          default: "770"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

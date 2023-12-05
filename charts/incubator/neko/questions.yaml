@@ -39,78 +39,67 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: NEKO_PASSWORD
-          label: "NEKO_PASSWORD"
-          schema:
-            type: string
-            default: ""
-            private: true
-        - variable: NEKO_PASSWORD_ADMIN
-          label: "NEKO_PASSWORD_ADMIN"
-          schema:
-            type: string
-            default: ""
-            private: true
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: NEKO_SCREEN
-          label: "NEKO_SCREEN"
-          description: "Resolution after startup. Only Admins can change this later."
-          schema:
-            type: string
-            default: "1920x1080@30"
-        - variable: NEKO_CONTROL_PROTECTION
-          label: "NEKO_CONTROL_PROTECTION"
-          description: "Control protection means, users can gain control only if at least one admin is in the room."
-          schema:
-            type: boolean
-            default: false
-        - variable: NEKO_IMPLICIT_CONTROL
-          label: "NEKO_IMPLICIT_CONTROL"
-          description: "If enabled members can gain control implicitly, they don't need to request control."
-          schema:
-            type: boolean
-            default: false
-        - variable: NEKO_PROXY
-          label: "NEKO_PROXY"
-          description: "Enable reverse proxy mode, so that neko trusts X-Forwarded-For headers."
-          schema:
-            type: boolean
-            default: false
-        - variable: NEKO_LOCKS
-          label: "NEKO_LOCKS"
-          description: "Resources, that will be locked when starting, separated by whitespace."
-          schema:
-            type: string
-            default: "192.168.1.x"
-        - variable: NEKO_NAT1TO1
-          label: "NEKO_NAT1TO1"
-          description: "Enter the IP of your TrueNAS-Server"
-          schema:
-            type: string
-            default: "192.168.1.x"
-        - variable: NEKO_IPFETCH
-          label: "NEKO_IPFETCH"
-          description: "Automatically fetch IP address from given URL when NEKO_NAT1TO1 is not specified."
-          schema:
-            type: string
-            default: "http://checkip.amazonaws.com"
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: NEKO_PASSWORD
+                                        label: "NEKO_PASSWORD"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          private: true
+                                      - variable: NEKO_PASSWORD_ADMIN
+                                        label: "NEKO_PASSWORD_ADMIN"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          private: true
+                                      - variable: NEKO_SCREEN
+                                        label: "NEKO_SCREEN"
+                                        description: "Resolution after startup. Only Admins can change this later."
+                                        schema:
+                                          type: string
+                                          default: "1920x1080@30"
+                                      - variable: NEKO_CONTROL_PROTECTION
+                                        label: "NEKO_CONTROL_PROTECTION"
+                                        description: "Control protection means, users can gain control only if at least one admin is in the room."
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: NEKO_IMPLICIT_CONTROL
+                                        label: "NEKO_IMPLICIT_CONTROL"
+                                        description: "If enabled members can gain control implicitly, they don't need to request control."
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: NEKO_PROXY
+                                        label: "NEKO_PROXY"
+                                        description: "Enable reverse proxy mode, so that neko trusts X-Forwarded-For headers."
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: NEKO_LOCKS
+                                        label: "NEKO_LOCKS"
+                                        description: "Resources, that will be locked when starting, separated by whitespace."
+                                        schema:
+                                          type: string
+                                          default: "192.168.1.x"
+                                      - variable: NEKO_NAT1TO1
+                                        label: "NEKO_NAT1TO1"
+                                        description: "Enter the IP of your TrueNAS-Server"
+                                        schema:
+                                          type: string
+                                          default: "192.168.1.x"
+                                      - variable: NEKO_IPFETCH
+                                        label: "NEKO_IPFETCH"
+                                        description: "Automatically fetch IP address from given URL when NEKO_NAT1TO1 is not specified."
+                                        schema:
+                                          type: string
+                                          default: "http://checkip.amazonaws.com"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

@@ -10,77 +10,73 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: ListenPort
-          label: "ListenPort"
-          description: "ListenPort for multiple servers "
-          schema:
-            type: string
-            default: "1234"
-        - variable: ExternalPort
-          label: "ExternalPort"
-          description: "ExternalPort for multiple servers"
-          schema:
-            type: string
-            default: "1234"
-        - variable: Mod
-          label: "Mod"
-          description: "Game the server runs eg- cnc, ra or d2k"
-          schema:
-            type: string
-            default: "ra"
-        - variable: Name
-          label: "Name"
-          description: "Name of server to advertise"
-          schema:
-            type: string
-            default: "DEDICATED SERVER"
-        - variable: Ban
-          label: "Ban"
-          description: "Comma delimited list of banned IP addresses"
-          schema:
-            type: string
-            default: ""
-        - variable: MOTD
-          label: "MOTD"
-          description: "Message shown to users on joining game"
-          schema:
-            type: string
-            default: "Have Fun!!"
-        - variable: Password
-          label: "Password"
-          description: "Password needed by users to join server"
-          schema:
-            type: string
-            default: ""
-        - variable: MAP
-          label: "MAP"
-          description: "Hash ID of selected startup map"
-          schema:
-            type: string
-            default: ""
-        - variable: AdvertiseOnline
-          label: "AdvertiseOnline"
-          description: "Advertise server on openRA public servers"
-          schema:
-            type: string
-            default: "True"
-        - variable: EnableSingleplayer
-          label: "EnableSingleplayer"
-          description: "Enable single players on server"
-          schema:
-            type: string
-            default: "False"
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: ListenPort
+                                        label: "ListenPort"
+                                        description: "ListenPort for multiple servers "
+                                        schema:
+                                          type: string
+                                          default: "1234"
+                                      - variable: ExternalPort
+                                        label: "ExternalPort"
+                                        description: "ExternalPort for multiple servers"
+                                        schema:
+                                          type: string
+                                          default: "1234"
+                                      - variable: Mod
+                                        label: "Mod"
+                                        description: "Game the server runs eg- cnc, ra or d2k"
+                                        schema:
+                                          type: string
+                                          default: "ra"
+                                      - variable: Name
+                                        label: "Name"
+                                        description: "Name of server to advertise"
+                                        schema:
+                                          type: string
+                                          default: "DEDICATED SERVER"
+                                      - variable: Ban
+                                        label: "Ban"
+                                        description: "Comma delimited list of banned IP addresses"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: MOTD
+                                        label: "MOTD"
+                                        description: "Message shown to users on joining game"
+                                        schema:
+                                          type: string
+                                          default: "Have Fun!!"
+                                      - variable: Password
+                                        label: "Password"
+                                        description: "Password needed by users to join server"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: MAP
+                                        label: "MAP"
+                                        description: "Hash ID of selected startup map"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: AdvertiseOnline
+                                        label: "AdvertiseOnline"
+                                        description: "Advertise server on openRA public servers"
+                                        schema:
+                                          type: string
+                                          default: "True"
+                                      - variable: EnableSingleplayer
+                                        label: "EnableSingleplayer"
+                                        description: "Enable single players on server"
+                                        schema:
+                                          type: string
+                                          default: "False"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

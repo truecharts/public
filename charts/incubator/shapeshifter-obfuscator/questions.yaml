@@ -10,23 +10,19 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: ARGS
-          label: "ARGS"
-          description: "Shapeshifter-Obfuscator start-up argument. Change 127.0.0.13333 to an IP on your subnet."
-          schema:
-            type: string
-            default: "-transparent -server -state state -orport 127.0.0.1:3333 -transports obfs4 -bindaddr obfs4-0.0.0.0:2222 -logLevel DEBUG -enableLogging"
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: ARGS
+                                        label: "ARGS"
+                                        description: "Shapeshifter-Obfuscator start-up argument. Change 127.0.0.13333 to an IP on your subnet."
+                                        schema:
+                                          type: string
+                                          default: "-transparent -server -state state -orport 127.0.0.1:3333 -transports obfs4 -bindaddr obfs4-0.0.0.0:2222 -logLevel DEBUG -enableLogging"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

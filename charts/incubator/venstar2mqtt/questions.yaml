@@ -8,47 +8,47 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: VENSTAR_HOST
+                                        label: "VENSTAR_HOST"
+                                        description: "The IP or DNS of the Venstar Thermostat"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: TOPIC_PREFIX
+                                        label: "TOPIC_PREFIX"
+                                        description: "MQTT Topic Prefix"
+                                        schema:
+                                          type: string
+                                          default: "venstar2mqtt"
+                                      - variable: MQTT_HOST
+                                        label: "MQTT_HOST"
+                                        description: "Full URL required (ex mqtt192.168.1.10) Usually the TrueNAS server ethernet IP"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: MQTT_USER
+                                        label: "MQTT_USER"
+                                        description: "Optional MQTT User ID"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: MQTT_PASS
+                                        label: "MQTT_PASS"
+                                        description: "Optional MQTT password"
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: VENSTAR_HOST
-          label: "VENSTAR_HOST"
-          description: "The IP or DNS of the Venstar Thermostat"
-          schema:
-            type: string
-            default: ""
-        - variable: TOPIC_PREFIX
-          label: "TOPIC_PREFIX"
-          description: "MQTT Topic Prefix"
-          schema:
-            type: string
-            default: "venstar2mqtt"
-        - variable: MQTT_HOST
-          label: "MQTT_HOST"
-          description: "Full URL required (ex mqtt192.168.1.10) Usually the TrueNAS server ethernet IP"
-          schema:
-            type: string
-            default: ""
-        - variable: MQTT_USER
-          label: "MQTT_USER"
-          description: "Optional MQTT User ID"
-          schema:
-            type: string
-            default: ""
-        - variable: MQTT_PASS
-          label: "MQTT_PASS"
-          description: "Optional MQTT password"
-          schema:
-            type: string
-            default: ""
-# Include{serviceExpertRoot}
+# Include{containerConfig}
+# Include{podOptions}
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceList}

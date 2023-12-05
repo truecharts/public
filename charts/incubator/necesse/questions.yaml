@@ -10,35 +10,31 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: GAME_PARAMS
-          label: "GAME_PARAMS"
-          description: "Enter your extra start up commands for the server here otherwise leave empty."
-          schema:
-            type: string
-            default: ""
-        - variable: GAME_ID
-          label: "GAME_ID"
-          description: "The GAMEID that the container downloads at startup. If you want to install a static or beta version of the game change the value to 1169370 -beta YOURBRANCH (without quotes, replace YOURBRANCH with the branch or version you want to install)."
-          schema:
-            type: string
-            default: "1169370"
-        - variable: WORLD_NAME
-          label: "WORLD_NAME"
-          description: "Specify the world name here (your worlds are saved in ....configNecessesaves)"
-          schema:
-            type: string
-            default: "World"
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: GAME_PARAMS
+                                        label: "GAME_PARAMS"
+                                        description: "Enter your extra start up commands for the server here otherwise leave empty."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: GAME_ID
+                                        label: "GAME_ID"
+                                        description: "The GAMEID that the container downloads at startup. If you want to install a static or beta version of the game change the value to 1169370 -beta YOURBRANCH (without quotes, replace YOURBRANCH with the branch or version you want to install)."
+                                        schema:
+                                          type: string
+                                          default: "1169370"
+                                      - variable: WORLD_NAME
+                                        label: "WORLD_NAME"
+                                        description: "Specify the world name here (your worlds are saved in ....configNecessesaves)"
+                                        schema:
+                                          type: string
+                                          default: "World"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

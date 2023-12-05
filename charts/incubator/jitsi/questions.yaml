@@ -10,53 +10,49 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: PUBLIC_URL
-          label: "PUBLIC_URL"
-          description: "Sets the PUBLIC_URL"
-          schema:
-            type: string
-            default: ""
-        - variable: JICOFO_AUTH_USER
-          label: "JICOFO_AUTH_USER"
-          description: "Sets the JICOFO_AUTH_USER"
-          schema:
-            type: string
-            required: true
-            default: "REPLACEME"
-        - variable: JICOFO_AUTH_PASSWORD
-          label: "JICOFO_AUTH_PASSWORD"
-          description: "Sets the JICOFO_AUTH_PASSWORD"
-          schema:
-            type: string
-            required: true
-            private: true
-            default: ""
-        - variable: JVB_AUTH_USER
-          label: "JVB_AUTH_USER"
-          description: "Sets the JVB_AUTH_USER"
-          schema:
-            type: string
-            required: true
-            default: ""
-        - variable: JVB_AUTH_PASSWORD
-          label: "JVB_AUTH_PASSWORD"
-          description: "Sets the JVB_AUTH_PASSWORD"
-          schema:
-            type: string
-            required: true
-            private: true
-            default: ""
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: PUBLIC_URL
+                                        label: "PUBLIC_URL"
+                                        description: "Sets the PUBLIC_URL"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: JICOFO_AUTH_USER
+                                        label: "JICOFO_AUTH_USER"
+                                        description: "Sets the JICOFO_AUTH_USER"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: "REPLACEME"
+                                      - variable: JICOFO_AUTH_PASSWORD
+                                        label: "JICOFO_AUTH_PASSWORD"
+                                        description: "Sets the JICOFO_AUTH_PASSWORD"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          private: true
+                                          default: ""
+                                      - variable: JVB_AUTH_USER
+                                        label: "JVB_AUTH_USER"
+                                        description: "Sets the JVB_AUTH_USER"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+                                      - variable: JVB_AUTH_PASSWORD
+                                        label: "JVB_AUTH_PASSWORD"
+                                        description: "Sets the JVB_AUTH_PASSWORD"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          private: true
+                                          default: ""
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
