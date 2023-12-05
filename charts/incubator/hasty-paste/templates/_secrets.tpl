@@ -6,7 +6,7 @@ data:
   {{- $redis := .Values.redis -}}
   {{- $redisPass := $redis.creds.redisPassword | trimAll "\"" -}}
   {{- $redisUser := $redis.username }}
-  {{- $redisURL := $redis.creds.plainhost | trimAll "\"" }}
+  {{- $redisURL := {{ printf "%v-%v" .Release.Name "redis" }}:6379 | trimAll "\"" }}
   CACHE__REDIS_URI: {{ printf "redis://%v:%v@%v/0" $redisUser $redisPass $redisURL | quote }}
   CACHE__ENABLE: "true"
   PORT: {{ .Values.service.main.ports.main.port | quote }}
