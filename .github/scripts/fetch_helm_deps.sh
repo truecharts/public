@@ -156,9 +156,9 @@ for idx in $(eval echo "{0..$length}"); do
                 elif [[ "$name" =~ "openebs" ]]; then
                    echo "openebs is not signed..."
                 elif [[ "$name" =~ "csi-driver-smb" ]]; then
-                   echo "openebs is not signed..."
+                   echo "csi-driver-smb is not signed..."
                 elif [[ "$name" =~ "csi-driver-nfs" ]]; then
-                   echo "openebs is not signed..."
+                   echo "csi-driver-nfs is not signed..."
                 elif [[ ! "$train_chart" =~ incubator\/.* ]]; then
                   echo "Validating dependency signature..."
                   helm verify $cache_path/$repo_dir/$name-$version.tgz --keyring $gpg_dir/pubring.gpg || \
