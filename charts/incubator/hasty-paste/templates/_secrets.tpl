@@ -4,9 +4,9 @@
 enabled: true
 data:
   {{- $redis := .Values.redis -}}
-  {{- $redisPass := $redis.redisPassword | trimAll "\"" -}}
-  {{- $redisUser := $redis.redisUsername }}
-  {{- $redisURL := $redis.url.plain | trimAll "\"" }}
+  {{- $redisPass := $redis.creds.redisPassword | trimAll "\"" -}}
+  {{- $redisUser := $redis.username }}
+  {{- $redisURL := $redis.creds.plainhost | trimAll "\"" }}
   CACHE__REDIS_URI: {{ printf "redis://%v:%v@%v/0" $redisUser $redisPass $redisURL | quote }}
   CACHE__ENABLE: "true"
   PORT: {{ .Values.service.main.ports.main.port | quote }}
