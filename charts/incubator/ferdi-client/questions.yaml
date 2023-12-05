@@ -10,41 +10,37 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: FERDI_V
-          label: "FERDI_V"
-          description: "Define your preferred Ferdi version here (valid options are stable and latest where latest refers to pre-releases)"
-          schema:
-            type: string
-            default: "stable"
-        - variable: CUSTOM_RES_W
-          label: "CUSTOM_RES_W"
-          description: "Minimum screen width 1000 pixels"
-          schema:
-            type: string
-            default: "1280"
-        - variable: CUSTOM_RES_H
-          label: "CUSTOM_RES_H"
-          description: "Minimum screen hight 880 pixels"
-          schema:
-            type: string
-            default: "768"
-        - variable: UMASK
-          label: "UMASK"
-          description: "Container Variable UMASK"
-          schema:
-            type: string
-            default: "000"
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: FERDI_V
+                                        label: "FERDI_V"
+                                        description: "Define your preferred Ferdi version here (valid options are stable and latest where latest refers to pre-releases)"
+                                        schema:
+                                          type: string
+                                          default: "stable"
+                                      - variable: CUSTOM_RES_W
+                                        label: "CUSTOM_RES_W"
+                                        description: "Minimum screen width 1000 pixels"
+                                        schema:
+                                          type: string
+                                          default: "1280"
+                                      - variable: CUSTOM_RES_H
+                                        label: "CUSTOM_RES_H"
+                                        description: "Minimum screen hight 880 pixels"
+                                        schema:
+                                          type: string
+                                          default: "768"
+                                      - variable: UMASK
+                                        label: "UMASK"
+                                        description: "Container Variable UMASK"
+                                        schema:
+                                          type: string
+                                          default: "000"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

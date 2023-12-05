@@ -10,73 +10,62 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: USERNAME
-          label: "USERNAME"
-          description: "Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
-          schema:
-            type: string
-            default: ""
-        - variable: PASSWRD
-          label: "PASSWRD"
-          description: "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
-          schema:
-            type: string
-            private: true
-            default: ""
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: GAME_ID
-          label: "GAME_ID"
-          description: "The GAME_ID that the container download at startup.(https://developer.valvesoftware.com/wiki/Dedicated_Servers_List)"
-          schema:
-            type: string
-            default: "748090"
-        - variable: GAME_PARAMS
-          label: "GAME_PARAMS"
-          description: "Enter your start up commands for the server (If you want a password on your server please add for example server.password Docker without quotes. In this case Docker is the password. You can also enter multiple commands like server.maxplayers server.password Docker without quotes)"
-          schema:
-            type: string
-            default: "+server.gameport 27016"
-        - variable: VALIDATE
-          label: "VALIDATE"
-          description: "Set the Variable to true if you want to validate the installation otherwise leave it blank."
-          schema:
-            type: boolean
-            default: true
-        - variable: SRV_NAME
-          label: "SRV_NAME"
-          description: "Enter you preferred servername."
-          schema:
-            type: string
-            default: "Colony Survival Docker"
-        - variable: SRV_WORLDNAME
-          label: "SRV_WORLDNAME"
-          description: "Enter your preferred world name."
-          schema:
-            type: string
-            default: "ColonySurvival"
-        - variable: SRV_NETTYPE
-          label: "SRV_NETTYPE"
-          description: "Choose between LAN -allows connecting from localhost through the ingame button  SteamLAN -steam networking, does not port forward or check authentication  SteamOnline -steam networking, port forwards and checks authentication"
-          schema:
-            type: string
-            default: "SteamOnline"
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: USERNAME
+                                        label: "USERNAME"
+                                        description: "Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: PASSWRD
+                                        label: "PASSWRD"
+                                        description: "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
+                                        schema:
+                                          type: string
+                                          private: true
+                                          default: ""
+                                      - variable: GAME_ID
+                                        label: "GAME_ID"
+                                        description: "The GAME_ID that the container download at startup.(https://developer.valvesoftware.com/wiki/Dedicated_Servers_List)"
+                                        schema:
+                                          type: string
+                                          default: "748090"
+                                      - variable: GAME_PARAMS
+                                        label: "GAME_PARAMS"
+                                        description: "Enter your start up commands for the server (If you want a password on your server please add for example server.password Docker without quotes. In this case Docker is the password. You can also enter multiple commands like server.maxplayers server.password Docker without quotes)"
+                                        schema:
+                                          type: string
+                                          default: "+server.gameport 27016"
+                                      - variable: VALIDATE
+                                        label: "VALIDATE"
+                                        description: "Set the Variable to true if you want to validate the installation otherwise leave it blank."
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: SRV_NAME
+                                        label: "SRV_NAME"
+                                        description: "Enter you preferred servername."
+                                        schema:
+                                          type: string
+                                          default: "Colony Survival Docker"
+                                      - variable: SRV_WORLDNAME
+                                        label: "SRV_WORLDNAME"
+                                        description: "Enter your preferred world name."
+                                        schema:
+                                          type: string
+                                          default: "ColonySurvival"
+                                      - variable: SRV_NETTYPE
+                                        label: "SRV_NETTYPE"
+                                        description: "Choose between LAN -allows connecting from localhost through the ingame button  SteamLAN -steam networking, does not port forward or check authentication  SteamOnline -steam networking, port forwards and checks authentication"
+                                        schema:
+                                          type: string
+                                          default: "SteamOnline"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

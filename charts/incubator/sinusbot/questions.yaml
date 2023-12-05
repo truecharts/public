@@ -10,22 +10,18 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: OVERRIDE_PASSWORD
-          label: "OVERRIDE_PASSWORD"
-          schema:
-            type: string
-            default: "foobar"
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: OVERRIDE_PASSWORD
+                                        label: "OVERRIDE_PASSWORD"
+                                        schema:
+                                          type: string
+                                          default: "foobar"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

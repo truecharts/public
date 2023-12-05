@@ -10,29 +10,25 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: REDIS_PORT_6379_TCP_ADDR
-          label: "REDIS_PORT_6379_TCP_ADDR"
-          description: "This is the Redis server IP. Delete that entry if not used."
-          schema:
-            type: string
-            default: ""
-        - variable: REDIS_PORT_6379_TCP_PORT
-          label: "REDIS_PORT_6379_TCP_PORT"
-          description: "This is the Redis server port. Delete that entry if not used."
-          schema:
-            type: string
-            default: ""
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: REDIS_PORT_6379_TCP_ADDR
+                                        label: "REDIS_PORT_6379_TCP_ADDR"
+                                        description: "This is the Redis server IP. Delete that entry if not used."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: REDIS_PORT_6379_TCP_PORT
+                                        label: "REDIS_PORT_6379_TCP_PORT"
+                                        description: "This is the Redis server port. Delete that entry if not used."
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

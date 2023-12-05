@@ -1,28 +1,36 @@
+kubeVersion: ">=1.24.0"
 apiVersion: v2
-appVersion: "tshock"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
-deprecated: false
+name: terraria-tshock
+version: 3.0.4
+appVersion: tshock
 description: SteamCMD Terraria and the TShock MOD.
 home: https://truecharts.org/charts/incubator/terraria-tshock
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/terraria-tshock.png
+deprecated: false
+sources:
+  - https://github.com/truecharts/containers/tree/master/mirrorterraria-tshock
+  - https://tshock.co/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/terraria-tshock
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
   - terraria-tshock
   - GameServers
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: terraria-tshock
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/terraria-tshock
-  - https://tshock.co/
-type: application
-version: 3.0.2
+dependencies:
+  - name: common
+    version: 11.1.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  truecharts.org/category: GameServers
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+  truecharts.org/category: GameServers
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator

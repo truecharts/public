@@ -8,41 +8,41 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: MQTT_SERVER
+                                        label: "MQTT_SERVER"
+                                        description: "Container Variable MQTTSERVER"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: MQTT_UP
+                                        label: "MQTT_UP"
+                                        description: "Container Variable MQTTUP"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: MQTT_DOWN
+                                        label: "MQTT_DOWN"
+                                        description: "Container Variable MQTTDOWN"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: SLEEP
+                                        label: "SLEEP"
+                                        description: "Container Variable sleep"
+                                        schema:
+                                          type: string
+                                          default: "3600"
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: MQTT_SERVER
-          label: "MQTT_SERVER"
-          description: "Container Variable MQTTSERVER"
-          schema:
-            type: string
-            default: ""
-        - variable: MQTT_UP
-          label: "MQTT_UP"
-          description: "Container Variable MQTTUP"
-          schema:
-            type: string
-            default: ""
-        - variable: MQTT_DOWN
-          label: "MQTT_DOWN"
-          description: "Container Variable MQTTDOWN"
-          schema:
-            type: string
-            default: ""
-        - variable: SLEEP
-          label: "SLEEP"
-          description: "Container Variable sleep"
-          schema:
-            type: string
-            default: "3600"
-# Include{serviceExpertRoot}
+# Include{containerConfig}
+# Include{podOptions}
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceList}

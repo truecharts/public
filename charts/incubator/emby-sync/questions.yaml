@@ -10,35 +10,31 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: SECRET_KEY
-          label: "SECRET_KEY"
-          description: "Your API Key for Emby"
-          schema:
-            type: string
-            default: ""
-        - variable: EMBY_SERVER
-          label: "EMBY_SERVER"
-          description: "URL to your Emby server"
-          schema:
-            type: string
-            default: ""
-        - variable: DEFAULT_ROOM
-          label: "DEFAULT_ROOM"
-          description: "Make sure this room always exists! Leave empty for default. Default is Bacon Bar"
-          schema:
-            type: string
-            default: ""
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: SECRET_KEY
+                                        label: "SECRET_KEY"
+                                        description: "Your API Key for Emby"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: EMBY_SERVER
+                                        label: "EMBY_SERVER"
+                                        description: "URL to your Emby server"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: DEFAULT_ROOM
+                                        label: "DEFAULT_ROOM"
+                                        description: "Make sure this room always exists! Leave empty for default. Default is Bacon Bar"
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

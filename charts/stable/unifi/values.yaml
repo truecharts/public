@@ -105,8 +105,6 @@ workload:
               dirs=$(ls -A "$newdatadir" | grep -v "data")
               if [ -n "$dirs" ]; then
                 echo "New data dir is empty. Migrating data one level up"
-                mv $olddatadir/* $newdatadir || echo "Failed to move data" && exit 1
-                # Remove the data/data dir
-                rm -rf $olddatadir
+                cp -rf $olddatadir/* $newdatadir || echo "Failed to move data" && exit 1
                 echo "Data migration complete"
               fi

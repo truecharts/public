@@ -10,29 +10,25 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: GUAC_USER
-          label: "GUAC_USER"
-          description: "Username for the desktop GUI."
-          schema:
-            type: string
-            default: ""
-        - variable: GUAC_PASS
-          label: "GUAC_PASS"
-          description: "Password MD5 hash for the desktop GUI."
-          schema:
-            type: string
-            default: ""
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: GUAC_USER
+                                        label: "GUAC_USER"
+                                        description: "Username for the desktop GUI."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: GUAC_PASS
+                                        label: "GUAC_PASS"
+                                        description: "Password MD5 hash for the desktop GUI."
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

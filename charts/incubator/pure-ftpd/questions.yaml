@@ -10,35 +10,31 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: AUTH_METHOD
-          label: "AUTH_METHOD"
-          description: "Authentication method to use. Can be puredb, mysql, pgsql or ldap "
-          schema:
-            type: string
-            default: "puredb"
-        - variable: SECURE_MODE
-          label: "SECURE_MODE"
-          description: "Enable secure mode - httpsgithub.comcrazy-maxdocker-pure-ftpd#secure-mode"
-          schema:
-            type: string
-            default: "true"
-        - variable: PASSIVE_PORT_RANGE
-          label: "PASSIVE_PORT_RANGE"
-          description: "Port range for passive connections"
-          schema:
-            type: string
-            default: "30000:30009"
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: AUTH_METHOD
+                                        label: "AUTH_METHOD"
+                                        description: "Authentication method to use. Can be puredb, mysql, pgsql or ldap "
+                                        schema:
+                                          type: string
+                                          default: "puredb"
+                                      - variable: SECURE_MODE
+                                        label: "SECURE_MODE"
+                                        description: "Enable secure mode - httpsgithub.comcrazy-maxdocker-pure-ftpd#secure-mode"
+                                        schema:
+                                          type: string
+                                          default: "true"
+                                      - variable: PASSIVE_PORT_RANGE
+                                        label: "PASSIVE_PORT_RANGE"
+                                        description: "Port range for passive connections"
+                                        schema:
+                                          type: string
+                                          default: "30000:30009"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

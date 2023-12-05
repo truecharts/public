@@ -10,35 +10,36 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  group: App Configuration
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: UPSNAP_INTERVAL
+                                        label: Upsnap Interval
+                                        description: Sets the interval in which the devices are pinged.
+                                        schema:
+                                          type: string
+                                          default: "@every 10s"
+                                      - variable: UPSNAP_SCAN_RANGE
+                                        label: Upsnap Scan Range
+                                        description: Scan range is used for device discovery on local network.
+                                        schema:
+                                          type: string
+                                          default: 192.168.1.0/24
+                                      - variable: UPSNAP_WEBSITE_TITLE
+                                        label: Upsnap Website Title
+                                        description: Custom website title
+                                        schema:
+                                          type: string
+                                          default: TC WOL
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: UPSNAP_INTERVAL
-          label: Upsnap Interval
-          description: Sets the interval in which the devices are pinged.
-          schema:
-            type: string
-            default: "@every 10s"
-        - variable: UPSNAP_SCAN_RANGE
-          label: Upsnap Scan Range
-          description: Scan range is used for device discovery on local network.
-          schema:
-            type: string
-            default: 192.168.1.0/24
-        - variable: UPSNAP_WEBSITE_TITLE
-          label: Upsnap Website Title
-          description: Custom website title
-          schema:
-            type: string
-            default: TC WOL
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: Main Service
@@ -88,28 +89,28 @@ questions:
 # Include{ingressAdvanced}
 # Include{ingressList}
 
-# Include{podSecurityContextRoot}
-        - variable: runAsUser
-          label: runAsUser
-          description: The UserID of the user running the application
-          schema:
-            type: int
-            default: 0
-        - variable: runAsGroup
-          label: runAsGroup
-          description: The groupID this App of the user running the application
-          schema:
-            type: int
-            default: 0
+# Include{securityContextRoot}
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-        - variable: fsGroup
-          label: fsGroup
-          description: The group that should own ALL storage.
-          schema:
-            type: int
-            default: 568
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
+                schema:
+                  type: int
+                  default: 568
 
 # Include{resources}
 # Include{advanced}

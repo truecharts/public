@@ -1,31 +1,43 @@
+kubeVersion: ">=1.24.0"
 apiVersion: v2
-appVersion: "6.0.30"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
-  - condition: redis.enabled
-    name: redis
-    repository: https://deps.truecharts.org
-    version: 6.0.66
-deprecated: false
+name: fireflyiii
+version: 21.0.19
+appVersion: 6.0.30
 description: A free and open source personal finance manager
 home: https://truecharts.org/charts/stable/fireflyiii
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/fireflyiii.png
+deprecated: false
+sources:
+  - https://github.com/firefly-iii/firefly-iii/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/fireflyiii
+  - https://hub.docker.com/r/fireflyiii/core
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
   - fireflyiii
   - finacial
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: fireflyiii
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/fireflyiii
-  - https://github.com/firefly-iii/firefly-iii/
-type: application
-version: 21.0.18
+dependencies:
+  - name: common
+    version: 14.3.5
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 6.0.66
+    repository: https://deps.truecharts.org
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  truecharts.org/category: finacial
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
   truecharts.org/SCALE-support: "true"
+  truecharts.org/category: finacial
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
