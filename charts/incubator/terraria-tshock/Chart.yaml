@@ -1,31 +1,31 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: terraria-tshock
-version: 3.0.3
+version: 3.0.4
 appVersion: tshock
 description: SteamCMD Terraria and the TShock MOD.
 home: https://truecharts.org/charts/incubator/terraria-tshock
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/terraria-tshock.png
 deprecated: false
 sources:
-- https://github.com/truecharts/containers/tree/master/mirrorterraria-tshock
-- https://tshock.co/
-- https://github.com/truecharts/charts/tree/master/charts/incubator/terraria-tshock
+  - https://github.com/truecharts/containers/tree/master/mirrorterraria-tshock
+  - https://tshock.co/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/terraria-tshock
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- terraria-tshock
-- GameServers
+  - terraria-tshock
+  - GameServers
 dependencies:
-- name: common
-  version: 11.1.2
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 11.1.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

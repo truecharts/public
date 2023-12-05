@@ -1,32 +1,33 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: v-rising
-version: 2.0.11
+version: 2.0.12
 appVersion: latest
-description: This Chart will download and install SteamCMD. It will also install V
+description:
+  This Chart will download and install SteamCMD. It will also install V
   Rising and run it.
 home: https://truecharts.org/charts/incubator/v-rising
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/v-rising.png
 deprecated: false
 sources:
-- https://steampowered.com/
-- https://github.com/truecharts/charts/tree/master/charts/incubator/v-rising
-- https://github.com/truecharts/containers/tree/master/mirrorv-rising
+  - https://steampowered.com/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/v-rising
+  - https://github.com/truecharts/containers/tree/master/mirrorv-rising
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- v-rising
-- GameServers
+  - v-rising
+  - GameServers
 dependencies:
-- name: common
-  version: 11.1.2
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 11.1.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

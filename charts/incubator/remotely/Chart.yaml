@@ -1,32 +1,33 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: remotely
-version: 2.0.10
+version: 2.0.11
 appVersion: latest
-description: A remote control and remote scripting solution, built with .NET 5, Blazor,
+description:
+  A remote control and remote scripting solution, built with .NET 5, Blazor,
   SignalR Core, and WebRTC.
 home: https://truecharts.org/charts/incubator/remotely
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/remotely.png
 deprecated: false
 sources:
-- https://remotely.one/
-- https://github.com/truecharts/charts/tree/master/charts/incubator/remotely
-- https://github.com/truecharts/containers/tree/master/mirrorremotely
+  - https://remotely.one/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/remotely
+  - https://github.com/truecharts/containers/tree/master/mirrorremotely
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- remotely
-- Tools-Utilities
+  - remotely
+  - Tools-Utilities
 dependencies:
-- name: common
-  version: 11.1.2
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 11.1.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

@@ -1,7 +1,7 @@
 image:
-  repository: jlongster/actual-server
+  repository: ghcr.io/actualbudget/actual-server
   pullPolicy: IfNotPresent
-  tag: 23.10.0@sha256:43f321864f98e7b9759507853e0e64908bb844305bbe72a3ffc893c42b962495
+  tag: 23.12.0@sha256:401774fad59c694946ba552763f52b725d4b2946f83f433191a26c30487e75b2
 securityContext:
   container:
     readOnlyRootFilesystem: false

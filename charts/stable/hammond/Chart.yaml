@@ -1,31 +1,32 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: hammond
-version: 6.0.9
+version: 6.0.10
 appVersion: 1.0.0
-description: A self-hosted vehicle expense tracking system with support for multiple
+description:
+  A self-hosted vehicle expense tracking system with support for multiple
   users.
 home: https://truecharts.org/charts/stable/hammond
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/hammond.png
 deprecated: false
 sources:
-- https://github.com/akhilrex/hammond
-- https://github.com/truecharts/charts/tree/master/charts/stable/hammond
-- https://hub.docker.com/r/akhilrex/hammond
+  - https://github.com/akhilrex/hammond
+  - https://github.com/truecharts/charts/tree/master/charts/stable/hammond
+  - https://hub.docker.com/r/akhilrex/hammond
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- hammond
+  - hammond
 dependencies:
-- name: common
-  version: 14.3.5
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.3.5
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

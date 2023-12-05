@@ -1,31 +1,31 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: qflood
-version: 2.0.15
+version: 2.0.16
 appVersion: latest
 description: Chart with qBittorrent and the Flood UI.
 home: https://truecharts.org/charts/incubator/qflood
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/qflood.png
 deprecated: false
 sources:
-- https://hotio.dev/containers/qflood
-- https://github.com/truecharts/charts/tree/master/charts/incubator/qflood
-- https://github.com/truecharts/containers/tree/master/mirrorqflood
+  - https://hotio.dev/containers/qflood
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/qflood
+  - https://github.com/truecharts/containers/tree/master/mirrorqflood
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- qflood
-- Downloaders
+  - qflood
+  - Downloaders
 dependencies:
-- name: common
-  version: 11.1.2
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 11.1.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

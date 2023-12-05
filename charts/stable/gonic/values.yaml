@@ -24,7 +24,7 @@ workload:
             GONIC_LISTEN_ADDR: ":{{ .Values.service.main.ports.main.port }}"
             GONIC_DB_PATH: "{{ .Values.persistence.data.mountPath }}/gonic.db"
             GONIC_CACHE_PATH: "{{ .Values.persistence.cache.mountPath }}"
-            GONIC_PLAYLISTS_PATH : "{{ .Values.persistence.playlists.mountPath }}"
+            GONIC_PLAYLISTS_PATH: "{{ .Values.persistence.playlists.mountPath }}"
             GONIC_PODCAST_PATH: "{{ .Values.persistence.podcast.mountPath }}"
             GONIC_MUSIC_PATH: "{{ .Values.persistence.music.mountPath }}"
 

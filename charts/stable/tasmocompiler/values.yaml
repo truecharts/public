@@ -1,0 +1,23 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/tasmocompiler
+  tag: latest@sha256:506e9f54b21eaeca6eb7a5cfdef32640592ad2b05289a2c8b7a32338d8d9ee38
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 14003
+        protocol: http
+        targetPort: 3000
+
+portal:
+  open:
+    enabled: true

@@ -1,9 +1,10 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: moviegrabber
-version: 2.0.10
+version: 2.0.11
 appVersion: latest
-description: MovieGrabber is a fully automated way of downloading movie from usenet,
+description:
+  MovieGrabber is a fully automated way of downloading movie from usenet,
   it supports any nzb client that has a "watched" or "monitor" folder facility such
   as Sabnzbd+, Grabit and Newsbin. MovieGrabber works by checking imdb for matching
   criteria and if a match is found the nzb will be downloaded and stored in either
@@ -13,26 +14,26 @@ home: https://truecharts.org/charts/incubator/moviegrabber
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/moviegrabber.png
 deprecated: false
 sources:
-- https://github.com/binhex/documentation
-- https://github.com/binhex/moviegrabber
-- https://registry.hub.docker.com/r/binhex/arch-moviegrabber/
-- https://github.com/truecharts/charts/tree/master/charts/incubator/moviegrabber
-- https://github.com/truecharts/containers/tree/master/mirrormoviegrabber
+  - https://github.com/binhex/documentation
+  - https://github.com/binhex/moviegrabber
+  - https://registry.hub.docker.com/r/binhex/arch-moviegrabber/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/moviegrabber
+  - https://github.com/truecharts/containers/tree/master/mirrormoviegrabber
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- moviegrabber
-- Downloaders
+  - moviegrabber
+  - Downloaders
 dependencies:
-- name: common
-  version: 11.1.2
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 11.1.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4
