@@ -10,7 +10,7 @@ deprecated: false
 sources:
   - https://github.com/ShaneIsrael/fireshare
   - https://github.com/truecharts/charts/tree/master/charts/incubator/fireshare
-  - https://github.com/truecharts/containers/tree/master/mirrorfireshare
+  - https://hub.docker.com/r/shaneisrael/fireshare
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -18,13 +18,13 @@ maintainers:
 keywords:
   - fireshare
 dependencies:
-- name: common
-  version: 15.3.1
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 15.3.1
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4
