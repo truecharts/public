@@ -236,48 +236,48 @@ questions:
 
   - variable: schedules
     group: "App Configuration"
-     label: "Pre-Defined Backup Schedules"
-     schema:
-       type: dict
-       additional_attrs: true
-       attrs:
-         - variable: default
-            label: "Default Schedule"
-            schema:
-              type: dict
-              additional_attrs: true
-              attrs:
-                - variable: disabled
-                  label: "disabled"
-                  schema:
-                    type: boolean
-                    default: true
-                - variable: schedule
-                  label: "schedule"
-                  schema:
-                    type: string
-                    required: true
-                    default: ""
-                - variable: useOwnerReferencesInBackup
-                  label: "useOwnerReferencesInBackup"
-                  schema:
-                    type: boolean
-                    default: false
-                - variable: template
-                  label: template
-                  schema:
-                    additional_attrs: true
-                    type: dict
-                    attrs:
-                      - variable: ttl
-                        label: "ttl"
-                        schema:
-                          type: string
-                          required: true
-                          default: "240h"
-                      - variable: storageLocation
-                        label: "storageLocation"
-                        schema:
-                          type: string
-                          required: true
-                          default: "default"
+    label: "Pre-Defined Backup Schedules"
+    schema:
+      type: dict
+      additional_attrs: true
+      attrs:
+        - variable: default
+           label: "Default Schedule"
+           schema:
+             type: dict
+             additional_attrs: true
+             attrs:
+               - variable: disabled
+                 label: "disabled"
+                 schema:
+                   type: boolean
+                   default: true
+               - variable: schedule
+                 label: "schedule"
+                 schema:
+                   type: string
+                   required: true
+                   default: ""
+               - variable: useOwnerReferencesInBackup
+                 label: "useOwnerReferencesInBackup"
+                 schema:
+                   type: boolean
+                   default: false
+               - variable: template
+                 label: template
+                 schema:
+                   additional_attrs: true
+                   type: dict
+                   attrs:
+                     - variable: ttl
+                       label: "ttl"
+                       schema:
+                         type: string
+                         required: true
+                         default: "240h"
+                     - variable: storageLocation
+                       label: "storageLocation"
+                       schema:
+                         type: string
+                         required: true
+                         default: "default"
