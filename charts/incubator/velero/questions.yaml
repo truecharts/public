@@ -1,3 +1,283 @@
 # Include{groups}
 questions:
 # Include{global}
+
+  - variable: backupStorageLocationList
+    group: "App Configuration"
+    label: "Backup Storage Locations"
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: bslEntry
+          label: "Backup Storage Location"
+          schema:
+            type: dict
+            additional_attrs: true
+            attrs:
+              - variable: name
+                label: "Name"
+                schema:
+                  type: string
+                  required: true
+                  default: "default"
+              - variable: provider
+                label: "Provider"
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: accessMode
+                label: "accessMode"
+                schema:
+                  type: string
+                  required: true
+                  default: "ReadWrite"
+              - variable: objectStorage
+                label: objectStorage
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: bucket
+                      label: "bucket"
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: prefix
+                      label: "prefix"
+                      schema:
+                        type: string
+                        default: ""
+              - variable: credential
+                label: credential
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: aws
+                      label: aws
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: id
+                            label: "id"
+                            schema:
+                              type: string
+                              default: ""
+                          - variable: key
+                            label: "key"
+                            schema:
+                              type: string
+                              default: ""
+                    - variable: s3
+                      label: s3
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: id
+                            label: "id"
+                            schema:
+                              type: string
+                              default: ""
+                          - variable: key
+                            label: "key"
+                            schema:
+                              type: string
+                              default: ""
+              - variable: config
+                label: config
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: region
+                      label: "region"
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: s3ForcePathStyle
+                      label: "s3ForcePathStyle"
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: s3Url
+                      label: "s3Url"
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: kmsKeyId
+                      label: "kmsKeyId"
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: resourceGroup
+                      label: "resourceGroup"
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: storageAccount
+                      label: "storageAccount"
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: publicUrl
+                      label: "publicUrl"
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: insecureSkipTLSVerify
+                      label: "insecureSkipTLSVerify"
+                      schema:
+                        type: string
+                        default: ""
+  - variable: volumeSnapshotLocationList
+    group: "App Configuration"
+    label: "volume Snapshot Locations"
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: vslEntry
+          label: "volume Snapshot Location"
+          schema:
+            type: dict
+            additional_attrs: true
+            attrs:
+              - variable: name
+                label: "Name"
+                schema:
+                  type: string
+                  required: true
+                  default: "default"
+              - variable: provider
+                label: "Provider"
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: credential
+                label: credential
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: aws
+                      label: aws
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: id
+                            label: "id"
+                            schema:
+                              type: string
+                              default: ""
+                          - variable: key
+                            label: "key"
+                            schema:
+                              type: string
+                              default: ""
+                    - variable: s3
+                      label: s3
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: id
+                            label: "id"
+                            schema:
+                              type: string
+                              default: ""
+                          - variable: key
+                            label: "key"
+                            schema:
+                              type: string
+                              default: ""
+              - variable: config
+                label: config
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: region
+                      label: "region"
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: apiTimeout
+                      label: "apiTimeout"
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: resourceGroup
+                      label: "resourceGroup"
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: incremental
+                      label: "incremental"
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: snapshotLocation
+                      label: "snapshotLocation"
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: project
+                      label: "project"
+                      schema:
+                        type: string
+                        default: ""
+
+  - variable: schedules
+    group: "App Configuration"
+    label: "Pre-Defined Backup Schedules"
+    schema:
+      type: dict
+      additional_attrs: true
+      attrs:
+        - variable: default
+          label: "Default Schedule"
+          schema:
+            type: dict
+            additional_attrs: true
+            attrs:
+              - variable: disabled
+                label: "disabled"
+                schema:
+                  type: boolean
+                  default: true
+              - variable: schedule
+                label: "schedule"
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: useOwnerReferencesInBackup
+                label: "useOwnerReferencesInBackup"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: template
+                label: template
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: ttl
+                      label: "ttl"
+                      schema:
+                        type: string
+                        required: true
+                        default: "240h"
+                    - variable: storageLocation
+                      label: "storageLocation"
+                      schema:
+                        type: string
+                        required: true
+                        default: "default"

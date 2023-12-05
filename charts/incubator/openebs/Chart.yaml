@@ -1,14 +1,14 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
-name: velero
-version: 0.1.0
+name: openebs
+version: 0.0.1
 appVersion: latest
-description: Velero is a kubernetes-native backup solution
-home: https://truecharts.org/charts/incubator/velero
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/velero.png
+description: OpenEBS is a umbrella container storage provisioner
+home: https://truecharts.org/charts/incubator/openebs
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/openebs.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/velero
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/openebs
   - https://github.com/truecharts/containers/tree/master/mirroralpine
   - https://github.com/cert-manager
   - https://cert-manager.io/
@@ -17,7 +17,7 @@ maintainers:
     email: info@truecharts.org
     url: https://truecharts.org
 keywords:
-  - velero
+  - openebs
   - backup
 dependencies:
   - name: common
@@ -27,18 +27,18 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
-  - name: velero
-    version: 5.1.4
-    repository: https://vmware-tanzu.github.io/helm-charts
+  - name: openebs
+    version: 3.9.0
+    repository: https://openebs.github.io/charts
     condition: ""
-    alias: velero
+    alias: openebs
     tags: []
     import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4
   truecharts.org/SCALE-support: "true"
-  truecharts.org/category: operators
+  truecharts.org/category: CSI
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
