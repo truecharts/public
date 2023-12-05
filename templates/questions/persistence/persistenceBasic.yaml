@@ -13,6 +13,8 @@
                       description: emptyDir
                     - value: nfs
                       description: NFS Share
+                    - value: iscsi
+                      description: iSCSI Share
               - variable: server
                 label: NFS Server
                 schema:
@@ -25,6 +27,83 @@
                   show_if: [["type", "=", "nfs"]]
                   type: string
                   default: ""
+              - variable: iscsi
+                label: iSCSI Options
+                schema:
+                  show_if: [["type", "=", "iscsi"]]
+                  type: dict
+                  additional_attrs: true
+                  attrs:
+                    - variable: targetPortal
+                      label: targetPortal
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: iqn
+                      label: iqn
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: lun
+                      label: lun
+                      schema:
+                        type: int
+                        default: 0
+                    - variable: authSession
+                      label: authSession
+                      schema:
+                        type: dict
+                        additional_attrs: true
+                        attrs:
+                          - variable: username
+                            label: username
+                            schema:
+                              type: string
+                              default: ""
+                          - variable: password
+                            label: password
+                            schema:
+                              type: string
+                              default: ""
+                          - variable: usernameInitiator
+                            label: usernameInitiator
+                            schema:
+                              type: string
+                              default: ""
+                          - variable: passwordInitiator
+                            label: passwordInitiator
+                            schema:
+                              type: string
+                              default: ""
+                    - variable: authDiscovery
+                      label: authDiscovery
+                      schema:
+                        type: dict
+                        additional_attrs: true
+                        attrs:
+                          - variable: username
+                            label: username
+                            schema:
+                              type: string
+                              default: ""
+                          - variable: password
+                            label: password
+                            schema:
+                              type: string
+                              default: ""
+                          - variable: usernameInitiator
+                            label: usernameInitiator
+                            schema:
+                              type: string
+                              default: ""
+                          - variable: passwordInitiator
+                            label: passwordInitiator
+                            schema:
+                              type: string
+                              default: ""
+
               - variable: autoPermissions
                 label: Automatic Permissions Configuration
                 description: Automatically set permissions
@@ -117,7 +196,7 @@
                         type: string
                         default: "disabled"
                         enum:
-                          - value: "disabled"
+                          - value: disabled
                             description: disabled
                           - value: smb
                             description: smb
