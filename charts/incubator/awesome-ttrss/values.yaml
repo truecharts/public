@@ -1,5 +1,5 @@
 image:
-  repository: tccr.io/truecharts/awesome-ttrss
+  repository: wangqiru/ttrss
   pullPolicy: IfNotPresent
   tag: latest@sha256:b883ac1dad416ecf17cb351f641497348912e9790c3600f36bdd4436c5872b14
 
@@ -20,8 +20,14 @@ workload:
             DB_NAME: "{{ .Values.cnpg.main.database }}"
             DB_USER: "{{ .Values.cnpg.main.user }}"
             DB_PORT: "5432"
-            DB_PASS: "{{ .Values.cnpg.main.creds.password | trimAll "\"" }}"
-            DB_HOST: "{{ .Values.cnpg.main.creds.host | trimAll "\"" }}"
+            DB_PASS:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            DB_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
 
 service:
   main:
