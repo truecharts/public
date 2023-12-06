@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/dispatch
-  tag: latest@sha256:0ea60949d08782fd3d2f117e1f7b01111b03f7bfcc5cf03b3faa986be96e70de
+  repository: khlieng/dispatch
+  tag: latest@sha256:ce0742333e09ff22a4377f741621274010010138e2a33dfb535fe0be2304495d
 persistence:
   data:
     enabled: true
@@ -28,6 +28,5 @@ service:
         port: 8000
         protocol: HTTP
         targetPort: 80
-
 portal:
   enabled: true

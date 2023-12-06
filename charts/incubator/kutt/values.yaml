@@ -1,16 +1,13 @@
 image:
-  repository: tccr.io/truecharts/kutt
+  repository: kutt/kutt
   pullPolicy: IfNotPresent
-  tag: v2.7.4@sha256:abd3d365db5416e009f532c50456cacbd1f93c8a2eb9ef9da468e383dc4a49c6
-
+  tag: v2.7.4@sha256:340fae3678e5f9ba6b40761d72e5c6992331bef678b5a0fcc8afea83ab735f41
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 secretEnv:
   MAIL_USER: ""
   MAIL_PASSWORD: ""
@@ -19,7 +16,6 @@ secretEnv:
   GOOGLE_SAFE_BROWSING_KEY: ""
   GOOGLE_ANALYTICS: ""
   GOOGLE_ANALYTICS_UNIVERSAL: ""
-
 env:
   PORT: "{{ .Values.service.main.ports.main.port }}"
   DB_NAME: kutt
@@ -63,24 +59,20 @@ env:
     secretKeyRef:
       name: kutt-secrets
       key: JWT_SECRET
-
 service:
   main:
     ports:
       main:
         port: 10195
-
 # Enabled redis
 redis:
   enabled: true
   existingSecret: "rediscreds"
-
 # Enabled postgres
 postgresql:
   enabled: true
   existingSecret: "dbcreds"
   postgresqlUsername: kutt
   postgresqlDatabase: kutt
-
 portal:
   enabled: true

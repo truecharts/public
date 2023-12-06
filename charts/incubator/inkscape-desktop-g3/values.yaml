@@ -3,8 +3,8 @@ env:
   VNC_RESOLUTION: 1360x768
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/inkscape-desktop-g3
-  tag: latest@sha256:3e7237c826cee44664b5217b314df13fce74f7548a513730f0d96e4bf88b2baf
+  repository: accetto/ubuntu-vnc-xfce-inkscape-g3
+  tag: latest@sha256:afc72ec33a515ef5f1f4cee00173c7508a5abbce14f10a8b20c9525bf2523046
 persistence:
   internalshare:
     enabled: true
@@ -30,6 +30,5 @@ service:
         port: 5901
         protocol: TCP
         targetPort: 5901
-
 portal:
   enabled: true

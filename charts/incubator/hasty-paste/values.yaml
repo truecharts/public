@@ -2,7 +2,6 @@ image:
   repository: ghcr.io/enchant97/hasty-paste
   pullPolicy: IfNotPresent
   tag: 1.9.0@sha256:fbbb670ac9b201bf0a47feaa7b1588b5b5c4657bbf49518f9534f12e8e80ce3d
-
 hastyPaste:
   new_at_index: false
   enable_public_list: false
@@ -22,57 +21,47 @@ hastyPaste:
     favicon: ""
     css_file: ""
     hide_version: false
-
-workload:
-  main:
-    podSpec:
-      containers:
-        main:
-          envFrom:
-            - secretRef:
-                name: "hastypaste-secrets"
-          probes:
-            liveness:
-              enabled: true
-              custom: true
-              spec:
-                exec:
-                  command:
-                    - /bin/sh
-                    - health-check.sh
-            readiness:
-              enabled: true
-              custom: true
-              spec:
-                exec:
-                  command:
-                    - /bin/sh
-                    - health-check.sh
-            startup:
-              enabled: true
-              custom: true
-              spec:
-                exec:
-                  command:
-                    - /bin/sh
-                    - health-check.sh
-
+envFrom:
+  - secretRef:
+      name: '{{ include "tc.common.names.fullname" . }}-secret'
+probes:
+  liveness:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - /bin/sh
+          - health-check.sh
+  readiness:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - /bin/sh
+          - health-check.sh
+  startup:
+    enabled: true
+    custom: true
+    spec:
+      exec:
+        command:
+          - /bin/sh
+          - health-check.sh
 service:
   main:
     ports:
       main:
-        protocol: http
+        protocol: HTTP
         port: 10601
-
 persistence:
   config:
     enabled: true
     mountPath: /app/data
-
 redis:
   enabled: true
-  username: default
-
+  existingSecret: rediscreds
+  redisUsername: default
 portal:
-  open:
-    enabled: true
+  enabled: true

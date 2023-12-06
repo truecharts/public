@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/hassconfigurator
-  tag: vx86_64@sha256:bf9faaba154bab91e5ac7c1908586381bcce706d0ec521678596da290946e641
+  repository: causticlab/hass-configurator-docker
+  tag: x86_64@sha256:45a5a0527ca10da5744bbcf3a7909a0b77ae583e97fe0d28d0e5a8d50aa37689
 persistence:
   config:
     enabled: true
@@ -23,6 +23,5 @@ service:
         port: 3218
         protocol: TCP
         targetPort: 3218
-
 portal:
   enabled: true

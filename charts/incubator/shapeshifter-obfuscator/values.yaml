@@ -1,11 +1,9 @@
 env:
-  ARGS:
-    -transparent -server -state state -orport 127.0.0.1:3333 -transports obfs4
-    -bindaddr obfs4-0.0.0.0:2222 -logLevel DEBUG -enableLogging
+  ARGS: -transparent -server -state state -orport 127.0.0.1:3333 -transports obfs4 -bindaddr obfs4-0.0.0.0:2222 -logLevel DEBUG -enableLogging
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/shapeshifter-obfuscator
-  tag: latest@sha256:46a9873c9e1e36a4d43deb16fe3dc4425630d1dab9b3caf49de3d122133e87f9
+  repository: juchong/shapeshifter-docker
+  tag: latest@sha256:2063b82d7af6b43f9f175e9fc213ba2c1558278a9e12ac2e6620a3b4a5250a60
 persistence:
   config:
     enabled: true
@@ -23,6 +21,5 @@ service:
         port: 2222
         protocol: TCP
         targetPort: 2222
-
 portal:
   enabled: true

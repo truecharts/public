@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/passwordpusherephemeral
-  tag: latest@sha256:46c1c3a3f8d30ddcc23159a9db175ee3c1a402beb0e6fff84aa243283c5be58a
+  repository: pglombardo/pwpush-ephemeral
+  tag: latest@sha256:a5755796d23fd041b3ddd1a1855ca4557c3d627ac5367002c5a26c87084d018d
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -23,6 +23,5 @@ service:
     ports:
       main:
         enabled: false
-
 portal:
   enabled: false

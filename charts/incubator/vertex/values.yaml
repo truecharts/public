@@ -2,8 +2,8 @@ env:
   PORT: "3000"
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/vertex
-  tag: vstable@sha256:68f4de69e2ca91b954a23ad710c4891a285db99cd038acaecbe102e74924737f
+  repository: lswl/vertex
+  tag: stable@sha256:ec66a274e9b47d914049cef4dbc7a10e9adff1103618aa8f021cef006952387c
 persistence:
   config:
     enabled: true
@@ -21,6 +21,5 @@ service:
         port: 3000
         protocol: TCP
         targetPort: 3000
-
 portal:
   enabled: true

@@ -2,8 +2,8 @@ env:
   SONAR_ES_BOOTSTRAP_CHECKS_DISABLE: "true"
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/sonarqube
-  tag: latest@sha256:f7adcfe2fd47ddda0265cff26a7ea3acfd3fb809293a2a15dada69b128766a58
+  repository: sonarqube
+  tag: latest@sha256:f9c80d23949c3796e7c1e582b82b100e34642dcffbc4985b9d456d1cf1e166fb
 persistence:
   data:
     enabled: true
@@ -27,6 +27,5 @@ service:
         port: 9000
         protocol: TCP
         targetPort: 9000
-
 portal:
   enabled: true

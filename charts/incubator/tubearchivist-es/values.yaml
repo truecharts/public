@@ -5,8 +5,8 @@ env:
   xpack.security.enabled: "true"
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/tubearchivist-es
-  tag: latest@sha256:6d14b76f71ec7d2b90a85e2f340ea947f531b2bf2903b03d35f4801eb757e4d5
+  repository: bbilly1/tubearchivist-es
+  tag: latest@sha256:2ed1d6881b5b846cb02559ba35ea4351b45ac8809bfb00681151a92cedf24cf0
 persistence:
   data:
     enabled: true
@@ -24,6 +24,5 @@ service:
         port: 9200
         protocol: TCP
         targetPort: 9200
-
 portal:
   enabled: true

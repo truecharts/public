@@ -4,8 +4,8 @@ env:
   SECURE_MODE: "true"
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/pure-ftpd
-  tag: latest@sha256:b54f029edd47df49e7af29ea5cf259467328b0495fceb3ae5f274224a34a9812
+  repository: crazymax/pure-ftpd
+  tag: latest@sha256:f505247fa1fc26efc46f24bd9f8aa45c45dee3afb458252097c90c0e2ae47b6a
 persistence:
   data:
     enabled: true
@@ -34,6 +34,5 @@ service:
         port: 30000
         protocol: TCP
         targetPort: 30000
-
 portal:
   enabled: true

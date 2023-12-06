@@ -1,26 +1,21 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/arma3
-  tag: latest@sha256:5ef762acb4ff24f1f2e2c6069064336bda4fd8505ee4de3f9df8a2bf867c3f54
-
+  repository: ich777/steamcmd
+  tag: arma3@sha256:2ba70991d7a3ecf358ac708f2cee326c9bbf34666d1a5b8794ec1ce4ccf30add
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 secretEnv:
   USERNAME: ""
   PASSWRD: ""
-
 env:
   GAME_ID: "233780"
   GAME_PARAMS: -config=server.cfg -mod=
   GAME_PORT: "2302"
   VALIDATE: false
-
 service:
   main:
     ports:
@@ -68,7 +63,6 @@ service:
         port: 2305
         protocol: UDP
         targetPort: 2305
-
 persistence:
   profiles:
     enabled: true
@@ -79,6 +73,5 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-
 portal:
   enabled: true

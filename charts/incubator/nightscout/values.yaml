@@ -13,8 +13,8 @@ env:
   TIME_FORMAT: "24"
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/nightscout
-  tag: latest@sha256:03d918c83e70f2c9f42f8ba9a7cf08c6d6ec398c35fda6d719895ea59c4b17dc
+  repository: nightscout/cgm-remote-monitor-travis
+  tag: latest@sha256:3ace874753e834b9c9b8a242df67f86329b04a3a48584452ae45207bfbfdb271
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -29,6 +29,5 @@ service:
         port: 1337
         protocol: TCP
         targetPort: 1337
-
 portal:
   enabled: true

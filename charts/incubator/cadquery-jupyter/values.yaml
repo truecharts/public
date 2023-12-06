@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/cadquery-jupyter
-  tag: 3.4.0@sha256:1fad7b53f0b220282b478e70ef2a41e13a886cb4330de17fcab53c56fc29318b
+  repository: bwalter42/jupyter_cadquery
+  tag: 3.5.2@sha256:4480a823e53a2c8a4e86d37d16bd6d28343bb8e3fbd6a4890f66971297b58712
 persistence:
   workdir:
     enabled: true
@@ -20,6 +20,5 @@ service:
         port: 8888
         protocol: TCP
         targetPort: 8888
-
 portal:
   enabled: true

@@ -1,23 +1,18 @@
 image:
-  repository: tccr.io/truecharts/upsnap
+  repository: ghcr.io/seriousm4x/upsnap
   pullPolicy: IfNotPresent
-  tag: 3.0.6@sha256:7d116a07c590535dcd4390ad73dc469e6f0b1aefb67241e7ac1ab140943e7f7a
-
+  tag: 4.1.3@sha256:6096ac8133f458dc572dbd53892514928a4649669d92d23511923398287da67c
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 hostNetwork: true
-
 env:
   UPSNAP_INTERVAL: "@every 10s"
   UPSNAP_SCAN_RANGE: 192.168.1.0/24
   UPSNAP_WEBSITE_TITLE: Truecharts WOL
-
 service:
   main:
     ports:
@@ -25,11 +20,9 @@ service:
         protocol: HTTP
         targetPort: 8090
         port: 10611
-
 persistence:
   data:
     enabled: true
     mountPath: /app/pb_data
-
 portal:
   enabled: true

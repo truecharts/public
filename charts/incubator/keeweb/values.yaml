@@ -1,16 +1,13 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/keeweb
-  tag: latest@sha256:0a32848c665a36a3c3e06fd97fa6cc2b929aaa158677344f24c8ce369b780f3b
-
+  repository: antelle/keeweb
+  tag: latest@sha256:8ff5e10baa2ca50967964bf26af41461da79ef62a481094a00f75726623bcb36
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 service:
   main:
     ports:
@@ -26,15 +23,12 @@ service:
         port: 8004
         protocol: HTTP
         targetPort: 80
-
 ingress:
   http:
     autoLink: true
-
 persistence:
   nginx:
     enabled: true
     mountPath: /etc/nginx/external
-
 portal:
   enabled: true

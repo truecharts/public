@@ -10,8 +10,8 @@ env:
   REDIS_PORT: "6379"
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/send
-  tag: latest@sha256:ec1e55d4837c3a7fdb59ca2745af4afa1c981663e7d31b7a10c915d8acc02e63
+  repository: registry.gitlab.com/timvisee/send
+  tag: latest@sha256:1ee495161f176946e6e4077e17be2b8f8634c2d502172cc530a8cd5affd7078f
 persistence:
   uploadpath:
     enabled: true
@@ -29,6 +29,5 @@ service:
         port: 1443
         protocol: TCP
         targetPort: 1443
-
 portal:
   enabled: true

@@ -4,8 +4,8 @@ env:
   WEBPAGE_TITLE: Preclear
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/preclear
-  tag: latest@sha256:fb644c7077f2a60d3bb6a5d7840a05b55de313205acec1ff7c4db372bc314bc3
+  repository: binhex/arch-preclear
+  tag: latest@sha256:82337527bb2156499e30da7e6e664c1bf15d449d2ab6527ae2afc6f1c4fd3b85
 persistence:
   config:
     enabled: true
@@ -23,6 +23,5 @@ service:
         port: 6080
         protocol: TCP
         targetPort: 6080
-
 portal:
   enabled: true

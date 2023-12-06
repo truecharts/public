@@ -1,29 +1,24 @@
 image:
-  repository: tccr.io/truecharts/darktable
+  repository: ghcr.io/linuxserver/darktable
   pullPolicy: IfNotPresent
-  tag: 3.8.1@sha256:303953399154301218508720dc1c33abf596e0660e57d79ab62bc11cc5276554
-
+  tag: 4.0.1@sha256:6eb90ef1c49216f8734ee488d2bd243b1cda406a9b86d15913cc84b2e7917911
 securityContext:
   runAsNonRoot: false
   readOnlyRootFilesystem: false
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 service:
   main:
     ports:
       main:
         targetPort: 3000
         port: 10129
-
 persistence:
   config:
     enabled: true
     mountPath: "/config"
   varrun:
     enabled: true
-
 portal:
   enabled: true

@@ -3,8 +3,8 @@ env:
   VNC_RESOLUTION: 1360x768
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/blender-desktop-g3
-  tag: latest@sha256:c9c2454cccff577073fa2503b328b8fcd96d06cec9c2c14b33aefb9c73b532c2
+  repository: accetto/ubuntu-vnc-xfce-blender-g3
+  tag: latest@sha256:3abe4b78b2365ee1048f55a5b71844c8a4fc53c7f0455217de24f67792dd58c0
 persistence:
   internalshare:
     enabled: true
@@ -33,6 +33,5 @@ service:
         port: 5901
         protocol: TCP
         targetPort: 5901
-
 portal:
   enabled: true

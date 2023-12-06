@@ -3,8 +3,8 @@ env:
   DISPLAY_WIDTH: 1440|1680
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/btdex
-  tag: latest@sha256:a96f96ce9cbcb880cf9f6380d5bf5a289e8e4955eb5ab719b897200fb3b47fe7
+  repository: furritos/docker-btdex
+  tag: latest@sha256:71ea137523fff87f9644b1c98290c11c64425f777957811b37a109f65b85f4ff
 persistence:
   btdex:
     enabled: true
@@ -22,6 +22,5 @@ service:
         port: 5800
         protocol: TCP
         targetPort: 8080
-
 portal:
   enabled: true

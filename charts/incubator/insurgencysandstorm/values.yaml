@@ -1,20 +1,16 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/insurgencysandstorm
-  tag: latest@sha256:aa9fe6535aa5f745e74c3b6a1eaf31624fc5fa4d392bce3814325dd3383be813
-
+  repository: ich777/steamcmd
+  tag: insurgencysandstorm@sha256:b20655466dd588939e512afbee11535fc715a2f7036639b220a29c4fbbe25270
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 secretEnv:
   USERNAME: ""
   PASSWRD: ""
-
 env:
   GAME_ID: "581330"
   GAME_PARAMS: Oilfield?Scenario=Scenario_Refinery_Push_Security?MaxPlayers=28?Password=Docker
@@ -22,7 +18,6 @@ env:
   QUERY_PORT: "27131"
   SERVER_NAME: DockerServer
   VALIDATE: false
-
 probes:
   liveness:
     enabled: false
@@ -30,7 +25,6 @@ probes:
     enabled: false
   startup:
     enabled: false
-
 service:
   main:
     ports:
@@ -46,7 +40,6 @@ service:
         port: 27131
         protocol: UDP
         targetPort: 27131
-
 persistence:
   serverfiles:
     enabled: true
@@ -54,6 +47,5 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-
 portal:
   enabled: true

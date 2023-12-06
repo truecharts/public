@@ -6,8 +6,8 @@ env:
   REDDIT_REDIRECT: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/troddit
-  tag: latest@sha256:70c5c0368237d387f9f4a9d47eef1caf61f8d8f307416d0d3344845cff0f38c4
+  repository: bsyed/troddit
+  tag: latest@sha256:22b590565be2710ca58573b096cc3c66054be1fe859eed0563e31140646b8632
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -22,6 +22,5 @@ service:
         port: 3000
         protocol: TCP
         targetPort: 3000
-
 portal:
   enabled: true

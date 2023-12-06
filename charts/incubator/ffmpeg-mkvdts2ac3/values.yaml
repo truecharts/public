@@ -5,8 +5,8 @@ env:
   script: encode.sh
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/ffmpeg-mkvdts2ac3
-  tag: latest@sha256:f4252dd1c9e040c7c464da738f3a82a5532aee41cefac3b71b6a0aca39f5bc2f
+  repository: snoopy86/ffmpeg
+  tag: latest@sha256:4d2695ffee46787cd39a222dbc7c8a42c5d4a1a2dd976d4e23bea00470ac55c9
 persistence:
   config:
     enabled: true
@@ -39,6 +39,5 @@ service:
     ports:
       main:
         enabled: false
-
 portal:
   enabled: false

@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/statping-ng
-  tag: v0.90.80@sha256:0d09f2177a0d7242ee72521d2eb31d93b5551cd9790030569befcc29c6f2aa2c
+  repository: quay.io/statping-ng/statping-ng
+  tag: v0.90.80@sha256:743bacfb03a6986390abeb404df6cf52769ea8783b0d50a0bfeef8a2ccb4e548
   pullPolicy: IfNotPresent
-
 statping:
   name: Statping
   description: This is a Statping instance deployed as Helm chart
@@ -18,7 +17,6 @@ statping:
   disable_colors: false
   remove_after: 2160h
   cleanup_interval: 1h
-
 env:
   DB_PASS:
     secretKeyRef:
@@ -28,17 +26,14 @@ env:
     secretKeyRef:
       name: dbcreds
       key: plainhost
-
 envFrom:
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-config'
-
 service:
   main:
     ports:
       main:
         port: 10099
-
 probes:
   liveness:
     path: /health
@@ -46,18 +41,15 @@ probes:
     path: /health
   startup:
     path: /health
-
 persistence:
   data:
     enabled: true
     mountPath: "/app"
-
 postgresql:
   enabled: true
   existingSecret: "dbcreds"
   postgresqlUsername: postgres
   postgresqlDatabase: postgres
-
 metrics:
   # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
   # @default -- See values.yaml
@@ -73,17 +65,15 @@ metrics:
     labels: {}
     # -- Configure additionial rules for the chart under this key.
     # @default -- See prometheusrules.yaml
-    rules:
-      []
-      # - alert: UnifiPollerAbsent
-      #   annotations:
-      #     description: Unifi Poller has disappeared from Prometheus service discovery.
-      #     summary: Unifi Poller is down.
-      #   expr: |
-      #     absent(up{job=~".*unifi-poller.*"} == 1)
-      #   for: 5m
-      #   labels:
-      #     severity: critical
-
+    rules: []
+    # - alert: UnifiPollerAbsent
+    #   annotations:
+    #     description: Unifi Poller has disappeared from Prometheus service discovery.
+    #     summary: Unifi Poller is down.
+    #   expr: |
+    #     absent(up{job=~".*unifi-poller.*"} == 1)
+    #   for: 5m
+    #   labels:
+    #     severity: critical
 portal:
   enabled: true

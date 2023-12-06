@@ -5,8 +5,8 @@ env:
   FORCE_UPDATE: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/rapidphotodownloader
-  tag: latest@sha256:3a2b224be749d658f9ea8af1e6697dd0a5424e7ee2f03f5dd6bdaa5b30dec954
+  repository: ich777/rapidphotodownloader
+  tag: latest@sha256:04dcb15e59b00316778be5eaaf72b0b3b1fdb3034b7a8102099427e686388b88
 persistence:
   datadir:
     enabled: true
@@ -30,6 +30,5 @@ service:
         port: 8080
         protocol: TCP
         targetPort: 8080
-
 portal:
   enabled: true

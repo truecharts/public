@@ -2,8 +2,8 @@ env:
   HOSTS: "['qemu:///system']"
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/virt-manager
-  tag: latest@sha256:ca140a089eb5717e4c65a6f981a3077e342bb92510def6a61a31b1018e03431e
+  repository: mber5/virt-manager
+  tag: latest@sha256:111674d877635e0f85baabfb202bba560e7ec5ccdf0d2f1ebcb48fc9c32bfd48
 persistence:
   devkvm:
     enabled: true
@@ -30,6 +30,5 @@ service:
         port: 8185
         protocol: TCP
         targetPort: 80
-
 portal:
   enabled: true

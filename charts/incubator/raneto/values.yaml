@@ -2,8 +2,8 @@ env:
   UMASK: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/raneto
-  tag: latest@sha256:281032b6273e4dbf61122d43b074f6552117851e6acc8f5978c323d5ba75b981
+  repository: lscr.io/linuxserver/raneto
+  tag: latest@sha256:d05248e2ab711bc155697e76823675ff44728e34900496e69b04c682630fd6f0
 persistence:
   config:
     enabled: true
@@ -21,6 +21,5 @@ service:
         port: 3000
         protocol: TCP
         targetPort: 3000
-
 portal:
   enabled: true

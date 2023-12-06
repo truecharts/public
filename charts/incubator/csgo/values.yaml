@@ -1,20 +1,16 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/csgo
-  tag: latest@sha256:6a408e0ee8048dfdd8b689c5e127c240af8466626aacc0d8fca2864bcf390ce5
-
+  repository: ich777/steamcmd
+  tag: latest@sha256:e5f6e2e3bf9486cbcf7f229e9198dc47d17f0eee0f1b073a07ccc7dce3c01578
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 secretEnv:
   USERNAME: ""
   PASSWRD: ""
-
 env:
   GAME_ID: "740"
   GAME_NAME: csgo
@@ -28,7 +24,6 @@ probes:
     port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
   startup:
     port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
-
 service:
   main:
     ports:
@@ -44,7 +39,6 @@ service:
         port: 27015
         protocol: TCP
         targetPort: 27015
-
 persistence:
   serverfiles:
     enabled: true
@@ -52,6 +46,5 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-
 portal:
   enabled: true

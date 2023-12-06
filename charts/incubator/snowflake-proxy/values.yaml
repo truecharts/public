@@ -1,14 +1,11 @@
 image:
-  repository: tccr.io/truecharts/snowflake-proxy
+  repository: thetorproject/snowflake-proxy
   pullPolicy: IfNotPresent
-  tag: 2.5.1@sha256:f6ae7a842d83767beef87961bd2086476731f9dde62c149a9a81fe1a96fed737
-
+  tag: v2.6.0@sha256:96a1e45e7b9fcc2bb2c0680990f42508b67d5e4f163d3c688d9db63761375d32
 podSecurityContext:
   runAsUser: 1000
   runAsGroup: 1000
-
 hostNetwork: true
-
 snowflake:
   allow_non_tls_relay: false
   allowed_relay_hostname_pattern: "snowflake.torproject.net$"
@@ -23,14 +20,12 @@ snowflake:
   unsafe_logging: false
   verbose: false
   log: ""
-
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-
 probes:
   liveness:
     custom: true
@@ -53,6 +48,5 @@ probes:
         command:
           - /bin/proxy
           - -version
-
 portal:
   enabled: false

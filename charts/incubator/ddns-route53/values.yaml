@@ -11,8 +11,8 @@ env:
   SCHEDULE: "*/30 * * * *"
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/ddns-route53
-  tag: latest@sha256:d359693feb2beaad4efa14046c4f811e31d2797781f81b4dd3505af5d5b60b7c
+  repository: crazymax/ddns-route53
+  tag: latest@sha256:59c370b600ccbdf853ddf74e8c115ffa7d986e7e47ae70cf829d2a67a4b0eb43
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -33,6 +33,5 @@ service:
     ports:
       main:
         enabled: false
-
 portal:
   enabled: false

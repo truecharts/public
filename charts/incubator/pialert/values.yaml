@@ -1,18 +1,14 @@
 image:
-  repository: tccr.io/truecharts/pialert
+  repository: jokobsk/pi.alert
   pullPolicy: IfNotPresent
-  tag: latest@sha256:8324b12ab2f575047a5a7dfba19807ffd542aba780bd9309a0030e18538104dd
-
+  tag: latest@sha256:7d88edb76d412162b3a743f6c4667c27d804c59f8f31cd229867750e89d5841c
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 hostNetwork: true
-
 pialert:
   general:
     dark_mode: true
@@ -23,10 +19,9 @@ pialert:
     days_to_keep_events: 90
     scan_cycle_minutes: 5
     included_sections: []
-    scan_subnets:
-      []
-      # - cidr: "192.168.1.0/24"
-      #   interface: eth0
+    scan_subnets: []
+    # - cidr: "192.168.1.0/24"
+    #   interface: eth0
   pushsafer:
     enabled: false
     token: ""
@@ -82,19 +77,16 @@ pialert:
     pihole_active: false
     # If enabled you need to map '/etc/pihole/dhcp.leases' with additional storage
     dhcp_active: false
-
 env:
   HOST_USER_ID: "{{ .Values.podSecurityContext.runAsUser }}"
   HOST_USER_GID: "{{ .Values.podSecurityContext.fsGroup }}"
   PORT: "{{ .Values.service.main.ports.main.port }}"
-
 service:
   main:
     ports:
       main:
         protocol: HTTP
         port: 10600
-
 persistence:
   config:
     enabled: true
@@ -107,7 +99,6 @@ persistence:
     noMount: true
     type: secret
     objectName: '{{ template "tc.common.names.fullname" . }}-secret'
-
 initContainers:
   init:
     image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -137,6 +128,5 @@ initContainers:
           echo "Dark mode file does not exist, no action is needed."
         fi
         {{- end }}
-
 portal:
   enabled: true

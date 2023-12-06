@@ -7,8 +7,8 @@ env:
   UMASK: "000"
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/quake3
-  tag: latest@sha256:87d69477136435b43f54cf111d13491cbee5de1a475fa25d0c63329d95d4a6f6
+  repository: ich777/quake3
+  tag: latest@sha256:a2e53d0992a72bb233b39d23cc7884c3e06a117088c45a6a3a1bada6e2f118ba
 persistence:
   serverfiles:
     enabled: true
@@ -33,6 +33,5 @@ service:
         port: 27960
         protocol: UDP
         targetPort: 27960
-
 portal:
   enabled: true

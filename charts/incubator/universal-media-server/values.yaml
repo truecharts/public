@@ -1,16 +1,13 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/universal-media-server
-  tag: latest@sha256:cd48900990f83a548eda4d38fbdb031d47a5afafca4855bcf2ed7e7970824dd2
-
+  repository: universalmediaserver/ums
+  tag: latest@sha256:a89ecfe325f57496a7f3b293e935142ed647ffd21f5def5dbe30eae5ec5ed3ec
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 service:
   main:
     ports:
@@ -34,7 +31,6 @@ service:
         port: 5001
         protocol: TCP
         targetPort: 5001
-
 persistence:
   config:
     enabled: true
@@ -42,6 +38,5 @@ persistence:
   media:
     enabled: true
     mountPath: /media
-
 portal:
   enabled: true

@@ -1,16 +1,13 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/rtmpserver
-  tag: latest@sha256:bfc85c58cc8cb8866774364af135c8fe3816ed26ee5c4ea182d28d2acf63c16e
-
+  repository: alqutami/rtmp-hls
+  tag: latest@sha256:5bf1d59f1e9e0b98233f2f9842a1cb98e6cc9b1a5e31208c8088fac202bb1d56
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 service:
   main:
     ports:
@@ -26,21 +23,16 @@ service:
         protocol: TCP
         targetPort: 1935
         port: 1935
-
 probes:
   liveness:
     path: /stats.html
-
   readiness:
     path: /stats.html
-
   startup:
     path: /stats.html
-
 ingress:
   rtmp:
     autoLink: true
-
 persistence:
   dash:
     enabled: true
@@ -48,6 +40,5 @@ persistence:
   hls:
     enabled: true
     mountPath: /mnt/hls
-
 portal:
   enabled: true

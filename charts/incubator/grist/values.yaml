@@ -1,16 +1,13 @@
 image:
-  repository: tccr.io/truecharts/grist
-  tag: 1.0.9@sha256:3542fcad8bb5ee5af2fd5e1c759396e8910f06fff44ace8161c315f935239a3a
+  repository: gristlabs/grist
+  tag: 1.1.7@sha256:4d65d9fb49ed725dd0f5f629afb4e57ffc4d782527db10a386a2730b444b4902
   pullPolicy: IfNotPresent
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 grist:
   domain: ""
   single_org: ""
@@ -41,13 +38,11 @@ grist:
     header: ""
     login_path: /auth/login
     logout_path: ""
-
 envFrom:
   - secretRef:
       name: '{{ include "tc.common.names.fullname" . }}-grist-secret'
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-grist-config'
-
 service:
   main:
     ports:
@@ -59,21 +54,17 @@ service:
       api:
         enabled: true
         port: 10164
-
 persistence:
   persist:
     enabled: true
     mountPath: "/persist"
-
 postgresql:
   enabled: true
   existingSecret: dbcreds
   postgresqlUsername: grist
   postgresqlDatabase: grist
-
 redis:
   enabled: true
   existingSecret: rediscreds
-
 portal:
   enabled: true

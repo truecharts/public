@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/mediagoblin
-  tag: latest@sha256:5e5ab6e7c104861025014ff5b45c0b819b20d04ce097b160078da824b6fd8e02
+  repository: mtlynch/mediagoblin
+  tag: latest@sha256:071a7c0650309c65de3bff11229475c031f7fe3ece183d3d6e17cd4506538f2a
 persistence:
   appdata:
     enabled: true
@@ -20,6 +20,5 @@ service:
         port: 6543
         protocol: TCP
         targetPort: 6543
-
 portal:
   enabled: true

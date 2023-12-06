@@ -1,29 +1,23 @@
 image:
-  repository: tccr.io/truecharts/docspell-server
-  tag: 0.39.0@sha256:6be2d908859d94942f835c22a0e88b729cdbe82a5e7a819fb54c82644861c161
+  repository: docspell/restserver
+  tag: v0.40.0@sha256:3495d25517e3aa2db8e1ea76bc9f6dad04598e9c6ad59acf2223cacc9493c53b
   pullPolicy: IfNotPresent
-
 joexImage:
-  repository: tccr.io/truecharts/docspell-joex
-  tag: 0.39.0@sha256:5cec5e248a4a099fbf01145275fa993a163763509af148aa321fe933917549a9
+  repository: docspell/joex
+  tag: v0.40.0@sha256:09cb3b82f596cfa1999228a4ded65c53a749879c1923a438a7b6961167212930
   pullPolicy: IfNotPresent
-
 dscImage:
-  repository: tccr.io/truecharts/docspell-dsc
-  tag: v0.9.0@sha256:829b2bc83fdfddc8127baef5b1149d96dcf0d5ca93f210fcf1344899c36b400e
+  repository: docspell/dsc
+  tag: v0.10.0@sha256:68499b4cdf891f1b5b252d1790d8f3350f4513051cf0439298bec05e505cfdc7
   pullPolicy: IfNotPresent
-
 args:
   - /opt/server.conf
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 securityContext:
   runAsNonRoot: false
   readOnlyRootFilesystem: false
-
 dsc:
   # -- You need to enable integration endpoint with HTTP Header in rest server
   # -- If you enable allowed IPs you also need 127.0.0.1 as an entry there
@@ -34,7 +28,6 @@ dsc:
   match_glob: ""
   language: ""
   tag: ""
-
 rest_server:
   # -- App name, shows on the top right corner
   app_name: Docspell
@@ -187,7 +180,6 @@ rest_server:
       - "*"
     # -- Define patterns of urls that are denied to install addons from.
     denied_urls: []
-
 joex:
   logging:
     # -- The format for the log messages. Can be one of:
@@ -485,7 +477,6 @@ joex:
       runner: trivial
       fail_fast: true
       run_timeout: 15 minutes
-
 probes:
   liveness:
     type: HTTP
@@ -496,7 +487,6 @@ probes:
   startup:
     type: HTTP
     path: /api/info/version
-
 service:
   main:
     ports:
@@ -511,7 +501,6 @@ service:
         enabled: true
         port: 10321
         protocol: HTTP
-
 persistence:
   server:
     enabled: true
@@ -539,13 +528,11 @@ postgresql:
   existingSecret: dbcreds
   postgresqlUsername: docspell
   postgresqlDatabase: docspell
-
 solr:
   enabled: true
   existingSecret: solrcreds
   solrCores: docspell
   solrUsername: docspell
   solrEnableAuthentication: "no"
-
 portal:
   enabled: true

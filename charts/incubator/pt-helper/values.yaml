@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/pt-helper
-  tag: latest@sha256:159294dcbe48c8da141660cdedbeb3f04641d0bfc6d8a3438f4579cb07be2912
+  repository: crazyq/pt_helper
+  tag: latest@sha256:43a4f8707b2c95a767185fabdeb5005aac1109af62fbad74249e24471ba976a8
 persistence:
   data:
     enabled: true
@@ -20,6 +20,5 @@ service:
         port: 8192
         protocol: TCP
         targetPort: 8192
-
 portal:
   enabled: true

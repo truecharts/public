@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/z80pack
-  tag: latest@sha256:afd6b95ed768aa76db4655caab2fa183b9fcb8282ed0308474ebfb81efab8a26
+  repository: dlandon/z80pack
+  tag: latest@sha256:b000d57d42da267dca6338ad562674b6792ef7d774836ded6aa19e21f6b75734
 persistence:
   config:
     enabled: true
@@ -20,6 +20,5 @@ service:
         port: 4200
         protocol: TCP
         targetPort: 4200
-
 portal:
   enabled: true

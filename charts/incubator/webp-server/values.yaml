@@ -4,8 +4,8 @@ env:
   QUALITY: "80"
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/webp-server
-  tag: latest@sha256:5c521ad0968ce57e16bac4be5f2a3f9ea1960f38a17115aac1e0d2fb80ab1de0
+  repository: webpsh/webps
+  tag: latest@sha256:dcc8982889b65f6e93dc5be6506b7ba600c5e3217e171b07be190290bc9df0be
 persistence:
   storagecache:
     enabled: true
@@ -27,6 +27,5 @@ service:
         port: 3333
         protocol: TCP
         targetPort: 3333
-
 portal:
   enabled: true

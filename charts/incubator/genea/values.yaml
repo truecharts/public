@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/genea
-  tag: latest@sha256:5c6291b48982997a9f51b7bd76aa3640da0d3ed02cc19afc0d85fe30635cc8f0
+  repository: biggiesize/genea-app
+  tag: latest@sha256:acd12892dfaca16eb7216c1a4112883f3ce7d5aed0078ff2f390970a4a383625
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -23,6 +23,5 @@ service:
     ports:
       main:
         enabled: false
-
 portal:
   enabled: false

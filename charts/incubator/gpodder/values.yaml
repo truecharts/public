@@ -2,8 +2,8 @@ env:
   PASSWORD: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/gpodder
-  tag: latest@sha256:6fbd83ed380325566e0766c92bc3e4ed92d2049af555e3b28a2da71d84943197
+  repository: xthursdayx/gpodder-docker
+  tag: latest@sha256:dc402262ada60b969d9dca5f4eda81d763d138c87a7c57e72a417d5c292cfb9d
 persistence:
   config:
     enabled: true
@@ -24,6 +24,5 @@ service:
         port: 3000
         protocol: TCP
         targetPort: 3000
-
 portal:
   enabled: true

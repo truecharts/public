@@ -1,16 +1,13 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/euterpe
-  tag: 1.5.2@sha256:5be892d3559100899f7b36a9bc3894448414b53dd6af885f3606fa0316b6b44a
-
+  repository: ironsmile/euterpe
+  tag: v1.5.4@sha256:8582b072dc37100545cf7e0e3c8e2f19b8881fa31c7c2a1009437e9b14c1e181
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 euterpe:
   basic_authenticate: false
   authentication:
@@ -32,14 +29,12 @@ euterpe:
     read_timeout: 15
     write_timeout: 1200
     max_header_bytes: 1048576
-
 service:
   main:
     ports:
       main:
         port: 9996
         protocol: HTTP
-
 persistence:
   music:
     enabled: true
@@ -52,6 +47,5 @@ persistence:
     objectName: '{{ include "tc.common.names.fullname" . }}-secret'
     mountPath: /root/.euterpe/config.json
     subPath: config.json
-
 portal:
   enabled: true

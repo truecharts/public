@@ -1,20 +1,16 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/colonysurvival
-  tag: latest@sha256:6faa87eb0a81c4280f4cbf7cda17ddf7a819d7e667c26589ba96859f57ae8685
-
+  repository: ich777/steamcmd
+  tag: colonysurvival@sha256:5b91f1aff2a0a3854cbcbcd2666036eb49849ae9486bfc817788660f02b77ce3
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 secretEnv:
   USERNAME: ""
   PASSWRD: ""
-
 env:
   GAME_ID: "748090"
   GAME_PARAMS: +server.gameport 27016
@@ -22,7 +18,6 @@ env:
   SRV_NETTYPE: SteamOnline
   SRV_WORLDNAME: ColonySurvival
   VALIDATE: false
-
 probes:
   liveness:
     enabled: false
@@ -30,7 +25,6 @@ probes:
     enabled: false
   startup:
     enabled: false
-
 service:
   main:
     ports:
@@ -38,7 +32,6 @@ service:
         port: 27016
         protocol: UDP
         targetPort: 27016
-
 persistence:
   serverfiles:
     enabled: true
@@ -46,6 +39,5 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-
 portal:
   enabled: true

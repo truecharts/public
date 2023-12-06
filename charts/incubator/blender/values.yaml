@@ -4,8 +4,8 @@ env:
   UMASK: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/blender
-  tag: latest@sha256:56a00a1d1900782751ca15fe8f363f0b42c6012f30bec5f5e25fc8985eef73da
+  repository: lscr.io/linuxserver/blender
+  tag: latest@sha256:f65ce22a34e2a342ddfa0e6af4108d2d23fd62888487340f3cd07b0029b35c95
 persistence:
   config:
     enabled: true
@@ -23,6 +23,5 @@ service:
         port: 3000
         protocol: TCP
         targetPort: 3000
-
 portal:
   enabled: true

@@ -2,8 +2,8 @@ env:
   ROOT_URL: /
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/stackedit
-  tag: latest@sha256:6726cbd49d3071da041ba939153975c1af40c50a126dc4510b55ee39fd42b569
+  repository: qmcgaw/stackedit
+  tag: latest@sha256:c74120b91fd0ce0d5fae45af1a47b963e75dfeb95f4d080448e01bc80b73416a
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -18,6 +18,5 @@ service:
         port: 8000
         protocol: TCP
         targetPort: 8000
-
 portal:
   enabled: true

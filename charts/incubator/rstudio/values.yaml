@@ -1,26 +1,21 @@
 image:
-  repository: tccr.io/truecharts/rstudio
+  repository: rocker/rstudio
   pullPolicy: IfNotPresent
-  tag: 4.3.0@sha256:9a72e9830e316fde0617d47679d8618b15c6cc4efb54bc97f6d01b11a9ba7e79
-
+  tag: 4.3.2@sha256:f8c7260993558a5683ae6874c602233c6ceff962b351476625e149ae38a3a41e
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 secretEnv:
   USER: rstudio
   PASSWORD: rstudio
-
 env:
   DISABLE_AUTH: false
   ROOT: "FALSE"
   USERID: "{{ .Values.podSecurityContext.runAsUser }}"
   GROUPID: "{{ .Values.podSecurityContext.fsGroup }}"
-
 service:
   main:
     ports:
@@ -28,7 +23,6 @@ service:
         port: 8787
         protocol: HTTP
         targetPort: 8787
-
 persistence:
   config:
     enabled: true
@@ -36,6 +30,5 @@ persistence:
   workspace:
     enabled: true
     mountPath: /home/rstudio/workspace
-
 portal:
   enabled: true

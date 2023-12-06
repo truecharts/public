@@ -3,8 +3,8 @@ env:
   REDIS_PORT_6379_TCP_PORT: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/ethercalc
-  tag: latest@sha256:0c477806d40756c51356f02eb7a1b28ed0122ca1a3eb1a12df176343c5087d0f
+  repository: audreyt/ethercalc
+  tag: latest@sha256:f0568c0649a71e8e291acb5d812d4c71f9bbc06ab9476b3c7f0dc7f4750ebfa9
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -19,6 +19,5 @@ service:
         port: 8084
         protocol: TCP
         targetPort: 8000
-
 portal:
   enabled: true

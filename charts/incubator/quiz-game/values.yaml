@@ -1,16 +1,13 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/quiz-game
-  tag: latest@sha256:0f9a2e9529c8a0fb561e53957029b184a5a652fd03a256383f3d4ac0d06e98d0
-
+  repository: patrickstigler/quiz-game
+  tag: latest@sha256:553f335b16bdbd87b4b640d6a266b0d3fbf982f18ec6365b8dfc2bd18fc3e0e1
 securityContext:
   runAsNonRoot: false
   readOnlyRootFilesystem: false
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 service:
   main:
     ports:
@@ -18,11 +15,9 @@ service:
         protocol: HTTP
         targetPort: 80
         port: 10588
-
 persistence:
   config:
     enabled: true
     mountPath: /app
-
 portal:
   enabled: true

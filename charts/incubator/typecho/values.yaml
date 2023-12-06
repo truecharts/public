@@ -1,16 +1,13 @@
 image:
-  repository: tccr.io/truecharts/typecho
-  tag: v1.2.0-php8.0@sha256:8116951ff080fbd68797778dd23aa112662f2aac7fccabea3bb9ca929350eda8
+  repository: joyqi/typecho
+  tag: 1.2.1-php8.0-apache@sha256:1022413d66b6fcb3e49f9bac3534bb7eec6535ef5982a1d383971d9f71bb78db
   pullPolicy: IfNotPresent
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 env:
   TIMEZONE: "{{ .Values.TZ }}"
   TYPECHO_INSTALL: 1
@@ -35,23 +32,19 @@ env:
     secretKeyRef:
       name: mariadbcreds
       key: mariadb-password
-
 secretEnv:
   TYPECHO_USER_NAME: "typecho"
   TYPECHO_USER_PASSWORD: "testtypecho"
-
 service:
   main:
     ports:
       main:
         port: 10207
         targetPort: 80
-
 persistence:
   config:
     enabled: true
     mountPath: "/app/usr"
-
 mariadb:
   enabled: true
   mariadbUsername: typecho
