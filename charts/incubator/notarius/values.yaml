@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/notarius
-  tag: latest@sha256:dfda981ce2e5b84208b431ffe4390af5797ad3f9e1117939f1a0f56fd713439f
+  repository: agusalex/notarius
+  tag: latest@sha256:ac7f357fc114660429b2b08f8939cf3bcbe7a0cc399a46077b77d417500a6ab4
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -23,6 +23,5 @@ service:
     ports:
       main:
         enabled: false
-
 portal:
   enabled: false

@@ -6,8 +6,8 @@ env:
   SECRET_KEY: "Container Variable: SECRET_KEY"
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/google-cloud-storage-backup
-  tag: latest@sha256:5c3704d1a84dae83b3c8247af026955d569487585ed2e9f61ff703456bf2941d
+  repository: vinid223/gcloud-storage-backup
+  tag: latest@sha256:9c118e31cba8f9eb4bcd55e4bde1dffde0b4bd805b1fbd6e42dceb66346c0dca
 persistence:
   google-cloud-storage-backup:
     enabled: true
@@ -32,6 +32,5 @@ service:
     ports:
       main:
         enabled: false
-
 portal:
   enabled: false

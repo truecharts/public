@@ -6,8 +6,8 @@ env:
   TG_PROGRESS_DOWNLOAD: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/telethon-downloader
-  tag: latest@sha256:9efa2d518cc300bc2135df10971b979a6fba4dc179dd0d6d4d83779ba8c12dbf
+  repository: jsavargas/telethon_downloader
+  tag: latest@sha256:69f3888f5bb9ab95c08f4fea8b8e514d303d61beecb8d3dbe580b86e0a0ecac8
 persistence:
   config:
     enabled: true
@@ -37,6 +37,5 @@ service:
     ports:
       main:
         enabled: false
-
 portal:
   enabled: false

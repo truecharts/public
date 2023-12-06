@@ -1,34 +1,27 @@
 image:
-  repository: tccr.io/truecharts/restreamer
+  repository: datarhei/restreamer
   pullPolicy: IfNotPresent
-  tag: 2.5.0@sha256:271a940b226861856b553f82aba29f457b13bd162b4a074e275683bf2690fd24
-
+  tag: 2.6.0@sha256:41586fa1b935fb6fa2bd94a475db8a48e2d21295af7354048f70eb1b025f39cb
 cudaImage:
-  repository: tccr.io/truecharts/restreamer-cuda
+  repository: datarhei/restreamer
   pullPolicy: IfNotPresent
-  tag: 2.1.0@sha256:a727f7a834c6f1330a3dc73a79c843d81125540acd2a7c72eddcd4cedeafb18f
-
+  tag: cuda-2.1.0@sha256:4243a635d93049e858e8d272090c711f3556639c499ea4aa09d042985f2594e6
 vaapiImage:
-  repository: tccr.io/truecharts/restreamer-vaapi
+  repository: datarhei/restreamer
   pullPolicy: IfNotPresent
-  tag: 2.1.0@sha256:7029aee53094de60f0871795e2645b3328c807ba317ae2cd4b6e9dbfcab4d4b4
-
+  tag: vaapi-2.1.0@sha256:f4826fd5f0de7b2a143e02b7950d61db3534867d21b5beb8bf386fe358c1ca26
 imageSelector: "image"
-
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 envFrom:
   - secretRef:
       name: '{{ include "tc.common.names.fullname" . }}-restreamer-secret'
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-restreamer-configmap'
-
 restreamer:
   general:
     hostname: ""
@@ -101,7 +94,6 @@ restreamer:
   router:
     router_blocked_prefixes: []
     router_routes: []
-
 probes:
   liveness:
     path: "/health"
@@ -109,7 +101,6 @@ probes:
     path: "/health"
   startup:
     path: "/health"
-
 service:
   main:
     ports:
@@ -144,11 +135,9 @@ service:
         enabled: true
         protocol: UDP
         port: 6000
-
 ingress:
   https:
     autoLink: true
-
 persistence:
   # CORE_DB_DIR
   config:
@@ -158,6 +147,5 @@ persistence:
   data:
     enabled: true
     mountPath: /core/data
-
 portal:
   enabled: true

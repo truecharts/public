@@ -11,8 +11,8 @@ env:
   Password: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/openra
-  tag: latest@sha256:268379df5fb2c30965729cf40e30a9fe44560308b5f846b0db3da8f105109942
+  repository: rmoriz/openra
+  tag: latest@sha256:81a3a76c915122109c22469fbec28175c23644ca7f2879a21a82467979f95f56
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -27,6 +27,5 @@ service:
         port: 1234
         protocol: TCP
         targetPort: 1234
-
 portal:
   enabled: true

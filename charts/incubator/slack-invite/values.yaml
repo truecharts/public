@@ -4,8 +4,8 @@ env:
   SLACK_URL: myslackteam.slack.com
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/slack-invite
-  tag: latest@sha256:37a64bfa6ad358441e0f0ba4dd4566dfb9551d16c4d570570225a419e794c500
+  repository: ninthwalker/slack-invite
+  tag: latest@sha256:25a38b1ee28baf78046162bcaf90962eee3ad79b60666f5451e5f30e5a0c0dda
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -20,6 +20,5 @@ service:
         port: 7879
         protocol: TCP
         targetPort: 7879
-
 portal:
   enabled: true

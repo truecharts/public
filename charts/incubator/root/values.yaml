@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/root
-  tag: latest@sha256:492397563d823255e7a3cb9ecbe7db089f59e5daba74d5a6a63af8a4c01dde5c
+  repository: bgameiro/arch-cern-root
+  tag: latest@sha256:c3564208c619f05e6b5f81a2bac9fcb0cae5bfe8e522e60f7c3875566e5751ca
 persistence:
   appdata:
     enabled: true
@@ -20,6 +20,5 @@ service:
         port: 9999
         protocol: TCP
         targetPort: 8888
-
 portal:
   enabled: true

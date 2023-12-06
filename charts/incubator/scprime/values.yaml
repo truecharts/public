@@ -2,8 +2,8 @@ env:
   SCPRIME_WALLET_PASSWORD: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/scprime
-  tag: latest@sha256:6d1900c25c49294fede758967a61fbde5d5cfb01f68d558047397646a75b51d4
+  repository: scprime/scprime
+  tag: latest@sha256:504abc78cac6aec26766602fb83f48d2177944bc8092c2718d3f79fe12defcf3
 persistence:
   metadata:
     enabled: true
@@ -32,6 +32,5 @@ service:
         port: 4282
         protocol: TCP
         targetPort: 4282
-
 portal:
   enabled: true

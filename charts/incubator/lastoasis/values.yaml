@@ -1,20 +1,16 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/lastoasis
-  tag: latest@sha256:f526478bb588873cd9588ed1205af4da750834a5d6a1fde7e783962ef8dc626e
-
+  repository: ich777/steamcmd
+  tag: lastoasis@sha256:1a954ecff7ac2509ebe975ef868f7a09e0c20c470bd0e331132608883bddb9db
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 secretEnv:
   USERNAME: ""
   PASSWRD: ""
-
 env:
   CUSTOMER_KEY: pwHB3mLCOUWscFi7
   GAME_ID: "920720"
@@ -23,7 +19,6 @@ env:
   PROVIDER_KEY: " 8IhohaMRZIJJubv5 "
   SLOTS: "20"
   VALIDATE: false
-
 probes:
   liveness:
     enabled: false
@@ -31,7 +26,6 @@ probes:
     enabled: false
   startup:
     enabled: false
-
 service:
   main:
     ports:
@@ -47,7 +41,6 @@ service:
         port: 27015
         protocol: UDP
         targetPort: 27015
-
 persistence:
   serverfiles:
     enabled: true
@@ -55,6 +48,5 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-
 portal:
   enabled: true

@@ -2,8 +2,8 @@ env:
   UMASK: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/conreq
-  tag: latest@sha256:4ec1a322a3bc20965e9bc675b2f4b495355ea5c783b7554f5ebc156355f1eb45
+  repository: cr.hotio.dev/hotio/conreq
+  tag: latest@sha256:8d070b99b8f40cb4af365ca75809a7ad1613538e56d3a916bf3564c4da718839
 persistence:
   config:
     enabled: true
@@ -21,6 +21,5 @@ service:
         port: 8000
         protocol: TCP
         targetPort: 8000
-
 portal:
   enabled: true

@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/miniflux
-  tag: 2.0.43@sha256:80b65c298b68599fc347ed87d7ffd03a76eb0b784f669456b42a9e04af0b4ffa
+  repository: miniflux/miniflux
+  tag: 2.0.50@sha256:759712dd554234b28b229bb9695f31e99b4771018d2ccefdd825a1ebe66ee219
   pullPolicy: IfNotPresent
-
 secretEnv:
   # -- Admin user login, it's used only if `CREATE_ADMIN` is enabled.
   ADMIN_USERNAME: "admin"
@@ -15,19 +14,16 @@ env:
     secretKeyRef:
       name: dbcreds
       key: urlnossl
-
 service:
   main:
     ports:
       main:
         port: 10091
         targetPort: 8080
-
 persistence:
   config:
     enabled: true
     mountPath: "/config"
-
 probes:
   liveness:
     enabled: true
@@ -40,12 +36,10 @@ probes:
       httpGet:
         path: /healthcheck
         port: 8080
-
 postgresql:
   enabled: true
   existingSecret: "dbcreds"
   postgresqlDatabase: miniflux
   postgresqlUsername: miniflux
-
 portal:
   enabled: true

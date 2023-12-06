@@ -5,8 +5,8 @@ env:
   SOCKET_LOG: "False"
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/metatube
-  tag: latest@sha256:70586a9bad50176b96c574fba85265caa1aadc911982304af77ef2966987793d
+  repository: jvt038/metatube
+  tag: latest@sha256:8b68490d54680af46c29da97b2f00e5fd9dac1183b505d17bf4560eb16cd0451
 persistence:
   storagedatabase:
     enabled: true
@@ -27,6 +27,5 @@ service:
         port: 5000
         protocol: TCP
         targetPort: 5000
-
 portal:
   enabled: true

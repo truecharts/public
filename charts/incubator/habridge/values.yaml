@@ -1,19 +1,15 @@
 image:
-  repository: tccr.io/truecharts/habridge
+  repository: ghcr.io/linuxserver/habridge
   pullPolicy: IfNotPresent
-  tag: v5.4.1@sha256:af6174691a09cd4ee2af9f1f0cba5a17d2a168e085e405149fd95870b1bdd15e
-
+  tag: 5.4.1@sha256:fdc5bfad251aae1ed687f5ef31df6f23bb90b65ea9ef3167ad00adc778448d54
 securityContext:
   runAsNonRoot: false
   readOnlyRootFilesystem: false
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 secretEnv:
   SEC_KEY: ""
-
 service:
   main:
     ports:
@@ -27,13 +23,11 @@ service:
         enabled: true
         targetPort: 50000
         port: 50000
-
 persistence:
   config:
     enabled: true
     mountPath: "/config"
   varrun:
     enabled: true
-
 portal:
   enabled: true

@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/bwapp
-  tag: latest@sha256:9bd080c3653f52c467ddb04719db2315a9000498fb60938f52d613a5d66362a7
+  repository: raesene/bwapp
+  tag: latest@sha256:2f41183ea9f9e8fb36678d7a2a0c8a9db9a59f4569cee02fe6664b419b2600ee
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -23,6 +23,5 @@ service:
     ports:
       main:
         enabled: false
-
 portal:
   enabled: false

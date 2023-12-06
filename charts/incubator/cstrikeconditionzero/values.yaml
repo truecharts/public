@@ -1,20 +1,16 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/cstrikeconditionzero
-  tag: latest@sha256:6f455cdc0e3076465f0fd00762484e155e84876ce349f65321aaf2fc4c546b20
-
+  repository: ich777/steamcmd
+  tag: cstrikeczero@sha256:bdec4088bf4965b15119d6a59fdddfd1282b2d43583c341df3ca1ecec45fd200
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 secretEnv:
   USERNAME: ""
   PASSWRD: ""
-
 env:
   GAME_ID: 90 +app_set_config '90 mod dmc'
   GAME_MOD: 90 mod czero
@@ -22,7 +18,6 @@ env:
   GAME_PARAMS: -secure +maxplayers 32 +map as_oilrig
   GAME_PORT: "27015"
   VALIDATE: false
-
 probes:
   liveness:
     port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
@@ -30,7 +25,6 @@ probes:
     port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
   startup:
     port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
-
 service:
   main:
     ports:
@@ -46,7 +40,6 @@ service:
         port: 27015
         protocol: TCP
         targetPort: 27015
-
 persistence:
   serverfiles:
     enabled: true
@@ -54,6 +47,5 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-
 portal:
   enabled: true

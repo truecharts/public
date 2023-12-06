@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/lenpaste
-  tag: 1.1.1@sha256:70108877102aaaf1060dd2e96f0b8167f76649d3e9bd1f6a21758f89fd9572d4
+  repository: git.lcomrade.su/root/lenpaste
+  tag: 1.1.1@sha256:4ff3aaf27d6c21a157b2220f778fb91efc66e7b3222a9f7de88ad5a2e426704f
   pullPolicy: IfNotPresent
-
 env:
   LENPASTE_ADDRESS: ":{{ .Values.service.main.ports.main.port }}"
   LENPASTE_DB_DRIVER: postgres
@@ -18,24 +17,20 @@ env:
   LENPASTE_TITLE_MAX_LENGTH: 100
   LENPASTE_BODY_MAX_LENGTH: 10000
   LENPASTE_MAX_PASTE_LIFETIME: unlimited
-
 service:
   main:
     ports:
       main:
         port: 10326
         protocol: HTTP
-
 persistence:
   data:
     enabled: true
     mountPath: "/data"
-
 postgresql:
   enabled: true
   existingSecret: dbcreds
   postgresqlUsername: lenpaste
   postgresqlDatabase: lenpaste
-
 portal:
   enabled: true

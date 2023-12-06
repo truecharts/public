@@ -4,8 +4,8 @@ env:
   UMASK: "0000"
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/kerbalspaceprogram-lmp
-  tag: latest@sha256:66dcba56cd99b689332786bdeb50171bd5130e46a2df74f214841388644456b5
+  repository: ich777/lunamultiplayer-ksp
+  tag: latest@sha256:1a2650070544062903e9397d00fd38277c41c6a1ab9aa28ea171bd54edcf0e43
 persistence:
   serverfiles:
     enabled: true
@@ -30,6 +30,5 @@ service:
         port: 8800
         protocol: UDP
         targetPort: 8800
-
 portal:
   enabled: true

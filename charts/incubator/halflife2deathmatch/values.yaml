@@ -1,20 +1,16 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/halflife2deathmatch
-  tag: latest@sha256:a27d2c0f758fa70c4c1debbbb2311ff7f3f2cc02e739329d271954c717e10a2a
-
+  repository: ich777/steamcmd
+  tag: hl2dm@sha256:53a467b87844a42471f70bbebdada85873fe6d5c31266de85612f3fae72b58f6
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 secretEnv:
   USERNAME: ""
   PASSWRD: ""
-
 env:
   GAME_ID: "232370"
   GAME_NAME: hl2mp
@@ -28,7 +24,6 @@ probes:
     port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
   startup:
     port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
-
 service:
   main:
     ports:
@@ -44,7 +39,6 @@ service:
         port: 27015
         protocol: TCP
         targetPort: 27015
-
 persistence:
   serverfiles:
     enabled: true
@@ -52,6 +46,5 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-
 portal:
   enabled: true

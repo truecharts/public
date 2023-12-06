@@ -3,8 +3,8 @@ env:
   DROPBOX_UID: "99"
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/dropbox-by-otherguy
-  tag: latest@sha256:161b050ceb2b9ff2808bdb8cccb0ee71381b27854a8feeb42ee8bd0064f4ca06
+  repository: otherguy/dropbox
+  tag: latest@sha256:0e6e86bf1059ea0b34ba23383f0146f7c1af32fc327896d87d9878226fdc2682
 persistence:
   dropboxsettings:
     enabled: true
@@ -31,6 +31,5 @@ service:
     ports:
       main:
         enabled: false
-
 portal:
   enabled: false

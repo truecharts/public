@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/shaarli
-  tag: vmaster@sha256:628a3a2f9a8667879a75b01acf2c940874b2f8f044ebe7cdbf2d691adeeef5f3
+  repository: shaarli/shaarli
+  tag: master@sha256:9580433c9efb1ed356cc98c0876ecf76d1bc21654b535a6aa90e4bf74abadd02
 persistence:
   cache:
     enabled: true
@@ -23,6 +23,5 @@ service:
         port: 8000
         protocol: TCP
         targetPort: 80
-
 portal:
   enabled: true

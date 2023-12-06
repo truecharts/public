@@ -2,8 +2,8 @@ env:
   OPTIONS: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/restic-rest-server
-  tag: latest@sha256:882c045b6c1fabd8417f519ca9ed540a8b0df2a4174bc15239c075efcdfa7fd9
+  repository: restic/rest-server
+  tag: 0.12.1@sha256:ab6a092c9ff968eb5fe66f4a855133970ddc842e02f9e51e3fdf96b95f0f816a
 persistence:
   data:
     enabled: true
@@ -21,6 +21,5 @@ service:
         port: 8000
         protocol: TCP
         targetPort: 8000
-
 portal:
   enabled: true

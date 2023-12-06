@@ -4,8 +4,8 @@ env:
   VNC_VIEW_ONLY: "false"
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/bitcoinwalletgui
-  tag: latest@sha256:738088fa67f95e40f3fe46a4355079984e3560f78fb9ce7f583f01ace686f9dc
+  repository: ulisses1478/bitcoinwallet-gui
+  tag: latest@sha256:b118585cecd11e1feaa6242c1bfd1e31bc70abd45f590f2556fb506ad209faa7
 persistence:
   bitcoinblockchainpath:
     enabled: true
@@ -31,6 +31,5 @@ service:
         port: 5905
         protocol: TCP
         targetPort: 5901
-
 portal:
   enabled: true

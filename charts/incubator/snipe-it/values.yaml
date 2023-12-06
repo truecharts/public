@@ -1,17 +1,14 @@
 image:
-  repository: tccr.io/truecharts/snipe-it
+  repository: snipe/snipe-it
   pullPolicy: IfNotPresent
-  tag: 6.1.0@sha256:e399ccea08eb2f6b6e575f4ed98810aebc124b5f68d00c61ea0dfa34bcd62c46
-
+  tag: v6.2.3@sha256:f95f136b8f805626736371283059d6a14f662a533fbba5396458bda5f443f6fd
 securityContext:
   runAsNonRoot: false
   readOnlyRootFilesystem: false
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 1000
   fsGroup: 50
-
 env:
   APP_ENV: "production"
   DB_CONNECTION: "mysql"
@@ -103,7 +100,6 @@ env:
     secretKeyRef:
       name: snipeit-secrets
       key: APP_KEY
-
 probes:
   liveness:
     path: "/health"
@@ -111,14 +107,12 @@ probes:
     path: "/health"
   startup:
     path: "/health"
-
 service:
   main:
     ports:
       main:
         port: 10120
         targetPort: 80
-
 persistence:
   logs:
     enabled: true
@@ -129,16 +123,13 @@ persistence:
   backups:
     enabled: true
     mountPath: "/var/lib/snipeit/dumps"
-
 mariadb:
   enabled: true
   mariadbUsername: snipe-it
   mariadbDatabase: snipe-it
   existingSecret: "mariadbcreds"
-
 redis:
   enabled: true
   existingSecret: "rediscreds"
-
 portal:
   enabled: true

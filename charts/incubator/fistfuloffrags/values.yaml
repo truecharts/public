@@ -1,27 +1,22 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/fistfuloffrags
-  tag: latest@sha256:75816b5271e215a60b8b08f699fddb73aeb68ffe7fb4a1a801c2c9d79cb88394
-
+  repository: ich777/steamcmd
+  tag: fistfuloffrags@sha256:ee9fded61fd63c76a6e3efa6bd64207cd115a5c376ada8ddea9c09c40d58301e
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 secretEnv:
   USERNAME: ""
   PASSWRD: ""
-
 env:
   GAME_ID: "295230"
   GAME_NAME: fof
   GAME_PARAMS: +maxplayers 20 +map fof_fistful
   GAME_PORT: "27015"
   VALIDATE: false
-
 probes:
   liveness:
     port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
@@ -29,7 +24,6 @@ probes:
     port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
   startup:
     port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
-
 service:
   main:
     ports:
@@ -45,7 +39,6 @@ service:
         port: 27015
         protocol: TCP
         targetPort: 27015
-
 persistence:
   serverfiles:
     enabled: true
@@ -53,6 +46,5 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-
 portal:
   enabled: true

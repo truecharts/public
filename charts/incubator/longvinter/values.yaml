@@ -3,8 +3,8 @@ env:
   GAME_PORT: "27016"
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/longvinter
-  tag: latest@sha256:84ce057773a4e3894fad415d04e65a5daa85b8fd11208445db15d969fd6c9b19
+  repository: ich777/steamcmd
+  tag: longvinter@sha256:3b111133726807212eb77dbdc654b855eb4b66da781f3d5c4a9343de8129dd7a
 persistence:
   serverfiles:
     enabled: true
@@ -32,6 +32,5 @@ service:
         port: 27016
         protocol: UDP
         targetPort: 27016
-
 portal:
   enabled: true

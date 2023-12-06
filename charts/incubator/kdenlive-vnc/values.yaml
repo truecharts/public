@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/kdenlive-vnc
-  tag: latest@sha256:2941931667309159639a4f2a4300dcf8f403594ed257fa81b9862967b5835874
+  repository: tessypowder/docker-kdenlive
+  tag: latest@sha256:6cd729e09cbf6f03d89b5358e086adab17a765f500a9c462600d92d084db0bfa
 persistence:
   content:
     enabled: true
@@ -28,6 +28,5 @@ service:
         port: 5900
         protocol: TCP
         targetPort: 5900
-
 portal:
   enabled: true

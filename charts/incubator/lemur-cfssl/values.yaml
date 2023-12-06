@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/lemur-cfssl
-  tag: latest@sha256:bc1186535bdf1d0bd9206133d1753c8844c7158c14f08b328a92af639c7e80f4
+  repository: halianelf/lemur
+  tag: latest@sha256:b0e801e2419c4e85efeaf469579db6e6ca88703f9295e61f3d68ac50fd4c9ff2
 persistence:
   config:
     enabled: true
@@ -29,6 +29,5 @@ service:
     ports:
       main:
         enabled: false
-
 portal:
   enabled: false

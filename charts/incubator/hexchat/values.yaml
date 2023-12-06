@@ -1,22 +1,17 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/hexchat
-  tag: latest@sha256:079d92a2b38ed4c491b6031f0b3ad71d8fce1c13ea4c73b61896e0e19ca27564
-
+  repository: binhex/arch-hexchat
+  tag: latest@sha256:e3846eb27172042dafddc62ad74ffaadbad51950f585a84ad04593aace8b4fd5
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 secretEnv:
   VNC_PASSWORD: ""
-
 env:
   WEBPAGE_TITLE: HexChat
-
 service:
   main:
     ports:
@@ -24,11 +19,9 @@ service:
         port: 10307
         protocol: HTTP
         targetPort: 6080
-
 persistence:
   config:
     enabled: true
     mountPath: /config
-
 portal:
   enabled: true

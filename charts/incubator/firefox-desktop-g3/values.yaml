@@ -3,8 +3,8 @@ env:
   VNC_RESOLUTION: 1360x768
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/firefox-desktop-g3
-  tag: latest@sha256:b6948755f387bb67e2c4cffb37ebf27a0f87fedabb7953f220725db8b5b90f45
+  repository: accetto/ubuntu-vnc-xfce-firefox-g3
+  tag: latest@sha256:7732f3c3e0496aa60fe01b086d112d7c510e9546b5f5832fc77f3bc20e674796
 persistence:
   internalshare:
     enabled: true
@@ -30,6 +30,5 @@ service:
         port: 5901
         protocol: TCP
         targetPort: 5901
-
 portal:
   enabled: true

@@ -1,29 +1,23 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/avorion
-  tag: latest@sha256:75a60c3eee403000a2a5ffd2476e3d86a983f07ee2de29f21ff5b176ccffa168
-
+  repository: ich777/steamcmd
+  tag: avorion@sha256:5102dcf90f75793d42d77e316bd7fc78861e8fc2b8318cb6efb819af95602c82
 stdin: true
 tty: true
-
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 secretEnv:
   USERNAME: ""
   PASSWRD: ""
-
 env:
   GALAXY_NAME: AvorionDocker
   GAME_ID: "565060"
   GAME_PARAMS: ""
   VALIDATE: false
-
 probes:
   liveness:
     enabled: false
@@ -31,7 +25,6 @@ probes:
     enabled: false
   startup:
     enabled: false
-
 service:
   main:
     ports:
@@ -71,7 +64,6 @@ service:
         port: 27021
         protocol: UDP
         targetPort: 27021
-
 persistence:
   serverfiles:
     enabled: true
@@ -79,6 +71,5 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-
 portal:
   enabled: true

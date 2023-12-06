@@ -1,16 +1,13 @@
 image:
-  repository: tccr.io/truecharts/pydio-cells
+  repository: pydio/cells
   pullPolicy: IfNotPresent
-  tag: 4.0.6@sha256:1cdc282e7fb1a8c99dd104e5142713fbd796090a12628ead8fea23ea8c107404
-
+  tag: 4.3.1@sha256:6e2a6ecac3df7d6477a2f79a4da75221d7007a004837e4baa0538d42082da389
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 configmap:
   install:
     enabled: true
@@ -26,7 +23,6 @@ configmap:
         dbtcpname: {{ .Values.mariadb.mariadbDatabase }}
         dbtcpuser: {{ .Values.mariadb.mariadbUsername }}
         dbtcppassword: {{ .Values.mariadb.mariadbPassword | trimAll "\"" }}
-
 env:
   CELLS_EXTERNAL: ""
   CELLS_GRPC_EXTERNAL: "{{ .Values.service.gprc.ports.gprc.port }}"
@@ -37,12 +33,10 @@ env:
   CELLS_LOG_DIR: "/cells/logs"
   CELLS_SERVICES_DIR: "/cells/services"
   CELLS_INSTALL_YAML: "/cells/install.yml"
-
 pydioinstall:
   username: "admin"
   password: "supersecret"
   title: "Pydio Cells"
-
 probes:
   liveness:
     custom: true
@@ -65,7 +59,6 @@ probes:
         scheme: HTTP
         path: "/healthcheck"
         port: 10162
-
 service:
   main:
     ports:
@@ -84,7 +77,6 @@ service:
       healthcheck:
         enabled: true
         port: 10162
-
 persistence:
   cells:
     enabled: true
@@ -106,12 +98,10 @@ persistence:
     volumeSpec:
       configMap:
         name: '{{ printf "%v-install" (include "tc.common.names.fullname" .) }}'
-
 mariadb:
   enabled: true
   mariadbUsername: pydiocells
   mariadbDatabase: pydiocells
   existingSecret: "mariadbcreds"
-
 portal:
   enabled: true

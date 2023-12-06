@@ -5,8 +5,8 @@ env:
   ICS_USERNAME: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/import-ics
-  tag: latest@sha256:fd6fde78e04907e882fd0e21f2623047f99e0761f5ba763b14a69a03de90e5c1
+  repository: vilhjalmr26/import_ics
+  tag: latest@sha256:9eb432e43e44d39d19b39ad277c47873ee615ae2f8ed06d033f3d99cc5e347b8
 persistence:
   config:
     enabled: true
@@ -33,6 +33,5 @@ service:
     ports:
       main:
         enabled: false
-
 portal:
   enabled: false

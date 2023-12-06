@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/fogproject
-  tag: latest@sha256:36203b408539738db195867dfe27931a03806b8c211a991b3012e8ee6afb11eb
+  repository: redvex2460/fogproject
+  tag: latest@sha256:bc656be89fa82dac9782187c0b755c6fa8bef7f5c82e3178b517cf0945c8eddf
 persistence:
   images:
     enabled: true
@@ -29,6 +29,5 @@ service:
     ports:
       main:
         enabled: false
-
 portal:
   enabled: false

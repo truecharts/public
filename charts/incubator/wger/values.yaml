@@ -1,28 +1,23 @@
 image:
-  repository: tccr.io/truecharts/wger
-  tag: latest@sha256:f1f463a268a1d15c56d7ca5af22de75291a4a09d9111d6f6cdd45d9b7456a9b6
+  repository: wger/server
+  tag: latest@sha256:71bbd3c4185f7a92bd0d95b928a019fa76d2b88f629c918a7627fbbaa632e64e
   pullPolicy: IfNotPresent
-
 nginxImage:
-  repository: tccr.io/truecharts/nginx
-  tag: 1.24.0@sha256:7eee831d79f11786149bd02a0d4d438057772285ec7b62fc2976ee70676707fa
+  repository: nginx
+  tag: 1.25.3@sha256:86e53c4c16a6a276b204b0fd3a8143d86547c967dc8258b3d47c3a21bb68d3c6
   pullPolicy: IfNotPresent
-
 securityContext:
   runAsNonRoot: false
   readOnlyRootFilesystem: false
-
 podSecurityContext:
   runAsUser: 1000
   runAsGroup: 1000
   fsGroup: 1000
-
 envFrom:
   - secretRef:
       name: '{{ include "tc.common.names.fullname" . }}-wger-secret'
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-wger-configmap'
-
 wger:
   general:
     # Where the backend will listen. Leave this as is, unless nginx is removed
@@ -48,13 +43,11 @@ wger:
     recaptha_public_key: ""
     recaptha_private_key: ""
     nocaptcha: true
-
 service:
   main:
     ports:
       main:
         port: 10249
-
 persistence:
   media:
     enabled: true
@@ -74,18 +67,15 @@ persistence:
         items:
           - key: nginx.conf
             path: default.conf
-
 postgresql:
   enabled: true
   existingSecret: "dbcreds"
   postgresqlUsername: wger
   postgresqlDatabase: wger
-
 redis:
   enabled: true
   existingSecret: "rediscreds"
   redisUsername: "default"
   redisDatabase: "0"
-
 portal:
   enabled: true

@@ -7,8 +7,8 @@ env:
   SKIP_ARCHIVED_LOGS: "False"
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/goaccess-npm-logs
-  tag: latest@sha256:223dd4f2041b0a9921b7d4807651eed95d32b0fb23fb1b99c510d65c86b316e1
+  repository: xavierh/goaccess-for-nginxproxymanager
+  tag: latest@sha256:a1d8870f05d7c653e7380953c6c31d62182d059271a6a01745380e3500bfe186
 persistence:
   hostpath1:
     enabled: true
@@ -27,6 +27,5 @@ service:
         port: 7880
         protocol: TCP
         targetPort: 7880
-
 portal:
   enabled: true

@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/kerio-connect
-  tag: latest@sha256:bc812abd5df6b504c14072bb61323d6171f646ab2c3b2cf7710e8847ce0c6acf
+  repository: chvb/docker-kerio-connect
+  tag: latest@sha256:8a54a126a86fda8e72459d6f436cc73ffec2f708cea82b54f22a25fe6626e584
 persistence:
   kerio-connect:
     enabled: true
@@ -148,6 +148,5 @@ service:
         port: 119
         protocol: TCP
         targetPort: 119
-
 portal:
   enabled: true

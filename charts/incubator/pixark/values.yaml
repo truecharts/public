@@ -1,32 +1,25 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/pixark
-  tag: latest@sha256:5058ff3e245a8b53a10808356ab7347b38280429edefaf6bc54ef1f4eebf03d4
-
+  repository: ich777/steamcmd
+  tag: pixark@sha256:e7fb71beef3fc419072fac62b7ebf90648f539821581074bb852397e5b0f6596
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 secretEnv:
   USERNAME: ""
   PASSWRD: ""
-
 env:
   GAME_ID: "824360"
   GAME_PARAMS: ?MaxPlayers=10
-  GAME_PARAMS_EXTRA:
-    -QueryPort=27016 -Port=27015 -CubePort=27018 -NoBattlEye -nosteamclient
-    -game -server -log
+  GAME_PARAMS_EXTRA: -QueryPort=27016 -Port=27015 -CubePort=27018 -NoBattlEye -nosteamclient -game -server -log
   MAP: CubeWorld_Light
   SERVER_NAME: PIXARKDocker
   SRV_ADMIN_PWD: adminDocker
   SRV_PWD: Docker
   VALIDATE: false
-
 probes:
   liveness:
     enabled: false
@@ -34,7 +27,6 @@ probes:
     enabled: false
   startup:
     enabled: false
-
 service:
   main:
     ports:
@@ -58,7 +50,6 @@ service:
         port: 27016
         protocol: UDP
         targetPort: 27016
-
 persistence:
   serverfiles:
     enabled: true
@@ -66,6 +57,5 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-
 portal:
   enabled: true

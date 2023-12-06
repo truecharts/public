@@ -1,11 +1,9 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: ciao
-version: 2.0.14
+version: 2.0.15
 appVersion: latest
-description:
-  ciao checks HTTP(S) URL endpoints for a HTTP status code (or errors on
-  the lower TCP stack) and sends a notification on status change via E-Mail or Webhooks.
+description: ciao checks HTTP(S) URL endpoints for a HTTP status code (or errors on the lower TCP stack) and sends a notification on status change via E-Mail or Webhooks.
 home: https://truecharts.org/charts/incubator/ciao
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ciao.png
 deprecated: false

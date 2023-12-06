@@ -10,8 +10,8 @@ env:
   USERNAME: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/apache-webdav
-  tag: latest@sha256:78ab22cc99dad54914a7d3dc787898f21b424217ddf0357d4e76863933a224ab
+  repository: apachewebdav/apachewebdav
+  tag: latest@sha256:0d4aea1eefbc374cf21fd677e09a90df7dca0f5b5d72e5ba534f201f7c03bcea
 persistence:
   config:
     enabled: true
@@ -32,6 +32,5 @@ service:
         port: 8384
         protocol: TCP
         targetPort: 80
-
 portal:
   enabled: true

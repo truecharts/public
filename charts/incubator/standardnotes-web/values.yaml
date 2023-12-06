@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/standardnotes-web
-  tag: vstable@sha256:e6fbb1f3d37da6bf63c861dd59307fc325c2704aa49ec7289f6fc0e96f064cbb
+  repository: standardnotes/web
+  tag: stable@sha256:bf99c33bad03ca9ccd79c40e6aece368a6c23b887f95fcfeeaab86f68f0e3878
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -23,6 +23,5 @@ service:
     ports:
       main:
         enabled: false
-
 portal:
   enabled: false

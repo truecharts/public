@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/jmzhomeproxy
-  tag: latest@sha256:2e606c69e5fbd0dd04ee1755bad8628c862dff9a68cfe62e27b286260740266c
+  repository: jmzsoftware/jmzhomelabproxy
+  tag: latest@sha256:6f37ef95a27aa512b8e5eaea0c22457035ca81bf6a7b71f91de1b57c78b7586d
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -17,6 +17,5 @@ service:
         port: 8080
         protocol: TCP
         targetPort: 8080
-
 portal:
   enabled: true

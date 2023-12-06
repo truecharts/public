@@ -3,8 +3,8 @@ env:
   SIA_WALLET_PASSWORD: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/sia-daemon
-  tag: vmaster@sha256:da5e87eb493c9f7fbedcce12e2c3e2c6c0bc01289dbdd3e5f071bcdcd6f2e32a
+  repository: ghcr.io/siafoundation/siad
+  tag: master@sha256:adc705f9da045a2d745054ee585fd686016c63b49d149123a2dbb48dfc9004d1
 persistence:
   datadirectory:
     enabled: true
@@ -38,6 +38,5 @@ service:
         port: 9981
         protocol: TCP
         targetPort: 9981
-
 portal:
   enabled: true

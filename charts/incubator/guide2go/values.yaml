@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/guide2go
-  tag: latest@sha256:123b847b8c3c12d89f434df91c44584e8367b1df26784439a681b08046257bf5
+  repository: alturismo/guide2go
+  tag: latest@sha256:55dcb4cf4d4c160af05b7ecd82679c289e3279bbb52f53d0b877652c5f0c2814
 persistence:
   config:
     enabled: true
@@ -32,6 +32,5 @@ service:
     ports:
       main:
         enabled: false
-
 portal:
   enabled: false

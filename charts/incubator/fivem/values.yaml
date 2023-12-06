@@ -7,8 +7,8 @@ env:
   START_VARS: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/fivem
-  tag: latest@sha256:23f64c6184dba2aa5c589c5d089d458c2cf2f546bc40cbc7e6c073c0c21c2795
+  repository: ich777/fivemserver
+  tag: latest@sha256:c7e8ca8960f11806e143d6f97048ab220732e617ef628f45ef738ce774163f3e
 persistence:
   serverfiles:
     enabled: true
@@ -58,6 +58,5 @@ service:
         port: 30120
         protocol: UDP
         targetPort: 30120
-
 portal:
   enabled: true

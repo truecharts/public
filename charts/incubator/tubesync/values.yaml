@@ -7,8 +7,8 @@ env:
   TUBESYNC_WORKERS: "2"
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/tubesync
-  tag: latest@sha256:eaa59579ccbaa190e3e319e0874fb5fba36b0a4568ee48906e9fadfe3ea199b0
+  repository: ghcr.io/meeb/tubesync
+  tag: latest@sha256:aad2722e39ccb3181b5ace2d3f2caa87d0634576d68bbc86cd8a018733291411
 persistence:
   config:
     enabled: true
@@ -29,6 +29,5 @@ service:
         port: 4848
         protocol: TCP
         targetPort: 4848
-
 portal:
   enabled: true

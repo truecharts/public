@@ -1,11 +1,9 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/adguardhome-sync
-  tag: 0.4.12@sha256:2470e0383ffffd9208b3149015f8ac383d60acc878585df9d6db6110af2ac43d
-
+  repository: ghcr.io/bakito/adguardhome-sync
+  tag: v0.5.1@sha256:34c718be3a9a7587e744d70a6d6cb9ed731fd9abbee4994fa920fa7e51d595c2
 args:
   - run
-
 env:
   ORIGIN_URL: "https://192.168.1.2:3000"
   ORIGIN_USERNAME: "username"
@@ -29,7 +27,6 @@ env:
   FEATURES_DNS_SERVERCONFIG: true
   FEATURES_DNS_ACCESSLISTS: true
   FEATURES_DNS_REWRITES: true
-
 service:
   main:
     ports:
@@ -37,6 +34,5 @@ service:
         port: 8080
         protocol: HTTP
         targetPort: 8080
-
 portal:
   enabled: true

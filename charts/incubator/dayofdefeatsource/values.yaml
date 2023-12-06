@@ -1,27 +1,22 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/dayofdefeatsource
-  tag: latest@sha256:bc152f09824eafc5b2e9b359a7e704b46d1394062ce2213139c19714dc151182
-
+  repository: ich777/steamcmd
+  tag: dods@sha256:5e6cf544920fa92c1f34a49304cf28885344077d2cc98b12526def22fc72023f
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 secretEnv:
   USERNAME: ""
   PASSWRD: ""
-
 env:
   GAME_ID: "232290"
   GAME_NAME: dod
   GAME_PARAMS: -secure +maxplayers 24 +map dod_kalt
   GAME_PORT: "27015"
   VALIDATE: false
-
 probes:
   liveness:
     port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
@@ -29,7 +24,6 @@ probes:
     port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
   startup:
     port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
-
 service:
   main:
     ports:
@@ -45,7 +39,6 @@ service:
         port: 27015
         protocol: TCP
         targetPort: 27015
-
 persistence:
   serverfiles:
     enabled: true
@@ -53,6 +46,5 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-
 portal:
   enabled: true

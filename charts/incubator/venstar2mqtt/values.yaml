@@ -6,8 +6,8 @@ env:
   VENSTAR_HOST: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/venstar2mqtt
-  tag: latest@sha256:a6de962c920aedd6d9871988f0597f4eafd7284a94590ed64f4116bbb2636548
+  repository: terafin/mqtt-venstar-bridge
+  tag: latest@sha256:18cc80c881fdbaaaac1cf3d938784cb36e79828ec8827029ab4686373eb6d08f
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -28,6 +28,5 @@ service:
     ports:
       main:
         enabled: false
-
 portal:
   enabled: false

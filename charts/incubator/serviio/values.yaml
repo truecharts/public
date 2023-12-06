@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/serviio
-  tag: latest@sha256:cd130a2872b6691a51d80fc99a1026cd643ed1dd822b70b26223cd007e288ccd
+  repository: riftbit/serviio
+  tag: latest@sha256:9e52c3949eaa05b32f328aaa195679471470b0eee59588316dd659a970568aaa
 persistence:
   hostpath2:
     enabled: true
@@ -61,6 +61,5 @@ service:
         port: 23423
         protocol: HTTP
         targetPort: 23423
-
 portal:
   enabled: true

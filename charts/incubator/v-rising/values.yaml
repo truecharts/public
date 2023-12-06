@@ -1,19 +1,16 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/v-rising
-  tag: latest@sha256:aa1d308929223d6623eefca2ad783be50e22fd5ad81c79db61fba63cee37cf85
-
+  repository: ich777/steamcmd
+  tag: vrising@sha256:aa618a940b9dc025059aa9d411cc5ee3c4ac11e3827c5ed42176686c2677462f
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 secretEnv:
   USERNAME: ""
   PASSWRD: ""
-
 env:
   ENABLE_BEPINEX: ""
   GAME_ID: "1829350"
@@ -21,7 +18,6 @@ env:
   SERVER_NAME: V Rising Docker
   VALIDATE: false
   WORLD_NAME: world1
-
 probes:
   liveness:
     enabled: false
@@ -29,7 +25,6 @@ probes:
     enabled: false
   startup:
     enabled: false
-
 service:
   main:
     ports:
@@ -37,7 +32,6 @@ service:
         port: 9876
         protocol: UDP
         targetPort: 9876
-
 persistence:
   serverfiles:
     enabled: true
@@ -45,6 +39,5 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-
 portal:
   enabled: true

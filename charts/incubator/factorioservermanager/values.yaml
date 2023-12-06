@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/factorioservermanager
-  tag: latest@sha256:5eb216a253f931ae83cecba602be05bf80166cb140ba30d2687ccd68d1d73dd8
+  repository: ofsm/ofsm
+  tag: latest@sha256:2b031bc1ec51e437a90b24266ce87f82362b4d16670e3804688610b4ac03b608
 persistence:
   config:
     enabled: true
@@ -34,6 +34,5 @@ service:
         port: 8888
         protocol: HTTP
         targetPort: 80
-
 portal:
   enabled: true

@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/goaccess
-  tag: latest@sha256:0bf7c94ed92a39f58ce83aff9cf6217d25b9298cb0b985d9c9171d29509d3f00
+  repository: gregyankovoy/goaccess
+  tag: latest@sha256:157fc99be09f0b0d680ed0f7be716c81288ea9fe40a4435fab05356b35121421
 persistence:
   goaccess:
     enabled: true
@@ -20,6 +20,5 @@ service:
         port: 7889
         protocol: TCP
         targetPort: 7889
-
 portal:
   enabled: true

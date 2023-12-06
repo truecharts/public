@@ -1,30 +1,24 @@
 image:
-  repository: tccr.io/truecharts/librephotos-backend
-  tag: v2022w6@sha256:4c24ce4ea5b340f83da0be0935eaea4ca525a15ed6da014f8ad8c709b377a837
+  repository: reallibrephotos/librephotos
+  tag: latest@sha256:3ded92c9ba78c238c2837841f394d86d7246ffb082dae6ad54127383d4022156
   pullPolicy: IfNotPresent
-
 frontendImage:
-  repository: tccr.io/truecharts/librephotos-frontend
-  tag: v2022w6@sha256:9cb2cb4865197d460405fecd79bdd7808333443cb2089753825f7f97365a53a3
-
+  repository: reallibrephotos/librephotos-frontend
+  tag: latest@sha256:541b044d439e9790623405409ab57c92810def8a1e701b5f4f7d4f9421e7240a
 proxyImage:
-  repository: tccr.io/truecharts/librephotos-proxy
-  tag: v2022w6@sha256:c147eaa3e96348e44132958ca871114a2ce240f0fa3604f738801317af09a160
-
+  repository: reallibrephotos/librephotos-proxy
+  tag: latest@sha256:b45c74482bc409b113fcb7519beb9acb646e6d24bc36fed69afd3df39a0aa8e3
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 secretEnv:
   ADMIN_EMAIL: "admin@mydomain.com"
   ADMIN_USERNAME: "admin"
   ADMIN_PASSWORD: "password"
   MAPBOX_API_KEY: ""
-
 configmap:
   config:
     enabled: true
@@ -84,7 +78,6 @@ configmap:
             }
           }
         }
-
 env:
   BACKEND_HOST: "localhost"
   DB_BACKEND: "postgresql"
@@ -116,7 +109,6 @@ env:
     secretKeyRef:
       name: librephotos-secrets
       key: SECRET_KEY
-
 probes:
   liveness:
     path: "/login"
@@ -124,25 +116,21 @@ probes:
     path: "/login"
   startup:
     path: "/login"
-
 redis:
   enabled: true
   existingSecret: "rediscreds"
   redisUsername: default
-
 postgresql:
   enabled: true
   existingSecret: "dbcreds"
   postgresqlUsername: librephotos
   postgresqlDatabase: librephotos
-
 service:
   main:
     ports:
       main:
         port: 10161
         targetPort: 80
-
 additionalContainers:
   proxy:
     name: proxy
@@ -162,7 +150,6 @@ additionalContainers:
   frontend:
     name: frontend
     image: "{{ .Values.frontendImage.repository }}:{{ .Values.frontendImage.tag }}"
-
 persistence:
   media:
     enabled: true
@@ -184,6 +171,5 @@ persistence:
     volumeSpec:
       configMap:
         name: '{{ printf "%v-config" (include "tc.common.names.fullname" .) }}'
-
 portal:
   enabled: true

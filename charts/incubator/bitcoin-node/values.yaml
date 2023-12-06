@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/bitcoin-node
-  tag: latest@sha256:0297be53b97d6c9d55b7bd0de496217e5477220b7102633714632e4ace84e45a
+  repository: kylemanna/bitcoind
+  tag: latest@sha256:1492fa0306cb7eb5de8d50ba60367cff8d29b00b516e45e93e05f8b54fa2970e
 persistence:
   blockhainstorage:
     enabled: true
@@ -28,6 +28,5 @@ service:
         port: 8333
         protocol: TCP
         targetPort: 8333
-
 portal:
   enabled: true

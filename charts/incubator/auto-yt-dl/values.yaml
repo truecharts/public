@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/auto-yt-dl
-  tag: latest@sha256:3e52d0a449ee17c6399619e14bf390de074ae915371d7537e7cd1487b3342693
+  repository: guhu007/auto-yt-dl
+  tag: latest@sha256:5e8ecdcc8bf820015f7b16368d80985285409ae880d80371c0de2bf8425fda77
 persistence:
   data:
     enabled: true
@@ -23,6 +23,5 @@ service:
         port: 5000
         protocol: TCP
         targetPort: 5000
-
 portal:
   enabled: true

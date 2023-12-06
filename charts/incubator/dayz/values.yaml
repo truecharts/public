@@ -1,26 +1,21 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/dayz
-  tag: latest@sha256:a5b2f1d4e0fca1d05c9a6bd18d63c4b7f35a12c769ee7a7bcce4576b48ebac76
-
+  repository: ich777/steamcmd
+  tag: dayz@sha256:2769f2cc3069924ed4ce381f24ba8b6911c1a54b5227298b66ab6a21e92bc9d8
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 secretEnv:
   USERNAME: ""
   PASSWRD: ""
-
 env:
   GAME_ID: "1042420"
   GAME_PARAMS: ""
   GAME_PORT: "2302"
   VALIDATE: false
-
 probes:
   liveness:
     enabled: false
@@ -28,7 +23,6 @@ probes:
     enabled: false
   startup:
     enabled: false
-
 service:
   main:
     ports:
@@ -44,7 +38,6 @@ service:
         port: 27016
         protocol: UDP
         targetPort: 27016
-
 persistence:
   serverfiles:
     enabled: true
@@ -52,6 +45,5 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-
 portal:
   enabled: true
