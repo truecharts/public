@@ -325,6 +325,11 @@
     },
     {
       "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["lscr.io/linuxserver/rdesktop"],
+      "groupName": "rdesktop",
+    },
+    {
+      "matchDatasources": ["docker"],
       "matchPackagePrefixes": ["tccr.io/truecharts/metallb"],
       "groupName": "metallb",
     },
