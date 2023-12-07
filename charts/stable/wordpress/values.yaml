@@ -16,19 +16,6 @@ workload:
                 name: env-config
             - secretRef:
                 name: env-secret
-          probes:
-            liveness:
-              enabled: true
-              type: https
-              port: "{{ .Values.service.main.ports.main.port }}"
-            readiness:
-              enabled: true
-              type: https
-              port: "{{ .Values.service.main.ports.main.port }}"
-            startup:
-              enabled: true
-              type: https
-              port: "{{ .Values.service.main.ports.main.port }}"
 wordpress:
   user: user
   pass: bitnami
