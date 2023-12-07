@@ -1,5 +1,3 @@
-args:
-  - /opt/server.conf
 dsc:
   enabled: false
   imported_action: move
@@ -415,6 +413,8 @@ workload:
     podSpec:
       containers:
         main:
+          args:
+            - /opt/server.conf
           probes:
             liveness:
               path: /api/info/version

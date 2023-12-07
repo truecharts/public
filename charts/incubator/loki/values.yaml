@@ -1,6 +1,4 @@
 alerting_groups: []
-args:
-  - -config.file=/etc/loki/loki.yaml
 config:
   auth_enabled: false
   chunk_store_config:
@@ -91,6 +89,8 @@ workload:
     podSpec:
       containers:
         main:
+          args:
+            - -config.file=/etc/loki/loki.yaml
           probes:
             liveness:
               path: /ready

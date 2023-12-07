@@ -1,5 +1,3 @@
-args:
-  - run
 image:
   pullPolicy: IfNotPresent
   repository: ghcr.io/bakito/adguardhome-sync
@@ -18,6 +16,8 @@ workload:
     podSpec:
       containers:
         main:
+          args:
+            - run
           env:
             CRON: "*/10 * * * *"
             FEATURES_CLIENTSETTINGS: "true"
