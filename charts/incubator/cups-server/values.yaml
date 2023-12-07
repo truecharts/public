@@ -3,18 +3,24 @@ image:
   tag: latest@sha256:a5501987937cf8c726e04878ff77d5f15f01070979f40c1a2cec60834bc77c70
   pullPolicy: IfNotPresent
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-secretEnv:
-  ADMIN_PASSWORD: "secretpass"
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            ADMIN_PASSWORD: "secretpass"
 service:
   main:
     ports:
       main:
         port: 631
+        protocol: http
         targetPort: 631
 persistence:
   config:
@@ -27,4 +33,5 @@ persistence:
     mountPath: "/var/run/dbus"
     readOnly: false
 portal:
-  enabled: true
+  open:
+    enabled: true
