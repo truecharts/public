@@ -1,29 +1,30 @@
 image:
-  repository: ich777/magic-mirror2
   pullPolicy: IfNotPresent
+  repository: ich777/magic-mirror2
   tag: latest@sha256:92e2fe5fb98791aba510e1be122bd1d659fa396a48dbafa0894ebc044df07651
-securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
 magicmirror:
   force_update: false
   force_update_modules: false
-envFrom:
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-magicmirror-env'
-probes:
-  liveness:
-    type: HTTP
-    path: /
-  readiness:
-    type: HTTP
-    path: /
-  startup:
-    type: HTTP
-    path: /
+persistence:
+  config:
+    enabled: true
+    mountPath: /magicmirror2
+  configfile:
+    enabled: true
+    mountPath: /tmp/config.js
+    objectName:
+      '{{ printf "%s-magicmirror-config" (include "tc.common.names.fullname"
+      .) }}'
+    subPath: config.js
+    type: configMap
+portal:
+  enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -31,17 +32,21 @@ service:
         port: 10590
         protocol: HTTP
         targetPort: 10000
-persistence:
-  config:
-    enabled: true
-    mountPath: /magicmirror2
-  # Mounts a modified default config file to a "tmp" which the entrypoint,
-  # copies to the config location if it does not exist.
-  configfile:
-    enabled: true
-    type: configMap
-    mountPath: /tmp/config.js
-    subPath: config.js
-    objectName: '{{ printf "%s-magicmirror-config" (include "tc.common.names.fullname" .) }}'
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - configMapRef:
+                name: '{{ include "tc.common.names.fullname" . }}-magicmirror-env'
+          probes:
+            liveness:
+              path: /
+              type: HTTP
+            readiness:
+              path: /
+              type: HTTP
+            startup:
+              path: /
+              type: HTTP

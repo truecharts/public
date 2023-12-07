@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: virt-manager
-version: 2.0.24
+version: 3.0.0
 appVersion: latest
 description:
   The virt-manager application is a desktop user interface for managing
@@ -21,7 +21,7 @@ keywords:
   - Tools-Utilities
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

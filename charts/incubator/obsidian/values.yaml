@@ -2,19 +2,22 @@ image:
   pullPolicy: IfNotPresent
   repository: ghcr.io/sytone/obsidian-remote
   tag: 0.1.1@sha256:0494ea57446e77609a469caf08a6886f3825f893883bfab2f4736e06d01c19b2
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+persistence:
+  storageconfig:
+    enabled: true
+    mountPath: /config/.config/obsidian
+  storagevaults:
+    enabled: true
+    mountPath: /vaults
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
-  main:
-    ports:
-      main:
-        port: 10292
-        protocol: HTTP
-        targetPort: 8080
   api:
     enabled: true
     ports:
@@ -26,12 +29,9 @@ service:
         enabled: true
         port: 27124
         targetPort: 27124
-persistence:
-  storageconfig:
-    enabled: true
-    mountPath: /config/.config/obsidian
-  storagevaults:
-    enabled: true
-    mountPath: /vaults
-portal:
-  enabled: true
+  main:
+    ports:
+      main:
+        port: 10292
+        protocol: HTTP
+        targetPort: 8080

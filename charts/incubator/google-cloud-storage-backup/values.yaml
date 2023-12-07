@@ -1,9 +1,3 @@
-env:
-  ACCESS_KEY: "Container Variable: ACCESS_KEY"
-  CRON_SCHEDULE: 0 * * * *
-  GCSOPTIONS: ""
-  GCSPATH: gs://mybucket/
-  SECRET_KEY: "Container Variable: SECRET_KEY"
 image:
   pullPolicy: IfNotPresent
   repository: vinid223/gcloud-storage-backup
@@ -13,24 +7,35 @@ persistence:
     enabled: true
     mountPath: /data/backup
     readOnly: true
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
+portal:
+  enabled: false
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-portal:
-  enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            ACCESS_KEY: "Container Variable: ACCESS_KEY"
+            CRON_SCHEDULE: 0 * * * *
+            GCSOPTIONS: ""
+            GCSPATH: gs://mybucket/
+            SECRET_KEY: "Container Variable: SECRET_KEY"
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

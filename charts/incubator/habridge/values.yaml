@@ -1,33 +1,38 @@
 image:
-  repository: ghcr.io/linuxserver/habridge
   pullPolicy: IfNotPresent
+  repository: ghcr.io/linuxserver/habridge
   tag: 5.4.1@sha256:fdc5bfad251aae1ed687f5ef31df6f23bb90b65ea9ef3167ad00adc778448d54
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  varrun:
+    enabled: true
+portal:
+  enabled: true
 securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-secretEnv:
-  SEC_KEY: ""
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
-  main:
-    ports:
-      main:
-        targetPort: 8080
-        port: 10146
   comm:
     enabled: true
     ports:
       comm:
         enabled: true
-        targetPort: 50000
         port: 50000
-persistence:
-  config:
-    enabled: true
-    mountPath: "/config"
-  varrun:
-    enabled: true
-portal:
-  enabled: true
+        targetPort: 50000
+  main:
+    ports:
+      main:
+        port: 10146
+        targetPort: 8080
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            SEC_KEY: ""

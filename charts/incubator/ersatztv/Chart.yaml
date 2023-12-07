@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: ersatztv
-version: 0.0.10
+version: 1.0.0
 appVersion: 0.7.4
 description: ErsatzTV configuring and streaming custom live channels using your media library.
 home: https://truecharts.org/charts/incubator/ersatztv
@@ -20,7 +20,7 @@ keywords:
   - media
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

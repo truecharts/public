@@ -1,13 +1,3 @@
-image:
-  repository: ndom91/briefkasten
-  pullPolicy: IfNotPresent
-  tag: latest@sha256:9de8da3e0e71a3e5f58543e165604b2416815f5099977b0c2727435670d60aed
-securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
 briefkasten:
   general:
     nextauth_url: http://localhost:3000
@@ -17,18 +7,30 @@ briefkasten:
   google:
     id: ""
     secret: ""
-  supabase:
-    key:
-    url:
-    bucket_id:
   mail:
-    from:
-    server:
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-secret'
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-config'
+    from: null
+    server: null
+  supabase:
+    bucket_id: null
+    key: null
+    url: null
+image:
+  pullPolicy: IfNotPresent
+  repository: ndom91/briefkasten
+  tag: latest@sha256:9de8da3e0e71a3e5f58543e165604b2416815f5099977b0c2727435670d60aed
+portal:
+  enabled: true
+postgresql:
+  enabled: true
+  existingSecret: dbcreds
+  postgresqlDatabase: briefkasten
+  postgresqlUsername: briefkasten
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -36,23 +38,26 @@ service:
         port: 10349
         protocol: HTTP
         targetPort: 3000
-probes:
-  liveness:
-    enabled: false
-    type: HTTP
-    path: /
-  readiness:
-    enabled: false
-    type: HTTP
-    path: /
-  startup:
-    enabled: false
-    type: HTTP
-    path: /
-postgresql:
-  enabled: true
-  existingSecret: dbcreds
-  postgresqlUsername: briefkasten
-  postgresqlDatabase: briefkasten
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - secretRef:
+                name: '{{ include "tc.common.names.fullname" . }}-secret'
+            - configMapRef:
+                name: '{{ include "tc.common.names.fullname" . }}-config'
+          probes:
+            liveness:
+              enabled: false
+              path: /
+              type: HTTP
+            readiness:
+              enabled: false
+              path: /
+              type: HTTP
+            startup:
+              enabled: false
+              path: /
+              type: HTTP

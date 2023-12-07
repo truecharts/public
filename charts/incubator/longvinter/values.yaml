@@ -1,6 +1,3 @@
-env:
-  GAME_PARAMS: ""
-  GAME_PORT: "27016"
 image:
   pullPolicy: IfNotPresent
   repository: ich777/steamcmd
@@ -12,19 +9,14 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -32,5 +24,18 @@ service:
         port: 27016
         protocol: UDP
         targetPort: 27016
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GAME_PARAMS: ""
+            GAME_PORT: "27016"
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

@@ -1,7 +1,3 @@
-env:
-  UMASK: "000"
-  VNC_PASSWORD: ""
-  WEBPAGE_TITLE: Preclear
 image:
   pullPolicy: IfNotPresent
   repository: binhex/arch-preclear
@@ -10,12 +6,14 @@ persistence:
   config:
     enabled: true
     mountPath: /config
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -23,5 +21,12 @@ service:
         port: 6080
         protocol: TCP
         targetPort: 6080
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            UMASK: "000"
+            VNC_PASSWORD: ""
+            WEBPAGE_TITLE: Preclear

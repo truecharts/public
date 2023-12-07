@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: sonarqube
-version: 2.0.12
+version: 3.0.0
 appVersion: latest
 description:
   "SonarQube is an open source platform for continuous inspection of code
@@ -22,7 +22,7 @@ keywords:
   - Tools-Utilities
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

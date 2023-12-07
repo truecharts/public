@@ -2,25 +2,6 @@ image:
   pullPolicy: IfNotPresent
   repository: f0rc3/gokapi
   tag: v1.7.2@sha256:c36a63685223e429438cdb6fd4310f72c4be72e711f44e640f94625edeb2cc00
-secretEnv:
-  GOKAPI_PASSWORD: "changme"
-  GOKAPI_USERNAME: "admin"
-env:
-  GOKAPI_LENGTH_ID: 15
-  GOKAPI_MAX_FILESIZE: 102400
-  GOKAPI_MAX_MEMORY_UPLOAD: 20
-  # GOKAPI_AWS_BUCKET: ""
-  # GOKAPI_AWS_REGION: ""
-  # GOKAPI_AWS_KEY: ""
-  # GOKAPI_AWS_KEY_SECRET: ""
-  # GOKAPI_AWS_ENDPOINT: ""
-service:
-  main:
-    ports:
-      main:
-        port: 53842
-        protocol: HTTP
-        targetPort: 53842
 persistence:
   config:
     enabled: true
@@ -30,3 +11,21 @@ persistence:
     mountPath: /app/data
 portal:
   enabled: true
+service:
+  main:
+    ports:
+      main:
+        port: 53842
+        protocol: HTTP
+        targetPort: 53842
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GOKAPI_LENGTH_ID: "15"
+            GOKAPI_MAX_FILESIZE: "102400"
+            GOKAPI_MAX_MEMORY_UPLOAD: "20"
+            GOKAPI_PASSWORD: changme
+            GOKAPI_USERNAME: admin

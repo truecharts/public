@@ -1,5 +1,3 @@
-env:
-  SCPRIME_WALLET_PASSWORD: ""
 image:
   pullPolicy: IfNotPresent
   repository: scprime/scprime
@@ -11,12 +9,14 @@ persistence:
   storage:
     enabled: true
     mountPath: /storage
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   hostapiaddress:
     enabled: true
@@ -32,5 +32,10 @@ service:
         port: 4282
         protocol: TCP
         targetPort: 4282
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            SCPRIME_WALLET_PASSWORD: ""

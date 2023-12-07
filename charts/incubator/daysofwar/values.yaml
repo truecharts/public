@@ -2,28 +2,21 @@ image:
   pullPolicy: IfNotPresent
   repository: ich777/steamcmd
   tag: daysofwar@sha256:4b59c3c5b30fbac8b2e00bd47ca0924857d9e5d6fb53ba718bd923a0465e4d16
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-secretEnv:
-  USERNAME: ""
-  PASSWRD: ""
-env:
-  GAME_ID: "541790"
-  GAME_PARAMS: dow_cathedral
-  GAME_PORT: "7777"
-  QUERY_PORT: "27015"
-  VALIDATE: false
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -39,12 +32,23 @@ service:
         port: 27015
         protocol: UDP
         targetPort: 27015
-persistence:
-  serverfiles:
-    enabled: true
-    mountPath: /serverdata/serverfiles
-  steamcmd:
-    enabled: true
-    mountPath: /serverdata/steamcmd
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GAME_ID: "541790"
+            GAME_PARAMS: dow_cathedral
+            GAME_PORT: "7777"
+            PASSWRD: ""
+            QUERY_PORT: "27015"
+            USERNAME: ""
+            VALIDATE: "false"
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

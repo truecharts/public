@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: socials
-version: 2.0.12
+version: 3.0.0
 appVersion: main
 description:
   Socials is a single-page website that stores all your social media and
@@ -25,7 +25,7 @@ keywords:
   - Other
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

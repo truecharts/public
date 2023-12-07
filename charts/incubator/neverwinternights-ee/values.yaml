@@ -1,24 +1,3 @@
-env:
-  APWD: adminDocker
-  AUTO_SAV_I: "5"
-  DIFF: "1"
-  ELC: "0"
-  GAME_PARAMS: ""
-  ILR: "0"
-  LOG_LVL: "4"
-  MAXLEVEL: "40"
-  MAX_CLIENTS: "4"
-  MINLEVEL: "1"
-  MOD_NAME: ""
-  ONEPARTY: "0"
-  PAUSEAPLAY: "0"
-  PPW: Docker
-  PUBLIC_SRV: "0"
-  PVP: "0"
-  RLD_W_E: "0"
-  SERVERVAULT: "0"
-  SRV_NAME: Docker NWNEE
-  UMASK: "000"
 image:
   pullPolicy: IfNotPresent
   repository: ich777/nwnee-server
@@ -27,19 +6,14 @@ persistence:
   serverfiles:
     enabled: true
     mountPath: /nwnee
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -47,5 +21,36 @@ service:
         port: 5121
         protocol: UDP
         targetPort: 5121
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            APWD: adminDocker
+            AUTO_SAV_I: "5"
+            DIFF: "1"
+            ELC: "0"
+            GAME_PARAMS: ""
+            ILR: "0"
+            LOG_LVL: "4"
+            MAX_CLIENTS: "4"
+            MAXLEVEL: "40"
+            MINLEVEL: "1"
+            MOD_NAME: ""
+            ONEPARTY: "0"
+            PAUSEAPLAY: "0"
+            PPW: Docker
+            PUBLIC_SRV: "0"
+            PVP: "0"
+            RLD_W_E: "0"
+            SERVERVAULT: "0"
+            SRV_NAME: Docker NWNEE
+            UMASK: "000"
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

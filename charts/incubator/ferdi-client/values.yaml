@@ -1,8 +1,3 @@
-env:
-  CUSTOM_RES_H: "768"
-  CUSTOM_RES_W: "1280"
-  FERDI_V: stable@sha256:f0065aa44fb1c38b7fc30d34e220138dc0a0c6477b78eb7f59015622c2052030
-  UMASK: "000"
 image:
   pullPolicy: IfNotPresent
   repository: ich777/ferdi-client
@@ -11,12 +6,14 @@ persistence:
   datadir:
     enabled: true
     mountPath: /ferdi
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -24,5 +21,13 @@ service:
         port: 8080
         protocol: TCP
         targetPort: 8080
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            CUSTOM_RES_H: "768"
+            CUSTOM_RES_W: "1280"
+            FERDI_V: stable@sha256:f0065aa44fb1c38b7fc30d34e220138dc0a0c6477b78eb7f59015622c2052030
+            UMASK: "000"

@@ -1,27 +1,24 @@
-image:
-  repository: reallibrephotos/librephotos
-  tag: latest@sha256:3ded92c9ba78c238c2837841f394d86d7246ffb082dae6ad54127383d4022156
-  pullPolicy: IfNotPresent
-frontendImage:
-  repository: reallibrephotos/librephotos-frontend
-  tag: latest@sha256:541b044d439e9790623405409ab57c92810def8a1e701b5f4f7d4f9421e7240a
-proxyImage:
-  repository: reallibrephotos/librephotos-proxy
-  tag: latest@sha256:b45c74482bc409b113fcb7519beb9acb646e6d24bc36fed69afd3df39a0aa8e3
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-secretEnv:
-  ADMIN_EMAIL: "admin@mydomain.com"
-  ADMIN_USERNAME: "admin"
-  ADMIN_PASSWORD: "password"
-  MAPBOX_API_KEY: ""
+additionalContainers:
+  frontend:
+    image: "{{ .Values.frontendImage.repository }}:{{ .Values.frontendImage.tag }}"
+    name: frontend
+  proxy:
+    image: "{{ .Values.proxyImage.repository }}:{{ .Values.proxyImage.tag }}"
+    name: proxy
+    ports:
+      - containerPort: 80
+        name: main
+    volumeMounts:
+      - mountPath: /etc/nginx/nginx.conf
+        name: librephotos-config
+        readOnly: true
+        subPath: nginx-config
+      - mountPath: /data
+        name: media
+      - mountPath: /protected_media
+        name: protected-media
 configmap:
   config:
-    enabled: true
     data:
       nginx-config: |-
         user  nginx;
@@ -78,98 +75,106 @@ configmap:
             }
           }
         }
-env:
-  BACKEND_HOST: "localhost"
-  DB_BACKEND: "postgresql"
-  DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
-  DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
-  DB_PORT: "5432"
-  REDIS_PORT: "6379"
-  WEB_CONCURRENCY: 2
-  SKIP_PATTERNS: ""
-  HEAVYWEIGHT_PROCESS: 1
-  DEBUG: false
-  DB_PASS:
-    secretKeyRef:
-      name: dbcreds
-      key: postgresql-password
-  DB_HOST:
-    secretKeyRef:
-      name: dbcreds
-      key: plainhost
-  REDIS_HOST:
-    secretKeyRef:
-      name: rediscreds
-      key: plainhost
-  REDIS_PASS:
-    secretKeyRef:
-      name: rediscreds
-      key: redis-password
-  SECRET_KEY:
-    secretKeyRef:
-      name: librephotos-secrets
-      key: SECRET_KEY
-probes:
-  liveness:
-    path: "/login"
-  readiness:
-    path: "/login"
-  startup:
-    path: "/login"
-redis:
+    enabled: true
+frontendImage:
+  repository: reallibrephotos/librephotos-frontend
+  tag: latest@sha256:541b044d439e9790623405409ab57c92810def8a1e701b5f4f7d4f9421e7240a
+image:
+  pullPolicy: IfNotPresent
+  repository: reallibrephotos/librephotos
+  tag: latest@sha256:3ded92c9ba78c238c2837841f394d86d7246ffb082dae6ad54127383d4022156
+persistence:
+  cache:
+    enabled: true
+    mountPath: /root/.cache
+  librephotos-config:
+    enabled: "true"
+    mountPath: /etc/nginx/nginx.conf
+    subPath: nginx-config
+    type: custom
+    volumeSpec:
+      configMap:
+        name: '{{ printf "%v-config" (include "tc.common.names.fullname" .) }}'
+  logs:
+    enabled: true
+    mountPath: /logs
+  media:
+    enabled: true
+    mountPath: /data
+  protected-media:
+    enabled: true
+    mountPath: /protected_media
+portal:
   enabled: true
-  existingSecret: "rediscreds"
-  redisUsername: default
 postgresql:
   enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: librephotos
+  existingSecret: dbcreds
   postgresqlDatabase: librephotos
+  postgresqlUsername: librephotos
+proxyImage:
+  repository: reallibrephotos/librephotos-proxy
+  tag: latest@sha256:b45c74482bc409b113fcb7519beb9acb646e6d24bc36fed69afd3df39a0aa8e3
+redis:
+  enabled: true
+  existingSecret: rediscreds
+  redisUsername: default
+secretEnv:
+  ADMIN_EMAIL: admin@mydomain.com
+  ADMIN_PASSWORD: password
+  ADMIN_USERNAME: admin
+  MAPBOX_API_KEY: ""
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
       main:
         port: 10161
         targetPort: 80
-additionalContainers:
-  proxy:
-    name: proxy
-    image: "{{ .Values.proxyImage.repository }}:{{ .Values.proxyImage.tag }}"
-    ports:
-      - containerPort: 80
-        name: main
-    volumeMounts:
-      - name: librephotos-config
-        mountPath: "/etc/nginx/nginx.conf"
-        subPath: nginx-config
-        readOnly: true
-      - name: media
-        mountPath: "/data"
-      - name: protected-media
-        mountPath: "/protected_media"
-  frontend:
-    name: frontend
-    image: "{{ .Values.frontendImage.repository }}:{{ .Values.frontendImage.tag }}"
-persistence:
-  media:
-    enabled: true
-    mountPath: "/data"
-  protected-media:
-    enabled: true
-    mountPath: "/protected_media"
-  logs:
-    enabled: true
-    mountPath: "/logs"
-  cache:
-    enabled: true
-    mountPath: "/root/.cache"
-  librephotos-config:
-    enabled: "true"
-    mountPath: "/etc/nginx/nginx.conf"
-    subPath: "nginx-config"
-    type: "custom"
-    volumeSpec:
-      configMap:
-        name: '{{ printf "%v-config" (include "tc.common.names.fullname" .) }}'
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            BACKEND_HOST: localhost
+            DB_BACKEND: postgresql
+            DB_HOST:
+              secretKeyRef:
+                key: plainhost
+                name: dbcreds
+            DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
+            DB_PASS:
+              secretKeyRef:
+                key: postgresql-password
+                name: dbcreds
+            DB_PORT: "5432"
+            DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+            DEBUG: false
+            HEAVYWEIGHT_PROCESS: 1
+            REDIS_HOST:
+              secretKeyRef:
+                key: plainhost
+                name: rediscreds
+            REDIS_PASS:
+              secretKeyRef:
+                key: redis-password
+                name: rediscreds
+            REDIS_PORT: "6379"
+            SECRET_KEY:
+              secretKeyRef:
+                key: SECRET_KEY
+                name: librephotos-secrets
+            SKIP_PATTERNS: ""
+            WEB_CONCURRENCY: 2
+          probes:
+            liveness:
+              path: /login
+            readiness:
+              path: /login
+            startup:
+              path: /login

@@ -1,4 +1,3 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
   repository: xavierniu/cloudreve
@@ -16,12 +15,14 @@ persistence:
   uploadpath:
     enabled: true
     mountPath: /cloudreve/uploads
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -29,5 +30,3 @@ service:
         port: 5212
         protocol: TCP
         targetPort: 5212
-portal:
-  enabled: true

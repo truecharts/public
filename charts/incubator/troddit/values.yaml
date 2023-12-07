@@ -1,20 +1,16 @@
-env:
-  CLIENT_ID: ""
-  CLIENT_SECRET: ""
-  NEXTAUTH_SECRET: ""
-  NEXTAUTH_URL: ""
-  REDDIT_REDIRECT: ""
 image:
   pullPolicy: IfNotPresent
   repository: bsyed/troddit
   tag: latest@sha256:22b590565be2710ca58573b096cc3c66054be1fe859eed0563e31140646b8632
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -22,5 +18,14 @@ service:
         port: 3000
         protocol: TCP
         targetPort: 3000
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            CLIENT_ID: ""
+            CLIENT_SECRET: ""
+            NEXTAUTH_SECRET: ""
+            NEXTAUTH_URL: ""
+            REDDIT_REDIRECT: ""

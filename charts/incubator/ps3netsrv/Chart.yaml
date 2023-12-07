@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: ps3netsrv
-version: 2.0.12
+version: 3.0.0
 appVersion: 1.6.0
 description: Allows Multiman or Webman to play game backups.
 home: https://truecharts.org/charts/incubator/ps3netsrv
@@ -20,7 +20,7 @@ keywords:
   - Network-Other
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

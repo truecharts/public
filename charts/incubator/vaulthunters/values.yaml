@@ -1,7 +1,3 @@
-env:
-  EULA: "false"
-  JVM_OPTS: -Xms6144m -Xmx8192m
-  OPS: ""
 image:
   pullPolicy: IfNotPresent
   repository: goobaroo/vaulthunters
@@ -10,12 +6,14 @@ persistence:
   data:
     enabled: true
     mountPath: /data
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -23,5 +21,12 @@ service:
         port: 25565
         protocol: TCP
         targetPort: 25565
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            EULA: "false"
+            JVM_OPTS: -Xms6144m -Xmx8192m
+            OPS: ""

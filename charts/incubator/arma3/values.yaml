@@ -2,20 +2,24 @@ image:
   pullPolicy: IfNotPresent
   repository: ich777/steamcmd
   tag: arma3@sha256:2ba70991d7a3ecf358ac708f2cee326c9bbf34666d1a5b8794ec1ce4ccf30add
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+persistence:
+  profiles:
+    enabled: true
+    mountPath: /serverdata/.local/share
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-secretEnv:
-  USERNAME: ""
-  PASSWRD: ""
-env:
-  GAME_ID: "233780"
-  GAME_PARAMS: -config=server.cfg -mod=
-  GAME_PORT: "2302"
-  VALIDATE: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -63,15 +67,15 @@ service:
         port: 2305
         protocol: UDP
         targetPort: 2305
-persistence:
-  profiles:
-    enabled: true
-    mountPath: /serverdata/.local/share
-  serverfiles:
-    enabled: true
-    mountPath: /serverdata/serverfiles
-  steamcmd:
-    enabled: true
-    mountPath: /serverdata/steamcmd
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GAME_ID: "233780"
+            GAME_PARAMS: -config=server.cfg -mod=
+            GAME_PORT: "2302"
+            PASSWRD: ""
+            USERNAME: ""
+            VALIDATE: "false"

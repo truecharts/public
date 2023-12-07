@@ -1,5 +1,3 @@
-env:
-  UMASK: "002"
 image:
   pullPolicy: IfNotPresent
   repository: banhcanh/docker-fmd2
@@ -20,12 +18,14 @@ persistence:
   downloaddirectory:
     enabled: true
     mountPath: /downloads
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -33,5 +33,10 @@ service:
         port: 6080
         protocol: TCP
         targetPort: 6080
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            UMASK: "002"

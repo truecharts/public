@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: songkong
-version: 2.0.20
+version: 3.0.0
 appVersion: latest
 description:
   Official SongKong Chart repository, Identify your songs and add metadata
@@ -21,7 +21,7 @@ keywords:
   - MediaApp-Music
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

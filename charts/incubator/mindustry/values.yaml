@@ -1,8 +1,3 @@
-env:
-  GAME_PARAMS: ""
-  GAME_V: latest@sha256:f0065aa44fb1c38b7fc30d34e220138dc0a0c6477b78eb7f59015622c2052030
-  SRV_NAME: DockerMindustry
-  UMASK: "000"
 image:
   pullPolicy: IfNotPresent
   repository: ich777/mindustry-server
@@ -11,12 +6,14 @@ persistence:
   serverfiles:
     enabled: true
     mountPath: /mindustry
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -32,5 +29,13 @@ service:
         port: 6567
         protocol: UDP
         targetPort: 6567
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GAME_PARAMS: ""
+            GAME_V: latest@sha256:f0065aa44fb1c38b7fc30d34e220138dc0a0c6477b78eb7f59015622c2052030
+            SRV_NAME: DockerMindustry
+            UMASK: "000"

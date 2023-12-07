@@ -1,4 +1,3 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
   repository: captinsano/tonido
@@ -7,12 +6,14 @@ persistence:
   tonido:
     enabled: true
     mountPath: /unRAID
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -20,5 +21,3 @@ service:
         port: 10001
         protocol: TCP
         targetPort: 10001
-portal:
-  enabled: true

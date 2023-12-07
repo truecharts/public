@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: pialert
-version: 2.0.5
+version: 3.0.0
 appVersion: latest
 description:
   Monitoring your WIFI/LAN network and alerting of new (intruder or hacker)
@@ -22,7 +22,7 @@ keywords:
   - networking
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

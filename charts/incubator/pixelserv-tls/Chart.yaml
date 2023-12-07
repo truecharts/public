@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: pixelserv-tls
-version: 2.0.12
+version: 3.0.0
 appVersion: latest
 description:
   pixelserv-tls is a tiny bespoke HTTP/1.1 webserver with HTTPS and SNI
@@ -24,7 +24,7 @@ keywords:
   - Other
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

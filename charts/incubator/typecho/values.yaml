@@ -1,52 +1,56 @@
 image:
+  pullPolicy: IfNotPresent
   repository: joyqi/typecho
   tag: 1.2.1-php8.0-apache@sha256:1022413d66b6fcb3e49f9bac3534bb7eec6535ef5982a1d383971d9f71bb78db
-  pullPolicy: IfNotPresent
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-env:
-  TIMEZONE: "{{ .Values.TZ }}"
-  TYPECHO_INSTALL: 1
-  TYPECHO_DB_ADAPTER: "Pdo_Mysql"
-  TYPECHO_DB_PORT: "3306"
-  TYPECHO_DB_USER: "{{ .Values.mariadb.mariadbUsername }}"
-  TYPECHO_DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
-  TYPECHO_DB_PREFIX: "typecho_"
-  TYPECHO_DB_ENGINE: "InnoDB"
-  TYPECHO_DB_CHARSET: "utf8mb4"
-  TYPECHO_DB_NEXT: "none"
-  # User Defined
-  MEMORY_LIMIT: "100M"
-  MAX_POST_BODY: "50M"
-  TYPECHO_SITE_URL: "https://your-domain.com"
-  TYPECHO_USER_MAIL: "test@truecharts.org"
-  TYPECHO_DB_HOST:
-    secretKeyRef:
-      name: mariadbcreds
-      key: plainhost
-  TYPECHO_DB_PASSWORD:
-    secretKeyRef:
-      name: mariadbcreds
-      key: mariadb-password
+mariadb:
+  enabled: true
+  existingSecret: mariadbcreds
+  mariadbDatabase: typecho
+  mariadbUsername: typecho
+persistence:
+  config:
+    enabled: true
+    mountPath: /app/usr
 secretEnv:
-  TYPECHO_USER_NAME: "typecho"
-  TYPECHO_USER_PASSWORD: "testtypecho"
+  TYPECHO_USER_NAME: typecho
+  TYPECHO_USER_PASSWORD: testtypecho
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
       main:
         port: 10207
         targetPort: 80
-persistence:
-  config:
-    enabled: true
-    mountPath: "/app/usr"
-mariadb:
-  enabled: true
-  mariadbUsername: typecho
-  mariadbDatabase: typecho
-  existingSecret: "mariadbcreds"
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            MAX_POST_BODY: 50M
+            MEMORY_LIMIT: 100M
+            TIMEZONE: "{{ .Values.TZ }}"
+            TYPECHO_DB_ADAPTER: Pdo_Mysql
+            TYPECHO_DB_CHARSET: utf8mb4
+            TYPECHO_DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
+            TYPECHO_DB_ENGINE: InnoDB
+            TYPECHO_DB_HOST:
+              secretKeyRef:
+                key: plainhost
+                name: mariadbcreds
+            TYPECHO_DB_NEXT: none
+            TYPECHO_DB_PASSWORD:
+              secretKeyRef:
+                key: mariadb-password
+                name: mariadbcreds
+            TYPECHO_DB_PORT: "3306"
+            TYPECHO_DB_PREFIX: typecho_
+            TYPECHO_DB_USER: "{{ .Values.mariadb.mariadbUsername }}"
+            TYPECHO_INSTALL: 1
+            TYPECHO_SITE_URL: https://your-domain.com
+            TYPECHO_USER_MAIL: test@truecharts.org

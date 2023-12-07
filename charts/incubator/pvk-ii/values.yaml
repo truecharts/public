@@ -2,29 +2,21 @@ image:
   pullPolicy: IfNotPresent
   repository: ich777/steamcmd
   tag: pvkii@sha256:9ada22a503d301abf414d657febbb0700951b09b3c2adc492dd69f15dddffd3b
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-secretEnv:
-  USERNAME: ""
-  PASSWRD: ""
-env:
-  DATA_PERM: "770"
-  GAME_ID: "17575"
-  GAME_NAME: pvkii
-  GAME_PARAMS: -maxplayers 18 +map bt_island
-  GAME_PORT: "27015"
-  VALIDATE: false
-probes:
-  liveness:
-    port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
-  readiness:
-    port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
-  startup:
-    port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -40,12 +32,24 @@ service:
         port: 27015
         protocol: TCP
         targetPort: 27015
-persistence:
-  serverfiles:
-    enabled: true
-    mountPath: /serverdata/serverfiles
-  steamcmd:
-    enabled: true
-    mountPath: /serverdata/steamcmd
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DATA_PERM: "770"
+            GAME_ID: "17575"
+            GAME_NAME: pvkii
+            GAME_PARAMS: -maxplayers 18 +map bt_island
+            GAME_PORT: "27015"
+            PASSWRD: ""
+            USERNAME: ""
+            VALIDATE: "false"
+          probes:
+            liveness:
+              port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
+            readiness:
+              port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
+            startup:
+              port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"

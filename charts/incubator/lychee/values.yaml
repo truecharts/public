@@ -1,88 +1,78 @@
 image:
-  repository: lycheeorg/lychee-laravel
   pullPolicy: IfNotPresent
+  repository: lycheeorg/lychee-laravel
   tag: v4.13.0@sha256:40eebc538f460ace2cb9abc9e8ba1a97615d1cfa4092aff2c3b9677d5494f171
+persistence:
+  conf:
+    enabled: true
+    mountPath: /conf
+  sym:
+    enabled: true
+    mountPath: /sym
+  uploads:
+    enabled: true
+    mountPath: /uploads
+portal:
+  enabled: true
+postgresql:
+  enabled: true
+  existingSecret: dbcreds
+  postgresqlDatabase: lychee
+  postgresqlUsername: lychee
+redis:
+  enabled: true
+  existingSecret: rediscreds
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
       main:
         port: 10017
         targetPort: 80
-# secretEnv:
-#   PUSHER_APP_KEY: ""
-#   PUSHER_APP_SECRET: ""
-#   PUSHER_APP_ID: ""
-#   PUSHER_APP_CLUSTER: "mt1"
-#   MAIL_DRIVER: "smtp"
-#   MAIL_HOST: ""
-#   MAIL_FROM_NAME: ""
-#   MAIL_FROM_ADDRESS: ""
-#   MAIL_USERNAME: ""
-#   MAIL_PASSWORD: ""
-#   MAIL_PORT: "587"
-#   MAIL_ENCRYPTION: "tls"
-env:
-  # Internal Envs
-  TIMEZONE: "{{ .Values.TZ }}"
-  PHP_TZ: "{{ .Values.TZ }}"
-  DB_CONNECTION: "pgsql"
-  DB_PORT: "5432"
-  DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
-  DB_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"
-  REDIS_PORT: "6379"
-  CACHE_DRIVER: "redis"
-  SESSION_DRIVER: "redis"
-  APP_ENV: "production"
-  APP_NAME: "Lychee"
-  MIX_PUSHER_APP_KEY: "{{ .Values.env.PUSHER_APP_KEY }}"
-  MIX_PUSHER_APP_CLUSTER: "{{ .Values.env.PUSHER_APP_CLUSTER }}"
-  # User Envs
-  SECURITY_HEADER_HSTS_ENABLE: false
-  APP_DEBUG: false
-  APP_URL: http://localhost
-  DB_PASSWORD:
-    secretKeyRef:
-      name: dbcreds
-      key: postgresql-password
-  DB_HOST:
-    secretKeyRef:
-      name: dbcreds
-      key: plainhost
-  REDIS_HOST:
-    secretKeyRef:
-      name: rediscreds
-      key: plainhost
-  REDIS_PASSWORD:
-    secretKeyRef:
-      name: rediscreds
-      key: redis-password
-  APP_KEY:
-    secretKeyRef:
-      name: lychee-secrets
-      key: APP_KEY
-persistence:
-  conf:
-    enabled: true
-    mountPath: "/conf"
-  sym:
-    enabled: true
-    mountPath: "/sym"
-  uploads:
-    enabled: true
-    mountPath: "/uploads"
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: lychee
-  postgresqlDatabase: lychee
-redis:
-  enabled: true
-  existingSecret: "rediscreds"
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            APP_DEBUG: false
+            APP_ENV: production
+            APP_KEY:
+              secretKeyRef:
+                key: APP_KEY
+                name: lychee-secrets
+            APP_NAME: Lychee
+            APP_URL: http://localhost
+            CACHE_DRIVER: redis
+            DB_CONNECTION: pgsql
+            DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
+            DB_HOST:
+              secretKeyRef:
+                key: plainhost
+                name: dbcreds
+            DB_PASSWORD:
+              secretKeyRef:
+                key: postgresql-password
+                name: dbcreds
+            DB_PORT: "5432"
+            DB_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"
+            MIX_PUSHER_APP_CLUSTER: "{{ .Values.env.PUSHER_APP_CLUSTER }}"
+            MIX_PUSHER_APP_KEY: "{{ .Values.env.PUSHER_APP_KEY }}"
+            PHP_TZ: "{{ .Values.TZ }}"
+            REDIS_HOST:
+              secretKeyRef:
+                key: plainhost
+                name: rediscreds
+            REDIS_PASSWORD:
+              secretKeyRef:
+                key: redis-password
+                name: rediscreds
+            REDIS_PORT: "6379"
+            SECURITY_HEADER_HSTS_ENABLE: false
+            SESSION_DRIVER: redis
+            TIMEZONE: "{{ .Values.TZ }}"

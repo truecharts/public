@@ -1,115 +1,89 @@
-image:
-  repository: penpotapp/frontend
-  pullPolicy: IfNotPresent
-  tag: 1.19.3@sha256:cfc31dd9d63ec92759dc66b19da5401896748c6ec96ce1f3b06a21604eaa16e9
 backendImage:
-  repository: penpotapp/backend
   pullPolicy: IfNotPresent
+  repository: penpotapp/backend
   tag: 1.19.3@sha256:a800c1096e8d8774d1fbe8c6deac6244c284e3a4c407acc56a460f3289d09adb
 exporterImage:
-  repository: penpotapp/exporter
   pullPolicy: IfNotPresent
+  repository: penpotapp/exporter
   tag: 1.19.3@sha256:e113a685d07bff470a2e75acab61fd61c5b24185d8931fd19b65d1f622061823
-securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
 hostAliases:
-  - ip: 127.0.0.1
-    hostnames:
+  - hostnames:
       - penpot-backend
       - penpot-exporter
       - penpot-frontend
+    ip: 127.0.0.1
+image:
+  pullPolicy: IfNotPresent
+  repository: penpotapp/frontend
+  tag: 1.19.3@sha256:cfc31dd9d63ec92759dc66b19da5401896748c6ec96ce1f3b06a21604eaa16e9
 penpot:
-  public_uri: "http://localhost:{{ .Values.service.main.ports.main.port }}"
   flags:
-    registration: true
-    insecure_register: false
-    login: true
+    backend_api_doc: false
+    cors: false
     demo_users: false
     demo_warning: false
-    user_feedback: false
-    mail_verification: true
-    log_invitation_token: false
+    insecure_register: false
     log_emails: false
+    log_invitation_token: false
+    login: true
+    mail_verification: true
+    registration: true
     secure_session_cookies: true
-    cors: false
-    backend_api_doc: false
-  telemetry_enabled: false
-  registration_domain_whitelist: []
-  smtp:
-    enabled: false
-    default_from: "no-reply@example.com"
-    default_reply_to: "no-reply@example.com"
-    tls: true
-    ssl: false
-    host: ""
-    port: 587
-    user: ""
-    pass: ""
+    user_feedback: false
   identity_providers:
-    google:
-      enabled: false
-      client_id: ""
-      client_secret: ""
     github:
-      enabled: false
       client_id: ""
       client_secret: ""
+      enabled: false
     gitlab:
-      enabled: false
       base_uri: ""
       client_id: ""
       client_secret: ""
-    oidc:
       enabled: false
-      base_uri: ""
+    google:
       client_id: ""
       client_secret: ""
+      enabled: false
     ldap:
+      attrs_email: ""
+      attrs_fullname: ""
+      attrs_username: ""
+      base_dn: ""
+      bind_dn: ""
+      bind_pass: ""
       enabled: false
       host: ""
       port: 10389
       ssl: false
       starttls: false
-      base_dn: ""
-      bind_dn: ""
-      bind_pass: ""
-      attrs_username: ""
-      attrs_email: ""
-      attrs_fullname: ""
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-common-secret'
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-frontend-secret'
-probes:
-  liveness:
-    type: HTTP
-    path: /
-  readiness:
-    type: HTTP
-    path: /
-  startup:
-    type: HTTP
-    path: /
-service:
-  main:
-    ports:
-      main:
-        protocol: HTTP
-        targetPort: 80
-        port: 10592
+    oidc:
+      base_uri: ""
+      client_id: ""
+      client_secret: ""
+      enabled: false
+  public_uri: http://localhost:{{ .Values.service.main.ports.main.port }}
+  registration_domain_whitelist: []
+  smtp:
+    default_from: no-reply@example.com
+    default_reply_to: no-reply@example.com
+    enabled: false
+    host: ""
+    pass: ""
+    port: 587
+    ssl: false
+    tls: true
+    user: ""
+  telemetry_enabled: false
 persistence:
+  assets:
+    enabled: true
+    mountPath: /opt/data/assets
   data:
     enabled: true
     mountPath: /opt/data
     noMount: true
-  assets:
-    enabled: true
-    mountPath: /opt/data/assets
+portal:
+  enabled: true
 postgresql:
   enabled: true
   existingSecret: dbcreds
@@ -119,5 +93,36 @@ redis:
   enabled: true
   existingSecret: rediscreds
   redisUsername: penpot
-portal:
-  enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10592
+        protocol: HTTP
+        targetPort: 80
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - secretRef:
+                name: '{{ include "tc.common.names.fullname" . }}-common-secret'
+            - secretRef:
+                name: '{{ include "tc.common.names.fullname" . }}-frontend-secret'
+          probes:
+            liveness:
+              path: /
+              type: HTTP
+            readiness:
+              path: /
+              type: HTTP
+            startup:
+              path: /
+              type: HTTP

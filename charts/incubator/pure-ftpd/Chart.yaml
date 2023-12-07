@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: pure-ftpd
-version: 2.0.12
+version: 3.0.0
 appVersion: latest
 description:
   Pure-FTPd is a free (BSD), secure, production-quality and standard-conformant
@@ -24,7 +24,7 @@ keywords:
   - Network-FTP
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

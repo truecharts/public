@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: archiveteam-warrior
-version: 2.0.16
+version: 3.0.0
 appVersion: latest
 description:
   The Archive Team Warrior is a virtual archiving appliance. You can run
@@ -25,7 +25,7 @@ keywords:
   - Downloaders
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

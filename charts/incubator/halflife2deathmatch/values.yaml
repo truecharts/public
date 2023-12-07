@@ -2,28 +2,21 @@ image:
   pullPolicy: IfNotPresent
   repository: ich777/steamcmd
   tag: hl2dm@sha256:53a467b87844a42471f70bbebdada85873fe6d5c31266de85612f3fae72b58f6
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-secretEnv:
-  USERNAME: ""
-  PASSWRD: ""
-env:
-  GAME_ID: "232370"
-  GAME_NAME: hl2mp
-  GAME_PARAMS: -secure +maxplayers 16 +map dm_overwatch
-  GAME_PORT: "27015"
-  VALIDATE: false
-probes:
-  liveness:
-    port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
-  readiness:
-    port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
-  startup:
-    port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -39,12 +32,23 @@ service:
         port: 27015
         protocol: TCP
         targetPort: 27015
-persistence:
-  serverfiles:
-    enabled: true
-    mountPath: /serverdata/serverfiles
-  steamcmd:
-    enabled: true
-    mountPath: /serverdata/steamcmd
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GAME_ID: "232370"
+            GAME_NAME: hl2mp
+            GAME_PARAMS: -secure +maxplayers 16 +map dm_overwatch
+            GAME_PORT: "27015"
+            PASSWRD: ""
+            USERNAME: ""
+            VALIDATE: "false"
+          probes:
+            liveness:
+              port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
+            readiness:
+              port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
+            startup:
+              port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"

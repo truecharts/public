@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: recipes
-version: 12.0.3
+version: 13.0.0
 appVersion: 1.5.6
 description:
   Recipes is a Django application to manage, tag and search recipes using
@@ -23,7 +23,7 @@ keywords:
   - cooking
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

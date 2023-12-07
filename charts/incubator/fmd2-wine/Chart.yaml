@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: fmd2-wine
-version: 2.0.12
+version: 3.0.0
 appVersion: latest
 description:
   "**FMD2:** This is an active fork of the Free Manga Downloader which
@@ -24,7 +24,7 @@ keywords:
   - MediaApp-Books
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

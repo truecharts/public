@@ -1,10 +1,3 @@
-env:
-  APP_NAME: Vorta
-  GROUP_ID: "100"
-  SECURE_CONNECTION: "0"
-  UMASK: "022"
-  USER_ID: "99"
-  VNC_PASSWORD: ""
 image:
   pullPolicy: IfNotPresent
   repository: ghcr.io/borgbase/vorta-docker
@@ -20,12 +13,14 @@ persistence:
   config:
     enabled: true
     mountPath: /config
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -33,5 +28,15 @@ service:
         port: 5800
         protocol: TCP
         targetPort: 5800
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            APP_NAME: Vorta
+            GROUP_ID: "100"
+            SECURE_CONNECTION: "0"
+            UMASK: "022"
+            USER_ID: "99"
+            VNC_PASSWORD: ""

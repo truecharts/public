@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: tubesync
-version: 2.0.16
+version: 3.0.0
 appVersion: latest
 description:
   TubeSync is a PVR (personal video recorder) for YouTube. Or, like Sonarr
@@ -27,7 +27,7 @@ keywords:
   - MediaServer-Video
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

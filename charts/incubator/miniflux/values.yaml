@@ -1,45 +1,48 @@
 image:
+  pullPolicy: IfNotPresent
   repository: miniflux/miniflux
   tag: 2.0.50@sha256:759712dd554234b28b229bb9695f31e99b4771018d2ccefdd825a1ebe66ee219
-  pullPolicy: IfNotPresent
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+portal:
+  enabled: true
+postgresql:
+  enabled: true
+  existingSecret: dbcreds
+  postgresqlDatabase: miniflux
+  postgresqlUsername: miniflux
 secretEnv:
-  # -- Admin user login, it's used only if `CREATE_ADMIN` is enabled.
-  ADMIN_USERNAME: "admin"
-  # -- Admin user password, it's used only if `CREATE_ADMIN` is enabled.
-  ADMIN_PASSWORD: "changeme"
-env:
-  RUN_MIGRATIONS: 1
-  CREATE_ADMIN: 1
-  DATABASE_URL:
-    secretKeyRef:
-      name: dbcreds
-      key: urlnossl
+  ADMIN_PASSWORD: changeme
+  ADMIN_USERNAME: admin
 service:
   main:
     ports:
       main:
         port: 10091
         targetPort: 8080
-persistence:
-  config:
-    enabled: true
-    mountPath: "/config"
-probes:
-  liveness:
-    enabled: true
-    custom: true
-    spec:
-      initialDelaySeconds: 30
-      periodSeconds: 10
-      timeoutSeconds: 1
-      failureThreshold: 3
-      httpGet:
-        path: /healthcheck
-        port: 8080
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlDatabase: miniflux
-  postgresqlUsername: miniflux
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            CREATE_ADMIN: 1
+            DATABASE_URL:
+              secretKeyRef:
+                key: urlnossl
+                name: dbcreds
+            RUN_MIGRATIONS: 1
+          probes:
+            liveness:
+              custom: true
+              enabled: true
+              spec:
+                failureThreshold: 3
+                httpGet:
+                  path: /healthcheck
+                  port: 8080
+                initialDelaySeconds: 30
+                periodSeconds: 10
+                timeoutSeconds: 1

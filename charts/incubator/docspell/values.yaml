@@ -1,389 +1,87 @@
-image:
-  repository: docspell/restserver
-  tag: v0.40.0@sha256:3495d25517e3aa2db8e1ea76bc9f6dad04598e9c6ad59acf2223cacc9493c53b
-  pullPolicy: IfNotPresent
-joexImage:
-  repository: docspell/joex
-  tag: v0.40.0@sha256:09cb3b82f596cfa1999228a4ded65c53a749879c1923a438a7b6961167212930
-  pullPolicy: IfNotPresent
+dsc:
+  enabled: false
+  imported_action: move
+  language: ""
+  match_glob: ""
+  not_match_glob: "**/.*"
+  tag: ""
 dscImage:
+  pullPolicy: IfNotPresent
   repository: docspell/dsc
   tag: v0.10.0@sha256:68499b4cdf891f1b5b252d1790d8f3350f4513051cf0439298bec05e505cfdc7
+image:
   pullPolicy: IfNotPresent
-args:
-  - /opt/server.conf
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
-dsc:
-  # -- You need to enable integration endpoint with HTTP Header in rest server
-  # -- If you enable allowed IPs you also need 127.0.0.1 as an entry there
-  enabled: false
-  # move | delete
-  imported_action: move
-  not_match_glob: "**/.*"
-  match_glob: ""
-  language: ""
-  tag: ""
-rest_server:
-  # -- App name, shows on the top right corner
-  app_name: Docspell
-  base_url: ""
-  logging:
-    # -- The format for the log messages. Can be one of:
-    # -- Json | Logfmt | Fancy | Plain
-    format: Fancy
-    # -- The minimum level to log. From lowest to highest:
-    # -- Trace | Debug | Info | Warn | Error
-    minimum_level: Warn
-    levels:
-      # -- Override the log level of specific loggers
-      docspell: Info
-      flywaydb: Info
-      binny: Info
-      http4s: Info
-  server_opts:
-    # -- Enable HTTP2
-    enable_http2: false
-    # -- Maximum allowed connections
-    max_connections: 1024
-    # -- Timeout for waiting for the first output of the response
-    response_timeout: 45s
-  # -- This is a hard limit to restrict the size of a batch that is returned when searching for items.
-  max_item_page_size: 200
-  # -- The number of characters to return for each item notes when searching.
-  max_note_length: 180
-  # -- This defines whether the classification form in the collective settings is displayed or not.
-  show_classification_settings: true
-  auth:
-    # -- How long a authentication token is valid
-    session_valid: 5 minutes
-    remember_me:
-      enabled: true
-      # -- How long the remember me cookie/token is valid.
-      valid: 30 days
-  download_all:
-    # -- How many files to allow in a zip.
-    max_files: 500
-    # -- The maximum (uncompressed) size of the zip file contents.
-    max_size: 1400M
-  openid:
-    - enabled: false
-      display: Keycloak
-      provider:
-        provider_id: keycloak
-        client_id: docspell
-        client_secret: example-secret-439e-bf06-911e4cdd56a6
-        scope: profile
-        authorize_url: http://localhost:8080/auth/realms/home/protocol/openid-connect/auth
-        token_url: http://localhost:8080/auth/realms/home/protocol/openid-connect/token
-        user_url: ""
-        logout_url: http://localhost:8080/auth/realms/home/protocol/openid-connect/logout
-        sign_key: b64:anVzdC1hLXRlc3Q=
-        sig_algo: RS512
-      collective_key: lookup:docspell_collective
-      user_key: preferred_username
-    - enabled: false
-      display: Github
-      provider:
-        provider_id: github
-        client_id: <your github client id>
-        client_secret: <your github client secret>
-        scope: ""
-        authorize_url: https://github.com/login/oauth/authorize
-        token_url: https://github.com/login/oauth/access_token
-        user_url: https://api.github.com/user
-        logout_url: ""
-        sign_key: ""
-        sig_algo: RS256
-      collective_key: fixed:demo
-      user_key: login
-  oidc_auto_redirect: true
-  integration_endpoint:
-    enabled: false
-    # -- The priority to use when submitting files through this endpoint.
-    # low | high
-    priority: low
-    # -- The name used for the item "source" property when uploaded through this endpoint.
-    source_name: integration
-    allowed_ips:
-      enabled: false
-      ips:
-        - "127.0.0.1"
-    http_basic_auth:
-      enabled: false
-      realm: Docspell Integration
-      user: docspell-int
-      password: docspell-int
-    http_header:
-      enabled: false
-      header_name: Docspell-Integration
-      header_value: some-secret
-  admin_endpoint:
-    # -- Disables endpoint if empty
-    secret: ""
-  full_text_search:
-    solr:
-      # -- Used to tell solr when to commit the data
-      commit_within: 1000
-      # -- If true, logs request and response bodies
-      log_verbose: false
-      def_type: lucene
-      # -- The default combiner for tokens. One of AND | OR
-      q_op: OR
-  backend:
-    # -- Enable or disable debugging for e-mail related functionality
-    mail_debug: false
-    database_schema:
-      # -- Whether to run main database migrations.
-      run_main_migrations: true
-      # -- Whether to run the fixup migrations.
-      run_fixup_migrations: true
-      # -- Use with care. This repairs all migrations in the database by updating their checksums and removing failed migrations.
-      repair_schema: false
-    signup:
-      # -- The mode defines if new users can signup or not.
-      # open | invite | closed
-      mode: open
-      # -- This is the period an invitation token is considered valid.
-      invite_time: 3 days
-    files:
-      # -- Defines the chunk size (in bytes) used to store the files.
-      chunk_size: 524288
-      # -- The file content types that are considered valid.
-      valid_mime_types: []
-      # database | minio | filesystem
-      default_store: database
-      stores:
-        database:
-          enabled: true
-        minio:
-          enabled: false
-          endpoint: http://localhost:9000
-          access_key: access_key
-          secret_key: secret_key
-          bucket: docspell
-        # -- Highly NOT recommended
-        filesystem:
-          enabled: false
-          directory: /documents
-  addons:
-    # TODO: Check how exactly addons work. There are mentions of docker daemon
-    enabled: false
-    # -- Whether installing addons requiring network should be allowed or not.
-    allow_impure: true
-    # -- Define patterns of urls that are allowed to install addons from.
-    allowed_urls:
-      - "*"
-    # -- Define patterns of urls that are denied to install addons from.
-    denied_urls: []
+  repository: docspell/restserver
+  tag: v0.40.0@sha256:3495d25517e3aa2db8e1ea76bc9f6dad04598e9c6ad59acf2223cacc9493c53b
 joex:
-  logging:
-    # -- The format for the log messages. Can be one of:
-    # -- Json | Logfmt | Fancy | Plain
-    format: Fancy
-    # -- The minimum level to log. From lowest to highest:
-    # -- Trace | Debug | Info | Warn | Error
-    minimum_level: Warn
-    levels:
-      # -- Override the log level of specific loggers
-      docspell: Info
-      flywaydb: Info
-      binny: Info
-      http4s: Info
-  database_schema:
-    # -- Whether to run main database migrations.
-    run_main_migrations: false
-    # -- Whether to run the fixup migrations.
-    run_fixup_migrations: true
-    # -- Use with care. This repairs all migrations in the database by updating their checksums and removing failed migrations.
-    repair_schema: false
-  # -- Enable or disable debugging for e-mail related functionality. This applies to both sending and receiving mails.
-  mail_debug: false
-  send_mail:
-    # -- This is used as the List-Id e-mail header when mails are sent from docspell to its users
-    list_id: ""
-  scheduler:
-    # -- Number of processing allowed in parallel.
-    pool_size: 1
-    # -- A counting scheme determines the ratio of how high and low priority jobs are run.
-    counting_scheme: 4,1
-    # -- How many times a failed job should be retried until it enters failed state.
-    retries: 2
-    # -- The delay until the next try is performed for a failed job.
-    retry_delay: 1 minute
-    # -- The queue size of log statements from a job.
-    log_buffer_size: 500
-    # -- If no job is left in the queue, the scheduler will wait until a notify is requested.
-    wakeup_period: 30 minutes
-  periodic_scheduler:
-    # -- A fallback to start looking for due periodic tasks regularly.
-    wakeup_period: 10 minutes
-  user_tasks:
-    scan_mailbox:
-      # -- A limit of how many folders to scan through.
-      max_folders: 50
-      # -- How many mails (headers only) to retrieve in one chunk.
-      mail_chunk_size: 50
-      # -- A limit on how many mails to process in one job run.
-      max_mails: 500
-  house_keeping:
-    # -- When the house keeping tasks execute.
-    schedule: Sun *-*-* 00:00:00 UTC
-    # -- This task removes invitation keys that have been created but not used.
-    cleanup_invites:
-      # -- Whether this task is enabled.
-      enabled: true
-      # -- The minimum age of invites to be deleted.
-      older_than: 30 days
-    # -- This task removes expired remember-me tokens.
-    cleanup_remember_me:
-      # -- Whether this task is enabled.
-      enabled: true
-      # -- The minimum age of tokens to be deleted.
-      older_than: 30 days
-    # -- Jobs store their log output in the database.
-    cleanup_jobs:
-      # -- Whether this task is enabled.
-      enabled: true
-      # -- The minimum age of jobs to delete.
-      older_than: 30 days
-      # -- This defines how many jobs are deleted in one transaction.
-      delete_batch: 100
-    # -- Zip files created for downloading multiple files are cached and can be cleared periodically.
-    cleanup_downloads:
-      # -- Whether this task is enabled.
-      enabled: true
-      # -- The minimum age of a download file to be deleted.
-      older_than: 14 days
-    # -- Removes node entries that are not reachable anymore.
-    check_nodes:
-      # -- Whether this task is enabled.
-      enabled: true
-      # -- How often the node must be unreachable, before it is removed.
-      min_not_found: 2
-    # -- Checks all files against their checksum
-    integrity_check:
-      enabled: true
-    # -- A periodic task to check for new releases of docspell.
-    update_check:
-      # -- Whether to enable this task
-      enabled: false
-      # -- Sends the mail without checking the latest release.
-      test_run: false
-      # -- When the update check should execute.
-      schedule: "Sun *-*-* 00:00:00 UTC"
-      # -- An account id in form of `collective/user`
-      sender_account: ""
-      # -- The SMTP connection id that should be used for sending the mail.
-      smtp_id: ""
-      # -- A list of recipient e-mail addresses.
-      recipients: []
-      # -- The subject of the mail.
-      subject: Docspell {{ latestVersion }} is available
-      # -- The body of the mail.
-      body: |
-        Hello,
-
-        You are currently running Docspell {{ currentVersion }}. Version *{{ latestVersion }}*
-        is now available, which was released on {{ releasedAt }}. Check the release page at
-
-        <https://github.com/eikek/docspell/releases/latest>
-
-        Have a nice day!
-
-        Docspell Update Check
-  # -- Configuration of text extraction
-  extraction:
-    pdf:
-      min_text_length: 500
-    preview:
-      # -- When rendering a pdf page, use this dpi.
-      dpi: 32
-    ocr:
-      # -- Images greater than this size are skipped.
-      max_image_size: 14000000
-      page_range:
-        # -- Defines what pages to process.
-        begin: 10
-    # -- The ghostscript command.
-    ghostscript:
-      command:
-        program: gs
-        args:
-          - -dNOPAUSE
-          - -dBATCH
-          - -dSAFER
-          - -sDEVICE=tiffscaled8
-          - "-sOutputFile={{outfile}}"
-          - "{{infile}}"
-        timeout: 5 minutes
-      working_dir: /tmp/docspell-extraction
-    # -- The unpaper command.
-    unpaper:
-      command:
-        program: unpaper
-        args:
-          - "{{infile}}"
-          - "{{outfile}}"
-        timeout: 5 minutes
-    # -- The tesseract command.
-    tesseract:
-      command:
-        program: tesseract
-        args:
-          - "{{file}}"
-          - stdout
-          - -l
-          - "{{lang}}"
-        timeout: 5 minutes
-  text_analysis:
-    # -- Maximum length of text to be analyzed.
-    max_length: 0
-    working_dir: /tmp/docspell-analysis
-    nlp:
-      # -- The mode for configuring NLP models
-      # -- full | basic | regexonly | disabled
-      mode: full
-      clear_interval: 15 minutes
-      # -- Restricts proposals for due dates.
-      max_due_date_years: 10
-      regex_ner:
-        # -- Whether to enable custom NER annotation.
-        max_entries: 1000
-        file_cache_time: 1 minute
+  addons:
+    cache_dir: /tmp/docspell-addons-cache
+    executor_config:
+      fail_fast: true
+      run_timeout: 15 minutes
+      runner: trivial
+    working_dir: /tmp/docspell-addons
   classification:
-    # -- Whether to enable classification globally.
-    enabled: true
-    # -- This limit and `text-analysis.max-length` define how much memory is required.
-    item_count: 600
-    # -- Enclose regexps in triple quotes.
     classifiers:
-      useSplitWords: true
-      splitWordsTokenizerRegexp: '"""[\p{L}][\p{L}0-9]*|(?:\$ ?)?[0-9]+(?:\.[0-9]{2})?%?|\s+|."""'
-      splitWordsIgnoreRegexp: '"""\s+"""'
-      useSplitPrefixSuffixNGrams: true
+      intern: true
       maxNGramLeng: 4
       minNGramLeng: 1
       splitWordShape: chris4
-      intern: true
-  # -- Configuration for converting files into PDFs.
+      splitWordsIgnoreRegexp: '"""\s+"""'
+      splitWordsTokenizerRegexp: '"""[\p{L}][\p{L}0-9]*|(?:\$ ?)?[0-9]+(?:\.[0-9]{2})?%?|\s+|."""'
+      useSplitPrefixSuffixNGrams: true
+      useSplitWords: true
+    enabled: true
+    item_count: 600
   convert:
-    # -- The chunk size used when storing files.
     chunk_size: 524288
-    # -- A string used to change the filename of the converted pdf file.
     converted_filename_part: converted
-    # -- When reading images, this is the maximum size.
-    max_image_size: 14000000
+    decrypt_pdf:
+      enabled: true
+      passwords: []
     markdown:
-      # -- The CSS that is used to style the resulting HTML.
       internal_css: "body { padding: 2em 5em; }"
+    max_image_size: 14000000
+    ocrmypdf:
+      command:
+        args:
+          - -l
+          - "{{lang}}"
+          - --skip-text
+          - --deskew
+          - -j
+          - "1"
+          - "{{infile}}"
+          - "{{outfile}}"
+        program: ocrmypdf
+        timeout: 5 minutes
+      enabled: true
+      working_dir: /tmp/docspell-convert
+    tesseract:
+      command:
+        args:
+          - "{{infile}}"
+          - out
+          - -l
+          - "{{lang}}"
+          - pdf
+          - txt
+        program: tesseract
+        timeout: 5 minutes
+      working_dir: /tmp/docspell-convert
+    unoconv:
+      command:
+        args:
+          - -f
+          - pdf
+          - -o
+          - "{{outfile}}"
+          - "{{infile}}"
+        program: unoconv
+        timeout: 5 minutes
+      working_dir: /tmp/docspell-convert
     wkhtmlpdf:
       command:
-        program: wkhtmltopdf
         args:
           - -s
           - A4
@@ -395,144 +93,335 @@ joex:
           - ignore
           - "-"
           - "{{outfile}}"
+        program: wkhtmltopdf
         timeout: 2 minutes
       working_dir: /tmp/docspell-convert
+  database_schema:
+    repair_schema: false
+    run_fixup_migrations: true
+    run_main_migrations: false
+  extraction:
+    ghostscript:
+      command:
+        args:
+          - -dNOPAUSE
+          - -dBATCH
+          - -dSAFER
+          - -sDEVICE=tiffscaled8
+          - -sOutputFile={{outfile}}
+          - "{{infile}}"
+        program: gs
+        timeout: 5 minutes
+      working_dir: /tmp/docspell-extraction
+    ocr:
+      max_image_size: 14000000
+      page_range:
+        begin: 10
+    pdf:
+      min_text_length: 500
+    preview:
+      dpi: 32
     tesseract:
       command:
+        args:
+          - "{{file}}"
+          - stdout
+          - -l
+          - "{{lang}}"
         program: tesseract
-        args:
-          - "{{infile}}"
-          - out
-          - -l
-          - "{{lang}}"
-          - pdf
-          - txt
         timeout: 5 minutes
-      working_dir: /tmp/docspell-convert
-    unoconv:
+    unpaper:
       command:
-        program: unoconv
         args:
-          - -f
-          - pdf
-          - -o
-          - "{{outfile}}"
-          - "{{infile}}"
-        timeout: 5 minutes
-      working_dir: /tmp/docspell-convert
-    ocrmypdf:
-      enabled: true
-      command:
-        program: ocrmypdf
-        args:
-          - -l
-          - "{{lang}}"
-          - --skip-text
-          - --deskew
-          - -j
-          - "1"
           - "{{infile}}"
           - "{{outfile}}"
+        program: unpaper
         timeout: 5 minutes
-      working_dir: /tmp/docspell-convert
-    decrypt_pdf:
-      enabled: true
-      passwords: []
   files:
-    # -- Defines the chunk size (in bytes) used to store the files.
     chunk_size: 524288
-    # -- The file content types that are considered valid.
-    valid_mime_types: []
-    # database | minio | filesystem
     default_store: database
     stores:
       database:
         enabled: true
+      filesystem:
+        directory: /documents
+        enabled: false
       minio:
+        access_key: access_key
+        bucket: docspell
         enabled: false
         endpoint: http://localhost:9000
-        access_key: access_key
         secret_key: secret_key
-        bucket: docspell
-      # -- Highly NOT recommended
-      filesystem:
-        enabled: false
-        directory: /documents
+    valid_mime_types: []
   full_text_search:
-    solr:
-      # -- Used to tell solr when to commit the data
-      commit_within: 1000
-      # -- If true, logs request and response bodies
-      log_verbose: false
-      def_type: lucene
-      # -- The default combiner for tokens. One of AND | OR
-      q_op: OR
     migration:
       index_all_chunk: 10
+    solr:
+      commit_within: 1000
+      def_type: lucene
+      log_verbose: false
+      q_op: OR
+  house_keeping:
+    check_nodes:
+      enabled: true
+      min_not_found: 2
+    cleanup_downloads:
+      enabled: true
+      older_than: 14 days
+    cleanup_invites:
+      enabled: true
+      older_than: 30 days
+    cleanup_jobs:
+      delete_batch: 100
+      enabled: true
+      older_than: 30 days
+    cleanup_remember_me:
+      enabled: true
+      older_than: 30 days
+    integrity_check:
+      enabled: true
+    schedule: Sun *-*-* 00:00:00 UTC
+    update_check:
+      body: |
+        Hello,
+
+        You are currently running Docspell {{ currentVersion }}. Version *{{ latestVersion }}*
+        is now available, which was released on {{ releasedAt }}. Check the release page at
+
+        <https://github.com/eikek/docspell/releases/latest>
+
+        Have a nice day!
+
+        Docspell Update Check
+      enabled: false
+      recipients: []
+      schedule: Sun *-*-* 00:00:00 UTC
+      sender_account: ""
+      smtp_id: ""
+      subject: Docspell {{ latestVersion }} is available
+      test_run: false
+  logging:
+    format: Fancy
+    levels:
+      binny: Info
+      docspell: Info
+      flywaydb: Info
+      http4s: Info
+    minimum_level: Warn
+  mail_debug: false
+  periodic_scheduler:
+    wakeup_period: 10 minutes
+  scheduler:
+    counting_scheme: 4,1
+    log_buffer_size: 500
+    pool_size: 1
+    retries: 2
+    retry_delay: 1 minute
+    wakeup_period: 30 minutes
+  send_mail:
+    list_id: ""
+  text_analysis:
+    max_length: 0
+    nlp:
+      clear_interval: 15 minutes
+      max_due_date_years: 10
+      mode: full
+      regex_ner:
+        file_cache_time: 1 minute
+        max_entries: 1000
+    working_dir: /tmp/docspell-analysis
+  user_tasks:
+    scan_mailbox:
+      mail_chunk_size: 50
+      max_folders: 50
+      max_mails: 500
+joexImage:
+  pullPolicy: IfNotPresent
+  repository: docspell/joex
+  tag: v0.40.0@sha256:09cb3b82f596cfa1999228a4ded65c53a749879c1923a438a7b6961167212930
+persistence:
+  import:
+    enabled: true
+    mountPath: /import
+    noMount: true
+  joex:
+    defaultMode: "0600"
+    enabled: true
+    mountPath: /opt/joex.conf
+    noMount: true
+    objectName: '{{ include "tc.common.names.fullname" . }}-joex-secret'
+    readOnly: true
+    subPath: joex.conf
+    type: secret
+  server:
+    defaultMode: "0600"
+    enabled: true
+    mountPath: /opt/server.conf
+    objectName: '{{ include "tc.common.names.fullname" . }}-server-secret'
+    readOnly: true
+    subPath: server.conf
+    type: secret
+portal:
+  enabled: true
+postgresql:
+  enabled: true
+  existingSecret: dbcreds
+  postgresqlDatabase: docspell
+  postgresqlUsername: docspell
+rest_server:
   addons:
-    # TODO: Check TODO above for addons
-    working_dir: /tmp/docspell-addons
-    cache_dir: /tmp/docspell-addons-cache
-    executor_config:
-      runner: trivial
-      fail_fast: true
-      run_timeout: 15 minutes
-probes:
-  liveness:
-    type: HTTP
-    path: /api/info/version
-  readiness:
-    type: HTTP
-    path: /api/info/version
-  startup:
-    type: HTTP
-    path: /api/info/version
+    allow_impure: true
+    allowed_urls:
+      - "*"
+    denied_urls: []
+    enabled: false
+  admin_endpoint:
+    secret: ""
+  app_name: Docspell
+  auth:
+    remember_me:
+      enabled: true
+      valid: 30 days
+    session_valid: 5 minutes
+  backend:
+    database_schema:
+      repair_schema: false
+      run_fixup_migrations: true
+      run_main_migrations: true
+    files:
+      chunk_size: 524288
+      default_store: database
+      stores:
+        database:
+          enabled: true
+        filesystem:
+          directory: /documents
+          enabled: false
+        minio:
+          access_key: access_key
+          bucket: docspell
+          enabled: false
+          endpoint: http://localhost:9000
+          secret_key: secret_key
+      valid_mime_types: []
+    mail_debug: false
+    signup:
+      invite_time: 3 days
+      mode: open
+  base_url: ""
+  download_all:
+    max_files: 500
+    max_size: 1400M
+  full_text_search:
+    solr:
+      commit_within: 1000
+      def_type: lucene
+      log_verbose: false
+      q_op: OR
+  integration_endpoint:
+    allowed_ips:
+      enabled: false
+      ips:
+        - 127.0.0.1
+    enabled: false
+    http_basic_auth:
+      enabled: false
+      password: docspell-int
+      realm: Docspell Integration
+      user: docspell-int
+    http_header:
+      enabled: false
+      header_name: Docspell-Integration
+      header_value: some-secret
+    priority: low
+    source_name: integration
+  logging:
+    format: Fancy
+    levels:
+      binny: Info
+      docspell: Info
+      flywaydb: Info
+      http4s: Info
+    minimum_level: Warn
+  max_item_page_size: 200
+  max_note_length: 180
+  oidc_auto_redirect: true
+  openid:
+    - collective_key: lookup:docspell_collective
+      display: Keycloak
+      enabled: false
+      provider:
+        authorize_url: http://localhost:8080/auth/realms/home/protocol/openid-connect/auth
+        client_id: docspell
+        client_secret: example-secret-439e-bf06-911e4cdd56a6
+        logout_url: http://localhost:8080/auth/realms/home/protocol/openid-connect/logout
+        provider_id: keycloak
+        scope: profile
+        sig_algo: RS512
+        sign_key: b64:anVzdC1hLXRlc3Q=
+        token_url: http://localhost:8080/auth/realms/home/protocol/openid-connect/token
+        user_url: ""
+      user_key: preferred_username
+    - collective_key: fixed:demo
+      display: Github
+      enabled: false
+      provider:
+        authorize_url: https://github.com/login/oauth/authorize
+        client_id: <your github client id>
+        client_secret: <your github client secret>
+        logout_url: ""
+        provider_id: github
+        scope: ""
+        sig_algo: RS256
+        sign_key: ""
+        token_url: https://github.com/login/oauth/access_token
+        user_url: https://api.github.com/user
+      user_key: login
+  server_opts:
+    enable_http2: false
+    max_connections: 1024
+    response_timeout: 45s
+  show_classification_settings: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
-  main:
-    ports:
-      main:
-        port: 10320
-        protocol: HTTP
   joex:
     enabled: true
-    type: ClusterIP
     ports:
       joex:
         enabled: true
         port: 10321
         protocol: HTTP
-persistence:
-  server:
-    enabled: true
-    type: secret
-    readOnly: true
-    defaultMode: "0600"
-    objectName: '{{ include "tc.common.names.fullname" . }}-server-secret'
-    mountPath: /opt/server.conf
-    subPath: server.conf
-  joex:
-    enabled: true
-    type: secret
-    noMount: true
-    readOnly: true
-    defaultMode: "0600"
-    objectName: '{{ include "tc.common.names.fullname" . }}-joex-secret'
-    mountPath: /opt/joex.conf
-    subPath: joex.conf
-  import:
-    enabled: true
-    noMount: true
-    mountPath: /import
-postgresql:
-  enabled: true
-  existingSecret: dbcreds
-  postgresqlUsername: docspell
-  postgresqlDatabase: docspell
+    type: ClusterIP
+  main:
+    ports:
+      main:
+        port: 10320
+        protocol: HTTP
 solr:
   enabled: true
   existingSecret: solrcreds
   solrCores: docspell
-  solrUsername: docspell
   solrEnableAuthentication: "no"
-portal:
-  enabled: true
+  solrUsername: docspell
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          args:
+            - /opt/server.conf
+          probes:
+            liveness:
+              path: /api/info/version
+              type: HTTP
+            readiness:
+              path: /api/info/version
+              type: HTTP
+            startup:
+              path: /api/info/version
+              type: HTTP

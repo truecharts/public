@@ -1,116 +1,10 @@
-image:
-  repository: jokobsk/pi.alert
-  pullPolicy: IfNotPresent
-  tag: latest@sha256:7d88edb76d412162b3a743f6c4667c27d804c59f8f31cd229867750e89d5841c
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
 hostNetwork: true
-pialert:
-  general:
-    dark_mode: true
-    web_protection: false
-    web_password: ""
-    print_log: false
-    report_dashboard_url: http://localhost
-    days_to_keep_events: 90
-    scan_cycle_minutes: 5
-    included_sections: []
-    scan_subnets: []
-    # - cidr: "192.168.1.0/24"
-    #   interface: eth0
-  pushsafer:
-    enabled: false
-    token: ""
-  apprise:
-    enabled: false
-    host: ""
-    url: ""
-  ntfy:
-    enabled: false
-    host: ""
-    topic: ""
-    user: ""
-    password: ""
-  webhook:
-    enabled: false
-    url: ""
-    payload: json
-    method: GET
-  email:
-    enabled: false
-    server: ""
-    port: 587
-    report_to: ""
-    report_from: ""
-    skip_login: false
-    skip_tls: false
-    user: ""
-    password: ""
-  mqtt:
-    enabled: false
-    broker: ""
-    port: 1883
-    user: ""
-    password: ""
-    qos: 0
-    delay_sec: 2
-  dyndns:
-    enabled: false
-    domain: ""
-    user: ""
-    password: ""
-    update_url: ""
-  pholus:
-    enabled: false
-    timeout: 20
-    force: false
-    days_data: 7
-    run: once
-    run_timeout: 300
-    run_schedule: "0 4 * * *"
-  pihole:
-    # If enabled you need to map '/etc/pihole/pihole-FTL.db' with additional storage
-    pihole_active: false
-    # If enabled you need to map '/etc/pihole/dhcp.leases' with additional storage
-    dhcp_active: false
-env:
-  HOST_USER_ID: "{{ .Values.podSecurityContext.runAsUser }}"
-  HOST_USER_GID: "{{ .Values.podSecurityContext.fsGroup }}"
-  PORT: "{{ .Values.service.main.ports.main.port }}"
-service:
-  main:
-    ports:
-      main:
-        protocol: HTTP
-        port: 10600
-persistence:
-  config:
-    enabled: true
-    mountPath: /home/pi/pialert/config
-  db:
-    enabled: true
-    mountPath: /home/pi/pialert/db
-  pialert-config:
-    enabled: true
-    noMount: true
-    type: secret
-    objectName: '{{ template "tc.common.names.fullname" . }}-secret'
+image:
+  pullPolicy: IfNotPresent
+  repository: jokobsk/pi.alert
+  tag: latest@sha256:7d88edb76d412162b3a743f6c4667c27d804c59f8f31cd229867750e89d5841c
 initContainers:
   init:
-    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-    volumeMounts:
-      - name: db
-        mountPath: /home/pi/pialert/db
-      - name: config
-        mountPath: /home/pi/pialert/config
-      - name: pialert-config
-        mountPath: /tc-pialert.conf
-        subPath: pialert.conf
-    command: ["/bin/sh", "-c"]
     args:
       - |
         dark_file="/home/pi/pialert/db/setting_darkmode"
@@ -128,5 +22,114 @@ initContainers:
           echo "Dark mode file does not exist, no action is needed."
         fi
         {{- end }}
+    command:
+      - /bin/sh
+      - -c
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+    volumeMounts:
+      - mountPath: /home/pi/pialert/db
+        name: db
+      - mountPath: /home/pi/pialert/config
+        name: config
+      - mountPath: /tc-pialert.conf
+        name: pialert-config
+        subPath: pialert.conf
+persistence:
+  config:
+    enabled: true
+    mountPath: /home/pi/pialert/config
+  db:
+    enabled: true
+    mountPath: /home/pi/pialert/db
+  pialert-config:
+    enabled: true
+    noMount: true
+    objectName: '{{ template "tc.common.names.fullname" . }}-secret'
+    type: secret
+pialert:
+  apprise:
+    enabled: false
+    host: ""
+    url: ""
+  dyndns:
+    domain: ""
+    enabled: false
+    password: ""
+    update_url: ""
+    user: ""
+  email:
+    enabled: false
+    password: ""
+    port: 587
+    report_from: ""
+    report_to: ""
+    server: ""
+    skip_login: false
+    skip_tls: false
+    user: ""
+  general:
+    dark_mode: true
+    days_to_keep_events: 90
+    included_sections: []
+    print_log: false
+    report_dashboard_url: http://localhost
+    scan_cycle_minutes: 5
+    scan_subnets: []
+    web_password: ""
+    web_protection: false
+  mqtt:
+    broker: ""
+    delay_sec: 2
+    enabled: false
+    password: ""
+    port: 1883
+    qos: 0
+    user: ""
+  ntfy:
+    enabled: false
+    host: ""
+    password: ""
+    topic: ""
+    user: ""
+  pholus:
+    days_data: 7
+    enabled: false
+    force: false
+    run: once
+    run_schedule: 0 4 * * *
+    run_timeout: 300
+    timeout: 20
+  pihole:
+    dhcp_active: false
+    pihole_active: false
+  pushsafer:
+    enabled: false
+    token: ""
+  webhook:
+    enabled: false
+    method: GET
+    payload: json
+    url: ""
 portal:
   enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10600
+        protocol: HTTP
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            HOST_USER_GID: "{{ .Values.podSecurityContext.fsGroup }}"
+            HOST_USER_ID: "{{ .Values.podSecurityContext.runAsUser }}"
+            PORT: "{{ .Values.service.main.ports.main.port }}"

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: lenpaste
-version: 3.0.25
+version: 4.0.0
 appVersion: 1.1.1
 description: Lenpaste is a web service that allows you to share notes anonymously
 home: https://truecharts.org/charts/incubator/lenpaste
@@ -19,7 +19,7 @@ keywords:
   - lenpaste
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

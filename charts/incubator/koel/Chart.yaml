@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: koel
-version: 7.0.3
+version: 8.0.0
 appVersion: latest
 description:
   Koel is a simple web-based personal audio streaming service written in
@@ -24,7 +24,7 @@ keywords:
   - stream
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

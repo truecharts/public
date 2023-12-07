@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: checkmk
-version: 0.0.10
+version: 1.0.0
 appVersion: 2.2.0
 description:
   Checkmk is a leading tool for Infrastructure and Application Monitoring.
@@ -23,7 +23,7 @@ keywords:
   - monitoring
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

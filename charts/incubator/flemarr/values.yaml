@@ -1,54 +1,27 @@
-image:
-  repository: pierremesure/flemmarr
-  tag: latest@sha256:fbd0eb6673499859ec6e1d9a8241510106d3d81c3d2bfca930c0b17040d09cb8
-  pullPolicy: IfNotPresent
-# https://github.com/Flemmarr/Flemmarr#configuration
-flemarrConfig:
-# sonarr:
-#   server:
-#     address: sonarr
-#     port: 8989
-#   config:
-#     host:
-#       analyticsEnabled: false
-#     ui:
-#       # 0 = Sunday, 1 = Monday
-#       firstDayOfWeek: 1
-#       # HH:mm = 17:30, h(:mm)a = 5:30PM
-#       timeFormat: HH:mm
-#   rootfolder:
-#     - name: Series
-#       path: /data/series
-#       defaultTags: []
-#       defaultQualityProfileId: 1
-#       defaultMetadataProfileId: 1
-#   downloadclient:
-#     - name: Transmission
-#       enable: true
-#       protocol: torrent
-#       fields:
-#         - name: host
-#           value: transmission
-#         - name: port
-#           value: 9091
-#       implementation: Transmission
-#       configContract: TransmissionSettings
-
-# Implemented for inclusion in TrueNAS Scale GUI
 flemarr:
   configFilePath: ""
+flemarrConfig: null
+image:
+  pullPolicy: IfNotPresent
+  repository: pierremesure/flemmarr
+  tag: latest@sha256:fbd0eb6673499859ec6e1d9a8241510106d3d81c3d2bfca930c0b17040d09cb8
+portal:
+  enabled: false
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
-portal:
-  enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

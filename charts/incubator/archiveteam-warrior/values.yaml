@@ -1,14 +1,15 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
   repository: atdr.meo.ws/archiveteam/warrior-dockerfile
   tag: latest@sha256:d60797c520bdc4379b0289d399408bbe3a3d36a85c62c3abdb66ccfef2d2bbcf
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -16,5 +17,3 @@ service:
         port: 8001
         protocol: TCP
         targetPort: 8001
-portal:
-  enabled: true

@@ -1,5 +1,3 @@
-env:
-  DOCS_BASE_URL: ""
 image:
   pullPolicy: IfNotPresent
   repository: sismics/docs
@@ -8,24 +6,31 @@ persistence:
   data:
     enabled: true
     mountPath: /data
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
+portal:
+  enabled: false
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-portal:
-  enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DOCS_BASE_URL: ""
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

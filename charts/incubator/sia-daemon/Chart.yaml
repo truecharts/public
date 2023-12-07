@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: sia-daemon
-version: 2.0.17
+version: 3.0.0
 appVersion: master
 description:
   Sia is a decentralized cloud storage platform that radically alters the
@@ -29,7 +29,7 @@ keywords:
   - Other
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
