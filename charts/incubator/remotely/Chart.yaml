@@ -2,15 +2,17 @@ kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: remotely
 version: 2.0.12
-appVersion: latest
-description: A remote control and remote scripting solution, built with .NET 5, Blazor, SignalR Core, and WebRTC.
+appVersion: "1380"
+description:
+  A remote control and remote scripting solution, built with .NET 5, Blazor,
+  SignalR Core, and WebRTC.
 home: https://truecharts.org/charts/incubator/remotely
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/remotely.png
 deprecated: false
 sources:
   - https://remotely.one/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/remotely
-  - https://github.com/truecharts/containers/tree/master/mirrorremotely
+  - https://hub.docker.com/r/immybot/remotely
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

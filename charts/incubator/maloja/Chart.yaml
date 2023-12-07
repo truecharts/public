@@ -3,14 +3,16 @@ apiVersion: v2
 name: maloja
 version: 2.0.13
 appVersion: latest
-description: Self-hosted music scrobble database to create personal listening statistics and charts as a substitute for Last.fm / Libre.fm / GNU FM.
+description:
+  Self-hosted music scrobble database to create personal listening statistics
+  and charts as a substitute for Last.fm / Libre.fm / GNU FM.
 home: https://truecharts.org/charts/incubator/maloja
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/maloja.png
 deprecated: false
 sources:
   - https://maloja.krateng.ch/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/maloja
-  - https://github.com/truecharts/containers/tree/master/mirrormaloja
+  - https://hub.docker.com/r/krateng/maloja
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

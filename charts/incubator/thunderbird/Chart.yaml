@@ -3,14 +3,16 @@ apiVersion: v2
 name: thunderbird
 version: 2.0.15
 appVersion: latest
-description: This Chart will download and install Thunderbird in the preferred version and language.
+description:
+  This Chart will download and install Thunderbird in the preferred version
+  and language.
 home: https://truecharts.org/charts/incubator/thunderbird
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/thunderbird.png
 deprecated: false
 sources:
+  - https://hub.docker.com/r/ich777/thunderbird
   - https://www.thunderbird.net/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/thunderbird
-  - https://github.com/truecharts/containers/tree/master/mirrorthunderbird
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

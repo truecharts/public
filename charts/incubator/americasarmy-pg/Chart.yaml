@@ -2,15 +2,17 @@ kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: americasarmy-pg
 version: 2.0.13
-appVersion: latest
-description: "This Chart will download and install SteamCMD. It will also install America's Army: Proving Grounds and run it."
+appVersion: aaprovinggrounds
+description:
+  "This Chart will download and install SteamCMD. It will also install
+  America's Army: Proving Grounds and run it."
 home: https://truecharts.org/charts/incubator/americasarmy-pg
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/americasarmy-pg.png
 deprecated: false
 sources:
   - https://www.americasarmy.com/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/americasarmy-pg
-  - https://github.com/truecharts/containers/tree/master/mirroramericasarmy-pg
+  - https://hub.docker.com/r/ich777/steamcmd
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

@@ -2,14 +2,16 @@ kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: openproject
 version: 3.0.30
-appVersion: 12.4.5
-description: OpenProject is a web-based project management system for location-independent team collaboration.
+appVersion: 13.0.7
+description:
+  OpenProject is a web-based project management system for location-independent
+  team collaboration.
 home: https://truecharts.org/charts/incubator/openproject
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/openproject.png
 deprecated: false
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/openproject
-  - https://github.com/truecharts/containers/tree/master/mirroropenproject
+  - https://hub.docker.com/r/openproject/community
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

@@ -2,8 +2,10 @@ kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: jitsi
 version: 2.0.21
-appVersion: "8252"
-description: Jitsi is a set of open-source projects that allows you to easily build and deploy secure video conferencing solutions
+appVersion: stable-8960
+description:
+  Jitsi is a set of open-source projects that allows you to easily build
+  and deploy secure video conferencing solutions
 home: https://truecharts.org/charts/incubator/jitsi
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/jitsi.png
 deprecated: false
@@ -11,7 +13,7 @@ sources:
   - https://jitsi.org
   - https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-start
   - https://github.com/truecharts/charts/tree/master/charts/incubator/jitsi
-  - https://github.com/truecharts/containers/tree/master/mirrorjitsi-web
+  - https://hub.docker.com/r/jitsi/web
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

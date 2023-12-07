@@ -3,14 +3,18 @@ apiVersion: v2
 name: h5ai
 version: 2.0.12
 appVersion: latest
-description: h5ai is a modern file indexer for HTTP web servers with focus on your files. Directories are displayed in a appealing way and browsing them is enhanced by different views, a breadcrumb and a tree overview. Initially h5ai was an acronym for HTML5 Apache Index but now it supports other web servers too.
+description:
+  h5ai is a modern file indexer for HTTP web servers with focus on your
+  files. Directories are displayed in a appealing way and browsing them is enhanced
+  by different views, a breadcrumb and a tree overview. Initially h5ai was an acronym
+  for HTML5 Apache Index but now it supports other web servers too.
 home: https://truecharts.org/charts/incubator/h5ai
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/h5ai.png
 deprecated: false
 sources:
   - https://github.com/awesometic/docker-h5ai
   - https://github.com/truecharts/charts/tree/master/charts/incubator/h5ai
-  - https://github.com/truecharts/containers/tree/master/mirrorh5ai
+  - https://hub.docker.com/r/awesometic/h5ai
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

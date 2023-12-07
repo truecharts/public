@@ -3,12 +3,14 @@ apiVersion: v2
 name: mininote
 version: 2.0.12
 appVersion: latest
-description: A simple, self-hosted, encrypted Markdown note-taking app built with Vue 3, and Express.
+description:
+  A simple, self-hosted, encrypted Markdown note-taking app built with
+  Vue 3, and Express.
 home: https://truecharts.org/charts/incubator/mininote
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/mininote.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/containers/tree/master/mirrormininote
+  - https://hub.docker.com/r/n1try/mininote
   - https://github.com/muety/mininote
   - https://github.com/truecharts/charts/tree/master/charts/incubator/mininote
 maintainers:

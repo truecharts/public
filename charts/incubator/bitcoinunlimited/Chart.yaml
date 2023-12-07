@@ -3,13 +3,15 @@ apiVersion: v2
 name: bitcoinunlimited
 version: 2.0.12
 appVersion: latest
-description: The Bitcoin Unlimited project seeks to provide a voice to all stakeholders in the Bitcoin ecosystem.
+description:
+  The Bitcoin Unlimited project seeks to provide a voice to all stakeholders
+  in the Bitcoin ecosystem.
 home: https://truecharts.org/charts/incubator/bitcoinunlimited
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/bitcoinunlimited.png
 deprecated: false
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/bitcoinunlimited
-  - https://github.com/truecharts/containers/tree/master/mirrorbitcoinunlimited
+  - https://hub.docker.com/r/amacneil/bitcoinunlimited
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

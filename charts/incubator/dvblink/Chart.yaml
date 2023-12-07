@@ -3,13 +3,15 @@ apiVersion: v2
 name: dvblink
 version: 2.0.12
 appVersion: latest
-description: DVBLink need to enjoy your favorite channels and recordings within your home network and on the go!
+description:
+  DVBLink need to enjoy your favorite channels and recordings within your
+  home network and on the go!
 home: https://truecharts.org/charts/incubator/dvblink
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/dvblink.png
 deprecated: false
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/dvblink
-  - https://github.com/truecharts/containers/tree/master/mirrordvblink
+  - https://hub.docker.com/r/chvb/docker-dvblink
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

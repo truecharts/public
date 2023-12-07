@@ -3,14 +3,16 @@ apiVersion: v2
 name: telethon-downloader
 version: 2.0.13
 appVersion: latest
-description: This is a simple Chart that downloads files sent to a telegram bot up to 2000mb using the Telethon library.
+description:
+  This is a simple Chart that downloads files sent to a telegram bot up
+  to 2000mb using the Telethon library.
 home: https://truecharts.org/charts/incubator/telethon-downloader
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/telethon-downloader.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/containers/tree/master/mirrortelethon-downloader
-  - https://docs.telethon.dev/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/telethon-downloader
+  - https://hub.docker.com/r/jsavargas/telethon_downloader
+  - https://docs.telethon.dev/
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

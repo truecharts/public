@@ -3,14 +3,17 @@ apiVersion: v2
 name: phoronix-test-suite
 version: 2.0.12
 appVersion: latest
-description: The Phoronix Test Suite is the most comprehensive testing and benchmarking platform available that provides an extensible framework for which new tests can be easily added.
+description:
+  The Phoronix Test Suite is the most comprehensive testing and benchmarking
+  platform available that provides an extensible framework for which new tests can
+  be easily added.
 home: https://truecharts.org/charts/incubator/phoronix-test-suite
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/phoronix-test-suite.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/phoronix-test-suite
-  - https://github.com/truecharts/containers/tree/master/mirrorphoronix-test-suite
   - https://github.com/phoronix-test-suite/phoronix-test-suite
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/phoronix-test-suite
+  - https://hub.docker.com/r/phoronix/pts
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

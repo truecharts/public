@@ -2,15 +2,17 @@ kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: youtrack
 version: 2.0.3
-appVersion: 2023.1.9031
-description: YouTrack is a project management tool that can be adapted to your processes to help you deliver great products.
+appVersion: 2023.2.20316
+description:
+  YouTrack is a project management tool that can be adapted to your processes
+  to help you deliver great products.
 home: https://truecharts.org/charts/incubator/youtrack
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/youtrack.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/youtrack
-  - https://github.com/truecharts/containers/tree/master/mirroryoutrack
   - https://www.jetbrains.com/youtrack/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/youtrack
+  - https://hub.docker.com/r/jetbrains/youtrack
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

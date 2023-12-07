@@ -3,14 +3,19 @@ apiVersion: v2
 name: ts-dnsserver
 version: 2.0.23
 appVersion: latest
-description: Technitium DNS Server is an open source tool that can be used for self hosting a local DNS server for privacy and security or, used for experimentation/testing by software developers on their computer. It works out-of-the-box with no or minimal configuration and provides a user friendly web console accessible using any web browser.
+description:
+  Technitium DNS Server is an open source tool that can be used for self
+  hosting a local DNS server for privacy and security or, used for experimentation/testing
+  by software developers on their computer. It works out-of-the-box with no or minimal
+  configuration and provides a user friendly web console accessible using any web
+  browser.
 home: https://truecharts.org/charts/incubator/ts-dnsserver
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ts-dnsserver.png
 deprecated: false
 sources:
   - https://github.com/TechnitiumSoftware/DnsServer
   - https://github.com/truecharts/charts/tree/master/charts/incubator/ts-dnsserver
-  - https://github.com/truecharts/containers/tree/master/mirrorts-dnsserver
+  - https://hub.docker.com/r/roxedus/ts-dnsserver
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

@@ -3,14 +3,16 @@ apiVersion: v2
 name: debian-bullseye
 version: 2.1.12
 appVersion: latest
-description: This Chart is a full Debian Bullseye Xfce4 Desktop environment with a noVNC webGUI and all the basic tools pre-installed.
+description:
+  This Chart is a full Debian Bullseye Xfce4 Desktop environment with a
+  noVNC webGUI and all the basic tools pre-installed.
 home: https://truecharts.org/charts/incubator/debian-bullseye
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/debian-bullseye.png
 deprecated: false
 sources:
   - https://www.debian.org/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/debian-bullseye
-  - https://github.com/truecharts/containers/tree/master/mirrordebian-bullseye
+  - https://hub.docker.com/r/ich777/debian-bullseye
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

@@ -3,14 +3,16 @@ apiVersion: v2
 name: poste
 version: 2.0.15
 appVersion: latest
-description: "FREE version of Poste.io, full mail server solution. POP3, SMTP, IMAP, Spamassassin, WebMail, WebAdmin. "
+description:
+  "FREE version of Poste.io, full mail server solution. POP3, SMTP, IMAP,
+  Spamassassin, WebMail, WebAdmin. "
 home: https://truecharts.org/charts/incubator/poste
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/poste.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/containers/tree/master/mirrorposte
   - https://poste.io/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/poste
+  - https://hub.docker.com/r/analogic/poste.io
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

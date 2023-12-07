@@ -3,14 +3,16 @@ apiVersion: v2
 name: rss-proxy
 version: 2.0.12
 appVersion: latest
-description: RSS-proxy 2+ allows you to do create an ATOM or JSON feed of almost static/dynamic websites or feeds (web to feed), just by analyzing just the HTML structure.
+description:
+  RSS-proxy 2+ allows you to do create an ATOM or JSON feed of almost static/dynamic
+  websites or feeds (web to feed), just by analyzing just the HTML structure.
 home: https://truecharts.org/charts/incubator/rss-proxy
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/rss-proxy.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/containers/tree/master/mirrorrss-proxy
   - https://github.com/damoeb/rss-proxy
   - https://github.com/truecharts/charts/tree/master/charts/incubator/rss-proxy
+  - https://hub.docker.com/r/damoeb/rss-proxy
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

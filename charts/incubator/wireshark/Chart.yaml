@@ -2,14 +2,14 @@ kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: wireshark
 version: 5.0.3
-appVersion: 3.6.5
+appVersion: 4.0.10
 description: Wireshark is the worlds foremost and widely-used network protocol analyzer.
 home: https://truecharts.org/charts/incubator/wireshark
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/wireshark.png
 deprecated: false
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/wireshark
-  - https://github.com/truecharts/containers/tree/master/mirrorwireshark
+  - https://ghcr.io/linuxserver/wireshark
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

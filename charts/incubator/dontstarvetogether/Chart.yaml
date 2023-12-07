@@ -2,15 +2,17 @@ kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: dontstarvetogether
 version: 2.0.13
-appVersion: latest
-description: This Chart will download and install SteamCMD. It will also install Don't Starve Together and run it.
+appVersion: dontstarve
+description:
+  This Chart will download and install SteamCMD. It will also install Don't
+  Starve Together and run it.
 home: https://truecharts.org/charts/incubator/dontstarvetogether
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/dontstarvetogether.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/containers/tree/master/mirrordontstarvetogether
   - https://www.klei.com/games/dont-starve-together
   - https://github.com/truecharts/charts/tree/master/charts/incubator/dontstarvetogether
+  - https://hub.docker.com/r/ich777/steamcmd
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
