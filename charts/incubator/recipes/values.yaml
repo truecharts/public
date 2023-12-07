@@ -68,7 +68,8 @@ persistence:
     mountPath: /opt/recipes/staticfiles
     type: emptyDir
 portal:
-  enabled: true
+  open:
+    enabled: true
 postgresql:
   enabled: true
   existingSecret: dbcreds

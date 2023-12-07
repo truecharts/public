@@ -42,7 +42,8 @@ persistence:
             path: default.conf
         name: '{{ include "tc.common.names.fullname" . }}-inventree-config-nginx'
 portal:
-  enabled: true
+  open:
+    enabled: true
 postgresql:
   enabled: true
   existingSecret: dbcreds

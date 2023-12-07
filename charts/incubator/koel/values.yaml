@@ -57,7 +57,8 @@ persistence:
     enabled: true
     mountPath: /var/www/html/storage/search-indexes
 portal:
-  enabled: true
+  open:
+    enabled: true
 secretEnv:
   LASTFM_API_KEY: ""
   LASTFM_API_SECRET: ""

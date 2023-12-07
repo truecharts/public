@@ -23,7 +23,8 @@ persistence:
       secret:
         secretName: radicale-secret
 portal:
-  enabled: true
+  open:
+    enabled: true
 radicale:
   auth:
     delay: 1

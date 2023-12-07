@@ -37,7 +37,8 @@ persistence:
     enabled: true
     mountPath: /persist
 portal:
-  enabled: true
+  open:
+    enabled: true
 postgresql:
   enabled: true
   existingSecret: dbcreds

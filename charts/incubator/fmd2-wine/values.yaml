@@ -19,7 +19,8 @@ persistence:
     enabled: true
     mountPath: /downloads
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false

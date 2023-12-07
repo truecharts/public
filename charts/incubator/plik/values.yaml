@@ -73,7 +73,8 @@ plik:
     ovh_api_key: ""
     ovh_api_secret: ""
 portal:
-  enabled: true
+  open:
+    enabled: true
 postgresql:
   enabled: true
   existingSecret: dbcreds

@@ -15,7 +15,8 @@ persistence:
     enabled: true
     mountPath: /user-files
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false

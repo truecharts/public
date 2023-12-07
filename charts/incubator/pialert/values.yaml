@@ -111,7 +111,8 @@ pialert:
     payload: json
     url: ""
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false

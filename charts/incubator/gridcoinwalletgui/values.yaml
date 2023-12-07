@@ -10,7 +10,8 @@ persistence:
     enabled: true
     mountPath: /var/lib/boinc-client/
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false

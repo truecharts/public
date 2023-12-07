@@ -26,7 +26,8 @@ persistence:
         defaultMode: "0777"
         name: '{{ include "tc.common.names.fullname" . }}-init'
 portal:
-  enabled: true
+  open:
+    enabled: true
 postgresql:
   enabled: true
   existingSecret: dbcreds

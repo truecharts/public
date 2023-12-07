@@ -3,7 +3,8 @@ image:
   repository: ghcr.io/umami-software/umami
   tag: postgresql-v2.8.0@sha256:0099e9c3b321d7e93fd6d539070faf6a19db07f6bbf21ddf39019a874dd25145
 portal:
-  enabled: true
+  open:
+    enabled: true
 postgresql:
   enabled: true
   existingSecret: dbcreds

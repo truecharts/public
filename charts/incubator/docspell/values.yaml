@@ -262,7 +262,8 @@ persistence:
     subPath: server.conf
     type: secret
 portal:
-  enabled: true
+  open:
+    enabled: true
 postgresql:
   enabled: true
   existingSecret: dbcreds

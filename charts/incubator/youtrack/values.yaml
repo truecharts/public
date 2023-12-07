@@ -20,7 +20,8 @@ persistence:
     mountPath: /opt/youtrack/temp
     type: emptyDir
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false

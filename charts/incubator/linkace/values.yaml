@@ -20,7 +20,8 @@ persistence:
     enabled: true
     mountPath: /app/storage/logs
 portal:
-  enabled: true
+  open:
+    enabled: true
 redis:
   enabled: true
   existingSecret: rediscreds

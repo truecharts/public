@@ -16,7 +16,8 @@ persistence:
     enabled: true
     mountPath: /cloudreve/uploads
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false

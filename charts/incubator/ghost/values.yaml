@@ -12,7 +12,8 @@ persistence:
     enabled: true
     mountPath: /var/lib/ghost/content
 portal:
-  enabled: true
+  open:
+    enabled: true
 service:
   main:
     ports:

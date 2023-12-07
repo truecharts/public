@@ -18,7 +18,8 @@ persistence:
     subPath: config.js
     type: configMap
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false

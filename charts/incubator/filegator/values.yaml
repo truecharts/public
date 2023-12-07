@@ -14,7 +14,8 @@ persistence:
     mountPath: /var/www/localhost/filegator/configuration.php
     readOnly: true
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false

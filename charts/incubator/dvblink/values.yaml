@@ -7,7 +7,8 @@ persistence:
     enabled: true
     mountPath: /opt/DVBLink
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false

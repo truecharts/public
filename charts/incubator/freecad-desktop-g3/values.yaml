@@ -7,7 +7,8 @@ persistence:
     enabled: true
     mountPath: /UNRAID_SHARE
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
