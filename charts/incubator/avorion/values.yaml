@@ -1,23 +1,26 @@
-image:
-  pullPolicy: IfNotPresent
-  repository: ich777/steamcmd
-  tag: avorion@sha256:5102dcf90f75793d42d77e316bd7fc78861e8fc2b8318cb6efb819af95602c82
-stdin: true
-tty: true
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-secretEnv:
-  USERNAME: ""
-  PASSWRD: ""
 env:
   GALAXY_NAME: AvorionDocker
   GAME_ID: "565060"
   GAME_PARAMS: ""
-  VALIDATE: false
+  PASSWRD: ""
+  USERNAME: ""
+  VALIDATE: "false"
+image:
+  pullPolicy: IfNotPresent
+  repository: ich777/steamcmd
+  tag: avorion@sha256:5102dcf90f75793d42d77e316bd7fc78861e8fc2b8318cb6efb819af95602c82
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+portal:
+  enabled: true
 probes:
   liveness:
     enabled: false
@@ -25,13 +28,10 @@ probes:
     enabled: false
   startup:
     enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 service:
-  main:
-    ports:
-      main:
-        port: 27000
-        protocol: TCP
-        targetPort: 27000
   hostport2:
     enabled: true
     ports:
@@ -64,12 +64,11 @@ service:
         port: 27021
         protocol: UDP
         targetPort: 27021
-persistence:
-  serverfiles:
-    enabled: true
-    mountPath: /serverdata/serverfiles
-  steamcmd:
-    enabled: true
-    mountPath: /serverdata/steamcmd
-portal:
-  enabled: true
+  main:
+    ports:
+      main:
+        port: 27000
+        protocol: TCP
+        targetPort: 27000
+stdin: true
+tty: true

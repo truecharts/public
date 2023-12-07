@@ -6,8 +6,8 @@ env:
   GAME_PARAMS: ""
   ILR: "0"
   LOG_LVL: "4"
-  MAXLEVEL: "40"
   MAX_CLIENTS: "4"
+  MAXLEVEL: "40"
   MINLEVEL: "1"
   MOD_NAME: ""
   ONEPARTY: "0"
@@ -30,6 +30,8 @@ persistence:
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+portal:
+  enabled: true
 probes:
   liveness:
     enabled: false
@@ -47,5 +49,3 @@ service:
         port: 5121
         protocol: UDP
         targetPort: 5121
-portal:
-  enabled: true

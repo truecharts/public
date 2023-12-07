@@ -1,4 +1,3 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
   repository: rroemhild/mailpile
@@ -13,6 +12,8 @@ persistence:
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+portal:
+  enabled: true
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -23,5 +24,3 @@ service:
         port: 33411
         protocol: TCP
         targetPort: 33411
-portal:
-  enabled: true

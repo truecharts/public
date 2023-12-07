@@ -1,4 +1,3 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
   repository: ecodms/allinone-18.09
@@ -19,6 +18,8 @@ persistence:
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+portal:
+  enabled: false
 probes:
   liveness:
     enabled: false
@@ -35,5 +36,3 @@ service:
     ports:
       main:
         enabled: false
-portal:
-  enabled: false

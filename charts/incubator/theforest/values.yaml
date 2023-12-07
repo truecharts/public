@@ -1,20 +1,25 @@
+env:
+  GAME_ID: "556450"
+  GAME_PARAMS: ""
+  PASSWRD: ""
+  USERNAME: ""
+  VALIDATE: "false"
 image:
   pullPolicy: IfNotPresent
   repository: ich777/steamcmd
   tag: theforest@sha256:8c4ebfbc3def4ad1b740ba4bd7228043028d83fcae45491a083c0930accec2b0
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-secretEnv:
-  USERNAME: ""
-  PASSWRD: ""
-env:
-  GAME_ID: "556450"
-  GAME_PARAMS: ""
-  VALIDATE: false
+portal:
+  enabled: true
 probes:
   liveness:
     enabled: false
@@ -22,13 +27,10 @@ probes:
     enabled: false
   startup:
     enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 service:
-  main:
-    ports:
-      main:
-        port: 8766
-        protocol: UDP
-        targetPort: 8766
   gameport:
     enabled: true
     ports:
@@ -37,6 +39,12 @@ service:
         port: 27015
         protocol: UDP
         targetPort: 27015
+  main:
+    ports:
+      main:
+        port: 8766
+        protocol: UDP
+        targetPort: 8766
   steamqueryport:
     enabled: true
     ports:
@@ -45,12 +53,3 @@ service:
         port: 27016
         protocol: UDP
         targetPort: 27016
-persistence:
-  serverfiles:
-    enabled: true
-    mountPath: /serverdata/serverfiles
-  steamcmd:
-    enabled: true
-    mountPath: /serverdata/steamcmd
-portal:
-  enabled: true

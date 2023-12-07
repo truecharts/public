@@ -17,6 +17,8 @@ persistence:
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+portal:
+  enabled: false
 probes:
   liveness:
     enabled: false
@@ -33,5 +35,3 @@ service:
     ports:
       main:
         enabled: false
-portal:
-  enabled: false

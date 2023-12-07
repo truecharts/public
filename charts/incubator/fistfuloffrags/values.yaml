@@ -1,22 +1,27 @@
-image:
-  pullPolicy: IfNotPresent
-  repository: ich777/steamcmd
-  tag: fistfuloffrags@sha256:ee9fded61fd63c76a6e3efa6bd64207cd115a5c376ada8ddea9c09c40d58301e
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-secretEnv:
-  USERNAME: ""
-  PASSWRD: ""
 env:
   GAME_ID: "295230"
   GAME_NAME: fof
   GAME_PARAMS: +maxplayers 20 +map fof_fistful
   GAME_PORT: "27015"
-  VALIDATE: false
+  PASSWRD: ""
+  USERNAME: ""
+  VALIDATE: "false"
+image:
+  pullPolicy: IfNotPresent
+  repository: ich777/steamcmd
+  tag: fistfuloffrags@sha256:ee9fded61fd63c76a6e3efa6bd64207cd115a5c376ada8ddea9c09c40d58301e
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+portal:
+  enabled: true
 probes:
   liveness:
     port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
@@ -24,6 +29,9 @@ probes:
     port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
   startup:
     port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 service:
   main:
     ports:
@@ -39,12 +47,3 @@ service:
         port: 27015
         protocol: TCP
         targetPort: 27015
-persistence:
-  serverfiles:
-    enabled: true
-    mountPath: /serverdata/serverfiles
-  steamcmd:
-    enabled: true
-    mountPath: /serverdata/steamcmd
-portal:
-  enabled: true

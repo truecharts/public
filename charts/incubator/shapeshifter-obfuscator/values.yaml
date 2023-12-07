@@ -1,5 +1,7 @@
 env:
-  ARGS: -transparent -server -state state -orport 127.0.0.1:3333 -transports obfs4 -bindaddr obfs4-0.0.0.0:2222 -logLevel DEBUG -enableLogging
+  ARGS:
+    -transparent -server -state state -orport 127.0.0.1:3333 -transports obfs4
+    -bindaddr obfs4-0.0.0.0:2222 -logLevel DEBUG -enableLogging
 image:
   pullPolicy: IfNotPresent
   repository: juchong/shapeshifter-docker
@@ -11,6 +13,8 @@ persistence:
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+portal:
+  enabled: true
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -21,5 +25,3 @@ service:
         port: 2222
         protocol: TCP
         targetPort: 2222
-portal:
-  enabled: true

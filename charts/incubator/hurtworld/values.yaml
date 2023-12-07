@@ -1,24 +1,29 @@
-image:
-  pullPolicy: IfNotPresent
-  repository: ich777/steamcmd
-  tag: hurtworld@sha256:4de1dfdcead5ae7bddca6262a91526a9ed0f8d0d88e6098f2d171fa02018f67f
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-secretEnv:
-  USERNAME: ""
-  PASSWRD: ""
 env:
   GAME_ID: "405100"
   GAME_PARAMS: ;autosaveenabled 1;addadmin 76561197963117432
   GAME_PORT: "12871"
+  PASSWRD: ""
   QUERY_PORT: "12881"
   SRV_MAXPLAYERS: "50"
   SRV_NAME: Hurtworld Docker
-  VALIDATE: false
+  USERNAME: ""
+  VALIDATE: "false"
+image:
+  pullPolicy: IfNotPresent
+  repository: ich777/steamcmd
+  tag: hurtworld@sha256:4de1dfdcead5ae7bddca6262a91526a9ed0f8d0d88e6098f2d171fa02018f67f
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+portal:
+  enabled: true
 probes:
   liveness:
     enabled: false
@@ -26,6 +31,9 @@ probes:
     enabled: false
   startup:
     enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 service:
   main:
     ports:
@@ -41,12 +49,3 @@ service:
         port: 12881
         protocol: UDP
         targetPort: 12881
-persistence:
-  serverfiles:
-    enabled: true
-    mountPath: /serverdata/serverfiles
-  steamcmd:
-    enabled: true
-    mountPath: /serverdata/steamcmd
-portal:
-  enabled: true

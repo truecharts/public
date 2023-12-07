@@ -1,21 +1,26 @@
+env:
+  GAME_ID: "443030"
+  GAME_PARAMS: ""
+  PASSWRD: ""
+  USERNAME: ""
+  VALIDATE: "false"
+  WS_CONTENT: ""
 image:
   pullPolicy: IfNotPresent
   repository: ich777/steamcmd
   tag: conanexiles@sha256:cc3d3e16d67244c6e7d239fbdcf8b3bc974db62d9d1809b57c6320bbb953d414
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-secretEnv:
-  USERNAME: ""
-  PASSWRD: ""
-env:
-  GAME_ID: "443030"
-  GAME_PARAMS: ""
-  VALIDATE: false
-  WS_CONTENT: ""
+portal:
+  enabled: true
 probes:
   liveness:
     enabled: false
@@ -23,13 +28,10 @@ probes:
     enabled: false
   startup:
     enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 service:
-  main:
-    ports:
-      main:
-        port: 7777
-        protocol: UDP
-        targetPort: 7777
   gameport1:
     enabled: true
     ports:
@@ -38,6 +40,12 @@ service:
         port: 7778
         protocol: UDP
         targetPort: 7778
+  main:
+    ports:
+      main:
+        port: 7777
+        protocol: UDP
+        targetPort: 7777
   steamport:
     enabled: true
     ports:
@@ -46,12 +54,3 @@ service:
         port: 27015
         protocol: UDP
         targetPort: 27015
-persistence:
-  serverfiles:
-    enabled: true
-    mountPath: /serverdata/serverfiles
-  steamcmd:
-    enabled: true
-    mountPath: /serverdata/steamcmd
-portal:
-  enabled: true

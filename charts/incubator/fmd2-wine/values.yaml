@@ -23,6 +23,8 @@ persistence:
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+portal:
+  enabled: true
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -33,5 +35,3 @@ service:
         port: 6080
         protocol: TCP
         targetPort: 6080
-portal:
-  enabled: true

@@ -1,17 +1,22 @@
+env:
+  PASSWORD: flame_password
+  enable_integration: "true"
 image:
-  repository: pawelmalak/flame
   pullPolicy: IfNotPresent
+  repository: pawelmalak/flame
   tag: 2.3.1@sha256:ed331453caf5ad167b8cc4c6d03d855e7a1d11e7387aa7c4c312cf0680dbe601
+persistence:
+  data:
+    enabled: true
+    mountPath: /app/data
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+portal:
+  enabled: true
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-secretEnv:
-  PASSWORD: flame_password
-env:
-  enable_integration: true
 service:
   main:
     ports:
@@ -19,9 +24,3 @@ service:
         port: 10291
         protocol: HTTP
         targetPort: 5005
-persistence:
-  data:
-    enabled: true
-    mountPath: /app/data
-portal:
-  enabled: true

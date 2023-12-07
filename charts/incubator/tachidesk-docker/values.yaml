@@ -1,4 +1,3 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
   repository: ghcr.io/suwayomi/tachidesk
@@ -16,6 +15,8 @@ persistence:
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+portal:
+  enabled: true
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -26,5 +27,3 @@ service:
         port: 4567
         protocol: TCP
         targetPort: 4567
-portal:
-  enabled: true

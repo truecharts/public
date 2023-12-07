@@ -1,22 +1,27 @@
-image:
-  pullPolicy: IfNotPresent
-  repository: ich777/steamcmd
-  tag: alienswarmreactivedrop@sha256:fbe0f8425e9f427c4510192035e8795166bf4f0011d21060ce3445b409858176
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-secretEnv:
-  USERNAME: ""
-  PASSWRD: ""
 env:
   GAME_ID: "563560"
   GAME_NAME: reactivedrop
   GAME_PARAMS: +map lobby -maxplayers 4 +exec server.cfg
   GAME_PORT: "27015"
-  VALIDATE: false
+  PASSWRD: ""
+  USERNAME: ""
+  VALIDATE: "false"
+image:
+  pullPolicy: IfNotPresent
+  repository: ich777/steamcmd
+  tag: alienswarmreactivedrop@sha256:fbe0f8425e9f427c4510192035e8795166bf4f0011d21060ce3445b409858176
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+portal:
+  enabled: true
 probes:
   liveness:
     port: "{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}"
@@ -24,6 +29,9 @@ probes:
     port: "{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}"
   startup:
     port: "{{ .Values.service.tcprconport.ports.tcprconport.targetPort }}"
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 service:
   main:
     ports:
@@ -39,12 +47,3 @@ service:
         port: 27015
         protocol: TCP
         targetPort: 27015
-persistence:
-  serverfiles:
-    enabled: true
-    mountPath: /serverdata/serverfiles
-  steamcmd:
-    enabled: true
-    mountPath: /serverdata/steamcmd
-portal:
-  enabled: true

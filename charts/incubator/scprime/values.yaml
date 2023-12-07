@@ -14,6 +14,8 @@ persistence:
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+portal:
+  enabled: true
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -32,5 +34,3 @@ service:
         port: 4282
         protocol: TCP
         targetPort: 4282
-portal:
-  enabled: true

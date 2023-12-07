@@ -1,4 +1,3 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
   repository: testdasi/simple-dns-doh
@@ -7,6 +6,8 @@ persistence: {}
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+portal:
+  enabled: true
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -25,5 +26,3 @@ service:
         port: 53
         protocol: TCP
         targetPort: 53
-portal:
-  enabled: true

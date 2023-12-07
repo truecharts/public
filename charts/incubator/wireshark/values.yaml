@@ -1,24 +1,19 @@
-image:
-  repository: ghcr.io/linuxserver/wireshark
-  pullPolicy: IfNotPresent
-  tag: 4.0.10@sha256:82b4892e963e9f65c1d93014a6f6bf8cec99403def04828f7e6d67ec0d71ab41
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-  capabilities:
-    add:
-      - NET_ADMIN
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
 hostNetwork: true
-service:
-  main:
-    ports:
-      main:
-        targetPort: 3000
-        protocol: HTTP
-        port: 3000
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/linuxserver/wireshark
+  tag: 4.0.10@sha256:82b4892e963e9f65c1d93014a6f6bf8cec99403def04828f7e6d67ec0d71ab41
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  varrun:
+    enabled: true
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+portal:
+  enabled: true
 probes:
   liveness:
     path: /
@@ -26,11 +21,16 @@ probes:
     path: /
   startup:
     path: /
-persistence:
-  varrun:
-    enabled: true
-  config:
-    enabled: true
-    mountPath: /config
-portal:
-  enabled: true
+securityContext:
+  capabilities:
+    add:
+      - NET_ADMIN
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    ports:
+      main:
+        port: 3000
+        protocol: HTTP
+        targetPort: 3000

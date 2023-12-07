@@ -1,4 +1,3 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
   repository: analogic/poste.io
@@ -10,6 +9,8 @@ persistence:
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+portal:
+  enabled: true
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -92,5 +93,3 @@ service:
         port: 25
         protocol: TCP
         targetPort: 25
-portal:
-  enabled: true

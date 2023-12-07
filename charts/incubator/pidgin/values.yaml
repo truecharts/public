@@ -1,24 +1,24 @@
 image:
-  repository: ghcr.io/linuxserver/pidgin
   pullPolicy: IfNotPresent
+  repository: ghcr.io/linuxserver/pidgin
   tag: 2.14.12@sha256:70e66c935b3de567036bf27cc26887b2e908604378d1db8e3981dc090f7b2dbb
-securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  varrun:
+    enabled: true
 podSecurityContext:
-  runAsUser: 0
   runAsGroup: 0
+  runAsUser: 0
+portal:
+  enabled: true
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 service:
   main:
     ports:
       main:
-        targetPort: 3000
         port: 10136
-persistence:
-  config:
-    enabled: true
-    mountPath: "/config"
-  varrun:
-    enabled: true
-portal:
-  enabled: true
+        targetPort: 3000

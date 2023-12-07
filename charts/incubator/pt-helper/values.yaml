@@ -1,4 +1,3 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
   repository: crazyq/pt_helper
@@ -10,6 +9,8 @@ persistence:
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+portal:
+  enabled: true
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -20,5 +21,3 @@ service:
         port: 8192
         protocol: TCP
         targetPort: 8192
-portal:
-  enabled: true

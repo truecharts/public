@@ -11,6 +11,8 @@ persistence: {}
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+portal:
+  enabled: true
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -29,5 +31,3 @@ service:
         port: 8388
         protocol: UDP
         targetPort: 8388
-portal:
-  enabled: true

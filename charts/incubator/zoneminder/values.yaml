@@ -2,9 +2,25 @@ image:
   pullPolicy: IfNotPresent
   repository: dlandon/zoneminder.unraid
   tag: latest@sha256:290ff8fb91b1df4b4449a26bc75102e44d65b3ef8f9be5d4b4cea4d87d21f483
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  datapath:
+    enabled: true
+    mountPath: /var/cache/zoneminder
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+portal:
+  enabled: true
+probes:
+  liveness:
+    path: /zm
+  readiness:
+    path: /zm
+  startup:
+    path: /zm
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -23,19 +39,3 @@ service:
         port: 10293
         protocol: TCP
         targetPort: 9000
-probes:
-  liveness:
-    path: "/zm"
-  readiness:
-    path: "/zm"
-  startup:
-    path: "/zm"
-persistence:
-  config:
-    enabled: true
-    mountPath: /config
-  datapath:
-    enabled: true
-    mountPath: /var/cache/zoneminder
-portal:
-  enabled: true

@@ -1,29 +1,43 @@
-image:
-  repository: ich777/magic-mirror2
-  pullPolicy: IfNotPresent
-  tag: latest@sha256:92e2fe5fb98791aba510e1be122bd1d659fa396a48dbafa0894ebc044df07651
-securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-magicmirror:
-  force_update: false
-  force_update_modules: false
 envFrom:
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-magicmirror-env'
+image:
+  pullPolicy: IfNotPresent
+  repository: ich777/magic-mirror2
+  tag: latest@sha256:92e2fe5fb98791aba510e1be122bd1d659fa396a48dbafa0894ebc044df07651
+magicmirror:
+  force_update: false
+  force_update_modules: false
+persistence:
+  config:
+    enabled: true
+    mountPath: /magicmirror2
+  configfile:
+    enabled: true
+    mountPath: /tmp/config.js
+    objectName:
+      '{{ printf "%s-magicmirror-config" (include "tc.common.names.fullname"
+      .) }}'
+    subPath: config.js
+    type: configMap
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+portal:
+  enabled: true
 probes:
   liveness:
-    type: HTTP
     path: /
+    type: HTTP
   readiness:
-    type: HTTP
     path: /
+    type: HTTP
   startup:
-    type: HTTP
     path: /
+    type: HTTP
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 service:
   main:
     ports:
@@ -31,17 +45,3 @@ service:
         port: 10590
         protocol: HTTP
         targetPort: 10000
-persistence:
-  config:
-    enabled: true
-    mountPath: /magicmirror2
-  # Mounts a modified default config file to a "tmp" which the entrypoint,
-  # copies to the config location if it does not exist.
-  configfile:
-    enabled: true
-    type: configMap
-    mountPath: /tmp/config.js
-    subPath: config.js
-    objectName: '{{ printf "%s-magicmirror-config" (include "tc.common.names.fullname" .) }}'
-portal:
-  enabled: true

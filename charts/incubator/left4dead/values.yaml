@@ -1,22 +1,27 @@
-image:
-  pullPolicy: IfNotPresent
-  repository: ich777/steamcmd
-  tag: l4d@sha256:251ffb0cc73f15a751ba01c3543bd03b903fe68f3a76549bf0bf34836647dfa5
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-secretEnv:
-  USERNAME: ""
-  PASSWRD: ""
 env:
   GAME_ID: "222840"
   GAME_NAME: left4dead
   GAME_PARAMS: +maxplayers 4 +map l4d_farm04_barn
   GAME_PORT: "27015"
-  VALIDATE: false
+  PASSWRD: ""
+  USERNAME: ""
+  VALIDATE: "false"
+image:
+  pullPolicy: IfNotPresent
+  repository: ich777/steamcmd
+  tag: l4d@sha256:251ffb0cc73f15a751ba01c3543bd03b903fe68f3a76549bf0bf34836647dfa5
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
+portal:
+  enabled: true
 probes:
   liveness:
     port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
@@ -24,6 +29,9 @@ probes:
     port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
   startup:
     port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 service:
   main:
     ports:
@@ -39,12 +47,3 @@ service:
         port: 27015
         protocol: TCP
         targetPort: 27015
-persistence:
-  serverfiles:
-    enabled: true
-    mountPath: /serverdata/serverfiles
-  steamcmd:
-    enabled: true
-    mountPath: /serverdata/steamcmd
-portal:
-  enabled: true

@@ -2,19 +2,22 @@ image:
   pullPolicy: IfNotPresent
   repository: antelle/keeweb
   tag: latest@sha256:8ff5e10baa2ca50967964bf26af41461da79ef62a481094a00f75726623bcb36
+ingress:
+  http:
+    autoLink: true
+persistence:
+  nginx:
+    enabled: true
+    mountPath: /etc/nginx/external
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+portal:
+  enabled: true
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
 service:
-  main:
-    ports:
-      main:
-        port: 8003
-        protocol: HTTPS
-        targetPort: 443
   http:
     enabled: true
     ports:
@@ -23,12 +26,9 @@ service:
         port: 8004
         protocol: HTTP
         targetPort: 80
-ingress:
-  http:
-    autoLink: true
-persistence:
-  nginx:
-    enabled: true
-    mountPath: /etc/nginx/external
-portal:
-  enabled: true
+  main:
+    ports:
+      main:
+        port: 8003
+        protocol: HTTPS
+        targetPort: 443

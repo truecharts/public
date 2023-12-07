@@ -1,35 +1,14 @@
-image:
-  pullPolicy: IfNotPresent
-  repository: ich777/steamcmd
-  tag: stn@sha256:0db54c53ea2335612e6e9334d001fc9f9b46abe51d8836797b728b38c5969248
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-secretEnv:
-  USERNAME: ""
-  PASSWRD: ""
 env:
   DEBUG_OUTPUT: "false"
   GAME_ID: "1502300"
   GAME_PARAMS: ""
-  VALIDATE: false
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
-service:
-  main:
-    ports:
-      main:
-        port: 7950
-        protocol: UDP
-        targetPort: 7950
+  PASSWRD: ""
+  USERNAME: ""
+  VALIDATE: "false"
+image:
+  pullPolicy: IfNotPresent
+  repository: ich777/steamcmd
+  tag: stn@sha256:0db54c53ea2335612e6e9334d001fc9f9b46abe51d8836797b728b38c5969248
 persistence:
   serverfiles:
     enabled: true
@@ -37,5 +16,25 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
 portal:
   enabled: true
+probes:
+  liveness:
+    enabled: false
+  readiness:
+    enabled: false
+  startup:
+    enabled: false
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    ports:
+      main:
+        port: 7950
+        protocol: UDP
+        targetPort: 7950

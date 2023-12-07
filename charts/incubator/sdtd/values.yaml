@@ -1,28 +1,36 @@
+env:
+  BACKUP_FILES: "false"
+  BACKUP_INTERVAL: "60"
+  BACKUP_TO_KEEP: "12"
+  ENABLE_BEPINEX: "false"
+  GAME_ID: "294420"
+  GAME_PARAMS: -logfile 7DaysToDie_Data/output_log.txt $@
+  PASSWRD: ""
+  SERVERCONFIG: serverconfig.xml
+  USERNAME: ""
+  VALIDATE: "false"
 image:
   pullPolicy: IfNotPresent
   repository: ich777/steamcmd
   tag: 7dtd@sha256:bce95372ad7869d373785f6997f4491709898d937b931a5cacb2f2abfc65b8ff
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-secretEnv:
-  USERNAME: ""
-  PASSWRD: ""
-env:
-  ENABLE_BEPINEX: false
-  BACKUP_FILES: false
-  BACKUP_INTERVAL: 60
-  BACKUP_TO_KEEP: 12
-  GAME_ID: "294420"
-  GAME_PARAMS: "-logfile 7DaysToDie_Data/output_log.txt $@"
-  SERVERCONFIG: serverconfig.xml
-  VALIDATE: false
+portal:
+  enabled: true
 probes:
   startup:
     failureThreshold: 360
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
 service:
   main:
     ports:
@@ -30,22 +38,6 @@ service:
         port: 26900
         protocol: TCP
         targetPort: 26900
-  steammasterser:
-    enabled: true
-    ports:
-      steammasterser:
-        enabled: true
-        port: 26900
-        protocol: UDP
-        targetPort: 26900
-  steamcommunica:
-    enabled: true
-    ports:
-      steamcommunica:
-        enabled: true
-        port: 26901
-        protocol: UDP
-        targetPort: 26901
   raknet:
     enabled: true
     ports:
@@ -54,6 +46,30 @@ service:
         port: 26902
         protocol: UDP
         targetPort: 26902
+  registeringats:
+    enabled: true
+    ports:
+      registeringats:
+        enabled: true
+        port: 27015
+        protocol: UDP
+        targetPort: 27015
+  steamcommunica:
+    enabled: true
+    ports:
+      steamcommunica:
+        enabled: true
+        port: 26901
+        protocol: UDP
+        targetPort: 26901
+  steammasterser:
+    enabled: true
+    ports:
+      steammasterser:
+        enabled: true
+        port: 26900
+        protocol: UDP
+        targetPort: 26900
   unet:
     enabled: true
     ports:
@@ -78,20 +94,3 @@ service:
         port: 8082
         protocol: TCP
         targetPort: 8082
-  registeringats:
-    enabled: true
-    ports:
-      registeringats:
-        enabled: true
-        port: 27015
-        protocol: UDP
-        targetPort: 27015
-persistence:
-  serverfiles:
-    enabled: true
-    mountPath: /serverdata/serverfiles
-  steamcmd:
-    enabled: true
-    mountPath: /serverdata/steamcmd
-portal:
-  enabled: true

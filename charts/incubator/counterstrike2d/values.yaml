@@ -12,6 +12,8 @@ persistence:
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
+portal:
+  enabled: true
 probes:
   liveness:
     enabled: false
@@ -29,5 +31,3 @@ service:
         port: 36963
         protocol: UDP
         targetPort: 36963
-portal:
-  enabled: true

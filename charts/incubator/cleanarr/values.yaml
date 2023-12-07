@@ -1,31 +1,30 @@
+env:
+  BYPASS_SSL_VERIFY: '{{ ternary "1" "0" .Values.env.BYPASS_SSL_VERIFY_BOOL }}'
+  BYPASS_SSL_VERIFY_BOOL: "true"
+  LIBRARY_NAMES: ""
+  PAGE_SIZE: "50"
+  PLEX_BASE_URL: ""
+  PLEX_TOKEN: ""
 image:
   pullPolicy: IfNotPresent
   repository: selexin/cleanarr
   tag: v2.5.0@sha256:26d636d29701431fdb1297e2f1aeeae88084e1dd952f133dcd08efb1220fc034
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-env:
-  BYPASS_SSL_VERIFY: '{{ ternary "1" "0" .Values.env.BYPASS_SSL_VERIFY_BOOL }}'
-  # User defined
-  BYPASS_SSL_VERIFY_BOOL: true
-  LIBRARY_NAMES: ""
-  PLEX_BASE_URL: ""
-  PLEX_TOKEN: ""
-  PAGE_SIZE: 50
-service:
-  main:
-    ports:
-      main:
-        protocol: HTTP
-        port: 10247
-        targetPort: 80
 persistence:
   config:
     enabled: true
     mountPath: /config
+podSecurityContext:
+  runAsGroup: 0
+  runAsUser: 0
 portal:
   enabled: true
+securityContext:
+  readOnlyRootFilesystem: false
+  runAsNonRoot: false
+service:
+  main:
+    ports:
+      main:
+        port: 10247
+        protocol: HTTP
+        targetPort: 80
