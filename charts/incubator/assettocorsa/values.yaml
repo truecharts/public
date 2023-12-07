@@ -1,26 +1,21 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/assettocorsa
-  tag: latest@sha256:15b62adc57a03767ab080fe02e9f24154ff3dfa2112363add3173be1f6f8ef0e
-
+  repository: ich777/steamcmd
+  tag: assettocorsa@sha256:ede1a9cb841bec49e6b253445ff74901c3ab58ed61704b02865c2ccdb4d4e767
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 secretEnv:
   USERNAME: ""
   PASSWRD: ""
-
 env:
   GAME_ID: "302550"
   INSTALL_ASSETTO_SERVER_MANAGER: ""
   INSTALL_STRACKER: ""
   VALIDATE: false
-
 service:
   main:
     ports:
@@ -60,7 +55,6 @@ service:
         port: 9600
         protocol: UDP
         targetPort: 9600
-
 persistence:
   serverfiles:
     enabled: true
@@ -68,6 +62,5 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-
 portal:
   enabled: true

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: docker-hub-rss
-version: 2.0.13
+version: 2.0.14
 appVersion: latest
 description: RSS feed for Chart Hub images.
 home: https://truecharts.org/charts/incubator/docker-hub-rss
@@ -10,7 +10,7 @@ deprecated: false
 sources:
   - https://github.com/TheConnMan/docker-hub-rss
   - https://github.com/truecharts/charts/tree/master/charts/incubator/docker-hub-rss
-  - https://github.com/truecharts/containers/tree/master/mirrordocker-hub-rss
+  - https://hub.docker.com/r/theconnman/docker-hub-rss
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

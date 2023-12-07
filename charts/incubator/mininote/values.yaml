@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/mininote
-  tag: latest@sha256:416337ad98f8fa4072e6a77c586da6e5f05fde9509e4ad9dc277f5570d7f6b21
+  repository: n1try/mininote
+  tag: latest@sha256:da2c050fe79ffb5371d9c40a86cf2222d87e23958802bc9348455e8784afbc0d
 persistence:
   data:
     enabled: true
@@ -20,6 +20,5 @@ service:
         port: 3000
         protocol: TCP
         targetPort: 3000
-
 portal:
   enabled: true

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: androiddebugbridge
-version: 2.0.11
+version: 2.0.12
 appVersion: latest
 description:
   Control AndroidTV/FireTV devices through ADB from the Home Assistant
@@ -11,7 +11,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/androiddebugbridge.png
 deprecated: false
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/androiddebugbridge
-  - https://github.com/truecharts/containers/tree/master/mirrorandroiddebugbridge
+  - https://hub.docker.com/r/barnybbb/adb-hass-androidtv
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

@@ -1,16 +1,13 @@
 image:
-  repository: tccr.io/truecharts/dupeguru
-  tag: 23.01.1@sha256:18646a36f34c795bfafe1b1b162c2dc6ead19e71014aabf70b61095d098638dd
+  repository: jlesage/dupeguru
+  tag: v23.11.2@sha256:56e3abe6cf50c7cf84d83bd8e8d1a450d765a95a8b75660f8147ddc0e56190fd
   pullPolicy: IfNotPresent
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 service:
   main:
     ports:
@@ -24,21 +21,17 @@ service:
         enabled: true
         port: 10261
         targetPort: 5900
-
 envFrom:
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-dupeguru'
-
 secretEnv:
   VNC_PASSWORD: ""
-
 dupeguru:
   KEEP_APP_RUNNING: false
   DISPLAY_WIDTH: 1280
   DISPLAY_HEIGHT: 768
   SECURE_CONNECTION: false
   ENABLE_CJK_FONT: false
-
 configmap:
   dupeguru:
     enabled: true
@@ -48,7 +41,6 @@ configmap:
       SECURE_CONNECTION: '{{ ternary "1" "0" .Values.dupeguru.SECURE_CONNECTION }}'
       DISPLAY_WIDTH: "{{ .Values.dupeguru.DISPLAY_WIDTH }}"
       DISPLAY_HEIGHT: "{{ .Values.dupeguru.DISPLAY_HEIGHT }}"
-
 persistence:
   config:
     enabled: true
@@ -59,6 +51,5 @@ persistence:
   trash:
     enabled: true
     mountPath: "/trash"
-
 portal:
   enabled: true

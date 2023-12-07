@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/dns-doh-companion
-  tag: latest@sha256:9c1e1306591f6dfb751f1ae30a695e1d0fc926e15375d5dc7701b0958d15013e
+  repository: testdasi/simple-dns-doh
+  tag: latest@sha256:fc1cb65c1ccdaad684b5e0a3fbe5634c24d62b8ad41623f5e099865ee6cac70c
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -25,6 +25,5 @@ service:
         port: 53
         protocol: TCP
         targetPort: 53
-
 portal:
   enabled: true

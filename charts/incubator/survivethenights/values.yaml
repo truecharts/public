@@ -1,26 +1,21 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/survivethenights
-  tag: latest@sha256:7571a30225c644e260418b5dde61d022371facccec2ca84fd14772833cca388d
-
+  repository: ich777/steamcmd
+  tag: stn@sha256:0db54c53ea2335612e6e9334d001fc9f9b46abe51d8836797b728b38c5969248
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 secretEnv:
   USERNAME: ""
   PASSWRD: ""
-
 env:
   DEBUG_OUTPUT: "false"
   GAME_ID: "1502300"
   GAME_PARAMS: ""
   VALIDATE: false
-
 probes:
   liveness:
     enabled: false
@@ -28,7 +23,6 @@ probes:
     enabled: false
   startup:
     enabled: false
-
 service:
   main:
     ports:
@@ -36,7 +30,6 @@ service:
         port: 7950
         protocol: UDP
         targetPort: 7950
-
 persistence:
   serverfiles:
     enabled: true
@@ -44,6 +37,5 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-
 portal:
   enabled: true

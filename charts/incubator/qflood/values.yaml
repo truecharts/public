@@ -3,8 +3,8 @@ env:
   UMASK: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/qflood
-  tag: latest@sha256:d773cd8b8c19929214a0d4b5c0668f214e7b5b4490da0114a6bad7f9feba1b5f
+  repository: cr.hotio.dev/hotio/qflood
+  tag: latest@sha256:ff86ae422aa174dd7c90bcefbe21dc4dc72b6edc81e3843446727a57cddf0dfa
 persistence:
   config:
     enabled: true
@@ -30,6 +30,5 @@ service:
         port: 3000
         protocol: HTTP
         targetPort: 3000
-
 portal:
   enabled: true

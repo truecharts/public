@@ -4,8 +4,8 @@ env:
   WORLD_NAME: World
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/necesse
-  tag: latest@sha256:8d9cc50bddc601196c0f1efa9684314ca8fdc78877146dc5badf5bc8c8e41592
+  repository: ich777/steamcmd
+  tag: necesse@sha256:967e12164439333959ea12418c327371c4edbfcc7f10573d69637b05ff8296b4
 persistence:
   serverfiles:
     enabled: true
@@ -34,6 +34,5 @@ service:
         port: 14159
         protocol: UDP
         targetPort: 14159
-
 portal:
   enabled: true

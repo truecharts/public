@@ -2,8 +2,8 @@ env:
   UMASK: "000"
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/mediaelch
-  tag: latest@sha256:e2b3f2f9e9d8307078ff394f9fce0be4279a7dfdc36c7f2612d539839f1d8915
+  repository: masonxx/mediaelch
+  tag: latest@sha256:b46a348a84fede0097ab5081ad004eb7bb740046ef61019222287bc7b6f1bd51
 persistence:
   mediaelch:
     enabled: true
@@ -21,6 +21,5 @@ service:
         port: 5800
         protocol: TCP
         targetPort: 5800
-
 portal:
   enabled: true

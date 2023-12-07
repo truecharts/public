@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: tubearchivist-redisjson
-version: 2.0.17
+version: 2.0.18
 appVersion: latest
 description: This is a dependancy Chart for the application "TubeArchivist"
 home: https://truecharts.org/charts/incubator/tubearchivist-redisjson
@@ -10,7 +10,7 @@ deprecated: false
 sources:
   - https://github.com/RedisJSON/RedisJSON
   - https://github.com/truecharts/charts/tree/master/charts/incubator/tubearchivist-redisjson
-  - https://github.com/truecharts/containers/tree/master/mirrortubearchivist-redisjson
+  - https://hub.docker.com/r/redislabs/rejson
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

@@ -5,8 +5,8 @@ env:
   UMASK: "000"
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/mindustry
-  tag: latest@sha256:f7827264066d9d030e1cecaa3c4637706d43371ed0b9bc1374940c8b68a00b2b
+  repository: ich777/mindustry-server
+  tag: latest@sha256:272d4455325d22807d8de704deaa335a995c12aafe5e9530bf3b14a2793ed205
 persistence:
   serverfiles:
     enabled: true
@@ -32,6 +32,5 @@ service:
         port: 6567
         protocol: UDP
         targetPort: 6567
-
 portal:
   enabled: true

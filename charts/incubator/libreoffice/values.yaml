@@ -1,29 +1,24 @@
 image:
-  repository: tccr.io/truecharts/libreoffice
+  repository: ghcr.io/linuxserver/libreoffice
   pullPolicy: IfNotPresent
-  tag: 7.2.7@sha256:a784b1be1bba519d820dd4a1cdf3c1603a7bb7bf24533ffba834c8dae63b84ae
-
+  tag: 7.5.5@sha256:5d8487fce6b2eec0aa4c2b2b30c33bd5867c6c36409e111c14574e5948af0776
 securityContext:
   runAsNonRoot: false
   readOnlyRootFilesystem: false
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 service:
   main:
     ports:
       main:
         targetPort: 3000
         port: 10133
-
 persistence:
   config:
     enabled: true
     mountPath: "/config"
   varrun:
     enabled: true
-
 portal:
   enabled: true

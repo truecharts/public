@@ -1,25 +1,20 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/citadel-forgedwithfire
-  tag: latest@sha256:83ce718ca47d76d8b4887fc8e2e44835478382636d357f2fe4898cc921f6151b
-
+  repository: ich777/steamcmd
+  tag: citadelfwf@sha256:0060b01075b60f4107caa530a58cc8735b4c18558a820f080f4862e72405bc24
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 secretEnv:
   USERNAME: ""
   PASSWRD: ""
-
 env:
   GAME_ID: "489650 "
   GAME_PARAMS: ""
   VALIDATE: false
-
 probes:
   liveness:
     enabled: false
@@ -27,7 +22,6 @@ probes:
     enabled: false
   startup:
     enabled: false
-
 service:
   main:
     ports:
@@ -43,7 +37,6 @@ service:
         port: 27015
         protocol: UDP
         targetPort: 27015
-
 persistence:
   serverfiles:
     enabled: true
@@ -51,6 +44,5 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-
 portal:
   enabled: true

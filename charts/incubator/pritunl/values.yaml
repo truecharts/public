@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/pritunl
-  tag: latest@sha256:cd842842869a969c4aeb6dcf3154831b399c5820e3a02e0cb69466eaf56b654c
+  repository: bashninja/docker-pritunl
+  tag: latest@sha256:a7efcec8868e0bcf80dfa297ac7777c1e8debd4b9f25170ceb9f0856234860b9
 persistence:
   config:
     enabled: true
@@ -44,6 +44,5 @@ service:
         port: 1194
         protocol: UDP
         targetPort: 1194
-
 portal:
   enabled: true

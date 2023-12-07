@@ -3,8 +3,8 @@ env:
   TOKEN: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/red-discordbot
-  tag: vfull@sha256:416909ff37869b460ac8f8c99e2406b25ae7b4b8cbdfe3a58455ce91da3c272b
+  repository: phasecorex/red-discordbot
+  tag: full@sha256:c3e06a38f5367d1b90c41ec35315ffb3d1e736a593362caae7d708b4bba9de1a
 persistence:
   data:
     enabled: true
@@ -28,6 +28,5 @@ service:
     ports:
       main:
         enabled: false
-
 portal:
   enabled: false

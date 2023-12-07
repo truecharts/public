@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: dvblink
-version: 2.0.11
+version: 2.0.12
 appVersion: latest
 description:
   DVBLink need to enjoy your favorite channels and recordings within your
@@ -11,7 +11,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/dvblink.png
 deprecated: false
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/dvblink
-  - https://github.com/truecharts/containers/tree/master/mirrordvblink
+  - https://hub.docker.com/r/chvb/docker-dvblink
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

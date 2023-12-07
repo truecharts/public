@@ -1,16 +1,13 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/flashpaper
-  tag: latest@sha256:a784f26d36046473f36f3cf2c214f6ac63517c1b1434eb769fd15a7ee2f10c29
-
+  repository: andrewpaglusch/flashpaper
+  tag: latest@sha256:920a2e30b9b91180574bafd72fd0783d2bc64d2cf361fe1d7bffed95044c984d
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 env:
   ANNOUNCEMENT: ""
   MAX_SECRET_LENGTH: "3000"
@@ -21,16 +18,13 @@ env:
   MESSAGES_SUBMIT_SECRET_HEADER: Create A Self-Destructing Message
   MESSAGES_SUBMIT_SECRET_SUBHEADER: ""
   MESSAGES_VIEW_CODE_HEADER: Self-Destructing URL
-  MESSAGES_VIEW_CODE_SUBHEADER:
-    Share this URL via email, chat, or another messaging
-    service. It will self-destruct after being viewed once.
+  MESSAGES_VIEW_CODE_SUBHEADER: Share this URL via email, chat, or another messaging service. It will self-destruct after being viewed once.
   MESSAGES_VIEW_SECRET_HEADER: This message has been destroyed
   PRUNE_ENABLED: "true"
   PRUNE_MAX_DAYS: "730"
   PRUNE_MIN_DAYS: "365"
   RETURN_FULL_URL: "true"
   SITE_TITLE: FlashPaper - Self-Destructing Message
-
 service:
   main:
     ports:
@@ -38,7 +32,6 @@ service:
         port: 8544
         protocol: TCP
         targetPort: 80
-
 persistence:
   data:
     enabled: true

@@ -9,8 +9,8 @@ env:
   XMX_SIZE: "1024"
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/starmade
-  tag: latest@sha256:69833efa59ddb750bff98cb75d0b3c4d467f72f3bacdc5cdf57042eff8fbc723
+  repository: ich777/starmade-server
+  tag: latest@sha256:f64ff6309ffac24bcc949c0ee1c717a87359a48a368f2938c086c3fe4517d88b
 persistence:
   serverfiles:
     enabled: true
@@ -28,6 +28,5 @@ service:
         port: 4242
         protocol: TCP
         targetPort: 4242
-
 portal:
   enabled: true

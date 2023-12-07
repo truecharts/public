@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: fileshelter
-version: 2.0.14
+version: 2.0.15
 appVersion: latest
 description:
   FileShelter is a self-hosted software that allows you to easily share
@@ -12,7 +12,7 @@ deprecated: false
 sources:
   - https://github.com/epoupon/fileshelter
   - https://github.com/truecharts/charts/tree/master/charts/incubator/fileshelter
-  - https://github.com/truecharts/containers/tree/master/mirrorfileshelter
+  - https://hub.docker.com/r/epoupon/fileshelter
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

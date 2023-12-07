@@ -3,8 +3,8 @@ env:
   UMASK: "000"
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/socials
-  tag: vmain@sha256:5804199d19dd00c51fea79473da522b9ca56e411f76cda3f9d3da7f43b6783d3
+  repository: ghcr.io/diamkil/socials
+  tag: main@sha256:ec22a94aad6850b2667c506dfec53cdd39b241f039c5a1187b569f3aefc2c75b
 persistence:
   socials:
     enabled: true
@@ -22,6 +22,5 @@ service:
         port: 7574
         protocol: TCP
         targetPort: 7574
-
 portal:
   enabled: true

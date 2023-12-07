@@ -1,20 +1,16 @@
 image:
-  repository: tccr.io/truecharts/recipes
-  tag: 1.4.9@sha256:303aaf27090d748aabf8f42c95b2d9e3dcded92b5e348d2b86ee9a02a77e2dca
+  repository: vabene1111/recipes
+  tag: 1.5.6@sha256:5c9a304e42aac1f02ac1387f7183473eeeabc091635524587d158f78c8426f68
   pullPolicy: IfNotPresent
-
 nginxImage:
-  repository: tccr.io/truecharts/nginx
-  tag: 1.24.0@sha256:7eee831d79f11786149bd02a0d4d438057772285ec7b62fc2976ee70676707fa
-
+  repository: nginx
+  tag: 1.25.3@sha256:86e53c4c16a6a276b204b0fd3a8143d86547c967dc8258b3d47c3a21bb68d3c6
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 configmap:
   config:
     enabled: true
@@ -45,7 +41,6 @@ configmap:
             }
           }
         }
-
 env:
   DEBUG: 0
   ALLOWED_HOSTS: "*"
@@ -71,7 +66,6 @@ env:
     secretKeyRef:
       name: recipes-secrets
       key: SECRET_KEY
-
 additionalContainers:
   nginx:
     name: nginx
@@ -88,14 +82,12 @@ additionalContainers:
         mountPath: "/media"
       - name: static
         mountPath: "/static"
-
 service:
   main:
     ports:
       main:
         port: 10029
         targetPort: 80
-
 persistence:
   media:
     enabled: true
@@ -112,12 +104,10 @@ persistence:
     volumeSpec:
       configMap:
         name: '{{ printf "%v-config" (include "tc.common.names.fullname" .) }}'
-
 postgresql:
   enabled: true
   existingSecret: "dbcreds"
   postgresqlUsername: recipes
   postgresqlDatabase: recipes
-
 portal:
   enabled: true

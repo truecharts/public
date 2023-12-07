@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: hetzner-ddns
-version: 2.0.11
+version: 2.0.12
 appVersion: latest
 description:
   This Chart will allow you to use the Hetzner DNS Service (https://www.hetzner.com/dns-console)
@@ -11,7 +11,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/hetzner-ddns.png
 deprecated: false
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/hetzner-ddns
-  - https://github.com/truecharts/containers/tree/master/mirrorhetzner-ddns
+  - https://hub.docker.com/r/kutzilla/hetzner-ddns
   - https://github.com/kutzilla/docker-hetzner-ddns
 maintainers:
   - name: TrueCharts

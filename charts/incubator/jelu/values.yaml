@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/jelu
-  tag: latest@sha256:1c6bfa66e31adb5dd9dc42d686f712a7f9b73a6c030c748d80ba11b519f16a10
+  repository: wabayang/jelu
+  tag: latest@sha256:b1c89566ebe089b9ee4e2d845906ba44e1347a694a6ea9e047f94793762cbe1d
 persistence:
   config:
     enabled: true
@@ -29,6 +29,5 @@ service:
         port: 11111
         protocol: TCP
         targetPort: 11111
-
 portal:
   enabled: true

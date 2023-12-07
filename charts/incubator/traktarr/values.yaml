@@ -1,8 +1,7 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/traktarr
-  tag: latest@sha256:c3f2e4c967f7574d13b234c8cfa5d5bc25c007d891ecf8bf78e04f0654033785
-
+  repository: eafxx/traktarr
+  tag: latest@sha256:3299915869b66e9ab5d34f454b5d8eae897a837b7dc27624bc7b4925e766a746
 traktarr:
   app_branch: master
   blacklist: true
@@ -12,7 +11,6 @@ traktarr:
   skipupdate: true
   delay: "2.5"
   sort: rating
-
 env:
   APP_BRANCH: "{{ .Values.traktarr.app_branch }}"
   BLACKLIST: '{{ ternary "yes" "no" .Values.traktarr.blacklist }}'
@@ -22,15 +20,12 @@ env:
   SKIPUPDATE: '{{ ternary "yes" "no" .Values.traktarr.skipupdate }}'
   DELAY: "{{ .Values.traktarr.delay }}"
   SORT: "{{ .Values.traktarr.sort }}"
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 probes:
   liveness:
     enabled: false
@@ -38,18 +33,15 @@ probes:
     enabled: false
   startup:
     enabled: false
-
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-
 persistence:
   config:
     enabled: true
     mountPath: /config
-
 portal:
   enabled: false

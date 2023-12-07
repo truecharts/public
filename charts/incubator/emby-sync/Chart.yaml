@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: emby-sync
-version: 2.0.11
+version: 2.0.12
 appVersion: latest
 description: A small flask based service to sync up Emby clients
 home: https://truecharts.org/charts/incubator/emby-sync
@@ -10,7 +10,7 @@ deprecated: false
 sources:
   - https://github.com/cameronurnes/emby-sync
   - https://github.com/truecharts/charts/tree/master/charts/incubator/emby-sync
-  - https://github.com/truecharts/containers/tree/master/mirroremby-sync
+  - https://hub.docker.com/r/lastelement21/emby-sync
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

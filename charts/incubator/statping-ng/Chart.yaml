@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: statping-ng
-version: 12.0.2
+version: 12.0.3
 appVersion: 0.90.80
 description: Status page for monitoring your websites and applications.
 home: https://truecharts.org/charts/incubator/statping-ng
@@ -10,7 +10,7 @@ deprecated: false
 sources:
   - https://github.com/statping/statping
   - https://github.com/truecharts/charts/tree/master/charts/incubator/statping-ng
-  - https://github.com/truecharts/containers/tree/master/mirrorstatping-ng
+  - https://quay.io/statping-ng/statping-ng
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

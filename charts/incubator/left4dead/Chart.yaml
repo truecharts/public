@@ -1,8 +1,8 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: left4dead
-version: 2.0.11
-appVersion: latest
+version: 2.0.12
+appVersion: l4d
 description:
   This Chart will download and install SteamCMD. It will also install Left4Dead
   and run it.
@@ -12,7 +12,7 @@ deprecated: false
 sources:
   - https://www.steampowered.com/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/left4dead
-  - https://github.com/truecharts/containers/tree/master/mirrorleft4dead
+  - https://hub.docker.com/r/ich777/steamcmd
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

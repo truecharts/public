@@ -3,8 +3,8 @@ env:
   DEFAULTADMINPWD: "1234"
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/quickshare
-  tag: latest@sha256:c9b1692b339d73a682a961192712be7bd57248ad31158c9a9b0fac5176b6b1ca
+  repository: hexxa/quickshare
+  tag: latest@sha256:7126dc98e79058df0941f01b327945abc462274ee17ea1d6b71c34ac3fee4a06
 persistence:
   storagedata:
     enabled: true
@@ -22,6 +22,5 @@ service:
         port: 8686
         protocol: TCP
         targetPort: 8686
-
 portal:
   enabled: true

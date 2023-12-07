@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/observium
-  tag: latest@sha256:7d77ec5c85b754258e02456678222a1d51f81fd432a0e04f3e6a91c7306b2ba1
+  repository: uberchuckie/observium
+  tag: latest@sha256:64175227fb5b707f1834865e4e93612b5fe4f62046673ab09503a849c7944e03
 persistence:
   observium:
     enabled: true
@@ -28,6 +28,5 @@ service:
         port: 8514
         protocol: UDP
         targetPort: 514
-
 portal:
   enabled: true

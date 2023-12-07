@@ -1,13 +1,11 @@
 image:
-  repository: tccr.io/truecharts/privatebin
+  repository: privatebin/pdo
   pullPolicy: IfNotPresent
-  tag: 1.5.1@sha256:eeb74022d04aa205c60952dbba3f196418ecdf52fc5e99295100e482a58ed114
-
+  tag: 1.6.0@sha256:77c6789bcfc5068baa614bf217eb556f278269aea373b45ab24b2dcc8658c692
 podSecurityContext:
   runAsUser: 65534
   runAsGroup: 82
   fsGroup: 82
-
 privatebin:
   # See also: https://github.com/PrivateBin/PrivateBin/wiki/Configuration
   main:
@@ -43,11 +41,9 @@ privatebin:
   purge:
     limit: 300
     batchsize: 10
-
 env:
   TZ: "{{ .Values.TZ }}"
   PHP_TZ: "{{ .Values.TZ }}"
-
 service:
   main:
     ports:
@@ -55,7 +51,6 @@ service:
         protocol: HTTP
         targetPort: 8080
         port: 10248
-
 persistence:
   run:
     enabled: true
@@ -92,12 +87,10 @@ persistence:
     volumeSpec:
       configMap:
         name: '{{ include "tc.common.names.fullname" . }}-config'
-
 postgresql:
   enabled: true
   existingSecret: "dbcreds"
   postgresqlUsername: privatebin
   postgresqlDatabase: privatebin
-
 portal:
   enabled: true

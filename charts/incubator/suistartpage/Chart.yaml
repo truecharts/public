@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: suistartpage
-version: 2.0.11
+version: 2.0.12
 appVersion: latest
 description:
   SUI Startpage is a simple and clean server start page or homepage that
@@ -12,9 +12,9 @@ home: https://truecharts.org/charts/incubator/suistartpage
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/suistartpage.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/containers/tree/master/mirrorsuistartpage
   - https://github.com/CorneliousJD/SUI-Startpage
   - https://github.com/truecharts/charts/tree/master/charts/incubator/suistartpage
+  - https://hub.docker.com/r/corneliousjd/sui-startpage
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

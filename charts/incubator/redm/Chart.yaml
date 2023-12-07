@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: redm
-version: 2.0.11
+version: 2.0.12
 appVersion: latest
 description:
   "With this Chart you can run RedM (Red Dead Redemption 2 MOD SERVER)
@@ -17,7 +17,7 @@ deprecated: false
 sources:
   - https://redm.gg/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/redm
-  - https://github.com/truecharts/containers/tree/master/mirrorredm
+  - https://hub.docker.com/r/ich777/redmserver
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

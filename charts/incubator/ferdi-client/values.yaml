@@ -5,8 +5,8 @@ env:
   UMASK: "000"
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/ferdi-client
-  tag: latest@sha256:1bfed9724365e2c1705f73caac6c32d0055f7691cf314d71c2eefdd1d42c4c97
+  repository: ich777/ferdi-client
+  tag: latest@sha256:6f255a1da06367aeb8f10227e227b2b9f48c6f8b12837909aa7d7e2d67f35092
 persistence:
   datadir:
     enabled: true
@@ -24,6 +24,5 @@ service:
         port: 8080
         protocol: TCP
         targetPort: 8080
-
 portal:
   enabled: true

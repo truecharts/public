@@ -1,14 +1,11 @@
 image:
-  repository: tccr.io/truecharts/ts3-manager
+  repository: joni1802/ts3-manager
   pullPolicy: IfNotPresent
-  tag: v2.2.0@sha256:d8a67d593c9ecb68edfe71e1775c41866684ddbd4d3e6f8f9bed78d57eabf82c
-
+  tag: v2.2.0@sha256:44caf39f0bdad9d0aebfd1014e9b57fe6ce119c6aee07bc6e742f2fe37c8aa29
 env:
   PORT: "{{ .Values.service.main.ports.main.port }}"
-
 secretEnv:
   JWT_SECRET: "changeme"
-
 probes:
   liveness:
     enabled: true
@@ -52,13 +49,11 @@ probes:
       periodSeconds: 10
       successThreshold: 1
       timeoutSeconds: 10
-
 service:
   main:
     ports:
       main:
         protocol: HTTP
         port: 10284
-
 portal:
   enabled: true

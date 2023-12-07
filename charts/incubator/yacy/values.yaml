@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/yacy
-  tag: latest@sha256:80f760b3d1db6502aee76705f73ad961fcc2ffbc4109c5309cdf572eb868d7d2
+  repository: yacy/yacy_search_server
+  tag: latest@sha256:78dc1fd08f6ff0c4b994733e631c26716cdc20795df209b11fe54a13c97bf3da
 persistence:
   appdata:
     enabled: true
@@ -28,6 +28,5 @@ service:
         port: 8090
         protocol: HTTP
         targetPort: 8090
-
 portal:
   enabled: true

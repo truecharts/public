@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: radarrsync
-version: 2.0.11
+version: 2.0.12
 appVersion: latest
 description:
   RadarrSync Syncs two Radarr servers through web API. This is a modified
@@ -12,7 +12,7 @@ deprecated: false
 sources:
   - https://github.com/dairefinn/RadarrSync
   - https://github.com/truecharts/charts/tree/master/charts/incubator/radarrsync
-  - https://github.com/truecharts/containers/tree/master/mirrorradarrsync
+  - https://hub.docker.com/r/dmanius/radarrsync-docker
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: cowyo
-version: 2.0.11
+version: 2.0.12
 appVersion: latest
 description:
   cowyo is a self-contained wiki server that makes jotting notes easy and
@@ -13,7 +13,7 @@ deprecated: false
 sources:
   - https://github.com/schollz/cowyo
   - https://github.com/truecharts/charts/tree/master/charts/incubator/cowyo
-  - https://github.com/truecharts/containers/tree/master/mirrorcowyo
+  - https://hub.docker.com/r/schollz/cowyo
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

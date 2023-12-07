@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/cadquery-server
-  tag: latest@sha256:8336efcea7ae6e9a377fd5761bd9b903644b98a23ea99cd008b84323d6a21ee2
+  repository: cadquery/cadquery-server
+  tag: latest@sha256:d0aed7996bd4d4a84bd7eecd2a6d86f26c22193ad33b9297b1a840871c1d05b6
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -23,6 +23,5 @@ service:
     ports:
       main:
         enabled: false
-
 portal:
   enabled: false

@@ -5,8 +5,8 @@ env:
   UMASK: "0000"
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/debian-apt-mirror
-  tag: latest@sha256:9fd27bc6e903fa2319111a441cabc0d4cbaeaa06d3d8aa43da21671c3cfc2e15
+  repository: ich777/debian-mirror
+  tag: latest@sha256:25a5c7d23ba0e27b416088938b36b5ac559594f9b2b59a15310692585f10e32f
 persistence:
   config:
     enabled: true
@@ -27,6 +27,5 @@ service:
         port: 980
         protocol: TCP
         targetPort: 980
-
 portal:
   enabled: true

@@ -3,8 +3,8 @@ env:
   GUAC_USER: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/rmlint
-  tag: latest@sha256:9f8823388453aa296ad8738a693d2037b146947146c0db4c6b6dc3638771ef26
+  repository: bobbintb/docker-rmlint-unraid
+  tag: latest@sha256:82ed86fe2fa8e6f43036f2196d37dc90946e6e6bfa21cdc7626f3b0c4ba6f306
 persistence:
   config:
     enabled: true
@@ -25,6 +25,5 @@ service:
         port: 8322
         protocol: TCP
         targetPort: 8080
-
 portal:
   enabled: true

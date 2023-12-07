@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/filegator
-  tag: latest@sha256:e361f946c8b090c7e52c7c8b33a9f2dbdb14d0485fb50a9281e0f5e4e1f9a527
+  repository: maxime1907/filegator
+  tag: latest@sha256:4997a9e44b411a11aa51d28685a8b59166445e18a1c52a667b3cedf7b96da6a9
 persistence:
   config:
     enabled: true
@@ -35,6 +35,5 @@ service:
         port: 8049
         protocol: TCP
         targetPort: 443
-
 portal:
   enabled: true

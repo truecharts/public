@@ -1,25 +1,28 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/cloudbeaver
-  tag: latest@sha256:819648653a00b7dea42d204b6d3cf2128381c98c7336188981a4ec5a5cd79119
-persistence:
-  appdata:
-    enabled: true
-    mountPath: /opt/cloudbeaver/workspace
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+  repository: dbeaver/cloudbeaver
+  tag: 23.3.0@sha256:4ec08435112630177c9ce78f78bb4313668844f40d6f2a51b7ab92463412a04e
+
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
 service:
   main:
     ports:
       main:
         port: 8978
-        protocol: TCP
+        protocol: http
         targetPort: 8978
 
+persistence:
+  workspace:
+    enabled: true
+    mountPath: /opt/cloudbeaver/workspace
+
 portal:
-  enabled: true
+  open:
+    enabled: true

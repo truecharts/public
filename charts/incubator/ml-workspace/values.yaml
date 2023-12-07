@@ -1,49 +1,39 @@
 image:
-  repository: tccr.io/truecharts/ml-workspace
-  tag: v0.13.2@sha256:e25fe8c34101f63f2e2dd42b76509fe564d8a90ca838cdc462935412cf9dc668
+  repository: mltooling/ml-workspace
+  tag: 0.13.2@sha256:5dfc8928059eb9d6d2bc33d7947e99b6bb38c2beaa40029afb73596a9c08c134
   pullPolicy: IfNotPresent
-
 gpuImage:
-  repository: tccr.io/truecharts/ml-workspace-gpu
+  repository: mltooling/ml-workspace-gpu
   pullPolicy: IfNotPresent
-  tag: v0.13.2@sha256:c96934adbaf21916caff9e29a1b77350b6244995a401c3e7887a6af2df8b046d
-
+  tag: 0.13.2@sha256:ca83f64f4339344c96bb6491234008b972c1e64a1c1ef41522b8da601dfceb1e
 minimalImage:
-  repository: tccr.io/truecharts/ml-workspace-minimal
+  repository: mltooling/ml-workspace-minimal
   pullPolicy: IfNotPresent
-  tag: v0.13.2@sha256:b2eb4fefe9c3bca11e5ffbc02417f446db44101c8611f137540c4b11a08e9b3c
-
+  tag: 0.13.2@sha256:94206eadc4bcfd1d4af4c598f767da176ad898592b9dc54bf62ddd2d9f6d1be6
 lightImage:
-  repository: tccr.io/truecharts/ml-workspace-light
+  repository: mltooling/ml-workspace-light
   pullPolicy: IfNotPresent
-  tag: v0.13.2@sha256:9846779a0174a49b115b3fa90f6274dd695e0601ac4c85bc405e03f8a31e840b
-
+  tag: 0.13.2@sha256:cc0e1441702b49927a14d902c4530fa15ce9ad6796a61e41eaebf2e72cf77bc9
 rImage:
-  repository: tccr.io/truecharts/ml-workspace-r
+  repository: mltooling/ml-workspace-r
   pullPolicy: IfNotPresent
-  tag: v0.12.1@sha256:3297f6ab963bae92e0bb2c76c073f2b481486d9765c9c0b34aaf189a51c821a9
-
+  tag: 0.12.1@sha256:fd7b4b0831e31c38eeddd9a55ea24fc274836ab317d404049dec14026e82468d
 sparkImage:
-  repository: tccr.io/truecharts/ml-workspace-spark
+  repository: mltooling/ml-workspace-spark
   pullPolicy: IfNotPresent
-  tag: v0.12.1@sha256:8ea62c5537cb4bc34112ef54c856f286370a2262649ba2e79ba849dd9460a792
-
+  tag: 0.12.1@sha256:c04bc8eb48bac6c36f8c45ce8b00ce312fed37089adcc71b34faf6c685b1ef24
 imageSelector: "image"
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 secretEnv:
   WORKSPACE_AUTH_USER: "admin"
   WORKSPACE_AUTH_PASSWORD: "password"
   # true, false, or a token
   AUTHENTICATE_VIA_JUPYTER: "mytoken"
-
 env:
   WORKSPACE_BASE_URL: "/"
   WORKSPACE_SSL_ENABLED: false
@@ -57,13 +47,11 @@ env:
   # true, false or timeout in seconds
   SHUTDOWN_INACTIVE_KERNELS: "false"
   NOTEBOOK_ARGS: ""
-
 service:
   main:
     ports:
       main:
         port: 10201
-
 persistence:
   workspace:
     enabled: true
@@ -73,6 +61,5 @@ persistence:
     mountPath: "/dev/shm"
     type: "emptyDir"
     medium: "Memory"
-
 portal:
   enabled: true

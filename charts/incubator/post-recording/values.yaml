@@ -8,8 +8,8 @@ env:
   UMASK: "000"
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/post-recording
-  tag: latest@sha256:edb69fbb249335cb5ab1572ec805768e74c16bbff657c350caa8abd553b83047
+  repository: chacawaca/post-recording
+  tag: latest@sha256:98f0e32c2e58476c3b72418a197ce181f9b9ae3c656a9e51c98660fe6b2f6603
 persistence:
   backupfolder:
     enabled: true
@@ -39,6 +39,5 @@ service:
     ports:
       main:
         enabled: false
-
 portal:
   enabled: false

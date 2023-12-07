@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: rss-to-telegram
-version: 2.0.12
+version: 2.0.13
 appVersion: latest
 description:
   A self-hosted telegram JS/TS bot that dumps posts from RSS feeds to a
@@ -13,7 +13,7 @@ deprecated: false
 sources:
   - https://github.com/BoKKeR/RSS-to-Telegram-Bot
   - https://github.com/truecharts/charts/tree/master/charts/incubator/rss-to-telegram
-  - https://github.com/truecharts/containers/tree/master/mirrorrss-to-telegram
+  - https://hub.docker.com/r/bokker/rss.to.telegram
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

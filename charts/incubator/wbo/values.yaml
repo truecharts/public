@@ -1,12 +1,10 @@
 image:
-  repository: tccr.io/truecharts/wbo
-  tag: 1.19.1@sha256:d0c575eb6971f8ff78dc34c197d53ba18403a8527ce5545989ac4c5256ef1f9f
+  repository: lovasoa/wbo
+  tag: v1.19.1@sha256:fa70c14ba4c27c4413018c1b1537e67953d283a76d896eeae178ddb0e074b0e8
   pullPolicy: IfNotPresent
-
 podSecurityContext:
   runAsUser: 1000
   runAsGroup: 1000
-
 wbo:
   auth_secret_key: ""
   save_interval: 2000
@@ -19,24 +17,20 @@ wbo:
   auto_finger_whiteout: true
   blocked_tools: []
   blocked_selection_buttons: []
-
 envFrom:
   - secretRef:
       name: '{{ include "tc.common.names.fullname" . }}-secret'
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-config'
-
 service:
   main:
     ports:
       main:
         port: 10354
         protocol: HTTP
-
 persistence:
   data:
     enabled: true
     mountPath: /opt/app/server-data
-
 portal:
   enabled: true

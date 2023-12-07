@@ -3,8 +3,8 @@ env:
   TOKEN: 1a2b3c4d5e6f71a2b3c4d5e6f71a2b3c4d5e6f7b
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/llalon-github-backup
-  tag: latest@sha256:5dd9378be0f2354d85d22d19d71c28abd63f27eac6b829e03e58c7aa4d426c63
+  repository: docker.io/llalon/github-backup
+  tag: latest@sha256:75ddc2f699bc171df6d3149cdd9afb94cf2740fece872930d59fb9c8d39c0433
 persistence:
   backuplocation:
     enabled: true
@@ -31,6 +31,5 @@ service:
     ports:
       main:
         enabled: false
-
 portal:
   enabled: false

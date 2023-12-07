@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/loki
+  repository: grafana/loki
   pullPolicy: IfNotPresent
-  tag: 2.8.1@sha256:00c008b06432843b5ad3754d3da927080ec4e0a42f9a828cd6d8c74f338d96f1
-
+  tag: 2.9.2@sha256:6074e01dbe03cbf8f848c478f7e98df326f984d263162eff5bd47db3970f7ffb
 controller:
   # -- Set the controller type.
   # Valid options are deployment, daemonset or statefulset
@@ -23,10 +22,8 @@ controller:
     partition:
   # -- ReplicaSet revision history limit
   revisionHistoryLimit: 3
-
 args:
   - "-config.file=/etc/loki/loki.yaml"
-
 ## TODO add alertinggroups support like this
 # configmap:
 #   alerting:
@@ -37,14 +34,12 @@ args:
 #           groups:
 #           {{- toYaml .Values.alerting_groups | nindent 6 }}
 #       {{- end }}
-
 secret:
   config:
     enabled: true
     data:
       loki.yaml: |
         {{- tpl (toYaml .Values.config) . | nindent 8 }}
-
 service:
   main:
     ports:
@@ -52,17 +47,13 @@ service:
         protocol: HTTP
         targetPort: 3100
         port: 3100
-
 probes:
   liveness:
     path: "/ready"
-
   readiness:
     path: "/ready"
-
   startup:
     path: "/ready"
-
 config:
   # existingSecret:
   auth_enabled: false
@@ -78,16 +69,15 @@ config:
         kvstore:
           store: inmemory
         replication_factor: 1
-
-      ## Different ring configs can be used. E.g. Consul
-      # ring:
-      #   store: consul
-      #   replication_factor: 1
-      #   consul:
-      #     host: "consul:8500"
-      #     prefix: ""
-      #     http_client_timeout: "20s"
-      #     consistent_reads: true
+        ## Different ring configs can be used. E.g. Consul
+        # ring:
+        #   store: consul
+        #   replication_factor: 1
+        #   consul:
+        #     host: "consul:8500"
+        #     prefix: ""
+        #     http_client_timeout: "20s"
+        #     consistent_reads: true
   limits_config:
     enforce_metric_name: false
     reject_old_samples: true
@@ -150,14 +140,11 @@ persistence:
     objectName: '{{ include "tc.common.names.fullname" . -}}-config'
     # -- Where to mount the volume in the main container.
     mountPath: "/etc/loki"
-
 volumeClaimTemplates:
   data:
     enabled: true
     mountPath: "/data"
-
 promtail:
   enabled: true
-
 portal:
   enabled: true

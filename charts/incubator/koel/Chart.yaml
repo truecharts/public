@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: koel
-version: 7.0.2
+version: 7.0.3
 appVersion: latest
 description:
   Koel is a simple web-based personal audio streaming service written in
@@ -13,7 +13,7 @@ sources:
   - https://github.com/koel/koel
   - https://github.com/koel/docker
   - https://github.com/truecharts/charts/tree/master/charts/incubator/koel
-  - https://github.com/truecharts/containers/tree/master/mirrorkoel
+  - https://hub.docker.com/r/phanan/koel
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

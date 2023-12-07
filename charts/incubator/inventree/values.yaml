@@ -1,13 +1,11 @@
 image:
-  repository: tccr.io/truecharts/inventree
-  tag: 0.8.4@sha256:57888f289eb9b2f03c141842eec5ae3946df1176ddcde4810c70307df8429edd
+  repository: inventree/inventree
+  tag: 0.12.8@sha256:b06f1e93beed3df06fd1e88bf06579cddcf8c24597f2aef6edc92dc06e0f932b
   pullPolicy: IfNotPresent
-
 nginxImage:
-  repository: tccr.io/truecharts/nginx
-  tag: 1.24.0@sha256:7eee831d79f11786149bd02a0d4d438057772285ec7b62fc2976ee70676707fa
+  repository: nginx
+  tag: 1.25.3@sha256:86e53c4c16a6a276b204b0fd3a8143d86547c967dc8258b3d47c3a21bb68d3c6
   pullPolicy: IfNotPresent
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -15,13 +13,11 @@ securityContext:
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 envFrom:
   - secretRef:
       name: '{{ include "tc.common.names.fullname" . }}-inventree-secret'
   - configMapRef:
       name: '{{ include "tc.common.names.fullname" . }}-inventree-config'
-
 inventree:
   credentials:
     admin_mail: "test@example.com"
@@ -42,13 +38,11 @@ inventree:
     tls: false
     ssl: false
     sender: ""
-
 service:
   main:
     ports:
       main:
         port: 10231
-
 persistence:
   data:
     enabled: true
@@ -64,17 +58,14 @@ persistence:
         items:
           - key: nginx.conf
             path: default.conf
-
 postgresql:
   enabled: true
   existingSecret: "dbcreds"
   postgresqlUsername: inventree
   postgresqlDatabase: inventree
-
 redis:
   enabled: true
   existingSecret: "rediscreds"
   redisUsername: default
-
 portal:
   enabled: true

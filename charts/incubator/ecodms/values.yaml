@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/ecodms
-  tag: latest@sha256:09f3604c12df46e56a0a61b61726e7ba0944cd240f78dbabc5ced99c647e5d83
+  repository: ecodms/allinone-18.09
+  tag: latest@sha256:3530bbaf5001943acc47b888b78a41e78386368ca2c2738ab6fdc25b8a8bb206
 persistence:
   backuppath:
     enabled: true
@@ -35,6 +35,5 @@ service:
     ports:
       main:
         enabled: false
-
 portal:
   enabled: false

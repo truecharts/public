@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: flemarr
-version: 2.0.10
+version: 2.0.11
 appVersion: latest
 description:
   Flemmarr is a simple Python script that parses a configuration written
@@ -10,9 +10,9 @@ home: https://truecharts.org/charts/incubator/flemarr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/flemarr.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/containers/tree/master/mirrorflemmarr
   - https://github.com/Flemmarr/Flemmarr
   - https://github.com/truecharts/charts/tree/master/charts/incubator/flemarr
+  - https://hub.docker.com/r/pierremesure/flemmarr
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

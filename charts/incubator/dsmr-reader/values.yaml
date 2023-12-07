@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/dsmr-reader
-  tag: v2021.09.02@sha256:1d3b33ea11703b14aa276dab2f2056323cc74a90e5f6c474aa82efc57c90ac9e
+  repository: xirixiz/dsmr-reader-docker
+  tag: latest-2021.09.02-amd64@sha256:4858edb1ae63a20639a0ef9c51c7b2cf599686db5c582ead7b37b2a288122935
   pullPolicy: IfNotPresent
-
 env:
   DJANGO_TIME_ZONE: "{{ .Values.TZ }}"
   DJANGO_DATABASE_ENGINE: "django.db.backends.postgresql"
@@ -17,32 +16,26 @@ env:
     secretKeyRef:
       name: dbcreds
       key: plainhost
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 service:
   main:
     ports:
       main:
         port: 10009
         targetPort: 80
-
 persistence:
   config:
     enabled: true
     mountPath: "/config"
-
 postgresql:
   enabled: true
   existingSecret: "dbcreds"
   postgresqlUsername: dsmr-reader
   postgresqlDatabase: dsmr-reader
-
 portal:
   enabled: true

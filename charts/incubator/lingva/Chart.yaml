@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: lingva
-version: 2.0.11
+version: 2.0.12
 appVersion: latest
 description:
   Alternative front-end for Google Translate, serving as a Free and Open
@@ -12,7 +12,7 @@ deprecated: false
 sources:
   - https://github.com/TheDavidDelta/lingva-translate
   - https://github.com/truecharts/charts/tree/master/charts/incubator/lingva
-  - https://github.com/truecharts/containers/tree/master/mirrorlingva
+  - https://hub.docker.com/r/thedaviddelta/lingva-translate
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

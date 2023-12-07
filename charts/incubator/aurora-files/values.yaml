@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/aurora-files
-  tag: latest@sha256:d5343b6713295318ef8e2abef16a1a047d7fe1bfdd0a78a1f50fe28212e9cbac
+  repository: afterlogic/docker-aurora-files
+  tag: latest@sha256:f814f7eb86a648bfa027c7aa1ad28ca1192464a4755b13724a2653f6ef912381
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -23,6 +23,5 @@ service:
     ports:
       main:
         enabled: false
-
 portal:
   enabled: false

@@ -1,16 +1,13 @@
 image:
-  repository: tccr.io/truecharts/pingvin-share
+  repository: stonith404/pingvin-share
   pullPolicy: IfNotPresent
-  tag: 0.10.2@sha256:2310a15683d718548e86c66643a40e4db0be0c9806cac6b2760221ed4c0cedac
-
+  tag: v0.20.2@sha256:3862dcfd09886460cfe74e40c0ee1b50b75ae433ad1cb8fb469ed7a59de5d2be
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 service:
   main:
     ports:
@@ -18,11 +15,9 @@ service:
         protocol: HTTP
         targetPort: 3000
         port: 10595
-
 persistence:
   data:
     enabled: true
     mountPath: /opt/app/backend/data
-
 portal:
   enabled: true

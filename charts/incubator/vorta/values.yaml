@@ -7,8 +7,8 @@ env:
   VNC_PASSWORD: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/vorta
-  tag: latest@sha256:51c13eee99bd4c5ccd3afe980cc4106bcb39b3f38df7790fc693ab3df37a4803
+  repository: ghcr.io/borgbase/vorta-docker
+  tag: latest@sha256:c7cb8eb44cf4cdeb3aeb580d21d2b4010b710a706686862452a11f9bb4d4e87d
 persistence:
   backupsfrom:
     enabled: true
@@ -33,6 +33,5 @@ service:
         port: 5800
         protocol: TCP
         targetPort: 5800
-
 portal:
   enabled: true

@@ -1,26 +1,22 @@
 image:
-  repository: tccr.io/truecharts/ersatztv
+  repository: jasongdove/ersatztv
   pullPolicy: IfNotPresent
-  tag: 0.7.4@sha256:5caa442c2dd24e5107f91340d479105d0d771a0ef67f7f81581eddc95b4da7e3
+  tag: v0.8.2@sha256:4d0602a52f7cd2c026e1327a92efc1095dee9b72ebbee5a51a68a1f797ce3375
 nvidiaImage:
-  repository: tccr.io/truecharts/ersatztv-nvidia
-  tag: 0.7.4@sha256:63308f3fc235796effc6df09222217512a1b81a8c3f89d8bf3f32fe479825e41
+  repository: jasongdove/ersatztv
+  tag: v0.8.2-nvidia@sha256:7d9f31aa607fd1dc89d1e5bfc261fd8754ddb2c89ad1c0d0603f6820b1983c87
   pullPolicy: Always
 vaapiImage:
-  repository: tccr.io/truecharts/ersatztv-vaapi
-  tag: 0.7.4@sha256:b5b456d22a3f9758ed23a636d2771072cae969cc4b014d4212ac35dec6e14959
+  repository: jasongdove/ersatztv
+  tag: v0.8.2-vaapi@sha256:ff76ed0d38243ef4dd09b27bde94ce292b7d7cff66b36280c28cd8ea69dff131
   pullPolicy: Always
-
 imageSelector: image
-
 securityContext:
   runAsNonRoot: false
   readOnlyRootFilesystem: false
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 probes:
   liveness:
     type: HTTP
@@ -28,7 +24,6 @@ probes:
     type: HTTP
   startup:
     type: HTTP
-
 service:
   main:
     ports:
@@ -36,13 +31,11 @@ service:
         protocol: HTTP
         targetPort: 8409
         port: 10607
-
 persistence:
   config:
     enabled: true
     mountPath: /root/.local/share/ersatztv
   varrun:
     enabled: true
-
 portal:
   enabled: true

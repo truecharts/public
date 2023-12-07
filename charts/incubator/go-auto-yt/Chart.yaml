@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: go-auto-yt
-version: 2.0.11
+version: 2.0.12
 appVersion: stable
 description:
   GoAutoYT makes it easy for you to automatically download videos from
@@ -10,9 +10,9 @@ home: https://truecharts.org/charts/incubator/go-auto-yt
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/go-auto-yt.png
 deprecated: false
 sources:
+  - https://hub.docker.com/r/xiovv/go-auto-yt
   - https://github.com/XiovV/go-auto-yt
   - https://github.com/truecharts/charts/tree/master/charts/incubator/go-auto-yt
-  - https://github.com/truecharts/containers/tree/master/mirrorgo-auto-yt
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

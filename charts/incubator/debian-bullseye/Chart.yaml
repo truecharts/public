@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: debian-bullseye
-version: 2.1.11
+version: 2.1.12
 appVersion: latest
 description:
   This Chart is a full Debian Bullseye Xfce4 Desktop environment with a
@@ -12,7 +12,7 @@ deprecated: false
 sources:
   - https://www.debian.org/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/debian-bullseye
-  - https://github.com/truecharts/containers/tree/master/mirrordebian-bullseye
+  - https://hub.docker.com/r/ich777/debian-bullseye
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

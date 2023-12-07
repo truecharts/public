@@ -10,8 +10,8 @@ env:
   RAILS_ENV: production
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/tracks
-  tag: latest@sha256:be418eb206d1a108241a4f301ba324367c8b6f561c7b981875c9be50b62ae634
+  repository: tracksapp/tracks
+  tag: latest@sha256:697e129c26d8282973c9c1790e8ba2e5a025266a27d0996074149588ecd39c13
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -26,6 +26,5 @@ service:
         port: 3000
         protocol: TCP
         targetPort: 3000
-
 portal:
   enabled: true

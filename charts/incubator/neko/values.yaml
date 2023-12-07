@@ -1,72 +1,57 @@
 image:
-  repository: tccr.io/truecharts/neko-firefox
+  repository: m1k1o/neko
   pullPolicy: IfNotPresent
-  tag: latest@sha256:197e2388b2bc0f07a35828f0e1b863016052aa7f22709860e960673be1823572
-
+  tag: firefox@sha256:f419f71b40c6c1f03cda16de4f2c0f467a577a14d4d7e889e9858161ea0209ad
 braveImage:
-  repository: tccr.io/truecharts/neko-brave
+  repository: m1k1o/neko
   pullPolicy: IfNotPresent
-  tag: latest@sha256:d5b9f20b833e5280cab40b93b3198bf1910b69476ea83c7de63f8d434a1ecaf7
-
+  tag: brave@sha256:89aa7029bfb66f6556a42466cfe030fa27bef6cfe972c08a22f5a101484677eb
 chromeImage:
-  repository: tccr.io/truecharts/neko-chrome
+  repository: m1k1o/neko
   pullPolicy: IfNotPresent
-  tag: latest@sha256:f53c09fe9b9f0507dc3d4f4fe1ca3cd45854e2d2531356cbafc02b6bf9b628f7
-
+  tag: google-chrome@sha256:5b3dbb15c456680a4176ac88a057511d99bfe344c82819001e26031b1ddc2241
 chromiumImage:
-  repository: tccr.io/truecharts/neko-chromium
+  repository: m1k1o/neko
   pullPolicy: IfNotPresent
-  tag: latest@sha256:f568b9c8c04226856cf291ef9492b032832528c48e1fca6363807e23cc84132b
-
+  tag: chromium@sha256:40c252ef1a520ef41e75ca56c5ae1792d017fa0ad6aa7d79e1f417b34cabb0ff
 edgeImage:
-  repository: tccr.io/truecharts/neko-msedge
+  repository: m1k1o/neko
   pullPolicy: IfNotPresent
-  tag: latest@sha256:7fe2137db7cdd8f3f33ac682b10b8571efc7c3d18941a40c159073547bdb9b5e
-
+  tag: microsoft-edge@sha256:b07404b0f6dcd2b16261330d30e5364add93bd843ffec3aea3a9e2f67c615c4a
 remminaImage:
-  repository: tccr.io/truecharts/neko-remmina
+  repository: m1k1o/neko
   pullPolicy: IfNotPresent
-  tag: latest@sha256:2afdedcc0cb28ef66943338483bc1253263b9a93f60e01c1ae76287228be1445
-
+  tag: remmina@sha256:932c2c4e721d46235faeda948ff6d2c0b2d91db3028db2127d6eadc28c30284e
 torImage:
-  repository: tccr.io/truecharts/neko-tor
+  repository: m1k1o/neko
   pullPolicy: IfNotPresent
-  tag: latest@sha256:e57c45dbdad77683cda87b36c20247aa2dded6355ae8835d3e917223fba8c603
-
+  tag: tor-browser@sha256:b8ee63fdb4286dcbef71aa373bc080606c96009f6081b95d0f1d3abc216e1bb4
 vivaldiImage:
-  repository: tccr.io/truecharts/neko-vivaldi
+  repository: m1k1o/neko
   pullPolicy: IfNotPresent
-  tag: latest@sha256:167af4da41cce0a6f1e49185f5891c5b0b78f19a6f7bbee8c0d221a9730b9041
-
+  tag: vivaldi@sha256:8b9d1269af0dcf1dcb690dc0677c5470a58f4f2035677557b8f423f8dbdec98d
 vlcImage:
-  repository: tccr.io/truecharts/neko-vlc
+  repository: m1k1o/neko
   pullPolicy: IfNotPresent
-  tag: latest@sha256:1207816cfbc0400e839aba78028cc6cf7fd37d245ff8bd17c95a0384fbe4bc7b
-
+  tag: vlc@sha256:e3129b3887451e2b3dbdb627a617e34b5331ee3f3b253fc2d14503e222d3b745
 vncviewerImage:
-  repository: tccr.io/truecharts/neko-vncviewer
+  repository: m1k1o/neko
   pullPolicy: IfNotPresent
-  tag: latest@sha256:9d6680979372ae561fd157cc973d8e73a826ccf68773314169d2d761564c184d
-
+  tag: vncviewer@sha256:d6e961e5b15fc58639ac6b4eeb791c5b48c859e69d65d25c20ff92bf7c95b458
 xfceImage:
-  repository: tccr.io/truecharts/neko-xfce
+  repository: m1k1o/neko
   pullPolicy: IfNotPresent
-  tag: latest@sha256:04b7d2718fc0c5f29a02d31ea93541be1921285ee2736f387390cbd74001ad46
-
+  tag: xfce@sha256:df36f438915ac4f1ffa18608e7d9169e330cea4f6c3f91d3d6257031c9cbc0eb
 imageSelector: "image"
-
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 secretEnv:
   NEKO_PASSWORD: userpass
   NEKO_PASSWORD_ADMIN: adminpass
-
 env:
   NEKO_UDPMUX: 52100
   NEKO_TCPMUX: 52100
@@ -78,7 +63,6 @@ env:
   NEKO_NAT1TO1: ""
   NEKO_IPFETCH: ""
   NEKO_PROXY: true
-
 service:
   main:
     ports:
@@ -102,6 +86,5 @@ service:
         port: 52100
         protocol: TCP
         targetPort: 52100
-
 portal:
   enabled: true

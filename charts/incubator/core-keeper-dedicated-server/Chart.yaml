@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: core-keeper-dedicated-server
-version: 2.0.12
+version: 2.0.13
 appVersion: latest
 description:
   Chart file for the new Core Keeper dedicated server running from SteamCMD.
@@ -12,7 +12,7 @@ deprecated: false
 sources:
   - https://github.com/escapingnetwork/core-keeper-dedicated/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/core-keeper-dedicated-server
-  - https://github.com/truecharts/containers/tree/master/mirrorcore-keeper-dedicated-server
+  - https://hub.docker.com/r/escaping/core-keeper-dedicated
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

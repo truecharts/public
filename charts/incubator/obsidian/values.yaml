@@ -1,16 +1,13 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/obsidian
-  tag: 0.1.1@sha256:d00f623e2de8a2bf78807d9aaeb25ee5d3f0f08e18c83afef49e71b5f389964f
-
+  repository: ghcr.io/sytone/obsidian-remote
+  tag: 0.1.1@sha256:0494ea57446e77609a469caf08a6886f3825f893883bfab2f4736e06d01c19b2
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 service:
   main:
     ports:
@@ -29,7 +26,6 @@ service:
         enabled: true
         port: 27124
         targetPort: 27124
-
 persistence:
   storageconfig:
     enabled: true
@@ -37,6 +33,5 @@ persistence:
   storagevaults:
     enabled: true
     mountPath: /vaults
-
 portal:
   enabled: true

@@ -1,20 +1,16 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/arma3exilemod
-  tag: latest@sha256:8a091303279bb747ed0c496eb1d8c4427395092cffbeded7fbb47e7597d09991
-
+  repository: ich777/steamcmd
+  tag: arma3exilemod@sha256:fb5adf42b5b4808112632dede2eb80f3aa0407ec451b206ada8ac2164988c829
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 secretEnv:
   USERNAME: ""
   PASSWRD: ""
-
 env:
   EXILEMOD_SERVER_URL: http://www.exilemod.com/ExileServer-1.0.4a.zip
   GAME_ID: "233780"
@@ -23,7 +19,6 @@ env:
   MARIA_DB_ROOT_PWD: ExileMod
   VALIDATE: false
   WORKSHOP_MAN_INST: ""
-
 service:
   main:
     ports:
@@ -79,7 +74,6 @@ service:
         port: 2305
         protocol: UDP
         targetPort: 2305
-
 persistence:
   profiles:
     enabled: true
@@ -90,6 +84,5 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-
 portal:
   enabled: true

@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/poste
-  tag: latest@sha256:35d6d08245efafe62b424e055b62186407532fb0b50040b50f121b700f8eb50c
+  repository: analogic/poste.io
+  tag: latest@sha256:08091dc5fbfe799fd8dbdd310f5f76fb8cde03c23a710e1a21ffeafbfa267115
 persistence:
   data:
     enabled: true
@@ -92,6 +92,5 @@ service:
         port: 25
         protocol: TCP
         targetPort: 25
-
 portal:
   enabled: true

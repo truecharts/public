@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: chronograf
-version: 2.0.16
+version: 2.0.17
 appVersion: latest
 description:
   Chronograf is InfluxData’s open source web application. Use Chronograf
@@ -13,7 +13,7 @@ deprecated: false
 sources:
   - https://www.influxdata.com/time-series-platform/chronograf/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/chronograf
-  - https://github.com/truecharts/containers/tree/master/mirrorchronograf
+  - https://hub.docker.com/_/chronograf
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

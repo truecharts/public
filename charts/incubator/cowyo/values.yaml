@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/cowyo
-  tag: latest@sha256:ab25095f998a99f54388b331e60f47b8d764219d122608aefdca2ea51079e605
+  repository: schollz/cowyo
+  tag: latest@sha256:0ab02a436fd6a5451ee7b7fe278ee5b471bed90b78c365a7439a431ddafa82cb
 persistence:
   data:
     enabled: true
@@ -20,6 +20,5 @@ service:
         port: 8050
         protocol: TCP
         targetPort: 8050
-
 portal:
   enabled: true

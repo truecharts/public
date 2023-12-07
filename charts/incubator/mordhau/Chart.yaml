@@ -1,8 +1,8 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: mordhau
-version: 2.0.11
-appVersion: latest
+version: 2.0.12
+appVersion: mordhau
 description:
   "This Docker will download and install SteamCMD. It will also install
   Mordhau and run it. Initial login SERVERNAME: MordhauDocker SERVERPASSWORD: Chart
@@ -13,7 +13,7 @@ deprecated: false
 sources:
   - https://www.steampowered.com/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/mordhau
-  - https://github.com/truecharts/containers/tree/master/mirrormordhau
+  - https://hub.docker.com/r/ich777/steamcmd
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

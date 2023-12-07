@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: genea
-version: 2.0.11
+version: 2.0.12
 appVersion: latest
 description:
   Genea allows visually building and editing a family tree online. It consumes
@@ -12,7 +12,7 @@ deprecated: false
 sources:
   - https://github.com/genea-app/genea-app
   - https://github.com/truecharts/charts/tree/master/charts/incubator/genea
-  - https://github.com/truecharts/containers/tree/master/mirrorgenea
+  - https://hub.docker.com/r/biggiesize/genea-app
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

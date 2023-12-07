@@ -4,8 +4,8 @@ env:
   devicelist: 10.0.0.192:5555
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/androiddebugbridge
-  tag: latest@sha256:b38fa873a88c9b04f37e918dbdc65f435140eaacef5650c1e2e011fd4814d00d
+  repository: barnybbb/adb-hass-androidtv
+  tag: latest@sha256:060b7f9171ec32138f9f484fbed8169e88c1d8522e8800d164516f9a8805c38c
 persistence: {}
 podSecurityContext:
   runAsGroup: 0
@@ -20,6 +20,5 @@ service:
         port: 5037
         protocol: TCP
         targetPort: 5037
-
 portal:
   enabled: true

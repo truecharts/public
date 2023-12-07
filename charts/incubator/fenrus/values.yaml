@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/fenrus
-  tag: latest@sha256:4ed64c6bf51aeb4a571eebf362ec3125e80a6a2cd7cbdf843fe24d0bd136d264
+  repository: revenz/fenrus
+  tag: latest@sha256:ad2af9f34b3d163cb04536030dead590379c5cdb47faaac9602a4efc7e2b3ed8
 persistence:
   data:
     enabled: true
@@ -23,6 +23,5 @@ service:
         port: 3000
         protocol: TCP
         targetPort: 3000
-
 portal:
   enabled: true

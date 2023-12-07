@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: kerio-connect
-version: 2.0.11
+version: 2.0.12
 appVersion: latest
 description:
   Kerio Connect is Mail/Groupware like Microsoft Exchange, but running
@@ -11,7 +11,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/kerio-connect.png
 deprecated: false
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/kerio-connect
-  - https://github.com/truecharts/containers/tree/master/mirrorkerio-connect
+  - https://hub.docker.com/r/chvb/docker-kerio-connect
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

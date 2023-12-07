@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/mailpile
-  tag: latest@sha256:cdffabe895839b7bb3b50d5e66ddb58d2927ca4044590b25cfbf786658b9b99b
+  repository: rroemhild/mailpile
+  tag: latest@sha256:5b58d53b2f11ba6ce360006ca1f6459970b3fba8bafdeafafbf1af1d14c58172
 persistence:
   path1:
     enabled: true
@@ -23,6 +23,5 @@ service:
         port: 33411
         protocol: TCP
         targetPort: 33411
-
 portal:
   enabled: true

@@ -4,8 +4,8 @@ env:
   UMASK: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/kdenlive
-  tag: latest@sha256:591339ee768175cac7b376c235b575b9ea935a339e101c148ef01c8f77a74cdb
+  repository: lscr.io/linuxserver/kdenlive
+  tag: latest@sha256:c58284ea508e8108142fdf2ee18ee6497fea805ca622e0c60768c0dc75b0c0ab
 persistence:
   config:
     enabled: true
@@ -23,6 +23,5 @@ service:
         port: 3000
         protocol: TCP
         targetPort: 3000
-
 portal:
   enabled: true

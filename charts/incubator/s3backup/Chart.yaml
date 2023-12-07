@@ -1,16 +1,16 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: s3backup
-version: 2.0.11
+version: 2.0.12
 appVersion: latest
 description: A simple way to backup important files to Amazon S3 and Glacier.
 home: https://truecharts.org/charts/incubator/s3backup
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/s3backup.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/s3backup
-  - https://github.com/truecharts/containers/tree/master/mirrors3backup
+  - https://hub.docker.com/r/joch/s3backup
   - https://registry.hub.docker.com/r/joch/s3backup/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/s3backup
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

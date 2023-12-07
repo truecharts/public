@@ -4,8 +4,8 @@ env:
   OPS: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/vaulthunters
-  tag: latest@sha256:43972301c330485b1afaed4ec93b100f651f24f5ed1312c6026a8297649ede89
+  repository: goobaroo/vaulthunters
+  tag: latest@sha256:6e97ac4e57ad85947f4127f63bbc1e890daf0b62572933e4b4031af93f0c544c
 persistence:
   data:
     enabled: true
@@ -23,6 +23,5 @@ service:
         port: 25565
         protocol: TCP
         targetPort: 25565
-
 portal:
   enabled: true

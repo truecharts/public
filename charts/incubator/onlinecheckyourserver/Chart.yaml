@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: onlinecheckyourserver
-version: 2.0.11
+version: 2.0.12
 appVersion: latest
 description:
   This is a simple Chart that will check if a domain name or IP address
@@ -10,8 +10,8 @@ home: https://truecharts.org/charts/incubator/onlinecheckyourserver
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/onlinecheckyourserver.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/containers/tree/master/mirroronlinecheckyourserver
   - https://github.com/truecharts/charts/tree/master/charts/incubator/onlinecheckyourserver
+  - https://hub.docker.com/r/ich777/online-check-pushover
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

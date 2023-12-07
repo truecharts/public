@@ -1,20 +1,16 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/pvk-ii
-  tag: latest@sha256:6abbc088dee4ba9b2ebe3587971447f50a43ed09adce6de233a7caf0198f5790
-
+  repository: ich777/steamcmd
+  tag: pvkii@sha256:9ada22a503d301abf414d657febbb0700951b09b3c2adc492dd69f15dddffd3b
 podSecurityContext:
   runAsGroup: 0
   runAsUser: 0
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 secretEnv:
   USERNAME: ""
   PASSWRD: ""
-
 env:
   DATA_PERM: "770"
   GAME_ID: "17575"
@@ -22,7 +18,6 @@ env:
   GAME_PARAMS: -maxplayers 18 +map bt_island
   GAME_PORT: "27015"
   VALIDATE: false
-
 probes:
   liveness:
     port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
@@ -30,7 +25,6 @@ probes:
     port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
   startup:
     port: "{{ .Values.service.tcprcon.ports.tcprcon.targetPort }}"
-
 service:
   main:
     ports:
@@ -46,7 +40,6 @@ service:
         port: 27015
         protocol: TCP
         targetPort: 27015
-
 persistence:
   serverfiles:
     enabled: true
@@ -54,6 +47,5 @@ persistence:
   steamcmd:
     enabled: true
     mountPath: /serverdata/steamcmd
-
 portal:
   enabled: true

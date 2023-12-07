@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: bwapp
-version: 2.0.11
+version: 2.0.12
 appVersion: latest
 description:
   bWAPP, or a buggy web application, is a free and open source deliberately
@@ -10,9 +10,9 @@ home: https://truecharts.org/charts/incubator/bwapp
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/bwapp.png
 deprecated: false
 sources:
-  - https://sourceforge.net/projects/bwapp/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/bwapp
-  - https://github.com/truecharts/containers/tree/master/mirrorbwapp
+  - https://hub.docker.com/r/raesene/bwapp
+  - https://sourceforge.net/projects/bwapp/
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

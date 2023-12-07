@@ -1,14 +1,14 @@
 image:
   pullPolicy: IfNotPresent
   repository: lscr.io/linuxserver/webtop
-  tag: latest@sha256:2675d3ebb3a16527839c6ab124907742062b20c3e7b7deda0a6d452f265d012e
+  tag: latest@sha256:6d360e45856cec51f7c1d34f34c57e4c74097d570e408f46d7fce4ed80c12755
 ubuntuXFCEImage:
   repository: lscr.io/linuxserver/webtop
   tag: ubuntu-xfce@sha256:0de7ca1a7f60a52a97952c677ad3fe217774e3cd5fba9e333e0365ef47c01d63
   pullPolicy: Always
 fedoraXFCEImage:
   repository: lscr.io/linuxserver/webtop
-  tag: fedora-xfce@sha256:79e5fedb23e9a180c0489839a3c9804441eee30bdc36f7b00e1be21bd2ed06b2
+  tag: fedora-xfce@sha256:82f5a21d7730a58ea094bb877b7fd78484307ff68f5e7353b6c76569c91258ed
   pullPolicy: Always
 archXFCEImage:
   repository: lscr.io/linuxserver/webtop
@@ -16,15 +16,15 @@ archXFCEImage:
   pullPolicy: Always
 alpineKDEImage:
   repository: lscr.io/linuxserver/webtop
-  tag: alpine-kde@sha256:3413c06b6e194791c531c4c15a5f734ba609ad3d3f6603eadef384cbec5c884f
+  tag: alpine-kde@sha256:1bbf52492966e322e762bb541dc069a3ecb61a55ae8da5ef5e35b5c1c93cbb37
   pullPolicy: Always
 ubuntuKDEImage:
   repository: lscr.io/linuxserver/webtop
-  tag: ubuntu-kde@sha256:ef1b8d02d611474ea7051cc406ad24b51f715ab2e8ec92255a5cf03e41b67c15
+  tag: ubuntu-kde@sha256:c6a19efe3c93b89f03edd02bfe8e4ece49996535464bd6361f02a4eecd6a45c6
   pullPolicy: Always
 fedoraKDEImage:
   repository: lscr.io/linuxserver/webtop
-  tag: fedora-kde@sha256:5b5d9e63119a2eeb9cb8f04139f518566c8d0f4c9f0fdec04f3893a11f0df033
+  tag: fedora-kde@sha256:457bd50ed9bcf1c4f80812dd490d4fbad0b9d7d27c43bd7d793ec560fd4ab590
   pullPolicy: Always
 archKDEImage:
   repository: lscr.io/linuxserver/webtop
@@ -32,7 +32,7 @@ archKDEImage:
   pullPolicy: Always
 alpineMATEImage:
   repository: lscr.io/linuxserver/webtop
-  tag: alpine-mate@sha256:55ad5ce690b630d77a76d45c87aa31a163099d715b5b23bdc033ee1d83098926
+  tag: alpine-mate@sha256:629abc2ae7ec4628031f4659a2eb441bb613924ed61c3132f3289e3ccde17ba7
   pullPolicy: Always
 ubuntuMATEImage:
   repository: lscr.io/linuxserver/webtop
@@ -48,11 +48,11 @@ archMATEImage:
   pullPolicy: Always
 alpineI3Image:
   repository: lscr.io/linuxserver/webtop
-  tag: alpine-i3@sha256:b430d471efa1603e6833dcf7edbcdec0ba8934e1caa143043fe03dacf27b0095
+  tag: alpine-i3@sha256:87a20250938000097cd95bc3f2d5f8ec7af075179ebb3f454b96c90341767a81
   pullPolicy: Always
 ubuntuI3Image:
   repository: lscr.io/linuxserver/webtop
-  tag: ubuntu-i3@sha256:8a4e7b3058656668092598ebff462f9ba0f922b68367a5964d34da92afe755dc
+  tag: ubuntu-i3@sha256:729f1635dd62c660f06dd99984dc2fb9411406a0e789fed31ab056be6b8247c5
   pullPolicy: Always
 fedoraI3Image:
   repository: lscr.io/linuxserver/webtop
@@ -64,7 +64,7 @@ archI3Image:
   pullPolicy: Always
 alpineOpenBoxImage:
   repository: lscr.io/linuxserver/webtop
-  tag: alpine-openbox@sha256:ce511f92ff142e1bbabda29e62fe4e1f515c1a882ceb32d49113b260c7c5d885
+  tag: alpine-openbox@sha256:d307ec7da49d673737ede17a425e41cbcf5f97e916c009f9d952924e9fa73efd
   pullPolicy: Always
 ubuntuOpenBoxImage:
   repository: lscr.io/linuxserver/webtop
@@ -72,7 +72,7 @@ ubuntuOpenBoxImage:
   pullPolicy: Always
 fedoraOpenBoxImage:
   repository: lscr.io/linuxserver/webtop
-  tag: fedora-openbox@sha256:667f76a4ce2d6cf2a1c72b28e683aaf9cc2ceda1c72ced4f34147f26e1153863
+  tag: fedora-openbox@sha256:991cacb54d51c0a126609cea8c465d686b9dbe06f386e464c2e42e87ffb44735
   pullPolicy: Always
 archOpenBoxImage:
   repository: lscr.io/linuxserver/webtop
@@ -84,11 +84,11 @@ alpineICEWMImage:
   pullPolicy: Always
 ubuntuICEWMImage:
   repository: lscr.io/linuxserver/webtop
-  tag: ubuntu-icewm@sha256:34564998355fb39ae85855e109cd829c322b103f7ab091a998277bca9de064e8
+  tag: ubuntu-icewm@sha256:9c3936c670bd021de0ee29652acb88eba862d5b4a6a7d7738d63505dd7c3d574
   pullPolicy: Always
 fedoraICEWMImage:
   repository: lscr.io/linuxserver/webtop
-  tag: fedora-icewm@sha256:ce63d833c2488ea8b084eeeaafc05085e9e18987a84cf5f1d206938e382d56fd
+  tag: fedora-icewm@sha256:976b97b944672bb51905df1494fc67c301ccc4f740ead4577bc366374493b35c
   pullPolicy: Always
 archICEWMImage:
   repository: lscr.io/linuxserver/webtop

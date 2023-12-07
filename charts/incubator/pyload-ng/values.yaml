@@ -2,8 +2,8 @@ env:
   UMASK: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/pyload-ng
-  tag: latest@sha256:549e92e22a086eb5bbcf30ddc565921b66573e41846884a77ba41f20e20f1826
+  repository: lscr.io/linuxserver/pyload-ng
+  tag: latest@sha256:94a8e621c30d55f4e5b9556b80d7688410246b18d18c813e6a76a9e7f01176a4
 persistence:
   config:
     enabled: true
@@ -32,6 +32,5 @@ service:
         port: 9666
         protocol: TCP
         targetPort: 9666
-
 portal:
   enabled: true

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: fogproject
-version: 2.0.11
+version: 2.0.12
 appVersion: latest
 description:
   FOG Project can capture, deploy, and manage Windows, Mac OSX, and various
@@ -12,7 +12,7 @@ deprecated: false
 sources:
   - https://github.com/redvex2460/fogproject
   - https://github.com/truecharts/charts/tree/master/charts/incubator/fogproject
-  - https://github.com/truecharts/containers/tree/master/mirrorfogproject
+  - https://hub.docker.com/r/redvex2460/fogproject
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

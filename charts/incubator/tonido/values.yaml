@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/tonido
-  tag: latest@sha256:04783febf1600d57e50a9fb393ebe802f659f61595ea64ebfee276bae9e20443
+  repository: captinsano/tonido
+  tag: latest@sha256:e54a72a59edec5165184bed1f6dbc14679f00a2cd746353714468e9e263c3793
 persistence:
   tonido:
     enabled: true
@@ -20,6 +20,5 @@ service:
         port: 10001
         protocol: TCP
         targetPort: 10001
-
 portal:
   enabled: true

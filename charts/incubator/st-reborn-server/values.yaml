@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/st-reborn-server
+  repository: tiltedphoques/st-reborn-server
   pullPolicy: IfNotPresent
-  tag: v1.2.0@sha256:c1e93d3127abcfada03c47cc800a376f45853b992d8ac2a6cac4bfebe361bc90
-
+  tag: v1.2.0@sha256:d8322e41e8d3f3e347eef10c50cce977348b24de6f90c98b78a3b4757f2fde57
 service:
   main:
     ports:
@@ -10,7 +9,6 @@ service:
         protocol: UDP
         targetPort: 10578
         port: 10578
-
 probes:
   liveness:
     enabled: false
@@ -18,7 +16,6 @@ probes:
     enabled: false
   startup:
     enabled: false
-
 persistence:
   config:
     enabled: true
@@ -29,6 +26,5 @@ persistence:
   data:
     enabled: true
     mountPath: "/home/server/Data"
-
 portal:
   enabled: false

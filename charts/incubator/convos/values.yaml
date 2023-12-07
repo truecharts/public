@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/convos
-  tag: vstable@sha256:a96511d3edb16799e50d08475c1a393fbe432282bc531d0c5920bf00b9a1835d
+  repository: convos/convos
+  tag: stable@sha256:8531a54546bc3f93727de6aeeb151704108461aab65166cb58967dd7c2f61944
 persistence:
   data:
     enabled: true
@@ -20,6 +20,5 @@ service:
         port: 3520
         protocol: TCP
         targetPort: 3000
-
 portal:
   enabled: true

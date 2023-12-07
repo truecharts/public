@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/hoobs
-  tag: latest@sha256:64224ac21a14adb8f937237cb7979445581ccfa900c19ead377c60d38a0a2b3c
+  repository: hoobs/hoobs
+  tag: latest@sha256:c9b84d76659409cbc5910dd39c8bcb5ba2a338dacc7068f6941d06e82445d6ab
 persistence:
   applicationpath:
     enabled: true
@@ -28,6 +28,5 @@ service:
         port: 8082
         protocol: HTTP
         targetPort: 80
-
 portal:
   enabled: true

@@ -1,16 +1,13 @@
 image:
-  repository: tccr.io/truecharts/filerun
-  tag: latest@sha256:8d0fb96cc91db060d912a3986dbecc0275f2e5d600b7731e7320e20e11e90f8b
+  repository: filerun/filerun
+  tag: latest@sha256:53bfd69c7d3ebf26d31ce9cda86f9b1575177c80f176258d74ef347666f28b1b
   pullPolicy: IfNotPresent
-
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
-
 podSecurityContext:
   runAsUser: 0
   runAsGroup: 0
-
 env:
   APACHE_RUN_USER: apps
   APACHE_RUN_USER_ID: "{{ .Values.security.PUID }}"
@@ -27,7 +24,6 @@ env:
     secretKeyRef:
       name: mariadbcreds
       key: mariadb-password
-
 service:
   main:
     ports:
@@ -35,7 +31,6 @@ service:
         port: 10199
         protocol: HTTP
         targetPort: 80
-
 persistence:
   config:
     enabled: true
@@ -43,12 +38,10 @@ persistence:
   userfile:
     enabled: true
     mountPath: "/user-files"
-
 mariadb:
   enabled: true
   mariadbUsername: filerun
   mariadbDatabase: filerun
   existingSecret: "mariadbcreds"
-
 portal:
   enabled: true

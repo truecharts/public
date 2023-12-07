@@ -1,8 +1,8 @@
 env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/pigallery2
-  tag: latest@sha256:c183828a39514a28d39028b5f2956f4b9d38edb16ede2e65cba494f5c12c28da
+  repository: bpatrik/pigallery2
+  tag: latest@sha256:317a50a5d1b81ad3469ac534c39e4c8022b13b8e504a30bc279716ceabed1e1f
 persistence:
   config:
     enabled: true
@@ -30,6 +30,5 @@ service:
         port: 80
         protocol: TCP
         targetPort: 80
-
 portal:
   enabled: true
