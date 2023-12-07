@@ -21,11 +21,11 @@ service:
       homebridgeport:
         enabled: true
         port: 51826
-        protocol: TCP
+        protocol: tcp
         targetPort: 51826
   main:
     ports:
       main:
         port: 8082
-        protocol: HTTP
+        protocol: http
         targetPort: 80

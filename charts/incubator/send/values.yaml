@@ -19,7 +19,7 @@ service:
     ports:
       main:
         port: 1443
-        protocol: TCP
+        protocol: tcp
         targetPort: 1443
 workload:
   main:

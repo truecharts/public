@@ -19,7 +19,7 @@ service:
     ports:
       main:
         port: 25565
-        protocol: TCP
+        protocol: tcp
         targetPort: 25565
 workload:
   main:

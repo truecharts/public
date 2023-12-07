@@ -16,7 +16,7 @@ service:
     ports:
       main:
         port: 7879
-        protocol: TCP
+        protocol: tcp
         targetPort: 7879
 workload:
   main:

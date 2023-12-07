@@ -16,7 +16,7 @@ service:
     ports:
       main:
         port: 8388
-        protocol: TCP
+        protocol: tcp
         targetPort: 8388
   portudp:
     enabled: true
@@ -24,7 +24,7 @@ service:
       portudp:
         enabled: true
         port: 8388
-        protocol: UDP
+        protocol: udp
         targetPort: 8388
 workload:
   main:

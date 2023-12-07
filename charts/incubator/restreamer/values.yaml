@@ -104,33 +104,33 @@ service:
       https:
         enabled: true
         port: 8081
-        protocol: HTTPS
+        protocol: https
   main:
     ports:
       main:
         port: 8080
-        protocol: HTTP
+        protocol: http
   rtmp:
     enabled: true
     ports:
       rtmp:
         enabled: true
         port: 1935
-        protocol: TCP
+        protocol: tcp
   rtmps:
     enabled: true
     ports:
       rtmps:
         enabled: true
         port: 1936
-        protocol: TCP
+        protocol: tcp
   srt:
     enabled: true
     ports:
       srt:
         enabled: true
         port: 6000
-        protocol: UDP
+        protocol: udp
 vaapiImage:
   pullPolicy: IfNotPresent
   repository: datarhei/restreamer

@@ -19,7 +19,7 @@ service:
     ports:
       main:
         port: 6080
-        protocol: TCP
+        protocol: tcp
         targetPort: 6080
 workload:
   main:

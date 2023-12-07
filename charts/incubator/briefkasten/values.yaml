@@ -36,7 +36,7 @@ service:
     ports:
       main:
         port: 10349
-        protocol: HTTP
+        protocol: http
         targetPort: 3000
 workload:
   main:
@@ -52,12 +52,12 @@ workload:
             liveness:
               enabled: false
               path: /
-              type: HTTP
+              type: http
             readiness:
               enabled: false
               path: /
-              type: HTTP
+              type: http
             startup:
               enabled: false
               path: /
-              type: HTTP
+              type: http

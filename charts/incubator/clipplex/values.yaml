@@ -13,7 +13,7 @@ service:
     ports:
       main:
         port: 10602
-        protocol: HTTP
+        protocol: http
         targetPort: 5000
 workload:
   main:

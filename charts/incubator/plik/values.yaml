@@ -84,7 +84,7 @@ service:
     ports:
       main:
         port: 10599
-        protocol: HTTP
+        protocol: http
 workload:
   main:
     podSpec:
@@ -93,10 +93,10 @@ workload:
           probes:
             liveness:
               path: /
-              type: HTTP
+              type: http
             readiness:
               path: /
-              type: HTTP
+              type: http
             startup:
               path: /
-              type: HTTP
+              type: http

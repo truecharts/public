@@ -27,11 +27,11 @@ service:
       factorioport:
         enabled: true
         port: 34197
-        protocol: UDP
+        protocol: udp
         targetPort: 34197
   main:
     ports:
       main:
         port: 8888
-        protocol: HTTP
+        protocol: http
         targetPort: 80

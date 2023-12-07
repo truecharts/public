@@ -19,7 +19,7 @@ service:
     ports:
       main:
         port: 10247
-        protocol: HTTP
+        protocol: http
         targetPort: 80
 workload:
   main:

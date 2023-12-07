@@ -22,7 +22,7 @@ service:
     ports:
       main:
         port: 5555
-        protocol: UDP
+        protocol: udp
         targetPort: 5555
   queryport:
     enabled: true
@@ -30,7 +30,7 @@ service:
       queryport:
         enabled: true
         port: 27015
-        protocol: UDP
+        protocol: udp
         targetPort: 27015
 workload:
   main:

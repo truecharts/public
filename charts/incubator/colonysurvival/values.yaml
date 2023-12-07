@@ -22,7 +22,7 @@ service:
     ports:
       main:
         port: 27016
-        protocol: UDP
+        protocol: udp
         targetPort: 27016
 workload:
   main:

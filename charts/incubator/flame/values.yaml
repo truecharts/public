@@ -19,7 +19,7 @@ service:
     ports:
       main:
         port: 10291
-        protocol: HTTP
+        protocol: http
         targetPort: 5005
 workload:
   main:

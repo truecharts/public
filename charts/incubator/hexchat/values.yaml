@@ -19,7 +19,7 @@ service:
     ports:
       main:
         port: 10307
-        protocol: HTTP
+        protocol: http
         targetPort: 6080
 workload:
   main:

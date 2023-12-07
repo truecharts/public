@@ -21,11 +21,11 @@ service:
       https:
         enabled: true
         port: 8443
-        protocol: TCP
+        protocol: tcp
         targetPort: 8443
   main:
     ports:
       main:
         port: 8090
-        protocol: HTTP
+        protocol: http
         targetPort: 8090

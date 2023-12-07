@@ -116,7 +116,7 @@ service:
     ports:
       main:
         port: 10265
-        protocol: HTTP
+        protocol: http
         targetPort: 8080
 workload:
   main:
@@ -126,11 +126,11 @@ workload:
           probes:
             liveness:
               path: /api
-              type: HTTP
+              type: http
             readiness:
               path: /api
-              type: HTTP
+              type: http
             startup:
               initialDelaySeconds: 60
               path: /api
-              type: HTTP
+              type: http

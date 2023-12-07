@@ -21,11 +21,11 @@ service:
       https:
         enabled: true
         port: 4596
-        protocol: TCP
+        protocol: tcp
         targetPort: 443
   main:
     ports:
       main:
         port: 8000
-        protocol: HTTP
+        protocol: http
         targetPort: 80

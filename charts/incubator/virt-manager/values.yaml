@@ -28,7 +28,7 @@ service:
     ports:
       main:
         port: 8185
-        protocol: TCP
+        protocol: tcp
         targetPort: 80
 workload:
   main:

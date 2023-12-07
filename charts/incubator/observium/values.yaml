@@ -19,7 +19,7 @@ service:
     ports:
       main:
         port: 8668
-        protocol: HTTP
+        protocol: http
         targetPort: 8668
   udpport1:
     enabled: true
@@ -27,5 +27,5 @@ service:
       udpport1:
         enabled: true
         port: 8514
-        protocol: UDP
+        protocol: udp
         targetPort: 514

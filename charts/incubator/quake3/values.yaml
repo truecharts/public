@@ -19,7 +19,7 @@ service:
     ports:
       main:
         port: 27960
-        protocol: UDP
+        protocol: udp
         targetPort: 27960
 workload:
   main:

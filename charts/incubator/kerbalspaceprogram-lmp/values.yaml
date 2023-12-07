@@ -19,7 +19,7 @@ service:
     ports:
       main:
         port: 8800
-        protocol: UDP
+        protocol: udp
         targetPort: 8800
 workload:
   main:

@@ -24,13 +24,13 @@ service:
       assetto:
         enabled: true
         port: 8772
-        protocol: TCP
+        protocol: tcp
         targetPort: 8772
   main:
     ports:
       main:
         port: 9600
-        protocol: TCP
+        protocol: tcp
         targetPort: 9600
   stracker:
     enabled: true
@@ -38,7 +38,7 @@ service:
       stracker:
         enabled: true
         port: 50041
-        protocol: TCP
+        protocol: tcp
         targetPort: 50041
   tcp2:
     enabled: true
@@ -46,7 +46,7 @@ service:
       tcp2:
         enabled: true
         port: 8081
-        protocol: TCP
+        protocol: tcp
         targetPort: 8081
   udp:
     enabled: true
@@ -54,7 +54,7 @@ service:
       udp:
         enabled: true
         port: 9600
-        protocol: UDP
+        protocol: udp
         targetPort: 9600
 workload:
   main:

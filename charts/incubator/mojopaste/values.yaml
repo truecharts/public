@@ -19,7 +19,7 @@ service:
     ports:
       main:
         port: 3300
-        protocol: TCP
+        protocol: tcp
         targetPort: 8080
 workload:
   main:

@@ -24,7 +24,7 @@ service:
       hostport2:
         enabled: true
         port: 27000
-        protocol: UDP
+        protocol: udp
         targetPort: 27000
   hostport3:
     enabled: true
@@ -32,7 +32,7 @@ service:
       hostport3:
         enabled: true
         port: 27003
-        protocol: UDP
+        protocol: udp
         targetPort: 27003
   hostport4:
     enabled: true
@@ -40,7 +40,7 @@ service:
       hostport4:
         enabled: true
         port: 27020
-        protocol: UDP
+        protocol: udp
         targetPort: 27020
   hostport5:
     enabled: true
@@ -48,13 +48,13 @@ service:
       hostport5:
         enabled: true
         port: 27021
-        protocol: UDP
+        protocol: udp
         targetPort: 27021
   main:
     ports:
       main:
         port: 27000
-        protocol: TCP
+        protocol: tcp
         targetPort: 27000
 stdin: true
 tty: true

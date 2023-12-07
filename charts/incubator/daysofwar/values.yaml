@@ -22,7 +22,7 @@ service:
     ports:
       main:
         port: 7777
-        protocol: UDP
+        protocol: udp
         targetPort: 7777
   steamport:
     enabled: true
@@ -30,7 +30,7 @@ service:
       steamport:
         enabled: true
         port: 27015
-        protocol: UDP
+        protocol: udp
         targetPort: 27015
 workload:
   main:

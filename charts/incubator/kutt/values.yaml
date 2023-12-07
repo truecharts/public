@@ -39,7 +39,7 @@ workload:
           env:
             ADMIN_EMAILS: admin@example.com,admin@example2.com
             CONTACT_EMAIL: admin@example.com
-            CUSTOM_DOMAIN_USE_HTTPS: false
+            CUSTOM_DOMAIN_USE_https: false
             DB_HOST:
               secretKeyRef:
                 key: plainhost

@@ -19,7 +19,7 @@ service:
     ports:
       main:
         port: 42420
-        protocol: TCP
+        protocol: tcp
         targetPort: 42420
 workload:
   main:

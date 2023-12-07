@@ -19,7 +19,7 @@ service:
     ports:
       main:
         port: 10605
-        protocol: HTTP
+        protocol: http
         targetPort: 3000
 workload:
   main:

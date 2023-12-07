@@ -16,7 +16,7 @@ service:
     ports:
       main:
         port: 53842
-        protocol: HTTP
+        protocol: http
         targetPort: 53842
 workload:
   main:

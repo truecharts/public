@@ -19,7 +19,7 @@ service:
     ports:
       main:
         port: 9191
-        protocol: TCP
+        protocol: tcp
         targetPort: 9191
 workload:
   main:
