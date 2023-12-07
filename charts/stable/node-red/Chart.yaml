@@ -1,31 +1,31 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: node-red
-version: 15.0.11
-appVersion: 3.1.1
+version: 15.0.12
+appVersion: 3.1.2
 description: Node-RED is low-code programming for event-driven applications
 home: https://truecharts.org/charts/stable/node-red
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/node-red.png
 deprecated: false
 sources:
-  - https://github.com/node-red/node-red-docker
-  - https://github.com/truecharts/charts/tree/master/charts/stable/node-red
-  - https://hub.docker.com/r/nodered/node-red
+- https://github.com/node-red/node-red-docker
+- https://github.com/truecharts/charts/tree/master/charts/stable/node-red
+- https://hub.docker.com/r/nodered/node-red
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - node-red
-  - nodered
+- node-red
+- nodered
 dependencies:
-  - name: common
-    version: 14.3.5
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4
