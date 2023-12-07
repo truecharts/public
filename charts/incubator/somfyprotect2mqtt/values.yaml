@@ -12,7 +12,8 @@ persistence:
     subPath: config.yaml
     type: secret
 portal:
-  enabled: false
+  open:
+    enabled: false
 securityContext:
   container:
     readOnlyRootFilesystem: false
