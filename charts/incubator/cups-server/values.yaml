@@ -21,6 +21,7 @@ service:
       main:
         port: 631
         protocol: http
+        targetPort: 631
 persistence:
   config:
     enabled: true
