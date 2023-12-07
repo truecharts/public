@@ -83,7 +83,8 @@ persistence:
     mountPath: /opt/data
     noMount: true
 portal:
-  enabled: true
+  open:
+    enabled: true
 postgresql:
   enabled: true
   existingSecret: dbcreds

@@ -12,7 +12,8 @@ persistence:
     enabled: true
     mountPath: /app/config
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false

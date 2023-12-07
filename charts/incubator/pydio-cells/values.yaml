@@ -44,7 +44,8 @@ persistence:
     enabled: true
     mountPath: /cells/services
 portal:
-  enabled: true
+  open:
+    enabled: true
 pydioinstall:
   password: supersecret
   title: Pydio Cells

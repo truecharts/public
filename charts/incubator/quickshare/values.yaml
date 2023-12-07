@@ -7,7 +7,8 @@ persistence:
     enabled: true
     mountPath: /quickshare/root
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false

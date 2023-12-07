@@ -96,7 +96,8 @@ persistence:
     enabled: true
     mountPath: /etc/netbox/scripts
 portal:
-  enabled: true
+  open:
+    enabled: true
 postgresql:
   enabled: true
   existingSecret: dbcreds

@@ -18,7 +18,8 @@ persistence:
     enabled: true
     mountPath: /var/www/html/storage/logs
 portal:
-  enabled: true
+  open:
+    enabled: true
 redis:
   enabled: true
   existingSecret: rediscreds

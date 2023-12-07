@@ -17,7 +17,8 @@ persistence:
     enabled: true
     mountPath: /app
 portal:
-  enabled: true
+  open:
+    enabled: true
 postgresql:
   enabled: true
   existingSecret: dbcreds

@@ -20,7 +20,8 @@ image:
   tag: firefox@sha256:f419f71b40c6c1f03cda16de4f2c0f467a577a14d4d7e889e9858161ea0209ad
 imageSelector: image
 portal:
-  enabled: true
+  open:
+    enabled: true
 remminaImage:
   pullPolicy: IfNotPresent
   repository: m1k1o/neko

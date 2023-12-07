@@ -35,7 +35,8 @@ persistence:
     enabled: true
     mountPath: /root/Music
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false

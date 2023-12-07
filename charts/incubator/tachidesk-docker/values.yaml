@@ -13,7 +13,8 @@ persistence:
     enabled: true
     mountPath: /home/suwayomi/.local/share/Tachidesk/local
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false

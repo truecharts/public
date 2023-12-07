@@ -7,7 +7,8 @@ persistence:
     enabled: true
     mountPath: /opt/yacy_search_server/DATA
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false

@@ -13,7 +13,8 @@ persistence:
     enabled: true
     mountPath: /media/source
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false

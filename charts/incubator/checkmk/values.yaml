@@ -20,7 +20,8 @@ persistence:
     enabled: true
     mountPath: /omd/sites
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false

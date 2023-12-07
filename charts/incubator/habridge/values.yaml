@@ -9,7 +9,8 @@ persistence:
   varrun:
     enabled: true
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false

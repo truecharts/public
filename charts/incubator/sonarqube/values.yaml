@@ -13,7 +13,8 @@ persistence:
     enabled: true
     mountPath: /opt/sonarqube/logs
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false

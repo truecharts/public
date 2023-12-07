@@ -18,7 +18,8 @@ persistence:
     enabled: true
     mountPath: /core/data
 portal:
-  enabled: true
+  open:
+    enabled: true
 restreamer:
   api:
     api_access_http_allow: []

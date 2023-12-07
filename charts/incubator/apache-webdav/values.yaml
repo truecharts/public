@@ -10,7 +10,8 @@ persistence:
     enabled: true
     mountPath: /var/lib/dav/data
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false

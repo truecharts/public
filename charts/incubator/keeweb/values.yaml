@@ -10,7 +10,8 @@ persistence:
     enabled: true
     mountPath: /etc/nginx/external
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false

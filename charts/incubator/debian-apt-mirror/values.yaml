@@ -10,7 +10,8 @@ persistence:
     enabled: true
     mountPath: /debian-mirror/data
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false

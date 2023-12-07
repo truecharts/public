@@ -16,7 +16,8 @@ persistence:
     enabled: true
     mountPath: /usr/local/share/twitchautomator/data/logs
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false

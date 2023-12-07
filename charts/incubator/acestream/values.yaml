@@ -7,7 +7,8 @@ persistence:
     enabled: true
     mountPath: /srv/acestream/.ACEStream
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
