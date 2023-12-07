@@ -38,15 +38,20 @@ postgresql:
   existingSecret: dbcreds
   postgresqlDatabase: gotify
   postgresqlUsername: gotify
-probes:
-  liveness:
-    path: /health
-  readiness:
-    path: /health
-  startup:
-    path: /health
 service:
   main:
     ports:
       main:
         port: 10084
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: /health
+            readiness:
+              path: /health
+            startup:
+              path: /health

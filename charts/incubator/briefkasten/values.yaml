@@ -33,19 +33,6 @@ postgresql:
   existingSecret: dbcreds
   postgresqlDatabase: briefkasten
   postgresqlUsername: briefkasten
-probes:
-  liveness:
-    enabled: false
-    path: /
-    type: HTTP
-  readiness:
-    enabled: false
-    path: /
-    type: HTTP
-  startup:
-    enabled: false
-    path: /
-    type: HTTP
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -56,3 +43,21 @@ service:
         port: 10349
         protocol: HTTP
         targetPort: 3000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+              path: /
+              type: HTTP
+            readiness:
+              enabled: false
+              path: /
+              type: HTTP
+            startup:
+              enabled: false
+              path: /
+              type: HTTP

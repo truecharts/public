@@ -25,16 +25,6 @@ podSecurityContext:
   runAsUser: 0
 portal:
   enabled: true
-probes:
-  liveness:
-    path: /
-    type: HTTP
-  readiness:
-    path: /
-    type: HTTP
-  startup:
-    path: /
-    type: HTTP
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -45,3 +35,18 @@ service:
         port: 10590
         protocol: HTTP
         targetPort: 10000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: /
+              type: HTTP
+            readiness:
+              path: /
+              type: HTTP
+            startup:
+              path: /
+              type: HTTP

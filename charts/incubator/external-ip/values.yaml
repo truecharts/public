@@ -8,13 +8,6 @@ podSecurityContext:
   runAsUser: 0
 portal:
   enabled: false
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -37,3 +30,10 @@ workload:
             PUSHOVER_TOKEN: ""
             PUSHOVER_USER: ""
             RECOVERY_ALERT: ""
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

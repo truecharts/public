@@ -14,13 +14,6 @@ podSecurityContext:
   runAsUser: 0
 portal:
   enabled: false
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -41,3 +34,10 @@ workload:
             MAX_PLAYERS: "10"
             WORLD_INDEX: "0"
             WORLD_NAME: World name here
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

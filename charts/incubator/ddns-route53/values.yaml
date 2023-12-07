@@ -8,13 +8,6 @@ podSecurityContext:
   runAsUser: 0
 portal:
   enabled: false
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -40,3 +33,10 @@ workload:
             LOG_LEVEL: info
             MAX_RETRIES: "3"
             SCHEDULE: "*/30 * * * *"
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

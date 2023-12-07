@@ -97,16 +97,6 @@ postgresql:
   existingSecret: dbcreds
   postgresqlDatabase: penpot
   postgresqlUsername: penpot
-probes:
-  liveness:
-    path: /
-    type: HTTP
-  readiness:
-    path: /
-    type: HTTP
-  startup:
-    path: /
-    type: HTTP
 redis:
   enabled: true
   existingSecret: rediscreds
@@ -121,3 +111,18 @@ service:
         port: 10592
         protocol: HTTP
         targetPort: 80
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: /
+              type: HTTP
+            readiness:
+              path: /
+              type: HTTP
+            startup:
+              path: /
+              type: HTTP

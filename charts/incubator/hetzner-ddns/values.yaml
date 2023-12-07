@@ -8,13 +8,6 @@ podSecurityContext:
   runAsUser: 0
 portal:
   enabled: false
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -33,3 +26,10 @@ workload:
             API_TOKEN: my-secret-api-token
             RECORD_TYPE: A
             ZONE_NAME: example.com
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

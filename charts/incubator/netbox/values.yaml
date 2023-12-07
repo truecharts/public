@@ -105,17 +105,6 @@ postgresql:
   existingSecret: dbcreds
   postgresqlDatabase: netbox
   postgresqlUsername: netbox
-probes:
-  liveness:
-    path: /api
-    type: HTTP
-  readiness:
-    path: /api
-    type: HTTP
-  startup:
-    initialDelaySeconds: 60
-    path: /api
-    type: HTTP
 redis:
   enabled: true
   existingSecret: rediscreds
@@ -129,3 +118,19 @@ service:
         port: 10265
         protocol: HTTP
         targetPort: 8080
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: /api
+              type: HTTP
+            readiness:
+              path: /api
+              type: HTTP
+            startup:
+              initialDelaySeconds: 60
+              path: /api
+              type: HTTP

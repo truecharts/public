@@ -14,13 +14,6 @@ podSecurityContext:
   runAsUser: 0
 portal:
   enabled: true
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -59,3 +52,10 @@ workload:
             USERNAME: ""
             VALIDATE: "false"
             WS_CONTENT: ""
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

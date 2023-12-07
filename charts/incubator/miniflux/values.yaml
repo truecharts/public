@@ -13,18 +13,6 @@ postgresql:
   existingSecret: dbcreds
   postgresqlDatabase: miniflux
   postgresqlUsername: miniflux
-probes:
-  liveness:
-    custom: true
-    enabled: true
-    spec:
-      failureThreshold: 3
-      httpGet:
-        path: /healthcheck
-        port: 8080
-      initialDelaySeconds: 30
-      periodSeconds: 10
-      timeoutSeconds: 1
 secretEnv:
   ADMIN_PASSWORD: changeme
   ADMIN_USERNAME: admin
@@ -46,3 +34,15 @@ workload:
                 key: urlnossl
                 name: dbcreds
             RUN_MIGRATIONS: 1
+          probes:
+            liveness:
+              custom: true
+              enabled: true
+              spec:
+                failureThreshold: 3
+                httpGet:
+                  path: /healthcheck
+                  port: 8080
+                initialDelaySeconds: 30
+                periodSeconds: 10
+                timeoutSeconds: 1

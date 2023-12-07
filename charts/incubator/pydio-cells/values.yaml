@@ -48,28 +48,6 @@ podSecurityContext:
   runAsUser: 0
 portal:
   enabled: true
-probes:
-  liveness:
-    custom: true
-    spec:
-      httpGet:
-        path: /healthcheck
-        port: 10162
-        scheme: HTTP
-  readiness:
-    custom: true
-    spec:
-      httpGet:
-        path: /healthcheck
-        port: 10162
-        scheme: HTTP
-  startup:
-    custom: true
-    spec:
-      httpGet:
-        path: /healthcheck
-        port: 10162
-        scheme: HTTP
 pydioinstall:
   password: supersecret
   title: Pydio Cells
@@ -112,3 +90,25 @@ workload:
             CELLS_LOG_DIR: /cells/logs
             CELLS_SERVICES_DIR: /cells/services
             CELLS_WORKING_DIR: /cells
+          probes:
+            liveness:
+              custom: true
+              spec:
+                httpGet:
+                  path: /healthcheck
+                  port: 10162
+                  scheme: HTTP
+            readiness:
+              custom: true
+              spec:
+                httpGet:
+                  path: /healthcheck
+                  port: 10162
+                  scheme: HTTP
+            startup:
+              custom: true
+              spec:
+                httpGet:
+                  path: /healthcheck
+                  port: 10162
+                  scheme: HTTP

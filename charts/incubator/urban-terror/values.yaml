@@ -11,13 +11,6 @@ podSecurityContext:
   runAsUser: 0
 portal:
   enabled: true
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -37,3 +30,10 @@ workload:
             CHECK_FOR_UPDATES: "true"
             START_PARAMS: ""
             UMASK: "000"
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

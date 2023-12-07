@@ -20,13 +20,6 @@ podSecurityContext:
   runAsUser: 0
 portal:
   enabled: false
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -46,3 +39,10 @@ workload:
             output_format: mkv
             parameters: -map 0;-vcodec copy;-scodec copy;-acodec ac3;-b:a 640k
             script: encode.sh
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

@@ -27,26 +27,6 @@ podSecurityContext:
   runAsUser: 0
 portal:
   enabled: true
-probes:
-  liveness:
-    spec:
-      exec:
-        command:
-          - /bin/sh
-          - -c
-          - omd status
-  readiness:
-    exec:
-      command:
-        - /bin/sh
-        - -c
-        - omd status
-  startup:
-    exec:
-      command:
-        - /bin/sh
-        - -c
-        - omd status
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -72,3 +52,28 @@ service:
         port: 18000
         protocol: HTTP
         targetPort: 8000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              spec:
+                exec:
+                  command:
+                    - /bin/sh
+                    - -c
+                    - omd status
+            readiness:
+              exec:
+                command:
+                  - /bin/sh
+                  - -c
+                  - omd status
+            startup:
+              exec:
+                command:
+                  - /bin/sh
+                  - -c
+                  - omd status

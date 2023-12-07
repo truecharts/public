@@ -17,13 +17,6 @@ podSecurityContext:
   runAsUser: 0
 portal:
   enabled: false
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -44,3 +37,10 @@ workload:
             TG_AUTHORIZED_USER_ID: " "
             TG_BOT_TOKEN: ""
             TG_PROGRESS_DOWNLOAD: ""
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

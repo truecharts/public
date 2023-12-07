@@ -114,13 +114,6 @@ postgresql:
   existingSecret: dbcreds
   postgresqlDatabase: librephotos
   postgresqlUsername: librephotos
-probes:
-  liveness:
-    path: /login
-  readiness:
-    path: /login
-  startup:
-    path: /login
 proxyImage:
   repository: reallibrephotos/librephotos-proxy
   tag: latest@sha256:b45c74482bc409b113fcb7519beb9acb646e6d24bc36fed69afd3df39a0aa8e3
@@ -178,3 +171,10 @@ workload:
                 name: librephotos-secrets
             SKIP_PATTERNS: ""
             WEB_CONCURRENCY: 2
+          probes:
+            liveness:
+              path: /login
+            readiness:
+              path: /login
+            startup:
+              path: /login

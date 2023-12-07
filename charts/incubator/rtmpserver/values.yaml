@@ -17,13 +17,6 @@ podSecurityContext:
   runAsUser: 0
 portal:
   enabled: true
-probes:
-  liveness:
-    path: /stats.html
-  readiness:
-    path: /stats.html
-  startup:
-    path: /stats.html
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -42,3 +35,15 @@ service:
         port: 1935
         protocol: TCP
         targetPort: 1935
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: /stats.html
+            readiness:
+              path: /stats.html
+            startup:
+              path: /stats.html

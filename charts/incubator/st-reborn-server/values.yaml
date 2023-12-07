@@ -14,13 +14,6 @@ persistence:
     mountPath: /home/server/logs
 portal:
   enabled: false
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
 service:
   main:
     ports:
@@ -28,3 +21,15 @@ service:
         port: 10578
         protocol: UDP
         targetPort: 10578
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

@@ -7,16 +7,21 @@ image:
   tag: latest@sha256:fbd0eb6673499859ec6e1d9a8241510106d3d81c3d2bfca930c0b17040d09cb8
 portal:
   enabled: false
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

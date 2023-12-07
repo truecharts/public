@@ -4,49 +4,6 @@ image:
   tag: v2.2.0@sha256:44caf39f0bdad9d0aebfd1014e9b57fe6ce119c6aee07bc6e742f2fe37c8aa29
 portal:
   enabled: true
-probes:
-  liveness:
-    custom: true
-    enabled: true
-    spec:
-      exec:
-        command:
-          - /bin/sh
-          - -c
-          - wget --spider localhost:10284
-      failureThreshold: 5
-      initialDelaySeconds: 60
-      periodSeconds: 10
-      successThreshold: 1
-      timeoutSeconds: 10
-  readiness:
-    custom: true
-    enabled: true
-    spec:
-      exec:
-        command:
-          - /bin/sh
-          - -c
-          - wget --spider localhost:10284
-      failureThreshold: 5
-      initialDelaySeconds: 60
-      periodSeconds: 10
-      successThreshold: 1
-      timeoutSeconds: 10
-  startup:
-    custom: true
-    enabled: true
-    spec:
-      exec:
-        command:
-          - /bin/sh
-          - -c
-          - wget --spider localhost:10284
-      failureThreshold: 5
-      initialDelaySeconds: 60
-      periodSeconds: 10
-      successThreshold: 1
-      timeoutSeconds: 10
 service:
   main:
     ports:
@@ -61,3 +18,46 @@ workload:
           env:
             JWT_SECRET: changeme
             PORT: "{{ .Values.service.main.ports.main.port }}"
+          probes:
+            liveness:
+              custom: true
+              enabled: true
+              spec:
+                exec:
+                  command:
+                    - /bin/sh
+                    - -c
+                    - wget --spider localhost:10284
+                failureThreshold: 5
+                initialDelaySeconds: 60
+                periodSeconds: 10
+                successThreshold: 1
+                timeoutSeconds: 10
+            readiness:
+              custom: true
+              enabled: true
+              spec:
+                exec:
+                  command:
+                    - /bin/sh
+                    - -c
+                    - wget --spider localhost:10284
+                failureThreshold: 5
+                initialDelaySeconds: 60
+                periodSeconds: 10
+                successThreshold: 1
+                timeoutSeconds: 10
+            startup:
+              custom: true
+              enabled: true
+              spec:
+                exec:
+                  command:
+                    - /bin/sh
+                    - -c
+                    - wget --spider localhost:10284
+                failureThreshold: 5
+                initialDelaySeconds: 60
+                periodSeconds: 10
+                successThreshold: 1
+                timeoutSeconds: 10

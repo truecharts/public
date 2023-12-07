@@ -273,16 +273,6 @@ postgresql:
   existingSecret: dbcreds
   postgresqlDatabase: docspell
   postgresqlUsername: docspell
-probes:
-  liveness:
-    path: /api/info/version
-    type: HTTP
-  readiness:
-    path: /api/info/version
-    type: HTTP
-  startup:
-    path: /api/info/version
-    type: HTTP
 rest_server:
   addons:
     allow_impure: true
@@ -420,3 +410,18 @@ solr:
   solrCores: docspell
   solrEnableAuthentication: "no"
   solrUsername: docspell
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: /api/info/version
+              type: HTTP
+            readiness:
+              path: /api/info/version
+              type: HTTP
+            startup:
+              path: /api/info/version
+              type: HTTP

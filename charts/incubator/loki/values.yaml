@@ -67,13 +67,6 @@ persistence:
     type: secret
 portal:
   enabled: true
-probes:
-  liveness:
-    path: /ready
-  readiness:
-    path: /ready
-  startup:
-    path: /ready
 promtail:
   enabled: true
 secret:
@@ -93,3 +86,15 @@ volumeClaimTemplates:
   data:
     enabled: true
     mountPath: /data
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: /ready
+            readiness:
+              path: /ready
+            startup:
+              path: /ready

@@ -8,28 +8,6 @@ podSecurityContext:
   runAsUser: 1000
 portal:
   enabled: false
-probes:
-  liveness:
-    custom: true
-    spec:
-      exec:
-        command:
-          - /bin/proxy
-          - -version
-  readiness:
-    custom: true
-    spec:
-      exec:
-        command:
-          - /bin/proxy
-          - -version
-  startup:
-    custom: true
-    spec:
-      exec:
-        command:
-          - /bin/proxy
-          - -version
 service:
   main:
     enabled: false
@@ -50,3 +28,30 @@ snowflake:
   summary_interval: 1h0m0s
   unsafe_logging: false
   verbose: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              custom: true
+              spec:
+                exec:
+                  command:
+                    - /bin/proxy
+                    - -version
+            readiness:
+              custom: true
+              spec:
+                exec:
+                  command:
+                    - /bin/proxy
+                    - -version
+            startup:
+              custom: true
+              spec:
+                exec:
+                  command:
+                    - /bin/proxy
+                    - -version

@@ -18,13 +18,6 @@ podSecurityContext:
   runAsUser: 0
 portal:
   enabled: true
-probes:
-  liveness:
-    type: HTTP
-  readiness:
-    type: HTTP
-  startup:
-    type: HTTP
 securityContext:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
@@ -39,3 +32,15 @@ vaapiImage:
   pullPolicy: Always
   repository: jasongdove/ersatztv
   tag: v0.8.2-vaapi@sha256:ff76ed0d38243ef4dd09b27bde94ce292b7d7cff66b36280c28cd8ea69dff131
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: HTTP
+            readiness:
+              type: HTTP
+            startup:
+              type: HTTP

@@ -79,19 +79,24 @@ postgresql:
   existingSecret: dbcreds
   postgresqlDatabase: plik
   postgresqlUsername: plik
-probes:
-  liveness:
-    path: /
-    type: HTTP
-  readiness:
-    path: /
-    type: HTTP
-  startup:
-    path: /
-    type: HTTP
 service:
   main:
     ports:
       main:
         port: 10599
         protocol: HTTP
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: /
+              type: HTTP
+            readiness:
+              path: /
+              type: HTTP
+            startup:
+              path: /
+              type: HTTP

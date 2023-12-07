@@ -11,16 +11,6 @@ persistence:
     mountPath: /data
 portal:
   enabled: true
-probes:
-  liveness:
-    path: /
-    type: HTTP
-  readiness:
-    path: /
-    type: HTTP
-  startup:
-    path: /
-    type: HTTP
 service:
   main:
     ports:
@@ -28,3 +18,18 @@ service:
         port: 10302
         protocol: HTTP
         targetPort: 8000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: /
+              type: HTTP
+            readiness:
+              path: /
+              type: HTTP
+            startup:
+              path: /
+              type: HTTP

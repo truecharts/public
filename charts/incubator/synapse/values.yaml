@@ -119,13 +119,6 @@ postgresql:
   existingSecret: dbcreds
   postgresqlDatabase: synapse
   postgresqlUsername: synapse
-probes:
-  liveness:
-    path: /health
-  readiness:
-    path: /health
-  startup:
-    path: /health
 securityContext:
   allowPrivilegeEscalation: true
 service:
@@ -162,3 +155,15 @@ synapse:
     annotations: true
     enabled: true
     port: 9092
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: /health
+            readiness:
+              path: /health
+            startup:
+              path: /health
