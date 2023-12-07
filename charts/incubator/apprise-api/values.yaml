@@ -11,10 +11,10 @@ portal:
 securityContext:
   container:
     readOnlyRootFilesystem: false
-  pod:
-    fsGroup: 33
     runAsGroup: 33
     runAsUser: 33
+  pod:
+    fsGroup: 33
 service:
   main:
     ports:

@@ -80,10 +80,11 @@ privatebin:
     header: ""
     limit: 10
 securityContext:
-  pod:
-    fsGroup: 82
+  container:
     runAsGroup: 82
     runAsUser: 65534
+  pod:
+    fsGroup: 82
 service:
   main:
     ports:

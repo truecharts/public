@@ -40,11 +40,11 @@ redis:
 securityContext:
   container:
     readOnlyRootFilesystem: false
+    runAsGroup: 1000
     runAsNonRoot: false
+    runAsUser: 1000
   pod:
     fsGroup: 1000
-    runAsGroup: 1000
-    runAsUser: 1000
 service:
   main:
     ports:

@@ -35,9 +35,8 @@ postgresql:
 securityContext:
   container:
     readOnlyRootFilesystem: false
-    runAsNonRoot: false
-  pod:
     runAsGroup: 0
+    runAsNonRoot: false
     runAsUser: 0
 service:
   main:

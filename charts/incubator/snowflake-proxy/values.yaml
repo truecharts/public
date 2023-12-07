@@ -6,7 +6,7 @@ image:
 portal:
   enabled: false
 securityContext:
-  pod:
+  container:
     runAsGroup: 1000
     runAsUser: 1000
 service:

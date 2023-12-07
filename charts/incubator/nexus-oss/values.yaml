@@ -9,10 +9,11 @@ persistence:
 portal:
   enabled: true
 securityContext:
-  pod:
-    fsGroup: 200
+  container:
     runAsGroup: 200
     runAsUser: 200
+  pod:
+    fsGroup: 200
 service:
   main:
     ports:
