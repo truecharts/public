@@ -14,11 +14,6 @@ briefkasten:
     bucket_id: null
     key: null
     url: null
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-secret'
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-config'
 image:
   pullPolicy: IfNotPresent
   repository: ndom91/briefkasten
@@ -48,6 +43,11 @@ workload:
     podSpec:
       containers:
         main:
+          envFrom:
+            - secretRef:
+                name: '{{ include "tc.common.names.fullname" . }}-secret'
+            - configMapRef:
+                name: '{{ include "tc.common.names.fullname" . }}-config'
           probes:
             liveness:
               enabled: false

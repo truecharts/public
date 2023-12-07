@@ -1,6 +1,3 @@
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-secret'
 image:
   pullPolicy: IfNotPresent
   repository: ich777/terrariaserver
@@ -42,3 +39,11 @@ terraria:
   pass: secretpass
   seed: AwesomeSeed
   worldname: scale terraria
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - secretRef:
+                name: '{{ include "tc.common.names.fullname" . }}-secret'

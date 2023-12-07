@@ -5,11 +5,6 @@ cherry:
   insecure_cookie: true
   page_bookmark_limit: 60
   public_registration: true
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-cherry-secret'
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-cherry-configmap'
 image:
   pullPolicy: IfNotPresent
   repository: haishanh/cherry
@@ -38,6 +33,11 @@ workload:
     podSpec:
       containers:
         main:
+          envFrom:
+            - secretRef:
+                name: '{{ include "tc.common.names.fullname" . }}-cherry-secret'
+            - configMapRef:
+                name: '{{ include "tc.common.names.fullname" . }}-cherry-configmap'
           probes:
             liveness:
               path: /

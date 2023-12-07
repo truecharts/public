@@ -1,8 +1,3 @@
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-inventree-secret'
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-inventree-config'
 image:
   pullPolicy: IfNotPresent
   repository: inventree/inventree
@@ -68,3 +63,13 @@ service:
     ports:
       main:
         port: 10231
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - secretRef:
+                name: '{{ include "tc.common.names.fullname" . }}-inventree-secret'
+            - configMapRef:
+                name: '{{ include "tc.common.names.fullname" . }}-inventree-config'

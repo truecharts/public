@@ -1,6 +1,3 @@
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-secret-env'
 gotify:
   cors:
     allowed_headers: []
@@ -48,6 +45,9 @@ workload:
     podSpec:
       containers:
         main:
+          envFrom:
+            - secretRef:
+                name: '{{ include "tc.common.names.fullname" . }}-secret-env'
           probes:
             liveness:
               path: /health

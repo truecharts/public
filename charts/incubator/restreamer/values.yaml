@@ -2,11 +2,6 @@ cudaImage:
   pullPolicy: IfNotPresent
   repository: datarhei/restreamer
   tag: cuda-2.1.0@sha256:4243a635d93049e858e8d272090c711f3556639c499ea4aa09d042985f2594e6
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-restreamer-secret'
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-restreamer-configmap'
 image:
   pullPolicy: IfNotPresent
   repository: datarhei/restreamer
@@ -145,6 +140,11 @@ workload:
     podSpec:
       containers:
         main:
+          envFrom:
+            - secretRef:
+                name: '{{ include "tc.common.names.fullname" . }}-restreamer-secret'
+            - configMapRef:
+                name: '{{ include "tc.common.names.fullname" . }}-restreamer-configmap'
           probes:
             liveness:
               path: /health

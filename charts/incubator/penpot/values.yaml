@@ -2,11 +2,6 @@ backendImage:
   pullPolicy: IfNotPresent
   repository: penpotapp/backend
   tag: 1.19.3@sha256:a800c1096e8d8774d1fbe8c6deac6244c284e3a4c407acc56a460f3289d09adb
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-common-secret'
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-frontend-secret'
 exporterImage:
   pullPolicy: IfNotPresent
   repository: penpotapp/exporter
@@ -116,6 +111,11 @@ workload:
     podSpec:
       containers:
         main:
+          envFrom:
+            - secretRef:
+                name: '{{ include "tc.common.names.fullname" . }}-common-secret'
+            - secretRef:
+                name: '{{ include "tc.common.names.fullname" . }}-frontend-secret'
           probes:
             liveness:
               path: /

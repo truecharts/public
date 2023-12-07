@@ -1,6 +1,3 @@
-envFrom:
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-magicmirror-env'
 image:
   pullPolicy: IfNotPresent
   repository: ich777/magic-mirror2
@@ -40,6 +37,9 @@ workload:
     podSpec:
       containers:
         main:
+          envFrom:
+            - configMapRef:
+                name: '{{ include "tc.common.names.fullname" . }}-magicmirror-env'
           probes:
             liveness:
               path: /

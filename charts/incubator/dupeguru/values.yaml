@@ -13,9 +13,6 @@ dupeguru:
   ENABLE_CJK_FONT: false
   KEEP_APP_RUNNING: false
   SECURE_CONNECTION: false
-envFrom:
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-dupeguru'
 image:
   pullPolicy: IfNotPresent
   repository: jlesage/dupeguru
@@ -58,3 +55,6 @@ workload:
         main:
           env:
             VNC_PASSWORD: ""
+          envFrom:
+            - configMapRef:
+                name: '{{ include "tc.common.names.fullname" . }}-dupeguru'

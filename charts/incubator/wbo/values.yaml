@@ -1,8 +1,3 @@
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-secret'
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-config'
 image:
   pullPolicy: IfNotPresent
   repository: lovasoa/wbo
@@ -34,3 +29,13 @@ wbo:
   max_item_count: 32768
   max_save_delay: 60000
   save_interval: 2000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - secretRef:
+                name: '{{ include "tc.common.names.fullname" . }}-secret'
+            - configMapRef:
+                name: '{{ include "tc.common.names.fullname" . }}-config'

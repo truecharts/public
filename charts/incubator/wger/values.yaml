@@ -1,8 +1,3 @@
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-wger-secret'
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-wger-configmap'
 image:
   pullPolicy: IfNotPresent
   repository: wger/server
@@ -78,3 +73,13 @@ wger:
     email_use_tls: false
     enable_email: false
     from_email: ""
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - secretRef:
+                name: '{{ include "tc.common.names.fullname" . }}-wger-secret'
+            - configMapRef:
+                name: '{{ include "tc.common.names.fullname" . }}-wger-configmap'

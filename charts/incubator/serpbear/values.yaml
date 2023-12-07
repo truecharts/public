@@ -1,6 +1,3 @@
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-env-secret'
 image:
   pullPolicy: IfNotPresent
   repository: towfiqi/serpbear
@@ -24,3 +21,11 @@ service:
         port: 10605
         protocol: HTTP
         targetPort: 3000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - secretRef:
+                name: '{{ include "tc.common.names.fullname" . }}-env-secret'

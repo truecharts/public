@@ -3,9 +3,6 @@ cmk:
   mail_relay_host: ""
   password: secret
   site_id: cmk
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-secret'
 image:
   pullPolicy: IfNotPresent
   repository: checkmk/check-mk-raw
@@ -57,6 +54,9 @@ workload:
     podSpec:
       containers:
         main:
+          envFrom:
+            - secretRef:
+                name: '{{ include "tc.common.names.fullname" . }}-secret'
           probes:
             liveness:
               spec:

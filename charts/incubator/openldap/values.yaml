@@ -7,9 +7,6 @@ controller:
     unavailable: 1
   strategy: RollingUpdate
   type: statefulset
-envFrom:
-  - configMapRef:
-      name: openldapconfig
 image:
   pullPolicy: IfNotPresent
   repository: osixia/openldap
@@ -80,3 +77,6 @@ workload:
             LDAP_TLS_PROTOCOL_MIN: "3.0"
             LDAP_TLS_REQCERT: never
             LDAP_TLS_VERIFY_CLIENT: never
+          envFrom:
+            - configMapRef:
+                name: openldapconfig

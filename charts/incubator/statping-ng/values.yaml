@@ -1,6 +1,3 @@
-envFrom:
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-config'
 image:
   pullPolicy: IfNotPresent
   repository: quay.io/statping-ng/statping-ng
@@ -60,6 +57,9 @@ workload:
               secretKeyRef:
                 key: postgresql-password
                 name: dbcreds
+          envFrom:
+            - configMapRef:
+                name: '{{ include "tc.common.names.fullname" . }}-config'
           probes:
             liveness:
               path: /health

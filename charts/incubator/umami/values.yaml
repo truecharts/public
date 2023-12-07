@@ -1,6 +1,3 @@
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-secret'
 image:
   pullPolicy: IfNotPresent
   repository: ghcr.io/umami-software/umami
@@ -62,3 +59,6 @@ workload:
               '{{ ternary "1" "0" .Values.umami.remove_trailing_slash
               }}'
             TRACKER_SCRIPT_NAME: "{{ .Values.umami.tracker_script_name }}"
+          envFrom:
+            - secretRef:
+                name: '{{ include "tc.common.names.fullname" . }}-secret'

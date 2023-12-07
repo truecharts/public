@@ -1,6 +1,3 @@
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-moneybalancer-secret'
 image:
   pullPolicy: IfNotPresent
   repository: ghcr.io/dorianim/money-balancer
@@ -23,6 +20,9 @@ workload:
     podSpec:
       containers:
         main:
+          envFrom:
+            - secretRef:
+                name: '{{ include "tc.common.names.fullname" . }}-moneybalancer-secret'
           probes:
             liveness:
               path: /
