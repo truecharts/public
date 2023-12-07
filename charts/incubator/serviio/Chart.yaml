@@ -3,14 +3,17 @@ apiVersion: v2
 name: serviio
 version: 2.0.12
 appVersion: latest
-description: Serviio is a freeware media server designed to let users stream music, video, or image files to DLNA compliant televisions, Blu-ray players, game consoles, and Android or Windows Mobile devices on a home network.
+description:
+  Serviio is a freeware media server designed to let users stream music,
+  video, or image files to DLNA compliant televisions, Blu-ray players, game consoles,
+  and Android or Windows Mobile devices on a home network.
 home: https://truecharts.org/charts/incubator/serviio
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/serviio.png
 deprecated: false
 sources:
   - https://serviio.org/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/serviio
-  - https://github.com/truecharts/containers/tree/master/mirrorserviio
+  - https://hub.docker.com/r/riftbit/serviio
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

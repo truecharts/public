@@ -3,13 +3,15 @@ apiVersion: v2
 name: virt-manager
 version: 2.0.24
 appVersion: latest
-description: The virt-manager application is a desktop user interface for managing virtual machines through libvirt.
+description:
+  The virt-manager application is a desktop user interface for managing
+  virtual machines through libvirt.
 home: https://truecharts.org/charts/incubator/virt-manager
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/virt-manager.png
 deprecated: false
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/virt-manager
-  - https://github.com/truecharts/containers/tree/master/mirrorvirt-manager
+  - https://hub.docker.com/r/mber5/virt-manager
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

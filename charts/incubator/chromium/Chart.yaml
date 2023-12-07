@@ -3,14 +3,16 @@ apiVersion: v2
 name: chromium
 version: 2.0.20
 appVersion: latest
-description: Chromium is a free and open-source software project developed by the Google-sponsored Chromium project.
+description:
+  Chromium is a free and open-source software project developed by the
+  Google-sponsored Chromium project.
 home: https://truecharts.org/charts/incubator/chromium
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/chromium.png
 deprecated: false
 sources:
   - https://www.google.com/chrome/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/chromium
-  - https://github.com/truecharts/containers/tree/master/mirrorchromium
+  - https://hub.docker.com/r/ich777/chrome
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

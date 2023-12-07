@@ -2,15 +2,15 @@ kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: postgresql
 version: 14.0.9
-appVersion: 14.7.0
+appVersion: 14.10.0
 description: PostgresSQL
 home: https://truecharts.org/charts/incubator/postgresql
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/postgresql.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/containers/tree/master/mirrorpostgresql
   - https://www.postgresql.org/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/postgresql
+  - https://hub.docker.com/r/bitnami/postgresql
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

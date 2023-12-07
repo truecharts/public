@@ -3,14 +3,16 @@ apiVersion: v2
 name: btdex
 version: 2.0.12
 appVersion: latest
-description: This is a Docker Chart for BTDEX based on jlesage/Chart-baseimage-gui Chart.
+description:
+  This is a Docker Chart for BTDEX based on jlesage/Chart-baseimage-gui
+  Chart.
 home: https://truecharts.org/charts/incubator/btdex
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/btdex.png
 deprecated: false
 sources:
   - https://btdex.trade/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/btdex
-  - https://github.com/truecharts/containers/tree/master/mirrorbtdex
+  - https://hub.docker.com/r/furritos/docker-btdex
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

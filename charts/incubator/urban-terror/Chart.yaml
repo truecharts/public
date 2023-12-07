@@ -3,14 +3,17 @@ apiVersion: v2
 name: urban-terror
 version: 2.0.13
 appVersion: latest
-description: Urban Terror is a free multiplayer first person shooter developed by FrozenSand, that will run on any Quake III Arena compatible engine. It is available for Windows, Linux and Macintosh.
+description:
+  Urban Terror is a free multiplayer first person shooter developed by
+  FrozenSand, that will run on any Quake III Arena compatible engine. It is available
+  for Windows, Linux and Macintosh.
 home: https://truecharts.org/charts/incubator/urban-terror
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/urban-terror.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/urban-terror
-  - https://github.com/truecharts/containers/tree/master/mirrorurban-terror
   - https://www.urbanterror.info/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/urban-terror
+  - https://hub.docker.com/r/ich777/urbanterror
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

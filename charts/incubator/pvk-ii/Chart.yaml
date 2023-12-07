@@ -2,15 +2,17 @@ kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: pvk-ii
 version: 2.0.13
-appVersion: latest
-description: This Chart will download and install SteamCMD. It will also install Pirates, Vikings &amp; Knights 2 and run it.
+appVersion: pvkii
+description:
+  This Chart will download and install SteamCMD. It will also install Pirates,
+  Vikings &amp; Knights 2 and run it.
 home: https://truecharts.org/charts/incubator/pvk-ii
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pvk-ii.png
 deprecated: false
 sources:
   - https://www.steampowered.com/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/pvk-ii
-  - https://github.com/truecharts/containers/tree/master/mirrorpvk-ii
+  - https://hub.docker.com/r/ich777/steamcmd
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

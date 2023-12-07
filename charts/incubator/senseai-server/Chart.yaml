@@ -3,14 +3,16 @@ apiVersion: v2
 name: senseai-server
 version: 2.0.12
 appVersion: 1.4.0
-description: A standalone, self-hosted, fast, free and Open Source Artificial Intelligence microserver for any platform, any language.
+description:
+  A standalone, self-hosted, fast, free and Open Source Artificial Intelligence
+  microserver for any platform, any language.
 home: https://truecharts.org/charts/incubator/senseai-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/senseai-server.png
 deprecated: false
 sources:
-  - https://github.com/codeproject/CodeProject.SenseAI
   - https://github.com/truecharts/charts/tree/master/charts/incubator/senseai-server
-  - https://github.com/truecharts/containers/tree/master/mirrorsenseai-server
+  - https://hub.docker.com/r/codeproject/senseai-server
+  - https://github.com/codeproject/CodeProject.SenseAI
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

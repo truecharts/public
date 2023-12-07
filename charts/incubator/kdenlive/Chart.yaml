@@ -3,15 +3,17 @@ apiVersion: v2
 name: kdenlive
 version: 2.0.23
 appVersion: latest
-description: Kdenlive(https://kdenlive.org/) is a powerful free and open source cross-platform video editing program made by the KDE community. Feature rich and production ready.
+description:
+  Kdenlive(https://kdenlive.org/) is a powerful free and open source cross-platform
+  video editing program made by the KDE community. Feature rich and production ready.
 home: https://truecharts.org/charts/incubator/kdenlive
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/kdenlive.png
 deprecated: false
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/kdenlive
+  - https://fleet.linuxserver.io/image?name=linuxserver/kdenlive
   - https://github.com/orgs/linuxserver/packages/container/package/kdenlive
   - https://github.com/linuxserver/docker-kdenlive#readme
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/kdenlive
-  - https://github.com/truecharts/containers/tree/master/mirrorkdenlive
   - https://kdenlive.org/
 maintainers:
   - name: TrueCharts

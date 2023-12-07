@@ -3,14 +3,16 @@ apiVersion: v2
 name: fancyindex
 version: 3.0.11
 appVersion: latest
-description: Fancyindex provides a lightweight nginx directory listing with theming support
+description:
+  Fancyindex provides a lightweight nginx directory listing with theming
+  support
 home: https://truecharts.org/charts/incubator/fancyindex
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/fancyindex.png
 deprecated: false
 sources:
   - https://github.com/xal3xhx/fancyindex
   - https://github.com/truecharts/charts/tree/master/charts/incubator/fancyindex
-  - https://github.com/truecharts/containers/tree/master/mirrorfancyindex
+  - https://hub.docker.com/r/xal3xhx/fancy
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

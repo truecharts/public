@@ -3,13 +3,15 @@ apiVersion: v2
 name: songkong
 version: 2.0.20
 appVersion: latest
-description: Official SongKong Chart repository, Identify your songs and add metadata and artwork automatically
+description:
+  Official SongKong Chart repository, Identify your songs and add metadata
+  and artwork automatically
 home: https://truecharts.org/charts/incubator/songkong
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/songkong.png
 deprecated: false
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/songkong
-  - https://github.com/truecharts/containers/tree/master/mirrorsongkong
+  - https://hub.docker.com/r/songkong/songkong
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

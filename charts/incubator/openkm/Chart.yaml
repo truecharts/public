@@ -3,13 +3,15 @@ apiVersion: v2
 name: openkm
 version: 11.0.3
 appVersion: 6.3.12
-description: OpenKM integrates all essential documents management, collaboration and an advanced search functionality into one easy to use solution.
+description:
+  OpenKM integrates all essential documents management, collaboration and
+  an advanced search functionality into one easy to use solution.
 home: https://truecharts.org/charts/incubator/openkm
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/openkm.png
 deprecated: false
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/openkm
-  - https://github.com/truecharts/containers/tree/master/mirroropenkm-ce
+  - https://hub.docker.com/r/openkm/openkm-ce
   - https://www.openkm.com/
   - https://github.com/openkm/document-management-system
 maintainers:

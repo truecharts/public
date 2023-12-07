@@ -3,14 +3,16 @@ apiVersion: v2
 name: ungoogled-chromium
 version: 2.0.12
 appVersion: latest
-description: Ungoogled-Chromium is a lightweight approach to removing Google web service dependency from the Chromium project web browser.
+description:
+  Ungoogled-Chromium is a lightweight approach to removing Google web service
+  dependency from the Chromium project web browser.
 home: https://truecharts.org/charts/incubator/ungoogled-chromium
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ungoogled-chromium.png
 deprecated: false
 sources:
+  - https://hub.docker.com/r/ich777/ungoogled-chromium
   - https://www.google.com/chrome/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/ungoogled-chromium
-  - https://github.com/truecharts/containers/tree/master/mirrorungoogled-chromium
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

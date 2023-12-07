@@ -2,7 +2,7 @@ kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: loki
 version: 11.0.3
-appVersion: 2.8.1
+appVersion: 2.9.2
 description: "Loki: like Prometheus, but for logs."
 home: https://truecharts.org/charts/incubator/loki
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/loki.png
@@ -10,7 +10,7 @@ deprecated: false
 sources:
   - https://github.com/grafana/loki
   - https://github.com/truecharts/charts/tree/master/charts/incubator/loki
-  - https://github.com/truecharts/containers/tree/master/mirrorloki
+  - https://hub.docker.com/r/grafana/loki
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

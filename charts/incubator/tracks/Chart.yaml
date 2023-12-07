@@ -3,13 +3,15 @@ apiVersion: v2
 name: tracks
 version: 2.0.18
 appVersion: latest
-description: "Tracks is a web-based todo application to help you implement the GTD methodology. "
+description:
+  "Tracks is a web-based todo application to help you implement the GTD
+  methodology. "
 home: https://truecharts.org/charts/incubator/tracks
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/tracks.png
 deprecated: false
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/tracks
-  - https://github.com/truecharts/containers/tree/master/mirrortracks
+  - https://hub.docker.com/r/tracksapp/tracks
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

@@ -2,15 +2,17 @@ kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: rstudio
 version: 3.0.11
-appVersion: 4.3.0
-description: Integrated development environment for R, a programming language for statistical computing and graphics.
+appVersion: 4.3.2
+description:
+  Integrated development environment for R, a programming language for
+  statistical computing and graphics.
 home: https://truecharts.org/charts/incubator/rstudio
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/rstudio.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/rstudio
-  - https://github.com/truecharts/containers/tree/master/mirrorrstudio
   - https://github.com/rocker-org/rocker-versioned2
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/rstudio
+  - https://hub.docker.com/r/rocker/rstudio
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

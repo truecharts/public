@@ -2,16 +2,16 @@ kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: gotify
 version: 13.0.3
-appVersion: 2.2.4
+appVersion: 2.4.0
 description: A simple server for sending and receiving messages.
 home: https://truecharts.org/charts/incubator/gotify
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/gotify.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/gotify
-  - https://github.com/truecharts/containers/tree/master/mirrorgotify-server
   - https://github.com/gotify/server
   - https://gotify.net/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/gotify
+  - https://hub.docker.com/r/gotify/server
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
