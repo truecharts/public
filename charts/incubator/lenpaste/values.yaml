@@ -18,7 +18,7 @@ service:
     ports:
       main:
         port: 10326
-        protocol: HTTP
+        protocol: http
 workload:
   main:
     podSpec:

@@ -25,7 +25,7 @@ service:
     ports:
       main:
         port: 10610
-        protocol: HTTP
+        protocol: http
         targetPort: 8080
   rtmp:
     enabled: true
@@ -33,7 +33,7 @@ service:
       rtmp:
         enabled: true
         port: 1935
-        protocol: TCP
+        protocol: tcp
         targetPort: 1935
 workload:
   main:

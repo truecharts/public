@@ -19,7 +19,7 @@ service:
     ports:
       main:
         port: 6567
-        protocol: TCP
+        protocol: tcp
         targetPort: 6567
   udpgameport:
     enabled: true
@@ -27,7 +27,7 @@ service:
       udpgameport:
         enabled: true
         port: 6567
-        protocol: UDP
+        protocol: udp
         targetPort: 6567
 workload:
   main:

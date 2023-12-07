@@ -395,13 +395,13 @@ service:
       joex:
         enabled: true
         port: 10321
-        protocol: HTTP
+        protocol: http
     type: ClusterIP
   main:
     ports:
       main:
         port: 10320
-        protocol: HTTP
+        protocol: http
 solr:
   enabled: true
   existingSecret: solrcreds
@@ -418,10 +418,10 @@ workload:
           probes:
             liveness:
               path: /api/info/version
-              type: HTTP
+              type: http
             readiness:
               path: /api/info/version
-              type: HTTP
+              type: http
             startup:
               path: /api/info/version
-              type: HTTP
+              type: http

@@ -16,7 +16,7 @@ service:
     ports:
       main:
         port: 5037
-        protocol: TCP
+        protocol: tcp
         targetPort: 5037
 workload:
   main:

@@ -19,7 +19,7 @@ service:
     ports:
       main:
         port: 8332
-        protocol: TCP
+        protocol: tcp
         targetPort: 8332
   port2:
     enabled: true
@@ -27,5 +27,5 @@ service:
       port2:
         enabled: true
         port: 8333
-        protocol: TCP
+        protocol: tcp
         targetPort: 8333

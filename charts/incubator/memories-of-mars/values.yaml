@@ -24,13 +24,13 @@ service:
       beaconport:
         enabled: true
         port: 15000
-        protocol: UDP
+        protocol: udp
         targetPort: 15000
   main:
     ports:
       main:
         port: 7777
-        protocol: UDP
+        protocol: udp
         targetPort: 7777
 workload:
   main:

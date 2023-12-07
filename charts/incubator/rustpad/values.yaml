@@ -19,7 +19,7 @@ service:
     ports:
       main:
         port: 3030
-        protocol: TCP
+        protocol: tcp
         targetPort: 3030
 workload:
   main:

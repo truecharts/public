@@ -19,7 +19,7 @@ service:
     ports:
       main:
         port: 5666
-        protocol: HTTP
+        protocol: http
         targetPort: 80
   tcpport1:
     enabled: true
@@ -27,7 +27,7 @@ service:
       tcpport1:
         enabled: true
         port: 5667
-        protocol: TCP
+        protocol: tcp
         targetPort: 443
 workload:
   main:

@@ -72,7 +72,7 @@ service:
     ports:
       main:
         port: 10150
-        protocol: HTTPS
+        protocol: https
 workload:
   main:
     podSpec:
@@ -97,18 +97,18 @@ workload:
                 httpGet:
                   path: /healthcheck
                   port: 10162
-                  scheme: HTTP
+                  scheme: http
             readiness:
               custom: true
               spec:
                 httpGet:
                   path: /healthcheck
                   port: 10162
-                  scheme: HTTP
+                  scheme: http
             startup:
               custom: true
               spec:
                 httpGet:
                   path: /healthcheck
                   port: 10162
-                  scheme: HTTP
+                  scheme: http

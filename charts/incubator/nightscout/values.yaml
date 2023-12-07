@@ -16,7 +16,7 @@ service:
     ports:
       main:
         port: 1337
-        protocol: TCP
+        protocol: tcp
         targetPort: 1337
 workload:
   main:
@@ -34,7 +34,7 @@ workload:
             ENABLE:
               delta direction upbat timeago devicestatus errorcodes ar2 simplealarms
               profile
-            INSECURE_USE_HTTP: "true"
+            INSECURE_USE_http: "true"
             MONGO_CONNECTION: mongodb://db-user:db-password@mongodb-instance:port/db-name
             THEME: colors
             TIME_FORMAT: "24"

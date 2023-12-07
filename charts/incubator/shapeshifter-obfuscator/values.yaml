@@ -19,7 +19,7 @@ service:
     ports:
       main:
         port: 2222
-        protocol: TCP
+        protocol: tcp
         targetPort: 2222
 workload:
   main:

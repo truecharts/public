@@ -20,7 +20,7 @@ service:
     ports:
       main:
         port: 8000
-        protocol: HTTP
+        protocol: http
         targetPort: 8000
 workload:
   main:

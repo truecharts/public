@@ -22,7 +22,7 @@ service:
     ports:
       main:
         port: 8384
-        protocol: TCP
+        protocol: tcp
         targetPort: 80
 workload:
   main:

@@ -20,7 +20,7 @@ service:
     ports:
       main:
         port: 10611
-        protocol: HTTP
+        protocol: http
         targetPort: 8090
 workload:
   main:

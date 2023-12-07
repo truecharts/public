@@ -19,7 +19,7 @@ service:
     ports:
       main:
         port: 10578
-        protocol: UDP
+        protocol: udp
         targetPort: 10578
 workload:
   main:

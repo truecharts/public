@@ -16,7 +16,7 @@ service:
     ports:
       main:
         port: 8084
-        protocol: TCP
+        protocol: tcp
         targetPort: 8000
 workload:
   main:
@@ -24,5 +24,5 @@ workload:
       containers:
         main:
           env:
-            REDIS_PORT_6379_TCP_ADDR: ""
-            REDIS_PORT_6379_TCP_PORT: ""
+            REDIS_PORT_6379_tcp_ADDR: ""
+            REDIS_PORT_6379_tcp_PORT: ""

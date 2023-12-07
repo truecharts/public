@@ -27,13 +27,13 @@ service:
       authentication:
         enabled: true
         port: 8766
-        protocol: UDP
+        protocol: udp
         targetPort: 8766
   main:
     ports:
       main:
         port: 10890
-        protocol: UDP
+        protocol: udp
         targetPort: 10890
   masterserver:
     enabled: true
@@ -41,7 +41,7 @@ service:
       masterserver:
         enabled: true
         port: 27016
-        protocol: UDP
+        protocol: udp
         targetPort: 27016
 workload:
   main:

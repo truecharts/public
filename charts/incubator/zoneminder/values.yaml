@@ -22,7 +22,7 @@ service:
     ports:
       main:
         port: 10292
-        protocol: HTTPS
+        protocol: https
         targetPort: 443
   zmninja:
     enabled: true
@@ -30,7 +30,7 @@ service:
       zmninja:
         enabled: true
         port: 10293
-        protocol: TCP
+        protocol: tcp
         targetPort: 9000
 workload:
   main:

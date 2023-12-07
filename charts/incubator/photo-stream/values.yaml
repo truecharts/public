@@ -19,7 +19,7 @@ service:
     ports:
       main:
         port: 4000
-        protocol: HTTP
+        protocol: http
         targetPort: 4000
 workload:
   main:

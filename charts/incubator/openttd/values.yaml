@@ -19,7 +19,7 @@ service:
     ports:
       main:
         port: 9015
-        protocol: HTTP
+        protocol: http
         targetPort: 8080
   tcpgameport:
     enabled: true
@@ -27,7 +27,7 @@ service:
       tcpgameport:
         enabled: true
         port: 3979
-        protocol: TCP
+        protocol: tcp
         targetPort: 3979
   udpgameport:
     enabled: true
@@ -35,7 +35,7 @@ service:
       udpgameport:
         enabled: true
         port: 3979
-        protocol: UDP
+        protocol: udp
         targetPort: 3979
 workload:
   main:

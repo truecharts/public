@@ -16,7 +16,7 @@ service:
     ports:
       main:
         port: 8000
-        protocol: TCP
+        protocol: tcp
         targetPort: 8000
 workload:
   main:

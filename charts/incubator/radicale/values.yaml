@@ -67,7 +67,7 @@ service:
     ports:
       main:
         port: 10255
-        protocol: HTTP
+        protocol: http
         targetPort: 5232
 workload:
   main:

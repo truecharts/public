@@ -26,7 +26,7 @@ service:
     ports:
       main:
         port: 5800
-        protocol: TCP
+        protocol: tcp
         targetPort: 5800
 workload:
   main:

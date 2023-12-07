@@ -33,7 +33,7 @@ service:
       voice:
         enabled: true
         port: 9987
-        protocol: UDP
+        protocol: udp
         targetPort: 9987
 workload:
   main:

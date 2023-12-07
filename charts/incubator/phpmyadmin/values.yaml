@@ -15,7 +15,7 @@ service:
     ports:
       main:
         port: 8080
-        protocol: HTTP
+        protocol: http
         targetPort: 80
 workload:
   main:

@@ -96,5 +96,5 @@ workload:
                 name: mariadbcreds
             DB_PORT: "3306"
             DB_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
-            FORCE_HTTPS: false
+            FORCE_https: false
             MEMORY_LIMIT: 2048

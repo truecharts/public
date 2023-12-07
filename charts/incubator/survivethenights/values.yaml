@@ -22,7 +22,7 @@ service:
     ports:
       main:
         port: 7950
-        protocol: UDP
+        protocol: udp
         targetPort: 7950
 workload:
   main:

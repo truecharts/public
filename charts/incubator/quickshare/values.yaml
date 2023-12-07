@@ -19,7 +19,7 @@ service:
     ports:
       main:
         port: 8686
-        protocol: TCP
+        protocol: tcp
         targetPort: 8686
 workload:
   main:

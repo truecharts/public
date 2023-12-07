@@ -22,7 +22,7 @@ service:
     ports:
       main:
         port: 2302
-        protocol: UDP
+        protocol: udp
         targetPort: 2302
   steamqueryport:
     enabled: true
@@ -30,7 +30,7 @@ service:
       steamqueryport:
         enabled: true
         port: 27016
-        protocol: UDP
+        protocol: udp
         targetPort: 27016
 workload:
   main:

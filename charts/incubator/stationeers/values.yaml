@@ -24,13 +24,13 @@ service:
       gameport:
         enabled: true
         port: 27500
-        protocol: UDP
+        protocol: udp
         targetPort: 27500
   main:
     ports:
       main:
         port: 27015
-        protocol: UDP
+        protocol: udp
         targetPort: 27015
 workload:
   main:
