@@ -10,7 +10,8 @@ persistence:
     enabled: true
     mountPath: /vaults
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -33,5 +34,5 @@ service:
     ports:
       main:
         port: 10292
-        protocol: HTTP
+        protocol: http
         targetPort: 8080

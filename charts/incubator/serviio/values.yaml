@@ -16,7 +16,8 @@ persistence:
     enabled: true
     mountPath: /media/serviio
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -30,7 +31,7 @@ service:
       hostport2:
         enabled: true
         port: 8895
-        protocol: TCP
+        protocol: tcp
         targetPort: 8895
   hostport3:
     enabled: true
@@ -38,7 +39,7 @@ service:
       hostport3:
         enabled: true
         port: 23523
-        protocol: TCP
+        protocol: tcp
         targetPort: 23523
   hostport5:
     enabled: true
@@ -46,7 +47,7 @@ service:
       hostport5:
         enabled: true
         port: 23424
-        protocol: TCP
+        protocol: tcp
         targetPort: 23424
   hostport6:
     enabled: true
@@ -54,11 +55,11 @@ service:
       hostport6:
         enabled: true
         port: 23524
-        protocol: TCP
+        protocol: tcp
         targetPort: 23524
   main:
     ports:
       main:
         port: 23423
-        protocol: HTTP
+        protocol: http
         targetPort: 23423

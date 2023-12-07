@@ -4,7 +4,6 @@ image:
   tag: v6.2.3@sha256:f95f136b8f805626736371283059d6a14f662a533fbba5396458bda5f443f6fd
 mariadb:
   enabled: true
-  existingSecret: mariadbcreds
   mariadbDatabase: snipe-it
   mariadbUsername: snipe-it
 persistence:
@@ -18,7 +17,8 @@ persistence:
     enabled: true
     mountPath: /var/www/html/storage/logs
 portal:
-  enabled: true
+  open:
+    enabled: true
 redis:
   enabled: true
   existingSecret: rediscreds
@@ -57,12 +57,14 @@ workload:
             DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
             DB_HOST:
               secretKeyRef:
-                key: plainhost
-                name: mariadbcreds
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: plainporthost
             DB_PASSWORD:
               secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: mariadb-password
-                name: mariadbcreds
             DB_PORT: "3306"
             DB_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
             ENCRYPT: false
@@ -75,12 +77,14 @@ workload:
             QUEUE_DRIVER: redis
             REDIS_HOST:
               secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: plainhost
-                name: rediscreds
             REDIS_PASSWORD:
               secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: redis-password
-                name: rediscreds
             REDIS_PORT: "6379"
             SECURE_COOKIES: false
             SESSION_DRIVER: redis

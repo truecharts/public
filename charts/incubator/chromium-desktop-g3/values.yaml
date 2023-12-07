@@ -7,7 +7,8 @@ persistence:
     enabled: true
     mountPath: /UNRAID_SHARE
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -19,7 +20,7 @@ service:
     ports:
       main:
         port: 6901
-        protocol: HTTP
+        protocol: http
         targetPort: 6901
   webuivnc:
     enabled: true
@@ -27,7 +28,7 @@ service:
       webuivnc:
         enabled: true
         port: 5901
-        protocol: TCP
+        protocol: tcp
         targetPort: 5901
 workload:
   main:

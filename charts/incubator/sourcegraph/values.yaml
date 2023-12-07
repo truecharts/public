@@ -10,7 +10,8 @@ persistence:
     enabled: true
     mountPath: /etc/sourcegraph
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -24,7 +25,7 @@ service:
       adminconsolepo:
         enabled: true
         port: 2633
-        protocol: TCP
+        protocol: tcp
         targetPort: 2633
   grafanaport:
     enabled: true
@@ -32,11 +33,11 @@ service:
       grafanaport:
         enabled: true
         port: 3370
-        protocol: TCP
+        protocol: tcp
         targetPort: 3370
   main:
     ports:
       main:
         port: 7080
-        protocol: HTTP
+        protocol: http
         targetPort: 7080

@@ -10,7 +10,8 @@ persistence:
     enabled: true
     mountPath: /var/lib/dav/data
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -22,7 +23,7 @@ service:
     ports:
       main:
         port: 8384
-        protocol: TCP
+        protocol: tcp
         targetPort: 80
 workload:
   main:

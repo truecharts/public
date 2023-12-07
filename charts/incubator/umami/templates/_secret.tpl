@@ -1,18 +1,8 @@
 {{/* Define the secret */}}
 {{- define "umami.secret" -}}
 
-{{- $secretName := printf "%s-secret" (include "tc.common.names.fullname" .) }}
+{{- $secretName := (printf "%s-umami-secret" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
 
----
-
-{{/* This secrets are loaded on both main authentik container and worker */}}
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: {{ $secretName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
 data:
   {{/* Secret Key */}}
   {{- with (lookup "v1" "Secret" .Release.Namespace $secretName) }}

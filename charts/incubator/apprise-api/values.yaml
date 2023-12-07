@@ -7,7 +7,8 @@ persistence:
     enabled: true
     mountPath: /config
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -20,7 +21,7 @@ service:
     ports:
       main:
         port: 8000
-        protocol: HTTP
+        protocol: http
         targetPort: 8000
 workload:
   main:

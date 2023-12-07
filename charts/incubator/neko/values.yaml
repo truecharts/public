@@ -20,7 +20,8 @@ image:
   tag: firefox@sha256:f419f71b40c6c1f03cda16de4f2c0f467a577a14d4d7e889e9858161ea0209ad
 imageSelector: image
 portal:
-  enabled: true
+  open:
+    enabled: true
 remminaImage:
   pullPolicy: IfNotPresent
   repository: m1k1o/neko
@@ -36,7 +37,7 @@ service:
     ports:
       main:
         port: 10294
-        protocol: HTTP
+        protocol: http
         targetPort: 8080
   mux-tcp:
     enabled: true
@@ -44,7 +45,7 @@ service:
       mux-tcp:
         enabled: true
         port: 52100
-        protocol: TCP
+        protocol: tcp
         targetPort: 52100
   mux-udp:
     enabled: true
@@ -52,7 +53,7 @@ service:
       mux-udp:
         enabled: true
         port: 52100
-        protocol: UDP
+        protocol: udp
         targetPort: 52100
 torImage:
   pullPolicy: IfNotPresent
@@ -85,8 +86,8 @@ workload:
             NEKO_PASSWORD_ADMIN: adminpass
             NEKO_PROXY: "true"
             NEKO_SCREEN: 1920x1080@30
-            NEKO_TCPMUX: "52100"
-            NEKO_UDPMUX: "52100"
+            NEKO_tcpMUX: "52100"
+            NEKO_udpMUX: "52100"
 xfceImage:
   pullPolicy: IfNotPresent
   repository: m1k1o/neko

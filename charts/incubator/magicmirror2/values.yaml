@@ -18,7 +18,8 @@ persistence:
     subPath: config.js
     type: configMap
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -30,7 +31,7 @@ service:
     ports:
       main:
         port: 10590
-        protocol: HTTP
+        protocol: http
         targetPort: 10000
 workload:
   main:
@@ -43,10 +44,10 @@ workload:
           probes:
             liveness:
               path: /
-              type: HTTP
+              type: http
             readiness:
               path: /
-              type: HTTP
+              type: http
             startup:
               path: /
-              type: HTTP
+              type: http

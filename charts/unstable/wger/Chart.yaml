@@ -1,23 +1,26 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: ">=1.24.0"
 apiVersion: v2
-name: netbox
-version: 4.0.0
-appVersion: 3.6.5
-description: NetBox is the leading solution for modeling and documenting modern networks.
-home: https://truecharts.org/charts/incubator/netbox
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/netbox.png
+name: wger
+version: 6.0.1
+appVersion: latest
+description:
+  Workout Manager is a free, open source web application that helps you
+  manage your personal workouts, weight and diet plans and can also be used as a simple
+  gym management utility.
+home: https://truecharts.org/charts/incubator/wger
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/wger.png
 deprecated: false
 sources:
-  - https://github.com/netbox-community/netbox-docker
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/netbox
-  - https://hub.docker.com/r/netboxcommunity/netbox
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/wger
+  - https://hub.docker.com/r/wger/server
+  - https://github.com/wger-project/docker
+  - https://github.com/wger-project/wger
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 keywords:
-  - network
-  - netbox
+  - workout
 dependencies:
   - name: common
     version: 16.0.0
@@ -44,8 +47,7 @@ annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4
   truecharts.org/SCALE-support: "true"
-  truecharts.org/category: network
+  truecharts.org/category: life
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
-type: application
+  truecharts.org/train: unstable

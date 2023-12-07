@@ -8,7 +8,8 @@ persistence:
     mountPath: /opt/log
     readOnly: true
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -20,7 +21,7 @@ service:
     ports:
       main:
         port: 7880
-        protocol: TCP
+        protocol: tcp
         targetPort: 7880
 workload:
   main:

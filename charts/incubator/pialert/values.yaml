@@ -44,7 +44,7 @@ persistence:
   pialert-config:
     enabled: true
     noMount: true
-    objectName: '{{ template "tc.common.names.fullname" . }}-secret'
+    objectName: pialert-secret
     type: secret
 pialert:
   apprise:
@@ -111,7 +111,8 @@ pialert:
     payload: json
     url: ""
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -123,13 +124,13 @@ service:
     ports:
       main:
         port: 10600
-        protocol: HTTP
+        protocol: http
 workload:
   main:
     podSpec:
       containers:
         main:
           env:
-            HOST_USER_GID: "{{ .Values.podSecurityContext.fsGroup }}"
-            HOST_USER_ID: "{{ .Values.podSecurityContext.runAsUser }}"
+            HOST_USER_GID: "{{ .Values.securityContext.pod.fsGroup }}"
+            HOST_USER_ID: "{{ .Values.securityContext.container.runAsUser }}"
             PORT: "{{ .Values.service.main.ports.main.port }}"

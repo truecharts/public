@@ -28,7 +28,8 @@ persistence:
     enabled: true
     mountPath: /trash
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false

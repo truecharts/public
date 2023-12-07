@@ -17,7 +17,8 @@ persistence:
     enabled: true
     mountPath: /app/data/tmp
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -29,5 +30,5 @@ service:
     ports:
       main:
         port: 80
-        protocol: TCP
+        protocol: tcp
         targetPort: 80

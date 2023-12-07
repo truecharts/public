@@ -23,7 +23,8 @@ persistence:
     enabled: true
     mountPath: /app/pasta_data
 portal:
-  enabled: true
+  open:
+    enabled: true
 service:
   main:
     ports:

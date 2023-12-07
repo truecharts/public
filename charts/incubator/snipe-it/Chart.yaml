@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: snipe-it
-version: 9.0.0
+version: 9.0.1
 appVersion: 6.2.3
 description: Open source asset management
 home: https://truecharts.org/charts/incubator/snipe-it
@@ -30,14 +30,14 @@ dependencies:
     tags: []
     import-values: []
   - name: mariadb
-    version: 5.0.35
+    version: 7.0.70
     repository: https://deps.truecharts.org/
     condition: mariadb.enabled
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 5.0.33
+    version: 6.0.66
     repository: https://deps.truecharts.org
     condition: redis.enabled
     alias: ""

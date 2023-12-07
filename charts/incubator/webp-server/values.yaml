@@ -11,7 +11,8 @@ persistence:
     mountPath: /opt/pics
     readOnly: true
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -23,7 +24,7 @@ service:
     ports:
       main:
         port: 3333
-        protocol: TCP
+        protocol: tcp
         targetPort: 3333
 workload:
   main:

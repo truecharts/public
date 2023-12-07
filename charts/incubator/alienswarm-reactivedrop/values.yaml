@@ -10,7 +10,8 @@ persistence:
     enabled: true
     mountPath: /serverdata/steamcmd
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -22,7 +23,7 @@ service:
     ports:
       main:
         port: 27015
-        protocol: UDP
+        protocol: udp
         targetPort: 27015
   tcprconport:
     enabled: true
@@ -30,7 +31,7 @@ service:
       tcprconport:
         enabled: true
         port: 27015
-        protocol: TCP
+        protocol: tcp
         targetPort: 27015
 workload:
   main:

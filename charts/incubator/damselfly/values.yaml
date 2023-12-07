@@ -13,7 +13,8 @@ persistence:
     enabled: true
     mountPath: /thumbs
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -25,5 +26,5 @@ service:
     ports:
       main:
         port: 6363
-        protocol: TCP
+        protocol: tcp
         targetPort: 6363

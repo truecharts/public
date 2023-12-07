@@ -7,7 +7,8 @@ persistence:
     enabled: true
     mountPath: /config
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -21,11 +22,11 @@ service:
       hostport2:
         enabled: true
         port: 5533
-        protocol: TCP
+        protocol: tcp
         targetPort: 443
   main:
     ports:
       main:
         port: 7755
-        protocol: TCP
+        protocol: tcp
         targetPort: 80

@@ -13,7 +13,8 @@ persistence:
     enabled: true
     mountPath: /home/suwayomi/.local/share/Tachidesk/local
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -25,5 +26,5 @@ service:
     ports:
       main:
         port: 4567
-        protocol: TCP
+        protocol: tcp
         targetPort: 4567

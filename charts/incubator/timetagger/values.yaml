@@ -7,7 +7,8 @@ persistence:
     enabled: true
     mountPath: /root/_timetagger
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -27,7 +28,7 @@ workload:
           env:
             TIMETAGGER_BIND: 0.0.0.0:{{ .Values.service.main.ports.main.port }}
             TIMETAGGER_CREDENTIALS:
-              "{{ htpasswd .Values.secretEnv.tg_user .Values.secretEnv.tg_pass
+              "{{ htpasswd .Values.workload.main.podSpec.containers.main.env.tg_user .Values.workload.main.podSpec.containers.main.env.tg_pass
               }}"
             TIMETAGGER_LOG_LEVEL: info
             tg_pass: changeme
