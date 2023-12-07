@@ -1,9 +1,3 @@
-env:
-  CUSTOM_RES_H: "768"
-  CUSTOM_RES_W: "1280"
-  DATA_PERM: "770"
-  THUNDERBIRD_LANG: en-US
-  THUNDERBIRD_V: latest
 image:
   pullPolicy: IfNotPresent
   repository: ich777/thunderbird
@@ -26,3 +20,14 @@ service:
       main:
         port: 10291
         targetPort: 8080
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            CUSTOM_RES_H: "768"
+            CUSTOM_RES_W: "1280"
+            DATA_PERM: "770"
+            THUNDERBIRD_LANG: en-US
+            THUNDERBIRD_V: latest

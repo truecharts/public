@@ -1,5 +1,3 @@
-env:
-  EXTRA_JAVA_OPTIONS: -Xms512m -Xmx4g
 image:
   pullPolicy: IfNotPresent
   repository: docker.bintray.io/jfrog/artifactory-oss
@@ -23,3 +21,10 @@ service:
         port: 8181
         protocol: TCP
         targetPort: 8081
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            EXTRA_JAVA_OPTIONS: -Xms512m -Xmx4g

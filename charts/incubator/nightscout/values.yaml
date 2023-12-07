@@ -1,16 +1,3 @@
-env:
-  API_SECRET: ""
-  BASE_URL: ""
-  BG_HIGH: ""
-  BG_LOW: ""
-  BG_TARGET_BOTTOM: ""
-  BG_TARGET_TOP: ""
-  DISPLAY_UNITS: ""
-  ENABLE: delta direction upbat timeago devicestatus errorcodes ar2 simplealarms profile
-  INSECURE_USE_HTTP: "true"
-  MONGO_CONNECTION: mongodb://db-user:db-password@mongodb-instance:port/db-name
-  THEME: colors
-  TIME_FORMAT: "24"
 image:
   pullPolicy: IfNotPresent
   repository: nightscout/cgm-remote-monitor-travis
@@ -31,3 +18,23 @@ service:
         port: 1337
         protocol: TCP
         targetPort: 1337
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            API_SECRET: ""
+            BASE_URL: ""
+            BG_HIGH: ""
+            BG_LOW: ""
+            BG_TARGET_BOTTOM: ""
+            BG_TARGET_TOP: ""
+            DISPLAY_UNITS: ""
+            ENABLE:
+              delta direction upbat timeago devicestatus errorcodes ar2 simplealarms
+              profile
+            INSECURE_USE_HTTP: "true"
+            MONGO_CONNECTION: mongodb://db-user:db-password@mongodb-instance:port/db-name
+            THEME: colors
+            TIME_FORMAT: "24"

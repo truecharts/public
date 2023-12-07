@@ -1,7 +1,3 @@
-env:
-  COMMUNITY_NAME: myslackteam
-  SLACK_TOKEN: Enter YOur slack token here
-  SLACK_URL: myslackteam.slack.com
 image:
   pullPolicy: IfNotPresent
   repository: ninthwalker/slack-invite
@@ -22,3 +18,12 @@ service:
         port: 7879
         protocol: TCP
         targetPort: 7879
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            COMMUNITY_NAME: myslackteam
+            SLACK_TOKEN: Enter YOur slack token here
+            SLACK_URL: myslackteam.slack.com

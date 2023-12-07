@@ -1,10 +1,3 @@
-env:
-  GALAXY_NAME: AvorionDocker
-  GAME_ID: "565060"
-  GAME_PARAMS: ""
-  PASSWRD: ""
-  USERNAME: ""
-  VALIDATE: "false"
 image:
   pullPolicy: IfNotPresent
   repository: ich777/steamcmd
@@ -72,3 +65,15 @@ service:
         targetPort: 27000
 stdin: true
 tty: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GALAXY_NAME: AvorionDocker
+            GAME_ID: "565060"
+            GAME_PARAMS: ""
+            PASSWRD: ""
+            USERNAME: ""
+            VALIDATE: "false"

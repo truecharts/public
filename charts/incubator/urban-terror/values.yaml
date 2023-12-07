@@ -1,7 +1,3 @@
-env:
-  CHECK_FOR_UPDATES: "true"
-  START_PARAMS: ""
-  UMASK: "000"
 image:
   pullPolicy: IfNotPresent
   repository: ich777/urbanterror
@@ -32,3 +28,12 @@ service:
         port: 27960
         protocol: UDP
         targetPort: 27960
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            CHECK_FOR_UPDATES: "true"
+            START_PARAMS: ""
+            UMASK: "000"

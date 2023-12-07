@@ -1,6 +1,3 @@
-env:
-  LOG_LEVEL: info
-  UMASK: "000"
 image:
   pullPolicy: IfNotPresent
   repository: ghcr.io/diamkil/socials
@@ -24,3 +21,11 @@ service:
         port: 7574
         protocol: TCP
         targetPort: 7574
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            LOG_LEVEL: info
+            UMASK: "000"

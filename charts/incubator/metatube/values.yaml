@@ -1,8 +1,3 @@
-env:
-  DEBUG: "False"
-  LOG: "False"
-  LOG_LEVEL: "10"
-  SOCKET_LOG: "False"
 image:
   pullPolicy: IfNotPresent
   repository: jvt038/metatube
@@ -29,3 +24,13 @@ service:
         port: 5000
         protocol: TCP
         targetPort: 5000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DEBUG: "False"
+            LOG: "False"
+            LOG_LEVEL: "10"
+            SOCKET_LOG: "False"

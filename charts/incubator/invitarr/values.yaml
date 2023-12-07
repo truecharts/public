@@ -1,5 +1,3 @@
-env:
-  token: ""
 image:
   pullPolicy: IfNotPresent
   repository: piratify/invitarr
@@ -29,3 +27,10 @@ service:
     ports:
       main:
         enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            token: ""

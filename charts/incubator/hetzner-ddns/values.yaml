@@ -1,7 +1,3 @@
-env:
-  API_TOKEN: my-secret-api-token
-  RECORD_TYPE: A
-  ZONE_NAME: example.com
 image:
   pullPolicy: IfNotPresent
   repository: kutzilla/hetzner-ddns
@@ -28,3 +24,12 @@ service:
     ports:
       main:
         enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            API_TOKEN: my-secret-api-token
+            RECORD_TYPE: A
+            ZONE_NAME: example.com

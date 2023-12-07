@@ -1,9 +1,3 @@
-env:
-  ACCESS_KEY: Your AWS Access key
-  CRON_SCHEDULE: 0 * * * *
-  S3CMDPARAMS: ""
-  S3PATH: s3://mybucket/
-  SECRET_KEY: Your AWS Access secret
 image:
   pullPolicy: IfNotPresent
   repository: joch/s3backup
@@ -30,3 +24,14 @@ service:
     ports:
       main:
         enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            ACCESS_KEY: Your AWS Access key
+            CRON_SCHEDULE: 0 * * * *
+            S3CMDPARAMS: ""
+            S3PATH: s3://mybucket/
+            SECRET_KEY: Your AWS Access secret

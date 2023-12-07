@@ -1,6 +1,3 @@
-env:
-  GUAC_PASS: ""
-  GUAC_USER: ""
 image:
   pullPolicy: IfNotPresent
   repository: bobbintb/docker-rmlint-unraid
@@ -27,3 +24,11 @@ service:
         port: 8322
         protocol: TCP
         targetPort: 8080
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GUAC_PASS: ""
+            GUAC_USER: ""

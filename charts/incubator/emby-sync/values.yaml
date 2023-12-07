@@ -1,7 +1,3 @@
-env:
-  DEFAULT_ROOM: ""
-  EMBY_SERVER: ""
-  SECRET_KEY: ""
 image:
   pullPolicy: IfNotPresent
   repository: lastelement21/emby-sync
@@ -22,3 +18,12 @@ service:
         port: 5000
         protocol: TCP
         targetPort: 5000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DEFAULT_ROOM: ""
+            EMBY_SERVER: ""
+            SECRET_KEY: ""

@@ -1,14 +1,3 @@
-env:
-  ADDITIONAL: "--no-color "
-  COIN: monero
-  DONATE: "1"
-  DRIVERV: ""
-  FEE: lnxd-fee
-  NVIDIA_DRIVER_CAPABILITIES: all
-  NVIDIA_VISIBLE_DEVICES: ""
-  POOL: xmr-au1.nanopool.org:14444
-  WALLET: 84e8UJvXHDGVfE5HZDQfhn3Kh3RGJKebz31G7D4H24TLPMe9x7bQLBw8iyBhNx9USXB8MhvhBe3DyVW1LcuVAf4jBiADNLw
-  WORKER: Unraid
 image:
   pullPolicy: IfNotPresent
   repository: lnxd/xmrig
@@ -35,3 +24,19 @@ service:
     ports:
       main:
         enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            ADDITIONAL: "--no-color "
+            COIN: monero
+            DONATE: "1"
+            DRIVERV: ""
+            FEE: lnxd-fee
+            NVIDIA_DRIVER_CAPABILITIES: all
+            NVIDIA_VISIBLE_DEVICES: ""
+            POOL: xmr-au1.nanopool.org:14444
+            WALLET: 84e8UJvXHDGVfE5HZDQfhn3Kh3RGJKebz31G7D4H24TLPMe9x7bQLBw8iyBhNx9USXB8MhvhBe3DyVW1LcuVAf4jBiADNLw
+            WORKER: Unraid

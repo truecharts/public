@@ -1,13 +1,3 @@
-env:
-  CELLS_BIND: 0.0.0.0:{{ .Values.service.main.ports.main.port }}
-  CELLS_DATA_DIR: /cells/data
-  CELLS_EXTERNAL: ""
-  CELLS_GRPC_EXTERNAL: "{{ .Values.service.gprc.ports.gprc.port }}"
-  CELLS_HEALTHCHECK: "{{ .Values.service.healthcheck.ports.healthcheck.port }}"
-  CELLS_INSTALL_YAML: /cells/install.yml
-  CELLS_LOG_DIR: /cells/logs
-  CELLS_SERVICES_DIR: /cells/services
-  CELLS_WORKING_DIR: /cells
 configmap:
   install:
     data:
@@ -105,3 +95,20 @@ service:
       main:
         port: 10150
         protocol: HTTPS
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            CELLS_BIND: 0.0.0.0:{{ .Values.service.main.ports.main.port }}
+            CELLS_DATA_DIR: /cells/data
+            CELLS_EXTERNAL: ""
+            CELLS_GRPC_EXTERNAL: "{{ .Values.service.gprc.ports.gprc.port }}"
+            CELLS_HEALTHCHECK:
+              "{{ .Values.service.healthcheck.ports.healthcheck.port
+              }}"
+            CELLS_INSTALL_YAML: /cells/install.yml
+            CELLS_LOG_DIR: /cells/logs
+            CELLS_SERVICES_DIR: /cells/services
+            CELLS_WORKING_DIR: /cells

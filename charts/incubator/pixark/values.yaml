@@ -1,16 +1,3 @@
-env:
-  GAME_ID: "824360"
-  GAME_PARAMS: ?MaxPlayers=10
-  GAME_PARAMS_EXTRA:
-    -QueryPort=27016 -Port=27015 -CubePort=27018 -NoBattlEye -nosteamclient
-    -game -server -log
-  MAP: CubeWorld_Light
-  PASSWRD: ""
-  SERVER_NAME: PIXARKDocker
-  SRV_ADMIN_PWD: adminDocker
-  SRV_PWD: Docker
-  USERNAME: ""
-  VALIDATE: "false"
 image:
   pullPolicy: IfNotPresent
   repository: ich777/steamcmd
@@ -60,3 +47,21 @@ service:
         port: 27016
         protocol: UDP
         targetPort: 27016
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GAME_ID: "824360"
+            GAME_PARAMS: ?MaxPlayers=10
+            GAME_PARAMS_EXTRA:
+              -QueryPort=27016 -Port=27015 -CubePort=27018 -NoBattlEye
+              -nosteamclient -game -server -log
+            MAP: CubeWorld_Light
+            PASSWRD: ""
+            SERVER_NAME: PIXARKDocker
+            SRV_ADMIN_PWD: adminDocker
+            SRV_PWD: Docker
+            USERNAME: ""
+            VALIDATE: "false"

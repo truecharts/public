@@ -1,6 +1,3 @@
-env:
-  APPFILE: /game.exe
-  APPPATH: /games
 image:
   pullPolicy: IfNotPresent
   repository: ghcr.io/wanjohiryan/qwantify
@@ -24,3 +21,11 @@ service:
         port: 10603
         protocol: HTTP
         targetPort: 8080
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            APPFILE: /game.exe
+            APPPATH: /games

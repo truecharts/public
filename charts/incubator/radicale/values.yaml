@@ -1,5 +1,3 @@
-env:
-  TAKE_FILE_OWNERSHIP: "false"
 image:
   pullPolicy: IfNotPresent
   repository: tomsquest/docker-radicale
@@ -70,3 +68,10 @@ service:
         port: 10255
         protocol: HTTP
         targetPort: 5232
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            TAKE_FILE_OWNERSHIP: "false"

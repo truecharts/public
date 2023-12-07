@@ -1,5 +1,3 @@
-env:
-  HOSTS: "['qemu:///system']"
 image:
   pullPolicy: IfNotPresent
   repository: mber5/virt-manager
@@ -32,3 +30,10 @@ service:
         port: 8185
         protocol: TCP
         targetPort: 80
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            HOSTS: "['qemu:///system']"

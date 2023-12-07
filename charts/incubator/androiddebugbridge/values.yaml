@@ -1,7 +1,3 @@
-env:
-  bootwait: "10"
-  checkfreq: "30"
-  devicelist: 10.0.0.192:5555
 image:
   pullPolicy: IfNotPresent
   repository: barnybbb/adb-hass-androidtv
@@ -22,3 +18,12 @@ service:
         port: 5037
         protocol: TCP
         targetPort: 5037
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            bootwait: "10"
+            checkfreq: "30"
+            devicelist: 10.0.0.192:5555

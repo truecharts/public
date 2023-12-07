@@ -1,5 +1,3 @@
-env:
-  TS3SERVER_LICENSE: accept
 image:
   pullPolicy: IfNotPresent
   repository: teamspeak
@@ -37,3 +35,10 @@ service:
         port: 9987
         protocol: UDP
         targetPort: 9987
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            TS3SERVER_LICENSE: accept

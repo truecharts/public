@@ -1,6 +1,3 @@
-env:
-  VNC_PW: vncpassword
-  VNC_RESOLUTION: 1920x1080
 image:
   pullPolicy: IfNotPresent
   repository: sublivion/gridcoinwalletgui
@@ -35,3 +32,11 @@ service:
         port: 5901
         protocol: TCP
         targetPort: 5901
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            VNC_PW: vncpassword
+            VNC_RESOLUTION: 1920x1080

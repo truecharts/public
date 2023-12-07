@@ -1,5 +1,3 @@
-env:
-  MONGO_URL: ""
 image:
   pullPolicy: IfNotPresent
   repository: mongoclient/mongoclient
@@ -23,3 +21,10 @@ service:
         port: 3000
         protocol: TCP
         targetPort: 3000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            MONGO_URL: ""

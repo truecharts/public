@@ -1,7 +1,3 @@
-env:
-  EULA: "false"
-  JVM_OPTS: -Xms6144m -Xmx8192m
-  OPS: ""
 image:
   pullPolicy: IfNotPresent
   repository: goobaroo/vaulthunters
@@ -25,3 +21,12 @@ service:
         port: 25565
         protocol: TCP
         targetPort: 25565
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            EULA: "false"
+            JVM_OPTS: -Xms6144m -Xmx8192m
+            OPS: ""

@@ -1,6 +1,3 @@
-env:
-  FLOOD_AUTH: ""
-  UMASK: ""
 image:
   pullPolicy: IfNotPresent
   repository: cr.hotio.dev/hotio/qflood
@@ -32,3 +29,11 @@ service:
         port: 3000
         protocol: HTTP
         targetPort: 3000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            FLOOD_AUTH: ""
+            UMASK: ""

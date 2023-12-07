@@ -1,6 +1,3 @@
-env:
-  DEFAULTADMIN: admin
-  DEFAULTADMINPWD: "1234"
 image:
   pullPolicy: IfNotPresent
   repository: hexxa/quickshare
@@ -24,3 +21,11 @@ service:
         port: 8686
         protocol: TCP
         targetPort: 8686
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DEFAULTADMIN: admin
+            DEFAULTADMINPWD: "1234"

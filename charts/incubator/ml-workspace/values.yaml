@@ -1,16 +1,3 @@
-env:
-  AUTHENTICATE_VIA_JUPYTER: mytoken
-  CONFIG_BACKUP_ENABLED: "true"
-  INCLUDE_TUTORIALS: "true"
-  MAX_NUM_THREADS: auto
-  NOTEBOOK_ARGS: ""
-  SHARED_LINKS_ENABLED: "false"
-  SHUTDOWN_INACTIVE_KERNELS: "false"
-  WORKSPACE_AUTH_PASSWORD: password
-  WORKSPACE_AUTH_USER: admin
-  WORKSPACE_BASE_URL: /
-  WORKSPACE_PORT: "{{ .Values.service.main.ports.main.port }}"
-  WORKSPACE_SSL_ENABLED: "false"
 gpuImage:
   pullPolicy: IfNotPresent
   repository: mltooling/ml-workspace-gpu
@@ -58,3 +45,21 @@ sparkImage:
   pullPolicy: IfNotPresent
   repository: mltooling/ml-workspace-spark
   tag: 0.12.1@sha256:c04bc8eb48bac6c36f8c45ce8b00ce312fed37089adcc71b34faf6c685b1ef24
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            AUTHENTICATE_VIA_JUPYTER: mytoken
+            CONFIG_BACKUP_ENABLED: "true"
+            INCLUDE_TUTORIALS: "true"
+            MAX_NUM_THREADS: auto
+            NOTEBOOK_ARGS: ""
+            SHARED_LINKS_ENABLED: "false"
+            SHUTDOWN_INACTIVE_KERNELS: "false"
+            WORKSPACE_AUTH_PASSWORD: password
+            WORKSPACE_AUTH_USER: admin
+            WORKSPACE_BASE_URL: /
+            WORKSPACE_PORT: "{{ .Values.service.main.ports.main.port }}"
+            WORKSPACE_SSL_ENABLED: "false"

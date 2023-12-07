@@ -1,6 +1,3 @@
-env:
-  ENABLE_RESET_LOG: "true"
-  SETUP_MODE: manual
 image:
   pullPolicy: IfNotPresent
   repository: tiredofit/self-service-password
@@ -26,3 +23,11 @@ service:
       main:
         port: 10182
         targetPort: 80
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            ENABLE_RESET_LOG: "true"
+            SETUP_MODE: manual

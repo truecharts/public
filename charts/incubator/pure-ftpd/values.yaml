@@ -1,7 +1,3 @@
-env:
-  AUTH_METHOD: puredb
-  PASSIVE_PORT_RANGE: 30000:30009
-  SECURE_MODE: "true"
 image:
   pullPolicy: IfNotPresent
   repository: crazymax/pure-ftpd
@@ -36,3 +32,12 @@ service:
         port: 30000
         protocol: TCP
         targetPort: 30000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            AUTH_METHOD: puredb
+            PASSIVE_PORT_RANGE: 30000:30009
+            SECURE_MODE: "true"

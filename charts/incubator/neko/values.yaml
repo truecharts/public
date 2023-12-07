@@ -1,15 +1,3 @@
-env:
-  NEKO_CONTROL_PROTECTION: "false"
-  NEKO_IMPLICIT_CONTROL: "false"
-  NEKO_IPFETCH: ""
-  NEKO_LOCKS: ""
-  NEKO_NAT1TO1: ""
-  NEKO_PASSWORD: userpass
-  NEKO_PASSWORD_ADMIN: adminpass
-  NEKO_PROXY: "true"
-  NEKO_SCREEN: 1920x1080@30
-  NEKO_TCPMUX: "52100"
-  NEKO_UDPMUX: "52100"
 braveImage:
   pullPolicy: IfNotPresent
   repository: m1k1o/neko
@@ -82,6 +70,23 @@ vncviewerImage:
   pullPolicy: IfNotPresent
   repository: m1k1o/neko
   tag: vncviewer@sha256:d6e961e5b15fc58639ac6b4eeb791c5b48c859e69d65d25c20ff92bf7c95b458
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            NEKO_CONTROL_PROTECTION: "false"
+            NEKO_IMPLICIT_CONTROL: "false"
+            NEKO_IPFETCH: ""
+            NEKO_LOCKS: ""
+            NEKO_NAT1TO1: ""
+            NEKO_PASSWORD: userpass
+            NEKO_PASSWORD_ADMIN: adminpass
+            NEKO_PROXY: "true"
+            NEKO_SCREEN: 1920x1080@30
+            NEKO_TCPMUX: "52100"
+            NEKO_UDPMUX: "52100"
 xfceImage:
   pullPolicy: IfNotPresent
   repository: m1k1o/neko

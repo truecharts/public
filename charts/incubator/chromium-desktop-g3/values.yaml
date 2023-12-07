@@ -1,6 +1,3 @@
-env:
-  VNC_PW: unraid
-  VNC_RESOLUTION: 1360x768
 image:
   pullPolicy: IfNotPresent
   repository: accetto/ubuntu-vnc-xfce-chromium-g3
@@ -32,3 +29,11 @@ service:
         port: 5901
         protocol: TCP
         targetPort: 5901
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            VNC_PW: unraid
+            VNC_RESOLUTION: 1360x768

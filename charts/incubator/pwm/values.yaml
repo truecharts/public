@@ -1,5 +1,3 @@
-env:
-  PWM_APPLICATIONFLAGS: NoFileLock
 image:
   pullPolicy: IfNotPresent
   repository: fjudith/pwm
@@ -23,3 +21,10 @@ service:
         port: 8282
         protocol: TCP
         targetPort: 8080
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PWM_APPLICATIONFLAGS: NoFileLock

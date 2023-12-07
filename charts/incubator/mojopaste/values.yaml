@@ -1,5 +1,3 @@
-env:
-  PASTE_ENABLE_CHARTS: "0"
 image:
   pullPolicy: IfNotPresent
   repository: jhthorsen/mojopaste
@@ -23,3 +21,10 @@ service:
         port: 3300
         protocol: TCP
         targetPort: 8080
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PASTE_ENABLE_CHARTS: "0"

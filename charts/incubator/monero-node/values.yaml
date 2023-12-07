@@ -1,5 +1,3 @@
-env:
-  name: monerod
 image:
   pullPolicy: IfNotPresent
   repository: kannix/monero-full-node
@@ -37,3 +35,10 @@ service:
         port: 18081
         protocol: TCP
         targetPort: 18081
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            name: monerod

@@ -1,14 +1,3 @@
-env:
-  ALLOWED_HOSTS: "*"
-  APPRISE_ALLOW_SERVICES: ""
-  APPRISE_CONFIG_DIR: /config
-  APPRISE_CONFIG_LOCK: "false"
-  APPRISE_DENY_SERVICES: windows,dbus,gnome,macos,syslog
-  APPRISE_RECURSION_MAX: "1"
-  APPRISE_STATEFUL_MODE: hash
-  DEBUG: "no"
-  LOG_LEVEL: INFO
-  SECRET_KEY: abc123
 image:
   pullPolicy: IfNotPresent
   repository: caronc/apprise
@@ -32,3 +21,19 @@ service:
         port: 8000
         protocol: HTTP
         targetPort: 8000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            ALLOWED_HOSTS: "*"
+            APPRISE_ALLOW_SERVICES: ""
+            APPRISE_CONFIG_DIR: /config
+            APPRISE_CONFIG_LOCK: "false"
+            APPRISE_DENY_SERVICES: windows,dbus,gnome,macos,syslog
+            APPRISE_RECURSION_MAX: "1"
+            APPRISE_STATEFUL_MODE: hash
+            DEBUG: "no"
+            LOG_LEVEL: INFO
+            SECRET_KEY: abc123

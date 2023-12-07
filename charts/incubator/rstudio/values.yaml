@@ -1,10 +1,3 @@
-env:
-  DISABLE_AUTH: "false"
-  GROUPID: "{{ .Values.podSecurityContext.fsGroup }}"
-  PASSWORD: rstudio
-  ROOT: "FALSE"
-  USER: rstudio
-  USERID: "{{ .Values.podSecurityContext.runAsUser }}"
 image:
   pullPolicy: IfNotPresent
   repository: rocker/rstudio
@@ -31,3 +24,15 @@ service:
         port: 8787
         protocol: HTTP
         targetPort: 8787
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DISABLE_AUTH: "false"
+            GROUPID: "{{ .Values.podSecurityContext.fsGroup }}"
+            PASSWORD: rstudio
+            ROOT: "FALSE"
+            USER: rstudio
+            USERID: "{{ .Values.podSecurityContext.runAsUser }}"

@@ -1,9 +1,3 @@
-env:
-  DELUGE_RPC_HOSTNAME: ""
-  DELUGE_RPC_PASSWORD: ""
-  DELUGE_RPC_USERNAME: ""
-  DELUGE_RPC_VERSION: v2
-  STORM_API_KEY: ""
 image:
   pullPolicy: IfNotPresent
   repository: ghcr.io/relvacode/storm
@@ -24,3 +18,14 @@ service:
         port: 8221
         protocol: TCP
         targetPort: 8221
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DELUGE_RPC_HOSTNAME: ""
+            DELUGE_RPC_PASSWORD: ""
+            DELUGE_RPC_USERNAME: ""
+            DELUGE_RPC_VERSION: v2
+            STORM_API_KEY: ""

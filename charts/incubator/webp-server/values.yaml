@@ -1,7 +1,3 @@
-env:
-  ALLOWED_TYPES: jpg,png,jpeg,bmp,gif
-  ENABLE_AVIF: "false"
-  QUALITY: "80"
 image:
   pullPolicy: IfNotPresent
   repository: webpsh/webps
@@ -29,3 +25,12 @@ service:
         port: 3333
         protocol: TCP
         targetPort: 3333
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            ALLOWED_TYPES: jpg,png,jpeg,bmp,gif
+            ENABLE_AVIF: "false"
+            QUALITY: "80"

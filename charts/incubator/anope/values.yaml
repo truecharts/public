@@ -1,14 +1,3 @@
-env:
-  CASEMAP: rfc1459
-  DATA_PERM: "770"
-  HOST: irc.example.com
-  IP_ADDR: ""
-  IRCD: inspircd3
-  LOCAL_HOSTNAME: services
-  PASSWORD: ""
-  PORT: "7000"
-  SSL: "yes"
-  UMASK: "000"
 image:
   pullPolicy: IfNotPresent
   repository: ich777/anope
@@ -38,3 +27,19 @@ service:
     ports:
       main:
         enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            CASEMAP: rfc1459
+            DATA_PERM: "770"
+            HOST: irc.example.com
+            IP_ADDR: ""
+            IRCD: inspircd3
+            LOCAL_HOSTNAME: services
+            PASSWORD: ""
+            PORT: "7000"
+            SSL: "yes"
+            UMASK: "000"

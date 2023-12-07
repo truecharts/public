@@ -1,13 +1,3 @@
-env:
-  BUNDLE_WITHOUT: ""
-  DATABASE_ENCODING: utf8
-  DATABASE_HOST: 10.0.0.10
-  DATABASE_NAME: tracks
-  DATABASE_PASSWORD: password
-  DATABASE_PORT: "3306"
-  DATABASE_TYPE: mysql2
-  DATABASE_USERNAME: tracks
-  RAILS_ENV: production
 image:
   pullPolicy: IfNotPresent
   repository: tracksapp/tracks
@@ -28,3 +18,18 @@ service:
         port: 3000
         protocol: TCP
         targetPort: 3000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            BUNDLE_WITHOUT: ""
+            DATABASE_ENCODING: utf8
+            DATABASE_HOST: 10.0.0.10
+            DATABASE_NAME: tracks
+            DATABASE_PASSWORD: password
+            DATABASE_PORT: "3306"
+            DATABASE_TYPE: mysql2
+            DATABASE_USERNAME: tracks
+            RAILS_ENV: production

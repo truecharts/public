@@ -1,7 +1,3 @@
-env:
-  KEYBOARD: ""
-  SUBFOLDER: ""
-  UMASK: ""
 image:
   pullPolicy: IfNotPresent
   repository: lscr.io/linuxserver/blender
@@ -25,3 +21,12 @@ service:
         port: 3000
         protocol: TCP
         targetPort: 3000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            KEYBOARD: ""
+            SUBFOLDER: ""
+            UMASK: ""

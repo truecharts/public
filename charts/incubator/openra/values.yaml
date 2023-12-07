@@ -1,14 +1,3 @@
-env:
-  AdvertiseOnline: "True"
-  Ban: ""
-  EnableSingleplayer: "False"
-  ExternalPort: "1234"
-  ListenPort: "1234"
-  MAP: ""
-  MOTD: Have Fun!!
-  Mod: ra
-  Name: DEDICATED SERVER
-  Password: ""
 image:
   pullPolicy: IfNotPresent
   repository: rmoriz/openra
@@ -29,3 +18,19 @@ service:
         port: 1234
         protocol: TCP
         targetPort: 1234
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            AdvertiseOnline: "True"
+            Ban: ""
+            EnableSingleplayer: "False"
+            ExternalPort: "1234"
+            ListenPort: "1234"
+            MAP: ""
+            MOTD: Have Fun!!
+            Mod: ra
+            Name: DEDICATED SERVER
+            Password: ""

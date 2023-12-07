@@ -1,7 +1,3 @@
-env:
-  ENTRY: "{{ .Values.service.main.ports.main.port }}"
-  PORT: "{{ .Values.service.main.ports.main.port }}"
-  SCHEME: http
 image:
   pullPolicy: IfNotPresent
   repository: vstavrinov/acestream-service
@@ -24,3 +20,12 @@ service:
       main:
         port: 8008
         protocol: TCP
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            ENTRY: "{{ .Values.service.main.ports.main.port }}"
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+            SCHEME: http

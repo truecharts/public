@@ -1,9 +1,3 @@
-env:
-  DATA_PATH: ""
-  GAME_ID: examplegameidwillgohere
-  MAX_PLAYERS: "10"
-  WORLD_INDEX: "0"
-  WORLD_NAME: World name here
 image:
   pullPolicy: IfNotPresent
   repository: escaping/core-keeper-dedicated
@@ -36,3 +30,14 @@ service:
     ports:
       main:
         enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DATA_PATH: ""
+            GAME_ID: examplegameidwillgohere
+            MAX_PLAYERS: "10"
+            WORLD_INDEX: "0"
+            WORLD_NAME: World name here

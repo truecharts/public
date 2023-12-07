@@ -1,8 +1,3 @@
-env:
-  AUTHOR_NAME: TrueCharts
-  DESCRIPTION: TrueCharts Photo Stream collection.
-  SHOW_OFFICIAL_GITHUB: "0"
-  TITLE: Photo Stream for TrueCharts
 image:
   pullPolicy: IfNotPresent
   repository: waschinski/photo-stream
@@ -26,3 +21,13 @@ service:
         port: 4000
         protocol: HTTP
         targetPort: 4000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            AUTHOR_NAME: TrueCharts
+            DESCRIPTION: TrueCharts Photo Stream collection.
+            SHOW_OFFICIAL_GITHUB: "0"
+            TITLE: Photo Stream for TrueCharts

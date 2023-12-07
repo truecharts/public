@@ -1,7 +1,3 @@
-env:
-  CHATID: ""
-  DELAY: "60"
-  TOKEN: ""
 image:
   pullPolicy: IfNotPresent
   repository: bokker/rss.to.telegram
@@ -31,3 +27,12 @@ service:
     ports:
       main:
         enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            CHATID: ""
+            DELAY: "60"
+            TOKEN: ""

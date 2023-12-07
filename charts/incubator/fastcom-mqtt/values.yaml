@@ -1,8 +1,3 @@
-env:
-  MQTT_DOWN: ""
-  MQTT_SERVER: ""
-  MQTT_UP: ""
-  SLEEP: "3600"
 image:
   pullPolicy: IfNotPresent
   repository: simonjenny/fastcom-mqtt
@@ -29,3 +24,13 @@ service:
     ports:
       main:
         enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            MQTT_DOWN: ""
+            MQTT_SERVER: ""
+            MQTT_UP: ""
+            SLEEP: "3600"

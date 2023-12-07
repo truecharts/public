@@ -1,7 +1,3 @@
-env:
-  PASSWORD: ""
-  STORE_PASSWORD: ""
-  STORE_USER: ""
 image:
   pullPolicy: IfNotPresent
   repository: diamkil/notea
@@ -28,3 +24,12 @@ service:
     ports:
       main:
         enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PASSWORD: ""
+            STORE_PASSWORD: ""
+            STORE_USER: ""

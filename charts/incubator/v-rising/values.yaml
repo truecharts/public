@@ -1,12 +1,3 @@
-env:
-  ENABLE_BEPINEX: ""
-  GAME_ID: "1829350"
-  GAME_PARAMS: ""
-  PASSWRD: ""
-  SERVER_NAME: V Rising Docker
-  USERNAME: ""
-  VALIDATE: "false"
-  WORLD_NAME: world1
 image:
   pullPolicy: IfNotPresent
   repository: ich777/steamcmd
@@ -40,3 +31,17 @@ service:
         port: 9876
         protocol: UDP
         targetPort: 9876
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            ENABLE_BEPINEX: ""
+            GAME_ID: "1829350"
+            GAME_PARAMS: ""
+            PASSWRD: ""
+            SERVER_NAME: V Rising Docker
+            USERNAME: ""
+            VALIDATE: "false"
+            WORLD_NAME: world1

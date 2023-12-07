@@ -1,15 +1,3 @@
-env:
-  ENABLE_LETSENCRYPT: "0"
-  JICOFO_AUTH_PASSWORD: “test123456”
-  JICOFO_AUTH_USER: test
-  JVB_AUTH_PASSWORD: test123456
-  JVB_AUTH_USER: test
-  PUBLIC_URL: http://test.truecharts.org
-  TZ: "{{ .Values.TZ }}"
-  XMPP_AUTH_DOMAIN: localhost
-  XMPP_BOSH_URL_BASE: http://localhost:5280
-  XMPP_DOMAIN: localhost
-  XMPP_MUC_DOMAIN: localhost
 additionalContainers:
   jicofo:
     env:
@@ -146,3 +134,20 @@ service:
       main:
         port: 10247
         targetPort: 80
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            ENABLE_LETSENCRYPT: "0"
+            JICOFO_AUTH_PASSWORD: “test123456”
+            JICOFO_AUTH_USER: test
+            JVB_AUTH_PASSWORD: test123456
+            JVB_AUTH_USER: test
+            PUBLIC_URL: http://test.truecharts.org
+            TZ: "{{ .Values.TZ }}"
+            XMPP_AUTH_DOMAIN: localhost
+            XMPP_BOSH_URL_BASE: http://localhost:5280
+            XMPP_DOMAIN: localhost
+            XMPP_MUC_DOMAIN: localhost

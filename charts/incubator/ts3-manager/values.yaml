@@ -1,6 +1,3 @@
-env:
-  JWT_SECRET: changeme
-  PORT: "{{ .Values.service.main.ports.main.port }}"
 image:
   pullPolicy: IfNotPresent
   repository: joni1802/ts3-manager
@@ -56,3 +53,11 @@ service:
       main:
         port: 10284
         protocol: HTTP
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            JWT_SECRET: changeme
+            PORT: "{{ .Values.service.main.ports.main.port }}"

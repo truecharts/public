@@ -1,6 +1,3 @@
-env:
-  APP_CLEAN_INTERVAL: 10m
-  APP_DEBUG: "false"
 image:
   pullPolicy: IfNotPresent
   repository: x1unix/go-playground
@@ -21,3 +18,11 @@ service:
         port: 8888
         protocol: TCP
         targetPort: 8000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            APP_CLEAN_INTERVAL: 10m
+            APP_DEBUG: "false"

@@ -1,12 +1,3 @@
-env:
-  APP_BRANCH: "{{ .Values.traktarr.app_branch }}"
-  BLACKLIST: '{{ ternary "yes" "no" .Values.traktarr.blacklist }}'
-  DELAY: "{{ .Values.traktarr.delay }}"
-  NOSEARCH: '{{ ternary "yes" "no" .Values.traktarr.nosearch }}'
-  NOTIFICATIONS: '{{ ternary "yes" "no" .Values.traktarr.notifications }}'
-  RUNNOW: '{{ ternary "yes" "no" .Values.traktarr.runnow }}'
-  SKIPUPDATE: '{{ ternary "yes" "no" .Values.traktarr.skipupdate }}'
-  SORT: "{{ .Values.traktarr.sort }}"
 image:
   pullPolicy: IfNotPresent
   repository: eafxx/traktarr
@@ -45,3 +36,17 @@ traktarr:
   runnow: false
   skipupdate: true
   sort: rating
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            APP_BRANCH: "{{ .Values.traktarr.app_branch }}"
+            BLACKLIST: '{{ ternary "yes" "no" .Values.traktarr.blacklist }}'
+            DELAY: "{{ .Values.traktarr.delay }}"
+            NOSEARCH: '{{ ternary "yes" "no" .Values.traktarr.nosearch }}'
+            NOTIFICATIONS: '{{ ternary "yes" "no" .Values.traktarr.notifications }}'
+            RUNNOW: '{{ ternary "yes" "no" .Values.traktarr.runnow }}'
+            SKIPUPDATE: '{{ ternary "yes" "no" .Values.traktarr.skipupdate }}'
+            SORT: "{{ .Values.traktarr.sort }}"

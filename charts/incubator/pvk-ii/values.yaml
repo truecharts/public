@@ -1,12 +1,3 @@
-env:
-  DATA_PERM: "770"
-  GAME_ID: "17575"
-  GAME_NAME: pvkii
-  GAME_PARAMS: -maxplayers 18 +map bt_island
-  GAME_PORT: "27015"
-  PASSWRD: ""
-  USERNAME: ""
-  VALIDATE: "false"
 image:
   pullPolicy: IfNotPresent
   repository: ich777/steamcmd
@@ -48,3 +39,17 @@ service:
         port: 27015
         protocol: TCP
         targetPort: 27015
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DATA_PERM: "770"
+            GAME_ID: "17575"
+            GAME_NAME: pvkii
+            GAME_PARAMS: -maxplayers 18 +map bt_island
+            GAME_PORT: "27015"
+            PASSWRD: ""
+            USERNAME: ""
+            VALIDATE: "false"

@@ -1,5 +1,3 @@
-env:
-  ROOT_URL: /
 image:
   pullPolicy: IfNotPresent
   repository: qmcgaw/stackedit
@@ -20,3 +18,10 @@ service:
         port: 8000
         protocol: TCP
         targetPort: 8000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            ROOT_URL: /

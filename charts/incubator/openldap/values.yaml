@@ -1,25 +1,3 @@
-env:
-  CONTAINER_LOG_LEVEL: "4"
-  KEEP_EXISTING_CONFIG: "false"
-  LDAP_ADMIN_PASSWORD: ldapadmin
-  LDAP_BACKEND: mdb
-  LDAP_BASE_DN: ""
-  LDAP_CONFIG_PASSWORD: changeme
-  LDAP_DOMAIN: example.org
-  LDAP_LOG_LEVEL: "256"
-  LDAP_ORGANISATION: Example Inc.
-  LDAP_READONLY_USER: "false"
-  LDAP_READONLY_USER_PASSWORD: readonly
-  LDAP_READONLY_USER_USERNAME: readonly
-  LDAP_REMOVE_CONFIG_AFTER_SETUP: "true"
-  LDAP_RFC2307BIS_SCHEMA: "false"
-  LDAP_SSL_HELPER_PREFIX: ldap
-  LDAP_TLS: "true"
-  LDAP_TLS_CIPHER_SUITE: NORMAL
-  LDAP_TLS_ENFORCE: "false"
-  LDAP_TLS_PROTOCOL_MIN: "3.0"
-  LDAP_TLS_REQCERT: never
-  LDAP_TLS_VERIFY_CLIENT: never
 controller:
   replicas: 1
   revisionHistoryLimit: 3
@@ -75,3 +53,30 @@ volumeClaimTemplates:
   slapd:
     enabled: true
     mountPath: /etc/ldap/slapd.d/
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            CONTAINER_LOG_LEVEL: "4"
+            KEEP_EXISTING_CONFIG: "false"
+            LDAP_ADMIN_PASSWORD: ldapadmin
+            LDAP_BACKEND: mdb
+            LDAP_BASE_DN: ""
+            LDAP_CONFIG_PASSWORD: changeme
+            LDAP_DOMAIN: example.org
+            LDAP_LOG_LEVEL: "256"
+            LDAP_ORGANISATION: Example Inc.
+            LDAP_READONLY_USER: "false"
+            LDAP_READONLY_USER_PASSWORD: readonly
+            LDAP_READONLY_USER_USERNAME: readonly
+            LDAP_REMOVE_CONFIG_AFTER_SETUP: "true"
+            LDAP_RFC2307BIS_SCHEMA: "false"
+            LDAP_SSL_HELPER_PREFIX: ldap
+            LDAP_TLS: "true"
+            LDAP_TLS_CIPHER_SUITE: NORMAL
+            LDAP_TLS_ENFORCE: "false"
+            LDAP_TLS_PROTOCOL_MIN: "3.0"
+            LDAP_TLS_REQCERT: never
+            LDAP_TLS_VERIFY_CLIENT: never

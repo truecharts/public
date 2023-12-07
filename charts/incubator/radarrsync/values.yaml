@@ -1,9 +1,3 @@
-env:
-  PROFILE_ID: ""
-  RADARR_KEY: ""
-  RADARR_URL: ""
-  RADARR4K_KEY: ""
-  RADARR4K_URL: ""
 image:
   pullPolicy: IfNotPresent
   repository: dmanius/radarrsync-docker
@@ -30,3 +24,14 @@ service:
     ports:
       main:
         enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PROFILE_ID: ""
+            RADARR_KEY: ""
+            RADARR_URL: ""
+            RADARR4K_KEY: ""
+            RADARR4K_URL: ""

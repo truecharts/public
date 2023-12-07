@@ -1,5 +1,3 @@
-env:
-  UMASK: "000"
 image:
   pullPolicy: IfNotPresent
   repository: jcreynolds/flextv
@@ -31,3 +29,10 @@ service:
         port: 5667
         protocol: TCP
         targetPort: 443
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            UMASK: "000"

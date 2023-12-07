@@ -1,5 +1,3 @@
-env:
-  HOME: /root
 image:
   pullPolicy: IfNotPresent
   repository: coderaiser/cloudcmd
@@ -26,3 +24,10 @@ service:
         port: 8765
         protocol: TCP
         targetPort: 8000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            HOME: /root

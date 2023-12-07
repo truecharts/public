@@ -1,5 +1,3 @@
-env:
-  site_domain: ""
 image:
   pullPolicy: IfNotPresent
   repository: thedaviddelta/lingva-translate
@@ -20,3 +18,10 @@ service:
         port: 3000
         protocol: TCP
         targetPort: 3000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            site_domain: ""

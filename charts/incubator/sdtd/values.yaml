@@ -1,14 +1,3 @@
-env:
-  BACKUP_FILES: "false"
-  BACKUP_INTERVAL: "60"
-  BACKUP_TO_KEEP: "12"
-  ENABLE_BEPINEX: "false"
-  GAME_ID: "294420"
-  GAME_PARAMS: -logfile 7DaysToDie_Data/output_log.txt $@
-  PASSWRD: ""
-  SERVERCONFIG: serverconfig.xml
-  USERNAME: ""
-  VALIDATE: "false"
 image:
   pullPolicy: IfNotPresent
   repository: ich777/steamcmd
@@ -94,3 +83,19 @@ service:
         port: 8082
         protocol: TCP
         targetPort: 8082
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            BACKUP_FILES: "false"
+            BACKUP_INTERVAL: "60"
+            BACKUP_TO_KEEP: "12"
+            ENABLE_BEPINEX: "false"
+            GAME_ID: "294420"
+            GAME_PARAMS: -logfile 7DaysToDie_Data/output_log.txt $@
+            PASSWRD: ""
+            SERVERCONFIG: serverconfig.xml
+            USERNAME: ""
+            VALIDATE: "false"

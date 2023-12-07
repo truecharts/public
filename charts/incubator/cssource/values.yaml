@@ -1,11 +1,3 @@
-env:
-  GAME_ID: "232330"
-  GAME_NAME: cstrike
-  GAME_PARAMS: -secure +maxplayers 32 +map de_dust2
-  GAME_PORT: "27015"
-  PASSWRD: ""
-  USERNAME: ""
-  VALIDATE: "false"
 image:
   pullPolicy: IfNotPresent
   repository: ich777/steamcmd
@@ -47,3 +39,16 @@ service:
         port: 27015
         protocol: TCP
         targetPort: 27015
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GAME_ID: "232330"
+            GAME_NAME: cstrike
+            GAME_PARAMS: -secure +maxplayers 32 +map de_dust2
+            GAME_PORT: "27015"
+            PASSWRD: ""
+            USERNAME: ""
+            VALIDATE: "false"

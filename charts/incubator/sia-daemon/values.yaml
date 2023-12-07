@@ -1,6 +1,3 @@
-env:
-  SIA_API_PASSWORD: ""
-  SIA_WALLET_PASSWORD: ""
 image:
   pullPolicy: IfNotPresent
   repository: ghcr.io/siafoundation/siad
@@ -40,3 +37,11 @@ service:
         port: 9981
         protocol: TCP
         targetPort: 9981
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            SIA_API_PASSWORD: ""
+            SIA_WALLET_PASSWORD: ""

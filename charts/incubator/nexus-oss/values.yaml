@@ -1,5 +1,3 @@
-env:
-  INSTALL4J_ADD_VM_PARAMS: -Xms2703m -Xmx2703m -XX:MaxDirectMemorySize=2703m -Djava.util.prefs.userRoot=${NEXUS_DATA}/javaprefs
 image:
   pullPolicy: IfNotPresent
   repository: sonatype/nexus3
@@ -20,3 +18,12 @@ service:
       main:
         port: 10288
         targetPort: 8081
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            INSTALL4J_ADD_VM_PARAMS:
+              -Xms2703m -Xmx2703m -XX:MaxDirectMemorySize=2703m
+              -Djava.util.prefs.userRoot=${NEXUS_DATA}/javaprefs

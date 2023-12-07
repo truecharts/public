@@ -1,5 +1,3 @@
-env:
-  SCPRIME_WALLET_PASSWORD: ""
 image:
   pullPolicy: IfNotPresent
   repository: scprime/scprime
@@ -34,3 +32,10 @@ service:
         port: 4282
         protocol: TCP
         targetPort: 4282
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            SCPRIME_WALLET_PASSWORD: ""

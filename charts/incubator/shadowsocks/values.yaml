@@ -1,8 +1,3 @@
-env:
-  DNS_ADDRS: 8.8.8.8,8.8.4.4
-  METHOD: chacha20-ietf-poly1305
-  PASSWORD: ""
-  TIMEOUT: "300"
 image:
   pullPolicy: IfNotPresent
   repository: shadowsocks/shadowsocks-libev
@@ -31,3 +26,13 @@ service:
         port: 8388
         protocol: UDP
         targetPort: 8388
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DNS_ADDRS: 8.8.8.8,8.8.4.4
+            METHOD: chacha20-ietf-poly1305
+            PASSWORD: ""
+            TIMEOUT: "300"

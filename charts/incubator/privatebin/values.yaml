@@ -1,6 +1,3 @@
-env:
-  PHP_TZ: "{{ .Values.TZ }}"
-  TZ: "{{ .Values.TZ }}"
 image:
   pullPolicy: IfNotPresent
   repository: privatebin/pdo
@@ -93,3 +90,11 @@ service:
         port: 10248
         protocol: HTTP
         targetPort: 8080
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PHP_TZ: "{{ .Values.TZ }}"
+            TZ: "{{ .Values.TZ }}"

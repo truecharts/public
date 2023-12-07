@@ -1,5 +1,3 @@
-env:
-  PORT: "3000"
 image:
   pullPolicy: IfNotPresent
   repository: lswl/vertex
@@ -23,3 +21,10 @@ service:
         port: 3000
         protocol: TCP
         targetPort: 3000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PORT: "3000"

@@ -1,6 +1,3 @@
-env:
-  PREFIX: ""
-  TOKEN: ""
 image:
   pullPolicy: IfNotPresent
   repository: phasecorex/red-discordbot
@@ -30,3 +27,11 @@ service:
     ports:
       main:
         enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PREFIX: ""
+            TOKEN: ""

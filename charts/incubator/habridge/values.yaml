@@ -1,5 +1,3 @@
-env:
-  SEC_KEY: ""
 image:
   pullPolicy: IfNotPresent
   repository: ghcr.io/linuxserver/habridge
@@ -31,3 +29,10 @@ service:
       main:
         port: 10146
         targetPort: 8080
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            SEC_KEY: ""

@@ -1,10 +1,3 @@
-env:
-  GAME_ID: "203300"
-  GAME_PARAMS: -port=7778 -SAP=8778 -SQP=27015 -aauregion=1 -log=Server.log
-  PASSWRD: ""
-  SRV_NAME: Army Docker
-  USERNAME: ""
-  VALIDATE: "false"
 image:
   pullPolicy: IfNotPresent
   repository: ich777/steamcmd
@@ -46,3 +39,15 @@ service:
         port: 27015
         protocol: UDP
         targetPort: 27015
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GAME_ID: "203300"
+            GAME_PARAMS: -port=7778 -SAP=8778 -SQP=27015 -aauregion=1 -log=Server.log
+            PASSWRD: ""
+            SRV_NAME: Army Docker
+            USERNAME: ""
+            VALIDATE: "false"

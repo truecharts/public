@@ -1,13 +1,3 @@
-env:
-  CUSTOMER_KEY: pwHB3mLCOUWscFi7
-  GAME_ID: "920720"
-  GAME_PARAMS: -port=5555 -QueryPort=27015 -NoLiveServer -EnableCheats
-  IDENTIFIER: dockeroasis
-  PASSWRD: ""
-  PROVIDER_KEY: " 8IhohaMRZIJJubv5 "
-  SLOTS: "20"
-  USERNAME: ""
-  VALIDATE: "false"
 image:
   pullPolicy: IfNotPresent
   repository: ich777/steamcmd
@@ -49,3 +39,18 @@ service:
         port: 27015
         protocol: UDP
         targetPort: 27015
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            CUSTOMER_KEY: pwHB3mLCOUWscFi7
+            GAME_ID: "920720"
+            GAME_PARAMS: -port=5555 -QueryPort=27015 -NoLiveServer -EnableCheats
+            IDENTIFIER: dockeroasis
+            PASSWRD: ""
+            PROVIDER_KEY: " 8IhohaMRZIJJubv5 "
+            SLOTS: "20"
+            USERNAME: ""
+            VALIDATE: "false"

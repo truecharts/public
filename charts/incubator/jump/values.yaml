@@ -1,5 +1,3 @@
-env:
-  SITENAME: My Site
 image:
   pullPolicy: IfNotPresent
   repository: daledavies/jump
@@ -28,3 +26,10 @@ service:
       main:
         port: 10108
         targetPort: 8080
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            SITENAME: My Site

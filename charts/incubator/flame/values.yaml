@@ -1,6 +1,3 @@
-env:
-  PASSWORD: flame_password
-  enable_integration: "true"
 image:
   pullPolicy: IfNotPresent
   repository: pawelmalak/flame
@@ -24,3 +21,11 @@ service:
         port: 10291
         protocol: HTTP
         targetPort: 5005
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PASSWORD: flame_password
+            enable_integration: "true"

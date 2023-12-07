@@ -1,12 +1,3 @@
-env:
-  GAME_ID: "581330"
-  GAME_PARAMS: Oilfield?Scenario=Scenario_Refinery_Push_Security?MaxPlayers=28?Password=Docker
-  GAME_PORT: "27102"
-  PASSWRD: ""
-  QUERY_PORT: "27131"
-  SERVER_NAME: DockerServer
-  USERNAME: ""
-  VALIDATE: "false"
 image:
   pullPolicy: IfNotPresent
   repository: ich777/steamcmd
@@ -48,3 +39,17 @@ service:
         port: 27131
         protocol: UDP
         targetPort: 27131
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GAME_ID: "581330"
+            GAME_PARAMS: Oilfield?Scenario=Scenario_Refinery_Push_Security?MaxPlayers=28?Password=Docker
+            GAME_PORT: "27102"
+            PASSWRD: ""
+            QUERY_PORT: "27131"
+            SERVER_NAME: DockerServer
+            USERNAME: ""
+            VALIDATE: "false"

@@ -1,13 +1,3 @@
-env:
-  HOST: google.com
-  PING_INTERVAL: "300"
-  PING_RETRY: "3600"
-  PING_TIMEOUT: "10"
-  PUSHOVER_APP_TOKEN: ""
-  PUSHOVER_MESSAGE: google.com is offline!
-  PUSHOVER_PRIORITY: "0"
-  PUSHOVER_TITLE: Online Check
-  PUSHOVER_USER_TOKEN: ""
 image:
   pullPolicy: IfNotPresent
   repository: ich777/online-check-pushover
@@ -34,3 +24,18 @@ service:
     ports:
       main:
         enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            HOST: google.com
+            PING_INTERVAL: "300"
+            PING_RETRY: "3600"
+            PING_TIMEOUT: "10"
+            PUSHOVER_APP_TOKEN: ""
+            PUSHOVER_MESSAGE: google.com is offline!
+            PUSHOVER_PRIORITY: "0"
+            PUSHOVER_TITLE: Online Check
+            PUSHOVER_USER_TOKEN: ""

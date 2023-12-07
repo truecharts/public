@@ -1,7 +1,3 @@
-env:
-  ARGS:
-    -transparent -server -state state -orport 127.0.0.1:3333 -transports obfs4
-    -bindaddr obfs4-0.0.0.0:2222 -logLevel DEBUG -enableLogging
 image:
   pullPolicy: IfNotPresent
   repository: juchong/shapeshifter-docker
@@ -25,3 +21,12 @@ service:
         port: 2222
         protocol: TCP
         targetPort: 2222
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            ARGS:
+              -transparent -server -state state -orport 127.0.0.1:3333 -transports
+              obfs4 -bindaddr obfs4-0.0.0.0:2222 -logLevel DEBUG -enableLogging

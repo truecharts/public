@@ -1,9 +1,3 @@
-env:
-  CONTAINER_TIMEZONE: "{{ .Values.TZ }}"
-  DISABLE_AUTH: "false"
-  SET_CONTAINER_TIMEZONE: "true"
-  WEBPASSWORD: webpassword
-  WEBUSER: webuser
 image:
   pullPolicy: IfNotPresent
   repository: docker.io/xal3xhx/fancy
@@ -26,3 +20,14 @@ service:
       main:
         port: 10235
         targetPort: 80
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            CONTAINER_TIMEZONE: "{{ .Values.TZ }}"
+            DISABLE_AUTH: "false"
+            SET_CONTAINER_TIMEZONE: "true"
+            WEBPASSWORD: webpassword
+            WEBUSER: webuser

@@ -1,7 +1,3 @@
-env:
-  DATA_PERM: "770"
-  LMP_V: latest@sha256:f0065aa44fb1c38b7fc30d34e220138dc0a0c6477b78eb7f59015622c2052030
-  UMASK: "0000"
 image:
   pullPolicy: IfNotPresent
   repository: ich777/lunamultiplayer-ksp
@@ -32,3 +28,12 @@ service:
         port: 8800
         protocol: UDP
         targetPort: 8800
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DATA_PERM: "770"
+            LMP_V: latest@sha256:f0065aa44fb1c38b7fc30d34e220138dc0a0c6477b78eb7f59015622c2052030
+            UMASK: "0000"

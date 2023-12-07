@@ -1,6 +1,3 @@
-env:
-  DISPLAY_HEIGHT: 800|900|1050
-  DISPLAY_WIDTH: 1440|1680
 image:
   pullPolicy: IfNotPresent
   repository: furritos/docker-btdex
@@ -24,3 +21,11 @@ service:
         port: 5800
         protocol: TCP
         targetPort: 8080
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DISPLAY_HEIGHT: 800|900|1050
+            DISPLAY_WIDTH: 1440|1680

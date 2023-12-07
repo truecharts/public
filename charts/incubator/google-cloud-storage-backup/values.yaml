@@ -1,9 +1,3 @@
-env:
-  ACCESS_KEY: "Container Variable: ACCESS_KEY"
-  CRON_SCHEDULE: 0 * * * *
-  GCSOPTIONS: ""
-  GCSPATH: gs://mybucket/
-  SECRET_KEY: "Container Variable: SECRET_KEY"
 image:
   pullPolicy: IfNotPresent
   repository: vinid223/gcloud-storage-backup
@@ -34,3 +28,14 @@ service:
     ports:
       main:
         enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            ACCESS_KEY: "Container Variable: ACCESS_KEY"
+            CRON_SCHEDULE: 0 * * * *
+            GCSOPTIONS: ""
+            GCSPATH: gs://mybucket/
+            SECRET_KEY: "Container Variable: SECRET_KEY"

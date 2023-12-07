@@ -1,5 +1,3 @@
-env:
-  INIT_ASSETS: '{{ ternary "1" "0" .Values.bender.init_assets }}'
 bender:
   init_assets: true
 image:
@@ -25,3 +23,10 @@ service:
         port: 10353
         protocol: HTTP
         targetPort: 8080
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            INIT_ASSETS: '{{ ternary "1" "0" .Values.bender.init_assets }}'

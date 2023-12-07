@@ -1,10 +1,3 @@
-env:
-  GAME_ID: "443030"
-  GAME_PARAMS: ""
-  PASSWRD: ""
-  USERNAME: ""
-  VALIDATE: "false"
-  WS_CONTENT: ""
 image:
   pullPolicy: IfNotPresent
   repository: ich777/steamcmd
@@ -54,3 +47,15 @@ service:
         port: 27015
         protocol: UDP
         targetPort: 27015
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GAME_ID: "443030"
+            GAME_PARAMS: ""
+            PASSWRD: ""
+            USERNAME: ""
+            VALIDATE: "false"
+            WS_CONTENT: ""

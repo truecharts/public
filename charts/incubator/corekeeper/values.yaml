@@ -1,11 +1,3 @@
-env:
-  GAME_ID: "1963720"
-  GAME_PARAMS: ""
-  PASSWRD: ""
-  USERNAME: ""
-  VALIDATE: "false"
-  WORLD_INDEX: "0"
-  WORLD_NAME: Core Keeper Docker
 image:
   pullPolicy: IfNotPresent
   repository: ich777/steamcmd
@@ -38,3 +30,16 @@ service:
     ports:
       main:
         enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GAME_ID: "1963720"
+            GAME_PARAMS: ""
+            PASSWRD: ""
+            USERNAME: ""
+            VALIDATE: "false"
+            WORLD_INDEX: "0"
+            WORLD_NAME: Core Keeper Docker

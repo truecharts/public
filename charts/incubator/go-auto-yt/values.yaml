@@ -1,5 +1,3 @@
-env:
-  UMASK_SET: "0022"
 image:
   pullPolicy: IfNotPresent
   repository: xiovv/go-auto-yt
@@ -26,3 +24,10 @@ service:
         port: 9000
         protocol: TCP
         targetPort: 8080
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            UMASK_SET: "0022"
