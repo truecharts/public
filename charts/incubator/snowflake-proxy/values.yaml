@@ -4,7 +4,8 @@ image:
   repository: thetorproject/snowflake-proxy
   tag: v2.6.0@sha256:96a1e45e7b9fcc2bb2c0680990f42508b67d5e4f163d3c688d9db63761375d32
 portal:
-  enabled: false
+  open:
+    enabled: false
 securityContext:
   container:
     runAsGroup: 1000
