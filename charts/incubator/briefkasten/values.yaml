@@ -28,7 +28,7 @@ postgresql:
   existingSecret: dbcreds
   postgresqlDatabase: briefkasten
   postgresqlUsername: briefkasten
-securityContext:
+securityContextold:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
 service:

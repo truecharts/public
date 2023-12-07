@@ -41,7 +41,7 @@ redis:
   existingSecret: rediscreds
   redisDatabase: "0"
   redisUsername: default
-securityContext:
+securityContextold:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
 service:

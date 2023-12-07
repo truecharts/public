@@ -18,7 +18,7 @@ postgresql:
   existingSecret: dbcreds
   postgresqlDatabase: focalboard
   postgresqlUsername: focalboard
-securityContext:
+securityContextold:
   readOnlyRootFilesystem: false
 service:
   main:

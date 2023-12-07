@@ -16,7 +16,7 @@ postgresql:
   existingSecret: dbcreds
   postgresqlDatabase: dsmr-reader
   postgresqlUsername: dsmr-reader
-securityContext:
+securityContextold:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
 service:

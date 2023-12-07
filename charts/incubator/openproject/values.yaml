@@ -16,7 +16,7 @@ postgresql:
   existingSecret: dbcreds
   postgresqlDatabase: openproject
   postgresqlUsername: openproject
-securityContext:
+securityContextold:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
 service:

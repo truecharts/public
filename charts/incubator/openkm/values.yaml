@@ -35,7 +35,7 @@ postgresql:
   existingSecret: dbcreds
   postgresqlDatabase: openkm
   postgresqlUsername: openkm
-securityContext:
+securityContextold:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
 service:

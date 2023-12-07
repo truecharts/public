@@ -27,7 +27,7 @@ replication:
   starttls: critical
   timeout: 1
   tls_reqcert: never
-securityContext:
+securityContextold:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
 service:

@@ -385,7 +385,7 @@ rest_server:
     max_connections: 1024
     response_timeout: 45s
   show_classification_settings: true
-securityContext:
+securityContextold:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
 service:

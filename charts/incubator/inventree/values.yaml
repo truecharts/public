@@ -55,7 +55,7 @@ redis:
   enabled: true
   existingSecret: rediscreds
   redisUsername: default
-securityContext:
+securityContextold:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
 service:

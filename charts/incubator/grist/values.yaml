@@ -49,7 +49,7 @@ postgresql:
 redis:
   enabled: true
   existingSecret: rediscreds
-securityContext:
+securityContextold:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
 service:

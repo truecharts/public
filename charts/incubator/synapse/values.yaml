@@ -111,7 +111,7 @@ postgresql:
   existingSecret: dbcreds
   postgresqlDatabase: synapse
   postgresqlUsername: synapse
-securityContext:
+securityContextold:
   allowPrivilegeEscalation: true
 service:
   federation:

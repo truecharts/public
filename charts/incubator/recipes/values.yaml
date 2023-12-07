@@ -77,7 +77,7 @@ postgresql:
   existingSecret: dbcreds
   postgresqlDatabase: recipes
   postgresqlUsername: recipes
-securityContext:
+securityContextold:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
 service:

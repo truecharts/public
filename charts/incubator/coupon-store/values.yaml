@@ -12,7 +12,7 @@ postgresql:
   existingSecret: dbcreds
   postgresqlDatabase: coupon-store
   postgresqlUsername: coupon-store
-securityContext:
+securityContextold:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
 service:

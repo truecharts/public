@@ -15,7 +15,7 @@ redis:
   enabled: true
   existingSecret: rediscreds
   redisUsername: appsmith
-securityContext:
+securityContextold:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
 service:

@@ -96,7 +96,7 @@ redis:
   enabled: true
   existingSecret: rediscreds
   redisUsername: penpot
-securityContext:
+securityContextold:
   readOnlyRootFilesystem: false
   runAsNonRoot: false
 service:
