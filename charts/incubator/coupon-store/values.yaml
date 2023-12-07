@@ -1,8 +1,3 @@
-command:
-  - bash
-  - -c
-  - rm -f tmp/pids/server.pid && bundle exec rails s -p {{ .Values.service.main.ports.main.port
-    }} -b '0.0.0.0'
 image:
   pullPolicy: IfNotPresent
   repository: metikular/coupon-store
@@ -30,6 +25,11 @@ workload:
     podSpec:
       containers:
         main:
+          command:
+            - bash
+            - -c
+            - rm -f tmp/pids/server.pid && bundle exec rails s -p {{ .Values.service.main.ports.main.port
+              }} -b '0.0.0.0'
           envFrom:
             - secretRef:
                 name: '{{ include "tc.common.names.fullname" . }}-couponstore-secret'

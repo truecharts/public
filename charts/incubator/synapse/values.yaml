@@ -1,11 +1,3 @@
-command:
-  - sh
-  - -c
-  - |
-    exec python -B -m synapse.app.homeserver \
-                -c /data/homeserver.yaml \
-                -c /data/secret/secret.yaml \
-                -c /data/custom.yaml
 coturn:
   enabled: false
 image:
@@ -160,6 +152,14 @@ workload:
     podSpec:
       containers:
         main:
+          command:
+            - sh
+            - -c
+            - |
+              exec python -B -m synapse.app.homeserver \
+                          -c /data/homeserver.yaml \
+                          -c /data/secret/secret.yaml \
+                          -c /data/custom.yaml
           probes:
             liveness:
               path: /health
