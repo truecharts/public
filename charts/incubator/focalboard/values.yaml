@@ -18,8 +18,9 @@ postgresql:
   existingSecret: dbcreds
   postgresqlDatabase: focalboard
   postgresqlUsername: focalboard
-securityContextold:
-  readOnlyRootFilesystem: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
 service:
   main:
     ports:

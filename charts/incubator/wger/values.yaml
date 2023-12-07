@@ -41,9 +41,10 @@ redis:
   existingSecret: rediscreds
   redisDatabase: "0"
   redisUsername: default
-securityContextold:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
 service:
   main:
     ports:

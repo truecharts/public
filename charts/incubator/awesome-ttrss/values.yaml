@@ -20,12 +20,13 @@ persistence:
 portal:
   open:
     enabled: true
-securityContextold:
+securityContext:
   container:
-    readOnlyRootFilesystem: false
-    runAsGroup: 0
-    runAsNonRoot: false
-    runAsUser: 0
+    container:
+      readOnlyRootFilesystem: false
+      runAsGroup: 0
+      runAsNonRoot: false
+      runAsUser: 0
 service:
   main:
     ports:

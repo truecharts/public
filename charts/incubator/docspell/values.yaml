@@ -385,9 +385,10 @@ rest_server:
     max_connections: 1024
     response_timeout: 45s
   show_classification_settings: true
-securityContextold:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
 service:
   joex:
     enabled: true

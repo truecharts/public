@@ -17,9 +17,10 @@ portal:
 secretEmv:
   PASSWRD: ""
   USERNAME: ""
-securityContextold:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
 service:
   main:
     ports:

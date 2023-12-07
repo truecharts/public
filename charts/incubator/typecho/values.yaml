@@ -17,9 +17,10 @@ podSecurityContext:
 secretEnv:
   TYPECHO_USER_NAME: typecho
   TYPECHO_USER_PASSWORD: testtypecho
-securityContextold:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
 service:
   main:
     ports:

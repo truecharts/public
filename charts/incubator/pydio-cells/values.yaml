@@ -52,9 +52,10 @@ pydioinstall:
   password: supersecret
   title: Pydio Cells
   username: admin
-securityContextold:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
 service:
   gprc:
     enabled: true

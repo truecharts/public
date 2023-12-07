@@ -53,14 +53,15 @@ radicale:
     type: internal
 security:
   PUID: 2999
-securityContextold:
-  capabilities:
-    add:
-      - SETUID
-      - SETGID
-      - KILL
-    drop:
-      - ALL
+securityContext:
+  container:
+    capabilities:
+      add:
+        - SETUID
+        - SETGID
+        - KILL
+      drop:
+        - ALL
 service:
   main:
     ports:

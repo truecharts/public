@@ -14,12 +14,13 @@ podSecurityContext:
   runAsUser: 0
 portal:
   enabled: true
-securityContextold:
-  capabilities:
-    add:
-      - NET_ADMIN
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+securityContext:
+  container:
+    capabilities:
+      add:
+        - NET_ADMIN
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
 service:
   main:
     ports:

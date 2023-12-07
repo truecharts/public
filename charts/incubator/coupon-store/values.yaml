@@ -12,9 +12,10 @@ postgresql:
   existingSecret: dbcreds
   postgresqlDatabase: coupon-store
   postgresqlUsername: coupon-store
-securityContextold:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
 service:
   main:
     ports:

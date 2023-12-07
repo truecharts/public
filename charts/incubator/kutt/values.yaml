@@ -23,9 +23,10 @@ secretEnv:
   MAIL_USER: ""
   RECAPTCHA_SECRET_KEY: ""
   RECAPTCHA_SITE_KEY: ""
-securityContextold:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
 service:
   main:
     ports:

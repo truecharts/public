@@ -20,9 +20,10 @@ podSecurityContext:
   runAsUser: 0
 portal:
   enabled: true
-securityContextold:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
 service:
   main:
     ports:

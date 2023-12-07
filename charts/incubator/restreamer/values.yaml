@@ -94,9 +94,10 @@ restreamer:
     storage_mem_auth_username: ""
     storage_mem_max_size_mb: 0
     storage_mem_purge: false
-securityContextold:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
 service:
   https:
     enabled: true

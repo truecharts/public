@@ -27,9 +27,10 @@ replication:
   starttls: critical
   timeout: 1
   tls_reqcert: never
-securityContextold:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
 service:
   ldaps:
     enabled: true

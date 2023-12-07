@@ -16,9 +16,10 @@ persistence:
 portal:
   open:
     enabled: false
-securityContextold:
+securityContext:
   container:
-    readOnlyRootFilesystem: false
+    container:
+      readOnlyRootFilesystem: false
 service:
   main:
     enabled: false

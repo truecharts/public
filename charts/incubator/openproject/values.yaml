@@ -16,9 +16,10 @@ postgresql:
   existingSecret: dbcreds
   postgresqlDatabase: openproject
   postgresqlUsername: openproject
-securityContextold:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
 service:
   main:
     ports:

@@ -12,8 +12,9 @@ postgresql:
   existingSecret: dbcreds
   postgresqlDatabase: umami
   postgresqlUsername: umami
-securityContextold:
-  readOnlyRootFilesystem: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
 service:
   main:
     ports:

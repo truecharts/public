@@ -33,9 +33,10 @@ rImage:
   pullPolicy: IfNotPresent
   repository: mltooling/ml-workspace-r
   tag: 0.12.1@sha256:fd7b4b0831e31c38eeddd9a55ea24fc274836ab317d404049dec14026e82468d
-securityContextold:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
 service:
   main:
     ports:
