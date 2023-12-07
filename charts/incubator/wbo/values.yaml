@@ -6,11 +6,12 @@ persistence:
   data:
     enabled: true
     mountPath: /opt/app/server-data
-podSecurityContext:
-  runAsGroup: 1000
-  runAsUser: 1000
 portal:
   enabled: true
+securityContext:
+  pod:
+    runAsGroup: 1000
+    runAsUser: 1000
 service:
   main:
     ports:

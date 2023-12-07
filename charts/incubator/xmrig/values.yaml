@@ -3,15 +3,15 @@ image:
   repository: lnxd/xmrig
   tag: latest@sha256:ca138a54b0bfd76400dab458df69bcd4b379146bb31eb5c231a61a2d5789c7ce
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: false
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     enabled: false

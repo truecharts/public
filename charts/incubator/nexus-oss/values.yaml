@@ -6,12 +6,13 @@ persistence:
   data:
     enabled: true
     mountPath: /nexus-data
-podSecurityContext:
-  fsGroup: 200
-  runAsGroup: 200
-  runAsUser: 200
 portal:
   enabled: true
+securityContext:
+  pod:
+    fsGroup: 200
+    runAsGroup: 200
+    runAsUser: 200
 service:
   main:
     ports:

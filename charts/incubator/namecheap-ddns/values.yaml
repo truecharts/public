@@ -3,15 +3,15 @@ image:
   repository: edchamberlain/namecheap_ddns
   tag: latest@sha256:fb6e8ad8647cf37b4e82a084d52e2c5b2fc0f3d4ceaa83690f7edf4a16eed19b
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: false
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     enabled: false

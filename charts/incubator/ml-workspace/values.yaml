@@ -24,9 +24,6 @@ persistence:
   workspace:
     enabled: true
     mountPath: /workspace
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: true
 rImage:
@@ -37,6 +34,9 @@ securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     ports:

@@ -3,15 +3,15 @@ image:
   repository: audreyt/ethercalc
   tag: latest@sha256:f0568c0649a71e8e291acb5d812d4c71f9bbc06ab9476b3c7f0dc7f4750ebfa9
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     ports:

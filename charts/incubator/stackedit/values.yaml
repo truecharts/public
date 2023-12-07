@@ -3,15 +3,15 @@ image:
   repository: qmcgaw/stackedit
   tag: latest@sha256:c74120b91fd0ce0d5fae45af1a47b963e75dfeb95f4d080448e01bc80b73416a
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     ports:

@@ -6,15 +6,15 @@ persistence:
   databaselocation:
     enabled: true
     mountPath: /app/db/sqlite
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     ports:

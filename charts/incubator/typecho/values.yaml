@@ -11,9 +11,6 @@ persistence:
   config:
     enabled: true
     mountPath: /app/usr
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 secretEnv:
   TYPECHO_USER_NAME: typecho
   TYPECHO_USER_PASSWORD: testtypecho
@@ -21,6 +18,9 @@ securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     ports:

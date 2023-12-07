@@ -10,15 +10,15 @@ persistence:
     enabled: true
     mountPath: /h5ai
     readOnly: true
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     ports:

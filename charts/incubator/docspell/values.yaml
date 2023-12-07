@@ -261,9 +261,6 @@ persistence:
     readOnly: true
     subPath: server.conf
     type: secret
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: true
 postgresql:
@@ -389,6 +386,9 @@ securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   joex:
     enabled: true

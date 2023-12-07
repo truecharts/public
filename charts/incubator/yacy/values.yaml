@@ -6,15 +6,15 @@ persistence:
   appdata:
     enabled: true
     mountPath: /opt/yacy_search_server/DATA
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   https:
     enabled: true

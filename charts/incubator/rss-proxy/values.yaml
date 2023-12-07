@@ -3,15 +3,15 @@ image:
   repository: damoeb/rss-proxy
   tag: latest@sha256:2637cb10003fa19a31b48831ee7bd0941c668db73180c17a833c723ef894ff7d
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: false
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     enabled: false

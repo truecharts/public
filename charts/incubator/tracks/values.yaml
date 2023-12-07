@@ -3,15 +3,15 @@ image:
   repository: tracksapp/tracks
   tag: latest@sha256:697e129c26d8282973c9c1790e8ba2e5a025266a27d0996074149588ecd39c13
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     ports:

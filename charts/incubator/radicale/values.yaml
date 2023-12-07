@@ -22,10 +22,6 @@ persistence:
     volumeSpec:
       secret:
         secretName: radicale-secret
-podSecurityContext:
-  fsGroup: 2999
-  runAsGroup: 2999
-  runAsUser: 2999
 portal:
   enabled: true
 radicale:
@@ -62,6 +58,10 @@ securityContext:
         - KILL
       drop:
         - ALL
+  pod:
+    fsGroup: 2999
+    runAsGroup: 2999
+    runAsUser: 2999
 service:
   main:
     ports:

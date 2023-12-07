@@ -25,10 +25,6 @@ persistence:
           - key: nginx.conf
             path: default.conf
         name: '{{ include "tc.common.names.fullname" . }}-wger-nginx-config'
-podSecurityContext:
-  fsGroup: 1000
-  runAsGroup: 1000
-  runAsUser: 1000
 portal:
   enabled: true
 postgresql:
@@ -45,6 +41,10 @@ securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    fsGroup: 1000
+    runAsGroup: 1000
+    runAsUser: 1000
 service:
   main:
     ports:

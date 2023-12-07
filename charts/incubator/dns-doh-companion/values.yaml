@@ -3,15 +3,15 @@ image:
   repository: testdasi/simple-dns-doh
   tag: latest@sha256:fc1cb65c1ccdaad684b5e0a3fbe5634c24d62b8ad41623f5e099865ee6cac70c
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   dnsudp:
     enabled: true

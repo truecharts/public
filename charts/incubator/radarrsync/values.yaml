@@ -3,15 +3,15 @@ image:
   repository: dmanius/radarrsync-docker
   tag: latest@sha256:805e1578bea5719e2aedc6fca77013824a3024d641021e23fa5c37cd19a23322
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: false
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     enabled: false

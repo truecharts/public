@@ -67,9 +67,6 @@ persistence:
     enabled: true
     mountPath: /opt/recipes/staticfiles
     type: emptyDir
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: true
 postgresql:
@@ -81,6 +78,9 @@ securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     ports:

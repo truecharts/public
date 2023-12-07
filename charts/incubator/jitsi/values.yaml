@@ -117,9 +117,6 @@ persistence:
   transcripts:
     enabled: true
     mountPath: /usr/share/jitsi-meet/transcripts
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: true
 prosodyImage:
@@ -129,6 +126,9 @@ securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     ports:

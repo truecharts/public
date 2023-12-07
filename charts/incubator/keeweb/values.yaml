@@ -9,15 +9,15 @@ persistence:
   nginx:
     enabled: true
     mountPath: /etc/nginx/external
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   http:
     enabled: true

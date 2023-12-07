@@ -43,9 +43,6 @@ persistence:
   services:
     enabled: true
     mountPath: /cells/services
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: true
 pydioinstall:
@@ -56,6 +53,9 @@ securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   gprc:
     enabled: true

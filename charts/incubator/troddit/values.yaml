@@ -3,15 +3,15 @@ image:
   repository: bsyed/troddit
   tag: latest@sha256:22b590565be2710ca58573b096cc3c66054be1fe859eed0563e31140646b8632
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     ports:

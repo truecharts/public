@@ -6,9 +6,6 @@ persistence:
   appsmithstacks:
     enabled: true
     mountPath: /appsmith-stacks
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: true
 redis:
@@ -19,6 +16,9 @@ securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     ports:

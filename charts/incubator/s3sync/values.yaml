@@ -7,15 +7,15 @@ persistence:
     enabled: true
     mountPath: /data/example
     readOnly: true
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: false
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     enabled: false

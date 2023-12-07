@@ -3,15 +3,15 @@ image:
   repository: biggiesize/genea-app
   tag: latest@sha256:acd12892dfaca16eb7216c1a4112883f3ce7d5aed0078ff2f390970a4a383625
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: false
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     enabled: false

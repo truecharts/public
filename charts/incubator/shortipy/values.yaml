@@ -3,15 +3,15 @@ image:
   repository: knex666/shortipy
   tag: latest@sha256:7cd696ae789fc6e0e092c7af2db99ee9f2f14c888ace05883f50001a6fe7dbf2
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: false
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     enabled: false

@@ -104,9 +104,6 @@ persistence:
   protected-media:
     enabled: true
     mountPath: /protected_media
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: true
 postgresql:
@@ -130,6 +127,9 @@ securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     ports:

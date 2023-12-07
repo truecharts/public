@@ -3,15 +3,15 @@ image:
   repository: grafana/grafana-image-renderer
   tag: latest@sha256:0885e979bce2dbefcc261ec55d0fd37ce026e2724d4d7c100980a6b367c1008c
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: false
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     enabled: false

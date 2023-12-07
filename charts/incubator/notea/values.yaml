@@ -3,15 +3,15 @@ image:
   repository: diamkil/notea
   tag: latest@sha256:e331f787662bafb3722845045ac1753a084bf16b71b43c820e84dc5af6fe2aa1
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: false
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     enabled: false

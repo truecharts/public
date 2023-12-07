@@ -3,15 +3,15 @@ image:
   repository: lastelement21/emby-sync
   tag: latest@sha256:8b492ef039d4202358a76c20aa1eb5b523f6580f639583cd1ee27f32fb345f5c
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     ports:

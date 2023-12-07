@@ -3,15 +3,15 @@ image:
   repository: epoupon/fileshelter
   tag: latest@sha256:0ed70bdc5197566dedfa7e49bc2c92d71d279562993664ecf9554c7b4374e8c3
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: false
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     enabled: false

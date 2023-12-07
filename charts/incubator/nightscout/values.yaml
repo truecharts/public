@@ -3,15 +3,15 @@ image:
   repository: nightscout/cgm-remote-monitor-travis
   tag: latest@sha256:3ace874753e834b9c9b8a242df67f86329b04a3a48584452ae45207bfbfdb271
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     ports:

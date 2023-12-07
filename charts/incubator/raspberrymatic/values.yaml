@@ -22,15 +22,15 @@ persistence:
     hostPath: /sys
     mountPath: /sys
     type: hostPath
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   ccu:
     enabled: true

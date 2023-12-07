@@ -3,15 +3,15 @@ image:
   repository: kutzilla/hetzner-ddns
   tag: latest@sha256:b827c9203391994382e4a08927fc15c04d3a023bacc15b22480bc8250e787387
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: false
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     enabled: false

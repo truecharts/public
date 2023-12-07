@@ -38,10 +38,6 @@ persistence:
     medium: Memory
     mountPath: /run
     type: emptyDir
-podSecurityContext:
-  fsGroup: 82
-  runAsGroup: 82
-  runAsUser: 65534
 portal:
   enabled: true
 postgresql:
@@ -83,6 +79,11 @@ privatebin:
     exempted: ""
     header: ""
     limit: 10
+securityContext:
+  pod:
+    fsGroup: 82
+    runAsGroup: 82
+    runAsUser: 65534
 service:
   main:
     ports:

@@ -3,15 +3,15 @@ image:
   repository: jwater7/godaddy-publicip-updater
   tag: latest@sha256:fd454790cf528241a1599da8374a0330ecfa1b49179d4aa8582526949ebb0180
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: false
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     enabled: false

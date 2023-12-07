@@ -3,15 +3,15 @@ image:
   repository: simonjenny/fastcom-mqtt
   tag: latest@sha256:1687c72cc75372e8786a0e401d545c8b47588b7f33d99bf6af724f125453a234
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: false
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     enabled: false

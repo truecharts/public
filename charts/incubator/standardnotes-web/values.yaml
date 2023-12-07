@@ -3,15 +3,15 @@ image:
   repository: standardnotes/web
   tag: stable@sha256:bf99c33bad03ca9ccd79c40e6aece368a6c23b887f95fcfeeaab86f68f0e3878
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: false
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     enabled: false

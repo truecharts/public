@@ -3,11 +3,12 @@ image:
   pullPolicy: IfNotPresent
   repository: thetorproject/snowflake-proxy
   tag: v2.6.0@sha256:96a1e45e7b9fcc2bb2c0680990f42508b67d5e4f163d3c688d9db63761375d32
-podSecurityContext:
-  runAsGroup: 1000
-  runAsUser: 1000
 portal:
   enabled: false
+securityContext:
+  pod:
+    runAsGroup: 1000
+    runAsUser: 1000
 service:
   main:
     enabled: false

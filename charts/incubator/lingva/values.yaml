@@ -3,15 +3,15 @@ image:
   repository: thedaviddelta/lingva-translate
   tag: latest@sha256:7c9837562e49923ccadfe0e2a017fa3419a1d2878efdd33b2ef754316b6d0ae7
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     ports:

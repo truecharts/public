@@ -18,9 +18,6 @@ image:
   pullPolicy: IfNotPresent
   repository: ndom91/briefkasten
   tag: latest@sha256:9de8da3e0e71a3e5f58543e165604b2416815f5099977b0c2727435670d60aed
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: true
 postgresql:
@@ -32,6 +29,9 @@ securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     ports:

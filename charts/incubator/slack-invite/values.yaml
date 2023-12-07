@@ -3,15 +3,15 @@ image:
   repository: ninthwalker/slack-invite
   tag: latest@sha256:25a38b1ee28baf78046162bcaf90962eee3ad79b60666f5451e5f30e5a0c0dda
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     ports:

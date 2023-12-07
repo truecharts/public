@@ -3,15 +3,15 @@ image:
   repository: theconnman/docker-hub-rss
   tag: latest@sha256:b808f43c65503ad8e8179884f5a7f023d929ec7684ae8c337b77d96ff095db62
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: false
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     enabled: false

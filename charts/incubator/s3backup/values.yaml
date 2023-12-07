@@ -3,15 +3,15 @@ image:
   repository: joch/s3backup
   tag: latest@sha256:f81c2bb5de6ee13413f4e63bd720d2221605956344833df086e14554b44b2776
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: false
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     enabled: false

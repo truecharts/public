@@ -19,9 +19,6 @@ image:
   repository: m1k1o/neko
   tag: firefox@sha256:f419f71b40c6c1f03cda16de4f2c0f467a577a14d4d7e889e9858161ea0209ad
 imageSelector: image
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: true
 remminaImage:
@@ -32,6 +29,9 @@ securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     ports:

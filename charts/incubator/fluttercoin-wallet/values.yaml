@@ -6,15 +6,15 @@ persistence:
   datapath:
     enabled: true
     mountPath: /fluttercoin
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   jsonremoteport:
     enabled: true

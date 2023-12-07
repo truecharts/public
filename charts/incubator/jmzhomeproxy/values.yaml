@@ -3,15 +3,15 @@ image:
   repository: jmzsoftware/jmzhomelabproxy
   tag: latest@sha256:6f37ef95a27aa512b8e5eaea0c22457035ca81bf6a7b71f91de1b57c78b7586d
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     ports:

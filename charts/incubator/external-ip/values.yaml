@@ -3,15 +3,15 @@ image:
   repository: xavierh/external-ip
   tag: latest@sha256:c2b2aaf45493ec6e044da57f63f4cf8a528a894ae7fd8954bc1dc88e72f6b1d5
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: false
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     enabled: false

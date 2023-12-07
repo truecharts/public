@@ -14,9 +14,6 @@ image:
 persistence:
   varrun:
     enabled: false
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: false
 replication:
@@ -31,6 +28,9 @@ securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   ldaps:
     enabled: true

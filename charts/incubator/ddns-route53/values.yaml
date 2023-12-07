@@ -3,15 +3,15 @@ image:
   repository: crazymax/ddns-route53
   tag: latest@sha256:59c370b600ccbdf853ddf74e8c115ffa7d986e7e47ae70cf829d2a67a4b0eb43
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: false
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     enabled: false

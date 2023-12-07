@@ -6,15 +6,15 @@ persistence:
   config:
     enabled: true
     mountPath: /config
-podSecurityContext:
-  fsGroup: 33
-  runAsGroup: 33
-  runAsUser: 33
 portal:
   enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
+  pod:
+    fsGroup: 33
+    runAsGroup: 33
+    runAsUser: 33
 service:
   main:
     ports:

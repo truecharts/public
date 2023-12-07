@@ -9,15 +9,15 @@ persistence:
   storage:
     enabled: true
     mountPath: /storage
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   hostapiaddress:
     enabled: true

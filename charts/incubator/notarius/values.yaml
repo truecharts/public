@@ -3,15 +3,15 @@ image:
   repository: agusalex/notarius
   tag: latest@sha256:ac7f357fc114660429b2b08f8939cf3bcbe7a0cc399a46077b77d417500a6ab4
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: false
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     enabled: false

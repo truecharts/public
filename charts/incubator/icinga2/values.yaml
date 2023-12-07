@@ -20,15 +20,15 @@ persistence:
   web:
     enabled: true
     mountPath: /etc/icingaweb2
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   api:
     enabled: true

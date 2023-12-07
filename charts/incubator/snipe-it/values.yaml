@@ -17,10 +17,6 @@ persistence:
   logs:
     enabled: true
     mountPath: /var/www/html/storage/logs
-podSecurityContext:
-  fsGroup: 50
-  runAsGroup: 1000
-  runAsUser: 0
 portal:
   enabled: true
 redis:
@@ -30,6 +26,10 @@ securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    fsGroup: 50
+    runAsGroup: 1000
+    runAsUser: 0
 service:
   main:
     ports:

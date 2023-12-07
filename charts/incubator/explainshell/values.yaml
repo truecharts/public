@@ -3,15 +3,15 @@ image:
   repository: spaceinvaderone/explainshell
   tag: latest@sha256:4087f0864ba72a987e7beb4f2fe2b86a799c7db3ec468029a1086e38974408fa
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: false
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     enabled: false

@@ -3,15 +3,15 @@ image:
   repository: mikenye/tar1090
   tag: latest@sha256:3051d7efe6152d7103ff7dd785772e9b67b6eb115000e6c07fc7fca87875919f
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
 portal:
   enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
+  pod:
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     ports:
