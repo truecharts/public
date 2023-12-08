@@ -17,11 +17,15 @@
       {{/* Create a copy of the schedule */}}
       {{- $objectData := (mustDeepCopy $schedule) -}}
 
-      {{- $objectName := (printf "%s-%s" $fullname $name) -}}
-      {{- if hasKey $objectData "expandObjectName" -}}
-        {{- if not $objectData.expandObjectName -}}
-          {{- $objectName = $name -}}
-        {{- end -}}
+      {{- $objectName := $name -}}
+
+      {{- $expandName := (include "tc.v1.common.lib.util.expandName" (dict
+                "rootCtx" $ "objectData" $objectData
+                "name" $name "caller" "Velero Schedule"
+                "key" "schedules")) -}}
+
+      {{- if eq $expandName "true" -}}
+        {{- $objectName = (printf "%s-%s" $fullname $name) -}}
       {{- end -}}
 
       {{/* Perform validations */}} {{/* schedules have a max name length of 253 */}}

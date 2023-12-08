@@ -18,11 +18,15 @@
       {{/* Create a copy of the priorityclass */}}
       {{- $objectData := (mustDeepCopy $priorityclass) -}}
 
-      {{- $objectName := (printf "%s-%s" $fullname $name) -}}
-      {{- if hasKey $objectData "expandObjectName" -}}
-        {{- if not $objectData.expandObjectName -}}
-          {{- $objectName = $name -}}
-        {{- end -}}
+      {{- $objectName := $name -}}
+
+      {{- $expandName := (include "tc.v1.common.lib.util.expandName" (dict
+                "rootCtx" $ "objectData" $objectData
+                "name" $name "caller" "Priority Class"
+                "key" "priorityClass")) -}}
+
+      {{- if eq $expandName "true" -}}
+        {{- $objectName = (printf "%s-%s" $fullname $name) -}}
       {{- end -}}
 
       {{/* Perform validations */}} {{/* priorityclasss have a max name length of 253 */}}

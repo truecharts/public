@@ -17,12 +17,15 @@
 
       {{/* Create a copy of the backupstoragelocation */}}
       {{- $objectData := (mustDeepCopy $backupStorageLoc) -}}
+      {{- $objectName := $name -}}
 
-      {{- $objectName := (printf "%s-%s" $fullname $name) -}}
-      {{- if hasKey $objectData "expandObjectName" -}}
-        {{- if not $objectData.expandObjectName -}}
-          {{- $objectName = $name -}}
-        {{- end -}}
+      {{- $expandName := (include "tc.v1.common.lib.util.expandName" (dict
+                "rootCtx" $ "objectData" $objectData
+                "name" $name "caller" "Velero Backup Storage Location"
+                "key" "backupStorageLocation")) -}}
+
+      {{- if eq $expandName "true" -}}
+        {{- $objectName = (printf "%s-%s" $fullname $name) -}}
       {{- end -}}
 
       {{/* Set namespace to velero location or itself, just in case its used from within velero */}}

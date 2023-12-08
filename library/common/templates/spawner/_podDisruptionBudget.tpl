@@ -7,36 +7,25 @@
   {{- $fullname := include "tc.v1.common.lib.chart.names.fullname" $ -}}
 
   {{- range $name, $pdb := .Values.podDisruptionBudget -}}
-    {{- $enabled := false -}}
-    {{- if hasKey $pdb "enabled" -}}
-      {{- if not (kindIs "invalid" $pdb.enabled) -}}
-        {{- $enabled = $pdb.enabled -}}
-      {{- else -}}
-        {{- fail (printf "Pod Disruption Budget - Expected the defined key [enabled] in [podDisruptionBudget.%s] to not be empty" $name) -}}
-      {{- end -}}
-    {{- end -}}
+    {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
+                    "rootCtx" $ "objectData" $pdb
+                    "name" $name "caller" "Pod Disruption Budget"
+                    "key" "podDistruptionBudget")) -}}
 
-    {{- if kindIs "string" $enabled -}}
-      {{- $enabled = tpl $enabled $ -}}
-
-      {{/* After tpl it becomes a string, not a bool */}}
-      {{-  if eq $enabled "true" -}}
-        {{- $enabled = true -}}
-      {{- else if eq $enabled "false" -}}
-        {{- $enabled = false -}}
-      {{- end -}}
-    {{- end -}}
-
-    {{- if $enabled -}}
+    {{- if eq $enabled "true" -}}
 
       {{/* Create a copy of the poddisruptionbudget */}}
       {{- $objectData := (mustDeepCopy $pdb) -}}
 
-      {{- $objectName := (printf "%s-%s" $fullname $name) -}}
-      {{- if hasKey $objectData "expandObjectName" -}}
-        {{- if not $objectData.expandObjectName -}}
-          {{- $objectName = $name -}}
-        {{- end -}}
+      {{- $objectName := $name -}}
+
+      {{- $expandName := (include "tc.v1.common.lib.util.expandName" (dict
+                "rootCtx" $ "objectData" $objectData
+                "name" $name "caller" "Pod Disruption Budget"
+                "key" "podDistruptionBudget")) -}}
+
+      {{- if eq $expandName "true" -}}
+        {{- $objectName = (printf "%s-%s" $fullname $name) -}}
       {{- end -}}
 
       {{/* Perform validations */}}

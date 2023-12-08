@@ -33,7 +33,7 @@ spec:
   secretName: {{ $objectData.name }}
   dnsNames:
   {{- range $h := $objectData.hosts }}
-    - {{ tpl $h $rootCtx }}
+    - {{ (tpl $h $rootCtx) | quote }}
   {{- end }}
   privateKey:
     algorithm: ECDSA

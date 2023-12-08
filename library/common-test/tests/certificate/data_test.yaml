@@ -21,6 +21,7 @@ tests:
           enabled: true
           hosts:
             - host2
+            - "*.host2.com"
           certificateIssuer: some-other-issuer
           certificateSecretTemplate:
             labels:
@@ -72,6 +73,7 @@ tests:
             secretName: certificate-issuer-my-certificate2
             dnsNames:
               - host2
+              - "*.host2.com"
             issuerRef:
               name: some-other-issuer
               kind: ClusterIssuer
