@@ -113,19 +113,38 @@ questions:
           schema:
             type: string
             default: "http://checkip.amazonaws.com"
-        - variable: codec
-          label: "Codec"
-          description: Video Codec"
+        - variable: codecs
+          label: Codecs Configuration
           schema:
-            type: string
-            default: "vp8"
-            enum:
-              - value: vp8
-                description: VP8
-              - value: vp9
-                description: VP9
-              - value: h264
-                description: H264
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: video
+                label: "Video Codec"
+                schema:
+                  type: string
+                  default: "vp8"
+                  enum:
+                    - value: vp8
+                      description: VP8
+                    - value: vp9
+                      description: VP9
+                    - value: h264
+                      description: H264
+              - variable: audio
+                label: "Audio Codec"
+                schema:
+                  type: string
+                  default: "opus"
+                  enum:
+                    - value: opus
+                      description: Opus
+                    - value: g722
+                      description: G722
+                    - value: pcmu
+                      description: PCMU
+                    - value: pcma
+                      description: PCMA
         - variable: bitrate
           label: "Bitrate"
           description: Bitrate of the video stream in kb/s."
@@ -181,7 +200,7 @@ questions:
             attrs:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
-                    - variable: epr-udp
+                    - variable: eprudp
                       label: EPR-UDP Service Port Configuration
                       schema:
                         additional_attrs: true

@@ -56,16 +56,16 @@ service:
   webrtc:
     enabled: true
     ports:
-      epr-udp:
+      eprudp:
         enabled: true
         protocol: udp
         targetPort: 52100
         port: 52100
-      epr-tcp:
+      eprtcp:
         enabled: true
         protocol: tcp
         targetPort: 52100
-        port: "{{ .Values.service.webrtc.ports.epr-udp.port }}"
+        port: "{{ .Values.service.webrtc.ports.eprudp.port }}"
 
 securityContext:
   container:
@@ -84,8 +84,11 @@ neko:
   locks: []
   nat1t01: ""
   ipfetch: http://checkip.amazonaws.com
-  # vp8 | vp9 | h264
-  codec: vp8
+  codecs:
+    # vp8 | vp9 | h264
+    video: vp8
+    # opus | g722 | pcmu | pcma
+    audio: opus
   bitrate: 3500
   cors: 
     - "*"
@@ -98,8 +101,8 @@ workload:
           imageSelector: image
           env:
             NEKO_BIND: ":{{ .Values.service.main.ports.main.port }}"
-            NEKO_TCPMUX: "{{ .Values.service.webrtc.ports.epr-udp.port }}"
-            NEKO_UDPMUX: "{{ .Values.service.webrtc.ports.epr-udp.port }}"
+            NEKO_TCPMUX: "{{ .Values.service.webrtc.ports.eprudp.port }}"
+            NEKO_UDPMUX: "{{ .Values.service.webrtc.ports.eprudp.port }}"
             NEKO_CONTROL_PROTECTION: "{{ .Values.neko.control_protection }}"
             NEKO_IMPLICIT_CONTROL: "{{ .Values.neko.implicit_control }}"
             NEKO_IPFETCH: "{{ .Values.neko.ipfetch }}"
@@ -109,7 +112,8 @@ workload:
             NEKO_PASSWORD_ADMIN: "{{ .Values.neko.password_admin }}"
             NEKO_PROXY: "{{ .Values.neko.proxy }}"
             NEKO_SCREEN: "{{ .Values.neko.screen }}"
-            NEKO_VIDEO_CODEC: "{{ .Values.neko.codec }}"
+            NEKO_VIDEO_CODEC: "{{ .Values.neko.codecs.vidio }}"
+            NEKO_AUDIO_CODEC: "{{ .Values.neko.codecs.audio }}"
             NEKO_VIDEO_BITRATE: "{{ .Values.neko.bitrate }}"
             NEKO_CORS: '{{ join " " .Values.neko.cors }}'
 
