@@ -1,16 +1,23 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: MediaServer-Video
+kubeVersion: ">=1.24.0"
 apiVersion: v2
-appVersion: "latest"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
-deprecated: false
-description: "Serviio is a freeware media server designed to let users stream music, video, or image files to DLNA compliant televisions, Blu-ray players, game consoles, and Android or Windows Mobile devices on a home network."
+name: serviio
+version: 3.0.0
+appVersion: latest
+description:
+  Serviio is a freeware media server designed to let users stream music,
+  video, or image files to DLNA compliant televisions, Blu-ray players, game consoles,
+  and Android or Windows Mobile devices on a home network.
 home: https://truecharts.org/charts/incubator/serviio
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/serviio.png
+deprecated: false
+sources:
+  - https://serviio.org/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/serviio
+  - https://hub.docker.com/r/riftbit/serviio
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
   - serviio
   - MediaServer-Video
@@ -18,14 +25,19 @@ keywords:
   - MediaServer-Books
   - MediaServer-Photos
   - MediaServer-Other
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: serviio
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/serviio
-  - https://serviio.org/
-type: application
-version: 2.0.9
+dependencies:
+  - name: common
+    version: 16.0.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: MediaServer-Video
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator

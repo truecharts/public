@@ -1,27 +1,36 @@
+kubeVersion: ">=1.24.0"
 apiVersion: v2
-appVersion: "1.32.7.7621"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
-deprecated: false
+name: plex
+version: 14.1.4
+appVersion: 1.32.8.7639
 description: Plex Media Server
 home: https://truecharts.org/charts/stable/plex
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/plex.png
+deprecated: false
+sources:
+  - https://github.com/k8s-at-home/container-images/pkgs/container/plex
+  - https://github.com/truecharts/charts/tree/master/charts/stable/plex
+  - https://ghcr.io/onedr0p/plex
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
   - plex
   - plex-media-server
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: plex
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/plex
-  - https://github.com/k8s-at-home/container-images/pkgs/container/plex
-type: application
-version: 14.1.2
+dependencies:
+  - name: common
+    version: 14.3.5
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  truecharts.org/category: media
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
   truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable

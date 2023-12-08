@@ -1,23 +1,19 @@
-env:
-  CUSTOM_RES_H: "768"
-  CUSTOM_RES_W: "1024"
-  DATA_PERM: "770"
-  EXTRA_PARAMS: -bind=0.0.0.0
-  UMASK: "000"
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/fluttercoin-wallet
-  tag: latest@sha256:ca357f95aa9d6c9e6b6e0b57a8c4a2e81d8e89d55c6f36c48a240059d59f3fa8
+  repository: ich777/fluttercoin
+  tag: latest@sha256:6a5a8796019044220846b479e13f9967ed283623b6ebd03ef1bbd1504eefaf66
 persistence:
   datapath:
     enabled: true
     mountPath: /fluttercoin
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   jsonremoteport:
     enabled: true
@@ -41,6 +37,14 @@ service:
         port: 7408
         protocol: TCP
         targetPort: 7408
-
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            CUSTOM_RES_H: "768"
+            CUSTOM_RES_W: "1024"
+            DATA_PERM: "770"
+            EXTRA_PARAMS: -bind=0.0.0.0
+            UMASK: "000"

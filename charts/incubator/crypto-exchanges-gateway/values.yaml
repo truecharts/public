@@ -1,18 +1,19 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/crypto-exchanges-gateway
-  tag: latest@sha256:ed57ca4fbbb780e43350d348494516ba04bbdec5eb21907467738df5c0c8cbf9
+  repository: apendergast/crypto-exchanges-gateway
+  tag: latest@sha256:7c1ba487a4d6e8a20846769882b54baf660b1a8113cd798e3d830e18285b11f4
 persistence:
   configpath:
     enabled: true
     mountPath: /root/crypto-exchanges-gateway/custom_config
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -28,6 +29,3 @@ service:
         port: 8001
         protocol: TCP
         targetPort: 8001
-
-portal:
-  enabled: true

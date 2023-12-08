@@ -8,47 +8,47 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: WORLD_NAME
+                                        label: "WORLD_NAME"
+                                        description: "The name you wish to give to your server and its associated world"
+                                        schema:
+                                          type: string
+                                          default: "World name here"
+                                      - variable: MAX_PLAYERS
+                                        label: "MAX_PLAYERS"
+                                        description: "Maximum number of players that will be allowed to connect to server."
+                                        schema:
+                                          type: string
+                                          default: "10"
+                                      - variable: GAME_ID
+                                        label: "GAME_ID"
+                                        description: "Game ID to use for the server. Need to be at least 23 characters and alphanumeric, excluding Y,y,x,0,O. Empty or not valid means a new ID will be generated at start."
+                                        schema:
+                                          type: string
+                                          default: "examplegameidwillgohere"
+                                      - variable: DATA_PATH
+                                        label: "DATA_PATH"
+                                        description: "Save file location. If not set it defaults to a sub-folder named "
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: WORLD_INDEX
+                                        label: "WORLD_INDEX"
+                                        description: " Which world index to use."
+                                        schema:
+                                          type: string
+                                          default: "0"
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: WORLD_NAME
-          label: "WORLD_NAME"
-          description: "The name you wish to give to your server and its associated world"
-          schema:
-            type: string
-            default: "World name here"
-        - variable: MAX_PLAYERS
-          label: "MAX_PLAYERS"
-          description: "Maximum number of players that will be allowed to connect to server."
-          schema:
-            type: string
-            default: "10"
-        - variable: GAME_ID
-          label: "GAME_ID"
-          description: "Game ID to use for the server. Need to be at least 23 characters and alphanumeric, excluding Y,y,x,0,O. Empty or not valid means a new ID will be generated at start."
-          schema:
-            type: string
-            default: "examplegameidwillgohere"
-        - variable: DATA_PATH
-          label: "DATA_PATH"
-          description: "Save file location. If not set it defaults to a sub-folder named "
-          schema:
-            type: string
-            default: ""
-        - variable: WORLD_INDEX
-          label: "WORLD_INDEX"
-          description: " Which world index to use."
-          schema:
-            type: string
-            default: "0"
-# Include{serviceExpertRoot}
+# Include{containerConfig}
+# Include{podOptions}
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}

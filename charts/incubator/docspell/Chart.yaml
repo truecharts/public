@@ -1,35 +1,51 @@
+kubeVersion: ">=1.24.0"
 apiVersion: v2
-appVersion: "0.39.0"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
-  - condition: postgresql.enabled
-    name: postgresql
-    repository: https://deps.truecharts.org/
-    version: 11.0.31
-  - condition: solr.enabled
-    name: solr
-    repository: https://deps.truecharts.org/
-    version: 2.0.31
+name: docspell
+version: 4.0.0
+appVersion: 0.40.0
 description: Docspell is a personal document organizer.
 home: https://truecharts.org/charts/incubator/docspell
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/docspell.png
-keywords:
-  - docs
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: docspell
+deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/docspell
   - https://github.com/eikek/docspell
   - https://docspell.org/docs/install/docker/
   - https://docspell.org/docs/configure/defaults/
-version: 3.0.26
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/docspell
+  - https://hub.docker.com/r/docspell/restserver
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - docs
+dependencies:
+  - name: common
+    version: 16.0.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: postgresql
+    version: 11.0.31
+    repository: https://deps.truecharts.org/
+    condition: postgresql.enabled
+    alias: ""
+    tags: []
+    import-values: []
+  - name: solr
+    version: 2.0.31
+    repository: https://deps.truecharts.org/
+    condition: solr.enabled
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  truecharts.org/category: productivity
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+  truecharts.org/category: productivity
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator

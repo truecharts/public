@@ -10,23 +10,19 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: UMASK_SET
-          label: "UMASK_SET"
-          description: "Container Variable UMASKSET"
-          schema:
-            type: string
-            default: "0022"
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: UMASK_SET
+                                        label: "UMASK_SET"
+                                        description: "Container Variable UMASKSET"
+                                        schema:
+                                          type: string
+                                          default: "0022"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

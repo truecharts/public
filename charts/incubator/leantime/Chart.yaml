@@ -1,31 +1,46 @@
+kubeVersion: ">=1.24.0"
 apiVersion: v2
-appVersion: "2.3.20"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
-  - condition: mariadb.enabled
-    name: mariadb
-    repository: https://deps.truecharts.org/
-    version: 5.0.35
-description: "Straightforward open source project management system to make your ideas reality."
+name: leantime
+version: 9.0.0
+appVersion: 2.4.7
+description:
+  Straightforward open source project management system to make your ideas
+  reality.
 home: https://truecharts.org/charts/incubator/leantime
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/leantime.png
+deprecated: false
+sources:
+  - https://leantime.io/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/leantime
+  - https://hub.docker.com/r/leantime/leantime
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
   - leantime
   - project
   - management
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: leantime
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/leantime
-  - https://leantime.io/
-version: 8.0.0
+dependencies:
+  - name: common
+    version: 16.0.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: mariadb
+    version: 5.0.35
+    repository: https://deps.truecharts.org/
+    condition: mariadb.enabled
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  truecharts.org/category: management
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+  truecharts.org/category: management
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator

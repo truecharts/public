@@ -10,29 +10,25 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: VS_CHANNEL
-          label: "VS_CHANNEL"
-          description: "Select which release channel you want to use (valid values are stable, unstable &amp; pre without quotes)."
-          schema:
-            type: string
-            default: "stable"
-        - variable: GAME_PARAMS
-          label: "GAME_PARAMS"
-          description: "Extra startup parameters (leave empty if you dont need it)."
-          schema:
-            type: string
-            default: ""
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: VS_CHANNEL
+                                        label: "VS_CHANNEL"
+                                        description: "Select which release channel you want to use (valid values are stable, unstable &amp; pre without quotes)."
+                                        schema:
+                                          type: string
+                                          default: "stable"
+                                      - variable: GAME_PARAMS
+                                        label: "GAME_PARAMS"
+                                        description: "Extra startup parameters (leave empty if you dont need it)."
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

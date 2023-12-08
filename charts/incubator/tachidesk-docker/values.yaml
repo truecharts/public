@@ -1,8 +1,7 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/tachidesk-docker
-  tag: latest@sha256:3a19b630d9ca31cbc2f130c8fbedf2aa1b6aea1d62b1a47661b221e63311ae16
+  repository: ghcr.io/suwayomi/tachidesk
+  tag: latest@sha256:2782f5b40fafccb21ff6bdbaed7594804c2aa043ba9a42727a19fb6e07397fbb
 persistence:
   appdata:
     enabled: true
@@ -13,12 +12,14 @@ persistence:
   local-library:
     enabled: true
     mountPath: /home/suwayomi/.local/share/Tachidesk/local
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -26,6 +27,3 @@ service:
         port: 4567
         protocol: TCP
         targetPort: 4567
-
-portal:
-  enabled: true

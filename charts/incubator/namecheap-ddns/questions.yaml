@@ -8,35 +8,35 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: APP_HOST
+                                        label: "APP_HOST"
+                                        description: "This is the host to be updated. e.g. www."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: APP_DOMAIN
+                                        label: "APP_DOMAIN"
+                                        description: "This is the domain to be updated. e.g. yourdomain.tld"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: APP_PASSWORD
+                                        label: "APP_PASSWORD"
+                                        description: "Your Dynamic DNS password. NOT your namecheap password."
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: APP_HOST
-          label: "APP_HOST"
-          description: "This is the host to be updated. e.g. www."
-          schema:
-            type: string
-            default: ""
-        - variable: APP_DOMAIN
-          label: "APP_DOMAIN"
-          description: "This is the domain to be updated. e.g. yourdomain.tld"
-          schema:
-            type: string
-            default: ""
-        - variable: APP_PASSWORD
-          label: "APP_PASSWORD"
-          description: "Your Dynamic DNS password. NOT your namecheap password."
-          schema:
-            type: string
-            default: ""
-# Include{serviceExpertRoot}
+# Include{containerConfig}
+# Include{podOptions}
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceList}

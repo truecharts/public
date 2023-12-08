@@ -1,0 +1,49 @@
+image:
+  repository: tccr.io/truecharts/scrypted-thin
+  pullPolicy: IfNotPresent
+  tag: v0.59.0@sha256:2c280da7178342c224831121cfe43b60ea1f71a7922985bc8aee56d68f006a07
+liteImage:
+  repository: tccr.io/truecharts/scrypted-lite
+  tag: v0.59.0@sha256:8d4dc4a6482073c2ac9885529d36ce05b7e92c2451e7878a85f9bef4e2f9deb6
+  pullPolicy: Always
+fullImage:
+  repository: tccr.io/truecharts/scrypted-full
+  tag: v0.59.0@sha256:85bc2bff2bb9a1d5edb2dfddcf402c6b32073371f38085941e8edf1051ec503b
+  pullPolicy: Always
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 10611
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          imageSelector: image
+          env:
+            SCRYPTED_INSECURE_PORT: "{{ .Values.service.main.ports.main.port }}"
+            # SCRYPTED_WEBHOOK_UPDATE_AUTHORIZATION: Bearer SET_THIS_TO_SOME_RANDOM_TEXT
+            # SCRYPTED_WEBHOOK_UPDATE: http://localhost:10444/v1/update
+
+persistence:
+  server:
+    enabled: true
+    mountPath: /server/volume
+  media:
+    enabled: true
+    mountPath: /media/external
+
+portal:
+  open:
+    enabled: true

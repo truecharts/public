@@ -1,17 +1,7 @@
-env:
-  ANONYMOUS_METHODS: ""
-  AUTH_TYPE: Basic
-  LOCATION: /
-  PASSWORD: ""
-  PUMASK: "0000"
-  REALM: WebDAV-Login
-  SERVER_NAMES: localhost
-  SSL_CERT: ""
-  USERNAME: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/apache-webdav
-  tag: latest@sha256:78ab22cc99dad54914a7d3dc787898f21b424217ddf0357d4e76863933a224ab
+  repository: apachewebdav/apachewebdav
+  tag: latest@sha256:0d4aea1eefbc374cf21fd677e09a90df7dca0f5b5d72e5ba534f201f7c03bcea
 persistence:
   config:
     enabled: true
@@ -19,12 +9,14 @@ persistence:
   data:
     enabled: true
     mountPath: /var/lib/dav/data
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -32,6 +24,18 @@ service:
         port: 8384
         protocol: TCP
         targetPort: 80
-
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            ANONYMOUS_METHODS: ""
+            AUTH_TYPE: Basic
+            LOCATION: /
+            PASSWORD: ""
+            PUMASK: "0000"
+            REALM: WebDAV-Login
+            SERVER_NAMES: localhost
+            SSL_CERT: ""
+            USERNAME: ""

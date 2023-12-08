@@ -8,35 +8,35 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: ZONE_NAME
+                                        label: "ZONE_NAME"
+                                        description: "The DNS zone that DDNS updates should be applied to."
+                                        schema:
+                                          type: string
+                                          default: "example.com"
+                                      - variable: API_TOKEN
+                                        label: "API_TOKEN"
+                                        description: "Your Hetzner  API token."
+                                        schema:
+                                          type: string
+                                          default: "my-secret-api-token"
+                                      - variable: RECORD_TYPE
+                                        label: "RECORD_TYPE"
+                                        description: "The record type of your zone. If your zone uses an IPv4 address use A. Use AAAA if it uses an IPv6 address."
+                                        schema:
+                                          type: string
+                                          default: "A"
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: ZONE_NAME
-          label: "ZONE_NAME"
-          description: "The DNS zone that DDNS updates should be applied to."
-          schema:
-            type: string
-            default: "example.com"
-        - variable: API_TOKEN
-          label: "API_TOKEN"
-          description: "Your Hetzner  API token."
-          schema:
-            type: string
-            default: "my-secret-api-token"
-        - variable: RECORD_TYPE
-          label: "RECORD_TYPE"
-          description: "The record type of your zone. If your zone uses an IPv4 address use A. Use AAAA if it uses an IPv6 address."
-          schema:
-            type: string
-            default: "A"
-# Include{serviceExpertRoot}
+# Include{containerConfig}
+# Include{podOptions}
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceList}

@@ -320,8 +320,13 @@
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["https://lscr.io/linuxserver/webtop"],
+      "matchPackagePrefixes": ["lscr.io/linuxserver/webtop"],
       "groupName": "webtop",
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["lscr.io/linuxserver/rdesktop"],
+      "groupName": "rdesktop",
     },
     {
       "matchDatasources": ["docker"],

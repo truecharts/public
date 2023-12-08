@@ -10,52 +10,48 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: APP_NAME
-          label: "APP_NAME"
-          description: "This is the title of the browsers tab."
-          schema:
-            type: string
-            default: "Vorta"
-        - variable: SECURE_CONNECTION
-          label: "SECURE_CONNECTION"
-          description: "Use an encrypted connection to access the applications GUI (HTTPS)."
-          schema:
-            type: string
-            default: "0"
-        - variable: VNC_PASSWORD
-          label: "VNC_PASSWORD"
-          description: "Password to connect to the applications GUI. (leave it blank to access without a password)"
-          schema:
-            type: string
-            default: ""
-        - variable: USER_ID
-          label: "USER_ID"
-          description: "Default 1028"
-          schema:
-            type: string
-            default: "99"
-        - variable: GROUP_ID
-          label: "GROUP_ID"
-          description: "Default 100"
-          schema:
-            type: string
-            default: "100"
-        - variable: UMASK
-          label: "UMASK"
-          schema:
-            type: string
-            default: "022"
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: APP_NAME
+                                        label: "APP_NAME"
+                                        description: "This is the title of the browsers tab."
+                                        schema:
+                                          type: string
+                                          default: "Vorta"
+                                      - variable: SECURE_CONNECTION
+                                        label: "SECURE_CONNECTION"
+                                        description: "Use an encrypted connection to access the applications GUI (HTTPS)."
+                                        schema:
+                                          type: string
+                                          default: "0"
+                                      - variable: VNC_PASSWORD
+                                        label: "VNC_PASSWORD"
+                                        description: "Password to connect to the applications GUI. (leave it blank to access without a password)"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: USER_ID
+                                        label: "USER_ID"
+                                        description: "Default 1028"
+                                        schema:
+                                          type: string
+                                          default: "99"
+                                      - variable: GROUP_ID
+                                        label: "GROUP_ID"
+                                        description: "Default 100"
+                                        schema:
+                                          type: string
+                                          default: "100"
+                                      - variable: UMASK
+                                        label: "UMASK"
+                                        schema:
+                                          type: string
+                                          default: "022"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

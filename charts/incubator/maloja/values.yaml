@@ -1,20 +1,19 @@
-env:
-  MALOJA_DATA_DIRECTORY: /config
-  MALOJA_HOST: 0.0.0.0
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/maloja
-  tag: latest@sha256:aed9c2044a962314ed8f59989af317f6ead220fa25cf8c71984284ed41e7f7e0
+  repository: krateng/maloja
+  tag: latest@sha256:5f73e1735a11bf5b7dd7921931091291f3bf6c2cf6679ae4b5f55d11a979c8db
 persistence:
   config:
     enabled: true
     mountPath: /config
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -22,6 +21,11 @@ service:
         port: 42010
         protocol: TCP
         targetPort: 42010
-
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            MALOJA_DATA_DIRECTORY: /config
+            MALOJA_HOST: 0.0.0.0

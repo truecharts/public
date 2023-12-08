@@ -1,25 +1,38 @@
+kubeVersion: ">=1.24.0"
 apiVersion: v2
+name: reg
+version: 10.0.14
 appVersion: "2"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
-description: Docker registry v2 command line client and repo listing generator with security checks.
+description:
+  Docker registry v2 command line client and repo listing generator with
+  security checks.
 home: https://truecharts.org/charts/stable/reg
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/reg.png
-keywords:
-  - reg
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: reg
+deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/reg
+  - https://hub.docker.com/_/registry
   - https://github.com/genuinetools/reg
   - https://github.com/k8s-at-home/container-images/
-version: 10.0.12
+  - https://github.com/truecharts/charts/tree/master/charts/stable/reg
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - reg
+dependencies:
+  - name: common
+    version: 14.3.5
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  truecharts.org/category: utilities
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
   truecharts.org/SCALE-support: "true"
+  truecharts.org/category: utilities
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
