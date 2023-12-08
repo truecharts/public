@@ -398,28 +398,6 @@ questions:
                               type: int
                               default: 10018
                               required: true
-        - variable: api
-          label: API Service
-          description: The API Service
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelectorClusterIP}
-# Include{serviceSelectorExtras}
-                    - variable: api
-                      label: API Service Port Configuration
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: Port
-                            description: This port exposes the container port on the service
-                            schema:
-                              type: int
-                              default: 10019
-                              required: true
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
 # Include{serviceList}
@@ -452,13 +430,13 @@ questions:
                 description: "The UserID of the user running the application"
                 schema:
                   type: int
-                  default: 0
+                  default: 568
               - variable: runAsGroup
                 label: "runAsGroup"
                 description: "The groupID of the user running the application"
                 schema:
                   type: int
-                  default: 0
+                  default: 568
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}

@@ -1,28 +1,24 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/redisinsight
-  tag: v1.14.0@sha256:569d8cfd3352ef17800d0c1cb3437ce4510f49571c1d61bbb3422ebc1fd1bb0e
-
+  repository: redislabs/redisinsight
+  tag: 1.14.0@sha256:b03ab1426d0d861b0370e05ee670a8819c8ab36b987ca59e4a3e92e0038d089c
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsGroup: 0
     runAsUser: 0
-
 service:
   main:
     ports:
       main:
         protocol: http
         port: 10579
-
 redisinsight:
   log_level: WARNING
   trusted_origins: []
   auth_prompt: false
   auth_timer: 30
-
 workload:
   main:
     podSpec:
@@ -36,7 +32,6 @@ workload:
             RITRUSTEDORIGINS: '{{ join "," .Values.redisinsight.trusted_origins }}'
             RIAUTHPROMPT: "{{ .Values.redisinsight.auth_prompt }}"
             RIAUTHTIMER: "{{ .Values.redisinsight.auth_timer }}"
-
 persistence:
   config:
     enabled: true
@@ -44,7 +39,6 @@ persistence:
   logs:
     enabled: true
     mountPath: /logs
-
 portal:
   open:
     enabled: true

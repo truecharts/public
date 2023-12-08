@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/minecraft-bedrock
-  tag: v2023.8.1@sha256:deedf1e2b76a62dc9bd182e94699dc17abd60ff3827d9a1193cec1a55fc4299f
+  repository: itzg/minecraft-bedrock-server
+  tag: 2023.8.1@sha256:e2019e959daa70dffd1468aaa1348bc906170709bf2c790bee302fc1efedbde7
   pullPolicy: Always
-
 service:
   main:
     ports:
       main:
         port: 19132
         protocol: udp
-
 workload:
   main:
     podSpec:
@@ -58,12 +56,10 @@ workload:
             PLAYER_MOVEMENT_DURATION_THRESHOLD_IN_MS: 500
             CORRECT_PLAYER_MOVEMENT: false
             # OPS: "XUID,XUID"
-
 persistence:
   config:
     enabled: true
     mountPath: "/data"
-
 portal:
   open:
     enabled: false

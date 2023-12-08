@@ -1,16 +1,14 @@
 image:
-  repository: tccr.io/truecharts/prowlarr
-  tag: v1.9.3.4013@sha256:c2552d39bded7da923e7e03f531ee53337beb39c0f710d853eaeeb3ebcdec0d8
+  repository: ghcr.io/onedr0p/prowlarr-develop
+  tag: 1.10.5.4116@sha256:0205e00216218935300a88c150c78bef5afe2eb82239882836536b07c514bcb8
   pullPolicy: IfNotPresent
 exportarrImage:
-  repository: tccr.io/truecharts/exportarr
+  repository: ghcr.io/onedr0p/exportarr
   pullPolicy: IfNotPresent
-  tag: v1.5.5@sha256:0dbba4994ac9926e284b5a24fe38e7ca546bcda4b20bbd1ab2444b8bc190d6cb
-
+  tag: v1.6.0@sha256:b522e128509b766cf66f847190fccd225ff194dc76775fe6a215f2dd3010cac2
 securityContext:
   container:
     readOnlyRootFilesystem: false
-
 service:
   main:
     ports:
@@ -25,7 +23,6 @@ service:
         enabled: true
         port: 9697
         targetSelector: exportarr
-
 workload:
   main:
     podSpec:
@@ -76,7 +73,6 @@ workload:
             # Set a date from which to start the backfill
             # PROWLARR__BACKFILL_SINCE_DATE: 1970-01-01
             CONFIG: "/config/config.xml"
-
 persistence:
   config:
     enabled: true
@@ -88,7 +84,6 @@ persistence:
         exportarr:
           mountPath: /config
           readOnly: true
-
 metrics:
   main:
     enabled: true
@@ -96,9 +91,10 @@ metrics:
     endpoints:
       - port: metrics
         path: /metrics
+    targetSelector: metrics
     prometheusRule:
       enabled: false
-
 portal:
   open:
     enabled: true
+updated: true

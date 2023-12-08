@@ -1,35 +1,35 @@
 image:
-  repository: tccr.io/truecharts/jupyter-base
+  repository: jupyter/base-notebook
   pullPolicy: IfNotPresent
-  tag: v2023-10@sha256:887dd2e28dd8f2c01b6d16935e67d7743f0b6ebbb38f7e4aed78214f92572749
+  tag: 2023-10-20@sha256:0ec801994602a53d3917d0f07ccf4474a1ddf5ae419483b24681a3c42abc4ce5
 minimalImage:
-  repository: tccr.io/truecharts/jupyter-minimal
+  repository: jupyter/minimal-notebook
   pullPolicy: IfNotPresent
-  tag: v2023-10@sha256:a1f44dfa085957c6d693a614e1eb5854dab10ad2457d7af3d5a682983a4bb606
+  tag: 2023-10-20@sha256:9aef9e53b7d8bdc7bdd9a2824fe6287081131bc02bf03edc1450ab9413646837
 rImage:
-  repository: tccr.io/truecharts/jupyter-r
+  repository: jupyter/r-notebook
   pullPolicy: IfNotPresent
-  tag: v2023-10@sha256:bd1512c6e1de67e12aa4d40bf5324d8709400f040d98802f90d0a937ce74b4d4
+  tag: 2023-10-20@sha256:037fbac4923318026e0e23365e667def5fb0e0baf333b6c90ffa145304c770a1
 scipyImage:
-  repository: tccr.io/truecharts/jupyter-scipy
+  repository: jupyter/scipy-notebook
   pullPolicy: IfNotPresent
-  tag: v2023-10@sha256:65053b820fd45f49cb281f13ecfaac8da494c607b46e8406000be7a42e8e06ed
+  tag: 2023-10-20@sha256:bf4de44b0fa8a422ebc325e695d572d304bd290c055e028a6507921a294213bc
 tensorflowImage:
-  repository: tccr.io/truecharts/jupyter-tensorflow
+  repository: jupyter/tensorflow-notebook
   pullPolicy: IfNotPresent
-  tag: v2023-10@sha256:bb1ffd125ed3d3bee69326b1ac2bb9d5c1e7238fc7496c4a0b7f4f3fd5329dc9
+  tag: 2023-10-20@sha256:173f124f638efe870bb2b535e01a76a80a95217e66ed00751058c51c09d6d85d
 datascienceImage:
-  repository: tccr.io/truecharts/jupyter-datascience
+  repository: jupyter/datascience-notebook
   pullPolicy: IfNotPresent
-  tag: v2023-10@sha256:3bf7e99c5bb2b7d2450d1ddcaee9d413968b37ea8ab6565f183f18aaf98bbd84
+  tag: 2023-10-20@sha256:989636579136ff077456368ca44aed80cba7de7e9c30d989f23899bd79c9b5bf
 pysparkImage:
-  repository: tccr.io/truecharts/jupyter-pyspark
+  repository: jupyter/pyspark-notebook
   pullPolicy: IfNotPresent
-  tag: v2023-10@sha256:529e560df67e8018714d4ab38aa5613ae52aab8cc5062c68fb891001dd707c94
+  tag: 2023-10-20@sha256:7d0b19de594978b8c0541194d91e29abba40e20aa124873bcf5e9cda2fe037f7
 allsparkImage:
-  repository: tccr.io/truecharts/jupyter-all-spark
+  repository: jupyter/all-spark-notebook
   pullPolicy: IfNotPresent
-  tag: v2023-10@sha256:46fde0a0b816668c3966faf7c4df3b79eb678473f2c2bb7cc3d45926684c06b5
+  tag: 2023-10-20@sha256:9f84a5eb9e7454e7a440a5487d5eb1e8c8c8da452f0bb03d441bec5e06781f16
 jupyter:
   jupyter_cmd: lab
   restartable: true
@@ -66,3 +66,4 @@ workload:
             # User Defined
             DOCKER_STACKS_JUPYTER_CMD: "{{ .Values.jupyter.jupyter_cmd }}"
             RESTARTABLE: '{{ ternary "yes" "no" .Values.jupyter.restartable }}'
+updated: true

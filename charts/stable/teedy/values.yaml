@@ -1,6 +1,6 @@
 image:
-  repository: tccr.io/truecharts/docs
-  tag: v1.10@sha256:c5aa5ae1d6209a9fb25a14cdbe336e9f069a215cae6e7c81872a54b1090a9ecb
+  repository: sismics/docs
+  tag: v1.11@sha256:4533ff3038becf9d062e965167f683e8ab0fb63770b71b7e8da2463a0d12f910
   pullPolicy: IfNotPresent
 service:
   main:
@@ -15,13 +15,11 @@ persistence:
 cnpg:
   main:
     enabled: true
-
     user: teedyuser
     database: teedydb
 portal:
   open:
     enabled: true
-
 workload:
   main:
     podSpec:

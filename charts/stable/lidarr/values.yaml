@@ -1,16 +1,14 @@
 image:
-  repository: tccr.io/truecharts/lidarr
+  repository: ghcr.io/onedr0p/lidarr-develop
   pullPolicy: IfNotPresent
-  tag: v1.4.5.3639@sha256:9063331c1ea85bf2a3f3bdf0c79b40349bed3edd3ed47c92a3b4373189652736
+  tag: 2.0.5.3813@sha256:2d73ade4f56817f05c6d4cd7bc1dff565e4f20f76d22fdebc1f0ebd7e2f709ed
 exportarrImage:
-  repository: tccr.io/truecharts/exportarr
+  repository: ghcr.io/onedr0p/exportarr
   pullPolicy: IfNotPresent
-  tag: v1.5.5@sha256:0dbba4994ac9926e284b5a24fe38e7ca546bcda4b20bbd1ab2444b8bc190d6cb
-
+  tag: v1.6.0@sha256:b522e128509b766cf66f847190fccd225ff194dc76775fe6a215f2dd3010cac2
 securityContext:
   container:
     readOnlyRootFilesystem: false
-
 service:
   main:
     ports:
@@ -25,7 +23,6 @@ service:
         enabled: true
         port: 8687
         targetSelector: exportarr
-
 workload:
   main:
     podSpec:
@@ -34,22 +31,16 @@ workload:
           probes:
             liveness:
               enabled: true
-              ## Set this to true if you wish to specify your own livenessProbe
-              custom: true
-              ## The spec field contains the values for the default livenessProbe.
-              ## If you selected custom: true, this field holds the definition of the livenessProbe.
-              spec:
-                exec:
-                  command:
-                    - /usr/bin/env
-                    - bash
-                    - -c
-                    - curl --fail localhost:8686/api/v1/system/status?apiKey=`IFS=\> && while read -d \< E C; do if [[ $E = "ApiKey" ]]; then echo $C; fi; done < /config/config.xml`
-                failureThreshold: 5
-                initialDelaySeconds: 60
-                periodSeconds: 10
-                successThreshold: 1
-                timeoutSeconds: 10
+              type: http
+              path: /ping
+            readiness:
+              enabled: true
+              type: http
+              path: /ping
+            startup:
+              enabled: true
+              type: http
+              path: /ping
           env:
             LIDARR__PORT: "{{ .Values.service.main.ports.main.port }}"
             LIDARR__AUTHENTICATION_METHOD: ""
@@ -91,7 +82,6 @@ workload:
             # enable gathering unknown queue items
             # ENABLE_UNKNOWN_QUEUE_ITEMS: false
             CONFIG: "/config/config.xml"
-
 persistence:
   config:
     enabled: true
@@ -103,7 +93,6 @@ persistence:
         exportarr:
           mountPath: /config
           readOnly: true
-
 metrics:
   main:
     enabled: true
@@ -111,9 +100,10 @@ metrics:
     endpoints:
       - port: metrics
         path: /metrics
+    targetSelector: metrics
     prometheusRule:
       enabled: false
-
 portal:
   open:
     enabled: true
+updated: true

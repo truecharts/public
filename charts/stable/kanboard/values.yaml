@@ -1,6 +1,6 @@
 image:
-  repository: tccr.io/truecharts/kanboard
-  tag: v1.2.32@sha256:add699f42a4c47889cf111d78016cba8c4d74a7dd8491caab4b3412606ec15e6
+  repository: kanboard/kanboard
+  tag: v1.2.33@sha256:2a15f8fdd37d44dd7acea040a0b8e56134060ecac1f6068168e2d2448723eae7
   pullPolicy: IfNotPresent
 service:
   main:
@@ -18,7 +18,6 @@ persistence:
 cnpg:
   main:
     enabled: true
-
     user: kanboard
     database: kanboard
 portal:

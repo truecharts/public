@@ -12,6 +12,8 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
+# Include{containerConfig}
+# Include{podOptions}
 
   - variable: serpbear
     group: App Configuration
@@ -56,7 +58,7 @@ questions:
           schema:
             type: int
             default: 24
-# Include{containerConfig}
+
 # Include{serviceRoot}
         - variable: main
           label: Main Service
@@ -107,27 +109,27 @@ questions:
 # Include{ingressList}
 # Include{securityContextRoot}
 
-        - variable: runAsUser
-          label: runAsUser
-          description: The UserID of the user running the application
-          schema:
-            type: int
-            default: 568
-        - variable: runAsGroup
-          label: runAsGroup
-          description: The groupID this App of the user running the application
-          schema:
-            type: int
-            default: 568
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
+                schema:
+                  type: int
+                  default: 568
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
+                schema:
+                  type: int
+                  default: 568
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-        - variable: fsGroup
-          label: fsGroup
-          description: The group that should own ALL storage.
-          schema:
-            type: int
-            default: 568
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
+                schema:
+                  type: int
+                  default: 568
 
 # Include{resources}
 # Include{advanced}

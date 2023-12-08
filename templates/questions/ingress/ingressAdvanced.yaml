@@ -1,3 +1,43 @@
+                    - variable: integration
+                      label: Integrations
+                      description: Connect ingress with other charts
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: homepage
+                            label: Homepage
+                            description: Connect ingress with Homepage
+                            schema:
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: enabled
+                                  label: enabled
+                                  schema:
+                                    type: boolean
+                                    default: false
+                                - variable: name
+                                  label: Name
+                                  description: defaults to chartname
+                                  schema:
+                                    type: string
+                                    default: ""
+                                    show_if: [["enabled", "=", true]]
+                                - variable: description
+                                  label: Description
+                                  description: defaults to chart description
+                                  schema:
+                                    type: string
+                                    default: ""
+                                    show_if: [["enabled", "=", true]]
+                                - variable: group
+                                  label: Group
+                                  schema:
+                                    type: string
+                                    required: true
+                                    default: "default"
+                                    show_if: [["enabled", "=", true]]
                     - variable: advanced
                       label: Show Advanced Settings
                       description: Advanced settings are not covered by TrueCharts Support
@@ -12,6 +52,12 @@
                         default: websecure
                         show_if: [["advanced", "=", true]]
                         required: true
+                    - variable: allowCors
+                      label: "Allow Cross Origin Requests"
+                      schema:
+                        type: boolean
+                        show_if: [["advanced", "=", true]]
+                        default: false
                     - variable: ingressClassName
                       label: (Advanced/Optional) IngressClass Name
                       schema:
@@ -50,16 +96,23 @@
                                   schema:
                                     type: string
                                     default: ""
+                                - variable: clusterCertificate
+                                  label:  'Cluster Certificate (Advanced)'
+                                  description: 'Add the name of your cluster-wide certificate, that you set up in the ClusterIssuer chart.'
+                                  schema:
+                                    type: string
+                                    show_if: [["certificateIssuer", "=", ""]]
+                                    default: ""
+                                - variable: secretName
+                                  label: 'Use Custom Certificate Secret (Advanced)'
+                                  schema:
+                                    show_if: [["certificateIssuer", "=", ""]]
+                                    type: string
+                                    default: ""
                                 - variable: scaleCert
-                                  label: Use TrueNAS SCALE Certificate (Deprecated)
+                                  label: 'Use TrueNAS SCALE Certificate (Deprecated)'
                                   schema:
                                     show_if: [["certificateIssuer", "=", ""]]
                                     type: int
                                     $ref:
                                       - "definitions/certificate"
-                                - variable: secretName
-                                  label: Use Custom Secret (Advanced)
-                                  schema:
-                                    show_if: [["certificateIssuer", "=", ""]]
-                                    type: string
-                                    default: ""

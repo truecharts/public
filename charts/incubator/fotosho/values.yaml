@@ -1,8 +1,7 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/fotosho
-  tag: latest@sha256:43f0b6e33cf9924f9523c28f8bddf80f6ef83e340cee2d4dbdf1eae99d8682c8
+  repository: advplyr/fotosho
+  tag: latest@sha256:49dc426c6bdaf99927df571a7084eb6d7f593ea76ab8a99c5c7e1c9fccc77e12
 persistence:
   config:
     enabled: true
@@ -13,12 +12,14 @@ persistence:
   thumbs:
     enabled: true
     mountPath: /thumbnails
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -26,6 +27,3 @@ service:
         port: 13377
         protocol: TCP
         targetPort: 80
-
-portal:
-  enabled: true

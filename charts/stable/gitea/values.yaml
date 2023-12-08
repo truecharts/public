@@ -1,6 +1,6 @@
 image:
-  repository: tccr.io/truecharts/gitea
-  tag: v1.20.5@sha256:99b4b1374918691d47a705ba2377457fffa565f812ad376121adb4b02b3a5eb2
+  repository: gitea/gitea
+  tag: 1.21.1-rootless@sha256:00486bc884e745209e8246b3d070761310d0e4334e4cacea52b3ce8b7c2a065a
   pullPolicy: IfNotPresent
 service:
   main:
@@ -15,7 +15,6 @@ service:
         enabled: true
         port: 2222
         targetPort: 2222
-
 persistence:
   data:
     enabled: true
@@ -37,6 +36,9 @@ metrics:
   main:
     enabled: true
     type: "servicemonitor"
+    endpoints:
+      - port: main
+        path: /metrics
 ldap:
   enabled: false
   # name:
@@ -78,7 +80,6 @@ customConfig: []
 cnpg:
   main:
     enabled: true
-
     user: gitea
     database: gitea
 # --  memcached dependency settings

@@ -22,13 +22,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout [master]
-        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           fetch-depth: 1
           ref: master
 
       - name: Checkout [commit]
-        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
@@ -47,12 +47,24 @@ jobs:
         run: |
           pip3 install --no-cache-dir pre-commit yamale yamllint
 
+      - name: Install Helm
+        uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # v3
+        with:
+          version: v3.13.2
+
       - name: Prep Helm
         run: |
           helm repo add truecharts https://charts.truecharts.org
           helm repo add truecharts-deps https://deps.truecharts.org
           helm repo add truecharts-library https://library-charts.truecharts.org
           helm repo add jetstack https://charts.jetstack.io
+          helm repo add vmwaretanzu https://vmware-tanzu.github.io/helm-charts
+          helm repo add cnpg https://cloudnative-pg.github.io/charts
+          helm repo add metallb https://metallb.github.io/metallb
+          helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+          helm repo add  openebs https://openebs.github.io/charts
+          helm repo add  csi-driver-smb https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts
+          helm repo add  csi-driver-nfs https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
           helm repo update
 
       - name: Collect changes (branch-based)
@@ -108,7 +120,7 @@ jobs:
       - name: Create/Update comment
         if: steps.list-changed.outputs.detected == 'true'
         continue-on-error: true
-        uses: thollander/actions-comment-pull-request@d61db783da9abefc3437960d0cce08552c7c004f # v2
+        uses: thollander/actions-comment-pull-request@1d3973dc4b8e1399c0620d3f2b1aa5e795465308 # v2
         with:
           filePath: /tmp/lint_result.txt
           comment_tag: lint_results

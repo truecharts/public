@@ -11,22 +11,20 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-
-                                - variable: autodiscovery
-                                  group: "App Configuration"
-                                  label: "Autodiscovery"
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                    - variable: enabled
-                                      label: "Enable Autodiscovery on LAN"
-                                      schema:
-                                        type: boolean
-                                        default: false
 # Include{containerBasic}
 # Include{containerAdvanced}
-
+  - variable: autodiscovery
+    group: "App Configuration"
+    label: "Autodiscovery"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+      - variable: enabled
+        label: "Enable Autodiscovery on LAN"
+        schema:
+          type: boolean
+          default: false
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}

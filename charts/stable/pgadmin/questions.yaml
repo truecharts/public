@@ -22,14 +22,14 @@ questions:
                                         schema:
                                           type: string
                                           required: true
-                                          default: "REPLACETHIS"
+                                          default: "replace@this.now"
                                       - variable: PGADMIN_DEFAULT_PASSWORD
                                         label: "PGADMIN_DEFAULT_PASSWORD"
                                         schema:
                                           type: string
                                           required: true
                                           private: true
-                                          default: "REPLACETHIS"
+                                          default: "changeme"
 # Include{containerBasic}
 # Include{containerAdvanced}
 

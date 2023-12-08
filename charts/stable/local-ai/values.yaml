@@ -1,42 +1,39 @@
 image:
-  repository: tccr.io/truecharts/local-ai
+  repository: quay.io/go-skynet/local-ai
   pullPolicy: IfNotPresent
-  tag: v1.30.0@sha256:d2ef8eef44d66e0610e3499054a0895db276564bdef0f2c45aa0c84f4f20b8bb
+  tag: v2.0.0@sha256:04eb683c6b98d0a360ebe484ab61b4f18987c50dd237e09ceb258540dd2af252
 ffmpegImage:
-  repository: tccr.io/truecharts/local-ai-ffmpeg
+  repository: quay.io/go-skynet/local-ai
   pullPolicy: IfNotPresent
-  tag: v1.30.0@sha256:4fcbb5b2f41cc6e0d7c5e2e3da7a80797467d3cefdab66a32b14d317c80921b7
+  tag: v2.0.0-ffmpeg@sha256:9d3d901f1a14b6ddea7df0d9f7b21250bcf4f4f0b440494c7e2936083a7ce8eb
 cublasCuda12Image:
-  repository: tccr.io/truecharts/local-ai-cublas-cuda12
+  repository: quay.io/go-skynet/local-ai
   pullPolicy: IfNotPresent
-  tag: v1.30.0-cublas@sha256:c25e23e4d048ba009b9845d96831fe5e5d8c1a344c5625a04a0934ee4c4dc0e0
+  tag: v2.0.0-cublas-cuda12@sha256:efe02b8ef07e6f4587ef4f0edc01abe079f095275bbcd23d61231a69300c0d1f
 cublasCuda12FfmpegImage:
-  repository: tccr.io/truecharts/local-ai-cublas-cuda12-ffmpeg
+  repository: quay.io/go-skynet/local-ai
   pullPolicy: IfNotPresent
-  tag: v1.30.0-cublas-cuda12@sha256:12e8affff4b21d933b1866f25345973de7bb1a8f02643900c7256cb1515a4825
+  tag: v2.0.0-cublas-cuda12-ffmpeg@sha256:5095b9994308a873439eb89ced6295cb5a77744728b2d81fe07c6d40d5eb58c2
 cublasCuda11Image:
-  repository: tccr.io/truecharts/local-ai-cublas-cuda11
+  repository: quay.io/go-skynet/local-ai
   pullPolicy: IfNotPresent
-  tag: v1.30.0-cublas@sha256:2bb3bd5be5d09f6016bb0ee3026dc51e272514312f07c31d1b833998fbb4bfe9
+  tag: v2.0.0-cublas-cuda11@sha256:5ab5bff0c91b63c37fdea414e04b47c9d61d9320206cd0017444ab64fbb39a59
 cublasCuda11FfmpegImage:
-  repository: tccr.io/truecharts/local-ai-cublas-cuda11-ffmpeg
+  repository: quay.io/go-skynet/local-ai
   pullPolicy: IfNotPresent
-  tag: v1.30.0-cublas-cuda11@sha256:86d695dc24f82ea55a5976414a3bf36cd67933f4ad07927695afbf7a83dade16
-
+  tag: v2.0.0-cublas-cuda11-ffmpeg@sha256:75cfaa129023058185d4619324fb5679f20bf49f4078c13f5f61f25d46beab85
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
       main:
         protocol: http
         port: 8080
-
 localai:
   # Specify a build type. Available: cublas, openblas, clblas.
   build_type: "openblas"
@@ -49,7 +46,6 @@ localai:
   preload_models: []
   #    url: github:go-skynet/model-gallery/gpt4all-j.yaml
   # UPLOAD_LIMIT
-
 workload:
   main:
     podSpec:
@@ -80,7 +76,6 @@ workload:
             GALLERIES: "{{ toJson .Values.localai.galleries }}"
             PRELOAD_MODELS: "{{ toJson .Values.localai.preload_models }}"
             CORS_ALLOW_ORIGINS: "{{ .Values.localai.cors_allow_origins }}"
-
 persistence:
   models:
     enabled: true
@@ -88,7 +83,7 @@ persistence:
   images:
     enabled: true
     mountPath: "/images"
-
 portal:
   open:
     enabled: false
+updated: true

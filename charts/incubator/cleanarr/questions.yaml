@@ -10,48 +10,44 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: PLEX_BASE_URL
-          label: "PLEX_BASE_URL"
-          description: "Plex Server Address (e.g. http://192.169.1.100:32400)"
-          schema:
-            type: string
-            default: ""
-        - variable: PLEX_TOKEN
-          label: "PLEX_TOKEN"
-          description: "A valid Plex token for your Plex Server "
-          schema:
-            type: string
-            private: true
-            default: ""
-        - variable: LIBRARY_NAMES
-          label: "LIBRARY_NAMES"
-          description: "Name(s) of your Plex Libraries to search. Separate multiple library names with semi-colon *;*"
-          schema:
-            type: string
-            default: ""
-        - variable: PAGE_SIZE
-          label: "PAGE_SIZE"
-          description: "To avoid plex timeouts, results are loaded in pages (or chunks)"
-          schema:
-            type: int
-            default: 50
-        - variable: BYPASS_SSL_VERIFY_BOOL
-          label: "BYPASS_SSL_VERIFY"
-          description: "Disable SSL certificate verification."
-          schema:
-            type: boolean
-            default: false
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: PLEX_BASE_URL
+                                        label: "PLEX_BASE_URL"
+                                        description: "Plex Server Address (e.g. http://192.169.1.100:32400)"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: PLEX_TOKEN
+                                        label: "PLEX_TOKEN"
+                                        description: "A valid Plex token for your Plex Server "
+                                        schema:
+                                          type: string
+                                          private: true
+                                          default: ""
+                                      - variable: LIBRARY_NAMES
+                                        label: "LIBRARY_NAMES"
+                                        description: "Name(s) of your Plex Libraries to search. Separate multiple library names with semi-colon *;*"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: PAGE_SIZE
+                                        label: "PAGE_SIZE"
+                                        description: "To avoid plex timeouts, results are loaded in pages (or chunks)"
+                                        schema:
+                                          type: int
+                                          default: 50
+                                      - variable: BYPASS_SSL_VERIFY_BOOL
+                                        label: "BYPASS_SSL_VERIFY"
+                                        description: "Disable SSL certificate verification."
+                                        schema:
+                                          type: boolean
+                                          default: false
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

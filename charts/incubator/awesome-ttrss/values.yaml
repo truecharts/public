@@ -1,54 +1,53 @@
+cnpg:
+  main:
+    database: awesome-ttrss
+    enabled: true
+    user: awesome-ttrss
 image:
-  repository: tccr.io/truecharts/awesome-ttrss
   pullPolicy: IfNotPresent
-  tag: v2022-04@sha256:9c7257b4c850698b320e306f28d97c1aed7f6831bec4a1fc9f7698e698e65da8
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
+  repository: wangqiru/ttrss
+  tag: latest@sha256:b883ac1dad416ecf17cb351f641497348912e9790c3600f36bdd4436c5872b14
 persistence:
   icons:
     enabled: true
-    mountPath: "/var/www/feed-icons"
+    mountPath: /var/www/feed-icons
   plugins:
     enabled: true
-    mountPath: "/var/www/plugins.local"
+    mountPath: /var/www/plugins.local
   themes:
     enabled: true
-    mountPath: "/var/www/themes.local"
-
-env:
-  # -- External URL you use to connect to the RSS (the one you enter in your browser)
-  SELF_URL_PATH: ""
-  DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
-  DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
-  DB_PORT: "5432"
-  DB_PASS:
-    secretKeyRef:
-      name: dbcreds
-      key: postgresql-password
-  DB_HOST:
-    secretKeyRef:
-      name: dbcreds
-      key: plainhost
-
+    mountPath: /var/www/themes.local
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    container:
+      readOnlyRootFilesystem: false
+      runAsGroup: 0
+      runAsNonRoot: false
+      runAsUser: 0
 service:
   main:
     ports:
       main:
         port: 10246
         targetPort: 80
-
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: awesome-ttrss
-  postgresqlDatabase: awesome-ttrss
-
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DB_HOST:
+              secretKeyRef:
+                key: host
+                name: cnpg-main-urls
+            DB_NAME: "{{ .Values.cnpg.main.database }}"
+            DB_PASS:
+              secretKeyRef:
+                key: password
+                name: cnpg-main-user
+            DB_PORT: "5432"
+            DB_USER: "{{ .Values.cnpg.main.user }}"
+            SELF_URL_PATH: ""

@@ -7,7 +7,7 @@ online archive. Our app is a simple way to install it on your TrueNAS SCALE serv
 
 - Installation of the TrueCharts Catalog, starting [here](/manual/SCALE/guides/getting-started)
 - [`Cloudnative-PG`
-  operator](manual/SCALE/guides/getting-started/#cnpgprometheus-operators-installation-and-migration-guide-for-older-users)
+  operator](/manual/SCALE/guides/getting-started/#cnpgprometheus-operators-installation-and-migration-guide-for-older-users)
 - Paperless-ngx TrueCharts Chart
 
 ## Media Storage

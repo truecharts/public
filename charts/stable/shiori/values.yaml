@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/shiori
+  repository: ghcr.io/go-shiori/shiori
   pullPolicy: IfNotPresent
-  tag: v1.5.5@sha256:8c2bfa5d3ddabb2e0707d41630193bf6153f85f9995cf06c46693c9e59354b4d
-
+  tag: v1.5.5@sha256:9dbcd5a88fb28a93ede08b01062e3580dd2ecb967509ef6a2df1f430708a34c0
 service:
   main:
     ports:
       main:
         port: 10098
         targetPort: 8080
-
 workload:
   main:
     podSpec:
@@ -29,18 +27,15 @@ workload:
               secretKeyRef:
                 name: cnpg-main-user
                 key: password
-
 persistence:
   data:
     enabled: true
     mountPath: /data
-
 cnpg:
   main:
     enabled: true
     user: shiori
     password: shiori
-
 portal:
   open:
     enabled: true

@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/sshwifty
+  repository: niruix/sshwifty
   pullPolicy: IfNotPresent
-  tag: vlatest@sha256:9fcf7abdfe68f2e920dd7a739541a0a9bb611450adf1cadf3fe80e6f8b6a6851
-
+  tag: latest@sha256:5c296e45d4ea6569c5de0929383374ba2c73b0a1df1b8279e9026266e9b54334
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 workload:
   main:
     podSpec:
@@ -44,14 +42,12 @@ workload:
             # SSHWIFTY_PRESETS: [] json obj array https://github.com/nirui/sshwifty#configuration-file | preset section.
             # Can not set this variable, only functional via config file.
             # SSHWIFTY_ONLYALLOWPRESETREMOTES:
-
 service:
   main:
     ports:
       main:
         protocol: http
         port: 8182
-
 portal:
   open:
     enabled: true

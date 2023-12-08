@@ -10,67 +10,56 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: USERNAME
-          label: "USERNAME"
-          description: "Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
-          schema:
-            type: string
-            default: ""
-        - variable: PASSWRD
-          label: "PASSWRD"
-          description: "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
-          schema:
-            type: string
-            private: true
-            default: ""
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: GAME_ID
-          label: "GAME_ID"
-          description: "The GAME_ID that the container download at startup.(https://developer.valvesoftware.com/wiki/Dedicated_Servers_List)"
-          schema:
-            type: string
-            default: "4020"
-        - variable: GAME_NAME
-          label: "GAME_NAME"
-          description: "Game name to start (is connected to the GAMEPARAMS)."
-          schema:
-            type: string
-            default: "garrysmod"
-        - variable: GAME_PARAMS
-          label: "GAME_PARAMS"
-          description: "Enter your start up commands for the server."
-          schema:
-            type: string
-            default: "-secure +maxplayers 12 +map gm_flatgrass"
-        - variable: VALIDATE
-          label: "VALIDATE"
-          description: "Set the Variable to true if you want to validate the installation otherwise leave it blank."
-          schema:
-            type: boolean
-            default: true
-        - variable: GAME_PORT
-          label: "GAME_PORT"
-          description: "Container Variable GAMEPORT"
-          schema:
-            type: string
-            default: "27015"
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: USERNAME
+                                        label: "USERNAME"
+                                        description: "Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: PASSWRD
+                                        label: "PASSWRD"
+                                        description: "Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION You have to disable Steam Guard)."
+                                        schema:
+                                          type: string
+                                          private: true
+                                          default: ""
+                                      - variable: GAME_ID
+                                        label: "GAME_ID"
+                                        description: "The GAME_ID that the container download at startup.(https://developer.valvesoftware.com/wiki/Dedicated_Servers_List)"
+                                        schema:
+                                          type: string
+                                          default: "4020"
+                                      - variable: GAME_NAME
+                                        label: "GAME_NAME"
+                                        description: "Game name to start (is connected to the GAMEPARAMS)."
+                                        schema:
+                                          type: string
+                                          default: "garrysmod"
+                                      - variable: GAME_PARAMS
+                                        label: "GAME_PARAMS"
+                                        description: "Enter your start up commands for the server."
+                                        schema:
+                                          type: string
+                                          default: "-secure +maxplayers 12 +map gm_flatgrass"
+                                      - variable: VALIDATE
+                                        label: "VALIDATE"
+                                        description: "Set the Variable to true if you want to validate the installation otherwise leave it blank."
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: GAME_PORT
+                                        label: "GAME_PORT"
+                                        description: "Container Variable GAMEPORT"
+                                        schema:
+                                          type: string
+                                          default: "27015"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

@@ -1,34 +1,38 @@
-env:
-  CHATID: ""
-  DELAY: "60"
-  TOKEN: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/rss-to-telegram
-  tag: latest@sha256:0c78ca34b035beb92a0a1fa2c0aeed23bae1d65d609dcdf084b1de8021920f50
+  repository: bokker/rss.to.telegram
+  tag: latest@sha256:2119027f7d883bfd9beb15c7e110db1a32ee7bae98af8cd3b3638c07f32c21d8
 persistence:
   config:
     enabled: true
     mountPath: /config
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
+portal:
+  enabled: false
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-
-portal:
-  enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            CHATID: ""
+            DELAY: "60"
+            TOKEN: ""
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

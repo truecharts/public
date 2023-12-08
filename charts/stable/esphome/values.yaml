@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/esphome
+  repository: esphome/esphome
   pullPolicy: IfNotPresent
-  tag: v2023.9.3@sha256:a8bf91fa1e5d3cde6f257f7b8218c103d1928df176f2b5aead6779ab833bb290
-
+  tag: 2023.11.6@sha256:783e2131fcff2c457846339a80f6ed981e58e5f86de3578f742e3bed87f7d5b2
 securityContext:
   container:
     runAsNonRoot: false
@@ -11,14 +10,12 @@ securityContext:
     allowPrivilegeEscalation: true
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
       main:
         port: 6052
         targetPort: 6052
-
 workload:
   main:
     podSpec:
@@ -42,7 +39,6 @@ workload:
             # DISABLE_HA_AUTHENTICATION:
             # USERNAME:
             # PASSWORD:
-
 persistence:
   config:
     enabled: true

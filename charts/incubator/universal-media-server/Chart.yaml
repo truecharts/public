@@ -1,34 +1,42 @@
+kubeVersion: ">=1.24.0"
 apiVersion: v2
-kubeVersion: ">=1.16.0-0"
 name: universal-media-server
-version: 2.0.15
-appVersion: "latest"
-description: "Universal Media Server is a DLNA-compliant UPnP Media Server. It is capable of sharing video, audio and images between most modern devices. It was originally based on PS3 Media Server by shagrath, in order to ensure greater stability and file-compatibility."
-type: application
-deprecated: false
+version: 3.0.0
+appVersion: latest
+description:
+  Universal Media Server is a DLNA-compliant UPnP Media Server. It is capable
+  of sharing video, audio and images between most modern devices. It was originally
+  based on PS3 Media Server by shagrath, in order to ensure greater stability and
+  file-compatibility.
 home: https://truecharts.org/charts/incubator/universal-media-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/universal-media-server.png
+deprecated: false
+sources:
+  - https://www.universalmediaserver.com/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/universal-media-server
+  - https://hub.docker.com/r/universalmediaserver/ums
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
   - universal-media-server
   - MediaServer-Video
   - MediaServer-Music
   - MediaServer-Photos
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/universal-media-server
-  - https://www.universalmediaserver.com/
 dependencies:
   - name: common
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
-    version: 11.1.2
-    # condition:
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  truecharts.org/catagories: |
-    - MediaServer-Video
-    - MediaServer-Music
-    - MediaServer-Photos
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+  truecharts.org/category: MediaServer-Video
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator

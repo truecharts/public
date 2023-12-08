@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/homebox
+  repository: ghcr.io/hay-kot/homebox
   pullPolicy: IfNotPresent
-  tag: v0.9.2@sha256:0936a8959013589504264a0f52698a661c50a127700ba32f99f19838fe75966c
-
+  tag: v0.10.2@sha256:1419b6e22aa06ab307fe0ed6c68906484905484f73df02485ebe8d94760812b8
 homebox:
   allow_registration: true
   auto_increment_asset_id: true
@@ -14,7 +13,6 @@ homebox:
   mailer_from: ""
   mailer_username: ""
   mailer_password: ""
-
 workload:
   main:
     podSpec:
@@ -23,19 +21,16 @@ workload:
           envFrom:
             - secretRef:
                 name: homebox-secret
-
 service:
   main:
     ports:
       main:
         protocol: http
         port: 10603
-
 persistence:
   data:
     enabled: true
     mountPath: /data
-
 portal:
   open:
     enabled: true

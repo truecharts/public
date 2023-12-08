@@ -1,18 +1,19 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/remotely
-  tag: latest@sha256:f443102cfc770a4a0e5c08870ec07147c60afde68deb6e7172ac2b96332a6f0f
+  repository: immybot/remotely
+  tag: 1380@sha256:fcb066c1e3941711b57a7cc346b53b6602b3305dccbb59afa6446db0baeddfe2
 persistence:
   data:
     enabled: true
     mountPath: /remotely-data
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -20,6 +21,3 @@ service:
         port: 9280
         protocol: TCP
         targetPort: 5000
-
-portal:
-  enabled: true

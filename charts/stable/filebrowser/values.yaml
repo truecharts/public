@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/filebrowser
+  repository: docker.io/filebrowser/filebrowser
   pullPolicy: IfNotPresent
-  tag: v2.25.0@sha256:3d6ab05c1ecf5f21d82c69d72d969156b67e63c9ef928415531e0d92d867ebfc
-
+  tag: v2.26.0@sha256:7428a67e0265f1550e2421bdc554d35889921f5ba2285b829693053fb98aab8a
 workload:
   main:
     podSpec:
@@ -25,13 +24,11 @@ workload:
             FB_CONFIG: "/config/filebrowser.json"
             FB_ROOT: "/data"
             FB_PORT: "{{ .Values.service.main.ports.main.port }}"
-
 service:
   main:
     ports:
       main:
         port: 10187
-
 persistence:
   config:
     enabled: true
@@ -42,7 +39,6 @@ persistence:
   data:
     enabled: true
     mountPath: /data
-
 portal:
   open:
     enabled: true

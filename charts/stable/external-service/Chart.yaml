@@ -1,27 +1,35 @@
+kubeVersion: '>=1.24.0'
 apiVersion: v2
-appVersion: "latest"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.0.9
-deprecated: false
+name: external-service
+version: 10.1.0
+appVersion: 3.19.0
 description: Allow external services to be used like Apps.
 home: https://truecharts.org/charts/stable/external-service
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/external-service.png
-keywords:
-  - external-service
-  - reverse-proxy
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: external-service
+deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/external-service
-type: application
-version: 10.0.2
+- https://github.com/truecharts/charts/tree/master/charts/stable/external-service
+- https://hub.docker.com/_/alpine
+maintainers:
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
+keywords:
+- external-service
+- reverse-proxy
+dependencies:
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
-  truecharts.org/catagories: |
-    - networking
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
   truecharts.org/SCALE-support: "true"
+  truecharts.org/category: networking
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable

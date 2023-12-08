@@ -7,21 +7,13 @@
   {{- end }}
 
 configmap:
-  web-config:
-    enabled: true
-    data:
-      PORT: {{ .Values.service.web.ports.web.port | quote }}
-      NODE_ENV: production
-      IMMICH_SERVER_URL: {{ printf "http://%v-server:%v" $fname .Values.service.server.ports.server.port }}
-      PUBLIC_IMMICH_SERVER_URL: {{ printf "http://%v-server:%v" $fname .Values.service.server.ports.server.port }}
-      {{- with .Values.immich.public_login_page_message }}
-      PUBLIC_LOGIN_PAGE_MESSAGE: {{ . }}
-      {{- end }}
-
   server-config:
     enabled: true
     data:
-      SERVER_PORT: {{ .Values.service.server.ports.server.port | quote }}
+      SERVER_PORT: {{ .Values.service.main.ports.main.port | quote }}
+      {{- with .Values.immich.public_login_page_message }}
+      PUBLIC_LOGIN_PAGE_MESSAGE: {{ . }}
+      {{- end }}
 
   micro-config:
     enabled: true
@@ -55,12 +47,6 @@ configmap:
       TYPESENSE_HOST: {{ printf "%v-typesense" $fname }}
       TYPESENSE_PORT: {{ .Values.service.typesense.ports.typesense.port | quote }}
       {{- end }}
-
-  proxy-config:
-    enabled: true
-    data:
-      IMMICH_WEB_URL: {{ printf "http://%v-web:%v" $fname .Values.service.web.ports.web.port }}
-      IMMICH_SERVER_URL: {{ printf "http://%v-server:%v" $fname .Values.service.server.ports.server.port }}
 
 secret:
   typesense-secret:

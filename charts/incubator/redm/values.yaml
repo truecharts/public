@@ -1,24 +1,19 @@
-env:
-  GAME_CONFIG: server.cfg
-  MANUAL_UPDATES: ""
-  SERVER_KEY: ""
-  SRV_ADR: https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/
-  SRV_NAME: ""
-  START_VARS: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/redm
-  tag: latest@sha256:2c7101d825dab1bcbd377a226213b0642fb512fe714eb85b575e269710df7e2b
+  repository: ich777/redmserver
+  tag: latest@sha256:501b1669e90e39c41e92ec9ad3bbb119eba3675b01116afb9be16115fe4a489c
 persistence:
   serverfiles:
     enabled: true
     mountPath: /serverdata/serverfiles
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -58,6 +53,15 @@ service:
         port: 30120
         protocol: UDP
         targetPort: 30120
-
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GAME_CONFIG: server.cfg
+            MANUAL_UPDATES: ""
+            SERVER_KEY: ""
+            SRV_ADR: https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/
+            SRV_NAME: ""
+            START_VARS: ""

@@ -1,6 +1,6 @@
 image:
-  repository: tccr.io/truecharts/weblate
-  tag: 4.16.4@sha256:5521c6a147db917f2d7d80846330ea39a2a28750c1269cfa5e542e71a3247cf7
+  repository: weblate/weblate
+  tag: 4.16.4-1@sha256:6614e1ad2a02e871c812b536b32ce8d91cf01582b1e6888ddee81d75958585e0
   pullPolicy: IfNotPresent
 weblate:
   general:
@@ -187,12 +187,10 @@ persistence:
     mountPath: "/app/cache"
 redis:
   enabled: true
-
   redisUsername: default
 cnpg:
   main:
     enabled: true
-
     user: weblate
     database: weblate
 portal:

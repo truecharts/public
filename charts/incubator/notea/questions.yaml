@@ -8,35 +8,35 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: PASSWORD
+                                        label: "PASSWORD"
+                                        description: "Set the password to use on Noteas Website"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: STORE_USER
+                                        label: "STORE_USER"
+                                        description: "User for MinIO Backend"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: STORE_PASSWORD
+                                        label: "STORE_PASSWORD"
+                                        description: "Password for MinIO Backend"
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: PASSWORD
-          label: "PASSWORD"
-          description: "Set the password to use on Noteas Website"
-          schema:
-            type: string
-            default: ""
-        - variable: STORE_USER
-          label: "STORE_USER"
-          description: "User for MinIO Backend"
-          schema:
-            type: string
-            default: ""
-        - variable: STORE_PASSWORD
-          label: "STORE_PASSWORD"
-          description: "Password for MinIO Backend"
-          schema:
-            type: string
-            default: ""
-# Include{serviceExpertRoot}
+# Include{containerConfig}
+# Include{podOptions}
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceList}

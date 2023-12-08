@@ -50,7 +50,7 @@ jobs:
       detected6: ${{ steps.list-changed.outputs.detected6 }}
     steps:
       - name: Checkout
-        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
@@ -115,29 +115,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
 
-      - name: Install Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@af4ebb1af1efd30c5bd84a2e9773355ad6362a33 # v0.9.3
+      - name: Install Helm
+        uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # v3
         with:
-          setup-tools: |
-            helmv3
-          helm: "3.9.4"
+          version: v3.13.2
 
-      - uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4
+      - uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5
         with:
           python-version: "3.11"
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
+        uses: helm/chart-testing-action@e6669bcd63d7cb57cb4380c33043eebe5d111992 # v2.6.1
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
         with:
-          version: v1.24
+          version: latest
           # Flags found here https://github.com/k3d-io/k3d
           k3d-args: --k3s-arg --disable=metrics-server@server:*
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -152,6 +150,13 @@ jobs:
           helm repo add truecharts-deps https://deps.truecharts.org
           helm repo add truecharts-library https://library-charts.truecharts.org
           helm repo add jetstack https://charts.jetstack.io
+          helm repo add vmwaretanzu https://vmware-tanzu.github.io/helm-charts
+          helm repo add cnpg https://cloudnative-pg.github.io/charts
+          helm repo add metallb https://metallb.github.io/metallb
+          helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+          helm repo add  openebs https://openebs.github.io/charts
+          helm repo add  csi-driver-smb https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts
+          helm repo add  csi-driver-nfs https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
           helm repo update
 
       - name: Add Dependencies
@@ -188,29 +193,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
 
-      - name: Install Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@af4ebb1af1efd30c5bd84a2e9773355ad6362a33 # v0.9.3
+      - name: Install Helm
+        uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # v3
         with:
-          setup-tools: |
-            helmv3
-          helm: "3.9.4"
+          version: v3.13.2
 
-      - uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4
+      - uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5
         with:
           python-version: "3.11"
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
+        uses: helm/chart-testing-action@e6669bcd63d7cb57cb4380c33043eebe5d111992 # v2.6.1
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
         with:
-          version: v1.24
+          version: latest
           # Flags found here https://github.com/k3d-io/k3d
           k3d-args: --k3s-arg --disable=metrics-server@server:*
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -253,29 +256,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
 
-      - name: Install Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@af4ebb1af1efd30c5bd84a2e9773355ad6362a33 # v0.9.3
+      - name: Install Helm
+        uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # v3
         with:
-          setup-tools: |
-            helmv3
-          helm: "3.9.4"
+          version: v3.13.2
 
-      - uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4
+      - uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5
         with:
           python-version: "3.11"
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
+        uses: helm/chart-testing-action@e6669bcd63d7cb57cb4380c33043eebe5d111992 # v2.6.1
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
         with:
-          version: v1.24
+          version: latest
           # Flags found here https://github.com/k3d-io/k3d
           k3d-args: --k3s-arg --disable=metrics-server@server:*
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -318,29 +319,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
 
-      - name: Install Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@af4ebb1af1efd30c5bd84a2e9773355ad6362a33 # v0.9.3
+      - name: Install Helm
+        uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # v3
         with:
-          setup-tools: |
-            helmv3
-          helm: "3.9.4"
+          version: v3.13.2
 
-      - uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4
+      - uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5
         with:
           python-version: "3.11"
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
+        uses: helm/chart-testing-action@e6669bcd63d7cb57cb4380c33043eebe5d111992 # v2.6.1
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
         with:
-          version: v1.24
+          version: latest
           # Flags found here https://github.com/k3d-io/k3d
           k3d-args: --k3s-arg --disable=metrics-server@server:*
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -383,29 +382,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
 
-      - name: Install Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@af4ebb1af1efd30c5bd84a2e9773355ad6362a33 # v0.9.3
+      - name: Install Helm
+        uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # v3
         with:
-          setup-tools: |
-            helmv3
-          helm: "3.9.4"
+          version: v3.13.2
 
-      - uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4
+      - uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5
         with:
           python-version: "3.11"
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
+        uses: helm/chart-testing-action@e6669bcd63d7cb57cb4380c33043eebe5d111992 # v2.6.1
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
         with:
-          version: v1.24
+          version: latest
           # Flags found here https://github.com/k3d-io/k3d
           k3d-args: --k3s-arg --disable=metrics-server@server:*
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -448,29 +445,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           fetch-depth: 1
           ref: ${{ inputs.checkoutCommit }}
 
-      - name: Install Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@af4ebb1af1efd30c5bd84a2e9773355ad6362a33 # v0.9.3
+      - name: Install Helm
+        uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # v3
         with:
-          setup-tools: |
-            helmv3
-          helm: "3.9.4"
+          version: v3.13.2
 
-      - uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4
+      - uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5
         with:
           python-version: "3.11"
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@e8788873172cb653a90ca2e819d79d65a66d4e76 # v2.4.0
+        uses: helm/chart-testing-action@e6669bcd63d7cb57cb4380c33043eebe5d111992 # v2.6.1
 
       - name: Create k3d cluster
         uses: nolar/setup-k3d-k3s@v1
         with:
-          version: v1.24
+          version: latest
           # Flags found here https://github.com/k3d-io/k3d
           k3d-args: --k3s-arg --disable=metrics-server@server:*
           github-token: ${{ secrets.GITHUB_TOKEN }}

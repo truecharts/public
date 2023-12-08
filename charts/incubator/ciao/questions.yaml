@@ -10,77 +10,73 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: SECRET_KEY_BASE
-          label: "SECRET_KEY_BASE"
-          description: "Container Variable SECRETKEYBASE"
-          schema:
-            type: string
-            default: "sensitive_secret_key_base"
-        - variable: SMTP_ADDRESS
-          label: "SMTP_ADDRESS"
-          description: "Container Variable SMTPADDRESS"
-          schema:
-            type: string
-            default: "smtp.yourhost.com"
-        - variable: SMTP_EMAIL_FROM
-          label: "SMTP_EMAIL_FROM"
-          description: "Container Variable SMTPEMAILFROM"
-          schema:
-            type: string
-            default: "ciao@yourhost.com"
-        - variable: SMTP_EMAIL_TO
-          label: "SMTP_EMAIL_TO"
-          description: "Container Variable SMTPEMAILTO"
-          schema:
-            type: string
-            default: "you@yourhost.com"
-        - variable: SMTP_PORT
-          label: "SMTP_PORT"
-          description: "Container Variable SMTPPORT"
-          schema:
-            type: string
-            default: "587"
-        - variable: SMTP_DOMAIN
-          label: "SMTP_DOMAIN"
-          description: "Container Variable SMTPDOMAIN"
-          schema:
-            type: string
-            default: "smtp.yourhost.com"
-        - variable: SMTP_AUTHENTICATION
-          label: "SMTP_AUTHENTICATION"
-          description: "Container Variable SMTPAUTHENTICATION"
-          schema:
-            type: string
-            default: "plain"
-        - variable: SMTP_ENABLE_STARTTLS_AUTO
-          label: "SMTP_ENABLE_STARTTLS_AUTO"
-          description: "Container Variable SMTPENABLESTARTTLSAUTO"
-          schema:
-            type: string
-            default: "true"
-        - variable: SMTP_USERNAME
-          label: "SMTP_USERNAME"
-          description: "Container Variable SMTPUSERNAME"
-          schema:
-            type: string
-            default: "ciao"
-        - variable: SMTP_PASSWORD
-          label: "SMTP_PASSWORD"
-          description: "Container Variable SMTPPASSWORD"
-          schema:
-            type: string
-            default: "sensitive_password"
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: SECRET_KEY_BASE
+                                        label: "SECRET_KEY_BASE"
+                                        description: "Container Variable SECRETKEYBASE"
+                                        schema:
+                                          type: string
+                                          default: "sensitive_secret_key_base"
+                                      - variable: SMTP_ADDRESS
+                                        label: "SMTP_ADDRESS"
+                                        description: "Container Variable SMTPADDRESS"
+                                        schema:
+                                          type: string
+                                          default: "smtp.yourhost.com"
+                                      - variable: SMTP_EMAIL_FROM
+                                        label: "SMTP_EMAIL_FROM"
+                                        description: "Container Variable SMTPEMAILFROM"
+                                        schema:
+                                          type: string
+                                          default: "ciao@yourhost.com"
+                                      - variable: SMTP_EMAIL_TO
+                                        label: "SMTP_EMAIL_TO"
+                                        description: "Container Variable SMTPEMAILTO"
+                                        schema:
+                                          type: string
+                                          default: "you@yourhost.com"
+                                      - variable: SMTP_PORT
+                                        label: "SMTP_PORT"
+                                        description: "Container Variable SMTPPORT"
+                                        schema:
+                                          type: string
+                                          default: "587"
+                                      - variable: SMTP_DOMAIN
+                                        label: "SMTP_DOMAIN"
+                                        description: "Container Variable SMTPDOMAIN"
+                                        schema:
+                                          type: string
+                                          default: "smtp.yourhost.com"
+                                      - variable: SMTP_AUTHENTICATION
+                                        label: "SMTP_AUTHENTICATION"
+                                        description: "Container Variable SMTPAUTHENTICATION"
+                                        schema:
+                                          type: string
+                                          default: "plain"
+                                      - variable: SMTP_ENABLE_STARTTLS_AUTO
+                                        label: "SMTP_ENABLE_STARTTLS_AUTO"
+                                        description: "Container Variable SMTPENABLESTARTTLSAUTO"
+                                        schema:
+                                          type: string
+                                          default: "true"
+                                      - variable: SMTP_USERNAME
+                                        label: "SMTP_USERNAME"
+                                        description: "Container Variable SMTPUSERNAME"
+                                        schema:
+                                          type: string
+                                          default: "ciao"
+                                      - variable: SMTP_PASSWORD
+                                        label: "SMTP_PASSWORD"
+                                        description: "Container Variable SMTPPASSWORD"
+                                        schema:
+                                          type: string
+                                          default: "sensitive_password"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

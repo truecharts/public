@@ -25,6 +25,8 @@ questions:
             required: true
             default: en_US-lessac-medium
             enum:
+              - value: custom
+                description: custom
               - value: ca-upc_ona-x-low
                 description: ca-upc_ona-x-low
               - value: ca-upc_pau-x-low
@@ -309,6 +311,13 @@ questions:
                 description: zh_CN-huayan-medium
               - value: zh_CN-huayan-x_low
                 description: zh_CN-huayan-x_low
+        - variable: custom_voice
+          label: Custom Voice
+          description: Add a valid custom voice found upstream https://huggingface.co/rhasspy/piper-voices/blob/main/voices.json
+          schema:
+            type: string
+            default: ""
+            show_if: [[voice, "=", "custom"]]
         - variable: speaker
           label: Speaker
           description: Speaker number to use if the voice supports multiple speakers.

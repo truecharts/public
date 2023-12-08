@@ -13,6 +13,8 @@ questions:
 
 # Include{containerBasic}
 # Include{containerAdvanced}
+# Include{containerConfig}
+# Include{podOptions}
   - variable: inventree
     group: App Configuration
     label: Inventree Configuration
@@ -147,9 +149,6 @@ questions:
                 schema:
                   type: string
                   default: ""
-
-# Include{containerConfig}
-# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

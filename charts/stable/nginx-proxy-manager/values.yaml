@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/nginx-proxy-manager
+  repository: jc21/nginx-proxy-manager
   pullPolicy: IfNotPresent
-  tag: v2.10.4@sha256:5b8124464c3d934152a75dfe23e7d59be83126141def354c09079f0eda938385
+  tag: 2.10.4@sha256:081c4c544ad5da81022b3b030c2ba50175923bc87a534bce8b52f870e695e9f1
 service:
   main:
     ports:
@@ -38,7 +38,6 @@ mariadb:
   enabled: true
   mariadbUsername: npm
   mariadbDatabase: npm
-
 portal:
   open:
     enabled: true

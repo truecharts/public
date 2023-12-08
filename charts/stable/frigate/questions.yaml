@@ -6,9 +6,21 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
+
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+                                - variable: imageSelector
+                                  label: Select Image
+                                  schema:
+                                    type: string
+                                    default: image
+                                    enum:
+                                      - value: image
+                                        description: Base Image
+                                      - value: tensorrtImage
+                                        description: Image with TensorRT libraries for nvidia cards
+
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}

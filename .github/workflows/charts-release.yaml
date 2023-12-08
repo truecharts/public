@@ -17,13 +17,13 @@ jobs:
       image: ghcr.io/truecharts/devcontainer:3.1.10@sha256:c239addf725eb5cedf79517f8089fdafdc32b5270d1893ee87ae6e511b9bcae3
     steps:
       - name: Checkout
-        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           token: ${{ secrets.BOT_TOKEN }}
           fetch-depth: 1
 
       - name: Checkout Helm-Staging
-        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           fetch-depth: 1
           repository: truecharts/helm-staging
@@ -66,7 +66,7 @@ jobs:
         with:
           setup-tools: |
             helmv3
-          helm: "3.8.0"
+          helm: "3.13.2"
 
       - name: Prep Helm
         run: |
@@ -74,6 +74,9 @@ jobs:
           helm repo add truecharts-library https://library-charts.truecharts.org
           helm repo add truecharts-deps https://deps.truecharts.org
           helm repo add jetstack https://charts.jetstack.io
+          helm repo add vmwaretanzu https://vmware-tanzu.github.io/helm-charts
+          helm repo add cnpg https://cloudnative-pg.github.io/charts
+          helm repo add metallb https://metallb.github.io/metallb
           helm repo update
 
       # Optional step if GPG signing is used
@@ -93,7 +96,7 @@ jobs:
           GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
 
       - name: Checkout
-        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           token: ${{ secrets.BOT_TOKEN }}
           fetch-depth: 0
@@ -125,7 +128,7 @@ jobs:
           find . -name '*.sh' | xargs chmod +x
 
       - name: Checkout
-        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         if: |
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         with:
@@ -244,7 +247,7 @@ jobs:
           git push
 
       - name: Checkout Catalog
-        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         if: |
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         with:
@@ -307,7 +310,7 @@ jobs:
           GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
 
       - name: Run chart-releaser for dependency apps
-        uses: helm/chart-releaser-action@be16258da8010256c6e82849661221415f031968 # v1.5.0
+        uses: helm/chart-releaser-action@a917fd15b20e8b64b94d9158ad54cd6345335584 # v1.6.0
         if: |
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         with:

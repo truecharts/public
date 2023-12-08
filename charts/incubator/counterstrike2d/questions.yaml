@@ -10,29 +10,25 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: GAME_PARAMS
-          label: "GAME_PARAMS"
-          description: "Enter your extra startup parameters otherwise leave blank!"
-          schema:
-            type: string
-            default: ""
-        - variable: FORCE_UPDATE
-          label: "FORCE_UPDATE"
-          description: "Put in the value true (without quotes) to Force Update the game otherwise leave blank. Dont forget to delete the value after updating."
-          schema:
-            type: string
-            default: ""
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: GAME_PARAMS
+                                        label: "GAME_PARAMS"
+                                        description: "Enter your extra startup parameters otherwise leave blank!"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: FORCE_UPDATE
+                                        label: "FORCE_UPDATE"
+                                        description: "Put in the value true (without quotes) to Force Update the game otherwise leave blank. Dont forget to delete the value after updating."
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

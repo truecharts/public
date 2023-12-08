@@ -1,0 +1,7 @@
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            WHISPARR__AUTHENTICATION_METHOD: Basic

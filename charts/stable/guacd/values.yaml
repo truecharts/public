@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/guacamole-server
+  repository: guacamole/guacd
   pullPolicy: IfNotPresent
-  tag: v1.5.3@sha256:581c98350ad3134b8af996f82f8c1b90e96f035c7d1bb012f4291dbce8f48b53
+  tag: 1.5.4@sha256:8a6fd083213053cd0217663c24ab59245ebfe442b6717e606ebea25707ace650
 service:
   main:
     ports:
@@ -16,7 +16,6 @@ securityContext:
     readOnlyRootFilesystem: false
     runAsUser: 1000
     runAsGroup: 1000
-
 workload:
   main:
     podSpec:

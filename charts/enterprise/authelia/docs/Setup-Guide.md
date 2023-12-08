@@ -30,8 +30,8 @@ LLDAP is a `Stable` train chart and therefore isn't supported at the same level 
 
 ### App Configuration
 
-- Domain: `mydomain.com` <- Your domain without https://
-- Default Redirection URL: `https://auth.mydomain.com` <- Can be anything, but we'll stick to auth.mydomain.com. As well, this will be the ingress URL for `Authelia`
+- Domain: `mydomain.com` - Your domain without https://
+- Default Redirection URL: `https://auth.mydomain.com` - Can be anything, but we'll stick to auth.mydomain.com. As well, this will be the ingress URL for `Authelia`
 
 ### LDAP Backend Configuration
 
@@ -54,7 +54,7 @@ LLDAP is a `Stable` train chart and therefore isn't supported at the same level 
 - Group name Attribute:`cn`
 - Mail Attribute:`mail`
 - Display Name Attribute:`displayName`
-- Admin User: `uid=Steven,ou=people,dc=mydomain,dc=com` <- Notice the uid=Steven, most of the time people use admin and a generated password
+- Admin User: `uid=Steven,ou=people,dc=mydomain,dc=com` - Notice the uid=Steven, most of the time people use admin and a generated password
 - Password: `RANDOMPASSWORD`
 
 #### SMTP Configuration

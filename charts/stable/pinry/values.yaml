@@ -1,6 +1,6 @@
 image:
-  repository: tccr.io/truecharts/pinry
-  tag: v2.1.12@sha256:fc1ddce0a4cdd0ce567db0bb6514a62880c50fcb5f1826b0bde3f3660c54123a
+  repository: getpinry/pinry
+  tag: 2.1.12@sha256:b0f9eeb195d478d9a989e220861b4638f4fb489d02fdaac1e46bbacd46e90a96
   pullPolicy: IfNotPresent
 service:
   main:
@@ -13,7 +13,6 @@ persistence:
     enabled: true
     mountPath: "/data"
     targetSelectAll: true
-
 portal:
   open:
     enabled: true

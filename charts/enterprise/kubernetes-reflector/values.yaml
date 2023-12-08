@@ -1,0 +1,70 @@
+image:
+  repository: docker.io/emberstack/kubernetes-reflector
+  pullPolicy: IfNotPresent
+  tag: build-7.1.217@sha256:982b8fc714349abe480a6864f3c3fce8e8801fd5068fac6add5b22ed32efc033
+operator:
+  register: true
+portal:
+  open:
+    enabled: false
+rbac:
+  main:
+    enabled: true
+    primary: true
+    clusterWide: true
+    rules:
+      - apiGroups:
+          - ""
+        resources:
+          - "configmaps"
+          - "secrets"
+        verbs:
+          - "get"
+          - "list"
+          - "watch"
+          - "create"
+          - "update"
+          - "patch"
+          - "delete"
+      - apiGroups:
+          - ""
+        resources:
+          - "namespaces"
+        verbs:
+          - "watch"
+          - "list"
+serviceAccount:
+  main:
+    enabled: true
+    primary: true
+kubernetesReflector:
+  logLevel: Information
+workload:
+  main:
+    podSpec:
+      automountServiceAccountToken: true
+      containers:
+        main:
+          securityContext:
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+          env:
+            ES_Serilog__MinimumLevel__Default: "{{ .Values.kubernetesReflector.logLevel }}"
+            ES_Reflector__Watcher__Timeout: ""
+            ES_Reflector__Kubernetes__SkipTlsVerify: "false"
+          probes:
+            liveness:
+              type: http
+              path: /healthz
+              port: 25080
+            readiness:
+              type: http
+              path: /healthz
+              port: 25080
+            startup:
+              type: http
+              path: /healthz
+              port: 25080
+service:
+  main:
+    enabled: false

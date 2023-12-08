@@ -8,41 +8,41 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: ICS_USERNAME
+                                        label: "ICS_USERNAME"
+                                        description: "Username for connecting to CalDAV server"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: ICS_PASSWORD
+                                        label: "ICS_PASSWORD"
+                                        description: "Password for connecting to CalDAV server"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: ICS_URL
+                                        label: "ICS_URL"
+                                        description: "URL to access the CalDAV Servereg. httpexample.comdav.php"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: CRONTAB_SCHEDULE
+                                        label: "CRONTAB_SCHEDULE"
+                                        description: "Crontab schedule string for when script is desired to run."
+                                        schema:
+                                          type: string
+                                          default: "0 0 * * *"
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: ICS_USERNAME
-          label: "ICS_USERNAME"
-          description: "Username for connecting to CalDAV server"
-          schema:
-            type: string
-            default: ""
-        - variable: ICS_PASSWORD
-          label: "ICS_PASSWORD"
-          description: "Password for connecting to CalDAV server"
-          schema:
-            type: string
-            default: ""
-        - variable: ICS_URL
-          label: "ICS_URL"
-          description: "URL to access the CalDAV Servereg. httpexample.comdav.php"
-          schema:
-            type: string
-            default: ""
-        - variable: CRONTAB_SCHEDULE
-          label: "CRONTAB_SCHEDULE"
-          description: "Crontab schedule string for when script is desired to run."
-          schema:
-            type: string
-            default: "0 0 * * *"
-# Include{serviceExpertRoot}
+# Include{containerConfig}
+# Include{podOptions}
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}

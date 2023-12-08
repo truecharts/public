@@ -1,22 +1,19 @@
 image:
-  repository: tccr.io/truecharts/duckdns
+  repository: ghcr.io/linuxserver/duckdns
   pullPolicy: IfNotPresent
-  tag: latest@sha256:b3301ee09840f26ce89525051822972c0064328a0aae03f8f81b5439ecd2ad4b
-
+  tag: latest@sha256:33ea96de82903171db1a4107fb0ffebcdf23adb780146449fc43c4c69e3dc9c5
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-
 workload:
   main:
     podSpec:
@@ -33,12 +30,10 @@ workload:
             SUBDOMAINS: ""
             LOG_FILE: false
             TOKEN: ""
-
 persistence:
   config:
     enabled: true
     mountPath: /config
-
 portal:
   open:
     enabled: false

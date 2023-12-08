@@ -4,7 +4,7 @@
 {{/* Render secrets for fireflyiii */}}
 {{- $secrets := include "fireflyiii.secrets" . | fromYaml -}}
 {{- if $secrets -}}
-  {{- $_ := set .Values.secret "secrets" $secrets -}}
+  {{- $_ := set .Values.secret "firefly-secrets" $secrets -}}
 {{- end -}}
 
 {{/* Render cronjob for fireflyiii */}}

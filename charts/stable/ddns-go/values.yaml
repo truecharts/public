@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/ddns-go
+  repository: jeessy/ddns-go
   pullPolicy: IfNotPresent
-  tag: v5.6.2@sha256:4dbd352ee9dd6d783bfff51b691478206b08c6c64392a99c2806296b0631f41c
-
+  tag: v5.6.6@sha256:fe921843f1957be51c0bbaed0b7e21936a566c74789e85a5b46e3acd7e6cbb18
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -17,7 +15,6 @@ service:
         targetPort: 9876
         protocol: http
         port: 10168
-
 workload:
   main:
     podSpec:
@@ -34,12 +31,10 @@ workload:
               type: http
               path: /
           env: {}
-
 persistence:
   data:
     enabled: true
     mountPath: /root
-
 portal:
   open:
     enabled: true

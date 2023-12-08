@@ -1,9 +1,8 @@
 # Fake external service image
 image:
-  repository: tccr.io/truecharts/alpine
+  repository: alpine
   pullPolicy: IfNotPresent
-  tag: latest@sha256:17cd77e25d3fa829d168caec4db7bb5b52ceeb935d8ca0d1180de6f615553dc4
-
+  tag: 3.19.0@sha256:51b67269f354137895d43f3b3d810bfacd3945438e94dc5ac55fdac340352f48
 service:
   main:
     type: ExternalIP
@@ -15,7 +14,6 @@ service:
         port: 10003
         # Target port is the port of the "external service"
         # Defaults to "port" if not set
-
 workload:
   main:
     enabled: false
@@ -23,7 +21,6 @@ workload:
       containers:
         main:
           env: {}
-
 portal:
   open:
     enabled: true

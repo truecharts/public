@@ -10,49 +10,38 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: USER
-          label: User Name
-          description: Optionally set a User Name
-          schema:
-            type: string
-            default: ""
-        - variable: PASSWORD
-          label: User Password
-          description: Optionally set a Password
-          schema:
-            type: string
-            private: true
-            default: ""
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: DISABLE_AUTH
-          label: Disable Auth
-          description: Disable authentication for RStudio Server.
-          schema:
-            type: boolean
-            default: false
-        - variable: ROOT
-          label: Root
-          description:  If set to true, the default non-root user will be added to the sudoers group when the server init process.
-          schema:
-            type: boolean
-            default: false
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: USER
+                                        label: User Name
+                                        description: Optionally set a User Name
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: PASSWORD
+                                        label: User Password
+                                        description: Optionally set a Password
+                                        schema:
+                                          type: string
+                                          private: true
+                                          default: ""
+                                      - variable: DISABLE_AUTH
+                                        label: Disable Auth
+                                        description: Disable authentication for RStudio Server.
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: ROOT
+                                        label: Root
+                                        description:  If set to true, the default non-root user will be added to the sudoers group when the server init process.
+                                        schema:
+                                          type: boolean
+                                          default: false
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

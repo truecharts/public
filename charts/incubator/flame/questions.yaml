@@ -10,37 +10,26 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: PASSWORD
-          label: "PASSWORD"
-          description: "PASSWORD"
-          schema:
-            type: string
-            private: true
-            default: ""
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: enable_integration
-          label: "Enable Kubernetes Integration"
-          description: "Defines RBAC, ClusterRole, ClusterRoleBinding and Service Account"
-          schema:
-            type: boolean
-            default: false
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: PASSWORD
+                                        label: "PASSWORD"
+                                        description: "PASSWORD"
+                                        schema:
+                                          type: string
+                                          private: true
+                                          default: ""
+                                      - variable: enable_integration
+                                        label: "Enable Kubernetes Integration"
+                                        description: "Defines RBAC, ClusterRole, ClusterRoleBinding and Service Account"
+                                        schema:
+                                          type: boolean
+                                          default: false
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

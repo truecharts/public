@@ -1,15 +1,15 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/archiveteam-warrior
-  tag: latest@sha256:2f9df36357450bf06fdb2347cdf655b9877b0f6cd69400dcd823693166c65588
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+  repository: atdr.meo.ws/archiveteam/warrior-dockerfile
+  tag: latest@sha256:d60797c520bdc4379b0289d399408bbe3a3d36a85c62c3abdb66ccfef2d2bbcf
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -17,6 +17,3 @@ service:
         port: 8001
         protocol: TCP
         targetPort: 8001
-
-portal:
-  enabled: true
