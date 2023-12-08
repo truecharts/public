@@ -1,14 +1,16 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "tc.v1.common.loader.init" . }}
 
+{{/*
+  Generate certificate data and set them to $.Values.ceritificate
+  Let common handle the creation of the objects
+*/}}
+{{- include "certmanager.clusterissuer.clusterCertificates" . }}
+
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}
 
+{{/* Generate the cluster issuers */}}
 {{- include "certmanager.clusterissuer.acme" . }}
 {{- include "certmanager.clusterissuer.selfsigned" . }}
 {{- include "certmanager.clusterissuer.ca" . }}
-
-{{/* Must be called after the initial loader.apply template,
-     because it overrides .Values.cert in order to generate
-     the additional cluster-wide certificates */}}
-{{- include "certmanager.clusterissuer.clusterCertificates" . }}
