@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: starmade
-version: 2.0.12
+version: 3.0.0
 appVersion: latest
 description:
   This Chart will download and install a StarMade Dedicated Server. It
@@ -12,7 +12,7 @@ deprecated: false
 sources:
   - https://www.star-made.org/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/starmade
-  - https://github.com/truecharts/containers/tree/master/mirrorstarmade
+  - https://hub.docker.com/r/ich777/starmade-server
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -22,7 +22,7 @@ keywords:
   - GameServers
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

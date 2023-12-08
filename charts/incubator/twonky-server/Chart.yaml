@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: twonky-server
-version: 2.0.21
+version: 3.0.0
 appVersion: latest
 description:
   TwonkyMedia server (TMS) is DLNA-compliant UPnP AV server software from
@@ -12,9 +12,9 @@ home: https://truecharts.org/charts/incubator/twonky-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/twonky-server.png
 deprecated: false
 sources:
-  - https://github.com/H2CK/twonkyserver
   - https://github.com/truecharts/charts/tree/master/charts/incubator/twonky-server
-  - https://github.com/truecharts/containers/tree/master/mirrortwonky-server
+  - https://hub.docker.com/r/dtjs48jkt/twonkyserver
+  - https://github.com/H2CK/twonkyserver
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -26,7 +26,7 @@ keywords:
   - MediaServer-Other
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

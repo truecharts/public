@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: thunderbird
-version: 2.0.14
+version: 3.0.0
 appVersion: latest
 description:
   This Chart will download and install Thunderbird in the preferred version
@@ -12,7 +12,7 @@ deprecated: false
 sources:
   - https://www.thunderbird.net/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/thunderbird
-  - https://github.com/truecharts/containers/tree/master/mirrorthunderbird
+  - https://hub.docker.com/r/ich777/thunderbird
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -22,7 +22,7 @@ keywords:
   - mail
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

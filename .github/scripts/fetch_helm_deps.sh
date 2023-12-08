@@ -94,10 +94,21 @@ for idx in $(eval echo "{0..$length}"); do
             # Extract url from repo_url. It's under .entries.DEP_NAME.urls. We filter the specific version first (.version)
             dep_url=$(v="$version" n="$name" go-yq '.entries.[env(n)].[] | select (.version == env(v)) | .urls.[0]' "$index_cache/$repo_dir/index.yaml")
 
-            # tmp hotpatch for cert-manager
-            if [[ !  "$dep_url" == "https"* ]]; then
-              dep_url="https://charts.jetstack.io/${dep_url}"
+            if [[ ! "$dep_url" == "https"* ]]; then
+                # If the chart uses relative path, drop the "/index.yaml"
+                # from the repo_url and append the relative path
+                repo=$(echo "$repo_url" | sed 's/\/index\.yaml//')
+                dep_url="${repo}/${dep_url}"
             fi
+
+            if [[ -z "$dep_url" ]]; then
+              echo "❌ Dependency URL is empty."
+              echo "Make sure the version is correct and the dependency exists in the index."
+              echo "Aborting..."
+              exit 1
+            fi
+
+            echo "🔗 Dependency URL: $dep_url"
 
             echo ""
             echo "⏬ Downloading dependency $name-$version from $dep_url..."
@@ -122,6 +133,15 @@ for idx in $(eval echo "{0..$length}"); do
               elif [[ "$name" =~ "kube-prometheus-stack" ]]; then
                   helm dependency build "$charts_path/$train_chart/Chart.yaml" || \
                   helm dependency update "$charts_path/$train_chart/Chart.yaml"|| exit 1
+              elif [[ "$name" =~ "openebs" ]]; then
+                  helm dependency build "$charts_path/$train_chart/Chart.yaml" || \
+                  helm dependency update "$charts_path/$train_chart/Chart.yaml"|| exit 1
+              elif [[ "$name" =~ "csi-driver-smb" ]]; then
+                  helm dependency build "$charts_path/$train_chart/Chart.yaml" || \
+                  helm dependency update "$charts_path/$train_chart/Chart.yaml"|| exit 1
+              elif [[ "$name" =~ "csi-driver-nfs" ]]; then
+                  helm dependency build "$charts_path/$train_chart/Chart.yaml" || \
+                  helm dependency update "$charts_path/$train_chart/Chart.yaml"|| exit 1
               elif [[ "$name" =~ "cert-manager" ]]; then
                   helm dependency build "$charts_path/$train_chart/Chart.yaml" --verify --keyring $gpg_dir/certman.gpg || \
                   helm dependency update "$charts_path/$train_chart/Chart.yaml" --verify --keyring $gpg_dir/certman.gpg || exit 1
@@ -144,6 +164,12 @@ for idx in $(eval echo "{0..$length}"); do
                    echo "cloudnative-pg is not signed..."
                 elif [[ "$name" =~ "kube-prometheus-stack" ]]; then
                    echo "kube-prometheus-stack is not signed..."
+                elif [[ "$name" =~ "openebs" ]]; then
+                   echo "openebs is not signed..."
+                elif [[ "$name" =~ "csi-driver-smb" ]]; then
+                   echo "csi-driver-smb is not signed..."
+                elif [[ "$name" =~ "csi-driver-nfs" ]]; then
+                   echo "csi-driver-nfs is not signed..."
                 elif [[ ! "$train_chart" =~ incubator\/.* ]]; then
                   echo "Validating dependency signature..."
                   helm verify $cache_path/$repo_dir/$name-$version.tgz --keyring $gpg_dir/pubring.gpg || \
@@ -167,6 +193,15 @@ for idx in $(eval echo "{0..$length}"); do
                   helm dependency build "$charts_path/$train_chart/Chart.yaml" || \
                   helm dependency update "$charts_path/$train_chart/Chart.yaml"|| exit 1
               elif [[ "$name" =~ "kube-prometheus-stack" ]]; then
+                  helm dependency build "$charts_path/$train_chart/Chart.yaml" || \
+                  helm dependency update "$charts_path/$train_chart/Chart.yaml"|| exit 1
+              elif [[ "$name" =~ "openebs" ]]; then
+                  helm dependency build "$charts_path/$train_chart/Chart.yaml" || \
+                  helm dependency update "$charts_path/$train_chart/Chart.yaml"|| exit 1
+              elif [[ "$name" =~ "csi-driver-smb" ]]; then
+                  helm dependency build "$charts_path/$train_chart/Chart.yaml" || \
+                  helm dependency update "$charts_path/$train_chart/Chart.yaml"|| exit 1
+              elif [[ "$name" =~ "csi-driver-nfs" ]]; then
                   helm dependency build "$charts_path/$train_chart/Chart.yaml" || \
                   helm dependency update "$charts_path/$train_chart/Chart.yaml"|| exit 1
               elif [[ "$name" =~ "cert-manager" ]]; then

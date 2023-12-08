@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: ts-dnsserver
-version: 2.0.22
+version: 3.0.0
 appVersion: latest
 description:
   Technitium DNS Server is an open source tool that can be used for self
@@ -15,7 +15,7 @@ deprecated: false
 sources:
   - https://github.com/TechnitiumSoftware/DnsServer
   - https://github.com/truecharts/charts/tree/master/charts/incubator/ts-dnsserver
-  - https://github.com/truecharts/containers/tree/master/mirrorts-dnsserver
+  - https://hub.docker.com/r/roxedus/ts-dnsserver
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -25,7 +25,7 @@ keywords:
   - Network-DNS
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

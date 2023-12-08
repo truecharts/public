@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: phoronix-test-suite
-version: 2.0.11
+version: 3.0.0
 appVersion: latest
 description:
   The Phoronix Test Suite is the most comprehensive testing and benchmarking
@@ -13,7 +13,7 @@ deprecated: false
 sources:
   - https://github.com/phoronix-test-suite/phoronix-test-suite
   - https://github.com/truecharts/charts/tree/master/charts/incubator/phoronix-test-suite
-  - https://github.com/truecharts/containers/tree/master/mirrorphoronix-test-suite
+  - https://hub.docker.com/r/phoronix/pts
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -23,7 +23,7 @@ keywords:
   - Tools-Utilities
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

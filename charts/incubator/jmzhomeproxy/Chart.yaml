@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: jmzhomeproxy
-version: 2.0.11
+version: 3.0.0
 appVersion: latest
 description:
   Proxy is in quotes because I couldn't think of a better name. There is
@@ -13,7 +13,7 @@ deprecated: false
 sources:
   - https://github.com/JmzTaylor/homelab_proxy/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/jmzhomeproxy
-  - https://github.com/truecharts/containers/tree/master/mirrorjmzhomeproxy
+  - https://hub.docker.com/r/jmzsoftware/jmzhomelabproxy
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -24,7 +24,7 @@ keywords:
   - Network-Web
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

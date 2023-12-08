@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: kerbalspaceprogram-lmp
-version: 2.0.11
+version: 3.0.0
 appVersion: latest
 description:
   This Chart will download and run Luna Multiplayer for Kerbal Space Program
@@ -12,7 +12,7 @@ deprecated: false
 sources:
   - https://github.com/LunaMultiplayer/LunaMultiplayer
   - https://github.com/truecharts/charts/tree/master/charts/incubator/kerbalspaceprogram-lmp
-  - https://github.com/truecharts/containers/tree/master/mirrorkerbalspaceprogram-lmp
+  - https://hub.docker.com/r/ich777/lunamultiplayer-ksp
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -22,7 +22,7 @@ keywords:
   - GameServers
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

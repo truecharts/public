@@ -1,8 +1,8 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: inventree
-version: 8.0.2
-appVersion: 0.8.4
+version: 9.0.0
+appVersion: 0.12.8
 description:
   InvenTree is an open-source Inventory Management System which provides
   powerful low-level stock control and part tracking.
@@ -13,7 +13,7 @@ sources:
   - https://inventree.readthedocs.io
   - https://github.com/inventree/InvenTree
   - https://github.com/truecharts/charts/tree/master/charts/incubator/inventree
-  - https://github.com/truecharts/containers/tree/master/mirrorinventree
+  - https://hub.docker.com/r/inventree/inventree
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -23,7 +23,7 @@ keywords:
   - inventree
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

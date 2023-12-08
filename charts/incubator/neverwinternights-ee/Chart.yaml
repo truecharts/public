@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: neverwinternights-ee
-version: 2.0.11
+version: 3.0.0
 appVersion: latest
 description:
   "This Chart will download and install Neverwinter Nights: Enhanced Edition
@@ -10,9 +10,9 @@ home: https://truecharts.org/charts/incubator/neverwinternights-ee
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/neverwinternights-ee.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/neverwinternights-ee
-  - https://github.com/truecharts/containers/tree/master/mirrorneverwinternights-ee
   - https://www.beamdog.com/games/neverwinter-nights-enhanced/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/neverwinternights-ee
+  - https://hub.docker.com/r/ich777/nwnee-server
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -22,7 +22,7 @@ keywords:
   - GameServers
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

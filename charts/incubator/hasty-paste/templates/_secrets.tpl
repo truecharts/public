@@ -1,22 +1,13 @@
 {{/* Define the secret */}}
-{{- define "hastyPaste.secret" -}}
-
-{{- $secretName := printf "%s-secret" (include "tc.common.names.fullname" .) }}
-
----
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: {{ $secretName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
-stringData:
+{{- define "hastypaste.secrets" -}}
+{{- $secretName := (printf "%s-hastypaste-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
+enabled: true
+data:
   {{- $redis := .Values.redis -}}
-  {{- $redisPass := $redis.redisPassword | trimAll "\"" -}}
-  {{- $redisUser := $redis.redisUsername }}
-  {{- $redisURL := $redis.url.plain | trimAll "\"" }}
-  CACHE__REDIS_URI: {{ printf "redis://%v:%v@%v/0" $redisUser $redisPass $redisURL | quote }}
+  {{- $redisPass := $redis.creds.redisPassword | trimAll "\"" -}}
+  {{- $redisUser := $redis.username }}
+  {{- $redisURL := $redis.creds.plainhost | trimAll "\"" }}
+  CACHE__REDIS_URI: {{ printf "redis://%v:%v@%v:6379/0" $redisUser $redisPass $redisURL | quote }}
   CACHE__ENABLE: "true"
   PORT: {{ .Values.service.main.ports.main.port | quote }}
   TIME_ZONE: {{ .Values.TZ }}

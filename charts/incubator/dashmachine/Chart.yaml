@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: dashmachine
-version: 2.0.11
+version: 3.0.0
 appVersion: latest
 description:
   "Another web application bookmark dashboard, with fun features.[br][br][b][u][span
@@ -12,7 +12,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/dashmachine.png
 deprecated: false
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/dashmachine
-  - https://github.com/truecharts/containers/tree/master/mirrordashmachine
+  - https://hub.docker.com/r/rmountjoy/dashmachine
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -23,7 +23,7 @@ keywords:
   - Network-Web
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

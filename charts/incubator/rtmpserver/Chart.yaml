@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: rtmpserver
-version: 4.0.2
+version: 5.0.0
 appVersion: latest
 description: A video streaming server that supports RTMP, HLS, DASH out of the box.
 home: https://truecharts.org/charts/incubator/rtmpserver
@@ -9,7 +9,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/rtmpserver.png
 deprecated: false
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/rtmpserver
-  - https://github.com/truecharts/containers/tree/master/mirrorrtmpserver
+  - https://hub.docker.com/r/alqutami/rtmp-hls
   - https://github.com/TareqAlqutami/rtmp-hls-server
 maintainers:
   - name: TrueCharts
@@ -21,7 +21,7 @@ keywords:
   - Network-Other
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

@@ -1,8 +1,8 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: zusam
-version: 4.0.2
-appVersion: 0.5.3
+version: 5.0.0
+appVersion: 0.5.4
 description:
   Zusam is a free and open-source way to self-host private forums for groups
   of friends.
@@ -12,7 +12,7 @@ deprecated: false
 sources:
   - https://github.com/zusam/zusam
   - https://github.com/truecharts/charts/tree/master/charts/incubator/zusam
-  - https://github.com/truecharts/containers/tree/master/mirrorzusam
+  - https://hub.docker.com/r/zusam/zusam
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -22,7 +22,7 @@ keywords:
   - forum
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

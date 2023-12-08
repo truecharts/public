@@ -1,8 +1,8 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: ghost
-version: 6.0.61
-appVersion: 5.45.1
+version: 7.0.0
+appVersion: 5.73.1
 description:
   Ghost is an open source, professional publishing platform built on a
   modern Node.js technology stack designed for teams who need power, flexibility and
@@ -11,10 +11,10 @@ home: https://truecharts.org/charts/incubator/ghost
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ghost.png
 deprecated: false
 sources:
+  - https://hub.docker.com/_/ghost
   - https://github.com/TryGhost/Ghost
   - https://ghost.org/docs/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/ghost
-  - https://github.com/truecharts/containers/tree/master/mirrorghost
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -25,7 +25,7 @@ keywords:
   - cms
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

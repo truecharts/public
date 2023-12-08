@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: icantbelieveitsnotvaletudo
-version: 7.0.2
+version: 8.0.0
 appVersion: 2021.2.1
 description: Create live map data from Valetudo powered robots
 home: https://truecharts.org/charts/incubator/icantbelieveitsnotvaletudo
@@ -10,7 +10,7 @@ deprecated: false
 sources:
   - https://github.com/Hypfer/ICantBelieveItsNotValetudo
   - https://github.com/truecharts/charts/tree/master/charts/incubator/icantbelieveitsnotvaletudo
-  - https://github.com/truecharts/containers/tree/master/mirroricantbelieveitsnotvaletudo
+  - https://hub.docker.com/r/pmaksymiuk/icantbelieveitsnotvaletudo
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -22,7 +22,7 @@ keywords:
   - iot
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

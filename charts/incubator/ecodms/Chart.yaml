@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: ecodms
-version: 2.0.11
+version: 3.0.0
 appVersion: latest
 description:
   ecoDMS 18.09 (apu) Full Installation - Document Management System (DMS)
@@ -12,7 +12,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/ecodms.png
 deprecated: false
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/ecodms
-  - https://github.com/truecharts/containers/tree/master/mirrorecodms
+  - https://hub.docker.com/r/ecodms/allinone-18.09
   - https://www.ecodms.de/index.php/en/
 maintainers:
   - name: TrueCharts
@@ -24,7 +24,7 @@ keywords:
   - Productivity
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

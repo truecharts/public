@@ -1,8 +1,7 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/h5ai
-  tag: latest@sha256:33a8a6f1ef11cf01dc6cf8aa70f7fbbe22879e16b14da790b32b6c41a15253e6
+  repository: awesometic/h5ai
+  tag: latest@sha256:fed198244e48af2c7a81bf5929c6191d789aaa1a548404841e4e4c150f96c8ea
 persistence:
   config:
     enabled: true
@@ -11,12 +10,14 @@ persistence:
     enabled: true
     mountPath: /h5ai
     readOnly: true
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -24,6 +25,3 @@ service:
         port: 80
         protocol: TCP
         targetPort: 80
-
-portal:
-  enabled: true

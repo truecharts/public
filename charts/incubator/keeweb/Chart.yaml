@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: keeweb
-version: 2.0.12
+version: 3.0.0
 appVersion: latest
 description:
   This webapp is a browser and desktop password manager compatible with
@@ -13,7 +13,7 @@ deprecated: false
 sources:
   - https://github.com/keeweb/keeweb
   - https://github.com/truecharts/charts/tree/master/charts/incubator/keeweb
-  - https://github.com/truecharts/containers/tree/master/mirrorkeeweb
+  - https://hub.docker.com/r/antelle/keeweb
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -26,7 +26,7 @@ keywords:
   - Network-Management
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

@@ -1,36 +1,53 @@
+kubeVersion: ">=1.24.0"
 apiVersion: v2
-appVersion: "1.13.2"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 16.0.0
-  - condition: mariadb.enabled
-    name: mariadb
-    repository: https://deps.truecharts.org/
-    version: 7.0.70
-  - condition: redis.enabled
-    name: redis
-    repository: https://deps.truecharts.org
-    version: 6.0.66
-deprecated: false
-description: feature rich and highly flexible OpenSource Social Network Kit written in PHP.
+name: humhub
+version: 3.0.1
+appVersion: 1.14.5
+description:
+  HumHub is a free social network software and framework built to give
+  you the tools to make communication and collaboration easy and successful. The Database
+  is at 'localhost', username is 'humhub', the database name is 'humhub', there are
+  no password (local user)
 home: https://truecharts.org/charts/incubator/humhub
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/humhub.png
+deprecated: false
+sources:
+  - https://ghcr.io/siwatinc/humhub
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/humhub
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
   - humhub
-  - Social-Network
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: humhub
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/humhub
-  - https://github.com/mriedmann/humhub-docker
-type: application
-version: 3.0.0
+  - Network-Web
+dependencies:
+  - name: common
+    version: 16.0.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: mariadb
+    version: 7.0.70
+    repository: https://deps.truecharts.org/
+    condition: mariadb.enabled
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 6.0.66
+    repository: https://deps.truecharts.org
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  truecharts.org/category: social
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
   truecharts.org/SCALE-support: "true"
-  
+  truecharts.org/category: Network-Web
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: hoobs
-version: 2.0.11
+version: 3.0.0
 appVersion: latest
 description:
   "HOOBS is a Homebridge stack with a interface that simplifies configuration
@@ -11,7 +11,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/hoobs.png
 deprecated: false
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/hoobs
-  - https://github.com/truecharts/containers/tree/master/mirrorhoobs
+  - https://hub.docker.com/r/hoobs/hoobs
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -22,7 +22,7 @@ keywords:
   - Tools-Utilities
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

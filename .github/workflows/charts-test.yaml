@@ -125,7 +125,7 @@ jobs:
         with:
           version: v3.13.2
 
-      - uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4
+      - uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5
         with:
           python-version: "3.11"
 
@@ -154,6 +154,9 @@ jobs:
           helm repo add cnpg https://cloudnative-pg.github.io/charts
           helm repo add metallb https://metallb.github.io/metallb
           helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+          helm repo add  openebs https://openebs.github.io/charts
+          helm repo add  csi-driver-smb https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts
+          helm repo add  csi-driver-nfs https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
           helm repo update
 
       - name: Add Dependencies
@@ -200,7 +203,7 @@ jobs:
         with:
           version: v3.13.2
 
-      - uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4
+      - uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5
         with:
           python-version: "3.11"
 
@@ -263,7 +266,7 @@ jobs:
         with:
           version: v3.13.2
 
-      - uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4
+      - uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5
         with:
           python-version: "3.11"
 
@@ -326,7 +329,7 @@ jobs:
         with:
           version: v3.13.2
 
-      - uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4
+      - uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5
         with:
           python-version: "3.11"
 
@@ -389,7 +392,7 @@ jobs:
         with:
           version: v3.13.2
 
-      - uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4
+      - uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5
         with:
           python-version: "3.11"
 
@@ -452,7 +455,7 @@ jobs:
         with:
           version: v3.13.2
 
-      - uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4
+      - uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5
         with:
           python-version: "3.11"
 

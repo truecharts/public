@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: debian-apt-mirror
-version: 2.0.11
+version: 3.0.0
 appVersion: latest
 description:
   This Chart will run apt-mirror and Apache2. This allows you to create
@@ -12,7 +12,7 @@ deprecated: false
 sources:
   - https://www.debian.org/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/debian-apt-mirror
-  - https://github.com/truecharts/containers/tree/master/mirrordebian-apt-mirror
+  - https://hub.docker.com/r/ich777/debian-mirror
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -25,7 +25,7 @@ keywords:
   - Drivers
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

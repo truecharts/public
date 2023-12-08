@@ -66,3 +66,41 @@
                             schema:
                               type: string
                               required: true
+
+  - variable: imagePullSecretList
+    group: "General Settings"
+    label: "Image Pull Secrets"
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: pullsecretentry
+          label: "Pull Secret"
+          schema:
+            type: dict
+            additional_attrs: true
+            attrs:
+              - variable: registry
+                label: "Registry"
+                schema:
+                  type: string
+                  required: true
+                  default: "https://index.docker.io/v1/"
+              - variable: username
+                label: "Username"
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: password
+                label: "Password"
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+              - variable: email
+                label: "Email"
+                schema:
+                  type: string
+                  required: true
+                  default: ""

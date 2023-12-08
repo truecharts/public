@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: vertex
-version: 2.0.23
+version: 3.0.0
 appVersion: stable
 description: Vertex
 home: https://truecharts.org/charts/incubator/vertex
@@ -10,7 +10,7 @@ deprecated: false
 sources:
   - https://gitlab.lswl.in/lswl/vertex
   - https://github.com/truecharts/charts/tree/master/charts/incubator/vertex
-  - https://github.com/truecharts/containers/tree/master/mirrorvertex
+  - https://hub.docker.com/r/lswl/vertex
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -21,7 +21,7 @@ keywords:
   - HomeAutomation
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

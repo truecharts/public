@@ -1,16 +1,16 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: tubearchivist-redisjson
-version: 2.0.17
+version: 3.0.0
 appVersion: latest
 description: This is a dependancy Chart for the application "TubeArchivist"
 home: https://truecharts.org/charts/incubator/tubearchivist-redisjson
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/tubearchivist-redisjson.png
 deprecated: false
 sources:
+  - https://hub.docker.com/r/redislabs/rejson
   - https://github.com/RedisJSON/RedisJSON
   - https://github.com/truecharts/charts/tree/master/charts/incubator/tubearchivist-redisjson
-  - https://github.com/truecharts/containers/tree/master/mirrortubearchivist-redisjson
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -20,7 +20,7 @@ keywords:
   - MediaServer-Other
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

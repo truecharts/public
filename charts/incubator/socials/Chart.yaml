@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: socials
-version: 2.0.11
+version: 3.0.0
 appVersion: main
 description:
   Socials is a single-page website that stores all your social media and
@@ -12,10 +12,10 @@ home: https://truecharts.org/charts/incubator/socials
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/socials.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/containers/tree/master/mirrorsocials
   - https://github.com/diamkil/socials
   - https://registry.hub.docker.com/r/diamkil/socials/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/socials
+  - https://ghcr.io/diamkil/socials
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -25,7 +25,7 @@ keywords:
   - Other
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

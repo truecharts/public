@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: ciao
-version: 2.0.14
+version: 3.0.0
 appVersion: latest
 description:
   ciao checks HTTP(S) URL endpoints for a HTTP status code (or errors on
@@ -12,7 +12,7 @@ deprecated: false
 sources:
   - https://brotandgames.com/ciao/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/ciao
-  - https://github.com/truecharts/containers/tree/master/mirrorciao
+  - https://hub.docker.com/r/brotandgames/ciao
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -24,7 +24,7 @@ keywords:
   - Tools-System
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
