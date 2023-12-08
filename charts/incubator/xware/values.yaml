@@ -1,27 +1,31 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
   repository: caiguai/docker-xware
   tag: latest@sha256:0aea5c81ecbe16258f324926cbcf8a0b8b460d8b4be3bbe9c2e06c0df92dadf5
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
+portal:
+  enabled: false
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-portal:
-  enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

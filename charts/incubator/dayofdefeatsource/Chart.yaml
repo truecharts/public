@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: dayofdefeatsource
-version: 2.0.12
+version: 3.0.0
 appVersion: dods
 description:
   "This Chart will download and install SteamCMD. It will also install
@@ -10,9 +10,9 @@ home: https://truecharts.org/charts/incubator/dayofdefeatsource
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/dayofdefeatsource.png
 deprecated: false
 sources:
-  - https://hub.docker.com/r/ich777/steamcmd
   - https://www.steampowered.com/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/dayofdefeatsource
+  - https://hub.docker.com/r/ich777/steamcmd
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -22,7 +22,7 @@ keywords:
   - GameServers
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

@@ -1,6 +1,3 @@
-env:
-  FORCE_UPDATE: ""
-  GAME_PARAMS: ""
 image:
   pullPolicy: IfNotPresent
   repository: ich777/cs2dserver
@@ -9,19 +6,14 @@ persistence:
   serverfiles:
     enabled: true
     mountPath: /serverdata/serverfiles
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -29,5 +21,18 @@ service:
         port: 36963
         protocol: UDP
         targetPort: 36963
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            FORCE_UPDATE: ""
+            GAME_PARAMS: ""
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

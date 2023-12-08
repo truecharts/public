@@ -1,16 +1,16 @@
-env:
-  ROOT_URL: /
 image:
   pullPolicy: IfNotPresent
   repository: qmcgaw/stackedit
   tag: latest@sha256:c74120b91fd0ce0d5fae45af1a47b963e75dfeb95f4d080448e01bc80b73416a
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -18,5 +18,10 @@ service:
         port: 8000
         protocol: TCP
         targetPort: 8000
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            ROOT_URL: /

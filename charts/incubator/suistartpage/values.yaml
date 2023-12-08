@@ -1,4 +1,3 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
   repository: corneliousjd/sui-startpage
@@ -7,12 +6,14 @@ persistence:
   appdata:
     enabled: true
     mountPath: /usr/share/nginx/html
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -20,5 +21,3 @@ service:
         port: 8489
         protocol: TCP
         targetPort: 80
-portal:
-  enabled: true

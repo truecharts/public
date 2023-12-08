@@ -1,5 +1,5 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "tc.common.loader.init" . }}
+{{- include "tc.v1.common.loader.init" . }}
 
 {{/* Render config for flemarr */}}
 {{- include "flemarr.config" . }}
@@ -13,7 +13,7 @@ subPath: config.yml
 readOnly: true
 volumeSpec:
   configMap:
-    name: '{{ printf "%s-flemarr-config" (include "tc.common.names.fullname" .) }}'
+    name: '{{ printf "%s-flemarr-config" (include "tc.v1.common.names.fullname" .) }}'
 {{- else -}}
 enabled: true
 type: hostPath
@@ -27,4 +27,4 @@ readOnly: true
 {{- $_ := set .Values.persistence "configfile" (include "flemarr.configmap.mount" . | fromYaml) -}}
 
 {{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}
+{{ include "tc.v1.common.loader.apply" . }}

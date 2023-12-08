@@ -2,23 +2,24 @@ image:
   pullPolicy: IfNotPresent
   repository: ich777/steamcmd
   tag: arma3exilemod@sha256:fb5adf42b5b4808112632dede2eb80f3aa0407ec451b206ada8ac2164988c829
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+persistence:
+  profiles:
+    enabled: true
+    mountPath: /serverdata/.local/share
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-secretEnv:
-  USERNAME: ""
-  PASSWRD: ""
-env:
-  EXILEMOD_SERVER_URL: http://www.exilemod.com/ExileServer-1.0.4a.zip
-  GAME_ID: "233780"
-  GAME_PARAMS: ""
-  GAME_PORT: "2302"
-  MARIA_DB_ROOT_PWD: ExileMod
-  VALIDATE: false
-  WORKSHOP_MAN_INST: ""
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -74,15 +75,18 @@ service:
         port: 2305
         protocol: UDP
         targetPort: 2305
-persistence:
-  profiles:
-    enabled: true
-    mountPath: /serverdata/.local/share
-  serverfiles:
-    enabled: true
-    mountPath: /serverdata/serverfiles
-  steamcmd:
-    enabled: true
-    mountPath: /serverdata/steamcmd
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            EXILEMOD_SERVER_URL: http://www.exilemod.com/ExileServer-1.0.4a.zip
+            GAME_ID: "233780"
+            GAME_PARAMS: ""
+            GAME_PORT: "2302"
+            MARIA_DB_ROOT_PWD: ExileMod
+            PASSWRD: ""
+            USERNAME: ""
+            VALIDATE: "false"
+            WORKSHOP_MAN_INST: ""

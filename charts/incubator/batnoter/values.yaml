@@ -1,13 +1,15 @@
 image:
+  pullPolicy: IfNotPresent
   repository: ghcr.io/batnoter/batnoter/batnoter-ui
   tag: latest@sha256:9916463b41965035cc695b27bc8f3bf0fdc5923f5046d8fbd857d206b2d120a4
-  pullPolicy: IfNotPresent
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -15,5 +17,3 @@ service:
         port: 10351
         protocol: HTTP
         targetPort: 3000
-portal:
-  enabled: true

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: ferdi-client
-version: 2.0.12
+version: 3.0.0
 appVersion: latest
 description:
   Ferdi is a destkop app that helps you organize how you use your favourite
@@ -26,7 +26,7 @@ keywords:
   - Tools-Utilities
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

@@ -1,13 +1,40 @@
+configmap:
+  dupeguru:
+    data:
+      DISPLAY_HEIGHT: "{{ .Values.dupeguru.DISPLAY_HEIGHT }}"
+      DISPLAY_WIDTH: "{{ .Values.dupeguru.DISPLAY_WIDTH }}"
+      ENABLE_CJK_FONT: '{{ ternary "1" "0" .Values.dupeguru.ENABLE_CJK_FONT }}'
+      KEEP_APP_RUNNING: '{{ ternary "1" "0" .Values.dupeguru.KEEP_APP_RUNNING }}'
+      SECURE_CONNECTION: '{{ ternary "1" "0" .Values.dupeguru.SECURE_CONNECTION }}'
+    enabled: true
+dupeguru:
+  DISPLAY_HEIGHT: 768
+  DISPLAY_WIDTH: 1280
+  ENABLE_CJK_FONT: false
+  KEEP_APP_RUNNING: false
+  SECURE_CONNECTION: false
 image:
+  pullPolicy: IfNotPresent
   repository: jlesage/dupeguru
   tag: v23.11.2@sha256:56e3abe6cf50c7cf84d83bd8e8d1a450d765a95a8b75660f8147ddc0e56190fd
-  pullPolicy: IfNotPresent
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  storage:
+    enabled: true
+    mountPath: /storage
+  trash:
+    enabled: true
+    mountPath: /trash
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -21,35 +48,13 @@ service:
         enabled: true
         port: 10261
         targetPort: 5900
-envFrom:
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-dupeguru'
-secretEnv:
-  VNC_PASSWORD: ""
-dupeguru:
-  KEEP_APP_RUNNING: false
-  DISPLAY_WIDTH: 1280
-  DISPLAY_HEIGHT: 768
-  SECURE_CONNECTION: false
-  ENABLE_CJK_FONT: false
-configmap:
-  dupeguru:
-    enabled: true
-    data:
-      ENABLE_CJK_FONT: '{{ ternary "1" "0" .Values.dupeguru.ENABLE_CJK_FONT }}'
-      KEEP_APP_RUNNING: '{{ ternary "1" "0" .Values.dupeguru.KEEP_APP_RUNNING }}'
-      SECURE_CONNECTION: '{{ ternary "1" "0" .Values.dupeguru.SECURE_CONNECTION }}'
-      DISPLAY_WIDTH: "{{ .Values.dupeguru.DISPLAY_WIDTH }}"
-      DISPLAY_HEIGHT: "{{ .Values.dupeguru.DISPLAY_HEIGHT }}"
-persistence:
-  config:
-    enabled: true
-    mountPath: "/config"
-  storage:
-    enabled: true
-    mountPath: "/storage"
-  trash:
-    enabled: true
-    mountPath: "/trash"
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            VNC_PASSWORD: ""
+          envFrom:
+            - configMapRef:
+                name: '{{ include "tc.common.names.fullname" . }}-dupeguru'

@@ -1,6 +1,3 @@
-env:
-  LOG_LEVEL: info
-  UMASK: "000"
 image:
   pullPolicy: IfNotPresent
   repository: ghcr.io/diamkil/socials
@@ -9,12 +6,14 @@ persistence:
   socials:
     enabled: true
     mountPath: /app/people
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -22,5 +21,11 @@ service:
         port: 7574
         protocol: TCP
         targetPort: 7574
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            LOG_LEVEL: info
+            UMASK: "000"

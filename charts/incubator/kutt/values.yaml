@@ -1,78 +1,80 @@
 image:
-  repository: kutt/kutt
   pullPolicy: IfNotPresent
+  repository: kutt/kutt
   tag: v2.7.4@sha256:340fae3678e5f9ba6b40761d72e5c6992331bef678b5a0fcc8afea83ab735f41
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+portal:
+  enabled: true
+postgresql:
+  enabled: true
+  existingSecret: dbcreds
+  postgresqlDatabase: kutt
+  postgresqlUsername: kutt
+redis:
+  enabled: true
+  existingSecret: rediscreds
 secretEnv:
-  MAIL_USER: ""
-  MAIL_PASSWORD: ""
-  RECAPTCHA_SITE_KEY: ""
-  RECAPTCHA_SECRET_KEY: ""
-  GOOGLE_SAFE_BROWSING_KEY: ""
   GOOGLE_ANALYTICS: ""
   GOOGLE_ANALYTICS_UNIVERSAL: ""
-env:
-  PORT: "{{ .Values.service.main.ports.main.port }}"
-  DB_NAME: kutt
-  DB_USER: kutt
-  DB_PORT: "5432"
-  REDIS_PORT: "6379"
-  # User Defined
-  SITE_NAME: "My Kutt Instance"
-  DEFAULT_DOMAIN: "localhost:{{ .Values.service.main.ports.main.port }}"
-  LINK_LENGTH: 6
-  USER_LIMIT_PER_DAY: 50
-  NON_USER_COOLDOWN: 0
-  DEFAULT_MAX_STATS_PER_LINK: 5000
-  DISALLOW_REGISTRATION: false
-  DISALLOW_ANONYMOUS_LINKS: false
-  CUSTOM_DOMAIN_USE_HTTPS: false
-  ADMIN_EMAILS: "admin@example.com,admin@example2.com"
-  REPORT_EMAIL: "admin@example.com"
-  CONTACT_EMAIL: "admin@example.com"
-  MAIL_HOST: ""
-  MAIL_PORT: 567
-  MAIL_FROM: ""
-  MAIL_SECURE: true
-  DB_HOST:
-    secretKeyRef:
-      name: dbcreds
-      key: plainhost
-  DB_PASSWORD:
-    secretKeyRef:
-      name: dbcreds
-      key: postgresql-password
-  REDIS_HOST:
-    secretKeyRef:
-      name: rediscreds
-      key: plainhost
-  REDIS_PASSWORD:
-    secretKeyRef:
-      name: rediscreds
-      key: redis-password
-  JWT_SECRET:
-    secretKeyRef:
-      name: kutt-secrets
-      key: JWT_SECRET
+  GOOGLE_SAFE_BROWSING_KEY: ""
+  MAIL_PASSWORD: ""
+  MAIL_USER: ""
+  RECAPTCHA_SECRET_KEY: ""
+  RECAPTCHA_SITE_KEY: ""
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
       main:
         port: 10195
-# Enabled redis
-redis:
-  enabled: true
-  existingSecret: "rediscreds"
-# Enabled postgres
-postgresql:
-  enabled: true
-  existingSecret: "dbcreds"
-  postgresqlUsername: kutt
-  postgresqlDatabase: kutt
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            ADMIN_EMAILS: admin@example.com,admin@example2.com
+            CONTACT_EMAIL: admin@example.com
+            CUSTOM_DOMAIN_USE_HTTPS: false
+            DB_HOST:
+              secretKeyRef:
+                key: plainhost
+                name: dbcreds
+            DB_NAME: kutt
+            DB_PASSWORD:
+              secretKeyRef:
+                key: postgresql-password
+                name: dbcreds
+            DB_PORT: "5432"
+            DB_USER: kutt
+            DEFAULT_DOMAIN: localhost:{{ .Values.service.main.ports.main.port }}
+            DEFAULT_MAX_STATS_PER_LINK: 5000
+            DISALLOW_ANONYMOUS_LINKS: false
+            DISALLOW_REGISTRATION: false
+            JWT_SECRET:
+              secretKeyRef:
+                key: JWT_SECRET
+                name: kutt-secrets
+            LINK_LENGTH: 6
+            MAIL_FROM: ""
+            MAIL_HOST: ""
+            MAIL_PORT: 567
+            MAIL_SECURE: true
+            NON_USER_COOLDOWN: 0
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+            REDIS_HOST:
+              secretKeyRef:
+                key: plainhost
+                name: rediscreds
+            REDIS_PASSWORD:
+              secretKeyRef:
+                key: redis-password
+                name: rediscreds
+            REDIS_PORT: "6379"
+            REPORT_EMAIL: admin@example.com
+            SITE_NAME: My Kutt Instance
+            USER_LIMIT_PER_DAY: 50

@@ -1,32 +1,31 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: dashy
-version: 3.0.31
+version: 3.0.32
 appVersion: 2.1.1
-description:
-  Dashy helps you organize your self-hosted services by making them accessible
+description: Dashy helps you organize your self-hosted services by making them accessible
   from a single place
 home: https://truecharts.org/charts/stable/dashy
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/dashy.png
 deprecated: false
 sources:
-  - https://github.com/Lissy93/dashy
-  - https://github.com/truecharts/charts/tree/master/charts/stable/dashy
-  - https://hub.docker.com/r/lissy93/dashy
+- https://github.com/Lissy93/dashy
+- https://github.com/truecharts/charts/tree/master/charts/stable/dashy
+- https://hub.docker.com/r/lissy93/dashy
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - dashboard
+- dashboard
 dependencies:
-  - name: common
-    version: 14.3.5
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

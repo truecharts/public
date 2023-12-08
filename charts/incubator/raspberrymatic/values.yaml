@@ -1,23 +1,36 @@
 image:
-  repository: ghcr.io/jens-maus/raspberrymatic
   pullPolicy: IfNotPresent
+  repository: ghcr.io/jens-maus/raspberrymatic
   tag: latest@sha256:6307d2b5b869e4032c1adfa14b0ad0f0aecfb7ac44382012182ead33628b4e88
-
+persistence:
+  config:
+    enabled: true
+    mountPath: /usr/local
+  control:
+    enabled: true
+    hostPath: /run/udev/control
+    mountPath: /run/udev/control
+    type: hostPath
+  modules:
+    enabled: true
+    hostPath: /lib/modules
+    mountPath: /lib/modules
+    readOnly: true
+    type: hostPath
+  sys:
+    enabled: true
+    hostPath: /sys
+    mountPath: /sys
+    type: hostPath
+portal:
+  enabled: true
 securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
-  main:
-    ports:
-      main:
-        port: 10581
-        protocol: HTTP
-        targetPort: 80
   ccu:
     enabled: true
     ports:
@@ -37,27 +50,9 @@ service:
         enabled: true
         port: 8181
         targetPort: 8181
-
-persistence:
-  config:
-    enabled: true
-    mountPath: /usr/local
-  modules:
-    enabled: true
-    type: hostPath
-    mountPath: /lib/modules
-    hostPath: /lib/modules
-    readOnly: true
-  sys:
-    enabled: true
-    type: hostPath
-    mountPath: /sys
-    hostPath: /sys
-  control:
-    enabled: true
-    type: hostPath
-    mountPath: /run/udev/control
-    hostPath: /run/udev/control
-
-portal:
-  enabled: true
+  main:
+    ports:
+      main:
+        port: 10581
+        protocol: HTTP
+        targetPort: 80

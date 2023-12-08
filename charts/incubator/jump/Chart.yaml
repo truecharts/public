@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: jump
-version: 2.0.12
+version: 3.0.0
 appVersion: 1.3.2
 description:
   Jump is yet another self-hosted startpage for your server designed to
@@ -22,7 +22,7 @@ keywords:
   - jump
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

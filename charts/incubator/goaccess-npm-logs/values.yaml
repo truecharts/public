@@ -1,10 +1,3 @@
-env:
-  BASIC_AUTH: "True"
-  BASIC_AUTH_PASSWORD: x
-  BASIC_AUTH_USERNAME: x
-  DEBUG: "False"
-  EXCLUDE_IPS: ""
-  SKIP_ARCHIVED_LOGS: "False"
 image:
   pullPolicy: IfNotPresent
   repository: xavierh/goaccess-for-nginxproxymanager
@@ -14,12 +7,14 @@ persistence:
     enabled: true
     mountPath: /opt/log
     readOnly: true
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -27,5 +22,15 @@ service:
         port: 7880
         protocol: TCP
         targetPort: 7880
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            BASIC_AUTH: "True"
+            BASIC_AUTH_PASSWORD: x
+            BASIC_AUTH_USERNAME: x
+            DEBUG: "False"
+            EXCLUDE_IPS: ""
+            SKIP_ARCHIVED_LOGS: "False"

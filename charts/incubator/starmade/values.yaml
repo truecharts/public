@@ -1,12 +1,3 @@
-env:
-  DATA_PERM: "770"
-  DL_URL: http://files.star-made.org/StarMade-Starter.jar
-  GAME_PARAMS: ""
-  RUNTIME_NAME: basicjre
-  STARTER_PARAMS: -nogui
-  UMASK: "000"
-  XMS_SIZE: "1024"
-  XMX_SIZE: "1024"
 image:
   pullPolicy: IfNotPresent
   repository: ich777/starmade-server
@@ -15,12 +6,14 @@ persistence:
   serverfiles:
     enabled: true
     mountPath: /starmade
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -28,5 +21,17 @@ service:
         port: 4242
         protocol: TCP
         targetPort: 4242
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DATA_PERM: "770"
+            DL_URL: http://files.star-made.org/StarMade-Starter.jar
+            GAME_PARAMS: ""
+            RUNTIME_NAME: basicjre
+            STARTER_PARAMS: -nogui
+            UMASK: "000"
+            XMS_SIZE: "1024"
+            XMX_SIZE: "1024"

@@ -1,6 +1,3 @@
-env:
-  TCD_ENABLE_FILES_API: "0"
-  UMASK: "022"
 image:
   pullPolicy: IfNotPresent
   repository: mrbrax/twitchautomator
@@ -18,12 +15,14 @@ persistence:
   hostpath4:
     enabled: true
     mountPath: /usr/local/share/twitchautomator/data/logs
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -31,5 +30,11 @@ service:
         port: 8146
         protocol: TCP
         targetPort: 8080
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            TCD_ENABLE_FILES_API: "0"
+            UMASK: "022"

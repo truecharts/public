@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: rmlint
-version: 2.0.12
+version: 3.0.0
 appVersion: latest
 description:
   rmlint finds space waste and other broken things on your filesystem and
@@ -10,9 +10,9 @@ home: https://truecharts.org/charts/incubator/rmlint
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/rmlint.png
 deprecated: false
 sources:
-  - https://hub.docker.com/r/bobbintb/docker-rmlint-unraid
   - https://github.com/sahib/rmlint
   - https://github.com/truecharts/charts/tree/master/charts/incubator/rmlint
+  - https://hub.docker.com/r/bobbintb/docker-rmlint-unraid
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -22,7 +22,7 @@ keywords:
   - Tools-Utilities
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: tracks
-version: 2.0.18
+version: 3.0.0
 appVersion: latest
 description:
   "Tracks is a web-based todo application to help you implement the GTD
@@ -21,7 +21,7 @@ keywords:
   - Productivity
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

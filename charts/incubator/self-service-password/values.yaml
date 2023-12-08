@@ -1,28 +1,33 @@
 image:
-  repository: tiredofit/self-service-password
   pullPolicy: IfNotPresent
+  repository: tiredofit/self-service-password
   tag: 5.3.3@sha256:22702382af64ccb68a6f6cfee934632b67fa01c58185307470b992b11615cc55
+persistence:
+  config:
+    enabled: true
+    mountPath: /assets/custom
+  logs:
+    enabled: true
+    mountPath: /www/logs
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-env:
-  SETUP_MODE: "manual"
-  ENABLE_RESET_LOG: true
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
       main:
         port: 10182
         targetPort: 80
-persistence:
-  config:
-    enabled: true
-    mountPath: "/assets/custom"
-  logs:
-    enabled: true
-    mountPath: "/www/logs"
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            ENABLE_RESET_LOG: "true"
+            SETUP_MODE: manual

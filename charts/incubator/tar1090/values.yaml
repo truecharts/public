@@ -1,19 +1,16 @@
-env:
-  BEASTHOST: <BEASTHOST>
-  LAT: xx.xxxxx
-  LONG: xx.xxxxx
-  MLATHOST: <MLATHOST>
 image:
   pullPolicy: IfNotPresent
   repository: mikenye/tar1090
   tag: latest@sha256:3051d7efe6152d7103ff7dd785772e9b67b6eb115000e6c07fc7fca87875919f
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -21,5 +18,13 @@ service:
         port: 8078
         protocol: TCP
         targetPort: 80
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            BEASTHOST: <BEASTHOST>
+            LAT: xx.xxxxx
+            LONG: xx.xxxxx
+            MLATHOST: <MLATHOST>

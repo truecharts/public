@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: farmos
-version: 2.0.18
+version: 3.0.0
 appVersion: latest
 description:
   "farmOS is a web-based application for farm management, planning, and
@@ -11,9 +11,9 @@ home: https://truecharts.org/charts/incubator/farmos
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/farmos.png
 deprecated: false
 sources:
-  - https://github.com/farmOS/farmOS
   - https://github.com/truecharts/charts/tree/master/charts/incubator/farmos
   - https://hub.docker.com/r/farmos/farmos
+  - https://github.com/farmOS/farmOS
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -24,7 +24,7 @@ keywords:
   - Tools-Utilities
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

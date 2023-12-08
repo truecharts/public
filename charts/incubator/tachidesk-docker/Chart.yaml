@@ -1,17 +1,17 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: tachidesk-docker
-version: 2.0.15
+version: 3.0.0
 appVersion: latest
 description: The official Tachidesk Chart-Chart.
 home: https://truecharts.org/charts/incubator/tachidesk-docker
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/tachidesk-docker.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/tachidesk-docker
-  - https://ghcr.io/suwayomi/tachidesk
   - https://github.com/Suwayomi/Tachidesk-Server
   - https://github.com/suwayomi/docker-tachidesk
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/tachidesk-docker
+  - https://ghcr.io/suwayomi/tachidesk
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -21,7 +21,7 @@ keywords:
   - MediaServer-Other
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

@@ -1,13 +1,3 @@
-env:
-  ANONYMOUS_METHODS: ""
-  AUTH_TYPE: Basic
-  LOCATION: /
-  PASSWORD: ""
-  PUMASK: "0000"
-  REALM: WebDAV-Login
-  SERVER_NAMES: localhost
-  SSL_CERT: ""
-  USERNAME: ""
 image:
   pullPolicy: IfNotPresent
   repository: apachewebdav/apachewebdav
@@ -19,12 +9,14 @@ persistence:
   data:
     enabled: true
     mountPath: /var/lib/dav/data
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -32,5 +24,18 @@ service:
         port: 8384
         protocol: TCP
         targetPort: 80
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            ANONYMOUS_METHODS: ""
+            AUTH_TYPE: Basic
+            LOCATION: /
+            PASSWORD: ""
+            PUMASK: "0000"
+            REALM: WebDAV-Login
+            SERVER_NAMES: localhost
+            SSL_CERT: ""
+            USERNAME: ""

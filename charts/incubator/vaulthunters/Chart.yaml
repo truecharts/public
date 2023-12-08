@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: vaulthunters
-version: 2.0.12
+version: 3.0.0
 appVersion: latest
 description:
   "Vault Hunters - 1.13.4 Modded Minecraft Server[br][br][b]Vault Hunters
@@ -14,9 +14,9 @@ home: https://truecharts.org/charts/incubator/vaulthunters
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/vaulthunters.png
 deprecated: false
 sources:
+  - https://vaulthunters.gg
   - https://github.com/truecharts/charts/tree/master/charts/incubator/vaulthunters
   - https://hub.docker.com/r/goobaroo/vaulthunters
-  - https://vaulthunters.gg
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -26,7 +26,7 @@ keywords:
   - GameServers
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

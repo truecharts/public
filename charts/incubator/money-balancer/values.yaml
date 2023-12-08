@@ -1,20 +1,13 @@
 image:
-  repository: ghcr.io/dorianim/money-balancer
   pullPolicy: IfNotPresent
+  repository: ghcr.io/dorianim/money-balancer
   tag: v1.3.0@sha256:89167ac32326ef9b50187e220f54744d9b329b321cebbf8f03578a48cc98964a
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-moneybalancer-secret'
-probes:
-  liveness:
-    type: HTTP
-    path: /
-  readiness:
-    type: HTTP
-    path: /
-  startup:
-    type: HTTP
-    path: /
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+portal:
+  enabled: true
 service:
   main:
     ports:
@@ -22,9 +15,21 @@ service:
         port: 10302
         protocol: HTTP
         targetPort: 8000
-persistence:
-  data:
-    enabled: true
-    mountPath: "/data"
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - secretRef:
+                name: '{{ include "tc.common.names.fullname" . }}-moneybalancer-secret'
+          probes:
+            liveness:
+              path: /
+              type: HTTP
+            readiness:
+              path: /
+              type: HTTP
+            startup:
+              path: /
+              type: HTTP

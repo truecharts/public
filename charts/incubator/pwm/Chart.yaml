@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: pwm
-version: 2.0.12
+version: 3.0.0
 appVersion: latest
 description:
   PWM is a free and opensource password self-service application enabling
@@ -22,7 +22,7 @@ keywords:
   - Security
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

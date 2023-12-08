@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: focalboard
-version: 13.0.3
+version: 14.0.0
 appVersion: 7.11.4
 description:
   Focalboard is an open source, self-hosted alternative to Trello, Notion,
@@ -10,11 +10,11 @@ home: https://truecharts.org/charts/incubator/focalboard
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/focalboard.png
 deprecated: false
 sources:
-  - https://www.focalboard.com/
-  - https://github.com/mattermost/focalboard
+  - https://github.com/FlipEnergy/container-images/blob/main/focalboard
   - https://github.com/truecharts/charts/tree/master/charts/incubator/focalboard
   - https://hub.docker.com/r/mattermost/focalboard
-  - https://github.com/FlipEnergy/container-images/blob/main/focalboard
+  - https://www.focalboard.com/
+  - https://github.com/mattermost/focalboard
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -25,7 +25,7 @@ keywords:
   - project management
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

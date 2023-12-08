@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: kutt
-version: 7.0.3
+version: 8.0.0
 appVersion: 2.7.4
 description:
   Kutt is a modern URL shortener with support for custom domains. Shorten
@@ -23,7 +23,7 @@ keywords:
   - short
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: pyload-ng
-version: 2.0.25
+version: 3.0.0
 appVersion: latest
 description:
   pyLoad(https://pyload.net/) is a Free and Open Source download manager
@@ -11,11 +11,11 @@ home: https://truecharts.org/charts/incubator/pyload-ng
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pyload-ng.png
 deprecated: false
 sources:
+  - https://fleet.linuxserver.io/image?name=linuxserver/pyload-ng
   - https://pyload.net/
   - https://github.com/orgs/linuxserver/packages/container/package/pyload-ng
   - https://github.com/linuxserver/docker-pyload-ng#readme
   - https://github.com/truecharts/charts/tree/master/charts/incubator/pyload-ng
-  - https://fleet.linuxserver.io/image?name=linuxserver/pyload-ng
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -25,7 +25,7 @@ keywords:
   - Other
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

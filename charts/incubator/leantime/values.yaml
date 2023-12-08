@@ -1,39 +1,47 @@
 image:
-  repository: leantime/leantime
   pullPolicy: IfNotPresent
+  repository: leantime/leantime
   tag: 2.4.7@sha256:f4327024cbd0ba0b2caba729eeac3d447fcfc442641685e1a56e4b772db48fe9
+mariadb:
+  enabled: true
+  existingSecret: mariadbcreds
+  mariadbDatabase: leantime
+  mariadbUsername: leantime
+portal:
+  enabled: true
 securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-env:
-  LEAN_DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
-  LEAN_DB_USER: "{{ .Values.mariadb.mariadbUsername }}"
-  LEAN_APP_URL: "{{ if .Values.ingress }}{{ if .Values.ingress.main.enabled }}https://{{ ( index .Values.ingress.main.hosts 0 ).host }}{{ end }}{{ end }}"
-  LEAN_DB_HOST:
-    secretKeyRef:
-      name: mariadbcreds
-      key: plainhost
-  LEAN_DB_PASSWORD:
-    secretKeyRef:
-      name: mariadbcreds
-      key: mariadb-password
-  LEAN_SESSION_PASSWORD:
-    secretKeyRef:
-      name: leantime-secrets
-      key: LEAN_SESSION_PASSWORD
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
       main:
         port: 10117
         targetPort: 80
-mariadb:
-  enabled: true
-  mariadbUsername: leantime
-  mariadbDatabase: leantime
-  existingSecret: "mariadbcreds"
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            LEAN_APP_URL:
+              "{{ if .Values.ingress }}{{ if .Values.ingress.main.enabled
+              }}https://{{ ( index .Values.ingress.main.hosts 0 ).host }}{{ end }}{{
+              end }}"
+            LEAN_DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
+            LEAN_DB_HOST:
+              secretKeyRef:
+                key: plainhost
+                name: mariadbcreds
+            LEAN_DB_PASSWORD:
+              secretKeyRef:
+                key: mariadb-password
+                name: mariadbcreds
+            LEAN_DB_USER: "{{ .Values.mariadb.mariadbUsername }}"
+            LEAN_SESSION_PASSWORD:
+              secretKeyRef:
+                key: LEAN_SESSION_PASSWORD
+                name: leantime-secrets

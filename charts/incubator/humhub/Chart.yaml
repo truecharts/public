@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: humhub
-version: 2.0.11
+version: 3.0.0
 appVersion: latest
 description:
   HumHub is a free social network software and framework built to give
@@ -12,8 +12,8 @@ home: https://truecharts.org/charts/incubator/humhub
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/humhub.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/humhub
   - https://ghcr.io/siwatinc/humhub
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/humhub
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -23,7 +23,7 @@ keywords:
   - Network-Web
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

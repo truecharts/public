@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: telethon-downloader
-version: 2.0.13
+version: 3.0.0
 appVersion: latest
 description:
   This is a simple Chart that downloads files sent to a telegram bot up
@@ -10,9 +10,9 @@ home: https://truecharts.org/charts/incubator/telethon-downloader
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/telethon-downloader.png
 deprecated: false
 sources:
+  - https://docs.telethon.dev/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/telethon-downloader
   - https://hub.docker.com/r/jsavargas/telethon_downloader
-  - https://docs.telethon.dev/
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -22,7 +22,7 @@ keywords:
   - Downloaders
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

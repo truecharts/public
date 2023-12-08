@@ -1,35 +1,26 @@
-image:
-  repository: haishanh/cherry
-  pullPolicy: IfNotPresent
-  tag: v0.0.7@sha256:ac38d09dc167501882b60c882931ba89a2cdc4feb2f30e768098f142dde8b9ee
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-cherry-secret'
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-cherry-configmap'
 cherry:
-  insecure_cookie: true
-  public_registration: true
-  page_bookmark_limit: 60
-  google_oauth_uri: ""
   google_oauth_id: ""
   google_oauth_secret: ""
-probes:
-  liveness:
-    type: HTTP
-    path: /
-  readiness:
-    type: HTTP
-    path: /
-  startup:
-    type: HTTP
-    path: /
+  google_oauth_uri: ""
+  insecure_cookie: true
+  page_bookmark_limit: 60
+  public_registration: true
+image:
+  pullPolicy: IfNotPresent
+  repository: haishanh/cherry
+  tag: v0.0.7@sha256:ac38d09dc167501882b60c882931ba89a2cdc4feb2f30e768098f142dde8b9ee
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+portal:
+  enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -37,9 +28,23 @@ service:
         port: 10303
         protocol: HTTP
         targetPort: 8000
-persistence:
-  data:
-    enabled: true
-    mountPath: "/data"
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - secretRef:
+                name: '{{ include "tc.common.names.fullname" . }}-cherry-secret'
+            - configMapRef:
+                name: '{{ include "tc.common.names.fullname" . }}-cherry-configmap'
+          probes:
+            liveness:
+              path: /
+              type: HTTP
+            readiness:
+              path: /
+              type: HTTP
+            startup:
+              path: /
+              type: HTTP

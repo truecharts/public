@@ -1,4 +1,3 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
   repository: bwalter42/jupyter_cadquery
@@ -7,12 +6,14 @@ persistence:
   workdir:
     enabled: true
     mountPath: /home/cq
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -20,5 +21,3 @@ service:
         port: 8888
         protocol: TCP
         targetPort: 8888
-portal:
-  enabled: true

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: auto-yt-dl
-version: 2.0.17
+version: 3.0.0
 appVersion: latest
 description:
   auto-yt-dl is used to automatically download new Videos of specific YouTube
@@ -10,9 +10,9 @@ home: https://truecharts.org/charts/incubator/auto-yt-dl
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/auto-yt-dl.png
 deprecated: false
 sources:
-  - https://github.com/xXGuhuXx/auto-yt-dl
   - https://github.com/truecharts/charts/tree/master/charts/incubator/auto-yt-dl
   - https://hub.docker.com/r/guhu007/auto-yt-dl
+  - https://github.com/xXGuhuXx/auto-yt-dl
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -22,7 +22,7 @@ keywords:
   - Downloaders
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

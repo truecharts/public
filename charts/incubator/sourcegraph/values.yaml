@@ -1,4 +1,3 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
   repository: sourcegraph/server
@@ -10,12 +9,14 @@ persistence:
   configstoragepath:
     enabled: true
     mountPath: /etc/sourcegraph
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   adminconsolepo:
     enabled: true
@@ -39,5 +40,3 @@ service:
         port: 7080
         protocol: HTTP
         targetPort: 7080
-portal:
-  enabled: true

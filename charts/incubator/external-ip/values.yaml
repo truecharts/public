@@ -1,34 +1,39 @@
-env:
-  DELAY: 5m
-  NOTIFICATION_TYPE: ""
-  PROVIDER: ""
-  PUSHOVER_TITLE: ""
-  PUSHOVER_TOKEN: ""
-  PUSHOVER_USER: ""
-  RECOVERY_ALERT: ""
 image:
   pullPolicy: IfNotPresent
   repository: xavierh/external-ip
   tag: latest@sha256:c2b2aaf45493ec6e044da57f63f4cf8a528a894ae7fd8954bc1dc88e72f6b1d5
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
+portal:
+  enabled: false
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-portal:
-  enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DELAY: 5m
+            NOTIFICATION_TYPE: ""
+            PROVIDER: ""
+            PUSHOVER_TITLE: ""
+            PUSHOVER_TOKEN: ""
+            PUSHOVER_USER: ""
+            RECOVERY_ALERT: ""
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

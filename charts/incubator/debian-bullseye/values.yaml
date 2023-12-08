@@ -2,19 +2,18 @@ image:
   pullPolicy: IfNotPresent
   repository: ich777/debian-bullseye
   tag: latest@sha256:db8a12d43296fe32608f2baa6d409786296ca5e0b31bf8c35e288ce508224354
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+persistence:
+  homedirectory:
+    enabled: true
+    mountPath: /debian
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-env:
-  CUSTOM_RES_H: "1000"
-  CUSTOM_RES_W: "1800"
-  DATA_PERM: "770"
-  DEV: ""
-  ROOT_PWD: ""
-  USER_LOCALES: en_US.UTF-8 UTF-8
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -22,9 +21,15 @@ service:
         port: 8080
         protocol: HTTP
         targetPort: 8080
-persistence:
-  homedirectory:
-    enabled: true
-    mountPath: /debian
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            CUSTOM_RES_H: "1000"
+            CUSTOM_RES_W: "1800"
+            DATA_PERM: "770"
+            DEV: ""
+            ROOT_PWD: ""
+            USER_LOCALES: en_US.UTF-8 UTF-8

@@ -2,26 +2,19 @@ image:
   pullPolicy: IfNotPresent
   repository: caronc/apprise
   tag: v0.9.5@sha256:3301daff63ae435e69ac6c3acf5ceb3832d5b40d639b59f73163e3238adb2fe7
-podSecurityContext:
-  runAsGroup: 33
-  runAsUser: 33
-  fsGroup: 33
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  # runAsNonRoot: false
-secretEnv:
-  SECRET_KEY: "abc123"
-env:
-  APPRISE_CONFIG_DIR: /config
-  APPRISE_STATEFUL_MODE: hash
-  APPRISE_DENY_SERVICES: windows,dbus,gnome,macos,syslog
-  LOG_LEVEL: INFO
-  DEBUG: "no"
-  APPRISE_RECURSION_MAX: 1
-  APPRISE_CONFIG_LOCK: false
-  APPRISE_ALLOW_SERVICES: ""
-  ALLOWED_HOSTS: "*"
-  # APPRISE_STATELESS_URLS
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 33
+    runAsUser: 33
+  pod:
+    fsGroup: 33
 service:
   main:
     ports:
@@ -29,9 +22,19 @@ service:
         port: 8000
         protocol: HTTP
         targetPort: 8000
-persistence:
-  config:
-    enabled: true
-    mountPath: /config
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            ALLOWED_HOSTS: "*"
+            APPRISE_ALLOW_SERVICES: ""
+            APPRISE_CONFIG_DIR: /config
+            APPRISE_CONFIG_LOCK: "false"
+            APPRISE_DENY_SERVICES: windows,dbus,gnome,macos,syslog
+            APPRISE_RECURSION_MAX: "1"
+            APPRISE_STATEFUL_MODE: hash
+            DEBUG: "no"
+            LOG_LEVEL: INFO
+            SECRET_KEY: abc123

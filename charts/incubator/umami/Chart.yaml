@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: umami
-version: 3.0.26
+version: 4.0.0
 appVersion: 2.8.0
 description: Umami is a simple, fast, privacy-focused alternative to Google Analytics.
 home: https://truecharts.org/charts/incubator/umami
@@ -20,7 +20,7 @@ keywords:
   - google analytics
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

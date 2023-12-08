@@ -1,30 +1,33 @@
 image:
-  repository: docker.io/xal3xhx/fancy
   pullPolicy: IfNotPresent
+  repository: docker.io/xal3xhx/fancy
   tag: latest@sha256:536e1d8b2d0d9ef024f3cf6c054aff0350c34331d6d70896081355aa9ad6dc5c
+persistence:
+  share:
+    enabled: true
+    mountPath: /share
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-secretEnv:
-  WEBUSER: "webuser"
-  WEBPASSWORD: "webpassword"
-env:
-  CONTAINER_TIMEZONE: "{{ .Values.TZ }}"
-  # User Defined
-  DISABLE_AUTH: false
-  SET_CONTAINER_TIMEZONE: true
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
       main:
         port: 10235
         targetPort: 80
-persistence:
-  share:
-    enabled: true
-    mountPath: "/share"
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            CONTAINER_TIMEZONE: "{{ .Values.TZ }}"
+            DISABLE_AUTH: "false"
+            SET_CONTAINER_TIMEZONE: "true"
+            WEBPASSWORD: webpassword
+            WEBUSER: webuser

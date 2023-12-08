@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: filerun
-version: 7.0.3
+version: 8.0.0
 appVersion: latest
 description:
   FileRun is a full featured web based file manager with an easy to use
@@ -22,7 +22,7 @@ keywords:
   - file
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

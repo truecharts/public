@@ -1,34 +1,23 @@
+affinity: {}
 image:
+  pullPolicy: IfNotPresent
   repository: mikenye/piaware
   tag: v9.0@sha256:439c082d6bfc9028e6aa3e07cbbae1574e24bab88f520742e26c092c51c54247
-  pullPolicy: IfNotPresent
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
       main:
         port: 10092
         targetPort: 8080
-persistence:
-  config:
-    enabled: true
-    mountPath: "/config"
-# -- Affinity constraint rules to place the Pod on a specific node.
-# [[ref]](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity)
-affinity: {}
-#   nodeAffinity:
-#     requiredDuringSchedulingIgnoredDuringExecution:
-#       nodeSelectorTerms:
-#       - matchExpressions:
-#         - key: app
-#           operator: In
-#           values:
-#           - piaware
-
-portal:
-  enabled: true

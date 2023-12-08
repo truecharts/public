@@ -2,19 +2,6 @@ image:
   pullPolicy: IfNotPresent
   repository: shawly/ps3netsrv
   tag: v1.6.0@sha256:d6a926bb0c004b2e1c557b3ceb9fc74be5845e00a2a13c3f10db65c3a853cb81
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-service:
-  main:
-    ports:
-      main:
-        port: 38008
-        protocol: HTTP
-        targetPort: 38008
 persistence:
   games:
     enabled: true
@@ -23,3 +10,16 @@ persistence:
     enabled: true
 portal:
   enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 38008
+        protocol: HTTP
+        targetPort: 38008

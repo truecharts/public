@@ -1,58 +1,53 @@
+cnpg:
+  main:
+    database: awesome-ttrss
+    enabled: true
+    user: awesome-ttrss
 image:
-  repository: wangqiru/ttrss
   pullPolicy: IfNotPresent
+  repository: wangqiru/ttrss
   tag: latest@sha256:b883ac1dad416ecf17cb351f641497348912e9790c3600f36bdd4436c5872b14
-
+persistence:
+  icons:
+    enabled: true
+    mountPath: /var/www/feed-icons
+  plugins:
+    enabled: true
+    mountPath: /var/www/plugins.local
+  themes:
+    enabled: true
+    mountPath: /var/www/themes.local
+portal:
+  open:
+    enabled: true
 securityContext:
   container:
-    readOnlyRootFilesystem: false
-    runAsNonRoot: false
-    runAsUser: 0
-    runAsGroup: 0
-
-workload:
-  main:
-    podSpec:
-      containers:
-        main:
-          env:
-            SELF_URL_PATH: ""
-            DB_NAME: "{{ .Values.cnpg.main.database }}"
-            DB_USER: "{{ .Values.cnpg.main.user }}"
-            DB_PORT: "5432"
-            DB_PASS:
-              secretKeyRef:
-                name: cnpg-main-user
-                key: password
-            DB_HOST:
-              secretKeyRef:
-                name: cnpg-main-urls
-                key: host
-
+    container:
+      readOnlyRootFilesystem: false
+      runAsGroup: 0
+      runAsNonRoot: false
+      runAsUser: 0
 service:
   main:
     ports:
       main:
         port: 10246
         targetPort: 80
-
-persistence:
-  icons:
-    enabled: true
-    mountPath: "/var/www/feed-icons"
-  plugins:
-    enabled: true
-    mountPath: "/var/www/plugins.local"
-  themes:
-    enabled: true
-    mountPath: "/var/www/themes.local"
-
-cnpg:
+workload:
   main:
-    enabled: true
-    user: awesome-ttrss
-    database: awesome-ttrss
-
-portal:
-  open:
-    enabled: true
+    podSpec:
+      containers:
+        main:
+          env:
+            DB_HOST:
+              secretKeyRef:
+                key: host
+                name: cnpg-main-urls
+            DB_NAME: "{{ .Values.cnpg.main.database }}"
+            DB_PASS:
+              secretKeyRef:
+                key: password
+                name: cnpg-main-user
+            DB_PORT: "5432"
+            DB_USER: "{{ .Values.cnpg.main.user }}"
+            SELF_URL_PATH: ""

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: mango
-version: 2.0.12
+version: 3.0.0
 appVersion: latest
 description: |
   Mango is a self-hosted manga server and reader. Its features include[br]
@@ -21,7 +21,7 @@ keywords:
   - MediaApp-Books
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

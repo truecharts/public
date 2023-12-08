@@ -1,78 +1,78 @@
 image:
-  repository: tomsquest/docker-radicale
   pullPolicy: IfNotPresent
+  repository: tomsquest/docker-radicale
   tag: 3.1.8.3@sha256:b5dac16dafcb003520a1ea95d3e25a24d0955cc552b0d6d447163f0e070780ff
-# Docker image configuration docs:
-# https://github.com/tomsquest/docker-radicale#custom-configuration
-
-# Radicale configuration docs:
-# https://radicale.org/v3.html#configuration
+persistence:
+  config:
+    enabled: true
+    readOnly: true
+    type: custom
+    volumeSpec:
+      configMap:
+        name: radicale-config
+  data:
+    enabled: true
+    mountPath: /data
+  users:
+    enabled: true
+    mountPath: /etc/radicale/users
+    readOnly: true
+    subPath: users
+    type: custom
+    volumeSpec:
+      secret:
+        secretName: radicale-secret
+portal:
+  enabled: true
 radicale:
+  auth:
+    delay: 1
+    realm: Radicale - Password Required
+    type: htpasswd
+    users: []
+  encoding:
+    request: utf-8
+    stock: utf-8
+  logging:
+    level: warning
+    mask_passwords: true
+  rights:
+    type: owner_only
   server:
     max_connections: 8
     max_content_length: 100000000
     timeout: 30
-  encoding:
-    request: utf-8
-    stock: utf-8
-  auth:
-    type: htpasswd
-    delay: 1
-    realm: Radicale - Password Required
-    users: []
-  rights:
-    type: owner_only
   storage:
-    type: multifilesystem
     max_sync_token_age: 2592000
+    type: multifilesystem
   web:
     type: internal
-  logging:
-    level: warning
-    mask_passwords: true
 security:
   PUID: 2999
 securityContext:
-  capabilities:
-    drop:
-      - ALL
-    add:
-      - SETUID
-      - SETGID
-      - KILL
-podSecurityContext:
-  runAsUser: 2999
-  runAsGroup: 2999
-  fsGroup: 2999
-env:
-  # Skip chown on /data by entrypoint.sh
-  TAKE_FILE_OWNERSHIP: false
+  container:
+    capabilities:
+      add:
+        - SETUID
+        - SETGID
+        - KILL
+      drop:
+        - ALL
+    runAsGroup: 2999
+    runAsUser: 2999
+  pod:
+    fsGroup: 2999
 service:
   main:
     ports:
       main:
+        port: 10255
         protocol: HTTP
         targetPort: 5232
-        port: 10255
-persistence:
-  config:
-    enabled: true
-    type: custom
-    readOnly: true
-    volumeSpec:
-      configMap:
-        name: radicale-config
-  users:
-    enabled: true
-    type: custom
-    readOnly: true
-    mountPath: /etc/radicale/users
-    subPath: users
-    volumeSpec:
-      secret:
-        secretName: radicale-secret
-  data:
-    enabled: true
-    mountPath: /data
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            TAKE_FILE_OWNERSHIP: "false"

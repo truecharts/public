@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: appsmith
-version: 5.0.37
+version: 6.0.0
 appVersion: 1.9.44
 description:
   Turn any datasource into an internal app in minutes. Appsmith lets you
@@ -22,7 +22,7 @@ keywords:
   - appsmith
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.0.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

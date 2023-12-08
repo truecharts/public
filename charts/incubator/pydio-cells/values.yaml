@@ -1,16 +1,5 @@
-image:
-  repository: pydio/cells
-  pullPolicy: IfNotPresent
-  tag: 4.3.1@sha256:6e2a6ecac3df7d6477a2f79a4da75221d7007a004837e4baa0538d42082da389
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
 configmap:
   install:
-    enabled: true
     data:
       pydiocells-install: |-
         frontendapplicationtitle: {{ .Values.pydioinstall.title }}
@@ -23,48 +12,50 @@ configmap:
         dbtcpname: {{ .Values.mariadb.mariadbDatabase }}
         dbtcpuser: {{ .Values.mariadb.mariadbUsername }}
         dbtcppassword: {{ .Values.mariadb.mariadbPassword | trimAll "\"" }}
-env:
-  CELLS_EXTERNAL: ""
-  CELLS_GRPC_EXTERNAL: "{{ .Values.service.gprc.ports.gprc.port }}"
-  CELLS_HEALTHCHECK: "{{ .Values.service.healthcheck.ports.healthcheck.port }}"
-  CELLS_BIND: "0.0.0.0:{{ .Values.service.main.ports.main.port }}"
-  CELLS_WORKING_DIR: "/cells"
-  CELLS_DATA_DIR: "/cells/data"
-  CELLS_LOG_DIR: "/cells/logs"
-  CELLS_SERVICES_DIR: "/cells/services"
-  CELLS_INSTALL_YAML: "/cells/install.yml"
+    enabled: true
+image:
+  pullPolicy: IfNotPresent
+  repository: pydio/cells
+  tag: 4.3.1@sha256:6e2a6ecac3df7d6477a2f79a4da75221d7007a004837e4baa0538d42082da389
+mariadb:
+  enabled: true
+  existingSecret: mariadbcreds
+  mariadbDatabase: pydiocells
+  mariadbUsername: pydiocells
+persistence:
+  cells:
+    enabled: true
+    mountPath: /cells
+  data:
+    enabled: true
+    mountPath: /cells/data
+  logs:
+    enabled: true
+    mountPath: /cells/logs
+  pydiocells-install:
+    enabled: "true"
+    mountPath: /cells/install.yml
+    subPath: pydiocells-install
+    type: custom
+    volumeSpec:
+      configMap:
+        name: '{{ printf "%v-install" (include "tc.common.names.fullname" .) }}'
+  services:
+    enabled: true
+    mountPath: /cells/services
+portal:
+  enabled: true
 pydioinstall:
-  username: "admin"
-  password: "supersecret"
-  title: "Pydio Cells"
-probes:
-  liveness:
-    custom: true
-    spec:
-      httpGet:
-        scheme: HTTP
-        path: "/healthcheck"
-        port: 10162
-  readiness:
-    custom: true
-    spec:
-      httpGet:
-        scheme: HTTP
-        path: "/healthcheck"
-        port: 10162
-  startup:
-    custom: true
-    spec:
-      httpGet:
-        scheme: HTTP
-        path: "/healthcheck"
-        port: 10162
+  password: supersecret
+  title: Pydio Cells
+  username: admin
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
-  main:
-    ports:
-      main:
-        protocol: HTTPS
-        port: 10150
   gprc:
     enabled: true
     ports:
@@ -77,31 +68,47 @@ service:
       healthcheck:
         enabled: true
         port: 10162
-persistence:
-  cells:
-    enabled: true
-    mountPath: "/cells"
-  data:
-    enabled: true
-    mountPath: "/cells/data"
-  logs:
-    enabled: true
-    mountPath: "/cells/logs"
-  services:
-    enabled: true
-    mountPath: "/cells/services"
-  pydiocells-install:
-    enabled: "true"
-    mountPath: "/cells/install.yml"
-    subPath: "pydiocells-install"
-    type: "custom"
-    volumeSpec:
-      configMap:
-        name: '{{ printf "%v-install" (include "tc.common.names.fullname" .) }}'
-mariadb:
-  enabled: true
-  mariadbUsername: pydiocells
-  mariadbDatabase: pydiocells
-  existingSecret: "mariadbcreds"
-portal:
-  enabled: true
+  main:
+    ports:
+      main:
+        port: 10150
+        protocol: HTTPS
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            CELLS_BIND: 0.0.0.0:{{ .Values.service.main.ports.main.port }}
+            CELLS_DATA_DIR: /cells/data
+            CELLS_EXTERNAL: ""
+            CELLS_GRPC_EXTERNAL: "{{ .Values.service.gprc.ports.gprc.port }}"
+            CELLS_HEALTHCHECK:
+              "{{ .Values.service.healthcheck.ports.healthcheck.port
+              }}"
+            CELLS_INSTALL_YAML: /cells/install.yml
+            CELLS_LOG_DIR: /cells/logs
+            CELLS_SERVICES_DIR: /cells/services
+            CELLS_WORKING_DIR: /cells
+          probes:
+            liveness:
+              custom: true
+              spec:
+                httpGet:
+                  path: /healthcheck
+                  port: 10162
+                  scheme: HTTP
+            readiness:
+              custom: true
+              spec:
+                httpGet:
+                  path: /healthcheck
+                  port: 10162
+                  scheme: HTTP
+            startup:
+              custom: true
+              spec:
+                httpGet:
+                  path: /healthcheck
+                  port: 10162
+                  scheme: HTTP

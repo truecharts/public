@@ -1,10 +1,3 @@
-env:
-  DL_URL_PATCH: https://ftp.gwdg.de/pub/misc/ftp.idsoftware.com/idstuff/quake3/quake3-1.32c.zip
-  DL_URL_PR: https://ftp.gwdg.de/pub/misc/ftp.idsoftware.com/idstuff/quake3/linux/linuxq3apoint-1.32b-3.x86.run
-  GAME_PARAMS: +set sv_punkbuster 0 +set fs_game osp +set com_hunkMegs 32
-  Q3_MAP: q3dm1
-  Q3_PORT: "27960"
-  UMASK: "000"
 image:
   pullPolicy: IfNotPresent
   repository: ich777/quake3
@@ -13,19 +6,14 @@ persistence:
   serverfiles:
     enabled: true
     mountPath: /quake3
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -33,5 +21,22 @@ service:
         port: 27960
         protocol: UDP
         targetPort: 27960
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DL_URL_PATCH: https://ftp.gwdg.de/pub/misc/ftp.idsoftware.com/idstuff/quake3/quake3-1.32c.zip
+            DL_URL_PR: https://ftp.gwdg.de/pub/misc/ftp.idsoftware.com/idstuff/quake3/linux/linuxq3apoint-1.32b-3.x86.run
+            GAME_PARAMS: +set sv_punkbuster 0 +set fs_game osp +set com_hunkMegs 32
+            Q3_MAP: q3dm1
+            Q3_PORT: "27960"
+            UMASK: "000"
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
