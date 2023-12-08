@@ -18,6 +18,30 @@ service:
 workload:
   main:
     podSpec:
+      initContainers:
+        init-conf:
+          enabled: true
+          # We run it on every boot just in case an upgrade (or the user)
+          # manages to nuke the config file
+          type: init
+          imageSelector: alpineImage
+          command: /bin/sh
+          # This script creates an (almost) empty config file with the aim to prevent
+          # Notifiarr from generating a default password.
+          # When no default password is generated the configured API key and a default
+          # username ('admin') are used for logging in.
+          args:
+            - -c
+            - |
+              export CONF={{ printf "%v/%v" .Values.persistence.config.targetSelector.main.main.mountPath "notifiarr.conf" }}
+
+              test -f "$CONF" && echo "Config exists, skipping creation..." && exit 0
+
+              echo "Creating a minimal config in [$CONF]..."
+
+              echo "# Dummy comment" > "$CONF" || echo "Failed to create a minimal config..."
+
+              echo "Finished."
       containers:
         main:
           env:

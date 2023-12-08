@@ -1,13 +1,1 @@
-{{/* Make sure all variables are set properly */}}
-{{- include "tc.v1.common.loader.init" . -}}
-
-{{/* Add [init conf] container to notifiarr */}}
-{{- if not (get .Values.workload.main.podSpec "initContainers") -}}
-  {{- $_ := set .Values.workload.main.podSpec "initContainers" dict -}}
-{{- end -}}
-
-{{- $initConf := (include "notifiarr.init.conf" . | fromYaml) -}}
-{{- $_ := set .Values.workload.main.podSpec.initContainers "init-conf" $initConf -}}
-
-{{/* Render the templates */}}
-{{- include "tc.v1.common.loader.apply" . -}}
+{{ include "tc.v1.common.loader.all" . }}
