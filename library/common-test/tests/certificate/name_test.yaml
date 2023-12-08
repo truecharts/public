@@ -7,38 +7,40 @@ release:
 tests:
   - it: should generate correct name
     set:
-      ixCertificates:
-        "1":
-          certificate: some_cert
-          privatekey: some_key
-        "2":
-          certificate: some_cert
-          privatekey: some_key
-      scaleCertificate:
+      certificate:
         my-cert1:
           enabled: true
-          id: 1
+          hosts:
+            - host1
+          certificateIssuer: some-issuer
         my-cert2:
           enabled: true
-          id: 2
+          hosts:
+            - host1
+          certificateIssuer: some-issuer
+          certificateSecretTemplate:
+            labels:
+              some-label: my-cert2
+            annotations:
+              some-annotation: my-cert2
     asserts:
-      - documentIndex: &secretDoc 0
+      - documentIndex: &certDoc 0
         isKind:
-          of: Secret
-      - documentIndex: *secretDoc
+          of: Certificate
+      - documentIndex: *certDoc
         isAPIVersion:
-          of: v1
-      - documentIndex: *secretDoc
+          of: cert-manager.io/v1
+      - documentIndex: *certDoc
         equal:
           path: metadata.name
           value: test-release-name-common-test-my-cert1
-      - documentIndex: &otherSecretDoc 1
+      - documentIndex: &otherCertDoc 1
         isKind:
-          of: Secret
-      - documentIndex: *otherSecretDoc
+          of: Certificate
+      - documentIndex: *otherCertDoc
         isAPIVersion:
-          of: v1
-      - documentIndex: *otherSecretDoc
+          of: cert-manager.io/v1
+      - documentIndex: *otherCertDoc
         equal:
           path: metadata.name
-          value: test-release-name-common-test-my-cert2
+          value: certificate-issuer-my-cert2

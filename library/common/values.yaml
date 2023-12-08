@@ -607,6 +607,17 @@ ingress:
           custom:
             - somesetting: some value
 
+certificate: {}
+  # main:
+  #   enabled: false
+  #   certificateIssuer: someissuer
+  #   hosts:
+  #     - somehost
+  #   # Optional
+  #   certificateSecretTemplate:
+  #     labels: {}
+  #     annotations: {}
+
 # -- BETA: Configure the gateway routes for the chart here.
 # Additional routes can be added by adding a dictionary key similar to the 'main' route.
 # Please be aware that this is an early beta of this feature, TrueCharts does not guarantee this actually works.

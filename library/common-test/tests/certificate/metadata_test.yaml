@@ -11,8 +11,10 @@ tests:
     set:
       label1: label1
       label2: global_label2
+      label3: label3
       annotation1: annotation1
       annotation2: global_annotation2
+      annotation3: annotation3
       global:
         labels:
           g_label1: global_label1
@@ -20,25 +22,44 @@ tests:
         annotations:
           g_annotation1: global_annotation1
           g_annotation2: "{{ .Values.annotation2 }}"
-      ixCertificates:
-        "1":
-          certificate: some_cert
-          privatekey: some_key
-      scaleCertificate:
-        my-cert:
+      certificate:
+        my-certificate1:
           enabled: true
-          id: 1
-          labels:
-            label1: "{{ .Values.label1 }}"
-            label2: label2
           annotations:
             annotation1: "{{ .Values.annotation1 }}"
             annotation2: annotation2
+          labels:
+            label1: "{{ .Values.label1 }}"
+            label2: label2
+          hosts:
+            - host1
+          certificateIssuer: some-issuer
+        my-certificate2:
+          enabled: true
+          annotations:
+            annotation1: "{{ .Values.annotation1 }}"
+            annotation2: annotation2
+          labels:
+            label1: "{{ .Values.label1 }}"
+            label2: label2
+          hosts:
+            - host1
+          certificateIssuer: some-issuer
+          certificateSecretTemplate:
+            labels:
+              label3: "{{ .Values.label3 }}"
+              label4: label4
+            annotations:
+              annotation3: "{{ .Values.annotation3 }}"
+              annotation4: annotation4
     asserts:
-      - documentIndex: &secretDoc 0
+      - documentIndex: &certDoc 0
         isKind:
-          of: Secret
-      - documentIndex: *secretDoc
+          of: Certificate
+      - documentIndex: *certDoc
+        isAPIVersion:
+          of: cert-manager.io/v1
+      - documentIndex: *certDoc
         equal:
           path: metadata.annotations
           value:
@@ -46,7 +67,7 @@ tests:
             annotation2: annotation2
             g_annotation1: global_annotation1
             g_annotation2: global_annotation2
-      - documentIndex: *secretDoc
+      - documentIndex: *certDoc
         equal:
           path: metadata.labels
           value:
@@ -54,11 +75,151 @@ tests:
             release: test-release-name
             helm-revision: "0"
             helm.sh/chart: common-test-1.0.0
-            app.kubernetes.io/name: common-test
-            app.kubernetes.io/instance: test-release-name
             app.kubernetes.io/managed-by: Helm
             app.kubernetes.io/version: *appVer
+            app.kubernetes.io/instance: test-release-name
+            app.kubernetes.io/name: common-test
             g_label1: global_label1
             g_label2: global_label2
             label1: label1
             label2: label2
+      - documentIndex: *certDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-certificate1
+      - documentIndex: *certDoc
+        equal:
+          path: metadata.namespace
+          value: test-release-namespace
+
+      - documentIndex: &otherCertDoc 1
+        isKind:
+          of: Certificate
+      - documentIndex: *otherCertDoc
+        isAPIVersion:
+          of: cert-manager.io/v1
+      - documentIndex: *otherCertDoc
+        equal:
+          path: metadata.annotations
+          value:
+            annotation1: annotation1
+            annotation2: annotation2
+            g_annotation1: global_annotation1
+            g_annotation2: global_annotation2
+      - documentIndex: *otherCertDoc
+        equal:
+          path: metadata.labels
+          value:
+            app: common-test-1.0.0
+            release: test-release-name
+            helm-revision: "0"
+            helm.sh/chart: common-test-1.0.0
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/version: *appVer
+            app.kubernetes.io/instance: test-release-name
+            app.kubernetes.io/name: common-test
+            g_label1: global_label1
+            g_label2: global_label2
+            label1: label1
+            label2: label2
+      - documentIndex: *otherCertDoc
+        equal:
+          path: metadata.name
+          value: certificate-issuer-my-certificate2
+      - documentIndex: *otherCertDoc
+        equal:
+          path: metadata.namespace
+          value: test-release-namespace
+      - documentIndex: *otherCertDoc
+        equal:
+          path: spec.secretTemplate.annotations
+          value:
+            annotation3: annotation3
+            annotation4: annotation4
+            g_annotation1: global_annotation1
+            g_annotation2: global_annotation2
+      - documentIndex: *otherCertDoc
+        equal:
+          path: spec.secretTemplate.labels
+          value:
+            app: common-test-1.0.0
+            release: test-release-name
+            helm-revision: "0"
+            helm.sh/chart: common-test-1.0.0
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/version: *appVer
+            app.kubernetes.io/instance: test-release-name
+            app.kubernetes.io/name: common-test
+            g_label1: global_label1
+            g_label2: global_label2
+            label3: label3
+            label4: label4
+
+  - it: should pass with certificate created with namespace from tpl
+    set:
+      key: some-namespace
+      certificate:
+        my-cert1:
+          enabled: true
+          namespace: "{{ .Values.key }}"
+          hosts:
+            - host1
+          certificateIssuer: some-issuer
+    asserts:
+      - documentIndex: *certDoc
+        equal:
+          path: metadata.namespace
+          value: some-namespace
+
+  - it: should pass with certificate created with global namespace from tpl
+    set:
+      key: global-namespace
+      global:
+        namespace: "{{ .Values.key }}"
+      certificate:
+        my-cert1:
+          enabled: true
+          hosts:
+            - host1
+          certificateIssuer: some-issuer
+    asserts:
+      - documentIndex: *certDoc
+        equal:
+          path: metadata.namespace
+          value: global-namespace
+
+  - it: should pass with certificate created with root namespace from tpl
+    set:
+      key: local-namespace
+      namespace: "{{ .Values.key }}"
+      global:
+        namespace: global-namespace
+      certificate:
+        my-cert1:
+          enabled: true
+          hosts:
+            - host1
+          certificateIssuer: some-issuer
+    asserts:
+      - documentIndex: *certDoc
+        equal:
+          path: metadata.namespace
+          value: local-namespace
+
+  - it: should pass with certificate created with namespace in TrueNAS SCALE
+    set:
+      global:
+        ixChartContext:
+          iAmNotEmpty: true
+      namespace: ix-namespace
+      certificate:
+        my-cert1:
+          enabled: true
+          hosts:
+            - host1
+          certificateIssuer: some-issuer
+    asserts:
+      - documentIndex: *certDoc
+        equal:
+          path: metadata.namespace
+          value: ix-namespace

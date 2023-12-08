@@ -7,27 +7,99 @@ release:
   name: test-release-name
   namespace: test-release-namespace
 tests:
-  - it: should pass with secret created for certificate
+  - it: should pass with certificate created
     set:
-      ixCertificates:
-        "1":
-          certificate: some_cert
-          privatekey: some_key
-      scaleCertificate:
-        my-cert:
+      issuer: some-issuer
+      host: host1
+      certificate:
+        my-certificate1:
           enabled: true
-          id: 1
+          hosts:
+            - "{{ .Values.host }}"
+          certificateIssuer: "{{ .Values.issuer }}"
+        my-certificate2:
+          enabled: true
+          hosts:
+            - host2
+          certificateIssuer: some-other-issuer
+          certificateSecretTemplate:
+            labels:
+              label1: label1
+              label2: label2
+            annotations:
+              annotation1: annotation1
+              annotation2: annotation2
     asserts:
-      - documentIndex: &secretDoc 0
+      - documentIndex: &certDoc 0
         isKind:
-          of: Secret
-      - documentIndex: *secretDoc
+          of: Certificate
+      - documentIndex: *certDoc
+        isAPIVersion:
+          of: cert-manager.io/v1
+      - documentIndex: *certDoc
         equal:
-          path: data
+          path: metadata.name
+          value: test-release-name-common-test-my-certificate1
+      - documentIndex: *certDoc
+        equal:
+          path: metadata.namespace
+          value: test-release-namespace
+      - documentIndex: *certDoc
+        equal:
+          path: spec
           value:
-            tls.crt: c29tZV9jZXJ0
-            tls.key: c29tZV9rZXk=
-      - documentIndex: *secretDoc
+            secretName: test-release-name-common-test-my-certificate1
+            dnsNames:
+              - host1
+            issuerRef:
+              name: some-issuer
+              kind: ClusterIssuer
+              group: cert-manager.io
+            privateKey:
+              algorithm: ECDSA
+              size: 256
+              rotationPolicy: Always
+      - documentIndex: &otherCertDoc 1
+        isKind:
+          of: Certificate
+      - documentIndex: *otherCertDoc
+        isAPIVersion:
+          of: cert-manager.io/v1
+      - documentIndex: *otherCertDoc
         equal:
-          path: type
-          value: kubernetes.io/tls
+          path: spec
+          value:
+            secretName: certificate-issuer-my-certificate2
+            dnsNames:
+              - host2
+            issuerRef:
+              name: some-other-issuer
+              kind: ClusterIssuer
+              group: cert-manager.io
+            privateKey:
+              algorithm: ECDSA
+              size: 256
+              rotationPolicy: Always
+            secretTemplate:
+              labels:
+                label1: label1
+                label2: label2
+                app: common-test-1.0.0
+                app.kubernetes.io/instance: test-release-name
+                app.kubernetes.io/managed-by: Helm
+                app.kubernetes.io/name: common-test
+                app.kubernetes.io/version: v9.9.9
+                helm-revision: "0"
+                helm.sh/chart: common-test-1.0.0
+                release: test-release-name
+              annotations:
+                annotation1: annotation1
+                annotation2: annotation2
+      - documentIndex: *otherCertDoc
+        equal:
+          path: metadata.name
+          value: certificate-issuer-my-certificate2
+      - documentIndex: *otherCertDoc
+        equal:
+          path: metadata.namespace
+          value: test-release-namespace
