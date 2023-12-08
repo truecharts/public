@@ -33,7 +33,7 @@ workload:
           args:
             - -c
             - |
-              export CONF={{ printf "%v/%v" .Values.persistence.config.targetSelector.main.main.mountPath "notifiarr.conf" }}
+              export CONF={{ printf "%s/notifiarr.conf" .Values.persistence.config.targetSelector.main.main.mountPath }}
 
               test -f "$CONF" && echo "Config exists, skipping creation..." && exit 0
 
