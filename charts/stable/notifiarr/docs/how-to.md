@@ -22,7 +22,9 @@ For your first time log in, use the username `admin` and the API key you configu
 After you log in, navigate to **`admin` -> `Profile`**. Input your API key as the current password and type in a new password in the new password field. Save your changes.
 
 :::danger
+
 Create a new password right away and do not share your API key (or password) with anyone unless you absolutely, 100%, trust them!
+
 :::
 
 ## Support
