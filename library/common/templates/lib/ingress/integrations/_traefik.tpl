@@ -110,16 +110,9 @@
         {{- end -}}
 
         {{- if not $found -}}
-          {{- fail (printf "Ingress - Middleware [%s] is not defined in any namespace. Create the middleware first." $mid.name) -}}
+          {{/* This will also display when lookup is not supported (eg dry-run) */}}
+          {{- fail (printf "Ingress - Middleware [%s] is not defined in any namespace. Middleware should be created first." $mid.name) -}}
         {{- end -}}
-      {{- end -}}
-
-      {{/*
-        This error will only trigger on runs without lookup support (eg template or dry run)
-        Or when a cluster has 0 middlewares defined
-      */}}
-      {{- if not $midNamespace -}}
-        {{- fail (printf "Ingress - Could not determine namespace for middleware [%s]. Make sure middleware is created or explicitly specify [namespace]" $mid.name) -}}
       {{- end -}}
 
       {{/* Format middleware */}}

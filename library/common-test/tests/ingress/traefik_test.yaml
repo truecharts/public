@@ -411,4 +411,4 @@ tests:
           hosts: *hosts
     asserts:
       - failedTemplate:
-          errorMessage: Ingress - Could not determine namespace for middleware [some-middleware]. Make sure middleware is created or explicitly specify [namespace]
+          errorMessage: Ingress - Middleware [some-middleware] is not defined in any namespace. Middleware should be created first.

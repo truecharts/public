@@ -1,12 +1,14 @@
 {{- define "tc.v1.common.values.serviceList" -}}
   {{- $rootCtx := . -}}
 
-  {{- $hasPrimary := false -}}
+  {{- $primaryServiceName := include "tc.v1.common.lib.util.service.primary" (dict "rootCtx" $rootCtx) -}}
   {{- range $svcName, $svcValues := $rootCtx.Values.service -}}
-    {{- if $svcValues.enabled -}}
-      {{- if $svcValues.primary -}}
-        {{- $hasPrimary = true -}}
-      {{- end -}} {{/* Check if "service" has a portList. */}}
+    {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
+                    "rootCtx" $rootCtx "objectData" $svcValues
+                    "name" $svcName "caller" "ServiceList"
+                    "key" "service")) -}}
+
+    {{- if eq $enabled "true" -}}
       {{- include "tc.v1.common.values.portList" (dict "rootCtx" $rootCtx "svcValues" $svcValues) -}}
     {{- end -}}
   {{- end -}}
@@ -15,7 +17,7 @@
     {{- $svcName := (printf "svc-list-%s" (toString $svcIdx)) -}}
 
     {{- if eq $svcIdx 0 -}}
-      {{- if not $hasPrimary -}}
+      {{- if not $primaryServiceName -}}
         {{- $_ := set $svcValues "primary" true -}}
       {{- end -}}
     {{- end -}}
