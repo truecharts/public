@@ -96,6 +96,12 @@ objectData:
   {{- end -}}
 
   {{- range $t := $objectData.tls -}}
+    {{- if $t.scaleCert -}}
+      {{- if not $rootCtx.Values.global.ixChartContext -}}
+        {{- fail "Ingress - [tls.scaleCert] can only be used in TrueNAS SCALE" -}}
+      {{- end -}}
+    {{- end -}}
+
     {{- if not $t.hosts -}}
       {{- fail "Ingress - Expected non-empty [tls.hosts]" -}}
     {{- end -}}
@@ -121,8 +127,7 @@ objectData:
       {{- end -}}
     {{- end -}}
 
-    {{/* TODO: Add the rest of the options?! */}}
-    {{- $certOptions := (list "scaleCert" "secretName") -}}
+    {{- $certOptions := (list "scaleCert" "secretName" "certificateIssuer" "clusterCertificate") -}}
     {{- $optsSet := list -}}
     {{- range $opt := $certOptions -}}
       {{- if (get $t $opt) -}}

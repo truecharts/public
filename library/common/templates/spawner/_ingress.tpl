@@ -67,7 +67,7 @@
         {{- range $idx, $tlsData := $objectData.tls -}}
           {{- if $tlsData.scaleCert -}}
             {{- if not $.Values.global.ixChartContext -}}
-              {{- fail "Ingress - [tls.scalecert] can only be used in TrueNAS SCALE" -}}
+              {{- fail "Ingress - [tls.scaleCert] can only be used in TrueNAS SCALE" -}}
             {{- end -}}
 
             {{- $certData := (include "tc.v1.common.lib.scaleCertificate.getData" (dict "rootCtx" $ "objectData" (dict "id" $tlsData.scaleCert)) | fromJson) -}}
@@ -80,13 +80,28 @@
             ) -}}
 
             {{- include "tc.v1.common.lib.chart.names.validation" (dict "name" $certName) -}}
+            {{- include "tc.v1.common.lib.metadata.validation" (dict "objectData" $certObjData "caller" "Ingress (scaleCert)") -}}
             {{- include "tc.v1.common.lib.scaleCertificate.validation" (dict "objectData" $certObjData) -}}
-            {{- include "tc.v1.common.lib.metadata.validation" (dict "objectData" $certObjData "caller" "Ingress") -}}
 
             {{/* Create the secret with the certData */}}
             {{- include "tc.v1.common.class.secret" (dict "rootCtx" $ "objectData" $certObjData) -}}
-          {{- else if $tlsData.clusterCertificate -}}
-            {{/* TODO: Needs the refactor of Certificate object */}}
+
+          {{- else if $tlsData.certificateIssuer -}}
+            {{- $certName := printf "%s-tls-%d" $objectData.name ($idx | int) -}}
+
+            {{- $certObjData := (dict
+                "name" $certName "shortName" $name
+                "hosts" $tlsData.hosts
+                "certificateIssuer" $tlsData.certificateIssuer
+            ) -}}
+
+            {{- include "tc.v1.common.lib.chart.names.validation" (dict "name" $certName) -}}
+            {{- include "tc.v1.common.lib.metadata.validation" (dict "objectData" $certObjData "caller" "Ingress (certificateIssuer)") -}}
+            {{- include "tc.v1.common.lib.certificate.validation" (dict "rootCtx" $ "objectData" $certObjData) -}}
+
+            {{/* Create the certificate with the certData */}}
+            {{- include "tc.v1.common.class.certificate" (dict "rootCtx" $ "objectData" $certObjData) -}}
+
           {{- end -}}
         {{- end -}}
       {{- end -}}

@@ -78,10 +78,10 @@ spec:
         {{- $secretName = tpl $t.secretName $rootCtx -}}
       {{- else if $t.scaleCert -}}
         {{- $secretName = printf "%s-scale-tls-%d" $objectData.name ($idx | int) -}}
-      {{- else if $t.certificateIssuer -}}
+      {{- else if $t.certificateIssuer -}} {{/* TODO: UT */}}
         {{- $secretName = printf "%s-tls-%d" $objectData.name ($idx | int) -}}
       {{- else if $t.clusterCertificate -}}
-        {{/* TODO: Needs the refactor of Certificate object */}}
+        {{- $secretName = printf "certificate-issuer-%s" (tpl $t.clusterCertificate $rootCtx) -}}
       {{- end }}
     - secretName: {{ $secretName }}
       hosts:
