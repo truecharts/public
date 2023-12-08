@@ -13,10 +13,12 @@
     {{- include "tc.v1.common.lib.ingress.integration.traefik.validate" (dict "objectData" $objectData) -}}
 
     {{- $fixedMiddlewares := list -}}
+    {{- $allowCorsMiddlewares := list -}}
     {{- $enableFixed := false -}}
     {{- if (hasKey $rootCtx.Values.global "traefik") -}}
       {{- $fixedMiddlewares = $rootCtx.Values.global.traefik.fixedMiddlewares -}}
       {{- $enableFixed = $rootCtx.Values.global.traefik.enableFixedMiddlewares -}}
+      {{- $allowCorsMiddlewares = $rootCtx.Values.global.traefik.allowCorsMiddlewares -}}
     {{- end -}}
 
     {{/* Override global (enable)fixedMiddlewares with local */}}
@@ -29,9 +31,9 @@
       {{- $enableFixed = $traefik.enableFixedMiddlewares -}}
     {{- end -}}
 
-    {{/* Replace global and local fixed middlewares with the opencors-chain */}}
+    {{/* Replace global and local fixed middlewares with the allowCorsMiddlewares */}}
     {{- if $traefik.allowCors -}}
-      {{- $fixedMiddlewares = list "tc-opencors-chain" -}}
+      {{- $fixedMiddlewares = $allowCorsMiddlewares -}}
     {{- end -}}
 
     {{- $entrypoints := $traefik.entrypoints | default (list "websecure") -}}
@@ -49,8 +51,14 @@
 
     {{/* Make sure we dont have dupes */}}
     {{- if $middlewares -}}
+      {{/* Only used for better error */}}
+      {{- $middlewareNameList := list -}}
+      {{- range $mid := $middlewares -}}
+        {{- $middlewareNameList = mustAppend $middlewareNameList (printf "%s-%s" $mid.name $mid.namespace) -}}
+      {{- end -}}
+
       {{- if not (deepEqual (mustUniq $middlewares) $middlewares) -}}
-        {{- fail (printf "Ingress - Combined traefik middlewares contain duplicates [%s]" (join ", " $middlewares)) -}}
+        {{- fail (printf "Ingress - Combined traefik middlewares contain duplicates [%s]" (join ", " $middlewareNameList)) -}}
       {{- end -}}
     {{- end -}}
 
@@ -58,32 +66,70 @@
       {{- fail (printf "Ingress - Combined traefik entrypoints contain duplicates [%s]" (join ", " $entrypoints)) -}}
     {{- end -}}
 
-    {{- $midNamespace := "tc-system" -}}
-    {{/* If our hook has set operator.traefik.namespace, use that */}}
-    {{- if (hasKey $rootCtx.Values.operator "traefik") -}}
-      {{- if $rootCtx.Values.operator.traefik.namespace -}}
-        {{- $midNamespace = $rootCtx.Values.operator.traefik.namespace -}}
+    {{- $lookupMiddlewares := list -}}
+    {{- $parsedMiddlewares := list -}}
+    {{- if $middlewares -}}
+      {{/* Only lookup if there are defined middlewares */}}
+      {{- $lookupMiddlewares := (lookup "traefik.io/v1alpha1" "Middleware" "" "") -}}
+
+      {{/* If there are items, re-assign the variable */}}
+      {{- if and $lookupMiddlewares $lookupMiddlewares.items -}}
+        {{- $lookupMiddlewares = $lookupMiddlewares.items -}}
+      {{- end -}}
+
+      {{/* Parse look-ed up middlewares */}}
+      {{- range $m := $lookupMiddlewares -}}
+        {{- $name := $m.metadata.name -}}
+        {{- $namespace := $m.metadata.namespace -}}
+        {{/* Create a smaller list with only the data we want */}}
+        {{- $parsedMiddlewares = mustAppend $parsedMiddlewares (dict "name" $name "namespace" $namespace) -}}
       {{- end -}}
     {{- end -}}
 
-    {{- if $traefik.ingressClassName -}}
-      {{- $midNamespace = tpl $traefik.ingressClassName $rootCtx -}}
-
-      {{/* On SCALE prepend with ix- */}}
-      {{- if $rootCtx.Values.global.ixChartContext -}}
-        {{- $midNamespace = (printf "ix-%s" $midNamespace) -}}
-      {{- end -}}
-    {{- end -}}
-
-    {{/* Format middlewares */}}
-    {{- $formMiddlewares := list -}}
+    {{- $formattedMiddlewares := list -}}
     {{- range $mid := $middlewares -}}
-      {{- $formMiddlewares = mustAppend $formMiddlewares (printf "%s-%s@kubernetescrd" $mid $midNamespace) -}}
+      {{- $midNamespace := "" -}}
+
+      {{/* If a namespace is given, use that */}}
+      {{- if $mid.namespace -}}
+        {{- $midNamespace = $mid.namespace -}}
+      {{- end -}}
+
+      {{/* If no namespace is given, try to find it */}}
+      {{- if not $midNamespace -}}
+        {{- $found := false -}}
+        {{- range $p := $parsedMiddlewares -}}
+          {{- if eq $p.name $mid.name -}}
+            {{- if $found -}}
+              {{- fail (printf "Ingress - Middleware [%s] is defined in multiple namespaces. Explicitly specify [namespace]" $mid.name) -}}
+            {{- end -}}
+
+            {{- $found = true -}}
+            {{- $midNamespace = $p.namespace -}}
+          {{- end -}}
+        {{- end -}}
+
+        {{- if not $found -}}
+          {{- fail (printf "Ingress - Middleware [%s] is not defined in any namespace. Create the middleware first." $mid.name) -}}
+        {{- end -}}
+      {{- end -}}
+
+      {{/*
+        This error will only trigger on runs without lookup support (eg template or dry run)
+        Or when a cluster has 0 middlewares defined
+      */}}
+      {{- if not $midNamespace -}}
+        {{- fail (printf "Ingress - Could not determine namespace for middleware [%s]. Make sure middleware is created or explicitly specify [namespace]" $mid.name) -}}
+      {{- end -}}
+
+      {{/* Format middleware */}}
+      {{- $formattedMiddlewares = mustAppend $formattedMiddlewares (printf "%s-%s@kubernetescrd" $mid.name $midNamespace) -}}
     {{- end -}}
+
 
     {{- $_ := set $objectData.annotations "traefik.ingress.kubernetes.io/router.entrypoints" (join "," $entrypoints) -}}
-    {{- if $formMiddlewares -}}
-      {{- $_ := set $objectData.annotations "traefik.ingress.kubernetes.io/router.middlewares" (join "," $formMiddlewares) -}}
+    {{- if $formattedMiddlewares -}}
+      {{- $_ := set $objectData.annotations "traefik.ingress.kubernetes.io/router.middlewares" (join "," $formattedMiddlewares) -}}
     {{- end -}}
 
   {{- end -}}

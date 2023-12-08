@@ -39,6 +39,9 @@ tests:
             - host: test-host
               paths:
                 - path: /test-path
+          integrations: &integrations
+            traefik:
+              enabled: false
         my-ingress-super-long-name-that-is-longer-than-253-characters-my-ingress-super-long-name-that-is-longer-than-253-characters-my-ingress-super-long-name-that-is-longer-than-253-characters-my-ingress-super-long-long-long-long-long-long-long-long-name:
           enabled: true
     asserts:
@@ -70,6 +73,7 @@ tests:
           primary: true
           hosts: *hosts
           namespace: my-extra-super-duper-long-name-that-is-longer-than-63-characters
+          integrations: *integrations
     asserts:
       - failedTemplate:
           errorMessage: Ingress - Namespace [my-extra-super-duper-long-name-that-is-longer-than-63-characters] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 63 characters.
@@ -96,6 +100,7 @@ tests:
           primary: true
           hosts: *hosts
           namespace: my-namespace
+          integrations: *integrations
     asserts:
       - failedTemplate:
           errorMessage: Ingress - Namespace [my-namespace] expected to have [ix-] prefix when installed in TrueNAS SCALE

@@ -19,7 +19,16 @@ global:
     # Applies middleware to all ingresses
     # Can be overruled per ingress
     fixedMiddlewares:
-      - chain-basic
+      - name: chain-basic
+        # Optional, by default will try to
+        # "lookup" the namespace based on the name
+        namespace: ""
+    # The middlewares to apply if allowCors toggle is enabled
+    allowCorsMiddlewares:
+      - name: tc-opencors-chain
+        # Optional, by default will try to
+        # "lookup" the namespace based on the name
+        namespace: ""
   # -- Minimum nodePort value
   minNodePort: 9000
   # -- Enable to stop most pods and containers including cnpg
@@ -587,25 +596,32 @@ ingress:
         # Drops both global and local fixedMiddlewares when enabled
         allowCors: false
         # fixedMiddlewares:
-        #   - chain-basic
+        #   - name: chain-basic
+        #     # Optional, by default will try to
+        #     # "lookup" the namespace based on the name
+        #     namespace: ""
         middlewares: []
+          # - name: my-middleware
+          #   # Optional, by default will try to
+          #   # "lookup" the namespace based on the name
+          #   namespace: ""
       homepage:
         enabled: false
         # Default: chart name
-        name: somename
+        name: ""
         # Default: chart description
-        description: some description
+        description: ""
         # Default: no group
-        group: somegroup
+        group: ""
         # Default: chart icon
-        icon: icon.png
+        icon: ""
         widget:
           # Default: chartname
-          type: "sometype"
+          type: ""
           # Default to ingress host 0
-          url: "https://example.com"
+          url: ""
           custom:
-            - somesetting: some value
+            # - somesetting: some value
 
 certificate: {}
   # main:

@@ -27,13 +27,18 @@ tests:
             - host: test-host
               paths:
                 - path: /test-path
+          integrations: &integrations
+            traefik:
+              enabled: false
         my-ingress2:
           enabled: true
           hosts: *hosts
+          integrations: *integrations
         my-ingress3:
           enabled: true
           expandObjectName: false
           hosts: *hosts
+          integrations: *integrations
     asserts:
       - documentIndex: &ingressDoc 1
         isKind:
