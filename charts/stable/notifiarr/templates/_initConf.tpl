@@ -17,7 +17,8 @@ command: /bin/sh
 # username ('admin') are used for logging in.
 args:
   - -c
-  - test -f "{{ $conf }}" && echo "Config exists, skipping creation..." && exit 0
+  - |
+    test -f "{{ $conf }}" && echo "Config exists, skipping creation..." && exit 0
 
     echo "Creating a minimal config in [{{ $conf }}]..."
 
