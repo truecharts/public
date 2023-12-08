@@ -2,16 +2,16 @@ kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: portainer
 version: 5.0.20
-appVersion: 2.19.3
+appVersion: 2.19.4
 description: Container management made easy
 home: https://truecharts.org/charts/stable/portainer
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/portainer.png
 deprecated: false
 sources:
+  - https://hub.docker.com/r/portainer/portainer-ce
   - https://docs.portainer.io/start/install-ce/server
   - https://docs.portainer.io/start/install/server
   - https://github.com/truecharts/charts/tree/master/charts/stable/portainer
-  - https://hub.docker.com/r/portainer/portainer-ce
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

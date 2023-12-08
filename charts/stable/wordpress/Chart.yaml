@@ -1,39 +1,40 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: wordpress
 version: 3.1.1
 appVersion: 6.4.2
-description: The WordPress rich content management system can utilize plugins, widgets,
+description:
+  The WordPress rich content management system can utilize plugins, widgets,
   and themes.
 home: https://truecharts.org/charts/stable/wordpress
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/wordpress.png
 deprecated: false
 sources:
-- https://www.wordpress.org
-- https://github.com/truecharts/charts/tree/master/charts/stable/wordpress
-- https://hub.docker.com/r/bitnami/wordpress
+  - https://www.wordpress.org
+  - https://github.com/truecharts/charts/tree/master/charts/stable/wordpress
+  - https://hub.docker.com/r/bitnami/wordpress
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- wordpress
-- cms
+  - wordpress
+  - cms
 dependencies:
-- name: common
-  version: 14.3.5
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
-- name: mariadb
-  version: 7.0.70
-  repository: https://deps.truecharts.org/
-  condition: mariadb.enabled
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.3.5
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: mariadb
+    version: 7.0.70
+    repository: https://deps.truecharts.org/
+    condition: mariadb.enabled
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

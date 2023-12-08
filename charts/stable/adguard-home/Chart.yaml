@@ -1,31 +1,32 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: adguard-home
 version: 6.0.15
 appVersion: 0.107.42
-description: Free and open source, powerful network-wide ads & trackers blocking DNS
+description:
+  Free and open source, powerful network-wide ads & trackers blocking DNS
   server.
 home: https://truecharts.org/charts/stable/adguard-home
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/adguard-home.png
 deprecated: false
 sources:
-- https://github.com/truecharts/charts/tree/master/charts/stable/adguard-home
-- https://hub.docker.com/r/adguard/adguardhome
+  - https://github.com/truecharts/charts/tree/master/charts/stable/adguard-home
+  - https://hub.docker.com/r/adguard/adguardhome
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- adblock
-- adguard
+  - adblock
+  - adguard
 dependencies:
-- name: common
-  version: 14.3.5
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.3.5
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4
