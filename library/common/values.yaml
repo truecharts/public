@@ -7,10 +7,19 @@ global:
   # -- Set a global namespace
   # TODO: Currently some objects do not support this
   namespace: ""
-  # -- Adds metalLB annotations to services
-  addMetalLBAnnotations: true
-  # -- Adds traefik annotations to services
-  addTraefikAnnotations: true
+  metallb:
+    # -- Adds metalLB annotations to services
+    addServiceAnnotations: true
+  traefik:
+    # -- Adds traefik annotations to services (when needed)
+    addServiceAnnotations: true
+    # Enables or disables the fixed middlewares on all ingresses
+    # Can be overruled per ingress
+    enableFixedMiddlewares: true
+    # Applies middleware to all ingresses
+    # Can be overruled per ingress
+    fixedMiddlewares:
+      - chain-basic
   # -- Minimum nodePort value
   minNodePort: 9000
   # -- Enable to stop most pods and containers including cnpg
@@ -515,7 +524,6 @@ wireguardImage:
   # -- Specify the WireGuard image pull policy
   pullPolicy: IfNotPresent
 
-
 # -- Configure the ingresses for the chart here.
 # Additional ingresses can be added by adding a dictionary key similar to the 'main' ingress.
 # @default -- See below
@@ -523,104 +531,81 @@ ingress:
   main:
     # -- Enables or disables the ingress
     enabled: false
-
-    # -- Adds integrations to ingress
-#    integration:
-#      homepage:
-#        enabled: true
-#        # Default: chart name
-#        name: somename
-#        # Default: chart description
-#        description: some description
-#        group: somegroup
-#        # Default: chart icon
-#        icon: icon.png
-#        pod-selector: ""
-#        widget:
-#          # Default: chartname
-#          type: "sometype"
-#          # Default: host-path of first ingress
-#          url: "https://example.com"
-#          custom:
-#            - somesetting: some value
-
     # -- Make this the primary ingress (used in probes, notes, etc...).
     # If there is more than 1 ingress, make sure that only 1 ingress is marked as primary.
     primary: true
-
     # -- Ensure this ingress is always enabled.
     required: false
-
-    # -- Override the name suffix that is used for this ingress.
-    nameOverride:
-
-    # -- Autolink the ingress to a service and port, both with the same name as the ingress.
-    autoLink: false
-
-    # -- disable to ignore any default middlwares
-    enableFixedMiddlewares: true
-
-    # -- set the Cert-Manager clusterissuer for this ingress
-    clusterIssuer: ""
-
-    # -- List of middlewares in the traefikmiddlewares k8s namespace to add automatically
-    # Creates an annotation with the middlewares and appends k8s and traefik namespaces to the middleware names
-    # Primarily used for TrueNAS SCALE to add additional (seperate) middlewares without exposing them to the end-user
-    fixedMiddlewares:
-      - chain-basic
-
-    # -- Additional List of middlewares in the traefikmiddlewares k8s namespace to add automatically
-    # Creates an annotation with the middlewares and appends k8s and traefik namespaces to the middleware names
-    middlewares: []
-    annotationsList: []
-    # - name: somename
-    #   value: somevalue
-    # -- Provide additional annotations which may be required.
-    annotations: {}
-      # kubernetes.io/ingress.class: nginx
-      # kubernetes.io/tls-acme: "true"
-
-    labelsList: []
-    # - name: somename
-    #   value: somevalue
-    # -- Set labels on the deployment/statefulset/daemonset
-    # -- Provide additional labels which may be required.
+    expandObjectName: false
     # -- Provide additional labels which may be required.
     labels: {}
-
+    # -- Provide additional annotations which may be required.
+    annotations: {}
     # -- Set the ingressClass that is used for this ingress.
     # Requires Kubernetes >=1.19
-    ingressClassName:  # "nginx"
-
-    # Enable or disable CORS Requests to the ingress
-    allowCors: false
-
+    ingressClassName:  ""
+    # Defaults to primary service and primary port
+    # targetSelector:
+    #   # service: port
+    #   main: main
     ## Configure the hosts for the ingress
-    hosts:
-      -  # -- Host address. Helm template can be passed.
-        host: chart-example.local
-        ## Configure the paths for the host
-        paths:
-          -  # -- Path.  Helm template can be passed.
-            path: /
-            # -- Ignored if not kubeVersion >= 1.14-0
-            pathType: Prefix
-            service:
-              # -- Overrides the service name reference for this path
-              name:
-              # -- Overrides the service port reference for this path
-              port:
-
+    hosts: []
+      # -  # -- Host address. Helm template can be passed.
+      #   host: chart-example.local
+      #   ## Configure the paths for the host
+      #   paths:
+      #     -  # -- Path.  Helm template can be passed.
+      #       path: /
+      #       # -- Ignored if not kubeVersion >= 1.14-0
+      #       pathType: Prefix
+      #       # -- Overrides the service reference for this path, by default the selector is honored
+      #       overrideService:
+      #         # -- Overrides the service name reference for this path
+      #         name:
+      #         # -- Overrides the service port reference for this path
+      #         port:
     # -- Configure TLS for the ingress. Both secretName and hosts can process a Helm template.
     # Gets ignored when clusterIssuer is filled
     tls: []
     #  - secretName: chart-example-tls
     #    # Cannot be combined with scaleCert
-    #    clusterIssuer: ""
-    #    # Cannot be combined with clusterIssuer
+    #    certificateIssuer: ""
+    #    # Cannot be combined with certificateIssuer
     #    scaleCert: ""
     #    hosts:
     #      - chart-example.local
+    integrations:
+      certManager:
+        enabled: false
+        certificateIssuer: ""
+      traefik:
+        enabled: true
+        # Default to websecure
+        entrypoints:
+          - websecure
+        enableFixedMiddlewares: true
+        # Drops both global and local fixedMiddlewares when enabled
+        allowCors: false
+        # fixedMiddlewares:
+        #   - chain-basic
+        middlewares: []
+      homepage:
+        enabled: false
+        # Default: chart name
+        name: somename
+        # Default: chart description
+        description: some description
+        # Default: no group
+        group: somegroup
+        # Default: chart icon
+        icon: icon.png
+        widget:
+          # Default: chartname
+          type: "sometype"
+          # Default to ingress host 0
+          url: "https://example.com"
+          custom:
+            - somesetting: some value
 
 # -- BETA: Configure the gateway routes for the chart here.
 # Additional routes can be added by adding a dictionary key similar to the 'main' route.

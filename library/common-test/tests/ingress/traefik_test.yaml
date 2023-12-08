@@ -1,0 +1,466 @@
+suite: ingress - traefik metadata test
+templates:
+  - common.yaml
+chart:
+  appVersion: &appVer v9.9.9
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with ingress created with annotations from traefik
+    set:
+      operator: &operator
+        verify:
+          enabled: false
+      service: &service
+        my-service:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 80
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          hosts: &hosts
+            - host: test-host
+              paths:
+                - path: /test-path
+    asserts:
+      - documentIndex: &ingressDoc 1
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.annotations
+          value:
+            traefik.ingress.kubernetes.io/router.entrypoints: websecure
+            traefik.ingress.kubernetes.io/router.middlewares: chain-basic-tc-system@kubernetescrd
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.namespace
+          value: test-release-namespace
+
+  - it: should pass with ingress created without traefik annotations when traefik false
+    set:
+      operator: *operator
+      service: *service
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: false
+          hosts: *hosts
+    asserts:
+      - documentIndex: *ingressDoc
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        isNull:
+          path: metadata.annotations
+
+  - it: should replace local fixedMiddlewares when allowCors true
+    set:
+      operator: *operator
+      service: *service
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: true
+              allowCors: true
+              fixedMiddlewares:
+                - some-fixed-middleware
+          hosts: *hosts
+    asserts:
+      - documentIndex: *ingressDoc
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.annotations
+          value:
+            traefik.ingress.kubernetes.io/router.entrypoints: websecure
+            traefik.ingress.kubernetes.io/router.middlewares: tc-opencors-chain-tc-system@kubernetescrd
+
+  - it: should replace global fixedMiddlewares when allowCors true
+    set:
+      operator: *operator
+      service: *service
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: true
+              allowCors: true
+          hosts: *hosts
+    asserts:
+      - documentIndex: *ingressDoc
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.annotations
+          value:
+            traefik.ingress.kubernetes.io/router.entrypoints: websecure
+            traefik.ingress.kubernetes.io/router.middlewares: tc-opencors-chain-tc-system@kubernetescrd
+
+  - it: should replace global fixedMiddlewares when local fixedMiddlewares is defined
+    set:
+      operator: *operator
+      service: *service
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: true
+              fixedMiddlewares:
+                - some-fixed-middleware
+          hosts: *hosts
+    asserts:
+      - documentIndex: *ingressDoc
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.annotations
+          value:
+            traefik.ingress.kubernetes.io/router.entrypoints: websecure
+            traefik.ingress.kubernetes.io/router.middlewares: some-fixed-middleware-tc-system@kubernetescrd
+
+  - it: should override default entrypoint(s)
+    set:
+      operator: *operator
+      service: *service
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: true
+              entrypoints:
+                - web
+                - websecure
+          hosts: *hosts
+    asserts:
+      - documentIndex: *ingressDoc
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.annotations
+          value:
+            traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
+            traefik.ingress.kubernetes.io/router.middlewares: chain-basic-tc-system@kubernetescrd
+
+  - it: should not contain fixed middlewares when global is disabled
+    set:
+      operator: *operator
+      service: *service
+      global:
+        traefik:
+          enableFixedMiddlewares: false
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: true
+          hosts: *hosts
+    asserts:
+      - documentIndex: *ingressDoc
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.annotations
+          value:
+            traefik.ingress.kubernetes.io/router.entrypoints: websecure
+
+  - it: should not contain fixed middlewares when local is disabled
+    set:
+      operator: *operator
+      service: *service
+      global:
+        traefik:
+          enableFixedMiddlewares: true
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: true
+              enableFixedMiddlewares: false
+          hosts: *hosts
+    asserts:
+      - documentIndex: *ingressDoc
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.annotations
+          value:
+            traefik.ingress.kubernetes.io/router.entrypoints: websecure
+
+  - it: should set correct namespace when operator is registered
+    set:
+      operator:
+        verify:
+          enabled: false
+        traefik:
+          namespace: some-ns
+      service: *service
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: true
+              entrypoints:
+                - web
+                - websecure
+          hosts: *hosts
+    asserts:
+      - documentIndex: *ingressDoc
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.annotations
+          value:
+            traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
+            traefik.ingress.kubernetes.io/router.middlewares: chain-basic-some-ns@kubernetescrd
+
+  - it: should set correct namespace when ingressClassName is defined regardless of operator
+    set:
+      operator:
+        verify:
+          enabled: false
+        traefik:
+          namespace: some-ns
+      someclass: some-class
+      service: *service
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: true
+              ingressClassName: "{{ .Values.someclass }}"
+          hosts: *hosts
+    asserts:
+      - documentIndex: *ingressDoc
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.annotations
+          value:
+            traefik.ingress.kubernetes.io/router.entrypoints: websecure
+            traefik.ingress.kubernetes.io/router.middlewares: chain-basic-some-class@kubernetescrd
+
+  - it: should set correct namespace when ingressClassName is defined in SCALE regardless of operator
+    set:
+      operator:
+        verify:
+          enabled: false
+        traefik:
+          namespace: some-ns
+      service: *service
+      global:
+        ixChartContext:
+          imNotEmpty: true
+      namespace: ix-namespace
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: true
+              ingressClassName: some-class
+          hosts: *hosts
+    asserts:
+      - documentIndex: *ingressDoc
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.annotations
+          value:
+            traefik.ingress.kubernetes.io/router.entrypoints: websecure
+            traefik.ingress.kubernetes.io/router.middlewares: chain-basic-ix-some-class@kubernetescrd
+
+  - it: should add the defined middlewares to the ingress
+    set:
+      operator: *operator
+      service: *service
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: true
+              middlewares:
+                - some-middleware
+                - some-other-middleware
+          hosts: *hosts
+    asserts:
+      - documentIndex: *ingressDoc
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.annotations
+          value:
+            traefik.ingress.kubernetes.io/router.entrypoints: websecure
+            traefik.ingress.kubernetes.io/router.middlewares: chain-basic-tc-system@kubernetescrd,some-middleware-tc-system@kubernetescrd,some-other-middleware-tc-system@kubernetescrd
+
+  # Failures
+  - it: should fail with entrypoint not a slice
+    set:
+      operator: *operator
+      service: *service
+      ingress:
+        my-ingress1:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: true
+              entrypoints: "not a string"
+          hosts: *hosts
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected [integrations.traefik.entrypoints] to be a [slice], but got [string]
+
+  - it: should fail with middlewares not a slice
+    set:
+      operator: *operator
+      service: *service
+      ingress:
+        my-ingress1:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: true
+              middlewares: "not a slice"
+          hosts: *hosts
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected [integrations.traefik.middlewares] to be a [slice], but got [string]
+
+  - it: should fail with fixedMiddlewares not a slice
+    set:
+      operator: *operator
+      service: *service
+      ingress:
+        my-ingress1:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: true
+              fixedMiddlewares: "not a slice"
+          hosts: *hosts
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected [integrations.traefik.fixedMiddlewares] to be a [slice], but got [string]
+
+  - it: should fail with duplicate middlewares
+    set:
+      operator: *operator
+      service: *service
+      ingress:
+        my-ingress1:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: true
+              middlewares:
+                - chain-basic
+          hosts: *hosts
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Combined traefik middlewares contain duplicates [chain-basic, chain-basic]
+
+  - it: should fail with duplicate entrypoints
+    set:
+      operator: *operator
+      service: *service
+      ingress:
+        my-ingress1:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: true
+              entrypoints:
+                - websecure
+                - websecure
+          hosts: *hosts
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Combined traefik entrypoints contain duplicates [websecure, websecure]

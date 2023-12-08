@@ -8,7 +8,7 @@
   {{- include "tc.v1.common.loader.lists" . -}}
 
   {{/* Ensure TrueCharts chart context information is available */}}
-  {{- include "tc.v1.common.lib.util.chartcontext" . -}}
+  {{- /* include "tc.v1.common.lib.util.chartcontext" . */ -}}
 
   {{/* Autogenerate postgresql passwords if needed */}}
   {{- include "tc.v1.common.spawner.cnpg" . }}

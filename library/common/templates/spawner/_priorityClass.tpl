@@ -1,4 +1,4 @@
-{{/* priorityclass Spawwner */}}
+{{/* Priority Class Spawner */}}
 {{/* Call this template:
 {{ include "tc.v1.common.spawner.priorityclass" $ -}}
 */}}

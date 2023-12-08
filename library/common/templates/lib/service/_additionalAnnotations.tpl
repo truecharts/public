@@ -18,8 +18,10 @@ annotations: The annotations variable reference, to append the MetalLB annotatio
     {{- $sharedKey = tpl . $rootCtx -}}
   {{- end -}}
 
-  {{- if $rootCtx.Values.global.addMetalLBAnnotations -}}
-    {{- $_ := set $annotations "metallb.universe.tf/allow-shared-ip" $sharedKey -}}
+  {{- if (hasKey $rootCtx.Values.global "metallb") -}}
+    {{- if $rootCtx.Values.global.metallb.addServiceAnnotations -}}
+      {{- $_ := set $annotations "metallb.universe.tf/allow-shared-ip" $sharedKey -}}
+    {{- end -}}
   {{- end -}}
 {{- end -}}
 
@@ -34,7 +36,9 @@ annotations: The annotations variable reference, to append the Traefik annotatio
   {{- $rootCtx := .rootCtx -}}
   {{- $annotations := .annotations -}}
 
-  {{- if $rootCtx.Values.global.addTraefikAnnotations -}}
-    {{- $_ := set $annotations "traefik.ingress.kubernetes.io/service.serversscheme" "https" -}}
+  {{- if (hasKey $rootCtx.Values.global "traefik") -}}
+    {{- if $rootCtx.Values.global.traefik.addServiceAnnotations -}}
+      {{- $_ := set $annotations "traefik.ingress.kubernetes.io/service.serversscheme" "https" -}}
+    {{- end -}}
   {{- end -}}
 {{- end -}}

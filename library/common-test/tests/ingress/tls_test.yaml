@@ -1,143 +1,195 @@
-suite: ingress tls
+suite: ingress - tls test
 templates:
   - common.yaml
+chart:
+  appVersion: &appVer v9.9.9
 release:
   name: test-release-name
   namespace: test-release-namespace
 tests:
-  - it: default should pass
+  - it: should pass with ingress created with certManager integration
     set:
-      operator:
+      operator: &operator
         verify:
           enabled: false
-      service:
-        main:
+      service: &service
+        my-service:
           enabled: true
+          primary: true
           ports:
             main:
               enabled: true
               primary: true
-              port: 12345
-      workload:
-        my-workload:
+              port: 80
+      ingress:
+        my-ingress:
           enabled: true
           primary: true
-          type: Deployment
-          podSpec: {}
-      ingress.main.enabled: true
+          hosts:
+            - host: test-host
+              paths:
+                - path: /test-path
+            - host: other-test-host
+              paths:
+                - path: /other-test-path
+          integrations: &integrations
+            traefik:
+              enabled: false
+            certManager:
+              enabled: true
+              certificateIssuer: some-issuer
     asserts:
-      - documentIndex: &ingressDocument 2
+      - documentIndex: &ingressDoc 1
         isKind:
           of: Ingress
-      - documentIndex: *ingressDocument
-        isNull:
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        equal:
           path: spec.tls
+          value:
+            - hosts:
+                - test-host
+              secretName: test-release-name-common-test-tls-0
+            - hosts:
+                - other-test-host
+              secretName: test-release-name-common-test-tls-1
 
-  - it: tls enabled should pass
+  - it: should pass with ingress created with tls with scaleCert
     set:
-      operator:
-        verify:
-          enabled: false
-      service:
-        main:
-          enabled: true
-          ports:
-            main:
-              enabled: true
-              primary: true
-              port: 12345
-      workload:
-        my-workload:
+      operator: *operator
+      service: *service
+      namespace: ix-test-namespace
+      global:
+        ixChartContext:
+          imNotEmpty: true
+      ixCertificates:
+        "1":
+          certificate: some_cert
+          privatekey: some_key
+        "2":
+          certificate: some_other_cert
+          privatekey: some_other_key
+      ingress:
+        my-ingress:
           enabled: true
           primary: true
-          type: Deployment
-          podSpec: {}
-      ingress.main:
-        enabled: true
-        tls:
-          - secretName: test
-            hosts:
-              - hostname
+          hosts:
+            - host: test-host
+              paths:
+                - path: /test-path
+            - host: other-test-host
+              paths:
+                - path: /other-test-path
+          tls:
+            - hosts:
+                - test-host
+                - other-test-host
+              scaleCert: "1"
+            - hosts:
+                - some-other-test-host
+              scaleCert: "2"
+          integrations: &integrations
+            traefik:
+              enabled: false
     asserts:
-      - documentIndex: &ingressDocument 2
+      - documentIndex: &secretDoc 2
+        isKind:
+          of: Secret
+      - documentIndex: *secretDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-scale-tls-0
+      - documentIndex: *secretDoc
+        equal:
+          path: data
+          value:
+            tls.crt: c29tZV9jZXJ0
+            tls.key: c29tZV9rZXk=
+      - documentIndex: *secretDoc
+        equal:
+          path: type
+          value: kubernetes.io/tls
+      - documentIndex: &secretDoc 3
+        isKind:
+          of: Secret
+      - documentIndex: *secretDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-scale-tls-1
+      - documentIndex: *secretDoc
+        equal:
+          path: data
+          value:
+            tls.crt: c29tZV9vdGhlcl9jZXJ0
+            tls.key: c29tZV9vdGhlcl9rZXk=
+      - documentIndex: *secretDoc
+        equal:
+          path: type
+          value: kubernetes.io/tls
+      - documentIndex: &ingressDoc 1
         isKind:
           of: Ingress
-      - documentIndex: *ingressDocument
+      - documentIndex: *ingressDoc
         equal:
-          path: spec.tls[0]
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        equal:
+          path: spec.tls
           value:
-            secretName: test
-            hosts:
-              - hostname
+            - hosts:
+                - test-host
+                - other-test-host
+              secretName: test-release-name-common-test-scale-tls-0
+            - hosts:
+                - some-other-test-host
+              secretName: test-release-name-common-test-scale-tls-1
 
-  - it: tls enabled without secret should pass
+  - it: should pass with ingress created with tls with certificateIssuer
     set:
-      operator:
-        verify:
-          enabled: false
-      service:
-        main:
-          enabled: true
-          ports:
-            main:
-              enabled: true
-              primary: true
-              port: 12345
-      workload:
-        my-workload:
+      operator: *operator
+      service: *service
+      ingress:
+        my-ingress:
           enabled: true
           primary: true
-          type: Deployment
-          podSpec: {}
-      ingress.main:
-        enabled: true
-        tls:
-          - hosts:
-              - hostname
+          hosts:
+            - host: test-host
+              paths:
+                - path: /test-path
+            - host: other-test-host
+              paths:
+                - path: /other-test-path
+          tls:
+            - hosts:
+                - test-host
+                - other-test-host
+              certificateIssuer: some-issuer
+            - hosts:
+                - some-other-test-host
+              certificateIssuer: some-other-issuer
+          integrations: &integrations
+            traefik:
+              enabled: false
     asserts:
-      - documentIndex: &ingressDocument 2
+      - documentIndex: &ingressDoc 1
         isKind:
           of: Ingress
-      - documentIndex: *ingressDocument
+      - documentIndex: *ingressDoc
         equal:
-          path: spec.tls[0]
-          value:
-            hosts:
-              - hostname
-
-  - it: tls enabled with secret template should pass
-    set:
-      operator:
-        verify:
-          enabled: false
-      service:
-        main:
-          enabled: true
-          ports:
-            main:
-              enabled: true
-              primary: true
-              port: 12345
-      workload:
-        my-workload:
-          enabled: true
-          primary: true
-          type: Deployment
-          podSpec: {}
-      ingress.main:
-        enabled: true
-        tls:
-          - secretName: "{{ .Release.Name }}-secret"
-            hosts:
-              - hostname
-    asserts:
-      - documentIndex: &ingressDocument 2
-        isKind:
-          of: Ingress
-      - documentIndex: *ingressDocument
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
         equal:
-          path: spec.tls[0]
+          path: spec.tls
           value:
-            secretName: test-release-name-secret
-            hosts:
-              - hostname
+            - hosts:
+                - test-host
+                - other-test-host
+              secretName: test-release-name-common-test-tls-0
+            - hosts:
+                - some-other-test-host
+              secretName: test-release-name-common-test-tls-1

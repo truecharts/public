@@ -1,4 +1,4 @@
-suite: ingress metadata
+suite: ingress metadata test
 templates:
   - common.yaml
 chart:
@@ -7,135 +7,66 @@ release:
   name: test-release-name
   namespace: test-release-namespace
 tests:
-  - it: default metadata should pass
+  - it: should pass with ingress created with labels and annotations
     set:
-      operator:
+      label1: label1
+      label2: global_label2
+      annotation1: annotation1
+      annotation2: global_annotation2
+      global:
+        labels:
+          g_label1: global_label1
+          g_label2: "{{ .Values.label2 }}"
+        annotations:
+          g_annotation1: global_annotation1
+          g_annotation2: "{{ .Values.annotation2 }}"
+      operator: &operator
         verify:
           enabled: false
-      ingress.main.enabled: true
-      service:
-        main:
+      service: &service
+        my-service:
           enabled: true
+          primary: true
           ports:
             main:
               enabled: true
               primary: true
-              port: 12345
-      workload:
-        my-workload:
-          enabled: true
-          primary: true
-          type: Deployment
-          podSpec: {}
-    asserts:
-      - documentIndex: &ingressDocument 2
-        isKind:
-          of: Ingress
-      - documentIndex: *ingressDocument
-        equal:
-          path: metadata.annotations
-          value:
-            traefik.ingress.kubernetes.io/router.entrypoints: websecure
-            traefik.ingress.kubernetes.io/router.middlewares: tc-system-chain-basic@kubernetescrd
-
-      - documentIndex: *ingressDocument
-        equal:
-          path: metadata.labels
-          value:
-            app: common-test-1.0.0
-            release: test-release-name
-            helm-revision: "0"
-            helm.sh/chart: common-test-1.0.0
-            app.kubernetes.io/name: common-test
-            app.kubernetes.io/instance: test-release-name
-            app.kubernetes.io/managed-by: Helm
-            app.kubernetes.io/version: *appVer
-
-  - it: cors metadata should pass
-    set:
-      operator:
-        verify:
-          enabled: false
+              port: 80
       ingress:
-        main:
-          enabled: true
-          allowCors: true
-      service:
-        main:
-          enabled: true
-          ports:
-            main:
-              enabled: true
-              primary: true
-              port: 12345
-      workload:
-        my-workload:
+        my-ingress1:
           enabled: true
           primary: true
-          type: Deployment
-          podSpec: {}
-    asserts:
-      - documentIndex: &ingressDocument 2
-        isKind:
-          of: Ingress
-      - documentIndex: *ingressDocument
-        equal:
-          path: metadata.annotations
-          value:
-            traefik.ingress.kubernetes.io/router.entrypoints: websecure
-            traefik.ingress.kubernetes.io/router.middlewares: tc-system-tc-opencors-chain@kubernetescrd
-
-      - documentIndex: *ingressDocument
-        equal:
-          path: metadata.labels
-          value:
-            app: common-test-1.0.0
-            release: test-release-name
-            helm-revision: "0"
-            helm.sh/chart: common-test-1.0.0
-            app.kubernetes.io/name: common-test
-            app.kubernetes.io/instance: test-release-name
-            app.kubernetes.io/managed-by: Helm
-            app.kubernetes.io/version: *appVer
-
-  - it: custom metadata should pass
-    set:
-      operator:
-        verify:
-          enabled: false
-      service:
-        main:
-          enabled: true
-          ports:
-            main:
-              enabled: true
-              primary: true
-              port: 12345
-      workload:
-        my-workload:
-          enabled: true
-          primary: true
-          type: Deployment
-          podSpec: {}
-      ingress:
-        main:
-          enabled: true
-          annotations:
-            test_annotation: test
           labels:
-            test_label: test
+            label1: "{{ .Values.label1 }}"
+            label2: label2
+          annotations:
+            annotation1: "{{ .Values.annotation1 }}"
+            annotation2: annotation2
+          integrations: &integrations
+            traefik:
+              enabled: false
+          hosts: &hosts
+            - host: test-host
+              paths:
+                - path: /test-path
+        my-ingress2:
+          enabled: true
+          primary: false
+          integrations: *integrations
+          hosts: *hosts
     asserts:
-      - documentIndex: &ingressDocument 2
+      - documentIndex: &ingressDoc 1
         isKind:
           of: Ingress
-      - documentIndex: *ingressDocument
+      - documentIndex: *ingressDoc
         equal:
           path: metadata.annotations
           value:
-            test_annotation: test
-            traefik.ingress.kubernetes.io/router.entrypoints: websecure
-            traefik.ingress.kubernetes.io/router.middlewares: tc-system-chain-basic@kubernetescrd
-      - documentIndex: *ingressDocument
+            annotation1: annotation1
+            annotation2: annotation2
+            g_annotation1: global_annotation1
+            g_annotation2: global_annotation2
+      - documentIndex: *ingressDoc
         equal:
           path: metadata.labels
           value:
@@ -143,8 +74,121 @@ tests:
             release: test-release-name
             helm-revision: "0"
             helm.sh/chart: common-test-1.0.0
-            app.kubernetes.io/name: common-test
-            app.kubernetes.io/instance: test-release-name
             app.kubernetes.io/managed-by: Helm
             app.kubernetes.io/version: *appVer
-            test_label: test
+            app.kubernetes.io/instance: test-release-name
+            app.kubernetes.io/name: common-test
+            g_label1: global_label1
+            g_label2: global_label2
+            label1: label1
+            label2: label2
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.namespace
+          value: test-release-namespace
+      - documentIndex: &otherIngressDoc 2
+        isKind:
+          of: Ingress
+      - documentIndex: *otherIngressDoc
+        equal:
+          path: metadata.labels
+          value:
+            app: common-test-1.0.0
+            app.kubernetes.io/instance: test-release-name
+            app.kubernetes.io/managed-by: Helm
+            app.kubernetes.io/name: common-test
+            app.kubernetes.io/version: *appVer
+            g_label1: global_label1
+            g_label2: global_label2
+            helm-revision: "0"
+            helm.sh/chart: common-test-1.0.0
+            release: test-release-name
+      - documentIndex: *otherIngressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-ingress2
+      - documentIndex: *otherIngressDoc
+        equal:
+          path: metadata.namespace
+          value: test-release-namespace
+
+  - it: should pass with ingress created with object namespace from tpl
+    set:
+      key: some-namespace
+      operator: *operator
+      service: *service
+      ingress:
+        my-ingress1:
+          enabled: true
+          primary: true
+          namespace: "{{ .Values.key }}"
+          integrations: *integrations
+          hosts: *hosts
+    asserts:
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.namespace
+          value: some-namespace
+
+  - it: should pass with ingress created with global namespace from tpl
+    set:
+      key: global-namespace
+      global:
+        namespace: "{{ .Values.key }}"
+      operator: *operator
+      service: *service
+      ingress:
+        my-ingress1:
+          enabled: true
+          primary: true
+          integrations: *integrations
+          hosts: *hosts
+    asserts:
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.namespace
+          value: global-namespace
+
+  - it: should pass with ingress created with root namespace from tpl
+    set:
+      key: local-namespace
+      namespace: "{{ .Values.key }}"
+      global:
+        namespace: global-namespace
+      operator: *operator
+      service: *service
+      ingress:
+        my-ingress1:
+          enabled: true
+          primary: true
+          integrations: *integrations
+          hosts: *hosts
+    asserts:
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.namespace
+          value: local-namespace
+
+  - it: should pass with ingress created with namespace in TrueNAS SCALE
+    set:
+      global:
+        ixChartContext:
+          iAmNotEmpty: true
+      namespace: ix-namespace
+      operator: *operator
+      service: *service
+      ingress:
+        my-ingress1:
+          enabled: true
+          primary: true
+          integrations: *integrations
+          hosts: *hosts
+    asserts:
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.namespace
+          value: ix-namespace

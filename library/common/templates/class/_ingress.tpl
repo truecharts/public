@@ -1,157 +1,93 @@
-{{/*
-This template serves as a blueprint for all Ingress objects that are created
-within the common library.
+{{/* Ingress Class */}}
+{{/* Call this template:
+{{ include "tc.v1.common.class.ingress" (dict "rootCtx" $ "objectData" $objectData) }}
+
+rootCtx: The root context of the chart.
+objectData: The object data to be used to render the Ingress.
 */}}
+
 {{- define "tc.v1.common.class.ingress" -}}
-  {{- $fullName := include "tc.v1.common.lib.chart.names.fullname" . -}}
-  {{- $ingressName := $fullName -}}
-  {{- $values := .Values.ingress -}}
 
-  {{- if hasKey . "ObjectValues" -}}
-    {{- with .ObjectValues.ingress -}}
-      {{- $values = . -}}
-    {{- end -}}
+  {{- $rootCtx := .rootCtx -}}
+  {{- $objectData := .objectData -}}
+
+  {{- $svcData := (include "tc.v1.common.lib.ingress.targetSelector" (dict "rootCtx" $rootCtx "objectData" $objectData) | fromYaml) -}}
+
+  {{- if not (hasKey $objectData "integrations") -}}
+    {{- $_ := set $objectData "integrations" dict -}}
   {{- end -}}
-  {{- $ingressLabels := $values.labels -}}
-  {{- $ingressAnnotations := $values.annotations -}}
-
-  {{- $ingressName = $values.name -}}
-
-  {{/* Get the name of the primary service, if any */}}
-  {{- $primaryServiceName := (include "tc.v1.common.lib.util.service.primary" (dict "services" .Values.service "root" .)) -}}
-  {{/* Get service values of the primary service, if any */}}
-  {{- $primaryService := get .Values.service $primaryServiceName -}}
-  {{- $defaultServiceName := $fullName -}}
-
-  {{- if and (hasKey $primaryService "nameOverride") $primaryService.nameOverride -}}
-    {{- $defaultServiceName = printf "%v-%v" $defaultServiceName $primaryService.nameOverride -}}
-  {{- end -}}
-  {{- $defaultServicePort := get $primaryService.ports (include "tc.v1.common.lib.util.service.ports.primary" (dict "svcValues" $primaryService "svcName" $primaryServiceName )) -}}
-
-  {{- $mddwrNamespace := "tc-system" -}}
-  {{- if $.Values.operator.traefik -}}
-    {{- if $.Values.operator.traefik.namespace -}}
-      {{- $mddwrNamespace = $.Values.operator.traefik.namespace -}}
-    {{- end -}}
+  {{- if not (hasKey $objectData "annotations") -}}
+    {{- $_ := set $objectData "annotations" dict -}}
   {{- end -}}
 
-  {{- if $values.ingressClassName -}}
-
-    {{- if $.Values.global.ixChartContext -}}
-      {{- $mddwrNamespace = (printf "ix-%s" $values.ingressClassName) -}}
-    {{- else -}}
-      {{- $mddwrNamespace = $values.ingressClassName -}}
-    {{- end -}}
-  {{- end -}}
-
-  {{- $fixedMiddlewares := "" -}}
-  {{- if $values.enableFixedMiddlewares -}}
-
-    {{/* If cors is enabled, replace the default fixedMiddleware with the opencors chain */}}
-    {{- if $values.allowCors -}}
-      {{- $corsMiddlewares := list "tc-opencors-chain" }}
-      {{- $_ := set $values "fixedMiddlewares" $corsMiddlewares -}}
-    {{- end -}}
-
-    {{- range $index, $fixedMiddleware := $values.fixedMiddlewares -}}
-        {{- if $index -}}
-          {{- $fixedMiddlewares = ( printf "%v, %v-%v@%v" $fixedMiddlewares $mddwrNamespace $fixedMiddleware "kubernetescrd" ) -}}
-        {{- else -}}
-          {{- $fixedMiddlewares = ( printf "%v-%v@%v" $mddwrNamespace $fixedMiddleware "kubernetescrd" ) -}}
-        {{- end -}}
-    {{- end -}}
-  {{- end -}}
-
-  {{- $middlewares := "" -}}
-  {{- range $index, $middleware := $values.middlewares -}}
-      {{- if $index -}}
-        {{- $middlewares = ( printf "%v, %v-%v@%v" $middlewares $mddwrNamespace $middleware "kubernetescrd" ) -}}
-      {{- else -}}
-        {{- $middlewares = ( printf "%v-%v@%v" $mddwrNamespace $middleware "kubernetescrd" ) -}}
-      {{- end -}}
-  {{ end }}
-
-  {{- if and ( $fixedMiddlewares ) ( $middlewares ) -}}
-    {{- $middlewares = ( printf "%v, %v" $fixedMiddlewares $middlewares ) -}}
-  {{- else if $fixedMiddlewares -}}
-    {{- $middlewares = ( printf "%s" $fixedMiddlewares ) -}}
-  {{- end }}
+  {{- include "tc.v1.common.lib.ingress.integration.certManager" (dict "rootCtx" $rootCtx "objectData" $objectData) -}}
+  {{- include "tc.v1.common.lib.ingress.integration.traefik" (dict "rootCtx" $rootCtx "objectData" $objectData) -}}
+  {{- include "tc.v1.common.lib.ingress.integration.homepage" (dict "rootCtx" $rootCtx "objectData" $objectData) }}
 ---
-apiVersion: {{ include "tc.v1.common.capabilities.ingress.apiVersion" $ }}
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ $ingressName }}
-  namespace: {{ $.Values.namespace | default $.Values.global.namespace | default $.Release.Namespace }}
-  {{- $labels := (mustMerge ($ingressLabels | default dict) (include "tc.v1.common.lib.metadata.allLabels" $ | fromYaml)) -}}
-  {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $ "labels" $labels) | trim) }}
+  name: {{ $objectData.name }}
+  namespace: {{ include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $rootCtx "objectData" $objectData "caller" "Ingress") }}
+  {{- $labels := (mustMerge ($objectData.labels | default dict) (include "tc.v1.common.lib.metadata.allLabels" $rootCtx | fromYaml)) -}}
+  {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "labels" $labels) | trim) }}
   labels:
     {{- . | nindent 4 }}
   {{- end -}}
-  {{- $annotations := (mustMerge ($ingressAnnotations | default dict) (include "tc.v1.common.lib.metadata.allAnnotations" $ | fromYaml) (include "tc.v1.common.lib.ingress.integration.homepage" (dict "objectData" $values "rootCtx" $) | fromYaml)) }}
+  {{- $annotations := (mustMerge ($objectData.annotations | default dict) (include "tc.v1.common.lib.metadata.allAnnotations" $rootCtx | fromYaml)) -}}
+  {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "annotations" $annotations) | trim) }}
   annotations:
-  {{- with $values.certificateIssuer }}
-    cert-manager.io/cluster-issuer: {{ tpl ( toYaml . ) $ }}
-    cert-manager.io/private-key-rotation-policy: Always
-  {{- end }}
-    "traefik.ingress.kubernetes.io/router.entrypoints": {{ $values.entrypoint | default "websecure" }}
-    "traefik.ingress.kubernetes.io/router.middlewares": {{ $middlewares | quote }}
-  {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $ "annotations" $annotations) | trim) }}
     {{- . | nindent 4 }}
   {{- end }}
 spec:
-  {{- if $values.ingressClassName }}
-  ingressClassName: {{ $values.ingressClassName }}
-  {{- end -}}
-  {{- if $values.certificateIssuer }}
-  tls:
-    {{- range $index, $hostsValues := $values.hosts }}
-    - hosts:
-      - {{ tpl $hostsValues.host $ | quote }}
-      secretName: {{ ( printf "%v-%v-%v" $ingressName "tls" $index ) }}
-    {{- end -}}
-  {{- else if $values.tls }}
-  tls:
-    {{- range $index, $tlsValues :=  $values.tls }}
-    {{- $tlsName := ( printf "%v-%v" "tls" $index ) }}
-    - hosts:
-        {{- range $tlsValues.hosts }}
-        - {{ tpl . $ | quote }}
-        {{- end -}}
-      {{- if $tlsValues.certificateIssuer }}
-      secretName: {{ printf "%v-%v" $ingressName $tlsName }}
-      {{- else if  and ($tlsValues.scaleCert) ($.Values.global.ixChartContext) -}}
-        {{- $cert := dict }}
-        {{- $_ := set $cert "id" $tlsValues.scaleCert }}
-        {{- $_ := set $cert "nameOverride" $tlsName }}
-      secretName: {{ printf "%s-tls-%v" (include "tc.v1.common.lib.chart.names.fullname" $) $index }}
-      {{- else if .clusterCertificate }}
-      secretName: clusterissuer-templated-{{ tpl .clusterCertificate $ }}
-      {{- else if .secretName }}
-      secretName: {{ tpl .secretName $ | quote }}
-      {{- end -}}
-    {{- end -}}
+  {{- if $objectData.ingressClassName }}
+  ingressClassName: {{ tpl $objectData.ingressClassName $rootCtx }}
   {{- end }}
   rules:
-  {{- range $values.hosts }}
-    - host: {{ tpl .host $ | quote }}
+    {{- range $h := $objectData.hosts }}
+    - host: {{ tpl $h.host $rootCtx }}
       http:
         paths:
-          {{- range .paths -}}
-            {{- $service := $defaultServiceName -}}
-            {{- $port := $defaultServicePort.port -}}
-            {{- if .service -}}
-              {{- $service = default $service .service.name -}}
-              {{- $port = default $port .service.port -}}
+          {{- range $p := $h.paths -}}
+            {{- with $p.overrideService -}}
+              {{- $svcData = (dict "name" .name "port" .port) -}}
             {{- end }}
-          - path: {{ tpl .path $ | quote }}
-            pathType: {{ default "Prefix" .pathType }}
+          - path: {{ tpl $p.path $rootCtx }}
+            pathType: {{ tpl ($p.pathType | default "Prefix") $rootCtx }}
             backend:
               service:
-                name: {{ $service }}
+                name: {{ $svcData.name }}
                 port:
-                  number: {{ $port }}
+                  number: {{ $svcData.port }}
           {{- end -}}
+    {{- end -}}
+  {{/* If a certificateIssuer is defined in the whole ingress, use that */}}
+  {{- if and $objectData.integrations.certManager $objectData.integrations.certManager.enabled }}
+  tls:
+    {{- range $idx, $h := $objectData.hosts }}
+    - secretName: {{ printf "%s-tls-%d" $objectData.name ($idx | int) }}
+      hosts:
+        - {{ tpl $h.host $rootCtx }}
+    {{- end -}}
+  {{/* else if a tls section is defined use the configuration from there */}}
+  {{- else if $objectData.tls }}
+  tls:
+    {{- range $idx, $t := $objectData.tls -}}
+      {{- $secretName := "" -}}
+      {{- if $t.secretName -}}
+        {{- $secretName = tpl $t.secretName $rootCtx -}}
+      {{- else if $t.scaleCert -}}
+        {{- $secretName = printf "%s-scale-tls-%d" $objectData.name ($idx | int) -}}
+      {{- else if $t.certificateIssuer -}}
+        {{- $secretName = printf "%s-tls-%d" $objectData.name ($idx | int) -}}
+      {{- else if $t.clusterCertificate -}}
+        {{/* TODO: Needs the refactor of Certificate object */}}
+      {{- end }}
+    - secretName: {{ $secretName }}
+      hosts:
+        {{- range $h := $t.hosts }}
+        - {{ tpl $h $rootCtx }}
+        {{- end -}}
+    {{- end -}}
   {{- end -}}
-
-
 {{- end -}}

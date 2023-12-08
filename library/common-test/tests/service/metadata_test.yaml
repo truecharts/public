@@ -113,11 +113,13 @@ tests:
           path: metadata.namespace
           value: test-release-namespace
 
-  - it: should pass with service type LoadBalancer, with https port and addMetalLBAnnotations/Traefik true
+  - it: should pass with service type LoadBalancer, with https port and metallb.addServiceAnnotations/Traefik true
     set:
       global:
-        addMetalLBAnnotations: true
-        addTraefikAnnotations: true
+        metallb:
+          addServiceAnnotations: true
+        traefik:
+          addServiceAnnotations: true
       proto: https
       service:
         my-service1:

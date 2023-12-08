@@ -53,9 +53,6 @@ ingress:
         paths:
           - path: /
             pathType: Prefix
-            service:
-              name:
-              port:
     tls: []
 
   scalecert:

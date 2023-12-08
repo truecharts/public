@@ -158,7 +158,7 @@ spec:
     {{- end -}}
     {{- with $preloadLibraries }}
     shared_preload_libraries:
-      {{- range $lib := (. | uniq) }}
+      {{- range $lib := (. | mustUniq) }}
       - {{ $lib | quote }}
       {{- end -}}
     {{- end -}}

@@ -13,11 +13,6 @@
   {{- print "monitoring.coreos.com/v1" -}}
 {{- end -}}
 
-{{/* Return the appropriate apiVersion for Ingress */}}
-{{- define "tc.v1.common.capabilities.ingress.apiVersion" -}}
-  {{- print "networking.k8s.io/v1" -}}
-{{- end -}}
-
 {{/* Return the appropriate apiVersion for NetworkPolicy*/}}
 {{- define "tc.v1.common.capabilities.networkpolicy.apiVersion" -}}
   {{- print "networking.k8s.io/v1" -}}

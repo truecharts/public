@@ -1,0 +1,152 @@
+suite: ingress - homepage metadata test
+templates:
+  - common.yaml
+chart:
+  appVersion: &appVer v9.9.9
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with ingress created with annotations from homepage enabled
+    set:
+      k1: some-name
+      k2: some-desc
+      k3: some-icon
+      k4: some-url
+      k5: some-type
+      k6: some-group
+      operator: &operator
+        verify:
+          enabled: false
+      service: &service
+        my-service:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 80
+      someHost: test-host
+      somePath: /test-path
+      ingress:
+        my-ingress1:
+          enabled: true
+          primary: true
+          integrations:
+            traefik: &traefik
+              enabled: false
+            homepage:
+              enabled: true
+          hosts:
+            - host: "{{ .Values.someHost }}"
+              paths:
+                - path: "{{ .Values.somePath }}"
+        my-ingress2:
+          enabled: true
+          integrations:
+            traefik: *traefik
+            homepage:
+              enabled: true
+              name: "{{ .Values.k1 }}"
+              description: "{{ .Values.k2 }}"
+              icon: "{{ .Values.k3 }}"
+              group: "{{ .Values.k6 }}"
+              weight: 1
+              podSelector:
+                - main
+                - other
+              widget:
+                url: "{{ .Values.k4 }}"
+                type: "{{ .Values.k5 }}"
+                custom:
+                  some-key: some-value
+                  some-other-key: some-other-value
+          hosts: &hosts
+            - host: test-host
+              paths:
+                - path: /test-path
+    asserts:
+      - documentIndex: &ingressDoc 1
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.annotations
+          value:
+            gethomepage.dev/enabled: "true"
+            gethomepage.dev/name: CommonTest
+            gethomepage.dev/description: Helper chart to test different use cases of the common library
+            gethomepage.dev/icon: https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png
+            gethomepage.dev/widget.type: common-test
+            gethomepage.dev/widget.url: "https://test-host/test-path"
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.namespace
+          value: test-release-namespace
+      - documentIndex: &otherIngressDoc 2
+        isKind:
+          of: Ingress
+      - documentIndex: *otherIngressDoc
+        equal:
+          path: metadata.annotations
+          value:
+            gethomepage.dev/enabled: "true"
+            gethomepage.dev/name: some-name
+            gethomepage.dev/description: some-desc
+            gethomepage.dev/group: some-group
+            gethomepage.dev/icon: some-icon
+            gethomepage.dev/widget.url: some-url
+            gethomepage.dev/weight: "1"
+            gethomepage.dev/widget.type: some-type
+            gethomepage.dev/pod-selector: pod.name in (main,other)
+            gethomepage.dev/widget.some-key: some-value
+            gethomepage.dev/widget.some-other-key: some-other-value
+      - documentIndex: *otherIngressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-ingress2
+      - documentIndex: *otherIngressDoc
+        equal:
+          path: metadata.namespace
+          value: test-release-namespace
+
+  # Failures
+  - it: should fail with podSelector not a slice
+    set:
+      operator: *operator
+      service: *service
+      ingress:
+        my-ingress1:
+          enabled: true
+          primary: true
+          integrations:
+            homepage:
+              enabled: true
+              podSelector: main
+          hosts: *hosts
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected [integrations.homepage.podSelector] to be a [slice], but got [string]
+
+  - it: should fail with custom widget not a map
+    set:
+      operator: *operator
+      service: *service
+      ingress:
+        my-ingress1:
+          enabled: true
+          primary: true
+          integrations:
+            homepage:
+              enabled: true
+              widget:
+                custom: "not a map"
+          hosts: *hosts
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected [integrations.homepage.widget.custom] to be a [map], but got [string]
