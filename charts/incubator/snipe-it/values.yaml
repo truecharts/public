@@ -77,12 +77,14 @@ workload:
             QUEUE_DRIVER: redis
             REDIS_HOST:
               secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: plainhost
-                name: rediscreds
             REDIS_PASSWORD:
               secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: redis-password
-                name: rediscreds
             REDIS_PORT: "6379"
             SECURE_COOKIES: false
             SESSION_DRIVER: redis
