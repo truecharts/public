@@ -1,5 +1,5 @@
 {{/* Define the configmap */}}
-{{- define "wbo.config" -}}
+{{- define "wbo.configmap" -}}
 
 {{- $configName := printf "%s-wbo-config" (include "tc.v1.common.lib.chart.names.fullname" $) }}
 
