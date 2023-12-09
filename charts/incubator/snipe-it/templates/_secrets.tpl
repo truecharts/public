@@ -1,8 +1,10 @@
 {{/* Define the secrets */}}
 {{- define "snipeit.secrets" -}}
----
+
+{{- $secretName := (printf "%s-snipeit-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
+
 enabled: true
-{{- $snipeitprevious := lookup "v1" "Secret" .Release.Namespace "snipeit-secrets" }}
+{{- $snipeitprevious := lookup "v1" "Secret" .Release.Namespace $secretName }}
 {{- $app_key := "" }}
 data:
   {{- if $snipeitprevious}}
