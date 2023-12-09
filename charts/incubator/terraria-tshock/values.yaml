@@ -47,4 +47,4 @@ workload:
         main:
           envFrom:
             - secretRef:
-                name: '{{ include "tc.common.names.fullname" . }}-secret'
+                name: terraria-secret
