@@ -1,8 +1,8 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: mattermost
-version: 9.0.59
-appVersion: "9.3"
+version: 9.1.0
+appVersion: "9.4"
 description:
   Mattermost is an open source platform for secure collaboration across
   the entire software development lifecycle.
@@ -10,10 +10,10 @@ home: https://truecharts.org/charts/stable/mattermost
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/mattermost.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/mattermost
-  - https://hub.docker.com/r/mattermost/mattermost-enterprise-edition
   - https://github.com/mattermost/mattermost-server
   - https://github.com/mattermost/docker
+  - https://github.com/truecharts/charts/tree/master/charts/stable/mattermost
+  - https://hub.docker.com/r/mattermost/mattermost-enterprise-edition
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
