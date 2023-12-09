@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: browserless-chrome
-version: 6.0.18
+version: 6.0.19
 appVersion: 1.60.2
 description:
   Browserless is a web-service that allows for remote clients to connect,
@@ -30,4 +30,10 @@ dependencies:
     tags: []
     import-values: []
 annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
   truecharts.org/category: productivity
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable

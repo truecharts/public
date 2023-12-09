@@ -1,5 +1,5 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "tc.common.loader.init" . }}
+{{- include "tc.v1.common.loader.init" . }}
 
 {{- define "noisedash.configvolume" -}}
 enabled: true
@@ -8,7 +8,7 @@ type: custom
 readOnly: true
 volumeSpec:
   configMap:
-    name: {{ include "tc.common.names.fullname" . }}-noisedash-config
+    name: {{ include "tc.v1.common.names.fullname" . }}-noisedash-config
     items:
     - key: default.json
       path: default.json
@@ -18,4 +18,4 @@ volumeSpec:
 {{- $_ := set .Values.persistence "noisedash-config" (include "noisedash.configvolume" . | fromYaml) -}}
 
 {{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}
+{{ include "tc.v1.common.loader.apply" . }}

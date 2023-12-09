@@ -1,20 +1,19 @@
-env:
-  VNC_PW: unraid
-  VNC_RESOLUTION: 1360x768
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/chromium-desktop-g3
-  tag: latest@sha256:92dd5aae05247876f5406169a129d45669a01735f6d19af631635e4fcbd0fa6f
+  repository: accetto/ubuntu-vnc-xfce-chromium-g3
+  tag: latest@sha256:e38682867531525ee2365797e766a9015d58267db7189f0846ff1ab5f3c51dfd
 persistence:
   internalshare:
     enabled: true
     mountPath: /UNRAID_SHARE
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -30,6 +29,11 @@ service:
         port: 5901
         protocol: TCP
         targetPort: 5901
-
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            VNC_PW: unraid
+            VNC_RESOLUTION: 1360x768

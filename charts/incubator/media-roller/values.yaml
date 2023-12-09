@@ -1,18 +1,19 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/media-roller
-  tag: latest@sha256:aec4c4ba28d2e92aea6a643ee22d90578358204f03a8084043452c891898633c
+  repository: ronnieroller/media-roller
+  tag: latest@sha256:e7807ff755d65a0213d74ee346550fd6c0a86d10980af5504a6b3b3b5f03ba74
 persistence:
   download:
     enabled: true
     mountPath: /download
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
@@ -20,6 +21,3 @@ service:
         port: 3000
         protocol: TCP
         targetPort: 3000
-
-portal:
-  enabled: true
