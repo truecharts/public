@@ -1,12 +1,7 @@
 {{/* Define the secrets */}}
 {{- define "sheetable.secrets" -}}
----
 
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: sheetable-secrets
+enabled: true
 {{- $sheetableprevious := lookup "v1" "Secret" .Release.Namespace "sheetable-secrets" }}
 {{- $api_secret := "" }}
 data:
