@@ -38,6 +38,6 @@ workload:
         main:
           envFrom:
             - secretRef:
-                name: '{{ include "tc.common.names.fullname" . }}-secret'
+                name: wbo-secret
             - configMapRef:
-                name: '{{ include "tc.common.names.fullname" . }}-config'
+                name: wbo-config
