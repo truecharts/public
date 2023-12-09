@@ -1,12 +1,7 @@
 {{/* Define the secrets */}}
 {{- define "snipeit.secrets" -}}
 ---
-
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: snipeit-secrets
+enabled: true
 {{- $snipeitprevious := lookup "v1" "Secret" .Release.Namespace "snipeit-secrets" }}
 {{- $app_key := "" }}
 data:
