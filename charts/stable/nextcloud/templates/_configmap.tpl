@@ -1,5 +1,5 @@
 {{- define "nextcloud.accessurl" -}}
-  {{- $accessUrl := .Values.chartContext.APPURL -}}
+  {{- $accessUrl := .Values.chartContext.appUrl -}}
   {{- if or (contains "127.0.0.1" $accessUrl) (contains "localhost" $accessUrl) -}}
     {{- if .Values.nextcloud.general.accessIP -}}
       {{- $prot := "http" -}}

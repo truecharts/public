@@ -44,7 +44,7 @@ workload:
       containers:
         main:
           env:
-            JELLYFIN_PublishedServerUrl: "{{ $.Values.chartContext.APPURL }}"
+            JELLYFIN_PublishedServerUrl: "{{ $.Values.chartContext.appUrl }}"
   broadcastproxy:
     enabled: false
     type: DaemonSet
