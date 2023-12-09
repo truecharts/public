@@ -7,7 +7,7 @@ persistence:
     defaultMode: "0600"
     enabled: true
     mountPath: /config/config.yaml
-    objectName: '{{ include "tc.common.names.fullname" . }}-secret'
+    objectName: somfyprotect2mqtt-secret
     readOnly: true
     subPath: config.yaml
     type: secret
