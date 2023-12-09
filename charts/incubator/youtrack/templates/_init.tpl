@@ -2,8 +2,8 @@
 image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
 imagePullPolicy: {{ .Values.image.pullPolicy }}
 securityContext:
-  runAsUser: {{ .Values.podSecurityContext.runAsUser }}
-  runAsGroup: {{ .Values.podSecurityContext.runAsGroup }}
+  runAsUser: {{ .Values.SecurityContext.container.runAsUser }}
+  runAsGroup: {{ .Values.SecurityContext.container.runAsGroup }}
   readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilysystem }}
   runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }}
 volumeMounts:
