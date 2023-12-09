@@ -62,4 +62,4 @@ workload:
             TRACKER_SCRIPT_NAME: "{{ .Values.umami.tracker_script_name }}"
           envFrom:
             - secretRef:
-                name: 'unami-secret'
+                name: umami-secret

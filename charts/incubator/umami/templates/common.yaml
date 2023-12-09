@@ -2,9 +2,9 @@
 {{- include "tc.v1.common.loader.init" . }}
 
 {{/* Render secrets for umami */}}
-{{- $secrets := include "umami.secrets" . | fromYaml -}}
+{{- $secrets := include "umami.secret" . | fromYaml -}}
 {{- if $secrets -}}
-  {{- $_ := set .Values.secret "umami-secrets" $secrets -}}
+  {{- $_ := set .Values.secret "umami-secret" $secrets -}}
 {{- end -}}
 
 

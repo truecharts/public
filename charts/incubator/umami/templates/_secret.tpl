@@ -1,7 +1,7 @@
 {{/* Define the secret */}}
-{{- define "umami.secrets" -}}
+{{- define "umami.secret" -}}
 
-{{- $secretName := (printf "%s-umami-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
+{{- $secretName := (printf "%s-umami-secret" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
 
 data:
   {{/* Secret Key */}}
