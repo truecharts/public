@@ -30,6 +30,12 @@ tests:
           annotations:
             annotation1: "{{ .Values.annotation1 }}"
             annotation2: annotation2
+          annotationsList:
+            - name: some-annotation
+              value: some-value
+          labelsList:
+            - name: some-label
+              value: some-value
         class2:
           enabled: true
           isDefault: true
@@ -56,6 +62,7 @@ tests:
             g_annotation1: global_annotation1
             g_annotation2: global_annotation2
             snapshot.storage.kubernetes.io/is-default-class: "false"
+            some-annotation: some-value
       - documentIndex: *volumeSnapshotDoc
         equal:
           path: metadata.labels
@@ -72,6 +79,7 @@ tests:
             g_label2: global_label2
             label1: label1
             label2: label2
+            some-label: some-value
       - documentIndex: &otherVolumeSnapshotDoc 1
         isKind:
           of: VolumeSnapshotClass

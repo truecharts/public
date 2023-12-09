@@ -36,6 +36,12 @@ tests:
           annotations:
             annotation1: "{{ .Values.annotation1 }}"
             annotation2: annotation2
+          annotationsList:
+            - name: some-annotation
+              value: some-value
+          labelsList:
+            - name: some-label
+              value: some-value
           backups:
             enabled: true
             target: primary
@@ -71,6 +77,7 @@ tests:
             annotation5: annotation5
             g_annotation1: global_annotation1
             g_annotation2: global_annotation2
+            some-annotation: some-value
       - documentIndex: *backupDoc
         equal:
           path: metadata.labels
@@ -91,6 +98,7 @@ tests:
             label3: label3
             label4: label4
             label5: label5
+            some-label: some-value
       - documentIndex: *backupDoc
         equal:
           path: metadata.namespace

@@ -18,6 +18,9 @@
       {{- $objectData := (mustDeepCopy $certificate) -}}
 
       {{- $objectName := (printf "%s-%s" $fullname $name) -}}
+
+      {{- include "tc.v1.common.lib.util.metaListToDict" (dict "objectData" $objectData) -}}
+
       {{/* Perform validations */}} {{/* Secrets have a max name length of 253 */}}
       {{- include "tc.v1.common.lib.chart.names.validation" (dict "name" $objectName "length" 253) -}}
       {{- include "tc.v1.common.lib.scaleCertificate.validation" (dict "objectData" $objectData) -}}

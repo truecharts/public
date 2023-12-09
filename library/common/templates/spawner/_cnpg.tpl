@@ -45,6 +45,8 @@
 
     {{- if eq $enabled "true" -}}
 
+      {{- include "tc.v1.common.lib.util.metaListToDict" (dict "objectData" $objectData) -}}
+
       {{/* Handle Backups/ScheduledBackups */}}
       {{- if and (hasKey $objectData "backups") $objectData.backups.enabled -}}
 

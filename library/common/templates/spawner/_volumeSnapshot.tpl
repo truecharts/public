@@ -29,6 +29,8 @@
         {{- $objectName = (printf "%s-%s" $fullname $name) -}}
       {{- end -}}
 
+      {{- include "tc.v1.common.lib.util.metaListToDict" (dict "objectData" $objectData) -}}
+
       {{/* Perform validations */}} {{/* volumesnapshots have a max name length of 253 */}}
       {{- include "tc.v1.common.lib.chart.names.validation" (dict "name" $objectName "length" 253) -}}
       {{- include "tc.v1.common.lib.volumesnapshot.validation" (dict "objectData" $objectData) -}}

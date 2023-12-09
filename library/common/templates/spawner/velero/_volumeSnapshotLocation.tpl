@@ -34,6 +34,8 @@
       {{- $namespace := $operator.namespace | default (include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $ "objectData" $objectData "caller" "Volume Snapshot Location")) -}}
       {{- $_ := set $objectData "namespace" $namespace -}}
 
+      {{- include "tc.v1.common.lib.util.metaListToDict" (dict "objectData" $objectData) -}}
+
       {{/* Perform validations */}} {{/* volumesnapshotlocations have a max name length of 253 */}}
       {{- include "tc.v1.common.lib.chart.names.validation" (dict "name" $objectName "length" 253) -}}
       {{- include "tc.v1.common.lib.metadata.validation" (dict "objectData" $objectData "caller" "Volume Snapshot Location") -}}

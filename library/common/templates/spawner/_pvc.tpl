@@ -19,6 +19,8 @@
 
       {{- $_ := set $objectData "type" ($objectData.type | default $.Values.fallbackDefaults.persistenceType) -}}
 
+      {{- include "tc.v1.common.lib.util.metaListToDict" (dict "objectData" $objectData) -}}
+
       {{/* Perform general validations */}}
       {{- include "tc.v1.common.lib.persistence.validation" (dict "rootCtx" $ "objectData" $objectData) -}}
       {{- include "tc.v1.common.lib.metadata.validation" (dict "objectData" $objectData "caller" "Persistence") -}}

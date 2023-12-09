@@ -32,6 +32,12 @@ tests:
           annotations:
             annotation1: "{{ .Values.annotation1 }}"
             annotation2: annotation2
+          annotationsList:
+            - name: some-annotation
+              value: some-value
+          labelsList:
+            - name: some-label
+              value: some-value
           podSpec:
             labels:
               pod-label1: pod-label1
@@ -51,6 +57,7 @@ tests:
             annotation2: annotation2
             g_annotation1: global_annotation1
             g_annotation2: global_annotation2
+            some-annotation: some-value
       - documentIndex: *cronJobDoc
         equal:
           path: metadata.labels
@@ -67,6 +74,7 @@ tests:
             g_label2: global_label2
             label1: label1
             label2: label2
+            some-label: some-value
       - documentIndex: *cronJobDoc
         equal:
           path: spec.jobTemplate.spec.template.metadata.labels
@@ -84,6 +92,14 @@ tests:
             g_label2: global_label2
             pod-label1: pod-label1
             pod-label2: global_label2
+      - documentIndex: *cronJobDoc
+        isSubset:
+          path: spec.jobTemplate.spec.template.metadata.annotations
+          content:
+            pod-annotation1: pod-annotation1
+            pod-annotation2: global_annotation2
+            g_annotation1: global_annotation1
+            g_annotation2: global_annotation2
       - documentIndex: *cronJobDoc
         matchRegex:
           path: spec.jobTemplate.spec.template.metadata.annotations.rollme

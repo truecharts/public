@@ -29,6 +29,12 @@ tests:
           annotations:
             annotation1: "{{ .Values.annotation1 }}"
             annotation2: annotation2
+          annotationsList:
+            - name: some-annotation
+              value: some-value
+          labelsList:
+            - name: some-label
+              value: some-value
           data:
             foo: bar
     asserts:
@@ -43,6 +49,7 @@ tests:
             annotation2: annotation2
             g_annotation1: global_annotation1
             g_annotation2: global_annotation2
+            some-annotation: some-value
       - documentIndex: *configMapDoc
         equal:
           path: metadata.labels
@@ -59,6 +66,7 @@ tests:
             g_label2: global_label2
             label1: label1
             label2: label2
+            some-label: some-value
       - documentIndex: *configMapDoc
         equal:
           path: metadata.namespace

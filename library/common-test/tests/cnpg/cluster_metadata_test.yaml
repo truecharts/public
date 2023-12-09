@@ -36,6 +36,12 @@ tests:
           annotations:
             annotation1: "{{ .Values.annotation1 }}"
             annotation2: annotation2
+          annotationsList:
+            - name: some-annotation
+              value: some-value
+          labelsList:
+            - name: some-label
+              value: some-value
           cluster:
             labels:
               label3: "{{ .Values.label3 }}"
@@ -55,6 +61,7 @@ tests:
             g_annotation1: global_annotation1
             g_annotation2: global_annotation2
             cnpg.io/hibernation: "off"
+            some-annotation: some-value
       - documentIndex: *clusterDoc
         matchRegex:
           path: metadata.annotations.rollme
@@ -77,6 +84,7 @@ tests:
             label1: label1
             label2: label2
             label3: label3
+            some-label: some-value
       - documentIndex: *clusterDoc
         equal:
           path: metadata.namespace

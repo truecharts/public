@@ -34,6 +34,12 @@ tests:
           annotations:
             annotation1: "{{ .Values.annotation1 }}"
             annotation2: annotation2
+          annotationsList:
+            - name: some-annotation
+              value: some-value
+          labelsList:
+            - name: some-label
+              value: some-value
     asserts:
       - documentIndex: &pvDoc 0
         isKind:
@@ -50,6 +56,7 @@ tests:
             g_annotation1: global_annotation1
             g_annotation2: global_annotation2
             pv.kubernetes.io/provisioned-by: nfs.csi.k8s.io
+            some-annotation: some-value
       - documentIndex: *pvDoc
         equal:
           path: metadata.labels
@@ -66,6 +73,7 @@ tests:
             g_label2: global_label2
             label1: label1
             label2: label2
+            some-label: some-value
 
   - it: should pass with pvc created with retain set to true (nfs-pv-pvc)
     set:
