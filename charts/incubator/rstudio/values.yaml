@@ -32,7 +32,7 @@ workload:
         main:
           env:
             DISABLE_AUTH: "false"
-            GROUPID: "{{ .Values.SecurityContext.container.runAsGroup }}"
+            GROUPID: "{{ .Values.securityContext.pod.fsGroup }}"
             PASSWORD: rstudio
             ROOT: "FALSE"
             USER: rstudio
