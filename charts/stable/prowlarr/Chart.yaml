@@ -1,35 +1,34 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: '>=1.24.0'
 apiVersion: v2
 name: prowlarr
-version: 12.1.0
-appVersion: 1.10.5.4116
-description:
-  Indexer manager/proxy built on the popular arr net base stack to integrate
+version: 12.1.1
+appVersion: 1.11.1.4146
+description: Indexer manager/proxy built on the popular arr net base stack to integrate
   with your various PVR apps.
 home: https://truecharts.org/charts/stable/prowlarr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/prowlarr.png
 deprecated: false
 sources:
-  - https://github.com/k8s-at-home/container-images
-  - https://github.com/Prowlarr/Prowlarr
-  - https://github.com/truecharts/charts/tree/master/charts/stable/prowlarr
-  - https://ghcr.io/onedr0p/prowlarr-develop
+- https://github.com/truecharts/charts/tree/master/charts/stable/prowlarr
+- https://ghcr.io/onedr0p/prowlarr-develop
+- https://github.com/k8s-at-home/container-images
+- https://github.com/Prowlarr/Prowlarr
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - prowlarr
-  - torrent
-  - usenet
+- prowlarr
+- torrent
+- usenet
 dependencies:
-  - name: common
-    version: 14.3.5
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4
