@@ -43,10 +43,11 @@
   {{- $_ := set $config "settings" dict -}}
 {{- end -}}
 
-{{- $_ := set $config.settings "postgres.database" .Values.cnpg.main.database -}}
-{{- $_ := set $config.settings "postgres.user" .Values.cnpg.main.user -}}
-{{- $_ := set $config.settings "postgres.host" .Values.cnpg.main.creds.host -}}
-{{- $_ := set $config.settings "postgres.password" (.Values.cnpg.main.creds.password | trimAll "\"")  -}}
+{{- $_ := set $config.settings "postgres" dict -}}
+{{- $_ := set $config.settings.postgres "database" .Values.cnpg.main.database -}}
+{{- $_ := set $config.settings.postgres "user" .Values.cnpg.main.user -}}
+{{- $_ := set $config.settings.postgres "host" .Values.cnpg.main.creds.host -}}
+{{- $_ := set $config.settings.postgres "password" (.Values.cnpg.main.creds.password | trimAll "\"")  -}}
 {{- $_ := set $config.settings "sessionKey" $sessionKey -}}
 {{- $_ := set $config.settings "port" .Values.service.main.ports.main.port -}}
 
