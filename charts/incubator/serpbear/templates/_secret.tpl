@@ -1,7 +1,8 @@
 {{/* Define the secret */}}
 {{- define "serpbear.secret" -}}
 
-{{- $secretName := (printf "%s-env-secret" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
+{{- $secretName := (printf "%s-serpbear-secret" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
+
 enabled: true
 data:
   {{/* Secret Key */}}
