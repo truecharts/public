@@ -56,13 +56,12 @@ persistence:
     enabled: true
     mountPath: /opt/recipes/mediafiles
   recipes-config:
-    enabled: "true"
+    enabled: true
+    type: configmap
+    defaultMode: "0777"
     mountPath: /etc/nginx/nginx.conf
     subPath: nginx.conf
-    type: custom
-    volumeSpec:
-      configMap:
-        name: '{{ printf "%s-receipes-config" (include "tc.v1.common.lib.chart.names.fullname" $) }}'
+    objectName: receipes-config
   static:
     enabled: true
     mountPath: /opt/recipes/staticfiles
