@@ -4,6 +4,7 @@
 {{- $fullname := include "tc.v1.common.lib.chart.names.fullname" $ -}}
 {{- $secretName := printf "%s-mesh-secret" $fullname -}}
 {{- $secretStoreName := printf "%s-sec-store" $fullname -}}
+{{- $pgHost := printf "%v-cnpg-main-rw" (include "tc.v1.common.lib.chart.names.fullname" $) -}}
 
 {{- $config := .Values.meshcentral -}}
 {{- $mc_custom := .Values.additional_meshcentral -}}
@@ -43,8 +44,10 @@
   {{- $_ := set $config "settings" dict -}}
 {{- end -}}
 
-{{- $_ := set $config.settings "mongoDB" (.Values.mongodb.creds.complete | trimAll "\"") -}}
-{{- $_ := set $config.settings "mongoDbName" .Values.mongodb.mongodbDatabase -}}
+{{- $_ := set $config.settings "postgres.database" "{{ .Values.cnpg.main.database }}" -}}
+{{- $_ := set $config.settings "postgres.user" "{{ .Values.cnpg.main.user }}" -}}
+{{- $_ := set $config.settings "postgres.host" $pgHost -}}
+{{- $_ := set $config.settings "postgres.password" {{ .Values.cnpg.main.creds.password | trimAll "\"" }} -}}
 {{- $_ := set $config.settings "sessionKey" $sessionKey -}}
 {{- $_ := set $config.settings "port" .Values.service.main.ports.main.port -}}
 

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: meshcentral
-version: 11.0.15
+version: 12.0.0
 appVersion: 1.1.16
 description: MeshCentral is a full computer management web site
 home: https://truecharts.org/charts/stable/meshcentral
@@ -24,13 +24,6 @@ dependencies:
     version: 14.3.5
     repository: https://library-charts.truecharts.org
     condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-  - name: mongodb
-    version: 6.0.67
-    repository: https://deps.truecharts.org/
-    condition: mongodb.enabled
     alias: ""
     tags: []
     import-values: []
