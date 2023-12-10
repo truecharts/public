@@ -61,7 +61,7 @@ persistence:
     defaultMode: "0777"
     mountPath: /etc/nginx/nginx.conf
     subPath: nginx.conf
-    objectName: receipes-config
+    objectName: recipes-config
   static:
     enabled: true
     mountPath: /opt/recipes/staticfiles
