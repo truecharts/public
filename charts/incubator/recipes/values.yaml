@@ -62,7 +62,7 @@ persistence:
     type: custom
     volumeSpec:
       configMap:
-        name: '{{ printf "%v-config" (include "tc.common.names.fullname" .) }}'
+        name: '{{ printf "%v-config" (include "tc.v1.common.lib.chart.names.fullname" .) }}'
   static:
     enabled: true
     mountPath: /opt/recipes/staticfiles
@@ -70,11 +70,11 @@ persistence:
 portal:
   open:
     enabled: true
-postgresql:
-  enabled: true
-  existingSecret: dbcreds
-  postgresqlDatabase: recipes
-  postgresqlUsername: recipes
+cnpg:
+  main:
+    enabled: true
+    database: recipes
+    username: recipes
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -100,17 +100,17 @@ workload:
             DEBUG: 0
             FRACTION_PREF_DEFAULT: 0
             GUNICORN_MEDIA: 0
-            POSTGRES_DB: "{{ .Values.postgresql.postgresqlDatabase }}"
+            POSTGRES_DB: "{{ .Values.cnpg.main.database }}"
             POSTGRES_HOST:
               secretKeyRef:
-                key: plainhost
-                name: dbcreds
+                key: cnpg-main-urls
+                name: host
             POSTGRES_PASSWORD:
               secretKeyRef:
-                key: postgresql-password
-                name: dbcreds
+                name: cnpg-main-user
+                key: password
             POSTGRES_PORT: "5432"
-            POSTGRES_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+            POSTGRES_USER: "{{ .Values.cnpg.main.username }}"
             SECRET_KEY:
               secretKeyRef:
                 key: SECRET_KEY
