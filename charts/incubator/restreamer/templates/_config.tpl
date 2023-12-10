@@ -1,7 +1,7 @@
 {{/* Define the configmap */}}
 {{- define "restreamer.configmap" -}}
 
-{{- $configName := printf "%s-restreamer-configmap" (include "tc.common.names.fullname" .) }}
+{{- $configName := printf "%s-restreamer-configmap" (include "tc.v1.common.lib.chart.names.fullname" $) }}
 
 ---
 {{/* This configmap are loaded on both main authentik container and worker */}}

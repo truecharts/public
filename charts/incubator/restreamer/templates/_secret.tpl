@@ -1,15 +1,9 @@
 {{/* Define the secrets */}}
 {{- define "restreamer.secrets" -}}
 
-{{- $secretName := printf "%s-restreamer-secret" (include "tc.common.names.fullname" .) }}
+{{- $secretName := (printf "%s-restreamer-secret" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
 
----
-
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: {{ $secretName }}
+enabled: true
 data:
   {{- with (lookup "v1" "Secret" .Release.Namespace $secretName) }}
   CORE_API_AUTH_JWT_SECRET: {{ index .data "CORE_API_AUTH_JWT_SECRET" }}
