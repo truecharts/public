@@ -1,7 +1,7 @@
 {{/* Define the secrets */}}
 {{- define "recipes.secrets" -}}
 enabled: true
-date:
+data:
   {{- $recipesprevious := lookup "v1" "Secret" .Release.Namespace "recipes-secrets" }}
   {{- $secret_key := "" }}
   {{- if $recipesprevious}}
