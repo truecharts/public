@@ -967,9 +967,10 @@ service:
   #       port: 9971
   #       targetPort: 9971
 cnpg:
-  enabled: true
-  username: meshcentral
-  database: meshcentral
+  main:
+    enabled: true
+    username: meshcentral
+    database: meshcentral
 persistence:
   data:
     enabled: true
