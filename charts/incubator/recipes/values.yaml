@@ -62,7 +62,7 @@ persistence:
     type: custom
     volumeSpec:
       configMap:
-        name: recipes-config
+        name: '{{ printf "%s-receipes-config" (include "tc.v1.common.lib.chart.names.fullname" $) }}'
   static:
     enabled: true
     mountPath: /opt/recipes/staticfiles
