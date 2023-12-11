@@ -7,7 +7,8 @@ persistence:
     enabled: true
     mountPath: /app/config
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -21,7 +22,7 @@ service:
       ldapport:
         enabled: true
         port: 389
-        protocol: TCP
+        protocol: tcp
         targetPort: 389
   ldapsport:
     enabled: true
@@ -29,11 +30,11 @@ service:
       ldapsport:
         enabled: true
         port: 636
-        protocol: TCP
+        protocol: tcp
         targetPort: 636
   main:
     ports:
       main:
         port: 5555
-        protocol: HTTP
+        protocol: http
         targetPort: 5555

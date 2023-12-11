@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: apache-webdav
-version: 3.0.0
+version: 3.0.1
 appVersion: latest
 description:
   Very simple WebDAV server based on Apache. You need a WebDAV client to
@@ -10,10 +10,10 @@ home: https://truecharts.org/charts/incubator/apache-webdav
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/apache-webdav.png
 deprecated: false
 sources:
-  - https://httpd.apache.org/docs/2.4/mod/mod_dav.html
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/apache-webdav
   - https://hub.docker.com/r/apachewebdav/apachewebdav
+  - https://httpd.apache.org/docs/2.4/mod/mod_dav.html
   - https://github.com/mgutt/docker-apachewebdav
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/apache-webdav
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

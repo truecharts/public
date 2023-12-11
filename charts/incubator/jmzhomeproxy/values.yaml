@@ -4,7 +4,8 @@ image:
   tag: latest@sha256:6f37ef95a27aa512b8e5eaea0c22457035ca81bf6a7b71f91de1b57c78b7586d
 persistence: {}
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -16,5 +17,5 @@ service:
     ports:
       main:
         port: 8080
-        protocol: TCP
+        protocol: tcp
         targetPort: 8080

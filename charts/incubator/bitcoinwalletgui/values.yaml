@@ -7,7 +7,8 @@ persistence:
     enabled: true
     mountPath: /headless/.bitcoin/
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -19,7 +20,7 @@ service:
     ports:
       main:
         port: 6901
-        protocol: HTTP
+        protocol: http
         targetPort: 6901
   vncport:
     enabled: true
@@ -27,7 +28,7 @@ service:
       vncport:
         enabled: true
         port: 5905
-        protocol: TCP
+        protocol: tcp
         targetPort: 5901
 workload:
   main:

@@ -105,7 +105,8 @@ persistence:
     enabled: true
     mountPath: /protected_media
 portal:
-  enabled: true
+  open:
+    enabled: true
 postgresql:
   enabled: true
   existingSecret: dbcreds

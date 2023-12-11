@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: import-ics
-version: 3.0.0
+version: 3.0.1
 appVersion: latest
 description:
   Runs a python script at a crontab defined interval that downloads/imports
@@ -10,9 +10,9 @@ home: https://truecharts.org/charts/incubator/import-ics
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/import-ics.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/import-ics
   - https://hub.docker.com/r/vilhjalmr26/import_ics
   - https://github.com/Vilhjalmr26/import_ics
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/import-ics
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

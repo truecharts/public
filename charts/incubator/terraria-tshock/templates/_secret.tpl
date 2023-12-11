@@ -1,7 +1,7 @@
 {{/* Define the secret */}}
 {{- define "terraria.secret" -}}
 
-{{- $secretName := printf "%s-secret" (include "tc.common.names.fullname" .) }}
+{{- $secretName := (printf "%s-terraria-secret" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
 
 {{- $params := list }}
 {{- $params = mustAppend $params (printf "-port %v" .Values.service.main.ports.main.port) -}}
@@ -20,13 +20,7 @@
 {{- end -}}
 
 {{- $params = mustAppend $params .Values.terraria.game_params }}
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: {{ $secretName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
-stringData:
+enabled: true
+data:
   GAME_PARAMS: {{ join " " $params | quote }}
 {{- end -}}

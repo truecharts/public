@@ -16,7 +16,8 @@ persistence:
     enabled: true
     mountPath: /watch
 portal:
-  enabled: false
+  open:
+    enabled: false
 securityContext:
   container:
     readOnlyRootFilesystem: false

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: imgpush
-version: 3.0.0
+version: 3.0.1
 appVersion: latest
 description:
   Minimalist Self-hosted Image Service for user submitted images in your
@@ -10,9 +10,9 @@ home: https://truecharts.org/charts/incubator/imgpush
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/imgpush.png
 deprecated: false
 sources:
-  - https://hub.docker.com/r/hauxir/imgpush
   - https://github.com/hauxir/imgpush
   - https://github.com/truecharts/charts/tree/master/charts/incubator/imgpush
+  - https://hub.docker.com/r/hauxir/imgpush
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

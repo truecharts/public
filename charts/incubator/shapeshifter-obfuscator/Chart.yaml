@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: shapeshifter-obfuscator
-version: 3.0.0
+version: 3.0.1
 appVersion: latest
 description:
   "Shapeshifter-Obfuscator is a Chartized implementation of shapeshifter-dispatcher
@@ -12,9 +12,9 @@ home: https://truecharts.org/charts/incubator/shapeshifter-obfuscator
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/shapeshifter-obfuscator.png
 deprecated: false
 sources:
+  - https://hub.docker.com/r/juchong/shapeshifter-docker
   - https://github.com/juchong/shapeshifter-docker
   - https://github.com/truecharts/charts/tree/master/charts/incubator/shapeshifter-obfuscator
-  - https://hub.docker.com/r/juchong/shapeshifter-docker
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

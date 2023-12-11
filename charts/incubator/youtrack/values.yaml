@@ -20,7 +20,8 @@ persistence:
     mountPath: /opt/youtrack/temp
     type: emptyDir
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -31,7 +32,7 @@ service:
     ports:
       main:
         port: 18080
-        protocol: HTTP
+        protocol: http
 youtrack:
   admin_restore: false
   authThrottlingEnabled: false

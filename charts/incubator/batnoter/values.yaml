@@ -3,7 +3,8 @@ image:
   repository: ghcr.io/batnoter/batnoter/batnoter-ui
   tag: latest@sha256:9916463b41965035cc695b27bc8f3bf0fdc5923f5046d8fbd857d206b2d120a4
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -15,5 +16,5 @@ service:
     ports:
       main:
         port: 10351
-        protocol: HTTP
+        protocol: http
         targetPort: 3000

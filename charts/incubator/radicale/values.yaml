@@ -23,7 +23,8 @@ persistence:
       secret:
         secretName: radicale-secret
 portal:
-  enabled: true
+  open:
+    enabled: true
 radicale:
   auth:
     delay: 1
@@ -67,7 +68,7 @@ service:
     ports:
       main:
         port: 10255
-        protocol: HTTP
+        protocol: http
         targetPort: 5232
 workload:
   main:

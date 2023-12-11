@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: blender
-version: 3.0.0
+version: 3.0.1
 appVersion: latest
 description:
   Blender(https://www.blender.org/) is a free and open-source 3D computer
@@ -13,11 +13,11 @@ home: https://truecharts.org/charts/incubator/blender
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/blender.png
 deprecated: false
 sources:
-  - https://github.com/linuxserver/docker-blender#readme
   - https://www.blender.org/
+  - https://github.com/orgs/linuxserver/packages/container/package/blender
   - https://github.com/truecharts/charts/tree/master/charts/incubator/blender
   - https://fleet.linuxserver.io/image?name=linuxserver/blender
-  - https://github.com/orgs/linuxserver/packages/container/package/blender
+  - https://github.com/linuxserver/docker-blender#readme
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

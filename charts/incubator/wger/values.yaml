@@ -26,7 +26,8 @@ persistence:
             path: default.conf
         name: '{{ include "tc.common.names.fullname" . }}-wger-nginx-config'
 portal:
-  enabled: true
+  open:
+    enabled: true
 postgresql:
   enabled: true
   existingSecret: dbcreds

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: mordhau
-version: 3.0.0
+version: 3.0.1
 appVersion: mordhau
 description:
   "This Docker will download and install SteamCMD. It will also install
@@ -11,9 +11,9 @@ home: https://truecharts.org/charts/incubator/mordhau
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/mordhau.png
 deprecated: false
 sources:
+  - https://hub.docker.com/r/ich777/steamcmd
   - https://www.steampowered.com/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/mordhau
-  - https://hub.docker.com/r/ich777/steamcmd
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

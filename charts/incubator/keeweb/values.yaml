@@ -10,7 +10,8 @@ persistence:
     enabled: true
     mountPath: /etc/nginx/external
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -24,11 +25,11 @@ service:
       http:
         enabled: true
         port: 8004
-        protocol: HTTP
+        protocol: http
         targetPort: 80
   main:
     ports:
       main:
         port: 8003
-        protocol: HTTPS
+        protocol: https
         targetPort: 443

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: poste
-version: 3.0.0
+version: 3.0.1
 appVersion: latest
 description:
   "FREE version of Poste.io, full mail server solution. POP3, SMTP, IMAP,
@@ -10,9 +10,9 @@ home: https://truecharts.org/charts/incubator/poste
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/poste.png
 deprecated: false
 sources:
+  - https://hub.docker.com/r/analogic/poste.io
   - https://poste.io/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/poste
-  - https://hub.docker.com/r/analogic/poste.io
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

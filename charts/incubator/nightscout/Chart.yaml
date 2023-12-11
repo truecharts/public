@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: nightscout
-version: 3.0.0
+version: 3.0.1
 appVersion: latest
 description:
   Allows the installation of Nightscout, a remote CGM monitoring system.
@@ -12,9 +12,9 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/nightscout.png
 deprecated: false
 sources:
   - https://github.com/nightscout/cgm-remote-monitor
+  - https://registry.hub.docker.com/r/nightscout/cgm-remote-monitor-travis
   - https://github.com/truecharts/charts/tree/master/charts/incubator/nightscout
   - https://hub.docker.com/r/nightscout/cgm-remote-monitor-travis
-  - https://registry.hub.docker.com/r/nightscout/cgm-remote-monitor-travis
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

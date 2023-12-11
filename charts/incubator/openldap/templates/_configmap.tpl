@@ -1,11 +1,7 @@
 {{/* Define the configmap */}}
 {{- define "openldap.configmap" -}}
 
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: openldapconfig
+{{- $configName := printf "%s-openldap-configmap" (include "tc.v1.common.lib.chart.names.fullname" $) }}
 data:
   LDAP_TLS_CRT_FILENAME: "tls.crt"
   LDAP_TLS_KEY_FILENAME: "tls.key"

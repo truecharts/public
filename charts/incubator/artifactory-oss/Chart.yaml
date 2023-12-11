@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: artifactory-oss
-version: 3.0.0
+version: 3.0.1
 appVersion: 7.71.4
 description:
   JFrog’s Artifactory open source project was created to speed up development
@@ -13,8 +13,8 @@ deprecated: false
 sources:
   - ""
   - https://registry.hub.docker.com/r/docker.bintray.io/jfrog/artifactory-oss
-  - https://jfrog.com/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/artifactory-oss
+  - https://jfrog.com/
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

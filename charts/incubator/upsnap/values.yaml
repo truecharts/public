@@ -8,7 +8,8 @@ persistence:
     enabled: true
     mountPath: /app/pb_data
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -20,7 +21,7 @@ service:
     ports:
       main:
         port: 10611
-        protocol: HTTP
+        protocol: http
         targetPort: 8090
 workload:
   main:

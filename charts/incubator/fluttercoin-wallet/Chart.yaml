@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: fluttercoin-wallet
-version: 3.0.0
+version: 3.0.1
 appVersion: latest
 description:
   FlutterCoin may be a coin with the tried and true algorithm of scrypt,
@@ -10,9 +10,9 @@ home: https://truecharts.org/charts/incubator/fluttercoin-wallet
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/fluttercoin-wallet.png
 deprecated: false
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/fluttercoin-wallet
   - https://hub.docker.com/r/ich777/fluttercoin
   - https://fluttercoin.me/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/fluttercoin-wallet
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

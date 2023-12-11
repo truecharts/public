@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: tubesync
-version: 3.0.0
+version: 3.0.1
 appVersion: latest
 description:
   TubeSync is a PVR (personal video recorder) for YouTube. Or, like Sonarr
@@ -12,8 +12,8 @@ home: https://truecharts.org/charts/incubator/tubesync
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/tubesync.png
 deprecated: false
 sources:
-  - https://github.com/meeb/tubesync
   - https://registry.hub.docker.com/r/ghcr.io/meeb/tubesync
+  - https://github.com/meeb/tubesync
   - https://github.com/truecharts/charts/tree/master/charts/incubator/tubesync
   - https://ghcr.io/meeb/tubesync
 maintainers:

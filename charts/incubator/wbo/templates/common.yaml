@@ -1,11 +1,17 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "tc.v1.common.loader.init" . }}
 
-{{/* Render secret */}}
-{{- include "wbo.secret" . }}
+{{/* Render secrets for wbo */}}
+{{- $secrets := include "wbo.secret" . | fromYaml -}}
+{{- if $secrets -}}
+  {{- $_ := set .Values.secret "wbo-secret" $secrets -}}
+{{- end -}}
 
-{{/* Render config */}}
-{{- include "wbo.config" . }}
+{{/* Render configmap for wbo */}}
+{{- $configmap := include "wbo.configmap" . | fromYaml -}}
+{{- if $configmap -}}
+  {{- $_ := set .Values.configmap "wbo-config" $configmap -}}
+{{- end -}}
 
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}

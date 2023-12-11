@@ -39,7 +39,8 @@ persistence:
       configMap:
         name: '{{ printf "%v-settings" (include "tc.common.names.fullname" .) }}'
 portal:
-  enabled: true
+  open:
+    enabled: true
 service:
   main:
     ports:

@@ -4,7 +4,8 @@ image:
   tag: latest@sha256:3ace874753e834b9c9b8a242df67f86329b04a3a48584452ae45207bfbfdb271
 persistence: {}
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -16,7 +17,7 @@ service:
     ports:
       main:
         port: 1337
-        protocol: TCP
+        protocol: tcp
         targetPort: 1337
 workload:
   main:
@@ -34,7 +35,7 @@ workload:
             ENABLE:
               delta direction upbat timeago devicestatus errorcodes ar2 simplealarms
               profile
-            INSECURE_USE_HTTP: "true"
+            INSECURE_USE_http: "true"
             MONGO_CONNECTION: mongodb://db-user:db-password@mongodb-instance:port/db-name
             THEME: colors
             TIME_FORMAT: "24"

@@ -2,6 +2,7 @@ image:
   repository: karsten13/magicmirror
   pullPolicy: IfNotPresent
   tag: v2.25.0@sha256:d0cb9a3ba57af3e0c498953dbda891bc25f5a3a327cbc651ee7cf4ed139f970c
+
 fatImage:
   repository: karsten13/magicmirror
   pullPolicy: IfNotPresent
@@ -39,6 +40,7 @@ workload:
             - npm
             - run
             - server
+
           env:
             FORCE_UPDATE: "{{ .Values.magicmirror.force_update }}"
             FORCE_UPDATE_MODULES: "{{ .Values.magicmirror.force_update_modules }}"

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: cadquery-jupyter
-version: 3.0.0
+version: 3.0.1
 appVersion: 3.5.2
 description:
   CadQuery is an intuitive, easy-to-use Python module for building parametric
@@ -12,9 +12,9 @@ home: https://truecharts.org/charts/incubator/cadquery-jupyter
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/cadquery-jupyter.png
 deprecated: false
 sources:
+  - https://github.com/bernhard-42/jupyter-cadquery
   - https://github.com/truecharts/charts/tree/master/charts/incubator/cadquery-jupyter
   - https://hub.docker.com/r/bwalter42/jupyter_cadquery
-  - https://github.com/bernhard-42/jupyter-cadquery
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

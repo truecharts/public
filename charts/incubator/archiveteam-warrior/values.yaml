@@ -3,7 +3,8 @@ image:
   repository: atdr.meo.ws/archiveteam/warrior-dockerfile
   tag: latest@sha256:d60797c520bdc4379b0289d399408bbe3a3d36a85c62c3abdb66ccfef2d2bbcf
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -15,5 +16,5 @@ service:
     ports:
       main:
         port: 8001
-        protocol: TCP
+        protocol: tcp
         targetPort: 8001
