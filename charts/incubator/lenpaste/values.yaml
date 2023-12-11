@@ -7,7 +7,8 @@ persistence:
     enabled: true
     mountPath: /data
 portal:
-  enabled: true
+  open:
+    enabled: true
 postgresql:
   enabled: true
   existingSecret: dbcreds
@@ -18,7 +19,7 @@ service:
     ports:
       main:
         port: 10326
-        protocol: HTTP
+        protocol: http
 workload:
   main:
     podSpec:

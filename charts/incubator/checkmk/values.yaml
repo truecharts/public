@@ -20,7 +20,8 @@ persistence:
     enabled: true
     mountPath: /omd/sites
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -39,7 +40,7 @@ service:
     ports:
       main:
         port: 15000
-        protocol: HTTP
+        protocol: http
         targetPort: 5000
   receiver:
     enabled: true
@@ -47,7 +48,7 @@ service:
       receiver:
         enabled: true
         port: 18000
-        protocol: HTTP
+        protocol: http
         targetPort: 8000
 workload:
   main:

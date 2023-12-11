@@ -10,7 +10,8 @@ persistence:
     enabled: true
     mountPath: /storage
 portal:
-  enabled: false
+  open:
+    enabled: false
 securityContext:
   container:
     readOnlyRootFilesystem: false

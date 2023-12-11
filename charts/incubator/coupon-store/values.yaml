@@ -3,7 +3,8 @@ image:
   repository: metikular/coupon-store
   tag: v1.3.0@sha256:54ef3454ea23109096eef277af48f89707bfb7e31d14097466c02ac381670572
 portal:
-  enabled: true
+  open:
+    enabled: true
 postgresql:
   enabled: true
   existingSecret: dbcreds

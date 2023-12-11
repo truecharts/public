@@ -13,7 +13,8 @@ persistence:
     enabled: true
     mountPath: /source/static/pdf/
 portal:
-  enabled: false
+  open:
+    enabled: false
 securityContext:
   container:
     readOnlyRootFilesystem: false

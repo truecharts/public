@@ -7,7 +7,8 @@ persistence:
     enabled: true
     mountPath: /backup
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -19,7 +20,7 @@ service:
     ports:
       main:
         port: 4040
-        protocol: HTTP
+        protocol: http
         targetPort: 4040
   tcpport1:
     enabled: true
@@ -27,7 +28,7 @@ service:
       tcpport1:
         enabled: true
         port: 222
-        protocol: TCP
+        protocol: tcp
         targetPort: 22
   tcpport2:
     enabled: true
@@ -35,7 +36,7 @@ service:
       tcpport2:
         enabled: true
         port: 25
-        protocol: TCP
+        protocol: tcp
         targetPort: 25
   tcpport3:
     enabled: true
@@ -43,7 +44,7 @@ service:
       tcpport3:
         enabled: true
         port: 465
-        protocol: TCP
+        protocol: tcp
         targetPort: 465
   tcpport4:
     enabled: true
@@ -51,7 +52,7 @@ service:
       tcpport4:
         enabled: true
         port: 587
-        protocol: TCP
+        protocol: tcp
         targetPort: 587
   tcpport5:
     enabled: true
@@ -59,7 +60,7 @@ service:
       tcpport5:
         enabled: true
         port: 110
-        protocol: TCP
+        protocol: tcp
         targetPort: 110
   tcpport6:
     enabled: true
@@ -67,7 +68,7 @@ service:
       tcpport6:
         enabled: true
         port: 995
-        protocol: TCP
+        protocol: tcp
         targetPort: 995
   tcpport7:
     enabled: true
@@ -75,7 +76,7 @@ service:
       tcpport7:
         enabled: true
         port: 143
-        protocol: TCP
+        protocol: tcp
         targetPort: 143
   tcpport8:
     enabled: true
@@ -83,7 +84,7 @@ service:
       tcpport8:
         enabled: true
         port: 993
-        protocol: TCP
+        protocol: tcp
         targetPort: 993
   tcpport9:
     enabled: true
@@ -91,7 +92,7 @@ service:
       tcpport9:
         enabled: true
         port: 119
-        protocol: TCP
+        protocol: tcp
         targetPort: 119
   tcpport10:
     enabled: true
@@ -99,7 +100,7 @@ service:
       tcpport10:
         enabled: true
         port: 563
-        protocol: TCP
+        protocol: tcp
         targetPort: 563
   tcpport11:
     enabled: true
@@ -107,7 +108,7 @@ service:
       tcpport11:
         enabled: true
         port: 389
-        protocol: TCP
+        protocol: tcp
         targetPort: 389
   tcpport12:
     enabled: true
@@ -115,7 +116,7 @@ service:
       tcpport12:
         enabled: true
         port: 636
-        protocol: TCP
+        protocol: tcp
         targetPort: 636
   tcpport13:
     enabled: true
@@ -123,7 +124,7 @@ service:
       tcpport13:
         enabled: true
         port: 8001
-        protocol: TCP
+        protocol: tcp
         targetPort: 80
   tcpport14:
     enabled: true
@@ -131,7 +132,7 @@ service:
       tcpport14:
         enabled: true
         port: 4443
-        protocol: TCP
+        protocol: tcp
         targetPort: 443
   tcpport15:
     enabled: true
@@ -139,7 +140,7 @@ service:
       tcpport15:
         enabled: true
         port: 5222
-        protocol: TCP
+        protocol: tcp
         targetPort: 5222
   tcpport16:
     enabled: true
@@ -147,5 +148,5 @@ service:
       tcpport16:
         enabled: true
         port: 5223
-        protocol: TCP
+        protocol: tcp
         targetPort: 5223

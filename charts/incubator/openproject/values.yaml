@@ -7,12 +7,13 @@ persistence:
     enabled: true
     mountPath: /var/openproject/assets
 portal:
-  enabled: true
-postgresql:
-  enabled: true
-  existingSecret: dbcreds
-  postgresqlDatabase: openproject
-  postgresqlUsername: openproject
+  open:
+    enabled: true
+cnpg:
+  main:
+    enabled: true
+    postgresqlDatabase: openproject
+    postgresqlUsername: openproject
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -33,8 +34,8 @@ workload:
           env:
             DATABASE_URL:
               secretKeyRef:
-                key: url-noql
-                name: dbcreds
+                name: cnpg-main-urls
+                key: std
             SECRET_KEY_BASE:
               secretKeyRef:
                 key: SECRET_KEY_BASE

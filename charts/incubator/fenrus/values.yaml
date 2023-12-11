@@ -10,7 +10,8 @@ persistence:
     enabled: true
     mountPath: /app/wwwroot/images
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -22,5 +23,5 @@ service:
     ports:
       main:
         port: 3000
-        protocol: TCP
+        protocol: tcp
         targetPort: 3000

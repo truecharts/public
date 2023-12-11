@@ -21,7 +21,8 @@ persistence:
     enabled: true
     mountPath: /etc/icingaweb2
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false

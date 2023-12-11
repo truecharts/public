@@ -23,7 +23,8 @@ persistence:
     mountPath: /sys
     type: hostPath
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -54,5 +55,5 @@ service:
     ports:
       main:
         port: 10581
-        protocol: HTTP
+        protocol: http
         targetPort: 80

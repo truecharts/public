@@ -1,52 +1,75 @@
 image:
+  repository: karsten13/magicmirror
   pullPolicy: IfNotPresent
-  repository: ich777/magic-mirror2
-  tag: latest@sha256:92e2fe5fb98791aba510e1be122bd1d659fa396a48dbafa0894ebc044df07651
-magicmirror:
-  force_update: false
-  force_update_modules: false
-persistence:
-  config:
-    enabled: true
-    mountPath: /magicmirror2
-  configfile:
-    enabled: true
-    mountPath: /tmp/config.js
-    objectName:
-      '{{ printf "%s-magicmirror-config" (include "tc.common.names.fullname"
-      .) }}'
-    subPath: config.js
-    type: configMap
-portal:
-  enabled: true
+  tag: v2.25.0@sha256:d0cb9a3ba57af3e0c498953dbda891bc25f5a3a327cbc651ee7cf4ed139f970c
+
+fatImage:
+  repository: karsten13/magicmirror
+  pullPolicy: IfNotPresent
+  tag: v2.25.0_fat@sha256:784d5e27a23e1db19c47e2ca007aa29963aef3ac030b4dbeab622e6fc1beb503
+
 securityContext:
   container:
-    readOnlyRootFilesystem: false
-    runAsGroup: 0
     runAsNonRoot: false
+    readOnlyRootFilesystem: false
     runAsUser: 0
+    runAsGroup: 0
+
 service:
   main:
     ports:
       main:
+        protocol: http
         port: 10590
-        protocol: HTTP
-        targetPort: 10000
+
+magicmirror:
+  force_update: false
+  force_update_modules: false
+  lang: "en"
+  locale: "en-US"
+  time_format: "24"
+  units: metric
+
 workload:
   main:
     podSpec:
       containers:
         main:
-          envFrom:
-            - configMapRef:
-                name: '{{ include "tc.common.names.fullname" . }}-magicmirror-env'
-          probes:
-            liveness:
-              path: /
-              type: HTTP
-            readiness:
-              path: /
-              type: HTTP
-            startup:
-              path: /
-              type: HTTP
+          imageSelector: image
+          args:
+            - npm
+            - run
+            - server
+
+          env:
+            FORCE_UPDATE: "{{ .Values.magicmirror.force_update }}"
+            FORCE_UPDATE_MODULES: "{{ .Values.magicmirror.force_update_modules }}"
+            # custom variables
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+            LANG: "{{ .Values.magicmirror.lang }}"
+            LOCALE: "{{ .Values.magicmirror.locale }}"
+            TIME_FORMAT: "{{ .Values.magicmirror.time_format }}"
+            UNITS: "{{ .Values.magicmirror.units }}"
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /opt/magic_mirror/config
+  modules:
+    enabled: true
+    mountPath: /opt/magic_mirror/modules
+  css:
+    enabled: true
+    mountPath: /opt/magic_mirror/css
+  # Mounts a modified template config file to use custom env variables.
+  magicmirror-config:
+    enabled: true
+    type: configmap
+    objectName: magicmirror-config
+    mountPath: /opt/magic_mirror/config/config.js.template
+    subPath: config.js.template
+    readOnly: false
+
+portal:
+  open:
+    enabled: true

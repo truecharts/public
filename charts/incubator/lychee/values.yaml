@@ -13,7 +13,8 @@ persistence:
     enabled: true
     mountPath: /uploads
 portal:
-  enabled: true
+  open:
+    enabled: true
 postgresql:
   enabled: true
   existingSecret: dbcreds

@@ -10,7 +10,8 @@ persistence:
     enabled: true
     mountPath: /home/docker/github-backup/config/
 portal:
-  enabled: false
+  open:
+    enabled: false
 securityContext:
   container:
     readOnlyRootFilesystem: false

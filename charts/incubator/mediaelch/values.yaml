@@ -7,7 +7,8 @@ persistence:
     enabled: true
     mountPath: /shows
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -19,7 +20,7 @@ service:
     ports:
       main:
         port: 5800
-        protocol: TCP
+        protocol: tcp
         targetPort: 5800
 workload:
   main:

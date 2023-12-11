@@ -1,25 +1,26 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
-name: filerun
-version: 8.0.0
-appVersion: latest
+name: recipes
+version: 13.0.1
+appVersion: 1.5.6
 description:
-  FileRun is a full featured web based file manager with an easy to use
-  user interface
-home: https://truecharts.org/charts/incubator/filerun
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/filerun.png
+  Recipes is a Django application to manage, tag and search recipes using
+  either built in models or external storage providers hosting PDF's, Images or other
+  files.
+home: https://truecharts.org/charts/incubator/recipes
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/recipes.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/filerun
-  - https://hub.docker.com/r/filerun/filerun
-  - https://github.com/filerun/docker
+  - https://github.com/vabene1111/recipes
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/recipes
+  - https://hub.docker.com/r/vabene1111/recipes
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 keywords:
-  - filerun
-  - file
+  - recipes
+  - cooking
 dependencies:
   - name: common
     version: 16.0.0
@@ -28,10 +29,10 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
-  - name: mariadb
-    version: 5.0.35
+  - name: postgresql
+    version: 11.0.31
     repository: https://deps.truecharts.org/
-    condition: mariadb.enabled
+    condition: postgresql.enabled
     alias: ""
     tags: []
     import-values: []
@@ -42,4 +43,4 @@ annotations:
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: unstable

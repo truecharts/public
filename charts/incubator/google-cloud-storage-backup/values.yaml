@@ -8,7 +8,8 @@ persistence:
     mountPath: /data/backup
     readOnly: true
 portal:
-  enabled: false
+  open:
+    enabled: false
 securityContext:
   container:
     readOnlyRootFilesystem: false

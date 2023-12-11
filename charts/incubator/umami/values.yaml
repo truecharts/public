@@ -3,12 +3,13 @@ image:
   repository: ghcr.io/umami-software/umami
   tag: postgresql-v2.8.0@sha256:0099e9c3b321d7e93fd6d539070faf6a19db07f6bbf21ddf39019a874dd25145
 portal:
-  enabled: true
-postgresql:
-  enabled: true
-  existingSecret: dbcreds
-  postgresqlDatabase: umami
-  postgresqlUsername: umami
+  open:
+    enabled: true
+cnpg:
+  main:
+    enabled: true
+    user: unami
+    database: unami
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -19,7 +20,7 @@ service:
     ports:
       main:
         port: 10381
-        protocol: HTTP
+        protocol: http
 umami:
   client_ip_header: ""
   collect_api_endpoint: /api/collect
@@ -44,8 +45,8 @@ workload:
             DATABASE_TYPE: postgresql
             DATABASE_URL:
               secretKeyRef:
-                key: url
-                name: dbcreds
+                name: cnpg-main-urls
+                key: host
             DISABLE_LOGIN: '{{ ternary "1" "0" .Values.umami.disable_login }}'
             DISABLE_TELEMETRY:
               '{{ ternary "1" "0" .Values.umami.disable_telemetry
@@ -61,4 +62,4 @@ workload:
             TRACKER_SCRIPT_NAME: "{{ .Values.umami.tracker_script_name }}"
           envFrom:
             - secretRef:
-                name: '{{ include "tc.common.names.fullname" . }}-secret'
+                name: umami-secret

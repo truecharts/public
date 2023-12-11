@@ -10,7 +10,8 @@ persistence:
     enabled: true
     mountPath: /serverdata/steamcmd
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -22,7 +23,7 @@ service:
     ports:
       main:
         port: 26900
-        protocol: TCP
+        protocol: tcp
         targetPort: 26900
   raknet:
     enabled: true
@@ -30,7 +31,7 @@ service:
       raknet:
         enabled: true
         port: 26902
-        protocol: UDP
+        protocol: udp
         targetPort: 26902
   registeringats:
     enabled: true
@@ -38,7 +39,7 @@ service:
       registeringats:
         enabled: true
         port: 27015
-        protocol: UDP
+        protocol: udp
         targetPort: 27015
   steamcommunica:
     enabled: true
@@ -46,7 +47,7 @@ service:
       steamcommunica:
         enabled: true
         port: 26901
-        protocol: UDP
+        protocol: udp
         targetPort: 26901
   steammasterser:
     enabled: true
@@ -54,7 +55,7 @@ service:
       steammasterser:
         enabled: true
         port: 26900
-        protocol: UDP
+        protocol: udp
         targetPort: 26900
   unet:
     enabled: true
@@ -62,7 +63,7 @@ service:
       unet:
         enabled: true
         port: 26903
-        protocol: UDP
+        protocol: udp
         targetPort: 26903
   webbasecontrol:
     enabled: true
@@ -70,7 +71,7 @@ service:
       webbasecontrol:
         enabled: true
         port: 8080
-        protocol: TCP
+        protocol: tcp
         targetPort: 8080
   webpanel:
     enabled: true
@@ -78,7 +79,7 @@ service:
       webpanel:
         enabled: true
         port: 8082
-        protocol: TCP
+        protocol: tcp
         targetPort: 8082
 workload:
   main:
