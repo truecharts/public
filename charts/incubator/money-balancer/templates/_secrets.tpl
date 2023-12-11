@@ -1,14 +1,16 @@
 {{/* Define the secrets */}}
 {{- define "moneybalancer.secrets" -}}
 
-{{- $secretName := printf "%s-moneybalancer-secrets" (include "tc.v1.common.lib.chart.names.fullname" .) }}
-
+{{- $secretName := printf "%s-secrets" (include "tc.v1.common.lib.chart.names.fullname" .) }}
+{{- $moneybalancerprevious := lookup "v1" "Secret" .Release.Namespace $secretName }}
+{{- $jwt_secret := "" }}
 enabled: true
 data:
-  {{- with (lookup "v1" "Secret" .Release.Namespace $secretName) }}
-  JWT_SECRET: {{ index .data "JWT_SECRET" }}
+  {{- if $moneybalancerprevious}}
+  JWT_SECRET: {{ index $moneybalancerprevious.data "JWT_SECRET" }}
   {{- else }}
-  JWT_SECRET: {{ randAlphaNum 32 | b64enc }}
+  {{- $jwt_secret := randAlphaNum 32 }}
+  JWT_SECRET: {{ $jwt_secret | b64enc }}
   {{- end }}
 
 {{- end -}}
