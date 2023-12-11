@@ -1,8 +1,11 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "tc.v1.common.loader.init" . }}
 
+{{/* Render configmap for open */}}
+{{- $configmap := include "openldap.configmap" . | fromYaml -}}
+{{- if $configmap -}}
+  {{- $_ := set .Values.configmap "openldap-configmap" $configmap -}}
+{{- end -}}
+
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}
-
-{{/* Render configmap for openldap */}}
-{{- include "openldap.configmap" . }}

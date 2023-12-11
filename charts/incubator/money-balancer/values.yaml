@@ -21,9 +21,11 @@ workload:
     podSpec:
       containers:
         main:
-          envFrom:
-            - secretRef:
-                name: '{{ include "tc.common.names.fullname" . }}-moneybalancer-secret'
+          env:
+            JWT_SECRET:
+              secretKeyRef:
+                name: secrets
+                key: JWT_SECRET
           probes:
             liveness:
               path: /
