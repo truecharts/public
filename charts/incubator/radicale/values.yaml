@@ -67,8 +67,8 @@ persistence:
     readOnly: false
   users:
     enabled: true
-    type: secret
-    secretName: radicale-secrets
+    type: configmap
+    objectName: radicale-users
     mountPath: /etc/radicale/users
     subPath: users
     readOnly: false

@@ -151,4 +151,11 @@ radicale-config:
       # Additional HTTP headers
       #Access-Control-Allow-Origin = *
 
+radicale-users:
+  enabled: true
+  data:
+    users: |-
+      {{- range .Values.radicale.auth.users }}
+      {{ htpasswd .username .password }}
+      {{- end }}
 {{- end }}
