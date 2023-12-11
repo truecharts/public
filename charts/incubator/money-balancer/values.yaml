@@ -23,7 +23,7 @@ workload:
         main:
           envFrom:
             - secretRef:
-                name: '{{ include "tc.common.names.fullname" . }}-moneybalancer-secret'
+                name: '{{ include "tc.common.lib.chart.names.fullname" . }}-moneybalancer-secret'
           probes:
             liveness:
               path: /

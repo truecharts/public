@@ -1,15 +1,9 @@
 {{/* Define the secrets */}}
 {{- define "moneybalancer.secrets" -}}
 
-{{- $secretName := printf "%s-moneybalancer-secret" (include "tc.common.names.fullname" .) }}
+{{- $secretName := printf "%s-moneybalancer-secret" (include "tc.common.lib.chart.names.fullname" .) }}
 
----
-
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: {{ $secretName }}
+enabled: true
 data:
   {{- with (lookup "v1" "Secret" .Release.Namespace $secretName) }}
   JWT_SECRET: {{ index .data "JWT_SECRET" }}
