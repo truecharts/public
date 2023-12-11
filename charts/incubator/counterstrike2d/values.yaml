@@ -7,7 +7,8 @@ persistence:
     enabled: true
     mountPath: /serverdata/serverfiles
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -19,7 +20,7 @@ service:
     ports:
       main:
         port: 36963
-        protocol: UDP
+        protocol: udp
         targetPort: 36963
 workload:
   main:

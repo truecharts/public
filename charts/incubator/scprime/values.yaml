@@ -10,7 +10,8 @@ persistence:
     enabled: true
     mountPath: /storage
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -24,13 +25,13 @@ service:
       hostapiaddress:
         enabled: true
         port: 4283
-        protocol: TCP
+        protocol: tcp
         targetPort: 4283
   main:
     ports:
       main:
         port: 4282
-        protocol: TCP
+        protocol: tcp
         targetPort: 4282
 workload:
   main:

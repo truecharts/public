@@ -4,7 +4,8 @@ image:
   tag: latest@sha256:0885e979bce2dbefcc261ec55d0fd37ce026e2724d4d7c100980a6b367c1008c
 persistence: {}
 portal:
-  enabled: false
+  open:
+    enabled: false
 securityContext:
   container:
     readOnlyRootFilesystem: false

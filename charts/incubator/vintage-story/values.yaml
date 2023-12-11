@@ -7,7 +7,8 @@ persistence:
     enabled: true
     mountPath: /vintagestory
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -19,7 +20,7 @@ service:
     ports:
       main:
         port: 42420
-        protocol: TCP
+        protocol: tcp
         targetPort: 42420
 workload:
   main:

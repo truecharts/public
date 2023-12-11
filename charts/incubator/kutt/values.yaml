@@ -3,7 +3,8 @@ image:
   repository: kutt/kutt
   tag: v2.7.4@sha256:340fae3678e5f9ba6b40761d72e5c6992331bef678b5a0fcc8afea83ab735f41
 portal:
-  enabled: true
+  open:
+    enabled: true
 postgresql:
   enabled: true
   existingSecret: dbcreds
@@ -39,7 +40,7 @@ workload:
           env:
             ADMIN_EMAILS: admin@example.com,admin@example2.com
             CONTACT_EMAIL: admin@example.com
-            CUSTOM_DOMAIN_USE_HTTPS: false
+            CUSTOM_DOMAIN_USE_https: false
             DB_HOST:
               secretKeyRef:
                 key: plainhost

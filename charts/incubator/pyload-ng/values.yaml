@@ -10,7 +10,8 @@ persistence:
     enabled: true
     mountPath: /downloads
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -22,7 +23,7 @@ service:
     ports:
       main:
         port: 8000
-        protocol: HTTP
+        protocol: http
         targetPort: 8000
   port9666:
     enabled: true
@@ -30,7 +31,7 @@ service:
       port9666:
         enabled: true
         port: 9666
-        protocol: TCP
+        protocol: tcp
         targetPort: 9666
 workload:
   main:

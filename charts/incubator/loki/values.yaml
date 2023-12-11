@@ -64,7 +64,8 @@ persistence:
     objectName: '{{ include "tc.common.names.fullname" . -}}-config'
     type: secret
 portal:
-  enabled: true
+  open:
+    enabled: true
 promtail:
   enabled: true
 secret:
@@ -78,7 +79,7 @@ service:
     ports:
       main:
         port: 3100
-        protocol: HTTP
+        protocol: http
         targetPort: 3100
 volumeClaimTemplates:
   data:

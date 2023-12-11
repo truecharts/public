@@ -16,7 +16,8 @@ persistence:
     enabled: true
     mountPath: /root
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -28,7 +29,7 @@ service:
     ports:
       main:
         port: 8185
-        protocol: TCP
+        protocol: tcp
         targetPort: 80
 workload:
   main:

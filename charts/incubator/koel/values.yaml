@@ -57,7 +57,8 @@ persistence:
     enabled: true
     mountPath: /var/www/html/storage/search-indexes
 portal:
-  enabled: true
+  open:
+    enabled: true
 secretEnv:
   LASTFM_API_KEY: ""
   LASTFM_API_SECRET: ""
@@ -96,5 +97,5 @@ workload:
                 name: mariadbcreds
             DB_PORT: "3306"
             DB_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
-            FORCE_HTTPS: false
+            FORCE_https: false
             MEMORY_LIMIT: 2048

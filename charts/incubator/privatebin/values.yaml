@@ -39,7 +39,8 @@ persistence:
     mountPath: /run
     type: emptyDir
 portal:
-  enabled: true
+  open:
+    enabled: true
 postgresql:
   enabled: true
   existingSecret: dbcreds
@@ -90,7 +91,7 @@ service:
     ports:
       main:
         port: 10248
-        protocol: HTTP
+        protocol: http
         targetPort: 8080
 workload:
   main:

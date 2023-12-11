@@ -7,13 +7,14 @@ persistence:
     enabled: true
     mountPath: /app/app/static/media
 portal:
-  enabled: true
+  open:
+    enabled: true
 service:
   main:
     ports:
       main:
         port: 10602
-        protocol: HTTP
+        protocol: http
         targetPort: 5000
 workload:
   main:

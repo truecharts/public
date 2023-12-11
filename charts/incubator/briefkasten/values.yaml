@@ -19,7 +19,8 @@ image:
   repository: ndom91/briefkasten
   tag: latest@sha256:9de8da3e0e71a3e5f58543e165604b2416815f5099977b0c2727435670d60aed
 portal:
-  enabled: true
+  open:
+    enabled: true
 postgresql:
   enabled: true
   existingSecret: dbcreds
@@ -36,7 +37,7 @@ service:
     ports:
       main:
         port: 10349
-        protocol: HTTP
+        protocol: http
         targetPort: 3000
 workload:
   main:
@@ -52,12 +53,12 @@ workload:
             liveness:
               enabled: false
               path: /
-              type: HTTP
+              type: http
             readiness:
               enabled: false
               path: /
-              type: HTTP
+              type: http
             startup:
               enabled: false
               path: /
-              type: HTTP
+              type: http

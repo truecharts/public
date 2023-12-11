@@ -7,7 +7,8 @@ persistence:
     enabled: true
     mountPath: /srv/acestream/.ACEStream
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -19,7 +20,7 @@ service:
     ports:
       main:
         port: 8008
-        protocol: TCP
+        protocol: tcp
 workload:
   main:
     podSpec:

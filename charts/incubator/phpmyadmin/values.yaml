@@ -3,7 +3,8 @@ image:
   repository: phpmyadmin/phpmyadmin
   tag: 5.2.1@sha256:67ba2550fd004399ab0b95b64021a88ea544011e566a9a1995180a3decb6410d
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -15,7 +16,7 @@ service:
     ports:
       main:
         port: 8080
-        protocol: HTTP
+        protocol: http
         targetPort: 80
 workload:
   main:

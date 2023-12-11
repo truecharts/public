@@ -7,13 +7,14 @@ persistence:
     enabled: true
     mountPath: /data
 portal:
-  enabled: true
+  open:
+    enabled: true
 service:
   main:
     ports:
       main:
         port: 10353
-        protocol: HTTP
+        protocol: http
         targetPort: 8080
 workload:
   main:

@@ -18,7 +18,8 @@ persistence:
     enabled: true
     mountPath: /core/data
 portal:
-  enabled: true
+  open:
+    enabled: true
 restreamer:
   api:
     api_access_http_allow: []
@@ -104,33 +105,33 @@ service:
       https:
         enabled: true
         port: 8081
-        protocol: HTTPS
+        protocol: https
   main:
     ports:
       main:
         port: 8080
-        protocol: HTTP
+        protocol: http
   rtmp:
     enabled: true
     ports:
       rtmp:
         enabled: true
         port: 1935
-        protocol: TCP
+        protocol: tcp
   rtmps:
     enabled: true
     ports:
       rtmps:
         enabled: true
         port: 1936
-        protocol: TCP
+        protocol: tcp
   srt:
     enabled: true
     ports:
       srt:
         enabled: true
         port: 6000
-        protocol: UDP
+        protocol: udp
 vaapiImage:
   pullPolicy: IfNotPresent
   repository: datarhei/restreamer
@@ -142,9 +143,9 @@ workload:
         main:
           envFrom:
             - secretRef:
-                name: '{{ include "tc.common.names.fullname" . }}-restreamer-secret'
+                name: 'restreamer-secret'
             - configMapRef:
-                name: '{{ include "tc.common.names.fullname" . }}-restreamer-configmap'
+                name: 'restreamer-configmap'
           probes:
             liveness:
               path: /health

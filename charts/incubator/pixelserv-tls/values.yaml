@@ -7,7 +7,8 @@ persistence:
     enabled: true
     mountPath: /var/cache/pixelserv
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -21,11 +22,11 @@ service:
       http:
         enabled: true
         port: 80
-        protocol: TCP
+        protocol: tcp
         targetPort: 80
   main:
     ports:
       main:
         port: 443
-        protocol: HTTP
+        protocol: http
         targetPort: 443
