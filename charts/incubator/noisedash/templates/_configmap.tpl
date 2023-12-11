@@ -1,15 +1,8 @@
 {{/* Define the secrets */}}
 {{- define "noisedash.config" -}}
-{{- $configName := printf "%s-noisedash-config" (include "tc.common.names.fullname" .) }}
+{{- $configName := printf "%s-noisedash-config" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 
----
-
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ $configName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
+enabled: true
 data:
   default.json: |
     {
