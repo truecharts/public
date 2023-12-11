@@ -23,7 +23,6 @@ securityContext:
 # - Any service that uses port other than 443, need to be manually configured.
 meshcentral:
   settings:
-    mongoDbBulkOperations: true
     # - The actual main port as seen externally on the Internet, this setting is often used when a reverse-proxy is used.
     aliasPort: 443
     # - When set, relayPort value is ignored. Set this to a DNS name the points to this server. When the server is accessed using the DNS name, the main web server port is used as a web relay port.
@@ -967,10 +966,11 @@ service:
   #       enabled: true
   #       port: 9971
   #       targetPort: 9971
-mongodb:
-  enabled: true
-  mongodbUsername: meshcentral
-  mongodbDatabase: meshcentral
+cnpg:
+  main:
+    enabled: true
+    username: meshcentral
+    database: meshcentral
 persistence:
   data:
     enabled: true
