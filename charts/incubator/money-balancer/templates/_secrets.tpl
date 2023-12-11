@@ -1,7 +1,7 @@
 {{/* Define the secrets */}}
 {{- define "moneybalancer.secrets" -}}
 
-{{- $secretName := printf "%s-moneybalancer-secret" (include "tc.common.lib.chart.names.fullname" .) }}
+{{- $secretName := printf "%s-moneybalancer-secret" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 
 enabled: true
 data:
