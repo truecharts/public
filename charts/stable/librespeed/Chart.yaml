@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: librespeed
 version: 10.1.5
@@ -8,24 +8,24 @@ home: https://truecharts.org/charts/stable/librespeed
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/librespeed.png
 deprecated: false
 sources:
-- https://github.com/librespeed/speedtest
-- https://github.com/truecharts/charts/tree/master/charts/stable/librespeed
-- https://ghcr.io/linuxserver/librespeed
+  - https://github.com/librespeed/speedtest
+  - https://github.com/truecharts/charts/tree/master/charts/stable/librespeed
+  - https://ghcr.io/linuxserver/librespeed
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- librespeed
-- speedtest
+  - librespeed
+  - speedtest
 dependencies:
-- name: common
-  version: 14.3.5
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.3.5
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

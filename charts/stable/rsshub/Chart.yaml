@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: rsshub
 version: 8.0.292
@@ -8,32 +8,32 @@ home: https://truecharts.org/charts/stable/rsshub
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/rsshub.png
 deprecated: false
 sources:
-- https://github.com/DIYgod/RSSHub
-- https://docs.rsshub.app/en/install/
-- https://github.com/truecharts/charts/tree/master/charts/stable/rsshub
-- https://hub.docker.com/r/diygod/rsshub
+  - https://docs.rsshub.app/en/install/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/rsshub
+  - https://hub.docker.com/r/diygod/rsshub
+  - https://github.com/DIYgod/RSSHub
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- rsshub
-- rss
+  - rsshub
+  - rss
 dependencies:
-- name: common
-  version: 14.3.5
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
-- name: redis
-  version: 6.0.66
-  repository: https://deps.truecharts.org
-  condition: redis.enabled
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.3.5
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 6.0.66
+    repository: https://deps.truecharts.org
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

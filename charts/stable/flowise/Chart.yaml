@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0'
+kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: flowise
 version: 1.0.21
@@ -8,24 +8,24 @@ home: https://truecharts.org/charts/stable/flowise
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/flowise.png
 deprecated: false
 sources:
-- https://github.com/FlowiseAI/Flowise
-- https://github.com/truecharts/charts/tree/master/charts/stable/flowise
-- https://hub.docker.com/r/flowiseai/flowise
+  - https://github.com/FlowiseAI/Flowise
+  - https://github.com/truecharts/charts/tree/master/charts/stable/flowise
+  - https://hub.docker.com/r/flowiseai/flowise
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- flowise
-- ai
+  - flowise
+  - ai
 dependencies:
-- name: common
-  version: 14.3.5
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.3.5
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4
