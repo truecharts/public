@@ -80,4 +80,4 @@ workload:
             LDAP_TLS_VERIFY_CLIENT: never
           envFrom:
             - configMapRef:
-                name: openldapconfig
+                name: openldap-configmap
