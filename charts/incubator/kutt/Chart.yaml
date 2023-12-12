@@ -23,21 +23,15 @@ keywords:
   - short
 dependencies:
   - name: common
-    version: 16.0.0
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
     tags: []
     import-values: []
-  - name: postgresql
-    version: 11.0.31
-    repository: https://deps.truecharts.org/
-    condition: postgresql.enabled
-    alias: ""
-    tags: []
-    import-values: []
+
   - name: redis
-    version: 5.0.33
+    version: 9.0.3
     repository: https://deps.truecharts.org
     condition: redis.enabled
     alias: ""
