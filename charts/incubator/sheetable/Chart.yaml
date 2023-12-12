@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: sheetable
 version: 4.0.0
@@ -10,10 +10,10 @@ home: https://truecharts.org/charts/incubator/sheetable
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/sheetable.png
 deprecated: false
 sources:
+  - https://hub.docker.com/r/vallezw/sheetable
   - https://github.com/SheetAble
   - https://sheetable.net/docs
   - https://github.com/truecharts/charts/tree/master/charts/incubator/sheetable
-  - https://hub.docker.com/r/vallezw/sheetable
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -43,3 +43,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: vertex
 version: 3.0.0
@@ -8,9 +8,9 @@ home: https://truecharts.org/charts/incubator/vertex
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/vertex.png
 deprecated: false
 sources:
-  - https://gitlab.lswl.in/lswl/vertex
   - https://github.com/truecharts/charts/tree/master/charts/incubator/vertex
   - https://hub.docker.com/r/lswl/vertex
+  - https://gitlab.lswl.in/lswl/vertex
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,3 +35,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

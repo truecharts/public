@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: ffmpeg-mkvdts2ac3
 version: 3.0.0
@@ -8,9 +8,9 @@ home: https://truecharts.org/charts/incubator/ffmpeg-mkvdts2ac3
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ffmpeg-mkvdts2ac3.png
 deprecated: false
 sources:
+  - https://registry.hub.docker.com/r/snoopy86/ffmpeg/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/ffmpeg-mkvdts2ac3
   - https://hub.docker.com/r/snoopy86/ffmpeg
-  - https://registry.hub.docker.com/r/snoopy86/ffmpeg/
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,3 +35,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

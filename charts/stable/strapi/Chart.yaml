@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: strapi
 version: 10.0.19
@@ -8,10 +8,10 @@ home: https://truecharts.org/charts/stable/strapi
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/strapi.png
 deprecated: false
 sources:
+  - https://hub.docker.com/r/naskio/strapi
   - https://truecharts.org/charts/stable/strapi
   - https://github.com/naskio/docker-strapi
   - https://github.com/truecharts/charts/tree/master/charts/stable/strapi
-  - https://hub.docker.com/r/naskio/strapi
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,3 +35,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

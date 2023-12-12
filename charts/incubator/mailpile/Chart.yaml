@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: mailpile
 version: 3.0.0
@@ -11,9 +11,9 @@ home: https://truecharts.org/charts/incubator/mailpile
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/mailpile.png
 deprecated: false
 sources:
-  - https://www.mailpile.is/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/mailpile
   - https://hub.docker.com/r/rroemhild/mailpile
+  - https://www.mailpile.is/
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -39,3 +39,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

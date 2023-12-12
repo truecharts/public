@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: shorturl
 version: 7.0.10
@@ -8,10 +8,10 @@ home: https://truecharts.org/charts/stable/shorturl
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/shorturl.png
 deprecated: false
 sources:
-  - https://github.com/prologic/shorturl
-  - https://github.com/nicholaswilde/docker-shorturl
   - https://github.com/truecharts/charts/tree/master/charts/stable/shorturl
   - https://ghcr.io/nicholaswilde/shorturl
+  - https://github.com/prologic/shorturl
+  - https://github.com/nicholaswilde/docker-shorturl
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -37,3 +37,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

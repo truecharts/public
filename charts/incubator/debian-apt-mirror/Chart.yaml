@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: debian-apt-mirror
 version: 3.0.0
@@ -10,9 +10,9 @@ home: https://truecharts.org/charts/incubator/debian-apt-mirror
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/debian-apt-mirror.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/debian-apt-mirror
   - https://hub.docker.com/r/ich777/debian-mirror
   - https://www.debian.org/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/debian-apt-mirror
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -39,3 +39,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

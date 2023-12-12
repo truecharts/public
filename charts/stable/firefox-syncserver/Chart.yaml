@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: firefox-syncserver
 version: 14.0.10
@@ -10,9 +10,9 @@ home: https://truecharts.org/charts/stable/firefox-syncserver
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/firefox-syncserver.png
 deprecated: false
 sources:
+  - https://moz-services-docs.readthedocs.io/en/latest/howtos/run-sync-1.5.html
   - https://github.com/truecharts/charts/tree/master/charts/stable/firefox-syncserver
   - https://ghcr.io/crazy-max/firefox-syncserver
-  - https://moz-services-docs.readthedocs.io/en/latest/howtos/run-sync-1.5.html
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -38,3 +38,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

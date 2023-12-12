@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: embystat
 version: 6.0.15
@@ -10,8 +10,8 @@ home: https://truecharts.org/charts/stable/embystat
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/embystat.png
 deprecated: false
 sources:
-  - https://ghcr.io/linuxserver/embystat
   - https://github.com/truecharts/charts/tree/master/charts/stable/embystat
+  - https://ghcr.io/linuxserver/embystat
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -34,3 +34,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

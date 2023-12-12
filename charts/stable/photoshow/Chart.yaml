@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: photoshow
 version: 7.0.10
@@ -8,10 +8,10 @@ home: https://truecharts.org/charts/stable/photoshow
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/photoshow.png
 deprecated: false
 sources:
+  - https://ghcr.io/linuxserver/photoshow
   - https://github.com/thibaud-rohmer/PhotoShow
   - https://github.com/linuxserver/docker-photoshow
   - https://github.com/truecharts/charts/tree/master/charts/stable/photoshow
-  - https://ghcr.io/linuxserver/photoshow
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -38,3 +38,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

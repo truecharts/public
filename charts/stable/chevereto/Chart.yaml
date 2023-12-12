@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: chevereto
 version: 8.0.10
@@ -10,10 +10,10 @@ home: https://truecharts.org/charts/stable/chevereto
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/chevereto.png
 deprecated: false
 sources:
-  - https://ghcr.io/rodber/chevereto-free
   - https://chevereto-free.github.io/setup/system/environment.html#image-handling-variables
   - https://github.com/rodber/chevereto-free
   - https://github.com/truecharts/charts/tree/master/charts/stable/chevereto
+  - https://ghcr.io/rodber/chevereto-free
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -43,3 +43,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

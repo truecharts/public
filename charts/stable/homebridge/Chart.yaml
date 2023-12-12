@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: homebridge
 version: 4.0.8
@@ -9,9 +9,9 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/homebridge.png
 deprecated: false
 sources:
   - https://homebridge.io/
+  - https://github.com/oznu/docker-homebridge
   - https://github.com/truecharts/charts/tree/master/charts/incubator/homebridge
   - https://github.com/truecharts/containers/tree/master/mirrorhomebridge
-  - https://github.com/oznu/docker-homebridge
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,3 +35,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

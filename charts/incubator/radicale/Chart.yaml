@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: radicale
 version: 3.0.0
@@ -11,10 +11,10 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/radicale.png
 deprecated: false
 sources:
   - https://github.com/Kozea/Radicale
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/radicale
-  - https://hub.docker.com/r/tomsquest/docker-radicale
   - https://github.com/tomsquest/docker-radicale
   - https://radicale.org/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/radicale
+  - https://hub.docker.com/r/tomsquest/docker-radicale
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -43,3 +43,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

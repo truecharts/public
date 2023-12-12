@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: shapeshifter-obfuscator
 version: 3.0.0
@@ -12,9 +12,9 @@ home: https://truecharts.org/charts/incubator/shapeshifter-obfuscator
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/shapeshifter-obfuscator.png
 deprecated: false
 sources:
-  - https://hub.docker.com/r/juchong/shapeshifter-docker
   - https://github.com/juchong/shapeshifter-docker
   - https://github.com/truecharts/charts/tree/master/charts/incubator/shapeshifter-obfuscator
+  - https://hub.docker.com/r/juchong/shapeshifter-docker
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -38,3 +38,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

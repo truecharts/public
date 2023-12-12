@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: autoscan
 version: 5.0.26
@@ -11,7 +11,6 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/autoscan.png
 deprecated: false
 sources:
   - https://hotio.dev/containers/autoscan
-  - ""
   - https://github.com/truecharts/charts/tree/master/charts/stable/autoscan
 maintainers:
   - name: TrueCharts
@@ -36,3 +35,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

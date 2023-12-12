@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: solr
 version: 7.0.3
@@ -8,9 +8,9 @@ home: https://truecharts.org/charts/dependency/solr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/solr.png
 deprecated: false
 sources:
+  - https://github.com/apache/solr
   - https://github.com/truecharts/charts/tree/master/charts/dependency/solr
   - https://hub.docker.com/r/bitnami/solr
-  - https://github.com/apache/solr
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,3 +35,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: dependency
+type: application

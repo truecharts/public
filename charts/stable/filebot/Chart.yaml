@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: filebot
 version: 5.0.11
@@ -11,9 +11,9 @@ home: https://truecharts.org/charts/stable/filebot
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/filebot.png
 deprecated: false
 sources:
-  - https://github.com/jlesage/docker-filebot
   - https://github.com/truecharts/charts/tree/master/charts/stable/filebot
   - https://hub.docker.com/r/jlesage/filebot
+  - https://github.com/jlesage/docker-filebot
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -37,3 +37,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: golinks
 version: 8.0.10
@@ -10,10 +10,10 @@ home: https://truecharts.org/charts/stable/golinks
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/golinks.png
 deprecated: false
 sources:
-  - https://github.com/nicholaswilde/docker-golinks
-  - https://github.com/prologic/golinks
   - https://github.com/truecharts/charts/tree/master/charts/stable/golinks
   - https://ghcr.io/nicholaswilde/golinks
+  - https://github.com/nicholaswilde/docker-golinks
+  - https://github.com/prologic/golinks
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -40,3 +40,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

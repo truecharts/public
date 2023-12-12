@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: archiveteam-warrior
 version: 3.0.0
@@ -11,9 +11,8 @@ home: https://truecharts.org/charts/incubator/archiveteam-warrior
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/archiveteam-warrior.png
 deprecated: false
 sources:
-  - https://wiki.archiveteam.org/index.php/ArchiveTeam_Warrior
-  - ""
   - https://github.com/truecharts/charts/tree/master/charts/incubator/archiveteam-warrior
+  - https://wiki.archiveteam.org/index.php/ArchiveTeam_Warrior
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -39,3 +38,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

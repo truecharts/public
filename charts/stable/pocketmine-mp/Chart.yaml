@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: pocketmine-mp
 version: 0.0.4
@@ -8,9 +8,9 @@ home: https://truecharts.org/charts/incubator/pocketmine-mp
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pocketmine-mp.png
 deprecated: false
 sources:
-  - https://github.com/pmmp/PocketMine-MP
   - https://github.com/truecharts/charts/tree/master/charts/incubator/pocketmine-mp
   - https://github.com/truecharts/containers/tree/master/mirrorpocketmine-mp
+  - https://github.com/pmmp/PocketMine-MP
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -34,3 +34,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

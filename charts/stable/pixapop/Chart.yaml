@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: pixapop
 version: 7.0.10
@@ -10,10 +10,10 @@ home: https://truecharts.org/charts/stable/pixapop
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pixapop.png
 deprecated: false
 sources:
-  - https://ghcr.io/linuxserver/pixapop
   - https://github.com/bierdok/pixapop
   - https://github.com/linuxserver/docker-pixapop
   - https://github.com/truecharts/charts/tree/master/charts/stable/pixapop
+  - https://ghcr.io/linuxserver/pixapop
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -39,3 +39,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

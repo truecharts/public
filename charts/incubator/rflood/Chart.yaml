@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: rflood
 version: 3.0.0
@@ -10,7 +10,6 @@ deprecated: false
 sources:
   - https://hotio.dev/containers/rflood
   - https://github.com/truecharts/charts/tree/master/charts/incubator/rflood
-  - ""
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -34,3 +33,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

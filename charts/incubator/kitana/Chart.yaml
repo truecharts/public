@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: kitana
 version: 3.0.0
@@ -12,9 +12,9 @@ home: https://truecharts.org/charts/incubator/kitana
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/kitana.png
 deprecated: false
 sources:
-  - https://github.com/pannal/Kitana
   - https://github.com/truecharts/charts/tree/master/charts/incubator/kitana
   - https://hub.docker.com/r/pannal/kitana
+  - https://github.com/pannal/Kitana
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -40,3 +40,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

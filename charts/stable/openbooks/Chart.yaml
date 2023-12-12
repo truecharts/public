@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: openbooks
 version: 1.0.6
@@ -8,9 +8,9 @@ home: https://truecharts.org/charts/incubator/openbooks
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/openbooks.png
 deprecated: false
 sources:
+  - https://github.com/evan-buss/openbooks
   - https://github.com/truecharts/charts/tree/master/charts/incubator/openbooks
   - https://github.com/truecharts/containers/tree/master/mirroropenbooks
-  - https://github.com/evan-buss/openbooks
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -34,3 +34,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

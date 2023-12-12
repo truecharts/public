@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: twonky-server
 version: 3.0.0
@@ -12,9 +12,9 @@ home: https://truecharts.org/charts/incubator/twonky-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/twonky-server.png
 deprecated: false
 sources:
+  - https://github.com/H2CK/twonkyserver
   - https://github.com/truecharts/charts/tree/master/charts/incubator/twonky-server
   - https://hub.docker.com/r/dtjs48jkt/twonkyserver
-  - https://github.com/H2CK/twonkyserver
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -40,3 +40,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

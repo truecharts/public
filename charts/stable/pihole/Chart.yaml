@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: pihole
 version: 11.1.9
@@ -8,11 +8,11 @@ home: https://truecharts.org/charts/stable/pihole
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pihole.png
 deprecated: false
 sources:
-  - https://hub.docker.com/r/pihole/pihole
   - https://github.com/pi-hole
   - https://github.com/pi-hole/docker-pi-hole
   - https://pi-hole.net/
   - https://github.com/truecharts/charts/tree/master/charts/stable/pihole
+  - https://hub.docker.com/r/pihole/pihole
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,3 +35,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

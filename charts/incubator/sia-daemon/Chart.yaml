@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: sia-daemon
 version: 3.0.0
@@ -15,10 +15,10 @@ home: https://truecharts.org/charts/incubator/sia-daemon
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/sia-daemon.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/sia-daemon
-  - https://ghcr.io/siafoundation/siad
   - https://github.com/siafoundation/siad
   - https://github.com/SiaFoundation/siad/pkgs/container/siad
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/sia-daemon
+  - https://ghcr.io/siafoundation/siad
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -43,3 +43,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

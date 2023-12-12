@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: onlyoffice-document-server
 version: 12.0.11
@@ -12,9 +12,9 @@ home: https://truecharts.org/charts/stable/onlyoffice-document-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/onlyoffice-document-server.png
 deprecated: false
 sources:
-  - https://github.com/ONLYOFFICE/Docker-DocumentServer
   - https://github.com/truecharts/charts/tree/master/charts/stable/onlyoffice-document-server
   - https://hub.docker.com/r/onlyoffice/documentserver
+  - https://github.com/ONLYOFFICE/Docker-DocumentServer
   - https://github.com/ONLYOFFICE/DocumentServer
 maintainers:
   - name: TrueCharts
@@ -45,3 +45,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

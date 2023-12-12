@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: plex-meta-manager
 version: 3.0.6
@@ -8,9 +8,9 @@ home: https://truecharts.org/charts/incubator/plex-meta-manager
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/plex-meta-manager.png
 deprecated: false
 sources:
+  - https://github.com/meisnate12/Plex-Meta-Manager
   - https://github.com/truecharts/charts/tree/master/charts/incubator/plex-meta-manager
   - https://github.com/truecharts/containers/tree/master/mirrorplex-meta-manager
-  - https://github.com/meisnate12/Plex-Meta-Manager
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -33,3 +33,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

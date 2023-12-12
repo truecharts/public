@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: nginx-proxy-manager
 version: 5.0.13
@@ -8,10 +8,10 @@ home: https://truecharts.org/charts/stable/nginx-proxy-manager
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/nginx-proxy-manager.png
 deprecated: false
 sources:
-  - https://hub.docker.com/r/jc21/nginx-proxy-manager
   - https://nginxproxymanager.com/
   - https://github.com/NginxProxyManager/nginx-proxy-manager
   - https://github.com/truecharts/charts/tree/master/charts/stable/nginx-proxy-manager
+  - https://hub.docker.com/r/jc21/nginx-proxy-manager
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -43,3 +43,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

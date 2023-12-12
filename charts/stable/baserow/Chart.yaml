@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: baserow
 version: 8.0.13
@@ -8,9 +8,9 @@ home: https://truecharts.org/charts/stable/baserow
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/baserow.png
 deprecated: false
 sources:
-  - https://hub.docker.com/r/baserow/baserow
   - https://gitlab.com/bramw/baserow/
   - https://github.com/truecharts/charts/tree/master/charts/stable/baserow
+  - https://hub.docker.com/r/baserow/baserow
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -40,3 +40,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application
