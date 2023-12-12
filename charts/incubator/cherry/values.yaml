@@ -35,9 +35,9 @@ workload:
         main:
           envFrom:
             - secretRef:
-                name: '{{ include "tc.common.names.fullname" . }}-cherry-secret'
+                name: 'cherry-secret'
             - configMapRef:
-                name: '{{ include "tc.common.names.fullname" . }}-cherry-configmap'
+                name: 'cherry-configmap'
           probes:
             liveness:
               path: /

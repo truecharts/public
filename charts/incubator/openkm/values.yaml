@@ -28,7 +28,7 @@ persistence:
     volumeSpec:
       configMap:
         defaultMode: "0777"
-        name: '{{ include "tc.common.names.fullname" . }}-init'
+        name: 'init'
 portal:
   open:
     enabled: true

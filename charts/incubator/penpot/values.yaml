@@ -113,9 +113,9 @@ workload:
         main:
           envFrom:
             - secretRef:
-                name: '{{ include "tc.common.names.fullname" . }}-common-secret'
+                name: 'common-secret'
             - secretRef:
-                name: '{{ include "tc.common.names.fullname" . }}-frontend-secret'
+                name: 'frontend-secret'
           probes:
             liveness:
               path: /
