@@ -1,8 +1,8 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: appsmith
-version: 6.0.0
-appVersion: 1.9.44
+version: 6.0.1
+appVersion: 1.9.50
 description:
   Turn any datasource into an internal app in minutes. Appsmith lets you
   drag-and-drop UI components to build pages, connect to any API, database or GraphQL
@@ -22,14 +22,14 @@ keywords:
   - appsmith
 dependencies:
   - name: common
-    version: 16.0.0
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 5.0.33
+    version: 9.0.3
     repository: https://deps.truecharts.org
     condition: redis.enabled
     alias: ""

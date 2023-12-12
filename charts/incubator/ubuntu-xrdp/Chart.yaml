@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: ubuntu-xrdp
-version: 3.0.0
+version: 3.0.1
 appVersion: latest
 description: LXDE desktop ubuntu (use remote desktop client to connect)
 home: https://truecharts.org/charts/incubator/ubuntu-xrdp
@@ -20,7 +20,7 @@ keywords:
   - Productivity
 dependencies:
   - name: common
-    version: 16.0.0
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: teedy-docs
-version: 3.0.0
+version: 3.0.1
 appVersion: latest
 description:
   Teedy is an open-source, lightweight document management system (DMS)
@@ -23,7 +23,7 @@ keywords:
   - Productivity
 dependencies:
   - name: common
-    version: 16.0.0
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

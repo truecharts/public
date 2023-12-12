@@ -1,16 +1,9 @@
 {{/* Define the secret */}}
 {{- define "serpbear.secret" -}}
 
-{{- $secretName := printf "%s-env-secret" (include "tc.common.names.fullname" .) }}
+{{- $secretName := (printf "%s-serpbear-secret" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
 
----
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: {{ $secretName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
+enabled: true
 data:
   {{/* Secret Key */}}
   {{- with (lookup "v1" "Secret" .Release.Namespace $secretName) }}

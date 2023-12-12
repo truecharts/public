@@ -13,7 +13,8 @@ persistence:
     enabled: true
     mountPath: /serverdata/.klei/DoNotStarveTogether
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -27,13 +28,13 @@ service:
       authentication:
         enabled: true
         port: 8766
-        protocol: UDP
+        protocol: udp
         targetPort: 8766
   main:
     ports:
       main:
         port: 10890
-        protocol: UDP
+        protocol: udp
         targetPort: 10890
   masterserver:
     enabled: true
@@ -41,7 +42,7 @@ service:
       masterserver:
         enabled: true
         port: 27016
-        protocol: UDP
+        protocol: udp
         targetPort: 27016
 workload:
   main:

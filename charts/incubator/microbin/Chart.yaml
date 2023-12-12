@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: microbin
-version: 3.0.0
+version: 3.0.1
 appVersion: 2.0.4
 description:
   MicroBin is a super tiny, feature rich, configurable, self-contained
@@ -21,7 +21,7 @@ keywords:
   - microbin
 dependencies:
   - name: common
-    version: 16.0.0
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

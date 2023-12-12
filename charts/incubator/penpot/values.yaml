@@ -83,7 +83,8 @@ persistence:
     mountPath: /opt/data
     noMount: true
 portal:
-  enabled: true
+  open:
+    enabled: true
 postgresql:
   enabled: true
   existingSecret: dbcreds
@@ -104,7 +105,7 @@ service:
     ports:
       main:
         port: 10592
-        protocol: HTTP
+        protocol: http
         targetPort: 80
 workload:
   main:
@@ -119,10 +120,10 @@ workload:
           probes:
             liveness:
               path: /
-              type: HTTP
+              type: http
             readiness:
               path: /
-              type: HTTP
+              type: http
             startup:
               path: /
-              type: HTTP
+              type: http

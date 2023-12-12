@@ -7,7 +7,8 @@ persistence:
     enabled: true
     mountPath: /config
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -19,7 +20,7 @@ service:
     ports:
       main:
         port: 10247
-        protocol: HTTP
+        protocol: http
         targetPort: 80
 workload:
   main:
@@ -27,9 +28,7 @@ workload:
       containers:
         main:
           env:
-            BYPASS_SSL_VERIFY:
-              '{{ ternary "1" "0" .Values.env.BYPASS_SSL_VERIFY_BOOL
-              }}'
+            BYPASS_SSL_VERIFY: '{{ ternary "1" "0" .Values.workload.main.podSpec.containers.main.env.BYPASS_SSL_VERIFY_BOOL}}'
             BYPASS_SSL_VERIFY_BOOL: "true"
             LIBRARY_NAMES: ""
             PAGE_SIZE: "50"

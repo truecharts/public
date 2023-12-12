@@ -4,7 +4,6 @@ image:
   tag: 3.3.3@sha256:09dfe3aa10f61ce1da5e60a282be62f139f267f44a073862feda67cd960fa71e
 mariadb:
   enabled: true
-  existingSecret: mariadbcreds
   mariadbDatabase: xbackbone
   mariadbUsername: xbackbone
 persistence:
@@ -12,7 +11,8 @@ persistence:
     enabled: true
     mountPath: /app/config
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -32,13 +32,15 @@ workload:
         main:
           env:
             DB_TYPE: mysql
-            MYSQL_DATABASE: xbackbone
+            MYSQL_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
             MYSQL_HOST:
               secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: plainhost
-                name: mariadbcreds
             MYSQL_PASSWORD:
               secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: mariadb-password
-                name: mariadbcreds
-            MYSQL_USER: xbackbone
+            MYSQL_USER: "{{ .Values.mariadb.mariadbUsername }}"

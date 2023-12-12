@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: universal-media-server
-version: 3.0.0
+version: 3.0.1
 appVersion: latest
 description:
   Universal Media Server is a DLNA-compliant UPnP Media Server. It is capable
@@ -26,7 +26,7 @@ keywords:
   - MediaServer-Photos
 dependencies:
   - name: common
-    version: 16.0.0
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

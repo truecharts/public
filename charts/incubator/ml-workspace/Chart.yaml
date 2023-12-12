@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: ml-workspace
-version: 6.0.0
+version: 6.0.1
 appVersion: 0.13.2
 description: All-in-one web-based development environment for machine learning
 home: https://truecharts.org/charts/incubator/ml-workspace
@@ -21,7 +21,7 @@ keywords:
   - ai
 dependencies:
   - name: common
-    version: 16.0.0
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

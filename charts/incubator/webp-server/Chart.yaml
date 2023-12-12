@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: webp-server
-version: 3.0.0
+version: 3.0.1
 appVersion: latest
 description:
   This is a Server based on Golang, which allows you to serve WebP images
@@ -28,7 +28,7 @@ keywords:
   - Network-FTP
 dependencies:
   - name: common
-    version: 16.0.0
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

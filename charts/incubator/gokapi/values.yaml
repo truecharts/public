@@ -10,13 +10,14 @@ persistence:
     enabled: true
     mountPath: /app/data
 portal:
-  enabled: true
+  open:
+    enabled: true
 service:
   main:
     ports:
       main:
         port: 53842
-        protocol: HTTP
+        protocol: http
         targetPort: 53842
 workload:
   main:

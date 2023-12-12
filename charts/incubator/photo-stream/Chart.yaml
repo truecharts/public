@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: photo-stream
-version: 3.0.0
+version: 3.0.1
 appVersion: latest
 description:
   Photo Stream is a simpler home for your photos. Easy to use, self hosted,
@@ -25,7 +25,7 @@ keywords:
   - MediaServer-Photos
 dependencies:
   - name: common
-    version: 16.0.0
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

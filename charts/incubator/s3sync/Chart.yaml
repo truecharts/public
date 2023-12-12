@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: s3sync
-version: 3.0.0
+version: 3.0.1
 appVersion: latest
 description:
   This application backs up every folder mounted at `/data/` to a given
@@ -24,7 +24,7 @@ keywords:
   - Cloud
 dependencies:
   - name: common
-    version: 16.0.0
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

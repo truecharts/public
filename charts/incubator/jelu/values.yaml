@@ -16,7 +16,8 @@ persistence:
     enabled: true
     mountPath: /files/imports
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -28,5 +29,5 @@ service:
     ports:
       main:
         port: 11111
-        protocol: TCP
+        protocol: tcp
         targetPort: 11111

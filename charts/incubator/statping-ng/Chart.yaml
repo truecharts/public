@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: statping-ng
-version: 13.0.0
+version: 13.0.1
 appVersion: 0.90.80
 description: Status page for monitoring your websites and applications.
 home: https://truecharts.org/charts/incubator/statping-ng
@@ -21,19 +21,13 @@ keywords:
   - status-page
 dependencies:
   - name: common
-    version: 16.0.0
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
     tags: []
     import-values: []
-  - name: postgresql
-    version: 11.0.31
-    repository: https://deps.truecharts.org/
-    condition: postgresql.enabled
-    alias: ""
-    tags: []
-    import-values: []
+
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

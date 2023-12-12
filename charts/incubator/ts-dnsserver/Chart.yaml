@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: ts-dnsserver
-version: 3.0.0
+version: 3.0.1
 appVersion: latest
 description:
   Technitium DNS Server is an open source tool that can be used for self
@@ -25,7 +25,7 @@ keywords:
   - Network-DNS
 dependencies:
   - name: common
-    version: 16.0.0
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

@@ -28,7 +28,8 @@ persistence:
     enabled: true
     mountPath: /trash
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -57,4 +58,4 @@ workload:
             VNC_PASSWORD: ""
           envFrom:
             - configMapRef:
-                name: '{{ include "tc.common.names.fullname" . }}-dupeguru'
+                name: 'dupeguru'

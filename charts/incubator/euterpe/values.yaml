@@ -27,7 +27,7 @@ persistence:
     defaultMode: "0600"
     enabled: true
     mountPath: /root/.euterpe/config.json
-    objectName: '{{ include "tc.common.names.fullname" . }}-secret'
+    objectName: 'secret'
     readOnly: true
     subPath: config.json
     type: secret
@@ -35,7 +35,8 @@ persistence:
     enabled: true
     mountPath: /root/Music
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -47,4 +48,4 @@ service:
     ports:
       main:
         port: 9996
-        protocol: HTTP
+        protocol: http

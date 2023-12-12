@@ -10,7 +10,8 @@ persistence:
     enabled: true
     mountPath: /downloads
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -22,7 +23,7 @@ service:
     ports:
       main:
         port: 4848
-        protocol: TCP
+        protocol: tcp
         targetPort: 4848
 workload:
   main:
@@ -31,8 +32,8 @@ workload:
         main:
           env:
             DATABASE_CONNECTION: ""
-            HTTP_PASS: ""
-            HTTP_USER: ""
+            http_PASS: ""
+            http_USER: ""
             TUBESYNC_DEBUG: "False"
             TUBESYNC_HOSTS: ""
             TUBESYNC_WORKERS: "2"

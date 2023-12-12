@@ -7,7 +7,8 @@ persistence:
     enabled: true
     mountPath: /data
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -21,13 +22,13 @@ service:
       communicationp:
         enabled: true
         port: 8333
-        protocol: TCP
+        protocol: tcp
         targetPort: 8333
   main:
     ports:
       main:
         port: 8332
-        protocol: TCP
+        protocol: tcp
         targetPort: 8332
   testnetcommuni:
     enabled: true
@@ -35,7 +36,7 @@ service:
       testnetcommuni:
         enabled: true
         port: 18333
-        protocol: TCP
+        protocol: tcp
         targetPort: 18333
   testnetrpcport:
     enabled: true
@@ -43,5 +44,5 @@ service:
       testnetrpcport:
         enabled: true
         port: 18332
-        protocol: TCP
+        protocol: tcp
         targetPort: 18332

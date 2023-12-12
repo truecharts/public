@@ -73,7 +73,8 @@ plik:
     ovh_api_key: ""
     ovh_api_secret: ""
 portal:
-  enabled: true
+  open:
+    enabled: true
 postgresql:
   enabled: true
   existingSecret: dbcreds
@@ -84,7 +85,7 @@ service:
     ports:
       main:
         port: 10599
-        protocol: HTTP
+        protocol: http
 workload:
   main:
     podSpec:
@@ -93,10 +94,10 @@ workload:
           probes:
             liveness:
               path: /
-              type: HTTP
+              type: http
             readiness:
               path: /
-              type: HTTP
+              type: http
             startup:
               path: /
-              type: HTTP
+              type: http

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: debian-apt-mirror
-version: 3.0.0
+version: 3.0.1
 appVersion: latest
 description:
   This Chart will run apt-mirror and Apache2. This allows you to create
@@ -25,7 +25,7 @@ keywords:
   - Drivers
 dependencies:
   - name: common
-    version: 16.0.0
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

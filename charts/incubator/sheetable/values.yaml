@@ -7,12 +7,13 @@ persistence:
     enabled: true
     mountPath: /app/config
 portal:
-  enabled: true
-postgresql:
-  enabled: true
-  existingSecret: dbcreds
-  postgresqlDatabase: sheetable
-  postgresqlUsername: sheetable
+  open:
+    enabled: true
+cnpg:
+  main:
+    enabled: true
+    user: sheetable
+    database: sheetable
 secretEnv:
   ADMIN_EMAIL: email@domain.com
   ADMIN_PASSWORD: changeme
@@ -21,7 +22,7 @@ service:
     ports:
       main:
         port: 10284
-        protocol: HTTP
+        protocol: http
 workload:
   main:
     podSpec:
@@ -36,13 +37,13 @@ workload:
             DB_DRIVER: postgres
             DB_HOST:
               secretKeyRef:
-                key: plainhost
-                name: dbcreds
-            DB_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
+                name: cnpg-main-urls
+                key: host
+            DB_NAME: "{{ .Values.cnpg.main.database }}"
             DB_PASSWORD:
               secretKeyRef:
-                key: postgresql-password
-                name: dbcreds
+                name: cnpg-main-user
+                key: password
             DB_PORT: "5432"
-            DB_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+            DB_USER: "{{ .Values.cnpg.main.user }}"
             PORT: "{{ .Values.service.main.ports.main.port }}"

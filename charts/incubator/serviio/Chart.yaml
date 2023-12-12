@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: serviio
-version: 3.0.0
+version: 3.0.1
 appVersion: latest
 description:
   Serviio is a freeware media server designed to let users stream music,
@@ -27,7 +27,7 @@ keywords:
   - MediaServer-Other
 dependencies:
   - name: common
-    version: 16.0.0
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

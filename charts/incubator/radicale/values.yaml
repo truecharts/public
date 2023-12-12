@@ -1,29 +1,30 @@
 image:
   pullPolicy: IfNotPresent
   repository: tomsquest/docker-radicale
-  tag: 3.1.8.3@sha256:b5dac16dafcb003520a1ea95d3e25a24d0955cc552b0d6d447163f0e070780ff
-persistence:
-  config:
-    enabled: true
-    readOnly: true
-    type: custom
-    volumeSpec:
-      configMap:
-        name: radicale-config
-  data:
-    enabled: true
-    mountPath: /data
-  users:
-    enabled: true
-    mountPath: /etc/radicale/users
-    readOnly: true
-    subPath: users
-    type: custom
-    volumeSpec:
-      secret:
-        secretName: radicale-secret
-portal:
-  enabled: true
+  tag: 3.1.8.3@sha256:1ce814412ee895c80a2faf109cc7e9c948f5eeef4cfbb5688375fc2d8706789a
+
+securityContext:
+  container:
+    capabilities:
+      add:
+        - SETUID
+        - SETGID
+        - KILL
+      drop:
+        - ALL
+    runAsUser: 2999
+    runAsGroup: 2999
+    PUID: 2999
+  pod:
+    fsGroup: 2999
+
+service:
+  main:
+    ports:
+      main:
+        port: 10255
+        protocol: http
+
 radicale:
   auth:
     delay: 1
@@ -47,32 +48,34 @@ radicale:
     type: multifilesystem
   web:
     type: internal
-security:
-  PUID: 2999
-securityContext:
-  container:
-    capabilities:
-      add:
-        - SETUID
-        - SETGID
-        - KILL
-      drop:
-        - ALL
-    runAsGroup: 2999
-    runAsUser: 2999
-  pod:
-    fsGroup: 2999
-service:
-  main:
-    ports:
-      main:
-        port: 10255
-        protocol: HTTP
-        targetPort: 5232
+
 workload:
   main:
     podSpec:
       containers:
         main:
           env:
-            TAKE_FILE_OWNERSHIP: "false"
+            TAKE_FILE_OWNERSHIP: false
+
+persistence:
+  config:
+    enabled: true
+    type: configmap
+    objectName: radicale-config
+    mountPath: /etc/radicale/config
+    subPath: config
+    readOnly: false
+  users:
+    enabled: true
+    type: configmap
+    objectName: radicale-users
+    mountPath: /etc/radicale/users
+    subPath: users
+    readOnly: false
+  data:
+    enabled: true
+    mountPath: /data
+
+portal:
+  open:
+    enabled: true

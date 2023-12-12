@@ -13,7 +13,8 @@ persistence:
     enabled: true
     mountPath: /opt/sonarqube/logs
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -25,7 +26,7 @@ service:
     ports:
       main:
         port: 9000
-        protocol: TCP
+        protocol: tcp
         targetPort: 9000
 workload:
   main:

@@ -7,13 +7,14 @@ persistence:
     enabled: true
     mountPath: /data
 portal:
-  enabled: true
+  open:
+    enabled: true
 service:
   main:
     ports:
       main:
         port: 10302
-        protocol: HTTP
+        protocol: http
         targetPort: 8000
 workload:
   main:
@@ -26,10 +27,10 @@ workload:
           probes:
             liveness:
               path: /
-              type: HTTP
+              type: http
             readiness:
               path: /
-              type: HTTP
+              type: http
             startup:
               path: /
-              type: HTTP
+              type: http

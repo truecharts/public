@@ -10,7 +10,8 @@ persistence:
     enabled: true
     mountPath: /home
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -22,7 +23,7 @@ service:
     ports:
       main:
         port: 2100
-        protocol: HTTP
+        protocol: http
         targetPort: 2100
   pasvportrange:
     enabled: true
@@ -30,7 +31,7 @@ service:
       pasvportrange:
         enabled: true
         port: 30000
-        protocol: TCP
+        protocol: tcp
         targetPort: 30000
 workload:
   main:

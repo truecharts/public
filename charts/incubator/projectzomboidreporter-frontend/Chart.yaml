@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: projectzomboidreporter-frontend
-version: 3.0.0
+version: 3.0.1
 appVersion: latest
 description:
   This is the frontend template used in the Project Zomboid Reporter. All
@@ -22,7 +22,7 @@ keywords:
   - GameServers
 dependencies:
   - name: common
-    version: 16.0.0
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

@@ -7,7 +7,8 @@ persistence:
     enabled: true
     mountPath: /starmade
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -19,7 +20,7 @@ service:
     ports:
       main:
         port: 4242
-        protocol: TCP
+        protocol: tcp
         targetPort: 4242
 workload:
   main:

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: sheetable
-version: 4.0.0
+version: 4.0.1
 appVersion: "0.8"
 description:
   SheetAble is an easy to use music sheet organiser for all the music enthusiasts
@@ -22,16 +22,9 @@ keywords:
   - sheetable
 dependencies:
   - name: common
-    version: 16.0.0
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-  - name: postgresql
-    version: 11.0.31
-    repository: https://deps.truecharts.org/
-    condition: postgresql.enabled
     alias: ""
     tags: []
     import-values: []

@@ -4,7 +4,6 @@ image:
   tag: 1.2.1-php8.0-apache@sha256:1022413d66b6fcb3e49f9bac3534bb7eec6535ef5982a1d383971d9f71bb78db
 mariadb:
   enabled: true
-  existingSecret: mariadbcreds
   mariadbDatabase: typecho
   mariadbUsername: typecho
 persistence:
@@ -41,13 +40,15 @@ workload:
             TYPECHO_DB_ENGINE: InnoDB
             TYPECHO_DB_HOST:
               secretKeyRef:
-                key: plainhost
-                name: mariadbcreds
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: plainporthost
             TYPECHO_DB_NEXT: none
             TYPECHO_DB_PASSWORD:
               secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: mariadb-password
-                name: mariadbcreds
             TYPECHO_DB_PORT: "3306"
             TYPECHO_DB_PREFIX: typecho_
             TYPECHO_DB_USER: "{{ .Values.mariadb.mariadbUsername }}"

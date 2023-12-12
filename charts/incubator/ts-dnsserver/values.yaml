@@ -7,7 +7,8 @@ persistence:
     enabled: true
     mountPath: /config
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -21,11 +22,11 @@ service:
       dnsport:
         enabled: true
         port: 53
-        protocol: UDP
+        protocol: udp
         targetPort: 53
   main:
     ports:
       main:
         port: 5380
-        protocol: HTTP
+        protocol: http
         targetPort: 5380

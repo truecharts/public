@@ -7,7 +7,8 @@ persistence:
     enabled: true
     mountPath: /app/data
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -19,7 +20,7 @@ service:
     ports:
       main:
         port: 10291
-        protocol: HTTP
+        protocol: http
         targetPort: 5005
 workload:
   main:
@@ -29,3 +30,26 @@ workload:
           env:
             PASSWORD: flame_password
             enable_integration: "true"
+# -- Whether Role Based Access Control objects like roles and rolebindings should be created
+rbac:
+  main:
+    enabled: true
+    primary: true
+    clusterWide: true
+    rules:
+    - apiGroups:
+        - "networking.k8s.io"
+      resources:
+        - "ingresses"
+      verbs:
+        - "get"
+        - "list"
+        - "watch"
+# -- The service account the pods will use to interact with the Kubernetes API
+serviceAccount:
+  main:
+    enabled: true
+    primary: true
+    
+podOptions:
+  automountServiceAccountToken: true

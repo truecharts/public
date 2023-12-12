@@ -10,7 +10,8 @@ persistence:
     enabled: true
     mountPath: /debian-mirror/data
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -22,7 +23,7 @@ service:
     ports:
       main:
         port: 980
-        protocol: TCP
+        protocol: tcp
         targetPort: 980
 workload:
   main:

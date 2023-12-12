@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: leantime
-version: 9.0.0
+version: 9.0.1
 appVersion: 2.4.7
 description:
   Straightforward open source project management system to make your ideas
@@ -23,14 +23,14 @@ keywords:
   - management
 dependencies:
   - name: common
-    version: 16.0.0
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mariadb
-    version: 5.0.35
+    version: 10.0.2
     repository: https://deps.truecharts.org/
     condition: mariadb.enabled
     alias: ""

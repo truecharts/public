@@ -9,7 +9,8 @@ persistence:
     enabled: true
     mountPath: /app/static
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -21,7 +22,7 @@ service:
     ports:
       main:
         port: 10353
-        protocol: HTTP
+        protocol: http
         targetPort: 8080
 workload:
   main:
