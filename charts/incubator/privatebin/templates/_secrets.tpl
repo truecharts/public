@@ -12,8 +12,8 @@ kind: Secret
 metadata:
   name: {{ include "tc.common.names.fullname" . }}-secret
   labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
-stringData:
+    
+data:
   conf.php: |-
     ;<?php http_response_code(403); /*
     ; config file for PrivateBin

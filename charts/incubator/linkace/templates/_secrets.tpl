@@ -1,12 +1,6 @@
 {{/* Define the secrets */}}
 {{- define "linkace.secrets" -}}
----
-
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: linkace-secrets
+enabled: true
 {{- $linkaceprevious := lookup "v1" "Secret" .Release.Namespace "linkace-secrets" }}
 {{- $app_key := "" }}
 data:
@@ -14,7 +8,7 @@ data:
   APP_KEY: {{ index $linkaceprevious.data "APP_KEY" }}
   {{- else }}
   {{- $app_key := randAlphaNum 32 }}
-  APP_KEY: {{ $app_key | b64enc }}
+  APP_KEY: {{ $app_key }}
   {{- end }}
 
 {{- end -}}

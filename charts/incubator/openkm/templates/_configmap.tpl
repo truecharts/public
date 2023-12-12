@@ -1,10 +1,6 @@
 {{/* Define the configmap */}}
 {{- define "openkm.configmap" -}}
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ include "tc.common.names.fullname" . }}-init
+enabled: true
 data:
   init.sh: |-
     #!/bin/sh

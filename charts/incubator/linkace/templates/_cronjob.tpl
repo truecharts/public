@@ -9,7 +9,7 @@ kind: CronJob
 metadata:
   name: {{ printf "%s-cronjob" $jobName }}
   labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
+    
 spec:
   schedule: "{{ .Values.cronjob.schedule }}"
   concurrencyPolicy: Forbid

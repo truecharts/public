@@ -4,14 +4,7 @@
 {{- $configName := printf "%s-magicmirror-config" (include "tc.common.names.fullname" .) }}
 {{- $configEnvName := printf "%s-magicmirror-env" (include "tc.common.names.fullname" .) }}
 
----
-
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ $configName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
+enabled: true
 data:
   config.js: |
     /* Magic Mirror Config Sample
@@ -112,14 +105,7 @@ data:
     /*************** DO NOT EDIT THE LINE BELOW ***************/
     if (typeof module !== "undefined") {module.exports = config;}
 
----
-
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ $configEnvName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
+enabled: true
 data:
   DATA_DIR: /magicmirror2
   UID: {{ .Values.security.PUID | quote }}

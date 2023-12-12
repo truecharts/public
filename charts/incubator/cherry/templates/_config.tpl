@@ -3,13 +3,7 @@
 
 {{- $configName := printf "%s-cherry-configmap" (include "tc.common.names.fullname" .) }}
 
----
-
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ $configName }}
-  labels:  {{- include "tc.common.labels" . | nindent 4 }}
+enabled: true
 data:
   DATABASE_PATH: /data/cherry.sqlite
   ENABLE_PUBLIC_REGISTRATION: {{ ternary "1" "0" .Values.cherry.public_registration  | quote }}

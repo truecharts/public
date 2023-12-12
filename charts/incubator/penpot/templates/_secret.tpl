@@ -30,15 +30,8 @@
 {{- $commonFlags = mustAppend $commonFlags (printf "%s-login-with-oidc" (ternary "enable" "disable" .Values.penpot.identity_providers.oidc.enabled)) }}
 {{- $commonFlags = mustAppend $commonFlags (printf "%s-login-with-ldap" (ternary "enable" "disable" .Values.penpot.identity_providers.ldap.enabled)) }}
 
----
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: {{ $commonSecretName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
-stringData:
+enabled: true
+data:
   PENPOT_TELEMETRY_ENABLED: {{ .Values.penpot.telemetry_enabled | quote }}
   {{- with .Values.penpot.registration_domain_whitelist }}
   PENPOT_REGISTRATION_DOMAIN_WHITELIST: {{ join "," . }}
@@ -73,31 +66,17 @@ stringData:
   PENPOT_LDAP_ATTRS_EMAIL: {{ .Values.penpot.identity_providers.ldap.attrs_email | quote }}
   PENPOT_LDAP_ATTRS_FULLNAME: {{ .Values.penpot.identity_providers.ldap.attrs_fullname | quote }}
   {{- end }}
----
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: {{ $exporterSecretName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
-stringData:
+enabled: true
+data:
   PENPOT_PUBLIC_URI: http://penpot-frontend:{{ .Values.service.main.ports.main.targetPort }}
----
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: {{ $backendAndExporterSecretName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
-stringData:
+enabled: true
+data:
   PENPOT_FLAGS: {{ join " " (concat $commonFlags $backendFlags) | quote }}
   PENPOT_PUBLIC_URI: {{ .Values.penpot.public_uri | quote }}
   {{- with (lookup "v1" "Secret" .Release.Namespace $backendAndExporterSecretName) }}
   PENPOT_SECRET_KEY: {{ index .data "PENPOT_SECRET_KEY" }}
   {{- else }}
-  PENPOT_SECRET_KEY: {{ randAlphaNum 32 | b64enc }}
+  PENPOT_SECRET_KEY: {{ randAlphaNum 32 }}
   {{- end }}
   {{/* Dependencies */}}
   PENPOT_DATABASE_URI: {{ printf "postgresql://%v/%v" (.Values.postgresql.url.plainport | trimAll "\"") .Values.postgresql.postgresqlDatabase }}
@@ -118,15 +97,8 @@ stringData:
   PENPOT_STORAGE_ASSETS_FS_DIRECTORY: {{ .Values.persistence.assets.mountPath }}
   PENPOT_ASSETS_STORAGE_BACKEND: assets-fs
   PENPOT_HTTP_SERVER_HOST: "0.0.0.0"
----
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: {{ $frontendSecretName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
-stringData:
+enabled: true
+data:
   PENPOT_PUBLIC_URI: {{ .Values.penpot.public_uri | quote }}
   PENPOT_FLAGS: {{ join " " (concat $commonFlags $frontendFlags) | quote }}
 {{- end }}

@@ -1,10 +1,6 @@
 {{/* Calculate PHP and NGINX file size limits from PrivateBin configuration */}}
 {{- define "privatebin.configmap" -}}
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ include "tc.common.names.fullname" . }}-config
+enabled: true
 data:
   {{/*
     Multiply by 1, so large integers aren't rendered in scientific notation
