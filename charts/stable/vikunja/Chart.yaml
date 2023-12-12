@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: vikunja
 version: 9.0.27
@@ -8,9 +8,9 @@ home: https://truecharts.org/charts/stable/vikunja
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/vikunja.png
 deprecated: false
 sources:
+  - https://vikunja.io/docs
   - https://github.com/truecharts/charts/tree/master/charts/stable/vikunja
   - https://hub.docker.com/r/vikunja/api
-  - https://vikunja.io/docs
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -40,3 +40,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

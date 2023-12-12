@@ -8,9 +8,9 @@ home: https://truecharts.org/charts/incubator/coupon-store
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/coupon-store.png
 deprecated: false
 sources:
+  - https://github.com/linuxserver/docker-airsonic
   - https://github.com/truecharts/charts/tree/master/charts/incubator/coupon-store
   - https://hub.docker.com/r/metikular/coupon-store
-  - https://github.com/linuxserver/docker-airsonic
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -25,7 +25,6 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
-
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: gitea
 version: 14.0.15
@@ -8,36 +8,36 @@ home: https://truecharts.org/charts/stable/gitea
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/gitea.png
 deprecated: false
 sources:
-- https://gitea.com/gitea/helm-chart
-- https://github.com/truecharts/charts/tree/master/charts/stable/gitea
-- https://hub.docker.com/r/gitea/gitea
-- https://github.com/go-gitea/gitea
+  - https://gitea.com/gitea/helm-chart
+  - https://github.com/go-gitea/gitea
+  - https://github.com/truecharts/charts/tree/master/charts/stable/gitea
+  - https://hub.docker.com/r/gitea/gitea
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- git
-- issue tracker
-- code review
-- wiki
-- gitea
-- gogs
+  - git
+  - issue tracker
+  - code review
+  - wiki
+  - gitea
+  - gogs
 dependencies:
-- name: common
-  version: 14.3.5
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
-- name: memcached
-  version: 6.0.77
-  repository: https://deps.truecharts.org/
-  condition: memcached.enabled
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.3.5
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: memcached
+    version: 6.0.77
+    repository: https://deps.truecharts.org/
+    condition: memcached.enabled
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

@@ -37,19 +37,19 @@ rbac:
     primary: true
     clusterWide: true
     rules:
-    - apiGroups:
-        - "networking.k8s.io"
-      resources:
-        - "ingresses"
-      verbs:
-        - "get"
-        - "list"
-        - "watch"
+      - apiGroups:
+          - "networking.k8s.io"
+        resources:
+          - "ingresses"
+        verbs:
+          - "get"
+          - "list"
+          - "watch"
 # -- The service account the pods will use to interact with the Kubernetes API
 serviceAccount:
   main:
     enabled: true
     primary: true
-    
+
 podOptions:
   automountServiceAccountToken: true
