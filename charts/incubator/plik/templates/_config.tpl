@@ -1,6 +1,6 @@
 {{- define "plik.secret" -}}
 
-{{- $secretName := printf "%s-plik-secret" (include "tc.common.names.fullname" .) }}
+{{- $secretName := printf "%s-plik-secret" (include "tc.v1.common.names.fullname" .) }}
 enabled: true
 data:
   plikd.cfg: |

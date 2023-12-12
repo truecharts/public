@@ -1,7 +1,7 @@
 {{/* Define the secrets */}}
 {{- define "couponstore.secrets" -}}
 
-{{- $secretName := printf "%s-couponstore-secret" (include "tc.common.names.fullname" .) }}
+{{- $secretName := printf "%s-couponstore-secret" (include "tc.v1.common.names.fullname" .) }}
 
 ---
 {{- $pg := .Values.cnpg.main }}

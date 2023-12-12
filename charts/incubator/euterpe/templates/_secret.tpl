@@ -1,8 +1,8 @@
 {{/* Define the secret */}}
 {{- define "euterpe.secret" -}}
 
-{{- $secretName := printf "%s-secret" (include "tc.common.names.fullname" .) }}
-{{- $secretStorageName := printf "%s-storage-secret" (include "tc.common.names.fullname" .) }}
+{{- $secretName := printf "%s-secret" (include "tc.v1.common.names.fullname" .) }}
+{{- $secretStorageName := printf "%s-storage-secret" (include "tc.v1.common.names.fullname" .) }}
 
 {{- $secretKey := "" }}
 {{- with (lookup "v1" "Secret" .Release.Namespace $secretStorageName) }}

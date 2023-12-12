@@ -1,8 +1,8 @@
 {{/* Define the secret */}}
 {{- define "gotify.secret" -}}
 
-{{- $secretName := printf "%s-secret" (include "tc.common.names.fullname" .) }}
-{{- $secretEnvName := printf "%s-secret-env" (include "tc.common.names.fullname" .) }}
+{{- $secretName := printf "%s-secret" (include "tc.v1.common.names.fullname" .) }}
+{{- $secretEnvName := printf "%s-secret-env" (include "tc.v1.common.names.fullname" .) }}
 
 {{- $url := (.Values.cnpg.main.url.plain | trimAll "\"") }}
 {{- $password := (.Values.cnpg.main.creds.password | trimAll "\"") }}

@@ -1,7 +1,7 @@
 {{/* Define the secrets */}}
 {{- define "cherry.secrets" -}}
 
-{{- $secretName := printf "%s-cherry-secret" (include "tc.common.names.fullname" .) }}
+{{- $secretName := printf "%s-cherry-secret" (include "tc.v1.common.names.fullname" .) }}
 
 enabled: true
 data:

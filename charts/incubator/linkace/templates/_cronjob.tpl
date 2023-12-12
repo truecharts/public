@@ -1,7 +1,7 @@
 {{/* Define the cronjob */}}
 {{- define "linkace.cronjob" -}}
 {{- if .Values.secret.CRON_TOKEN }}
-{{- $jobName := include "tc.common.names.fullname" . }}
+{{- $jobName := include "tc.v1.common.names.fullname" . }}
 
 ---
 apiVersion: batch/v1
