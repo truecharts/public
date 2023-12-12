@@ -39,7 +39,7 @@ workload:
         main:
           envFrom:
             - configMapRef:
-                name: '{{ include "tc.common.names.fullname" . }}-magicmirror-env'
+                name: 'magicmirror-env'
           probes:
             liveness:
               path: /

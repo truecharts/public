@@ -32,4 +32,4 @@ workload:
               }} -b '0.0.0.0'
           envFrom:
             - secretRef:
-                name: '{{ include "tc.common.names.fullname" . }}-couponstore-secret'
+                name: 'couponstore-secret'
