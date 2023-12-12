@@ -1,8 +1,8 @@
 {{/* Define the configmap */}}
 {{- define "magicmirror.config" -}}
 
-{{- $configName := printf "%s-magicmirror-config" (include "tc.common.names.fullname" .) }}
-{{- $configEnvName := printf "%s-magicmirror-env" (include "tc.common.names.fullname" .) }}
+{{- $configName := printf "%s-magicmirror-config" (include "tc.v1.common.names.fullname" .) }}
+{{- $configEnvName := printf "%s-magicmirror-env" (include "tc.v1.common.names.fullname" .) }}
 
 enabled: true
 data:

@@ -1,7 +1,7 @@
 {{/* Define the configmap */}}
 {{- define "cherry.configmap" -}}
 
-{{- $configName := printf "%s-cherry-configmap" (include "tc.common.names.fullname" .) }}
+{{- $configName := printf "%s-cherry-configmap" (include "tc.v1.common.names.fullname" .) }}
 
 enabled: true
 data:

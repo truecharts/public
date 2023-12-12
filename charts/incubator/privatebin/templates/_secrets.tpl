@@ -10,7 +10,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: {{ include "tc.common.names.fullname" . }}-secret
+  name: {{ include "tc.v1.common.names.fullname" . }}-secret
   labels:
     
 data:

@@ -1,6 +1,6 @@
 {{/* Define the secrets */}}
 {{- define "noisedash.config" -}}
-{{- $configName := printf "%s-noisedash-config" (include "tc.common.names.fullname" .) }}
+{{- $configName := printf "%s-noisedash-config" (include "tc.v1.common.names.fullname" .) }}
 
 enabled: true
 data:

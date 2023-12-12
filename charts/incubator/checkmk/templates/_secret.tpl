@@ -1,7 +1,7 @@
 {{/* Define the secret */}}
 {{- define "checkmk.secret" -}}
 
-{{- $secretName := printf "%s-secret" (include "tc.common.names.fullname" .) }}
+{{- $secretName := printf "%s-secret" (include "tc.v1.common.names.fullname" .) }}
 enabled: true
 data:
   CMK_PASSWORD: {{ .Values.cmk.password | quote }}
