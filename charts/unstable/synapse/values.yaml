@@ -105,13 +105,10 @@ persistence:
 portal:
   open:
     enabled: true
-postgresql:
+cnpg:
   enabled: true
-  env:
-    POSTGRES_INITDB_ARGS: --encoding=UTF8 --locale=C
-  existingSecret: dbcreds
-    database: synapse
-    user: synapse
+  database: synapse
+  user: synapse
 securityContext:
   container:
     allowPrivilegeEscalation: true
