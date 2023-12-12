@@ -14,11 +14,11 @@ persistence:
 portal:
   open:
     enabled: true
-postgresql:
-  enabled: true
-  existingSecret: dbcreds
-  postgresqlDatabase: focalboard
-  postgresqlUsername: focalboard
+cnpg:
+  main:
+    enabled: true
+    database: focalboard
+    user: focalboard
 securityContext:
   container:
     readOnlyRootFilesystem: false

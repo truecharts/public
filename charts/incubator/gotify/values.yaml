@@ -31,11 +31,11 @@ persistence:
 portal:
   open:
     enabled: true
-postgresql:
-  enabled: true
-  existingSecret: dbcreds
-  postgresqlDatabase: gotify
-  postgresqlUsername: gotify
+cnpg:
+  main:
+    enabled: true
+    database: gotify
+    user: gotify
 service:
   main:
     ports:

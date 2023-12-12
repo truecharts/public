@@ -9,11 +9,11 @@ persistence:
 portal:
   open:
     enabled: true
-postgresql:
-  enabled: true
-  existingSecret: dbcreds
-  postgresqlDatabase: lenpaste
-  postgresqlUsername: lenpaste
+cnpg:
+  main:
+    enabled: true
+    database: lenpaste
+    user: lenpaste
 service:
   main:
     ports:

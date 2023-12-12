@@ -9,16 +9,15 @@ persistence:
 portal:
   open:
     enabled: true
-postgresql:
-  enabled: true
-  existingSecret: dbcreds
-  postgresqlDatabase: openproject
-  postgresqlUsername: openproject
+cnpg:
+  main:
+    enabled: true
+    database: openproject
+    user: openproject
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsGroup: 0
-    runAsNonRoot: false
     runAsUser: 0
 service:
   main:

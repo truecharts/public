@@ -32,16 +32,15 @@ persistence:
 portal:
   open:
     enabled: true
-postgresql:
-  enabled: true
-  existingSecret: dbcreds
-  postgresqlDatabase: openkm
-  postgresqlUsername: openkm
+cnpg:
+  main:
+    enabled: true
+    database: openkm
+    user: openkm
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsGroup: 0
-    runAsNonRoot: false
     runAsUser: 0
 service:
   main:

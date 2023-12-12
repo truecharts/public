@@ -19,11 +19,11 @@ persistence:
 portal:
   open:
     enabled: true
-postgresql:
-  enabled: true
-  existingSecret: dbcreds
-  postgresqlDatabase: postgres
-  postgresqlUsername: postgres
+cnpg:
+  main:
+    enabled: true
+    database: postgres
+    user: postgres
 service:
   main:
     ports:

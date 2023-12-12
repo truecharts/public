@@ -26,7 +26,7 @@ securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsGroup: 1000
-    runAsNonRoot: false
+
     runAsUser: 0
   pod:
     fsGroup: 50

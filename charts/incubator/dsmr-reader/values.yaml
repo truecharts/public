@@ -9,16 +9,15 @@ persistence:
 portal:
   open:
     enabled: true
-postgresql:
-  enabled: true
-  existingSecret: dbcreds
-  postgresqlDatabase: dsmr-reader
-  postgresqlUsername: dsmr-reader
+cnpg:
+  main:
+    enabled: true
+    database: dsmr-reader
+    user: dsmr-reader
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsGroup: 0
-    runAsNonRoot: false
     runAsUser: 0
 service:
   main:

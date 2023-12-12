@@ -5,16 +5,15 @@ image:
 portal:
   open:
     enabled: true
-postgresql:
-  enabled: true
-  existingSecret: dbcreds
-  postgresqlDatabase: coupon-store
-  postgresqlUsername: coupon-store
+cnpg:
+  main:
+    enabled: true
+    database: coupon-store
+    user: coupon-store
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsGroup: 0
-    runAsNonRoot: false
     runAsUser: 0
 service:
   main:
