@@ -15,8 +15,8 @@ kind: Secret
 metadata:
   name: {{ $secretEnvName }}
   labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
-stringData: {{/* Env takes precedence, and it;s defined in Dockerfile as 80 */}}
+    
+data: {{/* Env takes precedence, and it;s defined in Dockerfile as 80 */}}
   GOTIFY_SERVER_PORT: {{ $port | quote }}
 ---
 apiVersion: v1
@@ -24,8 +24,8 @@ kind: Secret
 metadata:
   name: {{ $secretName }}
   labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
-stringData:
+    
+data:
   config.yml: |
     server:
       listenaddr: ""

@@ -9,7 +9,7 @@ data:
   API_SECRET: {{ index $sheetableprevious.data "API_SECRET" }}
   {{- else }}
   {{- $api_secret := randAlphaNum 32 }}
-  API_SECRET: {{ $api_secret | b64enc }}
+  API_SECRET: {{ $api_secret }}
   {{- end }}
 
 {{- end -}}

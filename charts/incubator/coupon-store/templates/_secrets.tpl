@@ -15,7 +15,7 @@ data:
   {{- with (lookup "v1" "Secret" .Release.Namespace $secretName) }}
   SECRET_KEY_BASE: {{ index .data "SECRET_KEY_BASE" }}
   {{- else }}
-  SECRET_KEY_BASE: {{ randAlphaNum 32 | b64enc }}
+  SECRET_KEY_BASE: {{ randAlphaNum 32 }}
   {{- end }}
-  DATABASE_URL: {{ printf "postgres://%v:%v@%v-postgresql:5432/%v" $pg.postgresqlUsername ($pg.postgresqlPassword | trimAll "\"") .Release.Name $pg.postgresqlDatabase  | b64enc }}
+  DATABASE_URL: {{ printf "postgres://%v:%v@%v-postgresql:5432/%v" $pg.postgresqlUsername ($pg.postgresqlPassword | trimAll "\"") .Release.Name $pg.postgresqlDatabase  }}
 {{- end -}}

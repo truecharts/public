@@ -3,13 +3,7 @@
 
 {{- $configName := printf "%s-flemarr-config" (include "tc.common.names.fullname" .) }}
 
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ $configName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
+enabled: true    
 data:
   config.yml: |
 {{- .Values.flemarrConfig | toYaml | nindent 4 }}

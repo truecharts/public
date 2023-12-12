@@ -1,15 +1,8 @@
 {{- define "plik.secret" -}}
 
 {{- $secretName := printf "%s-plik-secret" (include "tc.common.names.fullname" .) }}
----
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: {{ $secretName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
-stringData:
+enabled: true
+data:
   plikd.cfg: |
     ListenPort            = {{ .Values.service.main.ports.main.port }}
     ListenAddress         = "0.0.0.0"

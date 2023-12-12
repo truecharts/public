@@ -8,17 +8,10 @@
 {{- with (lookup "v1" "Secret" .Release.Namespace $secretStorageName) }}
   {{- $secretKey = (index .data "secret") | b64dec }}
 {{- else }}
-  {{- $secretKey = randAlphaNum 32 | b64enc }}
+  {{- $secretKey = randAlphaNum 32 }}
 {{- end }}
----
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: {{ $secretName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
-stringData:
+enabled: true
+data:
   config.json: |
     {
       "listen": {{ printf ":%v" .Values.service.main.ports.main.port | quote }},
@@ -64,15 +57,8 @@ stringData:
       "write_timeout": {{ .Values.euterpe.danger_zone.write_timeout }},
       "max_header_bytes": {{ .Values.euterpe.danger_zone.max_header_bytes | int }}
     }
----
-apiVersion: v1
-kind: Secret
-type: Opaque
-metadata:
-  name: {{ $secretStorageName }}
-  labels:
-    {{- include "tc.common.labels" . | nindent 4 }}
+enabled: true
 data:
   {{/* Store secretKey to reuse */}}
-  secret: {{ $secretKey | b64enc }}
+  secret: {{ $secretKey }}
 {{- end }}
