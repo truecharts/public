@@ -58,4 +58,4 @@ workload:
             VNC_PASSWORD: ""
           envFrom:
             - configMapRef:
-                name: '{{ include "tc.common.names.fullname" . }}-dupeguru'
+                name: 'dupeguru'
