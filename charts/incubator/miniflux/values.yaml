@@ -9,14 +9,11 @@ persistence:
 portal:
   open:
     enabled: true
-postgresql:
-  enabled: true
-  existingSecret: dbcreds
-  postgresqlDatabase: miniflux
-  postgresqlUsername: miniflux
-secretEnv:
-  ADMIN_PASSWORD: changeme
-  ADMIN_USERNAME: admin
+cnpg:
+  main:
+    enabled: true
+    postgresqlDatabase: miniflux
+    postgresqlUsername: miniflux
 service:
   main:
     ports:
@@ -32,9 +29,11 @@ workload:
             CREATE_ADMIN: 1
             DATABASE_URL:
               secretKeyRef:
-                key: urlnossl
-                name: dbcreds
+                name: cnpg-main-urls
+                key: std
             RUN_MIGRATIONS: 1
+            ADMIN_PASSWORD: changeme
+            ADMIN_USERNAME: admin
           probes:
             liveness:
               custom: true
