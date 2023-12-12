@@ -50,7 +50,7 @@ workload:
             APP_URL: http://localhost
             CACHE_DRIVER: redis
             DB_CONNECTION: pgsql
-            DB_DATABASE: "{{ .Values.postgresql.postgresqlDatabase }}"
+            DB_DATABASE: "{{ .Values.cnpg.main.database }}"
             DB_HOST:
               secretKeyRef:
                 key: plainhost
@@ -60,7 +60,7 @@ workload:
                 key: postgresql-password
                 name: dbcreds
             DB_PORT: "5432"
-            DB_USERNAME: "{{ .Values.postgresql.postgresqlUsername }}"
+            DB_USERNAME: "{{ .Values.cnpg.main.user }}"
             MIX_PUSHER_APP_CLUSTER: "{{ .Values.env.PUSHER_APP_CLUSTER }}"
             MIX_PUSHER_APP_KEY: "{{ .Values.env.PUSHER_APP_KEY }}"
             PHP_TZ: "{{ .Values.TZ }}"

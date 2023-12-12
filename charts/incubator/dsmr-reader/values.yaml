@@ -36,11 +36,11 @@ workload:
               secretKeyRef:
                 key: plainhost
                 name: dbcreds
-            DJANGO_DATABASE_NAME: "{{ .Values.postgresql.postgresqlDatabase }}"
+            DJANGO_DATABASE_NAME: "{{ .Values.cnpg.main.database }}"
             DJANGO_DATABASE_PASSWORD:
               secretKeyRef:
                 key: postgresql-password
                 name: dbcreds
             DJANGO_DATABASE_PORT: "5432"
-            DJANGO_DATABASE_USER: "{{ .Values.postgresql.postgresqlUsername }}"
+            DJANGO_DATABASE_USER: "{{ .Values.cnpg.main.user }}"
             DJANGO_TIME_ZONE: "{{ .Values.TZ }}"
