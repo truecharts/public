@@ -1,8 +1,8 @@
 {{- define "focalboard.configmap" -}}
 
-{{- $pgPass := .Values.postgresql.postgresqlPassword | trimAll "\"" }}
-{{- $pgUser := .Values.postgresql.postgresqlUsername }}
-{{- $pgDB := .Values.postgresql.postgresqlDatabase }}
+{{- $pgPass := .Values.cnpg.main.creds.password | trimAll "\"" }}
+{{- $pgUser := .Values.cnpg.main.user }}
+{{- $pgDB := .Values.cnpg.main.database }}
 enabled: true    
 data:
   focalboard-config: |-

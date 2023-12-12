@@ -219,10 +219,10 @@ data:
     ; DB configuration for PostgreSQL
     class = Database
     [model_options]
-    dsn = "{{ printf "pgsql:host=%v-postgresql;dbname=%v" .Release.Name .Values.postgresql.postgresqlDatabase }}"
+    dsn = "{{ printf "pgsql:host=%v-postgresql;dbname=%v" .Release.Name .Values.cnpg.main.database }}"
     tbl = "privatebin_"    ; table prefix
-    usr = "{{ .Values.postgresql.postgresqlUsername }}"
-    pwd = {{ .Values.postgresql.postgresqlPassword }}
+    usr = "{{ .Values.cnpg.main.user }}"
+    pwd = {{ .Values.cnpg.main.creds.password }}
     opt[12] = true    ; PDO::ATTR_PERSISTENT
 
 {{- end }}
