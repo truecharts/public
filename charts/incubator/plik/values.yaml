@@ -75,11 +75,11 @@ plik:
 portal:
   open:
     enabled: true
-postgresql:
-  enabled: true
-  existingSecret: dbcreds
-  postgresqlDatabase: plik
-  postgresqlUsername: plik
+cnpg:
+  main:
+    enabled: true
+    database: plik
+    user: plik
 service:
   main:
     ports:

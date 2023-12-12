@@ -41,11 +41,11 @@ persistence:
 portal:
   open:
     enabled: true
-postgresql:
-  enabled: true
-  existingSecret: dbcreds
-  postgresqlDatabase: privatebin
-  postgresqlUsername: privatebin
+cnpg:
+  main:
+    enabled: true
+    database: privatebin
+    user: privatebin
 privatebin:
   expire:
     default: 1week

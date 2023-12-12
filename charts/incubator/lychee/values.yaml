@@ -15,11 +15,11 @@ persistence:
 portal:
   open:
     enabled: true
-postgresql:
-  enabled: true
-  existingSecret: dbcreds
-  postgresqlDatabase: lychee
-  postgresqlUsername: lychee
+cnpg:
+  main:
+    enabled: true
+    database: lychee
+    user: lychee
 redis:
   enabled: true
   existingSecret: rediscreds
@@ -27,7 +27,6 @@ securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsGroup: 0
-    runAsNonRoot: false
     runAsUser: 0
 service:
   main:

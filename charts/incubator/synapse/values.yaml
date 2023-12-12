@@ -110,8 +110,8 @@ postgresql:
   env:
     POSTGRES_INITDB_ARGS: --encoding=UTF8 --locale=C
   existingSecret: dbcreds
-  postgresqlDatabase: synapse
-  postgresqlUsername: synapse
+    database: synapse
+    user: synapse
 securityContext:
   container:
     allowPrivilegeEscalation: true
