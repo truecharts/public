@@ -77,7 +77,7 @@ data:
     DataBackend           = {{ $backend | quote }}
     [MetadataBackendConfig]
         Driver            = "postgres"
-        ConnectionString  = {{ .Values.postgresql.url.complete | trimAll "\"" | quote }}
+        ConnectionString  = {{ .Values.cnpg.main.url.complete | trimAll "\"" | quote }}
         Debug             = {{ .Values.plik.general.debug }}
     [DataBackendConfig]
     {{- if eq $backend "file" }}

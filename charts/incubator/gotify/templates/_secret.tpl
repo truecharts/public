@@ -4,10 +4,10 @@
 {{- $secretName := printf "%s-secret" (include "tc.common.names.fullname" .) }}
 {{- $secretEnvName := printf "%s-secret-env" (include "tc.common.names.fullname" .) }}
 
-{{- $url := (.Values.postgresql.url.plain | trimAll "\"") }}
-{{- $password := (.Values.postgresql.postgresqlPassword | trimAll "\"") }}
-{{- $dbuser := .Values.postgresql.postgresqlUsername }}
-{{- $dbname := .Values.postgresql.postgresqlDatabase }}
+{{- $url := (.Values.cnpg.main.url.plain | trimAll "\"") }}
+{{- $password := (.Values.cnpg.main.creds.password | trimAll "\"") }}
+{{- $dbuser := .Values.cnpg.main.user }}
+{{- $dbname := .Values.cnpg.main.database }}
 {{- $port := .Values.service.main.ports.main.port }}
 ---
 apiVersion: v1

@@ -4,7 +4,7 @@
 {{- $secretName := printf "%s-couponstore-secret" (include "tc.common.names.fullname" .) }}
 
 ---
-{{- $pg := .Values.postgresql }}
+{{- $pg := .Values.cnpg.main }}
 
 apiVersion: v1
 kind: Secret
@@ -17,5 +17,5 @@ data:
   {{- else }}
   SECRET_KEY_BASE: {{ randAlphaNum 32 }}
   {{- end }}
-  DATABASE_URL: {{ printf "postgres://%v:%v@%v-postgresql:5432/%v" $pg.postgresqlUsername ($pg.postgresqlPassword | trimAll "\"") .Release.Name $pg.postgresqlDatabase  }}
+  DATABASE_URL: {{ printf "postgres://%v:%v@%v-postgresql:5432/%v" $pg.user ($pg.postgresqlPassword | trimAll "\"") .Release.Name $pg.database  }}
 {{- end -}}
