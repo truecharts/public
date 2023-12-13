@@ -1,16 +1,16 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: restreamer
-appVersion: 2.6.0
 version: 3.0.1
+appVersion: 2.6.0
 description: Allows smart free video streaming in real time.
 home: https://truecharts.org/charts/incubator/restreamer
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/restreamer.png
 deprecated: false
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/restreamer
   - https://hub.docker.com/r/datarhei/restreamer
   - https://datarhei.github.io/restreamer/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/restreamer
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -36,3 +36,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: nextcloud
 version: 22.2.18
@@ -11,9 +11,9 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/nextcloud.png
 deprecated: false
 sources:
   - https://github.com/nextcloud/helm
+  - https://github.com/nextcloud/docker
   - https://github.com/truecharts/charts/tree/master/charts/stable/nextcloud
   - https://github.com/truecharts/containers/tree/master/mirrornextcloud-fpm
-  - https://github.com/nextcloud/docker
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -47,3 +47,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application
