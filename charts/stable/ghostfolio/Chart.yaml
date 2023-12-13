@@ -1,41 +1,42 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: ghostfolio
 version: 0.6.0
 appVersion: 2.30.0
-description: Ghostfolio is a privacy-first, open source dashboard for your personal
+description:
+  Ghostfolio is a privacy-first, open source dashboard for your personal
   finances. Break down your asset allocation, know your net worth and make solid,
   data-driven investment decisions.
 home: https://truecharts.org/charts/stable/ghostfolio
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ghostfolio.png
 deprecated: false
 sources:
-- https://github.com/ghostfolio/ghostfolio
-- https://github.com/truecharts/charts/tree/master/charts/stable/ghostfolio
-- https://hub.docker.com/r/ghostfolio/ghostfolio
-- https://ghostfol.io/
+  - https://github.com/ghostfolio/ghostfolio
+  - https://ghostfol.io/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/ghostfolio
+  - https://hub.docker.com/r/ghostfolio/ghostfolio
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- ghostfolio
-- finance
+  - ghostfolio
+  - finance
 dependencies:
-- name: common
-  version: 14.3.5
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
-- name: redis
-  version: 7.0.6
-  repository: https://deps.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.3.5
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 7.0.6
+    repository: https://deps.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

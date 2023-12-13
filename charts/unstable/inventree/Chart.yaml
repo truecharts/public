@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: inventree
 version: 9.0.1
@@ -10,10 +10,10 @@ home: https://truecharts.org/charts/incubator/inventree
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/inventree.png
 deprecated: false
 sources:
-  - https://inventree.readthedocs.io
-  - https://github.com/inventree/InvenTree
   - https://github.com/truecharts/charts/tree/master/charts/incubator/inventree
   - https://hub.docker.com/r/inventree/inventree
+  - https://inventree.readthedocs.io
+  - https://github.com/inventree/InvenTree
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -51,3 +51,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application
