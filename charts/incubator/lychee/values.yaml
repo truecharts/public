@@ -44,8 +44,8 @@ workload:
             APP_ENV: production
             APP_KEY:
               secretKeyRef:
-                key: APP_KEY
                 name: lychee-secrets
+                key: APP_KEY
             APP_NAME: Lychee
             APP_URL: http://localhost
             CACHE_DRIVER: redis
