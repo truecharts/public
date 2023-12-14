@@ -42,10 +42,6 @@ workload:
           env:
             APP_DEBUG: false
             APP_ENV: production
-            APP_KEY:
-              secretKeyRef:
-                key: APP_KEY
-                name: lychee-secrets
             APP_NAME: Lychee
             APP_URL: http://localhost
             CACHE_DRIVER: redis
@@ -76,3 +72,6 @@ workload:
             SECURITY_HEADER_HSTS_ENABLE: false
             SESSION_DRIVER: redis
             TIMEZONE: "{{ .Values.TZ }}"
+          envFrom:
+            - secretRef:
+                name: "lychee-secrets"
