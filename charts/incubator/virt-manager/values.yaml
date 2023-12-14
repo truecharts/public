@@ -1,9 +1,7 @@
-env:
-  HOSTS: "['qemu:///system']"
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/virt-manager
-  tag: latest@sha256:ca140a089eb5717e4c65a6f981a3077e342bb92510def6a61a31b1018e03431e
+  repository: mber5/virt-manager
+  tag: latest@sha256:111674d877635e0f85baabfb202bba560e7ec5ccdf0d2f1ebcb48fc9c32bfd48
 persistence:
   devkvm:
     enabled: true
@@ -17,19 +15,26 @@ persistence:
   rootfolder:
     enabled: true
     mountPath: /root
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  open:
+    enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
       main:
         port: 8185
-        protocol: TCP
+        protocol: tcp
         targetPort: 80
-
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            HOSTS: "['qemu:///system']"

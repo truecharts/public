@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: bitcoin-node
-version: 2.0.14
+version: 3.0.1
 appVersion: latest
 description: Chart that runs the Bitcoin bitcoind node in a Chart for easy deployment.
 home: https://truecharts.org/charts/incubator/bitcoin-node
@@ -10,7 +10,7 @@ deprecated: false
 sources:
   - https://github.com/kylemanna/docker-bitcoind
   - https://github.com/truecharts/charts/tree/master/charts/incubator/bitcoin-node
-  - https://github.com/truecharts/containers/tree/master/mirrorbitcoin-node
+  - https://hub.docker.com/r/kylemanna/bitcoind
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -20,7 +20,7 @@ keywords:
   - Crypto
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -34,3 +34,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

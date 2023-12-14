@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: odoo
-version: 14.0.19
+version: 14.0.20
 appVersion: "17.0"
 description:
   All-in-one business software. Beautiful. Easy-to-use. CRM, Accounting,
@@ -41,3 +41,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

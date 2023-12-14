@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: bitcoind
-version: 2.0.11
+version: 3.0.1
 appVersion: latest
 description: |
   Support the Bitcoin network by hosting your own node! This template provides a full Bitcoin Core node, built in a verifiably trustless way.
@@ -11,7 +11,7 @@ deprecated: false
 sources:
   - https://bitcoin.org/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/bitcoind
-  - https://github.com/truecharts/containers/tree/master/mirrorbitcoind
+  - https://hub.docker.com/r/ofawx/bitcoind
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -23,7 +23,7 @@ keywords:
   - Crypto
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -37,3 +37,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

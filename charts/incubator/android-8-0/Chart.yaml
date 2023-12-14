@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: android-8-0
-version: 2.0.11
+version: 3.0.1
 appVersion: latest
 description:
   Android in Chart solution with noVNC supported and video recording. Work
@@ -13,7 +13,7 @@ deprecated: false
 sources:
   - https://registry.hub.docker.com/r/ulisses1478/docker-android
   - https://github.com/truecharts/charts/tree/master/charts/incubator/android-8-0
-  - https://github.com/truecharts/containers/tree/master/mirrorandroid-8-0
+  - https://hub.docker.com/r/ulisses1478/docker-android
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -23,7 +23,7 @@ keywords:
   - Other
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -37,3 +37,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: fileshelter
-version: 2.0.14
+version: 3.0.1
 appVersion: latest
 description:
   FileShelter is a self-hosted software that allows you to easily share
@@ -10,9 +10,9 @@ home: https://truecharts.org/charts/incubator/fileshelter
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/fileshelter.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/fileshelter
-  - https://github.com/truecharts/containers/tree/master/mirrorfileshelter
   - https://github.com/epoupon/fileshelter
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/fileshelter
+  - https://hub.docker.com/r/epoupon/fileshelter
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -25,7 +25,7 @@ keywords:
   - Network-FTP
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -39,3 +39,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

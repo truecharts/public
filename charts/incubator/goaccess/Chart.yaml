@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: goaccess
-version: 2.0.10
+version: 3.0.1
 appVersion: latest
 description:
   GoAccess is an open source real-time web log analyzer and interactive
@@ -13,7 +13,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/goaccess.png
 deprecated: false
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/goaccess
-  - https://github.com/truecharts/containers/tree/master/mirrorgoaccess
+  - https://hub.docker.com/r/gregyankovoy/goaccess
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -23,7 +23,7 @@ keywords:
   - Other
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -37,3 +37,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

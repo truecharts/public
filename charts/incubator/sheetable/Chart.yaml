@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: sheetable
-version: 3.0.25
+version: 4.0.1
 appVersion: "0.8"
 description:
   SheetAble is an easy to use music sheet organiser for all the music enthusiasts
@@ -10,10 +10,10 @@ home: https://truecharts.org/charts/incubator/sheetable
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/sheetable.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/sheetable
-  - https://github.com/truecharts/containers/tree/master/mirrorsheetable
-  - https://sheetable.net/docs
   - https://github.com/SheetAble
+  - https://sheetable.net/docs
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/sheetable
+  - https://hub.docker.com/r/vallezw/sheetable
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -22,16 +22,9 @@ keywords:
   - sheetable
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-  - name: postgresql
-    version: 11.0.31
-    repository: https://deps.truecharts.org/
-    condition: postgresql.enabled
     alias: ""
     tags: []
     import-values: []
@@ -43,3 +36,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

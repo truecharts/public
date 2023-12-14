@@ -1,30 +1,26 @@
-env:
-  GAME_CONFIG: server.cfg
-  MANUAL_UPDATES: ""
-  SERVER_KEY: ""
-  SRV_ADR: https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/
-  SRV_NAME: ""
-  START_VARS: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/redm
-  tag: latest@sha256:4d87a6b0f0ebd0235f51a429efb5e852681f8560593e8a8c35772021d8eb3fbc
+  repository: ich777/redmserver
+  tag: latest@sha256:501b1669e90e39c41e92ec9ad3bbb119eba3675b01116afb9be16115fe4a489c
 persistence:
   serverfiles:
     enabled: true
     mountPath: /serverdata/serverfiles
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  open:
+    enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
       main:
         port: 9016
-        protocol: HTTP
+        protocol: http
         targetPort: 8080
   tcp1:
     enabled: true
@@ -32,7 +28,7 @@ service:
       tcp1:
         enabled: true
         port: 30110
-        protocol: TCP
+        protocol: tcp
         targetPort: 30110
   tcp2:
     enabled: true
@@ -40,7 +36,7 @@ service:
       tcp2:
         enabled: true
         port: 30120
-        protocol: TCP
+        protocol: tcp
         targetPort: 30120
   udp1:
     enabled: true
@@ -48,7 +44,7 @@ service:
       udp1:
         enabled: true
         port: 30110
-        protocol: UDP
+        protocol: udp
         targetPort: 30110
   udp2:
     enabled: true
@@ -56,8 +52,17 @@ service:
       udp2:
         enabled: true
         port: 30120
-        protocol: UDP
+        protocol: udp
         targetPort: 30120
-
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GAME_CONFIG: server.cfg
+            MANUAL_UPDATES: ""
+            SERVER_KEY: ""
+            SRV_ADR: https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/
+            SRV_NAME: ""
+            START_VARS: ""

@@ -1,55 +1,53 @@
 image:
-  repository: tccr.io/truecharts/magicmirror-2
   pullPolicy: IfNotPresent
-  tag: latest@sha256:d39dd5ba0f16b97ce6da85803c780fa6880569dbcce141c6a4e4700079501625
-
-securityContext:
-  runAsNonRoot: false
-  readOnlyRootFilesystem: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
+  repository: ich777/magic-mirror2
+  tag: latest@sha256:92e2fe5fb98791aba510e1be122bd1d659fa396a48dbafa0894ebc044df07651
 magicmirror:
   force_update: false
   force_update_modules: false
-
-envFrom:
-  - configMapRef:
-      name: '{{ include "tc.common.names.fullname" . }}-magicmirror-env'
-
-probes:
-  liveness:
-    type: HTTP
-    path: /
-  readiness:
-    type: HTTP
-    path: /
-  startup:
-    type: HTTP
-    path: /
-
+persistence:
+  config:
+    enabled: true
+    mountPath: /magicmirror2
+  configfile:
+    enabled: true
+    mountPath: /tmp/config.js
+    objectName:
+      '{{ printf "%s-magicmirror-config" (include "tc.common.names.fullname"
+      .) }}'
+    subPath: config.js
+    type: configMap
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
       main:
         port: 10590
-        protocol: HTTP
+        protocol: http
         targetPort: 10000
-
-persistence:
-  config:
-    enabled: true
-    mountPath: /magicmirror2
-  # Mounts a modified default config file to a "tmp" which the entrypoint,
-  # copies to the config location if it does not exist.
-  configfile:
-    enabled: true
-    type: configMap
-    mountPath: /tmp/config.js
-    subPath: config.js
-    objectName: '{{ printf "%s-magicmirror-config" (include "tc.common.names.fullname" .) }}'
-
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - configMapRef:
+                name: '{{ include "tc.common.names.fullname" . }}-magicmirror-env'
+          probes:
+            liveness:
+              path: /
+              type: http
+            readiness:
+              path: /
+              type: http
+            startup:
+              path: /
+              type: http

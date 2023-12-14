@@ -1,44 +1,26 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/terraria-tshock
-  tag: vtshock@sha256:93dc07c1fbae51e58d02c678aa005b9c2820993255f2f4e4bee3565ebd26f23d
-
-terraria:
-  pass: secretpass
-  autocreate: "1"
-  seed: AwesomeSeed
-  worldname: scale terraria
-  maxplayers: 16
-  lang: en-US
-  easy_game_params:
-    noupnp: true
-    steam: false
-    secure: false
-  game_params: []
-
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
+  repository: ich777/terrariaserver
+  tag: tshock@sha256:ee34eab751ecbb4b2d250d5b197fb361f11185e6624f48e1a7818354084e3ce3
 persistence:
   serverfiles:
     enabled: true
     mountPath: /serverdata/serverfiles
-
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-secret'
-
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
       main:
         port: 9014
-        protocol: HTTP
+        protocol: http
         targetPort: 8080
   tcp:
     enabled: true
@@ -46,6 +28,23 @@ service:
       tcp:
         enabled: true
         port: 7777
-
-portal:
-  enabled: true
+terraria:
+  autocreate: "1"
+  easy_game_params:
+    noupnp: true
+    secure: false
+    steam: false
+  game_params: []
+  lang: en-US
+  maxplayers: 16
+  pass: secretpass
+  seed: AwesomeSeed
+  worldname: scale terraria
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - secretRef:
+                name: terraria-secret

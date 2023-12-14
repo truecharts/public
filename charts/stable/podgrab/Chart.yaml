@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: podgrab
 version: 14.0.10
@@ -10,9 +10,9 @@ home: https://truecharts.org/charts/stable/podgrab
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/podgrab.png
 deprecated: false
 sources:
+  - https://github.com/akhilrex/podgrab
   - https://github.com/truecharts/charts/tree/master/charts/stable/podgrab
   - https://hub.docker.com/r/akhilrex/podgrab
-  - https://github.com/akhilrex/podgrab
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,3 +35,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

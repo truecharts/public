@@ -1,8 +1,8 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: lychee
-version: 17.0.2
-appVersion: 4.7.3
+version: 18.0.1
+appVersion: 4.13.0
 description:
   Lychee is a free photo-management tool, which runs on your server or
   web-space
@@ -10,9 +10,9 @@ home: https://truecharts.org/charts/incubator/lychee
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/lychee.png
 deprecated: false
 sources:
+  - https://hub.docker.com/r/lycheeorg/lychee-laravel
   - https://github.com/LycheeOrg/Lychee
   - https://github.com/truecharts/charts/tree/master/charts/incubator/lychee
-  - https://github.com/truecharts/containers/tree/master/mirrorlychee-laravel
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -23,21 +23,14 @@ keywords:
   - pictures
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
     tags: []
     import-values: []
-  - name: postgresql
-    version: 11.0.31
-    repository: https://deps.truecharts.org/
-    condition: postgresql.enabled
-    alias: ""
-    tags: []
-    import-values: []
   - name: redis
-    version: 5.0.33
+    version: 9.0.3
     repository: https://deps.truecharts.org
     condition: redis.enabled
     alias: ""
@@ -51,3 +44,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

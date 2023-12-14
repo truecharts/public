@@ -1,8 +1,8 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: flowise
-version: 1.0.19
-appVersion: 1.4.3
+version: 1.0.21
+appVersion: 1.4.5
 description: Drag & drop UI to build your customized LLM flow.
 home: https://truecharts.org/charts/stable/flowise
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/flowise.png
@@ -34,3 +34,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

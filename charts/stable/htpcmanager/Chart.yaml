@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: htpcmanager
 version: 6.0.10
@@ -8,8 +8,8 @@ home: https://truecharts.org/charts/stable/htpcmanager
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/htpcmanager.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/htpcmanager
   - https://ghcr.io/linuxserver/htpcmanager
+  - https://github.com/truecharts/charts/tree/master/charts/stable/htpcmanager
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -32,3 +32,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

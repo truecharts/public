@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: projectzomboidreporter-frontend
-version: 2.0.11
+version: 3.0.1
 appVersion: latest
 description:
   This is the frontend template used in the Project Zomboid Reporter. All
@@ -12,7 +12,7 @@ deprecated: false
 sources:
   - https://github.com/ChrisAshtear/Zomboid-Server-Stats-Reporter/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/projectzomboidreporter-frontend
-  - https://github.com/truecharts/containers/tree/master/mirrorprojectzomboidreporter-frontend
+  - https://hub.docker.com/r/chrisashtear/zomboid-reporter-frontend
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -22,7 +22,7 @@ keywords:
   - GameServers
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -36,3 +36,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

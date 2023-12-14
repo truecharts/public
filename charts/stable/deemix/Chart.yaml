@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: deemix
 version: 7.0.10
@@ -8,9 +8,8 @@ home: https://truecharts.org/charts/stable/deemix
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/deemix.png
 deprecated: false
 sources:
-  - https://git.freezerapp.xyz/RemixDev/deemix-py
   - https://github.com/truecharts/charts/tree/master/charts/stable/deemix
-  - ""
+  - https://git.freezerapp.xyz/RemixDev/deemix-py
   - https://gitlab.com/Bockiii/deemix-docker.git
 maintainers:
   - name: TrueCharts
@@ -36,3 +35,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

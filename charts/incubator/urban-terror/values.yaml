@@ -1,35 +1,40 @@
-env:
-  CHECK_FOR_UPDATES: "true"
-  START_PARAMS: ""
-  UMASK: "000"
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/urban-terror
-  tag: latest@sha256:ba115ea0b576315546f6d8d60f118e94b6f33cac3a570e0d29930cdfb9aca82d
+  repository: ich777/urbanterror
+  tag: latest@sha256:c45d905067516738d6de2280b6752d99b3fdf6308f71e56edefa42be129cfc18
 persistence:
   datadir:
     enabled: true
     mountPath: /urbanterror
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
-    enabled: false
+portal:
+  open:
+    enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
       main:
         port: 27960
-        protocol: UDP
+        protocol: udp
         targetPort: 27960
-
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            CHECK_FOR_UPDATES: "true"
+            START_PARAMS: ""
+            UMASK: "000"
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

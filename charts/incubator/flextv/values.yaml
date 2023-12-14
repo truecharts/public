@@ -1,25 +1,26 @@
-env:
-  UMASK: "000"
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/flextv
-  tag: latest@sha256:b54a48395fdf0e8cd03c74c1fd40e57d3b57a40f75dcdaaac1b289fa73a743bd
+  repository: jcreynolds/flextv
+  tag: latest@sha256:5a322ebf61462ab66188cee1fd110b4b8b4bfe845ae51925946a74ddcc802a6d
 persistence:
   config:
     enabled: true
     mountPath: /config
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  open:
+    enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
       main:
         port: 5666
-        protocol: HTTP
+        protocol: http
         targetPort: 80
   tcpport1:
     enabled: true
@@ -27,8 +28,12 @@ service:
       tcpport1:
         enabled: true
         port: 5667
-        protocol: TCP
+        protocol: tcp
         targetPort: 443
-
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            UMASK: "000"

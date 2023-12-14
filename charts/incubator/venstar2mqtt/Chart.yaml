@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: venstar2mqtt
-version: 2.0.12
+version: 3.0.1
 appVersion: latest
 description:
   Simple Chart that allows MQTT to be used to view data and push settings
@@ -12,7 +12,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/venstar2mqtt.png
 deprecated: false
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/venstar2mqtt
-  - https://github.com/truecharts/containers/tree/master/mirrorvenstar2mqtt
+  - https://hub.docker.com/r/terafin/mqtt-venstar-bridge
   - https://github.com/terafin/mqtt-venstar-bridge
 maintainers:
   - name: TrueCharts
@@ -24,7 +24,7 @@ keywords:
   - Tools-Utilities
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -38,3 +38,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

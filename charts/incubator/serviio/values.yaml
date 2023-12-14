@@ -1,8 +1,7 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/serviio
-  tag: latest@sha256:cd130a2872b6691a51d80fc99a1026cd643ed1dd822b70b26223cd007e288ccd
+  repository: riftbit/serviio
+  tag: latest@sha256:9e52c3949eaa05b32f328aaa195679471470b0eee59588316dd659a970568aaa
 persistence:
   hostpath2:
     enabled: true
@@ -16,12 +15,15 @@ persistence:
   hostpath5:
     enabled: true
     mountPath: /media/serviio
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  open:
+    enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   hostport2:
     enabled: true
@@ -29,7 +31,7 @@ service:
       hostport2:
         enabled: true
         port: 8895
-        protocol: TCP
+        protocol: tcp
         targetPort: 8895
   hostport3:
     enabled: true
@@ -37,7 +39,7 @@ service:
       hostport3:
         enabled: true
         port: 23523
-        protocol: TCP
+        protocol: tcp
         targetPort: 23523
   hostport5:
     enabled: true
@@ -45,7 +47,7 @@ service:
       hostport5:
         enabled: true
         port: 23424
-        protocol: TCP
+        protocol: tcp
         targetPort: 23424
   hostport6:
     enabled: true
@@ -53,14 +55,11 @@ service:
       hostport6:
         enabled: true
         port: 23524
-        protocol: TCP
+        protocol: tcp
         targetPort: 23524
   main:
     ports:
       main:
         port: 23423
-        protocol: HTTP
+        protocol: http
         targetPort: 23423
-
-portal:
-  enabled: true

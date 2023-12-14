@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: metallb-config
 version: 3.0.12
@@ -10,10 +10,10 @@ home: https://truecharts.org/charts/enterprise/metallb-config
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/metallb-config.png
 deprecated: false
 sources:
-  - https://github.com/metallb/metallb
-  - https://metallb.universe.tf
-  - https://github.com/truecharts/charts/tree/master/charts/enterprise/metallb-config
   - https://hub.docker.com/_/hello-world
+  - https://metallb.universe.tf
+  - https://github.com/metallb/metallb
+  - https://github.com/truecharts/charts/tree/master/charts/enterprise/metallb-config
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -37,3 +37,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: enterprise
+type: application

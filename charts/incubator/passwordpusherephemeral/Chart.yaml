@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: passwordpusherephemeral
-version: 2.0.30
+version: 3.0.1
 appVersion: latest
 description:
   Ephemeral version requires no other database Chart! PasswordPusher or
@@ -11,9 +11,9 @@ home: https://truecharts.org/charts/incubator/passwordpusherephemeral
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/passwordpusherephemeral.png
 deprecated: false
 sources:
-  - https://github.com/pglombardo/PasswordPusher
   - https://github.com/truecharts/charts/tree/master/charts/incubator/passwordpusherephemeral
-  - https://github.com/truecharts/containers/tree/master/mirrorpasswordpusherephemeral
+  - https://hub.docker.com/r/pglombardo/pwpush-ephemeral
+  - https://github.com/pglombardo/PasswordPusher
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -25,7 +25,7 @@ keywords:
   - Tools-Utilities
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -39,3 +39,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

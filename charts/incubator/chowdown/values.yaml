@@ -1,25 +1,24 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/chowdown
-  tag: latest@sha256:e9a2caeb814dda5be9a89ab62cb98ab528a88fbb92537ebf4b2a52e1f5a70e42
+  repository: gregyankovoy/chowdown
+  tag: latest@sha256:7941ebe37bab142a05f7b241e2490fa2c60f3644b4327d4dbac82c7b0f73243c
 persistence:
   config:
     enabled: true
     mountPath: /config
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  open:
+    enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
       main:
         port: 4000
-        protocol: TCP
+        protocol: tcp
         targetPort: 4000
-
-portal:
-  enabled: true

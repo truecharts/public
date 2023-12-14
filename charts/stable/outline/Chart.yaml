@@ -1,8 +1,8 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: outline
-version: 8.0.14
-appVersion: 0.73.1
+version: 8.1.0
+appVersion: 0.74.0
 description:
   A fast, collaborative, knowledge base for your team built using React
   and Node.js.
@@ -10,9 +10,9 @@ home: https://truecharts.org/charts/stable/outline
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/outline.png
 deprecated: false
 sources:
+  - https://github.com/outline/outline
   - https://github.com/truecharts/charts/tree/master/charts/stable/outline
   - https://hub.docker.com/r/outlinewiki/outline
-  - https://github.com/outline/outline
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -43,3 +43,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

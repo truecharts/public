@@ -1,25 +1,24 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/z80pack
-  tag: latest@sha256:afd6b95ed768aa76db4655caab2fa183b9fcb8282ed0308474ebfb81efab8a26
+  repository: dlandon/z80pack
+  tag: latest@sha256:b000d57d42da267dca6338ad562674b6792ef7d774836ded6aa19e21f6b75734
 persistence:
   config:
     enabled: true
     mountPath: /config
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  open:
+    enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
       main:
         port: 4200
-        protocol: TCP
+        protocol: tcp
         targetPort: 4200
-
-portal:
-  enabled: true

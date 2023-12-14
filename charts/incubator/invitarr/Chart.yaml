@@ -1,16 +1,16 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: invitarr
-version: 2.0.11
+version: 3.0.1
 appVersion: latest
 description: A chatbot that invites discord users to plex.
 home: https://truecharts.org/charts/incubator/invitarr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/invitarr.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/invitarr
-  - https://github.com/truecharts/containers/tree/master/mirrorinvitarr
   - https://github.com/Sleepingpirates/Invitarr
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/invitarr
+  - https://hub.docker.com/r/piratify/invitarr
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -22,7 +22,7 @@ keywords:
   - Other
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -36,3 +36,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

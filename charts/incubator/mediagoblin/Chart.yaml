@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: mediagoblin
-version: 2.0.11
+version: 3.0.1
 appVersion: latest
 description:
   "MediaGoblin is a free software media publishing platform that anyone
@@ -14,7 +14,7 @@ deprecated: false
 sources:
   - https://mediagoblin.org/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/mediagoblin
-  - https://github.com/truecharts/containers/tree/master/mirrormediagoblin
+  - https://hub.docker.com/r/mtlynch/mediagoblin
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -24,7 +24,7 @@ keywords:
   - MediaApp-Photos
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -38,3 +38,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

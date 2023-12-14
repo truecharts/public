@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: tvheadend
-version: 16.0.26
+version: 16.0.27
 appVersion: latest
 description: TVheadend - a TV streaming server and digital video recorder
 home: https://truecharts.org/charts/stable/tvheadend
@@ -36,3 +36,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

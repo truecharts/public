@@ -1,17 +1,17 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: quiz-game
-version: 2.0.11
+version: 3.0.1
 appVersion: latest
 description: Test your General Knowledge in different types of topics.
 home: https://truecharts.org/charts/incubator/quiz-game
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/quiz-game.png
 deprecated: false
 sources:
-  - https://github.com/ASKJR/quiz-game
   - https://registry.hub.docker.com/r/patrickstigler/quiz-game
   - https://github.com/truecharts/charts/tree/master/charts/incubator/quiz-game
-  - https://github.com/truecharts/containers/tree/master/mirrorquiz-game
+  - https://hub.docker.com/r/patrickstigler/quiz-game
+  - https://github.com/ASKJR/quiz-game
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -23,7 +23,7 @@ keywords:
   - Network-Web
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -37,3 +37,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

@@ -1,8 +1,8 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: conanexiles
-version: 2.0.11
-appVersion: latest
+version: 3.0.1
+appVersion: conanexiles
 description:
   This Chart will download and install SteamCMD. It will also install Conan
   Exiles and run it.
@@ -10,9 +10,9 @@ home: https://truecharts.org/charts/incubator/conanexiles
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/conanexiles.png
 deprecated: false
 sources:
+  - https://hub.docker.com/r/ich777/steamcmd
   - https://www.steampowered.com/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/conanexiles
-  - https://github.com/truecharts/containers/tree/master/mirrorconanexiles
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -22,7 +22,7 @@ keywords:
   - GameServers
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -36,3 +36,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

@@ -1,30 +1,35 @@
-env:
-  YOURLS_DB_HOST: ""
-  YOURLS_DB_NAME: ""
-  YOURLS_DB_PASS: ""
-  YOURLS_HOURS_OFFSET: ""
-  YOURLS_PASS: ""
-  YOURLS_PRIVATE: ""
-  YOURLS_SITE: ""
-  YOURLS_USER: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/yourls
-  tag: latest@sha256:9e5e11b7733dfed36aa90decc1f6b7d0bbb627128c3b9e80f7adb2a1fefb0cf8
+  repository: yourls
+  tag: latest@sha256:a20b1d952e5dfc5efaa127a4a3ba8a8fff1c50a0bc626890c6cfea275bc550ea
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  open:
+    enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
       main:
         port: 80
-        protocol: TCP
+        protocol: tcp
         targetPort: 80
-
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            YOURLS_DB_HOST: ""
+            YOURLS_DB_NAME: ""
+            YOURLS_DB_PASS: ""
+            YOURLS_HOURS_OFFSET: ""
+            YOURLS_PASS: ""
+            YOURLS_PRIVATE: ""
+            YOURLS_SITE: ""
+            YOURLS_USER: ""

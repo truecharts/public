@@ -1,20 +1,20 @@
-env:
-  FLOOD_AUTH: ""
-  UMASK: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/qflood
-  tag: latest@sha256:d773cd8b8c19929214a0d4b5c0668f214e7b5b4490da0114a6bad7f9feba1b5f
+  repository: cr.hotio.dev/hotio/qflood
+  tag: latest@sha256:ff86ae422aa174dd7c90bcefbe21dc4dc72b6edc81e3843446727a57cddf0dfa
 persistence:
   config:
     enabled: true
     mountPath: /config
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  open:
+    enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   hostportfor808:
     enabled: true
@@ -22,14 +22,19 @@ service:
       hostportfor808:
         enabled: true
         port: 8080
-        protocol: TCP
+        protocol: tcp
         targetPort: 8080
   main:
     ports:
       main:
         port: 3000
-        protocol: HTTP
+        protocol: http
         targetPort: 3000
-
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            FLOOD_AUTH: ""
+            UMASK: ""

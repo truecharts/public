@@ -1,28 +1,32 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/xware
-  tag: latest@sha256:ada617dcee94930d6f3da1bcc4e02a209cf4090e891a3233f08587a171ef2fd4
+  repository: caiguai/docker-xware
+  tag: latest@sha256:0aea5c81ecbe16258f324926cbcf8a0b8b460d8b4be3bbe9c2e06c0df92dadf5
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
-probes:
-  liveness:
-    enabled: false
-  readiness:
-    enabled: false
-  startup:
+portal:
+  open:
     enabled: false
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-
-portal:
-  enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: s3sync
-version: 2.0.11
+version: 3.0.1
 appVersion: latest
 description:
   This application backs up every folder mounted at `/data/` to a given
@@ -13,7 +13,7 @@ deprecated: false
 sources:
   - https://github.com/what-name/docker-s3sync
   - https://github.com/truecharts/charts/tree/master/charts/incubator/s3sync
-  - https://github.com/truecharts/containers/tree/master/mirrors3sync
+  - https://hub.docker.com/r/whatname/docker-s3sync
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -24,7 +24,7 @@ keywords:
   - Cloud
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -38,3 +38,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

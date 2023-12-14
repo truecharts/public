@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: flemarr
-version: 2.0.10
+version: 3.0.1
 appVersion: latest
 description:
   Flemmarr is a simple Python script that parses a configuration written
@@ -12,7 +12,7 @@ deprecated: false
 sources:
   - https://github.com/Flemmarr/Flemmarr
   - https://github.com/truecharts/charts/tree/master/charts/incubator/flemarr
-  - https://github.com/truecharts/containers/tree/master/mirrorflemmarr
+  - https://hub.docker.com/r/pierremesure/flemmarr
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -21,7 +21,7 @@ keywords:
   - flemarr
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -35,3 +35,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

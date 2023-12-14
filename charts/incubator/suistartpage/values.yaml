@@ -1,25 +1,24 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/suistartpage
-  tag: latest@sha256:ff558229637988720cf6e3ab888b4e7b2642b4a5fddfc3378fbb91d68636a2c9
+  repository: corneliousjd/sui-startpage
+  tag: latest@sha256:0a4728be5ebed65e501c23444cb3b1f65f7a96e3bb36cff08450b3be0f45934e
 persistence:
   appdata:
     enabled: true
     mountPath: /usr/share/nginx/html
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  open:
+    enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
       main:
         port: 8489
-        protocol: TCP
+        protocol: tcp
         targetPort: 80
-
-portal:
-  enabled: true

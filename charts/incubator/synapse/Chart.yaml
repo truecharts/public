@@ -1,15 +1,15 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: synapse
-version: 8.0.2
-appVersion: 1.82.0
+version: 9.0.1
+appVersion: 1.95.1
 description: A Helm chart to deploy a Matrix homeserver stack into Kubernetes
 home: https://truecharts.org/charts/incubator/synapse
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/synapse.png
 deprecated: false
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/synapse
-  - https://github.com/truecharts/containers/tree/master/mirrorsynapse
+  - https://hub.docker.com/r/matrixdotorg/synapse
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -20,16 +20,9 @@ keywords:
   - synapse
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-  - name: postgresql
-    version: 11.0.31
-    repository: https://deps.truecharts.org/
-    condition: postgresql.enabled
     alias: ""
     tags: []
     import-values: []
@@ -41,3 +34,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

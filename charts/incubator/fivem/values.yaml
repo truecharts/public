@@ -1,30 +1,26 @@
-env:
-  GAME_CONFIG: server.cfg
-  MANUAL_UPDATES: ""
-  SERVER_KEY: ""
-  SRV_ADR: https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/
-  SRV_NAME: ""
-  START_VARS: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/fivem
-  tag: latest@sha256:23f64c6184dba2aa5c589c5d089d458c2cf2f546bc40cbc7e6c073c0c21c2795
+  repository: ich777/fivemserver
+  tag: latest@sha256:c7e8ca8960f11806e143d6f97048ab220732e617ef628f45ef738ce774163f3e
 persistence:
   serverfiles:
     enabled: true
     mountPath: /serverdata/serverfiles
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  open:
+    enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
       main:
         port: 9016
-        protocol: HTTP
+        protocol: http
         targetPort: 8080
   tcp1:
     enabled: true
@@ -32,7 +28,7 @@ service:
       tcp1:
         enabled: true
         port: 30110
-        protocol: TCP
+        protocol: tcp
         targetPort: 30110
   tcp2:
     enabled: true
@@ -40,7 +36,7 @@ service:
       tcp2:
         enabled: true
         port: 30120
-        protocol: TCP
+        protocol: tcp
         targetPort: 30120
   udp1:
     enabled: true
@@ -48,7 +44,7 @@ service:
       udp1:
         enabled: true
         port: 30110
-        protocol: UDP
+        protocol: udp
         targetPort: 30110
   udp2:
     enabled: true
@@ -56,8 +52,17 @@ service:
       udp2:
         enabled: true
         port: 30120
-        protocol: UDP
+        protocol: udp
         targetPort: 30120
-
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GAME_CONFIG: server.cfg
+            MANUAL_UPDATES: ""
+            SERVER_KEY: ""
+            SRV_ADR: https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/
+            SRV_NAME: ""
+            START_VARS: ""

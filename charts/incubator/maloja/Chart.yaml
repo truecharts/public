@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: maloja
-version: 2.0.12
+version: 3.0.1
 appVersion: latest
 description:
   Self-hosted music scrobble database to create personal listening statistics
@@ -10,9 +10,9 @@ home: https://truecharts.org/charts/incubator/maloja
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/maloja.png
 deprecated: false
 sources:
-  - https://maloja.krateng.ch/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/maloja
-  - https://github.com/truecharts/containers/tree/master/mirrormaloja
+  - https://hub.docker.com/r/krateng/maloja
+  - https://maloja.krateng.ch/
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -22,7 +22,7 @@ keywords:
   - MediaServer-Music
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -36,3 +36,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

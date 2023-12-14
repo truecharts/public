@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: godaddy-ddns
-version: 2.0.11
+version: 3.0.1
 appVersion: latest
 description:
   Chart to provide a DDNS service for godaddy domains. Uses the GoDaddy
@@ -13,7 +13,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/godaddy-ddns.png
 deprecated: false
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/godaddy-ddns
-  - https://github.com/truecharts/containers/tree/master/mirrorgodaddy-ddns
+  - https://hub.docker.com/r/jwater7/godaddy-publicip-updater
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -23,7 +23,7 @@ keywords:
   - Network-Web
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -37,3 +37,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

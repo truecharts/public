@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: spaceengineers
 version: 3.0.12
@@ -8,9 +8,9 @@ home: https://truecharts.org/charts/stable/spaceengineers
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/spaceengineers.png
 deprecated: false
 sources:
-  - https://github.com/Devidian/docker-spaceengineers
   - https://github.com/truecharts/charts/tree/master/charts/stable/spaceengineers
   - https://hub.docker.com/r/devidian/spaceengineers
+  - https://github.com/Devidian/docker-spaceengineers
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -34,3 +34,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

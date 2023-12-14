@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: zwavejs2mqtt
 version: 16.2.2
@@ -10,9 +10,9 @@ home: https://truecharts.org/charts/stable/zwavejs2mqtt
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/zwavejs2mqtt.png
 deprecated: false
 sources:
+  - https://github.com/zwave-js/zwavejs2mqtt
   - https://github.com/truecharts/charts/tree/master/charts/stable/zwavejs2mqtt
   - https://hub.docker.com/r/zwavejs/zwave-js-ui
-  - https://github.com/zwave-js/zwavejs2mqtt
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -38,3 +38,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

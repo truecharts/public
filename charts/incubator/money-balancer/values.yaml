@@ -1,35 +1,36 @@
 image:
-  repository: tccr.io/truecharts/money-balancer
   pullPolicy: IfNotPresent
-  tag: 1.3.0@sha256:1dadbc01020f16dfff1b56f957cb88ddfe3e1e4087e6ee20b7fafe6d05032d60
-
-envFrom:
-  - secretRef:
-      name: '{{ include "tc.common.names.fullname" . }}-moneybalancer-secret'
-
-probes:
-  liveness:
-    type: HTTP
-    path: /
-  readiness:
-    type: HTTP
-    path: /
-  startup:
-    type: HTTP
-    path: /
-
+  repository: ghcr.io/dorianim/money-balancer
+  tag: v1.3.0@sha256:89167ac32326ef9b50187e220f54744d9b329b321cebbf8f03578a48cc98964a
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+portal:
+  open:
+    enabled: true
 service:
   main:
     ports:
       main:
         port: 10302
-        protocol: HTTP
+        protocol: http
         targetPort: 8000
-
-persistence:
-  data:
-    enabled: true
-    mountPath: "/data"
-
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - secretRef:
+                name: '{{ include "tc.common.names.fullname" . }}-moneybalancer-secret'
+          probes:
+            liveness:
+              path: /
+              type: http
+            readiness:
+              path: /
+              type: http
+            startup:
+              path: /
+              type: http

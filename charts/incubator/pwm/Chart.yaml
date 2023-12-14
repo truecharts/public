@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: pwm
-version: 2.0.11
+version: 3.0.1
 appVersion: latest
 description:
   PWM is a free and opensource password self-service application enabling
@@ -10,9 +10,9 @@ home: https://truecharts.org/charts/incubator/pwm
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pwm.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/pwm
-  - https://github.com/truecharts/containers/tree/master/mirrorpwm
   - https://github.com/pwm-project/pwm
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/pwm
+  - https://hub.docker.com/r/fjudith/pwm
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -22,7 +22,7 @@ keywords:
   - Security
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -36,3 +36,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

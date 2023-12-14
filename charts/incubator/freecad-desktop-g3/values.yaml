@@ -1,26 +1,26 @@
-env:
-  VNC_PW: unraid
-  VNC_RESOLUTION: 1360x768
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/freecad-desktop-g3
-  tag: latest@sha256:5e7615b834236fffdf6144df192f7bcdc144efbb7fa369ae0d8f46332be766fb
+  repository: accetto/ubuntu-vnc-xfce-freecad-g3
+  tag: latest@sha256:6dc85899ac5129aee03d4c57e823d015f0e50c9dccd35dd64abf8dd19ed2b6c1
 persistence:
   internalshare:
     enabled: true
     mountPath: /UNRAID_SHARE
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  open:
+    enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
       main:
         port: 6901
-        protocol: HTTP
+        protocol: http
         targetPort: 6901
   webuivnc:
     enabled: true
@@ -28,8 +28,13 @@ service:
       webuivnc:
         enabled: true
         port: 5901
-        protocol: TCP
+        protocol: tcp
         targetPort: 5901
-
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            VNC_PW: unraid
+            VNC_RESOLUTION: 1360x768

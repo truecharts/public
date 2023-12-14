@@ -1,20 +1,20 @@
-env:
-  SIA_API_PASSWORD: ""
-  SIA_WALLET_PASSWORD: ""
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/sia-daemon
-  tag: vmaster@sha256:da5e87eb493c9f7fbedcce12e2c3e2c6c0bc01289dbdd3e5f071bcdcd6f2e32a
+  repository: ghcr.io/siafoundation/siad
+  tag: master@sha256:adc705f9da045a2d745054ee585fd686016c63b49d149123a2dbb48dfc9004d1
 persistence:
   datadirectory:
     enabled: true
     mountPath: /sia-data
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  open:
+    enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   hostrhp2port:
     enabled: true
@@ -22,7 +22,7 @@ service:
       hostrhp2port:
         enabled: true
         port: 9982
-        protocol: TCP
+        protocol: tcp
         targetPort: 9982
   hostrhp3port:
     enabled: true
@@ -30,14 +30,19 @@ service:
       hostrhp3port:
         enabled: true
         port: 9983
-        protocol: TCP
+        protocol: tcp
         targetPort: 9983
   main:
     ports:
       main:
         port: 9981
-        protocol: TCP
+        protocol: tcp
         targetPort: 9981
-
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            SIA_API_PASSWORD: ""
+            SIA_WALLET_PASSWORD: ""

@@ -1,33 +1,38 @@
-env:
-  DATA_PERM: "770"
-  DL_URL: http://files.star-made.org/StarMade-Starter.jar
-  GAME_PARAMS: ""
-  RUNTIME_NAME: basicjre
-  STARTER_PARAMS: -nogui
-  UMASK: "000"
-  XMS_SIZE: "1024"
-  XMX_SIZE: "1024"
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/starmade
-  tag: latest@sha256:69833efa59ddb750bff98cb75d0b3c4d467f72f3bacdc5cdf57042eff8fbc723
+  repository: ich777/starmade-server
+  tag: latest@sha256:f64ff6309ffac24bcc949c0ee1c717a87359a48a368f2938c086c3fe4517d88b
 persistence:
   serverfiles:
     enabled: true
     mountPath: /starmade
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  open:
+    enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
       main:
         port: 4242
-        protocol: TCP
+        protocol: tcp
         targetPort: 4242
-
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DATA_PERM: "770"
+            DL_URL: http://files.star-made.org/StarMade-Starter.jar
+            GAME_PARAMS: ""
+            RUNTIME_NAME: basicjre
+            STARTER_PARAMS: -nogui
+            UMASK: "000"
+            XMS_SIZE: "1024"
+            XMX_SIZE: "1024"

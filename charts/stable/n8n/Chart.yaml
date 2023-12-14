@@ -1,8 +1,8 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: n8n
-version: 9.2.1
-appVersion: 1.19.4
+version: 9.4.0
+appVersion: 1.21.0
 description: n8n is an extendable workflow automation tool.
 home: https://truecharts.org/charts/stable/n8n
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/n8n.png
@@ -42,3 +42,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

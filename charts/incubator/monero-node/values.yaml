@@ -1,9 +1,7 @@
-env:
-  name: monerod
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/monero-node
-  tag: latest@sha256:8d67834f606749ad335aea610f420f9183b208d584c3b29572583d6013b91f38
+  repository: kannix/monero-full-node
+  tag: latest@sha256:24071a723ae6a748ddbe892dfb8f6029f51aec381b760284ea71ccc16030a18e
 persistence:
   blockchainstorage:
     enabled: true
@@ -14,18 +12,21 @@ persistence:
   containerdir2:
     enabled: true
     mountPath: /src
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  open:
+    enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
       main:
         port: 18080
-        protocol: TCP
+        protocol: tcp
         targetPort: 18080
   port2:
     enabled: true
@@ -33,8 +34,12 @@ service:
       port2:
         enabled: true
         port: 18081
-        protocol: TCP
+        protocol: tcp
         targetPort: 18081
-
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            name: monerod

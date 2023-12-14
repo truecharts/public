@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: cadquery-server
-version: 2.0.11
+version: 3.0.1
 appVersion: latest
 description:
   CadQuery is an intuitive, easy-to-use Python module for building parametric
@@ -14,7 +14,7 @@ deprecated: false
 sources:
   - https://github.com/roipoussiere/cadquery
   - https://github.com/truecharts/charts/tree/master/charts/incubator/cadquery-server
-  - https://github.com/truecharts/containers/tree/master/mirrorcadquery-server
+  - https://hub.docker.com/r/cadquery/cadquery-server
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -27,7 +27,7 @@ keywords:
   - Network-Other
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -41,3 +41,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

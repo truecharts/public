@@ -1,14 +1,7 @@
-env:
-  DATABASE_CONNECTION: ""
-  HTTP_PASS: ""
-  HTTP_USER: ""
-  TUBESYNC_DEBUG: "False"
-  TUBESYNC_HOSTS: ""
-  TUBESYNC_WORKERS: "2"
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/tubesync
-  tag: latest@sha256:eaa59579ccbaa190e3e319e0874fb5fba36b0a4568ee48906e9fadfe3ea199b0
+  repository: ghcr.io/meeb/tubesync
+  tag: latest@sha256:aad2722e39ccb3181b5ace2d3f2caa87d0634576d68bbc86cd8a018733291411
 persistence:
   config:
     enabled: true
@@ -16,19 +9,31 @@ persistence:
   downloads:
     enabled: true
     mountPath: /downloads
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  open:
+    enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
 service:
   main:
     ports:
       main:
         port: 4848
-        protocol: TCP
+        protocol: tcp
         targetPort: 4848
-
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DATABASE_CONNECTION: ""
+            http_PASS: ""
+            http_USER: ""
+            TUBESYNC_DEBUG: "False"
+            TUBESYNC_HOSTS: ""
+            TUBESYNC_WORKERS: "2"

@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: remmina
-version: 7.0.12
+version: 7.0.14
 appVersion: 1.4.2
 description: A remote desktop client written in GTK
 home: https://truecharts.org/charts/stable/remmina
@@ -10,8 +10,8 @@ deprecated: false
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/remmina
   - https://ghcr.io/linuxserver/remmina
-  - https://github.com/linuxserver/docker-remmina
   - https://remmina.org/
+  - https://github.com/linuxserver/docker-remmina
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -37,3 +37,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

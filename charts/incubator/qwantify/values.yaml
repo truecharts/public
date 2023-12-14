@@ -1,32 +1,32 @@
 image:
-  repository: tccr.io/truecharts/qwantify
   pullPolicy: IfNotPresent
-  tag: 20.04.0@sha256:ba9b1070f8f5179c082ffdcf1f390de72e33688a9fef1c884461c58567aa9378
-
-env:
-  APPPATH: "/games"
-  APPFILE: "/game.exe"
-
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-service:
-  main:
-    ports:
-      main:
-        protocol: HTTP
-        targetPort: 8080
-        port: 10603
-
+  repository: ghcr.io/wanjohiryan/qwantify
+  tag: 20.04@sha256:008fae84dc4d9c80eeddb9b2dc2438c0ba92a8c3a3776835a7a24321f7ea6ce1
 persistence:
   games:
     enabled: true
     mountPath: /games
-
 portal:
-  enabled: true
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10603
+        protocol: http
+        targetPort: 8080
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            APPFILE: /game.exe
+            APPPATH: /games

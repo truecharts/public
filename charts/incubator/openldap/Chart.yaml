@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: openldap
-version: 10.0.2
+version: 11.0.1
 appVersion: 1.5.0
 description: Community developed LDAP software
 home: https://truecharts.org/charts/incubator/openldap
@@ -11,7 +11,7 @@ sources:
   - https://github.com/osixia/docker-openldap
   - https://github.com/jp-gouin/helm-openldap
   - https://github.com/truecharts/charts/tree/master/charts/incubator/openldap
-  - https://github.com/truecharts/containers/tree/master/mirroropenldap
+  - https://hub.docker.com/r/osixia/openldap
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -23,7 +23,7 @@ keywords:
   - high availability
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -37,3 +37,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application
