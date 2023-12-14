@@ -1,34 +1,34 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: sickchill
-version: 7.0.29
+version: 7.0.30
 appVersion: 2023.6.27
 description: An Automatic Video Library Manager for TV Shows
 home: https://truecharts.org/charts/stable/sickchill
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/sickchill.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/sickchill
-  - https://ghcr.io/linuxserver/sickchill
-  - https://github.com/linuxserver/docker-sickchill
-  - https://github.com/SickChill/SickChill
+- https://github.com/linuxserver/docker-sickchill
+- https://github.com/SickChill/SickChill
+- https://github.com/truecharts/charts/tree/master/charts/stable/sickchill
+- https://ghcr.io/linuxserver/sickchill
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - sickchill
-  - video
-  - library
-  - manager
+- sickchill
+- video
+- library
+- manager
 dependencies:
-  - name: common
-    version: 14.3.5
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4
