@@ -4,6 +4,17 @@ portals:
 # Include{portalLink}
 questions:
 # Include{global}
+  - variable: imageSelector
+    group: Container Image
+    label: Select Image
+    schema:
+      type: string
+      default: image
+      enum:
+        - value: image
+          description: Default
+        - value: nvidiaImage
+          description: Nvidia
 # Include{workload}
 # Include{workloadDeployment}
 

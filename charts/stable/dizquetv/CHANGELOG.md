@@ -1,5 +1,10 @@
 # Changelog
 
+## [dizquetv-8.1.0](https://github.com/truecharts/charts/compare/dizquetv-8.0.0...dizquetv-8.1.0) (2023-12-14)
+
+### Chore
+
+- Add "nvidia" variant
 
 
 ## [dizquetv-8.0.0](https://github.com/truecharts/charts/compare/dizquetv-7.0.43...dizquetv-8.0.0) (2022-11-10)
