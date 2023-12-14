@@ -53,12 +53,12 @@ workload:
             DB_DATABASE: "{{ .Values.cnpg.main.database }}"
             DB_HOST:
               secretKeyRef:
-                key: plainhost
-                name: dbcreds
+                name: cnpg-main-urls
+                key: host
             DB_PASSWORD:
               secretKeyRef:
-                key: postgresql-password
-                name: dbcreds
+                name: cnpg-main-user
+                key: password
             DB_PORT: "5432"
             DB_USERNAME: "{{ .Values.cnpg.main.user }}"
             MIX_PUSHER_APP_CLUSTER: "{{ .Values.env.PUSHER_APP_CLUSTER }}"
