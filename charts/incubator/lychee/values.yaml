@@ -61,8 +61,8 @@ workload:
                 key: password
             DB_PORT: "5432"
             DB_USERNAME: "{{ .Values.cnpg.main.user }}"
-            MIX_PUSHER_APP_CLUSTER: "{{ .Values.env.PUSHER_APP_CLUSTER }}"
-            MIX_PUSHER_APP_KEY: "{{ .Values.env.PUSHER_APP_KEY }}"
+            PUSHER_APP_CLUSTER: ""
+            PUSHER_APP_KEY: ""
             PHP_TZ: "{{ .Values.TZ }}"
             REDIS_HOST:
               secretKeyRef:
