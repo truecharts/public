@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: webtop
 version: 6.0.225
@@ -10,11 +10,11 @@ home: https://truecharts.org/charts/stable/webtop
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/webtop.png
 deprecated: false
 sources:
-  - https://fleet.linuxserver.io/image?name=linuxserver/webtop
-  - https://github.com/linuxserver/gclient
   - https://github.com/orgs/linuxserver/packages/container/package/webtop
   - https://github.com/linuxserver/docker-webtop#readme
   - https://github.com/truecharts/charts/tree/master/charts/stable/webtop
+  - https://fleet.linuxserver.io/image?name=linuxserver/webtop
+  - https://github.com/linuxserver/gclient
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -38,3 +38,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application
