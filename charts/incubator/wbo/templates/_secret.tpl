@@ -5,7 +5,7 @@
 
 data:
   {{- with .Values.wbo.auth_secret_key }}
-  AUTH_SECRET_KEY: {{ . | b64enc }}
+  AUTH_SECRET_KEY: {{ . }}
   {{- end }}
 
 {{- end }}
