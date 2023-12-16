@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: thelounge
-version: 10.0.21
+version: 10.0.22
 appVersion: 4.4.1
 description: The Lounge, modern web IRC client designed for self-hosting
 home: https://truecharts.org/charts/stable/thelounge
@@ -23,7 +23,7 @@ keywords:
 - thelounge-docker
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

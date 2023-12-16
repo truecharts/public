@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: doublecommander
-version: 9.0.28
+version: 9.0.29
 appVersion: latest
 description: A free cross platform open source file manager with two panels side by
   side.
@@ -23,7 +23,7 @@ keywords:
 - manager
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

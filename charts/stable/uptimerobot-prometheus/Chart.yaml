@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: uptimerobot-prometheus
-version: 8.0.11
+version: 8.0.12
 appVersion: 0.0.1
 description: Prometheus Exporter for the official uptimerobot CLI
 home: https://truecharts.org/charts/stable/uptimerobot-prometheus
@@ -23,7 +23,7 @@ keywords:
 - metrics
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

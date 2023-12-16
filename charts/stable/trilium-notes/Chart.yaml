@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: trilium-notes
-version: 9.1.4
+version: 9.1.5
 appVersion: 0.62.4
 description: Trilium Notes is a hierarchical note taking application with focus on
   building large personal knowledge bases.
@@ -23,7 +23,7 @@ keywords:
 - information
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

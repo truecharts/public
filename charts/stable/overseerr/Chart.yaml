@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: overseerr
-version: 10.0.11
+version: 10.0.12
 appVersion: 1.33.2
 description: Overseerr is a free and open source software application for managing
   requests for your media library. It integrates with your existing services such
@@ -24,7 +24,7 @@ keywords:
 - radarr
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

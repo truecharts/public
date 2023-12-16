@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: fileflows
-version: 6.1.1
+version: 6.1.2
 appVersion: "23.12"
 description: An application that lets you automatically process files through a simple
   rule flow.
@@ -20,7 +20,7 @@ keywords:
 - fileflows
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

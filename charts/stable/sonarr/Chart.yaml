@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: sonarr
-version: 16.0.16
+version: 16.0.17
 appVersion: 3.0.10.1567
 description: Smart PVR for newsgroup and bittorrent users
 home: https://truecharts.org/charts/stable/sonarr
@@ -21,7 +21,7 @@ keywords:
 - usenet
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

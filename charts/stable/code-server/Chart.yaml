@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: code-server
-version: 8.1.15
+version: 8.1.16
 appVersion: 4.19.1
 description: Run VS Code on any machine anywhere and access it in the browser.
 home: https://truecharts.org/charts/stable/code-server
@@ -22,7 +22,7 @@ keywords:
 - vscode
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

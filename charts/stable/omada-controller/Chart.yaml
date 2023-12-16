@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: omada-controller
-version: 10.1.7
+version: 10.1.8
 appVersion: "5.13"
 description: Omada is a SDN tool for TP-Link Omada hardware
 home: https://truecharts.org/charts/stable/omada-controller
@@ -19,7 +19,7 @@ keywords:
 - omada-controller
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""
