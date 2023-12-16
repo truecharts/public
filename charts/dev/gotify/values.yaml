@@ -21,7 +21,7 @@ persistence:
     defaultMode: "0600"
     enabled: true
     mountPath: /etc/gotify/config.yml
-    objectName: 'secret'
+    objectName: "secret"
     readOnly: true
     subPath: config.yml
     type: secret
@@ -48,7 +48,7 @@ workload:
         main:
           envFrom:
             - secretRef:
-                name: 'secret-env'
+                name: "secret-env"
           probes:
             liveness:
               path: /health

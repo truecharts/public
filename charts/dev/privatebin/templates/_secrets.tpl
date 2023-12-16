@@ -12,7 +12,7 @@ kind: Secret
 metadata:
   name: {{ include "tc.v1.common.names.fullname" . }}-secret
   labels:
-    
+
 data:
   conf.php: |-
     ;<?php http_response_code(403); /*

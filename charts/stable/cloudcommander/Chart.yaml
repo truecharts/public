@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: cloudcommander
 version: 3.0.3
@@ -9,23 +9,23 @@ home: https://truecharts.org/charts/incubator/cloudcommander
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/cloudcommander.png
 deprecated: false
 sources:
-- https://hub.docker.com/r/coderaiser/cloudcmd
-- https://github.com/truecharts/charts/tree/master/charts/incubator/cloudcommander
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/cloudcommander
+  - https://hub.docker.com/r/coderaiser/cloudcmd
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- cloudcommander
-- Tools-Utilities
+  - cloudcommander
+  - Tools-Utilities
 dependencies:
-- name: common
-  version: 16.2.6
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 16.2.6
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

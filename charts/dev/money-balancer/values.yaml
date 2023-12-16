@@ -23,7 +23,7 @@ workload:
         main:
           envFrom:
             - secretRef:
-                name: 'moneybalancer-secret'
+                name: "moneybalancer-secret"
           probes:
             liveness:
               path: /

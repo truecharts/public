@@ -39,7 +39,7 @@ workload:
         main:
           envFrom:
             - configMapRef:
-                name: 'magicmirror-env'
+                name: "magicmirror-env"
           probes:
             liveness:
               path: /

@@ -10,7 +10,7 @@ persistence:
     type: custom
     volumeSpec:
       secret:
-        secretName: 'secret'
+        secretName: "secret"
   conf-nginx:
     enabled: true
     mountPath: /etc/nginx/conf.d/sizelimits.conf
@@ -19,7 +19,7 @@ persistence:
     type: custom
     volumeSpec:
       configMap:
-        name: 'config'
+        name: "config"
   conf-php:
     enabled: true
     mountPath: /etc/php8/conf.d/10-sizelimits.ini
@@ -28,7 +28,7 @@ persistence:
     type: custom
     volumeSpec:
       configMap:
-        name: 'config'
+        name: "config"
   nginx-cache:
     enabled: true
     mountPath: /var/lib/nginx/tmp

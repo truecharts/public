@@ -15,7 +15,7 @@ kind: Secret
 metadata:
   name: {{ $secretEnvName }}
   labels:
-    
+
 data: {{/* Env takes precedence, and it;s defined in Dockerfile as 80 */}}
   GOTIFY_SERVER_PORT: {{ $port | quote }}
 ---
@@ -24,7 +24,7 @@ kind: Secret
 metadata:
   name: {{ $secretName }}
   labels:
-    
+
 data:
   config.yml: |
     server:

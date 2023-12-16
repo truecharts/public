@@ -3,7 +3,7 @@
 
 {{- $configName := printf "%s-flemarr-config" (include "tc.v1.common.names.fullname" .) }}
 
-enabled: true    
+enabled: true
 data:
   config.yml: |
 {{- .Values.flemarrConfig | toYaml | nindent 4 }}

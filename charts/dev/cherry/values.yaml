@@ -35,9 +35,9 @@ workload:
         main:
           envFrom:
             - secretRef:
-                name: 'cherry-secret'
+                name: "cherry-secret"
             - configMapRef:
-                name: 'cherry-configmap'
+                name: "cherry-configmap"
           probes:
             liveness:
               path: /

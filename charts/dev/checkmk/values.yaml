@@ -56,7 +56,7 @@ workload:
         main:
           envFrom:
             - secretRef:
-                name: 'secret'
+                name: "secret"
           probes:
             liveness:
               spec:

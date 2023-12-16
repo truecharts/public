@@ -3,7 +3,7 @@
 {{- $pgPass := .Values.cnpg.main.creds.password | trimAll "\"" }}
 {{- $pgUser := .Values.cnpg.main.user }}
 {{- $pgDB := .Values.cnpg.main.database }}
-enabled: true    
+enabled: true
 data:
   focalboard-config: |-
     {

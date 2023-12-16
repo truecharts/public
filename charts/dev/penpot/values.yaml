@@ -113,9 +113,9 @@ workload:
         main:
           envFrom:
             - secretRef:
-                name: 'common-secret'
+                name: "common-secret"
             - secretRef:
-                name: 'frontend-secret'
+                name: "frontend-secret"
           probes:
             liveness:
               path: /
