@@ -30,10 +30,8 @@
     {
       "datasources": ["helm"],
       "matchManagers": ["helmv3"],
-      "commitMessageTopic": "Helm chart {{depName}}"
-      "ignorePaths": [
-      "charts/unstable/**"
-      ],
+      "commitMessageTopic": "Helm chart {{depName}}",
+      "ignorePaths": ["charts/unstable/**"],
     },
     // global docker datasource settings
     {
@@ -42,10 +40,8 @@
       "pinDigests": true,
       "automerge": false,
       "autoApprove": true,
-      "separateMinorPatch": true,
-      "ignorePaths": [
-      "charts/unstable/**"
-      ],
+      "separateMinorPatch": true,,
+      "ignorePaths": ["charts/unstable/**"],
       "commitMessageTopic": "container image {{depName}}",
       "commitMessageExtra": "to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}@{{newDigestShort}}",
     },
