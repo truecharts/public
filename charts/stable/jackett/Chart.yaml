@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: jackett
-version: 16.0.8
+version: 16.0.9
 appVersion: 0.21.1155
 description: API Support for your favorite torrent trackers.
 home: https://truecharts.org/charts/stable/jackett
@@ -21,7 +21,7 @@ keywords:
 - usenet
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: teedy
-version: 12.0.11
+version: 12.0.12
 appVersion: "1.11"
 description: Teedy is an open source, lightweight document management system for individuals
   and businesses.
@@ -22,7 +22,7 @@ keywords:
 - management
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

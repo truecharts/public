@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: etherpad
-version: 13.0.11
+version: 13.0.12
 appVersion: 1.8.14
 description: A real-time collaborative editor scalable to thousands of simultaneous
   real time users.
@@ -24,7 +24,7 @@ keywords:
 - pad
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

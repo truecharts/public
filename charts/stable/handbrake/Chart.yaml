@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: handbrake
-version: 17.0.17
+version: 17.0.18
 appVersion: 23.11.5
 description: HandBrake is a tool for converting video from nearly any format to a
   selection of modern, widely supported codecs.
@@ -23,7 +23,7 @@ keywords:
 - media
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: emby
-version: 15.0.17
+version: 15.0.18
 appVersion: 4.7.14.0
 description: Emby Server is a home media server
 home: https://truecharts.org/charts/stable/emby
@@ -21,7 +21,7 @@ keywords:
 - emby
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

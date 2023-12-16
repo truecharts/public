@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: webtop
-version: 6.0.225
+version: 6.0.226
 appVersion: latest
 description:
   Webtop full desktop environments in officially supported flavors accessible
@@ -24,7 +24,7 @@ keywords:
   - Tools-Utilities
 dependencies:
   - name: common
-    version: 14.3.5
+    version: 14.5.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

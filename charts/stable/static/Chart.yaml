@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: static
-version: 7.0.11
+version: 7.0.12
 appVersion: ee8a20c
 description: A self-hosted static file serving app which does nothing more than just
   serve up static files from a mounted volume.
@@ -24,7 +24,7 @@ keywords:
 - static
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

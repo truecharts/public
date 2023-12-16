@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: kubernetes-reflector
-version: 1.0.8
+version: 1.0.9
 appVersion: 7.1.217
 description: Kubernetes-Reflector is a Kubernetes addon designed to monitor and reflect
   changes to secrets and configmaps across namespaces
@@ -24,7 +24,7 @@ keywords:
 - certificates
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

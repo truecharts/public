@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: filebot
-version: 5.0.12
+version: 5.0.13
 appVersion: 23.11.2
 description: FileBot is the ultimate tool for organizing and renaming your movies,
   tv shows or anime, and music well as downloading subtitles and artwork. It's smart
@@ -22,7 +22,7 @@ keywords:
 - filebot
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: airdcpp-webclient
-version: 7.0.11
+version: 7.0.12
 appVersion: 2.12.1
 description: AirDC++ Web Client is a locally installed application, which is designed
   for flexible sharing of files or directories within groups of people in a local
@@ -24,7 +24,7 @@ keywords:
 - airdcpp
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

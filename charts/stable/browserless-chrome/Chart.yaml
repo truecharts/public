@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: browserless-chrome
-version: 6.0.19
+version: 6.0.20
 appVersion: 1.60.2
 description:
   Browserless is a web-service that allows for remote clients to connect,
@@ -23,7 +23,7 @@ keywords:
   - puppeteer
 dependencies:
   - name: common
-    version: 14.3.5
+    version: 14.5.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

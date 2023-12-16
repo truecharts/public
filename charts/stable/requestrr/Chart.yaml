@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: requestrr
-version: 6.0.11
+version: 6.0.12
 appVersion: 2.1.2
 description: Requestrr is a chatbot used to simplify using services like Sonarr/Radarr/Ombi
   via the use of chat.
@@ -19,7 +19,7 @@ keywords:
 - requestrr
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

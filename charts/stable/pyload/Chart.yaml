@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: pyload
-version: 10.0.11
+version: 10.0.12
 appVersion: 360b2295
 description: pyLoad is a Free and Open Source download manager written in Python and
   designed to be extremely lightweight, easily extensible and fully manageable via
@@ -22,7 +22,7 @@ keywords:
 - download
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""
