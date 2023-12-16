@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: rdtclient
-version: 1.0.2
+version: 1.0.3
 appVersion: 2.0.49
 description:
   This is a web interface to manage your torrents on Real-Debrid, AllDebrid
@@ -22,7 +22,7 @@ keywords:
   - torrent
 dependencies:
   - name: common
-    version: 14.3.5
+    version: 14.5.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

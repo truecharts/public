@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: photoprism
-version: 16.1.2
+version: 16.1.3
 appVersion: "231128"
 description: PhotoPrismÂ® is a server-based application for browsing, organizing and
   sharing your personal photo collection
@@ -23,7 +23,7 @@ keywords:
 - sharing
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

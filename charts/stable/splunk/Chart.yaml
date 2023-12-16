@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: splunk
-version: 4.1.3
+version: 4.1.4
 appVersion: 9.1.2
 description: This is a Chartfile for Splunk designed for OpenShift and TrueNAS based
   on Alpine Linux - https://www.splunk.com
@@ -22,7 +22,7 @@ keywords:
 - Network-Management
 dependencies:
 - name: common
-  version: 15.2.0
+  version: 15.3.4
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

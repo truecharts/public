@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: sonsoftheforest
-version: 0.0.11
+version: 0.0.12
 appVersion: latest
 description: A custom SteamCMD chart that runs Sons Of The Forest Server.
 home: https://truecharts.org/charts/incubator/sonsoftheforest
@@ -20,7 +20,7 @@ keywords:
 - GameServers
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: xwiki
-version: 8.1.6
+version: 8.1.7
 appVersion: 15.10.1
 description: XWiki is a free wiki software platform written in Java with a design
   emphasis on extensibility
@@ -21,7 +21,7 @@ keywords:
 - wiki
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

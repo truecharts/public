@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: blocky
-version: 9.0.13
+version: 9.0.14
 appVersion: "0.22"
 description: Blocky is a DNS proxy, DNS enhancer and ad-blocker for the local network
   written in Go
@@ -23,14 +23,14 @@ keywords:
 - blocky
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""
   tags: []
   import-values: []
 - name: redis
-  version: 8.0.44
+  version: 8.0.47
   repository: https://deps.truecharts.org
   condition: redis.enabled
   alias: ""

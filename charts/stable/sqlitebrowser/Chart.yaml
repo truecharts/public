@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: sqlitebrowser
-version: 7.0.11
+version: 7.0.12
 appVersion: 18.04.1
 description: A high quality, visual, open source tool to create, design, and edit
   database files compatible with SQLite
@@ -24,7 +24,7 @@ keywords:
 - database
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

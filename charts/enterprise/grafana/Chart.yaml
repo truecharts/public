@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: grafana
-version: 9.0.45
+version: 9.0.46
 appVersion: 10.2.2
 description: Grafana is an open source, feature rich metrics dashboard and graph editor
   for Graphite, Elasticsearch, OpenTSDB, Prometheus and InfluxDB.
@@ -24,7 +24,7 @@ keywords:
 - logs
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: tailscale
-version: 5.2.1
+version: 5.2.2
 appVersion: 1.56.0
 description: Tailscale lets you connect your devices and users together in your own
   secure virtual private network
@@ -21,7 +21,7 @@ keywords:
 - tailscale
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

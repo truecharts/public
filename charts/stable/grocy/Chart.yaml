@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: grocy
-version: 15.0.30
+version: 15.0.31
 appVersion: 4.0.3
 description: ERP beyond your fridge - grocy is a web-based self-hosted groceries &
   household management solution for your home
@@ -20,7 +20,7 @@ keywords:
 - grocy
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

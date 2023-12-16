@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: fleet
-version: 8.0.13
+version: 8.0.14
 appVersion: 2.3.3
 description: Fleet provides an online web interface which displays a set of maintained
   images from one or more owned repositories.
@@ -19,7 +19,7 @@ keywords:
 - fleet
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

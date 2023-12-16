@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: dashy
-version: 3.0.33
+version: 3.0.34
 appVersion: 2.1.1
 description: Dashy helps you organize your self-hosted services by making them accessible
   from a single place
@@ -20,7 +20,7 @@ keywords:
 - dashboard
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""
