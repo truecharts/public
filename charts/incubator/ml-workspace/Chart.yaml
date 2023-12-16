@@ -1,32 +1,32 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: ml-workspace
-version: 6.0.2
+version: 6.0.3
 appVersion: 0.13.2
 description: All-in-one web-based development environment for machine learning
 home: https://truecharts.org/charts/incubator/ml-workspace
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ml-workspace.png
 deprecated: false
 sources:
-  - https://github.com/ml-tooling/ml-workspace
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/ml-workspace
-  - https://hub.docker.com/r/mltooling/ml-workspace
+- https://github.com/ml-tooling/ml-workspace
+- https://github.com/truecharts/charts/tree/master/charts/incubator/ml-workspace
+- https://hub.docker.com/r/mltooling/ml-workspace
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - machine
-  - learning
-  - ai
+- machine
+- learning
+- ai
 dependencies:
-  - name: common
-    version: 16.2.6
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 16.2.6
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4
@@ -35,3 +35,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

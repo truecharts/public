@@ -1,32 +1,32 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: ring-mqtt
-version: 5.1.14
+version: 5.1.15
 appVersion: 5.6.3
 description: Interact with Ring Inc products (cameras/alarms/smart lighting) via MQTT.
 home: https://truecharts.org/charts/stable/ring-mqtt
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ring-mqtt.png
 deprecated: false
 sources:
-  - https://github.com/tsightler/ring-mqtt
-  - https://github.com/truecharts/charts/tree/master/charts/stable/ring-mqtt
-  - https://hub.docker.com/r/tsightler/ring-mqtt
+- https://hub.docker.com/r/tsightler/ring-mqtt
+- https://github.com/tsightler/ring-mqtt
+- https://github.com/truecharts/charts/tree/master/charts/stable/ring-mqtt
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - ring-mqtt
-  - HomeAutomation
-  - Tools-Utilities
+- ring-mqtt
+- HomeAutomation
+- Tools-Utilities
 dependencies:
-  - name: common
-    version: 14.3.5
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

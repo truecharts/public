@@ -1,33 +1,33 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: novnc
-version: 7.0.10
+version: 7.0.11
 appVersion: 1.2.0
 description: The open source VNC client
 home: https://truecharts.org/charts/stable/novnc
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/novnc.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/novnc
-  - https://ghcr.io/nicholaswilde/novnc
-  - https://novnc.com/
+- https://novnc.com/
+- https://github.com/truecharts/charts/tree/master/charts/stable/novnc
+- https://ghcr.io/nicholaswilde/novnc
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - novnc
-  - vnc
-  - remote
-  - desktop
+- novnc
+- vnc
+- remote
+- desktop
 dependencies:
-  - name: common
-    version: 14.3.5
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

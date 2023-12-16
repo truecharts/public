@@ -1,32 +1,32 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: libreddit
-version: 5.0.11
+version: 5.0.12
 appVersion: latest
 description: An alternative private front-end to Reddit
 home: https://truecharts.org/charts/stable/libreddit
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/libreddit.png
 deprecated: false
 sources:
-  - https://github.com/spikecodes/libreddit
-  - https://github.com/truecharts/charts/tree/master/charts/stable/libreddit
-  - https://hub.docker.com/r/libreddit/libreddit
+- https://hub.docker.com/r/libreddit/libreddit
+- https://github.com/spikecodes/libreddit
+- https://github.com/truecharts/charts/tree/master/charts/stable/libreddit
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - reddit
-  - libreddit
-  - social
+- reddit
+- libreddit
+- social
 dependencies:
-  - name: common
-    version: 14.3.5
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

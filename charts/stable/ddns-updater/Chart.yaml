@@ -1,32 +1,31 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: ddns-updater
-version: 6.0.11
+version: 6.0.12
 appVersion: 2.5.0
-description:
-  Light container updating DNS A and/or AAAA records periodically for multiple
+description: Light container updating DNS A and/or AAAA records periodically for multiple
   DNS providers
 home: https://truecharts.org/charts/stable/ddns-updater
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ddns-updater.png
 deprecated: false
 sources:
-  - https://github.com/qdm12/ddns-updater
-  - https://github.com/truecharts/charts/tree/master/charts/stable/ddns-updater
-  - https://hub.docker.com/r/qmcgaw/ddns-updater
+- https://github.com/qdm12/ddns-updater
+- https://github.com/truecharts/charts/tree/master/charts/stable/ddns-updater
+- https://hub.docker.com/r/qmcgaw/ddns-updater
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - ddns-updater
+- ddns-updater
 dependencies:
-  - name: common
-    version: 14.3.5
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

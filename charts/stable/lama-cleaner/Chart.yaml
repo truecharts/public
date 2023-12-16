@@ -1,32 +1,32 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: lama-cleaner
-version: 3.0.11
+version: 3.0.12
 appVersion: 0.33.0
 description: Open-source inpainting tool powered by SOTA AI model.
 home: https://truecharts.org/charts/stable/lama-cleaner
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/lama-cleaner.png
 deprecated: false
 sources:
-  - https://github.com/Sanster/lama-cleaner
-  - https://github.com/truecharts/charts/tree/master/charts/stable/lama-cleaner
-  - https://hub.docker.com/r/cwq1913/lama-cleaner
+- https://github.com/Sanster/lama-cleaner
+- https://github.com/truecharts/charts/tree/master/charts/stable/lama-cleaner
+- https://hub.docker.com/r/cwq1913/lama-cleaner
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - lama-cleaner
-  - media
-  - AI
+- lama-cleaner
+- media
+- AI
 dependencies:
-  - name: common
-    version: 14.3.5
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

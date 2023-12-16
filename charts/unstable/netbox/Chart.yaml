@@ -1,45 +1,45 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: netbox
-version: 4.0.1
+version: 4.0.2
 appVersion: 3.6.5
 description: NetBox is the leading solution for modeling and documenting modern networks.
 home: https://truecharts.org/charts/unstable/netbox
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/netbox.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/unstable/netbox
-  - https://hub.docker.com/r/netboxcommunity/netbox
-  - https://github.com/netbox-community/netbox-docker
+- https://github.com/netbox-community/netbox-docker
+- https://github.com/truecharts/charts/tree/master/charts/unstable/netbox
+- https://hub.docker.com/r/netboxcommunity/netbox
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - network
-  - netbox
+- network
+- netbox
 dependencies:
-  - name: common
-    version: 16.0.0
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-  - name: postgresql
-    version: 11.0.31
-    repository: https://deps.truecharts.org/
-    condition: postgresql.enabled
-    alias: ""
-    tags: []
-    import-values: []
-  - name: redis
-    version: 5.0.33
-    repository: https://deps.truecharts.org
-    condition: redis.enabled
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 16.0.0
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
+- name: postgresql
+  version: 11.0.31
+  repository: https://deps.truecharts.org/
+  condition: postgresql.enabled
+  alias: ""
+  tags: []
+  import-values: []
+- name: redis
+  version: 5.0.33
+  repository: https://deps.truecharts.org
+  condition: redis.enabled
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

@@ -1,30 +1,30 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: picoshare
-version: 6.0.14
+version: 6.0.15
 appVersion: 1.4.1
 description: PicoShare is a minimalist service that allows you to share files easily.
 home: https://truecharts.org/charts/stable/picoshare
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/picoshare.png
 deprecated: false
 sources:
-  - https://github.com/mtlynch/picoshare
-  - https://github.com/truecharts/charts/tree/master/charts/stable/picoshare
-  - https://hub.docker.com/r/mtlynch/picoshare
+- https://github.com/mtlynch/picoshare
+- https://github.com/truecharts/charts/tree/master/charts/stable/picoshare
+- https://hub.docker.com/r/mtlynch/picoshare
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - picoshare
+- picoshare
 dependencies:
-  - name: common
-    version: 14.3.5
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

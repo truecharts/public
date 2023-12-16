@@ -1,32 +1,32 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: firezone
-version: 0.2.14
+version: 0.2.15
 appVersion: 0.7.36
 description: WireGuard-based VPN server and egress firewall
 home: https://truecharts.org/charts/stable/firezone
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/firezone.png
 deprecated: false
 sources:
-  - https://github.com/firezone/firezone
-  - https://github.com/truecharts/charts/tree/master/charts/stable/firezone
-  - https://hub.docker.com/r/firezone/firezone
+- https://github.com/firezone/firezone
+- https://github.com/truecharts/charts/tree/master/charts/stable/firezone
+- https://hub.docker.com/r/firezone/firezone
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - firezone
-  - wireguard
-  - vpn
+- firezone
+- wireguard
+- vpn
 dependencies:
-  - name: common
-    version: 14.3.5
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

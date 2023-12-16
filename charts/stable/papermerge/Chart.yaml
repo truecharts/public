@@ -1,39 +1,38 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: papermerge
-version: 8.0.10
+version: 8.0.11
 appVersion: 2.1.9
-description:
-  Papermerge is an open source document management system (DMS) primarily
+description: Papermerge is an open source document management system (DMS) primarily
   designed for archiving and retrieving your digital documents.
 home: https://truecharts.org/charts/stable/papermerge
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/papermerge.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/papermerge
-  - https://hub.docker.com/r/papermerge/papermerge
-  - https://github.com/ciur/papermerge
+- https://hub.docker.com/r/papermerge/papermerge
+- https://github.com/ciur/papermerge
+- https://github.com/truecharts/charts/tree/master/charts/stable/papermerge
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - papermerge
+- papermerge
 dependencies:
-  - name: common
-    version: 14.3.5
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-  - name: redis
-    version: 7.0.6
-    repository: https://deps.truecharts.org
-    condition: redis.enabled
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
+- name: redis
+  version: 7.0.6
+  repository: https://deps.truecharts.org
+  condition: redis.enabled
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

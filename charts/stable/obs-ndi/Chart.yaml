@@ -1,34 +1,34 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: obs-ndi
-version: 3.0.13
+version: 3.0.14
 appVersion: latest
 description: Docker Open Broadcaster Software (obs).
 home: https://truecharts.org/charts/stable/obs-ndi
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/obs-ndi.png
 deprecated: false
 sources:
-  - https://github.com/patrickstigler/docker-obs-ndi
-  - https://github.com/truecharts/charts/tree/master/charts/stable/obs-ndi
-  - https://hub.docker.com/r/patrickstigler/obs-ndi
+- https://github.com/patrickstigler/docker-obs-ndi
+- https://github.com/truecharts/charts/tree/master/charts/stable/obs-ndi
+- https://hub.docker.com/r/patrickstigler/obs-ndi
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - obs-ndi
-  - GameServers
-  - Productivity
-  - MediaApp-Video
-  - MediaServer-Video
+- obs-ndi
+- GameServers
+- Productivity
+- MediaApp-Video
+- MediaServer-Video
 dependencies:
-  - name: common
-    version: 14.3.5
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

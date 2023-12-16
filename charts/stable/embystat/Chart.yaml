@@ -1,31 +1,30 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: embystat
-version: 6.0.15
+version: 6.0.16
 appVersion: 0.2.0
-description:
-  Embystat is a personal web server that can calculate all kinds of statistics
+description: Embystat is a personal web server that can calculate all kinds of statistics
   from your (local) Emby server.
 home: https://truecharts.org/charts/stable/embystat
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/embystat.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/embystat
-  - https://ghcr.io/linuxserver/embystat
+- https://github.com/truecharts/charts/tree/master/charts/stable/embystat
+- https://ghcr.io/linuxserver/embystat
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - embystat
+- embystat
 dependencies:
-  - name: common
-    version: 14.3.5
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

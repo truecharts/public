@@ -1,32 +1,31 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: commento-plusplus
-version: 8.0.10
+version: 8.0.11
 appVersion: 1.8.7
-description:
-  Commento++ is a free, open source, fast & lightweight comments box that
+description: Commento++ is a free, open source, fast & lightweight comments box that
   you can embed in your static website instead of Disqus.
 home: https://truecharts.org/charts/stable/commento-plusplus
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/commento-plusplus.png
 deprecated: false
 sources:
-  - https://hub.docker.com/r/caroga/commentoplusplus
-  - https://github.com/souramoo/commentoplusplus
-  - https://github.com/truecharts/charts/tree/master/charts/stable/commento-plusplus
+- https://github.com/souramoo/commentoplusplus
+- https://github.com/truecharts/charts/tree/master/charts/stable/commento-plusplus
+- https://hub.docker.com/r/caroga/commentoplusplus
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - commento
+- commento
 dependencies:
-  - name: common
-    version: 14.3.5
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 14.3.5
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

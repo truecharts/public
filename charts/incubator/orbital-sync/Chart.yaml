@@ -1,32 +1,32 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: orbital-sync
-version: 4.0.2
+version: 4.0.3
 appVersion: 1.5.2
 description: Orbital Sync synchronizes multiple Pi-hole instances for high availability.
 home: https://truecharts.org/charts/incubator/orbital-sync
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/orbital-sync.png
 deprecated: false
 sources:
-  - https://github.com/mattwebbio/orbital-sync/pkgs/container/orbital-sync
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/orbital-sync
-  - https://ghcr.io/mattwebbio/orbital-sync
+- https://github.com/mattwebbio/orbital-sync/pkgs/container/orbital-sync
+- https://github.com/truecharts/charts/tree/master/charts/incubator/orbital-sync
+- https://ghcr.io/mattwebbio/orbital-sync
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - Orbital Sync
-  - Pi-Hole
-  - DNS
+- Orbital Sync
+- Pi-Hole
+- DNS
 dependencies:
-  - name: common
-    version: 16.2.6
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 16.2.6
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

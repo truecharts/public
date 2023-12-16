@@ -1,31 +1,31 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: synapse
-version: 9.0.2
+version: 9.0.3
 appVersion: 1.95.1
 description: A Helm chart to deploy a Matrix homeserver stack into Kubernetes
 home: https://truecharts.org/charts/incubator/synapse
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/synapse.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/synapse
-  - https://hub.docker.com/r/matrixdotorg/synapse
+- https://github.com/truecharts/charts/tree/master/charts/incubator/synapse
+- https://hub.docker.com/r/matrixdotorg/synapse
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - chat
-  - matrix
-  - synapse
+- chat
+- matrix
+- synapse
 dependencies:
-  - name: common
-    version: 16.2.6
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 16.2.6
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4
