@@ -40,7 +40,7 @@
       "pinDigests": true,
       "automerge": false,
       "autoApprove": true,
-      "separateMinorPatch": true,,
+      "separateMinorPatch": true,
       "ignorePaths": ["charts/unstable/**"],
       "commitMessageTopic": "container image {{depName}}",
       "commitMessageExtra": "to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}@{{newDigestShort}}",
