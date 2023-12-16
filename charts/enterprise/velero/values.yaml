@@ -35,7 +35,7 @@ velero:
       volumeMounts:
         - mountPath: /target
           name: plugins
-    - image: velero/velero-plugin-for-aws:v1.8.0
+    - image: velero/velero-plugin-for-aws:v1.8.2@sha256:edfb14403fc4ee45ac99f34930125869a06465c44ffacaf57e351e477e2c6b53
       imagePullPolicy: IfNotPresent
       name: velero-plugin-for-aws
       volumeMounts:
