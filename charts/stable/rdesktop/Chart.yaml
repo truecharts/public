@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0"
 apiVersion: v2
 name: rdesktop
-version: 5.0.181
+version: 5.0.182
 appVersion: latest
 description:
   Full desktop environments in many popular flavors for Alpine, Ubuntu,
@@ -23,7 +23,7 @@ keywords:
   - desktops
 dependencies:
   - name: common
-    version: 14.3.5
+    version: 14.5.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: backuppc
-version: 3.0.9
+version: 3.0.10
 appVersion: 6.0.2
 description: A high-performance, enterprise-grade system for backing up Linux, Windows
   and macOS PCs and laptops to a server's disk.
@@ -23,7 +23,7 @@ keywords:
 - Network-Web
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

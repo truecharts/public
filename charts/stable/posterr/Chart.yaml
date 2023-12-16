@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: posterr
-version: 5.0.13
+version: 5.0.14
 appVersion: latest
 description: Media display for Plex, Sonarr and Radarr.
 home: https://truecharts.org/charts/stable/posterr
@@ -20,7 +20,7 @@ keywords:
 - MediaServer-Other
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: unifi
-version: 17.0.4
+version: 17.0.5
 appVersion: 8.0.7
 description: Ubiquiti Network's Unifi Controller
 home: https://truecharts.org/charts/stable/unifi
@@ -21,7 +21,7 @@ keywords:
 - unifi
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

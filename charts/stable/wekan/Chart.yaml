@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: wekan
-version: 10.5.1
+version: 10.5.2
 appVersion: "7.23"
 description: WeKan - Open Source kanban
 home: https://truecharts.org/charts/stable/wekan
@@ -21,7 +21,7 @@ keywords:
 - kanban
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

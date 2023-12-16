@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: aria2
-version: 9.0.11
+version: 9.0.12
 appVersion: latest
 description: aria server for downloading web content
 home: https://truecharts.org/charts/stable/aria2
@@ -19,7 +19,7 @@ keywords:
 - aria2
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

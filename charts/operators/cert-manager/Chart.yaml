@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: cert-manager
-version: 1.1.8
+version: 1.1.9
 appVersion: latest
 description: Cert-Manager is a kubernetes-aware certificate manager
 home: https://truecharts.org/charts/operators/cert-manager
@@ -22,14 +22,14 @@ keywords:
 - security
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""
   tags: []
   import-values: []
 - name: cert-manager
-  version: v1.13.2
+  version: v1.13.3
   repository: https://charts.jetstack.io
   condition: ""
   alias: certmanager

@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: sftpgo
-version: 3.0.18
+version: 3.0.19
 appVersion: 2.5.5
 description: 'Fully featured and highly configurable SFTP server with optional HTTP/S,
   FTP, FTPS and WebDAV support. Several storage backends are supported: local filesystem,
@@ -23,7 +23,7 @@ keywords:
 - Network-FTP
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""
