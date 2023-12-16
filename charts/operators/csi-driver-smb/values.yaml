@@ -31,7 +31,7 @@ velero:
       volumeMounts:
         - mountPath: /target
           name: plugins
-    - image: velero/velero-plugin-for-csi:v0.6.0@sha256:fc07d1897a65d7728543b2fae9feddad087b5e7f45f45c3adaeda2ef4996fd50
+    - image: velero/velero-plugin-for-csi:v0.6.2@sha256:f0a6f541a24951a21aecbd42d4170e79e138d2f9efdb9e82b6fb14b3effc2d5a
       imagePullPolicy: IfNotPresent
       name: velero-plugin-for-csi
       volumeMounts:
