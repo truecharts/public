@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: bookstack
-version: 8.0.13
+version: 8.0.14
 appVersion: 23.10.20231030
 description: A simple, self-hosted, easy-to-use platform for organising and storing
   information.
@@ -25,7 +25,7 @@ keywords:
 - hosted
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

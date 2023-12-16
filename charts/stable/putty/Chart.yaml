@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: putty
-version: 5.0.14
+version: 5.0.15
 appVersion: 23.11.2
 description: PuTTY is a free and open-source terminal emulator, serial console and
   network file transfer application.
@@ -21,7 +21,7 @@ keywords:
 - putty
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: gamevault-backend
-version: 1.1.24
+version: 1.1.25
 appVersion: 9.0.4
 description: the self-hosted gaming platform for alternatively obtained games.
 home: https://truecharts.org/charts/stable/gamevault-backend
@@ -20,7 +20,7 @@ keywords:
 - games
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

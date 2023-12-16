@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: libremdb
-version: 3.0.332
+version: 3.0.333
 appVersion: latest
 description: A free & open source IMDb front-end.
 home: https://truecharts.org/charts/stable/libremdb
@@ -22,7 +22,7 @@ keywords:
 - imdb
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

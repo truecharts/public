@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: libreddit
-version: 5.0.12
+version: 5.0.13
 appVersion: latest
 description: An alternative private front-end to Reddit
 home: https://truecharts.org/charts/stable/libreddit
@@ -21,7 +21,7 @@ keywords:
 - social
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: wg-easy
-version: 5.0.11
+version: 5.0.12
 appVersion: latest
 description: The easiest way to run WireGuard VPN + Web-based Admin UI.
 home: https://truecharts.org/charts/stable/wg-easy
@@ -21,7 +21,7 @@ keywords:
 - weejewel
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

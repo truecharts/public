@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: whoogle
-version: 7.0.13
+version: 7.0.14
 appVersion: 0.8.4
 description: A self-hosted, ad-free, privacy-respecting metasearch engine
 home: https://truecharts.org/charts/stable/whoogle
@@ -22,7 +22,7 @@ keywords:
 - privacy
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

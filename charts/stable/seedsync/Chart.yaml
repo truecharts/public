@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: seedsync
-version: 4.0.12
+version: 4.0.13
 appVersion: latest
 description: SeedSync is a tool to sync the files on a remote Linux server (like your
   seedbox, for example). It uses LFTP to transfer files fast!
@@ -21,7 +21,7 @@ keywords:
 - Tools-Utilities
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

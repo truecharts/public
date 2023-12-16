@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: promcord
-version: 8.0.11
+version: 8.0.12
 appVersion: latest
 description: Discord bot that provides metrics from a Discord server
 home: https://truecharts.org/charts/stable/promcord
@@ -21,7 +21,7 @@ keywords:
 - metrics
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

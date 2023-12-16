@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: jupyter
-version: 5.0.49
+version: 5.0.50
 appVersion: 2023.10.20
 description: Jupyter a web based IDE
 home: https://truecharts.org/charts/stable/jupyter
@@ -21,7 +21,7 @@ keywords:
   - Lab
 dependencies:
   - name: common
-    version: 14.3.5
+    version: 14.5.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

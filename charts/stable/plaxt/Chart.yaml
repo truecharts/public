@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: plaxt
-version: 5.0.11
+version: 5.0.12
 appVersion: latest
 description: This Tools provides a way to keep your watched history synced FROM Plex
   Server To Trakt.tv
@@ -23,7 +23,7 @@ keywords:
 - MediaServer-Other
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

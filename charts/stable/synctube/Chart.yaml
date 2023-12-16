@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: synctube
-version: 4.0.11
+version: 4.0.12
 appVersion: latest
 description: Synchronized video viewing with chat and other features. Lightweight
   modern implementation and very easy way to run locally.
@@ -26,7 +26,7 @@ keywords:
 - Network-Web
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

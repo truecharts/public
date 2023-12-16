@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: remmina
-version: 7.0.15
+version: 7.0.16
 appVersion: 1.4.2
 description: A remote desktop client written in GTK
 home: https://truecharts.org/charts/stable/remmina
@@ -23,7 +23,7 @@ keywords:
 - client
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

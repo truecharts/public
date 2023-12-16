@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: nitter
-version: 2.0.3
+version: 2.0.4
 appVersion: latest
 description: A free and open source alternative Twitter front-end focused on privacy
   and performance.
@@ -21,7 +21,7 @@ keywords:
 - libre
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""

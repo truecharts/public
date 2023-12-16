@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: lldap
-version: 2.0.13
+version: 2.0.14
 appVersion: 0.5.0
 description: Lightweight ldap server for authentication and user management
 home: https://truecharts.org/charts/stable/lldap
@@ -22,7 +22,7 @@ keywords:
 - auth
 dependencies:
 - name: common
-  version: 14.3.5
+  version: 14.5.0
   repository: https://library-charts.truecharts.org
   condition: ""
   alias: ""
