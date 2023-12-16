@@ -1,0 +1,41 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: openproject/community
+  tag: 13.0.7@sha256:5bee5235bef030a411e1bfdd8a5a441a66b285964b2152693764356afaa45f40
+persistence:
+  assets:
+    enabled: true
+    mountPath: /var/openproject/assets
+portal:
+  open:
+    enabled: true
+cnpg:
+  main:
+    enabled: true
+    database: openproject
+    user: openproject
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10290
+        targetPort: 80
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DATABASE_URL:
+              secretKeyRef:
+                key: url-noql
+                name: dbcreds
+            SECRET_KEY_BASE:
+              secretKeyRef:
+                key: SECRET_KEY_BASE
+                name: openproject-secrets

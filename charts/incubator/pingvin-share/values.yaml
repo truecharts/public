@@ -7,17 +7,17 @@ persistence:
     enabled: true
     mountPath: /opt/app/backend/data
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsGroup: 0
-    runAsNonRoot: false
     runAsUser: 0
 service:
   main:
     ports:
       main:
         port: 10595
-        protocol: HTTP
+        protocol: http
         targetPort: 3000

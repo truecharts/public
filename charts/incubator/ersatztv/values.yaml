@@ -14,19 +14,19 @@ persistence:
   varrun:
     enabled: true
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsGroup: 0
-    runAsNonRoot: false
     runAsUser: 0
 service:
   main:
     ports:
       main:
         port: 10607
-        protocol: HTTP
+        protocol: http
         targetPort: 8409
 vaapiImage:
   pullPolicy: Always
@@ -39,8 +39,8 @@ workload:
         main:
           probes:
             liveness:
-              type: HTTP
+              type: http
             readiness:
-              type: HTTP
+              type: http
             startup:
-              type: HTTP
+              type: http

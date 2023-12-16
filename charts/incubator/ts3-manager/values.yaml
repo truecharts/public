@@ -3,13 +3,14 @@ image:
   repository: joni1802/ts3-manager
   tag: v2.2.0@sha256:44caf39f0bdad9d0aebfd1014e9b57fe6ce119c6aee07bc6e742f2fe37c8aa29
 portal:
-  enabled: true
+  open:
+    enabled: true
 service:
   main:
     ports:
       main:
         port: 10284
-        protocol: HTTP
+        protocol: http
 workload:
   main:
     podSpec:

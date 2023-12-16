@@ -1,0 +1,28 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: testdasi/simple-dns-doh
+  tag: latest@sha256:fc1cb65c1ccdaad684b5e0a3fbe5634c24d62b8ad41623f5e099865ee6cac70c
+persistence: {}
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  dnsudp:
+    enabled: true
+    ports:
+      dnsudp:
+        enabled: true
+        port: 53
+        protocol: udp
+        targetPort: 53
+  main:
+    ports:
+      main:
+        port: 53
+        protocol: tcp
+        targetPort: 53

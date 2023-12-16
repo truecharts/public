@@ -1,0 +1,30 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: fletchto99/hexo-dev-blog
+  tag: latest@sha256:53cc5307c3e4fe6976378c3899275c204cd5f0b6bd836258a54c3fe4e515ca21
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+portal:
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10306
+        protocol: http
+        targetPort: 8080
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            HEXO_PLUGINS: ""
