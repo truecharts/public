@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: nextcloud
-version: 22.2.20
+version: 22.2.21
 appVersion: 27.1.4
 description: A private cloud server that puts the control and security of your own
   data back into your hands.
@@ -9,10 +9,10 @@ home: https://truecharts.org/charts/stable/nextcloud
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/nextcloud.png
 deprecated: false
 sources:
-- https://github.com/truecharts/containers/tree/master/mirrornextcloud-imaginary
+- https://github.com/truecharts/charts/tree/master/charts/stable/nextcloud
+- https://hub.docker.com/r/clamav/clamav
 - https://github.com/nextcloud/docker
 - https://github.com/nextcloud/helm
-- https://github.com/truecharts/charts/tree/master/charts/stable/nextcloud
 maintainers:
 - name: TrueCharts
   email: info@truecharts.org
