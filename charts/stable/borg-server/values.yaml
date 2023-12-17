@@ -29,6 +29,7 @@ workload:
             capabilities:
               add:
                 - SYS_CHROOT
+                - KILL
 
 persistence:
   borg:
