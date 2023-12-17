@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: focalboard
-version: 14.0.3
+version: 14.0.4
 appVersion: 7.11.4
 description:
   Focalboard is an open source, self-hosted alternative to Trello, Notion,
@@ -25,7 +25,7 @@ keywords:
   - project management
 dependencies:
   - name: common
-    version: 16.2.6
+    version: 16.2.7
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

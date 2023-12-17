@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: blender
-version: 3.0.3
+version: 3.0.4
 appVersion: latest
 description:
   Blender(https://www.blender.org/) is a free and open-source 3D computer
@@ -27,7 +27,7 @@ keywords:
   - Other
 dependencies:
   - name: common
-    version: 16.2.6
+    version: 16.2.7
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

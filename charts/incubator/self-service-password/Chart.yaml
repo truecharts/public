@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: self-service-password
-version: 4.0.3
+version: 4.0.4
 appVersion: 5.3.3
 description:
   Self Service Password is a PHP application that allows users to change
@@ -24,7 +24,7 @@ keywords:
   - ldap
 dependencies:
   - name: common
-    version: 16.2.6
+    version: 16.2.7
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: post-recording
-version: 3.0.3
+version: 3.0.4
 appVersion: latest
 description:
   Watches for .ts files made by Live TV recordings, convert them to a friendly
@@ -23,7 +23,7 @@ keywords:
   - MediaApp-Video
 dependencies:
   - name: common
-    version: 16.2.6
+    version: 16.2.7
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: apache-webdav
-version: 3.0.4
+version: 3.0.5
 appVersion: latest
 description:
   Very simple WebDAV server based on Apache. You need a WebDAV client to
@@ -23,7 +23,7 @@ keywords:
   - Cloud
 dependencies:
   - name: common
-    version: 16.2.6
+    version: 16.2.7
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

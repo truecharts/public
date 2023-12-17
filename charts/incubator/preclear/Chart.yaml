@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: preclear
-version: 3.0.3
+version: 3.0.4
 appVersion: latest
 description:
   A utility to "burn-in" a new disk, before adding it to your array has
@@ -27,7 +27,7 @@ keywords:
   - Tools-Utilities
 dependencies:
   - name: common
-    version: 16.2.6
+    version: 16.2.7
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

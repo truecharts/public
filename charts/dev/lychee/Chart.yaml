@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: lychee
-version: 18.0.3
+version: 18.0.4
 appVersion: 4.13.0
 description:
   Lychee is a free photo-management tool, which runs on your server or
@@ -23,7 +23,7 @@ keywords:
   - pictures
 dependencies:
   - name: common
-    version: 16.2.6
+    version: 16.2.7
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

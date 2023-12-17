@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: androiddebugbridge
-version: 3.0.4
+version: 3.0.5
 appVersion: latest
 description:
   Control AndroidTV/FireTV devices through ADB from the Home Assistant
@@ -21,7 +21,7 @@ keywords:
   - HomeAutomation
 dependencies:
   - name: common
-    version: 16.2.6
+    version: 16.2.7
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
