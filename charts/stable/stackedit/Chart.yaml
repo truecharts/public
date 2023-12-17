@@ -1,0 +1,40 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: stackedit
+version: 3.0.4
+appVersion: latest
+description:
+  StackEdits Markdown syntax highlighting is unique. The refined text formatting
+  of the editor helps you visualize the final rendering of your files.
+home: https://truecharts.org/charts/incubator/stackedit
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/stackedit.png
+deprecated: false
+sources:
+  - https://stackedit.io/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/stackedit
+  - https://hub.docker.com/r/qmcgaw/stackedit
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - stackedit
+  - Productivity
+  - Tools-Utilities
+dependencies:
+  - name: common
+    version: 16.2.6
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Productivity
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

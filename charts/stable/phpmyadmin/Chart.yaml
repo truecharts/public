@@ -1,0 +1,37 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: phpmyadmin
+version: 3.0.4
+appVersion: 5.2.1
+description: A web interface for MySQL and MariaDB.
+home: https://truecharts.org/charts/incubator/phpmyadmin
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/phpmyadmin.png
+deprecated: false
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/phpmyadmin
+  - https://hub.docker.com/r/phpmyadmin/phpmyadmin
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - phpmyadmin
+  - Tools-Utilities
+  - Other
+dependencies:
+  - name: common
+    version: 16.2.6
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Tools-Utilities
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

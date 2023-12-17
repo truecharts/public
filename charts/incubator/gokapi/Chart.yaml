@@ -1,28 +1,40 @@
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
-appVersion: "1.7.1"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
-deprecated: false
-description: "Gokapi is a lightweight server to share files, which expire after a set amount of downloads or days."
+name: gokapi
+version: 3.0.3
+appVersion: 1.7.2
+description:
+  Gokapi is a lightweight server to share files, which expire after a set
+  amount of downloads or days.
 home: https://truecharts.org/charts/incubator/gokapi
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/gokapi.png
+deprecated: false
+sources:
+  - https://github.com/Forceu/gokapi
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/gokapi
+  - https://hub.docker.com/r/f0rc3/gokapi
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
   - gokapi
   - cloud
   - utilities
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: gokapi
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/gokapi
-  - https://github.com/Forceu/gokapi
-type: application
-version: 2.0.11
+dependencies:
+  - name: common
+    version: 16.2.6
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: cloud
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

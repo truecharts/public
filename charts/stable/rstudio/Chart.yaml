@@ -1,0 +1,39 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: rstudio
+version: 4.0.4
+appVersion: 4.3.2
+description:
+  Integrated development environment for R, a programming language for
+  statistical computing and graphics.
+home: https://truecharts.org/charts/incubator/rstudio
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/rstudio.png
+deprecated: false
+sources:
+  - https://github.com/rocker-org/rocker-versioned2
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/rstudio
+  - https://hub.docker.com/r/rocker/rstudio
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - rstudio
+  - Productivity
+dependencies:
+  - name: common
+    version: 16.2.6
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Productivity
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

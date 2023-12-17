@@ -1,0 +1,40 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: restic-rest-server
+version: 3.0.4
+appVersion: 0.12.1
+description:
+  "Rest Server is a high performance HTTP server that implements restic's
+  REST backend API. It provides secure and efficient way to backup data remotely,
+  using restic backup client via the rest: URL."
+home: https://truecharts.org/charts/incubator/restic-rest-server
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/restic-rest-server.png
+deprecated: false
+sources:
+  - https://github.com/restic/rest-server
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/restic-rest-server
+  - https://hub.docker.com/r/restic/rest-server
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - restic-rest-server
+  - Backup
+dependencies:
+  - name: common
+    version: 16.2.6
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Backup
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

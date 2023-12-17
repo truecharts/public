@@ -1,0 +1,38 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: cryptpad
+version: 4.0.4
+appVersion: 5.5.0
+description: CryptPad is the Zero Knowledge realtime collaborative editor.
+home: https://truecharts.org/charts/incubator/cryptpad
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/cryptpad.png
+deprecated: false
+sources:
+  - https://cryptpad.fr/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/cryptpad
+  - https://hub.docker.com/r/cryptpad/cryptpad
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - cryptpad
+  - Productivity
+  - Security
+dependencies:
+  - name: common
+    version: 14.5.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Productivity
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

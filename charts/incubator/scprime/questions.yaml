@@ -10,23 +10,19 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: SCPRIME_WALLET_PASSWORD
-          label: "SCPRIME_WALLET_PASSWORD"
-          description: "Enter your password to automatically unlock your wallet when the docker starts.&lt;br&gt;&lt;b&gt;NOTE&lt;b&gt; Your default password is your seed phrase unless changed."
-          schema:
-            type: string
-            default: ""
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: SCPRIME_WALLET_PASSWORD
+                                        label: "SCPRIME_WALLET_PASSWORD"
+                                        description: "Enter your password to automatically unlock your wallet when the docker starts.&lt;br&gt;&lt;b&gt;NOTE&lt;b&gt; Your default password is your seed phrase unless changed."
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

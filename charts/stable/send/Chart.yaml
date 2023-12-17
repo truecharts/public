@@ -1,0 +1,39 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: send
+version: 3.0.4
+appVersion: latest
+description:
+  A fork of Mozilla's Firefox Send.Mozilla discontinued Send, this fork
+  is a community effort to keep the project up-to-date and alive.
+home: https://truecharts.org/charts/incubator/send
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/send.png
+deprecated: false
+sources:
+  - https://gitlab.com/timvisee/send
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/send
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - send
+  - Cloud
+  - Tools-Utilities
+dependencies:
+  - name: common
+    version: 16.2.6
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Cloud
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

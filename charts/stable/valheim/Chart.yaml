@@ -1,24 +1,36 @@
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
-appVersion: "latest"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+name: valheim
+version: 7.0.13
+appVersion: latest
 description: Valheim dedicated gameserver with automatic update and world backup support
 home: https://truecharts.org/charts/stable/valheim
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/valheim.png
+deprecated: false
+sources:
+  - https://github.com/lloesche/valheim-server-docker
+  - https://github.com/truecharts/charts/tree/master/charts/stable/valheim
+  - https://ghcr.io/lloesche/valheim-server
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
   - valheim
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: valheim
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/valheim
-  - https://github.com/lloesche/valheim-server-docker
-version: 7.0.10
+dependencies:
+  - name: common
+    version: 14.5.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  truecharts.org/category: media
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
   truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+type: application

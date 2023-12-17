@@ -1,0 +1,45 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: velero
+version: 2.0.0
+appVersion: latest
+description: Velero is a kubernetes-native backup solution
+home: https://truecharts.org/charts/incubator/velero
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/velero.png
+deprecated: false
+sources:
+  - https://cert-manager.io/
+  - https://github.com/cert-manager
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/velero
+  - https://github.com/truecharts/containers/tree/master/mirroralpine
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - velero
+  - backup
+dependencies:
+  - name: common
+    version: 16.2.6
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: velero
+    version: 5.2.0
+    repository: https://vmware-tanzu.github.io/helm-charts
+    condition: ""
+    alias: velero
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: operators
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

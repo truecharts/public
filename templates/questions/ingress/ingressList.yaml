@@ -147,6 +147,46 @@
                               type: string
                               show_if: [["certificateIssuer", "=", ""]]
                               default: ""
+              - variable: integration
+                label: Integrations
+                description: Connect ingress with other charts
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: homepage
+                      label: Homepage
+                      description: Connect ingress with Homepage
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: enabled
+                            label: enabled
+                            schema:
+                              type: boolean
+                              default: false
+                          - variable: name
+                            label: Name
+                            description: defaults to chartname
+                            schema:
+                              type: string
+                              default: ""
+                              show_if: [["enabled", "=", true]]
+                          - variable: description
+                            label: Description
+                            description: defaults to chart description
+                            schema:
+                              type: string
+                              default: ""
+                              show_if: [["enabled", "=", true]]
+                          - variable: group
+                            label: Group
+                            schema:
+                              type: string
+                              required: true
+                              default: "default"
+                              show_if: [["enabled", "=", true]]
               - variable: entrypoint
                 label: Traefik Entrypoint
                 description: Entrypoint used by Traefik when using Traefik as Ingress Provider

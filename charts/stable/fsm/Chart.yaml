@@ -1,0 +1,37 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: fsm
+version: 3.0.4
+appVersion: latest
+description: ""
+home: https://truecharts.org/charts/incubator/fsm
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/fsm.png
+deprecated: false
+sources:
+  - https://registry.hub.docker.com/r/ofsm/ofsm
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/fsm
+  - https://hub.docker.com/r/ofsm/ofsm
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - fsm
+  - Other
+dependencies:
+  - name: common
+    version: 16.2.6
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Other
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

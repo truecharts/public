@@ -1,0 +1,37 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: cs2
+version: 0.0.5
+appVersion: latest
+description: A custom SteamCMD chart that runs CS2.
+home: https://truecharts.org/charts/incubator/cs2
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/cs2.png
+deprecated: false
+sources:
+  - https://github.com/ich777/docker-steamcmd-server/tree/cs2
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/cs2
+  - https://github.com/truecharts/containers/tree/master/mirrorcs2
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - cs2
+  - counter-strike
+dependencies:
+  - name: common
+    version: 14.5.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: games
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application
