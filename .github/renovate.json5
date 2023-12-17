@@ -171,77 +171,7 @@
       ],
     },
     //
-    // Tag updates for semantic Docker tags on enterprise and operatorApps
-    //
-    {
-      "matchDatasources": ["docker"],
-      "updateTypes": ["major"],
-      "enabled": true,
-      "bumpVersion": "major",
-      "labels": ["update/docker/major"],
-      "matchPaths": ["charts/enterprise/**", "charts/operators/**"],
-    },
-    {
-      "matchDatasources": ["docker"],
-      "automerge": false,
-      "matchUpdateTypes": [
-        "minor",
-      ],
-      "enabled": true,
-      "bumpVersion": "minor",
-      "labels": ["update/docker/minor"],
-      "matchPaths": ["charts/enterprise/**", "charts/operators/**"],
-    },
-    {
-      "matchDatasources": ["docker"],
-      "automerge": true,
-      "matchUpdateTypes": [
-        "patch",
-        "digest",
-        "pin",
-      ],
-      "bumpVersion": "patch",
-      "enabled": true,
-      "labels": ["update/docker/patch", "automerge"],
-      "matchPaths": ["charts/enterprise/**", "charts/operator/**"],
-    },
-    //
-    // Tag updates for semantic tags on incubator and dev charts
-    //
-    {
-      "matchDatasources": ["docker"],
-      "updateTypes": ["major"],
-      "bumpVersion": "minor",
-      "enabled": false,
-      "labels": ["update/docker/incubator/major", "automerge"],
-      "matchPaths": ["charts/incubator/**", "charts/dev/**"],
-    },
-    {
-      "matchDatasources": ["docker"],
-      "automerge": false,
-      "matchUpdateTypes": [
-        "minor",
-        "patch",
-        "digest",
-      ],
-      "bumpVersion": "patch",
-      "enabled": false,
-      "labels": ["update/docker/incubator/non-major", "automerge"],
-      "matchPaths": ["charts/incubator/**", "charts/dev/**"],
-    },
-    {
-      "matchDatasources": ["docker"],
-      "automerge": false,
-      "matchUpdateTypes": [
-        "pin",
-      ],
-      "bumpVersion": "patch",
-      "enabled": false,
-      "labels": ["update/docker/incubator/non-major", "automerge"],
-      "matchPaths": ["charts/incubator/**", "charts/dev/**"],
-    },
-    //
-    // Tag updates for semantic tags on all but enterprise, operator and incubator Apps
+    // Tag updates for semantic tags
     //
     {
       "matchDatasources": ["docker"],
@@ -249,7 +179,10 @@
       "bumpVersion": "minor",
       "enabled": true,
       "labels": ["update/docker/general/major", "automerge"],
-      "matchPaths": ["charts/dependency/**", "charts/SCALE/**", "charts/stable/**", "templates/app/**"],
+      "matchPaths": ["charts/dependency/**", "charts/SCALE/**", "charts/stable/**", "templates/app/**", "charts/incubator/**", "charts/dev/**", "charts/enterprise/**", "charts/operators/**"],
+      "schedule": [
+        "before 10pm on monday"
+      ],
     },
     {
       "matchDatasources": ["docker"],
@@ -260,7 +193,10 @@
       "bumpVersion": "minor",
       "enabled": true,
       "labels": ["update/docker/general/non-major", "automerge"],
-      "matchPaths": ["charts/dependency/**", "charts/SCALE/**", "charts/library/**", "charts/stable/**", "templates/app/**"],
+      "matchPaths": ["charts/dependency/**", "charts/SCALE/**", "charts/library/**", "charts/stable/**", "templates/app/**", "charts/incubator/**", "charts/dev/**", "charts/enterprise/**", "charts/operators/**"],
+      "schedule": [
+        "before 10pm on monday"
+      ],
     },
     {
       "matchDatasources": ["docker"],
@@ -273,7 +209,10 @@
       "bumpVersion": "patch",
       "enabled": true,
       "labels": ["update/docker/general/non-major", "automerge"],
-      "matchPaths": ["charts/dependency/**", "charts/SCALE/**", "charts/library/**", "charts/stable/**", "templates/app/**"],
+      "matchPaths": ["charts/dependency/**", "charts/SCALE/**", "charts/library/**", "charts/stable/**", "templates/app/**", "charts/incubator/**", "charts/dev/**", "charts/enterprise/**", "charts/operators/**"],
+      "schedule": [
+        "before 10pm on monday"
+      ],
     },
     //
     // Tag semantic version type based on regex
