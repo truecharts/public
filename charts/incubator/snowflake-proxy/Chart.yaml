@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: snowflake-proxy
-version: 1.0.3
+version: 1.0.4
 appVersion: 2.6.0
 description: Snowflake's Proxy component to help users in the censored regions.
 home: https://truecharts.org/charts/incubator/snowflake-proxy
@@ -20,7 +20,7 @@ keywords:
   - proxy
 dependencies:
   - name: common
-    version: 16.2.6
+    version: 16.2.7
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: sinusbot
-version: 3.0.4
+version: 3.0.5
 appVersion: latest
 description:
   SinusBot is a MusicBot that will let you listen to music together with
@@ -24,7 +24,7 @@ keywords:
   - MediaServer-Music
 dependencies:
   - name: common
-    version: 16.2.6
+    version: 16.2.7
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

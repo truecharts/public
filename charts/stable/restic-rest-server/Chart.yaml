@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: restic-rest-server
-version: 3.0.4
+version: 3.0.5
 appVersion: 0.12.1
 description:
   "Rest Server is a high performance HTTP server that implements restic's
@@ -23,7 +23,7 @@ keywords:
   - Backup
 dependencies:
   - name: common
-    version: 16.2.6
+    version: 16.2.7
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

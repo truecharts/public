@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: raneto
-version: 3.0.3
+version: 3.0.4
 appVersion: latest
 description:
   Raneto(http://raneto.com/) - is an open source Knowledgebase platform
@@ -24,7 +24,7 @@ keywords:
   - Tools-Utilities
 dependencies:
   - name: common
-    version: 16.2.6
+    version: 16.2.7
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

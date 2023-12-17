@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: chronograf
-version: 3.0.5
+version: 3.0.6
 appVersion: latest
 description:
   Chronograf is InfluxData’s open source web application. Use Chronograf
@@ -23,7 +23,7 @@ keywords:
   - Tools-System
 dependencies:
   - name: common
-    version: 16.2.6
+    version: 16.2.7
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

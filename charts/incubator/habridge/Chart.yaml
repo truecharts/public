@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: habridge
-version: 6.0.3
+version: 6.0.4
 appVersion: 5.4.1
 description:
   Habridge emulates Philips Hue API to other home automation gateways such
@@ -20,7 +20,7 @@ keywords:
   - habridge
 dependencies:
   - name: common
-    version: 16.2.6
+    version: 16.2.7
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

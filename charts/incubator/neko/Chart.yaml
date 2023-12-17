@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: neko
-version: 3.0.2
+version: 3.0.3
 appVersion: neko
 description: "A self hosted virtual browser that runs in Chart"
 home: https://truecharts.org/charts/incubator/neko
@@ -18,7 +18,7 @@ keywords:
   - video
 dependencies:
   - name: common
-    version: 16.2.6
+    version: 16.2.7
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
