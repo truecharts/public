@@ -54,7 +54,7 @@
       {{/* Only used for better error */}}
       {{- $middlewareNameList := list -}}
       {{- range $mid := $middlewares -}}
-        {{- $middlewareNameList = mustAppend $middlewareNameList (printf "%s-%s" $mid.name $mid.namespace) -}}
+        {{- $middlewareNameList = mustAppend $middlewareNameList (printf "%s-%s" $mid.namespace $mid.name ) -}}
       {{- end -}}
 
       {{- if not (deepEqual (mustUniq $middlewares) $middlewares) -}}
@@ -116,7 +116,7 @@
       {{- end -}}
 
       {{/* Format middleware */}}
-      {{- $formattedMiddlewares = mustAppend $formattedMiddlewares (printf "%s-%s@kubernetescrd" $mid.name $midNamespace) -}}
+      {{- $formattedMiddlewares = mustAppend $formattedMiddlewares (printf "%s-%s@kubernetescrd" $midNamespace $mid.name ) -}}
     {{- end -}}
 
 

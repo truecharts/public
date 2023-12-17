@@ -47,7 +47,7 @@ tests:
           path: metadata.annotations
           value:
             traefik.ingress.kubernetes.io/router.entrypoints: websecure
-            traefik.ingress.kubernetes.io/router.middlewares: chain-basic-test-release-namespace@kubernetescrd
+            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-chain-basic@kubernetescrd
       - documentIndex: *ingressDoc
         equal:
           path: metadata.namespace
@@ -114,7 +114,7 @@ tests:
           path: metadata.annotations
           value:
             traefik.ingress.kubernetes.io/router.entrypoints: websecure
-            traefik.ingress.kubernetes.io/router.middlewares: tc-opencors-chain-test-release-namespace@kubernetescrd
+            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-tc-opencors-chain@kubernetescrd
 
   - it: should replace global fixedMiddlewares when allowCors true
     set:
@@ -150,7 +150,7 @@ tests:
           path: metadata.annotations
           value:
             traefik.ingress.kubernetes.io/router.entrypoints: websecure
-            traefik.ingress.kubernetes.io/router.middlewares: tc-opencors-chain-test-release-namespace@kubernetescrd
+            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-tc-opencors-chain@kubernetescrd
 
   - it: should replace global fixedMiddlewares when local fixedMiddlewares is defined
     set:
@@ -181,7 +181,7 @@ tests:
           path: metadata.annotations
           value:
             traefik.ingress.kubernetes.io/router.entrypoints: websecure
-            traefik.ingress.kubernetes.io/router.middlewares: some-fixed-middleware-test-release-namespace@kubernetescrd
+            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-some-fixed-middleware@kubernetescrd
 
   - it: should override default entrypoint(s)
     set:
@@ -212,7 +212,7 @@ tests:
           path: metadata.annotations
           value:
             traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
-            traefik.ingress.kubernetes.io/router.middlewares: chain-basic-test-release-namespace@kubernetescrd
+            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-chain-basic@kubernetescrd
 
   - it: should not contain fixed middlewares when global is disabled
     set:
@@ -299,7 +299,7 @@ tests:
           path: metadata.annotations
           value:
             traefik.ingress.kubernetes.io/router.entrypoints: websecure
-            traefik.ingress.kubernetes.io/router.middlewares: chain-basic-test-release-namespace@kubernetescrd,some-middleware-test-release-namespace@kubernetescrd,some-other-middleware-test-release-namespace@kubernetescrd
+            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-chain-basic@kubernetescrd,test-release-namespace-some-middleware@kubernetescrd,test-release-namespace-some-other-middleware@kubernetescrd
 
   # Failures
   - it: should fail with entrypoint not a slice
@@ -371,7 +371,7 @@ tests:
           hosts: *hosts
     asserts:
       - failedTemplate:
-          errorMessage: Ingress - Combined traefik middlewares contain duplicates [chain-basic-test-release-namespace, chain-basic-test-release-namespace]
+          errorMessage: Ingress - Combined traefik middlewares contain duplicates [test-release-namespace-chain-basic, test-release-namespace-chain-basic]
 
   - it: should fail with duplicate entrypoints
     set:
