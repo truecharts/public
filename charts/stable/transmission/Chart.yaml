@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: transmission
 version: 17.0.19
@@ -8,25 +8,25 @@ home: https://truecharts.org/charts/stable/transmission
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/transmission.png
 deprecated: false
 sources:
-- https://github.com/transmission/transmission
-- https://github.com/truecharts/charts/tree/master/charts/stable/transmission
-- https://ghcr.io/onedr0p/transmission
+  - https://github.com/transmission/transmission
+  - https://github.com/truecharts/charts/tree/master/charts/stable/transmission
+  - https://ghcr.io/onedr0p/transmission
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- transmission
-- torrent
-- usenet
+  - transmission
+  - torrent
+  - usenet
 dependencies:
-- name: common
-  version: 14.5.0
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.5.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

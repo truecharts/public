@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: watcharr
 version: 1.1.3
@@ -8,24 +8,24 @@ home: https://truecharts.org/charts/stable/watcharr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/watcharr.png
 deprecated: false
 sources:
-- https://github.com/truecharts/containers/tree/master/mirrorwatcharr
-- https://github.com/sbondCo/Watcharr
-- https://github.com/truecharts/charts/tree/master/charts/stable/watcharr
+  - https://github.com/sbondCo/Watcharr
+  - https://github.com/truecharts/charts/tree/master/charts/stable/watcharr
+  - https://github.com/truecharts/containers/tree/master/mirrorwatcharr
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- watcharr
-- media
+  - watcharr
+  - media
 dependencies:
-- name: common
-  version: 14.5.0
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.5.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

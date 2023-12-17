@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: plex-playlist-sync
 version: 0.0.11
@@ -8,29 +8,29 @@ home: https://truecharts.org/charts/incubator/plex-playlist-sync
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/plex-playlist-sync.png
 deprecated: false
 sources:
-- https://github.com/rnagabhyrava/plex-playlist-sync
-- https://github.com/truecharts/charts/tree/master/charts/incubator/plex-playlist-sync
-- https://github.com/truecharts/containers/tree/master/mirrorplex-playlist-sync
+  - https://github.com/truecharts/containers/tree/master/mirrorplex-playlist-sync
+  - https://github.com/rnagabhyrava/plex-playlist-sync
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/plex-playlist-sync
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- plex-playlist-sync
-- Spotify
-- Deezer
-- Tools-Utilities
-- MediaApp-Other
-- MediaApp-Video
-- MediaServer-Video
+  - plex-playlist-sync
+  - Spotify
+  - Deezer
+  - Tools-Utilities
+  - MediaApp-Other
+  - MediaApp-Video
+  - MediaServer-Video
 dependencies:
-- name: common
-  version: 14.5.0
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.5.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

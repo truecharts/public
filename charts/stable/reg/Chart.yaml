@@ -1,32 +1,33 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: reg
 version: 10.0.16
 appVersion: "2"
-description: Docker registry v2 command line client and repo listing generator with
+description:
+  Docker registry v2 command line client and repo listing generator with
   security checks.
 home: https://truecharts.org/charts/stable/reg
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/reg.png
 deprecated: false
 sources:
-- https://hub.docker.com/_/registry
-- https://github.com/k8s-at-home/container-images/
-- https://github.com/genuinetools/reg
-- https://github.com/truecharts/charts/tree/master/charts/stable/reg
+  - https://github.com/k8s-at-home/container-images/
+  - https://github.com/genuinetools/reg
+  - https://github.com/truecharts/charts/tree/master/charts/stable/reg
+  - https://hub.docker.com/_/registry
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- reg
+  - reg
 dependencies:
-- name: common
-  version: 14.5.0
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.5.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: aria2
 version: 9.0.12
@@ -8,23 +8,23 @@ home: https://truecharts.org/charts/stable/aria2
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/aria2.png
 deprecated: false
 sources:
-- https://github.com/P3TERX/Aria2-Pro-Docker
-- https://github.com/truecharts/charts/tree/master/charts/stable/aria2
-- https://hub.docker.com/r/p3terx/aria2-pro
+  - https://github.com/P3TERX/Aria2-Pro-Docker
+  - https://github.com/truecharts/charts/tree/master/charts/stable/aria2
+  - https://hub.docker.com/r/p3terx/aria2-pro
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- aria2
+  - aria2
 dependencies:
-- name: common
-  version: 14.5.0
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.5.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

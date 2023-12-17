@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: nginx-proxy-manager
 version: 5.0.15
@@ -8,33 +8,33 @@ home: https://truecharts.org/charts/stable/nginx-proxy-manager
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/nginx-proxy-manager.png
 deprecated: false
 sources:
-- https://nginxproxymanager.com/
-- https://github.com/NginxProxyManager/nginx-proxy-manager
-- https://github.com/truecharts/charts/tree/master/charts/stable/nginx-proxy-manager
-- https://hub.docker.com/r/jc21/nginx-proxy-manager
+  - https://nginxproxymanager.com/
+  - https://github.com/NginxProxyManager/nginx-proxy-manager
+  - https://github.com/truecharts/charts/tree/master/charts/stable/nginx-proxy-manager
+  - https://hub.docker.com/r/jc21/nginx-proxy-manager
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- nginx-proxy-manager
-- nginx
-- reverse-proxy
+  - nginx-proxy-manager
+  - nginx
+  - reverse-proxy
 dependencies:
-- name: common
-  version: 14.5.0
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
-- name: mariadb
-  version: 7.0.70
-  repository: https://deps.truecharts.org/
-  condition: mariadb.enabled
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.5.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: mariadb
+    version: 7.0.70
+    repository: https://deps.truecharts.org/
+    condition: mariadb.enabled
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: calibre
 version: 11.2.2
@@ -8,23 +8,23 @@ home: https://truecharts.org/charts/stable/calibre
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/calibre.png
 deprecated: false
 sources:
-- https://github.com/kovidgoyal/calibre/
-- https://github.com/truecharts/charts/tree/master/charts/stable/calibre
-- https://ghcr.io/linuxserver/calibre
+  - https://github.com/truecharts/charts/tree/master/charts/stable/calibre
+  - https://ghcr.io/linuxserver/calibre
+  - https://github.com/kovidgoyal/calibre/
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- calibre
+  - calibre
 dependencies:
-- name: common
-  version: 14.5.0
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.5.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

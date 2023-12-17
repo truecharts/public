@@ -1,34 +1,35 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: headphones
 version: 8.0.12
 appVersion: a78f38c1
-description: An automated music downloader for NZB and Torrent, written in Python.
+description:
+  An automated music downloader for NZB and Torrent, written in Python.
   It supports SABnzbd, NZBget, Transmission, µTorrent and Blackhole.
 home: https://truecharts.org/charts/stable/headphones
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/headphones.png
 deprecated: false
 sources:
-- https://github.com/rembo10/headphones
-- https://github.com/linuxserver/docker-headphones
-- https://github.com/truecharts/charts/tree/master/charts/stable/headphones
-- https://ghcr.io/linuxserver/headphones
+  - https://github.com/rembo10/headphones
+  - https://github.com/linuxserver/docker-headphones
+  - https://github.com/truecharts/charts/tree/master/charts/stable/headphones
+  - https://ghcr.io/linuxserver/headphones
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- headphones
-- music
-- downloader
+  - headphones
+  - music
+  - downloader
 dependencies:
-- name: common
-  version: 14.5.0
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.5.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

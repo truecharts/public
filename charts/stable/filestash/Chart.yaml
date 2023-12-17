@@ -1,35 +1,36 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: filestash
 version: 3.0.10
 appVersion: latest
-description: A Dropbox-like file manager that let you manage your data anywhere it
+description:
+  A Dropbox-like file manager that let you manage your data anywhere it
   is located.
 home: https://truecharts.org/charts/incubator/filestash
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/filestash.png
 deprecated: false
 sources:
-- https://github.com/truecharts/containers/tree/master/mirrorfilestash
-- https://github.com/mickael-kerjean/filestash
-- https://www.filestash.app/
-- https://github.com/truecharts/charts/tree/master/charts/incubator/filestash
+  - https://github.com/mickael-kerjean/filestash
+  - https://www.filestash.app/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/filestash
+  - https://github.com/truecharts/containers/tree/master/mirrorfilestash
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- filestash
-- Cloud
-- Productivity
-- Network-Web
+  - filestash
+  - Cloud
+  - Productivity
+  - Network-Web
 dependencies:
-- name: common
-  version: 14.5.0
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.5.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

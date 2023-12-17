@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: cops
 version: 5.0.36
@@ -9,27 +9,27 @@ home: https://truecharts.org/charts/stable/cops
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/cops.png
 deprecated: false
 sources:
-- https://github.com/linuxserver/docker-cops#readme
-- https://github.com/orgs/linuxserver/packages/container/package/cops
-- https://github.com/truecharts/charts/tree/master/charts/stable/cops
-- https://fleet.linuxserver.io/image?name=linuxserver/cops
+  - https://github.com/truecharts/charts/tree/master/charts/stable/cops
+  - https://fleet.linuxserver.io/image?name=linuxserver/cops
+  - https://github.com/linuxserver/docker-cops#readme
+  - https://github.com/orgs/linuxserver/packages/container/package/cops
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- cops
-- Cloud
-- MediaApp-Books
-- MediaServer-Books
+  - cops
+  - Cloud
+  - MediaApp-Books
+  - MediaServer-Books
 dependencies:
-- name: common
-  version: 14.5.0
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.5.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: tdarr
 version: 6.2.2
@@ -8,25 +8,25 @@ home: https://truecharts.org/charts/stable/tdarr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/tdarr.png
 deprecated: false
 sources:
-- https://github.com/HaveAGitGat/Tdarr
-- https://github.com/truecharts/charts/tree/master/charts/stable/tdarr
-- https://hub.docker.com/r/haveagitgat/tdarr
+  - https://github.com/HaveAGitGat/Tdarr
+  - https://github.com/truecharts/charts/tree/master/charts/stable/tdarr
+  - https://hub.docker.com/r/haveagitgat/tdarr
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- encode
-- media
-- tdarr
+  - encode
+  - media
+  - tdarr
 dependencies:
-- name: common
-  version: 14.5.0
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.5.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

@@ -1,33 +1,34 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: ungoogled-chromium
 version: 3.0.3
 appVersion: latest
-description: Ungoogled-Chromium is a lightweight approach to removing Google web service
+description:
+  Ungoogled-Chromium is a lightweight approach to removing Google web service
   dependency from the Chromium project web browser.
 home: https://truecharts.org/charts/incubator/ungoogled-chromium
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ungoogled-chromium.png
 deprecated: false
 sources:
-- https://www.google.com/chrome/
-- https://github.com/truecharts/charts/tree/master/charts/incubator/ungoogled-chromium
-- https://hub.docker.com/r/ich777/ungoogled-chromium
+  - https://www.google.com/chrome/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/ungoogled-chromium
+  - https://hub.docker.com/r/ich777/ungoogled-chromium
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- ungoogled-chromium
-- Productivity
-- Tools-Utilities
+  - ungoogled-chromium
+  - Productivity
+  - Tools-Utilities
 dependencies:
-- name: common
-  version: 16.2.6
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 16.2.6
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: hedgedoc
 version: 9.0.23
@@ -8,22 +8,22 @@ home: https://truecharts.org/charts/stable/hedgedoc
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/hedgedoc.png
 deprecated: false
 sources:
-- https://github.com/truecharts/charts/tree/master/charts/stable/hedgedoc
-- https://quay.io/hedgedoc/hedgedoc
+  - https://github.com/truecharts/charts/tree/master/charts/stable/hedgedoc
+  - https://quay.io/hedgedoc/hedgedoc
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- hedgedoc
+  - hedgedoc
 dependencies:
-- name: common
-  version: 14.5.0
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.5.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

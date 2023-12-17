@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: audacity
 version: 9.0.12
@@ -8,28 +8,28 @@ home: https://truecharts.org/charts/stable/audacity
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/audacity.png
 deprecated: false
 sources:
-- https://ghcr.io/linuxserver/audacity
-- https://www.audacityteam.org/
-- https://github.com/linuxserver/docker-audacity
-- https://github.com/truecharts/charts/tree/master/charts/stable/audacity
+  - https://www.audacityteam.org/
+  - https://github.com/linuxserver/docker-audacity
+  - https://github.com/truecharts/charts/tree/master/charts/stable/audacity
+  - https://ghcr.io/linuxserver/audacity
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- audacity
-- music
-- recorder
-- editor
-- audio
+  - audacity
+  - music
+  - recorder
+  - editor
+  - audio
 dependencies:
-- name: common
-  version: 14.5.0
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.5.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

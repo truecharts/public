@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: emby
 version: 15.0.18
@@ -8,25 +8,25 @@ home: https://truecharts.org/charts/stable/emby
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/emby.png
 deprecated: false
 sources:
-- https://github.com/linuxserver/docker-emby.git
-- https://github.com/truecharts/charts/tree/master/charts/stable/emby
-- https://ghcr.io/onedr0p/emby
+  - https://github.com/linuxserver/docker-emby.git
+  - https://github.com/truecharts/charts/tree/master/charts/stable/emby
+  - https://ghcr.io/onedr0p/emby
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- jellyfin
-- plex
-- emby
+  - jellyfin
+  - plex
+  - emby
 dependencies:
-- name: common
-  version: 14.5.0
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.5.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

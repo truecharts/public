@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: organizr
 version: 15.0.18
@@ -8,23 +8,23 @@ home: https://truecharts.org/charts/stable/organizr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/organizr.png
 deprecated: false
 sources:
-- https://github.com/truecharts/charts/tree/master/charts/stable/organizr
-- https://hub.docker.com/r/organizr/organizr
-- https://github.com/causefx/Organizr
+  - https://github.com/causefx/Organizr
+  - https://github.com/truecharts/charts/tree/master/charts/stable/organizr
+  - https://hub.docker.com/r/organizr/organizr
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- organizr
+  - organizr
 dependencies:
-- name: common
-  version: 14.5.0
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.5.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

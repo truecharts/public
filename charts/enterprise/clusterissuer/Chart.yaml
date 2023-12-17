@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: clusterissuer
 version: 4.2.13
@@ -8,24 +8,24 @@ home: https://truecharts.org/charts/enterprise/clusterissuer
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/clusterissuer.png
 deprecated: false
 sources:
-- https://github.com/truecharts/charts/tree/master/charts/enterprise/clusterissuer
-- https://hub.docker.com/_/hello-world
-- https://cert-manager.io/
+  - https://hub.docker.com/_/hello-world
+  - https://cert-manager.io/
+  - https://github.com/truecharts/charts/tree/master/charts/enterprise/clusterissuer
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- cert-manager
-- certificates
+  - cert-manager
+  - certificates
 dependencies:
-- name: common
-  version: 14.5.0
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.5.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

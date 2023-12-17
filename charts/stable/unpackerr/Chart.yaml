@@ -1,36 +1,37 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: unpackerr
 version: 10.0.12
 appVersion: 0.12.0
-description: This application runs as a daemon on your download host. It checks for
+description:
+  This application runs as a daemon on your download host. It checks for
   completed downloads and extracts them so Radarr, Lidarr, Sonarr, and Readarr may
   import them
 home: https://truecharts.org/charts/stable/unpackerr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/unpackerr.png
 deprecated: false
 sources:
-- https://hub.docker.com/r/golift/unpackerr
-- https://github.com/davidnewhall/unpackerr
-- https://github.com/truecharts/charts/tree/master/charts/stable/unpackerr
+  - https://github.com/davidnewhall/unpackerr
+  - https://github.com/truecharts/charts/tree/master/charts/stable/unpackerr
+  - https://hub.docker.com/r/golift/unpackerr
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- unpackerr
-- sonarr
-- radarr
-- lidarr
-- readarr
+  - unpackerr
+  - sonarr
+  - radarr
+  - lidarr
+  - readarr
 dependencies:
-- name: common
-  version: 14.5.0
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.5.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4

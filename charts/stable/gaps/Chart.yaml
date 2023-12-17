@@ -1,33 +1,34 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: gaps
 version: 15.0.12
 appVersion: 0.10.4
-description: Gaps searches through your Plex Server or local folders for all movies,
+description:
+  Gaps searches through your Plex Server or local folders for all movies,
   then queries for known movies in the same collection.
 home: https://truecharts.org/charts/stable/gaps
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/gaps.png
 deprecated: false
 sources:
-- https://github.com/JasonHHouse/gaps
-- https://github.com/truecharts/charts/tree/master/charts/stable/gaps
-- https://hub.docker.com/r/housewrecker/gaps
+  - https://hub.docker.com/r/housewrecker/gaps
+  - https://github.com/JasonHHouse/gaps
+  - https://github.com/truecharts/charts/tree/master/charts/stable/gaps
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- gaps
-- plex
-- plex-media-server
+  - gaps
+  - plex
+  - plex-media-server
 dependencies:
-- name: common
-  version: 14.5.0
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.5.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4
