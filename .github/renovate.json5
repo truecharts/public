@@ -32,6 +32,7 @@
       "matchManagers": ["helmv3"],
       "commitMessageTopic": "Helm chart {{depName}}",
       "ignorePaths": ["charts/unstable/**"],
+      "autoApprove": true,
     },
     // global docker datasource settings
     {
@@ -49,7 +50,19 @@
     {
       "matchManagers": ["github-actions"],
       "excludePackageNames": ["stefanzweifel/git-auto-commit-action"],
+      "labels": ["automerge"],
       "automerge": true,
+      "autoApprove": true,
+    },
+    //
+    // catch to prevent stable updates
+    //
+    {
+      "automerge": false,
+      "labels": ["update/unstable"],
+      "groupName": ["unstable"],
+      "matchPaths": ["charts/unstyable/**"],
+      "autoApprove": false,
     },
     //
     // helm deps
@@ -61,66 +74,31 @@
       "bumpVersion": "major",
       "labels": ["update/helm/dependency/major"],
       "groupName": ["helm dependency major"],
-      "matchPaths": ["charts/dependency/**", "templates/**"],
+      "matchPaths": ["charts/dependency/**"],
+      "autoApprove": false,
     },
+
     {
       "matchDatasources": ["helm"],
-      "automerge": false,
+      "automerge": true,
       "matchUpdateTypes": [
         "minor",
-        "patch"
       ],
-      "bumpVersion": "patch",
-      "labels": ["update/helm/dependency/non-major", "automerge"],
-      "matchPaths": ["charts/dependency/**", "templates/**"],
-      "groupName": "helm dependency non-major",
-    },
-    //
-    // helm ent and operators
-    //
-    {
-      "matchDatasources": ["helm"],
-      "updateTypes": ["major"],
-      "bumpVersion": "major",
-      "enabled": true,
-      "labels": ["update/helm/general/major"],
-      "groupName": ["helm general major"],
-      "matchPaths": ["charts/enterprise/**", "charts/operators/**"],
-      "schedule": [
-        "before 10pm on tuesday"
-      ],
-    },
-    {
-      "matchDatasources": ["helm"],
-      "automerge": false,
-      "matchUpdateTypes": [
-        "minor"
-      ],
-      "enabled": true,
-      "bumpVersion": "patch",
-      "labels": ["update/helm/general/non-major", "automerge"],
-      "groupName": "helm general non-major",
-      "matchPaths": ["charts/enterprise/**", "charts/operators/**"],
-      "schedule": [
-        "before 10pm on tuesday"
-      ],
+      "bumpVersion": "minor",
+      "labels": ["update/helm/dependency/minor", "automerge"],
+      "matchPaths": ["charts/dependency/**"],
+      "groupName": "helm dependency minor",
     },
     {
       "matchDatasources": ["helm"],
       "automerge": true,
       "matchUpdateTypes": [
-        "digest",
-        "patch",
-        "pin"
+        "patch"
       ],
-      "enabled": true,
       "bumpVersion": "patch",
-      "labels": ["update/helm/general/non-major", "automerge"],
-      "groupName": "helm general non-major",
-      "matchPaths": ["charts/enterprise/**", "charts/operators/**"],
-      "schedule": [
-        "before 10pm on tuesday"
-      ],
+      "labels": ["update/helm/dependency/patch", "automerge"],
+      "matchPaths": ["charts/dependency/**"],
+      "groupName": "helm dependency patch",
     },
     //
     // helm charts
@@ -129,15 +107,16 @@
       "matchDatasources": ["helm"],
       "updateTypes": ["major"],
       "bumpVersion": "major",
-      "enabled": false,
+      "enabled": true,
       "labels": ["update/helm/general/major"],
+      "automerge": false,
       "groupName": ["helm general major"],
-      "matchPaths": ["charts/incubator/**", "charts/SCALE/**", "charts/dev/**", "charts/stable/**", "templates/app/**"],
+      "matchPaths": ["charts/incubator/**", "charts/SCALE/**", "charts/dev/**", "charts/stable/**", "templates/app/**", "charts/enterprise/**", "charts/operators/**"],
       "schedule": [
         "before 10pm on tuesday"
       ],
+      "autoApprove": false,
     },
-
     {
       "matchDatasources": ["helm"],
       "automerge": true,
@@ -145,10 +124,10 @@
       "matchUpdateTypes": [
         "minor"
       ],
-      "bumpVersion": "patch",
-      "labels": ["update/helm/general/non-major", "automerge"],
-      "groupName": "helm general non-major",
-      "matchPaths": ["charts/incubator/**", "charts/SCALE/**", "charts/dev/**", "charts/stable/**", "templates/app/**"],
+      "bumpVersion": "minor",
+      "labels": ["update/helm/general/minor", "automerge"],
+      "groupName": "helm general minor",
+      "matchPaths": ["charts/incubator/**", "charts/SCALE/**", "charts/dev/**", "charts/stable/**", "templates/app/**", "charts/enterprise/**", "charts/operators/**"],
       "schedule": [
         "before 10pm on tuesday"
       ],
@@ -165,7 +144,7 @@
       "bumpVersion": "patch",
       "labels": ["update/helm/general/non-major", "automerge"],
       "groupName": "helm general non-major",
-      "matchPaths": ["charts/incubator/**", "charts/SCALE/**", "charts/dev/**", "charts/stable/**", "templates/app/**"],
+      "matchPaths": ["charts/incubator/**", "charts/SCALE/**", "charts/dev/**", "charts/stable/**", "templates/app/**", "charts/enterprise/**", "charts/operators/**"],
       "schedule": [
         "before 10pm on tuesday"
       ],
@@ -183,6 +162,7 @@
       "schedule": [
         "before 10pm on monday"
       ],
+      "autoApprove": false,
     },
     {
       "matchDatasources": ["docker"],
