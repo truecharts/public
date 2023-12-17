@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: mariadb
-version: 11.0.2
+version: 11.0.3
 appVersion: 11.1.3
 description:
   Fast, reliable, scalable, and easy to use open-source relational database
@@ -26,7 +26,7 @@ keywords:
   - sql
 dependencies:
   - name: common
-    version: 16.2.6
+    version: 16.2.7
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
