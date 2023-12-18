@@ -2,7 +2,7 @@ hostNetwork: true
 image:
   pullPolicy: IfNotPresent
   repository: jokobsk/pi.alert
-  tag: latest@sha256:7d88edb76d412162b3a743f6c4667c27d804c59f8f31cd229867750e89d5841c
+  tag: latest@sha256:2ad5552b5d1faf51026b09c39851a7eedbd88d3b123c85696b04c86685a0caa0
 initContainers:
   init:
     args:
