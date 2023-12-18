@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: prometheus-operator
 version: 1.0.17
@@ -8,9 +8,9 @@ home: https://truecharts.org/charts/operators/prometheus-operator
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/prometheus-operator.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/containers/tree/master/mirrorprometheus-operator
-  - https://github.com/prometheus-operator
   - https://github.com/truecharts/charts/tree/master/charts/operators/prometheus-operator
+  - https://github.com/truecharts/containers/tree/master/mirrorkube-webhook-certgen
+  - https://github.com/prometheus-operator
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,3 +35,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: operators
+type: application

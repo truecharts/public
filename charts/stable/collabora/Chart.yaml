@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: collabora
 version: 2.0.21
@@ -8,24 +8,24 @@ home: https://truecharts.org/charts/stable/collabora
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/collabora.png
 deprecated: false
 sources:
-- https://github.com/CollaboraOnline/online
-- https://github.com/truecharts/charts/tree/master/charts/stable/collabora
-- https://hub.docker.com/r/collabora/code
+  - https://hub.docker.com/r/collabora/code
+  - https://github.com/CollaboraOnline/online
+  - https://github.com/truecharts/charts/tree/master/charts/stable/collabora
 maintainers:
-- name: TrueCharts
-  email: info@truecharts.org
-  url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-- office
-- document
+  - office
+  - document
 dependencies:
-- name: common
-  version: 14.5.0
-  repository: https://library-charts.truecharts.org
-  condition: ""
-  alias: ""
-  tags: []
-  import-values: []
+  - name: common
+    version: 14.5.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4
