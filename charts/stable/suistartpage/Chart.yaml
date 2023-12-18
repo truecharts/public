@@ -1,0 +1,42 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: suistartpage
+version: 3.0.5
+appVersion: latest
+description:
+  SUI Startpage is a simple and clean server start page or homepage that
+  you can quickly and easily setup to access your server resources and quick booksmarks
+  and also lets you search on various provider sites via a search bar at the top as
+  well.
+home: https://truecharts.org/charts/incubator/suistartpage
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/suistartpage.png
+deprecated: false
+sources:
+  - https://github.com/CorneliousJD/SUI-Startpage
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/suistartpage
+  - https://hub.docker.com/r/corneliousjd/sui-startpage
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - suistartpage
+  - Tools-Utilities
+  - Network-Web
+dependencies:
+  - name: common
+    version: 16.2.7
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Tools-Utilities
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

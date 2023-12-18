@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: self-service-password
-version: 4.0.0
+version: 4.0.4
 appVersion: 5.3.3
 description:
   Self Service Password is a PHP application that allows users to change
@@ -10,8 +10,8 @@ home: https://truecharts.org/charts/incubator/self-service-password
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/self-service-password.png
 deprecated: false
 sources:
-  - https://github.com/tiredofit/docker-self-service-password
   - https://self-service-password.readthedocs.io/en/latest
+  - https://github.com/tiredofit/docker-self-service-password
   - https://github.com/truecharts/charts/tree/master/charts/incubator/self-service-password
   - https://hub.docker.com/r/tiredofit/self-service-password
 maintainers:
@@ -24,7 +24,7 @@ keywords:
   - ldap
 dependencies:
   - name: common
-    version: 16.0.0
+    version: 16.2.7
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -38,3 +38,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

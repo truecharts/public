@@ -7,12 +7,12 @@ persistence:
     enabled: true
     mountPath: /var/ts3server
 portal:
-  enabled: false
+  open:
+    enabled: false
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsGroup: 0
-    runAsNonRoot: false
     runAsUser: 0
 service:
   files:
@@ -33,7 +33,7 @@ service:
       voice:
         enabled: true
         port: 9987
-        protocol: UDP
+        protocol: udp
         targetPort: 9987
 workload:
   main:

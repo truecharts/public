@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: deconz
-version: 12.0.17
+version: 12.0.19
 appVersion: 2.24.2
 description:
   deCONZ is an easy to use control software, with which you can set up
@@ -10,10 +10,10 @@ home: https://truecharts.org/charts/stable/deconz
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/deconz.png
 deprecated: false
 sources:
+  - https://github.com/marthoc/docker-deconz
   - https://github.com/dresden-elektronik/deconz-rest-plugin
   - https://github.com/truecharts/charts/tree/master/charts/stable/deconz
   - https://hub.docker.com/r/deconzcommunity/deconz
-  - https://github.com/marthoc/docker-deconz
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -25,7 +25,7 @@ keywords:
   - conbee
 dependencies:
   - name: common
-    version: 14.3.5
+    version: 14.5.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -39,3 +39,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

@@ -1,0 +1,40 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: barcodebuddy
+version: 3.0.5
+appVersion: latest
+description:
+  "&lt;b&gt;Barcode Buddy is a Grocy companion app/plugin, which allows
+  you to install the Barcode Buddy app and scan products directly to your Grocy library.&lt;/b&gt;"
+home: https://truecharts.org/charts/incubator/barcodebuddy
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/barcodebuddy.png
+deprecated: false
+sources:
+  - https://github.com/Forceu/barcodebuddy
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/barcodebuddy
+  - https://hub.docker.com/r/f0rc3/barcodebuddy-docker
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - barcodebuddy
+  - Productivity
+  - Tools-Utilities
+dependencies:
+  - name: common
+    version: 16.2.7
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Productivity
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

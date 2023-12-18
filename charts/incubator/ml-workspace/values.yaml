@@ -25,7 +25,8 @@ persistence:
     enabled: true
     mountPath: /workspace
 portal:
-  enabled: true
+  open:
+    enabled: true
 rImage:
   pullPolicy: IfNotPresent
   repository: mltooling/ml-workspace-r
@@ -34,7 +35,6 @@ securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsGroup: 0
-    runAsNonRoot: false
     runAsUser: 0
 service:
   main:

@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: traefik-forward-auth
-version: 0.2.8
+version: 0.2.10
 appVersion: latest
 description:
   A minimal forward authentication service that provides OAuth/SSO login
@@ -27,7 +27,7 @@ keywords:
   - middleware
 dependencies:
   - name: common
-    version: 14.3.5
+    version: 14.5.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -41,3 +41,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: post-recording
-version: 3.0.0
+version: 3.0.4
 appVersion: latest
 description:
   Watches for .ts files made by Live TV recordings, convert them to a friendly
@@ -23,7 +23,7 @@ keywords:
   - MediaApp-Video
 dependencies:
   - name: common
-    version: 16.0.0
+    version: 16.2.7
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -37,3 +37,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

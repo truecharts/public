@@ -1,0 +1,73 @@
+backupStorageLocation: []
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/truecharts/alpine
+  tag: latest@sha256:17cd77e25d3fa829d168caec4db7bb5b52ceeb935d8ca0d1180de6f615553dc4
+manifestManager:
+  enabled: false
+operator:
+  register: true
+portal:
+  open:
+    enabled: false
+schedules: []
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+velero:
+  configuration:
+    backupStorageLocation: []
+    volumeSnapshotLocation: []
+  deployNodeAgent: true
+  initContainers:
+    - image: openebs/velero-plugin:3.6.0@sha256:9ea3331d891e436a7239e37e68ca4c8888500cb122be7cdc9d8400f345555c76
+      imagePullPolicy: IfNotPresent
+      name: opeebs-velero-plugin
+      volumeMounts:
+        - mountPath: /target
+          name: plugins
+    - image: velero/velero-plugin-for-csi:v0.6.2@sha256:f0a6f541a24951a21aecbd42d4170e79e138d2f9efdb9e82b6fb14b3effc2d5a
+      imagePullPolicy: IfNotPresent
+      name: velero-plugin-for-csi
+      volumeMounts:
+        - mountPath: /target
+          name: plugins
+    - image: velero/velero-plugin-for-aws:v1.8.2@sha256:edfb14403fc4ee45ac99f34930125869a06465c44ffacaf57e351e477e2c6b53
+      imagePullPolicy: IfNotPresent
+      name: velero-plugin-for-aws
+      volumeMounts:
+        - mountPath: /target
+          name: plugins
+  namespace:
+    labels:
+      - key: pod-security.kubernetes.io/enforce
+        value: privileged
+      - key: pod-security.kubernetes.io/enforce-version
+        value: latest
+      - key: pod-security.kubernetes.io/audit
+        value: privileged
+      - key: pod-security.kubernetes.io/audit-version
+        value: latest
+      - key: pod-security.kubernetes.io/warn
+        value: privileged
+      - key: pod-security.kubernetes.io/warn-version
+        value: latest
+  nodeAgent:
+    podVolumePath: /var/lib/kubelet/pods
+    privileged: true
+    resources:
+      limits:
+        cpu: 2000m
+        memory: 2048Mi
+  resources:
+    limits:
+      cpu: 4000m
+      memory: 4Gi
+  schedules: {}
+volumeSnapshotLocation: []
+workload:
+  main:
+    enabled: false

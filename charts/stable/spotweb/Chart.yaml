@@ -1,17 +1,17 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: spotweb
-version: 9.0.10
+version: 9.0.13
 appVersion: 1.5.4
 description: Spotweb is a decentralized usenet community based on the Spotnet protocol.
 home: https://truecharts.org/charts/stable/spotweb
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/spotweb.png
 deprecated: false
 sources:
-  - https://github.com/spotweb/spotweb
-  - https://github.com/joachimbaten/spotweb-docker
   - https://github.com/truecharts/charts/tree/master/charts/stable/spotweb
   - https://hub.docker.com/r/jbaten/spotweb
+  - https://github.com/joachimbaten/spotweb-docker
+  - https://github.com/spotweb/spotweb
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -22,7 +22,7 @@ keywords:
   - spotnet
 dependencies:
   - name: common
-    version: 14.3.5
+    version: 14.5.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -36,3 +36,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

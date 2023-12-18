@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: ts3-manager
-version: 3.0.0
+version: 3.0.4
 appVersion: 2.2.0
 description: A modern web interface for maintaining Teamspeak3 servers.
 home: https://truecharts.org/charts/incubator/ts3-manager
@@ -21,7 +21,7 @@ keywords:
   - teamspeak3
 dependencies:
   - name: common
-    version: 16.0.0
+    version: 16.2.7
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -35,3 +35,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

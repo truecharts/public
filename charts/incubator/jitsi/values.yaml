@@ -22,7 +22,7 @@ additionalContainers:
     securityContext:
       readOnlyRootFilesystem: false
       runAsGroup: 0
-      runAsNonRoot: false
+
       runAsUser: 0
     volumeMounts:
       - mountPath: /config
@@ -51,7 +51,7 @@ additionalContainers:
     securityContext:
       readOnlyRootFilesystem: false
       runAsGroup: 0
-      runAsNonRoot: false
+
       runAsUser: 0
     volumeMounts:
       - mountPath: /config
@@ -78,7 +78,7 @@ additionalContainers:
     securityContext:
       readOnlyRootFilesystem: false
       runAsGroup: 0
-      runAsNonRoot: false
+
       runAsUser: 0
     volumeMounts:
       - mountPath: /config
@@ -118,7 +118,8 @@ persistence:
     enabled: true
     mountPath: /usr/share/jitsi-meet/transcripts
 portal:
-  enabled: true
+  open:
+    enabled: true
 prosodyImage:
   repository: jitsi/prosody
   tag: stable-9078@sha256:0d8e318150606fae30fd3d9f2458b001cd28b850e11d8bb11d32e0b29a2a6c36
@@ -126,7 +127,6 @@ securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsGroup: 0
-    runAsNonRoot: false
     runAsUser: 0
 service:
   main:

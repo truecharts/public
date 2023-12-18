@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: grafana
-version: 9.0.44
+version: 9.0.46
 appVersion: 10.2.2
 description:
   Grafana is an open source, feature rich metrics dashboard and graph editor
@@ -10,8 +10,8 @@ home: https://truecharts.org/charts/enterprise/grafana
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/grafana.png
 deprecated: false
 sources:
-  - https://github.com/bitnami/bitnami-docker-grafana
   - https://grafana.com/
+  - https://github.com/bitnami/bitnami-docker-grafana
   - https://github.com/truecharts/charts/tree/master/charts/enterprise/grafana
   - https://hub.docker.com/r/bitnami/grafana
 maintainers:
@@ -25,7 +25,7 @@ keywords:
   - logs
 dependencies:
   - name: common
-    version: 14.3.5
+    version: 14.5.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -39,3 +39,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: enterprise
+type: application

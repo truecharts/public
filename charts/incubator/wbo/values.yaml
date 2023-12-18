@@ -7,7 +7,8 @@ persistence:
     enabled: true
     mountPath: /opt/app/server-data
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     runAsGroup: 1000
@@ -17,7 +18,7 @@ service:
     ports:
       main:
         port: 10354
-        protocol: HTTP
+        protocol: http
 wbo:
   auth_secret_key: ""
   auto_finger_whiteout: true
@@ -37,6 +38,6 @@ workload:
         main:
           envFrom:
             - secretRef:
-                name: '{{ include "tc.common.names.fullname" . }}-secret'
+                name: wbo-secret
             - configMapRef:
-                name: '{{ include "tc.common.names.fullname" . }}-config'
+                name: wbo-config

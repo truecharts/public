@@ -7,19 +7,19 @@ persistence:
     enabled: true
     mountPath: /opt/DVBLink
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsGroup: 0
-    runAsNonRoot: false
     runAsUser: 0
 service:
   main:
     ports:
       main:
         port: 39876
-        protocol: HTTP
+        protocol: http
         targetPort: 39876
   tcpport1:
     enabled: true
@@ -27,7 +27,7 @@ service:
       tcpport1:
         enabled: true
         port: 8100
-        protocol: TCP
+        protocol: tcp
         targetPort: 8100
   tcpport2:
     enabled: true
@@ -35,5 +35,5 @@ service:
       tcpport2:
         enabled: true
         port: 2222
-        protocol: TCP
+        protocol: tcp
         targetPort: 22
