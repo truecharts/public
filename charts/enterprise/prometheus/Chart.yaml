@@ -1,10 +1,9 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: prometheus
-version: 13.0.27
+version: 13.1.0
 appVersion: 2.48.1
-description:
-  kube-prometheus-stack collects Kubernetes manifests, Grafana dashboards,
+description: kube-prometheus-stack collects Kubernetes manifests, Grafana dashboards,
   and Prometheus rules combined with documentation and scripts to provide easy to
   operate end-to-end Kubernetes cluster monitoring with Prometheus using the Prometheus
   Operator.
@@ -12,38 +11,38 @@ home: https://truecharts.org/charts/enterprise/prometheus
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/prometheus.png
 deprecated: false
 sources:
-  - https://hub.docker.com/r/bitnami/alertmanager
-  - https://github.com/prometheus-community/helm-charts
-  - https://github.com/prometheus-operator/kube-prometheus
-  - https://github.com/truecharts/charts/tree/master/charts/enterprise/prometheus
+- https://github.com/prometheus-community/helm-charts
+- https://github.com/prometheus-operator/kube-prometheus
+- https://github.com/truecharts/charts/tree/master/charts/enterprise/prometheus
+- https://quay.io/thanos/thanos
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - metrics
+- metrics
 dependencies:
-  - name: common
-    version: 14.5.0
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-  - name: node-exporter
-    version: 3.0.43
-    repository: https://deps.truecharts.org
-    condition: exporters.enabled,exporters.node-exporter.enabled
-    alias: ""
-    tags: []
-    import-values: []
-  - name: kube-state-metrics
-    version: 3.0.41
-    repository: https://deps.truecharts.org
-    condition: exporters.enabled,exporters.kube-state-metrics.enabled
-    alias: ""
-    tags: []
-    import-values: []
+- name: common
+  version: 14.5.0
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
+- name: node-exporter
+  version: 3.0.43
+  repository: https://deps.truecharts.org
+  condition: exporters.enabled,exporters.node-exporter.enabled
+  alias: ""
+  tags: []
+  import-values: []
+- name: kube-state-metrics
+  version: 3.0.41
+  repository: https://deps.truecharts.org
+  condition: exporters.enabled,exporters.kube-state-metrics.enabled
+  alias: ""
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4
