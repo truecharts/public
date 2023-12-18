@@ -1,15 +1,15 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: quassel-core
-version: 8.0.22
+version: 8.0.25
 appVersion: 0.14.0
 description: Quassel-core is a modern, cross-platform, distributed IRC client.
 home: https://truecharts.org/charts/stable/quassel-core
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/quassel-core.png
 deprecated: false
 sources:
-  - https://ghcr.io/linuxserver/quassel-core
   - https://github.com/truecharts/charts/tree/master/charts/stable/quassel-core
+  - https://ghcr.io/linuxserver/quassel-core
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -18,7 +18,7 @@ keywords:
   - quassel-core
 dependencies:
   - name: common
-    version: 14.3.5
+    version: 14.5.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -32,3 +32,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

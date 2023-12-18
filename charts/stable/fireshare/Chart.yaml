@@ -1,0 +1,36 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: fireshare
+version: 3.0.3
+appVersion: 1.2.15
+description: Share your game clips, videos, or other media via unique links.
+home: https://truecharts.org/charts/incubator/fireshare
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/fireshare.png
+deprecated: false
+sources:
+  - https://github.com/ShaneIsrael/fireshare
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/fireshare
+  - https://hub.docker.com/r/shaneisrael/fireshare
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - fireshare
+dependencies:
+  - name: common
+    version: 15.3.4
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

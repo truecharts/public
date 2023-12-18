@@ -1,8 +1,8 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: fireflyiii
-version: 21.0.19
-appVersion: 6.0.30
+version: 21.1.0
+appVersion: 6.1.0
 description: A free and open source personal finance manager
 home: https://truecharts.org/charts/stable/fireflyiii
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/fireflyiii.png
@@ -20,7 +20,7 @@ keywords:
   - finacial
 dependencies:
   - name: common
-    version: 14.3.5
+    version: 14.5.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -41,3 +41,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

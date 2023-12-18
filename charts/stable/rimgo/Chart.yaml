@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: rimgo
-version: 3.0.3
+version: 3.0.5
 appVersion: latest
 description: Alternative Imgur front-end
 home: https://truecharts.org/charts/incubator/rimgo
@@ -19,7 +19,7 @@ keywords:
   - Network-Web
 dependencies:
   - name: common
-    version: 15.0.1
+    version: 15.3.4
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -33,3 +33,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

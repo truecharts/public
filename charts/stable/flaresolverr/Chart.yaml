@@ -1,8 +1,8 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: flaresolverr
-version: 10.0.19
-appVersion: 3.3.10
+version: 10.0.22
+appVersion: 3.3.12
 description: FlareSolverr is a proxy server to bypass Cloudflare protection
 home: https://truecharts.org/charts/stable/flaresolverr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/flaresolverr.png
@@ -34,3 +34,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

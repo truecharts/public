@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: blocky
-version: 9.0.12
+version: 9.1.0
 appVersion: "0.22"
 description:
   Blocky is a DNS proxy, DNS enhancer and ad-blocker for the local network
@@ -24,14 +24,14 @@ keywords:
   - blocky
 dependencies:
   - name: common
-    version: 14.3.5
+    version: 14.5.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 8.0.44
+    version: 8.0.47
     repository: https://deps.truecharts.org
     condition: redis.enabled
     alias: ""
@@ -45,3 +45,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: enterprise
+type: application

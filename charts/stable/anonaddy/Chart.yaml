@@ -1,8 +1,8 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: anonaddy
-version: 15.0.16
-appVersion: 0.14.1
+version: 16.0.0
+appVersion: 1.0.4
 description: Protect your email from spam using disposable addresses.
 home: https://truecharts.org/charts/stable/anonaddy
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/anonaddy.png
@@ -19,7 +19,7 @@ keywords:
   - anonaddy
 dependencies:
   - name: common
-    version: 14.3.5
+    version: 14.5.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -47,3 +47,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

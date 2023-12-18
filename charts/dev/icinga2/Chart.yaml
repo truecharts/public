@@ -1,0 +1,47 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: icinga2
+version: 8.0.4
+appVersion: 2.14.0
+description:
+  A monitoring system which checks the availability of your network resources,
+  notifies users of outages, and generates performance data for reporting.
+home: https://truecharts.org/charts/incubator/icinga2
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/icinga2.png
+deprecated: false
+sources:
+  - https://icinga.com/
+  - https://github.com/jjethwa/icinga2
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/icinga2
+  - https://hub.docker.com/r/jordan/icinga2
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - icinga2
+  - monitoring
+dependencies:
+  - name: common
+    version: 16.2.7
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: mariadb
+    version: 10.0.2
+    repository: https://deps.truecharts.org/
+    condition: mariadb.enabled
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: monitoring
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: audiobookshelf
-version: 6.1.1
+version: 6.1.3
 appVersion: 2.6.0
 description:
   Audiobookshelf is a self-hosted audiobook server for managing and playing
@@ -21,7 +21,7 @@ keywords:
   - audiobookshelf
 dependencies:
   - name: common
-    version: 14.3.5
+    version: 14.5.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -35,3 +35,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: google-cloud-storage-backup
-version: 2.0.11
+version: 3.0.4
 appVersion: latest
 description: |
   A simple way to backup important files to Google Cloud Storage.
@@ -10,7 +10,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/google-cloud-storage-bac
 deprecated: false
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/google-cloud-storage-backup
-  - https://github.com/truecharts/containers/tree/master/mirrorgoogle-cloud-storage-backup
+  - https://hub.docker.com/r/vinid223/gcloud-storage-backup
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -21,7 +21,7 @@ keywords:
   - Cloud
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.2.7
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -35,3 +35,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

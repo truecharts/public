@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: preclear
-version: 2.0.12
+version: 3.0.4
 appVersion: latest
 description:
   A utility to "burn-in" a new disk, before adding it to your array has
@@ -16,7 +16,7 @@ sources:
   - https://forums.TrueNAS.net/topic/2732-preclear_disksh-a-new-utility-to-burn-in-and-pre-clear-disks-for-quick-add/
   - https://registry.hub.docker.com/r/binhex/arch-preclear/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/preclear
-  - https://github.com/truecharts/containers/tree/master/mirrorpreclear
+  - https://hub.docker.com/r/binhex/arch-preclear
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -27,7 +27,7 @@ keywords:
   - Tools-Utilities
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.2.7
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -41,3 +41,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

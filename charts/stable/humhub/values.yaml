@@ -1,0 +1,23 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/siwatinc/humhub
+  tag: latest@sha256:5350a151dfc8e1ca9b5fb75b81455baad85b668fdbe9c707c126a4ad3f64caf9
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 85
+        protocol: tcp
+        targetPort: 80

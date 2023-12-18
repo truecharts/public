@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: searxng
-version: 4.0.81
+version: 4.0.86
 appVersion: latest
 description:
   Meta search engine which aggregates results from more than 70 search
@@ -10,9 +10,9 @@ home: https://truecharts.org/charts/stable/searxng
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/searxng.png
 deprecated: false
 sources:
+  - https://hub.docker.com/r/searxng/searxng
   - https://github.com/searxng/searxng
   - https://github.com/truecharts/charts/tree/master/charts/stable/searxng
-  - https://hub.docker.com/r/searxng/searxng
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -23,7 +23,7 @@ keywords:
   - Other
 dependencies:
   - name: common
-    version: 14.3.5
+    version: 14.5.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -37,3 +37,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: nitter
-version: 2.0.2
+version: 2.0.4
 appVersion: latest
 description:
   A free and open source alternative Twitter front-end focused on privacy
@@ -22,7 +22,7 @@ keywords:
   - libre
 dependencies:
   - name: common
-    version: 14.3.5
+    version: 14.5.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -43,3 +43,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

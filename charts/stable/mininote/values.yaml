@@ -1,0 +1,23 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: n1try/mininote
+  tag: latest@sha256:da2c050fe79ffb5371d9c40a86cf2222d87e23958802bc9348455e8784afbc0d
+persistence:
+  data:
+    enabled: true
+    mountPath: /app/data
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 3000
+        protocol: tcp
+        targetPort: 3000

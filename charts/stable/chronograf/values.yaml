@@ -1,0 +1,23 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: chronograf
+  tag: latest@sha256:1afe04050c8d702be216a813a21ef7e340e16b7fc4fb5f3a778a38db3581f0fb
+persistence:
+  chronograf:
+    enabled: true
+    mountPath: /var/lib/chronograf
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 8888
+        protocol: tcp
+        targetPort: 8888

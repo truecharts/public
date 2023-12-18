@@ -1,0 +1,41 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: archiveteam-warrior
+version: 3.0.6
+appVersion: latest
+description:
+  The Archive Team Warrior is a virtual archiving appliance. You can run
+  it to help with the Archive Team archiving efforts. It will download sites and upload
+  them to our archive—and it’s really easy to do!
+home: https://truecharts.org/charts/incubator/archiveteam-warrior
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/archiveteam-warrior.png
+deprecated: false
+sources:
+  - https://wiki.archiveteam.org/index.php/ArchiveTeam_Warrior
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/archiveteam-warrior
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - archiveteam-warrior
+  - Backup
+  - Cloud
+  - Downloaders
+dependencies:
+  - name: common
+    version: 16.2.7
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Backup
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: electrum
-version: 2.0.12
+version: 3.0.4
 appVersion: latest
 description:
   Electrum is a Bitcoin wallet focused on speed and simplicity, with low
@@ -11,9 +11,9 @@ home: https://truecharts.org/charts/incubator/electrum
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/electrum.png
 deprecated: false
 sources:
-  - https://electrum.org/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/electrum
-  - https://github.com/truecharts/containers/tree/master/mirrorelectrum
+  - https://hub.docker.com/r/ich777/electrum
+  - https://electrum.org/
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -25,7 +25,7 @@ keywords:
   - Tools-Utilities
 dependencies:
   - name: common
-    version: 11.1.2
+    version: 16.2.7
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -39,3 +39,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application
