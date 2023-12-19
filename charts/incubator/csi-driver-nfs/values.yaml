@@ -25,7 +25,7 @@ velero:
     volumeSnapshotLocation: []
   deployNodeAgent: true
   initContainers:
-    - image: openebs/velero-plugin:1.9.0@sha256:f89855c12dd0a9bfd1afb9a75b051f6cb0452c4c073df9fc7fff4d7983eff341
+    - image: openebs/velero-plugin:1.12.1@sha256:9428cdd91cc87803ab41aa468b2fa8b8fe60135e238cd2fd963ac17aec71c656
       imagePullPolicy: IfNotPresent
       name: opeebs-velero-plugin
       volumeMounts:
