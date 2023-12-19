@@ -59,10 +59,10 @@
     //
     {
       "automerge": false,
-      "labels": ["update/unstable"],
-      "groupName": ["unstable"],
-      "matchPaths": ["charts/unstable/**"],
-      "commitMessageTopic": "Unstable Update",
+      "labels": ["update/ignored"],
+      "groupName": ["ignored"],
+      "matchPaths": ["charts/unstable/**", "charts/dev/**", "charts/incubator/**", "templates/app/**"],
+      "commitMessageTopic": "Ignored Updates",
       "autoApprove": false,
     },
     //
@@ -112,7 +112,7 @@
       "labels": ["update/helm/general/major"],
       "automerge": false,
       "groupName": ["helm general major"],
-      "matchPaths": ["charts/incubator/**", "charts/SCALE/**", "charts/dev/**", "charts/stable/**", "templates/app/**", "charts/enterprise/**", "charts/operators/**"],
+      "matchPaths": ["charts/stable/**", "charts/enterprise/**", "charts/operators/**"],
       "schedule": [
         "before 10pm on tuesday"
       ],
@@ -128,7 +128,7 @@
       "bumpVersion": "minor",
       "labels": ["update/helm/general/minor", "automerge"],
       "groupName": "helm general minor",
-      "matchPaths": ["charts/incubator/**", "charts/SCALE/**", "charts/dev/**", "charts/stable/**", "templates/app/**", "charts/enterprise/**", "charts/operators/**"],
+      "matchPaths": ["charts/stable/**", "charts/enterprise/**", "charts/operators/**"],
       "schedule": [
         "before 10pm on tuesday"
       ],
@@ -145,7 +145,7 @@
       "bumpVersion": "patch",
       "labels": ["update/helm/general/non-major", "automerge"],
       "groupName": "helm general non-major",
-      "matchPaths": ["charts/incubator/**", "charts/SCALE/**", "charts/dev/**", "charts/stable/**", "templates/app/**", "charts/enterprise/**", "charts/operators/**"],
+      "matchPaths": ["charts/stable/**", "charts/enterprise/**", "charts/operators/**"],
       "schedule": [
         "before 10pm on tuesday"
       ],
@@ -159,7 +159,7 @@
       "bumpVersion": "minor",
       "enabled": true,
       "labels": ["update/docker/general/major"],
-      "matchPaths": ["charts/dependency/**", "charts/SCALE/**", "charts/stable/**", "templates/app/**", "charts/incubator/**", "charts/dev/**", "charts/enterprise/**", "charts/operators/**"],
+      "matchPaths": ["charts/dependency/**", "charts/stable/**", "charts/incubator/**", "charts/enterprise/**", "charts/operators/**"],
       "schedule": [
         "before 10pm on monday"
       ],
@@ -174,7 +174,7 @@
       "bumpVersion": "minor",
       "enabled": true,
       "labels": ["update/docker/general/non-major", "automerge"],
-      "matchPaths": ["charts/dependency/**", "charts/SCALE/**", "charts/library/**", "charts/stable/**", "templates/app/**", "charts/incubator/**", "charts/dev/**", "charts/enterprise/**", "charts/operators/**"],
+      "matchPaths": ["charts/dependency/**", "charts/stable/**", "charts/incubator/**", "charts/enterprise/**", "charts/operators/**"],
       "schedule": [
         "before 10pm on monday"
       ],
@@ -190,7 +190,7 @@
       "bumpVersion": "patch",
       "enabled": true,
       "labels": ["update/docker/general/non-major", "automerge"],
-      "matchPaths": ["charts/dependency/**", "charts/SCALE/**", "charts/library/**", "charts/stable/**", "templates/app/**", "charts/incubator/**", "charts/dev/**", "charts/enterprise/**", "charts/operators/**"],
+      "matchPaths": ["charts/dependency/**", "charts/stable/**", "charts/incubator/**", "charts/enterprise/**", "charts/operators/**"],
       "schedule": [
         "before 10pm on monday"
       ],
