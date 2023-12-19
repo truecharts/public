@@ -18,11 +18,9 @@ questions:
                                     default: image
                                     enum:
                                       - value: image
-                                        description: Thin
+                                        description: Full (Upstream default)
                                       - value: liteImage
                                         description: Lite
-                                      - value: fullImage
-                                        description: Full
 
                                 - variable: env
                                   label: Image Environment
