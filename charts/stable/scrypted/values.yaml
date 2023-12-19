@@ -1,14 +1,10 @@
 image:
   repository: koush/scrypted
-  pullPolicy: IfNotPresent
-  tag: 20-jammy-thin-v0.59.0@sha256:067116150b465690ca2792e53139b2b59a4682717599840cb2445a799f1bba90
+  tag: 18-jammy-full-v0.68.0@sha256:c95bd5a65edd8ba132fd9425c7052ea88bd82936afc50391e21d66a671c48329
+  pullPolicy: Always
 liteImage:
   repository: koush/scrypted
   tag: 18-jammy-lite-v0.68.0@sha256:adaed0c9d08f2b4ccfb1369548c65104787e1b8db04a550e6ea7909145d400bc
-  pullPolicy: Always
-fullImage:
-  repository: koush/scrypted
-  tag: 18-jammy-full-v0.68.0@sha256:c95bd5a65edd8ba132fd9425c7052ea88bd82936afc50391e21d66a671c48329
   pullPolicy: Always
 
 securityContext:
