@@ -1,11 +1,11 @@
 image:
   pullPolicy: IfNotPresent
   repository: wger/server
-  tag: latest@sha256:71bbd3c4185f7a92bd0d95b928a019fa76d2b88f629c918a7627fbbaa632e64e
+  tag: latest@sha256:92bdc37ed4ea0a388f6edb15a52387b75141891a7f9f8fecdeefbb62a40ff972
 nginxImage:
   pullPolicy: IfNotPresent
   repository: nginx
-  tag: 1.25.3@sha256:86e53c4c16a6a276b204b0fd3a8143d86547c967dc8258b3d47c3a21bb68d3c6
+  tag: 1.25.3@sha256:eba84be9aa306ba15ac0e868ac1589bcffdf4228209ddf5dc68a16c081431251
 persistence:
   media:
     enabled: true
