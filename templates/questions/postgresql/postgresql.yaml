@@ -1,6 +1,6 @@
   - variable: cnpg
     group: Postgresql
-    label: ""
+    label: "CloudNative-PG (CNPG)"
     schema:
       additional_attrs: true
       type: dict
@@ -11,3 +11,455 @@
             additional_attrs: true
             type: dict
             attrs:
+              - variable: hibernate
+                label: Hibernate
+                description: "enable to safely hibernate and shutdown the postgresql cluster"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: cluster
+                label: "Cluster Settings"
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: instances
+                      label: Instances
+                      schema:
+                        type: int
+                        default: 1
+                    - variable: singleNode
+                      label: singleNode
+                      schema:
+                        type: boolean
+                        default: true
+                        hidden: true
+                    - variable: storage
+                      label: "Storage"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: size
+                            label: Size
+                            schema:
+                              type: string
+                              default: "256Gi"
+                    - variable: walStorage
+                      label: "WAL Storage"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: size
+                            label: Size
+                            schema:
+                              type: string
+                              default: "256Gi"
+              - variable: monitoring
+                label: "Monitoring Settings"
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enablePodMonitor
+                      label: "enablePodMonitor"
+                      schema:
+                        type: boolean
+                        default: true
+                    - variable: disableDefaultQueries
+                      label: "disableDefaultQueries"
+                      schema:
+                        type: boolean
+                        default: false
+              - variable: pooler
+                label: "Pooler Settings"
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: instances
+                      label: Instances
+                      schema:
+                        type: int
+                        default: 1
+                    - variable: createRO
+                      label: "Create ReadOnly Instance"
+                      schema:
+                        type: boolean
+                        default: false
+              - variable: recovery
+                label: "Recovery Settings (Experimental)"
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: "enabled"
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: endpointURL
+                      label: "endpointURL"
+                      schema:
+                        type: string
+                        show_if: [["enabled", "=", true]]
+                        default: ""
+                    - variable: method
+                      label: "method"
+                      schema:
+                        type: string
+                        show_if: [["enabled", "=", true]]
+                        default: "object_store"
+                    - variable: backupName
+                      label: "backupName"
+                      schema:
+                        type: string
+                        show_if: [["enabled", "=", true]]
+                        default: ""
+                    - variable: provider
+                      label: "provider"
+                      schema:
+                        type: string
+                        show_if: [["enabled", "=", true]]
+                        default: "s3"
+                    - variable: s3
+                      label: "s3"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        show_if: [["provider", "=", "s3"], ["enabled", "=", true]]
+                        attrs:
+                          - variable: region
+                            label: "region"
+                            schema:
+                              type: string
+                              show_if: [["enabled", "=", true]]
+                              default: ""
+                          - variable: bucket
+                            label: "bucket"
+                            schema:
+                              type: string
+                              show_if: [["enabled", "=", true]]
+                              default: ""
+                          - variable: path
+                            label: "path"
+                            schema:
+                              type: string
+                              show_if: [["enabled", "=", true]]
+                              default: "/"
+                          - variable: accessKey
+                            label: "accessKey"
+                            schema:
+                              type: string
+                              show_if: [["enabled", "=", true]]
+                              default: ""
+                          - variable: secretKey
+                            label: "secretKey"
+                            schema:
+                              type: string
+                              show_if: [["enabled", "=", true]]
+                              default: ""
+                    - variable: azure
+                      label: "azure (EXTREMELY EXPERIMENTAL)"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        show_if: [["provider", "=", "azure"], ["enabled", "=", true]]
+                        attrs:
+                          - variable: path
+                            label: "path"
+                            schema:
+                              type: string
+                              show_if: [["enabled", "=", true]]
+                              default: "/"
+                          - variable: connectionString
+                            label: "connectionString"
+                            schema:
+                              type: string
+                              show_if: [["enabled", "=", true]]
+                              default: ""
+                          - variable: storageAccount
+                            label: "storageAccount"
+                            schema:
+                              type: string
+                              show_if: [["enabled", "=", true]]
+                              default: ""
+                          - variable: storageKey
+                            label: "storageKey"
+                            schema:
+                              type: string
+                              show_if: [["enabled", "=", true]]
+                              default: ""
+                          - variable: storageSasToken
+                            label: "storageSasToken"
+                            schema:
+                              type: string
+                              show_if: [["enabled", "=", true]]
+                              default: ""
+                          - variable: containerName
+                            label: "containerName"
+                            schema:
+                              type: string
+                              show_if: [["enabled", "=", true]]
+                              default: ""
+                          - variable: serviceName
+                            label: "serviceName"
+                            schema:
+                              type: string
+                              show_if: [["enabled", "=", true]]
+                              default: "blob"
+                          - variable: inheritFromAzureAD
+                            label: "inheritFromAzureAD"
+                            schema:
+                              type: boolean
+                              show_if: [["enabled", "=", true]]
+                              default: false
+                    - variable: google
+                      label: "google (EXTREMELY EXPERIMENTAL)"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        show_if: [["provider", "=", "google"], ["enabled", "=", true]]
+                        attrs:
+                          - variable: path
+                            label: "path"
+                            schema:
+                              type: string
+                              show_if: [["enabled", "=", true]]
+                              default: "/"
+                          - variable: bucket
+                            label: "bucket"
+                            schema:
+                              type: string
+                              show_if: [["enabled", "=", true]]
+                              default: ""
+                          - variable: gkeEnvironment
+                            label: "gkeEnvironment"
+                            schema:
+                              type: string
+                              show_if: [["enabled", "=", true]]
+                              default: ""
+                          - variable: applicationCredentials
+                            label: "applicationCredentials"
+                            schema:
+                              type: string
+                              show_if: [["enabled", "=", true]]
+                              default: ""
+              - variable: backups
+                label: "Backup Settings (Experimental)"
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: enabled
+                      label: "enabled"
+                      schema:
+                        type: boolean
+                        default: false
+                    - variable: endpointURL
+                      label: "endpointURL"
+                      schema:
+                        type: string
+                        show_if: [["enabled", "=", true]]
+                        default: ""
+                    - variable: destinationPath
+                      label: "destinationPath"
+                      schema:
+                        type: string
+                        show_if: [["enabled", "=", true]]
+                        default: ""
+                    - variable: retentionPolicy
+                      label: "retentionPolicy"
+                      schema:
+                        type: string
+                        show_if: [["enabled", "=", true]]
+                        default: "30d"
+                    - variable: provider
+                      label: "provider"
+                      schema:
+                        type: string
+                        show_if: [["enabled", "=", true]]
+                        default: "s3"
+                    - variable: s3
+                      label: "s3"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        show_if: [["provider", "=", "s3"], ["enabled", "=", true]]
+                        attrs:
+                          - variable: region
+                            label: "region"
+                            schema:
+                              type: string
+                              show_if: [["enabled", "=", true]]
+                              default: ""
+                          - variable: bucket
+                            label: "bucket"
+                            schema:
+                              type: string
+                              show_if: [["enabled", "=", true]]
+                              default: ""
+                          - variable: path
+                            label: "path"
+                            schema:
+                              type: string
+                              show_if: [["enabled", "=", true]]
+                              default: "/"
+                          - variable: accessKey
+                            label: "accessKey"
+                            schema:
+                              type: string
+                              show_if: [["enabled", "=", true]]
+                              default: ""
+                          - variable: secretKey
+                            label: "secretKey"
+                            schema:
+                              type: string
+                              show_if: [["enabled", "=", true]]
+                              default: ""
+                    - variable: azure
+                      label: "azure (EXTREMELY EXPERIMENTAL)"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        show_if: [["provider", "=", "azure"], ["enabled", "=", true]]
+                        attrs:
+                          - variable: path
+                            label: "path"
+                            schema:
+                              type: string
+                              show_if: [["enabled", "=", true]]
+                              default: "/"
+                          - variable: connectionString
+                            label: "connectionString"
+                            schema:
+                              type: string
+                              show_if: [["enabled", "=", true]]
+                              default: ""
+                          - variable: storageAccount
+                            label: "storageAccount"
+                            schema:
+                              type: string
+                              show_if: [["enabled", "=", true]]
+                              default: ""
+                          - variable: storageKey
+                            label: "storageKey"
+                            schema:
+                              type: string
+                              show_if: [["enabled", "=", true]]
+                              default: ""
+                          - variable: storageSasToken
+                            label: "storageSasToken"
+                            schema:
+                              type: string
+                              show_if: [["enabled", "=", true]]
+                              default: ""
+                          - variable: containerName
+                            label: "containerName"
+                            schema:
+                              type: string
+                              show_if: [["enabled", "=", true]]
+                              default: ""
+                          - variable: serviceName
+                            label: "serviceName"
+                            schema:
+                              type: string
+                              show_if: [["enabled", "=", true]]
+                              default: "blob"
+                          - variable: inheritFromAzureAD
+                            label: "inheritFromAzureAD"
+                            schema:
+                              type: boolean
+                              show_if: [["enabled", "=", true]]
+                              default: false
+                    - variable: google
+                      label: "google (EXTREMELY EXPERIMENTAL)"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        show_if: [["provider", "=", "google"], ["enabled", "=", true]]
+                        attrs:
+                          - variable: path
+                            label: "path"
+                            schema:
+                              type: string
+                              show_if: [["enabled", "=", true]]
+                              default: "/"
+                          - variable: bucket
+                            label: "bucket"
+                            schema:
+                              type: string
+                              show_if: [["enabled", "=", true]]
+                              default: ""
+                          - variable: gkeEnvironment
+                            label: "gkeEnvironment"
+                            schema:
+                              type: string
+                              show_if: [["enabled", "=", true]]
+                              default: ""
+                          - variable: applicationCredentials
+                            label: "applicationCredentials"
+                            schema:
+                              type: string
+                              show_if: [["enabled", "=", true]]
+                              default: ""
+              - variable: scheduledBackups
+                label: ScheduledBackups
+                schema:
+                  type: list
+                  default: []
+                  show_if: [["enabled", "=", true]]
+                  items:
+                    - variable: backupschedule
+                      label: BackupSchedule
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: name
+                            label: name
+                            schema:
+                              type: string
+                              default: "daily-backup"
+                              required: true
+                          - variable: schedule
+                            label: schedule
+                            schema:
+                              type: string
+                              required: true
+                              default: "0 0 0 * * *"
+                          - variable: backupOwnerReference
+                            label: backupOwnerReference
+                            schema:
+                              type: string
+                              required: true
+                              default: "self"
+                          - variable: immediate
+                            label: immediate
+                            schema:
+                              type: boolean
+                              default: false
+                          - variable: suspend
+                            label: suspend
+                            schema:
+                              type: boolean
+                              default: false
+              - variable: manualBackups
+                label: manualBackups
+                schema:
+                  type: list
+                  default: []
+                  items:
+                    - variable: backup
+                      label: Backup
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: name
+                            label: name
+                            schema:
+                              type: string
+                              default: ""
+                              required: true
