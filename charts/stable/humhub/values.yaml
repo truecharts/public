@@ -1,0 +1,123 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/mriedmann/humhub-allinone
+  tag: 1.13.2@sha256:8f6af145327e5abd0d4855680146f564ad0c425819a7c2e60c26cbbc1c39ae44
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 80
+        port: 8080
+
+humhub:
+  debug: true
+  proto: http
+  host: localhost:8080
+  admin:
+    login: admin
+    password: test
+    email: humhub@example.com
+
+  mailer:
+    sys_address: noreply@example.com
+    sys_name: HumHub
+    type: smtp
+    hostname: mailer
+    port: 1025
+    user: ""
+    password: ""
+    encrypt: ""
+    allow_self_sign_certs: false
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            HUMHUB_DB_USER: "{{ .Values.mariadb.mariadbUsername }}"
+            HUMHUB_DB_PASSWORD:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: mariadb-password
+            HUMHUB_DB_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: plainhost
+            HUMHUB_DB_NAME: "{{ .Values.mariadb.mariadbDatabase }}"
+            # Cache Config
+            HUMHUB_CACHE_EXPIRE_TIME: 3600
+            # do not expose
+            HUMHUB_CACHE_CLASS: yii\redis\Cache
+            HUMHUB_QUEUE_CLASS: humhub\modules\queue\driver\Redis
+            HUMHUB_REDIS_HOSTNAME:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: plainhost
+            HUMHUB_REDIS_PORT: 6379
+            HUMHUB_REDIS_PASSWORD:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: redis-password
+            HUMHUB_AUTO_INSTALL: 1
+            # 0 | 1
+            HUMHUB_DEBUG: "{{ .Values.humhub.debug }}"
+            # http | https
+            HUMHUB_PROTO: "{{ .Values.humhub.proto }}"
+            HUMHUB_HOST: "{{ .Values.humhub.host }}"
+            HUMHUB_ADMIN_LOGIN: "{{ .Values.humhub.admin.login }}"
+            HUMHUB_ADMIN_EMAIL: "{{ .Values.humhub.admin.email }}"
+            HUMHUB_ADMIN_PASSWORD: "{{ .Values.humhub.admin.password }}"
+            # Mailer install setup
+            HUMHUB_MAILER_SYSTEM_EMAIL_ADDRESS: "{{ .Values.humhub.mailer.sys_address }}"
+            HUMHUB_MAILER_SYSTEM_EMAIL_NAME: "{{ .Values.humhub.mailer.sys_name }}"
+            # php | smtp
+            HUMHUB_MAILER_TRANSPORT_TYPE: "{{ .Values.humhub.mailer.type }}"
+            HUMHUB_MAILER_HOSTNAME: "{{ .Values.humhub.mailer.hostname }}"
+            HUMHUB_MAILER_PORT: "{{ .Values.humhub.mailer.port }}"
+            HUMHUB_MAILER_USERNAME: "{{ .Values.humhub.mailer.user }}"
+            HUMHUB_MAILER_PASSWORD: "{{ .Values.humhub.mailer.password }}"
+            HUMHUB_MAILER_ENCRYPTION: "{{ .Values.humhub.mailer.encrypt }}"
+            HUMHUB_MAILER_ALLOW_SELF_SIGNED_CERTS: "{{ .Values.humhub.mailer.allow_self_sign_certs }}"
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /var/www/localhost/htdocs/protected/config
+  assets:
+    enabled: true
+    mountPath: /var/www/localhost/htdocs/assets
+  themes:
+    enabled: true
+    mountPath: /var/www/localhost/htdocs/themes
+  modules:
+    enabled: true
+    mountPath: /var/www/localhost/htdocs/protected/modules
+  uploads:
+    enabled: true
+    mountPath: /var/www/localhost/htdocs/uploads
+
+mariadb:
+  enabled: true
+  mariadbUsername: humhub
+  mariadbDatabase: humhub
+
+redis:
+  enabled: true
+
+portal:
+  open:
+    enabled: true

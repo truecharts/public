@@ -1,0 +1,38 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: songkong
+version: 3.0.6
+appVersion: latest
+description:
+  Official SongKong Chart repository, Identify your songs and add metadata
+  and artwork automatically
+home: https://truecharts.org/charts/incubator/songkong
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/songkong.png
+deprecated: false
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/songkong
+  - https://hub.docker.com/r/songkong/songkong
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - songkong
+  - MediaApp-Music
+dependencies:
+  - name: common
+    version: 16.2.7
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: MediaApp-Music
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: mongo-express
-version: 2.0.10
+version: 2.0.12
 appVersion: latest
 description:
   mongo-express is a web-based MongoDB admin interface written in Node.js,
@@ -23,7 +23,7 @@ keywords:
   - database
 dependencies:
   - name: common
-    version: 14.3.5
+    version: 14.5.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -44,3 +44,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

@@ -7,19 +7,19 @@ persistence:
     enabled: true
     mountPath: /config
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsGroup: 0
-    runAsNonRoot: false
     runAsUser: 0
 service:
   main:
     ports:
       main:
         port: 5666
-        protocol: HTTP
+        protocol: http
         targetPort: 80
   tcpport1:
     enabled: true
@@ -27,7 +27,7 @@ service:
       tcpport1:
         enabled: true
         port: 5667
-        protocol: TCP
+        protocol: tcp
         targetPort: 443
 workload:
   main:

@@ -58,6 +58,10 @@ j8j9Image:
   repository: itzg/minecraft-server
   tag: 2023.11.1-java8-openj9@sha256:076c6a872b241df47580064171e67ff6d9b1826134169fe4201c5cedd3456f58
   pullPolicy: Always
+mcBackupImage:
+  repository: itzg/mc-backup
+  tag: latest@sha256:13d66ffdc2d120308b55a4a10a992fe75bbb6295f6fd88bd53658c02423e4e80
+  pullPolicy: Always
 
 service:
   main:
@@ -77,6 +81,27 @@ service:
       rcon:
         enabled: true
         port: 25575
+
+mcbackup:
+  enabled: true
+  initial_delay: 2m
+  backup_interval: 24hr
+  player_online_check_interval: 5m
+  prune_backups_days: 7
+  pause_if_no_players: false
+  link_latest: false
+  # values gzip,bzip2,zstd
+  tar_compress_method: gzip
+  # White spaced separated list
+  zstd_params:
+    - --long=25
+    - --single-thread
+  # comma separated list
+  excludes:
+    - "*.jar"
+    - "cache"
+    - "logs"
+    - "*.tmp"
 
 workload:
   main:
@@ -187,10 +212,55 @@ workload:
             # CF_OVERRIDES_SKIP_EXISTING
             # CF_PARALLEL_DOWNLOADS
             # CF_SET_LEVEL_FROM
+  mcbackup:
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
+        mcbackup:
+          primary: true
+          enabled: true
+          imageSelector: mcBackupImage
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            BACKUP_METHOD: "tar"
+            DEST_DIR: "{{.Values.persistence.backups.mountPath }}"
+            SRC_DIR: "{{.Values.persistence.data.mountPath }}"
+            SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
+            RCON_HOST: '{{ include "tc.v1.common.lib.chart.names.fullname" $ }}'
+            RCON_PORT: "{{ .Values.service.rcon.ports.rcon.port }}"
+            RCON_PASSWORD: "{{ .Values.workload.main.podSpec.containers.main.env.RCON_PASSWORD }}"
+            INITIAL_DELAY: "{{ .Values.mcbackup.initial_delay }}"
+            BACKUP_INTERVAL: "{{ .Values.mcbackup.backup_interval }}"
+            PRUNE_BACKUPS_DAYS: "{{ .Values.mcbackup.prune_backups_days }}"
+            PAUSE_IF_NO_PLAYERS: "{{ .Values.mcbackup.pause_if_no_players }}"
+            PLAYERS_ONLINE_CHECK_INTERVAL: "{{ .Values.mcbackup.player_online_check_interval }}"
+            LINK_LATEST: "{{ .Values.mcbackup.link_latest }}"
+            TAR_COMPRESS_METHOD: "{{ .Values.mcbackup.tar_compress_method }}"
+            ZSTD_PARAMETERS: '{{ join " " .Values.mcbackup.zstd_params }}'
+            EXCLUDES: '{{ join "," .Values.mcbackup.excludes }}'
+
 persistence:
   data:
     enabled: true
-    mountPath: "/data"
+    targetSelector:
+      main:
+        main:
+          mountPath: /data
+      mcbackup:
+        mcbackup:
+          mountPath: /data
+          readOnly: true
+  backups:
+    enabled: true
+    mountPath: /backups
+
 portal:
   open:
     enabled: false

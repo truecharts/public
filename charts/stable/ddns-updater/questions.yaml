@@ -22,6 +22,7 @@ questions:
                                         description: "One line JSON object containing the entire config."
                                         schema:
                                           type: string
+                                          max_length: 2048
                                           default: ""
                                       - variable: PERIOD
                                         label: "PERIOD"

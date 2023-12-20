@@ -1,8 +1,8 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: shlink
-version: 9.1.1
-appVersion: 3.7.0
+version: 9.1.4
+appVersion: 3.7.1
 description:
   A PHP-based self-hosted URL shortener that can be used to serve shortened
   URLs under your own custom domain.
@@ -22,7 +22,7 @@ keywords:
   - shortener
 dependencies:
   - name: common
-    version: 14.3.5
+    version: 14.5.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -43,3 +43,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

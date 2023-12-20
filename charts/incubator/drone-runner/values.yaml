@@ -3,7 +3,8 @@ image:
   repository: drone/drone-runner-kube
   tag: 1.0.0-rc.3@sha256:14e319fb1c5833992409bc0ced86171c44d8c76b2aa1f8ff1dd2d395c2061d88
 portal:
-  enabled: true
+  open:
+    enabled: true
 rbac:
   main:
     enabled: true
@@ -32,7 +33,7 @@ service:
     ports:
       main:
         port: 3000
-        protocol: HTTP
+        protocol: http
         targetPort: 3000
 serviceAccount:
   main:

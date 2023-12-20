@@ -1,0 +1,31 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: khlieng/dispatch
+  tag: latest@sha256:ce0742333e09ff22a4377f741621274010010138e2a33dfb535fe0be2304495d
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  https:
+    enabled: true
+    ports:
+      https:
+        enabled: true
+        port: 4596
+        protocol: tcp
+        targetPort: 443
+  main:
+    ports:
+      main:
+        port: 8000
+        protocol: http
+        targetPort: 80

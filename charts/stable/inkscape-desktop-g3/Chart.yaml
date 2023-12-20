@@ -1,0 +1,41 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: inkscape-desktop-g3
+version: 3.0.6
+appVersion: latest
+description:
+  Headless Ubuntu/Xfce Charts with VNC/noVNC for diagramming, image editing
+  and 2D/3D drawing
+home: https://truecharts.org/charts/incubator/inkscape-desktop-g3
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/inkscape-desktop-g3.png
+deprecated: false
+sources:
+  - https://github.com/accetto/headless-drawing-g3/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/inkscape-desktop-g3
+  - https://hub.docker.com/r/accetto/ubuntu-vnc-xfce-inkscape-g3
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - inkscape-desktop-g3
+  - Productivity
+  - Tools-Utilities
+  - MediaApp-Photos
+dependencies:
+  - name: common
+    version: 16.2.7
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Productivity
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

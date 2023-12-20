@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: tasmocompiler
-version: 3.0.7
+version: 3.0.8
 appVersion: latest
 description:
   TasmoCompiler is a simple web GUI which allows you to compile fantastic
@@ -37,3 +37,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

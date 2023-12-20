@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: multi-scrobbler
-version: 3.0.2
+version: 3.0.4
 appVersion: 0.6.1
 description:
   Track your music listening history from many sources and record to many
@@ -22,7 +22,7 @@ keywords:
   - MediaServer-Music
 dependencies:
   - name: common
-    version: 14.3.5
+    version: 14.5.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -36,3 +36,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

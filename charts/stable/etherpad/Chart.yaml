@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: etherpad
-version: 13.0.10
+version: 13.0.12
 appVersion: 1.8.14
 description:
   A real-time collaborative editor scalable to thousands of simultaneous
@@ -10,10 +10,10 @@ home: https://truecharts.org/charts/stable/etherpad
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/etherpad.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/etherpad
-  - https://ghcr.io/nicholaswilde/etherpad
   - https://etherpad.org/
   - https://github.com/ether/etherpad-lite
+  - https://github.com/truecharts/charts/tree/master/charts/stable/etherpad
+  - https://ghcr.io/nicholaswilde/etherpad
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -25,7 +25,7 @@ keywords:
   - pad
 dependencies:
   - name: common
-    version: 14.3.5
+    version: 14.5.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -39,3 +39,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

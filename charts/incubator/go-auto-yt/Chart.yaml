@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: go-auto-yt
-version: 3.0.0
+version: 3.0.4
 appVersion: stable
 description:
   GoAutoYT makes it easy for you to automatically download videos from
@@ -10,9 +10,9 @@ home: https://truecharts.org/charts/incubator/go-auto-yt
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/go-auto-yt.png
 deprecated: false
 sources:
+  - https://github.com/XiovV/go-auto-yt
   - https://github.com/truecharts/charts/tree/master/charts/incubator/go-auto-yt
   - https://hub.docker.com/r/xiovv/go-auto-yt
-  - https://github.com/XiovV/go-auto-yt
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -23,7 +23,7 @@ keywords:
   - Tools-Utilities
 dependencies:
   - name: common
-    version: 16.0.0
+    version: 16.2.7
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -37,3 +37,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

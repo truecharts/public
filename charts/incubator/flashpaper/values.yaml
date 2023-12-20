@@ -7,19 +7,19 @@ persistence:
     enabled: true
     mountPath: /var/www/html/data
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsGroup: 0
-    runAsNonRoot: false
     runAsUser: 0
 service:
   main:
     ports:
       main:
         port: 8544
-        protocol: TCP
+        protocol: tcp
         targetPort: 80
 workload:
   main:
