@@ -1,0 +1,29 @@
+apiVersion: v2
+appVersion: "0.10.1"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 16.2.7
+deprecated: false
+description: Send push notifications via a simple web API, and delivers them to your users.
+home: https://truecharts.org/charts/incubator/pushbits-server
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/pushbits-server.png
+keywords:
+  - pushbits-server
+  - notifications
+  - matrix
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: pushbits-server
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/pushbits-server
+  - https://github.com/pushbits/server
+type: application
+version: 0.0.1
+annotations:
+  truecharts.org/catagories: |
+    - notifications
+  truecharts.org/SCALE-support: "true"
