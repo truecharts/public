@@ -6,6 +6,9 @@ persistence:
   data:
     enabled: true
     mountPath: /var/ts3server
+  config:
+    enabled: true
+    mountPath: /var/run/ts3server
 portal:
   open:
     enabled: false
