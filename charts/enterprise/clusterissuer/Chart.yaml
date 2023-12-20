@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: clusterissuer
-version: 4.2.14
+version: 5.0.0
 appVersion: latest
 description: Certificate management for Kubernetes
 home: https://truecharts.org/charts/enterprise/clusterissuer
@@ -19,13 +19,13 @@ keywords:
     - cert-manager
     - certificates
 dependencies:
-    - name: common
-      version: 14.5.0
-      repository: https://library-charts.truecharts.org
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 16.2.4
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
     max_scale_version: 23.10.2
     min_scale_version: 23.10.0
