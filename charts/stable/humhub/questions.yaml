@@ -10,19 +10,120 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
 # Include{containerBasic}
 # Include{containerAdvanced}
 
-# Include{containerConfig}
-# Include{podOptions}
-# Include{serviceRoot}
-        - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+  - variable: humhub
+    group: App Configuration
+    label: HumHub
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: debug
+          label: Debug
+          description: Enable/Disable Debug
+          schema:
+            type: boolean
+            default: true
+        - variable: proto
+          label: Protocol
+          schema:
+            type: string
+            required: true
+            default: http
+            enum:
+              - value: http
+                description: HTTP
+              - value: https
+                description: HTTPS
+        - variable: host
+          label: Host
+          description: Enable/Disable Debug
+          schema:
+            type: string
+            default: "localhost:8080"
+        - variable: admin
+          label: Admin Credentials
           schema:
             additional_attrs: true
             type: dict
             attrs:
+              - variable: login
+                label: Login UserName
+                schema:
+                  type: string
+                  default: ""
+              - variable: password
+                label: Login Password
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+              - variable: email
+                label: Login Email
+                schema:
+                  type: string
+                  default: ""
+        - variable: mailer
+          label: Mailer Credentials
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: sys_address
+                label: System Address
+                schema:
+                  type: string
+                  default: ""
+              - variable: sys_name
+                label: System Name
+                schema:
+                  type: string
+                  default: ""
+              - variable: type
+                label: Type
+                schema:
+                  type: string
+                  default: "smtp"
+                  enum:
+                    - value: smtp
+                      description: SMTP
+                    - value: php
+                      description: PHP
+              - variable: hostname
+                label: Hostname
+                schema:
+                  type: string
+                  default: ""
+              - variable: port
+                label: Port
+                schema:
+                  type: int
+                  default: 1025
+              - variable: user
+                label: User
+                schema:
+                  type: string
+                  default: ""
+              - variable: password
+                label: Password
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+              - variable: allow_self_sign_certs
+                label: Allow Self Sign Certs
+                description: Enable/Disable self sign certs
+                schema:
+                  type: boolean
+                  default: false
+
+# Include{containerConfig}
+# Include{podOptions}
+# Include{serviceRoot}
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
@@ -36,15 +137,47 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 85
+                              default: 8080
                               required: true
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: config
-          label: "config Storage"
-          description: "Container Path config"
+          label: "App Config Storage"
+          description: "Stores the Application Configuration."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: assets
+          label: "App Assets Storage"
+          description: "Stores the Application Assets."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: themes
+          label: "App Themes Storage"
+          description: "Stores the Application Themes."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: modules
+          label: "App Modules Storage"
+          description: "Stores the Application Modules."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: uploads
+          label: "App Uploads Storage"
+          description: "Stores the Application Uploads."
           schema:
             additional_attrs: true
             type: dict
@@ -73,7 +206,7 @@ questions:
                   default: 0
               - variable: runAsGroup
                 label: "runAsGroup"
-                description: "The groupID of the user running the application"
+                description: "The groupID this App of the user running the application"
                 schema:
                   type: int
                   default: 0

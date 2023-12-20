@@ -59,6 +59,12 @@ questions:
                                         schema:
                                           type: boolean
                                           default: false
+                                      - variable: QBT_TAG_TRACKER_ERROR
+                                        label: QBT_TAG_TRACKER_ERROR
+                                        description: Use this to tag any torrents with tracker errors, such as unregistered torrents or unreachable trackers.
+                                        schema:
+                                          type: boolean
+                                          default: false
                                       - variable: QBT_REM_ORPHANED
                                         label: QBT_REM_ORPHANED
                                         description: Use this if you would like to remove orphaned files from your root_dir directory that are not referenced by any torrents. It will scan your root_dir directory and compare it with what is in qBittorrent. Any data not referenced in qBittorrent will be moved into /data/torrents/orphaned_data folder for you to review/delete.
@@ -71,9 +77,21 @@ questions:
                                         schema:
                                           type: boolean
                                           default: false
-                                      - variable: QBT_SKIP_RECYCLE
-                                        label: QBT_SKIP_RECYCLE
-                                        description: Use this to skip emptying the Recycle Bin folder (/root_dir/.RecycleBin).
+                                      - variable: QBT_SHARE_LIMITS
+                                        label: QBT_SHARE_LIMITS
+                                        description: Control how torrent share limits are set depending on the priority of your grouping. This can apply a max ratio, seed time limits to your torrents or limit your torrent upload speed as well. Each torrent will be matched with the share limit group with the highest priority that meets the group filter criteria. Each torrent can only be matched with one share limit group.
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: QBT_SKIP_CLEANUP
+                                        label: QBT_SKIP_CLEANUP
+                                        description: Use this to skip emptying the Recycle Bin folder (/root_dir/.RecycleBin) and Orphaned directory. (/root_dir/orphaned_data)
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: QBT_SKIP_QB_VERSION_CHECK
+                                        label: QBT_SKIP_QB_VERSION_CHECK
+                                        description: Use this to bypass qBittorrent/libtorrent version compatibility check. You run the risk of undesirable behavior and will receive no support.
                                         schema:
                                           type: boolean
                                           default: false

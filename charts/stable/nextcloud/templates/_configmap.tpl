@@ -319,7 +319,7 @@ nginx-config:
           # Pagespeed is not supported by Nextcloud, so if your server is built
           # with the `ngx_pagespeed` module, uncomment this line to disable it.
           #pagespeed off;
-          
+
           include mime.types;
           types {
               text/javascript js mjs;
