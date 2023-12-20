@@ -3,6 +3,7 @@
 This tutorial explains installing the https://github.com/mrliptontea/PurpleMine2 theme for the Redmine app installed from the TrueCharts catalog. 
 
 ## Setup configuration
+
 Default configuration with PVC storage
 
 Add additional app storage as PVC with Mount path `/usr/src/redmine/public/themes`
