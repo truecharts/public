@@ -7,12 +7,12 @@ persistence:
     enabled: true
     mountPath: /fluttercoin
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsGroup: 0
-    runAsNonRoot: false
     runAsUser: 0
 service:
   jsonremoteport:
@@ -21,13 +21,13 @@ service:
       jsonremoteport:
         enabled: true
         port: 7474
-        protocol: TCP
+        protocol: tcp
         targetPort: 7474
   main:
     ports:
       main:
         port: 8080
-        protocol: HTTP
+        protocol: http
         targetPort: 8080
   peertopeerconn:
     enabled: true
@@ -35,7 +35,7 @@ service:
       peertopeerconn:
         enabled: true
         port: 7408
-        protocol: TCP
+        protocol: tcp
         targetPort: 7408
 workload:
   main:

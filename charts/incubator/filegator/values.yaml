@@ -14,19 +14,19 @@ persistence:
     mountPath: /var/www/localhost/filegator/configuration.php
     readOnly: true
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsGroup: 0
-    runAsNonRoot: false
     runAsUser: 0
 service:
   main:
     ports:
       main:
         port: 8048
-        protocol: HTTP
+        protocol: http
         targetPort: 80
   webuihttps:
     enabled: true
@@ -34,5 +34,5 @@ service:
       webuihttps:
         enabled: true
         port: 8049
-        protocol: TCP
+        protocol: tcp
         targetPort: 443

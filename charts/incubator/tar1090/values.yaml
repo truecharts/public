@@ -1,22 +1,22 @@
 image:
   pullPolicy: IfNotPresent
   repository: mikenye/tar1090
-  tag: latest@sha256:3051d7efe6152d7103ff7dd785772e9b67b6eb115000e6c07fc7fca87875919f
+  tag: latest@sha256:6f6bf27de3cbac92c77f5ecb83744d49181386df19932a97a747d025a9801dd1
 persistence: {}
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsGroup: 0
-    runAsNonRoot: false
     runAsUser: 0
 service:
   main:
     ports:
       main:
         port: 8078
-        protocol: TCP
+        protocol: tcp
         targetPort: 80
 workload:
   main:

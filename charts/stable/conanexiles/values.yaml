@@ -1,0 +1,61 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ich777/steamcmd
+  tag: conanexiles@sha256:cc3d3e16d67244c6e7d239fbdcf8b3bc974db62d9d1809b57c6320bbb953d414
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  gameport1:
+    enabled: true
+    ports:
+      gameport1:
+        enabled: true
+        port: 7778
+        protocol: udp
+        targetPort: 7778
+  main:
+    ports:
+      main:
+        port: 7777
+        protocol: udp
+        targetPort: 7777
+  steamport:
+    enabled: true
+    ports:
+      steamport:
+        enabled: true
+        port: 27015
+        protocol: udp
+        targetPort: 27015
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GAME_ID: "443030"
+            GAME_PARAMS: ""
+            PASSWRD: ""
+            USERNAME: ""
+            VALIDATE: "false"
+            WS_CONTENT: ""
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

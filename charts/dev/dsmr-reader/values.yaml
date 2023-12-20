@@ -1,0 +1,46 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: xirixiz/dsmr-reader-docker
+  tag: latest-2021.09.02-amd64@sha256:4858edb1ae63a20639a0ef9c51c7b2cf599686db5c582ead7b37b2a288122935
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+portal:
+  open:
+    enabled: true
+cnpg:
+  main:
+    enabled: true
+    database: dsmr-reader
+    user: dsmr-reader
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10009
+        targetPort: 80
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DJANGO_DATABASE_ENGINE: django.db.backends.postgresql
+            DJANGO_DATABASE_HOST:
+              secretKeyRef:
+                key: plainhost
+                name: dbcreds
+            DJANGO_DATABASE_NAME: "{{ .Values.cnpg.main.database }}"
+            DJANGO_DATABASE_PASSWORD:
+              secretKeyRef:
+                key: postgresql-password
+                name: dbcreds
+            DJANGO_DATABASE_PORT: "5432"
+            DJANGO_DATABASE_USER: "{{ .Values.cnpg.main.user }}"
+            DJANGO_TIME_ZONE: "{{ .Values.TZ }}"

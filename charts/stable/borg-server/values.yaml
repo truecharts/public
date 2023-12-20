@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/anotherstranger/borg-server
   pullPolicy: IfNotPresent
-  tag: 2.1.3@sha256:b1490b21ead3566d7dcf569922ef56e23312791717209886ecacc511d015bee3
+  tag: 2.2.1@sha256:cb6d58432d3fe16f0f889c9459f706935dc71da741e3d41c6dc8dc8c919e6202
 
 securityContext:
   container:
@@ -25,6 +25,11 @@ workload:
           env:
             BORG_UID: "{{ .Values.securityContext.container.PUID }}"
             BORG_GID: "{{ .Values.securityContext.pod.fsGroup }}"
+          securityContext:
+            capabilities:
+              add:
+                - SYS_CHROOT
+                - KILL
 
 persistence:
   borg:

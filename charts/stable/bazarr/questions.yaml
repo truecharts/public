@@ -82,6 +82,15 @@ questions:
                   default: 568
 
 # Include{resources}
+# Include{metrics}
+                    - variable: apiKey
+                      label: "Bazarr API key"
+                      description: "Can be found in the Bazarr settings"
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+# Include{prometheusRule}
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}

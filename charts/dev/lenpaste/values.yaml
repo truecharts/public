@@ -1,0 +1,41 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: git.lcomrade.su/root/lenpaste
+  tag: 1.1.1@sha256:4ff3aaf27d6c21a157b2220f778fb91efc66e7b3222a9f7de88ad5a2e426704f
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+portal:
+  open:
+    enabled: true
+cnpg:
+  main:
+    enabled: true
+    database: lenpaste
+    user: lenpaste
+service:
+  main:
+    ports:
+      main:
+        port: 10326
+        protocol: http
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            LENPASTE_ADDRESS: :{{ .Values.service.main.ports.main.port }}
+            LENPASTE_ADMIN_MAIL: admin@example.com
+            LENPASTE_ADMIN_NAME: admin
+            LENPASTE_BODY_MAX_LENGTH: 10000
+            LENPASTE_DB_CLEANUP_PERIOD: 3h
+            LENPASTE_DB_DRIVER: postgres
+            LENPASTE_DB_SOURCE:
+              secretKeyRef:
+                key: urlnossl
+                name: dbcreds
+            LENPASTE_MAX_PASTE_LIFETIME: unlimited
+            LENPASTE_ROBOTS_DISALLOW: true
+            LENPASTE_TITLE_MAX_LENGTH: 100
