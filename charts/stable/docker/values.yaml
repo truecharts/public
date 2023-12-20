@@ -1,0 +1,56 @@
+image:
+  repository: docker
+  pullPolicy: IfNotPresent
+  tag: 24.0.7-dind@sha256:1b9844d846ce3a6a6af7013e999a373112c3c0450aca49e155ae444526a2c45e
+hostNetwork: true
+securityContext:
+  container:
+    privileged: true
+    readOnlyRootFilesystem: false
+    allowPrivilegeEscalation: true
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+    fsGroup: 0
+service:
+  main:
+    enabled: true
+    type: ClusterIP
+    ports:
+      main:
+        port: 2376
+        type: https
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              initialDelaySeconds: 30
+              type: tcp
+            readiness:
+              initialDelaySeconds: 30
+              type: tcp
+            startup:
+              initialDelaySeconds: 30
+              type: tcp
+          env:
+            DOCKER_TLS_CERTDIR: /certs
+    type: StatefulSet
+    replicas: 1
+    strategy: RollingUpdate
+persistence:
+  docker-certs-ca:
+    enabled: true
+    mountPath: /config
+volumeClaimTemplates:
+  docker-certs-client:
+    enabled: true
+    mountPath: /certs/client
+  docker:
+    enabled: true
+    mountPath: /var/lib/docker
+portal:
+  open:
+    enabled: false

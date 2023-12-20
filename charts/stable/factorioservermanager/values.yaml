@@ -1,0 +1,37 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ofsm/ofsm
+  tag: latest@sha256:2b031bc1ec51e437a90b24266ce87f82362b4d16670e3804688610b4ac03b608
+persistence:
+  config:
+    enabled: true
+    mountPath: /opt/factorio/config
+  fsmmods:
+    enabled: true
+    mountPath: /opt/factorio/mods
+  fsmsaves:
+    enabled: true
+    mountPath: /opt/factorio/saves
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  factorioport:
+    enabled: true
+    ports:
+      factorioport:
+        enabled: true
+        port: 34197
+        protocol: udp
+        targetPort: 34197
+  main:
+    ports:
+      main:
+        port: 8888
+        protocol: http
+        targetPort: 80

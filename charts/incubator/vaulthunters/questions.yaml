@@ -10,35 +10,31 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: EULA
-          label: "EULA"
-          description: "By typing TRUE you are indicating your agreement to the EULA of Mojang. Read it at httpsaccount.mojang.comdocumentsminecrafteula before accepting it."
-          schema:
-            type: string
-            default: "false"
-        - variable: OPS
-          label: "OPS"
-          description: "Comma separated list of players to have op capability"
-          schema:
-            type: string
-            default: ""
-        - variable: JVM_OPTS
-          label: "JVM_OPTS"
-          description: "JAVA Options"
-          schema:
-            type: string
-            default: "-Xms6144m -Xmx8192m"
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: EULA
+                                        label: "EULA"
+                                        description: "By typing TRUE you are indicating your agreement to the EULA of Mojang. Read it at httpsaccount.mojang.comdocumentsminecrafteula before accepting it."
+                                        schema:
+                                          type: string
+                                          default: "false"
+                                      - variable: OPS
+                                        label: "OPS"
+                                        description: "Comma separated list of players to have op capability"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: JVM_OPTS
+                                        label: "JVM_OPTS"
+                                        description: "JAVA Options"
+                                        schema:
+                                          type: string
+                                          default: "-Xms6144m -Xmx8192m"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

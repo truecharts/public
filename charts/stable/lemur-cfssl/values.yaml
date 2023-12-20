@@ -1,0 +1,37 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: halianelf/lemur
+  tag: latest@sha256:b0e801e2419c4e85efeaf469579db6e6ca88703f9295e61f3d68ac50fd4c9ff2
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  data:
+    enabled: true
+    mountPath: /data
+portal:
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

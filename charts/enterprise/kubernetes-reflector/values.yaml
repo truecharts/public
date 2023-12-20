@@ -49,7 +49,7 @@ workload:
             readOnlyRootFilesystem: true
             runAsNonRoot: true
           env:
-            ES_Serilog__MinimumLevel__Default: '{{ .Values.kubernetesReflector.logLevel }}'
+            ES_Serilog__MinimumLevel__Default: "{{ .Values.kubernetesReflector.logLevel }}"
             ES_Reflector__Watcher__Timeout: ""
             ES_Reflector__Kubernetes__SkipTlsVerify: "false"
           probes:

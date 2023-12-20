@@ -1,0 +1,44 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: kannix/monero-full-node
+  tag: latest@sha256:24071a723ae6a748ddbe892dfb8f6029f51aec381b760284ea71ccc16030a18e
+persistence:
+  blockchainstorage:
+    enabled: true
+    mountPath: /home/monero/.bitmonero
+  containerdir1:
+    enabled: true
+    mountPath: /usr/local
+  containerdir2:
+    enabled: true
+    mountPath: /src
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 18080
+        protocol: tcp
+        targetPort: 18080
+  port2:
+    enabled: true
+    ports:
+      port2:
+        enabled: true
+        port: 18081
+        protocol: tcp
+        targetPort: 18081
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            name: monerod

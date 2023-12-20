@@ -1,11 +1,11 @@
 image:
   repository: tombursch/kitchenowl-web
   pullPolicy: IfNotPresent
-  tag: latest@sha256:2a553da484913c21218907c93adf05bba8cd73a746311c88a5a604e3128f6048
+  tag: latest@sha256:2ff6187bfb71e6cb41c5dbaed7ed7872bb271548fe1f8344d6e68fe00ec2c6a7
 backendImage:
   repository: tombursch/kitchenowl
   pullPolicy: IfNotPresent
-  tag: latest@sha256:3a1a74b6de2323e7306f19330e29cc91c2968c3d51eabf1ed464064173ae9df8
+  tag: latest@sha256:cd959a575e8949cdb97f735685669d35100d0001ef1699f4992d20ac9aad50f1
 service:
   main:
     enabled: true

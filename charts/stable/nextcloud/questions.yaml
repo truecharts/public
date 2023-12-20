@@ -287,7 +287,7 @@ questions:
                                   description: TXT
                                 - value: XBitmap
                                   description: XBitmap
-        - variable: Logging
+        - variable: logging
           label: Logging Configuration
           schema:
             additional_attrs: true
@@ -296,19 +296,19 @@ questions:
               - variable: log_level
                 label: Log Level
                 schema:
-                  type: string
+                  type: int
                   required: true
-                  default: "2"
+                  default: 2
                   enum:
-                    - value: "0"
+                    - value: 0
                       description: Debug
-                    - value: "1"
+                    - value: 1
                       description: Info
-                    - value: "2"
+                    - value: 2
                       description: Warning
-                    - value: "3"
+                    - value: 3
                       description: Error
-                    - value: "4"
+                    - value: 4
                       description: Fatal
               - variable: log_date_format
                 label: Log Date Format
@@ -456,11 +456,28 @@ questions:
                   show_subquestions_if: true
                   subquestions:
                     - variable: url
-                      label: URL
+                      label: Public URL
+                      description: |
+                        The public FQDN and port of the OnlyOffice Document Server
                       schema:
                         type: string
                         required: true
                         default: ""
+                    - variable: internal_url
+                      label: Internal URL
+                      description: |
+                        The internal FQDN and port of the OnlyOffice Document Server
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: verify_ssl
+                      label: Verify SSL (Advanced)
+                      description: |
+                        Verify SSL when connecting to OnlyOffice Document Server
+                      schema:
+                        type: boolean
+                        default: true
                     - variable: jwt
                       label: JWT
                       schema:

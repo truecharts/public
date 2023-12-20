@@ -1,0 +1,39 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: accetto/ubuntu-vnc-xfce-freecad-g3
+  tag: latest@sha256:9006332e5e751290814b4afd846423d052c2e46d495a9ecaba2453e5e3c4b7f0
+persistence:
+  internalshare:
+    enabled: true
+    mountPath: /UNRAID_SHARE
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 6901
+        protocol: http
+        targetPort: 6901
+  webuivnc:
+    enabled: true
+    ports:
+      webuivnc:
+        enabled: true
+        port: 5901
+        protocol: tcp
+        targetPort: 5901
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            VNC_PW: unraid
+            VNC_RESOLUTION: 1360x768

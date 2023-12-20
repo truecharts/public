@@ -21,7 +21,11 @@ questions:
       attrs:
         - variable: apikey
           label: Notifiarr All API Key
-          description: Notifiarr All Integrations API key from https://notifiarr.com
+          description: |
+            Notifiarr All Integrations API key from https://notifiarr.com</br>
+            NOTE: Use 'admin' as username and your API key as the password</br>
+            for your first-time login credentials.</br>
+            After login you must change your password from the UI.
           schema:
             type: string
             default: ""
@@ -37,26 +41,6 @@ questions:
               - variable: upstreamEntry
                 label: Upstream
                 description: Upstream IP or CIDR
-                schema:
-                  type: string
-                  default: ""
-                  required: true
-        - variable: credentials
-          label: Web UI Credentials
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-              - variable: username
-                label: Web UI Username
-                description: Default username is admin. Change it here.
-                schema:
-                  type: string
-                  default: ""
-                  required: true
-              - variable: password
-                label: Web UI Password
-                description: Set a first time login password (minimum 9 characters) & change the password from the Web UI to encrypt it. If you don't set this you will need to check the logs on first start to find the generated password.
                 schema:
                   type: string
                   default: ""

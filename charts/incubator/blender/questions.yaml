@@ -10,35 +10,31 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: SUBFOLDER
-          label: "SUBFOLDER"
-          description: "Specify a subfolder to use with reverse proxies, IE `subfolder`"
-          schema:
-            type: string
-            default: ""
-        - variable: KEYBOARD
-          label: "KEYBOARD"
-          description: "See the keyboard layouts section for more information and options."
-          schema:
-            type: string
-            default: ""
-        - variable: UMASK
-          label: "UMASK"
-          description: "Container Variable UMASK"
-          schema:
-            type: string
-            default: ""
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: SUBFOLDER
+                                        label: "SUBFOLDER"
+                                        description: "Specify a subfolder to use with reverse proxies, IE `subfolder`"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: KEYBOARD
+                                        label: "KEYBOARD"
+                                        description: "See the keyboard layouts section for more information and options."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: UMASK
+                                        label: "UMASK"
+                                        description: "Container Variable UMASK"
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

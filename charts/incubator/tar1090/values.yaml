@@ -1,26 +1,30 @@
-env:
-  BEASTHOST: <BEASTHOST>
-  LAT: xx.xxxxx
-  LONG: xx.xxxxx
-  MLATHOST: <MLATHOST>
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/tar1090
-  tag: latest@sha256:03f3d70e72730ff1d902cdd55a887d3d047d639c39c4136a433ef4ecf41156a9
+  repository: mikenye/tar1090
+  tag: latest@sha256:6f6bf27de3cbac92c77f5ecb83744d49181386df19932a97a747d025a9801dd1
 persistence: {}
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  open:
+    enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     ports:
       main:
         port: 8078
-        protocol: TCP
+        protocol: tcp
         targetPort: 80
-
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            BEASTHOST: <BEASTHOST>
+            LAT: xx.xxxxx
+            LONG: xx.xxxxx
+            MLATHOST: <MLATHOST>

@@ -1,31 +1,42 @@
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
-appVersion: "1.0.18"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+name: medusa
+version: 7.0.32
+appVersion: 1.0.19
 description: An automatic Video Library Manager for TV Shows
 home: https://truecharts.org/charts/stable/medusa
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/medusa.png
-keywords:
-  - medusa
-  - video
-  - library
-  - manager
-  - tv
-  - shows
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: medusa
+deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/medusa
-  - https://github.com/linuxserver/docker-medusa
-  - https://pymedusa.com/
-type: application
-version: 7.0.25
+    - https://github.com/linuxserver/docker-medusa
+    - https://pymedusa.com/
+    - https://github.com/truecharts/charts/tree/master/charts/stable/medusa
+    - https://ghcr.io/linuxserver/medusa
+maintainers:
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
+keywords:
+    - medusa
+    - video
+    - library
+    - manager
+    - tv
+    - shows
+dependencies:
+    - name: common
+      version: 14.5.0
+      repository: https://library-charts.truecharts.org
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  truecharts.org/category: media
-  truecharts.org/SCALE-support: "true"
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
+type: application

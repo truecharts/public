@@ -1,29 +1,40 @@
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
-appVersion: "1.2.0-rcgi"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+name: remmina
+version: 7.0.17
+appVersion: 1.4.2
 description: A remote desktop client written in GTK
 home: https://truecharts.org/charts/stable/remmina
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/remmina.png
-keywords:
-  - remina
-  - remote
-  - desktop
-  - client
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: remmina
+deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/remmina
-  - https://github.com/linuxserver/docker-remmina
-  - https://remmina.org/
-type: application
-version: 7.0.9
+    - https://remmina.org/
+    - https://github.com/linuxserver/docker-remmina
+    - https://github.com/truecharts/charts/tree/master/charts/stable/remmina
+    - https://ghcr.io/linuxserver/remmina
+maintainers:
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
+keywords:
+    - remina
+    - remote
+    - desktop
+    - client
+dependencies:
+    - name: common
+      version: 14.5.0
+      repository: https://library-charts.truecharts.org
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  truecharts.org/category: media
-  truecharts.org/SCALE-support: "true"
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
+type: application

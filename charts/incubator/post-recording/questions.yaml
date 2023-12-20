@@ -8,59 +8,59 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: DELETE_TS
+                                        label: "DELETE_TS"
+                                        description: "Remove the original .ts recording file. 0 = Yes, 1 = No, 2 = Move to backup directory"
+                                        schema:
+                                          type: string
+                                          default: "1"
+                                      - variable: SUBTITLES
+                                        label: "SUBTITLES"
+                                        description: "Extract subtitles to .srt. 0= Yes, 1 = No"
+                                        schema:
+                                          type: string
+                                          default: "0"
+                                      - variable: CONVERSION_FORMAT
+                                        label: "CONVERSION_FORMAT"
+                                        description: "mkv or mp4"
+                                        schema:
+                                          type: string
+                                          default: "mkv"
+                                      - variable: SOURCE_EXT
+                                        label: "SOURCE_EXT"
+                                        description: "Source file extension, default .ts"
+                                        schema:
+                                          type: string
+                                          default: "ts"
+                                      - variable: POST_PROCESS
+                                        label: "POST_PROCESS"
+                                        description: "comchap or comcutdefault comchap"
+                                        schema:
+                                          type: string
+                                          default: "comchap"
+                                      - variable: NVIDIA_VISIBLE_DEVICES
+                                        label: "NVIDIA_VISIBLE_DEVICES"
+                                        description: "GPU UUID retrieved from Nvidia plugin settings"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: UMASK
+                                        label: "UMASK"
+                                        description: "Container Variable UMASK"
+                                        schema:
+                                          type: string
+                                          default: "000"
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: DELETE_TS
-          label: "DELETE_TS"
-          description: "Remove the original .ts recording file. 0 = Yes, 1 = No, 2 = Move to backup directory"
-          schema:
-            type: string
-            default: "1"
-        - variable: SUBTITLES
-          label: "SUBTITLES"
-          description: "Extract subtitles to .srt. 0= Yes, 1 = No"
-          schema:
-            type: string
-            default: "0"
-        - variable: CONVERSION_FORMAT
-          label: "CONVERSION_FORMAT"
-          description: "mkv or mp4"
-          schema:
-            type: string
-            default: "mkv"
-        - variable: SOURCE_EXT
-          label: "SOURCE_EXT"
-          description: "Source file extension, default .ts"
-          schema:
-            type: string
-            default: "ts"
-        - variable: POST_PROCESS
-          label: "POST_PROCESS"
-          description: "comchap or comcutdefault comchap"
-          schema:
-            type: string
-            default: "comchap"
-        - variable: NVIDIA_VISIBLE_DEVICES
-          label: "NVIDIA_VISIBLE_DEVICES"
-          description: "GPU UUID retrieved from Nvidia plugin settings"
-          schema:
-            type: string
-            default: ""
-        - variable: UMASK
-          label: "UMASK"
-          description: "Container Variable UMASK"
-          schema:
-            type: string
-            default: "000"
-# Include{serviceExpertRoot}
+# Include{containerConfig}
+# Include{podOptions}
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}

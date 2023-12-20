@@ -1,6 +1,6 @@
 {{- define "immich.microservices" -}}
 {{- $fname := (include "tc.v1.common.lib.chart.names.fullname" .) -}}
-{{- $serverUrl := printf "http://%v-server:%v/server-info/ping" $fname .Values.service.server.ports.server.port }}
+{{- $serverUrl := printf "http://%v:%v/api/server-info/ping" $fname .Values.service.main.ports.main.port }}
 enabled: true
 type: Deployment
 podSpec:
@@ -13,7 +13,10 @@ podSpec:
       enabled: true
       primary: true
       imageSelector: image
-      args: start-microservices.sh
+      command: /bin/sh
+      args:
+        - -c
+        - /usr/src/app/start-microservices.sh
       securityContext:
         capabilities:
           disableS6Caps: true
@@ -30,13 +33,13 @@ podSpec:
         readiness:
           enabled: true
           type: tcp
-          port: '{{ .Values.service.microservices.ports.microservices.port }}'
+          port: {{ .Values.service.microservices.ports.microservices.port }}
         liveness:
           enabled: true
           type: tcp
-          port: '{{ .Values.service.microservices.ports.microservices.port }}'
+          port: {{ .Values.service.microservices.ports.microservices.port }}
         startup:
           enabled: true
           type: tcp
-          port: '{{ .Values.service.microservices.ports.microservices.port }}'
+          port: {{ .Values.service.microservices.ports.microservices.port }}
 {{- end -}}
