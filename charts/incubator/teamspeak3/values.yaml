@@ -15,8 +15,6 @@ portal:
 securityContext:
   container:
     readOnlyRootFilesystem: false
-    runAsGroup: 568
-    runAsUser: 568
 service:
   files:
     enabled: true
