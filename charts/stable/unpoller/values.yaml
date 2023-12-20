@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/unifi-poller
+  repository: ghcr.io/unpoller/unpoller
   pullPolicy: IfNotPresent
-  tag: v2.9.2@sha256:d93243406f72d722c733745f4c9abb6dc9a1fb65ba8247b6aafb7eb26cf4f2cf
+  tag: v2.9.4@sha256:20c161781ac544a7548c8dd533f13498201746efdf0853d4625a1dbfd5652a19
 service:
   main:
     ports:
@@ -16,11 +16,9 @@ metrics:
         path: /metrics
     prometheusRule:
       enabled: false
-
 portal:
   open:
     enabled: false
-
 workload:
   main:
     podSpec:

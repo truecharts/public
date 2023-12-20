@@ -16,28 +16,30 @@ questions:
                                     default: image
                                     enum:
                                       - value: image
-                                        description: Java 17 HotSpot
-                                      - value: j20Image
-                                        description: Java 20 HotSpot
-                                      - value: j20AlpineImage
-                                        description: Java 20 Alpine
+                                        description: Java 17 Hotspot
+                                      - value: j21Image
+                                        description: Java 21 Hotspot
+                                      - value: j21graalvmImage
+                                        description: Java 21 Graalvm
+                                      - value: j21alpineImage
+                                        description: Java 21 Alpine
                                       - value: j17j9Image
                                         description: Java 17 OpenJ9
                                       - value: j17jdkImage
                                         description: Java 17 JDK
-                                      - value: j17gceImage
-                                        description: Java 17 GraalVM CE
+                                      - value: j17graalvmImage
+                                        description: Java 17 Graalvm
                                       - value: j17alpineImage
                                         description: Java 17 Alpine
                                       - value: j11jdkImage
                                         description: Java 11 JDK
                                       - value: j11Image
-                                        description: Java 11 HotSpot
+                                        description: Java 11 Hotspot
                                       - value: j11j9Image
                                         description: Java 11 OpenJ9
                                       - value: j8Image
                                         description: Java 8 HotSpot
-                                      - value: j8gceImage
+                                      - value: j8graalvmImage
                                         description: Java 8 GraalVM CE
                                       - value: j8jdkImage
                                         description: Java 8 JDK
@@ -51,7 +53,7 @@ questions:
                                     type: dict
                                     attrs:
                                       - variable: RCON_PASSWORD
-                                        label: RCON_PASSWORD
+                                        label: Rcon Password
                                         description: This will only have effect in the first installation or always if OVERRIDE_SERVER_PROPERTIES is enabled
                                         schema:
                                           type: string
@@ -87,6 +89,8 @@ questions:
                                               description: Vanilla
                                             - value: FORGE
                                               description: Forge
+                                            - value: NEOFORGE
+                                              description: NeoForge
                                             - value: FABRIC
                                               description: Fabric
                                             - value: SPIGOT
@@ -183,6 +187,12 @@ questions:
                                           type: string
                                           default: ""
                                           show_if: [[TYPE, "=", "FORGE"]]
+                                      - variable: NEOFORGE_VERSION
+                                        label: NeoForge Version
+                                        schema:
+                                          type: string
+                                          default: "47.1.79"
+                                          show_if: [[TYPE, "=", "NEOFORGE"]]
                                       - variable: FABRIC_LOADER_VERSION
                                         label: Fabric Loader Version
                                         schema:
@@ -197,6 +207,12 @@ questions:
                                           show_if: [[TYPE, "=", "FABRIC"]]
                                       - variable: FABRIC_INSTALLER_URL
                                         label: Fabric Installer URL
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          show_if: [[TYPE, "=", "FABRIC"]]
+                                      - variable: PACKWIZ_URL
+                                        label: Packwiz URL
                                         schema:
                                           type: string
                                           default: ""
@@ -227,12 +243,6 @@ questions:
                                           show_if: [[TYPE, "=", "PAPER"]]
                                       - variable: PAPER_DOWNLOAD_URL
                                         label: Paper Download URL
-                                        schema:
-                                          type: string
-                                          default: ""
-                                          show_if: [[TYPE, "=", "PAPER"]]
-                                      - variable: PACKWIZ_URL
-                                        label: Packwiz URL
                                         schema:
                                           type: string
                                           default: ""
@@ -620,8 +630,102 @@ questions:
                                               schema:
                                                 type: string
                                                 default: ""
+
 # Include{containerBasic}
 # Include{containerAdvanced}
+
+  - variable: mcbackup
+    group: App Configuration
+    label: MC Backup Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: enabled
+          label: Enable MC Backup Container
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: initial_delay
+                label: Initial Delay
+                schema:
+                  type: string
+                  default: 2m
+              - variable: backup_interval
+                label: Backup Interval
+                schema:
+                  type: string
+                  default: 24hr
+              - variable: player_online_check_interval
+                label: Player Online Check Interval
+                schema:
+                  type: string
+                  default: 5m
+              - variable: prune_backups_days
+                label: Prune Backups Days
+                schema:
+                  type: int
+                  default: 7
+              - variable: pause_if_no_players
+                label: Pause If No Players
+                schema:
+                  type: boolean
+                  default: false
+              - variable: link_latest
+                label: Link Latest
+                description: Creates a symbolic link to the latest backup.
+                schema:
+                  type: boolean
+                  default: false
+              - variable: tar_compress_method
+                label: Tar Compress Method
+                schema:
+                  type: string
+                  default: gzip
+                  enum:
+                    - value: gzip
+                      description: Gzip
+                    - value: bzip2
+                      description: Bzip2
+                    - value: zstd
+                      description: Zstd
+              - variable: zstd_params
+                label: ZSTD Params
+                schema:
+                  type: list
+                  empty: false
+                  default:
+                    - --long=25
+                    - --single-thread
+                  required: true
+                  items:
+                    - variable: param
+                      label: Param
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+              - variable: excludes
+                label: Excludes
+                schema:
+                  type: list
+                  empty: false
+                  default:
+                    - "*.jar"
+                    - "cache"
+                    - "logs"
+                    - "*.tmp"
+                  required: true
+                  items:
+                    - variable: exclude
+                      label: Exclude
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
@@ -689,6 +793,14 @@ questions:
         - variable: data
           label: App Data Storage
           description: Stores the Application Data.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: backups
+          label: App Backups Storage
+          description: Stores the Application Backups.
           schema:
             additional_attrs: true
             type: dict

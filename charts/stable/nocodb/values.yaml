@@ -1,28 +1,7 @@
 image:
-  repository: tccr.io/truecharts/nocodb
-  tag: v0.107.5@sha256:4a64e56115720169bc63ed179959c8a63a98678dda846e37f6079a524758751c
+  repository: nocodb/nocodb
+  tag: 0.202.10@sha256:2a5f1363848e0dcf9bbb1463c8bc1278f3fe411ad97d53412822ae510eaf308f
   pullPolicy: IfNotPresent
-service:
-  main:
-    ports:
-      main:
-        port: 10226
-persistence:
-  data:
-    enabled: true
-    mountPath: "/usr/app/data"
-cnpg:
-  main:
-    enabled: true
-
-    user: nocodb
-    database: nocodb
-redis:
-  enabled: true
-
-portal:
-  open:
-    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -70,5 +49,23 @@ workload:
             AWS_SECRET_ACCESS_KEY: ""
             AWS_BUCKET: ""
             AWS_BUCKET_PATH: ""
-            NC_GOOGLE_CLIENT_ID: ""
-            NC_GOOGLE_CLIENT_SECRET: ""
+service:
+  main:
+    ports:
+      main:
+        port: 10226
+persistence:
+  data:
+    enabled: true
+    mountPath: "/usr/app/data"
+cnpg:
+  main:
+    enabled: true
+    user: nocodb
+    database: nocodb
+redis:
+  enabled: true
+  redisUsername: default
+portal:
+  open:
+    enabled: true

@@ -1,22 +1,13 @@
 image:
-  repository: tccr.io/truecharts/appsmith
-  tag: 1.9.9@sha256:94b8de0dc37e7d617d54bbac5a118772b8c7a988dcc0e5db9af870669c558794
   pullPolicy: IfNotPresent
+  repository: appsmith/appsmith-ce
+  tag: v1.9.50@sha256:191b59d6c8dc36493ec54773494346cf6cc8173b7cca9407b241299e02bad892
 
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
-
-podSecurityContext:
-  runAsUser: 0
-  runAsGroup: 0
-
-env:
-  APPSMITH_ADMIN_EMAILS: "me@example.com,you@example.com"
-  APPSMITH_REDIS_URL:
-    secretKeyRef:
-      name: rediscreds
-      key: url
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
 
 service:
   main:
@@ -32,20 +23,28 @@ service:
         port: 10218
         targetPort: 9001
 
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            APPSMITH_ADMIN_EMAILS: me@example.com,you@example.com
+            APPSMITH_REDIS_URL:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: url
 persistence:
   appsmithstacks:
     enabled: true
-    mountPath: "/appsmith-stacks"
+    mountPath: /appsmith-stacks
 
 redis:
   enabled: true
-  existingSecret: "rediscreds"
+  existingSecret: rediscreds
   redisUsername: appsmith
-# mongodb:
-#   enabled: true
-#   mongodbUsername: appsmith
-#   mongodbDatabase: appsmith
-#   existingSecret: "mongodbcreds"
 
 portal:
-  enabled: true
+  open:
+    enabled: true

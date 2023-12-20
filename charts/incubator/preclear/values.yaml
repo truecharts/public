@@ -1,28 +1,32 @@
-env:
-  UMASK: "000"
-  VNC_PASSWORD: ""
-  WEBPAGE_TITLE: Preclear
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/preclear
-  tag: latest@sha256:417d95a952b25e042a93bb62813956e8ca7269f4e4b3e13d44e01c36fa18fdaa
+  repository: binhex/arch-preclear
+  tag: latest@sha256:82337527bb2156499e30da7e6e664c1bf15d449d2ab6527ae2afc6f1c4fd3b85
 persistence:
   config:
     enabled: true
     mountPath: /config
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  open:
+    enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     ports:
       main:
         port: 6080
-        protocol: TCP
+        protocol: tcp
         targetPort: 6080
-
-portal:
-  enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            UMASK: "000"
+            VNC_PASSWORD: ""
+            WEBPAGE_TITLE: Preclear

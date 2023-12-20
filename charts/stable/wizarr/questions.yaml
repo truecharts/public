@@ -9,33 +9,18 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
                                 - variable: env
                                   label: Image Environment
                                   schema:
                                     additional_attrs: true
                                     type: dict
                                     attrs:
-                                      - variable: APP_URL
-                                        label: App URL
-                                        description: URL at which you will access and share.
-                                        schema:
-                                          type: string
-                                          required: true
-                                          default: ""
                                       - variable: DISABLE_BUILTIN_AUTH
                                         label: Disable Builtin Auth
                                         description: Enable this if using an external auth provider
                                         schema:
                                           type: boolean
                                           default: false
-                                      - variable: ALLOW_BUG_REPORTING
-                                        label: Allow Bug Reporting
-                                        description: Helps upstream developers fix bugs proactively, recommended leave it enabled, but can be optionally disabled.
-                                        schema:
-                                          type: boolean
-                                          default: false
-
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
@@ -88,13 +73,13 @@ questions:
                 description: "The UserID of the user running the application"
                 schema:
                   type: int
-                  default: 568
+                  default: 0
               - variable: runAsGroup
                 label: "runAsGroup"
                 description: "The groupID this App of the user running the application"
                 schema:
                   type: int
-                  default: 568
+                  default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
@@ -103,7 +88,7 @@ questions:
                 description: "The group that should own ALL storage."
                 schema:
                   type: int
-                  default: 568
+                  default: 0
 # Include{resources}
 # Include{advanced}
 # Include{addons}

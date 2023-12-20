@@ -1,22 +1,19 @@
 image:
-  repository: tccr.io/truecharts/doublecommander
+  repository: ghcr.io/linuxserver/doublecommander
   pullPolicy: IfNotPresent
-  tag: latest@sha256:3aa6612ae7e885c561e99c0e1c6e3944a59f0e1927006e5868fd3d0d80bf317e
-
+  tag: latest@sha256:b375e7acb7c16803bba3fee85cf2be34348d2c82cd3741a67446168e448f6508
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
       main:
         port: 10034
         targetPort: 3000
-
 workload:
   main:
     podSpec:
@@ -38,12 +35,10 @@ workload:
             startup:
               type: http
               path: /
-
 persistence:
   config:
     enabled: true
     mountPath: /config
-
 portal:
   open:
     enabled: true

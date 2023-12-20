@@ -1,28 +1,23 @@
 image:
-  repository: tccr.io/truecharts/authentik
-  tag: v2023.8.3@sha256:7f36e3943de5af9d6b1b5442e153a30e978bf05a26a40ab8feca66909a7d2f40
+  repository: ghcr.io/goauthentik/server
+  tag: 2023.10.4@sha256:f201d0515461ef5ec2afd37ead691247f09dfef231fdaa494fd48105b65913ca
   pullPolicy: IfNotPresent
-
 geoipImage:
-  repository: tccr.io/truecharts/geoipupdate
-  tag: v6.0.0@sha256:e057484036265c5bde379556463eed605f68f72016f328404202fb293f02a76a
+  repository: ghcr.io/maxmind/geoipupdate
+  tag: v6.0.0@sha256:e0d5c1dee7379d360e0f355557542d9672c616215dfdd5aaf917382de84cb84c
   pullPolicy: IfNotPresent
-
 ldapImage:
-  repository: tccr.io/truecharts/authentik-ldap
-  tag: v2023.8.3@sha256:cee0053e1c53d1daac8c6d90aaa691f6724f849662b6063198bc710e47fb4e43
+  repository: ghcr.io/goauthentik/ldap
+  tag: 2023.10.4@sha256:e16028e4e6312dcb0fb35a9b537829efd9f7c0c3c1bbe966150fca5734211c6d
   pullPolicy: IfNotPresent
-
 radiusImage:
-  repository: tccr.io/truecharts/authentik-radius
-  tag: v2023.8.3@sha256:7b5f09da87a7d0a9a31abb6b9fa80da07f19f2e9882aa48547a074f21d974dd1
+  repository: ghcr.io/goauthentik/radius
+  tag: 2023.10.4@sha256:a5d36976190e4ccacb8caf315814534e75b983f789dc422bc327c4999a60cdab
   pullPolicy: IfNotPresent
-
 proxyImage:
-  repository: tccr.io/truecharts/authentik-proxy
-  tag: v2023.8.3@sha256:4ceec37f2b4e701a5640a458ec9bbdbb7fb5fd0c0755b980c415664d89f3edd5
+  repository: ghcr.io/goauthentik/proxy
+  tag: 2023.10.4@sha256:35217928c215f5221685289e09a076ad38767b17485b102661fad5aca184b8b1
   pullPolicy: IfNotPresent
-
 authentik:
   credentials:
     # Only works on initial install
@@ -86,7 +81,6 @@ authentik:
     ldap:
       enabled: false
       token: ""
-
 # ===== DO NOT EDIT BELOW THIS LINE =====
 workload:
   # ===== Server =====
@@ -117,21 +111,20 @@ workload:
               enabled: true
               type: exec
               command:
-               - /lifecycle/ak
-               - healthcheck
+                - /lifecycle/ak
+                - healthcheck
             readiness:
               enabled: true
               type: exec
               command:
-               - /lifecycle/ak
-               - healthcheck
+                - /lifecycle/ak
+                - healthcheck
             startup:
               enabled: true
               type: exec
               command:
-               - /lifecycle/ak
-               - healthcheck
-
+                - /lifecycle/ak
+                - healthcheck
   # ===== Worker =====
   worker:
     enabled: true
@@ -158,21 +151,20 @@ workload:
               enabled: true
               type: exec
               command:
-               - /lifecycle/ak
-               - healthcheck
+                - /lifecycle/ak
+                - healthcheck
             readiness:
               enabled: true
               type: exec
               command:
-               - /lifecycle/ak
-               - healthcheck
+                - /lifecycle/ak
+                - healthcheck
             startup:
               enabled: true
               type: exec
               command:
-               - /lifecycle/ak
-               - healthcheck
-
+                - /lifecycle/ak
+                - healthcheck
   # ===== PROXY =====
   proxy:
     enabled: true
@@ -196,21 +188,20 @@ workload:
               enabled: true
               type: exec
               command:
-               - /proxy
-               - healthcheck
+                - /proxy
+                - healthcheck
             readiness:
               enabled: true
               type: exec
               command:
-               - /proxy
-               - healthcheck
+                - /proxy
+                - healthcheck
             startup:
               enabled: true
               type: exec
               command:
-               - /proxy
-               - healthcheck
-
+                - /proxy
+                - healthcheck
   # ===== RADIUS =====
   radius:
     enabled: true
@@ -234,21 +225,20 @@ workload:
               enabled: true
               type: exec
               command:
-               - /radius
-               - healthcheck
+                - /radius
+                - healthcheck
             readiness:
               enabled: true
               type: exec
               command:
-               - /radius
-               - healthcheck
+                - /radius
+                - healthcheck
             startup:
               enabled: true
               type: exec
               command:
-               - /radius
-               - healthcheck
-
+                - /radius
+                - healthcheck
   # ===== LDAP =====
   ldap:
     enabled: true
@@ -272,21 +262,20 @@ workload:
               enabled: true
               type: exec
               command:
-               - /ldap
-               - healthcheck
+                - /ldap
+                - healthcheck
             readiness:
               enabled: true
               type: exec
               command:
-               - /ldap
-               - healthcheck
+                - /ldap
+                - healthcheck
             startup:
               enabled: true
               type: exec
               command:
-               - /ldap
-               - healthcheck
-
+                - /ldap
+                - healthcheck
   # ===== GeoIP Updater =====
   geoip:
     enabled: true
@@ -314,7 +303,6 @@ workload:
               enabled: false
             startup:
               enabled: false
-
 service:
   # Server HTTPS
   main:
@@ -463,20 +451,16 @@ persistence:
       geoip:
         geoip:
           mountPath: /usr/share/GeoIP
-
 cnpg:
   main:
     enabled: true
     user: authentik
     database: authentik
-
 redis:
   enabled: true
-
 portal:
   open:
     enabled: true
-
 metrics:
   # FIXME: Metrics do not work yet
   servermetrics:
@@ -511,3 +495,4 @@ metrics:
         path: /metrics
     prometheusRule:
       enabled: false
+updated: true

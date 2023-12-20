@@ -1,15 +1,13 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/obs-ndi
-  tag: latest@sha256:321eb11d40c21fbf90a1eba09e88b9e641a9473cc5c689f289775080164be156
-
+  repository: patrickstigler/obs-ndi
+  tag: latest@sha256:7d1efa37b34b9a01e83b9c334ca9986c468745a017c4d8dab1c2b0c8d4942a2d
 securityContext:
   container:
     runAsGroup: 0
     runAsUser: 0
     readOnlyRootFilesystem: false
     runAsNonRoot: false
-
 workload:
   main:
     podSpec:
@@ -48,12 +46,10 @@ service:
       vnc:
         enabled: true
         port: 5901
-
 persistence:
   configpath:
     enabled: true
     mountPath: /config/obs-studio
-
 portal:
   open:
     enabled: true

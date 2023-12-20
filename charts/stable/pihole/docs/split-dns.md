@@ -1,6 +1,6 @@
 # Automatic Split DNS with PiHole
 
-*Using Blocky in conjunction with PiHole enables seamless automated split DNS functionality.*
+_Using Blocky in conjunction with PiHole enables seamless automated split DNS functionality._
 
 :::danger unrecommended configuration
 

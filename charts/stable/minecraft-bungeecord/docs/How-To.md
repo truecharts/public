@@ -175,7 +175,7 @@ kick-existing-players = false
 #                  configuration is used if no servers could be contacted.
 ping-passthrough = "DISABLED"
 
-# If not enabled (default is true) player IP addresses will be replaced by <ip address withheld> in logs
+# If not enabled (default is true) player IP addresses will be replaced by `<ip address withheld>` in logs
 enable-player-address-logging = true
 
 [servers]

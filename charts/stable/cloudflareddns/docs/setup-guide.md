@@ -48,4 +48,3 @@ Click Add for Hosts, Zones and Record Types.
 - Change `Record Type` to A if you're only changing your main domain
 
 If you're using or changing specific A records or CNAMEs you may want to refer to the upstream documentation for more examples [here](https://hotio.dev/containers/cloudflareddns/))
-

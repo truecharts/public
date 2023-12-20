@@ -181,6 +181,11 @@ args:
   - "--experimental.localPlugins.traefik-modsecurity-plugin.modulename=github.com/acouvreur/traefik-modsecurity-plugin"
   {{- end }}
   {{/* End of ModSecurity */}}
+  {{/* RewriteResponseHeaders */}}
+  {{- if .Values.middlewares.rewriteResponseHeaders }}
+  - "--experimental.localPlugins.rewriteResponseHeaders.modulename=github.com/XciD/traefik-plugin-rewrite-headers"
+  {{- end }}
+  {{/* End of RewriteResponseHeaders */}}
   {{- with .Values.additionalArguments }}
   {{- range . }}
   - {{ . | quote }}

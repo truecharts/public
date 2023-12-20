@@ -1,6 +1,6 @@
 image:
-  repository: tccr.io/truecharts/verysync
-  tag: 2.16.0@sha256:19ccdb8592db67eadc83cfd441fec7ccd60e62e1044222e89bbd4fdd15b20d71
+  repository: jonnyan404/verysync
+  tag: 2.17.0@sha256:7431e6b56344029e26cb2b5ec66907664fcaea699c8510a47e15a5c8b384ec40
   pullPolicy: IfNotPresent
 securityContext:
   container:
@@ -44,7 +44,6 @@ persistence:
 portal:
   open:
     enabled: true
-
 workload:
   main:
     podSpec:

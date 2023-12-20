@@ -1,21 +1,18 @@
 image:
-  repository: tccr.io/truecharts/audiobookshelf
-  tag: v2.4.3@sha256:9b58c7e4b4e2cacd4d3d871a9c2f11886f3b7cdf76985d724f1cf4338c58ea83
+  repository: advplyr/audiobookshelf
+  tag: 2.6.0@sha256:73356ac9ffbb85f0b9dd265b8b7c966d9adcb152c8713cadca961d576af13700
   pullPolicy: IfNotPresent
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
       main:
         port: 10223
-
 workload:
   main:
     podSpec:
@@ -36,7 +33,6 @@ workload:
               secretKeyRef:
                 name: secrets
                 key: TOKEN_SECRET
-
 persistence:
   config:
     enabled: true
@@ -47,7 +43,6 @@ persistence:
   metadata:
     enabled: true
     mountPath: /metadata
-
 portal:
   open:
     enabled: true

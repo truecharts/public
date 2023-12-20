@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/jellystat
+  repository: cyfershepard/jellystat
   pullPolicy: IfNotPresent
-  tag: vlatest@sha256:80949c980cf6c4da6e6b57630ff137df2db7ecc6a19f56e1517b7aec8533ab46
-
+  tag: latest@sha256:81df6c51a84aeb67561b22efd082be419b6edafb5507235bfe5a3f3702e49213
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     enabled: true
@@ -24,7 +22,6 @@ service:
         protocol: tcp
         port: 10682
         targetPort: 3004
-
 workload:
   main:
     podSpec:
@@ -55,19 +52,16 @@ workload:
               secretKeyRef:
                 name: jellystat-secrets
                 key: JWT_SECRET
-
 persistence:
   backup:
     enabled: true
     mountPath: "/app/backend/backup-data"
-
 cnpg:
   main:
     enabled: true
     # static name
     user: jfstat
     database: jfstat
-
 portal:
   open:
     enabled: true

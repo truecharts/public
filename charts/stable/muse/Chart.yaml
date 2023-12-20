@@ -1,31 +1,38 @@
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
-appVersion: "2.4.3"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.0.1
-deprecated: false
+name: muse
+version: 2.0.15
+appVersion: 2.4.3
 description: A self-hosted midwestern Discord music bot that doesn't suck.
 home: https://truecharts.org/charts/stable/muse
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/muse.png
+deprecated: false
+sources:
+  - https://github.com/codetheweb/muse
+  - https://github.com/truecharts/charts/tree/master/charts/stable/muse
+  - https://hub.docker.com/r/codetheweb/muse
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
   - muse
   - media
   - discord-bot
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: muse
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/muse
-  - https://github.com/codetheweb/muse
-type: application
-version: 2.0.3
+dependencies:
+  - name: common
+    version: 14.5.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  truecharts.org/catagories: |
-    - media
-    - discord-bot
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+type: application

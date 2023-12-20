@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/code-server
+  repository: docker.io/codercom/code-server
   pullPolicy: IfNotPresent
-  tag: v4.17.1@sha256:4e798a4fb81f27726930c2f96756a2a6e8310833aec65dbb5a60f451ef4188a0
-
+  tag: 4.19.1@sha256:993c381c28a3738b903ac21180f5f9dab8f2aa547bbb0b9d69bea558691e10d3
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -10,7 +9,6 @@ securityContext:
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -18,7 +16,6 @@ service:
         port: 10063
         protocol: http
         targetPort: 8080
-
 workload:
   main:
     podSpec:
@@ -41,12 +38,10 @@ workload:
             - "/config/.vscode"
             - --auth
             - none
-
 persistence:
   config:
     enabled: true
     mountPath: /config
-
 portal:
   open:
     enabled: true

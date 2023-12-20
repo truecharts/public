@@ -1,27 +1,23 @@
 image:
-  repository: tccr.io/truecharts/freshrss
+  repository: ghcr.io/linuxserver/freshrss
   pullPolicy: IfNotPresent
-  tag: 1.21.0@sha256:ab5a65207ab29b1780e036fe680228ff86a58626ebb79140186436645fb3aefa
-
+  tag: 1.22.1@sha256:f250f092385e9b307ef9cb6dcbf0b9c93af435fa4bf868fff4c5c7ea0f9dab6c
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
       main:
         port: 10010
         targetPort: 80
-
 persistence:
   config:
     enabled: true
     mountPath: /config
-
 portal:
   open:
     enabled: true

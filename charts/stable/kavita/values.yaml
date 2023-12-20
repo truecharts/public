@@ -1,7 +1,13 @@
 image:
-  repository: tccr.io/truecharts/kavita
+  repository: jvmilazz0/kavita
   pullPolicy: IfNotPresent
-  tag: v0.7.2@sha256:f179e4b32af7fce6d51276bc7077118156d8e5652d04b95eca7ae388a8206680
+  tag: 0.7.11@sha256:8374f16fa88e0bb3c3e4b2372c44287e7c75c79de7a6c104419d1f34c3c19f2c
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
 service:
   main:
     ports:
@@ -15,12 +21,8 @@ persistence:
   manga:
     enabled: true
     mountPath: "/manga"
+  tmp:
+    enabled: false
 portal:
   open:
     enabled: true
-securityContext:
-  container:
-    readOnlyRootFilesystem: false
-    runAsNonRoot: false
-    runAsUser: 0
-    runAsGroup: 0

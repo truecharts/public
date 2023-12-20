@@ -1,22 +1,19 @@
 image:
-  repository: tccr.io/truecharts/muse
+  repository: codetheweb/muse
   pullPolicy: IfNotPresent
-  tag: v2.4.3@sha256:fe00977670bb507346f06753125ca6addbcf9d4190821aabc693de62677bbd5a
-
+  tag: 2.4.3@sha256:962dc19cfc775855235c1c8672ad19683fa320b7386a01b515adabf93765823b
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-
 workload:
   main:
     podSpec:
@@ -40,12 +37,10 @@ workload:
             # BOT_ACTIVITY_TYPE: PLAYING
             # BOT_ACTIVITY: A incubator app
             # BOT_ACTIVITY_URL: https://www.youtube.com/truecharts
-
 persistence:
   config:
     enabled: true
     mountPath: /config
-
 portal:
   open:
     enabled: false

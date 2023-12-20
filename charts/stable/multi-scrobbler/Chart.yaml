@@ -1,0 +1,39 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: multi-scrobbler
+version: 3.0.4
+appVersion: 0.6.1
+description:
+  Track your music listening history from many sources and record to many
+  scrobble clients.
+home: https://truecharts.org/charts/stable/multi-scrobbler
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/multi-scrobbler.png
+deprecated: false
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/multi-scrobbler
+  - https://github.com/truecharts/containers/tree/master/mirrormulti-scrobbler
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - multi-scrobbler
+  - Network-Web
+  - MediaServer-Music
+dependencies:
+  - name: common
+    version: 14.5.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Network-Web
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+type: application

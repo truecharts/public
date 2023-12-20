@@ -1,58 +1,66 @@
 image:
-  repository: tccr.io/truecharts/minecraft-java
-  tag: v2023.8.3@sha256:8e5cfbad3f834145641410670f8323a256b5486faeb57d9190151c84b27d59a3
+  repository: itzg/minecraft-server
+  tag: 2023.11.1@sha256:cb98ad8c143ab0cf83351ec6a9fd76256152f7b310988f9aa1acfaaf4aacbc77
   pullPolicy: Always
-j20Image:
-  repository: tccr.io/truecharts/minecraft-java20
-  tag: latest@sha256:52da6b824428fb62e2c693913c94b8b6f7a95df203af895313cf9675e380be92
+j21Image:
+  repository: itzg/minecraft-server
+  tag: 2023.11.1-java21@sha256:312de713187f40206d2433f6c76c4f1f5efe993dcf7c0f842b8a7e0274bd5edd
   pullPolicy: Always
-j20AlpineImage:
-  repository: tccr.io/truecharts/minecraft-java20-alpine
-  tag: v2023.8.3@sha256:5dc54147180d2fb65068820d3c1e7da54e8d8ab84a3835ec29149c3d37ea55ad
+j21graalvmImage:
+  repository: itzg/minecraft-server
+  tag: 2023.11.1-java21-graalvm@sha256:49d25c5aa26dd67326f4626ae015dcf5033ed6e9178587dce915a04b16de6ac0
+  pullPolicy: Always
+j21alpineImage:
+  repository: itzg/minecraft-server
+  tag: 2023.11.1-java21-alpine@sha256:18c2c81eff7ce4a630b676f99223fcb8aa20c525f3b8ae1cd6fbf612d5d39cf0
   pullPolicy: Always
 j17j9Image:
-  repository: tccr.io/truecharts/minecraft-java17-openj9
-  tag: v2023.8.3@sha256:53f74c56e0d09edacec266da179e9fd60ec392e00552546b58637757561f172c
+  repository: itzg/minecraft-server
+  tag: 2023.11.1-java17-openj9@sha256:6e3078b58bb3728c0ccdf18402712faab39624cfcc24a72ef237d31579fd2bdc
   pullPolicy: Always
 j17jdkImage:
-  repository: tccr.io/truecharts/minecraft-java17-jdk
-  tag: v2023.8.2@sha256:d69de906ed094a980b444469078b4093accfe517cb3d2a676160434415ae759a
+  repository: itzg/minecraft-server
+  tag: 2023.11.1-java17-jdk@sha256:e8ddd3a22c01937554332dae55bce53a0149740ccf22a6105138126382dfee38
   pullPolicy: Always
-j17gceImage:
-  repository: tccr.io/truecharts/minecraft-java17-graalvm-ce
-  tag: latest@sha256:5d48f9f41c76c13f77a6d6fd6b957f98715d7582d0e2b07fcc6eedd721784695
+j17graalvmImage:
+  repository: itzg/minecraft-server
+  tag: 2023.11.1-java17-graalvm@sha256:1ede29fa5a96bd278d64400f548dde321c7c0762922c1097f17ba5c6a6f047f6
   pullPolicy: Always
 j17alpineImage:
-  repository: tccr.io/truecharts/minecraft-java17-alpine
-  tag: v2023.8.2@sha256:3656b2e0c71b48a1c5bd719e822f3ef62fe805b9f33a0bd4cc10602d6e98436c
+  repository: itzg/minecraft-server
+  tag: 2023.11.1-java17-alpine@sha256:c330401db62f07fbf447eef1c269394e8690d6b659f679821315f5c4c6463849
   pullPolicy: Always
 j11Image:
-  repository: tccr.io/truecharts/minecraft-java11
-  tag: latest@sha256:1273d872ca87b15377a10ffa4b8c7df1f44ab06563764cd2475df4498786c6f6
+  repository: itzg/minecraft-server
+  tag: 2023.11.1-java11@sha256:749a17891fb0a2b211062fc2d7a3dd97e0fc76e71e9a908906ec8310cc8aaf95
   pullPolicy: Always
 j11jdkImage:
-  repository: tccr.io/truecharts/minecraft-java11-jdk
-  tag: v2023.8.3@sha256:d744d739f59356442d17d8c4682a7f3e361aedbc001a63a8469aeed48703bd0f
+  repository: itzg/minecraft-server
+  tag: 2023.11.1-java11-jdk@sha256:d8167b33d2da2d8f5ca1e41b9a170c07561b59497b4206140796ba2e98569a2a
   pullPolicy: Always
 j11j9Image:
-  repository: tccr.io/truecharts/minecraft-java11-openj9
-  tag: v2023.8.2@sha256:1518df63c00fd4aac9268155c81e7892ae354b5c36da67a6fe5d62c396664394
+  repository: itzg/minecraft-server
+  tag: 2023.11.1-java11-openj9@sha256:f327ea42b512896544fc7b44f1029d311ebf79312863a2ceb909ea6570ccf410
   pullPolicy: Always
 j8Image:
-  repository: tccr.io/truecharts/minecraft-java8
-  tag: latest@sha256:c833fc5d90ca8437d96f37e0a7b227dd52d288d66b494617282f4c733880255a
+  repository: itzg/minecraft-server
+  tag: 2023.11.1-java8@sha256:cf744e3945c3a3c3dd4c4f98e639f9b959c73d6766217dda42fdf91fc9f80b27
   pullPolicy: Always
-j8gceImage:
-  repository: tccr.io/truecharts/minecraft-java8-graalvm-ce
-  tag: latest@sha256:43c3c3e338e09a8344edb2f4ea633319b4e11825eb7c8081658b66834390d22e
+j8graalvmImage:
+  repository: itzg/minecraft-server
+  tag: 2023.11.1-java8-graalvm-ce@sha256:8a878a24266f5d6c8d448b28f8c8bcc6d167cc5f5c10e629913c9a58db0d7cad
   pullPolicy: Always
 j8jdkImage:
-  repository: tccr.io/truecharts/minecraft-java8-jdk
-  tag: v2023.8.3@sha256:dd99450d39cd38e80c8b5a96bb04f983b122be4b8dfc6ca6979320b3181b8925
+  repository: itzg/minecraft-server
+  tag: 2023.11.1-java8-jdk@sha256:3810bf10ff4f637851a950c47b2c4eb6de377b3afdde25ebcb16d263f536c6dd
   pullPolicy: Always
 j8j9Image:
-  repository: tccr.io/truecharts/minecraft-java8-openj9
-  tag: v2023.8.3@sha256:a1b64e05cd8cb62b85d05b7d5de1d59ed660fedf36b7a7c11b9ba0b46ba2813c
+  repository: itzg/minecraft-server
+  tag: 2023.11.1-java8-openj9@sha256:076c6a872b241df47580064171e67ff6d9b1826134169fe4201c5cedd3456f58
+  pullPolicy: Always
+mcBackupImage:
+  repository: itzg/mc-backup
+  tag: latest@sha256:13d66ffdc2d120308b55a4a10a992fe75bbb6295f6fd88bd53658c02423e4e80
   pullPolicy: Always
 
 service:
@@ -73,6 +81,27 @@ service:
       rcon:
         enabled: true
         port: 25575
+
+mcbackup:
+  enabled: true
+  initial_delay: 2m
+  backup_interval: 24hr
+  player_online_check_interval: 5m
+  prune_backups_days: 7
+  pause_if_no_players: false
+  link_latest: false
+  # values gzip,bzip2,zstd
+  tar_compress_method: gzip
+  # White spaced separated list
+  zstd_params:
+    - --long=25
+    - --single-thread
+  # comma separated list
+  excludes:
+    - "*.jar"
+    - "cache"
+    - "logs"
+    - "*.tmp"
 
 workload:
   main:
@@ -183,11 +212,54 @@ workload:
             # CF_OVERRIDES_SKIP_EXISTING
             # CF_PARALLEL_DOWNLOADS
             # CF_SET_LEVEL_FROM
+  mcbackup:
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
+        mcbackup:
+          primary: true
+          enabled: true
+          imageSelector: mcBackupImage
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            BACKUP_METHOD: "tar"
+            DEST_DIR: "{{.Values.persistence.backups.mountPath }}"
+            SRC_DIR: "{{.Values.persistence.data.mountPath }}"
+            SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
+            RCON_HOST: '{{ include "tc.v1.common.lib.chart.names.fullname" $ }}'
+            RCON_PORT: "{{ .Values.service.rcon.ports.rcon.port }}"
+            RCON_PASSWORD: "{{ .Values.workload.main.podSpec.containers.main.env.RCON_PASSWORD }}"
+            INITIAL_DELAY: "{{ .Values.mcbackup.initial_delay }}"
+            BACKUP_INTERVAL: "{{ .Values.mcbackup.backup_interval }}"
+            PRUNE_BACKUPS_DAYS: "{{ .Values.mcbackup.prune_backups_days }}"
+            PAUSE_IF_NO_PLAYERS: "{{ .Values.mcbackup.pause_if_no_players }}"
+            PLAYERS_ONLINE_CHECK_INTERVAL: "{{ .Values.mcbackup.player_online_check_interval }}"
+            LINK_LATEST: "{{ .Values.mcbackup.link_latest }}"
+            TAR_COMPRESS_METHOD: "{{ .Values.mcbackup.tar_compress_method }}"
+            ZSTD_PARAMETERS: '{{ join " " .Values.mcbackup.zstd_params }}'
+            EXCLUDES: '{{ join "," .Values.mcbackup.excludes }}'
 
 persistence:
   data:
     enabled: true
-    mountPath: "/data"
+    targetSelector:
+      main:
+        main:
+          mountPath: /data
+      mcbackup:
+        mcbackup:
+          mountPath: /data
+          readOnly: true
+  backups:
+    enabled: true
+    mountPath: /backups
 
 portal:
   open:

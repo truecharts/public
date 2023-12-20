@@ -1,16 +1,14 @@
 image:
-  repository: tccr.io/truecharts/radarr
+  repository: ghcr.io/onedr0p/radarr
   pullPolicy: IfNotPresent
-  tag: v4.7.5.7809@sha256:d0c466a2becb34e2c5e3b9c20bc5c757ed2246734f7a48fd037727e5b30a5fc6
+  tag: 5.1.3.8246@sha256:e3eeb1de9aed562a2d4b99704b788dab672b314acaa074b38dc080a18b58cfc7
 exportarrImage:
-  repository: tccr.io/truecharts/exportarr
+  repository: ghcr.io/onedr0p/exportarr
   pullPolicy: IfNotPresent
-  tag: v1.5.3@sha256:f369a43b28410f12ce1b96f52187dd5c6fb9769a137ecc6f7ab8fdcfbe7db58e
-
+  tag: v1.6.0@sha256:b522e128509b766cf66f847190fccd225ff194dc76775fe6a215f2dd3010cac2
 securityContext:
   container:
     readOnlyRootFilesystem: false
-
 service:
   main:
     ports:
@@ -25,7 +23,6 @@ service:
         enabled: true
         port: 7879
         targetSelector: exportarr
-
 workload:
   main:
     podSpec:
@@ -84,7 +81,6 @@ workload:
             # enable gathering unknown queue items
             # ENABLE_UNKNOWN_QUEUE_ITEMS: false
             CONFIG: "/config/config.xml"
-
 persistence:
   config:
     enabled: true
@@ -96,7 +92,6 @@ persistence:
         exportarr:
           mountPath: /config
           readOnly: true
-
 metrics:
   main:
     enabled: true
@@ -104,9 +99,10 @@ metrics:
     endpoints:
       - port: metrics
         path: /metrics
+    targetSelector: metrics
     prometheusRule:
       enabled: false
-
 portal:
   open:
     enabled: true
+updated: true

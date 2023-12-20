@@ -38,11 +38,11 @@ This section is hidden by default for TrueNAS SCALE but if you wish to use `Host
 
 ### App Configuration:
 
-  - `ZEROTIER_API_SECRET`: Replaces the authtoken.secret before booting and allows you to manage the control socket's authentication key
-  - `ZEROTIER_IDENTITY_PUBLIC`: The identity.public file for zerotier-one. Use zerotier-idtool to generate one of these for you.
-  - `ZEROTIER_IDENTITY_SECRET`: The identity.secret file for zerotier-one. Use zerotier-idtool to generate one of these for you.
+- `ZEROTIER_API_SECRET`: Replaces the authtoken.secret before booting and allows you to manage the control socket's authentication key
+- `ZEROTIER_IDENTITY_PUBLIC`: The identity.public file for zerotier-one. Use zerotier-idtool to generate one of these for you.
+- `ZEROTIER_IDENTITY_SECRET`: The identity.secret file for zerotier-one. Use zerotier-idtool to generate one of these for you.
 
-  ![How-To-Step-2](img/How-To-Step-2.png)
+![How-To-Step-2](img/How-To-Step-2.png)
 
 ### Extra Args:
 

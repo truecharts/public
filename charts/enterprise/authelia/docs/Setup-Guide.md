@@ -30,8 +30,8 @@ LLDAP is a `Stable` train chart and therefore isn't supported at the same level 
 
 ### App Configuration
 
-- Domain: `mydomain.com` <- Your domain without https://
-- Default Redirection URL: `https://auth.mydomain.com` <- Can be anything, but we'll stick to auth.mydomain.com. As well, this will be the ingress URL for `Authelia`
+- Domain: `mydomain.com` - Your domain without https://
+- Default Redirection URL: `https://auth.mydomain.com` - Can be anything, but we'll stick to auth.mydomain.com. As well, this will be the ingress URL for `Authelia`
 
 ### LDAP Backend Configuration
 
@@ -54,7 +54,7 @@ LLDAP is a `Stable` train chart and therefore isn't supported at the same level 
 - Group name Attribute:`cn`
 - Mail Attribute:`mail`
 - Display Name Attribute:`displayName`
-- Admin User: `uid=Steven,ou=people,dc=mydomain,dc=com` <- Notice the uid=Steven, most of the time people use admin and a generated password
+- Admin User: `uid=Steven,ou=people,dc=mydomain,dc=com` - Notice the uid=Steven, most of the time people use admin and a generated password
 - Password: `RANDOMPASSWORD`
 
 #### SMTP Configuration
@@ -103,6 +103,7 @@ The last step is adding the `forwardauth` along with the standard `ingress` sett
 - In this example we use the same name as above, or `auth`. Click `Add` to the `Traefik Middlewares` section, and enter your `forwardauth` name.
 
 ![TraefikForwardAuthMiddleware](img/TraefikForwardAuthMiddleware.png)
+
 ### References
 
 The origin material for this guide is available on the [LLDAP Github](https://github.com/lldap/lldap). While further information on Authelia can be found on their [Github](https://github.com/authelia/authelia) and [website](https://www.authelia.com/).

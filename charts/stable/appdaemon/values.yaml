@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/appdaemon
+  repository: docker.io/acockburn/appdaemon
   pullPolicy: IfNotPresent
-  tag: 4.4.2@sha256:a0705dcc407656fa8df4382574048956ec75d8fd923e1f69bf05c6fc74fcca6d
-
+  tag: 4.4.2@sha256:9619fc18bc53082ae2dc680e80f1bcb634c793a74b2114779df1b381ffa0736c
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -17,7 +15,6 @@ service:
         port: 5050
         protocol: http
         targetPort: 5050
-
 workload:
   main:
     podSpec:
@@ -41,12 +38,10 @@ workload:
             ELEVATION: 1217
             TIMEZONE: "{{ .Values.TZ }}"
             TOKEN: "REPLACETHIS"
-
 persistence:
   conf:
     enabled: true
     mountPath: /conf
-
 portal:
   open:
     enabled: true

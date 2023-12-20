@@ -1,0 +1,37 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: vocechat-server
+version: 1.0.3
+appVersion: 0.3.43
+description: A superlight rust written social server.
+home: https://truecharts.org/charts/stable/vocechat-server
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/vocechat-server.png
+deprecated: false
+sources:
+  - https://github.com/Privoce/vocechat-server-rust
+  - https://github.com/truecharts/charts/tree/master/charts/stable/vocechat-server
+  - https://hub.docker.com/r/privoce/vocechat-server
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - vocechat-server
+  - social
+dependencies:
+  - name: common
+    version: 16.2.7
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: social
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+type: application

@@ -1,12 +1,11 @@
 image:
-  repository: tccr.io/truecharts/sonarr
+  repository: ghcr.io/onedr0p/sonarr
   pullPolicy: IfNotPresent
-  tag: 3.0.10.1567@sha256:f420ed0b9341a5241c2278d51a7f4f59635a9c3a5670ac893542fa59052e61b2
+  tag: 3.0.10.1567@sha256:90200b6c31047426aaa175b05715f42edba6bfad34f7845a3ca1b8d8f41b9cd2
 exportarrImage:
-  repository: tccr.io/truecharts/exportarr
+  repository: ghcr.io/onedr0p/exportarr
   pullPolicy: IfNotPresent
-  tag: v1.5.3@sha256:f369a43b28410f12ce1b96f52187dd5c6fb9769a137ecc6f7ab8fdcfbe7db58e
-
+  tag: v1.6.0@sha256:b522e128509b766cf66f847190fccd225ff194dc76775fe6a215f2dd3010cac2
 service:
   main:
     ports:
@@ -21,7 +20,6 @@ service:
         enabled: true
         port: 8990
         targetSelector: exportarr
-
 workload:
   main:
     podSpec:
@@ -93,7 +91,6 @@ workload:
             # enable gathering unknown queue items
             # ENABLE_UNKNOWN_QUEUE_ITEMS: false
             CONFIG: "/config/config.xml"
-
 persistence:
   config:
     enabled: true
@@ -105,14 +102,12 @@ persistence:
         exportarr:
           mountPath: /config
           readOnly: true
-
 # might be supported on sonarr v4 upon released
 cnpg:
   main:
     enabled: false
     database: sonarr
     user: sonarr
-
 metrics:
   main:
     enabled: true
@@ -120,9 +115,10 @@ metrics:
     endpoints:
       - port: metrics
         path: /metrics
+    targetSelector: metrics
     prometheusRule:
       enabled: false
-
 portal:
   open:
     enabled: true
+updated: true

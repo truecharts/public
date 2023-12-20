@@ -1,30 +1,42 @@
-annotations:
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
-    - Other
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
-appVersion: "latest"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 11.1.2
-deprecated: false
-description: pyLoad(https://pyload.net/) is a Free and Open Source download manager written in Python and designed to be extremely lightweight, easily extensible and fully manageable via web.
+name: pyload-ng
+version: 3.0.4
+appVersion: latest
+description:
+  pyLoad(https://pyload.net/) is a Free and Open Source download manager
+  written in Python and designed to be extremely lightweight, easily extensible and
+  fully manageable via web.
 home: https://truecharts.org/charts/incubator/pyload-ng
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pyload-ng.png
+deprecated: false
+sources:
+  - https://github.com/orgs/linuxserver/packages/container/package/pyload-ng
+  - https://github.com/linuxserver/docker-pyload-ng#readme
+  - https://pyload.net/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/pyload-ng
+  - https://fleet.linuxserver.io/image?name=linuxserver/pyload-ng
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
   - pyload-ng
   - Other
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: pyload-ng
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/pyload-ng
-  - https://pyload.net/
-  - https://github.com/orgs/linuxserver/packages/container/package/pyload-ng
-  - https://github.com/linuxserver/docker-pyload-ng#readme
+dependencies:
+  - name: common
+    version: 16.2.7
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Other
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
 type: application
-version: 2.0.21

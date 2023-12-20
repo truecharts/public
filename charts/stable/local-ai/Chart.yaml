@@ -1,28 +1,37 @@
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
-appVersion: "1.30.0"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.0.3
-deprecated: false
+name: local-ai
+version: 6.6.0
+appVersion: 2.1.0
 description: Self-hosted, community-driven, local OpenAI-compatible API.
 home: https://truecharts.org/charts/stable/local-ai
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/local-ai.png
+deprecated: false
+sources:
+  - https://github.com/go-skynet/LocalAI
+  - https://github.com/truecharts/charts/tree/master/charts/stable/local-ai
+  - https://quay.io/go-skynet/local-ai
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
   - local-ai
   - ai
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: local-ai
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/local-ai
-  - https://github.com/go-skynet/LocalAI
-type: application
-version: 0.0.6
+dependencies:
+  - name: common
+    version: 14.5.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  truecharts.org/catagories: |
-    - ai
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
   truecharts.org/SCALE-support: "true"
+  truecharts.org/category: ai
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+type: application

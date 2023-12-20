@@ -1,8 +1,7 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/ipmi-tools
-  tag: latest@sha256:705e2d6a0787c6da56dd4d8b7ed79ac2f76f64eb129f0c707078a1fb4879d17d
-
+  repository: edchamberlain/ipmi-tools
+  tag: latest@sha256:271dd2c2c3953f02ed2a4fc6c6e60d960737ef0c69cf84890458ad70f570a7f2
 service:
   main:
     ports:
@@ -10,7 +9,6 @@ service:
         port: 4017
         protocol: http
         targetPort: 80
-
 workload:
   main:
     podSpec:
@@ -20,12 +18,10 @@ workload:
             APP_IPMI_HOST: ""
             APP_IPMI_PASS: ""
             APP_IPMI_USER: ""
-
 persistence:
   data:
     enabled: true
     mountPath: /data
-
 portal:
   open:
     enabled: true

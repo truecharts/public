@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/cloudflared
+  repository: cloudflare/cloudflared
   pullPolicy: IfNotPresent
-  tag: v2023.8.2@sha256:fda01764ea6d58703cf1dbe74617cffd000d3bc8df9e49fb84ba53785b4e9cf4
-
+  tag: 2023.10.0@sha256:c18744ae1767c17c5562cc731c24e64a5a2f93f35c3dd6629b90dedaff6dff8f
 workload:
   main:
     podSpec:
@@ -21,14 +20,12 @@ workload:
             - run
           env:
             TUNNEL_TOKEN: ""
-
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-
 portal:
   open:
     enabled: false

@@ -1,6 +1,6 @@
 image:
-  repository: tccr.io/truecharts/homepage
-  tag: v0.7.0@sha256:ecfd9a8dc83cd74d5e395df227616173082e339cf567e18c4b8056114d806dec
+  repository: ghcr.io/gethomepage/homepage
+  tag: v0.8.3@sha256:4214f13b534aa4b214665a41b50d60fe0f04ff41cddb8e72fe92811e1eed0112
   pullPolicy: IfNotPresent
 service:
   main:
@@ -16,12 +16,10 @@ persistence:
 portal:
   open:
     enabled: true
-
 serviceAccount:
   main:
     enabled: true
     primary: true
-
 rbac:
   main:
     enabled: true
@@ -70,4 +68,4 @@ rbac:
 workload:
   main:
     podSpec:
-       automountServiceAccountToken: true
+      automountServiceAccountToken: true

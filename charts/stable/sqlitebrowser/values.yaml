@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/sqlitebrowser
+  repository: ghcr.io/linuxserver/sqlitebrowser
   pullPolicy: IfNotPresent
-  tag: version-3.12.2-02876202105241947ubuntu18.04.1@sha256:fc18746d4b3c37355ef0015b34c9bdd1d023c528d05097bf6dc839d54234fc48
+  tag: 18.04.1@sha256:03f747bdf1f035d0752693cb0ff415a508badaf0de28bfe7a1765009c51ed6ed
 service:
   main:
     ports:

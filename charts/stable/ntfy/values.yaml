@@ -1,6 +1,6 @@
 image:
-  repository: tccr.io/truecharts/ntfy
-  tag: v2.7.0@sha256:77f9962a19bbfb837ac625fdab40f6a727d344467a6bf16718cf12aa46c96017
+  repository: binwiederhier/ntfy
+  tag: v2.8.0@sha256:b8f8fb9ee044524d2baa303e5cfab4b3275378acf0b746bd9ace370a3b631a07
   pullPolicy: IfNotPresent
 service:
   main:
@@ -26,7 +26,6 @@ configmap:
 portal:
   open:
     enabled: true
-
 workload:
   main:
     podSpec:
@@ -77,7 +76,6 @@ workload:
           envFrom:
             - configMapRef:
                 name: "ntfy"
-
 metrics:
   main:
     # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
@@ -94,14 +92,13 @@ metrics:
       labels: {}
       # -- Configure additionial rules for the chart under this key.
       # @default -- See prometheusrules.yaml
-      rules:
-        []
-        # - alert: UnifiPollerAbsent
-        #   annotations:
-        #     description: Unifi Poller has disappeared from Prometheus service discovery.
-        #     summary: Unifi Poller is down.
-        #   expr: |
-        #     absent(up{job=~".*unifi-poller.*"} == 1)
-        #   for: 5m
-        #   labels:
-        #     severity: critical
+      rules: []
+      # - alert: UnifiPollerAbsent
+      #   annotations:
+      #     description: Unifi Poller has disappeared from Prometheus service discovery.
+      #     summary: Unifi Poller is down.
+      #   expr: |
+      #     absent(up{job=~".*unifi-poller.*"} == 1)
+      #   for: 5m
+      #   labels:
+      #     severity: critical

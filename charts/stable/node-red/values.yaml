@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/node-red
+  repository: docker.io/nodered/node-red
   pullPolicy: IfNotPresent
-  tag: v3.1.0@sha256:b569148b76168c171f787aad81a84720fa8fdec009babc4bf6e0fe111eec6d30
+  tag: 3.1.3@sha256:f72381be70e1e1f06ae31fa28fc322fbf806184a2a4b97df765e6916f9204d47
 service:
   main:
     ports:
@@ -15,7 +15,6 @@ persistence:
 portal:
   open:
     enabled: true
-
 workload:
   main:
     podSpec:

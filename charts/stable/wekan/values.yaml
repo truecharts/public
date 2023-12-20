@@ -1,6 +1,6 @@
 image:
-  repository: tccr.io/truecharts/wekan
-  tag: 6.46@sha256:a5c1fdd0dfdcab3d98531dc053540c57f52605bc4b7a24c44bbf3637df07e36d
+  repository: wekanteam/wekan
+  tag: v7.24@sha256:edde3aca99c7680089e486f97c377d7d37f9bad40ccfa85558f81dd7d0e67dad
   pullPolicy: IfNotPresent
 service:
   main:
@@ -12,7 +12,6 @@ mongodb:
   enabled: true
   mongodbUsername: wekan
   mongodbDatabase: wekan
-
 persistence:
   data:
     enabled: true
@@ -20,7 +19,6 @@ persistence:
 portal:
   open:
     enabled: true
-
 workload:
   main:
     podSpec:

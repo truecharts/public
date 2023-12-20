@@ -1,18 +1,19 @@
-env: {}
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/poste
-  tag: latest@sha256:fbae120b76040f8d259b3f19662004965941a92fe984e38237116699e460b985
+  repository: analogic/poste.io
+  tag: latest@sha256:08091dc5fbfe799fd8dbdd310f5f76fb8cde03c23a710e1a21ffeafbfa267115
 persistence:
   data:
     enabled: true
     mountPath: /data
-podSecurityContext:
-  runAsGroup: 0
-  runAsUser: 0
+portal:
+  open:
+    enabled: true
 securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
 service:
   containerhttps:
     enabled: true
@@ -20,7 +21,7 @@ service:
       containerhttps:
         enabled: true
         port: 443
-        protocol: TCP
+        protocol: tcp
         targetPort: 443
   containerimaps:
     enabled: true
@@ -28,7 +29,7 @@ service:
       containerimaps:
         enabled: true
         port: 993
-        protocol: TCP
+        protocol: tcp
         targetPort: 993
   containermsa:
     enabled: true
@@ -36,7 +37,7 @@ service:
       containermsa:
         enabled: true
         port: 587
-        protocol: TCP
+        protocol: tcp
         targetPort: 587
   containerpop3s:
     enabled: true
@@ -44,7 +45,7 @@ service:
       containerpop3s:
         enabled: true
         port: 995
-        protocol: TCP
+        protocol: tcp
         targetPort: 995
   containersmtps:
     enabled: true
@@ -52,7 +53,7 @@ service:
       containersmtps:
         enabled: true
         port: 465
-        protocol: TCP
+        protocol: tcp
         targetPort: 465
   externalsievef:
     enabled: true
@@ -60,7 +61,7 @@ service:
       externalsievef:
         enabled: true
         port: 4190
-        protocol: TCP
+        protocol: tcp
         targetPort: 4190
   imap:
     enabled: true
@@ -68,13 +69,13 @@ service:
       imap:
         enabled: true
         port: 143
-        protocol: TCP
+        protocol: tcp
         targetPort: 143
   main:
     ports:
       main:
         port: 8280
-        protocol: HTTP
+        protocol: http
         targetPort: 80
   pop3port:
     enabled: true
@@ -82,7 +83,7 @@ service:
       pop3port:
         enabled: true
         port: 110
-        protocol: TCP
+        protocol: tcp
         targetPort: 110
   port25:
     enabled: true
@@ -90,8 +91,5 @@ service:
       port25:
         enabled: true
         port: 25
-        protocol: TCP
+        protocol: tcp
         targetPort: 25
-
-portal:
-  enabled: true

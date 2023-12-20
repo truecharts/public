@@ -1,21 +1,35 @@
+{{- define "nextcloud.accessurl" -}}
+  {{- $accessUrl := .Values.chartContext.APPURL -}}
+  {{- if or (contains "127.0.0.1" $accessUrl) (contains "localhost" $accessUrl) -}}
+    {{- if .Values.nextcloud.general.accessIP -}}
+      {{- $prot := "http" -}}
+      {{- $host := .Values.nextcloud.general.accessIP -}}
+      {{- $port := .Values.service.main.ports.main.port -}}
+      {{/*
+        Allowing here to override protocol and port
+        should be enough to make it work with any rev proxy
+      */}}
+      {{- $accessUrl = printf "%v://%v:%v" $prot $host $port -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- $accessUrl -}}
+{{- end -}}
+
+{{- define "nextcloud.accesshost" -}}
+  {{- $accessUrl := (include "nextcloud.accessurl" $) -}}
+  {{- $accessHost := regexReplaceAll ".*://(.*)" $accessUrl "${1}" -}}
+  {{- $accessHost = regexReplaceAll "(.*):.*" $accessHost "${1}" -}}
+
+  {{- $accessHost -}}
+{{- end -}}
+
 {{/* Define the configmap */}}
 {{- define "nextcloud.configmaps" -}}
 {{- $fullname := (include "tc.v1.common.lib.chart.names.fullname" $) -}}
-{{- $accessUrl := .Values.chartContext.APPURL -}}
-{{- if or (contains "127.0.0.1" $accessUrl) (contains "localhost" $accessUrl) -}}
-  {{- if .Values.nextcloud.general.accessIP -}}
-    {{- $prot := "http" -}}
-    {{- $host := .Values.nextcloud.general.accessIP -}}
-    {{- $port := .Values.service.main.ports.main.port -}}
-    {{/*
-      Allowing here to override protocol and port
-      should be enough to make it work with any rev proxy
-    */}}
-    {{- $accessUrl = printf "%v://%v:%v" $prot $host $port -}}
-  {{- end -}}
-{{- end -}}
-{{- $accessHost := regexReplaceAll ".*://(.*)" $accessUrl "${1}" -}}
-{{- $accessHost = regexReplaceAll "(.*):.*" $accessUrl "${1}" -}}
+{{- $fqdn := (include "tc.v1.common.lib.chart.names.fqdn" $) -}}
+{{- $accessUrl := (include "nextcloud.accessurl" $) -}}
+{{- $accessHost := (include "nextcloud.accesshost" $) -}}
 {{- $accessHostPort := regexReplaceAll ".*://(.*)" $accessUrl "${1}" -}}
 {{- $accessProtocol := regexReplaceAll "(.*)://.*" $accessUrl "${1}" -}}
 {{- $redisHost := .Values.redis.creds.plainhost | trimAll "\"" -}}
@@ -148,6 +162,7 @@ nextcloud-config:
     NX_RUN_OPTIMIZE: {{ .Values.nextcloud.general.run_optimize | quote }}
     NX_DEFAULT_PHONE_REGION: {{ .Values.nextcloud.general.default_phone_region | quote }}
     NEXTCLOUD_DATA_DIR: {{ .Values.persistence.data.targetSelector.main.main.mountPath }}
+    NX_FORCE_ENABLE_ALLOW_LOCAL_REMOTE_SERVERS: {{ .Values.nextcloud.general.force_enable_allow_local_remote_servers | quote }}
 
     {{/* Files */}}
     NX_SHARED_FOLDER_NAME: {{ .Values.nextcloud.files.shared_folder_name | quote }}
@@ -183,6 +198,9 @@ nextcloud-config:
     NX_ONLYOFFICE: {{ .Values.nextcloud.onlyoffice.enabled | quote }}
     {{- if .Values.nextcloud.onlyoffice.enabled }}
     NX_ONLYOFFICE_URL: {{ .Values.nextcloud.onlyoffice.url | quote }}
+    NX_ONLYOFFICE_INTERNAL_URL: {{ .Values.nextcloud.onlyoffice.internal_url | quote }}
+    NX_ONLYOFFICE_VERIFY_SSL: {{ .Values.nextcloud.onlyoffice.verify_ssl | quote }}
+    NX_ONLYOFFICE_NEXTCLOUD_INTERNAL_URL: {{ printf "http://%v.svc.cluster.local:%v" $fqdn .Values.service.main.ports.main.port }}
     NX_ONLYOFFICE_JWT: {{ .Values.nextcloud.onlyoffice.jwt | quote }}
     NX_ONLYOFFICE_JWT_HEADER: {{ .Values.nextcloud.onlyoffice.jwt_header | quote }}
     {{- end }}
@@ -296,11 +314,16 @@ nginx-config:
           gzip_comp_level 4;
           gzip_min_length 256;
           gzip_proxied expired no-cache no-store private no_last_modified no_etag auth;
-          gzip_types application/atom+xml application/javascript application/json application/ld+json application/manifest+json application/rss+xml application/vnd.geo+json application/vnd.ms-fontobject application/x-font-ttf application/x-web-app-manifest+json application/xhtml+xml application/xml font/opentype image/bmp image/svg+xml image/x-icon text/cache-manifest text/css text/plain text/vcard text/vnd.rim.location.xloc text/vtt text/x-component text/x-cross-domain-policy;
+          gzip_types application/atom+xml text/javascript application/javascript application/json application/ld+json application/manifest+json application/rss+xml application/vnd.geo+json application/vnd.ms-fontobject application/wasm application/x-font-ttf application/x-web-app-manifest+json application/xhtml+xml application/xml font/opentype image/bmp image/svg+xml image/x-icon text/cache-manifest text/css text/plain text/vcard text/vnd.rim.location.xloc text/vtt text/x-component text/x-cross-domain-policy;
 
           # Pagespeed is not supported by Nextcloud, so if your server is built
           # with the `ngx_pagespeed` module, uncomment this line to disable it.
           #pagespeed off;
+
+          include mime.types;
+          types {
+              text/javascript js mjs;
+          }
 
           # HTTP response headers borrowed from Nextcloud `.htaccess`
           add_header Referrer-Policy                      "no-referrer"       always;

@@ -1,0 +1,37 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: spaceengineers
+version: 3.0.14
+appVersion: latest
+description: Space Engineers Dedicated Server.
+home: https://truecharts.org/charts/stable/spaceengineers
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/spaceengineers.png
+deprecated: false
+sources:
+  - https://github.com/Devidian/docker-spaceengineers
+  - https://github.com/truecharts/charts/tree/master/charts/stable/spaceengineers
+  - https://hub.docker.com/r/devidian/spaceengineers
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - spaceengineers
+  - GameServers
+dependencies:
+  - name: common
+    version: 14.5.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: GameServers
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+type: application

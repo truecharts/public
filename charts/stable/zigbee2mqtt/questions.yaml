@@ -56,7 +56,7 @@ questions:
                                               schema:
                                                 type: string
                                                 required: true
-                                                default: "mqtt://mqtt.ix-mqtt.svc.cluster.local"
+                                                default: "mqtt://mosquitto.ix-mosquitto.svc.cluster.local"
                                             - variable: ZIGBEE2MQTT_CONFIG_MQTT_BASE_TOPIC
                                               label: "MQTT Base Topic"
                                               description: "This will override the specific value of config file"

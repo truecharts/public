@@ -12,6 +12,28 @@ questions:
 # Include{containerMain}
 
 
+                                - variable: env
+                                  group: App Configuration
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: WHISPARR__AUTHENTICATION_METHOD
+                                        label: Auth Method
+                                        description: Sets the auth method.
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          enum:
+                                            - value: ""
+                                              description: In-App Setting
+                                            - value: External
+                                              description: External/None
+                                            - value: Basic
+                                              description: Basic
+                                            - value: Forms
+                                              description: Forms
 # Include{containerBasic}
 # Include{containerAdvanced}
 
@@ -66,13 +88,13 @@ questions:
                 description: "The UserID of the user running the application"
                 schema:
                   type: int
-                  default: 568
+                  default: 0
               - variable: runAsGroup
                 label: "runAsGroup"
                 description: "The groupID this App of the user running the application"
                 schema:
                   type: int
-                  default: 568
+                  default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}

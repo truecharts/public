@@ -1,19 +1,16 @@
 image:
-  repository: tccr.io/truecharts/emby
+  repository: ghcr.io/onedr0p/emby
   pullPolicy: IfNotPresent
-  tag: v4.7.14.0@sha256:60a09fe35c88d02b55222ce59d9bfe7d979033a077fa94d5e257cd4623f93e58
-
+  tag: 4.7.14.0@sha256:084a2a51836f049aaa2dc3754516c9141f881eb78b09b0ef85b49c964e5719e8
 securityContext:
   container:
     readOnlyRootFilesystem: false
-
 service:
   main:
     ports:
       main:
         port: 10079
         targetPort: 8096
-
 workload:
   main:
     podSpec:
@@ -30,12 +27,10 @@ workload:
               type: http
               path: /
           env: {}
-
 persistence:
   config:
     enabled: true
     mountPath: /config
-
 portal:
   open:
     enabled: true

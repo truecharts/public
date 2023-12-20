@@ -1,30 +1,38 @@
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
-appVersion: "0.68.0"
-deprecated: false
+name: prometheus-operator
+version: 1.0.17
+appVersion: 0.69.1
 description: Prometheus Operator is an operator for prometheus
 home: https://truecharts.org/charts/operators/prometheus-operator
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/prometheus-operator.png
+deprecated: false
+sources:
+  - https://github.com/prometheus-operator
+  - https://github.com/truecharts/charts/tree/master/charts/operators/prometheus-operator
+  - https://github.com/truecharts/containers/tree/master/mirrorprometheus-config-reloader
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
   - operator
   - prometheus
   - metics
 dependencies:
   - name: common
+    version: 14.5.0
     repository: https://library-charts.truecharts.org
-    version: 14.0.1
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: prometheus-operator
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/operators/prometheus-operator
-  - https://github.com/prometheus-operator
-type: application
-version: 1.0.3
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  truecharts.org/catagories: |
-    - operators
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
   truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+  truecharts.org/category: operators
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: operators
+type: application

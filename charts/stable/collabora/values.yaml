@@ -1,8 +1,7 @@
 image:
-  repository: tccr.io/truecharts/collabora
+  repository: collabora/code
   pullPolicy: IfNotPresent
-  tag: v23.05.4.2.1@sha256:9cb6037acc9a286dd78bd158d00221bc074b797b66fee1e4fcd286f2ed4dc28b
-
+  tag: 23.05.6.3.1@sha256:6d21951e6376be4a12009b5058c57f3da7df06faf05c62406030b3652a3e78f6
 collabora:
   username: admin
   password: changeme
@@ -26,7 +25,6 @@ collabora:
   no_gen_ssl: true
   extra_params:
     - --o:welcome.enable=false
-
 workload:
   main:
     podSpec:
@@ -46,7 +44,6 @@ workload:
                 - FOWNER
                 - SYS_CHROOT
                 - MKNOD
-
 service:
   main:
     ports:
@@ -54,7 +51,6 @@ service:
         protocol: http
         targetPort: 9980
         port: 9980
-
 portal:
   open:
     enabled: true

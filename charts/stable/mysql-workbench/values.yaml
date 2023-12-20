@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/mysql-workbench
+  repository: ghcr.io/linuxserver/mysql-workbench
   pullPolicy: IfNotPresent
-  tag: v8.0.34@sha256:4025487b7aca3a03691e427a33e94a2b821a9d87e2953213876334ffceee1746
+  tag: 8.0.34@sha256:eb838bdc6e44cd18ee88b52ecda9edaa857d49bf227f284c15c78e5c0e92e2d4
 service:
   main:
     ports:

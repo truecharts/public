@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/actualserver
+  repository: ghcr.io/actualbudget/actual-server
   pullPolicy: IfNotPresent
-  tag: v23.9.0@sha256:0fd0b1fe56964e45918207dd1ae44a97691bd4cce88e58bb6bb9eeee70500a3a
-
+  tag: 23.12.1@sha256:439f2ed8d88f6f3616b986d69cf61d5519869507cf74289c403c96b2c48585f8
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsGroup: 0
     runAsUser: 0
-
 workload:
   main:
     podSpec:
@@ -26,7 +24,6 @@ workload:
               type: http
               path: /
           env: {}
-
 service:
   main:
     ports:
@@ -34,7 +31,6 @@ service:
         port: 10293
         protocol: http
         targetPort: 5006
-
 persistence:
   server-files:
     enabled: true
@@ -42,7 +38,6 @@ persistence:
   user-files:
     enabled: true
     mountPath: /app/user-files
-
 portal:
   open:
     enabled: true

@@ -11,7 +11,6 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
                                 - variable: env
-                                  group: "App Configuration"
                                   label: "Image Environment"
                                   schema:
                                     additional_attrs: true
@@ -53,8 +52,6 @@ questions:
                                           default: "/opt/bitnami/grafana/conf/ldap.toml"
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}

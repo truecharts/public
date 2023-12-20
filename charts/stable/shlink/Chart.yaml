@@ -1,32 +1,46 @@
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
-appVersion: "3.6.4"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.0.1
-  - condition: redis.enabled
-    name: redis
-    repository: https://deps.truecharts.org
-    version: 6.0.66
-deprecated: false
-description: A PHP-based self-hosted URL shortener that can be used to serve shortened URLs under your own custom domain.
+name: shlink
+version: 9.1.4
+appVersion: 3.7.1
+description:
+  A PHP-based self-hosted URL shortener that can be used to serve shortened
+  URLs under your own custom domain.
 home: https://truecharts.org/charts/stable/shlink
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/shlink.png
+deprecated: false
+sources:
+  - https://github.com/shlinkio/shlink
+  - https://github.com/truecharts/charts/tree/master/charts/stable/shlink
+  - https://hub.docker.com/r/shlinkio/shlink
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
   - url
   - shortener
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: shlink
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/shlink
-  - https://github.com/shlinkio/shlink
-type: application
-version: 9.0.1
+dependencies:
+  - name: common
+    version: 14.5.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 6.0.66
+    repository: https://deps.truecharts.org
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  truecharts.org/catagories: |
-    - utilities
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
   truecharts.org/SCALE-support: "true"
+  truecharts.org/category: utilities
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+type: application

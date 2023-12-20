@@ -1,15 +1,13 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/cops
-  tag: latest@sha256:464fda1c92eff52f72ea8639468464dced1af53717b4bf291ad92f8ffe143601
-
+  repository: lscr.io/linuxserver/cops
+  tag: 2.2.1@sha256:b593fe1e61d418c84a96023f2a18078f3cbd38b65f0c7b998dd48d80328742c2
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsGroup: 0
     runAsUser: 0
-
 service:
   main:
     ports:
@@ -17,7 +15,6 @@ service:
         port: 10609
         protocol: http
         targetPort: 80
-
 persistence:
   config:
     enabled: true
@@ -25,7 +22,6 @@ persistence:
   books:
     enabled: true
     mountPath: /books
-
 portal:
   open:
     enabled: true

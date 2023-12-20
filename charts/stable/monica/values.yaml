@@ -1,6 +1,6 @@
 image:
-  repository: tccr.io/truecharts/monica
-  tag: 4.0.0@sha256:9901c9f32db13197914abd2c10c2b56d0c960cebeb18b7feae5f08b002ced4c8
+  repository: monica
+  tag: 4.0.0@sha256:78c4adecfbb062a2d0ce6b12f2602e2136d1127c5bdc31de9020abc533b9e0cd
   pullPolicy: IfNotPresent
 service:
   main:
@@ -16,7 +16,6 @@ mariadb:
   enabled: true
   mariadbUsername: monica
   mariadbDatabase: monica
-
 portal:
   open:
     enabled: true

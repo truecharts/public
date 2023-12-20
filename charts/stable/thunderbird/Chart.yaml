@@ -1,0 +1,39 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: thunderbird
+version: 3.0.6
+appVersion: latest
+description:
+  This Chart will download and install Thunderbird in the preferred version
+  and language.
+home: https://truecharts.org/charts/incubator/thunderbird
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/thunderbird.png
+deprecated: false
+sources:
+  - https://www.thunderbird.net/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/thunderbird
+  - https://hub.docker.com/r/ich777/thunderbird
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - thunderbird
+  - mail
+dependencies:
+  - name: common
+    version: 16.2.7
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: productivity
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

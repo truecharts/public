@@ -1,15 +1,13 @@
 image:
-  repository: tccr.io/truecharts/cloud9
+  repository: ghcr.io/linuxserver/cloud9
   pullPolicy: IfNotPresent
-  tag: version-1.29.2@sha256:4891fa151fe52c43719f0346124f29c81ed47be16cdc34554b8896b0cb80cb73
-
+  tag: version-1.29.2@sha256:45c5fe102ff3390bcd4ea58db99023b7ea099a8462f5727973ec329bd4a8d6b4
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
@@ -17,7 +15,6 @@ service:
         port: 10070
         protocol: http
         targetPort: 8000
-
 workload:
   main:
     podSpec:
@@ -34,12 +31,10 @@ workload:
               type: http
               path: /
           env: {}
-
 persistence:
   code:
     enabled: true
     mountPath: /code
-
 portal:
   open:
     enabled: true

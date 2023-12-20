@@ -1,21 +1,18 @@
 image:
-  repository: tccr.io/truecharts/stash
-  tag: v0.22.1@sha256:c92ba67b3e1635490baee1c2fc103e52d3cdec4c93e583db9173a53b8f4ef8b6
+  repository: stashapp/stash
+  tag: v0.23.1@sha256:96d4e778a9fb7199da28983413c9767617bafc69db781bf7d00cd2667344b76d
   pullPolicy: IfNotPresent
-
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
       main:
         port: 9999
-
 workload:
   main:
     podSpec:
@@ -27,7 +24,6 @@ workload:
             STASH_GENERATED: /generated
             STASH_METADATA: /metadata
             STASH_CACHE: /cache
-
 persistence:
   config:
     enabled: true
@@ -47,7 +43,6 @@ persistence:
   data:
     enabled: true
     mountPath: "/data"
-
 portal:
   open:
     enabled: true

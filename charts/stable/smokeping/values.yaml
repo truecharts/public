@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/smokeping
+  repository: ghcr.io/linuxserver/smokeping
   pullPolicy: IfNotPresent
-  tag: version-2.7.3-r5@sha256:e56ba2420901250afb865a7e03e43956dcff17503ce44c48b20064980a42f5a4
+  tag: 2.8.2@sha256:030b9f4b45a5361c5168ecb7ea899210e01ee7eeb2713258035850e7640b43dd
 strategy:
   type: Recreate
 service:
@@ -25,8 +25,8 @@ portal:
 securityContext:
   container:
     capabilities:
-        add:
-          - NET_RAW
+      add:
+        - NET_RAW
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     allowPrivilegeEscalation: true

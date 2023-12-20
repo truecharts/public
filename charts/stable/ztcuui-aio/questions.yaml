@@ -53,17 +53,17 @@ questions:
                               type: int
                               default: 10257
                               required: true
-        - variable: other
-          label: "other Service"
-          description: "other service"
+        - variable: server
+          label: "Server Service"
+          description: "Server Service"
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
-                    - variable: other
-                      label: "other Service Port Configuration"
+                    - variable: web
+                      label: "Web Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -75,9 +75,9 @@ questions:
                               type: int
                               default: 3180
                               required: true
-        - variable: other2
-          label: "other Service"
-          description: "other service"
+        - variable: planet
+          label: "Planet Service"
+          description: "Planet Service"
           schema:
             additional_attrs: true
             type: dict
@@ -102,14 +102,24 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: config
-          label: "config Storage"
+          label: App Config Storage
+          description: Stores the Application Config.
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
         - variable: zerotier
-          label: "Zerotier Storage"
+          label: App Zerotier Storage
+          description: Stores the Application Zerotier.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: mkworld
+          label: App Mkworld Storage
+          description: Stores the Application Mkworld.
           schema:
             additional_attrs: true
             type: dict

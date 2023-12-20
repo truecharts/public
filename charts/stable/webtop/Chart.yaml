@@ -1,30 +1,41 @@
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
-appVersion: "latest"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.0.1
-deprecated: false
-description: Webtop full desktop environments in officially supported flavors accessible via any modern web browser.
+name: webtop
+version: 6.0.232
+appVersion: latest
+description:
+  Webtop full desktop environments in officially supported flavors accessible
+  via any modern web browser.
 home: https://truecharts.org/charts/stable/webtop
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/webtop.png
+deprecated: false
+sources:
+  - https://github.com/linuxserver/docker-webtop#readme
+  - https://github.com/linuxserver/gclient
+  - https://github.com/orgs/linuxserver/packages/container/package/webtop
+  - https://github.com/truecharts/charts/tree/master/charts/stable/webtop
+  - https://fleet.linuxserver.io/image?name=linuxserver/webtop
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
   - webtop
   - Tools-Utilities
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: webtop
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/webtop
-  - https://github.com/linuxserver/gclient
-  - https://github.com/orgs/linuxserver/packages/container/package/webtop
-  - https://github.com/linuxserver/docker-webtop#readme
-type: application
-version: 6.0.112
+dependencies:
+  - name: common
+    version: 14.5.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  truecharts.org/catagories: |
-    - Tools-Utilities
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
   truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Tools-Utilities
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+type: application

@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-1. The cloudnative-pg operator is required from the operator train. More information can be 
+1. The cloudnative-pg operator is required from the operator train. More information can be
    found on our [getting started guide](https://truecharts.org/manual/SCALE/guides/getting-started#cnpg-operator-installation-and-migration-guide-for-older-users).
 2. While nextcloud can run without ingress setup a lot of features will not work. More information can be
    found on our [getting started guide](https://truecharts.org/manual/SCALE/guides/getting-started#traefik-installation-for-ingress--reverse-proxy-support-with-truecharts-apps).
@@ -32,12 +32,12 @@ The following configurations must be set during initially setup for nextcloud to
 
 ### Optional Addons
 
-1. Notify Push (Allows Nextcloud to notify clients of changes, instead of clients having to poll. 
+1. Notify Push (Allows Nextcloud to notify clients of changes, instead of clients having to poll.
    A Notify Push container will be deployed automatically). This is highly recommended to keep enabled.
-2. ClamAV (Anti-virus for nextcloud, keep in mind that only scans files that Nextcloud posts to it's endpoint. 
+2. ClamAV (Anti-virus for nextcloud, keep in mind that only scans files that Nextcloud posts to it's endpoint.
    A Clam AV container will be deployed automatically.
 3. Collabora (Document editor for Nextcloud. A Collabora container will be deployed automatically.
-4. Only Office (document editor for Nextcloud, this does **NOT** deploy the Only Office container. 
+4. Only Office (document editor for Nextcloud, this does **NOT** deploy the Only Office container.
    You will need to have a separate installation.
 
 ### Networking and Services
@@ -47,4 +47,3 @@ If you are setting up Ingress (highly recommended and the only method supported)
 ### Storage
 
 You can change the User Data Storage option to your preference here if you previously setup the proper dataset permissions. All other Storage should remain the default of PVC.
-

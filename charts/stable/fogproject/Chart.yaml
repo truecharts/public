@@ -1,0 +1,40 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: fogproject
+version: 3.0.5
+appVersion: latest
+description:
+  FOG Project can capture, deploy, and manage Windows, Mac OSX, and various
+  Linux distributions.
+home: https://truecharts.org/charts/incubator/fogproject
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/fogproject.png
+deprecated: false
+sources:
+  - https://github.com/redvex2460/fogproject
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/fogproject
+  - https://hub.docker.com/r/redvex2460/fogproject
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - fogproject
+  - Backup
+  - Network-DNS
+dependencies:
+  - name: common
+    version: 16.2.7
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Backup
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

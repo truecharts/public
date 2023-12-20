@@ -1,27 +1,36 @@
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
-appVersion: "2.5.6"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.0.1
-deprecated: false
+name: heimdall
+version: 16.0.13
+appVersion: 2.5.7
 description: An Application dashboard and launcher
 home: https://truecharts.org/charts/stable/heimdall
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/heimdall.png
+deprecated: false
+sources:
+  - https://github.com/linuxserver/Heimdall/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/heimdall
+  - https://hub.docker.com/r/linuxserver/heimdall
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
   - heimdall
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: heimdall
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/heimdall
-  - https://github.com/linuxserver/Heimdall/
-type: application
-version: 16.0.0
+dependencies:
+  - name: common
+    version: 14.5.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  truecharts.org/catagories: |
-    - organizers
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
   truecharts.org/SCALE-support: "true"
+  truecharts.org/category: organizers
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+type: application

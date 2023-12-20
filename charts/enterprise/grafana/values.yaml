@@ -1,13 +1,12 @@
 image:
-  repository: tccr.io/truecharts/grafana
+  repository: bitnami/grafana
   pullPolicy: IfNotPresent
-  tag: v10.1.4@sha256:b2c0bd784be2f94c90eb06eeed4b455e3a0d0b522c8d19c16f7b9a491ac9cff5
+  tag: 10.2.2@sha256:cf16036efbdf9192af02287492feca0ae1b470fdae2af30dd5d0c029ec447ae6
 manifestManager:
   enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
-
 service:
   main:
     ports:
@@ -15,7 +14,6 @@ service:
         protocol: http
         targetPort: 3000
         port: 10038
-
 workload:
   main:
     replicas: 2
@@ -38,13 +36,10 @@ workload:
           probes:
             liveness:
               path: "/api/health"
-
             readiness:
               path: "/api/health"
-
             startup:
               path: "/api/health"
-
 persistence:
   config:
     enabled: true
@@ -53,7 +48,6 @@ persistence:
     enabled: true
     type: emptyDir
     mountPath: /opt/bitnami/grafana/tmp
-
 metrics:
   main:
     # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
@@ -70,18 +64,16 @@ metrics:
       labels: {}
       # -- Configure additionial rules for the chart under this key.
       # @default -- See prometheusrules.yaml
-      rules:
-        []
-        # - alert: UnifiPollerAbsent
-        #   annotations:
-        #     description: Unifi Poller has disappeared from Prometheus service discovery.
-        #     summary: Unifi Poller is down.
-        #   expr: |
-        #     absent(up{job=~".*unifi-poller.*"} == 1)
-        #   for: 5m
-        #   labels:
-        #     severity: critical
-
+      rules: []
+      # - alert: UnifiPollerAbsent
+      #   annotations:
+      #     description: Unifi Poller has disappeared from Prometheus service discovery.
+      #     summary: Unifi Poller is down.
+      #   expr: |
+      #     absent(up{job=~".*unifi-poller.*"} == 1)
+      #   for: 5m
+      #   labels:
+      #     severity: critical
 portal:
   open:
     enabled: true
