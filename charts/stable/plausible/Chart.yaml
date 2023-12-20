@@ -1,47 +1,47 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: plausible
-version: 6.0.0
+version: 6.0.1
 appVersion: 2.0.0
 description: Plausible is lightweight and open source web analytics. No cookies and fully compliant with GDPR, CCPA and PECR.
 home: https://truecharts.org/charts/stable/plausible
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/plausible.png
 deprecated: false
 sources:
-  - https://plausible.io/docs/self-hosting
-  - https://github.com/truecharts/charts/tree/master/charts/stable/plausible
-  - https://hub.docker.com/r/plausible/analytics
-  - https://github.com/plausible/analytics
-  - https://github.com/plausible/hosting
-  - https://plausible.io/
+    - https://plausible.io/
+    - https://github.com/truecharts/charts/tree/master/charts/stable/plausible
+    - https://hub.docker.com/r/plausible/analytics
+    - https://plausible.io/docs/self-hosting
+    - https://github.com/plausible/analytics
+    - https://github.com/plausible/hosting
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - plausible
-  - analytics
+    - plausible
+    - analytics
 dependencies:
-  - name: common
-    version: 16.2.7
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-  - name: clickhouse
-    version: 9.0.4
-    repository: https://deps.truecharts.org/
-    condition: clickhouse.enabled
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 16.2.7
+      repository: https://library-charts.truecharts.org
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
+    - name: clickhouse
+      version: 9.0.4
+      repository: https://deps.truecharts.org/
+      condition: clickhouse.enabled
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: analytics
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: analytics
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application
