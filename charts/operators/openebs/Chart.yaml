@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: openebs
-version: 1.0.7
+version: 1.1.0
 appVersion: latest
 description: OpenEBS is a umbrella container storage provisioner
 home: https://truecharts.org/charts/incubator/openebs
@@ -28,7 +28,7 @@ dependencies:
   tags: []
   import-values: []
 - name: openebs
-  version: 3.9.0
+  version: 3.10.0
   repository: https://openebs.github.io/charts
   condition: ""
   alias: openebs
