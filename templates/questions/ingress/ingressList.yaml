@@ -27,12 +27,6 @@
                 schema:
                   type: string
                   default: ""
-              - variable: allowCors
-                label: "Allow Cross Origin Requests"
-                schema:
-                  type: boolean
-                  show_if: [["advanced", "=", true]]
-                  default: false
               - variable: hosts
                 label: Hosts
                 schema:
@@ -90,12 +84,6 @@
                                               label: Service Port
                                               schema:
                                                 type: int
-              - variable: certificateIssuer
-                label: certificateIssuer
-                description: 'add the name of your cert-manager clusterIssuer here for automatic tls certificates. Cannot be used combined with tls option below'
-                schema:
-                  type: string
-                  default: ""
               - variable: tls
                 label: TLS-Settings
                 schema:
@@ -147,13 +135,85 @@
                               type: string
                               show_if: [["certificateIssuer", "=", ""]]
                               default: ""
-              - variable: integration
+              - variable: integrations
                 label: Integrations
                 description: Connect ingress with other charts
                 schema:
                   additional_attrs: true
                   type: dict
                   attrs:
+                    - variable: traefik
+                      label: Traefik
+                      description: Connect ingress with Traefik
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: enabled
+                            label: enabled
+                            schema:
+                              type: boolean
+                              default: true
+                          - variable: allowCors
+                            label: "Allow Cross Origin Requests"
+                            schema:
+                              type: boolean
+                              default: false
+                              show_if: [["enabled", "=", true]]
+                          - variable: entrypoints
+                            label: Entrypoints
+                            schema:
+                              type: list
+                              default: ["websecure"]
+                              show_if: [["enabled", "=", true]]
+                              items:
+                                - variable: entrypoint
+                                   label: Entrypoint
+                                   schema:
+                                     type: string
+                          - variable: middlewares
+                            label: Middlewares
+                            schema:
+                              type: list
+                              default: []
+                              show_if: [["enabled", "=", true]]
+                              items:
+                                - variable: middleware
+                                  label: Middleware
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: name
+                                        label: name
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          required: true
+                                      - variable: namespace
+                                        label: namespace
+                                        schema:
+                                          type: string
+                                          default: ""
+                    - variable: certManager
+                      label: certManager
+                      description: Connect ingress with certManager
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: enabled
+                            label: enabled
+                            schema:
+                              type: boolean
+                              default: true
+                          - variable: certificateIssuer
+                            label: certificateIssuer
+                            description: defaults to chartname
+                            schema:
+                              type: string
+                              default: ""
+                              show_if: [["enabled", "=", true]]
                     - variable: homepage
                       label: Homepage
                       description: Connect ingress with Homepage
@@ -187,23 +247,3 @@
                               required: true
                               default: "default"
                               show_if: [["enabled", "=", true]]
-              - variable: entrypoint
-                label: Traefik Entrypoint
-                description: Entrypoint used by Traefik when using Traefik as Ingress Provider
-                schema:
-                  type: string
-                  default: websecure
-                  required: true
-              - variable: middlewares
-                label: Traefik Middlewares
-                description: Add previously created Traefik Middlewares to this Ingress
-                schema:
-                  type: list
-                  default: []
-                  items:
-                    - variable: name
-                      label: Name
-                      schema:
-                        type: string
-                        default: ""
-                        required: true
