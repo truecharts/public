@@ -26,7 +26,7 @@ service:
 
 workload:
   exportarr:
-    enabled: true
+    enabled: "{{ .Values.metrics.main.enabled }}"
     type: Deployment
     strategy: RollingUpdate
     replicas: 1
