@@ -17,6 +17,12 @@ questions:
                                     additional_attrs: true
                                     type: dict
                                     attrs:
+                                      - variable: BASE_URL
+                                        label: "BASE_URL"
+                                        description: "Base URL to generate HTML links and base path for cookies."
+                                        schema:
+                                          type: string
+                                          default: ""
                                       - variable: ADMIN_USERNAME
                                         label: "ADMIN_USERNAME"
                                         description: "Sets the ADMIN_USERNAME env var"
@@ -30,18 +36,6 @@ questions:
                                           type: string
                                           default: "changeme"
                                           private: true
-                                      - variable: RUN_MIGRATIONS
-                                        label: "RUN_MIGRATIONS"
-                                        description: "Sets the RUN_MIGRATIONS env var"
-                                        schema:
-                                          type: int
-                                          default: 1
-                                      - variable: CREATE_ADMIN
-                                        label: "CREATE_ADMIN"
-                                        description: "Sets the CREATE_ADMIN env var"
-                                        schema:
-                                          type: int
-                                          default: 1
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
