@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: authentik
-version: 15.0.27
+version: 16.0.0
 appVersion: 2023.10.4
 description: Authentik is an open-source Identity Provider focused on flexibility and versatility.
 home: https://truecharts.org/charts/stable/authentik
@@ -19,20 +19,20 @@ maintainers:
 keywords:
     - authentik
 dependencies:
-    - name: common
-      version: 14.5.0
-      repository: https://library-charts.truecharts.org
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-    - name: redis
-      version: 8.0.47
-      repository: https://deps.truecharts.org
-      condition: redis.enabled
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 16.2.5
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 8.0.47
+    repository: https://deps.truecharts.org
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
     max_scale_version: 23.10.2
     min_scale_version: 23.10.0
