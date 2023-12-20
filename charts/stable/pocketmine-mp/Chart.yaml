@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: pocketmine-mp
-version: 0.0.7
+version: 1.0.0
 appVersion: 5.8.2@sha256:85b5b10f86044282ec1f1707659419347e1e48e899b351196b81e376e7fd38c0
 description: A server software for Minecraft Bedrock Edition in PHP.
 home: https://truecharts.org/charts/incubator/pocketmine-mp
@@ -20,7 +20,7 @@ keywords:
     - minecraft
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

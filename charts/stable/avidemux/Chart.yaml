@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: avidemux
-version: 5.0.15
+version: 6.0.0
 appVersion: 23.11.2@sha256:b2a68ff4524d31e69e483442aea02c0531e02f65df1eb18c74bc8c5b7aa7ad4a
 description: Avidemux is a free video editor designed for simple cutting, filtering and encoding tasks.
 home: https://truecharts.org/charts/stable/avidemux
@@ -20,7 +20,7 @@ keywords:
     - avidemux
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: satisfactory
-version: 6.1.4
+version: 7.0.0
 appVersion: 1.6.1@sha256:2cf5d57ecb288dc35bbf675c97022851b7344ce0788ed5101b61767f9abafd6d
 description: Satisfactory Dedicated Server
 home: https://truecharts.org/charts/stable/satisfactory
@@ -19,7 +19,7 @@ keywords:
     - satisfactory
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

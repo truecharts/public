@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: tagspaces
-version: 0.0.16
+version: 1.0.0
 appVersion: 5.5.2
 description: TagSpaces is an offline, open source, document manager with tagging support.
 home: https://truecharts.org/charts/stable/tagspaces
@@ -20,7 +20,7 @@ keywords:
     - documents
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

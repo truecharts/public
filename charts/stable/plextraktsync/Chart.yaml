@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: plextraktsync
-version: 4.0.12
+version: 5.0.0
 appVersion: 0.27.11@sha256:74efbebce5bf060c4e7b6c9936e6c551944957a25f388c70e0d1254e516a0994
 description: Two-way-sync between trakt.tv and Plex Media Server.
 home: https://truecharts.org/charts/incubator/plextraktsync
@@ -21,7 +21,7 @@ keywords:
     - MediaApp-Other
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

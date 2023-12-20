@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: stash
-version: 12.0.17
+version: 13.0.0
 appVersion: 0.23.1@sha256:96d4e778a9fb7199da28983413c9767617bafc69db781bf7d00cd2667344b76d
 description: An organizer for your porn, written in Go
 home: https://truecharts.org/charts/stable/stash
@@ -19,7 +19,7 @@ keywords:
     - porn
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: heimdall
-version: 16.0.14
+version: 17.0.0
 appVersion: 2.5.7@sha256:afe621940a1e1d3adfff566eec342076f8c21aa870e98b5c29ff587d2679cf96
 description: An Application dashboard and launcher
 home: https://truecharts.org/charts/stable/heimdall
@@ -19,7 +19,7 @@ keywords:
     - heimdall
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

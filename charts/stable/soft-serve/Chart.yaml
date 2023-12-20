@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: soft-serve
-version: 3.0.22
+version: 4.0.0
 appVersion: 0.7.4@sha256:1e89075219cb95f62e912fb1831b170bcec73a30e2bb6431533e12dfca2666b0
 description: A tasty, self-hostable Git server for the command line.
 home: https://truecharts.org/charts/stable/soft-serve
@@ -20,7 +20,7 @@ keywords:
     - git
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

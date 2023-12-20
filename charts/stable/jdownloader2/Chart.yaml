@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: jdownloader2
-version: 12.0.15
+version: 13.0.0
 appVersion: 23.11.2@sha256:f7c1fe1ab223aa2fc068f9f9e5df26c3f5228c46c580e52a17b74b7c25402f52
 description: JDownloader is a free, open-source download management tool with a huge community of developers that makes downloading as easy and fast as it should be.
 home: https://truecharts.org/charts/stable/jdownloader2
@@ -21,7 +21,7 @@ keywords:
     - download
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

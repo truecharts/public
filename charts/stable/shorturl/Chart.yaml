@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: shorturl
-version: 7.0.13
+version: 8.0.0
 appVersion: 0.1.0@sha256:75fc450af5d2d07e5caebc6a01863a0aacdc15c1fbe57b3db46e3bd548226420
 description: Self hosted web app for shortening urls (URL shortener)
 home: https://truecharts.org/charts/stable/shorturl
@@ -23,7 +23,7 @@ keywords:
     - shorturl
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

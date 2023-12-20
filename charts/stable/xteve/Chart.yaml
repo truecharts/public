@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: xteve
-version: 10.0.13
+version: 11.0.0
 appVersion: 2.2.0.200@sha256:292b3614670f6bf4017cc65643c513cccb18323bd5269178bd3e36c8c68f5107
 description: M3U Proxy for Plex DVR and Emby Live TV.
 home: https://truecharts.org/charts/stable/xteve
@@ -23,7 +23,7 @@ keywords:
     - emby
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

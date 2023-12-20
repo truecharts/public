@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: pihole
-version: 11.1.12
+version: 12.0.0
 appVersion: 2023.11.0
 description: DNS and Ad-filtering for your network
 home: https://truecharts.org/charts/stable/pihole
@@ -21,7 +21,7 @@ keywords:
     - DNS
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

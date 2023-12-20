@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: clarkson
-version: 8.0.13
+version: 9.0.0
 appVersion: 1.1.2
 description: A web-based dashboard application that gives you a neat and clean interface for logging your fuel fill-ups for all of your vehicles.
 home: https://truecharts.org/charts/stable/clarkson
@@ -23,14 +23,14 @@ keywords:
     - vehicle
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""
       tags: []
       import-values: []
     - name: mariadb
-      version: 7.0.70
+      version: 11.0.4
       repository: https://deps.truecharts.org/
       condition: mariadb.enabled
       alias: ""

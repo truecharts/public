@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: homer
-version: 6.0.13
+version: 7.0.0
 appVersion: 23.10.1@sha256:f6dcbdd3e9c7d05262128b07aa4138bd4df09837f9a98632111913e9a5eb2283
 description: A dead simple static homepage for your server to keep your services on hand.
 home: https://truecharts.org/charts/stable/homer
@@ -21,7 +21,7 @@ keywords:
     - launcher
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

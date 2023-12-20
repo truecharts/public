@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: tasmoadmin
-version: 4.1.2
+version: 5.0.0
 appVersion: 3.2.0@sha256:9ba3cbe28414dd61e03b9d36c29c4792f6fde11dbe0e130f9186760d5afe6c29
 description: A administrative platform for devices flashed with Tasmota.
 home: https://truecharts.org/charts/incubator/tasmoadmin
@@ -21,7 +21,7 @@ keywords:
     - Network-Management
 dependencies:
     - name: common
-      version: 13.2.2
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

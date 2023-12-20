@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: golinks
-version: 8.0.13
+version: 9.0.0
 appVersion: ersion-154c581@sha256:8e67b26324c5dc433210df8f2fb64317db3cbbe7db0b9e10c6e5bc3f3f7860e4
 description: A web app that allows you to create smart bookmarks, commands and aliases by pointing your web browser's default search engine at a running instance.
 home: https://truecharts.org/charts/stable/golinks
@@ -24,7 +24,7 @@ keywords:
     - golinks
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

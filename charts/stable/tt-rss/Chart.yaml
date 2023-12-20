@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: tt-rss
-version: 12.0.13
+version: 13.0.0
 appVersion: 2.0.9113@sha256:217951fc8f013623923850c865d87509172914fc01f9227559e3d6e6096c15b3
 description: Tiny Tiny RSS is a free and open source web-based news feed (RSS/Atom) reader and aggregator.
 home: https://truecharts.org/charts/stable/tt-rss
@@ -20,7 +20,7 @@ keywords:
     - rss
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

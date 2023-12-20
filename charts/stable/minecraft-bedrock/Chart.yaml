@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: minecraft-bedrock
-version: 5.0.15
+version: 6.0.0
 appVersion: 2023.8.1
 description: Minecraft Bedrock Dedicated Server
 home: https://truecharts.org/charts/stable/minecraft-bedrock
@@ -19,7 +19,7 @@ keywords:
     - minecraft
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

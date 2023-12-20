@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: youtubedl-material
-version: 6.0.14
+version: 7.0.0
 appVersion: 4.3.2
 description: YoutubeDL-Material is a Material Design frontend for youtube-dl.
 home: https://truecharts.org/charts/stable/youtubedl-material
@@ -19,14 +19,14 @@ keywords:
     - youtube
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""
       tags: []
       import-values: []
     - name: mongodb
-      version: 6.0.67
+      version: 10.0.3
       repository: https://deps.truecharts.org
       condition: mongodb.enabled
       alias: ""

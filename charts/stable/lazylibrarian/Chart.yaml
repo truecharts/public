@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: lazylibrarian
-version: 15.0.40
+version: 16.0.0
 appVersion: latest
 description: Get all your books, like series with Sonarr...
 home: https://truecharts.org/charts/stable/lazylibrarian
@@ -21,7 +21,7 @@ keywords:
     - ebooks
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

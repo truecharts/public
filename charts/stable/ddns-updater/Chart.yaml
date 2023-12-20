@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: ddns-updater
-version: 6.0.14
+version: 7.0.0
 appVersion: 2.5.0@sha256:6e5dd1066de1f4ea3ca8d0a8982ab65231e1687a7c519a86c133a788eafa2085
 description: Light container updating DNS A and/or AAAA records periodically for multiple DNS providers
 home: https://truecharts.org/charts/stable/ddns-updater
@@ -19,7 +19,7 @@ keywords:
     - ddns-updater
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

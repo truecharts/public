@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: putty
-version: 5.0.16
+version: 6.0.0
 appVersion: 23.11.2@sha256:340eaaac4919acd07567996eff3c5a39fbba8b3bd724bf34cddf890d68bdfce8
 description: PuTTY is a free and open-source terminal emulator, serial console and network file transfer application.
 home: https://truecharts.org/charts/stable/putty
@@ -20,7 +20,7 @@ keywords:
     - putty
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

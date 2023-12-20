@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: mylar
-version: 10.0.32
+version: 11.0.0
 appVersion: 0.7.6@sha256:ae9c057e845d6ca7c9159499ec285117019c39ac8a8b033931f5e1525d50535e
 description: Mylar is a automated Comic Book downloader
 home: https://truecharts.org/charts/stable/mylar
@@ -20,7 +20,7 @@ keywords:
     - mylar
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

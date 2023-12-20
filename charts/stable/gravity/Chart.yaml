@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: gravity
-version: 0.0.9
+version: 1.0.0
 appVersion: 0.6.18@sha256:1fc3f7d2507d618859f4ec84c48af0caf82efaf284c0c34df423cbab138b88c8
 description: Fully-replicated DNS and DHCP Server with ad-blocking powered by etcd.
 home: https://truecharts.org/charts/incubator/gravity
@@ -21,7 +21,7 @@ keywords:
     - networking
 dependencies:
     - name: common
-      version: 13.2.2
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""
