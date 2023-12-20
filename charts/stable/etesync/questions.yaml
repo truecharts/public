@@ -23,7 +23,13 @@ questions:
                                   schema:
                                     additional_attrs: true
                                     type: dict
-                                    attrs:
+                                    attrs: REGEN_INI:
+                                      - variable: REGEN_INI
+                                        label: "Always recreate Config"
+                                        description: "This ensures that everytime you restart the program it recreates the config file"
+                                        schema:
+                                          type: boolean
+                                          default: true
                                       - variable: ALLOWED_HOSTS
                                         label: "ALLOWED_HOSTS"
                                         description: "Must be a valid domain or * (* is not recommended for production)"
