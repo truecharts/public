@@ -14,7 +14,6 @@ securityContext:
         - ALL
     runAsUser: 2999
     runAsGroup: 2999
-    PUID: 2999
   pod:
     fsGroup: 2999
 
@@ -22,7 +21,7 @@ service:
   main:
     ports:
       main:
-        port: 10255
+        port: 5232
         protocol: http
 
 radicale:
@@ -58,7 +57,7 @@ workload:
             TAKE_FILE_OWNERSHIP: false
 
 persistence:
-  config:
+  config-file:
     enabled: true
     type: configmap
     objectName: radicale-config
