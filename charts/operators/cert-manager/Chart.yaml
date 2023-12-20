@@ -1,40 +1,40 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: cert-manager
-version: 1.1.9
+version: 1.1.10
 appVersion: latest
 description: Cert-Manager is a kubernetes-aware certificate manager
 home: https://truecharts.org/charts/operators/cert-manager
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/cert-manager.png
 deprecated: false
 sources:
-  - https://cert-manager.io/
-  - https://github.com/cert-manager
-  - https://github.com/truecharts/charts/tree/master/charts/operators/cert-manager
-  - https://github.com/truecharts/containers/tree/master/mirroralpine
+- https://github.com/truecharts/charts/tree/master/charts/operators/cert-manager
+- https://github.com/truecharts/containers/tree/master/mirroralpine
+- https://cert-manager.io/
+- https://github.com/cert-manager
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+- name: TrueCharts
+  email: info@truecharts.org
+  url: https://truecharts.org
 keywords:
-  - cert-manager
-  - certificates
-  - security
+- cert-manager
+- certificates
+- security
 dependencies:
-  - name: common
-    version: 14.5.0
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-  - name: cert-manager
-    version: v1.13.3
-    repository: https://charts.jetstack.io
-    condition: ""
-    alias: certmanager
-    tags: []
-    import-values: []
+- name: common
+  version: 14.5.0
+  repository: https://library-charts.truecharts.org
+  condition: ""
+  alias: ""
+  tags: []
+  import-values: []
+- name: cert-manager
+  version: v1.13.3
+  repository: https://charts.jetstack.io
+  condition: ""
+  alias: certmanager
+  tags: []
+  import-values: []
 annotations:
   max_scale_version: 23.10.1
   min_scale_version: 22.12.4
