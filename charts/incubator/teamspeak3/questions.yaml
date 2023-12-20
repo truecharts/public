@@ -86,8 +86,16 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: data
-          label: "App Config Storage"
-          description: "Stores the Application Configuration."
+          label: App Storage
+          description: Main App Storage
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: config
+          label: App Config Storage
+          description: Stores the Application Configuration.
           schema:
             additional_attrs: true
             type: dict
@@ -101,13 +109,13 @@ questions:
                 description: "The UserID of the user running the application"
                 schema:
                   type: int
-                  default: 0
+                  default: 568
               - variable: runAsGroup
                 label: "runAsGroup"
                 description: "The groupID of the user running the application"
                 schema:
                   type: int
-                  default: 0
+                  default: 568
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}

@@ -6,14 +6,15 @@ persistence:
   data:
     enabled: true
     mountPath: /var/ts3server
+  config:
+    enabled: true
+    mountPath: /var/run/ts3server
 portal:
   open:
     enabled: false
 securityContext:
   container:
     readOnlyRootFilesystem: false
-    runAsGroup: 0
-    runAsUser: 0
 service:
   files:
     enabled: true
@@ -40,5 +41,13 @@ workload:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
           env:
             TS3SERVER_LICENSE: accept
+
