@@ -1,39 +1,39 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: lldap
-version: 2.0.14
+version: 2.0.15
 appVersion: 0.5.0-debian@sha256:872610a32c9c2bc1392fbd934fa5a355d70b467b92032637ea017c5717c2f1bf
 description: Lightweight ldap server for authentication and user management
 home: https://truecharts.org/charts/stable/lldap
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/lldap.png
 deprecated: false
 sources:
-  - https://github.com/nitnelave/lldap
-  - https://github.com/truecharts/charts/tree/master/charts/stable/lldap
-  - https://hub.docker.com/r/nitnelave/lldap
+    - https://github.com/nitnelave/lldap
+    - https://github.com/truecharts/charts/tree/master/charts/stable/lldap
+    - https://hub.docker.com/r/nitnelave/lldap
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - lldap
-  - ldap
-  - authentication
-  - auth
+    - lldap
+    - ldap
+    - authentication
+    - auth
 dependencies:
-  - name: common
-    version: 14.5.0
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 14.5.0
+      repository: https://library-charts.truecharts.org
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: ldap
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: ldap
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application

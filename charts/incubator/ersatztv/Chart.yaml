@@ -1,37 +1,37 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: ersatztv
-version: 1.0.7
+version: 1.0.8
 appVersion: 0.8.4@sha256:a001f0e6979a7d7eec75728a83409b32f715a1a8fd93ca0a966c724d44271a9b
 description: ErsatzTV configuring and streaming custom live channels using your media library.
 home: https://truecharts.org/charts/incubator/ersatztv
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ersatztv.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/ersatztv
-  - https://hub.docker.com/r/jasongdove/ersatztv
-  - https://github.com/jasongdove/ErsatzTV
+    - https://hub.docker.com/r/jasongdove/ersatztv
+    - https://github.com/jasongdove/ErsatzTV
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/ersatztv
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - ersatztv
-  - media
+    - ersatztv
+    - media
 dependencies:
-  - name: common
-    version: 16.2.7
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 16.2.7
+      repository: https://library-charts.truecharts.org
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: incubator
 type: application

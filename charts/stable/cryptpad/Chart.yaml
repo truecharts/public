@@ -1,38 +1,38 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: cryptpad
-version: 4.0.4
+version: 4.0.5
 appVersion: 5.5.0@sha256:e39fefe674fd5b6c61029a8e233fcb50237acf60e60ac677f9b76446b23104ef
 description: CryptPad is the Zero Knowledge realtime collaborative editor.
 home: https://truecharts.org/charts/incubator/cryptpad
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/cryptpad.png
 deprecated: false
 sources:
-  - https://cryptpad.fr/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/cryptpad
-  - https://hub.docker.com/r/cryptpad/cryptpad
+    - https://cryptpad.fr/
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/cryptpad
+    - https://hub.docker.com/r/cryptpad/cryptpad
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - cryptpad
-  - Productivity
-  - Security
+    - cryptpad
+    - Productivity
+    - Security
 dependencies:
-  - name: common
-    version: 14.5.0
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 14.5.0
+      repository: https://library-charts.truecharts.org
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Productivity
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Productivity
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: incubator
 type: application

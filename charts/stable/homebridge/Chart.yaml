@@ -1,38 +1,38 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: homebridge
-version: 4.0.10
+version: 4.0.11
 appVersion: 2023-01@sha256:fa0512d8b38d20d4078b0f403c23c17716a045fcb4dc723b896461a766e22ee9
 description: A lightweight NodeJS server that emulates the iOS HomeKit API
 home: https://truecharts.org/charts/incubator/homebridge
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/homebridge.png
 deprecated: false
 sources:
-  - https://homebridge.io/
-  - https://github.com/oznu/docker-homebridge
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/homebridge
-  - https://github.com/truecharts/containers/tree/master/mirrorhomebridge
+    - https://github.com/oznu/docker-homebridge
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/homebridge
+    - https://github.com/truecharts/containers/tree/master/mirrorhomebridge
+    - https://homebridge.io/
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - homebridge
-  - homekit
+    - homebridge
+    - homekit
 dependencies:
-  - name: common
-    version: 14.5.0
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 14.5.0
+      repository: https://library-charts.truecharts.org
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: incubator
 type: application

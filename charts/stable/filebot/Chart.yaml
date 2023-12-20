@@ -1,37 +1,37 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: filebot
-version: 5.0.13
+version: 5.0.14
 appVersion: 23.11.2@sha256:8b382b2ac3cdb01158a67f7a3706f7716b1bf29cc398152842e66c402b161e7b
 description: FileBot is the ultimate tool for organizing and renaming your movies, tv shows or anime, and music well as downloading subtitles and artwork. It's smart and just works.
 home: https://truecharts.org/charts/stable/filebot
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/filebot.png
 deprecated: false
 sources:
-  - https://github.com/jlesage/docker-filebot
-  - https://github.com/truecharts/charts/tree/master/charts/stable/filebot
-  - https://hub.docker.com/r/jlesage/filebot
+    - https://github.com/jlesage/docker-filebot
+    - https://github.com/truecharts/charts/tree/master/charts/stable/filebot
+    - https://hub.docker.com/r/jlesage/filebot
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - media
-  - filebot
+    - media
+    - filebot
 dependencies:
-  - name: common
-    version: 14.5.0
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 14.5.0
+      repository: https://library-charts.truecharts.org
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application

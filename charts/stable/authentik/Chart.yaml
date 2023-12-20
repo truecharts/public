@@ -1,44 +1,44 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: authentik
-version: 15.0.26
+version: 15.0.27
 appVersion: 2023.10.4
 description: Authentik is an open-source Identity Provider focused on flexibility and versatility.
 home: https://truecharts.org/charts/stable/authentik
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/authentik.png
 deprecated: false
 sources:
-  - https://goauthentik.io/docs/
-  - https://github.com/goauthentik/authentik
-  - https://github.com/truecharts/charts/tree/master/charts/stable/authentik
-  - https://ghcr.io/goauthentik/server
+    - https://ghcr.io/goauthentik/radius
+    - https://goauthentik.io/docs/
+    - https://github.com/goauthentik/authentik
+    - https://github.com/truecharts/charts/tree/master/charts/stable/authentik
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - authentik
+    - authentik
 dependencies:
-  - name: common
-    version: 14.5.0
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-  - name: redis
-    version: 8.0.47
-    repository: https://deps.truecharts.org
-    condition: redis.enabled
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 14.5.0
+      repository: https://library-charts.truecharts.org
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
+    - name: redis
+      version: 8.0.47
+      repository: https://deps.truecharts.org
+      condition: redis.enabled
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: authentication
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: authentication
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application
