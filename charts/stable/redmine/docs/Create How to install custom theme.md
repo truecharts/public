@@ -1,6 +1,6 @@
 # How to install the custom theme for TrueCharts Redmine with PVC storage
 
-This tutorial explains installing the https://github.com/mrliptontea/PurpleMine2 theme for the Redmine app installed from the TrueCharts catalog. 
+This tutorial explains installing the https://github.com/mrliptontea/PurpleMine2 theme for the Redmine app installed from the TrueCharts catalog.
 
 ## Setup configuration
 
@@ -27,11 +27,11 @@ Open the app. Login with default credentials (see below). You will be prompted t
 - User: `admin`
 - Password: `admin`
 
-
 Go to `Administration->Settings->Display`. See that the only available theme is Default.
 
 ## Mount PVC volumes using HeavyScript
-Now you can close the Redmine webpage and open the TrueNAS shell. 
+
+Now you can close the Redmine webpage and open the TrueNAS shell.
 
 We will need to mount the PVC volumes using the HevyScript. If you don't have HeavyScript installed simply run this command to install it
 
@@ -52,6 +52,7 @@ And Unzip it to my SMB share folder.
 Now in TrueNas shell I use
 
 sudo mc
+
 ```
 To launch the moonlight commander app. I navigate to my SMB share and to the mounted PVC path and copy the files over
 
@@ -62,10 +63,11 @@ To launch the moonlight commander app. I navigate to my SMB share and to the mou
 Now we need to exit moonlight commander and navigate to the mounted themes folder in console using
 
 ```
+
 cd /mnt/mounted_pvc/redmine/redmine-persist-list-0
 ls - la
 
-But you can see that all of the copied files are owned by my user and the group root. This means the Redmine will not be able to access the files. 
+But you can see that all of the copied files are owned by my user and the group root. This means the Redmine will not be able to access the files.
 
 Chage the owner of the files with the following command
 
@@ -75,10 +77,9 @@ Chage the owner of the files with the following command
 
 Now you can unmount the volume using HeavyScript command
 
-
 ## Apply the theme
 
-Open the Redmine web page. Sign in with your new password for Admin. 
+Open the Redmine web page. Sign in with your new password for Admin.
 
 Go to Administration -> Settings -> Display. Pick the newly added theme
 

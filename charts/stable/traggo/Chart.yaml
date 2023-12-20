@@ -3,9 +3,7 @@ apiVersion: v2
 name: traggo
 version: 3.0.12
 appVersion: 0.3.0
-description:
-  Traggo is a tag-based time tracking tool. In Traggo there are no tasks,
-  only tagged time spans.
+description: Traggo is a tag-based time tracking tool. In Traggo there are no tasks, only tagged time spans.
 home: https://truecharts.org/charts/stable/traggo
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/traggo.png
 deprecated: false
@@ -29,8 +27,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: productivity
   truecharts.org/max_helm_version: "3.13"

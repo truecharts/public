@@ -10,9 +10,9 @@ deprecated: false
 sources:
   - https://github.com/pi-hole
   - https://github.com/pi-hole/docker-pi-hole
+  - https://pi-hole.net/
   - https://github.com/truecharts/charts/tree/master/charts/stable/pihole
   - https://hub.docker.com/r/pihole/pihole
-  - https://pi-hole.net/
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -28,8 +28,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: networking
   truecharts.org/max_helm_version: "3.13"

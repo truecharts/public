@@ -3,9 +3,7 @@ apiVersion: v2
 name: searxng
 version: 4.0.86
 appVersion: latest
-description:
-  Meta search engine which aggregates results from more than 70 search
-  services.
+description: Meta search engine which aggregates results from more than 70 search services.
 home: https://truecharts.org/charts/stable/searxng
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/searxng.png
 deprecated: false
@@ -30,8 +28,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Productivity
   truecharts.org/max_helm_version: "3.13"

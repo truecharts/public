@@ -2,18 +2,16 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: pixapop
 version: 7.0.12
-appVersion: "1.2"
-description:
-  An open-source single page application to view your photos in the easiest
-  way possible.
+appVersion: 1.2-ls15@sha256:605ebc091fa14b4ba82ceadda7f35c186d514e649c97913605384027c2750f4f
+description: An open-source single page application to view your photos in the easiest way possible.
 home: https://truecharts.org/charts/stable/pixapop
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pixapop.png
 deprecated: false
 sources:
-  - https://ghcr.io/linuxserver/pixapop
   - https://github.com/linuxserver/docker-pixapop
   - https://github.com/bierdok/pixapop
   - https://github.com/truecharts/charts/tree/master/charts/stable/pixapop
+  - https://ghcr.io/linuxserver/pixapop
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -32,8 +30,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.13"

@@ -3,9 +3,7 @@ apiVersion: v2
 name: awesome-ttrss
 version: 5.0.4
 appVersion: latest
-description:
-  Awesome TTRSS aims to provide a powerful Chartized all-in-one solution
-  for Tiny Tiny RSS
+description: Awesome TTRSS aims to provide a powerful Chartized all-in-one solution for Tiny Tiny RSS
 home: https://truecharts.org/charts/incubator/awesome-ttrss
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/awesome-ttrss.png
 deprecated: false
@@ -29,8 +27,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.13"

@@ -2,18 +2,16 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: twtxt
 version: 7.0.12
-appVersion: 0.1.1
-description:
-  A Self-Hosted, Twitter™-like Decentralised microBlogging platform. No
-  ads, no tracking, your content, your data!
+appVersion: 0.1.1@sha256:58736a73ca1000cc93258efe0cd91270c6b8480a84b98b05a056234d271f92e3
+description: A Self-Hosted, Twitter™-like Decentralised microBlogging platform. No ads, no tracking, your content, your data!
 home: https://truecharts.org/charts/stable/twtxt
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/twtxt.png
 deprecated: false
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/twtxt
   - https://ghcr.io/nicholaswilde/twtxt
   - https://github.com/nicholaswilde/docker-twtxt
   - https://github.com/prologic/twtxt
-  - https://github.com/truecharts/charts/tree/master/charts/stable/twtxt
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -32,8 +30,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.13"

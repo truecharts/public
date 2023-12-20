@@ -2,7 +2,7 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: synapse
 version: 9.0.3
-appVersion: 1.95.1
+appVersion: 1.95.1@sha256:9b6d64057cf0be41370c87523fd9dc9a0b744389aa67cb0462eca4ef34e0c5ec
 description: A Helm chart to deploy a Matrix homeserver stack into Kubernetes
 home: https://truecharts.org/charts/incubator/synapse
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/synapse.png
@@ -27,8 +27,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: cloud
   truecharts.org/max_helm_version: "3.13"

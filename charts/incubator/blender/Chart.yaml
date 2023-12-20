@@ -3,21 +3,16 @@ apiVersion: v2
 name: blender
 version: 3.0.4
 appVersion: latest
-description:
-  Blender(https://www.blender.org/) is a free and open-source 3D computer
-  graphics software toolset used for creating animated films, visual effects, art,
-  3D printed models, motion graphics, interactive 3D applications, virtual reality,
-  and computer games. **This image does not support GPU rendering out of the box only
-  accelerated workspace experience**
+description: Blender(https://www.blender.org/) is a free and open-source 3D computer graphics software toolset used for creating animated films, visual effects, art, 3D printed models, motion graphics, interactive 3D applications, virtual reality, and computer games. **This image does not support GPU rendering out of the box only accelerated workspace experience**
 home: https://truecharts.org/charts/incubator/blender
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/blender.png
 deprecated: false
 sources:
   - https://github.com/orgs/linuxserver/packages/container/package/blender
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/blender
-  - https://fleet.linuxserver.io/image?name=linuxserver/blender
   - https://github.com/linuxserver/docker-blender#readme
   - https://www.blender.org/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/blender
+  - https://fleet.linuxserver.io/image?name=linuxserver/blender
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -34,8 +29,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Other
   truecharts.org/max_helm_version: "3.13"

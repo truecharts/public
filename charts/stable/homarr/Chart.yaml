@@ -3,9 +3,7 @@ apiVersion: v2
 name: homarr
 version: 7.0.5
 appVersion: 0.14.2
-description:
-  Homarr is a simple and lightweight homepage for your server, that helps
-  you easily access all of your services in one place.
+description: Homarr is a simple and lightweight homepage for your server, that helps you easily access all of your services in one place.
 home: https://truecharts.org/charts/stable/homarr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/homarr.png
 deprecated: false
@@ -28,8 +26,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.13"

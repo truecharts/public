@@ -2,18 +2,16 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: backuppc
 version: 3.0.10
-appVersion: 6.0.2
-description:
-  A high-performance, enterprise-grade system for backing up Linux, Windows
-  and macOS PCs and laptops to a server's disk.
+appVersion: 6.0.2@sha256:80fe126415f0b530dd7d2645da23c8409f62f184a018c52a3ec1d8c5237d30ff
+description: A high-performance, enterprise-grade system for backing up Linux, Windows and macOS PCs and laptops to a server's disk.
 home: https://truecharts.org/charts/incubator/backuppc
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/backuppc.png
 deprecated: false
 sources:
-  - https://github.com/tiredofit/docker-backuppc
-  - https://backuppc.github.io/backuppc/index.html
   - https://github.com/truecharts/charts/tree/master/charts/incubator/backuppc
   - https://github.com/truecharts/containers/tree/master/mirrorbackuppc
+  - https://github.com/tiredofit/docker-backuppc
+  - https://backuppc.github.io/backuppc/index.html
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -31,8 +29,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Backup
   truecharts.org/max_helm_version: "3.13"

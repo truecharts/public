@@ -3,9 +3,7 @@ apiVersion: v2
 name: scrypted
 version: 1.5.0
 appVersion: 0.68.0
-description:
-  Scrypted is a high performance home video integration and automation
-  platform.
+description: Scrypted is a high performance home video integration and automation platform.
 home: https://truecharts.org/charts/stable/scrypted
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/scrypted.png
 deprecated: false
@@ -29,8 +27,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.13"

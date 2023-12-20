@@ -2,7 +2,7 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: twingate-connector
 version: 0.0.6
-appVersion: 1.56.0
+appVersion: 1.56.0@sha256:d329ef493caf335c7ff78d8f12323dd1c13fac965995caee39718fae2eb2829b
 description: Twingate is remote access for the modern world.
 home: https://truecharts.org/charts/incubator/twingate-connector
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/twingate-connector.png
@@ -27,8 +27,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: network
   truecharts.org/max_helm_version: "3.13"

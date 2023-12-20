@@ -3,9 +3,7 @@ apiVersion: v2
 name: privatebin
 version: 4.0.4
 appVersion: 1.6.0
-description:
-  PrivateBin is a minimalist, open source online pastebin where the server
-  has zero knowledge of pasted data.
+description: PrivateBin is a minimalist, open source online pastebin where the server has zero knowledge of pasted data.
 home: https://truecharts.org/charts/incubator/privatebin
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/privatebin.png
 deprecated: false
@@ -30,8 +28,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: productivity
   truecharts.org/max_helm_version: "3.13"

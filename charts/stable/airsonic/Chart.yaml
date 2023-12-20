@@ -2,17 +2,17 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: airsonic
 version: 10.0.12
-appVersion: 10.6.2
+appVersion: 10.6.2@sha256:8b42de38222839c0ff8914479853cfd5e4a8160d81c9a9ef6e9896be6629bf29
 description: Airsonic is a Free and Open Source community driven media server
 home: https://truecharts.org/charts/stable/airsonic
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/airsonic.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/airsonic
-  - https://ghcr.io/linuxserver/airsonic
   - https://github.com/linuxserver/docker-airsonic
   - https://github.com/k8s-at-home/charts/tree/master/charts/airsonic
   - https://github.com/airsonic/airsonic
+  - https://github.com/truecharts/charts/tree/master/charts/stable/airsonic
+  - https://ghcr.io/linuxserver/airsonic
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -28,8 +28,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.13"

@@ -3,9 +3,7 @@ apiVersion: v2
 name: icinga2
 version: 8.0.4
 appVersion: 2.14.0
-description:
-  A monitoring system which checks the availability of your network resources,
-  notifies users of outages, and generates performance data for reporting.
+description: A monitoring system which checks the availability of your network resources, notifies users of outages, and generates performance data for reporting.
 home: https://truecharts.org/charts/incubator/icinga2
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/icinga2.png
 deprecated: false
@@ -37,8 +35,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: monitoring
   truecharts.org/max_helm_version: "3.13"

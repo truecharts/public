@@ -2,7 +2,7 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: stash
 version: 12.0.16
-appVersion: 0.23.1
+appVersion: 0.23.1@sha256:96d4e778a9fb7199da28983413c9767617bafc69db781bf7d00cd2667344b76d
 description: An organizer for your porn, written in Go
 home: https://truecharts.org/charts/stable/stash
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/stash.png
@@ -26,8 +26,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.13"

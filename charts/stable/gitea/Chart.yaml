@@ -2,16 +2,16 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: gitea
 version: 14.0.17
-appVersion: 1.21.2
+appVersion: 1.21.2-rootless
 description: Self hosted GIT repositories
 home: https://truecharts.org/charts/stable/gitea
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/gitea.png
 deprecated: false
 sources:
   - https://gitea.com/gitea/helm-chart
+  - https://github.com/go-gitea/gitea
   - https://github.com/truecharts/charts/tree/master/charts/stable/gitea
   - https://hub.docker.com/r/gitea/gitea
-  - https://github.com/go-gitea/gitea
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -39,8 +39,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: GIT
   truecharts.org/max_helm_version: "3.13"

@@ -2,10 +2,8 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: adguard-home
 version: 6.0.18
-appVersion: 0.107.43
-description:
-  Free and open source, powerful network-wide ads & trackers blocking DNS
-  server.
+appVersion: 0.107.43@sha256:4016a420451810959f782d3cbe04c620d83c3431cbb13ae27aabd2921db482a0
+description: Free and open source, powerful network-wide ads & trackers blocking DNS server.
 home: https://truecharts.org/charts/stable/adguard-home
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/adguard-home.png
 deprecated: false
@@ -28,8 +26,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.13"

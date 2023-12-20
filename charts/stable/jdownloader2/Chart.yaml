@@ -2,10 +2,8 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: jdownloader2
 version: 12.0.14
-appVersion: 23.11.2
-description:
-  JDownloader is a free, open-source download management tool with a huge
-  community of developers that makes downloading as easy and fast as it should be.
+appVersion: 23.11.2@sha256:f7c1fe1ab223aa2fc068f9f9e5df26c3f5228c46c580e52a17b74b7c25402f52
+description: JDownloader is a free, open-source download management tool with a huge community of developers that makes downloading as easy and fast as it should be.
 home: https://truecharts.org/charts/stable/jdownloader2
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/jdownloader2.png
 deprecated: false
@@ -30,8 +28,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: downloads
   truecharts.org/max_helm_version: "3.13"

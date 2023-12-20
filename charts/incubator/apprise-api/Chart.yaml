@@ -2,7 +2,7 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: apprise-api
 version: 4.0.4
-appVersion: 0.9.5
+appVersion: 0.9.5@sha256:3301daff63ae435e69ac6c3acf5ceb3832d5b40d639b59f73163e3238adb2fe7
 description: Push notifications that work with just about every platform!
 home: https://truecharts.org/charts/incubator/apprise-api
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/apprise-api.png
@@ -28,8 +28,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: notifications
   truecharts.org/max_helm_version: "3.13"

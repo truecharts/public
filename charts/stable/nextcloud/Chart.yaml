@@ -3,9 +3,7 @@ apiVersion: v2
 name: nextcloud
 version: 23.0.1
 appVersion: 27.1.4
-description:
-  A private cloud server that puts the control and security of your own
-  data back into your hands.
+description: A private cloud server that puts the control and security of your own data back into your hands.
 home: https://truecharts.org/charts/stable/nextcloud
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/nextcloud.png
 deprecated: false
@@ -40,8 +38,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: cloud
   truecharts.org/max_helm_version: "3.13"

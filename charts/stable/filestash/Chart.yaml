@@ -3,9 +3,7 @@ apiVersion: v2
 name: filestash
 version: 3.0.10
 appVersion: latest
-description:
-  A Dropbox-like file manager that let you manage your data anywhere it
-  is located.
+description: A Dropbox-like file manager that let you manage your data anywhere it is located.
 home: https://truecharts.org/charts/incubator/filestash
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/filestash.png
 deprecated: false
@@ -32,8 +30,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Cloud
   truecharts.org/max_helm_version: "3.13"

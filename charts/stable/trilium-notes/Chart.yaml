@@ -3,9 +3,7 @@ apiVersion: v2
 name: trilium-notes
 version: 9.1.5
 appVersion: 0.62.4
-description:
-  Trilium Notes is a hierarchical note taking application with focus on
-  building large personal knowledge bases.
+description: Trilium Notes is a hierarchical note taking application with focus on building large personal knowledge bases.
 home: https://truecharts.org/charts/stable/trilium-notes
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/trilium-notes.png
 deprecated: false
@@ -31,8 +29,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.13"

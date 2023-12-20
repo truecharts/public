@@ -2,16 +2,16 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: audacity
 version: 9.0.12
-appVersion: 3.0.2
+appVersion: 3.0.2@sha256:cdf203db1e50e18349f16c5958f7061b18625501f5e2f7a15cd69262185e3e84
 description: An easy-to-use, multi-track audio editor and recorder
 home: https://truecharts.org/charts/stable/audacity
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/audacity.png
 deprecated: false
 sources:
+  - https://ghcr.io/linuxserver/audacity
   - https://www.audacityteam.org/
   - https://github.com/linuxserver/docker-audacity
   - https://github.com/truecharts/charts/tree/master/charts/stable/audacity
-  - https://ghcr.io/linuxserver/audacity
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -31,8 +31,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.13"

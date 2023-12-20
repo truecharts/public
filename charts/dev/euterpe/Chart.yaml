@@ -2,17 +2,15 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: euterpe
 version: 4.0.4
-appVersion: 1.5.4
-description:
-  Self-hosted streaming service for music, formerly known as HTTP Media
-  Server.
+appVersion: 1.5.4@sha256:8582b072dc37100545cf7e0e3c8e2f19b8881fa31c7c2a1009437e9b14c1e181
+description: Self-hosted streaming service for music, formerly known as HTTP Media Server.
 home: https://truecharts.org/charts/incubator/euterpe
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/euterpe.png
 deprecated: false
 sources:
+  - https://github.com/ironsmile/euterpe
   - https://github.com/truecharts/charts/tree/master/charts/incubator/euterpe
   - https://hub.docker.com/r/ironsmile/euterpe
-  - https://github.com/ironsmile/euterpe
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -32,8 +30,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Productivity
   truecharts.org/max_helm_version: "3.13"

@@ -8,9 +8,9 @@ home: https://truecharts.org/charts/stable/baserow
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/baserow.png
 deprecated: false
 sources:
+  - https://gitlab.com/bramw/baserow/
   - https://github.com/truecharts/charts/tree/master/charts/stable/baserow
   - https://hub.docker.com/r/baserow/baserow
-  - https://gitlab.com/bramw/baserow/
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -33,8 +33,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: productivity
   truecharts.org/max_helm_version: "3.13"

@@ -3,9 +3,7 @@ apiVersion: v2
 name: pwm
 version: 3.0.5
 appVersion: latest
-description:
-  PWM is a free and opensource password self-service application enabling
-  end-users to reset their enterprise password themselves.
+description: PWM is a free and opensource password self-service application enabling end-users to reset their enterprise password themselves.
 home: https://truecharts.org/charts/incubator/pwm
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pwm.png
 deprecated: false
@@ -29,8 +27,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Security
   truecharts.org/max_helm_version: "3.13"

@@ -2,11 +2,8 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: filebot
 version: 5.0.13
-appVersion: 23.11.2
-description:
-  FileBot is the ultimate tool for organizing and renaming your movies,
-  tv shows or anime, and music well as downloading subtitles and artwork. It's smart
-  and just works.
+appVersion: 23.11.2@sha256:8b382b2ac3cdb01158a67f7a3706f7716b1bf29cc398152842e66c402b161e7b
+description: FileBot is the ultimate tool for organizing and renaming your movies, tv shows or anime, and music well as downloading subtitles and artwork. It's smart and just works.
 home: https://truecharts.org/charts/stable/filebot
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/filebot.png
 deprecated: false
@@ -30,8 +27,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.13"

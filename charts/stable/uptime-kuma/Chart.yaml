@@ -2,7 +2,7 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: uptime-kuma
 version: 7.0.23
-appVersion: 1.23.10
+appVersion: 1.23.10-debian
 description: A fancy self-hosted monitoring tool
 home: https://truecharts.org/charts/stable/uptime-kuma
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/uptime-kuma.png
@@ -27,8 +27,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: monitoring
   truecharts.org/max_helm_version: "3.13"

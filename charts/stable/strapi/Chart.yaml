@@ -2,7 +2,7 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: strapi
 version: 10.0.21
-appVersion: 4.15.4
+appVersion: 4.15.4-alpine
 description: Open-source headless CMS. JavaScript, fully customizable and developer-first.
 home: https://truecharts.org/charts/stable/strapi
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/strapi.png
@@ -28,8 +28,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: cms
   truecharts.org/max_helm_version: "3.13"

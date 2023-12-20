@@ -2,10 +2,8 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: sheetable
 version: 4.0.5
-appVersion: "0.8"
-description:
-  SheetAble is an easy to use music sheet organiser for all the music enthusiasts
-  out there.
+appVersion: 0.8@sha256:b5fb5a92cf045d4b354169e89bc4dab33cc4a92492f31a12c5349ebef450a0b1
+description: SheetAble is an easy to use music sheet organiser for all the music enthusiasts out there.
 home: https://truecharts.org/charts/incubator/sheetable
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/sheetable.png
 deprecated: false
@@ -29,8 +27,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: music
   truecharts.org/max_helm_version: "3.13"

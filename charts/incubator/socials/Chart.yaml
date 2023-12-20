@@ -3,19 +3,15 @@ apiVersion: v2
 name: socials
 version: 3.0.4
 appVersion: main
-description:
-  Socials is a single-page website that stores all your social media and
-  personal websites to share. It is similar to tappy.tech, sociallinks.co, and linktr.ee,
-  but open-source and built using Typescript, Sass, Express.js and EJS. Self-hosting
-  or publishing as a static website or Chart is recommended!
+description: Socials is a single-page website that stores all your social media and personal websites to share. It is similar to tappy.tech, sociallinks.co, and linktr.ee, but open-source and built using Typescript, Sass, Express.js and EJS. Self-hosting or publishing as a static website or Chart is recommended!
 home: https://truecharts.org/charts/incubator/socials
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/socials.png
 deprecated: false
 sources:
-  - https://ghcr.io/diamkil/socials
   - https://github.com/diamkil/socials
   - https://registry.hub.docker.com/r/diamkil/socials/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/socials
+  - https://ghcr.io/diamkil/socials
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -32,8 +28,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Other
   truecharts.org/max_helm_version: "3.13"

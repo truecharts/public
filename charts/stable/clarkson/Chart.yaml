@@ -3,16 +3,14 @@ apiVersion: v2
 name: clarkson
 version: 8.0.12
 appVersion: 1.1.2
-description:
-  A web-based dashboard application that gives you a neat and clean interface
-  for logging your fuel fill-ups for all of your vehicles.
+description: A web-based dashboard application that gives you a neat and clean interface for logging your fuel fill-ups for all of your vehicles.
 home: https://truecharts.org/charts/stable/clarkson
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/clarkson.png
 deprecated: false
 sources:
+  - https://ghcr.io/linuxserver/clarkson
   - https://github.com/linuxserver/Clarkson
   - https://github.com/truecharts/charts/tree/master/charts/stable/clarkson
-  - https://ghcr.io/linuxserver/clarkson
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -39,8 +37,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: vehicle
   truecharts.org/max_helm_version: "3.13"

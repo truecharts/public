@@ -8,9 +8,9 @@ home: https://truecharts.org/charts/enterprise/vaultwarden
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/vaultwarden.png
 deprecated: false
 sources:
-  - https://github.com/dani-garcia/vaultwarden
   - https://github.com/truecharts/charts/tree/master/charts/enterprise/vaultwarden
   - https://hub.docker.com/r/vaultwarden/server
+  - https://github.com/dani-garcia/vaultwarden
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -31,8 +31,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: security
   truecharts.org/max_helm_version: "3.13"

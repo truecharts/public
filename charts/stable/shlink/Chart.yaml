@@ -3,9 +3,7 @@ apiVersion: v2
 name: shlink
 version: 9.1.4
 appVersion: 3.7.1
-description:
-  A PHP-based self-hosted URL shortener that can be used to serve shortened
-  URLs under your own custom domain.
+description: A PHP-based self-hosted URL shortener that can be used to serve shortened URLs under your own custom domain.
 home: https://truecharts.org/charts/stable/shlink
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/shlink.png
 deprecated: false
@@ -36,8 +34,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: utilities
   truecharts.org/max_helm_version: "3.13"

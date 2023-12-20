@@ -3,9 +3,7 @@ apiVersion: v2
 name: observium
 version: 3.0.5
 appVersion: latest
-description:
-  Observium is an autodiscovering network monitoring platform supporting
-  a wide range of hardware platforms and operating systems.[br][br]
+description: Observium is an autodiscovering network monitoring platform supporting a wide range of hardware platforms and operating systems.[br][br]
 home: https://truecharts.org/charts/incubator/observium
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/observium.png
 deprecated: false
@@ -29,8 +27,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Network-Management
   truecharts.org/max_helm_version: "3.13"

@@ -3,17 +3,15 @@ apiVersion: v2
 name: apache-webdav
 version: 3.0.5
 appVersion: latest
-description:
-  Very simple WebDAV server based on Apache. You need a WebDAV client to
-  transfer files. It does not include a WebUI to upload files through your browser.
+description: Very simple WebDAV server based on Apache. You need a WebDAV client to transfer files. It does not include a WebUI to upload files through your browser.
 home: https://truecharts.org/charts/incubator/apache-webdav
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/apache-webdav.png
 deprecated: false
 sources:
-  - https://httpd.apache.org/docs/2.4/mod/mod_dav.html
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/apache-webdav
   - https://hub.docker.com/r/apachewebdav/apachewebdav
+  - https://httpd.apache.org/docs/2.4/mod/mod_dav.html
   - https://github.com/mgutt/docker-apachewebdav
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/apache-webdav
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -30,8 +28,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Cloud
   truecharts.org/max_helm_version: "3.13"

@@ -3,9 +3,7 @@ apiVersion: v2
 name: minisatip
 version: 6.0.12
 appVersion: 2021.12.01
-description:
-  Minisatip is a multi-threaded satip server version 1.2 that runs under
-  Linux.
+description: Minisatip is a multi-threaded satip server version 1.2 that runs under Linux.
 home: https://truecharts.org/charts/stable/minisatip
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/minisatip.png
 deprecated: false
@@ -27,8 +25,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: utility
   truecharts.org/max_helm_version: "3.13"

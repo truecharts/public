@@ -2,7 +2,7 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: mosdns
 version: 6.0.15
-appVersion: 5.3.1
+appVersion: 5.3.1@sha256:8095c47d4109233c48fa52ce49cdf5a868cdd2862076c3e370f127e46263d6df
 description: A location-based pluggable DNS forwarder/splitter.
 home: https://truecharts.org/charts/stable/mosdns
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/mosdns.png
@@ -26,8 +26,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: networking
   truecharts.org/max_helm_version: "3.13"

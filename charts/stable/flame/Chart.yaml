@@ -3,9 +3,7 @@ apiVersion: v2
 name: flame
 version: 3.0.5
 appVersion: 2.3.1
-description:
-  Flame is self-hosted start page for your server. Easily manage your apps
-  and bookmarks with built-in editors.
+description: Flame is self-hosted start page for your server. Easily manage your apps and bookmarks with built-in editors.
 home: https://truecharts.org/charts/incubator/flame
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/flame.png
 deprecated: false
@@ -29,8 +27,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: utilities
   truecharts.org/max_helm_version: "3.13"

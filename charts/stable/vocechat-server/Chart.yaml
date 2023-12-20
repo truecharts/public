@@ -2,7 +2,7 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: vocechat-server
 version: 1.0.3
-appVersion: 0.3.43
+appVersion: 0.3.43@sha256:297dd69f16586bab4dadafd54e3c99498eaa55c2eb600faa831512213058e2f6
 description: A superlight rust written social server.
 home: https://truecharts.org/charts/stable/vocechat-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/vocechat-server.png
@@ -27,8 +27,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: social
   truecharts.org/max_helm_version: "3.13"

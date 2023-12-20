@@ -3,18 +3,14 @@ apiVersion: v2
 name: rustpad
 version: 3.0.5
 appVersion: latest
-description:
-  Rustpad is an efficient and minimal open-source collaborative text editor
-  based on the operational transformation algorithm. It lets users collaborate in
-  real time while writing code in their browser. Rustpad is completely self-hosted
-  and fits in a tiny Chart, no database required.
+description: Rustpad is an efficient and minimal open-source collaborative text editor based on the operational transformation algorithm. It lets users collaborate in real time while writing code in their browser. Rustpad is completely self-hosted and fits in a tiny Chart, no database required.
 home: https://truecharts.org/charts/incubator/rustpad
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/rustpad.png
 deprecated: false
 sources:
-  - https://hub.docker.com/r/ekzhang/rustpad
   - https://github.com/ekzhang/rustpad
   - https://github.com/truecharts/charts/tree/master/charts/incubator/rustpad
+  - https://hub.docker.com/r/ekzhang/rustpad
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -33,8 +29,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Cloud
   truecharts.org/max_helm_version: "3.13"

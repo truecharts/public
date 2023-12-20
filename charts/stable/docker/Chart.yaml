@@ -2,7 +2,7 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: docker
 version: 1.0.9
-appVersion: 24.0.7
+appVersion: 24.0.7-dind
 description: Dedicated App for using Docker-in-Docker
 home: https://truecharts.org/charts/stable/docker
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/docker.png
@@ -25,8 +25,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: docker
   truecharts.org/max_helm_version: "3.13"

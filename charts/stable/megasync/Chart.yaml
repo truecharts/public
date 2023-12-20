@@ -2,7 +2,7 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: megasync
 version: 3.0.7
-appVersion: latest
+appVersion: latest@sha256:04d8c00afb09019389c7142a8cd67a724a6abc388d55c691a56b130f91a928d2
 description: MEGAsync can synchronize all of your devices with your MEGA account.
 home: https://truecharts.org/charts/incubator/megasync
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/megasync.png
@@ -30,8 +30,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Network-Other
   truecharts.org/max_helm_version: "3.13"

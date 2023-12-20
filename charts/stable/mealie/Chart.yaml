@@ -2,10 +2,8 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: mealie
 version: 18.1.4
-appVersion: 1.0.0
-description:
-  Mealie is a self hosted recipe manager and meal planner with a RestAPI
-  backend
+appVersion: 1.0.0-RC2@sha256:9881b16dda92272c6eeeb132697ad2379be1c562f0f53f86f20ce2654b57f455
+description: Mealie is a self hosted recipe manager and meal planner with a RestAPI backend
 home: https://truecharts.org/charts/stable/mealie
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/mealie.png
 deprecated: false
@@ -28,8 +26,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: utilities
   truecharts.org/max_helm_version: "3.13"

@@ -3,9 +3,7 @@ apiVersion: v2
 name: lancache-monolithic
 version: 5.1.13
 appVersion: latest
-description:
-  A monolithic lancache service capable of caching all CDNs in a single
-  instance.
+description: A monolithic lancache service capable of caching all CDNs in a single instance.
 home: https://truecharts.org/charts/stable/lancache-monolithic
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/lancache-monolithic.png
 deprecated: false
@@ -29,8 +27,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: gaming
   truecharts.org/max_helm_version: "3.13"

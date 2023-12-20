@@ -3,9 +3,7 @@ apiVersion: v2
 name: zusam
 version: 5.0.4
 appVersion: 0.5.4
-description:
-  Zusam is a free and open-source way to self-host private forums for groups
-  of friends.
+description: Zusam is a free and open-source way to self-host private forums for groups of friends.
 home: https://truecharts.org/charts/incubator/zusam
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/zusam.png
 deprecated: false
@@ -29,8 +27,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: chat
   truecharts.org/max_helm_version: "3.13"

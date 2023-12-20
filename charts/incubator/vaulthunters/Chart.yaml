@@ -3,13 +3,7 @@ apiVersion: v2
 name: vaulthunters
 version: 3.0.4
 appVersion: latest
-description:
-  "Vault Hunters - 1.13.4 Modded Minecraft Server[br][br][b]Vault Hunters
-  - 1.13.4[/b][br]Level up, loot the vaults and defeat the bosses to collect 16 artifacts![br][br]Setup:[br][li]You
-  must accept the EULA by setting the [b]EULA[/b] variable to [span style='color:
-  #00E800;']true[/span] or the install will fail.[br]Optional:[br][li]You can setup
-  a comma separated list of players who will have admin privileges in game by setting
-  [b]OPS[/b]"
+description: "Vault Hunters - 1.13.4 Modded Minecraft Server[br][br][b]Vault Hunters - 1.13.4[/b][br]Level up, loot the vaults and defeat the bosses to collect 16 artifacts![br][br]Setup:[br][li]You must accept the EULA by setting the [b]EULA[/b] variable to [span style='color: #00E800;']true[/span] or the install will fail.[br]Optional:[br][li]You can setup a comma separated list of players who will have admin privileges in game by setting [b]OPS[/b]"
 home: https://truecharts.org/charts/incubator/vaulthunters
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/vaulthunters.png
 deprecated: false
@@ -33,8 +27,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: GameServers
   truecharts.org/max_helm_version: "3.13"

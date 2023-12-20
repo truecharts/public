@@ -2,7 +2,7 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: lanraragi
 version: 6.0.13
-appVersion: 0.9.0
+appVersion: .0.9.0@sha256:d54417add48773e6987d2391de57e8c61b7e6737079647bb29eaacf4c0cbf4f6
 description: Open source server for archival of comics/manga.
 home: https://truecharts.org/charts/stable/lanraragi
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/lanraragi.png
@@ -29,8 +29,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.13"

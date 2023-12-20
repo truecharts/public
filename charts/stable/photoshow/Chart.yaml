@@ -2,7 +2,7 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: photoshow
 version: 7.0.12
-appVersion: 48aabb98
+appVersion: ersion-48aabb98@sha256:999c8760561b08a640378c19dd27ac4ab5aecee4aa964c195ee01de4e8845078
 description: A gallery software at its easiest, it doesn't even require a database.
 home: https://truecharts.org/charts/stable/photoshow
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/photoshow.png
@@ -31,8 +31,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.13"

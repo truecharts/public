@@ -3,9 +3,7 @@ apiVersion: v2
 name: deconz
 version: 12.0.19
 appVersion: 2.24.2
-description:
-  deCONZ is an easy to use control software, with which you can set up
-  and control Zigbee networks of any size without further programming effort.
+description: deCONZ is an easy to use control software, with which you can set up and control Zigbee networks of any size without further programming effort.
 home: https://truecharts.org/charts/stable/deconz
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/deconz.png
 deprecated: false
@@ -32,8 +30,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.13"

@@ -2,7 +2,7 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: novnc
 version: 7.0.12
-appVersion: 1.2.0
+appVersion: 1.2.0@sha256:5d0d02fa11dabb607ddf293b3b3794ef15f2a9b32e41078de5ed24ad3cfad095
 description: The open source VNC client
 home: https://truecharts.org/charts/stable/novnc
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/novnc.png
@@ -29,8 +29,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.13"

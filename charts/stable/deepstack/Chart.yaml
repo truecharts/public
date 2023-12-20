@@ -2,18 +2,16 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: deepstack
 version: 8.0.12
-appVersion: 2022.01.1
-description:
-  DeepStack AI provides AI features including Face Recognition, Object
-  Detection, Scene Recognition and custom AI Models
+appVersion: 2022.01.1@sha256:4320be73987468b3040b2ca63daf2d3935c4d469b53aa40efb6176858488b500
+description: DeepStack AI provides AI features including Face Recognition, Object Detection, Scene Recognition and custom AI Models
 home: https://truecharts.org/charts/stable/deepstack
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/deepstack.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/deepstack
-  - https://hub.docker.com/r/deepquestai/deepstack
   - https://www.deepstack.cc/
   - https://github.com/johnolafenwa/DeepStack
+  - https://github.com/truecharts/charts/tree/master/charts/stable/deepstack
+  - https://hub.docker.com/r/deepquestai/deepstack
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -29,8 +27,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: AI
   truecharts.org/max_helm_version: "3.13"

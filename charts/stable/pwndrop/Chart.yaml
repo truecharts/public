@@ -3,9 +3,7 @@ apiVersion: v2
 name: pwndrop
 version: 6.0.27
 appVersion: 1.0.1
-description:
-  Pwndrop is a self-deployable file hosting service for sending out red
-  teaming payloads or securely sharing your private files over HTTP and WebDAV.
+description: Pwndrop is a self-deployable file hosting service for sending out red teaming payloads or securely sharing your private files over HTTP and WebDAV.
 home: https://truecharts.org/charts/stable/pwndrop
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pwndrop.png
 deprecated: false
@@ -27,8 +25,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: incubator
   truecharts.org/max_helm_version: "3.13"

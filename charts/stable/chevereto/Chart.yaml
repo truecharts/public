@@ -3,9 +3,7 @@ apiVersion: v2
 name: chevereto
 version: 8.0.12
 appVersion: 1.6.2
-description:
-  Chevereto is an image hosting software that allows you to create a beautiful
-  and full-featured image hosting website on your own server.
+description: Chevereto is an image hosting software that allows you to create a beautiful and full-featured image hosting website on your own server.
 home: https://truecharts.org/charts/stable/chevereto
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/chevereto.png
 deprecated: false
@@ -36,8 +34,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: incubator
   truecharts.org/max_helm_version: "3.13"

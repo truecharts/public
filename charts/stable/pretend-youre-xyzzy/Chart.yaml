@@ -8,10 +8,10 @@ home: https://truecharts.org/charts/stable/pretend-youre-xyzzy
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pretend-youre-xyzzy.png
 deprecated: false
 sources:
+  - https://github.com/ajanata/PretendYoureXyzzy
   - https://github.com/truecharts/charts/tree/master/charts/stable/pretend-youre-xyzzy
   - https://hub.docker.com/r/emcniece/dockeryourxyzzy
   - https://github.com/emcniece/DockerYourXyzzy
-  - https://github.com/ajanata/PretendYoureXyzzy
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -30,8 +30,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.13"

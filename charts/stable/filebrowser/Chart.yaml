@@ -2,16 +2,16 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: filebrowser
 version: 6.0.15
-appVersion: 2.26.0
+appVersion: 2.26.0@sha256:7428a67e0265f1550e2421bdc554d35889921f5ba2285b829693053fb98aab8a
 description: Filebrowser provides a file managing interface within a specified directory
 home: https://truecharts.org/charts/stable/filebrowser
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/filebrowser.png
 deprecated: false
 sources:
-  - https://filebrowser.org/cli/filebrowser
-  - https://github.com/filebrowser/filebrowser
   - https://github.com/truecharts/charts/tree/master/charts/stable/filebrowser
   - https://hub.docker.com/r/filebrowser/filebrowser
+  - https://filebrowser.org/cli/filebrowser
+  - https://github.com/filebrowser/filebrowser
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -27,8 +27,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.13"

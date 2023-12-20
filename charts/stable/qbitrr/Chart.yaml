@@ -2,7 +2,7 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: qbitrr
 version: 0.0.30
-appVersion: 3.8.8
+appVersion: 3.8.8@sha256:76167d8a60985db5b8b0478cd38cd462d56cca96330e9e363dc7b9f02deb58e0
 description: A simple script to monitor qBit and communicate with Radarr and Sonarr.
 home: https://truecharts.org/charts/stable/qbitrr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/qbitrr.png
@@ -28,8 +28,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Downloaders
   truecharts.org/max_helm_version: "3.13"

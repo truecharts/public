@@ -3,9 +3,7 @@ apiVersion: v2
 name: hetzner-ddns
 version: 3.0.5
 appVersion: latest
-description:
-  This Chart will allow you to use the Hetzner DNS Service (https://www.hetzner.com/dns-console)
-  as a Dynamic DNS (DDNS) Provider.
+description: This Chart will allow you to use the Hetzner DNS Service (https://www.hetzner.com/dns-console) as a Dynamic DNS (DDNS) Provider.
 home: https://truecharts.org/charts/incubator/hetzner-ddns
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/hetzner-ddns.png
 deprecated: false
@@ -29,8 +27,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Network-DNS
   truecharts.org/max_helm_version: "3.13"

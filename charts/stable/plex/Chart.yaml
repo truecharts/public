@@ -2,7 +2,7 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: plex
 version: 14.1.6
-appVersion: 1.32.8.7639
+appVersion: 1.32.8.7639-fb6452ebf
 description: Plex Media Server
 home: https://truecharts.org/charts/stable/plex
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/plex.png
@@ -27,8 +27,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.13"

@@ -3,17 +3,15 @@ apiVersion: v2
 name: authentik
 version: 15.0.26
 appVersion: 2023.10.4
-description:
-  Authentik is an open-source Identity Provider focused on flexibility
-  and versatility.
+description: Authentik is an open-source Identity Provider focused on flexibility and versatility.
 home: https://truecharts.org/charts/stable/authentik
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/authentik.png
 deprecated: false
 sources:
   - https://goauthentik.io/docs/
-  - https://github.com/truecharts/charts/tree/master/charts/stable/authentik
-  - https://ghcr.io/goauthentik/ldap
   - https://github.com/goauthentik/authentik
+  - https://github.com/truecharts/charts/tree/master/charts/stable/authentik
+  - https://ghcr.io/goauthentik/server
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -36,8 +34,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: authentication
   truecharts.org/max_helm_version: "3.13"

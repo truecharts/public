@@ -3,9 +3,7 @@ apiVersion: v2
 name: ubooquity
 version: 7.0.27
 appVersion: 2.1.2
-description:
-  Ubooquity is a free, lightweight and easy-to-use home server for your
-  comics and ebooks.
+description: Ubooquity is a free, lightweight and easy-to-use home server for your comics and ebooks.
 home: https://truecharts.org/charts/stable/ubooquity
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ubooquity.png
 deprecated: false
@@ -27,8 +25,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: incubator
   truecharts.org/max_helm_version: "3.13"

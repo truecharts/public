@@ -3,10 +3,7 @@ apiVersion: v2
 name: ecodms
 version: 3.0.5
 appVersion: latest
-description:
-  ecoDMS 18.09 (apu) Full Installation - Document Management System (DMS)
-  - Audit-compliant archive for scanning, archiving, managing and retrieving all data
-  and documents.
+description: ecoDMS 18.09 (apu) Full Installation - Document Management System (DMS) - Audit-compliant archive for scanning, archiving, managing and retrieving all data and documents.
 home: https://truecharts.org/charts/incubator/ecodms
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ecodms.png
 deprecated: false
@@ -31,8 +28,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Cloud
   truecharts.org/max_helm_version: "3.13"

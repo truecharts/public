@@ -2,18 +2,15 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: appsmith
 version: 6.0.4
-appVersion: 1.9.50
-description:
-  Turn any datasource into an internal app in minutes. Appsmith lets you
-  drag-and-drop UI components to build pages, connect to any API, database or GraphQL
-  source and write logic with JavaScript objects.
+appVersion: 1.9.50@sha256:191b59d6c8dc36493ec54773494346cf6cc8173b7cca9407b241299e02bad892
+description: Turn any datasource into an internal app in minutes. Appsmith lets you drag-and-drop UI components to build pages, connect to any API, database or GraphQL source and write logic with JavaScript objects.
 home: https://truecharts.org/charts/incubator/appsmith
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/appsmith.png
 deprecated: false
 sources:
+  - https://hub.docker.com/r/appsmith/appsmith-ce
   - https://github.com/appsmithorg/appsmith
   - https://github.com/truecharts/charts/tree/master/charts/incubator/appsmith
-  - https://hub.docker.com/r/appsmith/appsmith-ce
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -36,8 +33,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: productivity
   truecharts.org/max_helm_version: "3.13"

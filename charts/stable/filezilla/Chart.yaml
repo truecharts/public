@@ -8,9 +8,9 @@ home: https://truecharts.org/charts/incubator/filezilla
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/filezilla.png
 deprecated: false
 sources:
-  - https://github.com/linuxserver/docker-filezilla
   - https://github.com/truecharts/charts/tree/master/charts/incubator/filezilla
   - https://github.com/truecharts/containers/tree/master/mirrorfilezilla
+  - https://github.com/linuxserver/docker-filezilla
   - https://filezilla-project.org/
 maintainers:
   - name: TrueCharts
@@ -31,8 +31,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.13"

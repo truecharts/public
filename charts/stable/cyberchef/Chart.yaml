@@ -2,10 +2,8 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: cyberchef
 version: 6.0.46
-appVersion: 10.5.2
-description:
-  CyberChef is a simple, intuitive web app for carrying out all manner
-  of "cyber" operations within a web browser.
+appVersion: 10.5.2@sha256:51cbc1463da6a93a6884268e01759e860288226cf6e2613b3d97e054be82849a
+description: CyberChef is a simple, intuitive web app for carrying out all manner of "cyber" operations within a web browser.
 home: https://truecharts.org/charts/stable/cyberchef
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/cyberchef.png
 deprecated: false
@@ -27,8 +25,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: utilities
   truecharts.org/max_helm_version: "3.13"

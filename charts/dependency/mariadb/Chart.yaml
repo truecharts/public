@@ -3,9 +3,7 @@ apiVersion: v2
 name: mariadb
 version: 11.0.3
 appVersion: 11.1.3
-description:
-  Fast, reliable, scalable, and easy to use open-source relational database
-  system.
+description: Fast, reliable, scalable, and easy to use open-source relational database system.
 home: https://truecharts.org/charts/dependency/mariadb
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/mariadb.png
 deprecated: false
@@ -33,8 +31,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: database
   truecharts.org/max_helm_version: "3.13"

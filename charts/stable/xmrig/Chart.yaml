@@ -3,10 +3,7 @@ apiVersion: v2
 name: xmrig
 version: 3.0.5
 appVersion: latest
-description:
-  Chartised version of XMRig for CPU Mining. Helps turn your TrueNAS server
-  into a Monero / cryptocurrency mining rig. Now optionally works with GPU algorithms
-  as well.
+description: Chartised version of XMRig for CPU Mining. Helps turn your TrueNAS server into a Monero / cryptocurrency mining rig. Now optionally works with GPU algorithms as well.
 home: https://truecharts.org/charts/incubator/xmrig
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/xmrig.png
 deprecated: false
@@ -29,8 +26,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Crypto
   truecharts.org/max_helm_version: "3.13"

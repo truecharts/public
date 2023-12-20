@@ -3,9 +3,7 @@ apiVersion: v2
 name: nntp2nntp
 version: 6.0.12
 appVersion: 0.3.20230704
-description:
-  Nntp2nntp proxy allow you to use your NNTP Account from multiple systems,
-  each with own user name and password.
+description: Nntp2nntp proxy allow you to use your NNTP Account from multiple systems, each with own user name and password.
 home: https://truecharts.org/charts/stable/nntp2nntp
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/nntp2nntp.png
 deprecated: false
@@ -27,8 +25,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: incubator
   truecharts.org/max_helm_version: "3.13"

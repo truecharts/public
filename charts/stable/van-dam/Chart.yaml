@@ -2,15 +2,15 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: van-dam
 version: 0.1.2
-appVersion: 0.54.0
+appVersion: 0.54.0@sha256:75dc5bcc5ef367b86d6983f6942d7b4c0e23cf6154d367a8d6a01a81310505aa
 description: A Digital Asset Manager (DAM), specifically designed for 3D print files.
 home: https://truecharts.org/charts/incubator/van-dam
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/van-dam.png
 deprecated: false
 sources:
+  - https://github.com/truecharts/containers/tree/master/mirrorvan-dam
   - https://github.com/Floppy/van_dam
   - https://github.com/truecharts/charts/tree/master/charts/incubator/van-dam
-  - https://github.com/truecharts/containers/tree/master/mirrorvan-dam
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -34,8 +34,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.13"

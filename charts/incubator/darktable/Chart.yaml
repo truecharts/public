@@ -3,15 +3,13 @@ apiVersion: v2
 name: darktable
 version: 7.0.4
 appVersion: 4.0.1
-description:
-  Darktable is an open source photography workflow application and raw
-  developer.
+description: Darktable is an open source photography workflow application and raw developer.
 home: https://truecharts.org/charts/incubator/darktable
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/darktable.png
 deprecated: false
 sources:
-  - https://ghcr.io/linuxserver/darktable
   - https://github.com/truecharts/charts/tree/master/charts/incubator/darktable
+  - https://ghcr.io/linuxserver/darktable
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -27,8 +25,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: incubator
   truecharts.org/max_helm_version: "3.13"

@@ -2,7 +2,7 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: prometheus-operator
 version: 1.0.17
-appVersion: 0.69.1
+appVersion: 0.69.1@sha256:dc0ad671ec11e5a5b6032a7d36b9451b10f0848f7f0d7203b761de6a1b7c0e99
 description: Prometheus Operator is an operator for prometheus
 home: https://truecharts.org/charts/operators/prometheus-operator
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/prometheus-operator.png
@@ -10,7 +10,7 @@ deprecated: false
 sources:
   - https://github.com/prometheus-operator
   - https://github.com/truecharts/charts/tree/master/charts/operators/prometheus-operator
-  - https://github.com/truecharts/containers/tree/master/mirrorprometheus-config-reloader
+  - https://github.com/truecharts/containers/tree/master/mirrorprometheus-operator
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -28,8 +28,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: operators
   truecharts.org/max_helm_version: "3.13"

@@ -2,17 +2,15 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: lychee
 version: 18.0.4
-appVersion: 4.13.0
-description:
-  Lychee is a free photo-management tool, which runs on your server or
-  web-space
+appVersion: 4.13.0@sha256:40eebc538f460ace2cb9abc9e8ba1a97615d1cfa4092aff2c3b9677d5494f171
+description: Lychee is a free photo-management tool, which runs on your server or web-space
 home: https://truecharts.org/charts/incubator/lychee
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/lychee.png
 deprecated: false
 sources:
+  - https://github.com/LycheeOrg/Lychee
   - https://github.com/truecharts/charts/tree/master/charts/incubator/lychee
   - https://hub.docker.com/r/lycheeorg/lychee-laravel
-  - https://github.com/LycheeOrg/Lychee
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -37,8 +35,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.13"

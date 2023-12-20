@@ -8,9 +8,9 @@ home: https://truecharts.org/charts/stable/posterr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/posterr.png
 deprecated: false
 sources:
-  - https://hub.docker.com/r/petersem/posterr
   - https://github.com/petersem/posterr
   - https://github.com/truecharts/charts/tree/master/charts/stable/posterr
+  - https://hub.docker.com/r/petersem/posterr
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -27,8 +27,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: MediaServer-Other
   truecharts.org/max_helm_version: "3.13"

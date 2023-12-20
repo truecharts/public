@@ -3,9 +3,7 @@ apiVersion: v2
 name: dashy
 version: 3.0.35
 appVersion: 2.1.1
-description:
-  Dashy helps you organize your self-hosted services by making them accessible
-  from a single place
+description: Dashy helps you organize your self-hosted services by making them accessible from a single place
 home: https://truecharts.org/charts/stable/dashy
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/dashy.png
 deprecated: false
@@ -28,8 +26,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: dashboard
   truecharts.org/max_helm_version: "3.13"

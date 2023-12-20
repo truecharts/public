@@ -3,16 +3,14 @@ apiVersion: v2
 name: fileflows
 version: 6.1.2
 appVersion: "23.12"
-description:
-  An application that lets you automatically process files through a simple
-  rule flow.
+description: An application that lets you automatically process files through a simple rule flow.
 home: https://truecharts.org/charts/stable/fileflows
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/fileflows.png
 deprecated: false
 sources:
+  - https://github.com/revenz/FileFlows
   - https://github.com/truecharts/charts/tree/master/charts/stable/fileflows
   - https://hub.docker.com/r/revenz/fileflows
-  - https://github.com/revenz/FileFlows
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -28,8 +26,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.13"

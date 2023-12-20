@@ -2,12 +2,8 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: sftpgo
 version: 3.0.19
-appVersion: 2.5.5
-description:
-  "Fully featured and highly configurable SFTP server with optional HTTP/S,
-  FTP, FTPS and WebDAV support. Several storage backends are supported: local filesystem,
-  encrypted local filesystem, S3 (compatible) Object Storage, Google Cloud Storage,
-  Azure Blob Storage, SFTP."
+appVersion: 2.5.5@sha256:2509f5a637908b0a559bdc150b33345cbadbf7e4c9b05ea1ca3bd5e767781648
+description: "Fully featured and highly configurable SFTP server with optional HTTP/S, FTP, FTPS and WebDAV support. Several storage backends are supported: local filesystem, encrypted local filesystem, S3 (compatible) Object Storage, Google Cloud Storage, Azure Blob Storage, SFTP."
 home: https://truecharts.org/charts/stable/sftpgo
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/sftpgo.png
 deprecated: false
@@ -31,8 +27,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Network-FTP
   truecharts.org/max_helm_version: "3.13"

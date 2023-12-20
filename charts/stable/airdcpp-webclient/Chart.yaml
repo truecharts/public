@@ -3,10 +3,7 @@ apiVersion: v2
 name: airdcpp-webclient
 version: 7.0.12
 appVersion: 2.12.1
-description:
-  AirDC++ Web Client is a locally installed application, which is designed
-  for flexible sharing of files or directories within groups of people in a local
-  network or over internet.
+description: AirDC++ Web Client is a locally installed application, which is designed for flexible sharing of files or directories within groups of people in a local network or over internet.
 home: https://truecharts.org/charts/stable/airdcpp-webclient
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/airdcpp-webclient.png
 deprecated: false
@@ -32,8 +29,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.13"

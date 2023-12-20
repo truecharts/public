@@ -3,9 +3,7 @@ apiVersion: v2
 name: pidgin
 version: 6.0.4
 appVersion: 2.14.12
-description:
-  Pidgin is a chat program which lets you log into accounts on multiple
-  chat networks simultaneously.
+description: Pidgin is a chat program which lets you log into accounts on multiple chat networks simultaneously.
 home: https://truecharts.org/charts/incubator/pidgin
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pidgin.png
 deprecated: false
@@ -27,8 +25,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: incubator
   truecharts.org/max_helm_version: "3.13"

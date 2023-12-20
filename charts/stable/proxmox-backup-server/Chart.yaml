@@ -2,7 +2,7 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: proxmox-backup-server
 version: 0.0.10
-appVersion: 3.0.2
+appVersion: 3.0.2@sha256:31e31c6bc27ca6e682eb2819ba69bec7d20bfa928e5642123e620f9be3277d3c
 description: Container for proxmox backup server
 home: https://truecharts.org/charts/incubator/proxmox-backup-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/proxmox-backup-server.png
@@ -26,8 +26,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: test
   truecharts.org/max_helm_version: "3.13"

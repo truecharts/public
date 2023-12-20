@@ -3,17 +3,14 @@ apiVersion: v2
 name: cowyo
 version: 3.0.5
 appVersion: latest
-description:
-  cowyo is a self-contained wiki server that makes jotting notes easy and
-  fast. The most important feature here is simplicity. Other features include versioning,
-  page locking, self-destructing messages, encryption, and listifying.
+description: cowyo is a self-contained wiki server that makes jotting notes easy and fast. The most important feature here is simplicity. Other features include versioning, page locking, self-destructing messages, encryption, and listifying.
 home: https://truecharts.org/charts/incubator/cowyo
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/cowyo.png
 deprecated: false
 sources:
+  - https://github.com/schollz/cowyo
   - https://github.com/truecharts/charts/tree/master/charts/incubator/cowyo
   - https://hub.docker.com/r/schollz/cowyo
-  - https://github.com/schollz/cowyo
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -31,8 +28,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Cloud
   truecharts.org/max_helm_version: "3.13"

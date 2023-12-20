@@ -2,7 +2,7 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: snipe-it
 version: 9.0.4
-appVersion: 6.2.3
+appVersion: 6.2.3@sha256:f95f136b8f805626736371283059d6a14f662a533fbba5396458bda5f443f6fd
 description: Open source asset management
 home: https://truecharts.org/charts/incubator/snipe-it
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/snipe-it.png
@@ -44,8 +44,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: management
   truecharts.org/max_helm_version: "3.13"

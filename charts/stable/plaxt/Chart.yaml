@@ -3,9 +3,7 @@ apiVersion: v2
 name: plaxt
 version: 5.0.12
 appVersion: latest
-description:
-  This Tools provides a way to keep your watched history synced FROM Plex
-  Server To Trakt.tv
+description: This Tools provides a way to keep your watched history synced FROM Plex Server To Trakt.tv
 home: https://truecharts.org/charts/stable/plaxt
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/plaxt.png
 deprecated: false
@@ -31,8 +29,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Other
   truecharts.org/max_helm_version: "3.13"

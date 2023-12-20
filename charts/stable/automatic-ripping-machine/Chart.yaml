@@ -2,7 +2,7 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: automatic-ripping-machine
 version: 0.0.12
-appVersion: 2.6.60
+appVersion: 2.6.60@sha256:bf79fee03b4ef8867ccbee6448748bf58b86a59c2400dd9beb5a4b926c6e7c10
 description: Automatic Ripping Machine (ARM) Scripts.
 home: https://truecharts.org/charts/incubator/automatic-ripping-machine
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/automatic-ripping-machine.png
@@ -27,8 +27,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.13"

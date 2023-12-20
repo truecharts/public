@@ -2,7 +2,7 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: anki-sync-server
 version: 3.0.9
-appVersion: 1.1.14
+appVersion: 1.1.14@sha256:3951d969ee43c9a0e69394e49111c55a69d4b5784b1cfe121a0151c29dccd811
 description: A cross-platform Anki sync server.
 home: https://truecharts.org/charts/incubator/anki-sync-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/anki-sync-server.png
@@ -26,8 +26,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.13"

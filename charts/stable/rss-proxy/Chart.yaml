@@ -3,9 +3,7 @@ apiVersion: v2
 name: rss-proxy
 version: 3.0.5
 appVersion: latest
-description:
-  RSS-proxy 2+ allows you to do create an ATOM or JSON feed of almost static/dynamic
-  websites or feeds (web to feed), just by analyzing just the HTML structure.
+description: RSS-proxy 2+ allows you to do create an ATOM or JSON feed of almost static/dynamic websites or feeds (web to feed), just by analyzing just the HTML structure.
 home: https://truecharts.org/charts/incubator/rss-proxy
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/rss-proxy.png
 deprecated: false
@@ -31,8 +29,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Cloud
   truecharts.org/max_helm_version: "3.13"

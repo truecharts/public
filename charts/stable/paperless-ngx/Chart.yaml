@@ -3,9 +3,7 @@ apiVersion: v2
 name: paperless-ngx
 version: 3.1.5
 appVersion: 2.1.3
-description:
-  Paperless-ngx is an application by Daniel Quinn and contributors that
-  indexes your scanned documents.
+description: Paperless-ngx is an application by Daniel Quinn and contributors that indexes your scanned documents.
 home: https://truecharts.org/charts/stable/paperless-ngx
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/paperless-ngx.png
 deprecated: false
@@ -39,8 +37,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: productivity
   truecharts.org/max_helm_version: "3.13"

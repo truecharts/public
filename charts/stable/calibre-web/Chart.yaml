@@ -2,10 +2,8 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: calibre-web
 version: 15.0.19
-appVersion: 0.6.21
-description:
-  Calibre-Web is a web app providing a clean interface for browsing, reading
-  and downloading eBooks using an existing Calibre database.
+appVersion: 0.6.21@sha256:109526f6d864af8f99148baf04f3352e02965200cd055ffc2419844b23d38028
+description: Calibre-Web is a web app providing a clean interface for browsing, reading and downloading eBooks using an existing Calibre database.
 home: https://truecharts.org/charts/stable/calibre-web
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/calibre-web.png
 deprecated: false
@@ -30,8 +28,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.13"

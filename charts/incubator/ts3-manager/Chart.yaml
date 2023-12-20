@@ -2,7 +2,7 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: ts3-manager
 version: 3.0.4
-appVersion: 2.2.0
+appVersion: 2.2.0@sha256:44caf39f0bdad9d0aebfd1014e9b57fe6ce119c6aee07bc6e742f2fe37c8aa29
 description: A modern web interface for maintaining Teamspeak3 servers.
 home: https://truecharts.org/charts/incubator/ts3-manager
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ts3-manager.png
@@ -28,8 +28,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: web
   truecharts.org/max_helm_version: "3.13"

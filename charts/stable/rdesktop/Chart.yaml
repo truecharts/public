@@ -3,9 +3,7 @@ apiVersion: v2
 name: rdesktop
 version: 5.0.205
 appVersion: latest
-description:
-  Full desktop environments in many popular flavors for Alpine, Ubuntu,
-  Arch, and Fedora accessible via RDP.
+description: Full desktop environments in many popular flavors for Alpine, Ubuntu, Arch, and Fedora accessible via RDP.
 home: https://truecharts.org/charts/stable/rdesktop
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/rdesktop.png
 deprecated: false
@@ -30,8 +28,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: desktops
   truecharts.org/max_helm_version: "3.13"

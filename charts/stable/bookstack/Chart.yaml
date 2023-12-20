@@ -3,16 +3,14 @@ apiVersion: v2
 name: bookstack
 version: 8.0.14
 appVersion: 23.10.20231030
-description:
-  A simple, self-hosted, easy-to-use platform for organising and storing
-  information.
+description: A simple, self-hosted, easy-to-use platform for organising and storing information.
 home: https://truecharts.org/charts/stable/bookstack
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/bookstack.png
 deprecated: false
 sources:
-  - https://ghcr.io/linuxserver/bookstack
   - https://www.bookstackapp.com/
   - https://github.com/truecharts/charts/tree/master/charts/stable/bookstack
+  - https://ghcr.io/linuxserver/bookstack
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -40,8 +38,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.13"

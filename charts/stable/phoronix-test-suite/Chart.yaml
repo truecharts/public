@@ -3,10 +3,7 @@ apiVersion: v2
 name: phoronix-test-suite
 version: 3.0.5
 appVersion: latest
-description:
-  The Phoronix Test Suite is the most comprehensive testing and benchmarking
-  platform available that provides an extensible framework for which new tests can
-  be easily added.
+description: The Phoronix Test Suite is the most comprehensive testing and benchmarking platform available that provides an extensible framework for which new tests can be easily added.
 home: https://truecharts.org/charts/incubator/phoronix-test-suite
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/phoronix-test-suite.png
 deprecated: false
@@ -30,8 +27,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Tools-Utilities
   truecharts.org/max_helm_version: "3.13"

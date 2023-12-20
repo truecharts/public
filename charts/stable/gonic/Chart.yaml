@@ -2,7 +2,7 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: gonic
 version: 10.1.4
-appVersion: 0.16.2
+appVersion: 0.16.2@sha256:da7f1a0da391e31afc6e8dcac52f1a036e4e89b302c503778014befd246f8d57
 description: Music streaming server / subsonic server API implementation
 home: https://truecharts.org/charts/stable/gonic
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/gonic.png
@@ -27,8 +27,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.13"

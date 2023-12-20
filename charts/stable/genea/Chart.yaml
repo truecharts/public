@@ -3,9 +3,7 @@ apiVersion: v2
 name: genea
 version: 3.0.5
 appVersion: latest
-description:
-  Genea allows visually building and editing a family tree online. It consumes
-  and saves genealogy data in the GEDCOM format without any server side components.
+description: Genea allows visually building and editing a family tree online. It consumes and saves genealogy data in the GEDCOM format without any server side components.
 home: https://truecharts.org/charts/incubator/genea
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/genea.png
 deprecated: false
@@ -29,8 +27,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Other
   truecharts.org/max_helm_version: "3.13"

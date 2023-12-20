@@ -2,7 +2,7 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: typecho
 version: 9.0.4
-appVersion: 1.2.1
+appVersion: 1.2.1-php8.0-apache
 description: Typecho is a PHP Blogging Platform.
 home: https://truecharts.org/charts/incubator/typecho
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/typecho.png
@@ -34,8 +34,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: hosting
   truecharts.org/max_helm_version: "3.13"

@@ -3,17 +3,15 @@ apiVersion: v2
 name: wikijs
 version: 12.0.13
 appVersion: 2.5.300
-description:
-  Make documentation a joy to write using Wiki.js's beautiful and intuitive
-  interface!
+description: Make documentation a joy to write using Wiki.js's beautiful and intuitive interface!
 home: https://truecharts.org/charts/stable/wikijs
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/wikijs.png
 deprecated: false
 sources:
+  - https://hub.docker.com/r/requarks/wiki
   - https://github.com/Requarks/wiki
   - https://docs.requarks.io/install/docker
   - https://github.com/truecharts/charts/tree/master/charts/stable/wikijs
-  - https://hub.docker.com/r/requarks/wiki
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -30,8 +28,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.13"

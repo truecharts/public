@@ -2,7 +2,7 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: speedtest-exporter
 version: 7.0.12
-appVersion: 3.5.4
+appVersion: 3.5.4@sha256:f1064d49124c7fc45faabb87c6c876a2fd04e92b3dc14d4b871301217ba30fed
 description: Speedtest Exporter made in python using the official speedtest bin
 home: https://truecharts.org/charts/stable/speedtest-exporter
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/speedtest-exporter.png
@@ -28,8 +28,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: metrics
   truecharts.org/max_helm_version: "3.13"

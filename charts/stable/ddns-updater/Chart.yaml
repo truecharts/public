@@ -2,17 +2,15 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: ddns-updater
 version: 6.0.13
-appVersion: 2.5.0
-description:
-  Light container updating DNS A and/or AAAA records periodically for multiple
-  DNS providers
+appVersion: 2.5.0@sha256:6e5dd1066de1f4ea3ca8d0a8982ab65231e1687a7c519a86c133a788eafa2085
+description: Light container updating DNS A and/or AAAA records periodically for multiple DNS providers
 home: https://truecharts.org/charts/stable/ddns-updater
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ddns-updater.png
 deprecated: false
 sources:
+  - https://hub.docker.com/r/qmcgaw/ddns-updater
   - https://github.com/qdm12/ddns-updater
   - https://github.com/truecharts/charts/tree/master/charts/stable/ddns-updater
-  - https://hub.docker.com/r/qmcgaw/ddns-updater
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -28,8 +26,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: network
   truecharts.org/max_helm_version: "3.13"

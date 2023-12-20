@@ -3,9 +3,7 @@ apiVersion: v2
 name: tvhproxy
 version: 3.0.5
 appVersion: latest
-description:
-  TvhProxy is a small flask app to proxy requests between Plex Media Server
-  and Tvheadend.You have to run this Chart Chart as a seperate IP Address.
+description: TvhProxy is a small flask app to proxy requests between Plex Media Server and Tvheadend.You have to run this Chart Chart as a seperate IP Address.
 home: https://truecharts.org/charts/incubator/tvhproxy
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/tvhproxy.png
 deprecated: false
@@ -28,8 +26,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: MediaApp-Video
   truecharts.org/max_helm_version: "3.13"

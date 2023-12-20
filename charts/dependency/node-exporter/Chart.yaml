@@ -3,9 +3,7 @@ apiVersion: v2
 name: node-exporter
 version: 5.0.2
 appVersion: 1.7.0
-description:
-  Prometheus exporter for hardware and OS metrics exposed by UNIX kernels,
-  with pluggable metric collectors.
+description: Prometheus exporter for hardware and OS metrics exposed by UNIX kernels, with pluggable metric collectors.
 home: https://truecharts.org/charts/dependency/node-exporter
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/node-exporter.png
 deprecated: false
@@ -29,8 +27,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: metrics
   truecharts.org/max_helm_version: "3.13"

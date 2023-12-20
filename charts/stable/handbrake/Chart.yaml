@@ -2,18 +2,16 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: handbrake
 version: 17.1.0
-appVersion: 23.12.1
-description:
-  HandBrake is a tool for converting video from nearly any format to a
-  selection of modern, widely supported codecs.
+appVersion: 23.12.1@sha256:a294ceb615111172020006a6d2c4d720a9aa3c4a0e92a006be0b7ba175311864
+description: HandBrake is a tool for converting video from nearly any format to a selection of modern, widely supported codecs.
 home: https://truecharts.org/charts/stable/handbrake
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/handbrake.png
 deprecated: false
 sources:
-  - https://github.com/jlesage/docker-handbrake
-  - https://handbrake.fr/
   - https://github.com/truecharts/charts/tree/master/charts/stable/handbrake
   - https://hub.docker.com/r/jlesage/handbrake
+  - https://github.com/jlesage/docker-handbrake
+  - https://handbrake.fr/
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -31,8 +29,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.13"

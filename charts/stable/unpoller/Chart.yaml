@@ -2,10 +2,8 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: unpoller
 version: 7.0.18
-appVersion: 2.9.4
-description:
-  Collect your UniFi controller data and report it to an InfluxDB instance,
-  or export it for Prometheus collection.
+appVersion: 2.9.4@sha256:20c161781ac544a7548c8dd533f13498201746efdf0853d4625a1dbfd5652a19
+description: Collect your UniFi controller data and report it to an InfluxDB instance, or export it for Prometheus collection.
 home: https://truecharts.org/charts/stable/unpoller
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/unpoller.png
 deprecated: false
@@ -30,8 +28,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: metrics
   truecharts.org/max_helm_version: "3.13"

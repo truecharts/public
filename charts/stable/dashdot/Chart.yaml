@@ -3,16 +3,14 @@ apiVersion: v2
 name: dashdot
 version: 5.0.14
 appVersion: 5.2.3
-description:
-  dash. (or dashdot) is a modern server dashboard, running on the latest
-  tech, designed with glassmorphism in mind.
+description: dash. (or dashdot) is a modern server dashboard, running on the latest tech, designed with glassmorphism in mind.
 home: https://truecharts.org/charts/stable/dashdot
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/dashdot.png
 deprecated: false
 sources:
-  - https://hub.docker.com/r/mauricenino/dashdot
   - https://github.com/MauriceNino/dashdot
   - https://github.com/truecharts/charts/tree/master/charts/stable/dashdot
+  - https://hub.docker.com/r/mauricenino/dashdot
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -29,8 +27,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.13"

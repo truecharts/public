@@ -2,17 +2,15 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: linkwarden
 version: 1.1.3
-appVersion: 2.3.0
-description:
-  Linkwarden is a self-hosted, open-source collaborative bookmark manager
-  to collect, organize and archive webpages.
+appVersion: 2.3.0@sha256:f0958c304f28f32c76e1111713c1e94b3c5d567ccf607b76526dadb95c1b5e8e
+description: Linkwarden is a self-hosted, open-source collaborative bookmark manager to collect, organize and archive webpages.
 home: https://truecharts.org/charts/stable/linkwarden
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/linkwarden.png
 deprecated: false
 sources:
-  - https://ghcr.io/linkwarden/linkwarden
   - https://github.com/linkwarden/linkwarden
   - https://github.com/truecharts/charts/tree/master/charts/stable/linkwarden
+  - https://ghcr.io/linkwarden/linkwarden
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -30,8 +28,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: bookmarks
   truecharts.org/max_helm_version: "3.13"

@@ -2,16 +2,16 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: xteve
 version: 10.0.12
-appVersion: 2.2.0.200
+appVersion: 2.2.0.200@sha256:292b3614670f6bf4017cc65643c513cccb18323bd5269178bd3e36c8c68f5107
 description: M3U Proxy for Plex DVR and Emby Live TV.
 home: https://truecharts.org/charts/stable/xteve
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/xteve.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/xteve
-  - https://ghcr.io/k8s-at-home/xteve
   - https://github.com/k8s-at-home/container-images
   - https://github.com/xteve-project/xTeVe
+  - https://github.com/truecharts/charts/tree/master/charts/stable/xteve
+  - https://ghcr.io/k8s-at-home/xteve
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -30,8 +30,8 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.1
-  min_scale_version: 22.12.4
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.13"
