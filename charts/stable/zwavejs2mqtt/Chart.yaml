@@ -1,8 +1,8 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: zwavejs2mqtt
-version: 16.2.2
-appVersion: 9.5.1
+version: 16.3.2
+appVersion: 9.6.0
 description:
   Fully configurable Zwave to MQTT gateway and Control Panel using NodeJS
   and Vue
@@ -24,7 +24,7 @@ keywords:
   - zwave
 dependencies:
   - name: common
-    version: 14.3.5
+    version: 14.5.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -38,3 +38,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

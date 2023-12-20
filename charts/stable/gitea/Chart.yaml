@@ -1,17 +1,17 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: gitea
-version: 14.0.14
-appVersion: 1.21.1
+version: 14.0.17
+appVersion: 1.21.2
 description: Self hosted GIT repositories
 home: https://truecharts.org/charts/stable/gitea
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/gitea.png
 deprecated: false
 sources:
-  - https://hub.docker.com/r/gitea/gitea
-  - https://github.com/go-gitea/gitea
   - https://gitea.com/gitea/helm-chart
   - https://github.com/truecharts/charts/tree/master/charts/stable/gitea
+  - https://hub.docker.com/r/gitea/gitea
+  - https://github.com/go-gitea/gitea
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -25,7 +25,7 @@ keywords:
   - gogs
 dependencies:
   - name: common
-    version: 14.3.5
+    version: 14.5.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -46,3 +46,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

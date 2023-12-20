@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: nntp2nntp
-version: 6.0.10
+version: 6.0.12
 appVersion: 0.3.20230704
 description:
   Nntp2nntp proxy allow you to use your NNTP Account from multiple systems,
@@ -10,8 +10,8 @@ home: https://truecharts.org/charts/stable/nntp2nntp
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/nntp2nntp.png
 deprecated: false
 sources:
-  - https://ghcr.io/linuxserver/nntp2nntp
   - https://github.com/truecharts/charts/tree/master/charts/stable/nntp2nntp
+  - https://ghcr.io/linuxserver/nntp2nntp
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -20,7 +20,7 @@ keywords:
   - nntp2nntp
 dependencies:
   - name: common
-    version: 14.3.5
+    version: 14.5.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -34,3 +34,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: homelablabelmaker
-version: 5.0.10
+version: 5.0.12
 appVersion: latest
 description:
   DIY tool to create and print labels for Dell Poweredge and HP Proliant
@@ -10,9 +10,9 @@ home: https://truecharts.org/charts/stable/homelablabelmaker
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/homelablabelmaker.png
 deprecated: false
 sources:
-  - https://github.com/DavidSpek/homelablabelmaker
   - https://github.com/truecharts/charts/tree/master/charts/stable/homelablabelmaker
   - https://hub.docker.com/r/davidspek/homelablabelmaker
+  - https://github.com/DavidSpek/homelablabelmaker
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -23,7 +23,7 @@ keywords:
   - Other
 dependencies:
   - name: common
-    version: 14.3.5
+    version: 14.5.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -37,3 +37,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

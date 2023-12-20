@@ -1,42 +1,42 @@
 braveImage:
   pullPolicy: IfNotPresent
   repository: m1k1o/neko
-  tag: brave@sha256:89aa7029bfb66f6556a42466cfe030fa27bef6cfe972c08a22f5a101484677eb
+  tag: brave@sha256:5d853c22f1a1f47a44f8477b5acaa0fb8a0e81e04d333ce702ae88ea922d4fb0
 chromeImage:
   pullPolicy: IfNotPresent
   repository: m1k1o/neko
-  tag: google-chrome@sha256:5b3dbb15c456680a4176ac88a057511d99bfe344c82819001e26031b1ddc2241
+  tag: google-chrome@sha256:abdedb3d37fd93fb7cfb3670cc44921b8f93eac2f5a9ae4df19f3e7b70ce0fb9
 chromiumImage:
   pullPolicy: IfNotPresent
   repository: m1k1o/neko
-  tag: chromium@sha256:40c252ef1a520ef41e75ca56c5ae1792d017fa0ad6aa7d79e1f417b34cabb0ff
+  tag: chromium@sha256:4d0064f9968ccf4ac41a1a1a945a2a9ee2f183397b167186a26de9d8b2977450
 edgeImage:
   pullPolicy: IfNotPresent
   repository: m1k1o/neko
-  tag: microsoft-edge@sha256:b07404b0f6dcd2b16261330d30e5364add93bd843ffec3aea3a9e2f67c615c4a
+  tag: microsoft-edge@sha256:cfebc5fd0ba19d0204360e79fb8f7e330d5d00c970f91108e89843aac336d9e8
 image:
   pullPolicy: IfNotPresent
   repository: m1k1o/neko
-  tag: firefox@sha256:f419f71b40c6c1f03cda16de4f2c0f467a577a14d4d7e889e9858161ea0209ad
+  tag: firefox@sha256:5c2d1c0c0ebd23afd1b23bb99d86ad1707bdcdb78df9e8f374cd5d6a81bcd1f5
 imageSelector: image
 portal:
-  enabled: true
+  open:
+    enabled: true
 remminaImage:
   pullPolicy: IfNotPresent
   repository: m1k1o/neko
-  tag: remmina@sha256:932c2c4e721d46235faeda948ff6d2c0b2d91db3028db2127d6eadc28c30284e
+  tag: remmina@sha256:0c512621f6c2179e9bd011aa3bb99a66d551fca3041321fd2a6362f306526cfb
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsGroup: 0
-    runAsNonRoot: false
     runAsUser: 0
 service:
   main:
     ports:
       main:
         port: 10294
-        protocol: HTTP
+        protocol: http
         targetPort: 8080
   mux-tcp:
     enabled: true
@@ -44,7 +44,7 @@ service:
       mux-tcp:
         enabled: true
         port: 52100
-        protocol: TCP
+        protocol: tcp
         targetPort: 52100
   mux-udp:
     enabled: true
@@ -52,20 +52,20 @@ service:
       mux-udp:
         enabled: true
         port: 52100
-        protocol: UDP
+        protocol: udp
         targetPort: 52100
 torImage:
   pullPolicy: IfNotPresent
   repository: m1k1o/neko
-  tag: tor-browser@sha256:b8ee63fdb4286dcbef71aa373bc080606c96009f6081b95d0f1d3abc216e1bb4
+  tag: tor-browser@sha256:0da15108549aebdc35213c9b48953b001a89ad8c82c692123ae75a16fa0b389e
 vivaldiImage:
   pullPolicy: IfNotPresent
   repository: m1k1o/neko
-  tag: vivaldi@sha256:8b9d1269af0dcf1dcb690dc0677c5470a58f4f2035677557b8f423f8dbdec98d
+  tag: vivaldi@sha256:cfbee0000006c076d994dddd85c32faf16135165a2a0cfdecbc4de7dc6b94df6
 vlcImage:
   pullPolicy: IfNotPresent
   repository: m1k1o/neko
-  tag: vlc@sha256:e3129b3887451e2b3dbdb627a617e34b5331ee3f3b253fc2d14503e222d3b745
+  tag: vlc@sha256:cc5f2f99eb83017a5c41c36e24f77a5019c5fef0b8559f87113f63258ec1d1db
 vncviewerImage:
   pullPolicy: IfNotPresent
   repository: m1k1o/neko
@@ -85,9 +85,9 @@ workload:
             NEKO_PASSWORD_ADMIN: adminpass
             NEKO_PROXY: "true"
             NEKO_SCREEN: 1920x1080@30
-            NEKO_TCPMUX: "52100"
-            NEKO_UDPMUX: "52100"
+            NEKO_tcpMUX: "52100"
+            NEKO_udpMUX: "52100"
 xfceImage:
   pullPolicy: IfNotPresent
   repository: m1k1o/neko
-  tag: xfce@sha256:df36f438915ac4f1ffa18608e7d9169e330cea4f6c3f91d3d6257031c9cbc0eb
+  tag: xfce@sha256:e1547707e8424984a6e8429469ea230dab2b54d686922c7a9b3112534bc4b577

@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: jitsi
-version: 3.0.0
+version: 3.0.4
 appVersion: stable-8960
 description:
   Jitsi is a set of open-source projects that allows you to easily build
@@ -10,8 +10,8 @@ home: https://truecharts.org/charts/incubator/jitsi
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/jitsi.png
 deprecated: false
 sources:
-  - https://jitsi.org
   - https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-start
+  - https://jitsi.org
   - https://github.com/truecharts/charts/tree/master/charts/incubator/jitsi
   - https://hub.docker.com/r/jitsi/web
 maintainers:
@@ -22,7 +22,7 @@ keywords:
   - jitsi
 dependencies:
   - name: common
-    version: 16.0.0
+    version: 16.2.7
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -36,3 +36,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

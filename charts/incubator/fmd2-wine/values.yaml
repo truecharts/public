@@ -19,19 +19,19 @@ persistence:
     enabled: true
     mountPath: /downloads
 portal:
-  enabled: true
+  open:
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsGroup: 0
-    runAsNonRoot: false
     runAsUser: 0
 service:
   main:
     ports:
       main:
         port: 6080
-        protocol: TCP
+        protocol: tcp
         targetPort: 6080
 workload:
   main:

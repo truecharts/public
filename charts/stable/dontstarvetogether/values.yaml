@@ -1,0 +1,64 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ich777/steamcmd
+  tag: dontstarve@sha256:fa59153f4b6d807f8856df50b93e338b9979e26fea713279441001b891436943
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+  token:
+    enabled: true
+    mountPath: /serverdata/.klei/DoNotStarveTogether
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  authentication:
+    enabled: true
+    ports:
+      authentication:
+        enabled: true
+        port: 8766
+        protocol: udp
+        targetPort: 8766
+  main:
+    ports:
+      main:
+        port: 10890
+        protocol: udp
+        targetPort: 10890
+  masterserver:
+    enabled: true
+    ports:
+      masterserver:
+        enabled: true
+        port: 27016
+        protocol: udp
+        targetPort: 27016
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            CAVES: "true"
+            FORCE_X64: "true"
+            GAME_ID: "343050"
+            PASSWRD: ""
+            USERNAME: ""
+            VALIDATE: "false"
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

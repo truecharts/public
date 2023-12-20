@@ -1,0 +1,31 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ofawx/bitcoind
+  tag: latest@sha256:4d1d48489c944ab9fc9202daad8dee3d1ddcb57683644fc2e817cf15abe6c550
+persistence:
+  data:
+    enabled: true
+    mountPath: /root/.bitcoin/
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  localrpc:
+    enabled: true
+    ports:
+      localrpc:
+        enabled: true
+        port: 8332
+        protocol: tcp
+        targetPort: 8332
+  main:
+    ports:
+      main:
+        port: 8333
+        protocol: tcp
+        targetPort: 8333

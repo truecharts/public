@@ -159,13 +159,6 @@ questions:
                         type: string
                         default: Home
                         required: true
-                    - variable: default_email
-                      label: Default Email
-                      description: The default username for the superuser
-                      schema:
-                        type: string
-                        default: changeme@email.com
-                        required: true
                     - variable: token_time
                       label: Token Time
                       description: The time in hours that a login/auth token is valid

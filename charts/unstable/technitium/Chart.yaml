@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: technitium
-version: 4.0.5
+version: 4.0.6
 appVersion: 11.3.0
 description:
   Technitium DNS Server is an open source authoritative as well as recursive
@@ -10,10 +10,10 @@ home: https://truecharts.org/charts/incubator/technitium
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/technitium.png
 deprecated: false
 sources:
-  - https://github.com/TechnitiumSoftware/DnsServer
   - https://technitium.com/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/technitium
   - https://github.com/truecharts/containers/tree/master/mirrortechnitium
+  - https://github.com/TechnitiumSoftware/DnsServer
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -22,7 +22,7 @@ keywords:
   - DNS
 dependencies:
   - name: common
-    version: 13.2.2
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -36,3 +36,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

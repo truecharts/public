@@ -1,0 +1,47 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: kutt
+version: 8.0.4
+appVersion: 2.7.4
+description:
+  Kutt is a modern URL shortener with support for custom domains. Shorten
+  URLs, manage your links and view the click rate statistics.
+home: https://truecharts.org/charts/incubator/kutt
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/kutt.png
+deprecated: false
+sources:
+  - https://github.com/thedevs-network/kutt
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/kutt
+  - https://hub.docker.com/r/kutt/kutt
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - kutt
+  - link
+  - short
+dependencies:
+  - name: common
+    version: 16.2.7
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 9.0.3
+    repository: https://deps.truecharts.org
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: productivity
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

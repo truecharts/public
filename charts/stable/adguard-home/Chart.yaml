@@ -1,8 +1,8 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: adguard-home
-version: 6.0.15
-appVersion: 0.107.42
+version: 6.0.18
+appVersion: 0.107.43
 description:
   Free and open source, powerful network-wide ads & trackers blocking DNS
   server.
@@ -21,7 +21,7 @@ keywords:
   - adguard
 dependencies:
   - name: common
-    version: 14.3.5
+    version: 14.5.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -35,3 +35,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application

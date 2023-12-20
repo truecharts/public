@@ -1,14 +1,10 @@
 image:
-  repository: tccr.io/truecharts/scrypted-thin
-  pullPolicy: IfNotPresent
-  tag: v0.59.0@sha256:2c280da7178342c224831121cfe43b60ea1f71a7922985bc8aee56d68f006a07
-liteImage:
-  repository: tccr.io/truecharts/scrypted-lite
-  tag: v0.59.0@sha256:8d4dc4a6482073c2ac9885529d36ce05b7e92c2451e7878a85f9bef4e2f9deb6
+  repository: koush/scrypted
+  tag: 18-jammy-full-v0.68.0@sha256:c95bd5a65edd8ba132fd9425c7052ea88bd82936afc50391e21d66a671c48329
   pullPolicy: Always
-fullImage:
-  repository: tccr.io/truecharts/scrypted-full
-  tag: v0.59.0@sha256:85bc2bff2bb9a1d5edb2dfddcf402c6b32073371f38085941e8edf1051ec503b
+liteImage:
+  repository: koush/scrypted
+  tag: 18-jammy-lite-v0.68.0@sha256:adaed0c9d08f2b4ccfb1369548c65104787e1b8db04a550e6ea7909145d400bc
   pullPolicy: Always
 
 securityContext:

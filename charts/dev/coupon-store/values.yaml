@@ -1,0 +1,35 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: metikular/coupon-store
+  tag: v1.3.0@sha256:54ef3454ea23109096eef277af48f89707bfb7e31d14097466c02ac381670572
+portal:
+  open:
+    enabled: true
+cnpg:
+  main:
+    enabled: true
+    database: coupon-store
+    user: coupon-store
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10304
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          command:
+            - bash
+            - -c
+            - rm -f tmp/pids/server.pid && bundle exec rails s -p {{ .Values.service.main.ports.main.port
+              }} -b '0.0.0.0'
+          envFrom:
+            - secretRef:
+                name: "couponstore-secret"

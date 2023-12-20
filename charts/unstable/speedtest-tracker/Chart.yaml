@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: speedtest-tracker
-version: 4.0.19
+version: 4.0.20
 appVersion: latest
 description:
   A self-hosted internet performance tracking application that runs speedtest
@@ -21,7 +21,7 @@ keywords:
   - speedtest
 dependencies:
   - name: common
-    version: 13.2.2
+    version: 16.2.6
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -35,3 +35,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+type: application

@@ -1,0 +1,40 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: kdenlive-vnc
+version: 3.0.5
+appVersion: latest
+description: An instance of kdenlive accessible through vnc and noVnc (=Web Interface)
+home: https://truecharts.org/charts/incubator/kdenlive-vnc
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/kdenlive-vnc.png
+deprecated: false
+sources:
+  - https://github.com/JonathanTreffler/kdenlive-vnc-docker
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/kdenlive-vnc
+  - https://hub.docker.com/r/tessypowder/docker-kdenlive
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - kdenlive-vnc
+  - MediaApp-Video
+  - MediaApp-Music
+  - Productivity
+  - Tools-Utilities
+dependencies:
+  - name: common
+    version: 16.2.7
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: MediaApp-Video
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

@@ -1,0 +1,39 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: import-ics
+version: 3.0.5
+appVersion: latest
+description:
+  Runs a python script at a crontab defined interval that downloads/imports
+  ics files into a caldav server.
+home: https://truecharts.org/charts/incubator/import-ics
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/import-ics.png
+deprecated: false
+sources:
+  - https://github.com/Vilhjalmr26/import_ics
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/import-ics
+  - https://hub.docker.com/r/vilhjalmr26/import_ics
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - import-ics
+  - Productivity
+dependencies:
+  - name: common
+    version: 16.2.7
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Productivity
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

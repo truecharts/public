@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: minecraft-java
 version: 5.2.0
@@ -8,9 +8,9 @@ home: https://truecharts.org/charts/stable/minecraft-java
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/minecraft-java.png
 deprecated: false
 sources:
+  - https://github.com/itzg/docker-minecraft-server
   - https://github.com/truecharts/charts/tree/master/charts/stable/minecraft-java
   - https://hub.docker.com/r/itzg/minecraft-server
-  - https://github.com/itzg/docker-minecraft-server
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -20,7 +20,7 @@ keywords:
   - minecraft
 dependencies:
   - name: common
-    version: 14.3.5
+    version: 14.5.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
@@ -34,3 +34,4 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+type: application
