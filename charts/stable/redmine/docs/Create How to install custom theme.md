@@ -22,7 +22,10 @@ https://github.com/truecharts/charts/issues/15079
 
 Click on Save. Wait for the app to deploy.
 
-Open the app. Login with default credentials `loging: admin Password: admin`. You will be prompted to change the password.
+Open the app. Login with default credentials (see below). You will be prompted to change the password.
+
+- User: `admin`
+- Password: `admin`
 
 
 Go to `Administration->Settings->Display`. See that the only available theme is Default.
