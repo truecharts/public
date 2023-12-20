@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: gonic
-version: 10.1.5
-appVersion: 0.16.2@sha256:da7f1a0da391e31afc6e8dcac52f1a036e4e89b302c503778014befd246f8d57
+version: 11.0.1
+appVersion: 0.16.2
 description: Music streaming server / subsonic server API implementation
 home: https://truecharts.org/charts/stable/gonic
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/gonic.png
 deprecated: false
 sources:
+    - https://github.com/sentriz/gonic
     - https://github.com/truecharts/charts/tree/master/charts/stable/gonic
     - https://hub.docker.com/r/sentriz/gonic
-    - https://github.com/sentriz/gonic
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -20,7 +20,7 @@ keywords:
     - subsonic
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

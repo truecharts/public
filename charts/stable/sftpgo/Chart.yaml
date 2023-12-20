@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: sftpgo
-version: 3.0.20
-appVersion: 2.5.5@sha256:2509f5a637908b0a559bdc150b33345cbadbf7e4c9b05ea1ca3bd5e767781648
+version: 4.0.1
+appVersion: 2.5.5
 description: 'Fully featured and highly configurable SFTP server with optional HTTP/S, FTP, FTPS and WebDAV support. Several storage backends are supported: local filesystem, encrypted local filesystem, S3 (compatible) Object Storage, Google Cloud Storage, Azure Blob Storage, SFTP.'
 home: https://truecharts.org/charts/stable/sftpgo
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/sftpgo.png
 deprecated: false
 sources:
+    - https://ghcr.io/drakkan/sftpgo
     - https://github.com/drakkan/sftpgo
     - https://github.com/truecharts/charts/tree/master/charts/stable/sftpgo
-    - https://ghcr.io/drakkan/sftpgo
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -20,7 +20,7 @@ keywords:
     - Network-FTP
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

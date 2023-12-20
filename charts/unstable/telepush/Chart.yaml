@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: telepush
-version: 0.0.10
-appVersion: 4.1.1@sha256:43d1b195c96a73254aaae38efc862b55cfc6ec50d8f098366086076b14890cb2
+version: 0.0.11
+appVersion: 4.1.1
 description: A simple bot to translate JSON HTTP requests into Telegram push messages.
 home: https://truecharts.org/charts/incubator/telepush
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/telepush.png
 deprecated: false
 sources:
+    - https://github.com/truecharts/containers/tree/master/mirrortelepush
     - https://github.com/muety/telepush
     - https://github.com/truecharts/charts/tree/master/charts/incubator/telepush
-    - https://github.com/truecharts/containers/tree/master/mirrortelepush
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

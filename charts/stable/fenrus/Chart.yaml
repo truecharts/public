@@ -1,15 +1,15 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: fenrus
-version: 3.0.6
+version: 3.0.7
 appVersion: latest
 description: "Fenrus is a home page / personal dashboard with smart apps.   \n"
 home: https://truecharts.org/charts/incubator/fenrus
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/fenrus.png
 deprecated: false
 sources:
-    - https://hub.docker.com/r/revenz/fenrus
     - https://github.com/truecharts/charts/tree/master/charts/incubator/fenrus
+    - https://hub.docker.com/r/revenz/fenrus
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

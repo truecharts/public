@@ -1,8 +1,8 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: pixapop
-version: 7.0.13
-appVersion: 1.2-ls15@sha256:605ebc091fa14b4ba82ceadda7f35c186d514e649c97913605384027c2750f4f
+version: 8.0.1
+appVersion: 1.2-ls15
 description: An open-source single page application to view your photos in the easiest way possible.
 home: https://truecharts.org/charts/stable/pixapop
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pixapop.png
@@ -23,7 +23,7 @@ keywords:
     - image
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

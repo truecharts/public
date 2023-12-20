@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: tailscale
-version: 5.2.3
-appVersion: 1.56.0@sha256:ed1f9317d0bab2bc17f6eecc29401479b91c938df48c28b1bd3d3014eba9d013
+version: 6.0.1
+appVersion: 1.56.0
 description: Tailscale lets you connect your devices and users together in your own secure virtual private network
 home: https://truecharts.org/charts/stable/tailscale
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/tailscale.png
 deprecated: false
 sources:
+    - https://hub.docker.com/r/tailscale/tailscale
     - https://github.com/tailscale/tailscale/blob/main/docs/k8s/run.sh
     - https://github.com/truecharts/charts/tree/master/charts/stable/tailscale
-    - https://hub.docker.com/r/tailscale/tailscale
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -20,7 +20,7 @@ keywords:
     - tailscale
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

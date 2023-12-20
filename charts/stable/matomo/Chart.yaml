@@ -1,17 +1,17 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: matomo
-version: 8.1.5
+version: 9.0.1
 appVersion: 4.16.0
 description: Matomo is the leading Free/Libre open analytics platform
 home: https://truecharts.org/charts/stable/matomo
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/matomo.png
 deprecated: false
 sources:
-    - https://github.com/truecharts/charts/tree/master/charts/stable/matomo
-    - https://hub.docker.com/r/bitnami/matomo
     - https://github.com/bitnami/bitnami-docker-matomo
     - https://github.com/matomo-org/matomo
+    - https://github.com/truecharts/charts/tree/master/charts/stable/matomo
+    - https://hub.docker.com/r/bitnami/matomo
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -20,14 +20,14 @@ keywords:
     - analytics
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""
       tags: []
       import-values: []
     - name: mariadb
-      version: 9.0.43
+      version: 11.0.4
       repository: https://deps.truecharts.org/
       condition: mariadb.enabled
       alias: ""

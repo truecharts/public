@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: doplarr
-version: 6.0.13
-appVersion: 3.6.2@sha256:7fbd2250cc871787150a3d33be4f5d168c8eb1436c1c064c0a9533ebb7a9098a
+version: 7.0.1
+appVersion: 3.6.2
 description: An *arr Request Bot for Discord
 home: https://truecharts.org/charts/stable/doplarr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/doplarr.png
 deprecated: false
 sources:
+    - https://ghcr.io/kiranshila/doplarr
     - https://github.com/kiranshila/Doplarr
     - https://github.com/truecharts/charts/tree/master/charts/stable/doplarr
-    - https://ghcr.io/kiranshila/doplarr
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -19,7 +19,7 @@ keywords:
     - doplarr
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

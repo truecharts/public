@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: answer
-version: 0.0.15
-appVersion: 1.2.0@sha256:70a578170bca4a7a1040d44cb5ff143d5e9c2c2f32f9d48f1ad4519d61c35451
+version: 1.0.1
+appVersion: 1.2.0
 description: A Q&A platform software for teams at any scales.
 home: https://truecharts.org/charts/incubator/answer
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/answer.png
 deprecated: false
 sources:
+    - https://github.com/answerdev/answer
     - https://github.com/truecharts/charts/tree/master/charts/incubator/answer
     - https://github.com/truecharts/containers/tree/master/mirroranswer
-    - https://github.com/answerdev/answer
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -20,7 +20,7 @@ keywords:
     - forum
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

@@ -1,8 +1,8 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: teedy
-version: 12.0.13
-appVersion: 1.11@sha256:4533ff3038becf9d062e965167f683e8ab0fb63770b71b7e8da2463a0d12f910
+version: 13.0.1
+appVersion: "1.11"
 description: Teedy is an open source, lightweight document management system for individuals and businesses.
 home: https://truecharts.org/charts/stable/teedy
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/teedy.png
@@ -21,7 +21,7 @@ keywords:
     - management
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

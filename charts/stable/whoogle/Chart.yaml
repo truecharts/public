@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: whoogle
-version: 7.0.15
+version: 8.0.1
 appVersion: 0.8.4
 description: A self-hosted, ad-free, privacy-respecting metasearch engine
 home: https://truecharts.org/charts/stable/whoogle
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/whoogle.png
 deprecated: false
 sources:
+    - https://github.com/truecharts/charts/tree/master/charts/stable/whoogle
     - https://hub.docker.com/r/benbusby/whoogle-search
     - https://github.com/benbusby/whoogle-search
-    - https://github.com/truecharts/charts/tree/master/charts/stable/whoogle
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -22,7 +22,7 @@ keywords:
     - privacy
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

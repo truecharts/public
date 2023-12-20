@@ -1,17 +1,17 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: cloudflareddns
-version: 6.0.26
+version: 7.0.1
 appVersion: latest
 description: Automate Cloudflare DNS records for those with a dynamic IP.
 home: https://truecharts.org/charts/stable/cloudflareddns
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/cloudflareddns.png
 deprecated: false
 sources:
-    - https://hotio.dev/containers/cloudflareddns/
-    - https://github.com/hotio/cloudflareddns
-    - https://github.com/truecharts/charts/tree/master/charts/stable/cloudflareddns
     - https://ghcr.io/hotio/cloudflareddns
+    - https://github.com/hotio/cloudflareddns
+    - https://hotio.dev/containers/cloudflareddns/
+    - https://github.com/truecharts/charts/tree/master/charts/stable/cloudflareddns
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -22,7 +22,7 @@ keywords:
     - cloudflare
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: eco
-version: 3.1.10
+version: 3.1.11
 appVersion: latest
 description: A custom SteamCMD chart that runs ECO.
 home: https://truecharts.org/charts/incubator/eco
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/eco.png
 deprecated: false
 sources:
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/eco
     - https://github.com/truecharts/containers/tree/master/mirroreco
     - https://github.com/ich777/docker-steamcmd-server/tree/eco
-    - https://github.com/truecharts/charts/tree/master/charts/incubator/eco
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

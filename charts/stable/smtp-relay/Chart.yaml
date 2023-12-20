@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: smtp-relay
-version: 0.0.13
-appVersion: 0.5.2@sha256:ad5044ebdec5d2e75d08021f333b742328c2554e9807894031e328321433f049
+version: 1.0.1
+appVersion: 0.5.2
 description: A SMTP service for relaying emails.
 home: https://truecharts.org/charts/incubator/smtp-relay
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/smtp-relay.png
 deprecated: false
 sources:
-    - https://github.com/truecharts/containers/tree/master/mirrorsmtp-relay
     - https://github.com/ix-ai/smtp
     - https://github.com/truecharts/charts/tree/master/charts/incubator/smtp-relay
+    - https://github.com/truecharts/containers/tree/master/mirrorsmtp-relay
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -20,7 +20,7 @@ keywords:
     - smtp
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

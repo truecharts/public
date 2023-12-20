@@ -1,17 +1,17 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: linkace
-version: 9.0.5
-appVersion: 1.13.0-simple@sha256:b1af60405d8c57a261f9612c5d47a8b5ea1b632caa3f96798dee33709bf90384
+version: 9.0.6
+appVersion: 1.13.0-simple
 description: Your self-hosted bookmark archive. Free and open source.
 home: https://truecharts.org/charts/incubator/linkace
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/linkace.png
 deprecated: false
 sources:
-    - https://www.linkace.org/docs/
+    - https://github.com/linkace/linkace
     - https://github.com/truecharts/charts/tree/master/charts/incubator/linkace
     - https://hub.docker.com/r/linkace/linkace
-    - https://github.com/linkace/linkace
+    - https://www.linkace.org/docs/
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

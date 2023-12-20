@@ -1,8 +1,8 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: watcharr
-version: 1.1.4
-appVersion: 1.21.1@sha256:0d6a588de5c7ddbabc5a84deda1c42f290a849c89e3979e85d3d7cfbb32eabdf
+version: 2.0.1
+appVersion: 1.21.1
 description: Open source, self-hostable watched list
 home: https://truecharts.org/charts/stable/watcharr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/watcharr.png
@@ -20,7 +20,7 @@ keywords:
     - media
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

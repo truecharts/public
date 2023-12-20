@@ -1,15 +1,15 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: blog
-version: 8.0.13
+version: 9.0.1
 appVersion: latest
 description: Lightweight self-hosted facebook-styled PHP blog.
 home: https://truecharts.org/charts/stable/blog
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/blog.png
 deprecated: false
 sources:
-    - https://github.com/nicholaswilde/docker-blog
     - https://github.com/m1k1o/blog
+    - https://github.com/nicholaswilde/docker-blog
     - https://github.com/truecharts/charts/tree/master/charts/stable/blog
     - https://hub.docker.com/r/m1k1o/blog
 maintainers:
@@ -24,7 +24,7 @@ keywords:
     - facebook
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

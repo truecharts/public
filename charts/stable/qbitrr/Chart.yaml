@@ -1,8 +1,8 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: qbitrr
-version: 0.0.31
-appVersion: 3.8.8@sha256:76167d8a60985db5b8b0478cd38cd462d56cca96330e9e363dc7b9f02deb58e0
+version: 1.0.1
+appVersion: 3.8.8
 description: A simple script to monitor qBit and communicate with Radarr and Sonarr.
 home: https://truecharts.org/charts/stable/qbitrr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/qbitrr.png
@@ -21,7 +21,7 @@ keywords:
     - MediaApp-Other
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

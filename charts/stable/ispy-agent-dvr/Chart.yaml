@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: ispy-agent-dvr
-version: 6.0.35
+version: 7.0.1
 appVersion: 5.1.6.0
 description: iSpy's Agent DVR, a standalone DVR service to manage IP cameras.
 home: https://truecharts.org/charts/stable/ispy-agent-dvr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ispy-agent-dvr.png
 deprecated: false
 sources:
-    - https://hub.docker.com/r/doitandbedone/ispyagentdvr
     - https://github.com/doitandbedone/ispyagentdvr-docker
     - https://github.com/truecharts/charts/tree/master/charts/stable/ispy-agent-dvr
+    - https://hub.docker.com/r/doitandbedone/ispyagentdvr
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -21,7 +21,7 @@ keywords:
     - agent
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

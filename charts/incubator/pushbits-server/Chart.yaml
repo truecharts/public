@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: pushbits-server
-version: 0.0.2
-appVersion: 0.10.1@sha256:6020128d995a0054b7104f5a383408a773c5914dbc2d073a71501524f8b79b87
+version: 0.0.3
+appVersion: 0.10.1
 description: Send push notifications via a simple web API, and delivers them to your users.
 home: https://truecharts.org/charts/incubator/pushbits-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pushbits-server.png
 deprecated: false
 sources:
+    - https://github.com/truecharts/containers/tree/master/mirrorpushbits-server
     - https://github.com/pushbits/server
     - https://github.com/truecharts/charts/tree/master/charts/incubator/pushbits-server
-    - https://github.com/truecharts/containers/tree/master/mirrorpushbits-server
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

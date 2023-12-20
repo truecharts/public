@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: jupyter
-version: 5.0.51
-appVersion: 2023.10.20
+version: 6.0.1
+appVersion: "2023-10-20"
 description: Jupyter a web based IDE
 home: https://truecharts.org/charts/stable/jupyter
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/jupyter.png
 deprecated: false
 sources:
-    - https://github.com/jupyter/docker-stacks
     - https://github.com/truecharts/charts/tree/master/charts/stable/jupyter
-    - https://hub.docker.com/r/jupyter/scipy-notebook
+    - https://hub.docker.com/r/jupyter/base-notebook
+    - https://github.com/jupyter/docker-stacks
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -21,7 +21,7 @@ keywords:
     - Lab
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

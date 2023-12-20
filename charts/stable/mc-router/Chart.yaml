@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: mc-router
-version: 1.0.15
+version: 2.0.1
 appVersion: 1.20.0
 description: Lightweight multiplexer/proxy for Minecraft-Java servers.
 home: https://truecharts.org/charts/stable/mc-router
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/mc-router.png
 deprecated: false
 sources:
+    - https://hub.docker.com/r/itzg/mc-router
     - https://github.com/itzg/mc-router
     - https://github.com/truecharts/charts/tree/master/charts/stable/mc-router
-    - https://hub.docker.com/r/itzg/mc-router
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -20,7 +20,7 @@ keywords:
     - minecraft
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

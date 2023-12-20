@@ -1,8 +1,8 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: apache-musicindex
-version: 8.0.13
-appVersion: 1.4.1-2@sha256:c9bd82dc5fdaaad16a9a07c61672e29886d9399c7eee6e57f1d758124783c34a
+version: 9.0.1
+appVersion: 1.4.1-2
 description: Index and stream music using apache-musicindex and m3u playlists
 home: https://truecharts.org/charts/stable/apache-musicindex
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/apache-musicindex.png
@@ -21,7 +21,7 @@ keywords:
     - playlist
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

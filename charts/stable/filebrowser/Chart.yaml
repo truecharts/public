@@ -1,17 +1,17 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: filebrowser
-version: 6.0.16
-appVersion: 2.26.0@sha256:7428a67e0265f1550e2421bdc554d35889921f5ba2285b829693053fb98aab8a
+version: 7.0.1
+appVersion: 2.26.0
 description: Filebrowser provides a file managing interface within a specified directory
 home: https://truecharts.org/charts/stable/filebrowser
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/filebrowser.png
 deprecated: false
 sources:
-    - https://filebrowser.org/cli/filebrowser
     - https://github.com/filebrowser/filebrowser
     - https://github.com/truecharts/charts/tree/master/charts/stable/filebrowser
     - https://hub.docker.com/r/filebrowser/filebrowser
+    - https://filebrowser.org/cli/filebrowser
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -20,7 +20,7 @@ keywords:
     - filebrowser
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

@@ -1,8 +1,8 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: ombi
-version: 15.0.18
-appVersion: 4.43.10@sha256:bd0f1b0af7ddda20a369999901aa0016dc85ea94fc9fbe29be6481936a80264a
+version: 16.0.1
+appVersion: 4.43.10
 description: Want a Movie or TV Show on Plex or Emby? Use Ombi!
 home: https://truecharts.org/charts/stable/ombi
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ombi.png
@@ -24,7 +24,7 @@ keywords:
     - couchpotato
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

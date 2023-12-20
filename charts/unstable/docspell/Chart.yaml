@@ -1,18 +1,18 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: docspell
-version: 4.0.2
-appVersion: 0.40.0@sha256:3495d25517e3aa2db8e1ea76bc9f6dad04598e9c6ad59acf2223cacc9493c53b
+version: 4.0.3
+appVersion: 0.40.0
 description: Docspell is a personal document organizer.
 home: https://truecharts.org/charts/incubator/docspell
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/docspell.png
 deprecated: false
 sources:
-    - https://hub.docker.com/r/docspell/restserver
     - https://github.com/eikek/docspell
     - https://docspell.org/docs/install/docker/
     - https://docspell.org/docs/configure/defaults/
     - https://github.com/truecharts/charts/tree/master/charts/incubator/docspell
+    - https://hub.docker.com/r/docspell/restserver
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

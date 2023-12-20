@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: posterr
-version: 5.0.15
+version: 6.0.1
 appVersion: latest
 description: Media display for Plex, Sonarr and Radarr.
 home: https://truecharts.org/charts/stable/posterr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/posterr.png
 deprecated: false
 sources:
+    - https://github.com/petersem/posterr
     - https://github.com/truecharts/charts/tree/master/charts/stable/posterr
     - https://hub.docker.com/r/petersem/posterr
-    - https://github.com/petersem/posterr
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -20,7 +20,7 @@ keywords:
     - MediaServer-Other
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

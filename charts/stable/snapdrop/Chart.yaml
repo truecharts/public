@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: snapdrop
-version: 6.0.30
+version: 7.0.1
 appVersion: latest
 description: Snapdrop A local file sharing in your browser. Inspired by Apple's Airdrop.
 home: https://truecharts.org/charts/stable/snapdrop
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/snapdrop.png
 deprecated: false
 sources:
-    - https://hub.docker.com/r/linuxserver/snapdrop
     - https://github.com/linuxserver/docker-snapdrop
     - https://github.com/truecharts/charts/tree/master/charts/stable/snapdrop
+    - https://hub.docker.com/r/linuxserver/snapdrop
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -19,7 +19,7 @@ keywords:
     - snapdrop
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""
