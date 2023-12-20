@@ -1,36 +1,36 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: cryptofolio
 version: 10.0.0
-appVersion: .2.2.0@sha256:e6e6612bb94c877b5e31853c639761d09076180fe0a6c4fdb0fb91f73d9f480e
+appVersion: ""
 description: Track your cryptocurrency holdings/portfolio
 home: https://truecharts.org/charts/stable/cryptofolio
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/cryptofolio.png
 deprecated: false
 sources:
-    - https://github.com/Xtrendence/cryptofolio
-    - https://github.com/truecharts/charts/tree/master/charts/stable/cryptofolio
-    - https://hub.docker.com/r/xtrendence/cryptofolio
+  - https://github.com/Xtrendence/cryptofolio
+  - https://github.com/truecharts/charts/tree/master/charts/stable/cryptofolio
+  - https://hub.docker.com/r/xtrendence/cryptofolio
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - cryptofolio
+  - cryptofolio
 dependencies:
-    - name: common
-      version: 16.2.7
-      repository: https://library-charts.truecharts.org
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 16.2.7
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: media
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: stable
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 type: application

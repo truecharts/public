@@ -1,36 +1,36 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: satisfactory
 version: 7.0.0
-appVersion: 1.6.1@sha256:2cf5d57ecb288dc35bbf675c97022851b7344ce0788ed5101b61767f9abafd6d
+appVersion: 1.6.1
 description: Satisfactory Dedicated Server
 home: https://truecharts.org/charts/stable/satisfactory
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/satisfactory.png
 deprecated: false
 sources:
-    - https://hub.docker.com/r/wolveix/satisfactory-server
-    - https://github.com/wolveix/satisfactory-server
-    - https://github.com/truecharts/charts/tree/master/charts/stable/satisfactory
+  - https://hub.docker.com/r/wolveix/satisfactory-server
+  - https://github.com/wolveix/satisfactory-server
+  - https://github.com/truecharts/charts/tree/master/charts/stable/satisfactory
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - satisfactory
+  - satisfactory
 dependencies:
-    - name: common
-      version: 16.2.7
-      repository: https://library-charts.truecharts.org
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 16.2.7
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: games
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: stable
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: games
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 type: application

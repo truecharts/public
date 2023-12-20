@@ -1,37 +1,37 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: autobrr
 version: 6.0.0
-appVersion: 1.34.1@sha256:7a21e928f9e6fe608c99ea01714cd261f093adc640cb104848651a264cb490b2
+appVersion: 1.34.1
 description: The modern download automation tool for torrents.
 home: https://truecharts.org/charts/stable/autobrr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/autobrr.png
 deprecated: false
 sources:
-    - https://github.com/autobrr/autobrr
-    - https://github.com/truecharts/charts/tree/master/charts/stable/autobrr
-    - https://ghcr.io/autobrr/autobrr
+  - https://github.com/autobrr/autobrr
+  - https://github.com/truecharts/charts/tree/master/charts/stable/autobrr
+  - https://ghcr.io/autobrr/autobrr
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - autobrr
-    - torrent
+  - autobrr
+  - torrent
 dependencies:
-    - name: common
-      version: 16.2.7
-      repository: https://library-charts.truecharts.org
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 16.2.7
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: media
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: stable
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 type: application

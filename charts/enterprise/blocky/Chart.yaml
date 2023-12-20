@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: blocky
 version: 10.0.0
@@ -8,39 +8,39 @@ home: https://truecharts.org/charts/enterprise/blocky
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/blocky.png
 deprecated: false
 sources:
-    - https://0xerr0r.github.io/blocky/
-    - https://github.com/0xERR0R/blocky
-    - https://github.com/Mozart409/blocky-frontend
-    - https://github.com/truecharts/charts/tree/master/charts/enterprise/blocky
-    - https://quay.io/oriedge/k8s_gateway
+  - https://0xerr0r.github.io/blocky/
+  - https://github.com/0xERR0R/blocky
+  - https://github.com/Mozart409/blocky-frontend
+  - https://github.com/truecharts/charts/tree/master/charts/enterprise/blocky
+  - https://hub.docker.com/r/spx01/blocky
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - dns
-    - blocky
+  - dns
+  - blocky
 dependencies:
-    - name: common
-      version: 16.2.7
-      repository: https://library-charts.truecharts.org
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-    - name: redis
-      version: 10.0.3
-      repository: https://deps.truecharts.org
-      condition: redis.enabled
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 16.2.7
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 10.0.3
+    repository: https://deps.truecharts.org
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: network
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: enterprise
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: network
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: enterprise
 type: application

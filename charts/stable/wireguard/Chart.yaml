@@ -1,37 +1,37 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: wireguard
 version: 6.0.0
-appVersion: 1.0.20210914@sha256:4dd54954cbd06d92d8c8fc6b10871eb07a0c1869edfe7a15029f1a7d3178d432
+appVersion: 1.0.20210914
 description: WireGuard® is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography.
 home: https://truecharts.org/charts/stable/wireguard
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/wireguard.png
 deprecated: false
 sources:
-    - https://github.com/k8s-at-home/container-images/tree/main/apps/wireguard
-    - https://github.com/truecharts/charts/tree/master/charts/stable/wireguard
-    - https://ghcr.io/k8s-at-home/wireguard
+  - https://ghcr.io/k8s-at-home/wireguard
+  - https://github.com/k8s-at-home/container-images/tree/main/apps/wireguard
+  - https://github.com/truecharts/charts/tree/master/charts/stable/wireguard
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - wireguard
-    - vpn
+  - wireguard
+  - vpn
 dependencies:
-    - name: common
-      version: 16.2.7
-      repository: https://library-charts.truecharts.org
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 16.2.7
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: network
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: stable
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: network
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 type: application
