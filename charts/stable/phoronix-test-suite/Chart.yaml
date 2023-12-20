@@ -1,0 +1,40 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: phoronix-test-suite
+version: 3.0.5
+appVersion: latest
+description:
+  The Phoronix Test Suite is the most comprehensive testing and benchmarking
+  platform available that provides an extensible framework for which new tests can
+  be easily added.
+home: https://truecharts.org/charts/incubator/phoronix-test-suite
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/phoronix-test-suite.png
+deprecated: false
+sources:
+  - https://github.com/phoronix-test-suite/phoronix-test-suite
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/phoronix-test-suite
+  - https://hub.docker.com/r/phoronix/pts
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - phoronix-test-suite
+  - Tools-Utilities
+dependencies:
+  - name: common
+    version: 16.2.7
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Tools-Utilities
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

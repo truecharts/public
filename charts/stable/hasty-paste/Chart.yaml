@@ -1,0 +1,48 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: hasty-paste
+version: 2.0.5
+appVersion: 1.9.0
+description: A fast and minimal paste bin, written in Python using Quart.
+home: https://truecharts.org/charts/incubator/hasty-paste
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/hasty-paste.png
+deprecated: false
+sources:
+  - https://github.com/enchant97/hasty-paste/blob/main/docs/install.md
+  - https://github.com/enchant97/hasty-paste
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/hasty-paste
+  - https://ghcr.io/enchant97/hasty-paste
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - hasty-paste
+  - Cloud
+  - Productivity
+  - Tools-Utilities
+  - Network-Other
+dependencies:
+  - name: common
+    version: 16.2.7
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 9.0.3
+    repository: https://deps.truecharts.org
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Cloud
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

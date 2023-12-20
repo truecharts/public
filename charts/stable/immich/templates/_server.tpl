@@ -2,7 +2,10 @@
 enabled: true
 primary: true
 imageSelector: image
-args: start-server.sh
+command: /bin/sh
+args:
+  - -c
+  - /usr/src/app/start-server.sh
 securityContext:
   capabilities:
     disableS6Caps: true
@@ -19,16 +22,16 @@ probes:
   liveness:
     enabled: true
     type: http
-    path: /server-info/ping
-    port: {{ .Values.service.server.ports.server.port }}
+    path: /api/server-info/ping
+    port: {{ .Values.service.main.ports.main.port }}
   readiness:
     enabled: true
     type: http
-    path: /server-info/ping
-    port: {{ .Values.service.server.ports.server.port }}
+    path: /api/server-info/ping
+    port: {{ .Values.service.main.ports.main.port }}
   startup:
     enabled: true
     type: http
-    path: /server-info/ping
-    port: {{ .Values.service.server.ports.server.port }}
+    path: /api/server-info/ping
+    port: {{ .Values.service.main.ports.main.port }}
 {{- end -}}

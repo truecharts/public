@@ -10,41 +10,37 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: EXTRA_PARAMETERS
-          label: "EXTRA_PARAMETERS"
-          description: "If needed enter extra startup parameters here otherwise leave empty."
-          schema:
-            type: string
-            default: ""
-        - variable: CUSTOM_RES_W
-          label: "CUSTOM_RES_W"
-          description: "Minimum screen width 1024 pixels"
-          schema:
-            type: string
-            default: "1280"
-        - variable: CUSTOM_RES_H
-          label: "CUSTOM_RES_H"
-          description: "Minimum screen hight 768 pixels"
-          schema:
-            type: string
-            default: "768"
-        - variable: UMASK
-          label: "UMASK"
-          description: "Container Variable UMASK"
-          schema:
-            type: string
-            default: "000"
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: EXTRA_PARAMETERS
+                                        label: "EXTRA_PARAMETERS"
+                                        description: "If needed enter extra startup parameters here otherwise leave empty."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: CUSTOM_RES_W
+                                        label: "CUSTOM_RES_W"
+                                        description: "Minimum screen width 1024 pixels"
+                                        schema:
+                                          type: string
+                                          default: "1280"
+                                      - variable: CUSTOM_RES_H
+                                        label: "CUSTOM_RES_H"
+                                        description: "Minimum screen hight 768 pixels"
+                                        schema:
+                                          type: string
+                                          default: "768"
+                                      - variable: UMASK
+                                        label: "UMASK"
+                                        description: "Container Variable UMASK"
+                                        schema:
+                                          type: string
+                                          default: "000"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

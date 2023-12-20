@@ -36,7 +36,7 @@ Or
 
 - Simply delete the `CACHES` section, while not optimal for large installs is truly used with 50+ users according to Seafile docs.
 
-Either of these steps will prevents the logs filling up with: 
+Either of these steps will prevents the logs filling up with:
 
 ```
 2023-11-15 03:54:55,368 [ERROR] django.pylibmc:167 set_many MemcachedError: error 47 from memcached_set_multi: SERVER HAS FAILED AND IS DISABLED UNTIL TIMED RETRY

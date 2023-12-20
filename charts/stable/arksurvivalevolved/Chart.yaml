@@ -1,28 +1,38 @@
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
-appVersion: "latest"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
-deprecated: false
+name: arksurvivalevolved
+version: 4.0.13
+appVersion: arkse
 description: A custom SteamCMD chart that runs ArkSE.
 home: https://truecharts.org/charts/stable/arksurvivalevolved
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/arksurvivalevolved.png
+deprecated: false
+sources:
+  - https://github.com/ich777/docker-steamcmd-server/tree/arkse
+  - https://github.com/truecharts/charts/tree/master/charts/stable/arksurvivalevolved
+  - https://hub.docker.com/r/ich777/steamcmd
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
   - arksurvivalevolved
   - arkse
   - GameServers
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: arksurvivalevolved
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/arksurvivalevolved
-  - https://github.com/ich777/docker-steamcmd-server/tree/arkse
-type: application
-version: 4.0.10
+dependencies:
+  - name: common
+    version: 14.5.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  truecharts.org/category: GameServers
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
   truecharts.org/SCALE-support: "true"
+  truecharts.org/category: GameServers
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+type: application

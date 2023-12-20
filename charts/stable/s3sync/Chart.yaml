@@ -1,0 +1,41 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: s3sync
+version: 3.0.5
+appVersion: latest
+description:
+  This application backs up every folder mounted at `/data/` to a given
+  AWS S3 path using the `aws s3 sync` command. It requires a pair of (IAM) Access
+  and Secret Keys.
+home: https://truecharts.org/charts/incubator/s3sync
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/s3sync.png
+deprecated: false
+sources:
+  - https://github.com/what-name/docker-s3sync
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/s3sync
+  - https://hub.docker.com/r/whatname/docker-s3sync
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - s3sync
+  - Backup
+  - Cloud
+dependencies:
+  - name: common
+    version: 16.2.7
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Backup
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

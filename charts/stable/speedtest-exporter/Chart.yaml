@@ -1,28 +1,38 @@
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
-appVersion: "3.5.4"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
-deprecated: false
+name: speedtest-exporter
+version: 7.0.12
+appVersion: 3.5.4
 description: Speedtest Exporter made in python using the official speedtest bin
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/speedtest-exporter.png
 home: https://truecharts.org/charts/stable/speedtest-exporter
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/speedtest-exporter.png
+deprecated: false
+sources:
+  - https://github.com/MiguelNdeCarvalho/speedtest-exporter/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/speedtest-exporter
+  - https://ghcr.io/miguelndecarvalho/speedtest-exporter
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
   - speedtest-exporter
   - speedtest
   - metrics
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: speedtest-exporter
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/speedtest-exporter
-  - https://github.com/MiguelNdeCarvalho/speedtest-exporter/
-type: application
-version: 7.0.9
+dependencies:
+  - name: common
+    version: 14.5.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  truecharts.org/category: metrics
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
   truecharts.org/SCALE-support: "true"
+  truecharts.org/category: metrics
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+type: application

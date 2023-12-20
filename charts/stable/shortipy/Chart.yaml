@@ -1,0 +1,38 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: shortipy
+version: 3.0.5
+appVersion: latest
+description: URL Shortener in python based on flask
+home: https://truecharts.org/charts/incubator/shortipy
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/shortipy.png
+deprecated: false
+sources:
+  - https://github.com/maschhoff/shortipy
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/shortipy
+  - https://hub.docker.com/r/knex666/shortipy
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - shortipy
+  - Tools-Utilities
+  - Network-Management
+dependencies:
+  - name: common
+    version: 16.2.7
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Tools-Utilities
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

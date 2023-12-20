@@ -1,0 +1,37 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: answer
+version: 0.0.14
+appVersion: 1.2.0
+description: A Q&A platform software for teams at any scales.
+home: https://truecharts.org/charts/incubator/answer
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/answer.png
+deprecated: false
+sources:
+  - https://github.com/answerdev/answer
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/answer
+  - https://github.com/truecharts/containers/tree/master/mirroranswer
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - answer
+  - forum
+dependencies:
+  - name: common
+    version: 14.5.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: forum
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

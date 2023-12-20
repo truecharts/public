@@ -1,30 +1,42 @@
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
-appVersion: "4.4.2"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
-deprecated: false
-description: AppDaemon is a loosely coupled, multi-threaded, sandboxed python execution environment for writing automation apps.
+name: appdaemon
+version: 13.0.12
+appVersion: 4.4.2
+description:
+  AppDaemon is a loosely coupled, multi-threaded, sandboxed python execution
+  environment for writing automation apps.
 home: https://truecharts.org/charts/stable/appdaemon
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/appdaemon.png
+deprecated: false
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/appdaemon
+  - https://hub.docker.com/r/acockburn/appdaemon
+  - https://github.com/AppDaemon/appdaemon
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+  - name: warllo54
+    email: 20650065+warllo54@users.noreply.github.com
+    url: truecharts.org
 keywords:
   - appdaemon
   - homeautomation
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-  - email: 20650065+warllo54@users.noreply.github.com
-    name: warllo54
-    url: truecharts.org
-name: appdaemon
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/appdaemon
-  - https://github.com/AppDaemon/appdaemon
-type: application
-version: 13.0.9
+dependencies:
+  - name: common
+    version: 14.5.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  truecharts.org/category: utilities
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
   truecharts.org/SCALE-support: "true"
+  truecharts.org/category: utilities
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+type: application

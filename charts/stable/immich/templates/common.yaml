@@ -3,18 +3,12 @@
 
 {{- $fname := (include "tc.v1.common.lib.chart.names.fullname" .) -}}
 
-{{/* Render Proxy Workload */}}
-{{- $_ := set .Values.workload "proxy" (include "immich.proxy" . | fromYaml) -}}
-
 {{- $_ := set .Values.workload.main.podSpec.containers "main" (include "immich.server" . | fromYaml) -}}
 {{- if .Values.immich.enable_typesense -}}
   {{/* Append init container to server, to make sure typesense is ready before starting */}}
   {{- $url := printf "http://%v-typesense:%v/health" $fname .Values.service.typesense.ports.typesense.port -}}
   {{- $_ := set .Values.workload.main.podSpec.initContainers "wait-typesense" (include "immich.wait" (dict "url" $url) | fromYaml) -}}
 {{- end -}}
-
-{{/* Render Web Workload */}}
-{{- $_ := set .Values.workload "web" (include "immich.web" . | fromYaml) -}}
 
 {{/* Render Microservices Workload */}}
 {{- $_ := set .Values.workload "microservices" (include "immich.microservices" . | fromYaml) -}}
@@ -52,6 +46,18 @@
 {{- $config := include "immich.config" . | fromYaml -}}
 {{- if $config -}}
   {{- $_ := mustMergeOverwrite .Values $config -}}
+{{- end -}}
+
+{{- range $idx, $persistence := .Values.persistenceList -}}
+  {{- $_ := set $persistence "targetSelector" (dict
+      "main" (dict "main" dict)
+      "microservices" (dict "microservices" dict)
+  ) -}}
+{{- end -}}
+
+{{- $envList := .Values.workload.main.podSpec.containers.main.envList -}}
+{{- if $envList -}}
+  {{- $_ := set .Values.workload.microservices.podSpec.containers.microservices "envList" $envList -}}
 {{- end -}}
 
 {{/* Render the templates */}}

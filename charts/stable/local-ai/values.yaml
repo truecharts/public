@@ -1,27 +1,27 @@
 image:
   repository: quay.io/go-skynet/local-ai
   pullPolicy: IfNotPresent
-  tag: v1.40.0@sha256:3aac12d7637c905afdac67ee33351594eaa58fe77eeeb145f114f45e5f358cf3
+  tag: v2.1.0@sha256:26cebbe29c20738663dad050557f72b4f74769722466ba988f82b17a02aa72e5
 ffmpegImage:
   repository: quay.io/go-skynet/local-ai
   pullPolicy: IfNotPresent
-  tag: v1.40.0-ffmpeg@sha256:94c778847b34bc6cb7c6767731be15cc33767dd05159aed4af08ea52b401200e
+  tag: v2.1.0-ffmpeg@sha256:eb63b1ad478fd0fd284c2c2ed8c44eeecd04ab1ced67f227d184b71d16e2c5d8
 cublasCuda12Image:
   repository: quay.io/go-skynet/local-ai
   pullPolicy: IfNotPresent
-  tag: v1.40.0-cublas-cuda12@sha256:b1ce4420bb9f46cc101d1e6d0a4867da3090bb3f86c36f92bab538162f05752e
+  tag: v2.1.0-cublas-cuda12@sha256:c2f9e9c7bd8fb6172a753fa4aab2fef9ae6eee025df78d87ac2cc95868c2e7ba
 cublasCuda12FfmpegImage:
   repository: quay.io/go-skynet/local-ai
   pullPolicy: IfNotPresent
-  tag: v1.40.0-cublas-cuda12-ffmpeg@sha256:42fae783cbffab75c0e409b758b3cf2dbd773b8f8b04169de4e6ad02e6084ba9
+  tag: v2.1.0-cublas-cuda12-ffmpeg@sha256:f0b3afa9e6c0f2d661516103e8ae0b8a388936ca240541198c80346f43d3bfeb
 cublasCuda11Image:
   repository: quay.io/go-skynet/local-ai
   pullPolicy: IfNotPresent
-  tag: v1.40.0-cublas-cuda11@sha256:1af527795ae1b6e04ccc02d531756710966c33e31356ddeefba88d1cae8d4e83
+  tag: v2.1.0-cublas-cuda11@sha256:b6d705709ad186158d1d3d26751c328f53aa6dcd977f4ca0222ad26ffc250334
 cublasCuda11FfmpegImage:
   repository: quay.io/go-skynet/local-ai
   pullPolicy: IfNotPresent
-  tag: v1.40.0-cublas-cuda11-ffmpeg@sha256:fc16b363e9071ed2dc5ec40b91c20bda764301fd4422439288bdcbb986761a28
+  tag: v2.1.0-cublas-cuda11-ffmpeg@sha256:0400c00c4753af9975d2ed35c3dd50d16e724c32ca68f2b48bd60ff2eaa1df2c
 securityContext:
   container:
     runAsNonRoot: false

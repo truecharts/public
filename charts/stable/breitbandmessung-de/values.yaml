@@ -1,0 +1,37 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: shneezin/breitbandmessung-node
+  tag: latest@sha256:80922b8fae2787eab7f60e926eeb301764798ae290122c756def41ad618003e7
+persistence:
+  config:
+    enabled: true
+    mountPath: /usr/src/app/config
+  messurementlogs:
+    enabled: true
+    mountPath: /export/
+portal:
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

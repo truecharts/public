@@ -1,0 +1,42 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: vilhjalmr26/import_ics
+  tag: latest@sha256:9eb432e43e44d39d19b39ad277c47873ee615ae2f8ed06d033f3d99cc5e347b8
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  icsexportfolder:
+    enabled: true
+    mountPath: /import_ics/ical_export
+portal:
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            CRONTAB_SCHEDULE: 0 0 * * *
+            ICS_PASSWORD: ""
+            ICS_URL: ""
+            ICS_USERNAME: ""
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

@@ -1,22 +1,35 @@
+{{- define "nextcloud.accessurl" -}}
+  {{- $accessUrl := .Values.chartContext.APPURL -}}
+  {{- if or (contains "127.0.0.1" $accessUrl) (contains "localhost" $accessUrl) -}}
+    {{- if .Values.nextcloud.general.accessIP -}}
+      {{- $prot := "http" -}}
+      {{- $host := .Values.nextcloud.general.accessIP -}}
+      {{- $port := .Values.service.main.ports.main.port -}}
+      {{/*
+        Allowing here to override protocol and port
+        should be enough to make it work with any rev proxy
+      */}}
+      {{- $accessUrl = printf "%v://%v:%v" $prot $host $port -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- $accessUrl -}}
+{{- end -}}
+
+{{- define "nextcloud.accesshost" -}}
+  {{- $accessUrl := (include "nextcloud.accessurl" $) -}}
+  {{- $accessHost := regexReplaceAll ".*://(.*)" $accessUrl "${1}" -}}
+  {{- $accessHost = regexReplaceAll "(.*):.*" $accessHost "${1}" -}}
+
+  {{- $accessHost -}}
+{{- end -}}
+
 {{/* Define the configmap */}}
 {{- define "nextcloud.configmaps" -}}
 {{- $fullname := (include "tc.v1.common.lib.chart.names.fullname" $) -}}
 {{- $fqdn := (include "tc.v1.common.lib.chart.names.fqdn" $) -}}
-{{- $accessUrl := .Values.chartContext.APPURL -}}
-{{- if or (contains "127.0.0.1" $accessUrl) (contains "localhost" $accessUrl) -}}
-  {{- if .Values.nextcloud.general.accessIP -}}
-    {{- $prot := "http" -}}
-    {{- $host := .Values.nextcloud.general.accessIP -}}
-    {{- $port := .Values.service.main.ports.main.port -}}
-    {{/*
-      Allowing here to override protocol and port
-      should be enough to make it work with any rev proxy
-    */}}
-    {{- $accessUrl = printf "%v://%v:%v" $prot $host $port -}}
-  {{- end -}}
-{{- end -}}
-{{- $accessHost := regexReplaceAll ".*://(.*)" $accessUrl "${1}" -}}
-{{- $accessHost = regexReplaceAll "(.*):.*" $accessUrl "${1}" -}}
+{{- $accessUrl := (include "nextcloud.accessurl" $) -}}
+{{- $accessHost := (include "nextcloud.accesshost" $) -}}
 {{- $accessHostPort := regexReplaceAll ".*://(.*)" $accessUrl "${1}" -}}
 {{- $accessProtocol := regexReplaceAll "(.*)://.*" $accessUrl "${1}" -}}
 {{- $redisHost := .Values.redis.creds.plainhost | trimAll "\"" -}}
@@ -301,11 +314,16 @@ nginx-config:
           gzip_comp_level 4;
           gzip_min_length 256;
           gzip_proxied expired no-cache no-store private no_last_modified no_etag auth;
-          gzip_types application/atom+xml application/javascript application/json application/ld+json application/manifest+json application/rss+xml application/vnd.geo+json application/vnd.ms-fontobject application/x-font-ttf application/x-web-app-manifest+json application/xhtml+xml application/xml font/opentype image/bmp image/svg+xml image/x-icon text/cache-manifest text/css text/plain text/vcard text/vnd.rim.location.xloc text/vtt text/x-component text/x-cross-domain-policy;
+          gzip_types application/atom+xml text/javascript application/javascript application/json application/ld+json application/manifest+json application/rss+xml application/vnd.geo+json application/vnd.ms-fontobject application/wasm application/x-font-ttf application/x-web-app-manifest+json application/xhtml+xml application/xml font/opentype image/bmp image/svg+xml image/x-icon text/cache-manifest text/css text/plain text/vcard text/vnd.rim.location.xloc text/vtt text/x-component text/x-cross-domain-policy;
 
           # Pagespeed is not supported by Nextcloud, so if your server is built
           # with the `ngx_pagespeed` module, uncomment this line to disable it.
           #pagespeed off;
+
+          include mime.types;
+          types {
+              text/javascript js mjs;
+          }
 
           # HTTP response headers borrowed from Nextcloud `.htaccess`
           add_header Referrer-Policy                      "no-referrer"       always;

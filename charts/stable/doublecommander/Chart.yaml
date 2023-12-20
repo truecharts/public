@@ -1,28 +1,41 @@
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
-appVersion: "latest"
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
-description: A free cross platform open source file manager with two panels side by side.
+name: doublecommander
+version: 9.0.29
+appVersion: latest
+description:
+  A free cross platform open source file manager with two panels side by
+  side.
 home: https://truecharts.org/charts/stable/doublecommander
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/doublecommander.png
+deprecated: false
+sources:
+  - https://doublecmd.sourceforge.io/
+  - https://github.com/linuxserver/docker-doublecommander
+  - https://github.com/truecharts/charts/tree/master/charts/stable/doublecommander
+  - https://ghcr.io/linuxserver/doublecommander
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
   - doublecommander
   - file
   - manager
-kubeVersion: ">=1.16.0-0"
-maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
-    url: https://truecharts.org
-name: doublecommander
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/doublecommander
-  - https://github.com/linuxserver/docker-doublecommander
-  - https://doublecmd.sourceforge.io/
-type: application
-version: 9.0.22
+dependencies:
+  - name: common
+    version: 14.5.0
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-  truecharts.org/category: media
+  max_scale_version: 23.10.1
+  min_scale_version: 22.12.4
   truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+type: application

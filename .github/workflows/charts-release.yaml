@@ -263,10 +263,7 @@ jobs:
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         run: |
           CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
-          charts_path="charts"
-          for changed in ${CHARTS[@]}; do
-            .github/scripts/fetch_helm_deps.sh "${changed}"
-          done
+          ./charttool deps
           pip install yq
           parthreads=$(($(nproc) * 2))
           parallel -j ${parthreads} .github/scripts/build-catalog.sh '2>&1' ::: ${CHARTS[@]}

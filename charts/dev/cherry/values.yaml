@@ -1,0 +1,50 @@
+cherry:
+  google_oauth_id: ""
+  google_oauth_secret: ""
+  google_oauth_uri: ""
+  insecure_cookie: true
+  page_bookmark_limit: 60
+  public_registration: true
+image:
+  pullPolicy: IfNotPresent
+  repository: haishanh/cherry
+  tag: v0.0.7@sha256:ac38d09dc167501882b60c882931ba89a2cdc4feb2f30e768098f142dde8b9ee
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10303
+        protocol: http
+        targetPort: 8000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - secretRef:
+                name: "cherry-secret"
+            - configMapRef:
+                name: "cherry-configmap"
+          probes:
+            liveness:
+              path: /
+              type: http
+            readiness:
+              path: /
+              type: http
+            startup:
+              path: /
+              type: http
