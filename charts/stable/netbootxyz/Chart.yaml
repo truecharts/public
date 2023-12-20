@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: netbootxyz
-version: 0.1.4
+version: 1.0.0
 appVersion: 0.6.7@sha256:5a02a07a856c8a5130d0fa1726a8f7f94724a55d7ddb5d4305a21fda28291d26
 description: Your favorite operating systems in one place!
 home: https://truecharts.org/charts/incubator/netbootxyz
@@ -20,7 +20,7 @@ keywords:
     - pxe
 dependencies:
     - name: common
-      version: 13.2.2
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

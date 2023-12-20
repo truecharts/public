@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: homepage
-version: 4.0.27
+version: 5.0.0
 appVersion: 0.8.3@sha256:4214f13b534aa4b214665a41b50d60fe0f04ff41cddb8e72fe92811e1eed0112
 description: A highly customizable homepage
 home: https://truecharts.org/charts/stable/homepage
@@ -19,7 +19,7 @@ keywords:
     - homepage
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

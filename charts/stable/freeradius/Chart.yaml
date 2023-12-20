@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: freeradius
-version: 10.0.14
+version: 11.0.0
 appVersion: 3.2.0@sha256:e6a9295ae6caf282e957d0e329810e13bbdedc3bec3865e8ab322a0055107623
 description: OpenSource Radius implementation
 home: https://truecharts.org/charts/stable/freeradius
@@ -20,7 +20,7 @@ keywords:
     - auth
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

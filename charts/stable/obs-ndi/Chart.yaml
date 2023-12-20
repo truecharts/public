@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: obs-ndi
-version: 3.0.16
+version: 4.0.0
 appVersion: latest
 description: Docker Open Broadcaster Software (obs).
 home: https://truecharts.org/charts/stable/obs-ndi
@@ -23,7 +23,7 @@ keywords:
     - MediaServer-Video
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

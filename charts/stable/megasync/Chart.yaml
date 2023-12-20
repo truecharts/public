@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: megasync
-version: 3.0.8
+version: 4.0.0
 appVersion: latest@sha256:04d8c00afb09019389c7142a8cd67a724a6abc388d55c691a56b130f91a928d2
 description: MEGAsync can synchronize all of your devices with your MEGA account.
 home: https://truecharts.org/charts/incubator/megasync
@@ -23,7 +23,7 @@ keywords:
     - Backup
 dependencies:
     - name: common
-      version: 13.2.2
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: kopia
-version: 8.1.4
+version: 9.0.0
 appVersion: 0.15.0@sha256:915804f85364d2bba51248ea6b639d0988933870dc475da71d028aa819ec8649
 description: Kopia is a simple, cross-platform tool for managing encrypted backups in the cloud. It provides fast, incremental backups, secure, client-side end-to-end encryption, compression and data deduplication.
 home: https://truecharts.org/charts/stable/kopia
@@ -20,7 +20,7 @@ keywords:
     - backup
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: plexanisync
-version: 3.0.17
+version: 4.0.0
 appVersion: 1.3.25
 description: Plex to AniList Sync.
 home: https://truecharts.org/charts/stable/plexanisync
@@ -21,7 +21,7 @@ keywords:
     - media
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

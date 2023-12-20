@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: plexripper
-version: 5.0.8
+version: 6.0.0
 appVersion: 0.14.0@sha256:c921a0cb79eb785fbcb6731284d2e4100e7ab1cebcfdcdb49a36cafa67910af4
 description: A multi-platform media downloader that indexes and downloads content from your accessible Plex servers.
 home: https://truecharts.org/charts/stable/plexripper
@@ -25,7 +25,7 @@ keywords:
     - MediaApp-Other
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

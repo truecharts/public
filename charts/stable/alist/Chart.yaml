@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: alist
-version: 6.1.4
+version: 7.0.0
 appVersion: 3.29.1@sha256:33f0cc7823ff0fc0e7f590c91c6b1e8945025ff611ed317724c91fb8444a2a07
 description: Alist program that supports multiple storage, powered by Gin and React
 home: https://truecharts.org/charts/stable/alist
@@ -24,7 +24,7 @@ keywords:
     - baiduyun
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

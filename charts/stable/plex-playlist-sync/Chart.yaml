@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: plex-playlist-sync
-version: 0.0.12
+version: 1.0.0
 appVersion: latest
 description: Sync your Spotify and Deezer playlists to your Plex server.
 home: https://truecharts.org/charts/incubator/plex-playlist-sync
@@ -25,7 +25,7 @@ keywords:
     - MediaServer-Video
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

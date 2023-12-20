@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: mealie
-version: 18.1.5
+version: 19.0.0
 appVersion: 1.0.0-RC2@sha256:9881b16dda92272c6eeeb132697ad2379be1c562f0f53f86f20ce2654b57f455
 description: Mealie is a self hosted recipe manager and meal planner with a RestAPI backend
 home: https://truecharts.org/charts/stable/mealie
@@ -19,7 +19,7 @@ keywords:
     - grocy
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

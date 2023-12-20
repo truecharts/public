@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: esphome
-version: 15.0.32
+version: 16.0.0
 appVersion: 2023.11.6
 description: ESPHome is a system to control your ESP8266/ESP32 by simple yet powerful configuration files and control them remotely through Home Automation systems.
 home: https://truecharts.org/charts/stable/esphome
@@ -19,7 +19,7 @@ keywords:
     - esphome
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

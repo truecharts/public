@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: whisparr
-version: 6.1.5
+version: 7.0.0
 appVersion: 2.0.0.289@sha256:4f8a1aa86349046534a27696176a5203cae50a1d677b5b4143130aaa800727d5
 description: An adult media thingy.
 home: https://truecharts.org/charts/stable/whisparr
@@ -21,7 +21,7 @@ keywords:
     - MediaApp-Other
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

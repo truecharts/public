@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: automatic-ripping-machine
-version: 0.0.13
+version: 1.0.0
 appVersion: 2.6.60@sha256:bf79fee03b4ef8867ccbee6448748bf58b86a59c2400dd9beb5a4b926c6e7c10
 description: Automatic Ripping Machine (ARM) Scripts.
 home: https://truecharts.org/charts/incubator/automatic-ripping-machine
@@ -20,7 +20,7 @@ keywords:
     - media
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

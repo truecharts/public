@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: shoko-server
-version: 6.0.13
+version: 7.0.0
 appVersion: 4.2.2@sha256:13d0a39131b7d53e69096229b344eb23e763db8bb9411a0b3f9f7c75cdf35278
 description: Anime cataloging program designed to automate the cataloging of your collection.
 home: https://truecharts.org/charts/stable/shoko-server
@@ -20,7 +20,7 @@ keywords:
     - Tools-Utilities
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

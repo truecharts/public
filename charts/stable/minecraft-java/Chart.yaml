@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: minecraft-java
-version: 5.2.1
+version: 6.0.0
 appVersion: 2023.11.1
 description: Minecraft Java Dedicated Server
 home: https://truecharts.org/charts/stable/minecraft-java
@@ -20,7 +20,7 @@ keywords:
     - minecraft
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

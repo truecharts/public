@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: embystat
-version: 6.0.18
+version: 7.0.0
 appVersion: 0.2.0
 description: Embystat is a personal web server that can calculate all kinds of statistics from your (local) Emby server.
 home: https://truecharts.org/charts/stable/embystat
@@ -18,7 +18,7 @@ keywords:
     - embystat
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

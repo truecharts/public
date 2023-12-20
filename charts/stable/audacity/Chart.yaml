@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: audacity
-version: 9.0.13
+version: 10.0.0
 appVersion: 3.0.2@sha256:cdf203db1e50e18349f16c5958f7061b18625501f5e2f7a15cd69262185e3e84
 description: An easy-to-use, multi-track audio editor and recorder
 home: https://truecharts.org/charts/stable/audacity
@@ -24,7 +24,7 @@ keywords:
     - audio
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

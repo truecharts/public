@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: photoshow
-version: 7.0.13
+version: 8.0.0
 appVersion: ersion-48aabb98@sha256:999c8760561b08a640378c19dd27ac4ab5aecee4aa964c195ee01de4e8845078
 description: A gallery software at its easiest, it doesn't even require a database.
 home: https://truecharts.org/charts/stable/photoshow
@@ -24,7 +24,7 @@ keywords:
     - image
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

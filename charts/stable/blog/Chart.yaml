@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: blog
-version: 8.0.13
+version: 9.0.0
 appVersion: latest
 description: Lightweight self-hosted facebook-styled PHP blog.
 home: https://truecharts.org/charts/stable/blog
@@ -24,7 +24,7 @@ keywords:
     - facebook
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: ntfy
-version: 6.1.4
+version: 7.0.0
 appVersion: 2.8.0@sha256:b8f8fb9ee044524d2baa303e5cfab4b3275378acf0b746bd9ace370a3b631a07
 description: ntfy is a simple HTTP-based pub-sub notification service. It allows you to send notifications to your phone or desktop via scripts from any computer.
 home: https://truecharts.org/charts/stable/ntfy
@@ -19,7 +19,7 @@ keywords:
     - ntfy
 dependencies:
     - name: common
-      version: 14.5.0
+      version: 16.2.7
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""
