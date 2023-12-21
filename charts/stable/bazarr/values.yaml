@@ -79,6 +79,7 @@ metrics:
       - port: metrics
         path: /metrics
     targetSelector: metrics
+    # Required for exportarr
     apiKey: ""
 
 portal:
