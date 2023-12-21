@@ -1,7 +1,7 @@
 image:
-  repository: docker.io/weejewel/wg-easy
+  repository: ghcr.io/wg-easy/wg-easy
   pullPolicy: IfNotPresent
-  tag: latest@sha256:ea65f283dfeb62628ce942ce38974f9db05177aa27ab69b787115b78591552f3
+  tag: 8@sha256:f185fec28bf4a811e62d5791b7f05351113d3fe3c5ed9582e368e978625e6685
 securityContext:
   container:
     PUID: 0
