@@ -106,7 +106,7 @@ collabora-config:
       --o:logging.level_startup=warning
       --o:security.seccomp=true
       --o:mount_jail_tree=false
-      --o:user_interface.mode={{ .Values.nextcloud.collabora.user_interface_mode }}
+      --o:user_interface.mode={{ .Values.nextcloud.collabora.interface_mode }}
 
 nextcloud-config:
   enabled: true
