@@ -1,17 +1,17 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: filezilla
-version: 9.0.3
+version: 9.0.4
 appVersion: 3.59.0
 description: A Helm chart for Kubernetes
 home: https://truecharts.org/charts/incubator/filezilla
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/filezilla.png
 deprecated: false
 sources:
+    - https://github.com/truecharts/containers/tree/master/mirrorfilezilla
     - https://github.com/linuxserver/docker-filezilla
     - https://filezilla-project.org/
     - https://github.com/truecharts/charts/tree/master/charts/incubator/filezilla
-    - https://github.com/truecharts/containers/tree/master/mirrorfilezilla
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

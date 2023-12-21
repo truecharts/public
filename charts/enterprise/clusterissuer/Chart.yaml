@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: clusterissuer
-version: 5.0.4
+version: 5.0.5
 appVersion: latest
 description: Certificate management for Kubernetes
 home: https://truecharts.org/charts/enterprise/clusterissuer
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/clusterissuer.png
 deprecated: false
 sources:
-    - https://github.com/truecharts/charts/tree/master/charts/enterprise/clusterissuer
     - https://hub.docker.com/_/hello-world
     - https://cert-manager.io/
+    - https://github.com/truecharts/charts/tree/master/charts/enterprise/clusterissuer
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: freshrss
-version: 16.0.3
+version: 16.0.4
 appVersion: 1.22.1
 description: FreshRSS is a self-hosted RSS feed aggregator
 home: https://truecharts.org/charts/stable/freshrss
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/freshrss.png
 deprecated: false
 sources:
-    - https://ghcr.io/linuxserver/freshrss
     - https://github.com/FreshRSS/FreshRSS
     - https://github.com/truecharts/charts/tree/master/charts/stable/freshrss
+    - https://ghcr.io/linuxserver/freshrss
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

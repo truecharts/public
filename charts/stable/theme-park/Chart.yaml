@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: theme-park
-version: 7.0.3
+version: 7.0.4
 appVersion: "1.15"
 description: Custom themes for your favorite apps!
 home: https://truecharts.org/charts/stable/theme-park
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/theme-park.png
 deprecated: false
 sources:
+    - https://github.com/gilbn/theme.park
     - https://github.com/truecharts/charts/tree/master/charts/stable/theme-park
     - https://ghcr.io/onedr0p/theme-park
-    - https://github.com/gilbn/theme.park
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

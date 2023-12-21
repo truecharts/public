@@ -1,19 +1,19 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: plausible
-version: 6.0.4
+version: 6.0.5
 appVersion: 2.0.0
 description: Plausible is lightweight and open source web analytics. No cookies and fully compliant with GDPR, CCPA and PECR.
 home: https://truecharts.org/charts/stable/plausible
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/plausible.png
 deprecated: false
 sources:
-    - https://hub.docker.com/r/plausible/analytics
     - https://plausible.io/docs/self-hosting
     - https://github.com/plausible/analytics
     - https://github.com/plausible/hosting
     - https://plausible.io/
     - https://github.com/truecharts/charts/tree/master/charts/stable/plausible
+    - https://hub.docker.com/r/plausible/analytics
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

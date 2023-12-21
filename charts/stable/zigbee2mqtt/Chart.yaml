@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: zigbee2mqtt
-version: 9.0.3
+version: 9.0.4
 appVersion: 1.33.2
 description: Bridges events and allows you to control your Zigbee devices via MQTT
 home: https://truecharts.org/charts/stable/zigbee2mqtt
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/zigbee2mqtt.png
 deprecated: false
 sources:
+    - https://github.com/truecharts/charts/tree/master/charts/stable/zigbee2mqtt
     - https://hub.docker.com/r/koenkk/zigbee2mqtt
     - https://github.com/Koenkk/zigbee2mqtt
-    - https://github.com/truecharts/charts/tree/master/charts/stable/zigbee2mqtt
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

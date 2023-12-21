@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: watcharr
-version: 2.0.3
+version: 2.0.4
 appVersion: 1.21.1
 description: Open source, self-hostable watched list
 home: https://truecharts.org/charts/stable/watcharr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/watcharr.png
 deprecated: false
 sources:
+    - https://github.com/truecharts/containers/tree/master/mirrorwatcharr
     - https://github.com/sbondCo/Watcharr
     - https://github.com/truecharts/charts/tree/master/charts/stable/watcharr
-    - https://github.com/truecharts/containers/tree/master/mirrorwatcharr
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

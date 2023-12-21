@@ -1,15 +1,15 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: openhab
-version: 7.0.3
+version: 7.0.4
 appVersion: 4.0.4
 description: OpenHab is a home-automation application
 home: https://truecharts.org/charts/stable/openhab
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/openhab.png
 deprecated: false
 sources:
-    - https://github.com/truecharts/charts/tree/master/charts/stable/openhab
     - https://hub.docker.com/r/openhab/openhab
+    - https://github.com/truecharts/charts/tree/master/charts/stable/openhab
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

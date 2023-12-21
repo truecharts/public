@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: mariadb
-version: 11.0.7
+version: 11.0.8
 appVersion: 11.1.3
 description: Fast, reliable, scalable, and easy to use open-source relational database system.
 home: https://truecharts.org/charts/dependency/mariadb
@@ -9,10 +9,10 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/mariadb.png
 deprecated: false
 sources:
     - https://github.com/prometheus/mysqld_exporter
-    - https://github.com/truecharts/charts/tree/master/charts/dependency/mariadb
-    - https://hub.docker.com/r/bitnami/mariadb
     - https://mariadb.org
     - https://github.com/bitnami/bitnami-docker-mariadb
+    - https://github.com/truecharts/charts/tree/master/charts/dependency/mariadb
+    - https://hub.docker.com/r/bitnami/mariadb
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

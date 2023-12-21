@@ -1,17 +1,17 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: authelia
-version: 20.0.6
+version: 20.0.7
 appVersion: 4.37.5
 description: Authelia is a Single Sign-On Multi-Factor portal for web apps
 home: https://truecharts.org/charts/enterprise/authelia
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/authelia.png
 deprecated: false
 sources:
-    - https://github.com/authelia/chartrepo
-    - https://github.com/authelia/authelia
     - https://github.com/truecharts/charts/tree/master/charts/enterprise/authelia
     - https://ghcr.io/authelia/authelia
+    - https://github.com/authelia/chartrepo
+    - https://github.com/authelia/authelia
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

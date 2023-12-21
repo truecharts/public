@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: docusaurus
-version: 6.0.3
+version: 6.0.4
 appVersion: latest
 description: Docusaurus makes it easy to maintain Open Source documentation websites.
 home: https://truecharts.org/charts/stable/docusaurus
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/docusaurus.png
 deprecated: false
 sources:
+    - https://hub.docker.com/r/awesometic/docusaurus
     - https://github.com/awesometic/docker-docusaurus
     - https://github.com/truecharts/charts/tree/master/charts/stable/docusaurus
-    - https://hub.docker.com/r/awesometic/docusaurus
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

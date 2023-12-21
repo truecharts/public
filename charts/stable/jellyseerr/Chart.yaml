@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: jellyseerr
-version: 7.0.3
+version: 7.0.4
 appVersion: 1.7.0
 description: Jellyseerr is a fork of Overseerr with support for Jellyfin and Emby. It can be used to manage requests for your media library.
 home: https://truecharts.org/charts/stable/jellyseerr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/jellyseerr.png
 deprecated: false
 sources:
-    - https://github.com/Fallenbagel/jellyseerr
     - https://github.com/truecharts/charts/tree/master/charts/stable/jellyseerr
     - https://hub.docker.com/r/fallenbagel/jellyseerr
+    - https://github.com/Fallenbagel/jellyseerr
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

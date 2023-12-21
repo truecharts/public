@@ -1,17 +1,17 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: owncast
-version: 11.0.3
+version: 11.0.4
 appVersion: 0.1.2
 description: Take control over your live stream video by running it yourself. Streaming + chat out of the box.
 home: https://truecharts.org/charts/stable/owncast
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/owncast.png
 deprecated: false
 sources:
-    - https://github.com/owncast/owncast
     - https://owncast.online/
     - https://github.com/truecharts/charts/tree/master/charts/stable/owncast
     - https://hub.docker.com/r/gabekangas/owncast
+    - https://github.com/owncast/owncast
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

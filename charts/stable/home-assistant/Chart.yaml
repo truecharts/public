@@ -1,17 +1,17 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: home-assistant
-version: 21.0.3
+version: 21.0.4
 appVersion: 2023.12.3
 description: home-assistant App for TrueNAS SCALE
 home: https://truecharts.org/charts/stable/home-assistant
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/home-assistant.png
 deprecated: false
 sources:
+    - https://hub.docker.com/r/homeassistant/home-assistant
     - https://github.com/cdr/code-server
     - https://github.com/home-assistant/home-assistant
     - https://github.com/truecharts/charts/tree/master/charts/stable/home-assistant
-    - https://hub.docker.com/r/homeassistant/home-assistant
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

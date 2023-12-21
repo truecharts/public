@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: wordpress
-version: 4.0.4
+version: 4.0.5
 appVersion: 6.4.2
 description: The WordPress rich content management system can utilize plugins, widgets, and themes.
 home: https://truecharts.org/charts/stable/wordpress
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/wordpress.png
 deprecated: false
 sources:
-    - https://www.wordpress.org
     - https://github.com/truecharts/charts/tree/master/charts/stable/wordpress
     - https://hub.docker.com/r/bitnami/wordpress
+    - https://www.wordpress.org
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

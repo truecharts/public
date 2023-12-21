@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: odoo
-version: 15.0.3
+version: 15.0.4
 appVersion: "17.0"
 description: All-in-one business software. Beautiful. Easy-to-use. CRM, Accounting, PM, HR, Procurement, Point of Sale, MRP, Marketing, etc.
 home: https://truecharts.org/charts/stable/odoo
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/odoo.png
 deprecated: false
 sources:
+    - https://github.com/odoo/docker
     - https://github.com/truecharts/charts/tree/master/charts/stable/odoo
     - https://hub.docker.com/_/odoo
-    - https://github.com/odoo/docker
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

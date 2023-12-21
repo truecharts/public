@@ -1,15 +1,15 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: ddclient
-version: 7.0.3
+version: 7.0.4
 appVersion: 3.11.2
 description: Ddclient is a Perl client used to update dynamic DNS entries for accounts on Dynamic DNS Network Service Provider.
 home: https://truecharts.org/charts/stable/ddclient
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ddclient.png
 deprecated: false
 sources:
-    - https://ghcr.io/linuxserver/ddclient
     - https://github.com/truecharts/charts/tree/master/charts/stable/ddclient
+    - https://ghcr.io/linuxserver/ddclient
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

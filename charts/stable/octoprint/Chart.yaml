@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: octoprint
-version: 11.0.3
+version: 11.0.4
 appVersion: 1.9.3
 description: OctoPrint is the snappy web interface for your 3D printer
 home: https://truecharts.org/charts/stable/octoprint
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/octoprint.png
 deprecated: false
 sources:
-    - https://github.com/OctoPrint/OctoPrint
     - https://github.com/truecharts/charts/tree/master/charts/stable/octoprint
     - https://hub.docker.com/r/octoprint/octoprint
+    - https://github.com/OctoPrint/OctoPrint
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

@@ -1,15 +1,15 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: minetest
-version: 6.0.3
+version: 6.0.4
 appVersion: 5.8.0
 description: Minetest (server) is a near-infinite-world block sandbox game and a game engine.
 home: https://truecharts.org/charts/stable/minetest
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/minetest.png
 deprecated: false
 sources:
-    - https://ghcr.io/linuxserver/minetest
     - https://github.com/truecharts/charts/tree/master/charts/stable/minetest
+    - https://ghcr.io/linuxserver/minetest
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

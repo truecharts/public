@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: fossil
-version: 9.0.3
+version: 9.0.4
 appVersion: 2.15.1-ls4
 description: A simple, high-reliability, distributed software configuration management system
 home: https://truecharts.org/charts/stable/fossil
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/fossil.png
 deprecated: false
 sources:
+    - https://ghcr.io/nicholaswilde/fossil
     - https://fossil-scm.org/
     - https://github.com/truecharts/charts/tree/master/charts/stable/fossil
-    - https://ghcr.io/nicholaswilde/fossil
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

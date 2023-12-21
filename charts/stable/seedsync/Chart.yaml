@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: seedsync
-version: 5.0.3
+version: 5.0.4
 appVersion: latest
 description: SeedSync is a tool to sync the files on a remote Linux server (like your seedbox, for example). It uses LFTP to transfer files fast!
 home: https://truecharts.org/charts/stable/seedsync
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/seedsync.png
 deprecated: false
 sources:
+    - https://hub.docker.com/r/ipsingh06/seedsync
     - https://github.com/ipsingh06/seedsync
     - https://github.com/truecharts/charts/tree/master/charts/stable/seedsync
-    - https://hub.docker.com/r/ipsingh06/seedsync
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
