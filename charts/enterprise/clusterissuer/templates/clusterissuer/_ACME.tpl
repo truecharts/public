@@ -122,7 +122,7 @@ stringData:
 {{- if .acmednsConfigJson }}
   acmednsJson: {{ .acmednsConfigJson }}
 {{- else if $acmednsDict }}
-  acmednsJson: {{ toJson $acmednsDict }}
+  acmednsJson: {{ toPrettyJson $acmednsDict | nindent 4 }}
 {{- end -}}
   {{- end -}}
 {{- end -}}
