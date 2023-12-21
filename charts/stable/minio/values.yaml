@@ -17,7 +17,8 @@ service:
         port: 10106
 ingress:
   api:
-    autoLink: true
+    targetSelector:
+      api: api
 persistence:
   config:
     enabled: true
