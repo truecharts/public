@@ -57,7 +57,6 @@
       {{/* Call class to create the object */}}
       {{- include "tc.v1.common.class.ingress" (dict "rootCtx" $ "objectData" $objectData) -}}
 
-      {{/* TODO: range over TLS and do stuff */}}
       {{- $hasCertIssuer := false -}}
       {{- if $objectData.integrations -}}
         {{- if and $objectData.integrations.certManager $objectData.integrations.certManager.enabled -}}
