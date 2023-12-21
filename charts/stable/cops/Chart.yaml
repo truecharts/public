@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: cops
-version: 6.0.1
+version: 6.0.2
 appVersion: 2.2.1
 description: |
   Cops(http://blog.slucas.fr/en/oss/calibre-opds-php-server) by Sébastien Lucas, stands for Calibre OPDS (and HTML) Php Server.
@@ -24,7 +24,7 @@ keywords:
   - MediaServer-Books
 dependencies:
   - name: common
-    version: 16.2.7
+    version: 16.2.9
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

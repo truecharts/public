@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: vocechat-server
-version: 1.0.5
+version: 1.0.6
 appVersion: 0.3.43
 description: A superlight rust written social server.
 home: https://truecharts.org/charts/stable/vocechat-server
@@ -20,7 +20,7 @@ keywords:
   - social
 dependencies:
   - name: common
-    version: 16.2.7
+    version: 16.2.9
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: invidious
-version: 7.0.1
+version: 7.0.2
 appVersion: latest
 description: Open source alternative front-end to YouTube.
 home: https://truecharts.org/charts/stable/invidious
@@ -22,7 +22,7 @@ keywords:
   - media
 dependencies:
   - name: common
-    version: 16.2.7
+    version: 16.2.9
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

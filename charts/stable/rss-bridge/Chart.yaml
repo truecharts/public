@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: rss-bridge
-version: 7.0.1
+version: 7.0.2
 appVersion: "2023-09-24"
 description: RSS-Bridge is a PHP project capable of generating RSS and Atom feeds for websites that don't have one.
 home: https://truecharts.org/charts/stable/rss-bridge
@@ -19,7 +19,7 @@ keywords:
   - rss-bridge
 dependencies:
   - name: common
-    version: 16.2.7
+    version: 16.2.9
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

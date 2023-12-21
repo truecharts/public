@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: photoprism
-version: 17.0.1
+version: 17.0.2
 appVersion: "231128"
 description: PhotoPrismÂ® is a server-based application for browsing, organizing and sharing your personal photo collection
 home: https://truecharts.org/charts/stable/photoprism
@@ -22,14 +22,14 @@ keywords:
   - sharing
 dependencies:
   - name: common
-    version: 16.2.7
+    version: 16.2.9
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mariadb
-    version: 11.0.4
+    version: 11.0.5
     repository: https://deps.truecharts.org/
     condition: mariadb.enabled
     alias: ""

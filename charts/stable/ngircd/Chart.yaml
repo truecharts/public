@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: ngircd
-version: 7.0.1
+version: 7.0.2
 appVersion: 2021.11.21
 description: Ngircd is a free, portable and lightweight Internet Relay Chat server for small or private networks.
 home: https://truecharts.org/charts/stable/ngircd
@@ -18,7 +18,7 @@ keywords:
   - ngircd
 dependencies:
   - name: common
-    version: 16.2.7
+    version: 16.2.9
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
