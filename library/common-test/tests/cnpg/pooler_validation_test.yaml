@@ -20,3 +20,19 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: CNPG Pooler - Expected [poolMode] to be one of [session, transaction], but got [invalid]
+
+  - it: should fail with pooler instances less than 1
+    set:
+      operator:
+        verify:
+          enabled: false
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          pooler:
+            instances: 0
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG Pooler - Expected [instances] to be greater than 0, but got [0]

@@ -21,6 +21,12 @@
     {{- end -}}
   {{- end -}}
 
+  {{- if (hasKey $objectData "instances") -}}
+    {{- if lt ($objectData.instances | int) 1 -}}
+      {{- fail (printf "CNPG - Expected [instances] to be greater than 0, but got [%d]" ($objectData.instances | int)) -}}
+    {{- end -}}
+  {{- end -}}
+
   {{- if (hasKey $objectData "mode") -}}
     {{- $validModes := (list "standalone" "replica" "recovery") -}}
     {{- if not (mustHas $objectData.mode $validModes) -}}

@@ -56,7 +56,6 @@
   {{/* Stop All */}}
   {{- if or $objectData.hibernate (include "tc.v1.common.lib.util.stopAll" $rootCtx) -}}
     {{- $hibernation = "on" -}}
-    {{- $instances = 0 -}}
   {{- end -}}
 
   {{/* General */}}

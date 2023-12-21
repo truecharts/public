@@ -50,18 +50,6 @@
     {{- end -}}
 
     {{/* Make sure we dont have dupes */}}
-    {{- if $middlewares -}}
-      {{/* Only used for better error */}}
-      {{- $middlewareNameList := list -}}
-      {{- range $mid := $middlewares -}}
-        {{- $middlewareNameList = mustAppend $middlewareNameList (printf "%s-%s" $mid.namespace $mid.name ) -}}
-      {{- end -}}
-
-      {{- if not (deepEqual (mustUniq $middlewares) $middlewares) -}}
-        {{- fail (printf "Ingress - Combined traefik middlewares contain duplicates [%s]" (join ", " $middlewareNameList)) -}}
-      {{- end -}}
-    {{- end -}}
-
     {{- if not (deepEqual (mustUniq $entrypoints) $entrypoints) -}}
       {{- fail (printf "Ingress - Combined traefik entrypoints contain duplicates [%s]" (join ", " $entrypoints)) -}}
     {{- end -}}
@@ -119,6 +107,12 @@
       {{- $formattedMiddlewares = mustAppend $formattedMiddlewares (printf "%s-%s@kubernetescrd" $midNamespace $mid.name ) -}}
     {{- end -}}
 
+    {{- if $formattedMiddlewares -}}
+      {{/* Make sure we dont have dupes */}}
+      {{- if not (deepEqual (mustUniq $formattedMiddlewares) $formattedMiddlewares) -}}
+        {{- fail (printf "Ingress - Combined traefik middlewares contain duplicates [%s]" (join ", " $formattedMiddlewares)) -}}
+      {{- end -}}
+    {{- end -}}
 
     {{- $_ := set $objectData.annotations "traefik.ingress.kubernetes.io/router.entrypoints" (join "," $entrypoints) -}}
     {{- if $formattedMiddlewares -}}

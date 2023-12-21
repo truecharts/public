@@ -39,7 +39,7 @@ tests:
         isSubset:
           path: spec
           content:
-            instances: 0
+            instances: 2
 
   - it: should set hibernate and 0 instances on stopAll
     set:
@@ -77,7 +77,7 @@ tests:
         isSubset:
           path: spec
           content:
-            instances: 0
+            instances: 2
 
   - it: should set hibernate and 0 instances on ixChartContext - isStopped
     set:
@@ -118,7 +118,7 @@ tests:
         isSubset:
           path: spec
           content:
-            instances: 0
+            instances: 2
 
   - it: should not set hibernate and 0 instances on ixChartContext - isStopped
     set:

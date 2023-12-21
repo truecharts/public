@@ -556,3 +556,18 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: CNPG Backup - You need to specify [backups.azure.containerName] or [backups.destinationPath]
+
+  - it: should fail with instances less than 1
+    set:
+      operator:
+        verify:
+          enabled: false
+      cnpg:
+        my-pg:
+          enabled: true
+          instances: 0
+          user: test-user
+          database: test-db
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG - Expected [instances] to be greater than 0, but got [0]
