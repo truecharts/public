@@ -35,6 +35,8 @@ service:
         port: 3000
         protocol: http
         targetPort: 3000
+podOptions:
+  automountServiceAccountToken: true
 serviceAccount:
   main:
     enabled: true
