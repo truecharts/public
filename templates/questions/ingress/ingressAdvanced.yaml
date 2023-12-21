@@ -41,17 +41,23 @@
                                     default: []
                                     show_if: [["enabled", "=", true]]
                                     items:
-                                      - variable: name
-                                        label: name
+                                      - variable: middleware
+                                        label: Middleware
                                         schema:
-                                          type: string
-                                          default: ""
-                                          required: true
-                                      - variable: namespace
-                                        label: namespace
-                                        schema:
-                                          type: string
-                                          default: ""
+                                          additional_attrs: true
+                                          type: dict
+                                          attrs:
+                                            - variable: name
+                                              label: name
+                                              schema:
+                                                type: string
+                                                default: ""
+                                                required: true
+                                            - variable: namespace
+                                              label: 'namespace (optional)'
+                                              schema:
+                                                type: string
+                                                default: ""
                           - variable: certManager
                             label: certManager
                             description: Connect ingress with certManager
