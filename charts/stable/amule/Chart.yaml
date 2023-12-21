@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: amule
-version: 5.0.1
+version: 5.0.2
 appVersion: latest
 description: aMule is an eMule-like client for the eDonkey and Kademlia networks.
 home: https://truecharts.org/charts/stable/amule
@@ -22,7 +22,7 @@ keywords:
   - Tools-Utilities
 dependencies:
   - name: common
-    version: 16.2.7
+    version: 16.2.9
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

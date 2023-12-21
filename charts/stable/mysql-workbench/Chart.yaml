@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: mysql-workbench
-version: 7.0.1
+version: 7.0.2
 appVersion: 8.0.34
 description: MySQL Workbench is a unified visual tool for database architects, developers and DBAs.
 home: https://truecharts.org/charts/stable/mysql-workbench
@@ -18,7 +18,7 @@ keywords:
   - mysql-workbench
 dependencies:
   - name: common
-    version: 16.2.7
+    version: 16.2.9
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

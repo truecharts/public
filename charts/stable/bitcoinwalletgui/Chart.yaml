@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: bitcoinwalletgui
-version: 3.0.7
+version: 3.0.8
 appVersion: latest
 description: |
   Bitcoin wallet with GUI over VNC and NoVNC.&#xD;
@@ -20,7 +20,7 @@ keywords:
   - Other
 dependencies:
   - name: common
-    version: 16.2.7
+    version: 16.2.9
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: etesync
-version: 6.0.2
+version: 6.0.3
 appVersion: 0.11.0
 description: Secure, end-to-end encrypted, and privacy respecting sync for your contacts, calendars, tasks and notes.
 home: https://truecharts.org/charts/stable/etesync
@@ -26,14 +26,14 @@ keywords:
   - notes
 dependencies:
   - name: common
-    version: 16.2.7
+    version: 16.2.9
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 10.0.3
+    version: 10.0.4
     repository: https://deps.truecharts.org
     condition: redis.enabled
     alias: ""
