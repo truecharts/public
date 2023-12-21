@@ -18,7 +18,7 @@
 {{- $fullname := include "tc.v1.common.lib.chart.names.fullname" . }}
 path: /collabora/
 pathType: Prefix
-service:
+overrideService:
   name: {{ printf "%v-collabora" $fullname }}
   port: {{ .Values.service.collabora.ports.collabora.port }}
 {{- end -}}
