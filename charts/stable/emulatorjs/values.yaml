@@ -30,7 +30,8 @@ service:
         port: 10138
 ingress:
   front:
-    autoLink: true
+    targetSelector:
+      front: front
 workload:
   main:
     podSpec:
