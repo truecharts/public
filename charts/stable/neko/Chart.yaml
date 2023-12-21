@@ -1,22 +1,22 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
-name: tar1090
-version: 3.0.9
-appVersion: latest
-description: Multi-arch tar1090 Chart for visualising ADSB data.
-home: https://truecharts.org/charts/incubator/tar1090
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/tar1090.png
+name: neko
+version: 3.0.10
+appVersion: firefox
+description: A self hosted virtual browser that runs in Chart
+home: https://truecharts.org/charts/incubator/neko
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/neko.png
 deprecated: false
 sources:
-    - https://github.com/truecharts/charts/tree/master/charts/incubator/tar1090
-    - https://hub.docker.com/r/mikenye/tar1090
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/neko
+    - https://hub.docker.com/r/m1k1o/neko
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
       url: https://truecharts.org
 keywords:
-    - tar1090
-    - Other
+    - neko
+    - video
 dependencies:
     - name: common
       version: 16.2.7
@@ -29,7 +29,7 @@ annotations:
     max_scale_version: 23.10.2
     min_scale_version: 23.10.0
     truecharts.org/SCALE-support: "true"
-    truecharts.org/category: Other
+    truecharts.org/category: media
     truecharts.org/max_helm_version: "3.13"
     truecharts.org/min_helm_version: "3.12"
     truecharts.org/train: incubator

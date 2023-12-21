@@ -1,22 +1,23 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
-name: neko
-version: 3.0.9
-appVersion: firefox
-description: A self hosted virtual browser that runs in Chart
-home: https://truecharts.org/charts/incubator/neko
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/neko.png
+name: ersatztv
+version: 1.0.11
+appVersion: 0.8.4
+description: ErsatzTV configuring and streaming custom live channels using your media library.
+home: https://truecharts.org/charts/incubator/ersatztv
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/ersatztv.png
 deprecated: false
 sources:
-    - https://github.com/truecharts/charts/tree/master/charts/incubator/neko
-    - https://hub.docker.com/r/m1k1o/neko
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/ersatztv
+    - https://hub.docker.com/r/jasongdove/ersatztv
+    - https://github.com/jasongdove/ErsatzTV
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
       url: https://truecharts.org
 keywords:
-    - neko
-    - video
+    - ersatztv
+    - media
 dependencies:
     - name: common
       version: 16.2.7

@@ -1,24 +1,25 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
-name: newyearcountdownclock
-version: 3.0.7
-appVersion: latest
-description: Self Hosted, self contained New Year Countdown clock
-home: https://truecharts.org/charts/incubator/newyearcountdownclock
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/newyearcountdownclock.png
+name: teamspeak3
+version: 8.1.4
+appVersion: 3.13.7
+description: TeamSpeak is software for quality voice communication via the Internet.
+home: https://truecharts.org/charts/incubator/teamspeak3
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/teamspeak3.png
 deprecated: false
 sources:
-    - https://github.com/modem7/Docker-NewYearCountdown
-    - https://github.com/truecharts/charts/tree/master/charts/incubator/newyearcountdownclock
-    - https://hub.docker.com/r/modem7/newyearcountdown
+    - https://www.teamspeak.com/en/
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/teamspeak3
+    - https://hub.docker.com/_/teamspeak
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
       url: https://truecharts.org
 keywords:
-    - newyearcountdownclock
-    - Tools-Utilities
-    - Other
+    - voice server
+    - teamspeak
+    - teamspeak3
+    - teamspeak server
 dependencies:
     - name: common
       version: 16.2.7
@@ -31,7 +32,7 @@ annotations:
     max_scale_version: 23.10.2
     min_scale_version: 23.10.0
     truecharts.org/SCALE-support: "true"
-    truecharts.org/category: Tools-Utilities
+    truecharts.org/category: voice
     truecharts.org/max_helm_version: "3.13"
     truecharts.org/min_helm_version: "3.12"
     truecharts.org/train: incubator
