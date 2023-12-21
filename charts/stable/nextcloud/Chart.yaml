@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: nextcloud
-version: 25.0.6
+version: 25.0.7
 appVersion: 28.0.0
 description: A private cloud server that puts the control and security of your own data back into your hands.
 home: https://truecharts.org/charts/stable/nextcloud
@@ -31,7 +31,7 @@ dependencies:
       tags: []
       import-values: []
     - name: redis
-      version: 10.0.4
+      version: 10.0.7
       repository: https://deps.truecharts.org
       condition: redis.enabled
       alias: ""
