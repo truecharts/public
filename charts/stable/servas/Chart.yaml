@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: servas
-version: 1.0.3
+version: 1.0.4
 appVersion: 0.0.6
 description: A self-hosted bookmark management tool.
 home: https://truecharts.org/charts/stable/servas
@@ -27,7 +27,7 @@ dependencies:
       tags: []
       import-values: []
     - name: mariadb
-      version: 11.0.5
+      version: 11.0.7
       repository: https://deps.truecharts.org/
       condition: mariadb.enabled
       alias: ""

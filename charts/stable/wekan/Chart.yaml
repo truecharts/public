@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: wekan
-version: 11.0.3
+version: 11.0.4
 appVersion: "7.24"
 description: WeKan - Open Source kanban
 home: https://truecharts.org/charts/stable/wekan
@@ -28,7 +28,7 @@ dependencies:
       tags: []
       import-values: []
     - name: mongodb
-      version: 10.0.4
+      version: 10.0.6
       repository: https://deps.truecharts.org
       condition: mongodb.enabled
       alias: ""

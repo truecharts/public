@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: fireflyiii
-version: 22.0.3
+version: 22.0.4
 appVersion: 6.1.0
 description: A free and open source personal finance manager
 home: https://truecharts.org/charts/stable/fireflyiii
@@ -27,7 +27,7 @@ dependencies:
       tags: []
       import-values: []
     - name: redis
-      version: 10.0.4
+      version: 10.0.7
       repository: https://deps.truecharts.org
       condition: redis.enabled
       alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: anonaddy
-version: 17.0.3
+version: 17.0.4
 appVersion: 1.0.4
 description: Protect your email from spam using disposable addresses.
 home: https://truecharts.org/charts/stable/anonaddy
@@ -26,14 +26,14 @@ dependencies:
       tags: []
       import-values: []
     - name: mariadb
-      version: 11.0.5
+      version: 11.0.7
       repository: https://deps.truecharts.org/
       condition: mariadb.enabled
       alias: ""
       tags: []
       import-values: []
     - name: redis
-      version: 10.0.4
+      version: 10.0.7
       repository: https://deps.truecharts.org
       condition: redis.enabled
       alias: ""
