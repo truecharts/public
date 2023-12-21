@@ -44,7 +44,7 @@
                             label: Size
                             schema:
                               type: string
-                              default: "256Gi"
+                              default: "100Gi"
                     - variable: walStorage
                       label: "WAL Storage"
                       schema:
@@ -55,7 +55,7 @@
                             label: Size
                             schema:
                               type: string
-                              default: "256Gi"
+                              default: "100Gi"
               - variable: monitoring
                 label: "Monitoring Settings"
                 schema:
