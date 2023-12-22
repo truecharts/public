@@ -110,6 +110,36 @@
                                     required: true
                                     default: "default"
                                     show_if: [["enabled", "=", true]]
+                                - variable: widget
+                                  label: Widget Settings
+                                  schema:
+                                    type: dict
+                                    additional_attrs: true
+                                    attrs:
+                                      - variable: customkv
+                                        label: Custom Options
+                                        schema:
+                                          type: list
+                                          default: []
+                                          items:
+                                            - variable: option
+                                              label: Option
+                                              schema:
+                                                additional_attrs: true
+                                                type: dict
+                                                attrs:
+                                                  - variable: key
+                                                    label: Key
+                                                    schema:
+                                                      type: string
+                                                      default: ""
+                                                      required: true
+                                                  - variable: value
+                                                    label: Value
+                                                    schema:
+                                                      type: string
+                                                      default: ""
+                                                      required: true
                     - variable: advanced
                       label: Show Advanced Settings
                       description: Advanced settings are not covered by TrueCharts Support
