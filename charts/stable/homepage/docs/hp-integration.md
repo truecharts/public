@@ -48,4 +48,15 @@ To confirm that the home page install is recognizing your scale/kubernetes setup
 which will result in the following being added  
 ![hp kube enable check](img/hpenablechck.png)  
 
-we can now enable our first integration
+We can now enable our first integration!
+
+### Enabling Integration in charts
+Edit and existing chart with ingress and go to the ingress section and enable the homepage integration checkbox  
+
+Name can be left blank or use the name of your choice.  
+Description can be left blank or you can use the description of your choice  
+:exclamation: Group is important it will allow you to group the Diffrent apps togeather so for example all your media apps you may want in a group called "Media" for this example we are using sonarr/radarr with groups Test and Test2
+
+![Integration](img/int1basic.png)
+
+which results in the following in Homepage, the API error is due to no API keys being entered yet, we will take care of that now. edit the app again and use the Widgets Settings as so
