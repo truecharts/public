@@ -154,3 +154,140 @@ tests:
             mountPath: /some/path
             name: data2
             readOnly: false
+
+  - it: should apply ingress settings without primary
+    set:
+      workload: *workload
+      addons:
+        codeserver:
+          enabled: true
+          service:
+            enabled: true
+            type: LoadBalancer
+            ports:
+              codeserver:
+                port: 30067
+          ingress:
+            enabled: true
+            hosts:
+              - host: code.chart-example.local
+                paths:
+                  - path: /
+            integrations:
+              traefik:
+                enabled: false
+    asserts:
+      - documentIndex: &serviceDocument 1
+        isKind:
+          of: Service
+      - documentIndex: *serviceDocument
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *serviceDocument
+        equal:
+          path: spec.ports[0].port
+          value: 30067
+      - documentIndex: &IngressDocument 2
+        isKind:
+          of: Ingress
+      - documentIndex: *IngressDocument
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *IngressDocument
+        equal:
+          path: spec.rules[0].host
+          value: code.chart-example.local
+      - documentIndex: *IngressDocument
+        equal:
+          path: spec.rules[0].http.paths[0].path
+          value: /
+      - documentIndex: *IngressDocument
+        equal:
+          path: spec.rules[0].http.paths[0].backend.service.name
+          value: test-release-name-common-test
+      - documentIndex: *IngressDocument
+        equal:
+          path: spec.rules[0].http.paths[0].backend.service.port.number
+          value: 30067
+
+  - it: should apply ingress settings with primary
+    set:
+      workload: *workload
+      operator:
+        verify:
+          enabled: false
+      service:
+        main:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 8080
+      ingress:
+        my-ing:
+          enabled: true
+          primary: true
+          hosts:
+            - host: chart-example.local
+              paths:
+                - path: /
+          integrations:
+            traefik:
+              enabled: false
+      addons:
+        codeserver:
+          enabled: true
+          service:
+            enabled: true
+            type: LoadBalancer
+            ports:
+              codeserver:
+                port: 30067
+          ingress:
+            enabled: true
+            hosts:
+              - host: code.chart-example.local
+                paths:
+                  - path: /
+            integrations:
+              traefik:
+                enabled: false
+    asserts:
+      - documentIndex: &serviceDocument 1
+        isKind:
+          of: Service
+      - documentIndex: *serviceDocument
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-codeserver
+      - documentIndex: *serviceDocument
+        equal:
+          path: spec.ports[0].port
+          value: 30067
+      - documentIndex: &IngressDocument 3
+        isKind:
+          of: Ingress
+      - documentIndex: *IngressDocument
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-codeserver
+      - documentIndex: *IngressDocument
+        equal:
+          path: spec.rules[0].host
+          value: code.chart-example.local
+      - documentIndex: *IngressDocument
+        equal:
+          path: spec.rules[0].http.paths[0].path
+          value: /
+      - documentIndex: *IngressDocument
+        equal:
+          path: spec.rules[0].http.paths[0].backend.service.name
+          value: test-release-name-common-test-codeserver
+      - documentIndex: *IngressDocument
+        equal:
+          path: spec.rules[0].http.paths[0].backend.service.port.number
+          value: 30067

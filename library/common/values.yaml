@@ -991,7 +991,8 @@ addons:
       - none
       # - --user-data-dir
       # - "/config/.vscode"
-
+    # -- Select a container to add the addon to
+    targetSelector:
     # -- Specify the working dir that will be opened when code-server starts
     # If not given, the app will default to the mountpah of the first specified volumeMount
     workingDir: "/"
@@ -1021,10 +1022,6 @@ addons:
               # Ignored if not kubeVersion >= 1.14-0
               pathType: Prefix
       tls: []
-
-      # -- Select a container to add the addon to
-      targetSelector: ""
-
 
   netshoot:
     # -- Enable running a netshoot container in the pod

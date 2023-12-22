@@ -17,7 +17,12 @@ It will include / inject the required templates based on the given values.
 
   {{- $hasPrimaryService := false -}}
   {{- range $svcName, $svcValues := .Values.service -}}
-    {{- if $svcValues.enabled -}}
+    {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
+                    "rootCtx" $ "objectData" $svcValues
+                    "name" $svcName "caller" "Code Server Service"
+                    "key" "addons.codeserver.service")) -}}
+
+    {{- if eq $enabled "true" -}}
       {{- if $svcValues.primary -}}
         {{- $hasPrimaryService = true -}}
       {{- end -}}
@@ -37,18 +42,31 @@ It will include / inject the required templates based on the given values.
   {{/* Add the code-server ingress */}}
   {{- if .Values.addons.codeserver.ingress.enabled -}}
     {{- $ingressValues := .Values.addons.codeserver.ingress -}}
-    {{- $_ := set $ingressValues "nameOverride" "codeserver" -}}
-
-    {{/* Determine the target service name & port */}}
-    {{- $svcName := printf "%v-codeserver" (include "tc.v1.common.lib.chart.names.fullname" .) -}}
-    {{- $svcPort := .Values.addons.codeserver.service.ports.codeserver.port -}}
-    {{- range $_, $host := $ingressValues.hosts -}}
-      {{- $_ := set (index $host.paths 0) "service" (dict "name" $svcName "port" $svcPort) -}}
+    {{- if not $ingressValues.targetSelector -}}
+      {{/* Assumes that both service and port are named codeserver */}}
+      {{- $_ := set $ingressValues "targetSelector" (dict "codeserver" "codeserver") -}}
     {{- end -}}
-    {{- $_ := set $ingressValues "name" $svcName -}}
-    {{- $_ := set $ "ObjectValues" (dict "ingress" $ingressValues) -}}
-    {{- include "tc.v1.common.class.ingress" $ -}}
-    {{- $_ := unset $ "ObjectValues" -}}
+
+    {{- $hasPrimaryIngress := false -}}
+    {{- range $ingName, $ingValues := $.Values.ingress -}}
+      {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
+                      "rootCtx" $ "objectData" $ingValues
+                      "name" $ingName "caller" "Code Server Ingress"
+                      "key" "addons.codeserver.ingress")) -}}
+
+      {{- if eq $enabled "true" -}}
+        {{- if $ingValues.primary -}}
+          {{- $hasPrimaryIngress = true -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+
+    {{- if not $hasPrimaryIngress -}}
+      {{- $_ := set $ingressValues "primary" true -}}
+    {{- end -}}
+
+    {{/* Let spawner handle the rest */}}
+    {{- $_ := set $.Values.ingress "codeserver" $ingressValues -}}
   {{- end -}}
 {{- end -}}
 {{- end -}}
