@@ -16,12 +16,7 @@
   {{- $poolerAnnotations := $objectData.pooler.annotations | default dict -}}
   {{- $poolerAnnotations = mustMerge $poolerAnnotations $objAnnotations -}}
 
-  {{/* Stop All */}}
-  {{- $instances := $objectData.pooler.instances | default 2 -}}
-  {{- $hibernation := "off" -}}
-  {{- if or $objectData.hibernate (include "tc.v1.common.lib.util.stopAll" $rootCtx) -}}
-    {{- $hibernation = "on" -}}
-  {{- end }}
+  {{- $instances := $objectData.pooler.instances | default 2 }}
 ---
 apiVersion: postgresql.cnpg.io/v1
 kind: Pooler
@@ -36,7 +31,6 @@ metadata:
   {{- end }}
   annotations:
     rollme: {{ randAlphaNum 5 | quote }}
-    cnpg.io/hibernation: {{ $hibernation | quote }}
   {{- $annotations := (mustMerge $poolerAnnotations (include "tc.v1.common.lib.metadata.allAnnotations" $rootCtx | fromYaml)) -}}
   {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "annotations" $annotations) | trim) }}
     {{- . | nindent 4 }}

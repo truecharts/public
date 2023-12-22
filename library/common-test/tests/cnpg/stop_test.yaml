@@ -18,7 +18,10 @@ tests:
           instances: 2
           hibernate: true
     asserts:
-      - documentIndex: &clusterDoc 1
+      # Cluster and 2 Secrets
+      - hasDocuments:
+          count: &docCount 3
+      - documentIndex: &clusterDoc 0
         isKind:
           of: Cluster
       - documentIndex: *clusterDoc
@@ -29,17 +32,6 @@ tests:
           path: metadata.annotations
           content:
             cnpg.io/hibernation: "on"
-      - documentIndex: &poolerDoc 0
-        isKind:
-          of: Pooler
-      - documentIndex: *poolerDoc
-        isAPIVersion:
-          of: postgresql.cnpg.io/v1
-      - documentIndex: *poolerDoc
-        isSubset:
-          path: spec
-          content:
-            instances: 2
 
   - it: should set hibernate and 0 instances on stopAll
     set:
@@ -56,6 +48,8 @@ tests:
           hibernate: false
           instances: 2
     asserts:
+      - hasDocuments:
+          count: *docCount
       - documentIndex: *clusterDoc
         isKind:
           of: Cluster
@@ -67,17 +61,6 @@ tests:
           path: metadata.annotations
           content:
             cnpg.io/hibernation: "on"
-      - documentIndex: *poolerDoc
-        isKind:
-          of: Pooler
-      - documentIndex: *poolerDoc
-        isAPIVersion:
-          of: postgresql.cnpg.io/v1
-      - documentIndex: *poolerDoc
-        isSubset:
-          path: spec
-          content:
-            instances: 2
 
   - it: should set hibernate and 0 instances on ixChartContext - isStopped
     set:
@@ -97,6 +80,8 @@ tests:
           hibernate: false
           instances: 2
     asserts:
+      - hasDocuments:
+          count: *docCount
       - documentIndex: *clusterDoc
         isKind:
           of: Cluster
@@ -108,17 +93,6 @@ tests:
           path: metadata.annotations
           content:
             cnpg.io/hibernation: "on"
-      - documentIndex: *poolerDoc
-        isKind:
-          of: Pooler
-      - documentIndex: *poolerDoc
-        isAPIVersion:
-          of: postgresql.cnpg.io/v1
-      - documentIndex: *poolerDoc
-        isSubset:
-          path: spec
-          content:
-            instances: 2
 
   - it: should not set hibernate and 0 instances on ixChartContext - isStopped
     set:
@@ -138,7 +112,10 @@ tests:
           hibernate: false
           instances: 2
     asserts:
-      - documentIndex: *clusterDoc
+      # Cluster, Pooler and 2 Secrets
+      - hasDocuments:
+          count: 4
+      - documentIndex: &clusterDoc 1
         isKind:
           of: Cluster
       - documentIndex: *clusterDoc
@@ -149,7 +126,7 @@ tests:
           path: metadata.annotations
           content:
             cnpg.io/hibernation: "off"
-      - documentIndex: *poolerDoc
+      - documentIndex: &poolerDoc 0
         isKind:
           of: Pooler
       - documentIndex: *poolerDoc
