@@ -296,7 +296,7 @@ data:
       default_policy: {{ .Values.access_control.default_policy }}
     {{- end }}
 
-    {{- if .Values.access_control.networks -}}
+    {{- if and .Values.access_control.networks (not .Values.access_control.networks_access_control) -}}
       {{- fail "Please change [.Values.access_control.networks] to [.Values.access_control.networks_access_control]" -}}
     {{- end -}}
     {{- if not .Values.access_control.networks_access_control }}
