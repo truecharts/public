@@ -41,18 +41,6 @@ workload:
           env:
             SONARR__PORT: "{{ .Values.service.main.ports.main.port }}"
             SONARR__AUTHENTICATION_METHOD: ""
-            # Enable postgres if v4 of sonarr supports it.
-            # SONARR__POSTGRES_PORT: 5432
-            # SONARR__POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
-            # SONARR__POSTGRES_MAIN_DB: "{{ .Values.cnpg.main.database }}"
-            # SONARR__POSTGRES_HOST:
-            #   secretKeyRef:
-            #     name: cnpg-main-urls
-            #     key: host
-            # SONARR__POSTGRES_PASSWORD:
-            #   secretKeyRef:
-            #     name: cnpg-main-urls
-            #     key: password
   exportarr:
     enabled: true
     type: Deployment
@@ -102,12 +90,6 @@ persistence:
         exportarr:
           mountPath: /config
           readOnly: true
-# might be supported on sonarr v4 upon released
-cnpg:
-  main:
-    enabled: false
-    database: sonarr
-    user: sonarr
 metrics:
   main:
     enabled: true
