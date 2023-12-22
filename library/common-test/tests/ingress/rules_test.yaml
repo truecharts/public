@@ -72,7 +72,7 @@ tests:
               paths:
                 - path: "{{ .Values.somePath }}"
                   pathType: "{{ .Values.someType }}"
-            - host: test-other-host
+            - host: "*.test-other-host"
               paths:
                 - path: /test-other-path
                 - path: /test-other-path2
@@ -102,7 +102,7 @@ tests:
                         name: test-release-name-common-test
                         port:
                           number: 80
-            - host: test-other-host
+            - host: "*.test-other-host"
               http:
                 paths:
                   - path: /test-other-path

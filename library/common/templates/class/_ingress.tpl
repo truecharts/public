@@ -45,7 +45,7 @@ spec:
   {{- end }}
   rules:
     {{- range $h := $objectData.hosts }}
-    - host: {{ tpl $h.host $rootCtx }}
+    - host: {{ (tpl $h.host $rootCtx) | quote }}
       http:
         paths:
           {{- range $p := $h.paths -}}
@@ -67,7 +67,7 @@ spec:
     {{- range $idx, $h := $objectData.hosts }}
     - secretName: {{ printf "%s-tls-%d" $objectData.name ($idx | int) }}
       hosts:
-        - {{ tpl $h.host $rootCtx }}
+        - {{ (tpl $h.host $rootCtx) | quote }}
     {{- end -}}
   {{/* else if a tls section is defined use the configuration from there */}}
   {{- else if $objectData.tls }}
@@ -78,7 +78,7 @@ spec:
         {{- $secretName = tpl $t.secretName $rootCtx -}}
       {{- else if $t.scaleCert -}}
         {{- $secretName = printf "%s-scale-tls-%d" $objectData.name ($idx | int) -}}
-      {{- else if $t.certificateIssuer -}} {{/* TODO: UT */}}
+      {{- else if $t.certificateIssuer -}}
         {{- $secretName = printf "%s-tls-%d" $objectData.name ($idx | int) -}}
       {{- else if $t.clusterCertificate -}}
         {{- $secretName = printf "certificate-issuer-%s" (tpl $t.clusterCertificate $rootCtx) -}}
@@ -86,7 +86,7 @@ spec:
     - secretName: {{ $secretName }}
       hosts:
         {{- range $h := $t.hosts }}
-        - {{ tpl $h $rootCtx }}
+        - {{ (tpl $h $rootCtx) | quote }}
         {{- end -}}
     {{- end -}}
   {{- end -}}
