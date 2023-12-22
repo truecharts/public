@@ -35,12 +35,6 @@ questions:
                                         schema:
                                           type: string
                                           default: "768"
-                                      - variable: UMASK
-                                        label: "UMASK"
-                                        description: "Container Variable UMASK"
-                                        schema:
-                                          type: string
-                                          default: "000"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
