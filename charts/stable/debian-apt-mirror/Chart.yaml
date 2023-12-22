@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: debian-apt-mirror
-version: 3.0.11
+version: 3.0.12
 appVersion: latest
 description: This Chart will run apt-mirror and Apache2. This allows you to create a local apt mirror for Debian packages.
 home: https://truecharts.org/charts/incubator/debian-apt-mirror
@@ -23,7 +23,7 @@ keywords:
     - Drivers
 dependencies:
     - name: common
-      version: 16.2.9
+      version: 16.2.12
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

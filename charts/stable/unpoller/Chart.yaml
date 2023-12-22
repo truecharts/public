@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: unpoller
-version: 8.0.5
+version: 8.0.6
 appVersion: 2.9.4
 description: Collect your UniFi controller data and report it to an InfluxDB instance, or export it for Prometheus collection.
 home: https://truecharts.org/charts/stable/unpoller
@@ -21,7 +21,7 @@ keywords:
     - metrics
 dependencies:
     - name: common
-      version: 16.2.9
+      version: 16.2.12
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

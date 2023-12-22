@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: filezilla
-version: 9.0.5
+version: 9.0.6
 appVersion: 3.59.0
 description: A Helm chart for Kubernetes
 home: https://truecharts.org/charts/incubator/filezilla
@@ -24,7 +24,7 @@ keywords:
     - client
 dependencies:
     - name: common
-      version: 16.2.9
+      version: 16.2.12
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: novnc
-version: 8.0.5
+version: 8.0.6
 appVersion: 1.2.0
 description: The open source VNC client
 home: https://truecharts.org/charts/stable/novnc
@@ -22,7 +22,7 @@ keywords:
     - desktop
 dependencies:
     - name: common
-      version: 16.2.9
+      version: 16.2.12
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

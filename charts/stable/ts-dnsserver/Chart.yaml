@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: ts-dnsserver
-version: 3.0.11
+version: 3.0.12
 appVersion: latest
 description: Technitium DNS Server is an open source tool that can be used for self hosting a local DNS server for privacy and security or, used for experimentation/testing by software developers on their computer. It works out-of-the-box with no or minimal configuration and provides a user friendly web console accessible using any web browser.
 home: https://truecharts.org/charts/incubator/ts-dnsserver
@@ -20,7 +20,7 @@ keywords:
     - Network-DNS
 dependencies:
     - name: common
-      version: 16.2.9
+      version: 16.2.12
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""
