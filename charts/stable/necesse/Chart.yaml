@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: necesse
-version: 3.0.11
+version: 3.0.12
 appVersion: necesse
 description: This Chart will download and install SteamCMD. It will also install Necesse and run it.
 home: https://truecharts.org/charts/incubator/necesse
@@ -20,7 +20,7 @@ keywords:
     - GameServers
 dependencies:
     - name: common
-      version: 16.2.9
+      version: 16.2.12
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

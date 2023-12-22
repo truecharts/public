@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: sshwifty
-version: 3.0.5
+version: 3.0.6
 appVersion: latest
 description: SSHwifty is a SSH and Telnet connector made for the Web.
 home: https://truecharts.org/charts/stable/sshwifty
@@ -19,7 +19,7 @@ keywords:
     - ssh
 dependencies:
     - name: common
-      version: 16.2.9
+      version: 16.2.12
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""
