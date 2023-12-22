@@ -29,15 +29,15 @@ data:
   ENCRYPTION_KEY: {{ $encryptionkey }}
 
   {{- if .Values.authentication_backend.ldap.enabled }}
-  LDAP_PASSWORD: {{ .Values.authentication_backend.ldap.plain_password }}
+  LDAP_PASSWORD: {{ .Values.authentication_backend.ldap.plain_password | quote }}
   {{- end }}
 
   {{- if and .Values.notifier.smtp.enabled .Values.notifier.smtp.plain_password }}
-  SMTP_PASSWORD: {{ .Values.notifier.smtp.plain_password }}
+  SMTP_PASSWORD: {{ .Values.notifier.smtp.plain_password | quote }}
   {{- end }}
 
   {{- if .Values.duo_api.enabled }}
-  DUO_API_KEY: {{ .Values.duo_api.plain_api_key }}
+  DUO_API_KEY: {{ .Values.duo_api.plain_api_key | quote }}
   {{- end }}
 
   STORAGE_PASSWORD: {{ $.Values.cnpg.main.creds.password | trimAll "\"" }}
