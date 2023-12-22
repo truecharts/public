@@ -621,7 +621,10 @@ ingress:
           # Default to ingress host 0
           url: ""
           custom:
-            # - somesetting: some value
+            # somesetting: some value
+          customkv:
+            # - key: some key
+            #   value: some value
 
 certificate: {}
   # main:

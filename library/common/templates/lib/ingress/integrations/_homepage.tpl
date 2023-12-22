@@ -46,6 +46,9 @@
       {{- range $k, $v := $homepage.widget.custom -}}
         {{- $_ := set $objectData.annotations (printf "gethomepage.dev/widget.%s" $k) (tpl $v $rootCtx | toString) -}}
       {{- end -}}
+      {{- range $homepage.widget.customkv -}}
+        {{- $_ := set $objectData.annotations (printf "gethomepage.dev/widget.%s" .key ) (tpl .value $rootCtx | toString) -}}
+      {{- end -}}
     {{- end -}}
 
     {{- with $homepage.podSelector -}}
@@ -70,6 +73,17 @@
   {{- if $homepage.widget.custom -}}
     {{- if not (kindIs "map" $homepage.widget.custom) -}}
       {{- fail (printf "Ingress - Expected [integrations.homepage.widget.custom] to be a [map], but got [%s]" (kindOf $homepage.widget.custom)) -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- if $homepage.widget.customkv -}}
+    {{- if not (kindIs "slice" $homepage.widget.customkv) -}}
+      {{- fail (printf "Ingress - Expected [integrations.homepage.widget.customkv] to be a [slice], but got [%s]" (kindOf $homepage.widget.customkv)) -}}
+    {{- end -}}
+    {{- range $item := $homepage.widget.customkv -}}
+      {{- if not $item.key -}}
+        {{- fail "Ingress - Expected non-empty [key] in [integrations.homepage.widget.customkv]" -}}
+      {{- end -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}
