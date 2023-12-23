@@ -82,9 +82,9 @@ tests:
             gethomepage.dev/enabled: "true"
             gethomepage.dev/name: CommonTest
             gethomepage.dev/description: Helper chart to test different use cases of the common library
+            gethomepage.dev/href: https://test-host/test-path/
             gethomepage.dev/icon: https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png
             gethomepage.dev/widget.type: common-test
-            gethomepage.dev/widget.url: "https://test-host/test-path"
       - documentIndex: *ingressDoc
         equal:
           path: metadata.name
@@ -104,6 +104,7 @@ tests:
             gethomepage.dev/name: some-name
             gethomepage.dev/description: some-desc
             gethomepage.dev/group: some-group
+            gethomepage.dev/href: https://test-host/test-path/
             gethomepage.dev/icon: some-icon
             gethomepage.dev/widget.url: some-url
             gethomepage.dev/weight: "1"
