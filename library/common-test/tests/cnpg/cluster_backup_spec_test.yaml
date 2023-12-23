@@ -221,3 +221,35 @@ tests:
                   secretAccessKey:
                     key: ACCESS_SECRET_KEY
                     name: test-release-name-common-test-cnpg-my-pg-provider-backup-s3-creds
+
+  - it: should generate correct spec with empty target
+    set:
+      operator:
+        verify:
+          enabled: false
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          backups:
+            enabled: true
+            retentionPolicy: 10d
+            provider: azure
+            destinationPath: some-path
+            azure:
+              connectionString: some-connection-string
+    asserts:
+      - documentIndex: &clusterDoc 1
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *clusterDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg
+      - documentIndex: *clusterDoc
+        isNull:
+          path: spec.backup.target

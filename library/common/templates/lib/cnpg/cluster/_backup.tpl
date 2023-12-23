@@ -2,9 +2,9 @@
   {{- $rootCtx := .rootCtx -}}
   {{- $objectData := .objectData -}}
 backup:
-  {{- with $objectData.backups.target -}}
+  {{- with $objectData.backups.target }}
   target: {{ . }}
-  {{- end -}}
+  {{- end }}
   retentionPolicy: {{ $objectData.backups.retentionPolicy }}
   barmanObjectStore:
     wal:
