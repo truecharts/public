@@ -14,7 +14,8 @@
     {{- $name := $homepage.name | default ($rootCtx.Chart.Name | camelcase) -}}
     {{- $desc := $homepage.description | default $rootCtx.Chart.Description -}}
     {{- $icon := $homepage.icon | default $rootCtx.Chart.Icon -}}
-    {{- $type := $homepage.widget.type | default $rootCtx.Chart.Name -}}
+    {{- $type := ( $homepage.widget.type | default $rootCtx.Chart.Name ) | lower -}}
+    {{- $type = regexReplaceAll "\\W+" $type "" -}}
     {{- $url := $homepage.widget.url -}}
     {{- $href := $homepage.href -}}
 
@@ -30,7 +31,7 @@
     {{- if not $url -}}
       {{- $svc := $svcData.name -}}
       {{- $port := $svcData.port -}}
-      {{- $ns := printf "%s" (include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $rootCtx "objectData" $objectData "caller" "Ingress") -}}
+      {{- $ns := printf "%s" (include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $rootCtx "objectData" $objectData "caller" "Ingress")) -}}
 
       {{- $url = printf "http://%s.$ns.svc:%s" $svc $ns $port -}}
     {{- end -}}
