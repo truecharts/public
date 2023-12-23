@@ -142,3 +142,8 @@ tests:
               app.kubernetes.io/instance: test-release-name
               app.kubernetes.io/name: common-test
               pod.name: my-workload
+      - documentIndex: *serviceDoc
+        isSubset:
+          path: metadata.annotations
+          content:
+            metallb.universe.tf/loadBalancerIPs: "10.100.200.45"

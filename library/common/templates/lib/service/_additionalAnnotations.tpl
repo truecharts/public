@@ -21,6 +21,9 @@ annotations: The annotations variable reference, to append the MetalLB annotatio
   {{- if (hasKey $rootCtx.Values.global "metallb") -}}
     {{- if $rootCtx.Values.global.metallb.addServiceAnnotations -}}
       {{- $_ := set $annotations "metallb.universe.tf/allow-shared-ip" $sharedKey -}}
+      {{- if $objectData.loadBalancerIP -}}
+        {{- $_ := set $annotations "metallb.universe.tf/loadBalancerIPs" (tpl $objectData.loadBalancerIP $rootCtx) -}}
+      {{- end -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}
