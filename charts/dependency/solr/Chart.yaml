@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: solr
-version: 8.0.11
+version: 8.0.12
 appVersion: 9.4.0
 description: Apache Solr
 home: https://truecharts.org/charts/dependency/solr
@@ -21,7 +21,7 @@ keywords:
   - search
 dependencies:
   - name: common
-    version: 16.2.13
+    version: 16.2.15
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
