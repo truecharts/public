@@ -398,61 +398,61 @@
                             schema:
                               type: string
                               default: ""
-              - variable: scheduledBackups
-                label: ScheduledBackups
-                schema:
-                  type: list
-                  default: []
-                  items:
-                    - variable: backupschedule
-                      label: BackupSchedule
+                    - variable: scheduledBackups
+                      label: ScheduledBackups
                       schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: name
-                            label: name
+                        type: list
+                        default: []
+                        items:
+                          - variable: backupschedule
+                            label: BackupSchedule
                             schema:
-                              type: string
-                              default: "daily-backup"
-                              required: true
-                          - variable: schedule
-                            label: schedule
-                            schema:
-                              type: string
-                              required: true
-                              default: "0 0 0 * * *"
-                          - variable: backupOwnerReference
-                            label: backupOwnerReference
-                            schema:
-                              type: string
-                              required: true
-                              default: "self"
-                          - variable: immediate
-                            label: immediate
-                            schema:
-                              type: boolean
-                              default: false
-                          - variable: suspend
-                            label: suspend
-                            schema:
-                              type: boolean
-                              default: false
-              - variable: manualBackups
-                label: manualBackups
-                schema:
-                  type: list
-                  default: []
-                  items:
-                    - variable: backup
-                      label: Backup
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: name
+                                  label: name
+                                  schema:
+                                    type: string
+                                    default: "daily-backup"
+                                    required: true
+                                - variable: schedule
+                                  label: schedule
+                                  schema:
+                                    type: string
+                                    required: true
+                                    default: "0 0 0 * * *"
+                                - variable: backupOwnerReference
+                                  label: backupOwnerReference
+                                  schema:
+                                    type: string
+                                    required: true
+                                    default: "self"
+                                - variable: immediate
+                                  label: immediate
+                                  schema:
+                                    type: boolean
+                                    default: false
+                                - variable: suspend
+                                  label: suspend
+                                  schema:
+                                    type: boolean
+                                    default: false
+                    - variable: manualBackups
+                      label: manualBackups
                       schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: name
-                            label: name
+                        type: list
+                        default: []
+                        items:
+                          - variable: backup
+                            label: Backup
                             schema:
-                              type: string
-                              default: ""
-                              required: true
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: name
+                                  label: name
+                                  schema:
+                                    type: string
+                                    default: ""
+                                    required: true
