@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: node-exporter
-version: 5.0.12
+version: 5.0.13
 appVersion: 1.7.0
 description: Prometheus exporter for hardware and OS metrics exposed by UNIX kernels, with pluggable metric collectors.
 home: https://truecharts.org/charts/dependency/node-exporter
@@ -20,7 +20,7 @@ keywords:
   - monitoring
 dependencies:
   - name: common
-    version: 16.2.15
+    version: 16.2.16
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
