@@ -9,6 +9,7 @@
     {{- end -}}
 
     {{- include "tc.v1.common.lib.ingress.integration.homepage.validation" (dict "objectData" $objectData) -}}
+    {{- $svcData := (include "tc.v1.common.lib.ingress.targetSelector" (dict "rootCtx" $rootCtx "objectData" $objectData) | fromYaml) -}}
 
     {{- $name := $homepage.name | default ($rootCtx.Chart.Name | camelcase) -}}
     {{- $desc := $homepage.description | default $rootCtx.Chart.Description -}}
@@ -23,7 +24,14 @@
       {{- $host := tpl $fHost.host $rootCtx -}}
       {{- $path := tpl $fPath.path $rootCtx -}}
 
-      {{- $href = printf "https://%s/%s/" $host ($path | trimPrefix "/") -}}
+      {{- $href = printf "https://%s/%s" $host ($path | trimPrefix "/") -}}
+    {{- end -}}
+
+    {{- if not $url -}}
+      {{- $svc := $svcData.name -}}
+      {{- $port := $svcData.port -}}
+
+      {{- $url = printf "http://%s.svc:%s" $svc $port -}}
     {{- end -}}
 
     {{- $_ := set $objectData.annotations "gethomepage.dev/enabled" "true" -}}
