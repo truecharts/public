@@ -1216,7 +1216,8 @@ cnpg:
       # Azure: https://<storageAccount>.<serviceName>.core.windows.net/<clusterName><path>
       # Google: gs://<bucket><path>
       destinationPath: ""
-
+      # default: primary, other option prefer-standby
+      target: ""
       provider: s3
       s3:
         region: ""
