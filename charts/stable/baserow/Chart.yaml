@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: baserow
-version: 9.0.7
+version: 9.0.8
 appVersion: 1.21.2
 description: Baserow is an open source no-code database tool and Airtable alternative.
 home: https://truecharts.org/charts/stable/baserow
@@ -19,14 +19,14 @@ keywords:
   - baserow
 dependencies:
   - name: common
-    version: 16.2.12
+    version: 16.2.13
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 10.0.10
+    version: 10.0.12
     repository: https://deps.truecharts.org
     condition: redis.enabled
     alias: ""
