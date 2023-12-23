@@ -92,7 +92,7 @@
   {{- end -}}
 
   {{- if (hasKey $objectData "backups") -}}
-    {{- if $objectData.backups.enabled -}}
+    {{- if and $objectData.backups.enabled $objectData.backups.target -}}
       {{- $validTargets := (list "primary" "prefer-standby") -}}
       {{- if not (mustHas $objectData.backups.target $validTargets) -}}
         {{- fail (printf "CNPG Backup - Expected [backups.target] to be one of [%s], but got [%s]" (join ", " $validTargets) $objectData.backups.target) -}}
