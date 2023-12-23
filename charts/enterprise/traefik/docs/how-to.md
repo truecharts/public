@@ -50,11 +50,8 @@ find the Traefik app in the list of apps, and click **Install**
 The setup of Traefik is relatively straight-forward. Most of the settings remain unchanged from default, except for these two:
 
 - **Application Name**: Enter a name for your app. You may use simply _traefik_ for this field.
-- **Networking and Services**: Under TCP Services, find and change:
-  - **web Entrypoint Configuration** > **Entrypoints port:**
-    Change port `9080` to port `80`
-  - **websecure Entrypoint Configuration** > **Entrypoints port:**
-    Change port `9443` to port `443`
+- At the bottom, check the warning checkbox.
+
 
 Continue to section 12, and select **Next**. Traefik will now be installed.
 After installation you can access the Traefik dashboard using your host IP address followed by `:9000`, or by simply clicking "Web Portal" on the application's entry under **Apps** > **Installed Applications**.
