@@ -90,21 +90,21 @@
                                     type: boolean
                                     default: false
                                 - variable: name
-                                  label: Name
+                                  label: Name (Optional)
                                   description: Defaults to chart name
                                   schema:
                                     type: string
                                     default: ""
                                     show_if: [["enabled", "=", true]]
                                 - variable: description
-                                  label: Description
+                                  label: Description (Optional)
                                   description: Defaults to chart description
                                   schema:
                                     type: string
                                     default: ""
                                     show_if: [["enabled", "=", true]]
                                 - variable: icon
-                                  label: Icon
+                                  label: Icon (Optional)
                                   description: Defaults to chart name, only set this if it does not work
                                   schema:
                                     type: string
