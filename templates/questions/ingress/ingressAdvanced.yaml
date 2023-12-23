@@ -18,7 +18,7 @@
                                     type: boolean
                                     default: true
                                 - variable: allowCors
-                                  label: "Allow Cross Origin Requests"
+                                  label: 'Allow Cross Origin Requests (advanced)'
                                   schema:
                                     type: boolean
                                     default: false
@@ -116,6 +116,17 @@
                                     type: dict
                                     additional_attrs: true
                                     attrs:
+                                      - variable: custom
+                                        label: Options
+                                        schema:
+                                          type: dict
+                                          additional_attrs: true
+                                          attrs:
+                                            - variable: key
+                                              label: API-key (key)
+                                              schema:
+                                                type: string
+                                                default: ""
                                       - variable: customkv
                                         label: Custom Options
                                         schema:
