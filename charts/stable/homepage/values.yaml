@@ -20,6 +20,12 @@ serviceAccount:
   main:
     enabled: true
     primary: true
+
+podOptions:
+  dnsConfig:
+    options:
+      - name: ndots
+        value: "3"
 rbac:
   main:
     enabled: true
