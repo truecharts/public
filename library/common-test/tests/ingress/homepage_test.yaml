@@ -18,12 +18,20 @@ tests:
       operator: &operator
         verify:
           enabled: false
-      service: &service
+      service:
         my-service:
           enabled: true
           primary: true
           ports:
             main:
+              enabled: true
+              primary: true
+              protocol: https
+              port: 9443
+        my-service2:
+          enabled: true
+          ports:
+            port-2:
               enabled: true
               primary: true
               port: 80
@@ -71,8 +79,20 @@ tests:
             - host: test-host
               paths:
                 - path: /test-path
+        my-ingress3:
+          enabled: true
+          targetSelector:
+            my-service2: port-2
+          integrations:
+            traefik: *traefik
+            homepage:
+              enabled: true
+          hosts:
+            - host: "{{ .Values.someHost }}"
+              paths:
+                - path: "{{ .Values.somePath }}"
     asserts:
-      - documentIndex: &ingressDoc 1
+      - documentIndex: &ingressDoc 2
         isKind:
           of: Ingress
       - documentIndex: *ingressDoc
@@ -82,9 +102,10 @@ tests:
             gethomepage.dev/enabled: "true"
             gethomepage.dev/name: CommonTest
             gethomepage.dev/description: Helper chart to test different use cases of the common library
-            gethomepage.dev/href: https://test-host/test-path/
+            gethomepage.dev/href: https://test-host/test-path
+            gethomepage.dev/widget.url: https://test-release-name-common-test.test-release-namespace.svc:9443
             gethomepage.dev/icon: https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png
-            gethomepage.dev/widget.type: common-test
+            gethomepage.dev/widget.type: commontest
       - documentIndex: *ingressDoc
         equal:
           path: metadata.name
@@ -93,7 +114,7 @@ tests:
         equal:
           path: metadata.namespace
           value: test-release-namespace
-      - documentIndex: &otherIngressDoc 2
+      - documentIndex: &otherIngressDoc 3
         isKind:
           of: Ingress
       - documentIndex: *otherIngressDoc
@@ -104,7 +125,7 @@ tests:
             gethomepage.dev/name: some-name
             gethomepage.dev/description: some-desc
             gethomepage.dev/group: some-group
-            gethomepage.dev/href: https://test-host/test-path/
+            gethomepage.dev/href: https://test-host/test-path
             gethomepage.dev/icon: some-icon
             gethomepage.dev/widget.url: some-url
             gethomepage.dev/weight: "1"
@@ -122,12 +143,43 @@ tests:
         equal:
           path: metadata.namespace
           value: test-release-namespace
+      - documentIndex: &thirdIngressDoc 4
+        isKind:
+          of: Ingress
+      - documentIndex: *thirdIngressDoc
+        equal:
+          path: metadata.annotations
+          value:
+            gethomepage.dev/enabled: "true"
+            gethomepage.dev/name: CommonTest
+            gethomepage.dev/description: Helper chart to test different use cases of the common library
+            gethomepage.dev/href: https://test-host/test-path
+            gethomepage.dev/widget.url: http://test-release-name-common-test-my-service2.test-release-namespace.svc:80
+            gethomepage.dev/icon: https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png
+            gethomepage.dev/widget.type: commontest
+      - documentIndex: *thirdIngressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-my-ingress3
+      - documentIndex: *thirdIngressDoc
+        equal:
+          path: metadata.namespace
+          value: test-release-namespace
 
   # Failures
   - it: should fail with podSelector not a slice
     set:
       operator: *operator
-      service: *service
+      service: &service
+        my-service:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              protocol: https
+              port: 9443
       ingress:
         my-ingress1:
           enabled: true

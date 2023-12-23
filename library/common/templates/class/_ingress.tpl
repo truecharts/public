@@ -12,6 +12,7 @@ objectData: The object data to be used to render the Ingress.
   {{- $objectData := .objectData -}}
 
   {{- $svcData := (include "tc.v1.common.lib.ingress.targetSelector" (dict "rootCtx" $rootCtx "objectData" $objectData) | fromYaml) -}}
+  {{- $_ := set $objectData "selectedService" $svcData -}}
 
   {{- if not (hasKey $objectData "integrations") -}}
     {{- $_ := set $objectData "integrations" dict -}}

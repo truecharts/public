@@ -9,13 +9,14 @@
     {{- end -}}
 
     {{- include "tc.v1.common.lib.ingress.integration.homepage.validation" (dict "objectData" $objectData) -}}
-    {{- $svcData := (include "tc.v1.common.lib.ingress.targetSelector" (dict "rootCtx" $rootCtx "objectData" $objectData) | fromYaml) -}}
 
     {{- $name := $homepage.name | default ($rootCtx.Chart.Name | camelcase) -}}
     {{- $desc := $homepage.description | default $rootCtx.Chart.Description -}}
     {{- $icon := $homepage.icon | default $rootCtx.Chart.Icon -}}
-    {{- $type := ( $homepage.widget.type | default $rootCtx.Chart.Name ) | lower -}}
-    {{- $type = regexReplaceAll "\\W+" $type "" -}}
+    {{- $defaultType := $rootCtx.Chart.Name | lower -}}
+    {{/* Remove any non-characters from the default type */}}
+    {{- $defaultType = regexReplaceAll "\\W+" $defaultType "" -}}
+    {{- $type := $homepage.widget.type | default $defaultType -}}
     {{- $url := $homepage.widget.url -}}
     {{- $href := $homepage.href -}}
 
@@ -29,11 +30,12 @@
     {{- end -}}
 
     {{- if not $url -}}
-      {{- $svc := $svcData.name -}}
-      {{- $port := $svcData.port -}}
-      {{- $ns := printf "%s" (include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $rootCtx "objectData" $objectData "caller" "Ingress")) -}}
+      {{- $svc := $objectData.selectedService.name -}}
+      {{- $port := $objectData.selectedService.port -}}
+      {{- $prot := $objectData.selectedService.protocol -}}
+      {{- $ns := include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $rootCtx "objectData" $objectData "caller" "Ingress") -}}
 
-      {{- $url = printf "http://%s.$ns.svc:%s" $svc $ns $port -}}
+      {{- $url = printf "%s://%s.%s.svc:%s" $prot $svc $ns $port -}}
     {{- end -}}
 
     {{- $_ := set $objectData.annotations "gethomepage.dev/enabled" "true" -}}

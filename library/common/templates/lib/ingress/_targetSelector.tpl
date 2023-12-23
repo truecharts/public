@@ -79,7 +79,12 @@
     {{- $expandedSvcName = printf "%s-%s" $expandedSvcName $svcName -}}
   {{- end -}}
 
-  {{- $selectedService = (dict "name" $expandedSvcName "port" (tpl ($portData.port | toString) $rootCtx)) -}}
+  {{- $protocol := default "http" -}}
+  {{- if eq $portData.protocol "https" -}}
+    {{- $protocol = "https" -}}
+  {{- end -}}
+
+  {{- $selectedService = (dict "name" $expandedSvcName "port" (tpl ($portData.port | toString) $rootCtx) "protocol" $protocol) -}}
 
   {{- $selectedService | toYaml -}}
 {{- end -}}
