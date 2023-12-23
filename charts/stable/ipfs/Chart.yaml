@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: ipfs
-version: 8.0.8
+version: 8.0.9
 appVersion: 0.25.0
 description: IPFS is a global, versioned, peer-to-peer Interplanetary Filesystem.
 home: https://truecharts.org/charts/stable/ipfs
@@ -20,7 +20,7 @@ keywords:
   - kubo
 dependencies:
   - name: common
-    version: 16.2.15
+    version: 16.2.17
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

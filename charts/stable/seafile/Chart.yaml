@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: seafile
-version: 2.0.9
+version: 2.0.10
 appVersion: 11.0.2
 description: Reliable and Performant File Sync and Share Solution
 home: https://truecharts.org/charts/stable/seafile
@@ -22,14 +22,14 @@ keywords:
   - file-storage
 dependencies:
   - name: common
-    version: 16.2.15
+    version: 16.2.17
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mariadb
-    version: 11.0.13
+    version: 11.0.15
     repository: https://deps.truecharts.org/
     condition: mariadb.enabled
     alias: ""

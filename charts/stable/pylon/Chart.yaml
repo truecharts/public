@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: pylon
-version: 7.0.8
+version: 7.0.9
 appVersion: 2.10.0
 description: Pylon is a web based integrated development environment.
 home: https://truecharts.org/charts/stable/pylon
@@ -18,7 +18,7 @@ keywords:
   - pylon
 dependencies:
   - name: common
-    version: 16.2.15
+    version: 16.2.17
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: sickgear
-version: 9.0.8
+version: 9.0.9
 appVersion: latest
 description: Provides management of TV shows and/or Anime, it detects new episodes, links downloader apps, and more
 home: https://truecharts.org/charts/stable/sickgear
@@ -22,7 +22,7 @@ keywords:
   - shows
 dependencies:
   - name: common
-    version: 16.2.15
+    version: 16.2.17
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
