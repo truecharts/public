@@ -15,18 +15,20 @@
     {{- $icon := $homepage.icon | default $rootCtx.Chart.Icon -}}
     {{- $type := $homepage.widget.type | default $rootCtx.Chart.Name -}}
     {{- $url := $homepage.widget.url -}}
+    {{- $href := $homepage.href -}}
 
-    {{- if not $url -}}
+    {{- if not $href -}}
       {{- $fHost := $objectData.hosts | mustFirst -}}
       {{- $fPath := $fHost.paths | mustFirst -}}
       {{- $host := tpl $fHost.host $rootCtx -}}
       {{- $path := tpl $fPath.path $rootCtx -}}
 
-      {{- $url = printf "https://%s/%s" $host ($path | trimPrefix "/") -}}
+      {{- $href = printf "https://%s/%s" $host ($path | trimPrefix "/") -}}
     {{- end -}}
 
     {{- $_ := set $objectData.annotations "gethomepage.dev/enabled" "true" -}}
     {{- $_ := set $objectData.annotations "gethomepage.dev/name" (tpl $name $rootCtx) -}}
+    {{- $_ := set $objectData.annotations "gethomepage.dev/href" (tpl $name $rootCtx) -}}
     {{- $_ := set $objectData.annotations "gethomepage.dev/description" (tpl $desc $rootCtx) -}}
     {{- $_ := set $objectData.annotations "gethomepage.dev/icon" (tpl $icon $rootCtx) -}}
     {{- $_ := set $objectData.annotations "gethomepage.dev/widget.type" (tpl $type $rootCtx) -}}
