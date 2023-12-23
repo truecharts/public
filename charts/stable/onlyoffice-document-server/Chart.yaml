@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: onlyoffice-document-server
-version: 13.0.7
+version: 13.0.8
 appVersion: 7.5.1
 description: "ONLYOFFICE Document Server is an online office suite comprising viewers and editors for texts, spreadsheets and presentations, fully compatible with Office Open XML formats: .docx, .xlsx, .pptx and enabling collaborative editing in real time."
 home: https://truecharts.org/charts/stable/onlyoffice-document-server
@@ -20,14 +20,14 @@ keywords:
   - onlyoffice
 dependencies:
   - name: common
-    version: 16.2.12
+    version: 16.2.13
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 10.0.10
+    version: 10.0.12
     repository: https://deps.truecharts.org
     condition: redis.enabled
     alias: ""
