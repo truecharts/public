@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: lancache-monolithic
-version: 6.0.7
+version: 6.0.8
 appVersion: latest
 description: A monolithic lancache service capable of caching all CDNs in a single instance.
 home: https://truecharts.org/charts/stable/lancache-monolithic
@@ -20,7 +20,7 @@ keywords:
   - lancache
 dependencies:
   - name: common
-    version: 16.2.13
+    version: 16.2.15
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

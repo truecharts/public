@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: jenkins
-version: 5.0.7
+version: 5.0.8
 appVersion: 2.436-jdk17
 description: The gold standard in devops tools for running CI/CD pipelines.
 home: https://truecharts.org/charts/stable/jenkins
@@ -20,7 +20,7 @@ keywords:
   - productivity
 dependencies:
   - name: common
-    version: 16.2.13
+    version: 16.2.15
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
