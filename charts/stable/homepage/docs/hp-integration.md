@@ -1,7 +1,7 @@
 # Homepage Truecharts integration guide
 TrueCharts has adopted HomePage for it defacto dashboard application due to its support of kubernetes  
 
-This Guide will cover how to use the Truecharts/Homepage integration included in the chart and the editing of the yaml files in homepage using the code-server addon. this guide will not cover every aspect of options available to homepage. Please see the Homepage links below for more information. The Guide is primarily written with scale users in mind but native Kubernetes/Helm users may find some useful information here
+This Guide will cover how to use the Truecharts/Homepage integration included in the chart and the editing of the yaml files in homepage using the code-server addon. this guide will not cover every aspect of options available to homepage. Please see the Homepage links below for more information  
 
 ⚠️ In order for Homepage to "discover" your apps, Ingress is required using our ingress configuration guidelines and the integration options for the chart configuration. Otherwise all kubernetes features can be used with manual configuration of homepage via its configuration yaml files⚠️
 
