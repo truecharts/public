@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: filebrowser
-version: 7.0.7
+version: 7.0.8
 appVersion: 2.26.0
 description: Filebrowser provides a file managing interface within a specified directory
 home: https://truecharts.org/charts/stable/filebrowser
@@ -20,7 +20,7 @@ keywords:
   - filebrowser
 dependencies:
   - name: common
-    version: 16.2.13
+    version: 16.2.15
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

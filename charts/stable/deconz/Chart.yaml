@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: deconz
-version: 13.0.7
+version: 13.0.8
 appVersion: 2.24.2
 description: deCONZ is an easy to use control software, with which you can set up and control Zigbee networks of any size without further programming effort.
 home: https://truecharts.org/charts/stable/deconz
@@ -23,7 +23,7 @@ keywords:
   - conbee
 dependencies:
   - name: common
-    version: 16.2.13
+    version: 16.2.15
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
