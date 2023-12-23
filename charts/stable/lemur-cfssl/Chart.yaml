@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: lemur-cfssl
-version: 3.0.14
+version: 3.0.15
 appVersion: latest
 description: Lemur manages TLS certificate creation. While not able to issue certificates itself, Lemur acts as a broker between CAs and environments providing a central portal for developers to issue TLS certificates with 'sane' defaults.
 home: https://truecharts.org/charts/incubator/lemur-cfssl
@@ -20,7 +20,7 @@ keywords:
   - Tools-Utilities
 dependencies:
   - name: common
-    version: 16.2.15
+    version: 16.2.17
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

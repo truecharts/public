@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: arksurvivalevolved
-version: 5.0.8
+version: 5.0.9
 appVersion: arkse
 description: A custom SteamCMD chart that runs ArkSE.
 home: https://truecharts.org/charts/stable/arksurvivalevolved
@@ -21,7 +21,7 @@ keywords:
   - GameServers
 dependencies:
   - name: common
-    version: 16.2.15
+    version: 16.2.17
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

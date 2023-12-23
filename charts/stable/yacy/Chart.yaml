@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: yacy
-version: 3.0.14
+version: 3.0.15
 appVersion: latest
 description: YaCy decentralized search engine (https://yacy.net)
 home: https://truecharts.org/charts/incubator/yacy
@@ -21,7 +21,7 @@ keywords:
   - Network-Web
 dependencies:
   - name: common
-    version: 16.2.15
+    version: 16.2.17
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

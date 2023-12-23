@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: traggo
-version: 4.0.8
+version: 4.0.9
 appVersion: 0.3.0
 description: Traggo is a tag-based time tracking tool. In Traggo there are no tasks, only tagged time spans.
 home: https://truecharts.org/charts/stable/traggo
@@ -20,7 +20,7 @@ keywords:
   - tag
 dependencies:
   - name: common
-    version: 16.2.15
+    version: 16.2.17
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
