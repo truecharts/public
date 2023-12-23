@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: recyclarr
-version: 7.0.6
+version: 7.0.7
 appVersion: 6.0.2
 description: A command-line application that will automatically synchronize recommended settings from TRaSH guides to your Sonarr/Radarr instances.
 home: https://truecharts.org/charts/stable/recyclarr
@@ -21,7 +21,7 @@ keywords:
   - Tools-Utilities
 dependencies:
   - name: common
-    version: 16.2.12
+    version: 16.2.13
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
