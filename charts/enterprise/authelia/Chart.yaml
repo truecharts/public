@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: authelia
-version: 20.0.10
+version: 20.0.11
 appVersion: 4.37.5
 description: Authelia is a Single Sign-On Multi-Factor portal for web apps
 home: https://truecharts.org/charts/enterprise/authelia
@@ -30,14 +30,14 @@ keywords:
   - LDAP
 dependencies:
   - name: common
-    version: 16.2.13
+    version: 16.2.15
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 10.0.12
+    version: 10.0.13
     repository: https://deps.truecharts.org
     condition: redis.enabled
     alias: ""
