@@ -115,6 +115,7 @@
                                   schema:
                                     type: dict
                                     additional_attrs: true
+                                    show_if: [["enabled", "=", true]]
                                     attrs:
                                       - variable: custom
                                         label: Options
