@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: tsmuxer
-version: 6.0.6
+version: 6.0.7
 appVersion: 23.11.2
 description: tsMuxer is a Transport Stream muxer.
 home: https://truecharts.org/charts/stable/tsmuxer
@@ -20,7 +20,7 @@ keywords:
   - tsmuxer
 dependencies:
   - name: common
-    version: 16.2.12
+    version: 16.2.13
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

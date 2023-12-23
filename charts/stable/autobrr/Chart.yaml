@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: autobrr
-version: 6.0.6
+version: 6.0.7
 appVersion: 1.34.1
 description: The modern download automation tool for torrents.
 home: https://truecharts.org/charts/stable/autobrr
@@ -20,7 +20,7 @@ keywords:
   - torrent
 dependencies:
   - name: common
-    version: 16.2.12
+    version: 16.2.13
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

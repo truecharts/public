@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: outline
-version: 9.0.7
+version: 9.0.8
 appVersion: 0.74.0
 description: A fast, collaborative, knowledge base for your team built using React and Node.js.
 home: https://truecharts.org/charts/stable/outline
@@ -20,14 +20,14 @@ keywords:
   - knowledge
 dependencies:
   - name: common
-    version: 16.2.12
+    version: 16.2.13
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 10.0.10
+    version: 10.0.12
     repository: https://deps.truecharts.org
     condition: redis.enabled
     alias: ""
