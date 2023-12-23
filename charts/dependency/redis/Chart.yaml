@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: redis
-version: 10.0.13
+version: 10.0.14
 appVersion: 7.2.3
 description: Open source, advanced key-value store.
 home: https://truecharts.org/charts/dependency/redis
@@ -21,7 +21,7 @@ keywords:
   - database
 dependencies:
   - name: common
-    version: 16.2.15
+    version: 16.2.16
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
