@@ -58,8 +58,9 @@ You can then add the following to you widgets.yaml file to  add the cluster/node
 which will result in the following being added  
 ![hp kube enable check](img/hpenablechck.png)  
 
-and you will be able to have outputs similar to this to see mem and CPU
-![metrics example](img/metricsexample.png) 
+and you will be able to have outputs similar to this to see mem and CPU  
+
+![metrics example](img/metricsexample.png)
 </details>
 <br>
 We can now enable our first integration!
