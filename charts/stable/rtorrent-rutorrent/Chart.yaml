@@ -1,8 +1,9 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: rtorrent-rutorrent
-version: 2.1.0
+version: 2.0.12
 appVersion: 4.2.9-0.9.8_2-0.13.8
+>>>>>>> master
 description: rTorrent and ruTorrent chart.
 home: https://truecharts.org/charts/stable/rtorrent-rutorrent
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/rtorrent-rutorrent.png
@@ -21,7 +22,7 @@ keywords:
   - torrent
 dependencies:
   - name: common
-    version: 16.2.17
+    version: 16.2.21
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
