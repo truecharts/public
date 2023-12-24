@@ -76,17 +76,12 @@ To be completed
 
 Here's an example on how to add ingress to an app with clusterissuer for a single domain only.
 
-Add the name of the `ACME Issuer` into `Cert-Manager clusterIssuer`
+Add the name of the `ACME Issuer` into `certificateIssuer`
 
-:::warning
-
-Do **NOT** use this combined with the `TLS-Settings`.
-
-:::
 
 ![configure ingress using clusterissuer ](img/clusterissuer-ingressconfig.png)
 
-If you want to support multiple domains on a single app, under `Show Advanced Settings` checkbox, use the `TLS-Settings` option to create each one with the Add button.
+If you want to support multiple domains on a single app, use the Add button next to `Hosts`.
 
 ## Verifying clusterissuer is working
 
