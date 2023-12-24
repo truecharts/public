@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: livestreamdvr
-version: 3.1.0
+version: 3.1.1
 appVersion: master
 description: An automatic twitch recorder.
 home: https://truecharts.org/charts/stable/livestreamdvr
@@ -20,7 +20,7 @@ keywords:
   - MediaApp-Video
 dependencies:
   - name: common
-    version: 16.2.20
+    version: 16.2.21
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
