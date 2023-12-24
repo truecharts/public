@@ -17,17 +17,24 @@ questions:
                                     additional_attrs: true
                                     type: dict
                                     attrs:
-                                      - variable: UMASK
-                                        label: "UMASK"
-                                        schema:
-                                          type: string
-                                          default: "022"
                                       - variable: TCD_ENABLE_FILES_API
-                                        label: "TCD_ENABLE_FILES_API"
-                                        description: "May enable exploits."
+                                        label: "TCD Enable Files API"
+                                        description: "Enable the files api, making it possible to download and delete files in storage. This might open up filesystem exploits."
                                         schema:
-                                          type: string
-                                          default: "0"
+                                          type: boolean
+                                          default: false
+                                      - variable: TCD_EXPOSE_LOGS_TO_PUBLIC
+                                        label: "TCD Expose Logs To Public"
+                                        description: "Make viewing logs in the file manager possible. Requires the above environment variable to be set."
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: TCD_MIGRATE_OLD_VOD_JSON
+                                        label: "TCD Migrate Old VOD JSON"
+                                        description: "Migrate old vod json files to the new format."
+                                        schema:
+                                          type: boolean
+                                          default: false
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
@@ -55,29 +62,33 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: hostpath1
-          label: "hostpath1 Storage"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
-        - variable: hostpath2
-          label: "hostpath2 Storage"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
         - variable: config
-          label: "config Storage"
+          label: App Config Storage
+          description: Stores the Application Config.
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
-        - variable: hostpath4
-          label: "hostpath4 Storage"
+        - variable: cache
+          label: App Cache Storage
+          description: Stores the Application Cache.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: logs
+          label: App Logs Storage
+          description: Stores the Application Logs.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: storage
+          label: App Storage Storage
+          description: Stores the Application Storage.
           schema:
             additional_attrs: true
             type: dict
