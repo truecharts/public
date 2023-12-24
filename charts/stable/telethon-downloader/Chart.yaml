@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: telethon-downloader
-version: 3.0.15
+version: 3.0.16
 appVersion: latest
 description: This is a simple Chart that downloads files sent to a telegram bot up to 2000mb using the Telethon library.
 home: https://truecharts.org/charts/incubator/telethon-downloader
@@ -20,7 +20,7 @@ keywords:
   - Downloaders
 dependencies:
   - name: common
-    version: 16.2.17
+    version: 16.2.20
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

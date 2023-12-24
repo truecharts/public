@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: octoprint
-version: 11.0.9
+version: 11.0.10
 appVersion: 1.9.3
 description: OctoPrint is the snappy web interface for your 3D printer
 home: https://truecharts.org/charts/stable/octoprint
@@ -21,7 +21,7 @@ keywords:
   - printer
 dependencies:
   - name: common
-    version: 16.2.17
+    version: 16.2.20
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

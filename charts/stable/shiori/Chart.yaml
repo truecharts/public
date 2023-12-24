@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: shiori
-version: 14.0.9
+version: 14.0.10
 appVersion: 1.5.5
 description: A simple bookmark manager built with Go.
 home: https://truecharts.org/charts/stable/shiori
@@ -23,7 +23,7 @@ keywords:
   - web-interface
 dependencies:
   - name: common
-    version: 16.2.17
+    version: 16.2.20
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

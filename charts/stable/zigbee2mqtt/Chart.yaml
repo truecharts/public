@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: zigbee2mqtt
-version: 9.0.9
+version: 9.0.10
 appVersion: 1.33.2
 description: Bridges events and allows you to control your Zigbee devices via MQTT
 home: https://truecharts.org/charts/stable/zigbee2mqtt
@@ -21,7 +21,7 @@ keywords:
   - home-assistant
 dependencies:
   - name: common
-    version: 16.2.17
+    version: 16.2.20
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

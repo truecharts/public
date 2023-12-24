@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: baikal
-version: 3.0.15
+version: 3.0.16
 appVersion: 0.9.3-nginx
 description: Baikal is a lightweight CalDAV+CardDAV server
 home: https://truecharts.org/charts/incubator/baikal
@@ -19,7 +19,7 @@ keywords:
   - baikal
 dependencies:
   - name: common
-    version: 16.2.17
+    version: 16.2.20
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

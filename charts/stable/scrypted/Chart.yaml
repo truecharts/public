@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: scrypted
-version: 2.0.9
+version: 2.0.10
 appVersion: 18-jammy-full-v0.68.0
 description: Scrypted is a high performance home video integration and automation platform.
 home: https://truecharts.org/charts/stable/scrypted
@@ -20,7 +20,7 @@ keywords:
   - automation
 dependencies:
   - name: common
-    version: 16.2.17
+    version: 16.2.20
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

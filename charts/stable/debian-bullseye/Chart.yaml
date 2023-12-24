@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: debian-bullseye
-version: 3.0.16
+version: 3.0.17
 appVersion: latest
 description: This Chart is a full Debian Bullseye Xfce4 Desktop environment with a noVNC webGUI and all the basic tools pre-installed.
 home: https://truecharts.org/charts/incubator/debian-bullseye
@@ -21,7 +21,7 @@ keywords:
   - Tools-System
 dependencies:
   - name: common
-    version: 16.2.17
+    version: 16.2.20
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
