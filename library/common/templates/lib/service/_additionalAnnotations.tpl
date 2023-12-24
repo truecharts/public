@@ -21,8 +21,35 @@ annotations: The annotations variable reference, to append the MetalLB annotatio
   {{- if (hasKey $rootCtx.Values.global "metallb") -}}
     {{- if $rootCtx.Values.global.metallb.addServiceAnnotations -}}
       {{- $_ := set $annotations "metallb.universe.tf/allow-shared-ip" $sharedKey -}}
+
+      {{- if and $objectData.loadBalancerIP $objectData.loadBalancerIPs -}}
+        {{- fail "Service - Expected on of [loadBalancerIP, loadBalancerIPs] to be defined but got both" -}}
+      {{- end -}}
+
+      {{- $ips := list -}}
+
+      {{/* Handle loadBalancerIP (single) */}}
       {{- if $objectData.loadBalancerIP -}}
-        {{- $_ := set $annotations "metallb.universe.tf/loadBalancerIPs" (tpl $objectData.loadBalancerIP $rootCtx) -}}
+        {{- if not (kindIs "string" $objectData.loadBalancerIP) -}}
+          {{- fail (printf "Service - Expected [loadBalancerIP] to be a string, but got [%s]" (kindOf $objectData.loadBalancerIP)) -}}
+        {{- end -}}
+
+        {{- $ips = mustAppend $ips (tpl $objectData.loadBalancerIP $rootCtx) -}}
+      {{- end -}}
+
+      {{/* Handle loadBalancerIPs (multiple) */}}
+      {{- if $objectData.loadBalancerIPs -}}
+        {{- if not (kindIs "slice" $objectData.loadBalancerIPs) -}}
+          {{- fail (printf "Service - Expected [loadBalancerIPs] to be a slice, but got [%s]" (kindOf $objectData.loadBalancerIPs)) -}}
+        {{- end -}}
+
+        {{- range $ip := $objectData.loadBalancerIPs -}}
+          {{- $ips = mustAppend $ips (tpl $ip $rootCtx) -}}
+        {{- end -}}
+      {{- end -}}
+
+      {{- if $ips -}}
+        {{- $_ := set $annotations "metallb.universe.tf/loadBalancerIPs" (join "," $ips) -}}
       {{- end -}}
     {{- end -}}
   {{- end -}}

@@ -12,6 +12,9 @@ tests:
           enabled: true
           primary: true
           type: LoadBalancer
+          loadBalancerIPs:
+            - 1.2.3.4
+            - 5.6.7.8
           ports:
             port-name:
               enabled: true
@@ -50,6 +53,11 @@ tests:
               app.kubernetes.io/instance: test-release-name
               app.kubernetes.io/name: common-test
               pod.name: my-workload
+      - documentIndex: *serviceDoc
+        isSubset:
+          path: metadata.annotations
+          content:
+            metallb.universe.tf/loadBalancerIPs: "1.2.3.4,5.6.7.8"
 
   - it: should pass with type LoadBalancer and available options set
     set:
@@ -111,7 +119,6 @@ tests:
           value:
             type: LoadBalancer
             clusterIP: 172.16.20.35
-            loadBalancerIP: 10.100.200.45
             loadBalancerSourceRanges:
               - 11.100.200.0/24
               - 10.100.200.0/24

@@ -159,8 +159,10 @@
       {{- end -}}
 
       {{- if eq $selectedService.type "LoadBalancer" -}}
-        {{- with $selectedService.loadBalancerIP -}}
-          {{- $host = tpl . $rootCtx | toString -}}
+        {{- if (kindIs "string" $selectedService.loadBalancerIP) -}}
+          {{- with $selectedService.loadBalancerIP -}}
+            {{- $host = tpl . $rootCtx | toString -}}
+          {{- end -}}
         {{- end -}}
       {{- end -}}
     {{- end -}}

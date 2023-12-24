@@ -16,10 +16,6 @@ publishNotReadyAddresses: {{ include "tc.v1.common.lib.service.publishNotReadyAd
 externalIPs:
     {{- . | nindent 2 }}
   {{- end -}}
-  {{- with $objectData.loadBalancerIP }}
-loadBalancerIP: {{ tpl . $rootCtx }}
-  {{- end -}}
-
   {{- with $objectData.loadBalancerSourceRanges }}
 loadBalancerSourceRanges:
     {{- range . }}
