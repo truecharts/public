@@ -137,13 +137,9 @@ service:
         targetPort: 6379
 volumeClaimTemplates:
   data:
-    enabled: false
+    enabled: true
     mountPath: "/bitnami/redis"
 persistence:
-  data:
-    enabled: true
-    type: emptyDir
-    mountPath: "/bitnami/redis"
   redis-health:
     enabled: true
     type: configmap
