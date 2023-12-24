@@ -52,7 +52,6 @@ The setup of Traefik is relatively straight-forward. Most of the settings remain
 - **Application Name**: Enter a name for your app. You may use simply _traefik_ for this field.
 - At the bottom, check the warning checkbox.
 
-
 Continue to section 12, and select **Next**. Traefik will now be installed.
 After installation you can access the Traefik dashboard using your host IP address followed by `:9000`, or by simply clicking "Web Portal" on the application's entry under **Apps** > **Installed Applications**.
 
