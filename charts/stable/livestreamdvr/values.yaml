@@ -21,8 +21,10 @@ workload:
     podSpec:
       containers:
         main:
+          args:
+            - --port
+            - "{{ .Values.service.main.ports.main.port }}"
           env:
-            SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
             TCD_ENABLE_FILES_API: false
             TCD_EXPOSE_LOGS_TO_PUBLIC: false
             TCD_MIGRATE_OLD_VOD_JSON: false
