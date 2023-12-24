@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: plex
-version: 15.0.9
+version: 15.0.10
 appVersion: 1.32.8.7639-fb6452ebf
 description: Plex Media Server
 home: https://truecharts.org/charts/stable/plex
@@ -20,7 +20,7 @@ keywords:
   - plex-media-server
 dependencies:
   - name: common
-    version: 16.2.17
+    version: 16.2.20
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

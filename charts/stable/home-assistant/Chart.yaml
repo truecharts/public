@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: home-assistant
-version: 21.0.9
+version: 21.0.10
 appVersion: 2023.12.3
 description: home-assistant App for TrueNAS SCALE
 home: https://truecharts.org/charts/stable/home-assistant
@@ -22,7 +22,7 @@ keywords:
   - homeassistant
 dependencies:
   - name: common
-    version: 16.2.17
+    version: 16.2.20
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

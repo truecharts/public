@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: plausible
-version: 6.0.10
+version: 6.0.11
 appVersion: 2.0.0
 description: Plausible is lightweight and open source web analytics. No cookies and fully compliant with GDPR, CCPA and PECR.
 home: https://truecharts.org/charts/stable/plausible
@@ -23,14 +23,14 @@ keywords:
   - analytics
 dependencies:
   - name: common
-    version: 16.2.17
+    version: 16.2.20
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: clickhouse
-    version: 9.0.15
+    version: 9.0.16
     repository: https://deps.truecharts.org/
     condition: clickhouse.enabled
     alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: davos
-version: 9.0.9
+version: 9.0.10
 appVersion: 2.2.1-ls76
 description: An FTP automation tool that periodically scans given host locations for new files.
 home: https://truecharts.org/charts/stable/davos
@@ -22,7 +22,7 @@ keywords:
   - automation
 dependencies:
   - name: common
-    version: 16.2.17
+    version: 16.2.20
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

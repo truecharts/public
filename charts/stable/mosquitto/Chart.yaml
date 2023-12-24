@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: mosquitto
-version: 12.0.10
+version: 12.0.11
 appVersion: 2.0.18
 description: Eclipse Mosquitto - An open source MQTT broker
 home: https://truecharts.org/charts/stable/mosquitto
@@ -21,7 +21,7 @@ keywords:
   - eclipse-iot
 dependencies:
   - name: common
-    version: 16.2.17
+    version: 16.2.20
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

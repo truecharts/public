@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: nosqlclient
-version: 3.0.15
+version: 3.0.16
 appVersion: latest
 description: Cross-platform and self hosted, easy to use, intuitive mongodb management tool - Formerly Mongoclient
 home: https://truecharts.org/charts/incubator/nosqlclient
@@ -21,7 +21,7 @@ keywords:
   - Other
 dependencies:
   - name: common
-    version: 16.2.17
+    version: 16.2.20
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

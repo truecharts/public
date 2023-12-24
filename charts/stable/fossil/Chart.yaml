@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: fossil
-version: 9.0.9
+version: 9.0.10
 appVersion: 2.15.1-ls4
 description: A simple, high-reliability, distributed software configuration management system
 home: https://truecharts.org/charts/stable/fossil
@@ -20,7 +20,7 @@ keywords:
   - scm
 dependencies:
   - name: common
-    version: 16.2.17
+    version: 16.2.20
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: netdata
-version: 7.0.9
+version: 7.0.10
 appVersion: 1.44.1
 description: Netdata is high-fidelity infrastructure monitoring and troubleshooting.
 home: https://truecharts.org/charts/stable/netdata
@@ -20,7 +20,7 @@ keywords:
   - monitoring
 dependencies:
   - name: common
-    version: 16.2.17
+    version: 16.2.20
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
