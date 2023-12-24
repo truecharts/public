@@ -31,6 +31,13 @@ objectData:
     {{- end -}}
   {{- end -}}
 
+  {{- if $objectData.ingressClassName -}}
+    {{- $icn := tpl $objectData.ingressClassName $rootCtx -}}
+    {{- if eq $icn "tc-stopped" -}}
+      {{- fail "Ingress - Expected [ingressClassName] to not be [stopped], this is reserved for internal use" -}}
+    {{- end -}}
+  {{- end -}}
+
   {{- if not $objectData.hosts -}}
     {{- fail "Ingress - Expected non-empty [hosts]" -}}
   {{- end -}}

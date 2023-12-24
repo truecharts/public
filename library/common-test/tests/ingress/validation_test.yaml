@@ -610,3 +610,17 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: Ingress - [tls.scaleCert] can only be used in TrueNAS SCALE
+
+  - it: should fail with ingressClassName set to tc-stopped
+    set:
+      operator: *operator
+      service: *service
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          hosts: *hosts
+          ingressClassName: tc-stopped
+    asserts:
+      - failedTemplate:
+          errorMessage: Ingress - Expected [ingressClassName] to not be [stopped], this is reserved for internal use

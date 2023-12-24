@@ -23,7 +23,18 @@ objectData: The object data to be used to render the Ingress.
 
   {{- include "tc.v1.common.lib.ingress.integration.certManager" (dict "rootCtx" $rootCtx "objectData" $objectData) -}}
   {{- include "tc.v1.common.lib.ingress.integration.traefik" (dict "rootCtx" $rootCtx "objectData" $objectData) -}}
-  {{- include "tc.v1.common.lib.ingress.integration.homepage" (dict "rootCtx" $rootCtx "objectData" $objectData) }}
+  {{- include "tc.v1.common.lib.ingress.integration.homepage" (dict "rootCtx" $rootCtx "objectData" $objectData) -}}
+
+  {{- $ingressClassName := "" -}}
+  {{- if $objectData.ingressClassName -}}
+    {{- $ingressClassName = (tpl $objectData.ingressClassName $rootCtx) -}}
+  {{- end -}}
+
+  {{/* When Stop All is set, force ingressClass "stopped"
+  to yeet ingress from the ingresscontroller */}}
+  {{- if (include "tc.v1.common.lib.util.stopAll" $rootCtx) -}}
+    {{- $ingressClassName = "tc-stopped" -}}
+  {{- end }}
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -41,8 +52,8 @@ metadata:
     {{- . | nindent 4 }}
   {{- end }}
 spec:
-  {{- if $objectData.ingressClassName }}
-  ingressClassName: {{ tpl $objectData.ingressClassName $rootCtx }}
+  {{- if $ingressClassName }}
+  ingressClassName: {{ $ingressClassName }}
   {{- end }}
   rules:
     {{- range $h := $objectData.hosts }}

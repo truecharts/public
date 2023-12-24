@@ -1,0 +1,93 @@
+suite: ingress - stop test
+templates:
+  - common.yaml
+chart:
+  appVersion: &appVer v9.9.9
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should pass with stopAll
+    set:
+      operator: &operator
+        verify:
+          enabled: false
+      global:
+        stopAll: true
+      service: &service
+        my-service:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 80
+      ingress: &ingress
+        my-ingress:
+          enabled: true
+          primary: true
+          hosts:
+            - host: test-host
+              paths:
+                - path: /test-path
+          integrations:
+            traefik:
+              enabled: false
+    asserts:
+      - documentIndex: &ingressDoc 1
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        equal:
+          path: spec.ingressClassName
+          value: tc-stopped
+
+  - it: should pass with ixChartContext - isStopped (true)
+    set:
+      operator: *operator
+      global:
+        namespace: ix-something
+        ixChartContext:
+          storageClassName: some-storage-class
+          isStopped: true
+      service: *service
+      ingress: *ingress
+    asserts:
+      - documentIndex: &ingressDoc 1
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        equal:
+          path: spec.ingressClassName
+          value: tc-stopped
+
+  - it: should pass with ixChartContext - isStopped (false)
+    set:
+      operator: *operator
+      global:
+        namespace: ix-something
+        ixChartContext:
+          storageClassName: some-storage-class
+          isStopped: false
+      service: *service
+      ingress: *ingress
+    asserts:
+      - documentIndex: &ingressDoc 1
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        isNull:
+          path: spec.ingressClassName
