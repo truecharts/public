@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: calibre-web
-version: 16.0.10
+version: 16.0.11
 appVersion: 0.6.21
 description: Calibre-Web is a web app providing a clean interface for browsing, reading and downloading eBooks using an existing Calibre database.
 home: https://truecharts.org/charts/stable/calibre-web
@@ -21,7 +21,7 @@ keywords:
   - ebook
 dependencies:
   - name: common
-    version: 16.2.20
+    version: 16.2.21
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
