@@ -1,15 +1,19 @@
-# Homepage Truecharts integration guide
+
+# Homepage Truecharts integration guide  
+
 TrueCharts has adopted HomePage for it defacto dashboard application due to its support of kubernetes  
 
 This Guide will cover how to use the Truecharts/Homepage integration included in the chart and the editing of the yaml files in homepage using the code-server addon. this guide will not cover every aspect of options available to homepage. Please see the Homepage links below for more information  
 
-⚠️ In order for Homepage to "discover" your apps, Ingress is required using our ingress configuration guidelines and the integration options for the chart configuration. Otherwise all kubernetes features can be used with manual configuration of homepage via its configuration yaml files⚠️
+⚠️ In order for Homepage to "discover" your apps, Ingress is required using our ingress configuration guidelines and the integration options for the chart configuration. Otherwise all kubernetes features can be used with manual configuration of homepage via its configuration yaml files⚠️  
 
-## Homepage Links
-Github: https://github.com/gethomepage/homepage  
-WebSite https://gethomepage.dev/  
+## Homepage Links  
 
-### Getting Started
+Github: <https://github.com/gethomepage/homepage>  
+WebSite <https://gethomepage.dev/>  
+
+### Getting Started  
+
    Install Truecharts Homepage and enable code-server addon. for this guide i'll just be using ip:port
   ![code-server section](img/image.png)
 
@@ -19,11 +23,10 @@ WebSite https://gethomepage.dev/
 
   For Scale users you will enter ```mode:default``` Native Kubernetes & Helm users may need to user ```mode:cluster```  which will use a service account  
   
-![kubeyml](img/kubeyml.png)
+![kube yaml edit](img/kubeyml.png)
 
 <details>
 <summary> ⚠️ Advanced Section regarding metrics server for Scale users⚠️ </summary>  
-
 
 If you wish to make user of the metrics components of homepage you can enable the metrics server in cobia, currently there is no gui option for this but should be in a future release. as such this does fall under advanced. its advised to make a backup before running the following command. this command will force all your apps to restart, its a good idea to do a stop-all on any CNPG apps as they don't always like when the apps cycle as a result of this command.  
 
@@ -33,7 +36,7 @@ you can then run ```k3s kubectl top pods -A``` once all apps have resumed to con
 
 You can then add the following to you widgets.yaml file to  add the cluster/node resources display
 
-```
+```yaml
 - kubernetes:
     cluster:
       # Shows cluster-wide statistics
@@ -54,7 +57,8 @@ You can then add the following to you widgets.yaml file to  add the cluster/node
       memory: true
       # Shows the label, which is always the node name
       showLabel: true
-```
+```  
+
 which will result in the following being added  
 ![hp kube enable check](img/hpenablechck.png)  
 
@@ -65,7 +69,8 @@ and you will be able to have outputs similar to this to see mem and CPU
 <br>
 We can now enable our first integration!
 
-### Enabling Integration in charts
+### Enabling Integration in charts  
+
 Edit and existing chart with ingress and go to the ingress section and enable the homepage integration checkbox  
 
 :white_check_mark:Name can be left blank or use the name of your choice.  
