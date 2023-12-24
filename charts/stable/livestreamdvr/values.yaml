@@ -25,9 +25,9 @@ workload:
             - --port
             - "{{ .Values.service.main.ports.main.port }}"
           env:
-            TCD_ENABLE_FILES_API: False
-            TCD_EXPOSE_LOGS_TO_PUBLIC: False
-            TCD_MIGRATE_OLD_VOD_JSON: False
+            TCD_ENABLE_FILES_API: false
+            TCD_EXPOSE_LOGS_TO_PUBLIC: false
+            TCD_MIGRATE_OLD_VOD_JSON: false
 
 persistence:
   config:
