@@ -19,7 +19,7 @@ WebSite <https://gethomepage.dev/>
 
   put in the IP:port in to your browser. the IP will depend on your setup but usually the scale IP  
 
-  once in code server under app/config you will see the following files these will allow you to manipulate many aspects. but first we will turn on homepage kube support by editing kubernetes.yaml  
+  once in code server under app/config you will see the following files these will allow you to manipulate many aspects. but first we will turn on homepage kube support by editing kubernetes.yaml, Be aware you must open the homepage website at least once in a browser before the kubernetes.yaml file will be available to edit
 
   For Scale users you will enter ```mode: default``` Native Kubernetes & Helm users may need to user ```mode: cluster```  which will use a service account  
   
