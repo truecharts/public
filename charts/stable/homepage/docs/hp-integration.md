@@ -78,7 +78,7 @@ Edit and existing chart with ingress and go to the ingress section and enable th
 
 :white_check_mark:Name can be left blank or use the name of your choice.  
 :white_check_mark:Description can be left blank or you can use the description of your choice  
-:exclamation: Group is important and required it will allow you to group the different apps together so for example all your media apps you may want in a group called "Media" you can also use the group names you may have already defined in services.yaml and it will add the discovered app to that group
+:exclamation: Group is important and required it will allow you to group the different apps together so for example all your media apps you may want in a group called "Media". You can also use the group names you may have already defined in services.yaml and it will add the discovered app to that group
 :exclamation: Api Key is where you will enter an api key for your application if needed, if this is a new install and you do not have an api key yet, you can come back and add this  
 :white_check_mark: adding custom options will allow you to add fields to the widget. or define username/password when there is no API key to apply. you can see the various fields available in the widgets section of the homepage documentation at their site above
 
