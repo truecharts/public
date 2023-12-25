@@ -297,8 +297,8 @@ access_control:
   ## Default policy can either be 'bypass', 'one_factor', 'two_factor' or 'deny'. It is the policy applied to any
   ## resource if there is no policy to be applied to the user.
   default_policy: deny
-  networks: []
-  # networks:
+  networks_access_control: []
+  # networks_access_control:
   # - name: private
   #   networks:
   #   - 10.0.0.0/8

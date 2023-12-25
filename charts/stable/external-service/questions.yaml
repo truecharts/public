@@ -82,68 +82,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-              - variable: enabled
-                label: "Enable Ingress"
-                schema:
-                  type: boolean
-                  default: false
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: annotations
-                      label: "annotations"
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        hidden: true
-                        attrs:
-                          - variable: traefik.frontend.passHostHeader
-                            label: "passHostHeader"
-                            schema:
-                              type: string
-                              default: "false"
-                              hidden: true
-                    - variable: hosts
-                      label: "Hosts"
-                      schema:
-                        type: list
-                        default: []
-                        items:
-                          - variable: hostEntry
-                            label: "Host"
-                            schema:
-                              additional_attrs: true
-                              type: dict
-                              attrs:
-                                - variable: host
-                                  label: "HostName"
-                                  schema:
-                                    type: string
-                                    default: ""
-                                    required: true
-                                - variable: paths
-                                  label: "Paths"
-                                  schema:
-                                    type: list
-                                    default: [{path: "/", pathType: "Prefix"}]
-                                    items:
-                                      - variable: pathEntry
-                                        label: "Host"
-                                        schema:
-                                          additional_attrs: true
-                                          type: dict
-                                          attrs:
-                                            - variable: path
-                                              label: "path"
-                                              schema:
-                                                type: string
-                                                required: true
-                                                default: "/"
-                                            - variable: pathType
-                                              label: "pathType"
-                                              schema:
-                                                type: string
-                                                required: true
-                                                default: "Prefix"
+# Include{ingressDefault}
 # Include{ingressTLS}
 # Include{ingressTraefik}
 # Include{ingressAdvanced}

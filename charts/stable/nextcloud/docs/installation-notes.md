@@ -4,7 +4,7 @@
 
 1. The cloudnative-pg operator is required from the operator train. More information can be
    found on our [getting started guide](https://truecharts.org/manual/SCALE/guides/getting-started#cnpg-operator-installation-and-migration-guide-for-older-users).
-2. While nextcloud can run without ingress setup a lot of features will not work. More information can be
+2. Ingress is required to be configured. The preferred and supported method for ingress is Traefik. More information can be
    found on our [getting started guide](https://truecharts.org/manual/SCALE/guides/getting-started#traefik-installation-for-ingress--reverse-proxy-support-with-truecharts-apps).
 
 :::caution SNAPSHOT DIRECTORY VISIBILITY
@@ -39,10 +39,6 @@ The following configurations must be set during initially setup for nextcloud to
 3. Collabora (Document editor for Nextcloud. A Collabora container will be deployed automatically.
 4. Only Office (document editor for Nextcloud, this does **NOT** deploy the Only Office container.
    You will need to have a separate installation.
-
-### Networking and Services
-
-If you are setting up Ingress (highly recommended and the only method supported) then change the Service Type to ClusterIP from LoadBalancer. Nextcloud will not work with Ingress configured unless ClusterIP is set.
 
 ### Storage
 

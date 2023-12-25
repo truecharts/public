@@ -2,9 +2,9 @@
 {{- include "tc.v1.common.loader.init" . }}
 
 {{/* Render configmap for invidious */}}
-{{- $configmapFile := include "invidious.config" . | fromYaml -}}
-{{- if $configmapFile -}}
-  {{- $_ := set .Values.configmap "invidious-config" $configmapFile -}}
+{{- $secretFile := include "invidious.secret" . | fromYaml -}}
+{{- if $secretFile -}}
+  {{- $_ := set .Values.secret "invidious-secret" $secretFile -}}
 {{- end -}}
 
 {{/* Render the templates */}}

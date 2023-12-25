@@ -1,8 +1,8 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: metabase
-version: 1.0.5
-appVersion: 0.48.0
+version: 2.0.0
+appVersion: 0.48.1
 description: Business intelligence, dashboards, and data visualization tools
 home: https://truecharts.org/charts/stable/metabase
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/metabase.png
@@ -19,7 +19,7 @@ keywords:
     - metabase
 dependencies:
     - name: common
-      version: 16.2.9
+      version: 17.1.0
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

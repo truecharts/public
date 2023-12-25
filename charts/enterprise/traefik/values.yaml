@@ -180,7 +180,7 @@ service:
     ports:
       web:
         enabled: true
-        port: 9080
+        port: 80
         protocol: http
         redirectTo: websecure
         # Options: Empty, 0 (ingore), or positive int
@@ -201,7 +201,7 @@ service:
           insecureMode: false
       websecure:
         enabled: true
-        port: 9443
+        port: 443
         protocol: https
         # -- Configure (Forwarded Headers)[https://doc.traefik.io/traefik/routing/entrypoints/#forwarded-headers] Support
         forwardedHeaders:

@@ -24,3 +24,8 @@ workload:
 portal:
   open:
     enabled: true
+
+ingress:
+  main:
+    annotations:
+      traefik.frontend.passHostHeader: "false"

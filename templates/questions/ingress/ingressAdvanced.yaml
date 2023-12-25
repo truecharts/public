@@ -18,7 +18,7 @@
                                     type: boolean
                                     default: true
                                 - variable: allowCors
-                                  label: "Allow Cross Origin Requests"
+                                  label: 'Allow Cross Origin Requests (advanced)'
                                   schema:
                                     type: boolean
                                     default: false
@@ -90,15 +90,22 @@
                                     type: boolean
                                     default: false
                                 - variable: name
-                                  label: Name
-                                  description: defaults to chartname
+                                  label: Name (Optional)
+                                  description: Defaults to chart name
                                   schema:
                                     type: string
                                     default: ""
                                     show_if: [["enabled", "=", true]]
                                 - variable: description
-                                  label: Description
-                                  description: defaults to chart description
+                                  label: Description (Optional)
+                                  description: Defaults to chart description
+                                  schema:
+                                    type: string
+                                    default: ""
+                                    show_if: [["enabled", "=", true]]
+                                - variable: icon
+                                  label: Icon (Optional)
+                                  description: Defaults to chart icon
                                   schema:
                                     type: string
                                     default: ""
@@ -115,7 +122,25 @@
                                   schema:
                                     type: dict
                                     additional_attrs: true
+                                    show_if: [["enabled", "=", true]]
                                     attrs:
+                                      - variable: enabled
+                                        label: Enable Widget
+                                        description: When disabled all widget annotations are skipped.
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: custom
+                                        label: Options
+                                        schema:
+                                          type: dict
+                                          additional_attrs: true
+                                          attrs:
+                                            - variable: key
+                                              label: API-key (key)
+                                              schema:
+                                                type: string
+                                                default: ""
                                       - variable: customkv
                                         label: Custom Options
                                         schema:
