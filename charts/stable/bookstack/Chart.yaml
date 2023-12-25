@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: bookstack
-version: 9.0.12
+version: 10.0.0
 appVersion: 23.10.20231030
 description: A simple, self-hosted, easy-to-use platform for organising and storing information.
 home: https://truecharts.org/charts/stable/bookstack
@@ -24,7 +24,7 @@ keywords:
   - hosted
 dependencies:
   - name: common
-    version: 16.2.21
+    version: 17.1.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

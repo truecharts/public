@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: tautulli
-version: 16.0.11
+version: 17.0.0
 appVersion: 2.13.4
 description: A Python based monitoring and tracking tool for Plex Media Server
 home: https://truecharts.org/charts/stable/tautulli
@@ -20,7 +20,7 @@ keywords:
   - plex
 dependencies:
   - name: common
-    version: 16.2.21
+    version: 17.1.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
