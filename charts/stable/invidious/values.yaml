@@ -64,8 +64,8 @@ workload:
             startup:
               type: http
           envFrom:
-            - configMapRef:
-                name: invidious-config
+            - secretRef:
+                name: invidious-secret
 invidious:
   network:
     inbound:
@@ -110,7 +110,6 @@ invidious:
   miscellaneous:
     banner: ""
     use_pubsub_feeds: false
-    hmac_key: ""
     dmca_content: []
     cache_annotations: false
     playlist_length_limit: 500
