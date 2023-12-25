@@ -5,9 +5,9 @@ questions:
     group: App Configuration
     label: Cert Manager Configuration
     schema:
-      type: dict
       additional_attrs: true
-      items:
+      type: dict
+      attrs:
         - variable: dns01RecursiveNameservers
           label: DNS01 Recursive Nameservers (Modifications are unsupported)
           description: |
