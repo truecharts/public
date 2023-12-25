@@ -91,6 +91,25 @@ tests:
             - host: "{{ .Values.someHost }}"
               paths:
                 - path: "{{ .Values.somePath }}"
+        my-ingress4:
+          enabled: true
+          hosts: *hosts
+          integrations:
+            traefik: *traefik
+            homepage:
+              enabled: true
+              widget:
+                enabled: false
+                url: some-url-4
+                type: some-type-4
+                custom:
+                  some-key: some-value
+                  some-other-key: some-other-value
+                customkv:
+                  - key: some-key-slice
+                    value: some-value-slice
+                  - key: some-other-key-slice
+                    value: some-other-value-slice
     asserts:
       - documentIndex: &ingressDoc 2
         isKind:
@@ -165,6 +184,18 @@ tests:
         equal:
           path: metadata.namespace
           value: test-release-namespace
+      - documentIndex: &fourthIngressDoc 5
+        isKind:
+          of: Ingress
+      - documentIndex: *fourthIngressDoc
+        equal:
+          path: metadata.annotations
+          value:
+            gethomepage.dev/enabled: "true"
+            gethomepage.dev/name: TestReleaseName
+            gethomepage.dev/description: Helper chart to test different use cases of the common library
+            gethomepage.dev/href: https://test-host/test-path
+            gethomepage.dev/icon: https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png
 
   # Failures
   - it: should fail with podSelector not a slice

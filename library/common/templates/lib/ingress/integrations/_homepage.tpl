@@ -8,6 +8,11 @@
       {{- $_ := set $objectData.integrations.homepage "widget" dict -}}
     {{- end -}}
 
+    {{- $widEnabled := true -}}
+    {{- if and (hasKey $homepage.widget "enabled") (kindIs "bool" $homepage.widget.enabled) -}}
+      {{- $widEnabled = $homepage.widget.enabled -}}
+    {{- end -}}
+
     {{- include "tc.v1.common.lib.ingress.integration.homepage.validation" (dict "objectData" $objectData) -}}
 
     {{- $name := $homepage.name | default ($rootCtx.Release.Name | camelcase) -}}
@@ -43,7 +48,6 @@
     {{- $_ := set $objectData.annotations "gethomepage.dev/href" (tpl $href $rootCtx) -}}
     {{- $_ := set $objectData.annotations "gethomepage.dev/description" (tpl $desc $rootCtx) -}}
     {{- $_ := set $objectData.annotations "gethomepage.dev/icon" (tpl $icon $rootCtx) -}}
-    {{- $_ := set $objectData.annotations "gethomepage.dev/widget.type" (tpl $type $rootCtx) -}}
     {{- with $homepage.group -}}
       {{- $_ := set $objectData.annotations "gethomepage.dev/group" (tpl . $rootCtx) -}}
     {{- end -}}
@@ -51,23 +55,27 @@
     {{- with $homepage.weight -}}
       {{- $_ := set $objectData.annotations "gethomepage.dev/weight" (. | toString) -}}
     {{- end -}}
-
-    {{- with $url -}}
-      {{- $_ := set $objectData.annotations "gethomepage.dev/widget.url" (tpl $url $rootCtx) -}}
-    {{- end -}}
-
-    {{- if $homepage.widget.custom -}}
-      {{- range $k, $v := $homepage.widget.custom -}}
-        {{- $_ := set $objectData.annotations (printf "gethomepage.dev/widget.%s" $k) (tpl $v $rootCtx | toString) -}}
-      {{- end -}}
-      {{- range $homepage.widget.customkv -}}
-        {{- $_ := set $objectData.annotations (printf "gethomepage.dev/widget.%s" .key ) (tpl .value $rootCtx | toString) -}}
-      {{- end -}}
-    {{- end -}}
-
     {{- with $homepage.podSelector -}}
       {{- $selector := (printf "pod.name in (%s)" (join "," .)) -}}
       {{- $_ := set $objectData.annotations "gethomepage.dev/pod-selector" $selector -}}
+    {{- end -}}
+
+    {{- if $widEnabled -}}
+      {{- $_ := set $objectData.annotations "gethomepage.dev/widget.type" (tpl $type $rootCtx) -}}
+
+      {{- with $url -}}
+        {{- $_ := set $objectData.annotations "gethomepage.dev/widget.url" (tpl $url $rootCtx) -}}
+      {{- end -}}
+
+      {{- if $homepage.widget.custom -}}
+        {{- range $k, $v := $homepage.widget.custom -}}
+          {{- $_ := set $objectData.annotations (printf "gethomepage.dev/widget.%s" $k) (tpl $v $rootCtx | toString) -}}
+        {{- end -}}
+        {{- range $homepage.widget.customkv -}}
+          {{- $_ := set $objectData.annotations (printf "gethomepage.dev/widget.%s" .key ) (tpl .value $rootCtx | toString) -}}
+        {{- end -}}
+      {{- end -}}
+
     {{- end -}}
 
   {{- end -}}
