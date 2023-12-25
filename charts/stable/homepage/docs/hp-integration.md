@@ -97,7 +97,6 @@ If you have turned on the metrics server in the above section. you can click run
 
 ![utilization example](img/utilexam.png)  
 
-
 you can also use settings.yaml to change the group layout from a single column to rows (with up to 5 columns per row ) and other settings
 
 ### Known issues and Limitations
