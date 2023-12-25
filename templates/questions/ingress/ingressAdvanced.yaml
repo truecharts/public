@@ -124,6 +124,12 @@
                                     additional_attrs: true
                                     show_if: [["enabled", "=", true]]
                                     attrs:
+                                      - variable: enabled
+                                        label: Enable Widget
+                                        description: When disabled all widget annotations are skipped.
+                                        schema:
+                                          type: boolean
+                                          default: true
                                       - variable: custom
                                         label: Options
                                         schema:
