@@ -403,6 +403,7 @@
                       schema:
                         type: list
                         default: []
+                        show_if: [["enabled", "=", true]]
                         items:
                           - variable: backupschedule
                             label: BackupSchedule
@@ -443,6 +444,7 @@
                       schema:
                         type: list
                         default: []
+                        show_if: [["enabled", "=", true]]
                         items:
                           - variable: backup
                             label: Backup

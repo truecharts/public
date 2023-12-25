@@ -1,5 +1,12 @@
 {{/* Define the configmap */}}
-{{- define "invidious.config" -}}
+{{- define "invidious.secret" -}}
+
+{{- $secretName := printf "%s-invidious-secret" (include "tc.v1.common.lib.chart.names.fullname" .) -}}
+
+{{- $hmac := randAlphaNum 64 -}}
+{{- with (lookup "v1" "Secret" .Release.Namespace $secretName) -}}
+  {{- $hmac = (index .data "HMAC_KEY") | b64dec -}}
+{{- end -}}
 
 {{- $vNet := .Values.invidious.network }}
 {{- $vLog := .Values.invidious.logging }}
@@ -17,6 +24,7 @@
 {{- $vUserMisc := .Values.invidious.default_user_preferences.miscellaneous }}
 enabled: true
 data:
+  HMAC_KEY: {{ $hmac }}
   INVIDIOUS_CONFIG: |
     # Database
     check_tables: true
@@ -85,7 +93,7 @@ data:
     # Miscellaneaous
     banner: {{ $vMisc.banner }}
     use_pubsub_feeds: {{ $vMisc.use_pubsub_feeds }}
-    hmac_key: {{ $vMisc.hmac_key }}
+    hmac_key: {{ $hmac }}
     {{- if $vMisc.dmca_content }}
     dmca_content:
       {{- range $vMisc.dmca_content }}

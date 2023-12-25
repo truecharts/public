@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: collabora
-version: 3.0.11
+version: 4.0.0
 appVersion: 23.05.6.3.1
 description: An awesome, Online Office suite image suitable for home use.
 home: https://truecharts.org/charts/stable/collabora
@@ -20,7 +20,7 @@ keywords:
   - document
 dependencies:
   - name: common
-    version: 16.2.21
+    version: 17.1.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
