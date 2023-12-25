@@ -1,8 +1,8 @@
 {{- $selector := dict -}}
 {{- range $name := (list "main" "nextcloud-cron" "preview-cron") -}}
-  {{- /* creates main: {} */-}}
+  {{/* creates main: {} */}}
   {{- $_ := set $selector $name dict -}}
-  {{/* sets main: {} to main: { main: {} }*/}}
+  {{/* sets main: {} to main: { main: {} } */}}
   {{- $_ := set (get $selector $name) $name dict -}}
 {{- end -}}
 
