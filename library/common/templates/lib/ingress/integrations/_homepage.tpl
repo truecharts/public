@@ -71,10 +71,14 @@
 
       {{- if $homepage.widget.custom -}}
         {{- range $k, $v := $homepage.widget.custom -}}
-          {{- $_ := set $objectData.annotations (printf "gethomepage.dev/widget.%s" $k) (tpl $v $rootCtx | toString) -}}
+          {{- if $v -}}
+            {{- $_ := set $objectData.annotations (printf "gethomepage.dev/widget.%s" $k) (tpl $v $rootCtx | toString) -}}
+          {{- end -}}
         {{- end -}}
         {{- range $homepage.widget.customkv -}}
-          {{- $_ := set $objectData.annotations (printf "gethomepage.dev/widget.%s" .key ) (tpl .value $rootCtx | toString) -}}
+          {{- if .value -}}
+            {{- $_ := set $objectData.annotations (printf "gethomepage.dev/widget.%s" .key ) (tpl .value $rootCtx | toString) -}}
+          {{- end -}}
         {{- end -}}
       {{- end -}}
 

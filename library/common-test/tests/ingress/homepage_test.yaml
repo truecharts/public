@@ -70,6 +70,7 @@ tests:
                 custom:
                   some-key: some-value
                   some-other-key: some-other-value
+                  some-empty-key: ""
                 customkv:
                   - key: some-key-slice
                     value: some-value-slice
@@ -110,6 +111,8 @@ tests:
                     value: some-value-slice
                   - key: some-other-key-slice
                     value: some-other-value-slice
+                  - key: some-empty-key-slice
+                    value: ""
     asserts:
       - documentIndex: &ingressDoc 2
         isKind:
