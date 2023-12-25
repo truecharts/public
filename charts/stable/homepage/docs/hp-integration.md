@@ -47,10 +47,10 @@ You can then add the following to you widgets.yaml file to  add the cluster/node
       memory: true
       # Shows a custom label
       showLabel: true
-      label: "cluster"
+      label: "ChangeMe"
     nodes:
       # Shows node-specific statistics
-      show: false # Set to True in Clusters kubernetes environments 
+      show: false # Set to True in Clustered kubernetes environments 
       # Shows the CPU for each node
       cpu: true
       # Shows the memory for each node
@@ -60,7 +60,7 @@ You can then add the following to you widgets.yaml file to  add the cluster/node
 ```  
 
 which will result in the following being added  
-![hp kube enable check](img/hpenablechck.png)  
+![hp kube enable check](img/cwidget.png)
 
 and you will be able to have outputs similar to this to see mem and CPU  
 
@@ -106,3 +106,4 @@ you can also use settings.yaml to change the group layout from a single column t
 - When using the integration you will not be able to control settings on a per app basis as far as auto showing/hiding stats or chaining the status indicator or adding a ping with ms response time readout
 - External Services does have the options for integration but may not be fully functional  
 - Applications that have different names from their default (IE second deployments) may not fully work at this time.  
+- If you define a group services.yaml it must contain at least one manual entry otherwise it will interfere with widget API calls and cause an API JSON error
