@@ -1,7 +1,7 @@
 
 # Homepage TrueCharts integration guide  
 
-TrueCharts has adopted HomePage for it defacto dashboard application due to its support of kubernetes  
+TrueCharts has adopted `Homepage` for it defacto dashboard application due to its support of kubernetes  
 
 This Guide will cover how to use the TrueCharts/Homepage integration included in the chart and the editing of the yaml files in homepage using the code-server addon. this guide will not cover every aspect of options available to homepage. Please see the Homepage links below for more information  
 
