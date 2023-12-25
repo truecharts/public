@@ -12,7 +12,7 @@ In order for Homepage to "discover" your apps, Ingress is required using our ing
 ## Homepage Links  
 
 Github: <https://github.com/gethomepage/homepage>  
-WebSite <https://gethomepage.dev/>  
+Website <https://gethomepage.dev/>  
 
 ### Getting Started  
 
