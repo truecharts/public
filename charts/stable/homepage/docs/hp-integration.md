@@ -21,7 +21,7 @@ WebSite <https://gethomepage.dev/>
 
   once in code server under app/config you will see the following files these will allow you to manipulate many aspects. but first we will turn on homepage kube support by editing kubernetes.yaml  
 
-  For Scale users you will enter ```mode:default``` Native Kubernetes & Helm users may need to user ```mode:cluster```  which will use a service account  
+  For Scale users you will enter ```mode: default``` Native Kubernetes & Helm users may need to user ```mode: cluster```  which will use a service account  
   
 ![kube yaml edit](img/kubeyml.png)
 
