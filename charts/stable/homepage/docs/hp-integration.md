@@ -14,17 +14,6 @@ WebSite <https://gethomepage.dev/>
 
 ### Getting Started  
 
-   Install Truecharts Homepage and enable code-server addon. for this guide i'll just be using ip:port
-  ![code-server section](img/image.png)
-
-  put in the IP:port in to your browser. the IP will depend on your setup but usually the scale IP  
-
-  once in code server under app/config you will see the following files these will allow you to manipulate many aspects. but first we will turn on homepage kube support by editing kubernetes.yaml, Be aware you must open the homepage website at least once in a browser before the kubernetes.yaml file will be available to edit
-
-  For Scale users you will enter ```mode: default``` Native Kubernetes & Helm users may need to user ```mode: cluster```  which will use a service account  
-  
-![kube yaml edit](img/kubeyml.png)
-
 <details>
 <summary> ⚠️ Advanced Section regarding metrics server for Scale users⚠️ </summary>  
 
@@ -70,17 +59,17 @@ and you will be able to have outputs similar to this to see mem and CPU
 
 </details>
 <br>
-We can now enable our first integration!
 
 ### Enabling Integration in charts  
 
-Edit and existing chart with ingress and go to the ingress section and enable the homepage integration checkbox  
+Edit an existing chart with ingress, go to the ingress section and enable the homepage integration checkbox  
 
 :white_check_mark:Name can be left blank or use the name of your choice.  
 :white_check_mark:Description can be left blank or you can use the description of your choice  
 :exclamation: Group is important and required it will allow you to group the different apps together so for example all your media apps you may want in a group called "Media". You can also use the group names you may have already defined in services.yaml and it will add the discovered app to that group
 :exclamation: Api Key is where you will enter an api key for your application if needed, if this is a new install and you do not have an api key yet, you can come back and add this  
 :white_check_mark: adding custom options will allow you to add fields to the widget. or define username/password when there is no API key to apply. you can see the various fields available in the widgets section of the homepage documentation at their site above
+:white_check_mark: Enable Widget.  if the app does not have a widget option set. leave this unchecked
 
 ![integration options](img/intop.png)
 
@@ -102,8 +91,8 @@ you can also use settings.yaml to change the group layout from a single column t
 ### Known issues and Limitations
   
 - When Using the integration to detect your apps, applications may change places with in the group on each restart of homepage as it populates in the order it detects the application  
-- Some Applications may have incorrect widget type
+- Some Applications may have incorrect widget type, pleas open a bug report on our [GitHub](https://github.com/truecharts/charts/issues)
 - When using the integration you will not be able to control settings on a per app basis as far as auto showing/hiding stats or chaining the status indicator or adding a ping with ms response time readout
-- External Services does have the options for integration but may not be fully functional  
-- Applications that have different names from their default (IE second deployments) may not fully work at this time.  
+- External Services is not supported at this time despite the options being present
 - If you define a group services.yaml it must contain at least one manual entry otherwise it will interfere with widget API calls and cause an API JSON error
+- Custom-App will report Pod Status and stats but has no widget support at this time.
