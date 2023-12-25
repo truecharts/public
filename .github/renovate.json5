@@ -606,6 +606,12 @@
       "matchPackageNames": ["corentinth/it-tools"],
       "automerge": true,
     },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["ghcr.io/crazy-max/rtorrent-rutorrent"],
+      "versioning": "regex:^(?<major>\d+)([.-](?<minor>\d+)([._](?<patch>\d+(-r\d+)?)?)?)?$",
+      "automerge": true,
+    },
     //
     // Version strategies
     //
