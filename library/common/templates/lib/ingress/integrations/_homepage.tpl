@@ -56,9 +56,9 @@
       {{- $_ := set $objectData.annotations "gethomepage.dev/weight" (. | toString) -}}
     {{- end -}}
 
-    {{- $selector := printf "app.kubernetes.io/instance=%s" $rootCtx.Release.Name -}}
+    {{- $selector := printf "app.kubernetes.io/instance=%s,pod.lifecycle in (permanent)" $rootCtx.Release.Name -}}
     {{- with $homepage.podSelector -}}
-      {{- $selector = (printf "pod.name in (%s)" (join "," .)) -}}
+      {{- $selector = (printf "pod.name in (%s),pod.lifecycle in (permanent)" (join "," .)) -}}
     {{- end -}}
     {{- $_ := set $objectData.annotations "gethomepage.dev/pod-selector" $selector -}}
 

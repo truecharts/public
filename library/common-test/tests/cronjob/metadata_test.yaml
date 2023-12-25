@@ -80,6 +80,7 @@ tests:
           path: spec.jobTemplate.spec.template.metadata.labels
           value:
             pod.name: workload-name
+            pod.lifecycle: fleeting
             app: common-test-1.0.0
             release: test-release-name
             app.kubernetes.io/instance: test-release-name

@@ -125,7 +125,7 @@ tests:
             gethomepage.dev/widget.url: https://test-release-name-common-test.test-release-namespace.svc:9443
             gethomepage.dev/icon: https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png
             gethomepage.dev/widget.type: commontest
-            gethomepage.dev/pod-selector: app.kubernetes.io/instance=test-release-name
+            gethomepage.dev/pod-selector: app.kubernetes.io/instance=test-release-name,pod.lifecycle in (permanent)
       - documentIndex: *ingressDoc
         equal:
           path: metadata.name
@@ -150,7 +150,7 @@ tests:
             gethomepage.dev/widget.url: some-url
             gethomepage.dev/weight: "1"
             gethomepage.dev/widget.type: some-type
-            gethomepage.dev/pod-selector: pod.name in (main,other)
+            gethomepage.dev/pod-selector: pod.name in (main,other),pod.lifecycle in (permanent)
             gethomepage.dev/widget.some-key: some-value
             gethomepage.dev/widget.some-other-key: some-other-value
             gethomepage.dev/widget.some-key-slice: some-value-slice
@@ -177,7 +177,7 @@ tests:
             gethomepage.dev/widget.url: http://test-release-name-common-test-my-service2.test-release-namespace.svc:80
             gethomepage.dev/icon: https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png
             gethomepage.dev/widget.type: commontest
-            gethomepage.dev/pod-selector: app.kubernetes.io/instance=test-release-name
+            gethomepage.dev/pod-selector: app.kubernetes.io/instance=test-release-name,pod.lifecycle in (permanent)
       - documentIndex: *thirdIngressDoc
         equal:
           path: metadata.name
@@ -198,7 +198,7 @@ tests:
             gethomepage.dev/description: Helper chart to test different use cases of the common library
             gethomepage.dev/href: https://test-host/test-path
             gethomepage.dev/icon: https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png
-            gethomepage.dev/pod-selector: app.kubernetes.io/instance=test-release-name
+            gethomepage.dev/pod-selector: app.kubernetes.io/instance=test-release-name,pod.lifecycle in (permanent)
 
   # Failures
   - it: should fail with podSelector not a slice
