@@ -66,17 +66,17 @@ workload:
         main:
           probes:
             liveness:
-              type: exec
-              path: /ping
-              port: 8081
+                exec:
+                  command:
+                    - /usr/local/bin/healthcheck
             readiness:
-              type: exec
-              path: /ping
-              port: 8081
+                exec:
+                  command:
+                    - /usr/local/bin/healthcheck
             startup:
-              type: exec
-              port: 8081
-              
+                exec:
+                  command:
+                    - /usr/local/bin/healthcheck
           env:
             RUTORRENT_PORT: "{{ .Values.service.main.ports.main.port }}"
             PORT_RTORRENT: "{{ .Values.service.rtorrent.ports.rtorrent.port }}"
