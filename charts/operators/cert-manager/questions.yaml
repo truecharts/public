@@ -6,7 +6,7 @@ questions:
     label: Cert Manager Configuration
     schema:
       type: dict
-      default: []
+      additional_attrs: true
       items:
         - variable: dns01RecursiveNameservers
           label: DNS01 Recursive Nameservers (Modifications are unsupported)
@@ -16,7 +16,6 @@ questions:
             Default is: 1.1.1.1:53,1.0.0.1:53 </br>
             If this is modified, you are NOT covered by support.
           schema:
-            additional_attrs: true
             type: string
             required: true
             default: "1.1.1.1:53,1.0.0.1:53"
