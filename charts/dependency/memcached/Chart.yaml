@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: memcached
-version: 10.0.18
+version: 10.0.19
 appVersion: 1.6.22
 description: Memcached is a memory-backed database caching solution
 home: https://truecharts.org/charts/dependency/memcached
@@ -21,7 +21,7 @@ keywords:
   - cache
 dependencies:
   - name: common
-    version: 16.2.23
+    version: 16.2.24
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
