@@ -66,12 +66,15 @@ workload:
         main:
           probes:
             liveness:
+              type: exec
               path: /ping
               port: 8081
             readiness:
+              type: exec
               path: /ping
               port: 8081
             startup:
+              type: exec
               port: 8081
               
           env:
