@@ -66,19 +66,12 @@ workload:
         main:
           probes:
             liveness:
-              enabled: true
-              type: http
               path: /ping
               port: 8081
             readiness:
-              enabled: true
-              type: http
               path: /ping
               port: 8081
             startup:
-              enabled: true
-              type: http
-              path: /ping
               port: 8081
               
           env:
