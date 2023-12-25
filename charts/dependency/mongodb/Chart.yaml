@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: mongodb
-version: 10.0.17
+version: 10.0.18
 appVersion: 7.0.4
 description: Fast, reliable, scalable, and easy to use open-source no-sql database system.
 home: https://truecharts.org/charts/dependency/mongodb
@@ -22,7 +22,7 @@ keywords:
     - nosql
 dependencies:
     - name: common
-      version: 16.2.21
+      version: 16.2.23
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""
