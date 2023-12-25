@@ -100,7 +100,7 @@ tests:
           path: metadata.annotations
           value:
             gethomepage.dev/enabled: "true"
-            gethomepage.dev/name: CommonTest
+            gethomepage.dev/name: TestReleaseName
             gethomepage.dev/description: Helper chart to test different use cases of the common library
             gethomepage.dev/href: https://test-host/test-path
             gethomepage.dev/widget.url: https://test-release-name-common-test.test-release-namespace.svc:9443
@@ -151,7 +151,7 @@ tests:
           path: metadata.annotations
           value:
             gethomepage.dev/enabled: "true"
-            gethomepage.dev/name: CommonTest
+            gethomepage.dev/name: TestReleaseName
             gethomepage.dev/description: Helper chart to test different use cases of the common library
             gethomepage.dev/href: https://test-host/test-path
             gethomepage.dev/widget.url: http://test-release-name-common-test-my-service2.test-release-namespace.svc:80
