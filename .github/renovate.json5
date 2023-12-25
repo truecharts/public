@@ -609,7 +609,7 @@
     {
       "matchDatasources": ["docker"],
       "matchPackagePrefixes": ["ghcr.io/crazy-max/rtorrent-rutorrent"],
-      "versioning": "regex:^(?<major>\d+)([.-](?<minor>\d+)([._](?<patch>\d+(-r\d+)?)?)?)?$",
+      "versioning": "regex:^(?:(?<major>\d+)[.-](?<minor>[\d._]+?[.-]\d+[\d._]*?)[.-](?<patch>[\d._]+?)(?:-r\d+)?)?$",
       "automerge": true,
     },
     //
