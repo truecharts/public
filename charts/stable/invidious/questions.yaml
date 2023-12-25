@@ -346,13 +346,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-              - variable: hmac_key
-                label: HMAC Key
-                description: HMAC signing key used for CSRF tokens and pubsub subscriptions verification. A random key must be generated and placed here.
-                schema:
-                  type: string
-                  private: true
-                  default: ""
               - variable: dmca_content
                 label: DMCA Content
                 description: List of video IDs where the "download" widget must be disabled, in order to comply with DMCA requests.
