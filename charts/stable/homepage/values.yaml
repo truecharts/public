@@ -13,6 +13,14 @@ persistence:
   config:
     enabled: true
     mountPath: /app/config
+  kubernetes-config:
+    enabled: true
+    mountPath: /app/config/kubernetes.yaml
+    subPath: kubernetes.yaml
+    readOnly: true
+    type: "configmap"
+    objectName: kubernetes-config
+    
 portal:
   open:
     enabled: true
@@ -26,6 +34,14 @@ podOptions:
     options:
       - name: ndots
         value: "3"
+        
+configmap:
+  kubernetes-config:
+    enabled: true
+    data:
+      kubernetes.yaml: |
+        mode: cluster
+
 rbac:
   main:
     enabled: true
