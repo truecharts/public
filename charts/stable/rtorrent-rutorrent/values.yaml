@@ -50,14 +50,7 @@ service:
     ports:
       rtinc:
         enabled: true
-        port: 50000      
-  phphealth:
-    enabled: true
-    ports:
-      phphealth:
-        enabled: true
-        port: 8081
-        
+        port: 50000
 
 workload:
   main:
@@ -66,17 +59,17 @@ workload:
         main:
           probes:
             liveness:
-                exec:
-                  command:
-                    - /usr/local/bin/healthcheck
+              exec:
+                command:
+                  - /usr/local/bin/healthcheck
             readiness:
-                exec:
-                  command:
-                    - /usr/local/bin/healthcheck
+              exec:
+                command:
+                  - /usr/local/bin/healthcheck
             startup:
-                exec:
-                  command:
-                    - /usr/local/bin/healthcheck
+              exec:
+                command:
+                  - /usr/local/bin/healthcheck
           env:
             RUTORRENT_PORT: "{{ .Values.service.main.ports.main.port }}"
             PORT_RTORRENT: "{{ .Values.service.rtorrent.ports.rtorrent.port }}"
@@ -84,8 +77,6 @@ workload:
             XMLRPC_PORT: "{{ .Values.service.xmlrpc.ports.xmlrpc.port }}"
             WEBDAV_PORT: "{{ .Values.service.webdav.ports.webdav.port }}"
             RT_INC_PORT: "{{ .Values.service.rtinc.ports.rtinc.port }}"
-            RUTORRENT_HEALTH_PORT: "{{ .Values.service.phphealth.ports.phphealth.port }}"
-            
 
 persistence:
   data:
