@@ -61,9 +61,9 @@ spec:
       http:
         paths:
           {{- range $p := $h.paths -}}
-            {{- with $p.overrideService -}}
-              {{- $svcData = (dict "name" .name "port" .port) -}}
-            {{- end }}
+            {{- $svcData = (include "tc.v1.common.lib.ingress.backend.data" (dict
+                "rootCtx" $rootCtx "svcData" $svcData "override" $p.overrideService)) | fromYaml
+            }}
           - path: {{ tpl $p.path $rootCtx }}
             pathType: {{ tpl ($p.pathType | default "Prefix") $rootCtx }}
             backend:
