@@ -53,13 +53,20 @@ tests:
           of: Deployment
       - documentIndex: *deploymentDoc
         equal:
+          path: spec.selector.matchLabels
+          value:
+            app.kubernetes.io/instance: test-release-name
+            app.kubernetes.io/name: common-test
+            pod.name: workload-name1
+      - documentIndex: *deploymentDoc
+        equal:
           path: spec.template.spec.topologySpreadConstraints
           value:
             - labelSelector:
                 matchLabels:
                   app.kubernetes.io/instance: test-release-name
                   app.kubernetes.io/name: common-test
-                  pod.name: test-release-name-common-test
+                  pod.name: workload-name1
               maxSkew: 1
               nodeAffinityPolicy: Honor
               nodeTaintsPolicy: Honor
@@ -69,7 +76,7 @@ tests:
                 matchLabels:
                   app.kubernetes.io/instance: test-release-name
                   app.kubernetes.io/name: common-test
-                  pod.name: test-release-name-common-test
+                  pod.name: workload-name1
               maxSkew: 1
               nodeAffinityPolicy: Honor
               nodeTaintsPolicy: Honor

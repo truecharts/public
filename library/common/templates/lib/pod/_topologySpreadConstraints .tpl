@@ -27,7 +27,7 @@ objectData: The object data to be used to render the Pod.
   topologyKey: "truecharts.org/rack"
   labelSelector:
     matchLabels:
-      {{- include "tc.v1.common.lib.metadata.selectorLabels" (dict "rootCtx" $rootCtx "objectType" "pod" "objectName" $objectData.name) | indent 6 }}
+      {{- include "tc.v1.common.lib.metadata.selectorLabels" (dict "rootCtx" $rootCtx "objectType" "pod" "objectName" $objectData.shortName) | indent 6 }}
   nodeAffinityPolicy: Honor
   nodeTaintsPolicy: Honor
 - maxSkew: 1
@@ -35,7 +35,7 @@ objectData: The object data to be used to render the Pod.
   topologyKey: "kubernetes.io/hostname"
   labelSelector:
     matchLabels:
-      {{- include "tc.v1.common.lib.metadata.selectorLabels" (dict "rootCtx" $rootCtx "objectType" "pod" "objectName" $objectData.name) | indent 6 }}
+      {{- include "tc.v1.common.lib.metadata.selectorLabels" (dict "rootCtx" $rootCtx "objectType" "pod" "objectName" $objectData.shortName) | indent 6 }}
   nodeAffinityPolicy: Honor
   nodeTaintsPolicy: Honor
   {{- end -}}
