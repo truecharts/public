@@ -1,7 +1,7 @@
 {{/* Define the configmap */}}
 {{- define "invidious.secret" -}}
 
-{{- $secretName := printf "%s-invidious-secret" (include "tc.v1.common.names.fullname" .) -}}
+{{- $secretName := printf "%s-invidious-secret" (include "tc.v1.common.lib.chart.names.fullname" .) -}}
 
 {{- $hmac := randAlphaNum 64 -}}
 {{- with (lookup "v1" "Secret" .Release.Namespace $secretName) -}}
