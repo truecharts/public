@@ -7,7 +7,7 @@ This Guide will cover how to use the TrueCharts/Homepage integration included in
 
 :::warning  INGRESS REQUIRED
 In order for Homepage to "discover" your apps, Ingress is required using our ingress configuration guidelines and the integration options for the chart configuration. Otherwise all kubernetes features can be used with manual configuration of homepage via its configuration yaml files
-::: 
+:::
 
 ## Homepage Links  
 
@@ -19,7 +19,7 @@ WebSite <https://gethomepage.dev/>
 <details>
 <summary> ⚠️ Advanced Section regarding metrics server for Scale users⚠️ </summary>  
 
-If you wish to make user of the metrics components of homepage you can enable the metrics server in cobia, currently there is no gui option for this but should be in a future release. as such this does fall under advanced. its advised to make a backup before running the following command. this command will force all your apps to restart, its a good idea to do a stop-all on any CNPG apps as they don't always like when the apps cycle as a result of this command.  
+If you wish to make user of the metrics components of homepage you can enable the metrics server in cobia, currently there is no gui option for this but should be in a future release. as such this does fall under advanced. its advised to make a backup before running the following command. this command will force all your apps to restart so be aware.  
 
 ```midclt call -job kubernetes.update '{"metrics_server": true}'```
 
