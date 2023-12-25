@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: deluge
-version: 16.0.11
+version: 17.0.0
 appVersion: 2.1.1
 description: Deluge App for TrueNAS SCALE
 home: https://truecharts.org/charts/stable/deluge
@@ -21,7 +21,7 @@ keywords:
   - usenet
 dependencies:
   - name: common
-    version: 16.2.21
+    version: 17.1.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

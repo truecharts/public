@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: snapdrop
-version: 7.0.11
+version: 8.0.0
 appVersion: latest
 description: Snapdrop A local file sharing in your browser. Inspired by Apple's Airdrop.
 home: https://truecharts.org/charts/stable/snapdrop
@@ -19,7 +19,7 @@ keywords:
   - snapdrop
 dependencies:
   - name: common
-    version: 16.2.21
+    version: 17.1.0
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

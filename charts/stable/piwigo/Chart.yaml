@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: piwigo
-version: 9.0.13
+version: 10.0.0
 appVersion: 14.0.0
 description: A photo gallery software for the web.
 home: https://truecharts.org/charts/stable/piwigo
@@ -22,7 +22,7 @@ keywords:
     - image
 dependencies:
     - name: common
-      version: 16.2.21
+      version: 17.1.0
       repository: https://library-charts.truecharts.org
       condition: ""
       alias: ""

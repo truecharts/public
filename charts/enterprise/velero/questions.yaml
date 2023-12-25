@@ -21,12 +21,6 @@ questions:
                   type: string
                   required: true
                   default: "default"
-              - variable: provider
-                label: "Provider"
-                schema:
-                  type: string
-                  required: true
-                  default: ""
               - variable: accessMode
                 label: "accessMode"
                 schema:
@@ -50,6 +44,17 @@ questions:
                       schema:
                         type: string
                         default: ""
+              - variable: provider
+                label: "Provider"
+                schema:
+                  type: string
+                  required: true
+                  default: "s3"
+                  enum:
+                   - value: s3
+                     description: S3
+                   - value: aws
+                     description: aws
               - variable: credential
                 label: credential
                 schema:
@@ -158,7 +163,12 @@ questions:
                 schema:
                   type: string
                   required: true
-                  default: ""
+                  default: "s3"
+                  enum:
+                   - value: s3
+                     description: S3
+                   - value: aws
+                     description: aws
               - variable: credential
                 label: credential
                 schema:
@@ -254,17 +264,20 @@ questions:
                   default: true
               - variable: schedule
                 label: "schedule"
+                show_if: [["disabled", "=", false]]
                 schema:
                   type: string
                   required: true
-                  default: ""
+                  default: "0 0 0 * * *"
               - variable: useOwnerReferencesInBackup
                 label: "useOwnerReferencesInBackup"
+                show_if: [["disabled", "=", false]]
                 schema:
                   type: boolean
                   default: false
               - variable: template
                 label: template
+                show_if: [["disabled", "=", false]]
                 schema:
                   additional_attrs: true
                   type: dict
