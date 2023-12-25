@@ -55,10 +55,12 @@
     {{- with $homepage.weight -}}
       {{- $_ := set $objectData.annotations "gethomepage.dev/weight" (. | toString) -}}
     {{- end -}}
+
+    {{- $selector := printf "app.kubernetes.io/instance=%s" $rootCtx.Release.Name -}}
     {{- with $homepage.podSelector -}}
-      {{- $selector := (printf "pod.name in (%s)" (join "," .)) -}}
-      {{- $_ := set $objectData.annotations "gethomepage.dev/pod-selector" $selector -}}
+      {{- $selector = (printf "pod.name in (%s)" (join "," .)) -}}
     {{- end -}}
+    {{- $_ := set $objectData.annotations "gethomepage.dev/pod-selector" $selector -}}
 
     {{- if $widEnabled -}}
       {{- $_ := set $objectData.annotations "gethomepage.dev/widget.type" (tpl $type $rootCtx) -}}
