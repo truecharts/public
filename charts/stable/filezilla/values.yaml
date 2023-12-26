@@ -28,6 +28,9 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+  runnignx:
+    enabled: true
+    mountPath: /run/nginx
 
 portal:
   open:
