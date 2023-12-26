@@ -1,3 +1,21 @@
 # Include{groups}
 questions:
 # Include{global}
+  - variable: certmanager
+    group: App Configuration
+    label: Cert Manager Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: dns01RecursiveNameservers
+          label: DNS01 Recursive Nameservers (Modifications are unsupported)
+          description: |
+            Comma separated list of DNS servers to use for recursive
+            name resolution when performing DNS01 challenges.
+            Default is: 1.1.1.1:53,1.0.0.1:53 </br>
+            If this is modified, you are NOT covered by support.
+          schema:
+            type: string
+            required: true
+            default: "1.1.1.1:53,1.0.0.1:53"

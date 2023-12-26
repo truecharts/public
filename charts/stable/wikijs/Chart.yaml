@@ -1,17 +1,17 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: wikijs
-version: 14.0.0
+version: 14.0.1
 appVersion: 2.5.300
 description: Make documentation a joy to write using Wiki.js's beautiful and intuitive interface!
 home: https://truecharts.org/charts/stable/wikijs
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/wikijs.png
 deprecated: false
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/wikijs
   - https://hub.docker.com/r/requarks/wiki
   - https://github.com/Requarks/wiki
   - https://docs.requarks.io/install/docker
-  - https://github.com/truecharts/charts/tree/master/charts/stable/wikijs
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -21,7 +21,7 @@ keywords:
   - wikijs
 dependencies:
   - name: common
-    version: 17.1.0
+    version: 17.1.4
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
