@@ -44,20 +44,6 @@ velero:
       volumeMounts:
         - mountPath: /target
           name: plugins
-  namespace:
-    labels:
-      - key: pod-security.kubernetes.io/enforce
-        value: privileged
-      - key: pod-security.kubernetes.io/enforce-version
-        value: latest
-      - key: pod-security.kubernetes.io/audit
-        value: privileged
-      - key: pod-security.kubernetes.io/audit-version
-        value: latest
-      - key: pod-security.kubernetes.io/warn
-        value: privileged
-      - key: pod-security.kubernetes.io/warn-version
-        value: latest
   nodeAgent:
     podVolumePath: /var/lib/kubelet/pods
     privileged: true
