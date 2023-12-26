@@ -31,10 +31,20 @@ workload:
                 cp /dummy-config/settings.yaml.dummy /app/config/settings.yaml
                 echo "Config file copied, you can now edit it at /app/config/settings.yaml"
               fi
-              if [ ! -f /app/config/wdigets.yaml ]; then
+              if [ ! -f /app/config/widgets.yaml ]; then
                 echo "wdigets file not found, copying dummy..."
-                cp /dummy-config/wdigets.yaml.dummy /app/config/wdigets.yaml
-                echo "Config file copied, you can now edit it at /app/config/wdigets.yaml"
+                cp /dummy-config/widgets.yaml.dummy /app/config/widgets.yaml
+                echo "Config file copied, you can now edit it at /app/config/widgets.yaml"
+              fi
+              if [ ! -f /app/config/custom.css ]; then
+                echo "custom.css file not found, copying dummy..."
+                cp /dummy-config/custom.css.dummy /app/config/custom.css
+                echo "Config file copied, you can now edit it at /app/config/custom.css"
+              fi
+              if [ ! -f /app/config/custom.js ]; then
+                echo "custom.js file not found, copying dummy..."
+                cp /dummy-config/custom.js.dummy /app/config/custom.js
+                echo "Config file copied, you can now edit it at /app/config/custom.js"
               fi
 service:
   main:
@@ -134,6 +144,44 @@ persistence:
     readOnly: true
     type: "configmap"
     objectName: config
+  custom-css-config:
+    # Only enable when not using homepageConfig
+    enabled: "{{ not .Values.forceConfigFromValues }}"
+    mountPath: /dummy-config/custom.css
+    subPath: custom.css
+    readOnly: true
+    type: "configmap"
+    objectName: config
+    targetSelector:
+      main:
+        init-config: {}
+  force-custom-css-config:
+    # Only enable when not using homepageConfig
+    enabled: "{{ .Values.forceConfigFromValues }}"
+    mountPath: /app/config/custom.css
+    subPath: custom.css
+    readOnly: true
+    type: "configmap"
+    objectName: config
+  custom-js-config:
+    # Only enable when not using homepageConfig
+    enabled: "{{ not .Values.forceConfigFromValues }}"
+    mountPath: /dummy-config/custom.js
+    subPath: custom.js
+    readOnly: true
+    type: "configmap"
+    objectName: config
+    targetSelector:
+      main:
+        init-config: {}
+  force-custom-js-config:
+    # Only enable when not using homepageConfig
+    enabled: "{{ .Values.forceConfigFromValues }}"
+    mountPath: /app/config/custom.js
+    subPath: custom.js
+    readOnly: true
+    type: "configmap"
+    objectName: config
 
 portal:
   open:
@@ -153,6 +201,8 @@ configmap:
   config:
     enabled: true
     data:
+      custom.js: ""
+      custom.css: ""
       kubernetes.yaml: |
         mode: cluster
       settings.yaml: |
