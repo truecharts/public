@@ -6,6 +6,7 @@ image:
 workload:
   main:
     podSpec:
+      automountServiceAccountToken: true
       initContainers:
         init-config:
           enabled: "{{ not .Values.forceConfigFromValues }}"
@@ -335,7 +336,3 @@ rbac:
           - customresourcedefinitions/status
         verbs:
           - get
-workload:
-  main:
-    podSpec:
-      automountServiceAccountToken: true
