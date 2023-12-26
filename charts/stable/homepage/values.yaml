@@ -9,7 +9,7 @@ workload:
       automountServiceAccountToken: true
       initContainers:
         init-config:
-          enabled: "{{ not .Values.forceConfigFromValues }}"
+          enabled: "{{ if not .Values.forceConfigFromValues}}true{{ else }}false{{ end }}"
           type: init
           imageSelector: alpineImage
           command:
@@ -71,7 +71,7 @@ persistence:
     objectName: config
   bookmarks-config:
     # Only enable when not using homepageConfig
-    enabled: "{{ not .Values.forceConfigFromValues }}"
+    enabled: "{{ if not .Values.forceConfigFromValues}}true{{ else }}false{{ end }}"
     mountPath: /dummy-config/bookmarks.yaml
     subPath: bookmarks.yaml
     readOnly: true
@@ -90,7 +90,7 @@ persistence:
     objectName: config
   settings-config:
     # Only enable when not using homepageConfig
-    enabled: "{{ not .Values.forceConfigFromValues }}"
+    enabled: "{{ if not .Values.forceConfigFromValues}}true{{ else }}false{{ end }}"
     mountPath: /dummy-config/settings.yaml
     subPath: settings.yaml
     readOnly: true
@@ -109,7 +109,7 @@ persistence:
     objectName: config
   services-config:
     # Only enable when not using homepageConfig
-    enabled: "{{ not .Values.forceConfigFromValues }}"
+    enabled: "{{ if not .Values.forceConfigFromValues}}true{{ else }}false{{ end }}"
     mountPath: /dummy-config/services.yaml
     subPath: services.yaml
     readOnly: true
@@ -128,7 +128,7 @@ persistence:
     objectName: config
   widgets-config:
     # Only enable when not using homepageConfig
-    enabled: "{{ not .Values.forceConfigFromValues }}"
+    enabled: "{{ if not .Values.forceConfigFromValues}}true{{ else }}false{{ end }}"
     mountPath: /dummy-config/widgets.yaml
     subPath: widgets.yaml
     readOnly: true
@@ -147,7 +147,7 @@ persistence:
     objectName: config
   custom-css-config:
     # Only enable when not using homepageConfig
-    enabled: "{{ not .Values.forceConfigFromValues }}"
+    enabled: "{{ if not .Values.forceConfigFromValues}}true{{ else }}false{{ end }}"
     mountPath: /dummy-config/custom.css
     subPath: custom.css
     readOnly: true
@@ -166,7 +166,7 @@ persistence:
     objectName: config
   custom-js-config:
     # Only enable when not using homepageConfig
-    enabled: "{{ not .Values.forceConfigFromValues }}"
+    enabled: "{{ if not .Values.forceConfigFromValues}}true{{ else }}false{{ end }}"
     mountPath: /dummy-config/custom.js
     subPath: custom.js
     readOnly: true
