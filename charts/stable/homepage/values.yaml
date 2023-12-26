@@ -20,6 +20,13 @@ persistence:
     readOnly: true
     type: "configmap"
     objectName: kubernetes-config
+  bookmarks-config:
+    enabled: true
+    mountPath: /app/config/bookmarks.yaml
+    subPath: bookmarks.yaml
+    readOnly: true
+    type: "configmap"
+    objectName: bookmarks-config
 
 portal:
   open:
@@ -41,6 +48,31 @@ configmap:
     data:
       kubernetes.yaml: |
         mode: cluster
+  bookmarks-config:
+    enabled: true
+    data:
+      bookmarks.yaml: |
+        - TrueCharts:
+            - TrueCharts:
+                - abbr: TC
+                  icon: https://truecharts.org/svg/favicon.svg
+                  href: https://truecharts.org
+                  description: ""
+            - Github:
+                - abbr: GH
+                  icon: https://github.com/fluidicon.png
+                  href: https://github.com/truecharts
+                  description: ""
+            - Open Collective:
+                - abbr: TC
+                  icon: https://opencollective.com/favicon.ico
+                  href: https://opencollective.com/truecharts
+                  description: ""
+            - Discord:
+                - abbr: DC
+                  icon: https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://discord.com&size=32
+                  href: https://truecharts.org/s/discord
+                  description: ""
 
 rbac:
   main:
