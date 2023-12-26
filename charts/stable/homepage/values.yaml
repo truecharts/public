@@ -50,6 +50,14 @@ persistence:
     targetSelector:
       main:
         init-config: {}
+  force-bookmarks-config:
+    # Only enable when not using homepageConfig
+    enabled: "{{ .Values.forceConfigFromValues }}"
+    mountPath: /app/config/bookmarks.yaml
+    subPath: bookmarks.yaml
+    readOnly: true
+    type: "configmap"
+    objectName: bookmarks-config
 
 portal:
   open:
