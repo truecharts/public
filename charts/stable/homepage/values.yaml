@@ -8,7 +8,7 @@ workload:
     podSpec:
       initContainers:
         init-config:
-          enabled: "{{ .Values.valuesBookmark }}"
+          enabled: "{{ not .Values.forceConfigFromValues }}"
           type: init
           imageSelector: alpineImage
           command:
@@ -41,7 +41,7 @@ persistence:
     objectName: kubernetes-config
   bookmarks-config:
     # Only enable when not using homepageConfig
-    enabled: "{{ .Values.valuesBookmark }}"
+    enabled: "{{ not .Values.forceConfigFromValues }}"
     mountPath: /app/config/bookmarks.yaml
     targetSelector:
       main:
@@ -68,12 +68,13 @@ configmap:
       kubernetes.yaml: |
         mode: cluster
   bookmarks-config:
-    enabled: "{{ .Values.valuesBookmark }}"
+    enabled: true
     data:
       bookmarks.yaml: |
       # Our bookmark shit goes here
 
 valuesBookmark: true
+forceConfigFromValues: false
 
 rbac:
   main:
