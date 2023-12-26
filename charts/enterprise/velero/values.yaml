@@ -16,30 +16,6 @@ service:
     ports:
       main:
         enabled: false
-backupStorageLocationList:
-- name: default
-  enabled: true
-  accessMode: ReadWrite
-  objectStorage:
-    bucket: test
-    prefix: ''
-  provider: s3
-  credential:
-    aws:
-      id: ''
-      key: ''
-    s3:
-      id: 'asdf'
-      key: 'asfd'
-  config:
-    region: ''
-    s3ForcePathStyle: ''
-    s3Url: ''
-    kmsKeyId: ''
-    resourceGroup: ''
-    storageAccount: ''
-    publicUrl: ''
-    insecureSkipTLSVerify: ''
 velero:
   configuration:
     backupStorageLocation: []
