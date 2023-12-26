@@ -10,13 +10,16 @@ operator:
 portal:
   open:
     enabled: false
-schedules: []
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
+workload:
+  main:
+    enabled: false
+
 velero:
   configuration:
     backupStorageLocation: []
@@ -67,7 +70,3 @@ velero:
       cpu: 4000m
       memory: 4Gi
   schedules: {}
-volumeSnapshotLocation: []
-workload:
-  main:
-    enabled: false
