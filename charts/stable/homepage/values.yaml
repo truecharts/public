@@ -21,6 +21,21 @@ workload:
                 cp /dummy-config/bookmarks.yaml.dummy /app/config/bookmarks.yaml
                 echo "Config file copied, you can now edit it at /app/config/bookmarks.yaml"
               fi
+              if [ ! -f /app/config/services.yaml ]; then
+                echo "services file not found, copying dummy..."
+                cp /dummy-config/services.yaml.dummy /app/config/services.yaml
+                echo "Config file copied, you can now edit it at /app/config/services.yaml"
+              fi
+              if [ ! -f /app/config/settings.yaml ]; then
+                echo "settings file not found, copying dummy..."
+                cp /dummy-config/settings.yaml.dummy /app/config/settings.yaml
+                echo "Config file copied, you can now edit it at /app/config/settings.yaml"
+              fi
+              if [ ! -f /app/config/wdigets.yaml ]; then
+                echo "wdigets file not found, copying dummy..."
+                cp /dummy-config/wdigets.yaml.dummy /app/config/wdigets.yaml
+                echo "Config file copied, you can now edit it at /app/config/wdigets.yaml"
+              fi
 service:
   main:
     ports:
@@ -42,7 +57,7 @@ persistence:
     subPath: kubernetes.yaml
     readOnly: true
     type: "configmap"
-    objectName: kubernetes-config
+    objectName: config
   bookmarks-config:
     # Only enable when not using homepageConfig
     enabled: "{{ not .Values.forceConfigFromValues }}"
@@ -50,7 +65,7 @@ persistence:
     subPath: bookmarks.yaml
     readOnly: true
     type: "configmap"
-    objectName: bookmarks-config
+    objectName: config
     targetSelector:
       main:
         init-config: {}
@@ -61,7 +76,64 @@ persistence:
     subPath: bookmarks.yaml
     readOnly: true
     type: "configmap"
-    objectName: bookmarks-config
+    objectName: config
+  settings-config:
+    # Only enable when not using homepageConfig
+    enabled: "{{ not .Values.forceConfigFromValues }}"
+    mountPath: /dummy-config/settings.yaml
+    subPath: settings.yaml
+    readOnly: true
+    type: "configmap"
+    objectName: config
+    targetSelector:
+      main:
+        init-config: {}
+  force-settings-config:
+    # Only enable when not using homepageConfig
+    enabled: "{{ .Values.forceConfigFromValues }}"
+    mountPath: /app/config/settings.yaml
+    subPath: settings.yaml
+    readOnly: true
+    type: "configmap"
+    objectName: config
+  services-config:
+    # Only enable when not using homepageConfig
+    enabled: "{{ not .Values.forceConfigFromValues }}"
+    mountPath: /dummy-config/services.yaml
+    subPath: services.yaml
+    readOnly: true
+    type: "configmap"
+    objectName: config
+    targetSelector:
+      main:
+        init-config: {}
+  force-services-config:
+    # Only enable when not using homepageConfig
+    enabled: "{{ .Values.forceConfigFromValues }}"
+    mountPath: /app/services/services.yaml
+    subPath: services.yaml
+    readOnly: true
+    type: "configmap"
+    objectName: config
+  widgets-config:
+    # Only enable when not using homepageConfig
+    enabled: "{{ not .Values.forceConfigFromValues }}"
+    mountPath: /dummy-config/widgets.yaml
+    subPath: widgets.yaml
+    readOnly: true
+    type: "configmap"
+    objectName: config
+    targetSelector:
+      main:
+        init-config: {}
+  force-widgets-config:
+    # Only enable when not using homepageConfig
+    enabled: "{{ .Values.forceConfigFromValues }}"
+    mountPath: /app/config/widgets.yaml
+    subPath: widgets.yaml
+    readOnly: true
+    type: "configmap"
+    objectName: config
 
 portal:
   open:
@@ -78,51 +150,89 @@ podOptions:
         value: "3"
 
 configmap:
-  kubernetes-config:
+  config:
     enabled: true
     data:
       kubernetes.yaml: |
         mode: cluster
-  bookmarks-config:
-    enabled: true
-    data:
+      settings.yaml: |
+        ---
+        # For configuration options and examples, please see:
+        # https://gethomepage.dev/latest/configs/settings
+        
+        providers:
+          openweathermap: openweathermapapikey
+          weatherapi: weatherapiapikey
+      widgets.yaml: |
+        ---
+        # For configuration options and examples, please see:
+        # https://gethomepage.dev/latest/configs/widgets
+        
+        - resources:
+            cpu: true
+            memory: true
+            disk: /
+        
+        - search:
+            provider: duckduckgo
+            target: _blank
+
+      services.yaml: |
+        ---
+        # For configuration options and examples, please see:
+        # https://gethomepage.dev/latest/configs/services
+        
+        - Arr:
+            - My First Service:
+                href: http://localhost/
+                description: Homepage is awesome
+        
+        - Media:
+            - My Second Service:
+                href: http://localhost/
+                description: Homepage is the best
+        
+        - Infra:
+            - My Third Service:
+                href: http://localhost/
+                description: Homepage is 😎
       bookmarks.yaml: |
-      ---
-      # For configuration options and examples, please see:
-      # https://gethomepage.dev/latest/configs/bookmarks
-      
-      - Developer:
-          - Github:
-              - abbr: GH
-                href: https://github.com/
-      
-      - Social:
-          - Reddit:
-              - abbr: RE
-                href: https://reddit.com/
-      
-      - Entertainment:
-          - YouTube:
-              - abbr: YT
-                href: https://youtube.com/
-      
-      - TrueCharts:
-          - TrueCharts:
+        ---
+        # For configuration options and examples, please see:
+        # https://gethomepage.dev/latest/configs/bookmarks
+        
+        - Developer:
+            - Github:
+                - abbr: GH
+                  href: https://github.com/
+        
+        - Social:
+            - Reddit:
+                - abbr: RE
+                  href: https://reddit.com/
+        
+        - Entertainment:
+            - YouTube:
+                - abbr: YT
+                  href: https://youtube.com/
+       
+        - TrueCharts:
+            - TrueCharts:
               - abbr: TC
                 icon: https://truecharts.org/svg/favicon.svg
                 href: https://truecharts.org
                 description: "TrueCharts Website"
-          - Github:
+            - Github:
               - abbr: GH
                 icon: https://github.com/fluidicon.png
                 href: https://github.com/truecharts
                 description: "TrueCharts GitHub"
-          - Open Collective:
+            - Open Collective:
               - abbr: TC
                 icon: https://opencollective.com/favicon.ico
                 href: https://opencollective.com/truecharts
                 description: "TrueCharts Open Collective"
-          - Discord:
+            - Discord:
               - abbr: DC
                 icon: https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://discord.com&size=32
                 href: https://truecharts.org/s/discord
