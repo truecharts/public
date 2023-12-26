@@ -30,6 +30,7 @@ persistence:
     mountPath: "/config"
   runnignx:
     enabled: true
+    type: emptyDir
     mountPath: /run/nginx
 
 portal:
