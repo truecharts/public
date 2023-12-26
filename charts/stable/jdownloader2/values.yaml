@@ -26,7 +26,8 @@ ingress:
   main:
     integrations:
       homepage:
-        type: jdownloader
+        widget:
+          type: jdownloader
 jdownloader:
   # General Settings
   KEEP_APP_RUNNING: false

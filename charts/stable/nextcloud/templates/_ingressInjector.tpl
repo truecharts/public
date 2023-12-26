@@ -15,10 +15,9 @@
 {{- end -}}
 
 {{- define "nextcloud.collabora.ingress" -}}
-{{- $fullname := include "tc.v1.common.lib.chart.names.fullname" . }}
 path: /collabora/
 pathType: Prefix
 overrideService:
-  name: {{ printf "%v-collabora" $fullname }}
+  name: collabora
   port: {{ .Values.service.collabora.ports.collabora.port }}
 {{- end -}}
