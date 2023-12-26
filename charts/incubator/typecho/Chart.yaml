@@ -2,15 +2,15 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: typecho
 version: 9.0.9
-appVersion: 1.2.1-php8.0-apache
+appVersion: 1.2.1
 description: Typecho is a PHP Blogging Platform.
 home: https://truecharts.org/charts/incubator/typecho
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/typecho.png
 deprecated: false
 sources:
+  - https://hub.docker.com/r/joyqi/typecho
   - https://github.com/typecho/typecho
   - https://github.com/truecharts/charts/tree/master/charts/incubator/typecho
-  - https://hub.docker.com/r/joyqi/typecho
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

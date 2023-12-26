@@ -2,15 +2,15 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: plex
 version: 16.0.0
-appVersion: 1.32.8.7639-fb6452ebf
+appVersion: 1.32.8.7639
 description: Plex Media Server
 home: https://truecharts.org/charts/stable/plex
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/plex.png
 deprecated: false
 sources:
-  - https://ghcr.io/onedr0p/plex
   - https://github.com/k8s-at-home/container-images/pkgs/container/plex
   - https://github.com/truecharts/charts/tree/master/charts/stable/plex
+  - https://ghcr.io/onedr0p/plex
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

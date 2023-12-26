@@ -20,7 +20,7 @@ persistence:
     readOnly: true
     type: "configmap"
     objectName: kubernetes-config
-    
+
 portal:
   open:
     enabled: true
@@ -34,7 +34,7 @@ podOptions:
     options:
       - name: ndots
         value: "3"
-        
+
 configmap:
   kubernetes-config:
     enabled: true
