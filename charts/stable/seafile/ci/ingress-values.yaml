@@ -1,3 +1,16 @@
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            SEAFILE_SERVER_HOSTNAME: seafile.example.com
+
 ingress:
   main:
     enabled: true
+    hosts:
+      - host: seafile.example.com
+        paths:
+          - path: /
+            pathType: Prefix
