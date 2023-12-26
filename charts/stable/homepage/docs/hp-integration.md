@@ -63,12 +63,13 @@ And you will be able to have outputs similar to this to see memory and CPU:
 
 To edit an existing chart with ingress, go to the ingress section and enable the Homepage integration checkbox.
 
-:white_check_mark: Name can be left blank or use the name of your choice.
-:white_check_mark: Description can be left blank or you can use the description of your choice.
-:exclamation: Group is important and required. It will allow you to group different apps together. For example, all your media apps may be in a group called "Media". You can also use the group names you may have already defined in services.yaml, and it will add the discovered app to that group.
-:exclamation: API Key is where you will enter an API key for your application if needed. If this is a new install and you do not have an API key yet, you can come back and add this later.
-:white_check_mark: Adding custom options will allow you to add fields to the widget, or define username/password when there is no API key to apply. You can see the various fields available in the widgets section of the Homepage documentation at their site above.
-:white_check_mark: Enable Widget. If the app does not have a widget option set, leave this unchecked.
+- **Name** can be left blank or use the name of your choice.
+- **Description** can be left blank or you can use the description of your choice.
+- **Icon** can be left blank or link to the icon of your choice.
+- **Group** This is important and required. It will allow you to group different apps together. For example, all your media apps may be in a group called "Media". You can also use the group names you may have already defined in services.yaml, and it will add the discovered app to that group.
+- **Enable Widget**: If the app does not have a widget option set, leave this unchecked.
+- **API Key**: This is where you will enter an API key for your application if needed. If this is a new install and you do not have an API key yet, you can come back and add this later.
+- **Custom-Options** Adding custom options will allow you to add fields to the widget, or define username/password when there is no API key to apply. You can see the various fields available in the widgets section of the Homepage documentation at their site above.
 
 ![integration options](img/intop.png)
 
