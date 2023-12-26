@@ -19,32 +19,32 @@ workload:
               mkdir -p /app/config
               if [ ! -f /app/config/bookmarks.yaml ]; then
                 echo "Bookmarks file not found, copying dummy..."
-                cp /dummy-config/bookmarks.yaml.dummy /app/config/bookmarks.yaml
+                cp /dummy-config/bookmarks.yaml /app/config/bookmarks.yaml
                 echo "Config file copied, you can now edit it at /app/config/bookmarks.yaml"
               fi
               if [ ! -f /app/config/services.yaml ]; then
                 echo "services file not found, copying dummy..."
-                cp /dummy-config/services.yaml.dummy /app/config/services.yaml
+                cp /dummy-config/services.yaml /app/config/services.yaml
                 echo "Config file copied, you can now edit it at /app/config/services.yaml"
               fi
               if [ ! -f /app/config/settings.yaml ]; then
                 echo "settings file not found, copying dummy..."
-                cp /dummy-config/settings.yaml.dummy /app/config/settings.yaml
+                cp /dummy-config/settings.yaml /app/config/settings.yaml
                 echo "Config file copied, you can now edit it at /app/config/settings.yaml"
               fi
               if [ ! -f /app/config/widgets.yaml ]; then
                 echo "wdigets file not found, copying dummy..."
-                cp /dummy-config/widgets.yaml.dummy /app/config/widgets.yaml
+                cp /dummy-config/widgets.yaml /app/config/widgets.yaml
                 echo "Config file copied, you can now edit it at /app/config/widgets.yaml"
               fi
               if [ ! -f /app/config/custom.css ]; then
                 echo "custom.css file not found, copying dummy..."
-                cp /dummy-config/custom.css.dummy /app/config/custom.css
+                cp /dummy-config/custom.css /app/config/custom.css
                 echo "Config file copied, you can now edit it at /app/config/custom.css"
               fi
               if [ ! -f /app/config/custom.js ]; then
                 echo "custom.js file not found, copying dummy..."
-                cp /dummy-config/custom.js.dummy /app/config/custom.js
+                cp /dummy-config/custom.js /app/config/custom.js
                 echo "Config file copied, you can now edit it at /app/config/custom.js"
               fi
 service:
