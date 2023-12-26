@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: chevereto
-version: 11.0.0
+version: 11.0.1
 appVersion: 1.6.2
 description: Chevereto is an image hosting software that allows you to create a beautiful and full-featured image hosting website on your own server.
 home: https://truecharts.org/charts/stable/chevereto
@@ -20,14 +20,14 @@ keywords:
   - chevereto
 dependencies:
   - name: common
-    version: 17.1.0
+    version: 17.1.4
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mariadb
-    version: 12.0.1
+    version: 12.0.2
     repository: https://deps.truecharts.org/
     condition: mariadb.enabled
     alias: ""
