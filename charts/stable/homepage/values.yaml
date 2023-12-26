@@ -41,7 +41,7 @@ persistence:
     objectName: kubernetes-config
   bookmarks-config:
     # Only enable when not using homepageConfig
-    enabled: true
+    enabled: "{{ .Values.valuesBookmark }}"
     mountPath: /app/config/bookmarks.yaml
     targetSelector:
       main:
