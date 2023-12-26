@@ -8,7 +8,7 @@ workload:
     podSpec:
       initContainers:
         init-config:
-          enabled: "{{ not .Values.homepageConfig }}"
+          enabled: "{{ .Values.valuesBookmark }}"
           type: init
           imageSelector: alpineImage
           command:
