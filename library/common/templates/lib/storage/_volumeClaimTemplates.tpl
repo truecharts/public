@@ -9,8 +9,12 @@ objectData: The object data to be used to render the Pod.
   {{- $objectData := .objectData -}}
 
   {{- range $name, $vctValues := $rootCtx.Values.persistence -}}
+    {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
+                  "rootCtx" $rootCtx "objectData" $vctValues
+                  "name" $name "caller" "Volume Claim Templates"
+                  "key" "persistence")) -}}
 
-    {{- if and $vctValues.enabled (eq $vctValues.type "vct") -}}
+    {{- if and (eq $enabled "true")  (eq $vctValues.type "vct") -}}
       {{- $vct := (mustDeepCopy $vctValues) -}}
 
       {{- $selected := false -}}

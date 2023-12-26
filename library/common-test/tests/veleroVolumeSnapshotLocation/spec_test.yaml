@@ -126,6 +126,8 @@ tests:
             region: "{{ .Values.region }}"
             s3ForcePathStyle: "{{ .Values.useS3PathStyle }}"
             bool: false
+            shouldNotBeIncluded: ""
+            alsoShouldNotBeIncluded:
     asserts:
       - documentIndex: &volSnapLocDoc 1
         isKind:

@@ -80,6 +80,14 @@ tests:
                     name: some-other-service
                     expandObjectName: false
                     port: 8080
+            - host: "host-target-primary-service"
+              paths:
+                - path: /subpath
+                  overrideService:
+                    # It is primary, so the backend target
+                    # must be just the fullname
+                    name: my-service
+                    port: 8080
           integrations: *integrations
     asserts:
       - documentIndex: &ingressDoc 1
@@ -118,6 +126,16 @@ tests:
                     backend:
                       service:
                         name: some-other-service
+                        port:
+                          number: 8080
+            - host: "host-target-primary-service"
+              http:
+                paths:
+                  - path: /subpath
+                    pathType: Prefix
+                    backend:
+                      service:
+                        name: test-release-name-common-test
                         port:
                           number: 8080
 

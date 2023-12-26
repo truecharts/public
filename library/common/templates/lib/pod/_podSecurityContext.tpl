@@ -40,7 +40,11 @@ objectData: The object data to be used to render the Pod.
   {{- $podSelected := false -}}
 
   {{- range $persistenceName, $persistenceValues := $rootCtx.Values.persistence -}}
-    {{- if $persistenceValues.enabled -}}
+    {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
+                  "rootCtx" $rootCtx "objectData" $persistenceValues
+                  "name" $persistenceName "caller" "Pod Security Context"
+                  "key" "persistence")) -}}
+    {{- if (eq $enabled "true") -}}
       {{- if $persistenceValues.targetSelectAll -}}
         {{- $podSelected = true -}}
       {{- else if and $persistenceValues.targetSelector (kindIs "map" $persistenceValues.targetSelector) -}}

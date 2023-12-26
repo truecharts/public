@@ -8,14 +8,27 @@
   {{- with $override -}}
     {{- $name := .name -}}
     {{- $expandName := (include "tc.v1.common.lib.util.expandName" (dict
-        "rootCtx" $rootCtx "objectData" . "name" .name
+        "rootCtx" $rootCtx "objectData" . "name" $name
         "caller" "Ingress" "key" "overrideService"
     )) -}}
 
+    {{/* Init */}}
+    {{- $expName := $name -}}
+
+    {{/* Expand if needed */}}
     {{- if eq $expandName "true" -}}
-      {{- $name = (printf "%s-%s" $fullname .name) -}}
+      {{/* But first check if the svc is primary */}}
+      {{- $svc := (get $rootCtx.Values.service $name) | default dict -}}
+
+      {{- if $svc.primary -}} {{/* If primary, use fullname */}}
+        {{- $expName = $fullname -}}
+      {{- else -}} {{/* If not primary, use fullname + name */}}
+        {{- $expName = (printf "%s-%s" $fullname $name) -}}
+      {{- end -}}
+
     {{- end -}}
-    {{- $svcData = (dict "name" $name "port" .port) -}}
+
+    {{- $svcData = (dict "name" $expName "port" .port) -}}
   {{- end -}}
 
   {{- $svcData | toYaml -}}

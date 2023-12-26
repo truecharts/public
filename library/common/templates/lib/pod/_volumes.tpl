@@ -9,7 +9,11 @@ objectData: The object data to be used to render the Pod.
   {{- $objectData := .objectData -}}
 
   {{- range $name, $persistenceValues := $rootCtx.Values.persistence -}}
-    {{- if $persistenceValues.enabled -}}
+    {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
+                  "rootCtx" $rootCtx "objectData" $persistenceValues
+                  "name" $name "caller" "Volumes"
+                  "key" "persistence")) -}}
+    {{- if (eq $enabled "true") -}}
       {{- $persistence := (mustDeepCopy $persistenceValues) -}}
       {{- $_ := set $persistence "shortName" $name -}}
 

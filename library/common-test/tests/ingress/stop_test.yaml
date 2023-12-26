@@ -91,3 +91,26 @@ tests:
       - documentIndex: *ingressDoc
         isNull:
           path: spec.ingressClassName
+
+  - it: should ignore isStopped in ixChartContext
+    set:
+      operator: *operator
+      global:
+        namespace: ix-something
+        ignoreIsStopped: true
+        ixChartContext:
+          storageClassName: some-storage-class
+          isStopped: true
+      service: *service
+      ingress: *ingress
+    asserts:
+      - documentIndex: &ingressDoc 1
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        isNull:
+          path: spec.ingressClassName

@@ -13,8 +13,13 @@ objectData: The object data to be used to render the container.
   {{- $codeServerIgnoredTypes := (list "configmap" "secret" "vct") -}}
 
   {{- range $persistenceName, $persistenceValues := $rootCtx.Values.persistence -}}
+    {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
+                  "rootCtx" $rootCtx "objectData" $persistenceValues
+                  "name" $persistenceName "caller" "Volume Mount"
+                  "key" "persistence")) -}}
+
     {{/* TLDR: Enabled + Not VCT without STS */}}
-    {{- if and $persistenceValues.enabled (not (and (eq $persistenceValues.type "vct") (ne $objectData.podType "StatefulSet"))) -}}
+    {{- if and (eq $enabled "true") (not (and (eq $persistenceValues.type "vct") (ne $objectData.podType "StatefulSet"))) -}}
       {{/* Dont try to mount configmap/sercet/vct to codeserver */}}
       {{- if not (and (eq $objectData.shortName "codeserver") (mustHas $persistenceValues.type $codeServerIgnoredTypes)) -}}
         {{- $volMount := (fromJson (include "tc.v1.common.lib.container.volumeMount.isSelected" (dict "persistenceName" $persistenceName "persistenceValues" $persistenceValues "objectData" $objectData))) -}}

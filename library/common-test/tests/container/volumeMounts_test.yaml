@@ -952,6 +952,78 @@ tests:
             mountPath: /dev/sdb
             readOnly: false
 
+  - it: should respect tpl in enabled
+    set:
+      image: *image
+      flag: false
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+      persistence:
+        some-vol:
+          enabled: "{{ .Values.flag }}"
+          type: emptyDir
+          mountPath: /some/path
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.volumes
+          value:
+            - name: devshm
+              emptyDir:
+                medium: Memory
+                sizeLimit: 8Gi
+            - name: shared
+              emptyDir: {}
+            - name: tmp
+              emptyDir:
+                medium: Memory
+                sizeLimit: 8Gi
+            - name: varlogs
+              emptyDir:
+                medium: Memory
+                sizeLimit: 8Gi
+            - name: varrun
+              emptyDir:
+                medium: Memory
+                sizeLimit: 8Gi
+
+      - documentIndex: *deploymentDoc
+        equal:
+          # some-vol should not be present
+          path: spec.template.spec.containers[0].volumeMounts
+          value:
+            - mountPath: /dev/shm
+              name: devshm
+              readOnly: false
+            - mountPath: /shared
+              name: shared
+              readOnly: false
+            - mountPath: /tmp
+              name: tmp
+              readOnly: false
+            - mountPath: /var/logs
+              name: varlogs
+              readOnly: false
+            - mountPath: /var/run
+              name: varrun
+              readOnly: false
+
   # Failures
   - it: should fail with invalid mountPropagation
     set:

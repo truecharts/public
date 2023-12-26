@@ -52,7 +52,11 @@ objectData: The object data to be used to render the container.
 
   {{- $mustPrivileged := false -}}
   {{- range $persistenceName, $persistenceValues := $rootCtx.Values.persistence -}}
-    {{- if $persistenceValues.enabled -}}
+    {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
+                  "rootCtx" $rootCtx "objectData" $persistenceValues
+                  "name" $persistenceName "caller" "Security Context"
+                  "key" "persistence")) -}}
+    {{- if (eq $enabled "true") -}}
       {{- if eq $persistenceValues.type "device" -}}
         {{- $volume := (fromJson (include "tc.v1.common.lib.container.volumeMount.isSelected" (dict "persistenceName" $persistenceName "persistenceValues" $persistenceValues "objectData" $objectData "key" "persistence"))) -}}
         {{- if $volume -}} {{/* If a volume is returned, it means that the container has an assigned device */}}
