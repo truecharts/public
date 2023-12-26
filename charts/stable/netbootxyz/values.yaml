@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/truecharts/netbootxyz
+  repository: ghcr.io/netbootxyz/netbootxyz
   pullPolicy: IfNotPresent
-  tag: v0.6.7@sha256:5a02a07a856c8a5130d0fa1726a8f7f94724a55d7ddb5d4305a21fda28291d26
+  tag: 0.7.0-nbxyz2@sha256:87336e9cb3d0d9edcb9e8d627137f663cf437f96c62680db216373e317b31407
 
 securityContext:
   container:
@@ -18,13 +18,6 @@ workload:
     podSpec:
       containers:
         main:
-          probes:
-            liveness:
-              type: http
-            readiness:
-              type: http
-            startup:
-              type: http
           env:
             MENU_VERSION: ""
 
@@ -54,7 +47,8 @@ service:
 
 ingress:
   assets:
-    autoLink: true
+    targetSelector:
+      assets: assets
 
 persistence:
   config:
