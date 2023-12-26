@@ -46,12 +46,8 @@ workload:
           args:
             - >
               if [ -f /data/configuration.yaml ] || [ ${USE_CUSTOM_CONFIG_FILE} == true ]; then
-
-
                 echo "Initial configuration exists or User selected to use custom configuration file. Skipping...";
               else
-
-
                 echo "Creating initial configuration";
                 touch /data/configuration.yaml;
                 echo "# Configuration bellow will be always be overridden" >> /data/configuration.yaml;
@@ -96,6 +92,5 @@ workload:
             # ZIGBEE2MQTT_CONFIG_MQTT_BASE_TOPIC: "zigbee2mqtt"
             # ZIGBEE2MQTT_CONFIG_SERIAL_PORT: "/dev/ttyUSB0"
             # ZIGBEE2MQTT_CONFIG_SERIAL_ADAPTER: "auto"
-
             ZIGBEE2MQTT_CONFIG_MQTT_USER: ""
             ZIGBEE2MQTT_CONFIG_MQTT_PASSWORD: ""
