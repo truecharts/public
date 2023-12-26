@@ -40,7 +40,9 @@ spec:
   {{- with $objectData.config }}
   config:
     {{- range $k, $v := . }}
+    {{- if $v -}}
     {{ $k }}: {{ tpl (toString $v) $rootCtx | quote }}
+    {{- end -}}
     {{- end -}}
   {{- end -}}
   {{- with $objectData.backupSyncPeriod }}
