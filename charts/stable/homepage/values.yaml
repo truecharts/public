@@ -42,7 +42,11 @@ persistence:
   bookmarks-config:
     # Only enable when not using homepageConfig
     enabled: "{{ not .Values.forceConfigFromValues }}"
-    mountPath: /app/config/bookmarks.yaml
+    mountPath: /dummy-config/bookmarks.yaml
+    subPath: bookmarks.yaml
+    readOnly: true
+    type: "configmap"
+    objectName: bookmarks-config
     targetSelector:
       main:
         init-config: {}
