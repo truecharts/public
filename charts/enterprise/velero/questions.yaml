@@ -15,6 +15,12 @@ questions:
             type: dict
             additional_attrs: true
             attrs:
+              - variable: enabled
+                label: "Enabled"
+                schema:
+                  type: boolean
+                  hidden: true
+                  default: true
               - variable: name
                 label: "Name"
                 schema:
@@ -152,6 +158,12 @@ questions:
             type: dict
             additional_attrs: true
             attrs:
+              - variable: enabled
+                label: "Enabled"
+                schema:
+                  type: boolean
+                  hidden: true
+                  default: true
               - variable: name
                 label: "Name"
                 schema:
