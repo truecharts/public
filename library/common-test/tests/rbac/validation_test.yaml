@@ -252,6 +252,25 @@ tests:
       - failedTemplate:
           errorMessage: RBAC - Expected non-empty [rbac.subjects.apiGroup]
 
+  - it: should fail with empty entry in resourceName in rules in rbac
+    set:
+      rbac:
+        my-rbac:
+          enabled: true
+          primary: true
+          rules:
+            - apiGroups:
+                - ""
+              resources:
+                - pods
+              resourceNames:
+                - ""
+              verbs:
+                - get
+    asserts:
+      - failedTemplate:
+          errorMessage: RBAC - Expected non-empty entry in [rbac.rules.resourceNames]
+
   - it: should fail with namespace longer than 63 characters
     set:
       serviceAccount:

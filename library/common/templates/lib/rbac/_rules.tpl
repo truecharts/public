@@ -36,7 +36,17 @@ objectData: The object data to be used to render the RBAC.
         {{- fail "RBAC - Expected non-empty entry in [rbac.rules.resources]" -}}
       {{- end }}
   - {{ tpl . $rootCtx | quote }}
-      {{- end -}}
+    {{- end -}}
+  {{- /* resourceNames */}}
+  {{- if .resourceNames }}
+  resourceNames:
+    {{- range .resourceNames -}}
+      {{- if not . -}}
+        {{- fail "RBAC - Expected non-empty entry in [rbac.rules.resourceNames]" -}}
+      {{- end }}
+  - {{ tpl . $rootCtx | quote }}
+    {{- end -}}
+  {{- end -}}
   {{- /* verbs */}}
   verbs:
     {{- range .verbs -}}

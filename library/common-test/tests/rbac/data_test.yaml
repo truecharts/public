@@ -35,6 +35,8 @@ tests:
                 - "{{ .Values.some_group }}"
               resources:
                 - "{{ .Values.some_resource }}"
+              resourceNames:
+                - "{{ .Values.some_name }}"
               verbs:
                 - "{{ .Values.some_verb }}"
           subjects:
@@ -67,6 +69,8 @@ tests:
                 - apps
               resources:
                 - deployments
+              resourceNames:
+                - some-name
               verbs:
                 - list
       - documentIndex: &roleBinding 3
