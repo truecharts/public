@@ -32,6 +32,10 @@ persistence:
   config:
     enabled: true
     mountPath: /app/config
+    targetSelector:
+      main:
+        main: {}
+        init-config: {}
   kubernetes-config:
     enabled: true
     mountPath: /app/config/kubernetes.yaml
