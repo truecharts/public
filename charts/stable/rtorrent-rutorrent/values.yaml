@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/crazy-max/rtorrent-rutorrent
   pullPolicy: IfNotPresent
-  tag: 4.2.9-0.9.8-0.13.8@sha256:4e0df24d4f168d705c9864dad04e99c1c55c9e987e7bf0b6b0c84efb686ef858
+  tag: 4.2.9-0.9.8_2-0.13.8_1@sha256:8d089b00282a203886361268d9210106956302c2194e75ae56982a6f0398aef9
 
 securityContext:
   container:
@@ -57,6 +57,19 @@ workload:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              exec:
+                command:
+                  - /usr/local/bin/healthcheck
+            readiness:
+              exec:
+                command:
+                  - /usr/local/bin/healthcheck
+            startup:
+              exec:
+                command:
+                  - /usr/local/bin/healthcheck
           env:
             RUTORRENT_PORT: "{{ .Values.service.main.ports.main.port }}"
             PORT_RTORRENT: "{{ .Values.service.rtorrent.ports.rtorrent.port }}"

@@ -1,16 +1,16 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: drawio
-version: 8.0.0
+version: 8.0.1
 appVersion: 22.1.11
 description: Drawio is free online diagram software.
 home: https://truecharts.org/charts/stable/drawio
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/drawio.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/drawio
   - https://hub.docker.com/r/jgraph/drawio
   - https://github.com/jgraph/drawio
+  - https://github.com/truecharts/charts/tree/master/charts/stable/drawio
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -19,7 +19,7 @@ keywords:
   - drawio
 dependencies:
   - name: common
-    version: 17.1.0
+    version: 17.1.4
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

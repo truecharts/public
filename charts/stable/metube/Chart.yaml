@@ -1,8 +1,8 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: metube
-version: 10.0.0
-appVersion: "2023-12-13"
+version: 10.0.1
+appVersion: "2023"
 description: Web GUI for youtube-dl.
 home: https://truecharts.org/charts/stable/metube
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/metube.png
@@ -20,7 +20,7 @@ keywords:
   - media
 dependencies:
   - name: common
-    version: 17.1.0
+    version: 17.1.4
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

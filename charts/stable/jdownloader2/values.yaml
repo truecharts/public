@@ -22,6 +22,12 @@ service:
         enabled: true
         port: 10056
         targetPort: 5900
+ingress:
+  main:
+    integrations:
+      homepage:
+        widget:
+          type: jdownloader
 jdownloader:
   # General Settings
   KEEP_APP_RUNNING: false

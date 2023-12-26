@@ -1,8 +1,8 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: modsecurity-crs
-version: 2.0.0
-appVersion: 3.3.4-apache-202307110507
+version: 2.0.1
+appVersion: 3.3.4
 description: ModSecurity is an open source, cross platform Web Application Firewall (WAF) engine.
 home: https://truecharts.org/charts/stable/modsecurity-crs
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/modsecurity-crs.png
@@ -21,7 +21,7 @@ keywords:
   - networking
 dependencies:
   - name: common
-    version: 17.1.0
+    version: 17.1.4
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

@@ -1,16 +1,16 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: immich
-version: 11.0.0
+version: 12.0.1
 appVersion: 1.88.2
 description: High performance self-hosted photo and video backup solution.
 home: https://truecharts.org/charts/stable/immich
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/immich.png
 deprecated: false
 sources:
-  - https://github.com/immich-app/immich
   - https://github.com/truecharts/charts/tree/master/charts/stable/immich
-  - https://hub.docker.com/r/typesense/typesense
+  - https://hub.docker.com/r/altran1502/immich-server
+  - https://github.com/immich-app/immich
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -19,14 +19,14 @@ keywords:
   - photos
 dependencies:
   - name: common
-    version: 17.1.0
+    version: 17.1.4
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 10.0.17
+    version: 11.0.2
     repository: https://deps.truecharts.org
     condition: redis.enabled
     alias: ""
