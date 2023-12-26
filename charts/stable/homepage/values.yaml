@@ -68,7 +68,7 @@ configmap:
       kubernetes.yaml: |
         mode: cluster
   bookmarks-config:
-    enabled: true
+    enabled: "{{ .Values.valuesBookmark }}"
     data:
       bookmarks.yaml: |
       # Our bookmark shit goes here
