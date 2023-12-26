@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/truecharts/nextcloud-fpm
   pullPolicy: IfNotPresent
-  tag: v28.0.0@sha256:9c9d396e402d9da43d2e83dbd4d44f3970a559c7c05289958c30ffe0dea930b3
+  tag: v28.0.1@sha256:060284d5c124000da874524b7cec4aed6f889b3021d7df80b7919541acbefca2
 nginxImage:
   repository: nginxinc/nginx-unprivileged
   pullPolicy: IfNotPresent
@@ -21,7 +21,7 @@ clamavImage:
 collaboraImage:
   repository: collabora/code
   pullPolicy: IfNotPresent
-  tag: 23.05.6.3.1@sha256:6d21951e6376be4a12009b5058c57f3da7df06faf05c62406030b3652a3e78f6
+  tag: 23.05.6.4.1@sha256:46534fe0ed6208797c6711f29d5e85a8a3e554c9debbfe7ff0587b1f2710465e
 nextcloud:
   # Initial Credentials
   credentials:
