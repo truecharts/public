@@ -210,7 +210,7 @@ configmap:
         ---
         # For configuration options and examples, please see:
         # https://gethomepage.dev/latest/configs/settings
-        
+
         providers:
           openweathermap: openweathermapapikey
           weatherapi: weatherapiapikey
@@ -218,12 +218,12 @@ configmap:
         ---
         # For configuration options and examples, please see:
         # https://gethomepage.dev/latest/configs/widgets
-        
+
         - resources:
             cpu: true
             memory: true
             disk: /
-        
+
         - search:
             provider: duckduckgo
             target: _blank
@@ -232,17 +232,17 @@ configmap:
         ---
         # For configuration options and examples, please see:
         # https://gethomepage.dev/latest/configs/services
-        
+
         - Arr:
             - My First Service:
                 href: http://localhost/
                 description: Homepage is awesome
-        
+
         - Media:
             - My Second Service:
                 href: http://localhost/
                 description: Homepage is the best
-        
+
         - Infra:
             - My Third Service:
                 href: http://localhost/
@@ -251,22 +251,22 @@ configmap:
         ---
         # For configuration options and examples, please see:
         # https://gethomepage.dev/latest/configs/bookmarks
-        
+
         - Developer:
             - Github:
                 - abbr: GH
                   href: https://github.com/
-        
+
         - Social:
             - Reddit:
                 - abbr: RE
                   href: https://reddit.com/
-        
+
         - Entertainment:
             - YouTube:
                 - abbr: YT
                   href: https://youtube.com/
-       
+
         - TrueCharts:
             - TrueCharts:
               - abbr: TC

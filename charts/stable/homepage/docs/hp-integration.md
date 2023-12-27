@@ -7,7 +7,7 @@ This guide will cover how to use the TrueCharts/Homepage integration included in
 GitHub: <https://github.com/gethomepage/homepage>
 Website: <https://gethomepage.dev/>
 
-:::warning  INGRESS REQUIRED
+:::warning INGRESS REQUIRED
 For Homepage to "discover" your apps, Ingress is required using our ingress configuration guidelines and the integration options for the chart configuration. Otherwise, all Kubernetes features can be used with manual configuration of Homepage via its configuration YAML files.
 :::
 
@@ -18,9 +18,9 @@ For Homepage to "discover" your apps, Ingress is required using our ingress conf
 
 If you wish to make use of the metrics components of Homepage, you can enable the metrics server in Cobia. Currently, there is no GUI option for this, but it should be available in a future release. As such, this falls under advanced usage. It's advised to make a backup before running the following command. This command will force all your apps to restart, so be aware.
 
-```midclt call -job kubernetes.update '{"metrics_server": true}'```
+`midclt call -job kubernetes.update '{"metrics_server": true}'`
 
-You can then run ```k3s kubectl top pods -A``` once all apps have resumed to confirm the metrics server is running properly.
+You can then run `k3s kubectl top pods -A` once all apps have resumed to confirm the metrics server is running properly.
 
 You can then add the following to your widgets.yaml file to add the cluster/node resources display:
 
@@ -38,7 +38,7 @@ You can then add the following to your widgets.yaml file to add the cluster/node
       label: "ChangeMe"
     nodes:
       # Shows node-specific statistics
-      show: false # Set to True in Clustered Kubernetes environments 
+      show: false # Set to True in Clustered Kubernetes environments
       # Shows the CPU for each node
       cpu: true
       # Shows the memory for each node
