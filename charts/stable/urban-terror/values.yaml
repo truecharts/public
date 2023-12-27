@@ -29,7 +29,6 @@ workload:
           env:
             CHECK_FOR_UPDATES: "true"
             START_PARAMS: ""
-            UMASK: "000"
           probes:
             liveness:
               enabled: false
