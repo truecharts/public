@@ -33,9 +33,3 @@ service:
         port: 6080
         protocol: tcp
         targetPort: 6080
-workload:
-  main:
-    podSpec:
-      containers:
-        main:
-          env:
