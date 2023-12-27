@@ -35,12 +35,6 @@ questions:
                                         schema:
                                           type: string
                                           default: ""
-                                      - variable: UMASK
-                                        label: "UMASK"
-                                        description: "Permissions for newly created files. Dont change unless you are knowing what you are doing!"
-                                        schema:
-                                          type: string
-                                          default: "000"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
