@@ -12,3 +12,7 @@
 ## Storage Access
 
 - Mount Hostpath to `App Data Storage` and point it to the location you want to access from filebrowser
+
+## Additional App Storage
+
+- To add `Additional App Storage` add `/data` to the beginning of the `Mount Path`. For example, if you want to add a mount for `/photos` the `Mount Path` would be `/data/photos`.
