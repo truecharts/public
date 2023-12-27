@@ -67,6 +67,7 @@ workload:
       containers:
         main:
           env:
+            MANAGE_HTTPS_PORT: "{{ .Values.service.main.ports.main.port }}"
             PORTAL_HTTPS_PORT: "{{ .Values.service.comm.ports.comm.port }}"
           probes:
             startup:
