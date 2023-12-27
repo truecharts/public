@@ -1,15 +1,15 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: flextv
-version: 4.0.1
+version: 4.0.2
 appVersion: latest
 description: A super-sexy voice interface for the Plex HTPC.
-home: https://truecharts.org/charts/incubator/flextv
+home: https://truecharts.org/charts/stable/flextv
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/flextv.png
 deprecated: false
 sources:
   - https://registry.hub.docker.com/r/jcreynolds/flextv/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/flextv
+  - https://github.com/truecharts/charts/tree/master/charts/stable/flextv
   - https://hub.docker.com/r/jcreynolds/flextv
   - https://github.com/d8ahazard/FlexTV
 maintainers:
@@ -34,5 +34,5 @@ annotations:
   truecharts.org/category: MediaApp
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 type: application
