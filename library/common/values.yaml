@@ -593,6 +593,8 @@ ingress:
         entrypoints:
           - websecure
         enableFixedMiddlewares: true
+        # Ensures tls annotation is set
+        forceTLS: true
         # Drops both global and local fixedMiddlewares when enabled
         allowCors: false
         # fixedMiddlewares:
