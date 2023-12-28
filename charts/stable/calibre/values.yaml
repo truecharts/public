@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/linuxserver/calibre
-  tag: 7.1.0@sha256:f15c4bceb66ab7554726ac50630ce8a6d04a50654cf2c4679db8c08cafe14ef4
+  tag: 7.2.0@sha256:34f54bb6b76e792a3faf6ae6056da23f2042ac201780ab928901f966ad99b83d
   pullPolicy: IfNotPresent
 securityContext:
   container:
@@ -23,6 +23,10 @@ service:
         port: 8081
         protocol: http
         targetPort: 8081
+ingress:
+  webserver:
+    targetSelector:
+      webserver: webserver
 workload:
   main:
     podSpec:

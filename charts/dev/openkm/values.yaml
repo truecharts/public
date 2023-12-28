@@ -1,0 +1,50 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: openkm/openkm-ce
+  tag: 6.3.12@sha256:4491acfc5ad9b1f9357fc5daea575eb7b0c09ba9898824c0558663104912de08
+workload:
+  main:
+    podSpec:
+      initContainers:
+        init:
+          enabled: true
+          command:
+            - /config/init/init.sh
+          image: "{{ .Values.ubuntuImage.repository }}:{{ .Values.ubuntuImage.tag }}"
+          volumeMounts:
+            - mountPath: /config/init
+              name: init
+            - mountPath: /opt/tomcat
+              name: config
+persistence:
+  config:
+    enabled: true
+    mountPath: /opt/tomcat/repository
+  init:
+    enabled: "true"
+    mountPath: /config/init
+    readOnly: true
+    type: custom
+    volumeSpec:
+      configMap:
+        defaultMode: "0777"
+        name: "init"
+portal:
+  open:
+    enabled: true
+cnpg:
+  main:
+    enabled: true
+    database: openkm
+    user: openkm
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10090
+        targetPort: 8080

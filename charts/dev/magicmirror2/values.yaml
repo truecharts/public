@@ -1,0 +1,52 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ich777/magic-mirror2
+  tag: latest@sha256:92e2fe5fb98791aba510e1be122bd1d659fa396a48dbafa0894ebc044df07651
+magicmirror:
+  force_update: false
+  force_update_modules: false
+persistence:
+  config:
+    enabled: true
+    mountPath: /magicmirror2
+  configfile:
+    enabled: true
+    mountPath: /tmp/config.js
+    objectName:
+      '{{ printf "%s-magicmirror-config" (include "tc.common.names.fullname"
+      .) }}'
+    subPath: config.js
+    type: configMap
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10590
+        protocol: http
+        targetPort: 10000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          envFrom:
+            - configMapRef:
+                name: "magicmirror-env"
+          probes:
+            liveness:
+              path: /
+              type: http
+            readiness:
+              path: /
+              type: http
+            startup:
+              path: /
+              type: http

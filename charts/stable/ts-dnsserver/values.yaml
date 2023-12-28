@@ -1,0 +1,31 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: roxedus/ts-dnsserver
+  tag: latest@sha256:c90a19df4109af103a1629800522ec2734a2117c1e667b6ab9a7b77266af4ab8
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  dnsport:
+    enabled: true
+    ports:
+      dnsport:
+        enabled: true
+        port: 53
+        protocol: udp
+        targetPort: 53
+  main:
+    ports:
+      main:
+        port: 5380
+        protocol: http
+        targetPort: 5380

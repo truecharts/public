@@ -1,8 +1,0 @@
-{{/* Make sure all variables are set properly */}}
-{{- include "tc.common.loader.init" . }}
-
-{{/* Render secret */}}
-{{- include "terraria.secret" . }}
-
-{{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}

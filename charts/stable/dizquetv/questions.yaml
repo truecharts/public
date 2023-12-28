@@ -10,6 +10,18 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: imageSelector
+                                  label: Select Image
+                                  schema:
+                                    type: string
+                                    default: image
+                                    enum:
+                                      - value: image
+                                        description: Image
+                                      - value: nvidiaImage
+                                        description: Nvidia Image
+
 # Include{containerBasic}
 # Include{containerAdvanced}
 

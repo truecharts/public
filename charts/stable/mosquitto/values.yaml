@@ -35,7 +35,8 @@ workload:
               port: 1883
 ingress:
   websockets:
-    autoLink: true
+    targetSelector:
+      websockets: websockets
 auth:
   # -- By enabling this, `allow_anonymous` gets set to `false` in the mosquitto config.
   enabled: false

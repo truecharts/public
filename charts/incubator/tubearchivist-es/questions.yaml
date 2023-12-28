@@ -10,41 +10,37 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
 
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: ELASTIC_PASSWORD
-          label: "ELASTIC_PASSWORD"
-          description: "Container Variable ELASTICPASSWORD"
-          schema:
-            type: string
-            default: "verysecret"
-        - variable: ES_JAVA_OPTS
-          label: "ES_JAVA_OPTS"
-          description: "Container Variable ESJAVAOPTS"
-          schema:
-            type: string
-            default: "-Xms512m -Xmx512m"
-        - variable: discovery.type
-          label: 'discovery.type'
-          description: "Container Variable discovery.type"
-          schema:
-            type: string
-            default: "single-node"
-        - variable: xpack.security.enabled
-          label: 'xpack.security.enabled'
-          description: "Container Variable xpack.security.enabled"
-          schema:
-            type: string
-            default: "true"
-# Include{containerConfig}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: ELASTIC_PASSWORD
+                                        label: "ELASTIC_PASSWORD"
+                                        description: "Container Variable ELASTICPASSWORD"
+                                        schema:
+                                          type: string
+                                          default: "verysecret"
+                                      - variable: ES_JAVA_OPTS
+                                        label: "ES_JAVA_OPTS"
+                                        description: "Container Variable ESJAVAOPTS"
+                                        schema:
+                                          type: string
+                                          default: "-Xms512m -Xmx512m"
+                                      - variable: discovery.type
+                                        label: 'discovery.type'
+                                        description: "Container Variable discovery.type"
+                                        schema:
+                                          type: string
+                                          default: "single-node"
+                                      - variable: xpack.security.enabled
+                                        label: 'xpack.security.enabled'
+                                        description: "Container Variable xpack.security.enabled"
+                                        schema:
+                                          type: string
+                                          default: "true"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

@@ -1,0 +1,31 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: modem7/newyearcountdown
+  tag: latest@sha256:6ca1505ff8d26c10d2446d557c3c79e96a00d47bd7ff2f5bd5871627ecb39077
+persistence: {}
+portal:
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

@@ -1,0 +1,26 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: guhu007/auto-yt-dl
+  tag: latest@sha256:5e8ecdcc8bf820015f7b16368d80985285409ae880d80371c0de2bf8425fda77
+persistence:
+  data:
+    enabled: true
+    mountPath: /app/data
+  hostpath1:
+    enabled: true
+    mountPath: /app/Downloads
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 5000
+        protocol: tcp
+        targetPort: 5000

@@ -1,21 +1,17 @@
-kubeVersion: ">=1.16.0-0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: prometheus
-version: 13.0.22
-appVersion: 2.48.0
-description:
-  kube-prometheus-stack collects Kubernetes manifests, Grafana dashboards,
-  and Prometheus rules combined with documentation and scripts to provide easy to
-  operate end-to-end Kubernetes cluster monitoring with Prometheus using the Prometheus
-  Operator.
+version: 16.0.2
+appVersion: 2.48.1
+description: kube-prometheus-stack collects Kubernetes manifests, Grafana dashboards, and Prometheus rules combined with documentation and scripts to provide easy to operate end-to-end Kubernetes cluster monitoring with Prometheus using the Prometheus Operator.
 home: https://truecharts.org/charts/enterprise/prometheus
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/prometheus.png
 deprecated: false
 sources:
-  - https://hub.docker.com/r/bitnami/prometheus
-  - https://github.com/prometheus-community/helm-charts
   - https://github.com/prometheus-operator/kube-prometheus
   - https://github.com/truecharts/charts/tree/master/charts/enterprise/prometheus
+  - https://hub.docker.com/r/bitnami/prometheus
+  - https://github.com/prometheus-community/helm-charts
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -24,25 +20,32 @@ keywords:
   - metrics
 dependencies:
   - name: common
-    version: 14.3.5
+    version: 17.1.4
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: node-exporter
-    version: 3.0.40
+    version: 6.0.3
     repository: https://deps.truecharts.org
     condition: exporters.enabled,exporters.node-exporter.enabled
     alias: ""
     tags: []
     import-values: []
   - name: kube-state-metrics
-    version: 3.0.38
+    version: 6.0.3
     repository: https://deps.truecharts.org
     condition: exporters.enabled,exporters.kube-state-metrics.enabled
     alias: ""
     tags: []
     import-values: []
 annotations:
-  "truecharts.org/category": metrics
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: metrics
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: enterprise
+type: application

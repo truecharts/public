@@ -1,6 +1,6 @@
 image:
   repository: seafileltd/seafile-mc
-  tag: 11.0.2@sha256:c4637b24b87f29dabb886e41f5a7563ae289091168578e85d20a7c4026a263c3
+  tag: 11.0.3@sha256:2823eda58bd83b83a21aa874409768b6d6ed57f899f715fcf58edb8d6e6cad2f
   pullPolicy: IfNotPresent
 service:
   main:
@@ -32,7 +32,7 @@ workload:
                 name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: mariadb-root-password
             SEAFILE_SERVER_LETSENCRYPT: false
-            SEAFILE_SERVER_HOSTNAME: "{{ if .Values.ingress }}{{ if .Values.ingress.main.enabled }}{{ ( index .Values.ingress.main.hosts 0 ).host }}{{ else }}placeholder.com{{ end }}{{ else }}placeholder.com{{ end }}"
+            SEAFILE_SERVER_HOSTNAME: ""
             SEAFILE_ADMIN_EMAIL: me@example.com
             SEAFILE_ADMIN_PASSWORD: a_very_secret_password
             FORCE_HTTPS_IN_CONF: false

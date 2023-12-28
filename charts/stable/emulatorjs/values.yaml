@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/linuxserver/emulatorjs
   pullPolicy: IfNotPresent
-  tag: 1.7.3@sha256:263feb12593e15445b6f9e11a42216a9f03c57a4a4e78ab5ed33f7377f2eb808
+  tag: 1.7.3@sha256:80d0e5ddad5bc8c2a9ba76af9d69808245ae4a972089cb2878eb078ea5c20345
 securityContext:
   container:
     runAsNonRoot: false
@@ -30,7 +30,8 @@ service:
         port: 10138
 ingress:
   front:
-    autoLink: true
+    targetSelector:
+      front: front
 workload:
   main:
     podSpec:

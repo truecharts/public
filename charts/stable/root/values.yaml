@@ -1,0 +1,23 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: bgameiro/arch-cern-root
+  tag: latest@sha256:c3564208c619f05e6b5f81a2bac9fcb0cae5bfe8e522e60f7c3875566e5751ca
+persistence:
+  appdata:
+    enabled: true
+    mountPath: /appdata
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 9999
+        protocol: tcp
+        targetPort: 8888

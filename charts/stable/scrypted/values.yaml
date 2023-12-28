@@ -1,0 +1,45 @@
+image:
+  repository: koush/scrypted
+  tag: 18-jammy-full-v0.68.0@sha256:c95bd5a65edd8ba132fd9425c7052ea88bd82936afc50391e21d66a671c48329
+  pullPolicy: Always
+liteImage:
+  repository: koush/scrypted
+  tag: 18-jammy-lite-v0.68.0@sha256:adaed0c9d08f2b4ccfb1369548c65104787e1b8db04a550e6ea7909145d400bc
+  pullPolicy: Always
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 10611
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          imageSelector: image
+          env:
+            SCRYPTED_INSECURE_PORT: "{{ .Values.service.main.ports.main.port }}"
+            # SCRYPTED_WEBHOOK_UPDATE_AUTHORIZATION: Bearer SET_THIS_TO_SOME_RANDOM_TEXT
+            # SCRYPTED_WEBHOOK_UPDATE: http://localhost:10444/v1/update
+
+persistence:
+  server:
+    enabled: true
+    mountPath: /server/volume
+  media:
+    enabled: true
+    mountPath: /media/external
+
+portal:
+  open:
+    enabled: true

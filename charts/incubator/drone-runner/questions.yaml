@@ -10,50 +10,43 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: DRONE_RPC_HOST
+                                        label: "DRONE_RPC_HOST"
+                                        description: "DRONE RPC HOST"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          required: true
+                                      - variable: DRONE_RPC_PROTO
+                                        label: "DRONE_RPC_PROTO"
+                                        description: "DRONE RPC PROTO"
+                                        schema:
+                                          type: string
+                                          default: "http"
+                                          required: true
+                                          enum:
+                                            - value: "http"
+                                              description: "http"
+                                            - value: "https"
+                                              description: "https"
+                                      - variable: DRONE_RPC_SECRET
+                                        label: "DRONE_RPC_SECRET"
+                                        description: "DRONE RPC SECRET"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: DRONE_RPC_HOST
-          label: "DRONE_RPC_HOST"
-          description: "DRONE RPC HOST"
-          schema:
-            type: string
-            default: ""
-            required: true
-        - variable: DRONE_RPC_PROTO
-          label: "DRONE_RPC_PROTO"
-          description: "DRONE RPC PROTO"
-          schema:
-            type: string
-            default: "http"
-            required: true
-            enum:
-              - value: "http"
-                description: "http"
-              - value: "https"
-                description: "https"
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: DRONE_RPC_SECRET
-          label: "DRONE_RPC_SECRET"
-          description: "DRONE RPC SECRET"
-          schema:
-            type: string
-            required: true
-            default: ""
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
@@ -101,12 +94,12 @@ questions:
                 schema:
                   type: int
                   default: 568
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 568
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
+                schema:
+                  type: int
+                  default: 568
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}

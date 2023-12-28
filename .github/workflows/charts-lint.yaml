@@ -62,6 +62,9 @@ jobs:
           helm repo add cnpg https://cloudnative-pg.github.io/charts
           helm repo add metallb https://metallb.github.io/metallb
           helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+          helm repo add  openebs https://openebs.github.io/charts
+          helm repo add  csi-driver-smb https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts
+          helm repo add  csi-driver-nfs https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
           helm repo update
 
       - name: Collect changes (branch-based)
@@ -99,9 +102,7 @@ jobs:
           charts_path: "./"
         run: |
           CHANGED=$(echo '${{ steps.list-changed.outputs.CHANGED_CHARTS }}' | jq --raw-output '.[]')
-          for changed in ${CHANGED}; do
-            .github/scripts/fetch_helm_deps.sh "${changed}"
-          done
+          ./charttool deps ${CHANGED}
 
       - name: Run Chart Linting
         continue-on-error: true

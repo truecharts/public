@@ -10,23 +10,23 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: APPSMITH_ADMIN_EMAILS
+                                        label: "APPSMITH_ADMIN_EMAILS"
+                                        description: "The environment variable APPSMITH_ADMIN_EMAILS can be set to a comma-separated list of email addresses, that will always be allowed to sign up"
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: APPSMITH_ADMIN_EMAILS
-          label: "APPSMITH_ADMIN_EMAILS"
-          description: "The environment variable APPSMITH_ADMIN_EMAILS can be set to a comma-separated list of email addresses, that will always be allowed to sign up"
-          schema:
-            type: string
-            default: ""
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
@@ -105,12 +105,12 @@ questions:
                 schema:
                   type: int
                   default: 0
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}

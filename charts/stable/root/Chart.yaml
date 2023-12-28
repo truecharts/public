@@ -1,0 +1,38 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: root
+version: 4.0.1
+appVersion: latest
+description: ROOT is a framework for data processing, born at CERN, at the heart of the research on high-energy physics. Every day, thousands of physicists use ROOT applications to analyze their data or to perform simulations.
+home: https://truecharts.org/charts/incubator/root
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/root.png
+deprecated: false
+sources:
+  - https://root.cern/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/root
+  - https://hub.docker.com/r/bgameiro/arch-cern-root
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - root
+  - Productivity
+  - Tools-Utilities
+dependencies:
+  - name: common
+    version: 17.1.4
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Productivity
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

@@ -1,0 +1,38 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: bokker/rss.to.telegram
+  tag: latest@sha256:2119027f7d883bfd9beb15c7e110db1a32ee7bae98af8cd3b3638c07f32c21d8
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+portal:
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            CHATID: ""
+            DELAY: "60"
+            TOKEN: ""
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

@@ -1,15 +1,9 @@
 {{/* Define the configmap */}}
 {{- define "restreamer.configmap" -}}
 
-{{- $configName := printf "%s-restreamer-configmap" (include "tc.common.names.fullname" .) }}
+{{- $configName := printf "%s-restreamer-configmap" (include "tc.v1.common.lib.chart.names.fullname" $) }}
 
----
-{{/* This configmap are loaded on both main authentik container and worker */}}
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ $configName }}
-  labels:  {{- include "tc.common.labels" . | nindent 4 }}
+enabled: true
 data:
   {{/* Paths */}}
   CORE_DB_DIR: "/core/config"

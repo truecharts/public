@@ -1,0 +1,30 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: jhthorsen/mojopaste
+  tag: latest@sha256:cbabffb2553418628948c397f2fde1662efd2a7559a6c24104b363c528299f97
+persistence:
+  data:
+    enabled: true
+    mountPath: /app/data
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 3300
+        protocol: tcp
+        targetPort: 8080
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PASTE_ENABLE_CHARTS: "0"

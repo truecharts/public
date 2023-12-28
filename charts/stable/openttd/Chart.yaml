@@ -1,0 +1,37 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: openttd
+version: 4.0.1
+appVersion: latest
+description: This Chart will download and install the version of OpenTTD that you enter in the variable 'GAME_VERSION' (if you define 'latest' it will always pull the latest build, if you define 'testing' it will always pull down the latest testing build).
+home: https://truecharts.org/charts/incubator/openttd
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/openttd.png
+deprecated: false
+sources:
+  - https://www.openttd.org/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/openttd
+  - https://hub.docker.com/r/ich777/openttdserver
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - openttd
+  - GameServers
+dependencies:
+  - name: common
+    version: 17.1.4
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: GameServers
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

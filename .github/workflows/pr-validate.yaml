@@ -73,7 +73,7 @@ jobs:
       - charts-test
       - charts-lint
       - print_head_msg
-    if: ${{ contains( needs.print_head_msg.outputs.head-commit-message, 'update container image' ) }}
+    if: ${{ contains( needs.print_head_msg.outputs.head-commit-message, 'By Renovate' ) }}
     name: Automerge and Approve build
     runs-on: ubuntu-latest
     steps:

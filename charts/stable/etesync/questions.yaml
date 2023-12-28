@@ -24,6 +24,12 @@ questions:
                                     additional_attrs: true
                                     type: dict
                                     attrs:
+                                      - variable: REGEN_INI
+                                        label: "Always recreate Config"
+                                        description: "This ensures that everytime you restart the program it recreates the config file"
+                                        schema:
+                                          type: boolean
+                                          default: true
                                       - variable: ALLOWED_HOSTS
                                         label: "ALLOWED_HOSTS"
                                         description: "Must be a valid domain or * (* is not recommended for production)"
@@ -156,6 +162,7 @@ questions:
                   default: 373
 
 # Include{resources}
+# Include{postgresql}
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}

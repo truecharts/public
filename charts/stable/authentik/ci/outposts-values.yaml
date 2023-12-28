@@ -16,3 +16,12 @@ authentik:
       # provider in the GUI
       enabled: false
       token: some_super_secret_token
+
+ingress:
+  main:
+    enabled: true
+    hosts:
+      - host: authentik.example.com
+        paths:
+          - path: /
+            pathType: Prefix

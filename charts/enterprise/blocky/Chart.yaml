@@ -1,11 +1,9 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: blocky
-version: 9.0.11
+version: 12.0.2
 appVersion: "0.22"
-description:
-  Blocky is a DNS proxy, DNS enhancer and ad-blocker for the local network
-  written in Go
+description: Blocky is a DNS proxy, DNS enhancer and ad-blocker for the local network written in Go
 home: https://truecharts.org/charts/enterprise/blocky
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/blocky.png
 deprecated: false
@@ -24,18 +22,25 @@ keywords:
   - blocky
 dependencies:
   - name: common
-    version: 14.3.5
+    version: 17.1.4
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 8.0.44
+    version: 11.0.3
     repository: https://deps.truecharts.org
     condition: redis.enabled
     alias: ""
     tags: []
     import-values: []
 annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
   truecharts.org/category: network
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: enterprise
+type: application

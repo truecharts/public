@@ -1,0 +1,40 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: megasync
+version: 5.0.1
+appVersion: latest
+description: MEGAsync can synchronize all of your devices with your MEGA account.
+home: https://truecharts.org/charts/incubator/megasync
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/megasync.png
+deprecated: false
+sources:
+  - https://github.com/ich777/docker-megasync
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/megasync
+  - https://github.com/truecharts/containers/tree/master/mirrormegasync
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - megasync
+  - Network-Other
+  - Productivity
+  - Tools-Utilities
+  - Backup
+dependencies:
+  - name: common
+    version: 17.1.4
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Network-Other
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

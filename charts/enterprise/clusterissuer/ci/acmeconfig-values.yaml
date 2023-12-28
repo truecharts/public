@@ -1,0 +1,14 @@
+clusterIssuer:
+  ACME:
+    - name: asdfasdf
+      type: acmedns
+      server: https://acme-staging-v02.api.letsencrypt.org/directory
+      email: something@example.com
+      acmednsHost: https://auth.acme-dns.io
+      acmednsConfig:
+        - domain: asdf
+          username: sdfa
+          password: asdf
+          fulldomain: asdf
+          subdomain: asdf
+          allowFrom: []

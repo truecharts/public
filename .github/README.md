@@ -8,19 +8,10 @@
 
 ---
 
-TrueCharts is a catalog of highly optimised TrueNAS SCALE Charts. Made for the community, By the community!
+TrueCharts is a catalog of highly optimised Helm Charts and TrueNAS SCALE Apps. Made for the community, By the community!
 
-Our primary goals are:
 
-- Micro-Service Centered
-
-- Native Kubernetes
-
-- Stability
-
-- Consistency
-
-All our charts are supposed to work together, be easy to setup using the TrueNAS UI and, above all, give the average user more than enough options to tune things to their liking.
+All our charts are supposed to work together, be easy to setup using both Helm and the TrueNAS UI and, above all, give the average user more than enough options to tune things to their liking.
 
 <br />
 
@@ -34,35 +25,15 @@ Installing TrueCharts within TrueNAS SCALE, is possible using the TrueNAS SCALE 
 
 Check TrueCharts [Quick-Start Guides](https://truecharts.org/manual/SCALE/guides/getting-started#adding-truecharts) for more information.
 
+For installing TrueCharts using helm:
+
+Just add the repository and call it a day!
+
 ### Support
 
 Please check our [FAQ](https://truecharts.org/manual/FAQ), [manual](https://truecharts.org/manual/intro/) and [Issue tracker](https://github.com/truecharts/charts/issues) There is a significant chance your issue has been reported before!
 
 Still something not working as expected? [Contact us!](https://discord.gg/tVsPTHWTtr) and we'll figure it out together!
-
-### Roadmap
-
-For big changes we do have a roadmap, every spot on the roadmap is synced to a TrueNAS SCALE Release and should be read as "Should be added at or before this release"
-
-<br />
-
-**Restructure of the Project - TrueNAS SCALE "Bluefin" 22.xx ALPHA 1**
-
-_The current project is hitting internal performance issues, for this reason we need to rework the structure and split some parts of the project into separate repositories._
-
-<br />
-
-**Refactor the Common Chart - TrueNAS SCALE "Bluefin" 22.xx ALPHA 2**
-
-_The shared Common (chart) basis, used by all our Charts, needs some significant code cleanup. Primarily all code needs to follow a standardised format and comply to the same standard_
-
-<br />
-
-**Increased test coverage - TrueNAS SCALE "Bluefin" 22.xx BETA 1**
-
-_With most parts of our project somewhat cleaned up, we need to work on increasing the coverage of our test system. Our unit tests should cover all features and we should also take upgrades into account when testing Chart changes_
-
-<br />
 
 ## Development
 

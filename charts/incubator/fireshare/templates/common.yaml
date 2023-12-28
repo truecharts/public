@@ -1,7 +1,0 @@
-{{- include "tc.common.loader.init" . }}
-
-{{/* Render secrets for fireshare */}}
-{{- include "fireshare.secrets" . }}
-
-{{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}

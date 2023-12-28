@@ -1,0 +1,38 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: ffmpeg-mkvdts2ac3
+version: 4.0.1
+appVersion: latest
+description: A Chart Chart designed to watch a directory and encode media files.
+home: https://truecharts.org/charts/incubator/ffmpeg-mkvdts2ac3
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/ffmpeg-mkvdts2ac3.png
+deprecated: false
+sources:
+  - https://registry.hub.docker.com/r/snoopy86/ffmpeg/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/ffmpeg-mkvdts2ac3
+  - https://hub.docker.com/r/snoopy86/ffmpeg
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - ffmpeg-mkvdts2ac3
+  - Productivity
+  - Tools-Utilities
+dependencies:
+  - name: common
+    version: 17.1.4
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Productivity
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

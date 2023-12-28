@@ -1,0 +1,103 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: rootgg/plik
+  tag: 1.3.8@sha256:cb850b05f1471c4b1f9342fa23e9bf9f98bd62fe0f58c53c83e548ec46d02ff6
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+  plikd-config:
+    enabled: true
+    mountPath: /home/plik/server/plikd.cfg
+    readOnly: true
+    subPath: plikd.cfg
+    type: custom
+    volumeSpec:
+      secret:
+        secretName: "plik-secret"
+plik:
+  features:
+    authentication: disabled
+    clients: enabled
+    comments: enabled
+    extend_ttl: disabled
+    github: enabled
+    one_shot: enabled
+    password: enabled
+    removable: enabled
+    set_ttl: enabled
+    stream: enabled
+  files:
+    data_backend: file
+    default_ttl: 30d
+    gcs:
+      bucket: ""
+      folder: ""
+    max_file_size: 10GB
+    max_files_per_upload: 1000
+    max_ttl: 30d
+    s3:
+      access_key_id: ""
+      bucket: ""
+      endpoint: ""
+      location: ""
+      part_size: 16000000
+      prefix: ""
+      secret_access_key: ""
+      sse: ""
+      use_ssl: true
+    swift:
+      api_key: ""
+      auth_url: https://auth.swiftauthapi.xxx/v2.0/
+      container: ""
+      domain: ""
+      tenant: ""
+      username: ""
+  general:
+    abuse_contact: ""
+    debug: false
+    debug_requests: false
+    log_level: INFO
+  network:
+    download_domain: something
+    download_domain_alias: []
+    enhanced_web_security: false
+    session_timeout: 365d
+    source_ip_header: ""
+    upload_whitelist: []
+  third_party:
+    google_api_client_id: ""
+    google_api_secret: ""
+    google_valid_domains: []
+    ovh_api_endpoint: https://eu.api.ovh.com/1.0
+    ovh_api_key: ""
+    ovh_api_secret: ""
+portal:
+  open:
+    enabled: true
+cnpg:
+  main:
+    enabled: true
+    database: plik
+    user: plik
+service:
+  main:
+    ports:
+      main:
+        port: 10599
+        protocol: http
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: /
+              type: http
+            readiness:
+              path: /
+              type: http
+            startup:
+              path: /
+              type: http

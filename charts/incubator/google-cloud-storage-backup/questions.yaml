@@ -8,42 +8,42 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: ACCESS_KEY
+                                        label: "ACCESS_KEY"
+                                        schema:
+                                          type: string
+                                          default: "Container Variable: ACCESS_KEY"
+                                      - variable: SECRET_KEY
+                                        label: "SECRET_KEY"
+                                        schema:
+                                          type: string
+                                          default: "Container Variable: SECRET_KEY"
+                                      - variable: GCSPATH
+                                        label: "GCSPATH"
+                                        schema:
+                                          type: string
+                                          default: "gs://mybucket/"
+                                      - variable: GCSOPTIONS
+                                        label: "GCSOPTIONS"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: CRON_SCHEDULE
+                                        label: "CRON_SCHEDULE"
+                                        schema:
+                                          type: string
+                                          default: "0 * * * *"
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: ACCESS_KEY
-          label: "ACCESS_KEY"
-          schema:
-            type: string
-            default: "Container Variable: ACCESS_KEY"
-        - variable: SECRET_KEY
-          label: "SECRET_KEY"
-          schema:
-            type: string
-            default: "Container Variable: SECRET_KEY"
-        - variable: GCSPATH
-          label: "GCSPATH"
-          schema:
-            type: string
-            default: "gs://mybucket/"
-        - variable: GCSOPTIONS
-          label: "GCSOPTIONS"
-          schema:
-            type: string
-            default: ""
-        - variable: CRON_SCHEDULE
-          label: "CRON_SCHEDULE"
-          schema:
-            type: string
-            default: "0 * * * *"
-# Include{serviceExpertRoot}
+# Include{containerConfig}
+# Include{podOptions}
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}

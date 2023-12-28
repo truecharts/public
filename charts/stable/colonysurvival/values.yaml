@@ -1,0 +1,47 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ich777/steamcmd
+  tag: colonysurvival@sha256:5b91f1aff2a0a3854cbcbcd2666036eb49849ae9486bfc817788660f02b77ce3
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 27016
+        protocol: udp
+        targetPort: 27016
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GAME_ID: "748090"
+            GAME_PARAMS: +server.gameport 27016
+            PASSWRD: ""
+            SRV_NAME: Colony Survival Docker
+            SRV_NETTYPE: SteamOnline
+            SRV_WORLDNAME: ColonySurvival
+            USERNAME: ""
+            VALIDATE: "false"
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
