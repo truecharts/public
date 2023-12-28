@@ -446,6 +446,12 @@
     },
     {
       "matchDatasources": ["docker"],
+      "versioning": "regex:^latest-(?<major>\\d{4})-(?<minor>\\d{2})-(?<patch>\\d{2})$",
+      "matchPackagePatterns": ["^wangqiru/ttrss$"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
       "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
       "matchPackagePatterns": ["^penpot\\/.*$"],
       "automerge": true,
