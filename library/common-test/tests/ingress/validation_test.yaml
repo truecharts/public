@@ -623,4 +623,4 @@ tests:
           ingressClassName: tc-stopped
     asserts:
       - failedTemplate:
-          errorMessage: Ingress - Expected [ingressClassName] to not be [stopped], this is reserved for internal use
+          errorMessage: Ingress - Expected [ingressClassName] to not be [tc-stopped], this is reserved for internal use
