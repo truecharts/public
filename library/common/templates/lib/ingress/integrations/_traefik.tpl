@@ -119,6 +119,10 @@
       {{- $_ := set $objectData.annotations "traefik.ingress.kubernetes.io/router.middlewares" (join "," $formattedMiddlewares) -}}
     {{- end -}}
 
+    {{- if or $traefik.forceTLS ( has websecure $entrypoints ) -}}
+      {{- $_ := set $objectData.annotations "traefik.ingress.kubernetes.io/router.tls" 'true' -}}
+    {{- end -}}
+
   {{- end -}}
 {{- end -}}
 
