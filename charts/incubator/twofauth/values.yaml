@@ -99,22 +99,6 @@ workload:
               secretKeyRef:
                 name: cnpg-main-user
                 key: password
-            # Redis
-            CACHE_DRIVER: redis
-            SESSION_DRIVER: redis
-            QUEUE_DRIVER: redis
-            REDIS_USERNAME: "{{ .Values.redis.redisUsername }}"
-            REDIS_PORT: 6379
-            REDIS_HOST:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
-                key: plainhost
-            REDIS_PASSWORD:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
-                key: redis-password
 
 service:
   main:
@@ -136,9 +120,6 @@ cnpg:
     enabled: true
     user: twofauth
     database: twofauth
-
-redis:
-  enabled: true
 
 portal:
   open:
