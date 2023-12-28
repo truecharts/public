@@ -103,7 +103,7 @@ podSpec:
 
             {{- $r := "" -}}
             {{- if $vol.recursive -}}
-              {{- $r = "-$" -}}
+              {{- $r = "-R" -}}
             {{- end -}}
 
             {{/* Permissions */}}
@@ -111,7 +111,7 @@ podSpec:
               echo "Automatically correcting permissions for {{ $mountPath }}..."
               before=$(stat -c "%a" {{ $mountPath }})
               chmod {{ $r }} {{ $vol.chmod }} {{ $mountPath }} || echo "Failed setting permissions using chmod..."
-              echo "Permissions after: [$before]"
+              echo "Permissions before: [$before]"
               echo "Permissions after: [$(stat -c "%a" {{ $mountPath }})]"
               echo ""
             {{- end -}}

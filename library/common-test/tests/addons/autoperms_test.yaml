@@ -249,13 +249,13 @@ tests:
               echo "Automatically correcting ownership and permissions..."
                   echo "Automatically correcting permissions for /mounts/test1..."
                   before=$(stat -c "%a" /mounts/test1)
-                  chmod -$ 770 /mounts/test1 || echo "Failed setting permissions using chmod..."
-                  echo "Permissions after: [$before]"
+                  chmod -R 770 /mounts/test1 || echo "Failed setting permissions using chmod..."
+                  echo "Permissions before: [$before]"
                   echo "Permissions after: [$(stat -c "%a" /mounts/test1)]"
                   echo ""
                   echo "Automatically correcting ownership for /mounts/test1..."
                   before=$(stat -c "%u:%g" /mounts/test1)
-                      chown -$ -f :568 /mounts/test1 || echo "Failed setting ownership using chown..."
+                      chown -R -f :568 /mounts/test1 || echo "Failed setting ownership using chown..."
 
                   echo "Ownership before: [$before]"
                   echo "Ownership after: [$(stat -c "%u:%g" /mounts/test1)]"
@@ -263,7 +263,7 @@ tests:
                   echo "Automatically correcting permissions for /mounts/test2..."
                   before=$(stat -c "%a" /mounts/test2)
                   chmod  770 /mounts/test2 || echo "Failed setting permissions using chmod..."
-                  echo "Permissions after: [$before]"
+                  echo "Permissions before: [$before]"
                   echo "Permissions after: [$(stat -c "%a" /mounts/test2)]"
                   echo ""
                   echo "Automatically correcting ownership for /mounts/test2..."
@@ -276,7 +276,7 @@ tests:
                   echo "Automatically correcting permissions for /mounts/test3..."
                   before=$(stat -c "%a" /mounts/test3)
                   chmod  770 /mounts/test3 || echo "Failed setting permissions using chmod..."
-                  echo "Permissions after: [$before]"
+                  echo "Permissions before: [$before]"
                   echo "Permissions after: [$(stat -c "%a" /mounts/test3)]"
                   echo ""
                   echo "Automatically correcting ownership for /mounts/test4..."
@@ -288,26 +288,26 @@ tests:
                   echo ""
                   echo "Automatically correcting permissions for /mounts/test6..."
                   before=$(stat -c "%a" /mounts/test6)
-                  chmod -$ 770 /mounts/test6 || echo "Failed setting permissions using chmod..."
-                  echo "Permissions after: [$before]"
+                  chmod -R 770 /mounts/test6 || echo "Failed setting permissions using chmod..."
+                  echo "Permissions before: [$before]"
                   echo "Permissions after: [$(stat -c "%a" /mounts/test6)]"
                   echo ""
                   echo "Automatically correcting ownership for /mounts/test6..."
                   before=$(stat -c "%u:%g" /mounts/test6)
-                      chown -$ -f 1000:1000 /mounts/test6 || echo "Failed setting ownership using chown..."
+                      chown -R -f 1000:1000 /mounts/test6 || echo "Failed setting ownership using chown..."
 
                   echo "Ownership before: [$before]"
                   echo "Ownership after: [$(stat -c "%u:%g" /mounts/test6)]"
                   echo ""
                   echo "Automatically correcting permissions for /mounts/test7..."
                   before=$(stat -c "%a" /mounts/test7)
-                  chmod -$ 770 /mounts/test7 || echo "Failed setting permissions using chmod..."
-                  echo "Permissions after: [$before]"
+                  chmod -R 770 /mounts/test7 || echo "Failed setting permissions using chmod..."
+                  echo "Permissions before: [$before]"
                   echo "Permissions after: [$(stat -c "%a" /mounts/test7)]"
                   echo ""
                   echo "Automatically correcting ownership for /mounts/test7..."
                   before=$(stat -c "%u:%g" /mounts/test7)
-                      chown -$ -f :568 /mounts/test7 || echo "Failed setting ownership using chown..."
+                      chown -R -f :568 /mounts/test7 || echo "Failed setting ownership using chown..."
 
                   echo "Ownership before: [$before]"
                   echo "Ownership after: [$(stat -c "%u:%g" /mounts/test7)]"
@@ -593,13 +593,13 @@ tests:
               echo "Automatically correcting ownership and permissions..."
                   echo "Automatically correcting permissions for /mounts/test1..."
                   before=$(stat -c "%a" /mounts/test1)
-                  chmod -$ 770 /mounts/test1 || echo "Failed setting permissions using chmod..."
-                  echo "Permissions after: [$before]"
+                  chmod -R 770 /mounts/test1 || echo "Failed setting permissions using chmod..."
+                  echo "Permissions before: [$before]"
                   echo "Permissions after: [$(stat -c "%a" /mounts/test1)]"
                   echo ""
                   echo "Automatically correcting ownership for /mounts/test1..."
                   before=$(stat -c "%u:%g" /mounts/test1)
-                      /usr/sbin/nfs4xdr_winacl -a chown -G 568 -$ -c "/mounts/test1" -p "/mounts/test1" || echo "Failed setting ownership using winacl..."
+                      /usr/sbin/nfs4xdr_winacl -a chown -G 568 -r -c "/mounts/test1" -p "/mounts/test1" || echo "Failed setting ownership using winacl..."
 
                   echo "Ownership before: [$before]"
                   echo "Ownership after: [$(stat -c "%u:%g" /mounts/test1)]"
@@ -607,7 +607,7 @@ tests:
                   echo "Automatically correcting permissions for /mounts/test2..."
                   before=$(stat -c "%a" /mounts/test2)
                   chmod  770 /mounts/test2 || echo "Failed setting permissions using chmod..."
-                  echo "Permissions after: [$before]"
+                  echo "Permissions before: [$before]"
                   echo "Permissions after: [$(stat -c "%a" /mounts/test2)]"
                   echo ""
                   echo "Automatically correcting ownership for /mounts/test2..."
@@ -620,7 +620,7 @@ tests:
                   echo "Automatically correcting permissions for /mounts/test3..."
                   before=$(stat -c "%a" /mounts/test3)
                   chmod  770 /mounts/test3 || echo "Failed setting permissions using chmod..."
-                  echo "Permissions after: [$before]"
+                  echo "Permissions before: [$before]"
                   echo "Permissions after: [$(stat -c "%a" /mounts/test3)]"
                   echo ""
                   echo "Automatically correcting ownership for /mounts/test4..."
@@ -632,39 +632,39 @@ tests:
                   echo ""
                   echo "Automatically correcting permissions for /mounts/test6..."
                   before=$(stat -c "%a" /mounts/test6)
-                  chmod -$ 770 /mounts/test6 || echo "Failed setting permissions using chmod..."
-                  echo "Permissions after: [$before]"
+                  chmod -R 770 /mounts/test6 || echo "Failed setting permissions using chmod..."
+                  echo "Permissions before: [$before]"
                   echo "Permissions after: [$(stat -c "%a" /mounts/test6)]"
                   echo ""
                   echo "Automatically correcting ownership for /mounts/test6..."
                   before=$(stat -c "%u:%g" /mounts/test6)
-                      /usr/sbin/nfs4xdr_winacl -a chown -G 1000 -$ -c "/mounts/test6" -p "/mounts/test6" || echo "Failed setting ownership using winacl..."
+                      /usr/sbin/nfs4xdr_winacl -a chown -G 1000 -r -c "/mounts/test6" -p "/mounts/test6" || echo "Failed setting ownership using winacl..."
 
                   echo "Ownership before: [$before]"
                   echo "Ownership after: [$(stat -c "%u:%g" /mounts/test6)]"
                   echo ""
                   echo "Automatically correcting permissions for /mounts/test7..."
                   before=$(stat -c "%a" /mounts/test7)
-                  chmod -$ 770 /mounts/test7 || echo "Failed setting permissions using chmod..."
-                  echo "Permissions after: [$before]"
+                  chmod -R 770 /mounts/test7 || echo "Failed setting permissions using chmod..."
+                  echo "Permissions before: [$before]"
                   echo "Permissions after: [$(stat -c "%a" /mounts/test7)]"
                   echo ""
                   echo "Automatically correcting ownership for /mounts/test7..."
                   before=$(stat -c "%u:%g" /mounts/test7)
-                      /usr/sbin/nfs4xdr_winacl -a chown -G 568 -$ -c "/mounts/test7" -p "/mounts/test7" || echo "Failed setting ownership using winacl..."
+                      /usr/sbin/nfs4xdr_winacl -a chown -G 568 -r -c "/mounts/test7" -p "/mounts/test7" || echo "Failed setting ownership using winacl..."
 
                   echo "Ownership before: [$before]"
                   echo "Ownership after: [$(stat -c "%u:%g" /mounts/test7)]"
                   echo ""
                   echo "Automatically correcting permissions for /mounts/test8..."
                   before=$(stat -c "%a" /mounts/test8)
-                  chmod -$ 770 /mounts/test8 || echo "Failed setting permissions using chmod..."
-                  echo "Permissions after: [$before]"
+                  chmod -R 770 /mounts/test8 || echo "Failed setting permissions using chmod..."
+                  echo "Permissions before: [$before]"
                   echo "Permissions after: [$(stat -c "%a" /mounts/test8)]"
                   echo ""
                   echo "Automatically correcting ownership for /mounts/test8..."
                   before=$(stat -c "%u:%g" /mounts/test8)
-                      /usr/sbin/nfs4xdr_winacl -a chown -G 568 -$ -c "/mounts/test8" -p "/mounts/test8" || echo "Failed setting ownership using winacl..."
+                      /usr/sbin/nfs4xdr_winacl -a chown -G 568 -r -c "/mounts/test8" -p "/mounts/test8" || echo "Failed setting ownership using winacl..."
 
                   echo "Ownership before: [$before]"
                   echo "Ownership after: [$(stat -c "%u:%g" /mounts/test8)]"

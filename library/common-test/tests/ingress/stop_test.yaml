@@ -97,8 +97,9 @@ tests:
           path: metadata.name
           value: test-release-name-common-test
       - documentIndex: *ingressDoc
-        isNull:
+        equal:
           path: spec.ingressClassName
+          value: null
       - documentIndex: *ingressDoc
         isSubset:
           path: metadata.annotations
@@ -125,8 +126,9 @@ tests:
           path: metadata.name
           value: test-release-name-common-test
       - documentIndex: *ingressDoc
-        isNull:
+        equal:
           path: spec.ingressClassName
+          value: null
       - documentIndex: *ingressDoc
         isSubset:
           path: metadata.annotations
