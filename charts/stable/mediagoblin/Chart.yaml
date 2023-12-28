@@ -1,0 +1,37 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: mediagoblin
+version: 4.0.1
+appVersion: latest
+description: "MediaGoblin is a free software media publishing platform that anyone can run. You can think of it as a decentralized alternative to Flickr, YouTube, SoundCloud, etc. [br][br][b][u][span style='color: #ff9900;']Default user/password[/span][/u][/b][br]User: [B][u]admin[/B][/u][br]Password: [B][u]admin[/B][/u][/b]"
+home: https://truecharts.org/charts/incubator/mediagoblin
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/mediagoblin.png
+deprecated: false
+sources:
+  - https://mediagoblin.org/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/mediagoblin
+  - https://hub.docker.com/r/mtlynch/mediagoblin
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - mediagoblin
+  - MediaApp-Photos
+dependencies:
+  - name: common
+    version: 17.1.4
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: MediaApp-Photos
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

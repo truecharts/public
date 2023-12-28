@@ -1,0 +1,31 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: binhex/arch-preclear
+  tag: latest@sha256:82337527bb2156499e30da7e6e664c1bf15d449d2ab6527ae2afc6f1c4fd3b85
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 6080
+        protocol: tcp
+        targetPort: 6080
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            VNC_PASSWORD: ""
+            WEBPAGE_TITLE: Preclear

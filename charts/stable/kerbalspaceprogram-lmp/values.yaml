@@ -1,0 +1,38 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ich777/lunamultiplayer-ksp
+  tag: latest@sha256:1a2650070544062903e9397d00fd38277c41c6a1ab9aa28ea171bd54edcf0e43
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /lunamultiplayer
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 8800
+        protocol: udp
+        targetPort: 8800
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DATA_PERM: "770"
+            LMP_V: latest@sha256:f0065aa44fb1c38b7fc30d34e220138dc0a0c6477b78eb7f59015622c2052030
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

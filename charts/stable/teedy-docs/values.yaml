@@ -1,0 +1,36 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: sismics/docs
+  tag: latest@sha256:d619cae9bdcd63bc3534b763e796ae2b99b5fe2c4405395b99f8f0665939fb7c
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+portal:
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DOCS_BASE_URL: ""
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

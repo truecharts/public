@@ -1,0 +1,151 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: chvb/docker-kerio-connect
+  tag: latest@sha256:8a54a126a86fda8e72459d6f436cc73ffec2f708cea82b54f22a25fe6626e584
+persistence:
+  kerio-connect:
+    enabled: true
+    mountPath: /backup
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 4040
+        protocol: http
+        targetPort: 4040
+  tcpport1:
+    enabled: true
+    ports:
+      tcpport1:
+        enabled: true
+        port: 222
+        protocol: tcp
+        targetPort: 22
+  tcpport2:
+    enabled: true
+    ports:
+      tcpport2:
+        enabled: true
+        port: 25
+        protocol: tcp
+        targetPort: 25
+  tcpport3:
+    enabled: true
+    ports:
+      tcpport3:
+        enabled: true
+        port: 465
+        protocol: tcp
+        targetPort: 465
+  tcpport4:
+    enabled: true
+    ports:
+      tcpport4:
+        enabled: true
+        port: 587
+        protocol: tcp
+        targetPort: 587
+  tcpport5:
+    enabled: true
+    ports:
+      tcpport5:
+        enabled: true
+        port: 110
+        protocol: tcp
+        targetPort: 110
+  tcpport6:
+    enabled: true
+    ports:
+      tcpport6:
+        enabled: true
+        port: 995
+        protocol: tcp
+        targetPort: 995
+  tcpport7:
+    enabled: true
+    ports:
+      tcpport7:
+        enabled: true
+        port: 143
+        protocol: tcp
+        targetPort: 143
+  tcpport8:
+    enabled: true
+    ports:
+      tcpport8:
+        enabled: true
+        port: 993
+        protocol: tcp
+        targetPort: 993
+  tcpport9:
+    enabled: true
+    ports:
+      tcpport9:
+        enabled: true
+        port: 119
+        protocol: tcp
+        targetPort: 119
+  tcpport10:
+    enabled: true
+    ports:
+      tcpport10:
+        enabled: true
+        port: 563
+        protocol: tcp
+        targetPort: 563
+  tcpport11:
+    enabled: true
+    ports:
+      tcpport11:
+        enabled: true
+        port: 389
+        protocol: tcp
+        targetPort: 389
+  tcpport12:
+    enabled: true
+    ports:
+      tcpport12:
+        enabled: true
+        port: 636
+        protocol: tcp
+        targetPort: 636
+  tcpport13:
+    enabled: true
+    ports:
+      tcpport13:
+        enabled: true
+        port: 8001
+        protocol: tcp
+        targetPort: 80
+  tcpport14:
+    enabled: true
+    ports:
+      tcpport14:
+        enabled: true
+        port: 4443
+        protocol: tcp
+        targetPort: 443
+  tcpport15:
+    enabled: true
+    ports:
+      tcpport15:
+        enabled: true
+        port: 5222
+        protocol: tcp
+        targetPort: 5222
+  tcpport16:
+    enabled: true
+    ports:
+      tcpport16:
+        enabled: true
+        port: 5223
+        protocol: tcp
+        targetPort: 5223

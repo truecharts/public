@@ -1,8 +1,11 @@
 {{/* Make sure all variables are set properly */}}
-{{- include "tc.common.loader.init" . }}
+{{- include "tc.v1.common.loader.init" . }}
 
-{{/* Render config */}}
-{{- include "orbital.hosts" . }}
+{{/* Render secrets for orbital-sync */}}
+{{- $secrets := include "orbital.secrets" . | fromYaml -}}
+{{- if $secrets -}}
+  {{- $_ := set .Values.secret "orbital-secrets" $secrets -}}
+{{- end -}}
 
 {{/* Render the templates */}}
-{{ include "tc.common.loader.apply" . }}
+{{ include "tc.v1.common.loader.apply" . }}

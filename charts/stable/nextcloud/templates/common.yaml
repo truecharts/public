@@ -1,3 +1,15 @@
+{{- $selector := dict -}}
+{{- range $name := (list "main" "nextcloud-cron" "preview-cron") -}}
+  {{/* creates main: {} */}}
+  {{- $_ := set $selector $name dict -}}
+  {{/* sets main: {} to main: { main: {} } */}}
+  {{- $_ := set (get $selector $name) $name dict -}}
+{{- end -}}
+
+{{- range $item := .Values.persistenceList -}}
+  {{- $_ := set $item "targetSelector" $selector -}}
+{{- end -}}
+
 {{/* Make sure all variables are set properly */}}
 {{- include "tc.v1.common.loader.init" . -}}
 

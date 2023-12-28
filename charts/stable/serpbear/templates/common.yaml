@@ -1,0 +1,11 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.v1.common.loader.init" . }}
+
+{{/* Render secret for serpbear */}}
+{{- $secrets := include "serpbear.secret" . | fromYaml -}}
+{{- if $secrets -}}
+  {{- $_ := set .Values.secret "serpbear-secret" $secrets -}}
+{{- end -}}
+
+{{/* Render the templates */}}
+{{ include "tc.v1.common.loader.apply" . }}

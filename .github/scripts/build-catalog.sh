@@ -124,6 +124,7 @@ copy_apps() {
 }
 export -f copy_apps
 
+rm -rf charts/unstable
 if [[ -d "charts/${1}" ]]; then
     echo "Start processing charts/${1} ..."
     chartversion=$(cat charts/${1}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')

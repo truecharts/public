@@ -1,0 +1,35 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: selexin/cleanarr
+  tag: v2.5.0@sha256:26d636d29701431fdb1297e2f1aeeae88084e1dd952f133dcd08efb1220fc034
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10247
+        protocol: http
+        targetPort: 80
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            BYPASS_SSL_VERIFY: '{{ ternary "1" "0" .Values.workload.main.podSpec.containers.main.env.BYPASS_SSL_VERIFY_BOOL}}'
+            BYPASS_SSL_VERIFY_BOOL: "true"
+            LIBRARY_NAMES: ""
+            PAGE_SIZE: "50"
+            PLEX_BASE_URL: ""
+            PLEX_TOKEN: ""

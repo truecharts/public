@@ -1,0 +1,19 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/batnoter/batnoter/batnoter-ui
+  tag: latest@sha256:9916463b41965035cc695b27bc8f3bf0fdc5923f5046d8fbd857d206b2d120a4
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10351
+        protocol: http
+        targetPort: 3000

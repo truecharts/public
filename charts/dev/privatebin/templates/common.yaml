@@ -1,0 +1,11 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.v1.common.loader.init" . }}
+
+{{/* Render secrets for privatebin */}}
+{{- include "privatebin.secrets" . }}
+
+{{/* Render configMap for privatebin */}}
+{{- include "privatebin.configmap" . }}
+
+{{/* Render the templates */}}
+{{ include "tc.v1.common.loader.apply" . }}

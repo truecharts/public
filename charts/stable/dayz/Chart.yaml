@@ -1,0 +1,37 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: dayz
+version: 4.0.1
+appVersion: dayz
+description: This Chart will download and install SteamCMD. It will also install DayZ and run it.
+home: https://truecharts.org/charts/incubator/dayz
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/dayz.png
+deprecated: false
+sources:
+  - https://www.bohemia.net/games/dayz
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/dayz
+  - https://hub.docker.com/r/ich777/steamcmd
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - dayz
+  - GameServers
+dependencies:
+  - name: common
+    version: 17.1.4
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: GameServers
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

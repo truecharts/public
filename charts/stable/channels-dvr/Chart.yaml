@@ -1,7 +1,7 @@
-kubeVersion: ">=1.24.0"
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: channels-dvr
-version: 3.0.13
+version: 5.0.1
 appVersion: latest
 description: Channels DVR Server
 home: https://truecharts.org/charts/stable/channels-dvr
@@ -18,11 +18,18 @@ keywords:
   - channels-dvr
 dependencies:
   - name: common
-    version: 14.3.5
+    version: 17.1.4
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
     tags: []
     import-values: []
 annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+type: application

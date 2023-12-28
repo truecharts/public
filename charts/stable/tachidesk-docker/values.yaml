@@ -1,0 +1,29 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/suwayomi/tachidesk
+  tag: latest@sha256:2782f5b40fafccb21ff6bdbaed7594804c2aa043ba9a42727a19fb6e07397fbb
+persistence:
+  appdata:
+    enabled: true
+    mountPath: /home/suwayomi/.local/share/Tachidesk
+  library:
+    enabled: true
+    mountPath: /home/suwayomi/.local/share/Tachidesk/downloads
+  local-library:
+    enabled: true
+    mountPath: /home/suwayomi/.local/share/Tachidesk/local
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 4567
+        protocol: tcp
+        targetPort: 4567

@@ -10,24 +10,24 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: ADMIN_PASSWORD
+                                        label: "ADMIN_PASSWORD"
+                                        schema:
+                                          type: string
+                                          private: true
+                                          required: true
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: ADMIN_PASSWORD
-          label: "ADMIN_PASSWORD"
-          schema:
-            type: string
-            private: true
-            required: true
-            default: ""
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
@@ -84,12 +84,12 @@ questions:
                 schema:
                   type: int
                   default: 0
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}

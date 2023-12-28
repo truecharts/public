@@ -1,0 +1,41 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ich777/quake3
+  tag: latest@sha256:a2e53d0992a72bb233b39d23cc7884c3e06a117088c45a6a3a1bada6e2f118ba
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /quake3
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 27960
+        protocol: udp
+        targetPort: 27960
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DL_URL_PATCH: https://ftp.gwdg.de/pub/misc/ftp.idsoftware.com/idstuff/quake3/quake3-1.32c.zip
+            DL_URL_PR: https://ftp.gwdg.de/pub/misc/ftp.idsoftware.com/idstuff/quake3/linux/linuxq3apoint-1.32b-3.x86.run
+            GAME_PARAMS: +set sv_punkbuster 0 +set fs_game osp +set com_hunkMegs 32
+            Q3_MAP: q3dm1
+            Q3_PORT: "27960"
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

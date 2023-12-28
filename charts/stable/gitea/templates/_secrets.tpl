@@ -2,7 +2,7 @@
 {{- define "gitea.secrets" -}}
 
 {{ $DOMAIN := .Values.config.nodeIP | quote -}}
-{{ $URL := (printf "http://%s/" .Values.config.nodeIP) }}
+{{ $URL := (printf "http://%s:%v/" .Values.config.nodeIP .Values.service.main.ports.main.port) }}
 {{- $pgHost := printf "%v-cnpg-main-rw" (include "tc.v1.common.lib.chart.names.fullname" $) -}}
 
 {{- if and (.Values.ingress.main.enabled) (gt (len .Values.ingress.main.hosts) 0) -}}

@@ -12,20 +12,6 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: UMASK
-          label: "UMASK"
-          schema:
-            type: string
-            default: "000"
-# Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

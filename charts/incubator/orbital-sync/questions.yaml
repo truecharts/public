@@ -8,9 +8,106 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: INTERVAL_MINUTES
+                                        label: Interval Minutes
+                                        description: How long to wait between synchronizations. Defaults to five minutes. Remember that the DNS server on your secondary servers restarts every time a sync is performed.
+                                        schema:
+                                          type: int
+                                          default: 30
+                                      - variable: SYNC_WHITELIST
+                                        label: Sync Whitelist
+                                        description: Copies the whitelist
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: SYNC_REGEX_WHITELIST
+                                        label: Sync Regex Whitelist
+                                        description: Copies the regex whitelist
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: SYNC_BLACKLIST
+                                        label: Sync Blacklist
+                                        description: Copies the blacklist
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: SYNC_REGEXLIST
+                                        label: Sync Regex List
+                                        description: Copies the regex blacklist
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: SYNC_ADLIST
+                                        label: Sync Ad List
+                                        description: Copies the adlist
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: SYNC_CLIENT
+                                        label: Sync Client
+                                        description: Copies clients
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: SYNC_GROUP
+                                        label: Sync Group
+                                        description: Copies groups
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: SYNC_AUDITLOG
+                                        label: Sync Auditlog
+                                        description: Copies the audit log
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: SYNC_STATICDHCPLEASES
+                                        label: Sync Static DHCP Leases
+                                        description: Copies static dhcp leases
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: SYNC_LOCALDNSRECORDS
+                                        label: Sync Local DNS Records
+                                        description: Copies local DNS records
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: SYNC_LOCALCNAMERECORDS
+                                        label: Sync Local CNAME Records
+                                        description: Copies local CNAME records
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: SYNC_FLUSHTABLES
+                                        label: Sync Flush Tables
+                                        description: Clears existing data on the secondary (copy target) Pi-hole
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: RUN_ONCE
+                                        label: Run Once
+                                        description: By default, orbital-sync runs indefinitely until stopped. Setting RUN_ONCE to true forces it to exit immediately after the first sync.
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: VERBOSE
+                                        label: Verbose
+                                        description: Whether to output extra log output. Used for debugging.
+                                        schema:
+                                          type: boolean
+                                          default: false
 # Include{containerBasic}
 # Include{containerAdvanced}
-
+# Include{containerConfig}
+# Include{podOptions}
   - variable: orbital
     group: App Configuration
     label: Orbital Configuration
@@ -68,104 +165,7 @@ questions:
                         required: true
                         private: true
                         default: ""
-  - variable: env
-    group: App Configuration
-    label: Image Environment
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: INTERVAL_MINUTES
-          label: Interval Minutes
-          description: How long to wait between synchronizations. Defaults to five minutes. Remember that the DNS server on your secondary servers restarts every time a sync is performed.
-          schema:
-            type: int
-            default: 30
-        - variable: SYNC_WHITELIST
-          label: Sync Whitelist
-          description: Copies the whitelist
-          schema:
-            type: boolean
-            default: true
-        - variable: SYNC_REGEX_WHITELIST
-          label: Sync Regex Whitelist
-          description: Copies the regex whitelist
-          schema:
-            type: boolean
-            default: true
-        - variable: SYNC_BLACKLIST
-          label: Sync Blacklist
-          description: Copies the blacklist
-          schema:
-            type: boolean
-            default: true
-        - variable: SYNC_REGEXLIST
-          label: Sync Regex List
-          description: Copies the regex blacklist
-          schema:
-            type: boolean
-            default: true
-        - variable: SYNC_ADLIST
-          label: Sync Ad List
-          description: Copies the adlist
-          schema:
-            type: boolean
-            default: true
-        - variable: SYNC_CLIENT
-          label: Sync Client
-          description: Copies clients
-          schema:
-            type: boolean
-            default: true
-        - variable: SYNC_GROUP
-          label: Sync Group
-          description: Copies groups
-          schema:
-            type: boolean
-            default: true
-        - variable: SYNC_AUDITLOG
-          label: Sync Auditlog
-          description: Copies the audit log
-          schema:
-            type: boolean
-            default: false
-        - variable: SYNC_STATICDHCPLEASES
-          label: Sync Static DHCP Leases
-          description: Copies static dhcp leases
-          schema:
-            type: boolean
-            default: false
-        - variable: SYNC_LOCALDNSRECORDS
-          label: Sync Local DNS Records
-          description: Copies local DNS records
-          schema:
-            type: boolean
-            default: true
-        - variable: SYNC_LOCALCNAMERECORDS
-          label: Sync Local CNAME Records
-          description: Copies local CNAME records
-          schema:
-            type: boolean
-            default: true
-        - variable: SYNC_FLUSHTABLES
-          label: Sync Flush Tables
-          description: Clears existing data on the secondary (copy target) Pi-hole
-          schema:
-            type: boolean
-            default: true
-        - variable: RUN_ONCE
-          label: Run Once
-          description: By default, orbital-sync runs indefinitely until stopped. Setting RUN_ONCE to true forces it to exit immediately after the first sync.
-          schema:
-            type: boolean
-            default: false
-        - variable: VERBOSE
-          label: Verbose
-          description: Whether to output extra log output. Used for debugging.
-          schema:
-            type: boolean
-            default: false
-# Include{containerConfig}
+
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
 # Include{serviceList}
@@ -180,28 +180,28 @@ questions:
 # Include{persistenceBasic}
 # Include{persistenceList}
 
-# Include{podSecurityContextRoot}
-        - variable: runAsUser
-          label: runAsUser
-          description: The UserID of the user running the application
-          schema:
-            type: int
-            default: 0
-        - variable: runAsGroup
-          label: runAsGroup
-          description: The groupID this App of the user running the application
-          schema:
-            type: int
-            default: 0
+# Include{securityContextRoot}
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-        - variable: fsGroup
-          label: fsGroup
-          description: The group that should own ALL storage.
-          schema:
-            type: int
-            default: 568
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
+                schema:
+                  type: int
+                  default: 568
 
 # Include{resources}
 # Include{advanced}

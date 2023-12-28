@@ -1,0 +1,32 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ich777/electrum
+  tag: latest@sha256:2361f08dd63e26045192a201475ec263b06a05227a6475cca6947f6b7a8c971f
+persistence:
+  datapath:
+    enabled: true
+    mountPath: /electrum
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 8080
+        protocol: tcp
+        targetPort: 8080
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            CUSTOM_RES_H: "768"
+            CUSTOM_RES_W: "1024"
+            DATA_PERM: "770"

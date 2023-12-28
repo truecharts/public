@@ -1,0 +1,30 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: mongoclient/mongoclient
+  tag: latest@sha256:ca98c95de349493fab630ca3fae6e611e27e392ebc59f14d7dd73580c045927a
+persistence:
+  appdata:
+    enabled: true
+    mountPath: /data/db
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 3000
+        protocol: tcp
+        targetPort: 3000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            MONGO_URL: ""

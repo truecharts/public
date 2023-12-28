@@ -1,0 +1,26 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: shaarli/shaarli
+  tag: master@sha256:9580433c9efb1ed356cc98c0876ecf76d1bc21654b535a6aa90e4bf74abadd02
+persistence:
+  cache:
+    enabled: true
+    mountPath: /var/www/shaarli/cache
+  data:
+    enabled: true
+    mountPath: /var/www/shaarli/data
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 8000
+        protocol: tcp
+        targetPort: 80

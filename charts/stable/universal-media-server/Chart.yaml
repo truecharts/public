@@ -1,0 +1,39 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: universal-media-server
+version: 4.0.1
+appVersion: latest
+description: Universal Media Server is a DLNA-compliant UPnP Media Server. It is capable of sharing video, audio and images between most modern devices. It was originally based on PS3 Media Server by shagrath, in order to ensure greater stability and file-compatibility.
+home: https://truecharts.org/charts/incubator/universal-media-server
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/universal-media-server.png
+deprecated: false
+sources:
+  - https://www.universalmediaserver.com/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/universal-media-server
+  - https://hub.docker.com/r/universalmediaserver/ums
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - universal-media-server
+  - MediaServer-Video
+  - MediaServer-Music
+  - MediaServer-Photos
+dependencies:
+  - name: common
+    version: 17.1.4
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: MediaServer-Video
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

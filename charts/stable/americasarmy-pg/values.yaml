@@ -1,0 +1,53 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ich777/steamcmd
+  tag: aaprovinggrounds@sha256:751dc7c3c2cb3dd80df35450f79af4c0eba6f320b5818fe6c80c6d6fa7cad03a
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 8778
+        protocol: udp
+        targetPort: 8778
+  steamqueryport:
+    enabled: true
+    ports:
+      steamqueryport:
+        enabled: true
+        port: 27015
+        protocol: udp
+        targetPort: 27015
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GAME_ID: "203300"
+            GAME_PARAMS: -port=7778 -SAP=8778 -SQP=27015 -aauregion=1 -log=Server.log
+            PASSWRD: ""
+            SRV_NAME: Army Docker
+            USERNAME: ""
+            VALIDATE: "false"
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

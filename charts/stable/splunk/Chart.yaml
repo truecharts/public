@@ -1,0 +1,38 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: splunk
+version: 6.0.1
+appVersion: 9.1.2
+description: This is a Chartfile for Splunk designed for OpenShift and TrueNAS based on Alpine Linux - https://www.splunk.com
+home: https://truecharts.org/charts/incubator/splunk
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/splunk.png
+deprecated: false
+sources:
+  - https://splunk.github.io/docker-splunk
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/splunk
+  - https://hub.docker.com/r/splunk/splunk
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - splunk
+  - Tools-Utilities
+  - Network-Management
+dependencies:
+  - name: common
+    version: 17.1.4
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Tools-Utilities
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

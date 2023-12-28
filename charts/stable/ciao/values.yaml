@@ -1,0 +1,39 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: brotandgames/ciao
+  tag: latest@sha256:d6c1ec08ca70858dad4055b3043f7d65895ca36e78e63daca27fd8a72b8283d4
+persistence:
+  databaselocation:
+    enabled: true
+    mountPath: /app/db/sqlite
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 8090
+        protocol: tcp
+        targetPort: 3000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            SECRET_KEY_BASE: sensitive_secret_key_base
+            SMTP_ADDRESS: smtp.yourhost.com
+            SMTP_AUTHENTICATION: plain
+            SMTP_DOMAIN: smtp.yourhost.com
+            SMTP_EMAIL_FROM: ciao@yourhost.com
+            SMTP_EMAIL_TO: you@yourhost.com
+            SMTP_ENABLE_STARTTLS_AUTO: "true"
+            SMTP_PASSWORD: sensitive_password
+            SMTP_PORT: "587"
+            SMTP_USERNAME: ciao

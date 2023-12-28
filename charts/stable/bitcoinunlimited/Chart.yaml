@@ -1,0 +1,36 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: bitcoinunlimited
+version: 4.0.1
+appVersion: latest
+description: The Bitcoin Unlimited project seeks to provide a voice to all stakeholders in the Bitcoin ecosystem.
+home: https://truecharts.org/charts/incubator/bitcoinunlimited
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/bitcoinunlimited.png
+deprecated: false
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/bitcoinunlimited
+  - https://hub.docker.com/r/amacneil/bitcoinunlimited
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - bitcoinunlimited
+  - Network-Other
+dependencies:
+  - name: common
+    version: 17.1.4
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Network-Other
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

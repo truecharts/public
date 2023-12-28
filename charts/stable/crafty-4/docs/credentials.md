@@ -1,4 +1,10 @@
 # Default Credentials
 
 - Username: `admin`
-- Password: `crafty`
+- Password is randomly generated
+
+Shell into the app and run this command to print it to shell:
+
+```terminal
+cat /crafty/app/config/default-creds.txt
+```

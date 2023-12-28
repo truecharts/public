@@ -1,0 +1,37 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: dailynotes
+version: 4.0.1
+appVersion: latest
+description: |
+  App for taking notes and tracking tasks on a daily basis.
+home: https://truecharts.org/charts/incubator/dailynotes
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/dailynotes.png
+deprecated: false
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/dailynotes
+  - https://hub.docker.com/r/m0ngr31/dailynotes
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - dailynotes
+  - Other
+dependencies:
+  - name: common
+    version: 17.1.4
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Other
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

@@ -1,7 +1,7 @@
 image:
   repository: quay.io/invidious/invidious
   pullPolicy: IfNotPresent
-  tag: latest@sha256:7863b230158554e3e84c3659a0ebf9652ed09139db6932dcfe65758bc54af90a
+  tag: latest@sha256:1ecee589b339adf85995eca1a262436dd79d7d27314e7f9e3ab9386147893d1e
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -64,8 +64,8 @@ workload:
             startup:
               type: http
           envFrom:
-            - configMapRef:
-                name: invidious-config
+            - secretRef:
+                name: invidious-secret
 invidious:
   network:
     inbound:
@@ -110,7 +110,6 @@ invidious:
   miscellaneous:
     banner: ""
     use_pubsub_feeds: false
-    hmac_key: ""
     dmca_content: []
     cache_annotations: false
     playlist_length_limit: 500

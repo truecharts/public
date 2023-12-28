@@ -1,0 +1,48 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: chacawaca/post-recording
+  tag: latest@sha256:98f0e32c2e58476c3b72418a197ce181f9b9ae3c656a9e51c98660fe6b2f6603
+persistence:
+  backupfolder:
+    enabled: true
+    mountPath: /backup
+  config:
+    enabled: true
+    mountPath: /config
+  watchfolder:
+    enabled: true
+    mountPath: /watch
+portal:
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            CONVERSION_FORMAT: mkv
+            DELETE_TS: "1"
+            NVIDIA_VISIBLE_DEVICES: ""
+            POST_PROCESS: comchap
+            SOURCE_EXT: ts
+            SUBTITLES: "0"
+
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

@@ -1,6 +1,6 @@
 # Installation instructions
 
-:::warn
+:::warning
 
 Ingress for this chart is **required**
 

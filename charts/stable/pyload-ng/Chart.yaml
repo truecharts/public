@@ -1,0 +1,39 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: pyload-ng
+version: 4.0.2
+appVersion: latest
+description: pyLoad(https://pyload.net/) is a Free and Open Source download manager written in Python and designed to be extremely lightweight, easily extensible and fully manageable via web.
+home: https://truecharts.org/charts/incubator/pyload-ng
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/pyload-ng.png
+deprecated: false
+sources:
+  - https://github.com/orgs/linuxserver/packages/container/package/pyload-ng
+  - https://github.com/linuxserver/docker-pyload-ng#readme
+  - https://pyload.net/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/pyload-ng
+  - https://fleet.linuxserver.io/image?name=linuxserver/pyload-ng
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - pyload-ng
+  - Other
+dependencies:
+  - name: common
+    version: 17.1.4
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Other
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

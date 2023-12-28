@@ -1,0 +1,36 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: flemarr
+version: 3.0.9
+appVersion: latest
+description: Flemmarr is a simple Python script that parses a configuration written in YAML and can apply it to any of the -arr apps using their API.
+home: https://truecharts.org/charts/incubator/flemarr
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/flemarr.png
+deprecated: false
+sources:
+  - https://github.com/Flemmarr/Flemmarr
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/flemarr
+  - https://hub.docker.com/r/pierremesure/flemmarr
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - flemarr
+dependencies:
+  - name: common
+    version: 16.2.7
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

@@ -1,0 +1,37 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: dashmachine
+version: 4.0.1
+appVersion: latest
+description: "Another web application bookmark dashboard, with fun features.[br][br][b][u][span style='color: #ff9900;']Default user/password[/span][/u][/b][br]User: [B][u]admin[/B][/u][br]Password: [B][u]admin[/B][/u][/b]"
+home: https://truecharts.org/charts/incubator/dashmachine
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/dashmachine.png
+deprecated: false
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/dashmachine
+  - https://hub.docker.com/r/rmountjoy/dashmachine
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - dashmachine
+  - Productivity
+  - Network-Web
+dependencies:
+  - name: common
+    version: 17.1.4
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Productivity
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

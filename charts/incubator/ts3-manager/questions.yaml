@@ -10,38 +10,31 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: WHITELIST
+                                        label: "WHITELIST"
+                                        description: "Comma separated list of TeamSpeak servers you can connect to (ip or domain)"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: JWT_SECRET
+                                        label: "JWT SECRET"
+                                        description: "Secret for decrypting and encrypting the token"
+                                        schema:
+                                          type: string
+                                          private: true
+                                          required: false
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
-
-  - variable: env
-    group: "App Configuration"
-    label: "Image Environment"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: WHITELIST
-          label: "WHITELIST"
-          description: "Comma separated list of TeamSpeak servers you can connect to (ip or domain)"
-          schema:
-            type: string
-            default: ""
-  - variable: secretEnv
-    group: "App Configuration"
-    label: "Image Secrets"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: JWT_SECRET
-          label: "JWT SECRET"
-          description: "Secret for decrypting and encrypting the token"
-          schema:
-            type: string
-            private: true
-            required: false
-            default: ""
 # Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
@@ -89,12 +82,12 @@ questions:
                 schema:
                   type: int
                   default: 568
-        - variable: runAsGroup
-          label: "runAsGroup"
-          description: "The groupID this App of the user running the application"
-          schema:
-            type: int
-            default: 568
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
+                schema:
+                  type: int
+                  default: 568
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}

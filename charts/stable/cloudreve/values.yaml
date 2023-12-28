@@ -1,0 +1,32 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: xavierniu/cloudreve
+  tag: latest@sha256:cdd00367bbdf3247e15feebfbde354237586a308c6fac730856670dd31b44b47
+persistence:
+  avatarpath:
+    enabled: true
+    mountPath: /cloudreve/avatar
+  config:
+    enabled: true
+    mountPath: /cloudreve/config
+  databasepath:
+    enabled: true
+    mountPath: /cloudreve/db
+  uploadpath:
+    enabled: true
+    mountPath: /cloudreve/uploads
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 5212
+        protocol: tcp
+        targetPort: 5212
