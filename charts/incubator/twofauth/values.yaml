@@ -100,8 +100,6 @@ workload:
                 name: cnpg-main-user
                 key: password
             # Redis
-            # Fails silently when set to redis
-            BROADCAST_DRIVER: log
             CACHE_DRIVER: redis
             SESSION_DRIVER: redis
             QUEUE_DRIVER: redis
