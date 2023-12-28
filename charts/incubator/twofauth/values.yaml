@@ -1,7 +1,7 @@
 image:
   repository: 2fauth/2fauth
   pullPolicy: IfNotPresent
-  tag: 4.2.4@sha256:a19fde0f0517eaeec579f68d93ae73ea1dd7a5c5587c26235a5b0ce1473f8bac
+  tag: 5.0.0@sha256:4845b8be5b6a2e40e29bb27dee36fffc746ef15b8c9e09f065dcae646c34182f
 
 securityContext:
   container:
@@ -12,22 +12,17 @@ securityContext:
 twofauth:
   app:
     name: 2FAuth
-    debug: false
     site_owner: mail@example.com
     url: http://localhost
-    # daily | single
-    log_channel: daily
-    # debug | info | notice | warning | error | critical | alert | emergency
-    log_level: notice
     session_lifetime: 120
     trusted_proxies: []
   mail:
-    driver: smtp
-    host: smtp.mailtrap.io
+    driver: log
+    host: ""
     port: 587
-    from: changeme@example.com
-    user: changeme@example.com
-    pass: changeme
+    from: ""
+    user: ""
+    pass: ""
     # TLS | STARTTLS | SSL
     encryption: STARTTLS
     from_name: 2FAuth
@@ -59,49 +54,16 @@ workload:
             startup:
               type: tcp
           env:
-            # Redis
-            CACHE_DRIVER: redis
-            SESSION_DRIVER: redis
-            BROADCAST_DRIVER: redis
-            QUEUE_DRIVER: redis
-            REDIS_USERNAME: "{{ .Values.redis.redisUsername }}"
-            REDIS_PORT: 6379
-            REDIS_HOST:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
-                key: plainhost
-            REDIS_PASSWORD:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
-                key: redis-password
-            # Postgres
-            DB_CONNECTION: pgsql
-            DB_DATABASE: "{{ .Values.cnpg.main.database }}"
-            DB_USERNAME: "{{ .Values.cnpg.main.user }}"
-            DB_PORT: 5432
-            DB_HOST:
-              secretKeyRef:
-                name: cnpg-main-urls
-                key: host
-            DB_PASSWORD:
-              secretKeyRef:
-                name: cnpg-main-user
-                key: password
             # APP
+            APP_ENV: local
             APP_KEY:
               secretKeyRef:
-                name: twofauth-secrets
+                name: twofauth-secret
                 key: APP_KEY
-            APP_ENV: local
-            SESSION_LIFETIME: "{{ .Values.twofauth.app.session_lifetime }}"
             APP_NAME: "{{ .Values.twofauth.app.name }}"
-            APP_DEBUG: "{{ .Values.twofauth.app.debug }}"
             SITE_OWNER: "{{ .Values.twofauth.app.site_owner }}"
             APP_URL: "{{ .Values.twofauth.app.url }}"
-            LOG_CHANNEL: "{{ .Values.twofauth.app.log_channel }}"
-            LOG_LEVEL: "{{ .Values.twofauth.app.log_level }}"
+            SESSION_LIFETIME: "{{ .Values.twofauth.app.session_lifetime }}"
             TRUSTED_PROXIES: '{{ join "," .Values.twofauth.app.trusted_proxies }}'
             # MAIL
             MAIL_DRIVER: "{{ .Values.twofauth.mail.driver }}"
@@ -124,6 +86,36 @@ workload:
             # Optional image data in BASE64 (128 bytes maximum) or an image url
             WEBAUTHN_ICON: "{{ .Values.twofauth.webauthn.icon }}"
             WEBAUTHN_USER_VERIFICATION: "{{ .Values.twofauth.webauthn.user_verified }}"
+            # Postgres
+            DB_CONNECTION: pgsql
+            DB_DATABASE: "{{ .Values.cnpg.main.database }}"
+            DB_USERNAME: "{{ .Values.cnpg.main.user }}"
+            DB_PORT: 5432
+            DB_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            DB_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            # Redis
+            CACHE_DRIVER: redis
+            SESSION_DRIVER: redis
+            BROADCAST_DRIVER: redis
+            QUEUE_DRIVER: redis
+            REDIS_USERNAME: "{{ .Values.redis.redisUsername }}"
+            REDIS_PORT: 6379
+            REDIS_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: plainhost
+            REDIS_PASSWORD:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: redis-password
 
 service:
   main:
@@ -137,10 +129,6 @@ persistence:
   config:
     enabled: true
     mountPath: /2fauth
-  nginx:
-    enabled: true
-    type: emptyDir
-    mountPath: /run/nginx
 
 cnpg:
   main:

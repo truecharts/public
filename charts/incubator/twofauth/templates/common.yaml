@@ -1,10 +1,9 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "tc.v1.common.loader.init" . -}}
 
-{{/* Render secrets for twofauth */}}
-{{- $secrets := include "twofauth.secrets" . | fromYaml -}}
-{{- if $secrets -}}
-  {{- $_ := set .Values.secret "twofauth-secrets" $secrets -}}
+{{- $secret := include "twofauth.secret" . | fromYaml -}}
+{{- if $secret -}}
+  {{- $_ := set .Values.secret "twofauth-secret" $secret -}}
 {{- end -}}
 
 {{/* Render the templates */}}

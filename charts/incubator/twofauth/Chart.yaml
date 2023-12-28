@@ -3,11 +3,11 @@ appVersion: "4.2.4"
 dependencies:
   - name: common
     repository: https://library-charts.truecharts.org
-    version: 14.2.1
+    version: 17.1.4
   - condition: redis.enabled
     name: redis
     repository: https://deps.truecharts.org
-    version: 8.0.38
+    version: 9.0.0
 deprecated: false
 description: A Web app to manage your 2FA accounts and generate their security codes.
 home: https://truecharts.org/charts/incubator/twofauth

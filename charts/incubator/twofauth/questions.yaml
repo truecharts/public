@@ -32,11 +32,6 @@ questions:
                 schema:
                   type: string
                   default: "2FAuth"
-              - variable: debug
-                label: App Debug
-                schema:
-                  type: boolean
-                  default: false
               - variable: session_lifetime
                 label: Session Lifetime
                 schema:
@@ -47,16 +42,6 @@ questions:
                 schema:
                   type: string
                   default: ""
-              - variable: log_channel
-                label: Log Channel
-                schema:
-                  type: string
-                  default: "daily"
-                  enum:
-                    - value: daily
-                      description: Daily
-                    - value: single
-                      description: Single
               - variable: trusted_proxies
                 label: Trusted Proxies
                 schema:
@@ -82,7 +67,12 @@ questions:
                 schema:
                   type: string
                   required: true
-                  default: "smtp"
+                  default: log
+                  enum:
+                    - value: log
+                      description: Log
+                    - value: smtp
+                      description: SMTP
               - variable: host
                 label: Host
                 schema:
@@ -91,8 +81,8 @@ questions:
               - variable: port
                 label: Port
                 schema:
-                  type: string
-                  default: ""
+                  type: int
+                  default: 587
               - variable: from
                 label: From
                 schema:
@@ -175,7 +165,7 @@ questions:
                 label: Name
                 schema:
                   type: string
-                  default: "2FAuth"
+                  default: 2FAuth
               - variable: id
                 label: ID
                 schema:
@@ -190,7 +180,7 @@ questions:
                 label: User Verified
                 schema:
                   type: string
-                  default: "preferred"
+                  default: preferred
                   enum:
                     - value: required
                       description: Required
