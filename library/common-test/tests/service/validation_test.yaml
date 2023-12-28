@@ -266,6 +266,24 @@ tests:
       - failedTemplate:
           errorMessage: EndpointSlice - Expected non-empty [externalIP]
 
+  - it: should fail with invalid addressType
+    set:
+      service:
+        service-name1:
+          enabled: true
+          primary: true
+          type: ExternalIP
+          externalIP: "1.2.3.4"
+          addressType: invalid
+          ports:
+            port-name1:
+              enabled: true
+              primary: true
+              port: 12345
+    asserts:
+      - failedTemplate:
+          errorMessage: EndpointSlice - Expected [addressType] to be one of [IPv4, IPv6, FQDN], but got [invalid]
+
   - it: should fail with externalIP not a string
     set:
       service:

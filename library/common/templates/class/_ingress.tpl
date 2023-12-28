@@ -21,10 +21,6 @@ objectData: The object data to be used to render the Ingress.
     {{- $_ := set $objectData "annotations" dict -}}
   {{- end -}}
 
-  {{- include "tc.v1.common.lib.ingress.integration.certManager" (dict "rootCtx" $rootCtx "objectData" $objectData) -}}
-  {{- include "tc.v1.common.lib.ingress.integration.traefik" (dict "rootCtx" $rootCtx "objectData" $objectData) -}}
-  {{- include "tc.v1.common.lib.ingress.integration.homepage" (dict "rootCtx" $rootCtx "objectData" $objectData) -}}
-
   {{- $ingressClassName := "" -}}
   {{- if $objectData.ingressClassName -}}
     {{- $ingressClassName = (tpl $objectData.ingressClassName $rootCtx) -}}
@@ -34,6 +30,12 @@ objectData: The object data to be used to render the Ingress.
   to yeet ingress from the ingresscontroller */}}
   {{- if (include "tc.v1.common.lib.util.stopAll" $rootCtx) -}}
     {{- $ingressClassName = "tc-stopped" -}}
+  {{- end -}}
+
+  {{- include "tc.v1.common.lib.ingress.integration.certManager" (dict "rootCtx" $rootCtx "objectData" $objectData) -}}
+  {{- include "tc.v1.common.lib.ingress.integration.traefik" (dict "rootCtx" $rootCtx "objectData" $objectData) -}}
+  {{- if ne $ingressClassName "tc-stopped" -}}{{/* If is stopped, dont render homepage annotations */}}
+    {{- include "tc.v1.common.lib.ingress.integration.homepage" (dict "rootCtx" $rootCtx "objectData" $objectData) -}}
   {{- end }}
 ---
 apiVersion: networking.k8s.io/v1

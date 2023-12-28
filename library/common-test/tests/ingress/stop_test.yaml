@@ -31,9 +31,11 @@ tests:
             - host: test-host
               paths:
                 - path: /test-path
-          integrations:
+          integrations: &integrations
             traefik:
               enabled: false
+            homepage:
+              enabled: true
     asserts:
       - documentIndex: &ingressDoc 1
         isKind:
@@ -46,6 +48,9 @@ tests:
         equal:
           path: spec.ingressClassName
           value: tc-stopped
+      - documentIndex: *ingressDoc
+        isNull:
+          path: metadata.annotations
 
   - it: should pass with ixChartContext - isStopped (true)
     set:
@@ -69,6 +74,9 @@ tests:
         equal:
           path: spec.ingressClassName
           value: tc-stopped
+      - documentIndex: *ingressDoc
+        isNull:
+          path: metadata.annotations
 
   - it: should pass with ixChartContext - isStopped (false)
     set:
@@ -91,6 +99,11 @@ tests:
       - documentIndex: *ingressDoc
         isNull:
           path: spec.ingressClassName
+      - documentIndex: *ingressDoc
+        isSubset:
+          path: metadata.annotations
+          content:
+            gethomepage.dev/enabled: "true"
 
   - it: should ignore isStopped in ixChartContext
     set:
@@ -114,3 +127,8 @@ tests:
       - documentIndex: *ingressDoc
         isNull:
           path: spec.ingressClassName
+      - documentIndex: *ingressDoc
+        isSubset:
+          path: metadata.annotations
+          content:
+            gethomepage.dev/enabled: "true"

@@ -14,6 +14,10 @@ objectData: The service data, that will be used to render the Service object.
   {{- $addressType := $objectData.addressType | default "IPv4" -}}
   {{- if $objectData.addressType -}}
     {{- $addressType = tpl $addressType $rootCtx -}}
+    {{- $validTypes := (list "IPv4" "IPv6" "FQDN") -}}
+    {{- if not (mustHas $addressType $validTypes) -}}
+      {{- fail (printf "EndpointSlice - Expected [addressType] to be one of [%s], but got [%s]" (join ", " $validTypes) $addressType) -}}
+    {{- end -}}
   {{- end }}
 
 ---
