@@ -78,11 +78,11 @@ configmap:
     enabled: true
 frontendImage:
   repository: reallibrephotos/librephotos-frontend
-  tag: latest@sha256:541b044d439e9790623405409ab57c92810def8a1e701b5f4f7d4f9421e7240a
+  tag: latest@sha256:a2120fd0caacbce52cf2432bb5b86485da033c0d650aa62da591154053177c27
 image:
   pullPolicy: IfNotPresent
   repository: reallibrephotos/librephotos
-  tag: latest@sha256:3ded92c9ba78c238c2837841f394d86d7246ffb082dae6ad54127383d4022156
+  tag: latest@sha256:61688d5476ad4466d151e52b029402bda5f4a3bd310eeee4c91388cb72422cef
 persistence:
   cache:
     enabled: true
@@ -114,7 +114,7 @@ postgresql:
   postgresqlUsername: librephotos
 proxyImage:
   repository: reallibrephotos/librephotos-proxy
-  tag: latest@sha256:b45c74482bc409b113fcb7519beb9acb646e6d24bc36fed69afd3df39a0aa8e3
+  tag: latest@sha256:c369e8715a6b9753f091f56f05882f84661b86819129c391b4b2bf4f5b8f4a4c
 redis:
   enabled: true
   existingSecret: rediscreds
