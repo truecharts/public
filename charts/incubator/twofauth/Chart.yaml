@@ -1,0 +1,27 @@
+apiVersion: v2
+appVersion: "4.2.4"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 17.1.4
+deprecated: false
+description: A Web app to manage your 2FA accounts and generate their security codes.
+home: https://truecharts.org/charts/incubator/twofauth
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/twofauth.png
+keywords:
+  - 2fauth
+  - auth
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: twofauth
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/twofauth
+  - https://github.com/Bubka/2fauth
+type: application
+version: 0.0.1
+annotations:
+  truecharts.org/category: auth
+  truecharts.org/SCALE-support: "true"
