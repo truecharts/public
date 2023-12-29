@@ -1,0 +1,50 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: forgejo
+version: 17.0.2
+appVersion: 1.21.3
+description: Self hosted GIT repositories
+home: https://truecharts.org/charts/stable/forgejo
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/forgejo.png
+deprecated: false
+sources:
+  - https://codeberg.org/forgejo-contrib/forgejo-helm.git
+  - https://codeberg.org/forgejo/forgejo
+  - https://github.com/truecharts/charts/tree/master/charts/stable/forgejo
+  - https://codeberg.org/forgejo/-/packages/container/forgejo/
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - git
+  - issue tracker
+  - code review
+  - wiki
+  - gitea
+  - gogs
+  - forgejo
+dependencies:
+  - name: common
+    version: 17.1.4
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: memcached
+    version: 11.0.3
+    repository: https://deps.truecharts.org/
+    condition: memcached.enabled
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: GIT
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+type: application

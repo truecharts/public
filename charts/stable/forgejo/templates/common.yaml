@@ -1,0 +1,52 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.v1.common.loader.init" . }}
+
+{{/* Render secrets for forgejo */}}
+{{- $secrets := include "forgejo.secrets" . | fromYaml -}}
+{{- if $secrets -}}
+  {{- $_ := mustMergeOverwrite .Values.secret $secrets -}}
+{{- end -}}
+
+{{/* Render configmap for forgejo */}}
+{{- $configmap := include "forgejo.configmap" . | fromYaml -}}
+{{- if $configmap -}}
+  {{- $_ := set .Values.configmap "forgejo-env" $configmap -}}
+{{- end -}}
+
+{{/* Append the general secret volumes to the volumes */}}
+{{- define "forgejo.initvolume" -}}
+enabled: true
+readOnly: true
+type: secret
+objectName: init
+defaultMode: "0777"
+targetSelector:
+  main:
+    main:
+      mountPath: /secrets/ini
+    1-init-directories:
+      mountPath: "/usr/sbin"
+    2-configure-forgejo:
+      mountPath: "/usr/sbin"
+{{- end -}}
+
+{{/* Append the general secret volumes to the volumes */}}
+{{- define "forgejo.configvolume" -}}
+enabled: true
+readOnly: true
+type: secret
+objectName: secret
+targetSelector:
+  main:
+    main:
+      mountPath: /secrets/config
+    1-init-directories:
+      mountPath: /etc/gitea/conf
+{{- end -}}
+
+{{- $_ := set .Values.persistence "init" (include "forgejo.initvolume" . | fromYaml) -}}
+{{- $_ := set .Values.persistence "config" (include "forgejo.configvolume" . | fromYaml) -}}
+
+
+{{/* Render the templates */}}
+{{ include "tc.v1.common.loader.apply" . }}
