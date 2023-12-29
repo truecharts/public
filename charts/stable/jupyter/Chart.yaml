@@ -2,7 +2,7 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: jupyter
 version: 7.0.1
-appVersion: "2023-10-20"
+appVersion: "2023"
 description: Jupyter a web based IDE
 home: https://truecharts.org/charts/stable/jupyter
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/jupyter.png
@@ -10,7 +10,7 @@ deprecated: false
 sources:
   - https://github.com/jupyter/docker-stacks
   - https://github.com/truecharts/charts/tree/master/charts/stable/jupyter
-  - https://hub.docker.com/r/jupyter/r-notebook
+  - https://hub.docker.com/r/jupyter/base-notebook
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
