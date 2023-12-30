@@ -28,6 +28,19 @@ workload:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              path: /ping
+            readiness:
+              enabled: true
+              type: http
+              path: /ping
+            startup:
+              enabled: true
+              type: http
+              path: /ping
           env:
             PROWLARR__PORT: "{{ .Values.service.main.ports.main.port }}"
             PROWLARR__AUTHENTICATION_METHOD: ""
