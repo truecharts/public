@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: preclear
-version: 4.0.2
+version: 4.1.0
 appVersion: latest
 description: A utility to "burn-in" a new disk, before adding it to your array has been requested several times.  Also requested is a process to "pre-clear" a hard disk before adding it to your array.  When a special "signature" is detected, the lengthy "clearing" step otherwise performed by TrueNAS is skipped.
 home: https://truecharts.org/charts/incubator/preclear
@@ -23,7 +23,7 @@ keywords:
   - Tools-Utilities
 dependencies:
   - name: common
-    version: 17.1.4
+    version: 17.2.2
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

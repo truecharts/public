@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: metallb
-version: 13.0.1
+version: 13.1.0
 appVersion: latest
 description: A network load-balancer implementation for Kubernetes using standard routing protocols
 home: https://truecharts.org/charts/operators/metallb
@@ -21,7 +21,7 @@ keywords:
   - loadbalancer
 dependencies:
   - name: common
-    version: 17.1.4
+    version: 17.2.2
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

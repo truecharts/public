@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: nocodb
-version: 12.0.2
+version: 12.1.0
 appVersion: 0.202.10
 description: Turns any MySQL, PostgreSQL, SQL Server, SQLite & MariaDB into a smart-spreadsheet.
 home: https://truecharts.org/charts/stable/nocodb
@@ -19,14 +19,14 @@ keywords:
   - nocodb
 dependencies:
   - name: common
-    version: 17.1.4
+    version: 17.2.2
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 11.0.3
+    version: 11.1.0
     repository: https://deps.truecharts.org
     condition: redis.enabled
     alias: ""

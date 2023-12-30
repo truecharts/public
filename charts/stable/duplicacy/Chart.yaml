@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: duplicacy
-version: 5.0.1
+version: 5.1.0
 appVersion: 1.7.2
 description: A new generation cross-platform cloud backup tool.
 home: https://truecharts.org/charts/stable/duplicacy
@@ -20,7 +20,7 @@ keywords:
   - Backup
 dependencies:
   - name: common
-    version: 17.1.4
+    version: 17.2.2
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

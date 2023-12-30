@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: filestash
-version: 5.0.1
+version: 5.1.0
 appVersion: latest
 description: A Dropbox-like file manager that let you manage your data anywhere it is located.
 home: https://truecharts.org/charts/incubator/filestash
@@ -23,7 +23,7 @@ keywords:
   - Network-Web
 dependencies:
   - name: common
-    version: 17.1.4
+    version: 17.2.2
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

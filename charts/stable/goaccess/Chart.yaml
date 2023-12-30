@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: goaccess
-version: 4.0.1
+version: 4.1.0
 appVersion: latest
 description: GoAccess is an open source real-time web log analyzer and interactive viewer that runs in a terminal in *nix systems or through your browser. It provides fast and valuable HTTP statistics for system administrators that require a visual server report on the fly.
 home: https://truecharts.org/charts/incubator/goaccess
@@ -19,7 +19,7 @@ keywords:
   - Other
 dependencies:
   - name: common
-    version: 17.1.4
+    version: 17.2.2
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

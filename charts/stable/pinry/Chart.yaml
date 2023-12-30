@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: pinry
-version: 8.0.1
+version: 8.1.0
 appVersion: 2.1.12
 description: The open-source core of Pinry, a tiling image board system for people who want to save, tag, and share images, videos and webpages in an easy to skim through format.
 home: https://truecharts.org/charts/stable/pinry
@@ -19,7 +19,7 @@ keywords:
   - pinry
 dependencies:
   - name: common
-    version: 17.1.4
+    version: 17.2.2
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

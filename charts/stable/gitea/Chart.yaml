@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: gitea
-version: 17.0.2
+version: 17.1.0
 appVersion: 1.21.3
 description: Self hosted GIT repositories
 home: https://truecharts.org/charts/stable/gitea
@@ -25,14 +25,14 @@ keywords:
   - gogs
 dependencies:
   - name: common
-    version: 17.1.4
+    version: 17.2.2
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: memcached
-    version: 11.0.3
+    version: 11.1.0
     repository: https://deps.truecharts.org/
     condition: memcached.enabled
     alias: ""

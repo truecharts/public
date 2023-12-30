@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: appdaemon
-version: 15.0.1
+version: 15.1.0
 appVersion: 4.4.2
 description: AppDaemon is a loosely coupled, multi-threaded, sandboxed python execution environment for writing automation apps.
 home: https://truecharts.org/charts/stable/appdaemon
@@ -23,7 +23,7 @@ keywords:
   - homeautomation
 dependencies:
   - name: common
-    version: 17.1.4
+    version: 17.2.2
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

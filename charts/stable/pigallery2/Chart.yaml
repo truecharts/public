@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: pigallery2
-version: 4.0.1
+version: 4.1.0
 appVersion: latest
 description: "Homepage: http://bpatrik.github.io/pigallery2/"
 home: https://truecharts.org/charts/incubator/pigallery2
@@ -26,7 +26,7 @@ keywords:
   - MediaServer-Photos
 dependencies:
   - name: common
-    version: 17.1.4
+    version: 17.2.2
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

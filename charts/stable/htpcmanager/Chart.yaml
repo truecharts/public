@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: htpcmanager
-version: 8.0.1
+version: 8.1.0
 appVersion: 2021.11.17
 description: Htpcmanager is a front end for many htpc related applications.
 home: https://truecharts.org/charts/stable/htpcmanager
@@ -18,7 +18,7 @@ keywords:
   - htpcmanager
 dependencies:
   - name: common
-    version: 17.1.4
+    version: 17.2.2
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

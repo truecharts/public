@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: homelablabelmaker
-version: 7.0.1
+version: 7.1.0
 appVersion: latest
 description: DIY tool to create and print labels for Dell Poweredge and HP Proliant drive caddies.
 home: https://truecharts.org/charts/stable/homelablabelmaker
@@ -21,7 +21,7 @@ keywords:
   - Other
 dependencies:
   - name: common
-    version: 17.1.4
+    version: 17.2.2
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

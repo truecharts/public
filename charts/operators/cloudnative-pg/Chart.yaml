@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: cloudnative-pg
-version: 5.1.1
+version: 5.2.0
 appVersion: latest
 description: CloudNativePG is a clustered postgresql database operator
 home: https://truecharts.org/charts/operators/cloudnative-pg
@@ -22,7 +22,7 @@ keywords:
   - cnpg
 dependencies:
   - name: common
-    version: 17.1.4
+    version: 17.2.2
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

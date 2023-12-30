@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: picoshare
-version: 8.0.1
+version: 8.1.0
 appVersion: 1.4.1
 description: PicoShare is a minimalist service that allows you to share files easily.
 home: https://truecharts.org/charts/stable/picoshare
@@ -19,7 +19,7 @@ keywords:
   - picoshare
 dependencies:
   - name: common
-    version: 17.1.4
+    version: 17.2.2
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
