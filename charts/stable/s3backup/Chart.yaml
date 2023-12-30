@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: s3backup
-version: 4.0.1
+version: 4.1.0
 appVersion: latest
 description: A simple way to backup important files to Amazon S3 and Glacier.
 home: https://truecharts.org/charts/incubator/s3backup
@@ -21,7 +21,7 @@ keywords:
   - Cloud
 dependencies:
   - name: common
-    version: 17.1.4
+    version: 17.2.2
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

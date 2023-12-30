@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: cloud9
-version: 10.0.1
+version: 10.1.0
 appVersion: 1.29.2
 description: A complete web based IDE with terminal access
 home: https://truecharts.org/charts/stable/cloud9
@@ -23,7 +23,7 @@ keywords:
   - web
 dependencies:
   - name: common
-    version: 17.1.4
+    version: 17.2.2
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

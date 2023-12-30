@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: shlink-web-client
-version: 9.0.1
+version: 9.1.0
 appVersion: 3.10.2
 description: A ReactJS-based progressive web application for Shlink.
 home: https://truecharts.org/charts/stable/shlink-web-client
@@ -21,7 +21,7 @@ keywords:
   - frontend
 dependencies:
   - name: common
-    version: 17.1.4
+    version: 17.2.2
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

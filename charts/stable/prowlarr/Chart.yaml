@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: prowlarr
-version: 14.0.1
+version: 14.1.0
 appVersion: 1.11.3.4163
 description: Indexer manager/proxy built on the popular arr net base stack to integrate with your various PVR apps.
 home: https://truecharts.org/charts/stable/prowlarr
@@ -22,7 +22,7 @@ keywords:
   - usenet
 dependencies:
   - name: common
-    version: 17.1.4
+    version: 17.2.2
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

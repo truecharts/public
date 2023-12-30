@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: hexchat
-version: 4.0.1
+version: 4.1.0
 appVersion: latest
 description: HexChat is an IRC client based on XChat, but unlike XChat it’s completely free for both Windows and Unix-like systems. Since XChat is open source, it’s perfectly legal. For more info. HexChat was originally called XChat-WDK which in turn was a successor of freakschat.
 home: https://truecharts.org/charts/incubator/hexchat
@@ -23,7 +23,7 @@ keywords:
   - Tools-Utilities
 dependencies:
   - name: common
-    version: 17.1.4
+    version: 17.2.2
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: minecraft-bungeecord
-version: 7.0.1
+version: 7.1.0
 appVersion: 2022.4.1
 description: the front-end of a cluster of minecraft-java containers.
 home: https://truecharts.org/charts/stable/minecraft-bungeecord
@@ -21,7 +21,7 @@ keywords:
   - minecraft
 dependencies:
   - name: common
-    version: 17.1.4
+    version: 17.2.2
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

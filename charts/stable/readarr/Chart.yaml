@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: readarr
-version: 19.0.1
+version: 19.1.0
 appVersion: 0.3.13.2338
 description: A fork of Radarr to work with Books & AudioBooks
 home: https://truecharts.org/charts/stable/readarr
@@ -24,7 +24,7 @@ keywords:
   - ebooks
 dependencies:
   - name: common
-    version: 17.1.4
+    version: 17.2.2
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: dell-idrac-fan-controller
-version: 4.0.1
+version: 4.1.0
 appVersion: latest
 description: Control your Dell PowerEdge fans via IPMI
 home: https://truecharts.org/charts/stable/dell-idrac-fan-controller
@@ -21,7 +21,7 @@ keywords:
   - fan-controller
 dependencies:
   - name: common
-    version: 17.1.4
+    version: 17.2.2
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

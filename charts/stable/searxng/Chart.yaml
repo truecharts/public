@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: searxng
-version: 6.0.1
+version: 6.1.0
 appVersion: latest
 description: Meta search engine which aggregates results from more than 70 search services.
 home: https://truecharts.org/charts/stable/searxng
@@ -21,7 +21,7 @@ keywords:
   - Other
 dependencies:
   - name: common
-    version: 17.1.4
+    version: 17.2.2
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

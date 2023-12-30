@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: ser2sock
-version: 12.0.1
+version: 12.1.0
 appVersion: latest
 description: Serial to Socket Redirector
 home: https://truecharts.org/charts/stable/ser2sock
@@ -20,7 +20,7 @@ keywords:
   - ser2sock
 dependencies:
   - name: common
-    version: 17.1.4
+    version: 17.2.2
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

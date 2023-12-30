@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: genea
-version: 4.0.1
+version: 4.1.0
 appVersion: latest
 description: Genea allows visually building and editing a family tree online. It consumes and saves genealogy data in the GEDCOM format without any server side components.
 home: https://truecharts.org/charts/incubator/genea
@@ -20,7 +20,7 @@ keywords:
   - Other
 dependencies:
   - name: common
-    version: 17.1.4
+    version: 17.2.2
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

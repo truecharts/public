@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: browserless-chrome
-version: 8.0.1
+version: 8.1.0
 appVersion: 1.60.2-chrome-stable
 description: Browserless is a web-service that allows for remote clients to connect, drive, and execute headless work
 home: https://truecharts.org/charts/stable/browserless-chrome
@@ -21,7 +21,7 @@ keywords:
   - puppeteer
 dependencies:
   - name: common
-    version: 17.1.4
+    version: 17.2.2
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
