@@ -53,15 +53,11 @@ Keep in mind, these are just my personal settings, if you are wanting a more in-
 
 **MainDir**
 
-```
-/nzb
-```
+`/nzb`
 
 **ScriptDir**
 
-```
-${MainDir}/scripts
-```
+`${MainDir}/scripts`
 
 <br />
 
@@ -69,17 +65,13 @@ ${MainDir}/scripts
 
 **ControlPassword**
 
-```
-NEWPASSWORD
-```
+`NEW_PASSWORD`
 
 - set this to something you can remember
 
 **AuthorizedIP**
 
-```
-127.0.0.1,192.168.0.*,172.16.*.*
-```
+`127.0.0.1,192.168.0.*,172.16.*.*`
 
 - This field is separated by commas.
 - We added my Lan on there `192.168.0.*`

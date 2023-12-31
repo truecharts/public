@@ -20,13 +20,13 @@ This guide has been written as LLDAP has specific requirements for the LDAP setu
 
    **Username only**
 
-   ```
+   ```shell
    (&({username_attribute}={input})(objectClass=person))
    ```
 
    **Username and email**
 
-   ```
+   ```shell
    (&(|({username_attribute}={input})({mail_attribute}={input}))(objectClass=person))
    ```
 
@@ -39,7 +39,7 @@ This guide has been written as LLDAP has specific requirements for the LDAP setu
 
     **Admin user**
 
-    ```
+    ```shell
     uid=admin,ou=people,dc=example,dc=com
     ```
 
