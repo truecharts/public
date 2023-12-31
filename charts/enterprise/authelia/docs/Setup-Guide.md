@@ -20,7 +20,7 @@ LLDAP is a `Stable` train chart and therefore isn't supported at the same level 
 
 - Follow the steps included in the [Installation Notes](https://truecharts.org/charts/stable/lldap/installation-notes) for [LLDAP](https://truecharts.org/charts/stable/lldap/). Pretty straightforward. Change `dc=example,dc=com` to your domain, i.e. `dc=MYDOMAIN,dc=net` and then change your password. Also make sure you have the `Operators` train enabled and `CloudnativePG` operator installed, since you'll need it for `LLDAP` and `Authelia`
 
-![LLDAP Config](img/LLDAPCatalogConfig.png)
+![LLDAP Config](./img/LLDAPCatalogConfig.png)
 
 - I've set the services to `ClusterIP` since I'll be using ingress
 
@@ -69,7 +69,7 @@ Check your mail provider for this, generally Gmail gives you an app specific pas
 
 Leave the default `one_factor` unless you've setup TOTP above. Then click `Add` next to `Rules` to get the screen below
 
-![AutheliaAccessControl](img/AutheliaAccessControl.png)
+![AutheliaAccessControl](./img/AutheliaAccessControl.png)
 
 - Add your `Domain` and a `Wildcard` for your subdomains.
 - Leave policy `one_factor`
@@ -79,7 +79,7 @@ Leave the default `one_factor` unless you've setup TOTP above. Then click `Add` 
 
 - Make sure you're using the same domain as the `Default Redirection URL` above, so for me that's `auth.mydomain.com`
 
-![AutheliaIngress](img/AutheliaIngress.png)
+![AutheliaIngress](./img/AutheliaIngress.png)
 
 ## Traefik ForwardAuth Setup
 
@@ -87,7 +87,7 @@ Leave the default `one_factor` unless you've setup TOTP above. Then click `Add` 
 
 - Scroll down to `forwardAuth` and click `Add`
 
-![TraefikForwardAuth](img/TraefikForwardAuth.png)
+![TraefikForwardAuth](./img/TraefikForwardAuth.png)
 
 - Name your `forwardauth` something you'll remember, since that's the middleware you'll add to your ingress going forward. Most people use `auth`
 - Address: `http://authelia.ix-authelia.svc.cluster.local:9091/api/verify?rd=https://auth.mydomain.com/` and replace the last part based on `mydomain.com`, and if you've changed ports/names you can get that from `Heavyscript`
@@ -104,7 +104,7 @@ The last step is adding the `forwardauth` along with the standard `ingress` sett
 
 - In this example we use the same name as above, or `auth`. Click `Add` to the `Traefik Middlewares` section, and enter your `forwardauth` name.
 
-![TraefikForwardAuthMiddleware](img/TraefikForwardAuthMiddleware.png)
+![TraefikForwardAuthMiddleware](./img/TraefikForwardAuthMiddleware.png)
 
 ### References
 

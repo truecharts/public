@@ -22,7 +22,7 @@ Edit your existing traefik install (or install fresh if you don't have it instal
 - Base URL: (Leave the default, unless you plan to use a self hosted theme provider)
 - Click <kbd>Save</kbd>
 
-  ![traefik-theme-fields](img/traefik-theme-fields.png)
+  ![traefik-theme-fields](./img/traefik-theme-fields.png)
 
 > Keep in mind that if you decide to use a self hosted theme provider, it will need to have enabled ingress.
 > Also use the external URL, not the internal, as the client will need to access that theme provider to fetch the
@@ -37,10 +37,10 @@ Edit your existing _App_, in this example we will use `guacamole-client`.
 - Name: `guactheme` (Replace with the name you gave to your middleware on the previous step)
 - Click <kbd>Save</kbd>
 
-  ![traefik-theme-app](img/traefik-theme-app.png)
+  ![traefik-theme-app](./img/traefik-theme-app.png)
 
 You are ready!
 
-|                        Before                         |                        After                        |
-| :---------------------------------------------------: | :-------------------------------------------------: |
-| ![traefik-theme-before](img/traefik-theme-before.png) | ![traefik-theme-after](img/traefik-theme-after.png) |
+|                         Before                          |                         After                         |
+| :-----------------------------------------------------: | :---------------------------------------------------: |
+| ![traefik-theme-before](./img/traefik-theme-before.png) | ![traefik-theme-after](./img/traefik-theme-after.png) |

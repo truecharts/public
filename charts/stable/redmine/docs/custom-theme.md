@@ -10,13 +10,13 @@ Default configuration with PVC storage
 
 Add additional app storage as PVC with Mount path `/usr/src/redmine/public/themes`
 
-![image](img/image1.png)
+![image](./img/image1.png)
 
 You might also want to add `/usr/src/redmine/plugins` folder as PVC mount. This is the folder where you need to unzip your plugins if you want to use some.
 
 As of the time of writing the app is not running normally when created with settings RunAsUser 568 RunAsGroup 568
 
-![image](img/image2.png)
+![image](./img/image2.png)
 
 Changing the configuration to RunAsUser 999 RunAsGroup 999 solves the issue.
 Check this [issue](https://github.com/truecharts/charts/issues/15079) for details
@@ -71,7 +71,7 @@ sudo mc
 
 To launch the moonlight commander app. I navigate to my SMB share and to the mounted PVC path and copy the files over
 
-![image](img/image3.png)
+![image](./img/image3.png)
 
 ## Change permissions of the themes files
 
@@ -82,7 +82,7 @@ cd /mnt/mounted_pvc/redmine/redmine-persist-list-0
 ls - la
 ```
 
-![image](img/image4.png)
+![image](./img/image4.png)
 
 I also copied the standard Redmine themes alternate and classic to this folder
 
@@ -97,7 +97,7 @@ sudo chmod -R 775 PurpleMine2-master
 
 Repeat this commands for every theme folder you copied. And double check that owner have been changed and the permissions applied
 
-![image](img/image5.png)
+![image](./img/image5.png)
 
 ## Unmount volumes and launch the app
 
@@ -115,4 +115,4 @@ Open the Redmine web page. Sign in with your new password for Admin.
 
 Go to `Administration` -> `Settings` -> `Display`. Pick the newly added theme
 
-![image](img/image6.png)
+![image](./img/image6.png)

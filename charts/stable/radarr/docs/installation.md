@@ -10,7 +10,7 @@ If you are wanting to use ingress, its probably better to use clusterIP instead
 
 - We changed the UDP and TCP port to match the Mullvad ports allocated, your VPN provider might require something else
 
-![!Networking: qbittorrent](images/networking.png)
+![!Networking: qbittorrent](./img/networking.png)
 
 <br />
 
@@ -20,7 +20,7 @@ If you are wanting to use ingress, its probably better to use clusterIP instead
 
 The setup is default
 
-![!Storage: NZBGet](images/storage_config.png)
+![!Storage: NZBGet](./img/storage_config.png)
 
 <br />
 
@@ -29,7 +29,7 @@ The setup is default
 - Media is so that Radarr will have a location to place files once they're completed
 - This will be the folder Radarr places files for plex to then parse through.
 
-![!Storage: NZBGet](images/storage_data_media.png)
+![!Storage: NZBGet](./img/storage_data_media.png)
 
 <br />
 
@@ -38,7 +38,7 @@ The setup is default
 - '/config/Backups' is the location Radarr places its automatic and manual backups
 - We created a separate dataset meant for backups, specifically to have an easy way to restore a backup, in the event the application is wrongly deleted, or removed, corrupt, whatever
 
-![!Storage: NZBGet](images/storage_data_backups.png)
+![!Storage: NZBGet](./img/storage_data_backups.png)
 
 <br />
 
@@ -47,7 +47,7 @@ The setup is default
 - This is obviously the location Radarr will look for completed NZB files
 - Its also the location NZBGet saves its completed movie files
 
-![!Storage: NZBGet](images/storage_data_nzb.png)
+![!Storage: NZBGet](./img/storage_data_nzb.png)
 
 <br />
 
@@ -56,7 +56,7 @@ The setup is default
 - This is the location Radarr will look for completed qBittorrent files
 - Its also the location qBittorrent saves its completed movie files
 
-![!Storage: NZBGet](images/storage_data_qbit.png)
+![!Storage: NZBGet](./img/storage_data_qbit.png)
 
 <br />
 
@@ -65,7 +65,7 @@ The setup is default
 - This is the location Radarr will look for completed Syncthing files
 - Its also the location Syncthing saves its completed movie files
 
-![!Storage: NZBGet](images/storage_data_syncthing.png)
+![!Storage: NZBGet](./img/storage_data_syncthing.png)
 
 <br />
 
@@ -94,17 +94,17 @@ Its important to keep your mountpoints for each of the applications the same. Ot
 #### Radarrs Storage Settings
 
 I set it to a sub directory of `/qbitvpn` though since `/qbitvpn/complete/movies` is the only directory Radarr needs to see, since it only needs to see movies that are completed
-![!Storage: NZBGet](images/qbit_radarr_storage.png)
+![!Storage: NZBGet](./img/qbit_radarr_storage.png)
 
 #### qBittorrents Storage Settings
 
-![!Storage: NZBGet](images/qbit_storage.png)
+![!Storage: NZBGet](./img/qbit_storage.png)
 
 <br />
 
 ### Linking Radarr to qBittorrent
 
-![!Storage: NZBGet](images/qbit_radarr_client.png)
+![!Storage: NZBGet](./img/qbit_radarr_client.png)
 
 #### Explanation
 
@@ -134,17 +134,17 @@ Its important to keep your mountpoints for each of the applications the same. Ot
 
 #### Radarrs Storage Settings
 
-![!Storage: NZBGet](images/nzbget_radarr_storage.png)
+![!Storage: NZBGet](./img/nzbget_radarr_storage.png)
 
 #### NZBGet Storage Settings
 
-![!Storage: NZBGet](images/nzbget_storage.png)
+![!Storage: NZBGet](./img/nzbget_storage.png)
 
 <br />
 
 ### Linking Radarr to NZBGet
 
-![!Storage: NZBGet](images/nzbget_radarr_client.png)
+![!Storage: NZBGet](./img/nzbget_radarr_client.png)
 
 #### Explanation
 

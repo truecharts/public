@@ -19,7 +19,7 @@ Setup App Name and Configuration as necessary, but where you deviate from defaul
 
 - To generate a cron schedule one can use a website like [cronhub](https://crontab.cronhub.io) or [crontab.guru](https://crontab.guru)
 
-![Cron Config](img/Cron-Config.png)
+![Cron Config](./img/Cron-Config.png)
 
 **Note the added directory to `Extra Args`, this is where your scanned directories will go**
 
@@ -27,7 +27,7 @@ Setup App Name and Configuration as necessary, but where you deviate from defaul
 
 Add your scanned directories using `Configure Additional Storage` and make sure your mounted directories match the directory in the `Extra Args` section above
 
-![NFS Share](img/NFS-Share.png)
+![NFS Share](./img/NFS-Share.png)
 
 That's it, without a GUI having the cron job is the easiest way to have your ClamAV running in the background at specific times.
 

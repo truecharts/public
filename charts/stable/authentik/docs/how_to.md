@@ -34,7 +34,7 @@ Note that the `*.domain.com` host config is only needed if you want to use `Forw
 
 :::
 
-![Ingress-Auth](img/Ingress-Auth.png)
+![Ingress-Auth](./img/Ingress-Auth.png)
 
 ## Authentik GUI Setup
 
@@ -42,25 +42,25 @@ Default username is `akadmin` and password is whatever you entered in the initia
 
 - Once logged in enter the Admin Interface
 
-![Applications-Screen](img/Applications-Screen.png)
+![Applications-Screen](./img/Applications-Screen.png)
 
 ### Create Application
 
 - First step is to create an Application for use with `authentik`
 
-![Create-Application](img/Create-Applications.png)
+![Create-Application](./img/Create-Applications.png)
 
 - Specific the `Name` and `Slug` and then choose `Create Provider`
 
-![Create-Applications-2](img/Create-Applications-2.png)
+![Create-Applications-2](./img/Create-Applications-2.png)
 
 - Choose a new provider `Proxy Provider`.
 
-![New-Provider-1](img/New-Provider-1.png)
+![New-Provider-1](./img/New-Provider-1.png)
 
 - The simplest is to give it a name and use `Forward auth (domain level)`. Once there you enter the `main ingress` URL you use to access `authentik` and the `cookie domain` as the main domain you use.
 
-![New-Provider-2](img/New-Provider-2.png)
+![New-Provider-2](./img/New-Provider-2.png)
 
 - If you want to use subdomain-level access control, select `Forward auth (single application)` and enter the URL you have chosen for your apps' ingress.
 - The example uses `https://application.domain.com/`, make sure your app is reachable and uses a valid certificate beforehand.
@@ -68,35 +68,35 @@ Default username is `akadmin` and password is whatever you entered in the initia
   - Don't use a `basicAuth` middleware in the apps' ingress settings. Only use this if your app has build in basic auth support.
   - Add the attributes in a `authentik` group, then assign any user you want to be able to access the application to this group.
 
-![New-Provider-3](img/New-Provider-3.png)
+![New-Provider-3](./img/New-Provider-3.png)
 
 - Once done use that new `Provider` you created
 
-![Create-Applications-3](img/Create-Applications-3.png)
+![Create-Applications-3](./img/Create-Applications-3.png)
 
 ### Choose Provider
 
 If everything was done properly above, you should have the Provider you created assigned to your Application
 
-![Providers](img/Providers.png)
+![Providers](./img/Providers.png)
 
 ### Use Embedded Outpost
 
-![Outposts](img/Outposts.png)
+![Outposts](./img/Outposts.png)
 
 - Next step is simply attaching your `application` with the `authentik Embedded Outpost` that has been created automatically. Click the `Edit` button under Actions
 
-![Update-Outposts](img/Update-Outpost.png)
+![Update-Outposts](./img/Update-Outpost.png)
 
 - Name your `Outpost` and choose the `Application` you wish to use with `authentik`. Click `Update` and verify it's usage with the Healthcheck below.
 
-![Verify-Outpost](img/Verify-Outpost.png)
+![Verify-Outpost](./img/Verify-Outpost.png)
 
 ## Traefik ForwardAuth Setup
 
 Once `authentik` is setup and running, you must create a `forwardAuth` inside `Traefik` in order to use authentication with Traefik. For my purposes `auth` is what I used but as long as you remember it you're fine.
 
-![Traefik-forwardAuth](img/Traefik-forwardAuth.png)
+![Traefik-forwardAuth](./img/Traefik-forwardAuth.png)
 
 :::note
 
@@ -135,7 +135,7 @@ Add the `authorization` header to pass the HTTP-Basic headers from `authentik` t
 
 - Once that is done all you need to add the `middleware` to your Charts under the `Ingress section`, as in my case it's called `auth`.
 
-![Traefik-Middleware](img/Traefik-Middleware.png)
+![Traefik-Middleware](./img/Traefik-Middleware.png)
 
 And that's it.
 
@@ -143,11 +143,11 @@ And that's it.
 
 - Simply visit any `URL` that you have `Traefik` + the `forwardAuth` middleware enabled
 
-![Verify](img/Verify.png)
+![Verify](./img/Verify.png)
 
 - Login and voila!
 
-![Verify2](img/Verify-2.png)
+![Verify2](./img/Verify-2.png)
 
 ## Support
 

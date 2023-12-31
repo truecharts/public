@@ -1,6 +1,7 @@
 ---
 title: clusterissuer Setup Guide
 ---
+
 This guide will walk you through setting up `clusterissuer`, certificate management for Kubernetes.
 
 ## Prerequisites
@@ -21,7 +22,7 @@ As part of the DNS verification process cert-manager will connect to authoritati
 
 It is important to configure Scale with reliable nameserver to avoid issues handling DNS-01 challenges. Under Network -> Global Configuration-> Nameservers, we recommend setting 1.1.1.1/1.0.0.1 or 8.8.8.8/8.8.4.4.
 
-![clusterissuer scale nameservers](img/scale-network-nameserver.png)
+![clusterissuer scale nameservers](./img/scale-network-nameserver.png)
 
 ## Install clusterissuer App
 
@@ -31,7 +32,7 @@ It is by design that the app does not run, there are no events, no logs and no s
 
 :::
 
-![clusterissuer app card](img/clusterissuer2.png)
+![clusterissuer app card](./img/clusterissuer2.png)
 
 ## Configure ACME Issuer
 
@@ -43,10 +44,10 @@ You can setup multiple domains and/or DNS providers with a single `clusterissuer
 
 Login to Cloudflare dashboard and go to the [Cloudflare API Tokens](https://dash.cloudflare.com/profile/api-tokens) page. Select Edit Zone DNS template.
 
-![clusterissuer app card](img/cf-apitokens-template.png)
+![clusterissuer app card](./img/cf-apitokens-template.png)
 
 The recommended `API Token` permissions are below:
-![clusterissuer app card](img/cf-apitokens-perms.png)
+![clusterissuer app card](./img/cf-apitokens-perms.png)
 
 #### Cloudflare ACME Issuer Settings
 
@@ -57,7 +58,7 @@ The recommended `API Token` permissions are below:
 - **Cloudflare API key**: Leave blank since API token will be used
 - **Cloudflare API Token**: Populate with token created from above.
 
-![clusterissuer edit dialog](img/clusterissuer-appconfig.png)
+![clusterissuer edit dialog](./img/clusterissuer-appconfig.png)
 
 More detail can be found on the upstream [Cert-Manager](https://cert-manager.io/) documentaition for [Cloudflare](https://cert-manager.io/docs/configuration/acme/dns01/cloudflare/).
 
@@ -79,7 +80,7 @@ Here's an example on how to add ingress to an app with clusterissuer for a singl
 
 Add the name of the `ACME Issuer` into `certificateIssuer`
 
-![configure ingress using clusterissuer ](img/clusterissuer-ingressconfig.png)
+![configure ingress using clusterissuer ](./img/clusterissuer-ingressconfig.png)
 
 If you want to support multiple domains on a single app, use the Add button next to `Hosts`.
 
@@ -87,7 +88,7 @@ If you want to support multiple domains on a single app, use the Add button next
 
 Once installed using the Ingress settings above, you can see the `Application Events` for the app in question to pull the certificate and issue the challenge directly. See the example below:
 
-![clusterissuer4](img/clusterissuer4.png)
-![clusterissuer5](img/clusterissuer5.png)
+![clusterissuer4](./img/clusterissuer4.png)
+![clusterissuer5](./img/clusterissuer5.png)
 
 Renewals are handled automatically by `clusterissuer`.

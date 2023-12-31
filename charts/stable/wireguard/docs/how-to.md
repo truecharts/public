@@ -23,7 +23,7 @@ Endpoint = wg.example:51820
 
 UI Configuration is simple as that:
 
-![wg-configuration](img/wg-configuration.png)
+![wg-configuration](./img/wg-configuration.png)
 
 Tick `Killswitch` if you want to kill traffic when VPN is down.
 Add networks in `Excluded IPv{4,6} Networks` that you want to continue their traffic when VPN is down.

@@ -19,7 +19,7 @@ Edit your existing traefik install (or install fresh if you don't have it instal
 - Check `Permanent`
 - Click <kbd>Save</kbd>
 
-  ![traefik-regex-redirect-fields](img/traefik-regex-redirect-fields.png)
+  ![traefik-regex-redirect-fields](./img/traefik-regex-redirect-fields.png)
 
 This will capture `https://remote.domain.com` or `https://remote.domain.com/`
 and redirect it to `https://remote.domain.com/guacamole`
@@ -33,6 +33,6 @@ Edit your existing _App_, in this example we will use `guacamole-client`.
 - Name: `guacamole-redirect` (Replace with the name you gave to your middleware on the previous step)
 - Click <kbd>Save</kbd>
 
-  ![traefik-regex-redirect-app](img/traefik-regex-redirect-app.png)
+  ![traefik-regex-redirect-app](./img/traefik-regex-redirect-app.png)
 
 You are ready!

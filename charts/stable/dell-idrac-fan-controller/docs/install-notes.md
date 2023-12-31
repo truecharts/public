@@ -14,4 +14,4 @@ Visit this [link](https://github.com/tigerblue77/Dell_iDRAC_fan_controller_Docke
 
 Make sure you have OS to iDrac passthrough enabled
 
-![OStoIDracPassthrough](img/OStoiDracPassThrough.png)
+![OStoIDracPassthrough](./img/OStoiDracPassThrough.png)

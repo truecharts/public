@@ -27,11 +27,11 @@ On that screen you add the following two values:
 
 Set them to `1` and `Enabled`
 
-![sysctl](img/Sysctl.png)
+![sysctl](./img/Sysctl.png)
 
 Also prepare your Tailscale Auth Key for your setup, easy to generate on the page below
 
-![tailscale-auth-key](img/How-To-Image-1.png)
+![tailscale-auth-key](./img/How-To-Image-1.png)
 
 ## Tailscale Chart Setup
 
@@ -60,17 +60,17 @@ For more Extra Args and their usage please check the [Tailscale Knowledge Base](
 since we consider these advanced features and these may/not be compatible with everyone's exact setup.
 
 TODO: Update image with the new fields
-![tailscale-step-3](img/How-To-Image-2.png)
+![tailscale-step-3](./img/How-To-Image-2.png)
 
 **Hostname example**
 
-![hostname-example](img/Hostname.png)
+![hostname-example](./img/Hostname.png)
 
 ### Networking and Services
 
 The default ports are fine for this chart, you shouldn't need to port forward or open ports on your router.
 
-![tailscale-step-4](img/How-To-Image-3.png)
+![tailscale-step-4](./img/How-To-Image-3.png)
 
 ### Storage and Persistence
 

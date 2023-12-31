@@ -17,7 +17,7 @@ None necessary, a domain name is recommended for usage but not required.
 - Docusaurus Default Template is generally `classic` unless you've manually installed another
 - Choose `Production` mode or `Development` mode
 
-![container-config](img/Container-Config.png)
+![container-config](./img/Container-Config.png)
 
 ### Networking and Services
 
@@ -30,7 +30,7 @@ None necessary, a domain name is recommended for usage but not required.
   - Add the `Host Path` of the folder you wish to use
   - Use the `Mount Path` of the folder you wish to have accessible. For example `/docusaurus/website/docs` mounts the files inside the `/docs` of the standard Docusaurus website.
 
-![Storage](img/Storage.png)
+![Storage](./img/Storage.png)
 
 ### Ingress
 
