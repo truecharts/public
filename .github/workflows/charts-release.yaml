@@ -241,7 +241,7 @@ jobs:
                   filename=$(basename "${file}")
                   echo "Found doc file: ${file}"
                   test_title=$(head -n 1 "${file}" | sed 's/# //')
-                  if [-n ${test_title} ]; then
+                  if [ -n ${test_title} ]; then
                     echo "Doc title should use front matter and not # for title, for example"
                     echo "---"
                     echo "title: ${test_title}"
