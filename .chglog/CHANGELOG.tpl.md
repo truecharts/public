@@ -5,18 +5,18 @@
 {{- range .CommitGroups }}
 
 ### {{ .Title }}
-  {{ range .Commits }}
+{{ range .Commits }}
 - {{ .Subject -}}
-  {{- end -}}
+{{- end -}}
 
 {{- end -}}
 
 {{- range .NoteGroups }}
 
 ### {{ .Title }}
-  {{ range .Notes }}
-    {{- .Body }}
-  {{- end }}
+{{ range .Notes }}
+{{ .Body }}
+{{- end }}
 {{- end -}}
 
 {{- end -}}

@@ -2,13 +2,12 @@
 
 ## General Info
 
-TrueCharts can be installed as both *normal* Helm Charts or as Apps on TrueNAS SCALE.
+TrueCharts can be installed as both _normal_ Helm Charts or as Apps on TrueNAS SCALE.
 However only installations using the TrueNAS SCALE Apps system are supported.
 
 For more information about this App, please check the docs on the TrueCharts [website](https://truecharts.org/charts/stable/shoko-server)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
-
 
 ## Support
 
@@ -24,4 +23,4 @@ For more information about this App, please check the docs on the TrueCharts [we
 TrueCharts can only exist due to the incredible effort of our staff.
 Please consider making a [donation](https://truecharts.org/sponsor) or contributing back to the project any way you can!
 
-*All Rights Reserved - The TrueCharts Project*
+_All Rights Reserved - The TrueCharts Project_

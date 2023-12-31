@@ -41,6 +41,6 @@ Edit your existing _App_, in this example we will use `guacamole-client`.
 
 You are ready!
 
-|                        Before                         |                        After                        |
-| :---------------------------------------------------: | :-------------------------------------------------: |
+|                         Before                          |                         After                         |
+| :-----------------------------------------------------: | :---------------------------------------------------: |
 | ![traefik-theme-before](./img/traefik-theme-before.png) | ![traefik-theme-after](./img/traefik-theme-after.png) |

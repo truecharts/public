@@ -453,6 +453,7 @@ title: Changelog
 ### Fix
 
 ### Choredate chart README [skip ci]
+
 - Auto-update chart README [skip ci]m/truecharts/apps/compare/scrutiny-3.0.21...scrutiny-3.0.22) (2022-07-26)
 - Auto-update chart README [skip ci]
 - Auto-update chart README [skip ci]

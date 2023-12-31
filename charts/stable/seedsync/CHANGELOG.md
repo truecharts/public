@@ -428,6 +428,7 @@ title: Changelog
 ## [seedsync-0.0.17](https://github.com/truecharts/charts/compare/seedsync-0.0.16...seedsync-0.0.17) (2022-08-23)
 
 ### Chore
+
 ## [seedsync-0.0.13](https://github.com/truecharts/apps/compare/seedsync-0.0.12...seedsync-0.0.13) (2022-07-25)
 
 ### Chore
