@@ -24,3 +24,10 @@ service:
         port: 10293
         protocol: http
         targetPort: 80
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            BAIKAL_SKIP_CHOWN: false
