@@ -273,7 +273,6 @@ jobs:
                   if [ ${filename} != "index.md" ]; then
                     # Append the link to the index.md file
                     echo "- ${link}" >> website/docs/charts/${train}/${chart}/index.md
-                    echo "" >> website/docs/charts/${train}/${chart}/index.md
                   fi
                 done
 
