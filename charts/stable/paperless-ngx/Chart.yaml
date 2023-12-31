@@ -1,47 +1,47 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: paperless-ngx
-version: 6.1.0
-appVersion: 2.1.3
+version: 6.2.0
+appVersion: 2.2.1
 description: Paperless-ngx is an application by Daniel Quinn and contributors that indexes your scanned documents.
 home: https://truecharts.org/charts/stable/paperless-ngx
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/paperless-ngx.png
 deprecated: false
 sources:
-  - https://github.com/paperless-ngx/paperless-ngx
-  - https://github.com/truecharts/charts/tree/master/charts/stable/paperless-ngx
-  - https://ghcr.io/paperless-ngx/paperless-ngx
-  - https://paperless-ngx.readthedocs.io/en/latest/
+    - https://github.com/paperless-ngx/paperless-ngx
+    - https://paperless-ngx.readthedocs.io/en/latest/
+    - https://github.com/truecharts/charts/tree/master/charts/stable/paperless-ngx
+    - https://ghcr.io/paperless-ngx/paperless-ngx
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - paperless-ng
-  - paperless-ngx
-  - documents
-  - paper
+    - paperless-ng
+    - paperless-ngx
+    - documents
+    - paper
 dependencies:
-  - name: common
-    version: 17.2.2
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-  - name: redis
-    version: 11.1.0
-    repository: https://deps.truecharts.org
-    condition: redis.enabled
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.2
+      repository: https://library-charts.truecharts.org
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
+    - name: redis
+      version: 11.1.0
+      repository: https://deps.truecharts.org
+      condition: redis.enabled
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: productivity
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: productivity
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application
