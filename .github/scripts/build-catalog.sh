@@ -101,8 +101,8 @@ patch_apps() {
         echo "Adding changelog notice for: ${chartname}"
         # Count the frontmatter lines
         line_count=$(sed -n '/^---$/,/^---$/p' "${target}/CHANGELOG.md" | wc -l)
-        # Increase the line count by 1
-        line_count=$((line_count + 1))
+        # Increase the line count by 2
+        line_count=$((line_count + 2))
         # Add a line to the changelog
         sed -i "${line_count}s/^/*for the complete changelog, please refer to the website*\n\n/" "${target}/CHANGELOG.md"
         sed -i "${line_count}s/^/**Important:**\n/" "${target}/CHANGELOG.md"
