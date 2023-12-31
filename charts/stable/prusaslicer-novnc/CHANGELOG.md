@@ -580,8 +580,6 @@ title: Changelog
 
 ### Chore
 
-### Chore
-
 - add fake digest to new incubator Apps to fetch digests
 
 ## [prusaslicer-novnc-0.0.12](https://github.com/truecharts/apps/compare/prusaslicer-novnc-0.0.11...prusaslicer-novnc-0.0.12) (2022-07-23)

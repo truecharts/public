@@ -475,8 +475,6 @@ title: Changelog
 
 ### Chore
 
-### Chore
-
 - add fake digest to new incubator Apps to fetch digests
 
 ## [rcon-webadmin-0.0.12](https://github.com/truecharts/apps/compare/rcon-webadmin-0.0.11...rcon-webadmin-0.0.12) (2022-07-23)

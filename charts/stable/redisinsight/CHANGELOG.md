@@ -474,8 +474,6 @@ title: Changelog
 
 ### Chore
 
-### Chore
-
 - add fake digest to new incubator Apps to fetch digests
 
 ## [redisinsight-0.0.12](https://github.com/truecharts/apps/compare/redisinsight-0.0.11...redisinsight-0.0.12) (2022-07-23)

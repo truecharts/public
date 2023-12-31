@@ -576,8 +576,6 @@ title: Changelog
 
 ### Chore
 
-### Chore
-
 - add fake digest to new incubator Apps to fetch digests
 
 ## [teedy-docs-0.0.12](https://github.com/truecharts/apps/compare/teedy-docs-0.0.11...teedy-docs-0.0.12) (2022-07-23)

@@ -509,8 +509,6 @@ title: Changelog
 
 ### Chore
 
-### Chore
-
 - add fake digest to new incubator Apps to fetch digests
 
 ## [tubesync-0.0.12](https://github.com/truecharts/apps/compare/tubesync-0.0.11...tubesync-0.0.12) (2022-07-23)

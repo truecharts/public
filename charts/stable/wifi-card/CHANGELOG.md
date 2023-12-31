@@ -597,7 +597,7 @@ title: Changelog
 - Auto-update chart README [skip ci]
 - Auto-update chart README [skip ci]300](https://github.com/truecharts/apps/issues/3300))
 
-  ### Chore
+### Chore
 
 - add fake digest to new incubator Apps to fetch digests
 

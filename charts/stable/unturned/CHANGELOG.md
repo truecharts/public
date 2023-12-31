@@ -477,8 +477,6 @@ title: Changelog
 
 ## [unturned-0.0.13](https://github.com/truecharts/apps/compare/unturned-0.0.12...unturned-0.0.13) (2022-07-25)
 
-### Chore
-
 ### Chorecker general non-major ([#3300](https://github.com/truecharts/apps/issues/3300))
 
 ### Chore

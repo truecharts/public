@@ -510,7 +510,7 @@ title: Changelog
 
 - update docker general non-major ([#3300](https://github.com/truecharts/apps/issues/3300))
 
-  ### Chore
+### Chore
 
 - Auto-update chart README [skip ci]
 - Auto-update chart README [skip ci]s to fetch digests

@@ -469,7 +469,7 @@ title: Changelog
 - add missing descriptions and clean up descriptions for various charts ([#3704](https://github.com/truecharts/charts/issues/3704))
 - update docker general non-major ([#3300](https://github.com/truecharts/apps/issues/3300))
 
-  ### Chore
+### Chore
 
 - add fake digest to new incubator Apps to fetch digests
 

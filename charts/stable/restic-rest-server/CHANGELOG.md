@@ -477,8 +477,6 @@ title: Changelog
 
 ### Chore
 
-### Chore
-
 - add fake digest to new incubator Apps to fetch digests
 
 ## [restic-rest-server-0.0.12](https://github.com/truecharts/apps/compare/restic-rest-server-0.0.11...restic-rest-server-0.0.12) (2022-07-23)

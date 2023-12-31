@@ -566,8 +566,6 @@ title: Changelog
 
 ### Chore
 
-### Chore
-
 - add fake digest to new incubator Apps to fetch digests
 
 ## [rdesktop-0.0.12](https://github.com/truecharts/apps/compare/rdesktop-0.0.11...rdesktop-0.0.12) (2022-07-23)

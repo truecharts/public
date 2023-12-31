@@ -454,8 +454,6 @@ title: Changelog
 
 ### Chore
 
-### Chore
-
 - add fake digest to new incubator Apps to fetch digests
 
 ## [rss-to-telegram-0.0.12](https://github.com/truecharts/apps/compare/rss-to-telegram-0.0.11...rss-to-telegram-0.0.12) (2022-07-23)

@@ -391,8 +391,6 @@ title: Changelog
 
 ### Docs
 
-### Docs
-
 - add more docs
 
 ## [radarr-11.0.32](https://github.com/truecharts/charts/compare/radarr-11.0.31...radarr-11.0.32) (2022-09-12)
@@ -421,7 +419,7 @@ title: Changelog
 
 - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
-  ### Docs
+### Docs
 
 - add more docs
 
@@ -435,7 +433,7 @@ title: Changelog
 
 - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
-  ### Docs
+### Docs
 
 - add more docs
 
@@ -457,7 +455,7 @@ title: Changelog
 
 - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
-  ### Docs
+### Docs
 
 - add more docs
 

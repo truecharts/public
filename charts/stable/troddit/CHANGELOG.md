@@ -510,8 +510,6 @@ title: Changelog
 
 ### Chore
 
-### Chore
-
 - add fake digest to new incubator Apps to fetch digests
 
 ## [troddit-0.0.12](https://github.com/truecharts/apps/compare/troddit-0.0.11...troddit-0.0.12) (2022-07-23)

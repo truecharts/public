@@ -489,8 +489,6 @@ title: Changelog
 
 ### Chore
 
-### Chore
-
 - add fake digest to new incubator Apps to fetch digests
 
 ## [quickshare-0.0.12](https://github.com/truecharts/apps/compare/quickshare-0.0.11...quickshare-0.0.12) (2022-07-23)
