@@ -1,4 +1,6 @@
-# Dell iDrac Fan Controller Installation Notes
+---
+title: Dell iDrac Fan Controller Installation Notes
+---
 
 ## iDRAC version
 
@@ -6,10 +8,10 @@ This Docker container only works on Dell PowerEdge servers that support IPMI com
 
 ## How to access iDrac over LAN
 
-https://github.com/tigerblue77/Dell_iDRAC_fan_controller_Docker#to-access-idrac-over-lan-not-needed-in-local-mode-
+Visit this [link](https://github.com/tigerblue77/Dell_iDRAC_fan_controller_Docker#to-access-idrac-over-lan-not-needed-in-local-mode-)
 
 ## Can't ping iDrac?
 
 Make sure you have OS to iDrac passthrough enabled
 
-![OStoIdracPassthrough](img/OStoiDracPassThrough.png)
+![OStoIDracPassthrough](img/OStoiDracPassThrough.png)

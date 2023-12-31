@@ -1,4 +1,6 @@
-# Installation Notes
+---
+title: Installation Notes
+---
 
 - Follow the prerequisite guides below before attempting `Ring-MQTT` installation.
 
@@ -10,7 +12,7 @@
 
 Go to `http://SCALE_IP:55123`.
 
-- Set `MQTT Url` to **mqtt://@mosquitto.ix-mosquitto.svc.cluster.local:1883** if not using mqtt auth or set the user/pass in the url like so: **mqtt://USER:PASS@mosquitto.ix-mosquitto.svc.cluster.local:1883**.
+- Set `MQTT Url` to **mqtt://@mosquitto.ix-mosquitto.svc.cluster.local:1883** if not using mqtt auth or set the user/pass in the url like so: `mqtt://USER:PASS@mosquitto.ix-mosquitto.svc.cluster.local:1883`
 - Set `LiveStream User` to **user_name** for the RTSP user.
 - Set `LiveStream Password` to **user_pass** for the RTSP user.
 - Leave `Disarm Code` blank.

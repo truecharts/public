@@ -1,4 +1,6 @@
-# Redirect Regex
+---
+title: Redirect Regex
+---
 
 The Redirect Regex middleware redirects a request using regex matching and replacement.
 

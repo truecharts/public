@@ -1,4 +1,6 @@
-# Nextcloud Migration Guide
+---
+title: Nextcloud Migration Guide
+---
 
 This guide will walk you through the migration process for Nextcloud. This guide utilize HostPath or NFS for UserData.
 
@@ -25,14 +27,10 @@ bash tcdbinfo.sh
 ```
 
 ![tcdbinfo-output](./img/tcdbinfo-output.png)
-
 2. Add Nextcloud to PGAdmin using the connection info from previous step.
-
 ![pgadmin-connection1](./img/pgadmin-connection1.png)
 ![pgadmin-connection2](./img/pgadmin-connection2.png)
-
 3. Backup Nextcloud database.
-
 ![pgadmin-backup](./img/pgadmin-backup.png)
 
 ## Delete Nextcloud
@@ -98,39 +96,30 @@ Wait for Nextcloud to fully deploy before proceeding.
 
 1. Stop the main pod of Nextcloud.
 
-```bash
-k3s kubectl scale deploy nextcloud -n ix-nextcloud --replicas=0
-```
+    ```bash
+    k3s kubectl scale deploy nextcloud -n ix-nextcloud --replicas=0
+    ```
 
 2. Add Nextcloud to PGAdmin as guided in [steps 1 and 2 here](#backup-nextcloud-database).
-
 3. In PGAdmin right click on the database and select restore as shown below.
-
-![pgadmin-restore1](./img/pgadmin-restore1.png)
-
+  ![pgadmin-restore1](./img/pgadmin-restore1.png)
 4. Select the database backup you created previously.
-
-![pgadmin-restore2](./img/pgadmin-restore2.png)
-
+  ![pgadmin-restore2](./img/pgadmin-restore2.png)
 5. Configure Data/Objects as shown below.
-
-![pgadmin-restore3](./img/pgadmin-restore3.png)
-
+  ![pgadmin-restore3](./img/pgadmin-restore3.png)
 6. Configure Options as shown below and click restore.
+  ![pgadmin-restore4](./img/pgadmin-restore4.png)
+    :::caution PGAdmin Error
 
-![pgadmin-restore4](./img/pgadmin-restore4.png)
+    PGAdmin may display an error during the restore process. This is known to occur and may be ignored.
 
-:::caution PGAdmin Error
-
-PGAdmin may display an error during the restore process. This is known to occur and may be ignored.
-
-:::
+    :::
 
 7. Start the main pod of Nextcloud.
 
-```bash
-k3s kubectl scale deploy nextcloud -n ix-nextcloud --replicas=1
-```
+  ```bash
+  k3s kubectl scale deploy nextcloud -n ix-nextcloud --replicas=1
+  ```
 
 ## Nextcloud OCC Commands
 
@@ -141,9 +130,7 @@ Wait for Nextcloud to fully deploy before proceeding.
 :::
 
 1. Open a shell for the Nextcloud main pod as shown below. Ensure your are selecting the correct pod it should just say nextcloud for both Pods (followed by random characters only) and Containers as shown below.
-
 ![nextcloud-cli](./img/nextcloud-cli.png)
-
 2. Run the following commands in the Nextcloud shell.
 
 ```bash

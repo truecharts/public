@@ -1,4 +1,6 @@
-# Disclaimer
+---
+title: Disclaimer
+---
 
 :::warning
 

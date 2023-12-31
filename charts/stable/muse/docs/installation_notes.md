@@ -1,4 +1,6 @@
-# Installation Notes
+---
+title: Installation Notes
+---
 
 - `Discord Token` can be acquired [here](https://discordapp.com/developers/applications) by creating a 'New Application', then going to 'Bot'.
 - `Spotify Client Id` and `Spotify Client Secret` can be acquired [here](https://developer.spotify.com/dashboard/applications) with 'Create a Client ID'.

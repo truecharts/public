@@ -1,4 +1,6 @@
-# Troubleshooting
+---
+title: Troubleshooting
+---
 
 ## INSTALLATION FAILED: rendered manifests contain a resource that already exists
 

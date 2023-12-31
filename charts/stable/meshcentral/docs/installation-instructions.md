@@ -1,4 +1,6 @@
-# Installation instructions
+---
+title: Installation instructions
+---
 
 :::warning
 
@@ -75,7 +77,7 @@ Set like this:
 - Key: `domains."".newAccountsRights`
 - Value: `[ "item1", "item2" ]`
 
-::: warn
+::: warning
 
 Please use the exact casing as in the [MeshCentral's json schema](https://github.com/Ylianst/MeshCentral/blob/master/meshcentral-config-schema.json).
 

@@ -1,4 +1,6 @@
-# MetalLB Basic Setup
+---
+title: MetalLB Basic Setup
+---
 
 The guide walks through a basic configuration of MetalLB for a single address pool on a layer 2 network. This will allow assigning different IP addresses by app.
 

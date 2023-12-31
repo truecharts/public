@@ -168,7 +168,11 @@ jobs:
                 else
                    echo "helm-security not found, starting with empty helm-security..."
                    touch "website/docs/charts/${train}/${chart}/helm-security.md"
-                   echo "# Helm Security" >> website/docs/charts/${train}/${chart}/helm-security.md
+                   (
+                    echo "---"
+                    echo "title: Helm Security"
+                    echo "---"
+                   ) > website/docs/charts/${train}/${chart}/helm-security.md
                 fi
                 if [[ -f "website/docs/charts/${train}/${chart}/container-security.md" ]]; then
                    echo "container-security found..."
@@ -176,7 +180,11 @@ jobs:
                 else
                    echo "container-security not found, starting with empty container-security..."
                    touch "website/docs/charts/${train}/${chart}/container-security.md"
-                   echo "# Helm Security" >> website/docs/charts/${train}/${chart}/container-security.md
+                   (
+                    echo "---"
+                    echo "title: Container Security"
+                    echo "---"
+                   ) > website/docs/charts/${train}/${chart}/container-security.md
                 fi
                 # keep some docs safe
                 mv -f website/docs/charts/${train}/${chart}/CHANGELOG.md tmp/website/docs/charts/${train}/${chart}/CHANGELOG.md || :
@@ -198,10 +206,14 @@ jobs:
                 # Append SCALE changelog to actual changelog
                 sed -i '1d' "website/docs/charts/${train}/${chart}/CHANGELOG.md" || echo "failed to sed 1d changelog..."
                 cat "charts/${train}/${chart}/app-changelog.md" | cat - "website/docs/charts/${train}/${chart}/CHANGELOG.md" > temp && mv temp "website/docs/charts/${train}/${chart}/CHANGELOG.md"
-                sed -i '1s/^/# Changelog\n\n/' "website/docs/charts/${train}/${chart}/CHANGELOG.md" || echo "failed to add changelog header..."
+                sed -i '1s/^/---\ntitle: Changelog\n---\n\n/' "website/docs/charts/${train}/${chart}/CHANGELOG.md" || echo "failed to add changelog header..."
 
                 touch website/docs/charts/${train}/${chart}/index.md
-                echo "# ${chart}" >> website/docs/charts/${train}/${chart}/index.md
+                (
+                  echo "---"
+                  echo "title: ${chart}"
+                  echo "---"
+                ) >> website/docs/charts/${train}/${chart}/index.md
                 echo "" >> website/docs/charts/${train}/${chart}/index.md
                 version=$(cat charts/${train}/${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
                 appversion=$(cat charts/${train}/${chart}/Chart.yaml | grep "^appVersion: " | awk -F" " '{ print $2 }')
@@ -220,8 +232,7 @@ jobs:
                 for file in website/docs/charts/${train}/${chart}/*.md; do
                   # Extract the file name and first line from each file
                   filename=$(basename "${file}")
-                  title=$(head -n 1 "${file}" | sed 's/# //')
-
+                  title=$(cat "${file}" | grep "title: " | sed 's/title: //')
                   # Create a markdown link using the file name and title
                   link="[**${title}**](${filename%.md})"
                   if [ ${filename} != "index.md" ]; then

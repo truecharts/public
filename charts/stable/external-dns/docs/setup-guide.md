@@ -1,4 +1,6 @@
-# External-DNS Setup Guide
+---
+title: External-DNS Setup Guide
+---
 
 ExternalDNS synchronizes exposed Kubernetes Services and Ingresses with DNS providers.
 
@@ -21,13 +23,13 @@ This guide will cover 2 scenarios, `Cloudflare` and `Pi-Hole` / `Pihole`, for mo
 
 These instructions taken from [external-dns cloudflare tutorial](https://github.com/kubernetes-sigs/external-dns/blob/master/docs/tutorials/cloudflare.md)
 
-#### Step 1:
+#### Step 1
 
 Enter `CF_API_TOKEN` (preferred) or `CF_API_EMAIL`/`CF_API_KEY`
 
 ![Cloudflare API Token](img/Cloudflare-API-token.png)
 
-#### Step 2:
+#### Step 2
 
 Enter preferences for Logs and DNS updates (I suggest >5m to prevent log spam) and select `cloudflare` as provider and select sources. I find `ingress` and `service` covers everything. If you want to filter by multiple domains add your `Domain Filter Entry`
 
@@ -37,7 +39,7 @@ I recommend using `noop` for `Registry Type` and leaving the rest as default, ca
 
 ![Cloudflare App Config 2](img/Cloudflare-App-Config-2.png)
 
-#### Step 3:
+#### Step 3
 
 Verify it works, check the logs for updates to DNS records
 
@@ -70,7 +72,7 @@ Verify logs from `External-DNS` to see if it connects and updates `PiHole`
 2023-11-07 10:29:07.801568-05:00time="2023-11-07T10:29:07-05:00" level=info msg="Using inCluster-config based on serviceaccount-token"
 2023-11-07 10:29:07.801861-05:00time="2023-11-07T10:29:07-05:00" level=info msg="Created Kubernetes client https://172.17.0.1:443"
 2023-11-07 10:29:08.008741-05:00time="2023-11-07T10:29:08-05:00" level=info msg="add firezone.DOMAIN.com IN A -> 192.168.88.105"
-2023-11-07 10:29:10.048171-05:00time="2023-11-07T10:29:10-05:00" level=info msg="add scrutiny.DOMAN.com IN A -> 192.168.88.105"
+2023-11-07 10:29:10.048171-05:00time="2023-11-07T10:29:10-05:00" level=info msg="add scrutiny.DOMAIN.com IN A -> 192.168.88.105"
 ```
 
 Check `PiHole` GUI for A records under `Local DNS`

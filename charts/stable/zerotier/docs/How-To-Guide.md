@@ -1,4 +1,6 @@
-# How-To
+---
+title: How-To
+---
 
 This is a quick how-to or setup-guide to use Zerotier using on your TrueNAS box.
 This can be applied to other systems but this specific guide is SCALE specific with the prerequisites.
@@ -36,7 +38,7 @@ This section is hidden by default for TrueNAS SCALE but if you wish to use `Host
 - Click `Expert - Pod Options`
 - Click the checkbox for `Host-Networking` if it isn't enabled
 
-### App Configuration:
+### App Configuration
 
 - `ZEROTIER_API_SECRET`: Replaces the authtoken.secret before booting and allows you to manage the control socket's authentication key
 - `ZEROTIER_IDENTITY_PUBLIC`: The identity.public file for zerotier-one. Use zerotier-idtool to generate one of these for you.
@@ -44,14 +46,14 @@ This section is hidden by default for TrueNAS SCALE but if you wish to use `Host
 
 ![How-To-Step-2](img/How-To-Step-2.png)
 
-### Extra Args:
+### Extra Args
 
 If you wish to automatically join a specific Zerotier Network upon startup simply enter the `Network-ID` in this space.
 **Note** This is not required for the chart to run and may not always work.
 
 ![How-To-Step-1](img/How-To-Step-1.png)
 
-### Networking and Services:
+### Networking and Services
 
 - The default ports are fine for this chart, you shouldn't need to port forward or open ports on your router.
 

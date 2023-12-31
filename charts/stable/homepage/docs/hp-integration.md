@@ -1,4 +1,6 @@
-# Homepage TrueCharts Integration Guide
+---
+title: Homepage TrueCharts Integration Guide
+---
 
 TrueCharts has adopted `Homepage` as its default dashboard application due to its support for Kubernetes.
 

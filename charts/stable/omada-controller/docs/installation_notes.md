@@ -1,6 +1,8 @@
-## Installation Notes
+---
+title: Installation Notes
+---
 
-Our chart by default runs on interal port `443` however those not running `Ingress` may run into issues with other processes requesting port `443`.
+Our chart by default runs on internal port `443` however those not running `Ingress` may run into issues with other processes requesting port `443`.
 
 **The Solution**
 

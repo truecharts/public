@@ -1,4 +1,6 @@
-# How To
+---
+title: How To
+---
 
 The following sections are just _examples_ and may not represent best practices or all use cases.
 The only tested servers were Spigot Based variants by PaperMC, Paper version **1.19.2**, the latest current MC version.

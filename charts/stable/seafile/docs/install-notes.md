@@ -1,4 +1,6 @@
-# Seafile installation notes and guidelines
+---
+title: Installation notes and guidelines
+---
 
 ## Ingress
 
@@ -38,7 +40,7 @@ Or
 
 Either of these steps will prevents the logs filling up with:
 
-```
+```shell
 2023-11-15 03:54:55,368 [ERROR] django.pylibmc:167 set_many MemcachedError: error 47 from memcached_set_multi: SERVER HAS FAILED AND IS DISABLED UNTIL TIMED RETRY
 Traceback (most recent call last):
   File "/usr/local/lib/python3.10/dist-packages/django_pylibmc/memcached.py", line 165, in set_many

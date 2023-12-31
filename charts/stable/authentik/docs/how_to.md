@@ -1,4 +1,6 @@
-# How-To
+---
+title: How-To
+---
 
 This is a quick how-to or setup guide to use Authentik with TrueNAS SCALE and setup a simple Proxy Provider with `traefik` using the Embedded Outpost to use as a Traefik `forwardauth`. This guide was created with Authentik `2022.10.0` and will be updated if things dramatically change.
 This can be applied to other systems but this specific guide has been tested and created on TrueNAS SCALE and isn't guaranteed to work with any other configs.
@@ -28,7 +30,7 @@ All of the defaults are fine to start off, you must choose a password, however `
 
 :::note
 
-Note that the `*.mydomain.com` host config is only needed if you want to use `Forward auth (single application)` in `authentik`.
+Note that the `*.domain.com` host config is only needed if you want to use `Forward auth (single application)` in `authentik`.
 
 :::
 
@@ -61,7 +63,7 @@ Default username is `akadmin` and password is whatever you entered in the initia
 ![New-Provider-2](img/New-Provider-2.png)
 
 - If you want to use subdomain-level access control, select `Forward auth (single application)` and enter the URL you have chosen for your apps' ingress.
-- The example uses `https://application.mydomain.com/`, make sure your app is reachable and uses a valid certificate beforehand.
+- The example uses `https://application.domain.com/`, make sure your app is reachable and uses a valid certificate beforehand.
 - You can set HTTP-Basic Authentication Attributes under `Authentication settings` for your service here.
   - Don't use a `basicAuth` middleware in the apps' ingress settings. Only use this if your app has build in basic auth support.
   - Add the attributes in a `authentik` group, then assign any user you want to be able to access the application to this group.
@@ -107,7 +109,7 @@ The main thing about this screen is to use the internal DNS name for simplicity
 
 :::
 
-```
+```shell
 http://authentik-http.ix-authentik.svc.cluster.local:10230/outpost.goauthentik.io/auth/traefik
 ```
 

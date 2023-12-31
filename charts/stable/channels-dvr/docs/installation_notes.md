@@ -1,4 +1,6 @@
-# Channels DVR Installation Notes
+---
+title: Channels DVR Installation Notes
+---
 
 :::danger TV Everywhere Permissions
 

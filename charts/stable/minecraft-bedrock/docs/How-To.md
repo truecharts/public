@@ -1,4 +1,6 @@
-# How To
+---
+title: How To
+---
 
 In order to OP a player through `OPS` variable you will need to get the XUID of the player. You can temporarily join and grab your XUID from the logs.
 

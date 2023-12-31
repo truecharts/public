@@ -1,4 +1,6 @@
-# Installation Notes
+---
+title: Installation Notes
+---
 
 - In order to run this chart, you need to be a _paid_ end-user for [proton](https://proton.me/mail/bridge).
 - Shell into the app after installing it to complete the login phase.

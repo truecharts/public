@@ -1,4 +1,6 @@
-# Installation notes
+---
+title: Installation notes
+---
 
 ## Credentials
 
