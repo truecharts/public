@@ -168,7 +168,11 @@ jobs:
                 else
                    echo "helm-security not found, starting with empty helm-security..."
                    touch "website/docs/charts/${train}/${chart}/helm-security.md"
-                   echo "# Helm Security" >> website/docs/charts/${train}/${chart}/helm-security.md
+                   (
+                    echo "---"
+                    echo "title: Helm Security"
+                    echo "---"
+                   ) > website/docs/charts/${train}/${chart}/helm-security.md
                 fi
                 if [[ -f "website/docs/charts/${train}/${chart}/container-security.md" ]]; then
                    echo "container-security found..."
@@ -176,7 +180,11 @@ jobs:
                 else
                    echo "container-security not found, starting with empty container-security..."
                    touch "website/docs/charts/${train}/${chart}/container-security.md"
-                   echo "# Helm Security" >> website/docs/charts/${train}/${chart}/container-security.md
+                   (
+                    echo "---"
+                    echo "title: Container Security"
+                    echo "---"
+                   ) > website/docs/charts/${train}/${chart}/container-security.md
                 fi
                 # keep some docs safe
                 mv -f website/docs/charts/${train}/${chart}/CHANGELOG.md tmp/website/docs/charts/${train}/${chart}/CHANGELOG.md || :
