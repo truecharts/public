@@ -208,10 +208,10 @@ jobs:
                 mv -f tmp/website/docs/charts/${train}/${chart}/container-security.md website/docs/charts/${train}/${chart}/container-security.md 2>/dev/null || :
 
                 echo "Appending SCALE changelog to actual changelog..."
-                # Append SCALE changelog to actual changelog
+                # Add SCALE changelog to actual changelog
                 # Remove header from changelog
-                sed -n '/^---$/,/^---$/p' "website/docs/charts/${train}/${chart}/CHANGELOG.md"
-                # Append app-changelog to changelog
+                sed -i '/^---$/,/^---$/d' "website/docs/charts/${train}/${chart}/CHANGELOG.md"
+                # Prepend app-changelog to changelog
                 cat "charts/${train}/${chart}/app-changelog.md" | cat - "website/docs/charts/${train}/${chart}/CHANGELOG.md" > temp && mv temp "website/docs/charts/${train}/${chart}/CHANGELOG.md"
                 echo "Adding changelog header..."
                 sed -i '1s/^/---\ntitle: Changelog\n---\n\n/' "website/docs/charts/${train}/${chart}/CHANGELOG.md" || echo "failed to add changelog header..."
