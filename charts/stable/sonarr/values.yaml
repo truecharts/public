@@ -40,7 +40,6 @@ workload:
               path: /ping
           env:
             SONARR__PORT: "{{ .Values.service.main.ports.main.port }}"
-            SONARR__AUTHENTICATION_METHOD: ""
   exportarr:
     enabled: true
     type: Deployment
