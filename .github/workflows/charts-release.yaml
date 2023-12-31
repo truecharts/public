@@ -251,7 +251,7 @@ jobs:
                   title=$(cat "${file}" | grep "title: " | sed 's/title: //')
                   echo "The title is: ${title}"
                   # Create a markdown link using the file name and title
-                  link="[**${title}**](${filename%.md})"
+                  link="[**${title}**](./${filename})"
                   if [ ${filename} != "index.md" ]; then
                     # Append the link to the index.md file
                     echo "- ${link}" >> website/docs/charts/${train}/${chart}/index.md
