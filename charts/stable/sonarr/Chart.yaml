@@ -1,38 +1,38 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: sonarr
-version: 18.1.0
+version: 19.0.0
 appVersion: 3.0.10.1567
 description: Smart PVR for newsgroup and bittorrent users
 home: https://truecharts.org/charts/stable/sonarr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/sonarr.png
 deprecated: false
 sources:
-  - https://github.com/Sonarr/Sonarr
-  - https://github.com/truecharts/charts/tree/master/charts/stable/sonarr
-  - https://ghcr.io/onedr0p/exportarr
+    - https://github.com/truecharts/charts/tree/master/charts/stable/sonarr
+    - https://ghcr.io/onedr0p/exportarr
+    - https://github.com/Sonarr/Sonarr
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - sonarr
-  - torrent
-  - usenet
+    - sonarr
+    - torrent
+    - usenet
 dependencies:
-  - name: common
-    version: 17.2.2
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.2
+      repository: https://library-charts.truecharts.org
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application
