@@ -104,8 +104,8 @@ patch_apps() {
         # Increase the line count by 1
         line_count=$((line_count + 1))
         # Add a line to the changelog
-        sed -i "${line_count + 1}s/^/*for the complete changelog, please refer to the website*\n\n/" "${target}/CHANGELOG.md"
-        sed -i "${line_count + 1}s/^/**Important:**\n/" "${target}/CHANGELOG.md"
+        sed -i "${line_count}s/^/*for the complete changelog, please refer to the website*\n\n/" "${target}/CHANGELOG.md"
+        sed -i "${line_count}s/^/**Important:**\n/" "${target}/CHANGELOG.md"
     fi
     echo "Truncating changelog for: ${chartname}"
     # Truncate changelog to only contain the last 100 lines
