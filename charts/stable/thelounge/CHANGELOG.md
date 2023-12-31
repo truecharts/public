@@ -426,8 +426,6 @@ title: Changelog
 - update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
 - Auto-update chart README [skip ci]
 
-### Fixdate chart README [skip ci]
-
 ### Chore
 
 - update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))

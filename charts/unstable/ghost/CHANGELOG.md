@@ -743,8 +743,6 @@ title: Changelog
 - move clickhouse to dependency train, remove 2 breaking apps and remove some special characters
 - update helm general non-major helm releases ([#3268](https://github.com/truecharts/apps/issues/3268))
 
-### Fixdocker general non-major ([#3266](https://github.com/truecharts/apps/issues/3266))
-
 ### Fix
 
 - remove some non-utf8 characters

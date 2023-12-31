@@ -402,8 +402,6 @@ title: Changelog
 - Auto-update chart README [skip ci]
 - Auto-update chart README [skip ci]
 
-### Docselm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
-
 ### Docs
 
 - add more docs
@@ -415,7 +413,7 @@ title: Changelog
 - Auto-update chart README [skip ci]
 - Auto-update chart README [skip ci]
 
-### Docsate chart README [skip ci]
+### Docs
 
 - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
@@ -429,7 +427,7 @@ title: Changelog
 
 - Auto-update chart README [skip ci]
 
-### Docspdate chart README [skip ci]
+### Docs
 
 - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
@@ -439,9 +437,7 @@ title: Changelog
 
 ## [radarr-11.0.32](https://github.com/truecharts/charts/compare/radarr-11.0.31...radarr-11.0.32) (2022-09-11)
 
-### Chore
-
-### Docsate chart README [skip ci]
+### Docs
 
 - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
@@ -487,9 +483,7 @@ title: Changelog
 
 ## [radarr-11.0.27](https://github.com/truecharts/charts/compare/radarr-11.0.26...radarr-11.0.27) (2022-08-12)
 
-### Chore
-
-### Fixumentation checkbox/section to all SCALE Apps
+### Fix
 
 - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
 

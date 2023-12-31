@@ -427,39 +427,7 @@ title: Changelog
 
 ## [seedsync-0.0.17](https://github.com/truecharts/charts/compare/seedsync-0.0.16...seedsync-0.0.17) (2022-08-23)
 
-### Fix
-
 ### Chore
-
-- update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
-- Auto-update chart README [skip ci]
-- update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
-
-### Chore
-
-- add documentation checkbox/section to all SCALE Apps
-- update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
-
-### Fix
-
-- move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
-
-## [seedsync-0.0.15](https://github.com/truecharts/charts/compare/seedsync-0.0.14...seedsync-0.0.15) (2022-08-08)
-
-### Chore
-
-- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
-- replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
-
-### Chore
-
-- Auto-update chart README [skip ci]
-- Auto-update chart README [skip ci]
-  ##- Auto-update chart README [skip ci]
-- Auto-update chart README [skip ci]
-- - Auto-update chart README [skip ci]
-- update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))ssues/3302))
-
 ## [seedsync-0.0.13](https://github.com/truecharts/apps/compare/seedsync-0.0.12...seedsync-0.0.13) (2022-07-25)
 
 ### Chore

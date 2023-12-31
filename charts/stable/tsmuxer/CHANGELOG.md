@@ -488,8 +488,6 @@ title: Changelog
 
 ### Feat
 
-### Feat
-
 - move some apps to stable ([#3281](https://github.com/truecharts/apps/issues/3281))
 
 ## [tsmuxer-1.0.0](https://github.com/truecharts/apps/compare/tsmuxer-0.0.13...tsmuxer-1.0.0) (2022-07-23)

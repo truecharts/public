@@ -887,8 +887,6 @@ title: Changelog
 
 - update docker general non-major docker tags ([#3512](https://github.com/truecharts/charts/issues/3512))
 
-### Fix-0.0.27](https://github.com/truecharts/charts/compare/rimgo-0.0.26...rimgo-0.0.27) (2022-08-18)
-
 ### Chore
 
 - update docker general non-major ([#3503](https://github.com/truecharts/charts/issues/3503))

@@ -476,15 +476,11 @@ title: Changelog
 - Bump all charts to generate config and container references due to huge increase of repository
 - update helm general non-major helm releases ([#3280](https://github.com/truecharts/apps/issues/3280))
 
-### Chorecker general non-major ([#3300](https://github.com/truecharts/apps/issues/3300))
-
 ### Chore
 
 ### Feat digest to new incubator Apps to fetch digests
 
-### Feat
-
-- move dev apps to incubator and remove bad content from dev
+### Featev apps to incubator and remove bad content from dev
 
 <a name="server-7daystodie-0.0.6"></a>
 

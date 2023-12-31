@@ -282,8 +282,6 @@ title: Changelog
 
 ### Feat
 
-### Feat
-
 - Enable userspace by default and update docs ([#3967](https://github.com/truecharts/charts/issues/3967))
 
 ## [tailscale-1.1.5](https://github.com/truecharts/charts/compare/tailscale-1.1.4...tailscale-1.1.5) (2022-09-27)
@@ -489,8 +487,6 @@ title: Changelog
 - Auto-update chart README [skip ci]
 - Auto-update chart README [skip ci]
 - Auto-update chart README [skip ci]
-
-### Featelm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
 ### Feat
 

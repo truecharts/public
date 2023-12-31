@@ -478,8 +478,6 @@ title: Changelog
 - Auto-update chart README [skip ci]
 - Auto-update chart README [skip ci]
 
-### Feat-7daystodie-0.0.13](https://github.com/truecharts/apps/compare/server-7daystodie-0.0.12...server-7daystodie-0.0.13) (2022-07-25)
-
 ### Chore
 
 - Auto-update chart README [skip ci]

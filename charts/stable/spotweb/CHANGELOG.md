@@ -160,8 +160,6 @@ title: Changelog
 
 ## [spotweb-4.0.40](https://github.com/truecharts/charts/compare/spotweb-4.0.39...spotweb-4.0.40) (2022-09-27)
 
-### Chore
-
 ### Feat
 
 - Auto-update chart README [skip ci]

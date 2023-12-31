@@ -426,8 +426,6 @@ title: Changelog
 - update helm general non-major ([#3619](https://github.com/truecharts/charts/issues/3619))
 - Auto-update chart README [skip ci]
 
-### Fixdate chart README [skip ci]
-
 ### Chore
 
 - update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
@@ -454,11 +452,7 @@ title: Changelog
 
 ### Fix
 
-### Chore
-
-- update helm general non-major helm releases ([#3376](https://github.com/truecharts/charts/issues/3376))
-- replace questions parts with templates ([#3402](https://github.com/truecharts/charts/issues/3402))
-- Auto-update chart README [skip ci]
+### Choredate chart README [skip ci]
 - Auto-update chart README [skip ci]m/truecharts/apps/compare/scrutiny-3.0.21...scrutiny-3.0.22) (2022-07-26)
 - Auto-update chart README [skip ci]
 - Auto-update chart README [skip ci]

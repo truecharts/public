@@ -209,8 +209,6 @@ title: Changelog
 - refactor Services SCALE GUI
 - update docker general non-major ([#3790](https://github.com/truecharts/charts/issues/3790))
 
-### Fixhelm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
-
 ### Fix
 
 - fix port and code ([#3829](https://github.com/truecharts/charts/issues/3829))
@@ -455,8 +453,6 @@ title: Changelog
 
 - add documentation checkbox/section to all SCALE Apps
 
-### Fixe helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
-
 ### Fix
 
 - move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
@@ -476,8 +472,6 @@ title: Changelog
 - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
 
 ## [unturned-0.0.13](https://github.com/truecharts/apps/compare/unturned-0.0.12...unturned-0.0.13) (2022-07-25)
-
-### Chorecker general non-major ([#3300](https://github.com/truecharts/apps/issues/3300))
 
 ### Chore
 

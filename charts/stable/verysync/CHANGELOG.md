@@ -425,8 +425,6 @@ title: Changelog
 
 ## [verysync-2.0.29](https://github.com/truecharts/charts/compare/verysync-2.0.28...verysync-2.0.29) (2022-08-23)
 
-### Chore
-
 ### Fixdate chart README [skip ci]
 
 - Auto-update chart README [skip ci]

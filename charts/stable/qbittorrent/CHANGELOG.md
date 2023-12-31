@@ -388,8 +388,6 @@ title: Changelog
 - Auto-update chart README [skip ci]
 - Auto-update chart README [skip ci]
 
-### Docselm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
-
 ### Docs
 
 - add more docs
@@ -401,7 +399,7 @@ title: Changelog
 - Auto-update chart README [skip ci]
 - Auto-update chart README [skip ci]
 
-### Docsate chart README [skip ci]
+### Docs
 
 - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
@@ -415,7 +413,7 @@ title: Changelog
 
 - Auto-update chart README [skip ci]
 
-### Docspdate chart README [skip ci]
+### Docs
 
 - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
@@ -471,9 +469,7 @@ title: Changelog
 
 ## [qbittorrent-11.0.28](https://github.com/truecharts/charts/compare/qbittorrent-11.0.27...qbittorrent-11.0.28) (2022-08-12)
 
-### Chore
-
-### Fixumentation checkbox/section to all SCALE Apps
+### Fix
 
 - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
 

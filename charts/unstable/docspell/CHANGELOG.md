@@ -169,8 +169,6 @@ title: Changelog
 - Auto-update chart README [skip ci]
 - Auto-update chart README [skip ci]
 
-### Fixdocker general non-major
-
 ### Fix
 
 - fix solr ulr ([#4040](https://github.com/truecharts/charts/issues/4040))

@@ -441,8 +441,6 @@ title: Changelog
 - Auto-update chart README [skip ci]
 - Auto-update chart README [skip ci]9](https://github.com/truecharts/charts/issues/3619))
 
-### Fixim-3.0.29](https://github.com/truecharts/charts/compare/valheim-3.0.28...valheim-3.0.29) (2022-08-23)
-
 ### Chore
 
 - update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))

@@ -77,8 +77,6 @@ title: Changelog
 - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
 - update helm general non-major ([#4342](https://github.com/truecharts/charts/issues/4342))
 
-### Fixhelm general non-major ([#4349](https://github.com/truecharts/charts/issues/4349))
-
 ### Fix
 
 - rofs:false ([#3932](https://github.com/truecharts/charts/issues/3932))
@@ -420,9 +418,7 @@ title: Changelog
 
 ## [rsnapshot-2.0.24](https://github.com/truecharts/charts/compare/rsnapshot-2.0.23...rsnapshot-2.0.24) (2022-08-12)
 
-### Chore
-
-### Fixumentation checkbox/section to all SCALE Apps
+### Fix
 
 - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
 

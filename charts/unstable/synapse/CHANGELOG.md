@@ -428,8 +428,6 @@ title: Changelog
 - Auto-update chart README [skip ci]
 - update helm general non-major ([#3756](https://github.com/truecharts/charts/issues/3756))
 
-### Fixhelm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
-
 ### Fix
 
 - add missing dicts on list items ([#3754](https://github.com/truecharts/charts/issues/3754))

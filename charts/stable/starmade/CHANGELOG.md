@@ -438,8 +438,6 @@ title: Changelog
 - some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
 - Auto-update chart README [skip ci]
 
-### Fixhelm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
-
 ### Chore
 
 - update helm general non-major helm releases ([#3545](https://github.com/truecharts/charts/issues/3545))
