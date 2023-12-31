@@ -96,7 +96,7 @@ patch_apps() {
         touch "website/docs/charts/${train}/${chartname}/CHANGELOG.md"
     fi
     cp -rf "website/docs/charts/${train}/${chartname}/CHANGELOG.md" "${target}/CHANGELOG.md" 2>/dev/null || :
-    if [[ grep -q "for the complete changelog, please refer to the website" "${target}/CHANGELOG.md" ]]; then
+    if grep -q "for the complete changelog, please refer to the website" "${target}/CHANGELOG.md"; then
         echo "Adding changelog notice for: ${chartname}"
         # Count the frontmatter lines
         line_count=$(sed -n '/^---$/,/^---$/p' "${target}/CHANGELOG.md" | wc -l)
