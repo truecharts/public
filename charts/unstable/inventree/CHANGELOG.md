@@ -20,8 +20,6 @@ title: Changelog
 
 ### Fix
 
-### Fix
-
 - change container config label
 
 ## [inventree-4.0.33](https://github.com/truecharts/charts/compare/inventree-4.0.30...inventree-4.0.33) (2022-11-08)
@@ -584,8 +582,6 @@ title: Changelog
 
 - add documentation checkbox/section to all SCALE Apps
 - update docker general non-major ([#3453](https://github.com/truecharts/charts/issues/3453))
-
-### Fix
 
 ### Fix
 

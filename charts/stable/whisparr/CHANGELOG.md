@@ -455,7 +455,7 @@ title: Changelog
 - add documentation checkbox/section to all SCALE Apps
 - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
 
-  ### Fix
+### Fix
 
 - Auto-update chart README [skip ci]
 - Auto-update chart README [skip ci]

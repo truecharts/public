@@ -20,8 +20,6 @@ title: Changelog
 
 ### Fix
 
-### Fix
-
 - change container config label
 
 ## [watchyourlan-0.0.13](https://github.com/truecharts/charts/compare/watchyourlan-0.0.10...watchyourlan-0.0.13) (2022-11-08)

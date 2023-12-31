@@ -20,8 +20,6 @@ title: Changelog
 
 ### Fix
 
-### Fix
-
 - change container config label
 
 ## [tracks-0.0.46](https://github.com/truecharts/charts/compare/tracks-0.0.43...tracks-0.0.46) (2022-11-08)
@@ -514,8 +512,6 @@ title: Changelog
 
 - add documentation checkbox/section to all SCALE Apps
 - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
-
-### Fix
 
 ### Fix
 

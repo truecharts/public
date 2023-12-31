@@ -26,8 +26,6 @@ title: Changelog
 
 ### Fix
 
-### Fix
-
 - change container config label
 
 ## [tailscale-1.1.28](https://github.com/truecharts/charts/compare/tailscale-1.1.22...tailscale-1.1.28) (2022-11-09)
@@ -171,8 +169,6 @@ title: Changelog
 
 - Auto-update chart README [skip ci]
 - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
-
-### Fix
 
 ### Fix
 

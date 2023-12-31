@@ -20,8 +20,6 @@ title: Changelog
 
 ### Fix
 
-### Fix
-
 - change container config label
 
 ## [rflood-0.0.45](https://github.com/truecharts/charts/compare/rflood-0.0.42...rflood-0.0.45) (2022-11-08)
@@ -526,8 +524,6 @@ title: Changelog
 
 - add documentation checkbox/section to all SCALE Apps
 - update docker general non-major ([#3453](https://github.com/truecharts/charts/issues/3453))
-
-### Fix
 
 ### Fix
 

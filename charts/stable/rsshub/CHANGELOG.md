@@ -943,7 +943,7 @@ title: Changelog
 - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 - update docker general non-major ([#3736](https://github.com/truecharts/charts/issues/3736))
 
-  ### Fix
+### Fix
 
 - move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
 

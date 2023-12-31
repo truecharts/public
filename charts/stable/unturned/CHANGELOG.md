@@ -20,8 +20,6 @@ title: Changelog
 
 ### Fix
 
-### Fix
-
 - change container config label
 
 ## [unturned-0.0.38](https://github.com/truecharts/charts/compare/unturned-0.0.35...unturned-0.0.38) (2022-11-08)

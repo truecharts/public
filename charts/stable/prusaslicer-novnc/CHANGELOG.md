@@ -20,8 +20,6 @@ title: Changelog
 
 ### Fix
 
-### Fix
-
 - change container config label
 
 ## [prusaslicer-novnc-1.0.7](https://github.com/truecharts/charts/compare/prusaslicer-novnc-1.0.4...prusaslicer-novnc-1.0.7) (2022-11-08)
@@ -523,8 +521,6 @@ title: Changelog
 
 ### Fix
 
-### Fix
-
 - some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
 
 ## [prusaslicer-novnc-0.0.20](https://github.com/truecharts/charts/compare/prusaslicer-novnc-0.0.19...prusaslicer-novnc-0.0.20) (2022-08-23)
@@ -545,8 +541,6 @@ title: Changelog
 
 - add documentation checkbox/section to all SCALE Apps
 - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
-
-### Fix
 
 ### Fix
 

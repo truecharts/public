@@ -22,8 +22,6 @@ title: Changelog
 
 ### Fix
 
-### Fix
-
 - change container config label
 
 ## [strapi-5.0.2](https://github.com/truecharts/charts/compare/strapi-4.0.49...strapi-5.0.2) (2022-11-08)
@@ -494,7 +492,7 @@ title: Changelog
 - add documentation checkbox/section to all SCALE Apps
 - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
 
-  ### Fix
+### Fix
 
 - move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
 - Auto-update chart README [skip ci]

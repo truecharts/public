@@ -918,7 +918,7 @@ title: Changelog
 - add documentation checkbox/section to all SCALE Apps
 - update docker general non-major ([#3453](https://github.com/truecharts/charts/issues/3453))
 
-  ### Fix
+### Fix
 
 - move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
 

@@ -20,8 +20,6 @@ title: Changelog
 
 ### Fix
 
-### Fix
-
 - change container config label
 
 ## [docspell-0.0.16](https://github.com/truecharts/charts/compare/docspell-0.0.13...docspell-0.0.16) (2022-11-08)
@@ -153,8 +151,6 @@ title: Changelog
 ### Chore
 
 - Auto-update chart README [skip ci]
-
-### Fix
 
 ### Fix
 

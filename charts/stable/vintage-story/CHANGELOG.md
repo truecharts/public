@@ -20,8 +20,6 @@ title: Changelog
 
 ### Fix
 
-### Fix
-
 - change container config label
 
 ## [vintage-story-0.0.38](https://github.com/truecharts/charts/compare/vintage-story-0.0.35...vintage-story-0.0.38) (2022-11-08)
@@ -459,8 +457,6 @@ title: Changelog
 
 - add documentation checkbox/section to all SCALE Apps
 - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
-
-### Fix
 
 ### Fix
 

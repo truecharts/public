@@ -22,8 +22,6 @@ title: Changelog
 
 ### Fix
 
-### Fix
-
 - change container config label
 
 ## [recyclarr-1.0.18](https://github.com/truecharts/charts/compare/recyclarr-1.0.14...recyclarr-1.0.18) (2022-11-09)
@@ -473,8 +471,6 @@ title: Changelog
 
 ### Fix
 
-### Fix
-
 - some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
 
 ## [recyclarr-0.0.20](https://github.com/truecharts/charts/compare/recyclarr-0.0.19...recyclarr-0.0.20) (2022-08-26)
@@ -507,8 +503,6 @@ title: Changelog
 
 - add documentation checkbox/section to all SCALE Apps
 - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
-
-### Fix
 
 ### Fix
 

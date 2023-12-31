@@ -20,8 +20,6 @@ title: Changelog
 
 ### Fix
 
-### Fix
-
 - change container config label
 
 ## [kimai-3.0.50](https://github.com/truecharts/charts/compare/kimai-3.0.47...kimai-3.0.50) (2022-11-08)
@@ -458,8 +456,6 @@ title: Changelog
 
 - add documentation checkbox/section to all SCALE Apps
 - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
-
-### Fix
 
 ### Fix
 

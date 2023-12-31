@@ -20,8 +20,6 @@ title: Changelog
 
 ### Fix
 
-### Fix
-
 - change container config label
 
 ## [unpoller-3.0.47](https://github.com/truecharts/charts/compare/unpoller-3.0.44...unpoller-3.0.47) (2022-11-08)

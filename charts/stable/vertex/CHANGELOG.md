@@ -21,8 +21,6 @@ title: Changelog
 
 ### Fix
 
-### Fix
-
 - change container config label
 
 ## [vertex-0.0.88](https://github.com/truecharts/charts/compare/vertex-0.0.84...vertex-0.0.88) (2022-11-08)
@@ -720,8 +718,6 @@ title: Changelog
 
 ### Fix
 
-### Fix
-
 - some cleanup ([#3586](https://github.com/truecharts/charts/issues/3586))
 
 ## [vertex-0.0.32](https://github.com/truecharts/charts/compare/vertex-0.0.31...vertex-0.0.32) (2022-08-26)
@@ -804,8 +800,6 @@ title: Changelog
 
 - add documentation checkbox/section to all SCALE Apps
 - update docker general non-major ([#3453](https://github.com/truecharts/charts/issues/3453))
-
-### Fix
 
 ### Fix
 

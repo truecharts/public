@@ -20,8 +20,6 @@ title: Changelog
 
 ### Fix
 
-### Fix
-
 - change container config label
 
 ## [timetagger-0.0.28](https://github.com/truecharts/charts/compare/timetagger-0.0.25...timetagger-0.0.28) (2022-11-08)
@@ -493,8 +491,6 @@ title: Changelog
 
 - add documentation checkbox/section to all SCALE Apps
 - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
-
-### Fix
 
 ### Fix
 

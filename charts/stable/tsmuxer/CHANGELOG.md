@@ -23,8 +23,6 @@ title: Changelog
 
 ### Fix
 
-### Fix
-
 - change container config label
 
 ## [tsmuxer-1.0.25](https://github.com/truecharts/charts/compare/tsmuxer-1.0.21...tsmuxer-1.0.25) (2022-11-09)
@@ -463,8 +461,6 @@ title: Changelog
 
 - add documentation checkbox/section to all SCALE Apps
 - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
-
-### Fix
 
 ### Fix
 

@@ -20,8 +20,6 @@ title: Changelog
 
 ### Fix
 
-### Fix
-
 - change container config label
 
 ## [artifactory-oss-0.0.45](https://github.com/truecharts/charts/compare/artifactory-oss-0.0.42...artifactory-oss-0.0.45) (2022-11-08)
@@ -499,8 +497,6 @@ title: Changelog
 
 - add documentation checkbox/section to all SCALE Apps
 - update docker general non-major ([#3453](https://github.com/truecharts/charts/issues/3453))
-
-### Fix
 
 ### Fix
 

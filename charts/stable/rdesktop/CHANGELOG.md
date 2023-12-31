@@ -20,8 +20,6 @@ title: Changelog
 
 ### Fix
 
-### Fix
-
 - change container config label
 
 ## [rdesktop-0.0.50](https://github.com/truecharts/charts/compare/rdesktop-0.0.47...rdesktop-0.0.50) (2022-11-08)
@@ -540,8 +538,6 @@ title: Changelog
 
 - add documentation checkbox/section to all SCALE Apps
 - update docker general non-major ([#3453](https://github.com/truecharts/charts/issues/3453))
-
-### Fix
 
 ### Fix
 

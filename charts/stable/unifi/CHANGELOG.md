@@ -453,7 +453,7 @@ title: Changelog
 - Auto-update chart README [skip ci]
 - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))
 
-  ### Fix
+### Fix
 
 - move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
 

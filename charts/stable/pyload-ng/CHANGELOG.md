@@ -22,8 +22,6 @@ title: Changelog
 
 ### Fix
 
-### Fix
-
 - change container config label
 
 ## [pyload-ng-0.0.47](https://github.com/truecharts/charts/compare/pyload-ng-0.0.43...pyload-ng-0.0.47) (2022-11-09)
@@ -528,8 +526,6 @@ title: Changelog
 
 - add documentation checkbox/section to all SCALE Apps
 - update docker general non-major ([#3453](https://github.com/truecharts/charts/issues/3453))
-
-### Fix
 
 ### Fix
 

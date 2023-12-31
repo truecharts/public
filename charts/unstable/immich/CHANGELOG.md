@@ -20,8 +20,6 @@ title: Changelog
 
 ### Fix
 
-### Fix
-
 - change container config label
 
 ## [immich-1.0.9](https://github.com/truecharts/charts/compare/immich-1.0.6...immich-1.0.9) (2022-11-08)

@@ -22,8 +22,6 @@ title: Changelog
 
 ### Fix
 
-### Fix
-
 - change container config label
 
 ## [weblate-4.0.56](https://github.com/truecharts/charts/compare/weblate-4.0.52...weblate-4.0.56) (2022-11-09)
@@ -509,8 +507,6 @@ title: Changelog
 
 - add documentation checkbox/section to all SCALE Apps
 - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
-
-### Fix
 
 ### Fix
 

@@ -500,7 +500,7 @@ title: Changelog
 - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
 
-  ### Fix
+### Fix
 
 - move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
 

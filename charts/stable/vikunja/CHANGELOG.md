@@ -20,8 +20,6 @@ title: Changelog
 
 ### Fix
 
-### Fix
-
 - change container config label
 
 ## [vikunja-3.0.73](https://github.com/truecharts/charts/compare/vikunja-3.0.70...vikunja-3.0.73) (2022-11-08)
@@ -571,8 +569,6 @@ title: Changelog
 
 - add documentation checkbox/section to all SCALE Apps
 - update helm general non-major helm releases ([#3456](https://github.com/truecharts/charts/issues/3456))
-
-### Fix
 
 ### Fix
 

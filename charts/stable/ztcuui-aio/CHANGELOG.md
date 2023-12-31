@@ -20,8 +20,6 @@ title: Changelog
 
 ### Fix
 
-### Fix
-
 - change container config label
 
 ## [ztcuui-aio-1.0.21](https://github.com/truecharts/charts/compare/ztcuui-aio-1.0.18...ztcuui-aio-1.0.21) (2022-11-08)
@@ -435,8 +433,6 @@ title: Changelog
 
 ### Fix
 
-### Fix
-
 - move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
 
 ## [ztcuui-aio-1.0.1](https://github.com/truecharts/charts/compare/ztcuui-aio-1.0.0...ztcuui-aio-1.0.1) (2022-08-08)
@@ -465,8 +461,6 @@ title: Changelog
 ### Chore
 
 - update helm chart common to v10.4.8 ([#3307](https://github.com/truecharts/apps/issues/3307))
-
-### Fix
 
 ### Fix
 

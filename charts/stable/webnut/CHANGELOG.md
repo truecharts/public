@@ -20,8 +20,6 @@ title: Changelog
 
 ### Fix
 
-### Fix
-
 - change container config label
 
 ## [webnut-1.0.7](https://github.com/truecharts/charts/compare/webnut-1.0.4...webnut-1.0.7) (2022-11-08)

@@ -41,8 +41,6 @@ title: Changelog
 
 ### Fix
 
-### Fix
-
 - rofs:false ([#3932](https://github.com/truecharts/charts/issues/3932))
 
 ## [rsnapshot-2.0.15](https://github.com/truecharts/charts/compare/rsnapshot-2.0.32...rsnapshot-2.0.15) (2022-11-08)
@@ -116,7 +114,7 @@ title: Changelog
 
 - update helm general non-major ([#4308](https://github.com/truecharts/charts/issues/4308))
 
-  ### Fix
+### Fix
 
 - rofs:false ([#3932](https://github.com/truecharts/charts/issues/3932))
 
@@ -150,7 +148,7 @@ title: Changelog
 - update helm general non-major ([#4317](https://github.com/truecharts/charts/issues/4317))
 - update helm general non-major ([#4329](https://github.com/truecharts/charts/issues/4329))
 
-  ### Fix
+### Fix
 
 - rofs:false ([#3932](https://github.com/truecharts/charts/issues/3932))
 

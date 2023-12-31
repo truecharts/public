@@ -20,8 +20,6 @@ title: Changelog
 
 ### Fix
 
-### Fix
-
 - change container config label
 
 ## [synapse-4.0.62](https://github.com/truecharts/charts/compare/synapse-4.0.59...synapse-4.0.62) (2022-11-08)
@@ -449,7 +447,7 @@ title: Changelog
 
 - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 
-  ### Fix
+### Fix
 
 - add missing dicts on list items ([#3754](https://github.com/truecharts/charts/issues/3754))
 

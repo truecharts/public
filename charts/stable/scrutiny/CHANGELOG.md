@@ -440,7 +440,7 @@ title: Changelog
 - Auto-update chart README [skip ci]
 - update helm general non-major ([#3767](https://github.com/truecharts/charts/issues/3767))/issues/3456))
 
-  ### Fix
+### Fix
 
 - move extraArgs from .Values.controller to .Values ([#3447](https://github.com/truecharts/charts/issues/3447))
 
@@ -466,7 +466,7 @@ title: Changelog
 - update helm general non-major ([#3711](https://github.com/truecharts/charts/issues/3711))
 - update helm general non-major helm releases ([#3302](https://github.com/truecharts/apps/issues/3302))
 
-  ### Fix
+### Fix
 
 - Fix inline comments that break linting ([#3305](https://github.com/truecharts/apps/issues/3305))
 

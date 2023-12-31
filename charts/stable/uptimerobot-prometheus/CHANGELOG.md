@@ -20,8 +20,6 @@ title: Changelog
 
 ### Fix
 
-### Fix
-
 - change container config label
 
 ## [uptimerobot-prometheus-4.0.47](https://github.com/truecharts/charts/compare/uptimerobot-prometheus-4.0.44...uptimerobot-prometheus-4.0.47) (2022-11-08)

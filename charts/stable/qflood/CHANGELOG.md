@@ -20,8 +20,6 @@ title: Changelog
 
 ### Fix
 
-### Fix
-
 - change container config label
 
 ## [qflood-0.0.49](https://github.com/truecharts/charts/compare/qflood-0.0.46...qflood-0.0.49) (2022-11-08)
@@ -551,8 +549,6 @@ title: Changelog
 
 - add documentation checkbox/section to all SCALE Apps
 - update docker general non-major ([#3453](https://github.com/truecharts/charts/issues/3453))
-
-### Fix
 
 ### Fix
 
