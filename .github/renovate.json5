@@ -602,6 +602,12 @@
     },
     {
       "matchDatasources": ["docker"],
+      "versioning": "regex:^nightly-(?<major>\\d*)\\.(?<minor>\\d*)\\.(?<patch>\\d*)\\.\\d*$",
+      "matchPackageNames": ["ghcr.io/hotio/whisparr"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
       "versioning": "regex:^release-(?<major>\\d*)\\.(?<minor>\\d*)$",
       "matchPackageNames": ["mattermost/mattermost-enterprise-edition"],
       "automerge": true,
