@@ -24,7 +24,7 @@ online archive. Our app is a simple way to install it on your TrueNAS SCALE serv
 - Choose the `Available Applications` tab.
 - Search for `paperless-ngx`.
 
-![Search paperless-ngx](img/search_paperless-ngx.png)
+![Search paperless-ngx](./img/search_paperless-ngx.png)
 
 - Click the `Install` button, you'll be prompted to set up Paperless-ngx. You can leave most options at their default
   values, but:
@@ -36,7 +36,7 @@ online archive. Our app is a simple way to install it on your TrueNAS SCALE serv
 - If you have set up [Traefik](/charts/enterprise/traefik/how-to/) for ingress click `Enable Ingress` and enter your
   Paperless-ngx domain in the Hosts section.
 
-![Configure paperless-ngx](img/configure_paperless-ngx.png)
+![Configure paperless-ngx](./img/configure_paperless-ngx.png)
 
 Scroll to the bottom of the window and click `Save`. Once you hit Save Paperless-ngx will be donwloaded and configured.
 
@@ -90,8 +90,8 @@ Once you have set up the NFS share, configure your Paperless-ngx installation as
     the import share every 120 seconds (2 minutes).
   - Scroll further down to the `To-be consumed Document Storage` section and set `Type of Storage` to `NFS Share`, `NFS Server` to `localhost` and `Path on NFS Server` to the path you configured above.
 
-![Consumer polling configuration for paperless-ngx](img/consumer_polling_configuration_for_paperless-ngx.png)
-![To-be consumed document storage configuration for paperless-ngx](img/to-be_consumed_document_storage_configuration_for_paperless-ngx.png)
+![Consumer polling configuration for paperless-ngx](./img/consumer_polling_configuration_for_paperless-ngx.png)
+![To-be consumed document storage configuration for paperless-ngx](./img/to-be_consumed_document_storage_configuration_for_paperless-ngx.png)
 
 Scroll to the bottom of the window and click `Save`. This will reconfigure and restart Paperless-ngx. Documents added to
 shared folder will be automatically imported by Paperless-ngx. Those options can be changed at any time, documents still
@@ -119,7 +119,7 @@ Once you have set up ForwardAuth in your Traefik installation, configure Forward
   - Enter the name `PAPERLESS_ENABLE_HTTP_REMOTE_USER` and set its value to true, and `PAPERLESS_LOGOUT_REDIRECT_URL`
     and your logout URL (`https://auth.mydomain.com/logout` as per the above guide's example domain) in the second box.
 
-![ForwardAuth configuration for paperless-ngx](img/forwardauth_configuration_for_paperless-ngx.png)
+![ForwardAuth configuration for paperless-ngx](./img/forwardauth_configuration_for_paperless-ngx.png)
 
 Scroll to the bottom of the window and click `Save`. This will reconfigure and restart Paperless-ngx. Authentication to
 your Paperless-ngx installation will be handled by Authelia now. Those options can be removed at any time,

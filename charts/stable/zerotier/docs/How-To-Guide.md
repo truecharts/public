@@ -21,11 +21,11 @@ On that screen you add the following two values:
 
 Set them to `1` and `Enabled`
 
-![sysctl](img/Sysctl.png)
+![sysctl](./img/Sysctl.png)
 
 Also prepare your Zerotier Network ID for your setup, easy to create and copy at [https://my.zerotier.com](https://my.zerotier.com)
 
-![Zerotier Network ID](img/Network-ID.png)
+![Zerotier Network ID](./img/Network-ID.png)
 
 ## Zerotier Chart Setup
 
@@ -44,14 +44,14 @@ This section is hidden by default for TrueNAS SCALE but if you wish to use `Host
 - `ZEROTIER_IDENTITY_PUBLIC`: The identity.public file for zerotier-one. Use zerotier-idtool to generate one of these for you.
 - `ZEROTIER_IDENTITY_SECRET`: The identity.secret file for zerotier-one. Use zerotier-idtool to generate one of these for you.
 
-![How-To-Step-2](img/How-To-Step-2.png)
+![How-To-Step-2](./img/How-To-Step-2.png)
 
 ### Extra Args
 
 If you wish to automatically join a specific Zerotier Network upon startup simply enter the `Network-ID` in this space.
 **Note** This is not required for the chart to run and may not always work.
 
-![How-To-Step-1](img/How-To-Step-1.png)
+![How-To-Step-1](./img/How-To-Step-1.png)
 
 ### Networking and Services
 

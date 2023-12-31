@@ -13,7 +13,7 @@ Cloudflare DNS management
 - Sign up for Cloudflare free
 - Point your nameservers to the ones Cloudflare assigns to you
 
-  ![cloudflare-ns](img/cloudflare-ns.png)
+  ![cloudflare-ns](./img/cloudflare-ns.png)
 
 Cloudflareddns chart
 
@@ -23,7 +23,7 @@ This guide assumes you've followed our [clusterissuer guide](https://truecharts.
 
 The recommended way is to setup CNAMEs for your subdomains (charts) and keep your A record pointed to your base domain, such as below
 
-![cloudflare-dns](img/cloudflare-dns.png)
+![cloudflare-dns](./img/cloudflare-dns.png)
 
 > Create an API Token, with the following permissions:
 > Click `Create Token` and `Use Template` on the Edit zone DNS.
@@ -35,11 +35,11 @@ The recommended way is to setup CNAMEs for your subdomains (charts) and keep you
 >
 > - Include - Specific zone - yourdomain.com
 >
->   ![cloudflare-token](img/cloudflare-token.png)
+>   ![cloudflare-token](./img/cloudflare-token.png)
 
 ## Cloudflareddns Chart Setup
 
-![cloudflare-config](img/cloudflare-config.png)
+![cloudflare-config](./img/cloudflare-config.png)
 
 Use API Token previously created for the `CF API Token` field.
 

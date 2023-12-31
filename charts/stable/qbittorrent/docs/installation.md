@@ -17,7 +17,7 @@ When configuring your application you'll typically see user:group `568`, this is
 
 :::
 
-![!Dataset: Tube](images/dataset.png)
+![!Dataset: Tube](./img/dataset.png)
 
 <br />
 
@@ -27,7 +27,7 @@ When configuring your application you'll typically see user:group `568`, this is
 
 If you want to use ingress, its probably better to use `clusterIP` instead of `LoadBalancer`
 
-![!Networking: qbittorrent](images/networking.png)
+![!Networking: qbittorrent](./img/networking.png)
 
 #### WebGUI
 
@@ -35,7 +35,7 @@ We left this default since there was no reason to change the WebGUI port
 
 This is ALSO the port Sonarr/Radarr and other services will use to connect to qBittorrent
 
-![!Networking: qbittorrent](images/networking_webgui.png)
+![!Networking: qbittorrent](./img/networking_webgui.png)
 
 #### Listening Ports
 
@@ -54,7 +54,7 @@ This is ALSO the port Sonarr/Radarr and other services will use to connect to qB
 
 :::
 
-![!Networking: qbittorrent](images/networking_listening.png)
+![!Networking: qbittorrent](./img/networking_listening.png)
 
 <br />
 
@@ -64,13 +64,13 @@ This is ALSO the port Sonarr/Radarr and other services will use to connect to qB
 
 The setup is default
 
-![!Storage: qbittorrent](images/storage_config.png)
+![!Storage: qbittorrent](./img/storage_config.png)
 
 #### Data
 
 I always mount to the root directory of the container
 
-![!Storage: qbittorrent](images/storage_data.png)
+![!Storage: qbittorrent](./img/storage_data.png)
 
 <br />
 
@@ -97,7 +97,7 @@ Use the [Gluetun VPN Add-on Setup Guide](https://truecharts.org/manual/SCALE/gui
     | Copy .torrent files for finished downloads to:     | `/qbitvpn/backup`              | Its nice to have a backup folder of all your `.torrents` in the event of a crash     |
     | Monitored Folder                                   | `/qbitvpn/monitor`             | Place `.torrent` files in this directory to automatically start those torrents       |
 
-![!Downloads: qbit](images/settings_downloads.png)
+![!Downloads: qbit](./img/settings_downloads.png)
 
 <br />
 
@@ -105,7 +105,7 @@ Use the [Gluetun VPN Add-on Setup Guide](https://truecharts.org/manual/SCALE/gui
 
 This should equal to your listening port you set [during the installation](https://heavysetup.info/applications/qbittorrent/installation/#listening-ports)
 
-![!Connection: qbit](images/settings_connection.png)
+![!Connection: qbit](./img/settings_connection.png)
 
 <br />
 
@@ -116,7 +116,7 @@ This should equal to your listening port you set [during the installation](https
 - Set my schedule from `08:00` to `02:00`
   - 8am to 2am, which is around the time users are watching Plex
 
-![!Speed: qbit](images/settings_speed.png)
+![!Speed: qbit](./img/settings_speed.png)
 
 <br />
 
@@ -125,7 +125,7 @@ This should equal to your listening port you set [during the installation](https
 - Disabled `Local Peer Discovery`
   - This is only useful if you are on a huge network, like a college campus or something like that
 
-![!Speed: qbit](images/settings_bittorrent.png)
+![!Speed: qbit](./img/settings_bittorrent.png)
 
 <br />
 
@@ -140,7 +140,7 @@ Added both my LAN and Kubernetes LAN to the bypass list, this way neither of the
 - `192.168.0.0/16`
 - `172.16.0.0/16`
 
-![!Speed: qbit](images/settings_webgui1.png)
+![!Speed: qbit](./img/settings_webgui1.png)
 
 Since We am using `Traefik`, We decided to add the Kubernetes LAN to:
 
@@ -148,7 +148,7 @@ Since We am using `Traefik`, We decided to add the Kubernetes LAN to:
 
 - `172.16.0.0/16`
 
-![!Speed: qbit](images/settings_webgui2.png)
+![!Speed: qbit](./img/settings_webgui2.png)
 
 <br />
 
@@ -163,6 +163,6 @@ Since We am using `Traefik`, We decided to add the Kubernetes LAN to:
     | Resolve peer countries:                                                | True                  | Just so We can see what countries We am leeching/seeding from                           |
     | Reannounce to all trackers when IP or port changed:                    | True                  | In the event my IP or port changes, We want everyone to know, so We can seed or leech   |
 
-![!Speed: qbit](images/settings_advanced.png)
+![!Speed: qbit](./img/settings_advanced.png)
 
 <br />

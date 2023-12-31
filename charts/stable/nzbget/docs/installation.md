@@ -15,7 +15,7 @@ The `apps`:`apps` user:group is built into Truenas SCALE, it is the default user
 
     When configuring your application you'll typically see user:group `568`, this is the UID for `apps` and its recommended not to change it.
 
-![!Dataset: Tube](images/dataset.png)
+![!Dataset: Tube](./img/dataset.png)
 
 <br />
 
@@ -27,7 +27,7 @@ The setup is completely default
 
 However, if you want to use ingress, its probably better to use clusterIP instead
 
-![!Networking: NZBGet](images/networking.png)
+![!Networking: NZBGet](./img/networking.png)
 
 <br />
 
@@ -37,13 +37,13 @@ However, if you want to use ingress, its probably better to use clusterIP instea
 
 The setup is also default
 
-![!Storage: NZBGet](images/storage_config.png)
+![!Storage: NZBGet](./img/storage_config.png)
 
 #### Data
 
 I always mount to the root directory of the container
 
-![!Storage: NZBGet](images/storage_data.png)
+![!Storage: NZBGet](./img/storage_data.png)
 
 Keep in mind, these are just my personal settings, if you are wanting a more in-depth example, check out [TRaSH Guides: NZBGet Documentation](https://trash-guides.info/Downloaders/NZBGet/Basic-Setup/)
 
@@ -89,7 +89,7 @@ I use 5 categories
 
     - We also always enable `Remove Completed` for NZBs
 
-    ![!Settings: Radarr](images/radarr.png)
+    ![!Settings: Radarr](./img/radarr.png)
 
 - `Series` is used by:
 
@@ -97,7 +97,7 @@ I use 5 categories
 
     - We also always enable `Remove Completed` for NZBs
 
-    ![!Settings: Sonarr](images/sonarr.png)
+    ![!Settings: Sonarr](./img/sonarr.png)
 
 - `Music` is used by:
 
@@ -105,7 +105,7 @@ I use 5 categories
 
     - We also always enable `Remove Completed` for NZBs
 
-    ![!Settings: Lidarr](images/lidarr.png)
+    ![!Settings: Lidarr](./img/lidarr.png)
 
 - `Manual` is ignored by all of my applications and only for my personal use
 
@@ -114,6 +114,6 @@ I use 5 categories
 
 While creating these categories, We _ONLY_ changed the name, no other field was changed, the files once completed, will still go into their own directory as shown below.
 
-![!Structure: NZBGet](images/catagories_files.png)
+![!Structure: NZBGet](./img/catagories_files.png)
 
 <br />

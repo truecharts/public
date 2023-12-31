@@ -6,4 +6,4 @@ title: Installation Notes
 
 - To set `PLEX_TOKEN` you need to Browse to a library item and view the XML for it in plex as the `admin` user in the browser, the url will end with `...Plex-Token=` so **ONLY** copy after the `=` for the token.
 
-![xml_info_token.png](imgs/xml_info_token.png)
+![xml_info_token.png](./img/xml_info_token.png)

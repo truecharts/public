@@ -38,7 +38,10 @@ The firstname and lastname in spotweb have some restrictions.
 The email addres is validated in spotweb using the built-in `_FILTER_VALIDATE_EMAIL`.
 
 - Regex used to validate the email (you can try live [here](https://regex101.com/r/yEmCoL/1)):
-  `` ^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$ ``
+
+  ```regex
+  ^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$
+  ```
 
 ---
 

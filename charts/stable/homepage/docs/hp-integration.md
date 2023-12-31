@@ -50,11 +50,11 @@ You can then add the following to your widgets.yaml file to add the cluster/node
 ```
 
 This will result in the following being added:
-![hp kube enable check](img/cwidget.png)
+![hp kube enable check](./img/cwidget.png)
 
 And you will be able to have outputs similar to this to see memory and CPU:
 
-![metrics example](img/metricsexample.png)
+![metrics example](./img/metricsexample.png)
 
 :exclamation: Due to how Homepage calculates utilization for your applications, this is only an approximation. The percentage is not based on your physical CPU utilization but on the max CPU limit for the chart and is additive for each pod. If your chart has a 2000m CPU limit and has 1 pod, 1000m of usage will read as 50%. If the chart has 2 pods each with a 2000m limit, it will read as 25% for 1000m of usage as the pods total 4000m. RAM utilization is the total combined RAM usage across all pods.
 
@@ -73,11 +73,11 @@ To edit an existing chart with ingress, go to the ingress section and enable the
 - **API Key**: This is where you will enter an API key for your application if needed. If this is a new install and you do not have an API key yet, you can come back and add this later.
 - **Custom-Options** Adding custom options will allow you to add fields to the widget, or define username/password when there is no API key to apply. You can see the various fields available in the widgets section of the Homepage documentation at their site above.
 
-![integration options](img/intop.png)
+![integration options](./img/intop.png)
 
 Which results in the following in Homepage:
 
-![example one](img/exmaple1.png)
+![example one](./img/exmaple1.png)
 
 As you can see, the application is running and the fields have populated.
 
@@ -86,7 +86,7 @@ If you see this message on an application that has a widget per the Homepage doc
 
 If you have turned on the metrics server in the above section, you can click 'Running' to see the application's approximate utilization.
 
-![utilization example](img/utilexam.png)
+![utilization example](./img/utilexam.png)
 
 You can also use settings.yaml to change the group layout from a single column to rows (with up to 5 columns per row) and other settings.
 
