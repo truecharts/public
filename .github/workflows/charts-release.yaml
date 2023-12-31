@@ -265,7 +265,7 @@ jobs:
                     exit 99
                   fi
                   echo "Not bad title found, continuing..."
-                  title=$(cat "${file}" | grep "title: " | sed 's/title: //')
+                  title=$(cat "${file}" | grep "title: " | sed 's/title: //' | head -n 1)
                   echo "The title is: ${title}"
                   # Create a markdown link using the file name and title
                   link="[**${title}**](./${filename})"
