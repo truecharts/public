@@ -96,9 +96,18 @@ patch_apps() {
         touch "website/docs/charts/${train}/${chartname}/CHANGELOG.md"
     fi
     cp -rf "website/docs/charts/${train}/${chartname}/CHANGELOG.md" "${target}/CHANGELOG.md" 2>/dev/null || :
-    sed -i '1d' "${target}/CHANGELOG.md"
-    sed -i '1s/^/*for the complete changelog, please refer to the website*\n\n/' "${target}/CHANGELOG.md"
-    sed -i '1s/^/**Important:**\n/' "${target}/CHANGELOG.md"
+    should_add=$(cat ${target}/CHANGELOG.md | grep "for the complete changelog, please refer to the website")
+    if [[ -z $should_add ]]; then
+        echo "Adding changelog notice for: ${chartname}"
+        # Count the frontmatter lines
+        line_count=$(sed -n '/^---$/,/^---$/p' "${target}/CHANGELOG.md" | wc -l)
+        # Increase the line count by 1
+        line_count=$((line_count + 1))
+        # Add a line to the changelog
+        sed -i "${line_count + 1}s/^/*for the complete changelog, please refer to the website*\n\n/" "${target}/CHANGELOG.md"
+        sed -i "${line_count + 1}s/^/**Important:**\n/" "${target}/CHANGELOG.md"
+    fi
+    # Truncate changelog to only contain the last 100 lines
     sed -i '100,$ d' "${target}/CHANGELOG.md" || :
     # Generate SCALE App description file
     cat ${target}/Chart.yaml | yq .description -r >> ${target}/app-readme.md
