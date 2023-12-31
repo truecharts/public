@@ -209,13 +209,12 @@ jobs:
 
                 echo "Appending SCALE changelog to actual changelog..."
                 # Append SCALE changelog to actual changelog
+                # Remove header from changelog
+                sed -n '/^---$/,/^---$/p' "website/docs/charts/${train}/${chart}/CHANGELOG.md"
+                # Append app-changelog to changelog
                 cat "charts/${train}/${chart}/app-changelog.md" | cat - "website/docs/charts/${train}/${chart}/CHANGELOG.md" > temp && mv temp "website/docs/charts/${train}/${chart}/CHANGELOG.md"
-                if grep -qzoP "\-\-\-\ntitle: Changelog\n\-\-\-\n" "website/docs/charts/${train}/${chart}/CHANGELOG.md"; then
-                  echo "changelog header already exists..."
-                else
-                  echo "Adding changelog header..."
-                  sed -i '1s/^/---\ntitle: Changelog\n---\n\n/' "website/docs/charts/${train}/${chart}/CHANGELOG.md" || echo "failed to add changelog header..."
-                fi
+                echo "Adding changelog header..."
+                sed -i '1s/^/---\ntitle: Changelog\n---\n\n/' "website/docs/charts/${train}/${chart}/CHANGELOG.md" || echo "failed to add changelog header..."
 
                 echo "Creating index.md..."
                 touch website/docs/charts/${train}/${chart}/index.md
