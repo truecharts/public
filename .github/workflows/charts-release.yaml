@@ -211,7 +211,12 @@ jobs:
                 # Append SCALE changelog to actual changelog
                 sed -i '1d' "website/docs/charts/${train}/${chart}/CHANGELOG.md" || echo "failed to sed 1d changelog..."
                 cat "charts/${train}/${chart}/app-changelog.md" | cat - "website/docs/charts/${train}/${chart}/CHANGELOG.md" > temp && mv temp "website/docs/charts/${train}/${chart}/CHANGELOG.md"
-                sed -i '1s/^/---\ntitle: Changelog\n---\n\n/' "website/docs/charts/${train}/${chart}/CHANGELOG.md" || echo "failed to add changelog header..."
+                if [[ grep -q "---\ntitle: Changelog\n---\n\n" "website/docs/charts/${train}/${chart}/CHANGELOG.md" ]]; then
+                  echo "changelog header already exists..."
+                else
+                  echo "Adding changelog header..."
+                  sed -i '1s/^/---\ntitle: Changelog\n---\n\n/' "website/docs/charts/${train}/${chart}/CHANGELOG.md" || echo "failed to add changelog header..."
+                fi
 
                 echo "Creating index.md..."
                 touch website/docs/charts/${train}/${chart}/index.md
