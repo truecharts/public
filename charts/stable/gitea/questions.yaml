@@ -35,6 +35,7 @@ questions:
             type: string
             required: true
             private: true
+            min_length: 8
         - variable: email
           label: "email"
           schema:
