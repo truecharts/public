@@ -239,7 +239,9 @@ jobs:
                 for file in website/docs/charts/${train}/${chart}/*.md; do
                   # Extract the file name and first line from each file
                   filename=$(basename "${file}")
+                  echo "Found doc file: ${file}"
                   title=$(cat "${file}" | grep "title: " | sed 's/title: //')
+                  echo "The title is: ${title}"
                   # Create a markdown link using the file name and title
                   link="[**${title}**](${filename%.md})"
                   if [ ${filename} != "index.md" ]; then
