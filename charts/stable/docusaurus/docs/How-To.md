@@ -1,4 +1,6 @@
-# How-To
+---
+title: How-To
+---
 
 This is a quick how-to or setup-guide to run Docusaurus on your own server.
 This can be applied to other systems but this specific guide is made on TrueNAS SCALE and screenshots are provided from that system.

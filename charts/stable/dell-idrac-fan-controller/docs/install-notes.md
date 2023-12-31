@@ -1,4 +1,6 @@
-# Dell iDrac Fan Controller Installation Notes
+---
+title: Dell iDrac Fan Controller Installation Notes
+---
 
 ## iDRAC version
 

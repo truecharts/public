@@ -1,4 +1,6 @@
-# How To
+---
+title: How To
+---
 
 :::warning
 

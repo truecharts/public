@@ -1,4 +1,6 @@
-# Installation Notes
+---
+title: Installation Notes
+---
 
 - Set `medialibrary` to Host Path(Simple) and mount it to your music library.
 

@@ -1,4 +1,6 @@
-# traefik-forward-auth
+---
+title: traefik-forward-auth
+---
 
 This app makes it possible to have a layer of security in front of your publicly exposed apps.
 It supports Google, OIDC, and generic OAuth2.

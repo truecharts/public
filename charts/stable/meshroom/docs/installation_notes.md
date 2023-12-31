@@ -1,4 +1,6 @@
-# Notes
+---
+title: Notes
+---
 
 Meshroom in docker does not have a webUI.
 You need an ssh client capable of X forwarding.

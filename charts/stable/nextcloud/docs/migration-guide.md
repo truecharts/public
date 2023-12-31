@@ -1,4 +1,6 @@
-# Nextcloud Migration Guide
+---
+title: Nextcloud Migration Guide
+---
 
 This guide will walk you through the migration process for Nextcloud. This guide utilize HostPath or NFS for UserData.
 

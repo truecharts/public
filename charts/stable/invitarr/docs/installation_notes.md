@@ -1,4 +1,6 @@
-# Installation Notes
+---
+title: Installation Notes
+---
 
 - Create a discord bot [here](https://discord.com/developers/applications).
 - Enable Intents else bot will not _DM_ users after they get the role.

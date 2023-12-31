@@ -1,4 +1,6 @@
-# Installation Notes
+---
+title: Installation Notes
+---
 
 - Set `BASE_URL` to **http://scale_ip:APP_PORT/** and then login using the default [credentials](./credentials.md).
   - If you plan to use ingress and a domain you need to:

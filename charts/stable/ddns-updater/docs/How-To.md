@@ -1,4 +1,6 @@
-# How To
+---
+title: How To
+---
 
 You can use the following json code to construct a json object to be used for the `config` field or use the upstream doc for your specific domain provider [here](https://github.com/qdm12/ddns-updater#configuration):
 

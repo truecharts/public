@@ -1,4 +1,6 @@
-# Installation Notes
+---
+title: Installation Notes
+---
 
 The app has no configuration. The following is just a basic guide on how to stream and view the live stream.
 

@@ -1,4 +1,6 @@
-# Installation Notes
+---
+title: Installation Notes
+---
 
 - Set `PLEX_URL` with `http://IP:PORT` or cluster: `http://plex.ix-plex.svc.cluster.local:32400`. this cluster URL assumes you named it `plex`.
 

@@ -1,4 +1,6 @@
-# Installation Notes
+---
+title: Installation Notes
+---
 
 To use this to protect multiple apps setup the traefik middleware "modsecurity".
 

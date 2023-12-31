@@ -1,4 +1,6 @@
-# Installation Notes
+---
+title: Installation Notes
+---
 
 - To set the variable `App Base Url` correctly:
   - If you are accessing it _without_ ingress/domain -> `http://IP:PORT`.

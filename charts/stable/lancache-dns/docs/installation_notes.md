@@ -1,4 +1,6 @@
-# Installation Notes
+---
+title: Installation Notes
+---
 
 - Set `USE GENERIC CACHE` to **true** if you are running `lancache-monolithic`.
 - Set `LANCACHE IP` to the local IP that `lancache-monolithic` runs on.

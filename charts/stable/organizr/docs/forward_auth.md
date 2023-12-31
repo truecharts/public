@@ -1,4 +1,6 @@
-# Organizr Forward Auth Setup Guide
+---
+title: Organizr Forward Auth Setup Guide
+---
 
 Basic setup guide for enabling Organizr authentication on your apps using Traefik forwardAuth.
 

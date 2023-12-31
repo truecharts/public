@@ -1,4 +1,6 @@
-# Theme Park
+---
+title: Theme Park
+---
 
 Theme park is a middleware to inject [supported stylesheets (css)](https://docs.theme-park.dev/theme-options)
 into [supported apps](https://docs.theme-park.dev/themes).

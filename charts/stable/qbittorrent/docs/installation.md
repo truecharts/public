@@ -1,4 +1,6 @@
-# Installation Guide
+---
+title: Installation Guide
+---
 
 ## Dataset Structure
 
@@ -110,9 +112,7 @@ This should equal to your listening port you set [during the installation](https
 ### Speed
 
 - Set `Alternative Rate Limits` to `10000` KiB
-
   - This is so during the day, or when users are using my Plex server, my qBittorrent instance isn't using _ALL_ of my bandwidth seeding
-
 - Set my schedule from `08:00` to `02:00`
   - 8am to 2am, which is around the time users are watching Plex
 
@@ -137,10 +137,8 @@ Added both my LAN and Kubernetes LAN to the bypass list, this way neither of the
 
 **Bypass authentication for clients in whitelisted IP subnets**
 
-```
-192.168.0.0/16
-172.16.0.0/16
-```
+- `192.168.0.0/16`
+- `172.16.0.0/16`
 
 ![!Speed: qbit](images/settings_webgui1.png)
 
@@ -148,9 +146,7 @@ Since We am using `Traefik`, We decided to add the Kubernetes LAN to:
 
 **Enable reverse proxy support**
 
-```
-172.16.0.0/16
-```
+- `172.16.0.0/16`
 
 ![!Speed: qbit](images/settings_webgui2.png)
 

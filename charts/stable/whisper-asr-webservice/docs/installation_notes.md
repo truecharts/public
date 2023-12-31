@@ -1,4 +1,6 @@
-# Installation Notes
+---
+title: Installation Notes
+---
 
 A quick run down on the options available for **whisper-asr-webservice**.
 

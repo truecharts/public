@@ -1,4 +1,6 @@
-# Community Guide
+---
+title: Community Guide
+---
 
 ## Credentials
 

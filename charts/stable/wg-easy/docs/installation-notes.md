@@ -1,4 +1,6 @@
-# WG-Easy Installation Notes
+---
+title: WG-Easy Installation Notes
+---
 
 ## PUID
 

@@ -1,4 +1,6 @@
-# Plex Installation Notes
+---
+title: Plex Installation Notes
+---
 
 ## Public Port
 
@@ -19,15 +21,9 @@ Plex allows for the installation of plug-ins. Plug-ins can be added using the co
 1. Enable the codeserver addon in Plex application configuration.
 
 ![codeserver-addon](./img/plex-codeserver-addon.png)
-
-2. Access codeserver using the previously configured port (ie. http://192.168.1.2:36107).
-
+2. Access codeserver using the previously configured port (ie. `http://192.168.1.2:36107`).
 3. Browse to the plug-ins folder in codeserver.
-
 ![codeserver-browse](./img/plex-codeserver-browse.png)
-
 4. Upload plugins.
-
 ![codeserver-upload](./img/plex-codeserver-upload.png)
-
 5. Restart Plex

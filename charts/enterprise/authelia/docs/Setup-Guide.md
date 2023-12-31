@@ -1,4 +1,6 @@
-# Authelia + LLDAP + Traefik ForwardAuth Setup guide
+---
+title: Authelia + LLDAP + Traefik ForwardAuth Setup guide
+---
 
 This quick guide should take you through the steps necessary to setup `Authelia` as your `forwardAuth` for `Traefik`. We'll be using `LLDAP` as the backend for `Authelia` since it's lightweight and simple enough for most users. A more complete video is available on our YouTube Channel
 

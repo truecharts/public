@@ -1,4 +1,6 @@
-# Cluster Certificates Setup Guide
+---
+title: Cluster Certificates Setup Guide
+---
 
 This guide will walk you through setting up and using `cluster certificates`.
 

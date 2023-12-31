@@ -1,4 +1,6 @@
-# Disabling the Admin Interface
+---
+title: Disabling the Admin Interface
+---
 
 :::caution Backup Reminder
 

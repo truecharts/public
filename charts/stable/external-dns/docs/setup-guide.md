@@ -1,4 +1,6 @@
-# External-DNS Setup Guide
+---
+title: External-DNS Setup Guide
+---
 
 ExternalDNS synchronizes exposed Kubernetes Services and Ingresses with DNS providers.
 

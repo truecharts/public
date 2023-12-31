@@ -1,4 +1,6 @@
-# Setup Guide
+---
+title: Setup Guide
+---
 
 **Paperless-ngx** is an open-source document management system that transforms your physical documents into a searchable
 online archive. Our app is a simple way to install it on your TrueNAS SCALE server.

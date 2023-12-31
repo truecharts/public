@@ -1,4 +1,6 @@
-# How-To
+---
+title: How-To
+---
 
 This is a quick how-to or setup-guide to use Tailscale using on your TrueNAS box.
 This can be applied to other systems but this specific guide is SCALE specific with the prerequisites.
