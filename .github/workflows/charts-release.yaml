@@ -269,6 +269,7 @@ jobs:
                   echo "The title is: ${title}"
                   # Create a markdown link using the file name and title
                   link="[**${title}**](./${filename})"
+                  echo "The link is: ${link}"
                   if [ ${filename} != "index.md" ]; then
                     # Append the link to the index.md file
                     echo "- ${link}" >> website/docs/charts/${train}/${chart}/index.md
