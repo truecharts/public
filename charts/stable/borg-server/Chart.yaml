@@ -1,37 +1,37 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: borg-server
-version: 3.1.0
-appVersion: 2.2.1
+version: 3.1.1
+appVersion: 2.2.2
 description: A borg Backup server
 home: https://truecharts.org/charts/stable/borg-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/borg-server.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/borg-server
-  - https://ghcr.io/anotherstranger/borg-server
-  - https://github.com/AnotherStranger/docker-borg-backup
+    - https://github.com/AnotherStranger/docker-borg-backup
+    - https://github.com/truecharts/charts/tree/master/charts/stable/borg-server
+    - https://ghcr.io/anotherstranger/borg-server
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - borg-server
-  - backup
+    - borg-server
+    - backup
 dependencies:
-  - name: common
-    version: 17.2.2
-    repository: https://library-charts.truecharts.org
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.2
+      repository: https://library-charts.truecharts.org
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: backup
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: backup
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application
