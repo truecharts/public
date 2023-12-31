@@ -4,12 +4,36 @@ title: Changelog
 
 
 
+## [sonarr-19.0.14](https://github.com/truecharts/charts/compare/sonarr-19.0.12...sonarr-19.0.14) (2023-12-31)
+
+### Chore
+
+- fix more
+- fix more
+
+
+## [sonarr-19.0.13](https://github.com/truecharts/charts/compare/sonarr-19.0.12...sonarr-19.0.13) (2023-12-31)
+
+### Chore
+
+- fix more
+
+
+
+## [sonarr-19.0.12](https://github.com/truecharts/charts/compare/sonarr-19.0.10...sonarr-19.0.12) (2023-12-31)
+
+### Chore
+
+- correct lists
+- fix titles
+
+
+
 ## [sonarr-19.0.10](https://github.com/truecharts/charts/compare/sonarr-19.0.9...sonarr-19.0.10) (2023-12-31)
 
 ### Chore
 
-- print titletitle: Changelog
----
+- print title
 
 
 
@@ -28,8 +52,7 @@ title: Changelog
 
 ### Fix
 
-- fix auth ([#16697](https://github.com/truecharts/charts/issues/16697))title: Changelog
----
+- fix auth ([#16697](https://github.com/truecharts/charts/issues/16697))
 
 
 
@@ -46,8 +69,7 @@ title: Changelog
 
 ### Fix
 
-- fix auth ([#16697](https://github.com/truecharts/charts/issues/16697))title: Changelog
----
+- fix auth ([#16697](https://github.com/truecharts/charts/issues/16697))
 
 
 
@@ -63,8 +85,7 @@ title: Changelog
 
 ### Fix
 
-- fix auth ([#16697](https://github.com/truecharts/charts/issues/16697))title: Changelog
----
+- fix auth ([#16697](https://github.com/truecharts/charts/issues/16697))
 
 
 
@@ -76,8 +97,7 @@ title: Changelog
 - fix appVersion
 - bump
 - bump
-- bumptitle: Changelog
----
+- bump
 
 
 
@@ -86,8 +106,7 @@ title: Changelog
 ### Chore
 
 - update container image ghcr.io/onedr0p/sonarr to v4.0.0.741[@6f288ad](https://github.com/6f288ad) by renovate ([#16693](https://github.com/truecharts/charts/issues/16693))
-- lints some docs, uses front-matter instead of # h1, and fix list items in changelog ([#16589](https://github.com/truecharts/charts/issues/16589))title: Changelog
----
+- lints some docs, uses front-matter instead of # h1, and fix list items in changelog ([#16589](https://github.com/truecharts/charts/issues/16589))
 
 ## [sonarr-18.1.0](https://github.com/truecharts/charts/compare/sonarr-18.0.1...sonarr-18.1.0) (2023-12-30)
 

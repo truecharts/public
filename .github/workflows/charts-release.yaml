@@ -246,8 +246,9 @@ jobs:
                   echo "Found doc file: ${file}"
                   ok_title="false"
                   echo "Getting the first line"
+                  head -n 1 "${file}"
                   h=$(head -n 1 "${file}")
-                  echo "The first line is: ${h}"
+                  echo "The first line is: ${h}. Checking validity..."
                   # Check if the first line has ---
                   if [[ "${h}" == "---" ]]; then
                     echo "First line is ---, continuing..."
