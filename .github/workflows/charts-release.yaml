@@ -240,11 +240,22 @@ jobs:
                   # Extract the file name and first line from each file
                   filename=$(basename "${file}")
                   echo "Found doc file: ${file}"
-                  test_title=$(head -n 1 "${file}" | grep -v "\-\-\-" | sed 's/# //')
-                  if [ -n "${test_title}" ]; then
+                  ok_title="false"
+                  echo "Getting the first line"
+                  h=$(head -n 1 "${file}")
+                  echo "The first line is: ${h}"
+                  # Check if the first line has ---
+                  if [[ "${h}" == "---" ]]; then
+                    echo "First line is ---, continuing..."
+                    ok_title="true"
+                  elif [[ "${h}" == "# "* ]]; then
+                    echo "First line is #..."
+                    ok_title="false"
+                  fi
+                  if [ ${ok_title} == "false" ]; then
                     echo "Doc title should use front matter and not # for title, for example"
                     echo "---"
-                    echo "title: ${test_title}"
+                    echo "title: some title"
                     echo "---"
                     exit 99
                   fi
