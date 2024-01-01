@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: lama-cleaner
-version: 5.1.2
+version: 5.1.3
 appVersion: 0.33.0
 description: Open-source inpainting tool powered by SOTA AI model.
 home: https://truecharts.org/charts/stable/lama-cleaner
@@ -21,7 +21,7 @@ keywords:
     - AI
 dependencies:
     - name: common
-      version: 17.2.18
+      version: 17.2.19
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

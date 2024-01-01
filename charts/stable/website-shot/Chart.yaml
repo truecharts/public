@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: website-shot
-version: 9.1.2
+version: 9.1.3
 appVersion: latest
 description: Generate a full web-page screenshot with our service, that provides rich interface to make any kind of web screenshots online for free with no limits. The simplest way to take a full page screenshot.
 home: https://truecharts.org/charts/stable/website-shot
@@ -19,7 +19,7 @@ keywords:
     - website-shot
 dependencies:
     - name: common
-      version: 17.2.18
+      version: 17.2.19
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

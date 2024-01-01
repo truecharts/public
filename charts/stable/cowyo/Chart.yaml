@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: cowyo
-version: 4.1.2
+version: 4.1.3
 appVersion: latest
 description: cowyo is a self-contained wiki server that makes jotting notes easy and fast. The most important feature here is simplicity. Other features include versioning, page locking, self-destructing messages, encryption, and listifying.
 home: https://truecharts.org/charts/incubator/cowyo
@@ -21,7 +21,7 @@ keywords:
     - Productivity
 dependencies:
     - name: common
-      version: 17.2.18
+      version: 17.2.19
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: calibre
-version: 13.1.3
+version: 13.1.4
 appVersion: 7.2.0
 description: Calibre is a powerful and easy to use e-book manager.
 home: https://truecharts.org/charts/stable/calibre
@@ -19,7 +19,7 @@ keywords:
     - calibre
 dependencies:
     - name: common
-      version: 17.2.18
+      version: 17.2.19
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: doplarr
-version: 8.1.2
+version: 8.1.3
 appVersion: 3.6.2
 description: An *arr Request Bot for Discord
 home: https://truecharts.org/charts/stable/doplarr
@@ -19,7 +19,7 @@ keywords:
     - doplarr
 dependencies:
     - name: common
-      version: 17.2.18
+      version: 17.2.19
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

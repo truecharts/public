@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: firefox-syncserver
-version: 16.1.2
+version: 16.1.3
 appVersion: 1.8.0
 description: This is an all-in-one package for running a self-hosted Firefox Sync server.
 home: https://truecharts.org/charts/stable/firefox-syncserver
@@ -22,7 +22,7 @@ keywords:
     - firefox
 dependencies:
     - name: common
-      version: 17.2.18
+      version: 17.2.19
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

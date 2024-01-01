@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: mininote
-version: 4.1.2
+version: 4.1.3
 appVersion: latest
 description: A simple, self-hosted, encrypted Markdown note-taking app built with Vue 3, and Express.
 home: https://truecharts.org/charts/incubator/mininote
@@ -21,7 +21,7 @@ keywords:
     - Tools-Utilities
 dependencies:
     - name: common
-      version: 17.2.18
+      version: 17.2.19
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

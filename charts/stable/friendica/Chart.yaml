@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: friendica
-version: 12.2.2
+version: 12.2.3
 appVersion: "2023.12"
 description: Welcome to the free social web
 home: https://truecharts.org/charts/stable/friendica
@@ -20,7 +20,7 @@ keywords:
     - social
 dependencies:
     - name: common
-      version: 17.2.18
+      version: 17.2.19
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""
