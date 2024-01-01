@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: twofauth
-version: 0.0.1
+version: 0.1.0
 appVersion: 5.0.0
 description: A Web app to manage your 2FA accounts and generate their security codes.
 home: https://truecharts.org/charts/incubator/twofauth
@@ -20,7 +20,7 @@ keywords:
   - auth
 dependencies:
   - name: common
-    version: 17.1.4
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
