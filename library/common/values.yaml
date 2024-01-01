@@ -490,27 +490,27 @@ kubectlImage:
 
 wgetImage:
   repository: tccr.io/tccr/wget
-  tag: 1.0.0@sha256:1764b1bb79b5d33edeb65b0bd5452b0a9622f8602f53a77e6a516261cfe7aa3d
+  tag: v1.0.0@sha256:1764b1bb79b5d33edeb65b0bd5452b0a9622f8602f53a77e6a516261cfe7aa3d
   pullPolicy: IfNotPresent
 
 postgresClientImage:
   repository: tccr.io/tccr/db-wait-postgres
-  tag: 1.1.0@sha256:a163c7836d7bb436a428f5d55bbba0eb73bcdb9bc202047e2523bbb539c113e6
+  tag: v1.1.0@sha256:a163c7836d7bb436a428f5d55bbba0eb73bcdb9bc202047e2523bbb539c113e6
   pullPolicy: IfNotPresent
 
 mariadbClientImage:
   repository: tccr.io/tccr/db-wait-mariadb
-  tag: 1.1.0@sha256:492a9659511d3288ba9b6536fb17d1cb037fb3876f402dffa5dbcb040acbb85a
+  tag: v1.1.0@sha256:492a9659511d3288ba9b6536fb17d1cb037fb3876f402dffa5dbcb040acbb85a
   pullPolicy: IfNotPresent
 
 redisClientImage:
   repository: tccr.io/tccr/db-wait-redis
-  tag: 1.1.0@sha256:8affa086d097b948f62b0433d70f4219a22ec29843ebd5479391869341bdb638
+  tag: v1.1.0@sha256:8affa086d097b948f62b0433d70f4219a22ec29843ebd5479391869341bdb638
   pullPolicy: IfNotPresent
 
 mongodbClientImage:
   repository: tccr.io/tccr/db-wait-mongodb
-  tag: 1.1.0@sha256:502f70a653a905ad23576e208d0e5241e9cc8aeed63bb923e6da8563bdc3c1e7
+  tag: v1.1.0@sha256:502f70a653a905ad23576e208d0e5241e9cc8aeed63bb923e6da8563bdc3c1e7
   pullPolicy: IfNotPresent
 
 # -- OpenVPN specific configuration
