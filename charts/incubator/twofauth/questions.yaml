@@ -6,14 +6,11 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
 # Include{containerBasic}
 # Include{containerAdvanced}
-
   - variable: twofauth
     group: App Configuration
     label: 2fauth
@@ -188,7 +185,6 @@ questions:
                       description: Preferred
                     - value: discouraged
                       description: Discouraged
-
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
@@ -229,12 +225,9 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
 # Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}
-
               - variable: runAsUser
                 label: "runAsUser"
                 description: "The UserID of the user running the application"
@@ -256,7 +249,6 @@ questions:
                 schema:
                   type: int
                   default: 568
-
 # Include{resources}
 # Include{advanced}
 # Include{addons}

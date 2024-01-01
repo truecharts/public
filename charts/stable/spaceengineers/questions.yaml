@@ -4,14 +4,11 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
 # Include{containerBasic}
 # Include{containerAdvanced}
-
   - variable: spaceengineers
     group: App Configuration
     label: SpaceEngineers
@@ -30,7 +27,6 @@ questions:
           schema:
             type: string
             default: ""
-
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -137,7 +133,6 @@ questions:
 # Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressList}
-
 # Include{securityContextRoot}
               - variable: runAsUser
                 label: "runAsUser"
@@ -160,7 +155,6 @@ questions:
                 schema:
                   type: int
                   default: 568
-
 # Include{resources}
 # Include{advanced}
 # Include{addons}

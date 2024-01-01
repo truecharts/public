@@ -6,7 +6,6 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
@@ -28,7 +27,6 @@ questions:
             type: int
             required: true
             default: 10737418240
-
 # Include{serviceRoot}
         - variable: main
           label: Main Service
@@ -81,11 +79,8 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
 # Include{ingressAdvanced}
 # Include{ingressList}
-
 # Include{securityContextRoot}
               - variable: runAsUser
                 label: "runAsUser"
@@ -108,7 +103,6 @@ questions:
                 schema:
                   type: int
                   default: 568
-
 # Include{resources}
 # Include{advanced}
 # Include{addons}

@@ -4,7 +4,6 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
@@ -35,11 +34,9 @@ questions:
                                           default: false
 # Include{containerBasic}
 # Include{containerAdvanced}
-
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceExpertRoot}
-
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
@@ -53,7 +50,6 @@ questions:
 # Include{persistenceBasic}
 # Include{persistenceList}
 # Include{securityContextRoot}
-
               - variable: runAsUser
                 label: "runAsUser"
                 description: "The UserID of the user running the application"
@@ -75,7 +71,6 @@ questions:
                 schema:
                   type: int
                   default: 568
-
 # Include{resources}
 # Include{advanced}
 # Include{addons}

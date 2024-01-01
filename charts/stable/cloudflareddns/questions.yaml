@@ -4,13 +4,11 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
-
   - variable: cloudflareddns
     group: App Configuration
     label: Cloudflareddns Configuration
@@ -127,7 +125,6 @@ questions:
                         type: string
                         required: true
                         default: "A"
-
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceExpertRoot}
@@ -143,7 +140,6 @@ questions:
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceList}
-
 # Include{securityContextRoot}
               - variable: runAsUser
                 label: "runAsUser"
@@ -166,7 +162,6 @@ questions:
                 schema:
                   type: int
                   default: 568
-
 # Include{resources}
 # Include{advanced}
 # Include{addons}

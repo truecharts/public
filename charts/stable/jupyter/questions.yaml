@@ -6,7 +6,6 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
@@ -32,10 +31,8 @@ questions:
                                         description: Pyspark Notebook
                                       - value: allsparkImage
                                         description: All Spark Notebook
-
 # Include{containerBasic}
 # Include{containerAdvanced}
-
   - variable: jupyter
     group: App Configuration
     label: Jupyter Configuration
@@ -64,7 +61,6 @@ questions:
           schema:
             type: boolean
             default: true
-
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
@@ -105,11 +101,8 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
 # Include{ingressAdvanced}
 # Include{ingressList}
-
 # Include{securityContextRoot}
               - variable: runAsUser
                 label: "runAsUser"
@@ -132,7 +125,6 @@ questions:
                 schema:
                   type: int
                   default: 568
-
 # Include{resources}
 # Include{advanced}
 # Include{addons}

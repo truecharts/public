@@ -6,7 +6,6 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
@@ -20,7 +19,6 @@ questions:
                                         description: Base Image
                                       - value: tensorrtImage
                                         description: Image with TensorRT libraries for nvidia cards
-
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
@@ -150,8 +148,6 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
 # Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}

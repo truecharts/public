@@ -7,13 +7,11 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
-
 # Include{containerConfig}
 # Include{podOptions}
   - variable: expertIngressClass
@@ -379,8 +377,6 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
 # Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}
@@ -405,7 +401,6 @@ questions:
                 schema:
                   type: int
                   default: 568
-
 # Include{resources}
 # Include{metrics}
 # Include{prometheusRule}
@@ -415,7 +410,6 @@ questions:
 # Include{netshoot}
 # Include{vpn}
 # Include{documentation}
-
   - variable: warning
     group: Documentation
     label: 'WARNING: If installed, be sure to move the TrueNAS GUI to another port (not 80 or 443).'

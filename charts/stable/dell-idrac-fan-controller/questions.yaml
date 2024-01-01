@@ -3,7 +3,6 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
@@ -61,10 +60,8 @@ questions:
                                       schema:
                                         type: boolean
                                         default: false
-
 # Include{containerConfig}
 # Include{podOptions}
-
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
 # Include{serviceList}
@@ -91,7 +88,6 @@ questions:
                 schema:
                   type: int
                   default: 568
-
 # Include{resources}
 # Include{advanced}
 # Include{addons}
