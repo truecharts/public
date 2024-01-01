@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: dizquetv
-version: 13.1.0
+version: 13.1.1
 appVersion: 1.5.3
 description: Create live TV channel streams from media on your Plex servers.
 home: https://truecharts.org/charts/stable/dizquetv
@@ -20,7 +20,7 @@ keywords:
   - dizquetv
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

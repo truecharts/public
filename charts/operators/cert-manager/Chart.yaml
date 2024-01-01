@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: cert-manager
-version: 3.1.0
+version: 3.1.1
 appVersion: latest
 description: Cert-Manager is a kubernetes-aware certificate manager
 home: https://truecharts.org/charts/operators/cert-manager
@@ -22,7 +22,7 @@ keywords:
   - security
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

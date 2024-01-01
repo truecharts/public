@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: flame
-version: 4.1.0
+version: 4.1.1
 appVersion: 2.3.1
 description: Flame is self-hosted start page for your server. Easily manage your apps and bookmarks with built-in editors.
 home: https://truecharts.org/charts/incubator/flame
@@ -20,7 +20,7 @@ keywords:
   - dashboard
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

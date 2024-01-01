@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: llalon-github-backup
-version: 4.1.0
+version: 4.1.1
 appVersion: latest
 description: Automatically backup github repositories on schedule. Allows for custom configuration.
 home: https://truecharts.org/charts/incubator/llalon-github-backup
@@ -20,7 +20,7 @@ keywords:
   - Backup
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

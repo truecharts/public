@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: mstream
-version: 9.1.1
+version: 9.1.2
 appVersion: 5.11.4
 description: A personal music streaming server
 home: https://truecharts.org/charts/stable/mstream
@@ -22,7 +22,7 @@ keywords:
   - music
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

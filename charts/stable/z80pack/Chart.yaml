@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: z80pack
-version: 4.1.0
+version: 4.1.1
 appVersion: latest
 description: |
   Z80Pack is an emulator for emulating CP/M 1, CP/M 2, CP/M 3, and MP/M II on Linux.  This is a command line Chart only.  There is a built in Shell in a Box WebGUI that is a command line browser window.  You can also execute bash in the Chart.[br]
@@ -21,7 +21,7 @@ keywords:
   - Other
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

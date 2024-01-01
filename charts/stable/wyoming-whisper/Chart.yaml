@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: wyoming-whisper
-version: 3.1.0
+version: 3.1.1
 appVersion: latest
 description: The Wyoming integration of whisper
 home: https://truecharts.org/charts/stable/wyoming-whisper
@@ -19,7 +19,7 @@ keywords:
   - wyoming-whisper
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

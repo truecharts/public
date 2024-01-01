@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: storj-node
-version: 8.1.0
+version: 8.1.1
 appVersion: go1.18.8
 description: Storj is an S3-compatible platform and suite of decentralized applications that allows you to store data in a secure and decentralized manner
 home: https://truecharts.org/charts/stable/storj-node
@@ -21,7 +21,7 @@ keywords:
   - storage
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

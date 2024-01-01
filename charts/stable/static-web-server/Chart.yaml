@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: static-web-server
-version: 3.1.1
+version: 3.1.2
 appVersion: 2.24.2
 description: A cross-platform, high-performance and asynchronous web server for static files-serving.
 home: https://truecharts.org/charts/stable/static-web-server
@@ -22,7 +22,7 @@ keywords:
   - rust
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

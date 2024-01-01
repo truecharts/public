@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: post-recording
-version: 4.1.0
+version: 4.1.1
 appVersion: latest
 description: Watches for .ts files made by Live TV recordings, convert them to a friendly format, extract .srt file, add chapters with comchap or remove them with comcut. Tested with Emby recordings.
 home: https://truecharts.org/charts/incubator/post-recording
@@ -20,7 +20,7 @@ keywords:
   - MediaApp-Video
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

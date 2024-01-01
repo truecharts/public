@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: owncast
-version: 12.1.0
+version: 12.1.1
 appVersion: 0.1.2
 description: Take control over your live stream video by running it yourself. Streaming + chat out of the box.
 home: https://truecharts.org/charts/stable/owncast
@@ -23,7 +23,7 @@ keywords:
   - chat
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

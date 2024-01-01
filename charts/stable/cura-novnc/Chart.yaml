@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: cura-novnc
-version: 7.1.0
+version: 7.1.1
 appVersion: latest
 description: Enjoy Cura directly in your browser with this easy to use Chart
 home: https://truecharts.org/charts/stable/cura-novnc
@@ -21,7 +21,7 @@ keywords:
   - Productivity
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

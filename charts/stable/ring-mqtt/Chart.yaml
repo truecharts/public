@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: ring-mqtt
-version: 7.1.0
+version: 7.1.1
 appVersion: 5.6.3
 description: Interact with Ring Inc products (cameras/alarms/smart lighting) via MQTT.
 home: https://truecharts.org/charts/stable/ring-mqtt
@@ -21,7 +21,7 @@ keywords:
   - Tools-Utilities
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

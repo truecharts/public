@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: core-keeper-dedicated-server
-version: 4.1.0
+version: 4.1.1
 appVersion: latest
 description: Chart file for the new Core Keeper dedicated server running from SteamCMD. (No account etc needed)
 home: https://truecharts.org/charts/incubator/core-keeper-dedicated-server
@@ -20,7 +20,7 @@ keywords:
   - GameServers
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

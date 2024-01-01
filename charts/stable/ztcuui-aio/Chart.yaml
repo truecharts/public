@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: ztcuui-aio
-version: 6.1.0
+version: 6.1.1
 appVersion: 2023.5.2-r1
 description: ZeroTier network controller user interface in a Docker container
 home: https://truecharts.org/charts/stable/ztcuui-aio
@@ -19,7 +19,7 @@ keywords:
   - ztcuui-aio
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

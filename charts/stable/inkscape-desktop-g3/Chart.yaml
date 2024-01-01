@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: inkscape-desktop-g3
-version: 4.1.0
+version: 4.1.1
 appVersion: latest
 description: Headless Ubuntu/Xfce Charts with VNC/noVNC for diagramming, image editing and 2D/3D drawing
 home: https://truecharts.org/charts/incubator/inkscape-desktop-g3
@@ -22,7 +22,7 @@ keywords:
   - MediaApp-Photos
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

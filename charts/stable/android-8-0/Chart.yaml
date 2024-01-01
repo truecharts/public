@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: android-8-0
-version: 4.1.0
+version: 4.1.1
 appVersion: latest
 description: Android in Chart solution with noVNC supported and video recording. Work way better with Intel CPUs because AMD doesn't an cpu graphics card. So with amd cpus can be unusable.
 home: https://truecharts.org/charts/incubator/android-8-0
@@ -20,7 +20,7 @@ keywords:
   - Other
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

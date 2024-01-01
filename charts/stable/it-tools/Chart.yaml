@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: it-tools
-version: 3.1.0
+version: 3.1.1
 appVersion: 2023.12.21
 description: Useful tools for developer and people working in IT.
 home: https://truecharts.org/charts/stable/it-tools
@@ -19,7 +19,7 @@ keywords:
   - it-tools
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

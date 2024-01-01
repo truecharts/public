@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: unpackerr
-version: 12.1.0
+version: 12.1.1
 appVersion: 0.12.0
 description: This application runs as a daemon on your download host. It checks for completed downloads and extracts them so Radarr, Lidarr, Sonarr, and Readarr may import them
 home: https://truecharts.org/charts/stable/unpackerr
@@ -23,7 +23,7 @@ keywords:
   - readarr
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: rimgo
-version: 5.1.0
+version: 5.1.1
 appVersion: latest
 description: Alternative Imgur front-end
 home: https://truecharts.org/charts/incubator/rimgo
@@ -19,7 +19,7 @@ keywords:
   - Network-Web
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

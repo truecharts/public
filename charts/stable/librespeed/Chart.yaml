@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: librespeed
-version: 12.1.0
+version: 12.1.1
 appVersion: 5.3.0
 description: Librespeed is a HTML5 webpage to test upload and download speeds
 home: https://truecharts.org/charts/stable/librespeed
@@ -20,7 +20,7 @@ keywords:
   - speedtest
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
