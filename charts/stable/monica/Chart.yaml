@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: monica
-version: 11.1.4
+version: 11.1.5
 appVersion: 4.0.0
 description: Monica is a great open source personal relationship management system.
 home: https://truecharts.org/charts/stable/monica
@@ -26,7 +26,7 @@ dependencies:
       tags: []
       import-values: []
     - name: mariadb
-      version: 12.1.0
+      version: 12.1.3
       repository: https://deps.truecharts.org/
       condition: mariadb.enabled
       alias: ""
