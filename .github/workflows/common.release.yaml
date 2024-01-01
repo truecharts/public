@@ -58,14 +58,8 @@ jobs:
 
     - name: Helm | Login
       shell: bash
-      run: echo ${{ secrets.QUAY_TCCR_TOKEN }} | helm registry login -u ${{ secrets.QUAY_TCCR_USER }} --password-stdin quay.io
+      run: echo ${{ secrets.QUAY_TOKEN }} | helm registry login -u ${{ secrets.QUAY_USER }} --password-stdin quay.io
 
-    - name: Login to Quay option 2
-      uses: docker/login-action@v1
-      with:
-        registry: quay.io
-        username: ${{ secrets.QUAY_TCCR_USER }}
-        password: ${{ secrets.QUAY_TCCR_TOKEN }}
 
     - name: Push Charts to Quay
       shell: bash
