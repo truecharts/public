@@ -230,7 +230,6 @@ jobs:
                     echo "---"
                     echo "title: some title"
                     echo "---"
-                    exit 99
                   fi
                   echo "Not bad title found, continuing..."
                   title=$(cat "${file}" | grep "title: " | sed 's/title: //' | head -n 1)
