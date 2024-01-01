@@ -286,8 +286,6 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
 # Include{ingressAdvanced}
         - variable: dns-https-proxy
           label: "DNS-over-HTTPS Reverse Proxy"
@@ -296,8 +294,6 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
 # Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}
