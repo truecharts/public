@@ -66,7 +66,7 @@ jobs:
           if [ -z "${pkg:-}" ]; then
             break
           fi
-          helm push "${pkg}" oci://quay.io/truecharts/charts || echo "failed to upload $pkg to OCI"
+          helm push "${pkg}" oci://quay.io/truecharts || echo "failed to upload $pkg to OCI"
           curl -X POST -H "Content-Type: application/json" -d '{"visibility": "public"}' -H "Authorization: Bearer ${{ secrets.QUAY_TCCR_API_TOKEN }}" "https://quay.io/api/v1/repository/tccr/$pkg/changevisibility"  || echo "failed to set $pkg to public on OCI"
         done
 
