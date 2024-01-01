@@ -67,7 +67,9 @@ jobs:
           if [ -z "${pkg:-}" ]; then
             break
           fi
-          name="${pkg%%-[0-9].[0-9].[0-9].tgz}"
+          filename=$(basename "$pkg")
+          name="${filename%%-[0-9].[0-9].[0-9].tgz}"
+          echo "uploading $name"
           helm push "${pkg}" oci://quay.io/truecharts/$name || echo "failed to upload $pkg to OCI"
           curl -X POST -H "Content-Type: application/json" -d '{"visibility": "public"}' -H "Authorization: Bearer ${{ secrets.QUAY_TCCR_API_TOKEN }}" "https://quay.io/api/v1/repository/tccr/$pkg/changevisibility"  || echo "failed to set $pkg to public on OCI"
         done
