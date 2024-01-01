@@ -4,14 +4,11 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
 # Include{containerBasic}
 # Include{containerAdvanced}
-
   - variable: plexanisync
     group: App Configuration
     label: PlexAniSync Configuration
@@ -157,7 +154,6 @@ questions:
                 schema:
                   type: boolean
                   default: true
-
   - variable: custom-mappings
     group: App Configuration
     label: Custom Mappings
@@ -229,16 +225,13 @@ questions:
                               type: string
                               required: true
                               default: ""
-
 # Include{containerConfig}
 # Include{podOptions}
-
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceList}
 # Include{securityContextRoot}
-
               - variable: runAsUser
                 label: "runAsUser"
                 description: "The UserID of the user running the application"
@@ -260,7 +253,6 @@ questions:
                 schema:
                   type: int
                   default: 568
-
 # Include{resources}
 # Include{advanced}
 # Include{addons}

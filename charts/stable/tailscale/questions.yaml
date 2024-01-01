@@ -4,14 +4,11 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
 # Include{containerBasic}
 # Include{containerAdvanced}
-
   - variable: tailscale
     group: App Configuration
     label: Tailscale Configuration
@@ -91,7 +88,6 @@ questions:
           schema:
             type: string
             default: ""
-
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceExpertRoot}
@@ -108,7 +104,6 @@ questions:
 # Include{ingressDefault}
 # Include{ingressAdvanced}
 # Include{ingressList}
-
 # Include{securityContextRoot}
               - variable: runAsUser
                 label: "runAsUser"
@@ -131,7 +126,6 @@ questions:
                 schema:
                   type: int
                   default: 568
-
 # Include{resources}
 # Include{advanced}
 # Include{addons}
