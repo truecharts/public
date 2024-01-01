@@ -1,37 +1,37 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: guacamole
-version: 12.1.1
+version: 12.1.2
 appVersion: 1.5.4
 description: Apache Guacamole is a clientless remote desktop gateway.
 home: https://truecharts.org/charts/stable/guacamole
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/guacamole.png
 deprecated: false
 sources:
-  - https://github.com/apache/guacamole-client
-  - https://github.com/truecharts/charts/tree/master/charts/stable/guacamole
-  - https://hub.docker.com/r/guacamole/guacd
+    - https://github.com/apache/guacamole-client
+    - https://github.com/truecharts/charts/tree/master/charts/stable/guacamole
+    - https://hub.docker.com/r/guacamole/guacamole
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - guacamole
-  - remote
+    - guacamole
+    - remote
 dependencies:
-  - name: common
-    version: 17.2.18
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.18
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: utilities
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: utilities
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application

@@ -1,37 +1,37 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: genea
-version: 4.1.1
+version: 4.1.2
 appVersion: latest
 description: Genea allows visually building and editing a family tree online. It consumes and saves genealogy data in the GEDCOM format without any server side components.
 home: https://truecharts.org/charts/incubator/genea
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/genea.png
 deprecated: false
 sources:
-  - https://github.com/genea-app/genea-app
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/genea
-  - https://hub.docker.com/r/biggiesize/genea-app
+    - https://hub.docker.com/r/biggiesize/genea-app
+    - https://github.com/genea-app/genea-app
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/genea
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - genea
-  - Other
+    - genea
+    - Other
 dependencies:
-  - name: common
-    version: 17.2.18
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.18
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Other
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Other
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: incubator
 type: application

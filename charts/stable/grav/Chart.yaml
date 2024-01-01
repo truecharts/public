@@ -1,40 +1,40 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: grav
-version: 10.1.1
+version: 10.1.2
 appVersion: 1.7.43
 description: A Fast, Simple, and Flexible, file-based Web-platform.
 home: https://truecharts.org/charts/stable/grav
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/grav.png
 deprecated: false
 sources:
-  - https://github.com/getgrav/grav/
-  - https://github.com/truecharts/charts/tree/master/charts/stable/grav
-  - https://ghcr.io/linuxserver/grav
-  - https://github.com/linuxserver/docker-grav
+    - https://github.com/linuxserver/docker-grav
+    - https://github.com/truecharts/charts/tree/master/charts/stable/grav
+    - https://ghcr.io/linuxserver/grav
+    - https://github.com/getgrav/grav/
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - grav
-  - web
-  - platform
-  - file
+    - grav
+    - web
+    - platform
+    - file
 dependencies:
-  - name: common
-    version: 17.2.18
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.18
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application

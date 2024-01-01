@@ -1,42 +1,42 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: dockerregistry
-version: 4.1.1
+version: 4.1.2
 appVersion: "2"
 description: |
-  Docker Registry is used to store and distribute Docker images using HTTP API. This allows you host your own private Registry and store your images. Uses official Chart Registry image @ https://hub.Chart.com/_/registry/
+    Docker Registry is used to store and distribute Docker images using HTTP API. This allows you host your own private Registry and store your images. Uses official Chart Registry image @ https://hub.Chart.com/_/registry/
 home: https://truecharts.org/charts/incubator/dockerregistry
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/dockerregistry.png
 deprecated: false
 sources:
-  - https://registry.hub.docker.com/_/registry/
-  - https://github.com/distribution/distribution
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/dockerregistry
-  - https://hub.docker.com/_/registry
+    - https://registry.hub.docker.com/_/registry/
+    - https://github.com/distribution/distribution
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/dockerregistry
+    - https://hub.docker.com/_/registry
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - dockerregistry
-  - Cloud
-  - Network-Management
-  - Productivity
-  - Tools-Utilities
+    - dockerregistry
+    - Cloud
+    - Network-Management
+    - Productivity
+    - Tools-Utilities
 dependencies:
-  - name: common
-    version: 17.2.18
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.18
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Cloud
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Cloud
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: incubator
 type: application

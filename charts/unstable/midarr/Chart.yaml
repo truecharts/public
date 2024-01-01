@@ -1,37 +1,37 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: midarr
-version: 4.0.10
+version: 4.0.11
 appVersion: 3.1.0
 description: Midarr is a minimal lightweight media server for enjoying your media
 home: https://truecharts.org/charts/incubator/midarr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/midarr.png
 deprecated: false
 sources:
-  - https://github.com/midarrlabs/midarr-server
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/midarr
-  - https://github.com/truecharts/containers/tree/master/mirrormidarr-server
+    - https://github.com/midarrlabs/midarr-server
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/midarr
+    - https://github.com/truecharts/containers/tree/master/mirrormidarr-server
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - midarr
-  - media
+    - midarr
+    - media
 dependencies:
-  - name: common
-    version: 17.2.18
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.18
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: incubator
 type: application

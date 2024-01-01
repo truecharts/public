@@ -1,50 +1,50 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: etesync
-version: 8.1.1
+version: 8.1.2
 appVersion: 0.11.0
 description: Secure, end-to-end encrypted, and privacy respecting sync for your contacts, calendars, tasks and notes.
 home: https://truecharts.org/charts/stable/etesync
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/etesync.png
 deprecated: false
 sources:
-  - https://github.com/etesync
-  - https://github.com/victor-rds/docker-etebase
-  - https://www.etesync.com/
-  - https://github.com/truecharts/charts/tree/master/charts/stable/etesync
-  - https://hub.docker.com/r/victorrds/etesync
+    - https://www.etesync.com/
+    - https://github.com/truecharts/charts/tree/master/charts/stable/etesync
+    - https://hub.docker.com/r/victorrds/etesync
+    - https://github.com/etesync
+    - https://github.com/victor-rds/docker-etebase
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - etesync
-  - sync
-  - contacts
-  - calendars
-  - tasks
-  - notes
+    - etesync
+    - sync
+    - contacts
+    - calendars
+    - tasks
+    - notes
 dependencies:
-  - name: common
-    version: 17.2.18
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-  - name: redis
-    version: 11.1.0
-    repository: https://deps.truecharts.org
-    condition: redis.enabled
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.18
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
+    - name: redis
+      version: 11.1.0
+      repository: https://deps.truecharts.org
+      condition: redis.enabled
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: productivity
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: productivity
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application

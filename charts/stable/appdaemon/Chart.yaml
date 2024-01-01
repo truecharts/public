@@ -1,40 +1,40 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: appdaemon
-version: 15.1.1
+version: 15.1.2
 appVersion: 4.4.2
 description: AppDaemon is a loosely coupled, multi-threaded, sandboxed python execution environment for writing automation apps.
 home: https://truecharts.org/charts/stable/appdaemon
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/appdaemon.png
 deprecated: false
 sources:
-  - https://github.com/AppDaemon/appdaemon
-  - https://github.com/truecharts/charts/tree/master/charts/stable/appdaemon
-  - https://hub.docker.com/r/acockburn/appdaemon
+    - https://github.com/AppDaemon/appdaemon
+    - https://github.com/truecharts/charts/tree/master/charts/stable/appdaemon
+    - https://hub.docker.com/r/acockburn/appdaemon
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-  - name: warllo54
-    email: 20650065+warllo54@users.noreply.github.com
-    url: truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
+    - name: warllo54
+      email: 20650065+warllo54@users.noreply.github.com
+      url: truecharts.org
 keywords:
-  - appdaemon
-  - homeautomation
+    - appdaemon
+    - homeautomation
 dependencies:
-  - name: common
-    version: 17.2.18
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.18
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: utilities
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: utilities
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application

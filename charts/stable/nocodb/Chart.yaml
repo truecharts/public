@@ -1,43 +1,43 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: nocodb
-version: 12.2.1
+version: 12.2.2
 appVersion: 0.203.2
 description: Turns any MySQL, PostgreSQL, SQL Server, SQLite & MariaDB into a smart-spreadsheet.
 home: https://truecharts.org/charts/stable/nocodb
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/nocodb.png
 deprecated: false
 sources:
-  - https://github.com/nocodb/nocodb
-  - https://github.com/truecharts/charts/tree/master/charts/stable/nocodb
-  - https://hub.docker.com/r/nocodb/nocodb
+    - https://github.com/nocodb/nocodb
+    - https://github.com/truecharts/charts/tree/master/charts/stable/nocodb
+    - https://hub.docker.com/r/nocodb/nocodb
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - nocodb
+    - nocodb
 dependencies:
-  - name: common
-    version: 17.2.18
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-  - name: redis
-    version: 11.1.0
-    repository: https://deps.truecharts.org
-    condition: redis.enabled
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.18
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
+    - name: redis
+      version: 11.1.0
+      repository: https://deps.truecharts.org
+      condition: redis.enabled
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: productivity
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: productivity
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application

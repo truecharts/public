@@ -1,51 +1,51 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: librephotos
-version: 9.0.7
+version: 9.0.8
 appVersion: latest
 description: A self-hosted open source photo management service.
 home: https://truecharts.org/charts/unstable/librephotos
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/librephotos.png
 deprecated: false
 sources:
-  - https://github.com/LibrePhotos/librephotos
-  - https://github.com/truecharts/charts/tree/master/charts/unstable/librephotos
-  - https://hub.docker.com/r/reallibrephotos/librephotos-proxy
+    - https://hub.docker.com/r/reallibrephotos/librephotos-frontend
+    - https://github.com/LibrePhotos/librephotos
+    - https://github.com/truecharts/charts/tree/master/charts/unstable/librephotos
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - photos
-  - gallery
+    - photos
+    - gallery
 dependencies:
-  - name: common
-    version: 17.2.18
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-  - name: postgresql
-    version: 11.0.31
-    repository: https://deps.truecharts.org/
-    condition: postgresql.enabled
-    alias: ""
-    tags: []
-    import-values: []
-  - name: redis
-    version: 10.0.1
-    repository: https://deps.truecharts.org
-    condition: redis.enabled
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.18
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
+    - name: postgresql
+      version: 11.0.31
+      repository: https://deps.truecharts.org/
+      condition: postgresql.enabled
+      alias: ""
+      tags: []
+      import-values: []
+    - name: redis
+      version: 10.0.1
+      repository: https://deps.truecharts.org
+      condition: redis.enabled
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: unstable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: unstable
 type: application

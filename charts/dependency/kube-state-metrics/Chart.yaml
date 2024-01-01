@@ -1,37 +1,37 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: kube-state-metrics
-version: 6.1.1
+version: 6.1.2
 appVersion: 2.10.1
 description: kube-state-metrics is a simple service that listens to the Kubernetes API server and generates metrics about the state of the objects.
 home: https://truecharts.org/charts/dependency/kube-state-metrics
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/kube-state-metrics.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/dependency/kube-state-metrics
-  - https://hub.docker.com/r/bitnami/kube-state-metrics
+    - https://github.com/truecharts/charts/tree/master/charts/dependency/kube-state-metrics
+    - https://hub.docker.com/r/bitnami/kube-state-metrics
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - prometheus
-  - kube-state-metrics
-  - monitoring
+    - prometheus
+    - kube-state-metrics
+    - monitoring
 dependencies:
-  - name: common
-    version: 17.2.18
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.18
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: metrics
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: dependency
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: metrics
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: dependency
 type: application

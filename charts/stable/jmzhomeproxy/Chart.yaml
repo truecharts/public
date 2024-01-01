@@ -1,38 +1,38 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: jmzhomeproxy
-version: 4.1.1
+version: 4.1.2
 appVersion: latest
 description: Proxy is in quotes because I couldn't think of a better name. There is nothing overly special about this other than using it as a simple and easy to use dashboard for all your self-hosted services.
 home: https://truecharts.org/charts/incubator/jmzhomeproxy
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/jmzhomeproxy.png
 deprecated: false
 sources:
-  - https://github.com/JmzTaylor/homelab_proxy/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/jmzhomeproxy
-  - https://hub.docker.com/r/jmzsoftware/jmzhomelabproxy
+    - https://github.com/JmzTaylor/homelab_proxy/
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/jmzhomeproxy
+    - https://hub.docker.com/r/jmzsoftware/jmzhomelabproxy
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - jmzhomeproxy
-  - Cloud
-  - Network-Web
+    - jmzhomeproxy
+    - Cloud
+    - Network-Web
 dependencies:
-  - name: common
-    version: 17.2.18
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.18
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Cloud
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Cloud
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: incubator
 type: application

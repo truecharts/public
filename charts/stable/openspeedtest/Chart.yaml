@@ -1,38 +1,38 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: openspeedtest
-version: 7.1.1
+version: 7.1.2
 appVersion: latest
 description: HTML5 Network Speed Test Server. You can test download & upload speed from any device within your network with a web browser that is IE10 or new.
 home: https://truecharts.org/charts/stable/openspeedtest
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/openspeedtest.png
 deprecated: false
 sources:
-  - https://github.com/openspeedtest/Speed-Test
-  - https://github.com/truecharts/charts/tree/master/charts/stable/openspeedtest
-  - https://hub.docker.com/r/openspeedtest/latest
+    - https://github.com/openspeedtest/Speed-Test
+    - https://github.com/truecharts/charts/tree/master/charts/stable/openspeedtest
+    - https://hub.docker.com/r/openspeedtest/latest
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - speedtest
-  - speed test
-  - openspeedtest
+    - speedtest
+    - speed test
+    - openspeedtest
 dependencies:
-  - name: common
-    version: 17.2.18
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.18
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: utilities
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: utilities
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application

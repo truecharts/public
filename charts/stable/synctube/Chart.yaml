@@ -1,42 +1,42 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: synctube
-version: 6.1.1
+version: 6.1.2
 appVersion: latest
 description: Synchronized video viewing with chat and other features. Lightweight modern implementation and very easy way to run locally.
 home: https://truecharts.org/charts/stable/synctube
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/synctube.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/synctube
-  - https://hub.docker.com/r/littlestache/synctube
-  - https://github.com/RblSb/SyncTube
+    - https://github.com/RblSb/SyncTube
+    - https://github.com/truecharts/charts/tree/master/charts/stable/synctube
+    - https://hub.docker.com/r/littlestache/synctube
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - synctube
-  - Cloud
-  - Productivity
-  - Tools-Utilities
-  - MediaApp-Video
-  - MediaServer-Video
-  - Network-Web
+    - synctube
+    - Cloud
+    - Productivity
+    - Tools-Utilities
+    - MediaApp-Video
+    - MediaServer-Video
+    - Network-Web
 dependencies:
-  - name: common
-    version: 17.2.18
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.18
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Cloud
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Cloud
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application

@@ -1,36 +1,36 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: plex-meta-manager
-version: 5.1.1
+version: 5.1.2
 appVersion: 1.19.1
 description: Python script to update metadata and automatically build collections.
 home: https://truecharts.org/charts/incubator/plex-meta-manager
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/plex-meta-manager.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/plex-meta-manager
-  - https://github.com/truecharts/containers/tree/master/mirrorplex-meta-manager
-  - https://github.com/meisnate12/Plex-Meta-Manager
+    - https://github.com/meisnate12/Plex-Meta-Manager
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/plex-meta-manager
+    - https://github.com/truecharts/containers/tree/master/mirrorplex-meta-manager
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - plex-meta-manager
+    - plex-meta-manager
 dependencies:
-  - name: common
-    version: 17.2.18
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.18
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: incubator
 type: application

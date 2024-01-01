@@ -1,39 +1,39 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: czkawka
-version: 7.1.1
+version: 7.1.2
 appVersion: 23.11.2
 description: Czkawka is a simple, fast and free app to remove unnecessary files from your computer.
 home: https://truecharts.org/charts/stable/czkawka
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/czkawka.png
 deprecated: false
 sources:
-  - https://github.com/jlesage/docker-czkawka
-  - https://github.com/qarmin/czkawka
-  - https://github.com/truecharts/charts/tree/master/charts/stable/czkawka
-  - https://hub.docker.com/r/jlesage/czkawka
+    - https://hub.docker.com/r/jlesage/czkawka
+    - https://github.com/jlesage/docker-czkawka
+    - https://github.com/qarmin/czkawka
+    - https://github.com/truecharts/charts/tree/master/charts/stable/czkawka
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - duplicates
-  - file management
-  - czkawka
+    - duplicates
+    - file management
+    - czkawka
 dependencies:
-  - name: common
-    version: 17.2.18
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.18
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: duplicates
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: duplicates
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application

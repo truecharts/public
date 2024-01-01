@@ -1,39 +1,39 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: backuppc
-version: 5.1.1
+version: 5.1.2
 appVersion: 6.0.2
 description: A high-performance, enterprise-grade system for backing up Linux, Windows and macOS PCs and laptops to a server's disk.
 home: https://truecharts.org/charts/incubator/backuppc
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/backuppc.png
 deprecated: false
 sources:
-  - https://github.com/tiredofit/docker-backuppc
-  - https://backuppc.github.io/backuppc/index.html
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/backuppc
-  - https://github.com/truecharts/containers/tree/master/mirrorbackuppc
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/backuppc
+    - https://github.com/truecharts/containers/tree/master/mirrorbackuppc
+    - https://github.com/tiredofit/docker-backuppc
+    - https://backuppc.github.io/backuppc/index.html
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - backuppc
-  - Backup
-  - Network-Web
+    - backuppc
+    - Backup
+    - Network-Web
 dependencies:
-  - name: common
-    version: 17.2.18
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.18
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Backup
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Backup
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: incubator
 type: application

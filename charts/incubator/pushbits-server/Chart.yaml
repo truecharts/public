@@ -1,40 +1,40 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: pushbits-server
-version: 0.0.6
+version: 0.0.7
 appVersion: 0.10.1
 description: Send push notifications via a simple web API, and delivers them to your users.
 home: https://truecharts.org/charts/incubator/pushbits-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pushbits-server.png
 deprecated: false
 sources:
-  - https://github.com/pushbits/server
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/pushbits-server
-  - https://github.com/truecharts/containers/tree/master/mirrorpushbits-server
+    - https://github.com/pushbits/server
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/pushbits-server
+    - https://github.com/truecharts/containers/tree/master/mirrorpushbits-server
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - pushbits-server
-  - notifications
-  - matrix
-dependencies:
-  - name: common
-    version: 17.2.18
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/catagories: |
+    - pushbits-server
     - notifications
-  truecharts.org/category: unsorted
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+    - matrix
+dependencies:
+    - name: common
+      version: 17.2.18
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
+annotations:
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/catagories: |
+        - notifications
+    truecharts.org/category: unsorted
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: incubator
 type: application

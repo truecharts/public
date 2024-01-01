@@ -1,40 +1,40 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: shorturl
-version: 9.1.1
+version: 9.1.2
 appVersion: 0.1.0
 description: Self hosted web app for shortening urls (URL shortener)
 home: https://truecharts.org/charts/stable/shorturl
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/shorturl.png
 deprecated: false
 sources:
-  - https://github.com/prologic/shorturl
-  - https://github.com/nicholaswilde/docker-shorturl
-  - https://github.com/truecharts/charts/tree/master/charts/stable/shorturl
-  - https://ghcr.io/nicholaswilde/shorturl
+    - https://github.com/truecharts/charts/tree/master/charts/stable/shorturl
+    - https://ghcr.io/nicholaswilde/shorturl
+    - https://github.com/prologic/shorturl
+    - https://github.com/nicholaswilde/docker-shorturl
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - url
-  - shortener
-  - shorten
-  - shorturl
+    - url
+    - shortener
+    - shorten
+    - shorturl
 dependencies:
-  - name: common
-    version: 17.2.18
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.18
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application

@@ -1,44 +1,44 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: nitter
-version: 5.1.1
+version: 5.1.2
 appVersion: latest
 description: A free and open source alternative Twitter front-end focused on privacy and performance.
 home: https://truecharts.org/charts/incubator/nitter
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/nitter.png
 deprecated: false
 sources:
-  - https://github.com/zedeus/nitter
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/nitter
-  - https://hub.docker.com/r/zedeus/nitter
+    - https://hub.docker.com/r/zedeus/nitter
+    - https://github.com/zedeus/nitter
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/nitter
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - nitter
-  - libre
+    - nitter
+    - libre
 dependencies:
-  - name: common
-    version: 17.2.18
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-  - name: redis
-    version: 11.1.0
-    repository: https://deps.truecharts.org
-    condition: redis.enabled
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.18
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
+    - name: redis
+      version: 11.1.0
+      repository: https://deps.truecharts.org
+      condition: redis.enabled
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: incubator
 type: application

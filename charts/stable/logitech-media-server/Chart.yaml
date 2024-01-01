@@ -1,39 +1,39 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: logitech-media-server
-version: 10.1.1
+version: 10.1.2
 appVersion: stable
 description: Logitech Media Server is a platform for home/office audio streaming.
 home: https://truecharts.org/charts/stable/logitech-media-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/logitech-media-server.png
 deprecated: false
 sources:
-  - https://hub.docker.com/r/lmscommunity/logitechmediaserver
-  - https://github.com/Logitech/slimserver
-  - https://github.com/truecharts/charts/tree/master/charts/stable/logitech-media-server
+    - https://github.com/Logitech/slimserver
+    - https://github.com/truecharts/charts/tree/master/charts/stable/logitech-media-server
+    - https://hub.docker.com/r/lmscommunity/logitechmediaserver
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - logitech-media-server
-  - squeezebox
-  - audio
-  - streaming
+    - logitech-media-server
+    - squeezebox
+    - audio
+    - streaming
 dependencies:
-  - name: common
-    version: 17.2.18
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.18
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application

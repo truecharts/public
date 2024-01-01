@@ -1,42 +1,42 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: fleet
-version: 11.1.1
+version: 11.1.2
 appVersion: 2.3.3
 description: Fleet provides an online web interface which displays a set of maintained images from one or more owned repositories.
 home: https://truecharts.org/charts/stable/fleet
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/fleet.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/fleet
-  - https://ghcr.io/linuxserver/fleet
+    - https://github.com/truecharts/charts/tree/master/charts/stable/fleet
+    - https://ghcr.io/linuxserver/fleet
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - fleet
+    - fleet
 dependencies:
-  - name: common
-    version: 17.2.18
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-  - name: mariadb
-    version: 12.1.0
-    repository: https://deps.truecharts.org/
-    condition: mariadb.enabled
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.18
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
+    - name: mariadb
+      version: 12.1.0
+      repository: https://deps.truecharts.org/
+      condition: mariadb.enabled
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: incubator
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: incubator
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application

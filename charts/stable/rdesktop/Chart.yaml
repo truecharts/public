@@ -1,38 +1,38 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: rdesktop
-version: 7.1.7
+version: 7.1.8
 appVersion: latest
 description: Full desktop environments in many popular flavors for Alpine, Ubuntu, Arch, and Fedora accessible via RDP.
 home: https://truecharts.org/charts/stable/rdesktop
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/rdesktop.png
 deprecated: false
 sources:
-  - https://github.com/linuxserver/docker-rdesktop#readme
-  - https://github.com/orgs/linuxserver/packages/container/package/rdesktop
-  - https://github.com/truecharts/charts/tree/master/charts/stable/rdesktop
-  - https://fleet.linuxserver.io/image?name=linuxserver/rdesktop
+    - https://fleet.linuxserver.io/image?name=linuxserver/rdesktop
+    - https://github.com/linuxserver/docker-rdesktop#readme
+    - https://github.com/orgs/linuxserver/packages/container/package/rdesktop
+    - https://github.com/truecharts/charts/tree/master/charts/stable/rdesktop
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - rdesktop
-  - desktops
+    - rdesktop
+    - desktops
 dependencies:
-  - name: common
-    version: 17.2.18
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.18
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: desktops
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: desktops
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application

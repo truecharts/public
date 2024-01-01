@@ -1,38 +1,38 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: storj-node
-version: 8.1.1
+version: 8.1.2
 appVersion: go1.18.8
 description: Storj is an S3-compatible platform and suite of decentralized applications that allows you to store data in a secure and decentralized manner
 home: https://truecharts.org/charts/stable/storj-node
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/storj-node.png
 deprecated: false
 sources:
-  - https://hub.docker.com/r/storjlabs/storagenode
-  - https://docs.storj.io/node/
-  - https://github.com/storj/storj
-  - https://github.com/truecharts/charts/tree/master/charts/stable/storj-node
+    - https://docs.storj.io/node/
+    - https://github.com/storj/storj
+    - https://github.com/truecharts/charts/tree/master/charts/stable/storj-node
+    - https://hub.docker.com/r/storjlabs/storagenode
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - storj
-  - storage
+    - storj
+    - storage
 dependencies:
-  - name: common
-    version: 17.2.18
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.18
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application

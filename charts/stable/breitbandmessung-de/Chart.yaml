@@ -1,41 +1,41 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: breitbandmessung-de
-version: 4.1.1
+version: 4.1.2
 appVersion: latest
 description: A script to enable customers of lazy ISPs to perform measurement campaigns of the connection speed as described here in an automated way.
 home: https://truecharts.org/charts/incubator/breitbandmessung-de
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/breitbandmessung-de.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/breitbandmessung-de
-  - https://hub.docker.com/r/shneezin/breitbandmessung-node
-  - https://github.com/shneezin/breitbandmessung-node
+    - https://github.com/shneezin/breitbandmessung-node
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/breitbandmessung-de
+    - https://hub.docker.com/r/shneezin/breitbandmessung-node
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - breitbandmessung-de
-  - HomeAutomation
-  - Productivity
-  - Tools-Utilities
-  - Other
-  - Network-Management
+    - breitbandmessung-de
+    - HomeAutomation
+    - Productivity
+    - Tools-Utilities
+    - Other
+    - Network-Management
 dependencies:
-  - name: common
-    version: 17.2.18
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.18
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: HomeAutomation
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: HomeAutomation
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: incubator
 type: application

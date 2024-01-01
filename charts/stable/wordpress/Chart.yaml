@@ -1,44 +1,44 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: wordpress
-version: 6.1.1
+version: 6.1.2
 appVersion: 6.4.2
 description: The WordPress rich content management system can utilize plugins, widgets, and themes.
 home: https://truecharts.org/charts/stable/wordpress
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/wordpress.png
 deprecated: false
 sources:
-  - https://www.wordpress.org
-  - https://github.com/truecharts/charts/tree/master/charts/stable/wordpress
-  - https://hub.docker.com/r/bitnami/wordpress
+    - https://hub.docker.com/r/bitnami/wordpress
+    - https://www.wordpress.org
+    - https://github.com/truecharts/charts/tree/master/charts/stable/wordpress
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - wordpress
-  - cms
+    - wordpress
+    - cms
 dependencies:
-  - name: common
-    version: 17.2.18
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-  - name: mariadb
-    version: 12.1.0
-    repository: https://deps.truecharts.org/
-    condition: mariadb.enabled
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.18
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
+    - name: mariadb
+      version: 12.1.0
+      repository: https://deps.truecharts.org/
+      condition: mariadb.enabled
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: website
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: website
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application

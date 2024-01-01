@@ -1,38 +1,38 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: prometheus-operator
-version: 3.1.1
+version: 3.1.2
 appVersion: 0.69.1
 description: Prometheus Operator is an operator for prometheus
 home: https://truecharts.org/charts/operators/prometheus-operator
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/prometheus-operator.png
 deprecated: false
 sources:
-  - https://github.com/prometheus-operator
-  - https://github.com/truecharts/charts/tree/master/charts/operators/prometheus-operator
-  - https://github.com/truecharts/containers/tree/master/mirrorkube-webhook-certgen
+    - https://github.com/truecharts/containers/tree/master/mirrorthanos
+    - https://github.com/prometheus-operator
+    - https://github.com/truecharts/charts/tree/master/charts/operators/prometheus-operator
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - operator
-  - prometheus
-  - metics
+    - operator
+    - prometheus
+    - metics
 dependencies:
-  - name: common
-    version: 17.2.18
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.18
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: operators
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: operators
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: operators
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: operators
 type: application

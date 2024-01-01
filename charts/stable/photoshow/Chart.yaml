@@ -1,41 +1,41 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: photoshow
-version: 9.1.1
+version: 9.1.2
 appVersion: ersion-48aabb98
 description: A gallery software at its easiest, it doesn't even require a database.
 home: https://truecharts.org/charts/stable/photoshow
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/photoshow.png
 deprecated: false
 sources:
-  - https://ghcr.io/linuxserver/photoshow
-  - https://github.com/thibaud-rohmer/PhotoShow
-  - https://github.com/linuxserver/docker-photoshow
-  - https://github.com/truecharts/charts/tree/master/charts/stable/photoshow
+    - https://github.com/thibaud-rohmer/PhotoShow
+    - https://github.com/linuxserver/docker-photoshow
+    - https://github.com/truecharts/charts/tree/master/charts/stable/photoshow
+    - https://ghcr.io/linuxserver/photoshow
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - photoshow
-  - photo
-  - show
-  - gallary
-  - image
+    - photoshow
+    - photo
+    - show
+    - gallary
+    - image
 dependencies:
-  - name: common
-    version: 17.2.18
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.18
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application

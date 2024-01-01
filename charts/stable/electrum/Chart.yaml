@@ -1,39 +1,39 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: electrum
-version: 4.1.1
+version: 4.1.2
 appVersion: latest
 description: Electrum is a Bitcoin wallet focused on speed and simplicity, with low resource usage. It uses remote servers that handle the most complicated parts of the Bitcoin system, and it allows you to recover your wallet from a secret phrase.
 home: https://truecharts.org/charts/incubator/electrum
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/electrum.png
 deprecated: false
 sources:
-  - https://electrum.org/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/electrum
-  - https://hub.docker.com/r/ich777/electrum
+    - https://electrum.org/
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/electrum
+    - https://hub.docker.com/r/ich777/electrum
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - electrum
-  - Network-Other
-  - Productivity
-  - Tools-Utilities
+    - electrum
+    - Network-Other
+    - Productivity
+    - Tools-Utilities
 dependencies:
-  - name: common
-    version: 17.2.18
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.18
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Network-Other
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Network-Other
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: incubator
 type: application

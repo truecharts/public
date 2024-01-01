@@ -1,40 +1,40 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: fileshelter
-version: 4.1.1
+version: 4.1.2
 appVersion: latest
 description: FileShelter is a self-hosted software that allows you to easily share files over the Internet. Just upload one or more files and get an URL back!
 home: https://truecharts.org/charts/incubator/fileshelter
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/fileshelter.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/fileshelter
-  - https://hub.docker.com/r/epoupon/fileshelter
-  - https://github.com/epoupon/fileshelter
+    - https://github.com/epoupon/fileshelter
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/fileshelter
+    - https://hub.docker.com/r/epoupon/fileshelter
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - fileshelter
-  - Cloud
-  - Tools-Utilities
-  - Network-Web
-  - Network-FTP
+    - fileshelter
+    - Cloud
+    - Tools-Utilities
+    - Network-Web
+    - Network-FTP
 dependencies:
-  - name: common
-    version: 17.2.18
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.18
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Cloud
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Cloud
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: incubator
 type: application
