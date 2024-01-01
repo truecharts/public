@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: n8n
 version: 12.1.1
@@ -8,38 +8,38 @@ home: https://truecharts.org/charts/stable/n8n
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/n8n.png
 deprecated: false
 sources:
-    - https://docs.n8n.io/
-    - https://github.com/n8n-io/n8n
-    - https://github.com/truecharts/charts/tree/master/charts/stable/n8n
-    - https://hub.docker.com/r/n8nio/n8n
+  - https://docs.n8n.io/
+  - https://github.com/n8n-io/n8n
+  - https://github.com/truecharts/charts/tree/master/charts/stable/n8n
+  - https://hub.docker.com/r/n8nio/n8n
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - workflows
-    - automation
+  - workflows
+  - automation
 dependencies:
-    - name: common
-      version: 17.2.2
-      repository: https://library-charts.truecharts.org
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-    - name: redis
-      version: 11.1.0
-      repository: https://deps.truecharts.org
-      condition: redis.enabled
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 11.1.0
+    repository: https://deps.truecharts.org
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: media
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: stable
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 type: application

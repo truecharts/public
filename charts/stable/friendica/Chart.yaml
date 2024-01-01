@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: friendica
 version: 12.2.0
@@ -8,44 +8,44 @@ home: https://truecharts.org/charts/stable/friendica
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/friendica.png
 deprecated: false
 sources:
-    - https://friendi.ca/
-    - https://github.com/truecharts/charts/tree/master/charts/stable/friendica
-    - https://hub.docker.com/_/friendica
+  - https://hub.docker.com/_/friendica
+  - https://friendi.ca/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/friendica
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - friend
-    - social
+  - friend
+  - social
 dependencies:
-    - name: common
-      version: 17.2.2
-      repository: https://library-charts.truecharts.org
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-    - name: mariadb
-      version: 12.1.0
-      repository: https://deps.truecharts.org/
-      condition: mariadb.enabled
-      alias: ""
-      tags: []
-      import-values: []
-    - name: redis
-      version: 11.1.0
-      repository: https://deps.truecharts.org
-      condition: redis.enabled
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: mariadb
+    version: 12.1.0
+    repository: https://deps.truecharts.org/
+    condition: mariadb.enabled
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 11.1.0
+    repository: https://deps.truecharts.org
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: social
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: stable
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: social
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 type: application

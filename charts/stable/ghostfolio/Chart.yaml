@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: ghostfolio
 version: 3.2.0
@@ -8,38 +8,38 @@ home: https://truecharts.org/charts/stable/ghostfolio
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ghostfolio.png
 deprecated: false
 sources:
-    - https://hub.docker.com/r/ghostfolio/ghostfolio
-    - https://github.com/ghostfolio/ghostfolio
-    - https://ghostfol.io/
-    - https://github.com/truecharts/charts/tree/master/charts/stable/ghostfolio
+  - https://hub.docker.com/r/ghostfolio/ghostfolio
+  - https://github.com/ghostfolio/ghostfolio
+  - https://ghostfol.io/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/ghostfolio
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - ghostfolio
-    - finance
+  - ghostfolio
+  - finance
 dependencies:
-    - name: common
-      version: 17.2.2
-      repository: https://library-charts.truecharts.org
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-    - name: redis
-      version: 11.1.0
-      repository: https://deps.truecharts.org
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 11.1.0
+    repository: https://deps.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: finance
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: stable
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: finance
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 type: application

@@ -1,41 +1,41 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: cops
 version: 7.1.1
 appVersion: 2.2.1
 description: |
-    Cops(http://blog.slucas.fr/en/oss/calibre-opds-php-server) by Sébastien Lucas, stands for Calibre OPDS (and HTML) Php Server.
+  Cops(http://blog.slucas.fr/en/oss/calibre-opds-php-server) by Sébastien Lucas, stands for Calibre OPDS (and HTML) Php Server.
 home: https://truecharts.org/charts/stable/cops
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/cops.png
 deprecated: false
 sources:
-    - https://github.com/orgs/linuxserver/packages/container/package/cops
-    - https://github.com/linuxserver/docker-cops#readme
-    - https://github.com/truecharts/charts/tree/master/charts/stable/cops
-    - https://fleet.linuxserver.io/image?name=linuxserver/cops
+  - https://github.com/linuxserver/docker-cops#readme
+  - https://github.com/truecharts/charts/tree/master/charts/stable/cops
+  - https://fleet.linuxserver.io/image?name=linuxserver/cops
+  - https://github.com/orgs/linuxserver/packages/container/package/cops
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - cops
-    - Cloud
-    - MediaApp-Books
-    - MediaServer-Books
+  - cops
+  - Cloud
+  - MediaApp-Books
+  - MediaServer-Books
 dependencies:
-    - name: common
-      version: 17.2.2
-      repository: https://library-charts.truecharts.org
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.2
+    repository: https://library-charts.truecharts.org
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: Cloud
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: stable
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Cloud
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 type: application

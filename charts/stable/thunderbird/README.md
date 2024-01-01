@@ -1,4 +1,6 @@
-# README
+---
+title: README
+---
 
 ## General Info
 
