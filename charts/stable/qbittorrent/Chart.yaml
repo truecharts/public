@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: qbittorrent
-version: 18.1.2
+version: 18.1.3
 appVersion: 4.6.2
 description: qBittorrent is a cross-platform free and open-source BitTorrent client
 home: https://truecharts.org/charts/stable/qbittorrent
@@ -20,7 +20,7 @@ keywords:
     - torrrent
 dependencies:
     - name: common
-      version: 17.2.18
+      version: 17.2.19
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

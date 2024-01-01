@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: cloudflareddns
-version: 8.1.3
+version: 8.1.4
 appVersion: latest
 description: Automate Cloudflare DNS records for those with a dynamic IP.
 home: https://truecharts.org/charts/stable/cloudflareddns
@@ -22,7 +22,7 @@ keywords:
     - cloudflare
 dependencies:
     - name: common
-      version: 17.2.18
+      version: 17.2.19
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: borg-server
-version: 3.1.3
+version: 3.1.4
 appVersion: 2.2.2
 description: A borg Backup server
 home: https://truecharts.org/charts/stable/borg-server
@@ -20,7 +20,7 @@ keywords:
     - backup
 dependencies:
     - name: common
-      version: 17.2.18
+      version: 17.2.19
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

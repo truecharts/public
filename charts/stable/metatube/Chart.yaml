@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: metatube
-version: 4.1.2
+version: 4.1.3
 appVersion: latest
 description: MetaTube downloads video from YouTube and can add metadata from a specified metadata provider on the downloaded file.
 home: https://truecharts.org/charts/incubator/metatube
@@ -22,7 +22,7 @@ keywords:
     - Tools-Utilities
 dependencies:
     - name: common
-      version: 17.2.18
+      version: 17.2.19
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

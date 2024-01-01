@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: booksonic-air
-version: 12.1.3
+version: 12.1.4
 appVersion: 2201.1.0
 description: Booksonic is a platform for accessing the audibooks you own wherever you are
 home: https://truecharts.org/charts/stable/booksonic-air
@@ -20,7 +20,7 @@ keywords:
     - audiobook
 dependencies:
     - name: common
-      version: 17.2.18
+      version: 17.2.19
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

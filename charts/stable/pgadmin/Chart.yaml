@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: pgadmin
-version: 14.1.2
+version: 14.1.3
 appVersion: "8.1"
 description: Web-Based postgresql database management utility
 home: https://truecharts.org/charts/stable/pgadmin
@@ -21,7 +21,7 @@ keywords:
     - database
 dependencies:
     - name: common
-      version: 17.2.18
+      version: 17.2.19
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: qbitmanage
-version: 7.1.2
+version: 7.1.3
 appVersion: 4.0.6
 description: This tool will help manage tedious tasks in qBittorrent and automate them. Tag, categorize, remove orphaned data, remove unregistered torrents and much much more.
 home: https://truecharts.org/charts/stable/qbitmanage
@@ -21,7 +21,7 @@ keywords:
     - MediaApp-Other
 dependencies:
     - name: common
-      version: 17.2.18
+      version: 17.2.19
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: linkding
-version: 8.1.2
+version: 8.1.3
 appVersion: 1.23.1
 description: Linkding is a simple bookmark service that you can host yourself. It's designed be to be minimal, fast and easy.
 home: https://truecharts.org/charts/stable/linkding
@@ -20,7 +20,7 @@ keywords:
     - links
 dependencies:
     - name: common
-      version: 17.2.18
+      version: 17.2.19
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

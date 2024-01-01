@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: crafty-4
-version: 6.1.2
+version: 6.1.3
 appVersion: 4.2.2
 description: Crafty Controller is a Minecraft Server Control Panel / Launcher.
 home: https://truecharts.org/charts/stable/crafty-4
@@ -21,7 +21,7 @@ keywords:
     - Other
 dependencies:
     - name: common
-      version: 17.2.18
+      version: 17.2.19
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""
