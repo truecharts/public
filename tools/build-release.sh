@@ -198,8 +198,6 @@ copy_docs() {
 
 prep_helm() {
     if [[ -z "$standalone" ]]; then
-    helm repo add truecharts https://charts.truecharts.org
-    helm repo add truecharts-library https://library-charts.truecharts.org
     helm repo update
     fi
     }
