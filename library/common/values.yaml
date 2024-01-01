@@ -455,22 +455,22 @@ APPURL: ""
 
 gluetunImage:
   repository: tccr.io/tccr/gluetun
-  tag: v3.36.0@sha256:0cd36b27fcfc21b9ab738a594a8e477e94e42fd7c2a52539615bb2c8cac2d75e
+  tag: v3.36.0@sha256:614c05be6be7ea85634f9b7ab2e7f33b06299f5585589478ed9cc4091cec0ade
   pullPolicy: IfNotPresent
 
 netshootImage:
   repository: tccr.io/tccr/netshoot
-  tag: v0.11.0@sha256:e6a26284531b240865a0b31d1c8835e8ee1862799c816014e4c59c1401abe1c5
+  tag: v0.11.0@sha256:8b3dad19c9cafb44af6385e399c0cc612b0ccef722f3573843bbf113cf06cff1
   pullPolicy: IfNotPresent
 
 tailscaleImage:
   repository: tccr.io/tccr/tailscale
-  tag: v1.52.0@sha256:806efacf7c05d3fd2c8ac3ca9606f58469022f56e62f20a3e9ad136174d0e27f
+  tag: v1.52.0@sha256:913994dbdea235c21cc1d019318b00ff387d958e955252eff8ce0de700dce142
   pullPolicy: IfNotPresent
 
 codeserverImage:
   repository: tccr.io/tccr/code-server
-  tag: v4.18.0@sha256:e59861c2753490910c08bc3db5ea09234c9a80a3fcbac810621084c7178ce4b0
+  tag: v4.18.0@sha256:1b79d9dad8db3fe201b48e16d6a8821a71ccf55cd89b1a1ad8de59c1b49e5a88
   pullPolicy: IfNotPresent
 
 alpineImage:
@@ -519,7 +519,7 @@ openvpnImage:
   # -- Specify the openvpn client image
   repository: tccr.io/tccr/openvpn-client
   # -- Specify the openvpn client image tag
-  tag: latest@sha256:1f83decdf614cbf48e2429921b6f0efa0e825f447f5c510b65bc90f660227688
+  tag: latest@sha256:2816991021542042f34ca2448b8a8bde93e8e75ae52f53922b1ab70491788ee5
   # -- Specify the openvpn client image pull policy
   pullPolicy: IfNotPresent
 
@@ -529,7 +529,7 @@ wireguardImage:
   # -- Specify the WireGuard image
   repository: tccr.io/tccr/wireguard
   # -- Specify the WireGuard image tag
-  tag: v1.0.20210914@sha256:9f56e5660e8df8d4d38521ed73a4cc29fa24bf578007bfbe633e00184e2ebfbc
+  tag: v1.0.20210914@sha256:683b8b74d64ebd07f9955147539834c2a4b60fee51d2a36fa76b9aba689601bf
   # -- Specify the WireGuard image pull policy
   pullPolicy: IfNotPresent
 
