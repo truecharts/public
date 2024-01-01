@@ -196,22 +196,30 @@
       ],
     },
     //
+    // Tag tccr.io/truecharts based on semver
+    //
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "semver",
+      "matchPackagePrefixes": ["tccr.io/truecharts"],
+    },
+    //
     // Tag semantic version type based on regex
     //
     {
       "matchDatasources": ["docker"],
       "versioning": "regex:^(?<major>14)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
-      "matchPackageNames": ["tccr.io/truecharts/postgresql"],
+      "matchPackageNames": ["tccr.io/tccr/postgresql"],
     },
     {
       "matchDatasources": ["docker"],
       "versioning": "regex:^v(?<major>\\d{2})(?<minor>\\d{2})(?<patch>\\d{2})$",
-      "matchPackageNames": ["tccr.io/truecharts/photoprism"],
+      "matchPackageNames": ["tccr.io/tccr/photoprism"],
     },
     {
       "matchDatasources": ["docker"],
       "versioning": "regex:^v(?<major>\\d{4})-(?<minor>\\d{2})$",
-      "matchPackageNames": ["tccr.io/truecharts/rss-bridge"],
+      "matchPackageNames": ["tccr.io/tccr/rss-bridge"],
     },
     {
       "matchDatasources": ["docker"],
@@ -222,7 +230,7 @@
     {
       "matchDatasources": ["docker"],
       "versioning": "regex:^(?<major>\\d{1})(?<minor>\\d{1})(?<patch>\\d{2})$",
-      "matchPackagePrefixes": ["tccr.io/truecharts/jitsi"],
+      "matchPackagePrefixes": ["tccr.io/tccr/jitsi"],
       "groupName": "jitsi",
     },
     {
@@ -252,12 +260,12 @@
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/metallb"],
+      "matchPackagePrefixes": ["tccr.io/tccr/metallb"],
       "groupName": "metallb",
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/zabbix"],
+      "matchPackagePrefixes": ["tccr.io/tccr/zabbix"],
       "groupName": "zabbix",
     },
     {
@@ -267,7 +275,7 @@
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/ml-workspace"],
+      "matchPackagePrefixes": ["tccr.io/tccr/ml-workspace"],
       "groupName": "ml-workspace",
     },
     {
@@ -282,17 +290,17 @@
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/mealie"],
+      "matchPackagePrefixes": ["tccr.io/tccr/mealie"],
       "groupName": "mealie",
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/librephotos"],
+      "matchPackagePrefixes": ["tccr.io/tccr/librephotos"],
       "groupName": "librephotos",
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/kitchenowl"],
+      "matchPackagePrefixes": ["tccr.io/tccr/kitchenowl"],
       "groupName": "kitchenowl",
     },
     {
@@ -302,42 +310,42 @@
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/lama-cleaner"],
+      "matchPackagePrefixes": ["tccr.io/tccr/lama-cleaner"],
       "groupName": "lama-cleaner",
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/rickroll"],
+      "matchPackagePrefixes": ["tccr.io/tccr/rickroll"],
       "groupName": "rickroll",
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/scrypted"],
+      "matchPackagePrefixes": ["tccr.io/tccr/scrypted"],
       "groupName": "scrypted",
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/docspell"],
+      "matchPackagePrefixes": ["tccr.io/tccr/docspell"],
       "groupName": "docspell",
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/restreamer"],
+      "matchPackagePrefixes": ["tccr.io/tccr/restreamer"],
       "groupName": "restreamer",
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/penpot"],
+      "matchPackagePrefixes": ["tccr.io/tccr/penpot"],
       "groupName": "penpot",
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/rdesktop"],
+      "matchPackagePrefixes": ["tccr.io/tccr/rdesktop"],
       "groupName": "rdesktop",
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/ersatztv"],
+      "matchPackagePrefixes": ["tccr.io/tccr/ersatztv"],
       "groupName": "ersatztv",
     },
     // matchPackagePatterns
