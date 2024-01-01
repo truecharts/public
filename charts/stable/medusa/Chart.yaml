@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: medusa
-version: 9.1.1
+version: 9.1.2
 appVersion: 1.0.19
 description: An automatic Video Library Manager for TV Shows
 home: https://truecharts.org/charts/stable/medusa
@@ -25,7 +25,7 @@ keywords:
   - shows
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

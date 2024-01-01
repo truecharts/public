@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: twtxt
-version: 9.1.0
+version: 9.1.1
 appVersion: 0.1.1
 description: A Self-Hosted, Twitter™-like Decentralised microBlogging platform. No ads, no tracking, your content, your data!
 home: https://truecharts.org/charts/stable/twtxt
@@ -23,7 +23,7 @@ keywords:
   - social-network
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

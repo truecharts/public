@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: plex-auto-languages
-version: 7.1.0
+version: 7.1.1
 appVersion: latest
 description: Automated language selection for Plex TV Shows.
 home: https://truecharts.org/charts/stable/plex-auto-languages
@@ -23,7 +23,7 @@ keywords:
   - MediaServer-Video
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

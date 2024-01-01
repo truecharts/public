@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: rustpad
-version: 4.1.0
+version: 4.1.1
 appVersion: latest
 description: Rustpad is an efficient and minimal open-source collaborative text editor based on the operational transformation algorithm. It lets users collaborate in real time while writing code in their browser. Rustpad is completely self-hosted and fits in a tiny Chart, no database required.
 home: https://truecharts.org/charts/incubator/rustpad
@@ -22,7 +22,7 @@ keywords:
   - Tools-Utilities
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

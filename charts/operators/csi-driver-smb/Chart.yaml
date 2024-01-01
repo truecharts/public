@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: csi-driver-smb
-version: 2.1.0
+version: 2.1.1
 appVersion: latest
 description: csi-driver-smb is a smb CSI driver for kubernetes
 home: https://truecharts.org/charts/incubator/csi-driver-smb
@@ -21,7 +21,7 @@ keywords:
   - backup
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

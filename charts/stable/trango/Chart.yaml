@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: trango
-version: 4.1.0
+version: 4.1.1
 appVersion: latest
 description: Trango self-hosted is a calling and file sharing solution that works over LAN (local area networks). It does not need to involve the internet for calling or file sharing. Ideal for offices, hotels, houses, restaurants, and any space where people use the same Public IP address or the same Wi-Fi network. The package comes with a discovery server and a web app that can be deployed on the local machine and can be accessed from anywhere in the network.
 home: https://truecharts.org/charts/incubator/trango
@@ -21,7 +21,7 @@ keywords:
   - Tools-Utilities
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

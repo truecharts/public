@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: sqlite-web
-version: 4.1.0
+version: 4.1.1
 appVersion: latest
 description: sqlite-web is a web-based SQLite database browser written in Python.
 home: https://truecharts.org/charts/incubator/sqlite-web
@@ -22,7 +22,7 @@ keywords:
   - Network-Other
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

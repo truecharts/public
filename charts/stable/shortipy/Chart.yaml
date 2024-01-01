@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: shortipy
-version: 4.1.0
+version: 4.1.1
 appVersion: latest
 description: URL Shortener in python based on flask
 home: https://truecharts.org/charts/incubator/shortipy
@@ -21,7 +21,7 @@ keywords:
   - Network-Management
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

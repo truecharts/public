@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: rickroll
-version: 5.1.0
+version: 5.1.1
 appVersion: latest
 description: Self-hosted Rick Roll chart.
 home: https://truecharts.org/charts/stable/rickroll
@@ -20,7 +20,7 @@ keywords:
   - media
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

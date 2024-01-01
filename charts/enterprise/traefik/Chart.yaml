@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: traefik
-version: 25.1.0
+version: 25.1.1
 appVersion: 2.10.5
 description: Traefik is a flexible reverse proxy and Ingress Provider.
 home: https://truecharts.org/charts/enterprise/traefik
@@ -22,7 +22,7 @@ keywords:
   - ingress
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

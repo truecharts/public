@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: docusaurus
-version: 7.1.0
+version: 7.1.1
 appVersion: latest
 description: Docusaurus makes it easy to maintain Open Source documentation websites.
 home: https://truecharts.org/charts/stable/docusaurus
@@ -21,7 +21,7 @@ keywords:
   - Docusaurus
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

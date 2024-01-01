@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: cyberchef
-version: 8.1.0
+version: 8.1.1
 appVersion: 10.5.2
 description: CyberChef is a simple, intuitive web app for carrying out all manner of "cyber" operations within a web browser.
 home: https://truecharts.org/charts/stable/cyberchef
@@ -18,7 +18,7 @@ keywords:
   - cyberchef
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

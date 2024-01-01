@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: xen-orchestra
-version: 7.2.0
+version: 7.2.1
 appVersion: 5.132.0
 description: Xen-Orchestra is a Web-UI for managing your existing XenServer infrastructure.
 home: https://truecharts.org/charts/stable/xen-orchestra
@@ -18,7 +18,7 @@ keywords:
   - xen-orchestra
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

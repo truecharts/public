@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: anonaddy
-version: 19.1.1
+version: 19.1.2
 appVersion: 1.0.4
 description: Protect your email from spam using disposable addresses.
 home: https://truecharts.org/charts/stable/anonaddy
@@ -19,7 +19,7 @@ keywords:
   - anonaddy
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

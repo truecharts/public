@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: dashmachine
-version: 4.1.0
+version: 4.1.1
 appVersion: latest
 description: "Another web application bookmark dashboard, with fun features.[br][br][b][u][span style='color: #ff9900;']Default user/password[/span][/u][/b][br]User: [B][u]admin[/B][/u][br]Password: [B][u]admin[/B][/u][/b]"
 home: https://truecharts.org/charts/incubator/dashmachine
@@ -20,7 +20,7 @@ keywords:
   - Network-Web
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

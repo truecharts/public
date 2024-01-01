@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: teamspeak3
-version: 9.1.0
+version: 9.1.1
 appVersion: 3.13.7
 description: TeamSpeak is software for quality voice communication via the Internet.
 home: https://truecharts.org/charts/incubator/teamspeak3
@@ -22,7 +22,7 @@ keywords:
   - teamspeak server
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

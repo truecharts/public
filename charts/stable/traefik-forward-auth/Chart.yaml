@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: traefik-forward-auth
-version: 2.1.0
+version: 2.1.1
 appVersion: latest
 description: A minimal forward authentication service that provides OAuth/SSO login and authentication for the traefik reverse proxy/load balancer. An example for a typical setup is included in the source (docs/how-to.md).
 home: https://truecharts.org/charts/incubator/traefik-forward-auth
@@ -24,7 +24,7 @@ keywords:
   - middleware
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: wikijs
-version: 14.1.0
+version: 14.1.1
 appVersion: 2.5.300
 description: Make documentation a joy to write using Wiki.js's beautiful and intuitive interface!
 home: https://truecharts.org/charts/stable/wikijs
@@ -21,7 +21,7 @@ keywords:
   - wikijs
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

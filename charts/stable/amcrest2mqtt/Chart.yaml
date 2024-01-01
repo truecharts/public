@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: amcrest2mqtt
-version: 10.1.0
+version: 10.1.1
 appVersion: 1.0.16
 description: Expose all events from an Amcrest device to an MQTT broker
 home: https://truecharts.org/charts/stable/amcrest2mqtt
@@ -19,7 +19,7 @@ keywords:
   - amcrest2mqtt
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

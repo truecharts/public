@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: shlink
-version: 12.1.1
+version: 12.1.2
 appVersion: 3.7.2
 description: A PHP-based self-hosted URL shortener that can be used to serve shortened URLs under your own custom domain.
 home: https://truecharts.org/charts/stable/shlink
@@ -20,7 +20,7 @@ keywords:
   - shortener
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

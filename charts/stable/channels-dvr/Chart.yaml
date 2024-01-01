@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: channels-dvr
-version: 5.1.0
+version: 5.1.1
 appVersion: latest
 description: Channels DVR Server
 home: https://truecharts.org/charts/stable/channels-dvr
@@ -18,7 +18,7 @@ keywords:
   - channels-dvr
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

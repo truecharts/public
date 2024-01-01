@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: anki-sync-server
-version: 5.1.0
+version: 5.1.1
 appVersion: 1.1.14
 description: A cross-platform Anki sync server.
 home: https://truecharts.org/charts/incubator/anki-sync-server
@@ -19,7 +19,7 @@ keywords:
   - anki-sync-server
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

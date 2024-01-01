@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: observium
-version: 4.1.0
+version: 4.1.1
 appVersion: latest
 description: Observium is an autodiscovering network monitoring platform supporting a wide range of hardware platforms and operating systems.[br][br]
 home: https://truecharts.org/charts/incubator/observium
@@ -20,7 +20,7 @@ keywords:
   - Network-Management
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

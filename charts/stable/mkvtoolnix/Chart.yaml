@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: mkvtoolnix
-version: 8.1.0
+version: 8.1.1
 appVersion: 23.12.1
 description: MKVToolNix is a set of tools to create, alter and inspect Matroska files.
 home: https://truecharts.org/charts/stable/mkvtoolnix
@@ -22,7 +22,7 @@ keywords:
   - mkv
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

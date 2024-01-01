@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: logitech-media-server
-version: 10.1.0
+version: 10.1.1
 appVersion: stable
 description: Logitech Media Server is a platform for home/office audio streaming.
 home: https://truecharts.org/charts/stable/logitech-media-server
@@ -22,7 +22,7 @@ keywords:
   - streaming
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

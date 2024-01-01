@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: fluidd
-version: 8.1.0
+version: 8.1.1
 appVersion: 1.27.1
 description: Fluidd is a free and open-source Klipper web interface for managing your 3d printer.
 home: https://truecharts.org/charts/stable/fluidd
@@ -19,7 +19,7 @@ keywords:
   - fluidd
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

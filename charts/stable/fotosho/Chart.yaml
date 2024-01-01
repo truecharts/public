@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: fotosho
-version: 4.1.0
+version: 4.1.1
 appVersion: latest
 description: "*BETA* Fotosho is a photo gallery for your home server. Organize your photos into albums internally and view as a slideshow. Free and open source. Does not require a database. Does not move, copy or modify your photos."
 home: https://truecharts.org/charts/incubator/fotosho
@@ -21,7 +21,7 @@ keywords:
   - MediaServer-Photos
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: authentik
-version: 19.1.0
+version: 19.1.1
 appVersion: 2023.10.4
 description: Authentik is an open-source Identity Provider focused on flexibility and versatility.
 home: https://truecharts.org/charts/stable/authentik
@@ -20,7 +20,7 @@ keywords:
   - authentik
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

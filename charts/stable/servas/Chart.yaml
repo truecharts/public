@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: servas
-version: 3.1.0
+version: 3.1.1
 appVersion: 0.0.7
 description: A self-hosted bookmark management tool.
 home: https://truecharts.org/charts/stable/servas
@@ -20,7 +20,7 @@ keywords:
   - bookmarks
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

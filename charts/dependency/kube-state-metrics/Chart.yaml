@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: kube-state-metrics
-version: 6.1.0
+version: 6.1.1
 appVersion: 2.10.1
 description: kube-state-metrics is a simple service that listens to the Kubernetes API server and generates metrics about the state of the objects.
 home: https://truecharts.org/charts/dependency/kube-state-metrics
@@ -20,7 +20,7 @@ keywords:
   - monitoring
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

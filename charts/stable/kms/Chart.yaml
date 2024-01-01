@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: kms
-version: 17.1.0
+version: 17.1.1
 appVersion: minimal
 description: Private Windows Activation Server for development and testing
 home: https://truecharts.org/charts/stable/kms
@@ -19,7 +19,7 @@ keywords:
   - kms
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

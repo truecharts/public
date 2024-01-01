@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: rcon-webadmin
-version: 7.1.0
+version: 7.1.1
 appVersion: 0.14.1
 description: Out of the box, RCON Web Admin can check users for high ping, VAC status, or filter the chat for you around the clock.
 home: https://truecharts.org/charts/stable/rcon-webadmin
@@ -21,7 +21,7 @@ keywords:
   - Tools-Utilities
 dependencies:
   - name: common
-    version: 17.2.2
+    version: 17.2.18
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
