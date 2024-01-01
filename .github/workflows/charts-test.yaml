@@ -146,9 +146,7 @@ jobs:
 
       - name: Prep Helm
         run: |
-          helm repo add truecharts https://charts.truecharts.org
           helm repo add truecharts-deps https://deps.truecharts.org
-          helm repo add truecharts-library https://library-charts.truecharts.org
           helm repo add jetstack https://charts.jetstack.io
           helm repo add vmwaretanzu https://vmware-tanzu.github.io/helm-charts
           helm repo add cnpg https://cloudnative-pg.github.io/charts
@@ -224,9 +222,7 @@ jobs:
 
       - name: Prep Helm
         run: |
-          helm repo add truecharts https://charts.truecharts.org
           helm repo add truecharts-deps https://deps.truecharts.org
-          helm repo add truecharts-library https://library-charts.truecharts.org
           helm repo add jetstack https://charts.jetstack.io
           helm repo add vmwaretanzu https://vmware-tanzu.github.io/helm-charts
           helm repo add cnpg https://cloudnative-pg.github.io/charts
@@ -302,9 +298,7 @@ jobs:
 
       - name: Prep Helm
         run: |
-          helm repo add truecharts https://charts.truecharts.org
           helm repo add truecharts-deps https://deps.truecharts.org
-          helm repo add truecharts-library https://library-charts.truecharts.org
           helm repo add jetstack https://charts.jetstack.io
           helm repo add vmwaretanzu https://vmware-tanzu.github.io/helm-charts
           helm repo add cnpg https://cloudnative-pg.github.io/charts
@@ -380,9 +374,7 @@ jobs:
 
       - name: Prep Helm
         run: |
-          helm repo add truecharts https://charts.truecharts.org
           helm repo add truecharts-deps https://deps.truecharts.org
-          helm repo add truecharts-library https://library-charts.truecharts.org
           helm repo add jetstack https://charts.jetstack.io
           helm repo add vmwaretanzu https://vmware-tanzu.github.io/helm-charts
           helm repo add cnpg https://cloudnative-pg.github.io/charts
@@ -458,9 +450,7 @@ jobs:
 
       - name: Prep Helm
         run: |
-          helm repo add truecharts https://charts.truecharts.org
           helm repo add truecharts-deps https://deps.truecharts.org
-          helm repo add truecharts-library https://library-charts.truecharts.org
           helm repo add jetstack https://charts.jetstack.io
           helm repo add vmwaretanzu https://vmware-tanzu.github.io/helm-charts
           helm repo add cnpg https://cloudnative-pg.github.io/charts
@@ -536,9 +526,7 @@ jobs:
 
       - name: Prep Helm
         run: |
-          helm repo add truecharts https://charts.truecharts.org
           helm repo add truecharts-deps https://deps.truecharts.org
-          helm repo add truecharts-library https://library-charts.truecharts.org
           helm repo add jetstack https://charts.jetstack.io
           helm repo add vmwaretanzu https://vmware-tanzu.github.io/helm-charts
           helm repo add cnpg https://cloudnative-pg.github.io/charts
