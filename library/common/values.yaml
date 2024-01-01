@@ -80,14 +80,10 @@ fallbackDefaults:
 # -- Explicitly set a namespace for this chart only
 namespace: ""
 
-# -- Image values
 image:
-  # -- Image repository
-  repository: tccr.io/tccr/whoami
-  # -- Image tag
-  tag: v1.10.1@sha256:36d22e4b8a154919b819bd7283531783eca9076972e8fc631649bb7eade770d9
-  # -- Image pull policy
+  repository: traefik/whoami
   pullPolicy: IfNotPresent
+  tag: v1.10.1@sha256:6bebf84c091b5da4d4228bf8905436e33ca371afc6f3bd52b1682b40d76b23de
 
 chartContext:
   APPURL: ""

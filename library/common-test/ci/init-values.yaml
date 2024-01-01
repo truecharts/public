@@ -1,8 +1,3 @@
-initImage:
-  repository: tccr.io/truecharts/alpine
-  tag: v3.17.0@sha256:f8607e14a5e456c1b8fe50b7f0c9371b4aae543d23080f5e2fe0bdbb06d2413b
-  pullPolicy: IfNotPresent
-
 workload:
   main:
     enabled: true
@@ -33,14 +28,14 @@ workload:
         init-cont:
           enabled: true
           type: init
-          imageSelector: initImage
+          imageSelector: alpineImage
           args:
             - echo
             - "Hello World"
         install-cont:
           enabled: true
           type: install
-          imageSelector: initImage
+          imageSelector: alpineImage
           args:
             - echo
             - "Hello World"

@@ -208,14 +208,14 @@ jobs:
       - name: Add Dependencies
         run: |
           if [[ "${{ matrix.values }}" =~ (metrics|cnpg).*-values.yaml ]]; then
-            helm install prometheus-operator truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
+            helm install prometheus-operator oci://tccr.io/truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
           fi
           if [[ "${{ matrix.values }}" =~ cnpg.*-values.yaml ]]; then
-            helm install cloudnative-pg truecharts/cloudnative-pg --namespace cloudnative-pg --create-namespace --wait
+            helm install cloudnative-pg oci://tccr.io/truecharts/cloudnative-pg --namespace cloudnative-pg --create-namespace --wait
           fi
           if [[ "${{ matrix.values }}" =~ ingress.*-values.yaml ]]; then
-            helm install cert-manager truecharts/cert-manager --namespace cert-manager --create-namespace --wait
-            helm install traefik truecharts/traefik --namespace traefik --create-namespace --wait
+            helm install cert-manager oci://tccr.io/truecharts/cert-manager --namespace cert-manager --create-namespace --wait
+            helm install traefik oci://tccr.io/truecharts/traefik --namespace traefik --create-namespace --wait
           fi
 
       - name: Run chart-testing (install)
@@ -340,9 +340,9 @@ jobs:
 #          helm repo update
 #      - name: Add Dependencies
 #        run: |
-#            helm install prometheus-operator truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
-#            helm install cloudnative-pg truecharts/cloudnative-pg --namespace cloudnative-pg --create-namespace --wait
-#            helm install traefik truecharts/traefik --namespace traefik --create-namespace --wait
+#            helm install prometheus-operator oci://tccr.io/truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
+#            helm install cloudnative-pg oci://tccr.io/truecharts/cloudnative-pg --namespace cloudnative-pg --create-namespace --wait
+#            helm install traefik oci://tccr.io/truecharts/traefik --namespace traefik --create-namespace --wait
 #
 #      - name: Checkout
 #        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
