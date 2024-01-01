@@ -160,36 +160,10 @@ jobs:
                    echo "changelog not found, starting with empty changelog..."
                    touch "website/docs/charts/${train}/${chart}/CHANGELOG.md"
                 fi
-                if [[ -f "website/docs/charts/${train}/${chart}/helm-security.md" ]]; then
-                   echo "helm-security found..."
-                   true
-                else
-                   echo "helm-security not found, starting with empty helm-security..."
-                   touch "website/docs/charts/${train}/${chart}/helm-security.md"
-                   (
-                    echo "---"
-                    echo "title: Helm Security"
-                    echo "---"
-                   ) > website/docs/charts/${train}/${chart}/helm-security.md
-                fi
-                if [[ -f "website/docs/charts/${train}/${chart}/container-security.md" ]]; then
-                   echo "container-security found..."
-                   true
-                else
-                   echo "container-security not found, starting with empty container-security..."
-                   touch "website/docs/charts/${train}/${chart}/container-security.md"
-                   (
-                    echo "---"
-                    echo "title: Container Security"
-                    echo "---"
-                   ) > website/docs/charts/${train}/${chart}/container-security.md
-                fi
 
                 echo "Keeping some docs safe..."
                 # keep some docs safe
                 mv -f website/docs/charts/${train}/${chart}/CHANGELOG.md tmp/website/docs/charts/${train}/${chart}/CHANGELOG.md || :
-                mv -f website/docs/charts/${train}/${chart}/helm-security.md tmp/website/docs/charts/${train}/${chart}/helm-security.md || :
-                mv -f website/docs/charts/${train}/${chart}/container-security.md tmp/website/docs/charts/${train}/${chart}/container-security.md || :
 
                 echo "Removing old docs and recreating based on charts repo..."
                 # remove old docs everywhere and recreate based on charts repo
@@ -202,8 +176,6 @@ jobs:
                 echo "Copying back kept docs..."
                 # Copy over kept documents
                 mv -f tmp/website/docs/charts/${train}/${chart}/CHANGELOG.md website/docs/charts/${train}/${chart}/CHANGELOG.md 2>/dev/null || :
-                mv -f tmp/website/docs/charts/${train}/${chart}/helm-security.md website/docs/charts/${train}/${chart}/helm-security.md 2>/dev/null || :
-                mv -f tmp/website/docs/charts/${train}/${chart}/container-security.md website/docs/charts/${train}/${chart}/container-security.md 2>/dev/null || :
 
                 echo "Appending SCALE changelog to actual changelog..."
                 # Add SCALE changelog to actual changelog
