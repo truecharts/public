@@ -1,4 +1,6 @@
-# Seafile installation notes and guidelines
+---
+title: Installation notes and guidelines
+---
 
 ## Ingress
 
@@ -8,15 +10,15 @@ Our install requires a FQDN or domain name entered when installing the chart. Th
 
 Starting with Seafile 11, the defaults fail CSRF verification, and you may see the error message when logging in.
 
-![CSRF](img/CSRF.png)
+![CSRF](./img/CSRF.png)
 
 To fix this, the following must be added to your `seahub_settings.conf` file. It is found inside `/shared/conf`. We recommedend enabling the `Code-server` addon or mounting the container
 
-![Stock](img/StockSeahub_settings.png)
+![Stock](./img/StockSeahub_settings.png)
 
 Add an entry for: `CSRF_TRUSTED_ORIGINS = ["https://seafile.YOURDOMAINHERE.com"]`
 
-![CSRFadded](img/CSRFAdded_SeaHub_Settings.png)
+![CSRFadded](./img/CSRFAdded_SeaHub_Settings.png)
 
 ## Storage
 
@@ -30,7 +32,7 @@ Unfortunately there's no easy solution at the moment to add `memcached` automati
 
 - Edit `CACHES` -> `default` inside `seahub_settings.py` to add `memcached.ix-memcached.svc.cluster.local` instead of `memcached` and you can delete the locmem.
 
-![memcached_added](img/memcached_added.png)
+![memcached_added](./img/memcached_added.png)
 
 Or
 
@@ -38,7 +40,7 @@ Or
 
 Either of these steps will prevents the logs filling up with:
 
-```
+```shell
 2023-11-15 03:54:55,368 [ERROR] django.pylibmc:167 set_many MemcachedError: error 47 from memcached_set_multi: SERVER HAS FAILED AND IS DISABLED UNTIL TIMED RETRY
 Traceback (most recent call last):
   File "/usr/local/lib/python3.10/dist-packages/django_pylibmc/memcached.py", line 165, in set_many
@@ -54,21 +56,21 @@ By default WebDAV is disabled by default, as per [upstream docs](https://manual.
 
 - Enter Seafile Pod Shell
 
-![SeafilePod](img/SeafilePod.png)
+![SeafilePod](./img/SeafilePod.png)
 
 - Use the CLI to enter the Seafile WebDAV (`seafdav.conf`) config file
 
-![SeafileShell](img/SeafileShell.png)
+![SeafileShell](./img/SeafileShell.png)
 
 - Use vi commands to edit the `Enabled` to `true` and change the share name as desired (default is `/seafdav`).
 
 > Use `i` to insert text and and `:wq`, and `ESC key` to exit insert mode
 
-![SeafileWebDAVConf](img/SeafileSeafdavConf.png)
+![SeafileWebDAVConf](./img/SeafileSeafdavConf.png)
 
 - Restart Seafile and your WebDAV share will be accessible using your domain.com/seafdav
 
-![SeafileWebDAV](img/SeafileWebDAV.png)
+![SeafileWebDAV](./img/SeafileWebDAV.png)
 
 ## FUSE Extension
 

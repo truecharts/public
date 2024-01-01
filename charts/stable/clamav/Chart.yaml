@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: clamav
-version: 9.0.1
+version: 9.1.0
 appVersion: 1.2.1
 description: ClamAV is an open source antivirus engine for detecting trojans, viruses, malware & other malicious threats.
 home: https://truecharts.org/charts/stable/clamav
@@ -21,7 +21,7 @@ keywords:
   - antivirus
 dependencies:
   - name: common
-    version: 17.1.4
+    version: 17.2.2
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

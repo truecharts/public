@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: leaf2mqtt
-version: 10.0.1
+version: 10.1.0
 appVersion: "0.6"
 description: Nissan Leaf connected services to MQTT adapter
 home: https://truecharts.org/charts/stable/leaf2mqtt
@@ -24,7 +24,7 @@ keywords:
   - carwings
 dependencies:
   - name: common
-    version: 17.1.4
+    version: 17.2.2
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

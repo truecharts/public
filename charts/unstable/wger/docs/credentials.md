@@ -1,4 +1,6 @@
-# Default Username/Password
+---
+title: Default Username/Password
+---
 
 **Email**: `admin`
 

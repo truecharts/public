@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: chronos
-version: 7.0.1
+version: 7.1.0
 appVersion: "0.2"
 description: Chronos is a small container to run and schedule Python 3.7 scripts. You can create virtual enviroments, edit your scripts, install Pip dependencies, view execution logs, and debug your scripts, all from the sleek web UI.
 home: https://truecharts.org/charts/stable/chronos
@@ -20,7 +20,7 @@ keywords:
   - Tools-Utilities
 dependencies:
   - name: common
-    version: 17.1.4
+    version: 17.2.2
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

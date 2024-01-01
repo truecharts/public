@@ -1,8 +1,8 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: ghostfolio
-version: 3.0.1
-appVersion: 2.31.0
+version: 3.2.0
+appVersion: 2.33.0
 description: Ghostfolio is a privacy-first, open source dashboard for your personal finances. Break down your asset allocation, know your net worth and make solid, data-driven investment decisions.
 home: https://truecharts.org/charts/stable/ghostfolio
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ghostfolio.png
@@ -21,14 +21,14 @@ keywords:
   - finance
 dependencies:
   - name: common
-    version: 17.1.4
+    version: 17.2.2
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 11.0.2
+    version: 11.1.0
     repository: https://deps.truecharts.org
     condition: ""
     alias: ""

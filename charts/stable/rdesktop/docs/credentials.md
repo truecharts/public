@@ -1,4 +1,6 @@
-# Default credentials
+---
+title: Default credentials
+---
 
 - Username: `abc`
 - Password: `abc`

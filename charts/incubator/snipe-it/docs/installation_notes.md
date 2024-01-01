@@ -1,4 +1,6 @@
-# Initial install
+---
+title: Initial install
+---
 
 `Snipe-it`'s pre-flight check [can't detect](https://github.com/snipe/snipe-it/issues/10779) if you are running behind a proxy, so for the initial installation it's suggested to go without ingress.
 

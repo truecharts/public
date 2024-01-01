@@ -237,7 +237,7 @@
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/neko"],
+      "matchPackagePrefixes": ["m1k1o/neko"],
       "groupName": "neko",
     },
     {
@@ -369,6 +369,12 @@
       "matchDatasources": ["docker"],
       "versioning": "regex:^stable-(?<major>\\d{1})(?<minor>\\d{1})(?<patch>\\d{2}).*$",
       "matchPackagePatterns": ["^jitsi\\/.*$"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^latest-(?<major>\\d{4})-(?<minor>\\d{2})-(?<patch>\\d{2})$",
+      "matchPackagePatterns": ["^wangqiru/ttrss$"],
       "automerge": true,
     },
     {
@@ -592,6 +598,12 @@
       "matchDatasources": ["docker"],
       "versioning": "regex:^(?<major>\\d*)\\.(?<minor>\\d*)\\.(?<patch>\\d*)-\\d*$",
       "matchPackageNames": ["sameersbn/apt-cacher-ng"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^nightly-(?<major>\\d*)\\.(?<minor>\\d*)\\.(?<patch>\\d*)\\.\\d*$",
+      "matchPackageNames": ["ghcr.io/hotio/whisparr"],
       "automerge": true,
     },
     {

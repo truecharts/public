@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: wyoming-piper
-version: 3.0.1
+version: 3.1.0
 appVersion: 1.4.0
 description: The Wyoming integration of piper
 home: https://truecharts.org/charts/stable/wyoming-piper
@@ -19,7 +19,7 @@ keywords:
   - wyoming-piper
 dependencies:
   - name: common
-    version: 17.1.4
+    version: 17.2.2
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

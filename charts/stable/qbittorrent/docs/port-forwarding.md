@@ -1,4 +1,6 @@
-# Automatic Gluetun Port Forwarding
+---
+title: Automatic Gluetun Port Forwarding
+---
 
 qBittorrent can be configured to automatically utilize the VPN forward port when used with Gluetun.
 

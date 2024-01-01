@@ -63,18 +63,6 @@ questions:
                                         schema:
                                           type: string
                                           default: ""
-                                      - variable: NVIDIA_VISIBLE_DEVICES
-                                        label: "NVIDIA_VISIBLE_DEVICES"
-                                        description: "Nvidia Only Enter your GPU UUID here (only required if you plan to mine with an Nvidia GPU otherwise leave this empty. Dont forget to add --runtime=nvidia to your Extra Parameters in the Advanced View)."
-                                        schema:
-                                          type: string
-                                          default: ""
-                                      - variable: NVIDIA_DRIVER_CAPABILITIES
-                                        label: "NVIDIA_DRIVER_CAPABILITIES"
-                                        description: "Please leave this set to the default option of all if you arent sure what to put here. This value can be left in the template even if you dont want to mine with an Nvidia GPU."
-                                        schema:
-                                          type: string
-                                          default: "all"
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}

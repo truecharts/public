@@ -1,8 +1,8 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: icloudpd
-version: 5.0.1
-appVersion: 1.0.696
+version: 5.1.1
+appVersion: 1.0.700
 description: iCloudPD, syncs photos from iDevices to a single directory on TrueNAS.
 home: https://truecharts.org/charts/incubator/icloudpd
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/icloudpd.png
@@ -22,7 +22,7 @@ keywords:
   - Downloaders
 dependencies:
   - name: common
-    version: 17.1.4
+    version: 17.2.2
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

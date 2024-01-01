@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: whisper-asr-webservice
-version: 3.0.1
+version: 3.1.0
 appVersion: 1.2.3
 description: Whisper is a general-purpose speech recognition model.
 home: https://truecharts.org/charts/stable/whisper-asr-webservice
@@ -20,7 +20,7 @@ keywords:
   - machine-learning
 dependencies:
   - name: common
-    version: 17.1.4
+    version: 17.2.2
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

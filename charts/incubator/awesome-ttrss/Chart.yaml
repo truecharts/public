@@ -1,8 +1,8 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: awesome-ttrss
-version: 5.0.9
-appVersion: latest
+version: 4.0.0
+appVersion: latest-2023-12-18
 description: Awesome TTRSS aims to provide a powerful Chartized all-in-one solution for Tiny Tiny RSS
 home: https://truecharts.org/charts/incubator/awesome-ttrss
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/awesome-ttrss.png
@@ -20,7 +20,7 @@ keywords:
   - awesome-ttrss
 dependencies:
   - name: common
-    version: 16.2.7
+    version: 17.1.4
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

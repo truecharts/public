@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: firezone
-version: 2.0.1
+version: 2.1.0
 appVersion: 0.7.36
 description: WireGuard-based VPN server and egress firewall
 home: https://truecharts.org/charts/stable/firezone
@@ -21,7 +21,7 @@ keywords:
   - vpn
 dependencies:
   - name: common
-    version: 17.1.4
+    version: 17.2.2
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

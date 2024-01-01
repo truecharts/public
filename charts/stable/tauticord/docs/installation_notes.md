@@ -1,6 +1,8 @@
-# Installation Notes
+---
+title: Installation Notes
+---
 
-basic Notes for tauticord.
+Basic Notes for tauticord.
 
 :::note requirements
 

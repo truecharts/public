@@ -1,6 +1,8 @@
-Install Notes
+---
+title: Install Notes
+---
 
-This chart now requires the following hcarts to be installed before you can install:
+This chart now requires the following charts to be installed before you can install:
 
 - cloudnative-pg
 - prometheus-operator
@@ -12,5 +14,5 @@ To enable this in TrueNAS scale
 - Apps
 - Manage Catalogs.
 - Edit the TrueCharts Catalog (under the three dots).
-- Enable the operators train under 'Perferred Trains'.
+- Enable the operators train under 'Preferred Trains'.
 - Install the required charts in Available Applications

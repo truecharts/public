@@ -1,16 +1,16 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: zwavejs2mqtt
-version: 18.0.1
+version: 18.1.0
 appVersion: 9.6.2
 description: Fully configurable Zwave to MQTT gateway and Control Panel using NodeJS and Vue
 home: https://truecharts.org/charts/stable/zwavejs2mqtt
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/zwavejs2mqtt.png
 deprecated: false
 sources:
+  - https://github.com/zwave-js/zwavejs2mqtt
   - https://github.com/truecharts/charts/tree/master/charts/stable/zwavejs2mqtt
   - https://hub.docker.com/r/zwavejs/zwave-js-ui
-  - https://github.com/zwave-js/zwavejs2mqtt
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -22,7 +22,7 @@ keywords:
   - zwave
 dependencies:
   - name: common
-    version: 17.1.4
+    version: 17.2.2
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

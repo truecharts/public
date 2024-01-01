@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: headphones
-version: 10.0.1
+version: 10.1.0
 appVersion: ersion-a78f38c1
 description: An automated music downloader for NZB and Torrent, written in Python. It supports SABnzbd, NZBget, Transmission, µTorrent and Blackhole.
 home: https://truecharts.org/charts/stable/headphones
@@ -22,7 +22,7 @@ keywords:
   - downloader
 dependencies:
   - name: common
-    version: 17.1.4
+    version: 17.2.2
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

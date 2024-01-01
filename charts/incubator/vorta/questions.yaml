@@ -35,23 +35,6 @@ questions:
                                         schema:
                                           type: string
                                           default: ""
-                                      - variable: USER_ID
-                                        label: "USER_ID"
-                                        description: "Default 1028"
-                                        schema:
-                                          type: string
-                                          default: "99"
-                                      - variable: GROUP_ID
-                                        label: "GROUP_ID"
-                                        description: "Default 100"
-                                        schema:
-                                          type: string
-                                          default: "100"
-                                      - variable: UMASK
-                                        label: "UMASK"
-                                        schema:
-                                          type: string
-                                          default: "022"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

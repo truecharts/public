@@ -1,53 +1,81 @@
-cnpg:
-  main:
-    database: awesome-ttrss
-    enabled: true
-    user: awesome-ttrss
 image:
-  pullPolicy: IfNotPresent
   repository: wangqiru/ttrss
-  tag: latest@sha256:b883ac1dad416ecf17cb351f641497348912e9790c3600f36bdd4436c5872b14
-persistence:
-  icons:
-    enabled: true
-    mountPath: /var/www/feed-icons
-  plugins:
-    enabled: true
-    mountPath: /var/www/plugins.local
-  themes:
-    enabled: true
-    mountPath: /var/www/themes.local
-portal:
-  open:
-    enabled: true
+  pullPolicy: IfNotPresent
+  tag: latest-2023-12-18@sha256:24c1332f944d4b156608df29a3222cb0a6a9f1ab6c3d09d4214b168c93b99204
+
 securityContext:
   container:
-    container:
-      readOnlyRootFilesystem: false
-      runAsGroup: 0
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
 
-      runAsUser: 0
 service:
   main:
+    enabled: true
     ports:
       main:
+        enabled: true
         port: 10246
         targetPort: 80
+
 workload:
   main:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
           env:
+            # External URL you use to connect to the RSS
+            # (the one you enter in your browser)
+            SELF_URL_PATH: ""
             DB_HOST:
               secretKeyRef:
-                key: host
                 name: cnpg-main-urls
+                key: host
+            DB_PORT: "5432"
             DB_NAME: "{{ .Values.cnpg.main.database }}"
+            DB_USER: "{{ .Values.cnpg.main.user }}"
             DB_PASS:
               secretKeyRef:
-                key: password
                 name: cnpg-main-user
-            DB_PORT: "5432"
-            DB_USER: "{{ .Values.cnpg.main.user }}"
-            SELF_URL_PATH: ""
+                key: password
+
+persistence:
+  icons:
+    enabled: true
+    targetSelector:
+      main:
+        main:
+          mountPath: /var/www/feed-icons
+  plugins:
+    enabled: true
+    targetSelector:
+      main:
+        main:
+          mountPath: /var/www/plugins.local
+  themes:
+    enabled: true
+    targetSelector:
+      main:
+        main:
+          mountPath: /var/www/themes.local
+
+cnpg:
+  main:
+    enabled: true
+    user: awesome-ttrss
+    database: awesome-ttrss
+
+portal:
+  open:
+    enabled: true

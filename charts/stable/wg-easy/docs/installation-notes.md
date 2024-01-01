@@ -1,10 +1,12 @@
-# WG-Easy Installation Notes
+---
+title: WG-Easy Installation Notes
+---
 
 ## PUID
 
 This chart requires a `PUID` of `0` to run, however the default is `568`
 
-![PUID](img/wg-easy-PUID.png)
+![PUID](./img/wg-easy-PUID.png)
 
 ## Setup-Guide
 

@@ -1,4 +1,6 @@
-# MetalLB Basic Setup
+---
+title: MetalLB Basic Setup
+---
 
 The guide walks through a basic configuration of MetalLB for a single address pool on a layer 2 network. This will allow assigning different IP addresses by app.
 
@@ -12,7 +14,7 @@ With MetalLB installed, apps will not be reachable using the integrated LoadBala
 
 - Add the Operators & Enterprise trains to your TrueCharts Catalog.
 
-![metallb-addtrains](img/metallb_guide_trains.png)
+![metallb-addtrains](./img/metallb_guide_trains.png)
 
 :::caution
 
@@ -22,7 +24,7 @@ Our customized version of MetalLB is only intended for use with other TrueCharts
 
 ## 1. Install MetalLB Operator from Operators Train
 
-![metallb-apps](img/metallb_guide_apps.png)
+![metallb-apps](./img/metallb_guide_apps.png)
 
 Install `metallb` from `operators` train first. There is no config, so just hit save.
 
@@ -35,7 +37,7 @@ If you previously had `metallb` installed and encounter an error, delete the old
 
 Install `metallb-config` from enterprise train and create a new entry under `Configure IP Address Pools Object`
 
-![metallb-addpoolbasic](img/metallb_guide_addresspool_basic.png)
+![metallb-addpoolbasic](./img/metallb_guide_addresspool_basic.png)
 
 - **Name**: Enter a general name for this IP range. Something like _apps_ or _charts_ for this field is fine.
 - **Auto Assign**: if you want MetalLB Services to auto-assign IPs from the configured address pool without needing to specify per app. Recommendation is to keep this checked. You can still specify an IP for apps as needed (see step 3).
@@ -46,7 +48,7 @@ Create a single entry under `Configure Address Pools`
 
 _For users with VLANs or multiple subnets, you may create create additional address pool objects as needed._
 
-![metallb-l2advertisement](img/metallb_guide_l2advertisement.png)
+![metallb-l2advertisement](./img/metallb_guide_l2advertisement.png)
 
 Create a new entry under `Configure L2 Advertisements`.
 
@@ -61,7 +63,7 @@ Once installed, `metallb-config` will always show as Stopped.
 
 ## 3. Optional: Specify IP Address per App or Service
 
-![metallb-specifyIP](img/metallb_guide_specifyIP.png)
+![metallb-specifyIP](./img/metallb_guide_specifyIP.png)
 
 With MetalLB installed, it's recommended (but optional) to specify IP addresses for your apps.
 
@@ -75,7 +77,7 @@ With MetalLB installed and configured, you must now disable SCALE's default Load
 
 In the SCALE UI, under **Apps** > **Settings** > **Advanced Settings**
 
-![metallb-disable](img/metallb_guide_disableLB.png)
+![metallb-disable](./img/metallb_guide_disableLB.png)
 
 Uncheck `Enable Integrated LoadBalancer`.
 

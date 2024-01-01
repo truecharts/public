@@ -1,4 +1,6 @@
-# Input Validation
+---
+title: Input Validation
+---
 
 **`Config File Host Path`**
 Accepted formats are:

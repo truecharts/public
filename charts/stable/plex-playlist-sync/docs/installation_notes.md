@@ -1,4 +1,6 @@
-# Installation Notes
+---
+title: Installation Notes
+---
 
 ## Plex Required Parameters
 
@@ -6,7 +8,7 @@
 
 - Set the Plex Configuration's `Token` with your Plex Token value. To get this, you'll need to log into Plex as the server owner and browse to am item in your library. Then select the "View as XML" hyperlink. This should open up a new tab showing XML data and the URL will end with `...Plex-Token=`. Your token value is after the `=`, so **only** copy that value.
 
-![xml_info_token.png](imgs/xml_info_token.png)
+![xml_info_token.png](./img/xml_info_token.png)
 
 ## Spotify Required Parameters
 

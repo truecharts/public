@@ -1,11 +1,13 @@
-# Installation Notes
+---
+title: Installation Notes
+---
 
 The app has no configuration. The following is just a basic guide on how to stream and view the live stream.
 
 ## Stream
 
 - This is the URL to use to stream `rtmp://<server_ip>:1935/live/<stream_key>`
-  - Replace` <server_ip> and` `<stream_key>` respectively.
+  - Replace `<server_ip> and` `<stream_key>` respectively.
   - Change the port if its not default.
 
 ## View
@@ -29,11 +31,11 @@ The default basic builtin stream sites use a default key, "test".
 
 :::
 
-## Customizaton
+## Customization
 
 - If you want to mount a modified version of a nginx.conf you can do so by manually mounting `/etc/nginx/` as PVC or hostpath and then add the custom files after. Take a look at upstream's [configs](https://github.com/TareqAlqutami/rtmp-hls-server/tree/master/conf).
 
-- If you want to mount and customized the web players you can do so by mounting `/usr/local/nginx/html/players` and adding the files in that dir, here are example players [htmls](https://github.com/TareqAlqutami/rtmp-hls-server/tree/master/players).
+- If you want to mount and customized the web players you can do so by mounting `/usr/local/nginx/html/players` and adding the files in that dir, here are example players [html's](https://github.com/TareqAlqutami/rtmp-hls-server/tree/master/players).
 
 - You might want to enable the `codeserver` addon to access the dirs to add/modify the files in a fast and easy to use web editor by going to `http://<server_ip>:36107/?folder=/`
 

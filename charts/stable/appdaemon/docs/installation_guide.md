@@ -1,4 +1,6 @@
-# Installation Guide
+---
+title: Installation Guide
+---
 
 - Set `HA Token` to a Long Live HA token that can be found by going to your profile and then at bottom of the page you will see `Long-Lived Access Tokens`.
 

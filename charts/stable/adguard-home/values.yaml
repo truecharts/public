@@ -106,6 +106,12 @@ service:
         protocol: udp
         port: 8853
         targetPort: 8853
+ingress:
+  main:
+    integrations:
+      homepage:
+        widget:
+          type: adguard
 persistence:
   config:
     enabled: true
