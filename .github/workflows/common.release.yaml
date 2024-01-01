@@ -61,12 +61,14 @@ jobs:
       run: echo ${{ secrets.QUAY_TCCR_TOKEN }} | helm registry login -u ${{ secrets.QUAY_TCCR_USER }} --password-stdin quay.io
 
     - name: Push Charts to Quay
+      shell: bash
       run: |
         for pkg in .cr-release-packages/*; do
           if [ -z "${pkg:-}" ]; then
             break
           fi
-          helm push "${pkg}" oci://quay.io/truecharts || echo "failed to upload $pkg to OCI"
+          name="${pkg%%-[0-9].[0-9].[0-9].tgz}"
+          helm push "${pkg}" oci://quay.io/truecharts/$name || echo "failed to upload $pkg to OCI"
           curl -X POST -H "Content-Type: application/json" -d '{"visibility": "public"}' -H "Authorization: Bearer ${{ secrets.QUAY_TCCR_API_TOKEN }}" "https://quay.io/api/v1/repository/tccr/$pkg/changevisibility"  || echo "failed to set $pkg to public on OCI"
         done
 
