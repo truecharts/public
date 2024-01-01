@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: mongo-express
-version: 5.1.4
+version: 5.1.5
 appVersion: latest
 description: mongo-express is a web-based MongoDB admin interface written in Node.js, Express.js, and Bootstrap3.
 home: https://truecharts.org/charts/stable/mongo-express
@@ -28,7 +28,7 @@ dependencies:
       tags: []
       import-values: []
     - name: mongodb
-      version: 11.1.0
+      version: 11.1.4
       repository: https://deps.truecharts.org/
       condition: mongodb.enabled
       alias: ""

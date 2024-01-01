@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: nginx-proxy-manager
-version: 8.1.3
+version: 8.1.4
 appVersion: 2.10.4
 description: Managing Nginx proxy hosts with a simple, powerful interface.
 home: https://truecharts.org/charts/stable/nginx-proxy-manager
@@ -29,7 +29,7 @@ dependencies:
       tags: []
       import-values: []
     - name: mariadb
-      version: 12.1.0
+      version: 12.1.3
       repository: https://deps.truecharts.org/
       condition: mariadb.enabled
       alias: ""
