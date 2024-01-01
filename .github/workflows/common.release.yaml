@@ -55,3 +55,20 @@ jobs:
       env:
         CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
         CR_SKIP_EXISTING: "true"
+
+    - name: Helm | Login
+      shell: bash
+      run: echo ${{ secrets.QUAY_TCCR_TOKEN }} | helm registry login -u ${{ secrets.QUAY_TCCR_USER }} --password-stdin quay.io
+
+      - name: Push Charts to GHCR
+        run: |
+          for pkg in .cr-release-packages/*; do
+            if [ -z "${pkg:-}" ]; then
+              break
+            fi
+            helm push "${pkg}" oci://quay.io/truecharts/charts
+          done
+          
+    - name: Helm | Logout
+      shell: bash
+      run: helm registry logout quay.io
