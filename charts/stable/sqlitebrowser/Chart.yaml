@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: sqlitebrowser
-version: 9.1.3
+version: 9.1.4
 appVersion: 18.04.1
 description: A high quality, visual, open source tool to create, design, and edit database files compatible with SQLite
 home: https://truecharts.org/charts/stable/sqlitebrowser
@@ -9,9 +9,9 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/sqlitebrowser.png
 deprecated: false
 sources:
     - https://github.com/linuxserver/docker-sqlitebrowser
+    - https://sqlitebrowser.org/
     - https://github.com/truecharts/charts/tree/master/charts/stable/sqlitebrowser
     - https://ghcr.io/linuxserver/sqlitebrowser
-    - https://sqlitebrowser.org/
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -23,7 +23,7 @@ keywords:
     - database
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

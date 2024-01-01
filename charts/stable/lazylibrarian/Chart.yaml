@@ -1,17 +1,17 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: lazylibrarian
-version: 17.1.4
+version: 17.1.5
 appVersion: latest
 description: Get all your books, like series with Sonarr...
 home: https://truecharts.org/charts/stable/lazylibrarian
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/lazylibrarian.png
 deprecated: false
 sources:
-    - https://github.com/truecharts/charts/tree/master/charts/stable/lazylibrarian
-    - https://ghcr.io/linuxserver/lazylibrarian
     - https://gitlab.com/LazyLibrarian/LazyLibrarian.git
     - https://lazylibrarian.gitlab.io
+    - https://github.com/truecharts/charts/tree/master/charts/stable/lazylibrarian
+    - https://ghcr.io/linuxserver/lazylibrarian
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -21,7 +21,7 @@ keywords:
     - ebooks
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

@@ -1,19 +1,19 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: weblate
-version: 12.1.4
+version: 12.1.5
 appVersion: 4.16.4
 description: Weblate is a copylefted libre software web-based continuous localization system
 home: https://truecharts.org/charts/stable/weblate
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/weblate.png
 deprecated: false
 sources:
+    - https://hub.docker.com/r/weblate/weblate
     - https://github.com/WeblateOrg/weblate
     - https://github.com/WeblateOrg/docker
-    - https://github.com/truecharts/charts/tree/master/charts/stable/weblate
-    - https://hub.docker.com/r/weblate/weblate
     - https://github.com/WeblateOrg/docker-compose
     - https://docs.weblate.org/en/latest/
+    - https://github.com/truecharts/charts/tree/master/charts/stable/weblate
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -22,7 +22,7 @@ keywords:
     - translate
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

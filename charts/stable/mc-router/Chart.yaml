@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: mc-router
-version: 3.1.3
+version: 3.1.4
 appVersion: 1.20.0
 description: Lightweight multiplexer/proxy for Minecraft-Java servers.
 home: https://truecharts.org/charts/stable/mc-router
@@ -20,7 +20,7 @@ keywords:
     - minecraft
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

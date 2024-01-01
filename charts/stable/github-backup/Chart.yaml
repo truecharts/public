@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: github-backup
-version: 4.1.3
+version: 4.1.4
 appVersion: latest
 description: Like to maintain your own data? Automatically backup your github account to your Unraid server on a schedule.
 home: https://truecharts.org/charts/incubator/github-backup
@@ -19,7 +19,7 @@ keywords:
     - Backup
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

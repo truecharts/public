@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: emby
-version: 17.1.4
+version: 17.1.5
 appVersion: 4.7.14.0
 description: Emby Server is a home media server
 home: https://truecharts.org/charts/stable/emby
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/emby.png
 deprecated: false
 sources:
-    - https://github.com/linuxserver/docker-emby.git
     - https://github.com/truecharts/charts/tree/master/charts/stable/emby
     - https://ghcr.io/geek-cookbook/emby
+    - https://github.com/linuxserver/docker-emby.git
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

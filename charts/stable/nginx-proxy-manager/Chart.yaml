@@ -1,17 +1,17 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: nginx-proxy-manager
-version: 8.1.4
+version: 8.1.5
 appVersion: 2.10.4
 description: Managing Nginx proxy hosts with a simple, powerful interface.
 home: https://truecharts.org/charts/stable/nginx-proxy-manager
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/nginx-proxy-manager.png
 deprecated: false
 sources:
+    - https://hub.docker.com/r/jc21/nginx-proxy-manager
     - https://github.com/NginxProxyManager/nginx-proxy-manager
     - https://nginxproxymanager.com/
     - https://github.com/truecharts/charts/tree/master/charts/stable/nginx-proxy-manager
-    - https://hub.docker.com/r/jc21/nginx-proxy-manager
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -22,7 +22,7 @@ keywords:
     - reverse-proxy
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

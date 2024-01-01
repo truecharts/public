@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: tubearchivist-es
-version: 3.0.10
+version: 3.0.11
 appVersion: latest
 description: This is a dependancy Chart for the application "TubeArchivist"
 home: https://truecharts.org/charts/incubator/tubearchivist-es
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/tubearchivist-es.png
 deprecated: false
 sources:
-    - https://github.com/elastic/elasticsearch
     - https://github.com/truecharts/charts/tree/master/charts/incubator/tubearchivist-es
     - https://hub.docker.com/r/bbilly1/tubearchivist-es
+    - https://github.com/elastic/elasticsearch
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

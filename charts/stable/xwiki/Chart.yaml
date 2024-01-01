@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: xwiki
-version: 10.1.4
+version: 10.1.5
 appVersion: 15.10.3
 description: XWiki is a free wiki software platform written in Java with a design emphasis on extensibility
 home: https://truecharts.org/charts/stable/xwiki
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/xwiki.png
 deprecated: false
 sources:
-    - https://hub.docker.com/_/xwiki
     - https://github.com/xwiki/xwiki-docker
     - https://github.com/truecharts/charts/tree/master/charts/stable/xwiki
+    - https://hub.docker.com/_/xwiki
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -20,7 +20,7 @@ keywords:
     - wiki
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: smokeping
-version: 9.1.4
+version: 9.1.5
 appVersion: 2.8.2
 description: Keep track of your network latency.
 home: https://truecharts.org/charts/stable/smokeping
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/smokeping.png
 deprecated: false
 sources:
+    - https://ghcr.io/linuxserver/smokeping
     - https://oss.oetiker.ch/smokeping/
     - https://github.com/truecharts/charts/tree/master/charts/stable/smokeping
-    - https://ghcr.io/linuxserver/smokeping
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -21,7 +21,7 @@ keywords:
     - latency
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: prowlarr
-version: 14.1.5
+version: 14.1.6
 appVersion: 1.11.4.4173
 description: Indexer manager/proxy built on the popular arr net base stack to integrate with your various PVR apps.
 home: https://truecharts.org/charts/stable/prowlarr
@@ -9,9 +9,9 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/prowlarr.png
 deprecated: false
 sources:
     - https://github.com/k8s-at-home/container-images
+    - https://github.com/Prowlarr/Prowlarr
     - https://github.com/truecharts/charts/tree/master/charts/stable/prowlarr
     - https://ghcr.io/onedr0p/prowlarr-develop
-    - https://github.com/Prowlarr/Prowlarr
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -22,7 +22,7 @@ keywords:
     - usenet
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: simply-shorten
-version: 7.1.3
+version: 7.1.4
 appVersion: "1.1"
 description: A dead simple URL shortener.
 home: https://truecharts.org/charts/stable/simply-shorten
@@ -22,7 +22,7 @@ keywords:
     - Network-Web
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

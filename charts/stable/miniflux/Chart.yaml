@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: miniflux
-version: 13.1.3
+version: 13.1.4
 appVersion: 2.0.51
 description: Miniflux is a minimalist and opinionated feed reader.
 home: https://truecharts.org/charts/stable/miniflux
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/miniflux.png
 deprecated: false
 sources:
+    - https://hub.docker.com/r/miniflux/miniflux
     - https://github.com/miniflux/v2
     - https://github.com/truecharts/charts/tree/master/charts/stable/miniflux
-    - https://hub.docker.com/r/miniflux/miniflux
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -21,7 +21,7 @@ keywords:
     - news
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

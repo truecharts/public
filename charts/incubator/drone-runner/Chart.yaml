@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: drone-runner
-version: 4.0.10
+version: 4.0.11
 appVersion: 1.0.0
 description: Drone by Harness™ is a modern Continuous Integration platform
 home: https://truecharts.org/charts/incubator/drone-runner
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/drone-runner.png
 deprecated: false
 sources:
+    - https://hub.docker.com/r/drone/drone-runner-kube
     - https://docs.drone.io
     - https://github.com/truecharts/charts/tree/master/charts/incubator/drone-runner
-    - https://hub.docker.com/r/drone/drone-runner-kube
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

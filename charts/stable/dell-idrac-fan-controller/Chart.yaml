@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: dell-idrac-fan-controller
-version: 4.1.3
+version: 4.1.4
 appVersion: latest
 description: Control your Dell PowerEdge fans via IPMI
 home: https://truecharts.org/charts/stable/dell-idrac-fan-controller
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/dell-idrac-fan-controller.png
 deprecated: false
 sources:
-    - https://github.com/tigerblue77/Dell_iDRAC_fan_controller_Docker
     - https://github.com/truecharts/charts/tree/master/charts/stable/dell-idrac-fan-controller
     - https://ghcr.io/tigerblue77/dell_idrac_fan_controller
+    - https://github.com/tigerblue77/Dell_iDRAC_fan_controller_Docker
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

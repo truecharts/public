@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: tsmuxer
-version: 7.1.3
+version: 7.1.4
 appVersion: 23.11.2
 description: tsMuxer is a Transport Stream muxer.
 home: https://truecharts.org/charts/stable/tsmuxer
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/tsmuxer.png
 deprecated: false
 sources:
+    - https://hub.docker.com/r/jlesage/tsmuxer
     - https://github.com/jlesage/docker-tsmuxer
     - https://github.com/truecharts/charts/tree/master/charts/stable/tsmuxer
-    - https://hub.docker.com/r/jlesage/tsmuxer
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -20,7 +20,7 @@ keywords:
     - tsmuxer
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

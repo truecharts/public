@@ -1,17 +1,17 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: onlyoffice-document-server
-version: 15.1.4
+version: 15.1.5
 appVersion: 7.5.1
 description: 'ONLYOFFICE Document Server is an online office suite comprising viewers and editors for texts, spreadsheets and presentations, fully compatible with Office Open XML formats: .docx, .xlsx, .pptx and enabling collaborative editing in real time.'
 home: https://truecharts.org/charts/stable/onlyoffice-document-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/onlyoffice-document-server.png
 deprecated: false
 sources:
-    - https://github.com/ONLYOFFICE/DocumentServer
-    - https://github.com/ONLYOFFICE/Docker-DocumentServer
     - https://github.com/truecharts/charts/tree/master/charts/stable/onlyoffice-document-server
     - https://hub.docker.com/r/onlyoffice/documentserver
+    - https://github.com/ONLYOFFICE/DocumentServer
+    - https://github.com/ONLYOFFICE/Docker-DocumentServer
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -20,7 +20,7 @@ keywords:
     - onlyoffice
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

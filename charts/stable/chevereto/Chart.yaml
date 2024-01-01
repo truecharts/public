@@ -1,17 +1,17 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: chevereto
-version: 11.1.4
+version: 11.1.5
 appVersion: 1.6.2
 description: Chevereto is an image hosting software that allows you to create a beautiful and full-featured image hosting website on your own server.
 home: https://truecharts.org/charts/stable/chevereto
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/chevereto.png
 deprecated: false
 sources:
-    - https://github.com/rodber/chevereto-free
     - https://chevereto-free.github.io/setup/system/environment.html#image-handling-variables
     - https://github.com/truecharts/charts/tree/master/charts/stable/chevereto
     - https://ghcr.io/rodber/chevereto-free
+    - https://github.com/rodber/chevereto-free
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -20,7 +20,7 @@ keywords:
     - chevereto
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

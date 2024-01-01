@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: microbin
-version: 3.0.10
+version: 3.0.11
 appVersion: 2.0.4
 description: MicroBin is a super tiny, feature rich, configurable, self-contained and self-hosted paste bin web application.
 home: https://truecharts.org/charts/incubator/microbin
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/microbin.png
 deprecated: false
 sources:
+    - https://github.com/szabodanika/microbin
     - https://github.com/truecharts/charts/tree/master/charts/incubator/microbin
     - https://hub.docker.com/r/danielszabo99/microbin
-    - https://github.com/szabodanika/microbin
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

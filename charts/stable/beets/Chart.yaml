@@ -1,17 +1,17 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: beets
-version: 10.1.3
+version: 10.1.4
 appVersion: 1.6.0
 description: A music library manager and not, for the most part, a music player.
 home: https://truecharts.org/charts/stable/beets
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/beets.png
 deprecated: false
 sources:
+    - https://ghcr.io/linuxserver/beets
     - https://github.com/linuxserver/docker-beets
     - https://beets.io/
     - https://github.com/truecharts/charts/tree/master/charts/stable/beets
-    - https://ghcr.io/linuxserver/beets
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

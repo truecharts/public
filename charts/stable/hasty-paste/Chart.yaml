@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: hasty-paste
-version: 5.1.4
+version: 5.1.5
 appVersion: 1.9.0
 description: A fast and minimal paste bin, written in Python using Quart.
 home: https://truecharts.org/charts/incubator/hasty-paste
@@ -24,7 +24,7 @@ keywords:
     - Network-Other
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

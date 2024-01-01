@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: homebox
-version: 5.1.3
+version: 5.1.4
 appVersion: 0.10.2
 description: Inventory and organization system built for the Home User.
 home: https://truecharts.org/charts/stable/homebox
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/homebox.png
 deprecated: false
 sources:
-    - https://github.com/truecharts/charts/tree/master/charts/stable/homebox
     - https://ghcr.io/hay-kot/homebox
     - https://github.com/hay-kot/homebox
+    - https://github.com/truecharts/charts/tree/master/charts/stable/homebox
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -20,7 +20,7 @@ keywords:
     - inventory
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

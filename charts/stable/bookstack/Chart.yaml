@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: bookstack
-version: 11.2.4
+version: 11.2.5
 appVersion: 23.12.20231229
 description: A simple, self-hosted, easy-to-use platform for organising and storing information.
 home: https://truecharts.org/charts/stable/bookstack
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/bookstack.png
 deprecated: false
 sources:
-    - https://www.bookstackapp.com/
     - https://github.com/truecharts/charts/tree/master/charts/stable/bookstack
     - https://ghcr.io/linuxserver/bookstack
+    - https://www.bookstackapp.com/
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -24,7 +24,7 @@ keywords:
     - hosted
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

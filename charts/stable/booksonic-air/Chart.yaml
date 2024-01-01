@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: booksonic-air
-version: 12.1.4
+version: 12.1.5
 appVersion: 2201.1.0
 description: Booksonic is a platform for accessing the audibooks you own wherever you are
 home: https://truecharts.org/charts/stable/booksonic-air
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/booksonic-air.png
 deprecated: false
 sources:
+    - https://github.com/popeen/Booksonic-Air
     - https://github.com/truecharts/charts/tree/master/charts/stable/booksonic-air
     - https://ghcr.io/linuxserver/booksonic-air
-    - https://github.com/popeen/Booksonic-Air
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

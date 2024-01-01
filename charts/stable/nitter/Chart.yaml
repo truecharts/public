@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: nitter
-version: 5.1.4
+version: 5.1.5
 appVersion: latest
 description: A free and open source alternative Twitter front-end focused on privacy and performance.
 home: https://truecharts.org/charts/incubator/nitter
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/nitter.png
 deprecated: false
 sources:
-    - https://hub.docker.com/r/zedeus/nitter
     - https://github.com/zedeus/nitter
     - https://github.com/truecharts/charts/tree/master/charts/incubator/nitter
+    - https://hub.docker.com/r/zedeus/nitter
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -20,7 +20,7 @@ keywords:
     - libre
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

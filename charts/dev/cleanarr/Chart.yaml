@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: cleanarr
-version: 3.0.10
+version: 3.0.11
 appVersion: 2.5.0
 description: A simple UI to help find and delete duplicate and sample files from your Plex server.
 home: https://truecharts.org/charts/incubator/cleanarr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/cleanarr.png
 deprecated: false
 sources:
+    - https://github.com/se1exin/cleanarr
     - https://github.com/truecharts/charts/tree/master/charts/incubator/cleanarr
     - https://hub.docker.com/r/selexin/cleanarr
-    - https://github.com/se1exin/cleanarr
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

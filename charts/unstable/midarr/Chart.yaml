@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: midarr
-version: 4.0.11
+version: 4.0.12
 appVersion: 3.1.0
 description: Midarr is a minimal lightweight media server for enjoying your media
 home: https://truecharts.org/charts/incubator/midarr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/midarr.png
 deprecated: false
 sources:
+    - https://github.com/truecharts/containers/tree/master/mirrormidarr-server
     - https://github.com/midarrlabs/midarr-server
     - https://github.com/truecharts/charts/tree/master/charts/incubator/midarr
-    - https://github.com/truecharts/containers/tree/master/mirrormidarr-server
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

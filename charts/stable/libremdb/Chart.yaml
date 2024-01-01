@@ -1,17 +1,17 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: libremdb
-version: 6.1.5
+version: 6.1.6
 appVersion: latest
 description: A free & open source IMDb front-end.
 home: https://truecharts.org/charts/stable/libremdb
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/libremdb.png
 deprecated: false
 sources:
-    - https://quay.io/pussthecatorg/libremdb
     - https://github.com/zyachel/libremdb
     - https://github.com/PussTheCat-org/docker-libremdb-quay
     - https://github.com/truecharts/charts/tree/master/charts/stable/libremdb
+    - https://quay.io/pussthecatorg/libremdb
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -22,7 +22,7 @@ keywords:
     - imdb
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

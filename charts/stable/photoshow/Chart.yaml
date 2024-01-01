@@ -1,17 +1,17 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: photoshow
-version: 9.1.3
+version: 9.1.4
 appVersion: ersion-48aabb98
 description: A gallery software at its easiest, it doesn't even require a database.
 home: https://truecharts.org/charts/stable/photoshow
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/photoshow.png
 deprecated: false
 sources:
-    - https://github.com/thibaud-rohmer/PhotoShow
-    - https://github.com/linuxserver/docker-photoshow
     - https://github.com/truecharts/charts/tree/master/charts/stable/photoshow
     - https://ghcr.io/linuxserver/photoshow
+    - https://github.com/thibaud-rohmer/PhotoShow
+    - https://github.com/linuxserver/docker-photoshow
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -24,7 +24,7 @@ keywords:
     - image
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

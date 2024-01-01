@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: projectsend
-version: 11.1.5
+version: 11.1.6
 appVersion: latest
 description: ProjectSend is a self-hosted application that lets you upload files and assign them to specific clients that you create yourself.
 home: https://truecharts.org/charts/stable/projectsend
@@ -20,7 +20,7 @@ keywords:
     - files
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

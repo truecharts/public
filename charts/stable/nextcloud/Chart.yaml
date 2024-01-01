@@ -1,8 +1,8 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: nextcloud
-version: 28.1.5
-appVersion: 28.0.0
+version: 28.1.6
+appVersion: 28.0.1
 description: A private cloud server that puts the control and security of your own data back into your hands.
 home: https://truecharts.org/charts/stable/nextcloud
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/nextcloud.png
@@ -11,7 +11,7 @@ sources:
     - https://github.com/nextcloud/helm
     - https://github.com/nextcloud/docker
     - https://github.com/truecharts/charts/tree/master/charts/stable/nextcloud
-    - https://hub.docker.com/r/collabora/code
+    - https://github.com/truecharts/containers/tree/master/mirrornextcloud-fpm
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -24,7 +24,7 @@ keywords:
     - php
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

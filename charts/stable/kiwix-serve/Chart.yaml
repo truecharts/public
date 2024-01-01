@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: kiwix-serve
-version: 7.1.3
+version: 7.1.4
 appVersion: 3.6.0
 description: Kiwix enables you to have the whole Wikipedia at hand wherever you go!
 home: https://truecharts.org/charts/stable/kiwix-serve
@@ -9,9 +9,9 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/kiwix-serve.png
 deprecated: false
 sources:
     - https://github.com/kiwix/kiwix-tools/blob/master/docker/server
+    - https://www.kiwix.org/
     - https://github.com/truecharts/charts/tree/master/charts/stable/kiwix-serve
     - https://ghcr.io/kiwix/kiwix-serve
-    - https://www.kiwix.org/
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -21,7 +21,7 @@ keywords:
     - Productivity
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

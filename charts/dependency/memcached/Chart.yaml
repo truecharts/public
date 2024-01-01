@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: memcached
-version: 11.1.3
+version: 11.1.4
 appVersion: 1.6.22
 description: Memcached is a memory-backed database caching solution
 home: https://truecharts.org/charts/dependency/memcached
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/memcached.png
 deprecated: false
 sources:
+    - https://hub.docker.com/r/bitnami/memcached
     - https://github.com/bitnami/bitnami-docker-memcached
     - https://github.com/truecharts/charts/tree/master/charts/dependency/memcached
-    - https://hub.docker.com/r/bitnami/memcached
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

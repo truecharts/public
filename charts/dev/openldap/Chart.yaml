@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: openldap
-version: 11.0.10
+version: 11.0.11
 appVersion: 1.5.0
 description: Community developed LDAP software
 home: https://truecharts.org/charts/incubator/openldap
@@ -9,9 +9,9 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/openldap.png
 deprecated: false
 sources:
     - https://github.com/jp-gouin/helm-openldap
+    - https://github.com/osixia/docker-openldap
     - https://github.com/truecharts/charts/tree/master/charts/incubator/openldap
     - https://hub.docker.com/r/osixia/openldap
-    - https://github.com/osixia/docker-openldap
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

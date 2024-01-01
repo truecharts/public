@@ -1,17 +1,17 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: wger
-version: 6.0.8
+version: 6.0.9
 appVersion: latest
 description: Workout Manager is a free, open source web application that helps you manage your personal workouts, weight and diet plans and can also be used as a simple gym management utility.
 home: https://truecharts.org/charts/unstable/wger
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/wger.png
 deprecated: false
 sources:
-    - https://github.com/wger-project/docker
     - https://github.com/wger-project/wger
     - https://github.com/truecharts/charts/tree/master/charts/unstable/wger
-    - https://hub.docker.com/r/wger/server
+    - https://hub.docker.com/_/nginx
+    - https://github.com/wger-project/docker
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: passwordpusherephemeral
-version: 4.1.3
+version: 4.1.4
 appVersion: latest
 description: Ephemeral version requires no other database Chart! PasswordPusher or PWPush is an opensource application to communicate passwords over the web. Links to passwords expire after a certain number of views and/or time has passed.
 home: https://truecharts.org/charts/incubator/passwordpusherephemeral
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/passwordpusherephemeral.png
 deprecated: false
 sources:
+    - https://hub.docker.com/r/pglombardo/pwpush-ephemeral
     - https://github.com/pglombardo/PasswordPusher
     - https://github.com/truecharts/charts/tree/master/charts/incubator/passwordpusherephemeral
-    - https://hub.docker.com/r/pglombardo/pwpush-ephemeral
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -22,7 +22,7 @@ keywords:
     - Tools-Utilities
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

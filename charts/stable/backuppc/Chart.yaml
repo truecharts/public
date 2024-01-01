@@ -1,17 +1,17 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: backuppc
-version: 5.1.3
+version: 5.1.4
 appVersion: 6.0.2
 description: A high-performance, enterprise-grade system for backing up Linux, Windows and macOS PCs and laptops to a server's disk.
 home: https://truecharts.org/charts/incubator/backuppc
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/backuppc.png
 deprecated: false
 sources:
-    - https://github.com/truecharts/charts/tree/master/charts/incubator/backuppc
-    - https://github.com/truecharts/containers/tree/master/mirrorbackuppc
     - https://github.com/tiredofit/docker-backuppc
     - https://backuppc.github.io/backuppc/index.html
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/backuppc
+    - https://github.com/truecharts/containers/tree/master/mirrorbackuppc
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: lancache-dns
-version: 7.1.3
+version: 7.1.4
 appVersion: latest
 description: DNS Chart service for a steam cache.
 home: https://truecharts.org/charts/stable/lancache-dns
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/lancache-dns.png
 deprecated: false
 sources:
+    - https://hub.docker.com/r/lancachenet/lancache-dns
     - https://github.com/lancachenet/lancache-dns
     - https://github.com/truecharts/charts/tree/master/charts/stable/lancache-dns
-    - https://hub.docker.com/r/lancachenet/lancache-dns
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -20,7 +20,7 @@ keywords:
     - dns
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

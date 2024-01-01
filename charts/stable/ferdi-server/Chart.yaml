@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: ferdi-server
-version: 10.1.3
+version: 10.1.4
 appVersion: 1.3.2
 description: Server for Ferdi that you can re-use to run your own
 home: https://truecharts.org/charts/stable/ferdi-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ferdi-server.png
 deprecated: false
 sources:
+    - https://hub.docker.com/r/getferdi/ferdi-server
     - https://github.com/getferdi/server
     - https://github.com/truecharts/charts/tree/master/charts/stable/ferdi-server
-    - https://hub.docker.com/r/getferdi/ferdi-server
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -19,7 +19,7 @@ keywords:
     - ferdi
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

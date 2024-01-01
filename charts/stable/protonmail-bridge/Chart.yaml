@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: protonmail-bridge
-version: 13.1.3
+version: 13.1.4
 appVersion: 3.7.1
 description: ProtonMail IMAP/SMTP Bridge to work on the network.
 home: https://truecharts.org/charts/stable/protonmail-bridge
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/protonmail-bridge.png
 deprecated: false
 sources:
+    - https://hub.docker.com/r/shenxn/protonmail-bridge
     - https://github.com/shenxn/protonmail-bridge-docker
     - https://github.com/truecharts/charts/tree/master/charts/stable/protonmail-bridge
-    - https://hub.docker.com/r/shenxn/protonmail-bridge
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -20,7 +20,7 @@ keywords:
     - protonmail-bridge
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

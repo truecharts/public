@@ -1,17 +1,17 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: owntracks
-version: 1.0.9
+version: 1.0.10
 appVersion: 0.9.3
 description: The OwnTracks Recorder is a lightweight program for storing and accessing location data published via MQTT (or HTTP) by the OwnTracks apps.
 home: https://truecharts.org/charts/incubator/owntracks
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/owntracks.png
 deprecated: false
 sources:
+    - https://github.com/owntracks/docker-recorder
     - https://github.com/truecharts/charts/tree/master/charts/incubator/owntracks
     - https://github.com/truecharts/containers/tree/master/mirrorowntracks
     - https://github.com/owntracks/recorder
-    - https://github.com/owntracks/docker-recorder
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

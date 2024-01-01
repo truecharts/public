@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: whisparr
-version: 8.1.3
+version: 8.1.4
 appVersion: 2.0.0.289
 description: An adult media thingy.
 home: https://truecharts.org/charts/stable/whisparr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/whisparr.png
 deprecated: false
 sources:
-    - https://github.com/onedr0p/containers/tree/main/apps/whisparr
     - https://github.com/truecharts/charts/tree/master/charts/stable/whisparr
     - https://ghcr.io/hotio/whisparr
+    - https://github.com/onedr0p/containers/tree/main/apps/whisparr
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -21,7 +21,7 @@ keywords:
     - MediaApp-Other
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

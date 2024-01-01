@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: firefox
-version: 9.1.3
+version: 9.1.4
 appVersion: 116.0.3
 description: a free and open-source web browser developed by the Mozilla Foundation and its subsidiary, the Mozilla Corporation.
 home: https://truecharts.org/charts/stable/firefox
@@ -20,7 +20,7 @@ keywords:
     - browser
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

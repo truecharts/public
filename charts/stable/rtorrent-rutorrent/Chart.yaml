@@ -1,17 +1,17 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: rtorrent-rutorrent
-version: 3.1.3
+version: 3.1.4
 appVersion: 4.2.9
 description: rTorrent and ruTorrent chart.
 home: https://truecharts.org/charts/stable/rtorrent-rutorrent
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/rtorrent-rutorrent.png
 deprecated: false
 sources:
-    - https://ghcr.io/crazy-max/rtorrent-rutorrent
     - https://truecharts.org/charts/stable/rtorrent-rutorrent
     - https://github.com/crazy-max/docker-rtorrent-rutorrent
     - https://github.com/truecharts/charts/tree/master/charts/stable/rtorrent-rutorrent
+    - https://ghcr.io/crazy-max/rtorrent-rutorrent
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -21,7 +21,7 @@ keywords:
     - torrent
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

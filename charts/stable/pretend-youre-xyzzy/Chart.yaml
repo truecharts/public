@@ -1,17 +1,17 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: pretend-youre-xyzzy
-version: 12.1.3
+version: 12.1.4
 appVersion: "4"
 description: pretend-youre-xyzzy, a cards against humanity clone
 home: https://truecharts.org/charts/stable/pretend-youre-xyzzy
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pretend-youre-xyzzy.png
 deprecated: false
 sources:
+    - https://github.com/emcniece/DockerYourXyzzy
     - https://github.com/truecharts/charts/tree/master/charts/stable/pretend-youre-xyzzy
     - https://hub.docker.com/r/emcniece/dockeryourxyzzy
     - https://github.com/ajanata/PretendYoureXyzzy
-    - https://github.com/emcniece/DockerYourXyzzy
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -23,7 +23,7 @@ keywords:
     - humanity
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

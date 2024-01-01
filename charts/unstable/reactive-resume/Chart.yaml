@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: reactive-resume
-version: 3.0.13
+version: 3.0.14
 appVersion: latest
 description: A one-of-a-kind resume builder that keeps your privacy in mind.
 home: https://truecharts.org/charts/unstable/reactive-resume
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/reactive-resume.png
 deprecated: false
 sources:
-    - https://github.com/reactive-resume/reactive-resume
     - https://github.com/truecharts/charts/tree/master/charts/unstable/reactive-resume
-    - https://github.com/truecharts/containers/tree/master/mirrorreactive-resume-client
+    - https://github.com/truecharts/containers/tree/master/mirrorreactive-resume-server
+    - https://github.com/reactive-resume/reactive-resume
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

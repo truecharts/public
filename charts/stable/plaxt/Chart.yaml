@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: plaxt
-version: 7.1.3
+version: 7.1.4
 appVersion: latest
 description: This Tools provides a way to keep your watched history synced FROM Plex Server To Trakt.tv
 home: https://truecharts.org/charts/stable/plaxt
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/plaxt.png
 deprecated: false
 sources:
-    - https://hub.docker.com/r/xanderstrike/goplaxt
     - https://github.com/XanderStrike/goplaxt
     - https://github.com/truecharts/charts/tree/master/charts/stable/plaxt
+    - https://hub.docker.com/r/xanderstrike/goplaxt
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -22,7 +22,7 @@ keywords:
     - MediaServer-Other
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

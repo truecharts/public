@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: prometheus
-version: 16.1.4
+version: 16.1.5
 appVersion: 2.48.1
 description: kube-prometheus-stack collects Kubernetes manifests, Grafana dashboards, and Prometheus rules combined with documentation and scripts to provide easy to operate end-to-end Kubernetes cluster monitoring with Prometheus using the Prometheus Operator.
 home: https://truecharts.org/charts/enterprise/prometheus
@@ -11,7 +11,7 @@ sources:
     - https://github.com/prometheus-operator/kube-prometheus
     - https://github.com/prometheus-community/helm-charts
     - https://github.com/truecharts/charts/tree/master/charts/enterprise/prometheus
-    - https://hub.docker.com/r/bitnami/prometheus
+    - https://quay.io/thanos/thanos
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -20,7 +20,7 @@ keywords:
     - metrics
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: healthchecks
-version: 13.1.4
+version: 13.1.5
 appVersion: 3.1.20231228
 description: Healthchecks is a cron job monitoring service. It listens for HTTP requests and email messages ("pings") from your cron jobs and scheduled tasks ("checks"). When a ping does not arrive on time, Healthchecks sends out alerts.
 home: https://truecharts.org/charts/stable/healthchecks
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/healthchecks.png
 deprecated: false
 sources:
+    - https://github.com/healthchecks/healthchecks
     - https://github.com/truecharts/charts/tree/master/charts/stable/healthchecks
     - https://ghcr.io/linuxserver/healthchecks
-    - https://github.com/healthchecks/healthchecks
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -21,7 +21,7 @@ keywords:
     - alert
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

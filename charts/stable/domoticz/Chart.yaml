@@ -1,15 +1,15 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: domoticz
-version: 8.1.3
+version: 8.1.4
 appVersion: 2023.2.20231129
 description: Domoticz is a Home Automation System that lets you monitor and configure various devices like Lights, Switches and much more.
 home: https://truecharts.org/charts/stable/domoticz
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/domoticz.png
 deprecated: false
 sources:
-    - https://ghcr.io/linuxserver/domoticz
     - https://github.com/truecharts/charts/tree/master/charts/stable/domoticz
+    - https://ghcr.io/linuxserver/domoticz
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

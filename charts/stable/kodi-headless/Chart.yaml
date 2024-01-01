@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: kodi-headless
-version: 8.1.3
+version: 8.1.4
 appVersion: "190"
 description: A headless install of kodi in a docker container.
 home: https://truecharts.org/charts/stable/kodi-headless
@@ -18,7 +18,7 @@ keywords:
     - kodi-headless
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: ps3netsrv
-version: 3.0.10
+version: 3.0.11
 appVersion: 1.6.0
 description: Allows Multiman or Webman to play game backups.
 home: https://truecharts.org/charts/incubator/ps3netsrv
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ps3netsrv.png
 deprecated: false
 sources:
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/ps3netsrv
     - https://hub.docker.com/r/shawly/ps3netsrv
     - https://github.com/aldostools/webMAN-MOD/tree/master/_Projects_/ps3netsrv
-    - https://github.com/truecharts/charts/tree/master/charts/incubator/ps3netsrv
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

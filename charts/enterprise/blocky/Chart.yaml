@@ -1,18 +1,18 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: blocky
-version: 12.1.4
+version: 12.1.5
 appVersion: "0.22"
 description: Blocky is a DNS proxy, DNS enhancer and ad-blocker for the local network written in Go
 home: https://truecharts.org/charts/enterprise/blocky
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/blocky.png
 deprecated: false
 sources:
-    - https://quay.io/oriedge/k8s_gateway
     - https://github.com/Mozart409/blocky-frontend
     - https://0xerr0r.github.io/blocky/
     - https://github.com/0xERR0R/blocky
     - https://github.com/truecharts/charts/tree/master/charts/enterprise/blocky
+    - https://quay.io/oriedge/k8s_gateway
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -22,7 +22,7 @@ keywords:
     - blocky
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: piwigo
-version: 11.2.4
+version: 11.2.5
 appVersion: 14.1.0
 description: A photo gallery software for the web.
 home: https://truecharts.org/charts/stable/piwigo
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/piwigo.png
 deprecated: false
 sources:
+    - https://ghcr.io/linuxserver/piwigo
     - https://github.com/linuxserver/docker-piwigo
     - https://github.com/truecharts/charts/tree/master/charts/stable/piwigo
-    - https://ghcr.io/linuxserver/piwigo
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -22,7 +22,7 @@ keywords:
     - image
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

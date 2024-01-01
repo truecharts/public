@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: jenkins
-version: 6.2.3
+version: 6.2.4
 appVersion: "2.438"
 description: The gold standard in devops tools for running CI/CD pipelines.
 home: https://truecharts.org/charts/stable/jenkins
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/jenkins.png
 deprecated: false
 sources:
+    - https://hub.docker.com/r/jenkins/jenkins
     - https://github.com/jenkinsci/docker
     - https://github.com/truecharts/charts/tree/master/charts/stable/jenkins
-    - https://hub.docker.com/r/jenkins/jenkins
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -20,7 +20,7 @@ keywords:
     - productivity
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

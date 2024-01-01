@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: tonido
-version: 4.1.3
+version: 4.1.4
 appVersion: latest
 description: Tonido Server allows you to access all your files on your computer from a web browser, smartphone, tablet or even DLNA enabled devices. No setup necessary.
 home: https://truecharts.org/charts/incubator/tonido
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/tonido.png
 deprecated: false
 sources:
+    - https://registry.hub.docker.com/r/captinsano/tonido/
     - https://github.com/truecharts/charts/tree/master/charts/incubator/tonido
     - https://hub.docker.com/r/captinsano/tonido
-    - https://registry.hub.docker.com/r/captinsano/tonido/
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -20,7 +20,7 @@ keywords:
     - Cloud
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

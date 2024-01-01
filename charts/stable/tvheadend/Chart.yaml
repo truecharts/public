@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: tvheadend
-version: 18.1.4
+version: 18.1.5
 appVersion: latest
 description: TVheadend - a TV streaming server and digital video recorder
 home: https://truecharts.org/charts/stable/tvheadend
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/tvheadend.png
 deprecated: false
 sources:
-    - https://ghcr.io/linuxserver/tvheadend
     - https://github.com/tvheadend/tvheadend
     - https://github.com/truecharts/charts/tree/master/charts/stable/tvheadend
+    - https://ghcr.io/linuxserver/tvheadend
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
@@ -22,7 +22,7 @@ keywords:
     - dvb
 dependencies:
     - name: common
-      version: 17.2.19
+      version: 17.2.21
       repository: oci://tccr.io/truecharts
       condition: ""
       alias: ""

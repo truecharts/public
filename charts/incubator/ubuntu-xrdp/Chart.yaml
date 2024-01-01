@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: ubuntu-xrdp
-version: 3.0.10
+version: 3.0.11
 appVersion: latest
 description: LXDE desktop ubuntu (use remote desktop client to connect)
 home: https://truecharts.org/charts/incubator/ubuntu-xrdp
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ubuntu-xrdp.png
 deprecated: false
 sources:
-    - https://registry.hub.docker.com/r/snoopy86/desktop-dockers/
     - https://github.com/truecharts/charts/tree/master/charts/incubator/ubuntu-xrdp
     - https://hub.docker.com/r/snoopy86/desktop-dockers
+    - https://registry.hub.docker.com/r/snoopy86/desktop-dockers/
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
