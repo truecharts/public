@@ -1,37 +1,37 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: damselfly
-version: 4.1.4
+version: 4.1.5
 appVersion: latest
 description: Damselfly is a server-based Digital Asset Management system.  The goal of Damselfly is to index an extremely large collection of images, and allow easy search and retrieval of those images, using metadata such as the IPTC keyword tags, as well as the folder and file names.  See https://damselfly.info for more details.
 home: https://truecharts.org/charts/incubator/damselfly
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/damselfly.png
 deprecated: false
 sources:
-  - https://github.com/Webreaper/Damselfly
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/damselfly
-  - https://hub.docker.com/r/webreaper/damselfly
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/damselfly
+    - https://hub.docker.com/r/webreaper/damselfly
+    - https://github.com/Webreaper/Damselfly
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - damselfly
-  - MediaApp-Photos
+    - damselfly
+    - MediaApp-Photos
 dependencies:
-  - name: common
-    version: 17.2.19
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.21
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: MediaApp-Photos
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: MediaApp-Photos
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: incubator
 type: application

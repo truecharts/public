@@ -1,51 +1,51 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: linkace
-version: 9.0.11
+version: 9.0.12
 appVersion: 1.13.0-simple
 description: Your self-hosted bookmark archive. Free and open source.
 home: https://truecharts.org/charts/incubator/linkace
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/linkace.png
 deprecated: false
 sources:
-  - https://github.com/linkace/linkace
-  - https://www.linkace.org/docs/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/linkace
-  - https://hub.docker.com/r/linkace/linkace
+    - https://www.linkace.org/docs/
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/linkace
+    - https://hub.docker.com/r/linkace/linkace
+    - https://github.com/linkace/linkace
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - linkace
+    - linkace
 dependencies:
-  - name: common
-    version: 17.2.18
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-  - name: mariadb
-    version: 10.0.2
-    repository: https://deps.truecharts.org/
-    condition: mariadb.enabled
-    alias: ""
-    tags: []
-    import-values: []
-  - name: redis
-    version: 9.0.3
-    repository: https://deps.truecharts.org
-    condition: redis.enabled
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.21
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
+    - name: mariadb
+      version: 10.0.2
+      repository: https://deps.truecharts.org/
+      condition: mariadb.enabled
+      alias: ""
+      tags: []
+      import-values: []
+    - name: redis
+      version: 9.0.3
+      repository: https://deps.truecharts.org
+      condition: redis.enabled
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: incubator
 type: application
