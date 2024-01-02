@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 
 curr_chart=$1
 
@@ -7,6 +7,8 @@ then
     echo "No chart name provided"
     exit 1
 fi
+
+echo "Chart name: $curr_chart"
 
 if [[ "$curr_chart" == "charts/operators/metallb-config" ]]; then
     echo "Installing metallb chart"

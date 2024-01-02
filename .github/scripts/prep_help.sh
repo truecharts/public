@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 
 helm repo add truecharts-deps https://deps.truecharts.org
 helm repo add jetstack https://charts.jetstack.io
