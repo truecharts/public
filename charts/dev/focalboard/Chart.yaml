@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: focalboard
 version: 14.0.11
@@ -8,33 +8,33 @@ home: https://truecharts.org/charts/incubator/focalboard
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/focalboard.png
 deprecated: false
 sources:
-    - https://github.com/mattermost/focalboard
-    - https://github.com/FlipEnergy/container-images/blob/main/focalboard
-    - https://www.focalboard.com/
-    - https://github.com/truecharts/charts/tree/master/charts/incubator/focalboard
-    - https://hub.docker.com/r/mattermost/focalboard
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/focalboard
+  - https://hub.docker.com/r/mattermost/focalboard
+  - https://github.com/mattermost/focalboard
+  - https://github.com/FlipEnergy/container-images/blob/main/focalboard
+  - https://www.focalboard.com/
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - focalboard
-    - kanban
-    - project management
+  - focalboard
+  - kanban
+  - project management
 dependencies:
-    - name: common
-      version: 17.2.18
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.18
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: media
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: incubator
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
 type: application

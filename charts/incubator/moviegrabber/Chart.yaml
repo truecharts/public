@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: moviegrabber
 version: 3.0.12
@@ -8,32 +8,32 @@ home: https://truecharts.org/charts/incubator/moviegrabber
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/moviegrabber.png
 deprecated: false
 sources:
-    - https://github.com/truecharts/charts/tree/master/charts/incubator/moviegrabber
-    - https://hub.docker.com/r/binhex/arch-moviegrabber
-    - https://registry.hub.docker.com/r/binhex/arch-moviegrabber/
-    - https://github.com/binhex/documentation
-    - https://github.com/binhex/moviegrabber
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/moviegrabber
+  - https://hub.docker.com/r/binhex/arch-moviegrabber
+  - https://registry.hub.docker.com/r/binhex/arch-moviegrabber/
+  - https://github.com/binhex/documentation
+  - https://github.com/binhex/moviegrabber
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - moviegrabber
-    - Downloaders
+  - moviegrabber
+  - Downloaders
 dependencies:
-    - name: common
-      version: 17.2.18
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.18
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: Downloaders
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: incubator
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Downloaders
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
 type: application

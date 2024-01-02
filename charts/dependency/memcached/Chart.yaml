@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: memcached
 version: 11.1.4
@@ -8,31 +8,31 @@ home: https://truecharts.org/charts/dependency/memcached
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/memcached.png
 deprecated: false
 sources:
-    - https://hub.docker.com/r/bitnami/memcached
-    - https://github.com/bitnami/bitnami-docker-memcached
-    - https://github.com/truecharts/charts/tree/master/charts/dependency/memcached
+  - https://github.com/bitnami/bitnami-docker-memcached
+  - https://github.com/truecharts/charts/tree/master/charts/dependency/memcached
+  - https://hub.docker.com/r/bitnami/memcached
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - memcached
-    - database
-    - cache
+  - memcached
+  - database
+  - cache
 dependencies:
-    - name: common
-      version: 17.2.19
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.19
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: database
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: dependency
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: database
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: dependency
 type: application

@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: authelia
 version: 22.1.5
@@ -8,47 +8,47 @@ home: https://truecharts.org/charts/enterprise/authelia
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/authelia.png
 deprecated: false
 sources:
-    - https://github.com/authelia/authelia
-    - https://github.com/authelia/chartrepo
-    - https://github.com/truecharts/charts/tree/master/charts/enterprise/authelia
-    - https://ghcr.io/authelia/authelia
+  - https://github.com/truecharts/charts/tree/master/charts/enterprise/authelia
+  - https://ghcr.io/authelia/authelia
+  - https://github.com/authelia/authelia
+  - https://github.com/authelia/chartrepo
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - authelia
-    - authentication
-    - login
-    - SSO
-    - Authentication
-    - Security
-    - Two-Factor
-    - U2F
-    - YubiKey
-    - Push Notifications
-    - LDAP
+  - authelia
+  - authentication
+  - login
+  - SSO
+  - Authentication
+  - Security
+  - Two-Factor
+  - U2F
+  - YubiKey
+  - Push Notifications
+  - LDAP
 dependencies:
-    - name: common
-      version: 17.2.21
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-    - name: redis
-      version: 11.1.3
-      repository: https://deps.truecharts.org
-      condition: redis.enabled
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 11.1.3
+    repository: https://deps.truecharts.org
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: security
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: enterprise
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: security
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: enterprise
 type: application

@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: media-roller
 version: 4.1.4
@@ -8,31 +8,31 @@ home: https://truecharts.org/charts/incubator/media-roller
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/media-roller.png
 deprecated: false
 sources:
-    - https://github.com/rroller/media-roller
-    - https://github.com/truecharts/charts/tree/master/charts/incubator/media-roller
-    - https://hub.docker.com/r/ronnieroller/media-roller
+  - https://github.com/rroller/media-roller
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/media-roller
+  - https://hub.docker.com/r/ronnieroller/media-roller
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - media-roller
-    - Tools-Utilities
-    - MediaApp-Video
+  - media-roller
+  - Tools-Utilities
+  - MediaApp-Video
 dependencies:
-    - name: common
-      version: 17.2.21
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: Tools-Utilities
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: incubator
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Tools-Utilities
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
 type: application

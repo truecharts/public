@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: traefik
 version: 25.1.4
@@ -8,32 +8,32 @@ home: https://truecharts.org/charts/enterprise/traefik
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/traefik.png
 deprecated: false
 sources:
-    - https://traefik.io/
-    - https://github.com/traefik/traefik
-    - https://github.com/traefik/traefik-helm-chart
-    - https://github.com/truecharts/charts/tree/master/charts/enterprise/traefik
-    - https://github.com/truecharts/containers/tree/master/mirrortraefik
+  - https://traefik.io/
+  - https://github.com/traefik/traefik
+  - https://github.com/traefik/traefik-helm-chart
+  - https://github.com/truecharts/charts/tree/master/charts/enterprise/traefik
+  - https://github.com/truecharts/containers/tree/master/mirrortraefik
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - traefik
-    - ingress
+  - traefik
+  - ingress
 dependencies:
-    - name: common
-      version: 17.2.19
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.19
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: network
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: enterprise
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: network
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: enterprise
 type: application

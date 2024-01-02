@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: radicale
 version: 4.1.4
@@ -8,37 +8,37 @@ home: https://truecharts.org/charts/incubator/radicale
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/radicale.png
 deprecated: false
 sources:
-    - https://github.com/tomsquest/docker-radicale
-    - https://radicale.org/
-    - https://github.com/truecharts/charts/tree/master/charts/incubator/radicale
-    - https://hub.docker.com/r/tomsquest/docker-radicale
-    - https://github.com/Kozea/Radicale
+  - https://github.com/tomsquest/docker-radicale
+  - https://radicale.org/
+  - https://github.com/Kozea/Radicale
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/radicale
+  - https://hub.docker.com/r/tomsquest/docker-radicale
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - radicale
-    - CalDAV
-    - CardDAV
-    - calendars
-    - contacts
-    - tasks
-    - to-do
+  - radicale
+  - CalDAV
+  - CardDAV
+  - calendars
+  - contacts
+  - tasks
+  - to-do
 dependencies:
-    - name: common
-      version: 17.2.21
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: radicale
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: incubator
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: radicale
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
 type: application

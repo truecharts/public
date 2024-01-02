@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: penpot
 version: 4.0.10
@@ -8,38 +8,38 @@ home: https://truecharts.org/charts/incubator/penpot
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/penpot.png
 deprecated: false
 sources:
-    - https://github.com/penpot/penpot
-    - https://github.com/truecharts/charts/tree/master/charts/incubator/penpot
-    - https://hub.docker.com/r/penpotapp/frontend
+  - https://github.com/penpot/penpot
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/penpot
+  - https://hub.docker.com/r/penpotapp/backend
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - penpot
-    - media
-    - design
+  - penpot
+  - media
+  - design
 dependencies:
-    - name: common
-      version: 17.2.18
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-    - name: redis
-      version: 9.0.3
-      repository: https://deps.truecharts.org
-      condition: redis.enabled
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.18
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 9.0.3
+    repository: https://deps.truecharts.org
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: media
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: incubator
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
 type: application

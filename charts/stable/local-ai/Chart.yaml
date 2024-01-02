@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: local-ai
 version: 8.7.4
@@ -8,30 +8,30 @@ home: https://truecharts.org/charts/stable/local-ai
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/local-ai.png
 deprecated: false
 sources:
-    - https://quay.io/go-skynet/local-ai
-    - https://github.com/go-skynet/LocalAI
-    - https://github.com/truecharts/charts/tree/master/charts/stable/local-ai
+  - https://quay.io/go-skynet/local-ai
+  - https://github.com/go-skynet/LocalAI
+  - https://github.com/truecharts/charts/tree/master/charts/stable/local-ai
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - local-ai
-    - ai
+  - local-ai
+  - ai
 dependencies:
-    - name: common
-      version: 17.2.21
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: ai
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: stable
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: ai
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 type: application

@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: blender-desktop-g3
 version: 4.1.4
@@ -8,33 +8,33 @@ home: https://truecharts.org/charts/incubator/blender-desktop-g3
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/blender-desktop-g3.png
 deprecated: false
 sources:
-    - https://github.com/accetto/headless-drawing-g3/
-    - https://github.com/truecharts/charts/tree/master/charts/incubator/blender-desktop-g3
-    - https://hub.docker.com/r/accetto/ubuntu-vnc-xfce-blender-g3
+  - https://github.com/accetto/headless-drawing-g3/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/blender-desktop-g3
+  - https://hub.docker.com/r/accetto/ubuntu-vnc-xfce-blender-g3
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - blender-desktop-g3
-    - Productivity
-    - Tools-Utilities
-    - MediaApp-Photos
-    - MediaApp-Other
+  - blender-desktop-g3
+  - Productivity
+  - Tools-Utilities
+  - MediaApp-Photos
+  - MediaApp-Other
 dependencies:
-    - name: common
-      version: 17.2.19
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.19
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: Productivity
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: incubator
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Productivity
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
 type: application

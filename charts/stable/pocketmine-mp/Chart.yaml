@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: pocketmine-mp
 version: 2.1.4
@@ -8,30 +8,30 @@ home: https://truecharts.org/charts/incubator/pocketmine-mp
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pocketmine-mp.png
 deprecated: false
 sources:
-    - https://github.com/pmmp/PocketMine-MP
-    - https://github.com/truecharts/charts/tree/master/charts/incubator/pocketmine-mp
-    - https://github.com/truecharts/containers/tree/master/mirrorpocketmine-mp
+  - https://github.com/pmmp/PocketMine-MP
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/pocketmine-mp
+  - https://github.com/truecharts/containers/tree/master/mirrorpocketmine-mp
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - pocketmine-mp
-    - minecraft
+  - pocketmine-mp
+  - minecraft
 dependencies:
-    - name: common
-      version: 17.2.21
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: games
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: incubator
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: games
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
 type: application

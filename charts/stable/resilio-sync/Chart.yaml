@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: resilio-sync
 version: 13.1.5
@@ -8,32 +8,32 @@ home: https://truecharts.org/charts/stable/resilio-sync
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/resilio-sync.png
 deprecated: false
 sources:
-    - https://github.com/orgs/linuxserver/packages/container/package/resilio-sync
-    - https://github.com/truecharts/charts/tree/master/charts/stable/resilio-sync
-    - https://ghcr.io/linuxserver/resilio-sync
+  - https://ghcr.io/linuxserver/resilio-sync
+  - https://github.com/orgs/linuxserver/packages/container/package/resilio-sync
+  - https://github.com/truecharts/charts/tree/master/charts/stable/resilio-sync
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - resilio
-    - sync
-    - btsync
-    - bittorrent
+  - resilio
+  - sync
+  - btsync
+  - bittorrent
 dependencies:
-    - name: common
-      version: 17.2.21
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: media
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: stable
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 type: application

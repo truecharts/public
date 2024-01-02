@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: node-exporter
 version: 6.1.4
@@ -8,30 +8,30 @@ home: https://truecharts.org/charts/dependency/node-exporter
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/node-exporter.png
 deprecated: false
 sources:
-    - https://github.com/truecharts/charts/tree/master/charts/dependency/node-exporter
-    - https://hub.docker.com/r/bitnami/node-exporter
+  - https://github.com/truecharts/charts/tree/master/charts/dependency/node-exporter
+  - https://hub.docker.com/r/bitnami/node-exporter
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - prometheus
-    - node-exporter
-    - monitoring
+  - prometheus
+  - node-exporter
+  - monitoring
 dependencies:
-    - name: common
-      version: 17.2.19
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.19
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: metrics
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: dependency
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: metrics
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: dependency
 type: application

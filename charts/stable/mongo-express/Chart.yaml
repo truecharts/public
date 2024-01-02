@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: mongo-express
 version: 5.1.6
@@ -8,38 +8,38 @@ home: https://truecharts.org/charts/stable/mongo-express
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/mongo-express.png
 deprecated: false
 sources:
-    - https://github.com/mongo-express/mongo-express
-    - https://github.com/truecharts/charts/tree/master/charts/stable/mongo-express
-    - https://hub.docker.com/_/mongo-express
+  - https://github.com/mongo-express/mongo-express
+  - https://github.com/truecharts/charts/tree/master/charts/stable/mongo-express
+  - https://hub.docker.com/_/mongo-express
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - mongo
-    - mongodb
-    - database
+  - mongo
+  - mongodb
+  - database
 dependencies:
-    - name: common
-      version: 17.2.21
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-    - name: mongodb
-      version: 11.1.4
-      repository: https://deps.truecharts.org/
-      condition: mongodb.enabled
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: mongodb
+    version: 11.1.4
+    repository: https://deps.truecharts.org/
+    condition: mongodb.enabled
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: database
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: stable
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: database
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 type: application

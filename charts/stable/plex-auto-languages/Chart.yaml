@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: plex-auto-languages
 version: 7.1.4
@@ -8,33 +8,33 @@ home: https://truecharts.org/charts/stable/plex-auto-languages
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/plex-auto-languages.png
 deprecated: false
 sources:
-    - https://github.com/remirigal/plex-auto-languages
-    - https://github.com/truecharts/charts/tree/master/charts/stable/plex-auto-languages
-    - https://hub.docker.com/r/remirigal/plex-auto-languages
+  - https://github.com/remirigal/plex-auto-languages
+  - https://github.com/truecharts/charts/tree/master/charts/stable/plex-auto-languages
+  - https://hub.docker.com/r/remirigal/plex-auto-languages
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - plex-auto-languages
-    - Tools-Utilities
-    - MediaApp-Other
-    - MediaApp-Video
-    - MediaServer-Video
+  - plex-auto-languages
+  - Tools-Utilities
+  - MediaApp-Other
+  - MediaApp-Video
+  - MediaServer-Video
 dependencies:
-    - name: common
-      version: 17.2.21
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: Tools-Utilities
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: stable
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Tools-Utilities
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 type: application

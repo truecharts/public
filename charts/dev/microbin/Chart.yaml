@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: microbin
 version: 3.0.11
@@ -8,29 +8,29 @@ home: https://truecharts.org/charts/incubator/microbin
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/microbin.png
 deprecated: false
 sources:
-    - https://github.com/szabodanika/microbin
-    - https://github.com/truecharts/charts/tree/master/charts/incubator/microbin
-    - https://hub.docker.com/r/danielszabo99/microbin
+  - https://github.com/szabodanika/microbin
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/microbin
+  - https://hub.docker.com/r/danielszabo99/microbin
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - microbin
+  - microbin
 dependencies:
-    - name: common
-      version: 17.2.18
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.18
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: utility
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: incubator
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: utility
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
 type: application

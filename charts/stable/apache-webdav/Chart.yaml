@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: apache-webdav
 version: 4.1.4
@@ -8,31 +8,31 @@ home: https://truecharts.org/charts/incubator/apache-webdav
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/apache-webdav.png
 deprecated: false
 sources:
-    - https://httpd.apache.org/docs/2.4/mod/mod_dav.html
-    - https://github.com/mgutt/docker-apachewebdav
-    - https://github.com/truecharts/charts/tree/master/charts/incubator/apache-webdav
-    - https://hub.docker.com/r/apachewebdav/apachewebdav
+  - https://httpd.apache.org/docs/2.4/mod/mod_dav.html
+  - https://github.com/mgutt/docker-apachewebdav
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/apache-webdav
+  - https://hub.docker.com/r/apachewebdav/apachewebdav
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - apache-webdav
-    - Cloud
+  - apache-webdav
+  - Cloud
 dependencies:
-    - name: common
-      version: 17.2.19
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.19
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: Cloud
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: incubator
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Cloud
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
 type: application

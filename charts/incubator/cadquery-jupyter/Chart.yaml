@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: cadquery-jupyter
 version: 3.0.11
@@ -8,34 +8,34 @@ home: https://truecharts.org/charts/incubator/cadquery-jupyter
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/cadquery-jupyter.png
 deprecated: false
 sources:
-    - https://github.com/bernhard-42/jupyter-cadquery
-    - https://github.com/truecharts/charts/tree/master/charts/incubator/cadquery-jupyter
-    - https://hub.docker.com/r/bwalter42/jupyter_cadquery
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/cadquery-jupyter
+  - https://hub.docker.com/r/bwalter42/jupyter_cadquery
+  - https://github.com/bernhard-42/jupyter-cadquery
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - cadquery-jupyter
-    - Productivity
-    - Tools-Utilities
-    - Other
-    - Network-Web
-    - Network-Other
+  - cadquery-jupyter
+  - Productivity
+  - Tools-Utilities
+  - Other
+  - Network-Web
+  - Network-Other
 dependencies:
-    - name: common
-      version: 17.2.18
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.18
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: Productivity
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: incubator
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Productivity
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
 type: application

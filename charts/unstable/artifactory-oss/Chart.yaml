@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: artifactory-oss
 version: 3.0.9
@@ -8,31 +8,31 @@ home: https://truecharts.org/charts/unstable/artifactory-oss
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/artifactory-oss.png
 deprecated: false
 sources:
-    - https://registry.hub.docker.com/r/docker.bintray.io/jfrog/artifactory-oss
-    - https://jfrog.com/
-    - https://github.com/truecharts/charts/tree/master/charts/unstable/artifactory-oss
+  - https://registry.hub.docker.com/r/docker.bintray.io/jfrog/artifactory-oss
+  - https://jfrog.com/
+  - https://github.com/truecharts/charts/tree/master/charts/unstable/artifactory-oss
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - artifactory-oss
-    - Productivity
-    - Tools-Utilities
+  - artifactory-oss
+  - Productivity
+  - Tools-Utilities
 dependencies:
-    - name: common
-      version: 17.2.18
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.18
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: Productivity
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: unstable
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Productivity
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: unstable
 type: application

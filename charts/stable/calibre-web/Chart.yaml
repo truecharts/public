@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: calibre-web
 version: 17.1.5
@@ -8,31 +8,31 @@ home: https://truecharts.org/charts/stable/calibre-web
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/calibre-web.png
 deprecated: false
 sources:
-    - https://github.com/janeczku/calibre-web
-    - https://github.com/truecharts/charts/tree/master/charts/stable/calibre-web
-    - https://hub.docker.com/r/linuxserver/calibre-web
+  - https://github.com/janeczku/calibre-web
+  - https://github.com/truecharts/charts/tree/master/charts/stable/calibre-web
+  - https://hub.docker.com/r/linuxserver/calibre-web
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - calibre-web
-    - calibre
-    - ebook
+  - calibre-web
+  - calibre
+  - ebook
 dependencies:
-    - name: common
-      version: 17.2.19
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.19
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: media
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: stable
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 type: application

@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: cloud9
 version: 10.1.4
@@ -8,33 +8,33 @@ home: https://truecharts.org/charts/stable/cloud9
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/cloud9.png
 deprecated: false
 sources:
-    - https://github.com/c9/core
-    - https://aws.amazon.com/cloud9/
-    - https://github.com/truecharts/charts/tree/master/charts/stable/cloud9
-    - https://ghcr.io/linuxserver/cloud9
+  - https://github.com/c9/core
+  - https://aws.amazon.com/cloud9/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/cloud9
+  - https://ghcr.io/linuxserver/cloud9
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - cloud9
-    - ide
-    - terminal
-    - web
+  - cloud9
+  - ide
+  - terminal
+  - web
 dependencies:
-    - name: common
-      version: 17.2.19
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.19
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: media
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: stable
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 type: application

@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: deconz
 version: 14.1.4
@@ -8,33 +8,33 @@ home: https://truecharts.org/charts/stable/deconz
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/deconz.png
 deprecated: false
 sources:
-    - https://github.com/dresden-elektronik/deconz-rest-plugin
-    - https://github.com/truecharts/charts/tree/master/charts/stable/deconz
-    - https://hub.docker.com/r/deconzcommunity/deconz
-    - https://github.com/marthoc/docker-deconz
+  - https://github.com/dresden-elektronik/deconz-rest-plugin
+  - https://github.com/marthoc/docker-deconz
+  - https://github.com/truecharts/charts/tree/master/charts/stable/deconz
+  - https://hub.docker.com/r/deconzcommunity/deconz
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - deconz
-    - home-automation
-    - zigbee
-    - conbee
+  - deconz
+  - home-automation
+  - zigbee
+  - conbee
 dependencies:
-    - name: common
-      version: 17.2.19
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.19
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: media
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: stable
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 type: application
