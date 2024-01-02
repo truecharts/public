@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: metallb
-version: 13.1.6
+version: 13.1.7
 appVersion: latest
 description: A network load-balancer implementation for Kubernetes using standard routing protocols
 home: https://truecharts.org/charts/operators/metallb
@@ -9,8 +9,8 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/metallb.png
 deprecated: false
 sources:
     - https://metallb.universe.tf
-    - https://github.com/truecharts/charts/tree/master/charts/operators/metallb
     - https://github.com/metallb/metallb
+    - https://github.com/truecharts/charts/tree/master/charts/operators/metallb
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
