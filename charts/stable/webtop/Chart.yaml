@@ -1,39 +1,39 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: webtop
-version: 8.1.27
+version: 8.1.44
 appVersion: latest
 description: Webtop full desktop environments in officially supported flavors accessible via any modern web browser.
 home: https://truecharts.org/charts/stable/webtop
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/webtop.png
 deprecated: false
 sources:
-  - https://github.com/orgs/linuxserver/packages/container/package/webtop
-  - https://github.com/linuxserver/docker-webtop#readme
-  - https://github.com/linuxserver/gclient
-  - https://github.com/truecharts/charts/tree/master/charts/stable/webtop
-  - https://fleet.linuxserver.io/image?name=linuxserver/webtop
+    - https://github.com/linuxserver/gclient
+    - https://github.com/orgs/linuxserver/packages/container/package/webtop
+    - https://github.com/linuxserver/docker-webtop#readme
+    - https://github.com/truecharts/charts/tree/master/charts/stable/webtop
+    - https://fleet.linuxserver.io/image?name=linuxserver/webtop
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - webtop
-  - Tools-Utilities
+    - webtop
+    - Tools-Utilities
 dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.21
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Tools-Utilities
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Tools-Utilities
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application
