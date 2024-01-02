@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: romm
-version: 6.2.0
+version: 6.2.1
 appVersion: 2.2.1
 description: game library manager focused in retro gaming
 home: https://truecharts.org/charts/stable/romm
@@ -27,14 +27,14 @@ dependencies:
       tags: []
       import-values: []
     - name: mariadb
-      version: 12.1.3
+      version: 12.1.5
       repository: https://deps.truecharts.org/
       condition: mariadb.enabled
       alias: ""
       tags: []
       import-values: []
     - name: redis
-      version: 11.1.3
+      version: 11.1.5
       repository: https://deps.truecharts.org
       condition: redis.enabled
       alias: ""
