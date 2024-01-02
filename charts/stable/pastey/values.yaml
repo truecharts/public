@@ -1,11 +1,11 @@
 image:
+  repository: cesura/pastey
+  tag: 0.5.1@4c4f6e7a31f574a2034e0807bf874e03e350c8931d4477521fae2b3f3e2aecfe
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/pastey
-  tag: v0.5.1@sha256:cc7d7e848fb023bcc1bf82a568421d2fcb5bd29eb23a5694c925e71662e725ab
 slimImage:
+  repository: cesura/pastey
+  tag: 0.5.1-slim@dc994c07aa45ce94e7f67958c4d03a6dac95f56427e7113500f0e88a258d3b13
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/pastey-slim
-  tag: v0.5.1@sha256:acde8ecaf0216a57e1ee4e449884a09b9d8493bcb69185ed74436489dabbece5
 
 securityContext:
   container:

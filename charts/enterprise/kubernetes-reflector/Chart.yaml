@@ -1,40 +1,40 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: kubernetes-reflector
-version: 3.1.5
+version: 3.1.6
 appVersion: 7.1.217
 description: Kubernetes-Reflector is a Kubernetes addon designed to monitor and reflect changes to secrets and configmaps across namespaces
 home: https://truecharts.org/charts/enterprise/kubernetes-reflector
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/kubernetes-reflector.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/enterprise/kubernetes-reflector
-  - https://hub.docker.com/r/emberstack/kubernetes-reflector
-  - https://github.com/emberstack/kubernetes-reflector
+    - https://github.com/emberstack/kubernetes-reflector
+    - https://github.com/truecharts/charts/tree/master/charts/enterprise/kubernetes-reflector
+    - https://hub.docker.com/r/emberstack/kubernetes-reflector
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - reflector
-  - secrets
-  - configmaps
-  - cert-manager
-  - certificates
+    - reflector
+    - secrets
+    - configmaps
+    - cert-manager
+    - certificates
 dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.21
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: operators
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: enterprise
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: operators
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: enterprise
 type: application

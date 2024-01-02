@@ -1,36 +1,36 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: minecraft-bedrock
-version: 7.1.4
+version: 7.1.5
 appVersion: 2023.8.1
 description: Minecraft Bedrock Dedicated Server
 home: https://truecharts.org/charts/stable/minecraft-bedrock
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/minecraft-bedrock.png
 deprecated: false
 sources:
-  - https://github.com/itzg/docker-minecraft-server
-  - https://github.com/truecharts/charts/tree/master/charts/stable/minecraft-bedrock
-  - https://hub.docker.com/r/itzg/minecraft-bedrock-server
+    - https://github.com/itzg/docker-minecraft-server
+    - https://github.com/truecharts/charts/tree/master/charts/stable/minecraft-bedrock
+    - https://hub.docker.com/r/itzg/minecraft-bedrock-server
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - minecraft
+    - minecraft
 dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.21
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: games
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: games
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application

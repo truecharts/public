@@ -1,10 +1,11 @@
+image:
+  repository: danmed/tasmobackupv1
+  tag: 1.05.00@65cd95d00b1476c4e6c38530ea8eaa0d59b9983e24b3f95639b7c79a0ff194b8
+  pullPolicy: IfNotPresent
+
 env:
   DBNAME: data/tasmobackup
   DBTYPE: sqlite
-image:
-  pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/tasmobackup
-  tag: latest@sha256:197cbf9ce71dd849473ea47c09cb60a667d7f80dd456f13123eaca61517d5ff3
 
 securityContext:
   container:

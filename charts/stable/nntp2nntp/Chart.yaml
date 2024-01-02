@@ -1,35 +1,35 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: nntp2nntp
-version: 8.1.4
+version: 8.1.5
 appVersion: 0.3.20230704
 description: Nntp2nntp proxy allow you to use your NNTP Account from multiple systems, each with own user name and password.
 home: https://truecharts.org/charts/stable/nntp2nntp
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/nntp2nntp.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/nntp2nntp
-  - https://ghcr.io/linuxserver/nntp2nntp
+    - https://github.com/truecharts/charts/tree/master/charts/stable/nntp2nntp
+    - https://ghcr.io/linuxserver/nntp2nntp
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - nntp2nntp
+    - nntp2nntp
 dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.21
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: incubator
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: incubator
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application

@@ -285,6 +285,11 @@
     },
     {
       "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["tccr.io/tccr/nextcloud-"],
+      "groupName": "nextcloud",
+    },
+    {
+      "matchDatasources": ["docker"],
       "matchPackagePrefixes": ["itzg/minecraft-java"],
       "groupName": "minecraft-java",
     },

@@ -1,21 +1,21 @@
 image:
-  repository: tccr.io/truecharts/prometheus-operator
-  tag: "v0.69.1@sha256:dc0ad671ec11e5a5b6032a7d36b9451b10f0848f7f0d7203b761de6a1b7c0e99"
+  repository: quay.io/prometheus-operator/prometheus-operator
+  tag: "v0.70.0@sha256:e76d06ac84abeb466feb9682e1d0385c4e5a463bc023b32446916b640546a289"
   pullPolicy:
 
 configReloaderImage:
-  repository: tccr.io/truecharts/prometheus-config-reloader
-  tag: "v0.69.1@sha256:0eb31dcf295350b906e462113f3c2f274ef38f44f95d0e6bd584fb46320e6327"
+  repository: quay.io/prometheus-operator/prometheus-config-reloader
+  tag: "v0.70.0@sha256:411cec4bc5e6306804c2d5939c165411a88fb7991c2bd0c3ef4866387f683374"
   pullPolicy:
 
 thanosImage:
-  repository: tccr.io/truecharts/thanos
-  tag: "v0.32.5@sha256:2e10c5d3525e9b1b7ca1341240b62ce392a31db5adffa0e4e5b232f784f01f5b"
+  repository: quay.io/thanos/thanos
+  tag: "v0.33.0@sha256:70d2ea73792e2d26a6eb45e0c999fc88e8cebc1ba443ca059e19715231365cc8"
   pullPolicy:
 
 patchImage:
-  repository: tccr.io/truecharts/kube-webhook-certgen
-  tag: latest@sha256:28c6de4c7fe7527daafd761e2d33aafe1094004e77248fcc674cc6e092da1017
+  repository: registry.k8s.io/ingress-nginx/kube-webhook-certgen
+  tag: v20221220-controller-v1.5.1-58-g787ea74b6@sha256:4d99688e557396f5baa150e019ff7d5b7334f9b9f9a8dab64038c5c2a006f6b5
   pullPolicy:
 
 workload:

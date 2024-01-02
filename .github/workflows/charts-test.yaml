@@ -145,36 +145,14 @@ jobs:
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
       - name: Prep Helm
+        shell: bash
         run: |
-          helm repo add truecharts-deps https://deps.truecharts.org
-          helm repo add jetstack https://charts.jetstack.io
-          helm repo add vmwaretanzu https://vmware-tanzu.github.io/helm-charts
-          helm repo add cnpg https://cloudnative-pg.github.io/charts
-          helm repo add metallb https://metallb.github.io/metallb
-          helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-          helm repo add openebs https://openebs.github.io/charts
-          helm repo add csi-driver-smb https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts
-          helm repo add csi-driver-nfs https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
-          helm repo update
+          ./.github/scripts/prep_helm.sh
 
       - name: Add Dependencies
+        shell: bash
         run: |
-          if [[ "${{ matrix.chart }}" == "charts/operators/metallb-config" ]]; then
-            helm install metallb oci://tccr.io/truecharts/metallb --namespace metallb --create-namespace --wait
-          fi
-          ## TODO: Only add when required
-          if [[ "${{ matrix.chart }}" == "charts/enterprise/clusterissuer" ]]; then
-            helm install cert-manager oci://tccr.io/truecharts/cert-manager --namespace cert-manager --create-namespace --wait
-          fi
-          if [[ "${{ matrix.chart }}" != "charts/operators/cloudnative-pg" ]]; then
-            helm install cloudnative-pg oci://tccr.io/truecharts/cloudnative-pg --namespace cloudnative-pg --create-namespace --wait
-          fi
-          if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
-            helm install prometheus-operator oci://tccr.io/truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
-          fi
-          if [[ "${{ matrix.chart }}" != "charts/enterprise/traefik" ]]; then
-            helm install traefik oci://tccr.io/truecharts/traefik --namespace traefik --create-namespace --wait
-          fi
+          ./.github/scripts/install_dependencies.sh "${{ matrix.chart }}"
 
       - name: Run chart-testing (install)
         run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade
@@ -221,36 +199,15 @@ jobs:
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
       - name: Prep Helm
+        shell: bash
         run: |
-          helm repo add truecharts-deps https://deps.truecharts.org
-          helm repo add jetstack https://charts.jetstack.io
-          helm repo add vmwaretanzu https://vmware-tanzu.github.io/helm-charts
-          helm repo add cnpg https://cloudnative-pg.github.io/charts
-          helm repo add metallb https://metallb.github.io/metallb
-          helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-          helm repo add openebs https://openebs.github.io/charts
-          helm repo add csi-driver-smb https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts
-          helm repo add csi-driver-nfs https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
-          helm repo update
+          ./.github/scripts/prep_helm.sh
 
       - name: Add Dependencies
+        shell: bash
         run: |
-          if [[ "${{ matrix.chart }}" == "charts/operators/metallb-config" ]]; then
-            helm install metallb oci://tccr.io/truecharts/metallb --namespace metallb --create-namespace --wait
-          fi
-          ## TODO: Only add when required
-          if [[ "${{ matrix.chart }}" == "charts/enterprise/clusterissuer" ]]; then
-            helm install cert-manager oci://tccr.io/truecharts/cert-manager --namespace cert-manager --create-namespace --wait
-          fi
-          if [[ "${{ matrix.chart }}" != "charts/operators/cloudnative-pg" ]]; then
-            helm install cloudnative-pg oci://tccr.io/truecharts/cloudnative-pg --namespace cloudnative-pg --create-namespace --wait
-          fi
-          if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
-            helm install prometheus-operator oci://tccr.io/truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
-          fi
-          if [[ "${{ matrix.chart }}" != "charts/enterprise/traefik" ]]; then
-            helm install traefik oci://tccr.io/truecharts/traefik --namespace traefik --create-namespace --wait
-          fi
+          ./.github/scripts/install_dependencies.sh "${{ matrix.chart }}"
+
 
       - name: Run chart-testing (install)
         run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade
@@ -297,36 +254,14 @@ jobs:
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
       - name: Prep Helm
+        shell: bash
         run: |
-          helm repo add truecharts-deps https://deps.truecharts.org
-          helm repo add jetstack https://charts.jetstack.io
-          helm repo add vmwaretanzu https://vmware-tanzu.github.io/helm-charts
-          helm repo add cnpg https://cloudnative-pg.github.io/charts
-          helm repo add metallb https://metallb.github.io/metallb
-          helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-          helm repo add openebs https://openebs.github.io/charts
-          helm repo add csi-driver-smb https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts
-          helm repo add csi-driver-nfs https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
-          helm repo update
+          ./.github/scripts/prep_helm.sh
 
       - name: Add Dependencies
+        shell: bash
         run: |
-          if [[ "${{ matrix.chart }}" == "charts/operators/metallb-config" ]]; then
-            helm install metallb oci://tccr.io/truecharts/metallb --namespace metallb --create-namespace --wait
-          fi
-          ## TODO: Only add when required
-          if [[ "${{ matrix.chart }}" == "charts/enterprise/clusterissuer" ]]; then
-            helm install cert-manager oci://tccr.io/truecharts/cert-manager --namespace cert-manager --create-namespace --wait
-          fi
-          if [[ "${{ matrix.chart }}" != "charts/operators/cloudnative-pg" ]]; then
-            helm install cloudnative-pg oci://tccr.io/truecharts/cloudnative-pg --namespace cloudnative-pg --create-namespace --wait
-          fi
-          if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
-            helm install prometheus-operator oci://tccr.io/truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
-          fi
-          if [[ "${{ matrix.chart }}" != "charts/enterprise/traefik" ]]; then
-            helm install traefik oci://tccr.io/truecharts/traefik --namespace traefik --create-namespace --wait
-          fi
+          ./.github/scripts/install_dependencies.sh "${{ matrix.chart }}"
 
       - name: Run chart-testing (install)
         run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade
@@ -373,36 +308,14 @@ jobs:
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
       - name: Prep Helm
+        shell: bash
         run: |
-          helm repo add truecharts-deps https://deps.truecharts.org
-          helm repo add jetstack https://charts.jetstack.io
-          helm repo add vmwaretanzu https://vmware-tanzu.github.io/helm-charts
-          helm repo add cnpg https://cloudnative-pg.github.io/charts
-          helm repo add metallb https://metallb.github.io/metallb
-          helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-          helm repo add openebs https://openebs.github.io/charts
-          helm repo add csi-driver-smb https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts
-          helm repo add csi-driver-nfs https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
-          helm repo update
+          ./.github/scripts/prep_helm.sh
 
       - name: Add Dependencies
+        shell: bash
         run: |
-          if [[ "${{ matrix.chart }}" == "charts/operators/metallb-config" ]]; then
-            helm install metallb oci://tccr.io/truecharts/metallb --namespace metallb --create-namespace --wait
-          fi
-          ## TODO: Only add when required
-          if [[ "${{ matrix.chart }}" == "charts/enterprise/clusterissuer" ]]; then
-            helm install cert-manager oci://tccr.io/truecharts/cert-manager --namespace cert-manager --create-namespace --wait
-          fi
-          if [[ "${{ matrix.chart }}" != "charts/operators/cloudnative-pg" ]]; then
-            helm install cloudnative-pg oci://tccr.io/truecharts/cloudnative-pg --namespace cloudnative-pg --create-namespace --wait
-          fi
-          if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
-            helm install prometheus-operator oci://tccr.io/truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
-          fi
-          if [[ "${{ matrix.chart }}" != "charts/enterprise/traefik" ]]; then
-            helm install traefik oci://tccr.io/truecharts/traefik --namespace traefik --create-namespace --wait
-          fi
+          ./.github/scripts/install_dependencies.sh "${{ matrix.chart }}"
 
       - name: Run chart-testing (install)
         run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade
@@ -449,36 +362,14 @@ jobs:
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
       - name: Prep Helm
+        shell: bash
         run: |
-          helm repo add truecharts-deps https://deps.truecharts.org
-          helm repo add jetstack https://charts.jetstack.io
-          helm repo add vmwaretanzu https://vmware-tanzu.github.io/helm-charts
-          helm repo add cnpg https://cloudnative-pg.github.io/charts
-          helm repo add metallb https://metallb.github.io/metallb
-          helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-          helm repo add openebs https://openebs.github.io/charts
-          helm repo add csi-driver-smb https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts
-          helm repo add csi-driver-nfs https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
-          helm repo update
+          ./.github/scripts/prep_helm.sh
 
       - name: Add Dependencies
+        shell: bash
         run: |
-          if [[ "${{ matrix.chart }}" == "charts/operators/metallb-config" ]]; then
-            helm install metallb oci://tccr.io/truecharts/metallb --namespace metallb --create-namespace --wait
-          fi
-          ## TODO: Only add when required
-          if [[ "${{ matrix.chart }}" == "charts/enterprise/clusterissuer" ]]; then
-            helm install cert-manager oci://tccr.io/truecharts/cert-manager --namespace cert-manager --create-namespace --wait
-          fi
-          if [[ "${{ matrix.chart }}" != "charts/operators/cloudnative-pg" ]]; then
-            helm install cloudnative-pg oci://tccr.io/truecharts/cloudnative-pg --namespace cloudnative-pg --create-namespace --wait
-          fi
-          if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
-            helm install prometheus-operator oci://tccr.io/truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
-          fi
-          if [[ "${{ matrix.chart }}" != "charts/enterprise/traefik" ]]; then
-            helm install traefik oci://tccr.io/truecharts/traefik --namespace traefik --create-namespace --wait
-          fi
+          ./.github/scripts/install_dependencies.sh "${{ matrix.chart }}"
 
       - name: Run chart-testing (install)
         run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade
@@ -525,36 +416,15 @@ jobs:
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
       - name: Prep Helm
+        shell: bash
         run: |
-          helm repo add truecharts-deps https://deps.truecharts.org
-          helm repo add jetstack https://charts.jetstack.io
-          helm repo add vmwaretanzu https://vmware-tanzu.github.io/helm-charts
-          helm repo add cnpg https://cloudnative-pg.github.io/charts
-          helm repo add metallb https://metallb.github.io/metallb
-          helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-          helm repo add openebs https://openebs.github.io/charts
-          helm repo add csi-driver-smb https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts
-          helm repo add csi-driver-nfs https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
-          helm repo update
+          ./.github/scripts/prep_helm.sh
 
       - name: Add Dependencies
+        shell: bash
         run: |
-          if [[ "${{ matrix.chart }}" == "charts/operators/metallb-config" ]]; then
-            helm install metallb oci://tccr.io/truecharts/metallb --namespace metallb --create-namespace --wait
-          fi
-          ## TODO: Only add when required
-          if [[ "${{ matrix.chart }}" == "charts/enterprise/clusterissuer" ]]; then
-            helm install cert-manager oci://tccr.io/truecharts/cert-manager --namespace cert-manager --create-namespace --wait
-          fi
-          if [[ "${{ matrix.chart }}" != "charts/operators/cloudnative-pg" ]]; then
-            helm install cloudnative-pg oci://tccr.io/truecharts/cloudnative-pg --namespace cloudnative-pg --create-namespace --wait
-          fi
-          if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
-            helm install prometheus-operator oci://tccr.io/truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
-          fi
-          if [[ "${{ matrix.chart }}" != "charts/enterprise/traefik" ]]; then
-            helm install traefik oci://tccr.io/truecharts/traefik --namespace traefik --create-namespace --wait
-          fi
+          ./.github/scripts/install_dependencies.sh "${{ matrix.chart }}"
+
 
       - name: Run chart-testing (install)
         run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade
