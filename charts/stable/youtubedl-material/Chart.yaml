@@ -1,43 +1,43 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: youtubedl-material
-version: 9.1.5
+version: 9.1.6
 appVersion: 4.3.2
 description: YoutubeDL-Material is a Material Design frontend for youtube-dl.
 home: https://truecharts.org/charts/stable/youtubedl-material
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/youtubedl-material.png
 deprecated: false
 sources:
-  - https://github.com/Tzahi12345/YoutubeDL-Material
-  - https://github.com/truecharts/charts/tree/master/charts/stable/youtubedl-material
-  - https://ghcr.io/tzahi12345/youtubedl-material
+    - https://github.com/Tzahi12345/YoutubeDL-Material
+    - https://github.com/truecharts/charts/tree/master/charts/stable/youtubedl-material
+    - https://ghcr.io/tzahi12345/youtubedl-material
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - youtube
+    - youtube
 dependencies:
-  - name: common
-    version: 17.2.19
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-  - name: mongodb
-    version: 11.1.4
-    repository: https://deps.truecharts.org
-    condition: mongodb.enabled
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.21
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
+    - name: mongodb
+      version: 11.1.4
+      repository: https://deps.truecharts.org
+      condition: mongodb.enabled
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application

@@ -1,37 +1,37 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: auto-yt-dl
-version: 4.1.4
+version: 4.1.5
 appVersion: latest
 description: auto-yt-dl is used to automatically download new Videos of specific YouTube Channels. It features a Web Gui to add and remove Channels from your watch list.
 home: https://truecharts.org/charts/incubator/auto-yt-dl
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/auto-yt-dl.png
 deprecated: false
 sources:
-  - https://github.com/xXGuhuXx/auto-yt-dl
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/auto-yt-dl
-  - https://hub.docker.com/r/guhu007/auto-yt-dl
+    - https://github.com/xXGuhuXx/auto-yt-dl
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/auto-yt-dl
+    - https://hub.docker.com/r/guhu007/auto-yt-dl
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - auto-yt-dl
-  - Downloaders
+    - auto-yt-dl
+    - Downloaders
 dependencies:
-  - name: common
-    version: 17.2.19
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.21
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Downloaders
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Downloaders
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: incubator
 type: application
