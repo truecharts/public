@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: cops
-version: 7.1.6
+version: 7.1.7
 appVersion: 2.2.1
 description: |
     Cops(http://blog.slucas.fr/en/oss/calibre-opds-php-server) by Sébastien Lucas, stands for Calibre OPDS (and HTML) Php Server.
@@ -9,10 +9,10 @@ home: https://truecharts.org/charts/stable/cops
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/cops.png
 deprecated: false
 sources:
-    - https://github.com/truecharts/charts/tree/master/charts/stable/cops
-    - https://fleet.linuxserver.io/image?name=linuxserver/cops
     - https://github.com/orgs/linuxserver/packages/container/package/cops
     - https://github.com/linuxserver/docker-cops#readme
+    - https://github.com/truecharts/charts/tree/master/charts/stable/cops
+    - https://fleet.linuxserver.io/image?name=linuxserver/cops
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

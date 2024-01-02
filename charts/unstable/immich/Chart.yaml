@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: immich
-version: 12.0.5
+version: 12.0.6
 appVersion: 1.88.2
 description: High performance self-hosted photo and video backup solution.
 home: https://truecharts.org/charts/stable/immich
@@ -10,7 +10,7 @@ deprecated: false
 sources:
     - https://github.com/immich-app/immich
     - https://github.com/truecharts/charts/tree/master/charts/stable/immich
-    - https://hub.docker.com/r/altran1502/immich-machine-learning
+    - https://hub.docker.com/r/typesense/typesense
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

@@ -1,46 +1,46 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: photoprism
-version: 19.1.6
+version: 19.1.7
 appVersion: "231128"
 description: PhotoPrismÂ® is a server-based application for browsing, organizing and sharing your personal photo collection
 home: https://truecharts.org/charts/stable/photoprism
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/photoprism.png
 deprecated: false
 sources:
-  - https://github.com/photoprism/photoprism
-  - https://github.com/truecharts/charts/tree/master/charts/stable/photoprism
-  - https://hub.docker.com/r/photoprism/photoprism
+    - https://github.com/photoprism/photoprism
+    - https://github.com/truecharts/charts/tree/master/charts/stable/photoprism
+    - https://hub.docker.com/r/photoprism/photoprism
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - photos
-  - photoprism
-  - pictures
-  - sharing
+    - photos
+    - photoprism
+    - pictures
+    - sharing
 dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-  - name: mariadb
-    version: 12.1.5
-    repository: https://deps.truecharts.org/
-    condition: mariadb.enabled
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.21
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
+    - name: mariadb
+      version: 12.1.5
+      repository: https://deps.truecharts.org/
+      condition: mariadb.enabled
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application

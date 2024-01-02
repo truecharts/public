@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: snowflake-proxy
-version: 1.0.12
+version: 1.0.13
 appVersion: 2.6.0
 description: Snowflake's Proxy component to help users in the censored regions.
 home: https://truecharts.org/charts/incubator/snowflake-proxy
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/snowflake-proxy.png
 deprecated: false
 sources:
-    - https://gitlab.torproject.org/tpo/anti-censorship/docker-snowflake-proxy
     - https://github.com/truecharts/charts/tree/master/charts/incubator/snowflake-proxy
     - https://hub.docker.com/r/thetorproject/snowflake-proxy
+    - https://gitlab.torproject.org/tpo/anti-censorship/docker-snowflake-proxy
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

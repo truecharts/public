@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: librephotos
-version: 9.0.10
+version: 9.0.11
 appVersion: latest
 description: A self-hosted open source photo management service.
 home: https://truecharts.org/charts/unstable/librephotos
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/librephotos.png
 deprecated: false
 sources:
+    - https://github.com/LibrePhotos/librephotos
     - https://github.com/truecharts/charts/tree/master/charts/unstable/librephotos
     - https://hub.docker.com/r/reallibrephotos/librephotos-proxy
-    - https://github.com/LibrePhotos/librephotos
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

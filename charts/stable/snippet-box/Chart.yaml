@@ -1,38 +1,38 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: snippet-box
-version: 6.1.4
+version: 6.1.5
 appVersion: latest
 description: Snippet Box is a simple self-hosted app for organizing your code snippets.
 home: https://truecharts.org/charts/stable/snippet-box
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/snippet-box.png
 deprecated: false
 sources:
-  - https://github.com/pawelmalak/snippet-box
-  - https://github.com/truecharts/charts/tree/master/charts/stable/snippet-box
-  - https://hub.docker.com/r/pawelmalak/snippet-box
+    - https://github.com/pawelmalak/snippet-box
+    - https://github.com/truecharts/charts/tree/master/charts/stable/snippet-box
+    - https://hub.docker.com/r/pawelmalak/snippet-box
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - snippet-box
-  - Productivity
-  - Tools-Utilities
+    - snippet-box
+    - Productivity
+    - Tools-Utilities
 dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.21
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Productivity
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Productivity
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application

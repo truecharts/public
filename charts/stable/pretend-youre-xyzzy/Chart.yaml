@@ -1,40 +1,40 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: pretend-youre-xyzzy
-version: 12.1.4
+version: 12.1.5
 appVersion: "4"
 description: pretend-youre-xyzzy, a cards against humanity clone
 home: https://truecharts.org/charts/stable/pretend-youre-xyzzy
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pretend-youre-xyzzy.png
 deprecated: false
 sources:
-  - https://github.com/emcniece/DockerYourXyzzy
-  - https://github.com/ajanata/PretendYoureXyzzy
-  - https://github.com/truecharts/charts/tree/master/charts/stable/pretend-youre-xyzzy
-  - https://hub.docker.com/r/emcniece/dockeryourxyzzy
+    - https://github.com/emcniece/DockerYourXyzzy
+    - https://github.com/ajanata/PretendYoureXyzzy
+    - https://github.com/truecharts/charts/tree/master/charts/stable/pretend-youre-xyzzy
+    - https://hub.docker.com/r/emcniece/dockeryourxyzzy
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - pretend-youre-xyzzy
-  - cards
-  - against
-  - humanity
+    - pretend-youre-xyzzy
+    - cards
+    - against
+    - humanity
 dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.21
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application

@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: duplicati
-version: 12.1.5
+version: 12.1.6
 appVersion: latest
 description: Store securely encrypted backups on cloud storage services!
 home: https://truecharts.org/charts/stable/duplicati
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/duplicati.png
 deprecated: false
 sources:
-    - https://github.com/duplicati/duplicati
     - https://github.com/truecharts/charts/tree/master/charts/stable/duplicati
     - https://hub.docker.com/r/duplicati/duplicati
+    - https://github.com/duplicati/duplicati
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

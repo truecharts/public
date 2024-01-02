@@ -1,41 +1,41 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: readarr
-version: 19.1.5
+version: 19.1.6
 appVersion: 0.3.14.2348
 description: A fork of Radarr to work with Books & AudioBooks
 home: https://truecharts.org/charts/stable/readarr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/readarr.png
 deprecated: false
 sources:
-  - https://github.com/Readarr/Readarr
-  - https://readarr.com
-  - https://github.com/truecharts/charts/tree/master/charts/stable/readarr
-  - https://ghcr.io/onedr0p/readarr-develop
+    - https://readarr.com
+    - https://github.com/truecharts/charts/tree/master/charts/stable/readarr
+    - https://ghcr.io/onedr0p/exportarr
+    - https://github.com/Readarr/Readarr
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - readarr
-  - torrent
-  - usenet
-  - AudioBooks
-  - ebooks
+    - readarr
+    - torrent
+    - usenet
+    - AudioBooks
+    - ebooks
 dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.21
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application

@@ -1,39 +1,39 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: plaxt
-version: 7.1.4
+version: 7.1.5
 appVersion: latest
 description: This Tools provides a way to keep your watched history synced FROM Plex Server To Trakt.tv
 home: https://truecharts.org/charts/stable/plaxt
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/plaxt.png
 deprecated: false
 sources:
-  - https://github.com/XanderStrike/goplaxt
-  - https://github.com/truecharts/charts/tree/master/charts/stable/plaxt
-  - https://hub.docker.com/r/xanderstrike/goplaxt
+    - https://hub.docker.com/r/xanderstrike/goplaxt
+    - https://github.com/XanderStrike/goplaxt
+    - https://github.com/truecharts/charts/tree/master/charts/stable/plaxt
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - plaxt
-  - Other
-  - MediaApp-Other
-  - MediaServer-Other
+    - plaxt
+    - Other
+    - MediaApp-Other
+    - MediaServer-Other
 dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.21
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Other
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Other
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application

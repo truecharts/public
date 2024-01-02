@@ -1,37 +1,37 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: qbittorrent
-version: 18.1.4
+version: 18.1.5
 appVersion: 4.6.2
 description: qBittorrent is a cross-platform free and open-source BitTorrent client
 home: https://truecharts.org/charts/stable/qbittorrent
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/qbittorrent.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/qbittorrent
-  - https://hub.docker.com/r/mjmeli/qbittorrent-port-forward-gluetun-server
-  - https://github.com/qbittorrent/qBittorrent
+    - https://github.com/qbittorrent/qBittorrent
+    - https://github.com/truecharts/charts/tree/master/charts/stable/qbittorrent
+    - https://hub.docker.com/r/mjmeli/qbittorrent-port-forward-gluetun-server
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - qbittorrent
-  - torrrent
+    - qbittorrent
+    - torrrent
 dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.21
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application

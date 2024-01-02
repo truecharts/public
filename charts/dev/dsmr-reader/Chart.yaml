@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: dsmr-reader
-version: 13.0.12
+version: 13.0.13
 appVersion: 2021.09.02
 description: DSMR-protocol reader, telegram data storage and energy consumption visualizer.
 home: https://truecharts.org/charts/incubator/dsmr-reader
@@ -9,9 +9,9 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/dsmr-reader.png
 deprecated: false
 sources:
     - https://github.com/xirixiz/dsmr-reader-docker
+    - https://github.com/dsmrreader/dsmr-reader
     - https://github.com/truecharts/charts/tree/master/charts/incubator/dsmr-reader
     - https://hub.docker.com/r/xirixiz/dsmr-reader-docker
-    - https://github.com/dsmrreader/dsmr-reader
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

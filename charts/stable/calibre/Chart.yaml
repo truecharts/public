@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: calibre
-version: 13.1.6
+version: 13.1.7
 appVersion: 7.2.0
 description: Calibre is a powerful and easy to use e-book manager.
 home: https://truecharts.org/charts/stable/calibre
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/calibre.png
 deprecated: false
 sources:
-    - https://ghcr.io/linuxserver/calibre
     - https://github.com/kovidgoyal/calibre/
     - https://github.com/truecharts/charts/tree/master/charts/stable/calibre
+    - https://ghcr.io/linuxserver/calibre
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

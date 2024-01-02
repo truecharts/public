@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: deluge
-version: 17.1.5
+version: 17.1.6
 appVersion: 2.1.1
 description: Deluge App for TrueNAS SCALE
 home: https://truecharts.org/charts/stable/deluge
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/deluge.png
 deprecated: false
 sources:
-    - https://ghcr.io/linuxserver/deluge
     - https://github.com/deluge-torrent/deluge
     - https://github.com/truecharts/charts/tree/master/charts/stable/deluge
+    - https://ghcr.io/linuxserver/deluge
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

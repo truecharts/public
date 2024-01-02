@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: apt-cacher-ng
-version: 7.1.5
+version: 7.1.6
 appVersion: 3.7.4
 description: Apt-Cacher NG is a caching proxy, specialized for package files from Linux distributors, primarily for Debian (and Debian based) distributions but not limited to those.
 home: https://truecharts.org/charts/stable/apt-cacher-ng
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/apt-cacher-ng.png
 deprecated: false
 sources:
-    - https://hub.docker.com/r/sameersbn/apt-cacher-ng
     - https://www.unix-ag.uni-kl.de/~bloch/acng/
     - https://github.com/truecharts/charts/tree/master/charts/stable/apt-cacher-ng
+    - https://hub.docker.com/r/sameersbn/apt-cacher-ng
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: sonarr
-version: 19.0.24
+version: 19.0.25
 appVersion: 4.0.0.741
 description: Smart PVR for newsgroup and bittorrent users
 home: https://truecharts.org/charts/stable/sonarr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/sonarr.png
 deprecated: false
 sources:
-    - https://ghcr.io/onedr0p/exportarr
     - https://github.com/Sonarr/Sonarr
     - https://github.com/truecharts/charts/tree/master/charts/stable/sonarr
+    - https://ghcr.io/onedr0p/exportarr
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

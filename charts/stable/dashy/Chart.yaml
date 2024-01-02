@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: dashy
-version: 5.1.5
+version: 5.1.6
 appVersion: 2.1.1
 description: Dashy helps you organize your self-hosted services by making them accessible from a single place
 home: https://truecharts.org/charts/stable/dashy
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/dashy.png
 deprecated: false
 sources:
+    - https://hub.docker.com/r/lissy93/dashy
     - https://github.com/Lissy93/dashy
     - https://github.com/truecharts/charts/tree/master/charts/stable/dashy
-    - https://hub.docker.com/r/lissy93/dashy
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

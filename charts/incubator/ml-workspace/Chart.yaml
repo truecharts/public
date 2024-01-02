@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: ml-workspace
-version: 6.0.12
+version: 6.0.13
 appVersion: 0.13.2
 description: All-in-one web-based development environment for machine learning
 home: https://truecharts.org/charts/incubator/ml-workspace
@@ -10,7 +10,7 @@ deprecated: false
 sources:
     - https://github.com/ml-tooling/ml-workspace
     - https://github.com/truecharts/charts/tree/master/charts/incubator/ml-workspace
-    - https://hub.docker.com/r/mltooling/ml-workspace-spark
+    - https://hub.docker.com/r/mltooling/ml-workspace-gpu
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

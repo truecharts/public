@@ -1,36 +1,36 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: makemkv
-version: 8.1.4
+version: 8.1.5
 appVersion: 23.11.2
 description: MakeMKV is your one-click solution to convert video that you own into free and patents-unencumbered format that can be played everywhere.
 home: https://truecharts.org/charts/stable/makemkv
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/makemkv.png
 deprecated: false
 sources:
-  - https://github.com/jlesage/docker-makemkv
-  - https://github.com/truecharts/charts/tree/master/charts/stable/makemkv
-  - https://hub.docker.com/r/jlesage/makemkv
+    - https://hub.docker.com/r/jlesage/makemkv
+    - https://github.com/jlesage/docker-makemkv
+    - https://github.com/truecharts/charts/tree/master/charts/stable/makemkv
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - mkv
+    - mkv
 dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.21
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application

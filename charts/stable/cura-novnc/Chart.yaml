@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: cura-novnc
-version: 7.1.5
+version: 7.1.6
 appVersion: latest
 description: Enjoy Cura directly in your browser with this easy to use Chart
 home: https://truecharts.org/charts/stable/cura-novnc
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/cura-novnc.png
 deprecated: false
 sources:
+    - https://ultimaker.com/software/ultimaker-cura
     - https://github.com/truecharts/charts/tree/master/charts/stable/cura-novnc
     - https://hub.docker.com/r/mikeah/cura-novnc
-    - https://ultimaker.com/software/ultimaker-cura
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

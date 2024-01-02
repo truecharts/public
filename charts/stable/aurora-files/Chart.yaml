@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: aurora-files
-version: 4.1.5
+version: 4.1.6
 appVersion: latest
 description: Aurora Files is an open-source file storage platform for small teams and personal users. Afterlogic Aurora Files image for Chart using Nginx, PHP-FPM 8.1, MySQL on Alpine Linux. Loosely based on khromov/alpine-nginx-php8 package.
 home: https://truecharts.org/charts/incubator/aurora-files
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/aurora-files.png
 deprecated: false
 sources:
-    - https://github.com/afterlogic/docker-aurora-files
     - https://github.com/truecharts/charts/tree/master/charts/incubator/aurora-files
     - https://hub.docker.com/r/afterlogic/docker-aurora-files
+    - https://github.com/afterlogic/docker-aurora-files
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

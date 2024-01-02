@@ -1,40 +1,40 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: opengl-desktop-g3
-version: 4.1.4
+version: 4.1.5
 appVersion: latest
 description: Headless Ubuntu/Xfce Charts with VNC/noVNC for diagramming, image editing and 2D/3D drawing
 home: https://truecharts.org/charts/incubator/opengl-desktop-g3
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/opengl-desktop-g3.png
 deprecated: false
 sources:
-  - https://github.com/accetto/headless-drawing-g3/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/opengl-desktop-g3
-  - https://hub.docker.com/r/accetto/ubuntu-vnc-xfce-opengl-g3
+    - https://github.com/accetto/headless-drawing-g3/
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/opengl-desktop-g3
+    - https://hub.docker.com/r/accetto/ubuntu-vnc-xfce-opengl-g3
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - opengl-desktop-g3
-  - Productivity
-  - Tools-Utilities
-  - MediaApp-Photos
-  - MediaApp-Other
+    - opengl-desktop-g3
+    - Productivity
+    - Tools-Utilities
+    - MediaApp-Photos
+    - MediaApp-Other
 dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.21
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Productivity
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Productivity
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: incubator
 type: application

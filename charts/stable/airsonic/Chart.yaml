@@ -1,18 +1,18 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: airsonic
-version: 12.1.5
+version: 12.1.6
 appVersion: 10.6.2
 description: Airsonic is a Free and Open Source community driven media server
 home: https://truecharts.org/charts/stable/airsonic
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/airsonic.png
 deprecated: false
 sources:
+    - https://github.com/truecharts/charts/tree/master/charts/stable/airsonic
     - https://ghcr.io/linuxserver/airsonic
     - https://github.com/k8s-at-home/charts/tree/master/charts/airsonic
     - https://github.com/airsonic/airsonic
     - https://github.com/linuxserver/docker-airsonic
-    - https://github.com/truecharts/charts/tree/master/charts/stable/airsonic
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

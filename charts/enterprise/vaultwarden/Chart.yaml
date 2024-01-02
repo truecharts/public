@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: vaultwarden
-version: 25.1.5
+version: 25.1.6
 appVersion: 1.30.1
 description: Unofficial Bitwarden compatible server written in Rust
 home: https://truecharts.org/charts/enterprise/vaultwarden
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/vaultwarden.png
 deprecated: false
 sources:
+    - https://hub.docker.com/r/vaultwarden/server
     - https://github.com/dani-garcia/vaultwarden
     - https://github.com/truecharts/charts/tree/master/charts/enterprise/vaultwarden
-    - https://hub.docker.com/r/vaultwarden/server
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

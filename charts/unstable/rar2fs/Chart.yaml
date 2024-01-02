@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: rar2fs
-version: 0.0.11
+version: 0.0.12
 appVersion: latest
 description: FUSE file system for reading RAR archives.
 home: https://truecharts.org/charts/incubator/rar2fs
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/rar2fs.png
 deprecated: false
 sources:
-    - https://github.com/truecharts/charts/tree/master/charts/incubator/rar2fs
     - https://ghcr.io/zimme/rar2fs
     - https://github.com/zimme/docker-rar2fs
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/rar2fs
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

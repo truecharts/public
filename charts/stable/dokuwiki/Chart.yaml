@@ -1,15 +1,15 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: dokuwiki
-version: 9.1.5
+version: 9.1.6
 appVersion: 20230404.1.0
 description: Dokuwiki is a simple to use and highly versatile Open Source wiki software that doesn't require a database.
 home: https://truecharts.org/charts/stable/dokuwiki
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/dokuwiki.png
 deprecated: false
 sources:
-    - https://hub.docker.com/r/bitnami/dokuwiki
     - https://github.com/truecharts/charts/tree/master/charts/stable/dokuwiki
+    - https://hub.docker.com/r/bitnami/dokuwiki
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

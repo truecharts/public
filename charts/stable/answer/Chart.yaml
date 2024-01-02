@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: answer
-version: 2.1.7
+version: 2.1.8
 appVersion: 1.2.0
 description: A Q&A platform software for teams at any scales.
 home: https://truecharts.org/charts/incubator/answer
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/answer.png
 deprecated: false
 sources:
+    - https://hub.docker.com/r/answerdev/answer
     - https://github.com/answerdev/answer
     - https://github.com/truecharts/charts/tree/master/charts/incubator/answer
-    - https://hub.docker.com/r/answerdev/answer
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

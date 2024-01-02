@@ -1,17 +1,17 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: etherpad
-version: 15.1.5
+version: 15.1.6
 appVersion: 1.8.14
 description: A real-time collaborative editor scalable to thousands of simultaneous real time users.
 home: https://truecharts.org/charts/stable/etherpad
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/etherpad.png
 deprecated: false
 sources:
-    - https://ghcr.io/nicholaswilde/etherpad
     - https://etherpad.org/
     - https://github.com/ether/etherpad-lite
     - https://github.com/truecharts/charts/tree/master/charts/stable/etherpad
+    - https://ghcr.io/nicholaswilde/etherpad
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

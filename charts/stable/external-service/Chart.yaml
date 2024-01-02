@@ -1,15 +1,15 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: external-service
-version: 12.1.5
+version: 12.1.6
 appVersion: 3.19.0
 description: Allow external services to be used like Apps.
 home: https://truecharts.org/charts/stable/external-service
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/external-service.png
 deprecated: false
 sources:
-    - https://hub.docker.com/_/alpine
     - https://github.com/truecharts/charts/tree/master/charts/stable/external-service
+    - https://hub.docker.com/_/alpine
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

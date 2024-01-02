@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: pure-ftpd
-version: 3.0.12
+version: 3.0.13
 appVersion: latest
 description: Pure-FTPd is a free (BSD), secure, production-quality and standard-conformant FTP server. [br]Creating user by using console "pure-pw useradd admin -u 99 -g 100 -d /home/admin -m"[/br]
 home: https://truecharts.org/charts/incubator/pure-ftpd
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pure-ftpd.png
 deprecated: false
 sources:
-    - https://hub.docker.com/r/crazymax/pure-ftpd
     - https://www.pureftpd.org/project/pure-ftpd/
     - https://github.com/truecharts/charts/tree/master/charts/incubator/pure-ftpd
+    - https://hub.docker.com/r/crazymax/pure-ftpd
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

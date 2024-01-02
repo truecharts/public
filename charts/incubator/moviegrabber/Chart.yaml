@@ -1,18 +1,18 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: moviegrabber
-version: 3.0.13
+version: 3.0.14
 appVersion: latest
 description: MovieGrabber is a fully automated way of downloading movie from usenet, it supports any nzb client that has a "watched" or "monitor" folder facility such as Sabnzbd+, Grabit and Newsbin. MovieGrabber works by checking imdb for matching criteria and if a match is found the nzb will be downloaded and stored in either a specified queued folder for user review or sent to the watched folder for processing and automatic downloading via your usenet binary client.
 home: https://truecharts.org/charts/incubator/moviegrabber
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/moviegrabber.png
 deprecated: false
 sources:
-    - https://github.com/binhex/moviegrabber
+    - https://github.com/binhex/documentation
     - https://github.com/truecharts/charts/tree/master/charts/incubator/moviegrabber
     - https://hub.docker.com/r/binhex/arch-moviegrabber
+    - https://github.com/binhex/moviegrabber
     - https://registry.hub.docker.com/r/binhex/arch-moviegrabber/
-    - https://github.com/binhex/documentation
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

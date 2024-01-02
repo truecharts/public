@@ -1,17 +1,17 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: traefik
-version: 25.1.8
+version: 25.1.9
 appVersion: 2.10.7
 description: Traefik is a flexible reverse proxy and Ingress Provider.
 home: https://truecharts.org/charts/enterprise/traefik
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/traefik.png
 deprecated: false
 sources:
-    - https://github.com/traefik/traefik-helm-chart
-    - https://traefik.io/
     - https://github.com/traefik/traefik
     - https://github.com/truecharts/charts/tree/master/charts/enterprise/traefik
+    - https://github.com/traefik/traefik-helm-chart
+    - https://traefik.io/
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

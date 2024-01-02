@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: avidemux
-version: 7.1.5
+version: 7.1.6
 appVersion: 23.11.2
 description: Avidemux is a free video editor designed for simple cutting, filtering and encoding tasks.
 home: https://truecharts.org/charts/stable/avidemux
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/avidemux.png
 deprecated: false
 sources:
+    - https://hub.docker.com/r/jlesage/avidemux
     - https://github.com/jlesage/docker-avidemux
     - https://github.com/truecharts/charts/tree/master/charts/stable/avidemux
-    - https://hub.docker.com/r/jlesage/avidemux
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org

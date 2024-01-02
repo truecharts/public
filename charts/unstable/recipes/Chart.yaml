@@ -1,16 +1,16 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: recipes
-version: 13.0.9
+version: 13.0.10
 appVersion: 1.5.6
 description: Recipes is a Django application to manage, tag and search recipes using either built in models or external storage providers hosting PDF's, Images or other files.
 home: https://truecharts.org/charts/unstable/recipes
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/recipes.png
 deprecated: false
 sources:
+    - https://github.com/vabene1111/recipes
     - https://github.com/truecharts/charts/tree/master/charts/unstable/recipes
     - https://hub.docker.com/_/nginx
-    - https://github.com/vabene1111/recipes
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
