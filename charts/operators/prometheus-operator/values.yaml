@@ -1,7 +1,25 @@
 image:
-  repository: quay.io/prometheus-operator/prometheus-operator
-  tag: "v0.70.0@sha256:e76d06ac84abeb466feb9682e1d0385c4e5a463bc023b32446916b640546a289"
-  pullPolicy:
+  repository: tccr.io/tccr/alpine
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:12e0f84947ee7fc11f552e065a46d5a2b4e27cfc6ded0f624fc948c3138fb9a9
+
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+workload:
+  main:
+    enabled: false
+
+portal:
+  open:
+    enabled: false
+
+operator:
+  register: true
 
 kps:
   ## Install Prometheus Operator CRDs
