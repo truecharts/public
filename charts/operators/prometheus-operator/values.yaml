@@ -1,302 +1,154 @@
 image:
-  repository: quay.io/prometheus-operator/prometheus-operator
-  tag: "v0.70.0@sha256:e76d06ac84abeb466feb9682e1d0385c4e5a463bc023b32446916b640546a289"
-  pullPolicy:
-
-configReloaderImage:
-  repository: quay.io/prometheus-operator/prometheus-config-reloader
-  tag: "v0.70.0@sha256:411cec4bc5e6306804c2d5939c165411a88fb7991c2bd0c3ef4866387f683374"
-  pullPolicy:
-
-thanosImage:
-  repository: quay.io/thanos/thanos
-  tag: "v0.33.0@sha256:70d2ea73792e2d26a6eb45e0c999fc88e8cebc1ba443ca059e19715231365cc8"
-  pullPolicy:
-
-patchImage:
-  repository: registry.k8s.io/ingress-nginx/kube-webhook-certgen
-  tag: v20221220-controller-v1.5.1-58-g787ea74b6@sha256:4d99688e557396f5baa150e019ff7d5b7334f9b9f9a8dab64038c5c2a006f6b5
-  pullPolicy:
-
-workload:
-  main:
-    podSpec:
-      containers:
-        main:
-          probes:
-            liveness:
-              type: tcp
-            readiness:
-              type: tcp
-          args:
-            - --kubelet-service={{ .Values.prometheusOperator.kubeletService.namespace }}/{{ include "tc.v1.common.lib.chart.names.fullname" $ }}-kubelet
-            - --log-format={{ .Values.prometheusOperator.logFormat }}
-            - --log-level={{ .Values.prometheusOperator.logLevel }}
-            # - --deny-namespaces={{ tpl (.Values.prometheusOperator.denyNamespaces | join ",") $ }}
-            - --localhost=127.0.0.1
-            # - --prometheus-default-base-image={{ .Values.global.imageRegistry | default .Values.prometheusOperator.prometheusDefaultBaseImageRegistry }}/{{ .Values.prometheusOperator.prometheusDefaultBaseImage }}
-            # - --alertmanager-default-base-image={{ .Values.global.imageRegistry | default .Values.prometheusOperator.alertmanagerDefaultBaseImageRegistry }}/{{ .Values.prometheusOperator.alertmanagerDefaultBaseImage }}
-            - --prometheus-config-reloader={{ .Values.configReloaderImage.repository }}:{{ .Values.configReloaderImage.tag }}
-            - --config-reloader-cpu-request={{ .Values.resources.requests.cpu }}
-            - --config-reloader-cpu-limit={{ .Values.resources.limits.cpu }}
-            - --config-reloader-memory-request={{ .Values.resources.requests.memory }}
-            - --config-reloader-memory-limit={{ .Values.resources.limits.memory }}
-            - --enable-config-reloader-probes={{ .Values.prometheusOperator.prometheusConfigReloader.probes.enabled }}
-            # - --alertmanager-instance-namespaces={{ .Values.prometheusOperator.alertmanagerInstanceNamespaces | join "," }}
-            # - --alertmanager-instance-selector={{ .Values.prometheusOperator.alertmanagerInstanceSelector }}
-            # - --alertmanager-config-namespaces={{ .Values.prometheusOperator.alertmanagerConfigNamespaces | join "," }}
-            # - --prometheus-instance-namespaces={{ .Values.prometheusOperator.prometheusInstanceNamespaces | join "," }}
-            # - --prometheus-instance-selector={{ .Values.prometheusOperator.prometheusInstanceSelector }}
-            # - --thanos-default-base-image={{ $thanosRegistry }}/{{ .Values.prometheusOperator.thanosImage.repository }}:{{ .Values.prometheusOperator.thanosImage.tag }}
-            # - --thanos-ruler-instance-namespaces={{ .Values.prometheusOperator.thanosRulerInstanceNamespaces | join "," }}
-            # - --thanos-ruler-instance-selector={{ .Values.prometheusOperator.thanosRulerInstanceSelector }}
-            - --secret-field-selector={{ tpl (.Values.prometheusOperator.secretFieldSelector) $ }}
-            # - --cluster-domain={{ .Values.prometheusOperator.clusterDomain }}
-  createsecret:
-    type: Job
-    enabled: true
-    annotations:
-      "helm.sh/hook": post-install,post-upgrade
-      "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
-    podSpec:
-      restartPolicy: Never
-      containers:
-        main:
-          enabled: true
-          primary: true
-          imageSelector: patchImage
-          args:
-            - create
-            - --host={{ include "tc.v1.common.lib.chart.names.fullname" $ }},{{ include "tc.v1.common.lib.chart.names.fullname" $ }}.{{ .Release.Namespace }}.svc
-            - --namespace={{ .Release.Namespace }}
-            - --secret-name={{ include "tc.v1.common.lib.chart.names.fullname" $ }}-admission
-          probes:
-            liveness:
-              enabled: false
-            readiness:
-              enabled: false
-            startup:
-              enabled: false
-
-  patchwebhook:
-    type: Job
-    enabled: true
-    annotations:
-      "helm.sh/hook": post-install,post-upgrade
-      "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
-    podSpec:
-      restartPolicy: Never
-      containers:
-        main:
-          enabled: true
-          primary: true
-          imageSelector: patchImage
-          args:
-            - patch
-            - --webhook-name={{ include "tc.v1.common.lib.chart.names.fullname" $ }}-admission
-            - --namespace={{ .Release.Namespace }}
-            - --secret-name={{ include "tc.v1.common.lib.chart.names.fullname" $ }}-admission
-            - --patch-failure-policy={{ .Values.prometheusOperator.admissionWebhooks.failurePolicy }}
-          probes:
-            liveness:
-              enabled: false
-            readiness:
-              enabled: false
-            startup:
-              enabled: false
-
-podOptions:
-  automountServiceAccountToken: true
+  repository: tccr.io/tccr/alpine
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:12e0f84947ee7fc11f552e065a46d5a2b4e27cfc6ded0f624fc948c3138fb9a9
 
 service:
   main:
+    enabled: false
     ports:
       main:
-        protocol: http
-        port: 8080
+        enabled: false
 
-prometheusOperator:
-  logFormat: logfmt
-  logLevel: all
-  kubeletService:
-    enabled: true
-    namespace: kube-system
-
-  prometheusConfigReloader:
+workload:
+  main:
     enabled: false
-    probes:
-      enabled: false
-
-  ## Set a Field Selector to filter watched secrets
-  ##
-  secretFieldSelector: "type!=kubernetes.io/dockercfg,type!=kubernetes.io/service-account-token,type!=helm.sh/release.v1"
-
-  ## Admission webhook support for PrometheusRules resources added in Prometheus Operator 0.30 can be enabled to prevent incorrectly formatted
-  ## rules from making their way into prometheus and potentially preventing the container from starting
-  admissionWebhooks:
-    ## Valid values: Fail, Ignore, IgnoreOnInstallOnly
-    ## IgnoreOnInstallOnly - If Release.IsInstall returns "true", set "Ignore" otherwise "Fail"
-    failurePolicy: ""
-    ## The default timeoutSeconds is 10 and the maximum value is 30.
-    timeoutSeconds: 10
-    enabled: true
-    ## A PEM encoded CA bundle which will be used to validate the webhook's server certificate.
-    ## If unspecified, system trust roots on the apiserver are used.
-    caBundle: ""
-    ## If enabled, generate a self-signed certificate, then patch the webhook configurations with the generated data.
-    ## On chart upgrades (or if the secret exists) the cert will not be re-generated. You can use this to provide your own
-    ## certs ahead of time if you wish.
-    ##
-
-    patch:
-      enabled: true
-
-    # Use certmanager to generate webhook certs
-    certManager:
-      enabled: false
-      # self-signed root certificate
-      rootCert:
-        # default to be 5y
-        duration: ""
-      admissionCert:
-        # default to be 1y
-        duration: ""
-      # issuerRef:
-      #   name: "issuer"
-      #   kind: "ClusterIssuer"
-
-operator:
-  register: true
 
 portal:
   open:
     enabled: false
 
-metrics:
-  main:
+operator:
+  register: true
+
+kps:
+  ## Install Prometheus Operator CRDs
+  ##
+  crds:
+    enabled: true
+  
+  
+  
+  ## Manages Prometheus and Alertmanager components
+  ##
+  prometheusOperator:
+    enabled: true
+  
+  
+  ####
+  ##
+  ## Everything down here, explicitly disables everything BUT the operator itself
+  ##
+  ####
+  
+  ##
+  global:
+    rbac:
+      create: true
+  
+  
+  ## Create default rules for monitoring the cluster
+  ##
+  defaultRules:
+    create: false
+  
+  windowsMonitoring:
+    ## Deploys the windows-exporter and Windows-specific dashboards and rules (job name must be 'windows-exporter')
     enabled: false
-    endpoints:
-      - port: main
-        interval: 5s
-        scrapeTimeout: 5s
-        path: /
-        honorLabels: false
-
-rbac:
-  main:
-    enabled: true
-    primary: true
-    clusterWide: true
-    rules:
-      - apiGroups:
-          - monitoring.coreos.com
-        resources:
-          - alertmanagers
-          - alertmanagers/finalizers
-          - alertmanagers/status
-          - alertmanagerconfigs
-          - prometheuses
-          - prometheuses/finalizers
-          - prometheuses/status
-          - prometheusagents
-          - prometheusagents/finalizers
-          - prometheusagents/status
-          - thanosrulers
-          - thanosrulers/finalizers
-          - thanosrulers/status
-          - scrapeconfigs
-          - servicemonitors
-          - podmonitors
-          - probes
-          - prometheusrules
-        verbs:
-          - "*"
-      - apiGroups:
-          - apps
-        resources:
-          - statefulsets
-        verbs:
-          - "*"
-      - apiGroups:
-          - ""
-        resources:
-          - configmaps
-          - secrets
-        verbs:
-          - "*"
-      - apiGroups:
-          - ""
-        resources:
-          - pods
-        verbs:
-          - list
-          - delete
-      - apiGroups:
-          - ""
-        resources:
-          - services
-          - services/finalizers
-          - endpoints
-        verbs:
-          - get
-          - create
-          - update
-          - delete
-      - apiGroups:
-          - ""
-        resources:
-          - nodes
-        verbs:
-          - list
-          - watch
-      - apiGroups:
-          - ""
-        resources:
-          - namespaces
-        verbs:
-          - get
-          - list
-          - watch
-      - apiGroups:
-          - networking.k8s.io
-        resources:
-          - ingresses
-        verbs:
-          - get
-          - list
-          - watch
-      - apiGroups:
-          - discovery.k8s.io
-        resources:
-          - endpointslices
-        verbs:
-          - get
-          - list
-          - watch
-      - apiGroups:
-          - admissionregistration.k8s.io
-        resources:
-          - validatingwebhookconfigurations
-          - mutatingwebhookconfigurations
-        verbs:
-          - get
-          - update
-      - apiGroups:
-          - ""
-        resources:
-          - secrets
-        verbs:
-          - get
-          - create
-
-crds:
-  annotations: {}
-
-serviceAccount:
-  main:
-    enabled: true
-    primary: true
-    targetSelectAll: true
-
-manifestManager:
-  enabled: false
+  
+  ## Configuration for prometheus-windows-exporter
+  ## ref: https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-windows-exporter
+  ##
+  prometheus-windows-exporter:
+    ## Enable ServiceMonitor and set Kubernetes label to use as a job label
+    ##
+    prometheus:
+      monitor:
+        enabled: false
+  
+  
+  ## Configuration for alertmanager
+  ## ref: https://prometheus.io/docs/alerting/alertmanager/
+  ##
+  alertmanager:
+  
+    ## Deploy alertmanager
+    ##
+    enabled: false
+  
+  ## Using default values from https://github.com/grafana/helm-charts/blob/main/charts/grafana/values.yaml
+  ##
+  grafana:
+    enabled: false
+  
+  ## Flag to disable all the kubernetes component scrapers
+  ##
+  kubernetesServiceMonitors:
+    enabled: false
+  
+  ## Component scraping the kube api server
+  ##
+  kubeApiServer:
+    enabled: false
+  
+  ## Component scraping the kubelet and kubelet-hosted cAdvisor
+  ##
+  kubelet:
+    enabled: false
+  
+  ## Component scraping the kube controller manager
+  ##
+  kubeControllerManager:
+    enabled: false
+  
+  ## Component scraping coreDns. Use either this or kubeDns
+  ##
+  coreDns:
+    enabled: false
+  
+  ## Component scraping kubeDns. Use either this or coreDns
+  ##
+  kubeDns:
+    enabled: false
+  
+  ## Component scraping etcd
+  ##
+  kubeEtcd:
+    enabled: false
+  
+  ## Component scraping kube scheduler
+  ##
+  kubeScheduler:
+    enabled: false
+  
+  ## Component scraping kube proxy
+  ##
+  kubeProxy:
+    enabled: false
+  
+  ## Component scraping kube state metrics
+  ##
+  kubeStateMetrics:
+    enabled: false
+  
+  
+  ## dontDeploy node exporter as a daemonset to all nodes
+  ##
+  nodeExporter:
+    enabled: false
+  
+  ## dont Deploy a Prometheus instance
+  ##
+  prometheus:
+    enabled: false
+  
+  
+  ## Configuration for thanosRuler
+  ## ref: https://thanos.io/tip/components/rule.md/
+  ##
+  thanosRuler:
+  
+    ## Dont Deploy thanosRuler
+    ##
+    enabled: false
+  
