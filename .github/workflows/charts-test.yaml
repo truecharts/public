@@ -147,15 +147,12 @@ jobs:
       - name: Prep Helm
         shell: bash
         run: |
-          ls -la
-          ls -la .github
-          ls -la .github/scripts
-          ./github/scripts/prep_helm.sh
+          ./.github/scripts/prep_helm.sh
 
       - name: Add Dependencies
         shell: bash
         run: |
-          ./github/scripts/install_dependencies.sh "${{ matrix.chart }}"
+          ./.github/scripts/install_dependencies.sh "${{ matrix.chart }}"
 
       - name: Run chart-testing (install)
         run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade
@@ -204,12 +201,12 @@ jobs:
       - name: Prep Helm
         shell: bash
         run: |
-          ./github/scripts/prep_helm.sh
+          ./.github/scripts/prep_helm.sh
 
       - name: Add Dependencies
         shell: bash
         run: |
-          ./github/scripts/install_dependencies.sh "${{ matrix.chart }}"
+          ./.github/scripts/install_dependencies.sh "${{ matrix.chart }}"
 
 
       - name: Run chart-testing (install)
@@ -259,12 +256,12 @@ jobs:
       - name: Prep Helm
         shell: bash
         run: |
-          ./github/scripts/prep_helm.sh
+          ./.github/scripts/prep_helm.sh
 
       - name: Add Dependencies
         shell: bash
         run: |
-          ./github/scripts/install_dependencies.sh "${{ matrix.chart }}"
+          ./.github/scripts/install_dependencies.sh "${{ matrix.chart }}"
 
       - name: Run chart-testing (install)
         run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade
@@ -313,12 +310,12 @@ jobs:
       - name: Prep Helm
         shell: bash
         run: |
-          ./github/scripts/prep_helm.sh
+          ./.github/scripts/prep_helm.sh
 
       - name: Add Dependencies
         shell: bash
         run: |
-          ./github/scripts/install_dependencies.sh "${{ matrix.chart }}"
+          ./.github/scripts/install_dependencies.sh "${{ matrix.chart }}"
 
       - name: Run chart-testing (install)
         run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade
@@ -367,12 +364,12 @@ jobs:
       - name: Prep Helm
         shell: bash
         run: |
-          ./github/scripts/prep_helm.sh
+          ./.github/scripts/prep_helm.sh
 
       - name: Add Dependencies
         shell: bash
         run: |
-          ./github/scripts/install_dependencies.sh "${{ matrix.chart }}"
+          ./.github/scripts/install_dependencies.sh "${{ matrix.chart }}"
 
       - name: Run chart-testing (install)
         run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade
@@ -421,12 +418,12 @@ jobs:
       - name: Prep Helm
         shell: bash
         run: |
-          ./github/scripts/prep_helm.sh
+          ./.github/scripts/prep_helm.sh
 
       - name: Add Dependencies
         shell: bash
         run: |
-          ./github/scripts/install_dependencies.sh "${{ matrix.chart }}"
+          ./.github/scripts/install_dependencies.sh "${{ matrix.chart }}"
 
 
       - name: Run chart-testing (install)
