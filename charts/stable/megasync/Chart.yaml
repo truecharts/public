@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: megasync
-version: 5.1.5
+version: 5.1.6
 appVersion: latest
 description: MEGAsync can synchronize all of your devices with your MEGA account.
 home: https://truecharts.org/charts/incubator/megasync
@@ -10,6 +10,7 @@ deprecated: false
 sources:
     - https://github.com/ich777/docker-megasync
     - https://github.com/truecharts/charts/tree/master/charts/incubator/megasync
+    - https://hub.docker.com/r/ich777/megasync
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
