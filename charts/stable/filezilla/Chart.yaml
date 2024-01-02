@@ -1,41 +1,41 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: filezilla
-version: 10.1.4
-appVersion: 3.59.0
+version: 10.1.6
+appVersion: 3.64.0
 description: A Helm chart for Kubernetes
 home: https://truecharts.org/charts/incubator/filezilla
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/filezilla.png
 deprecated: false
 sources:
-  - https://filezilla-project.org/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/filezilla
-  - https://github.com/truecharts/containers/tree/master/mirrorfilezilla
-  - https://github.com/linuxserver/docker-filezilla
+    - https://ghcr.io/linuxserver/filezilla
+    - https://filezilla-project.org/
+    - https://github.com/linuxserver/docker-filezilla
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/filezilla
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - filezilla
-  - ftp
-  - sftp
-  - ftps
-  - client
+    - filezilla
+    - ftp
+    - sftp
+    - ftps
+    - client
 dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.21
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: incubator
 type: application
