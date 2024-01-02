@@ -145,10 +145,15 @@ jobs:
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
       - name: Prep Helm
+        shell: bash
         run: |
+          ls -la
+          ls -la .github
+          ls -la .github/scripts
           ./github/scripts/prep_helm.sh
 
       - name: Add Dependencies
+        shell: bash
         run: |
           ./github/scripts/install_dependencies.sh "${{ matrix.chart }}"
 
@@ -197,10 +202,12 @@ jobs:
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
       - name: Prep Helm
+        shell: bash
         run: |
           ./github/scripts/prep_helm.sh
 
       - name: Add Dependencies
+        shell: bash
         run: |
           ./github/scripts/install_dependencies.sh "${{ matrix.chart }}"
 
@@ -250,10 +257,12 @@ jobs:
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
       - name: Prep Helm
+        shell: bash
         run: |
           ./github/scripts/prep_helm.sh
 
       - name: Add Dependencies
+        shell: bash
         run: |
           ./github/scripts/install_dependencies.sh "${{ matrix.chart }}"
 
@@ -302,10 +311,12 @@ jobs:
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
       - name: Prep Helm
+        shell: bash
         run: |
           ./github/scripts/prep_helm.sh
 
       - name: Add Dependencies
+        shell: bash
         run: |
           ./github/scripts/install_dependencies.sh "${{ matrix.chart }}"
 
@@ -354,10 +365,12 @@ jobs:
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
       - name: Prep Helm
+        shell: bash
         run: |
           ./github/scripts/prep_helm.sh
 
       - name: Add Dependencies
+        shell: bash
         run: |
           ./github/scripts/install_dependencies.sh "${{ matrix.chart }}"
 
@@ -406,10 +419,12 @@ jobs:
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
       - name: Prep Helm
+        shell: bash
         run: |
           ./github/scripts/prep_helm.sh
 
       - name: Add Dependencies
+        shell: bash
         run: |
           ./github/scripts/install_dependencies.sh "${{ matrix.chart }}"
 
