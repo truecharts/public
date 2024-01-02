@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: vikunja
-version: 12.1.7
+version: 12.1.8
 appVersion: 0.22.0
 description: The to-do app to organize your life.
 home: https://truecharts.org/charts/stable/vikunja
@@ -26,7 +26,7 @@ dependencies:
       tags: []
       import-values: []
     - name: redis
-      version: 11.1.5
+      version: 11.1.6
       repository: https://deps.truecharts.org
       condition: redis.enabled
       alias: ""

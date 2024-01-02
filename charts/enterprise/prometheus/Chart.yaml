@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: prometheus
-version: 16.1.7
+version: 16.1.8
 appVersion: 2.48.1
 description: kube-prometheus-stack collects Kubernetes manifests, Grafana dashboards, and Prometheus rules combined with documentation and scripts to provide easy to operate end-to-end Kubernetes cluster monitoring with Prometheus using the Prometheus Operator.
 home: https://truecharts.org/charts/enterprise/prometheus
@@ -27,14 +27,14 @@ dependencies:
       tags: []
       import-values: []
     - name: node-exporter
-      version: 6.1.5
+      version: 6.1.6
       repository: https://deps.truecharts.org
       condition: exporters.enabled,exporters.node-exporter.enabled
       alias: ""
       tags: []
       import-values: []
     - name: kube-state-metrics
-      version: 6.1.5
+      version: 6.1.6
       repository: https://deps.truecharts.org
       condition: exporters.enabled,exporters.kube-state-metrics.enabled
       alias: ""

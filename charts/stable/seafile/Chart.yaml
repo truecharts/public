@@ -1,7 +1,7 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: seafile
-version: 4.1.7
+version: 4.1.8
 appVersion: 11.0.3
 description: Reliable and Performant File Sync and Share Solution
 home: https://truecharts.org/charts/stable/seafile
@@ -29,7 +29,7 @@ dependencies:
       tags: []
       import-values: []
     - name: mariadb
-      version: 12.1.5
+      version: 12.1.6
       repository: https://deps.truecharts.org/
       condition: mariadb.enabled
       alias: ""
