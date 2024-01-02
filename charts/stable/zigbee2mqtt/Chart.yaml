@@ -1,38 +1,38 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: zigbee2mqtt
-version: 10.2.4
-appVersion: 1.34.0
+version: 10.3.0
+appVersion: 1.35.0
 description: Bridges events and allows you to control your Zigbee devices via MQTT
 home: https://truecharts.org/charts/stable/zigbee2mqtt
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/zigbee2mqtt.png
 deprecated: false
 sources:
-  - https://hub.docker.com/r/koenkk/zigbee2mqtt
-  - https://github.com/Koenkk/zigbee2mqtt
-  - https://github.com/truecharts/charts/tree/master/charts/stable/zigbee2mqtt
+    - https://github.com/Koenkk/zigbee2mqtt
+    - https://github.com/truecharts/charts/tree/master/charts/stable/zigbee2mqtt
+    - https://hub.docker.com/r/koenkk/zigbee2mqtt
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - zigbee
-  - mqtt
-  - home-assistant
+    - zigbee
+    - mqtt
+    - home-assistant
 dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.21
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application
