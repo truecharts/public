@@ -51,12 +51,12 @@ if [[ "$curr_chart" != "charts/operators/prometheus-operator" ]]; then
     echo "Done installing prometheus-operator chart"
 fi
 
-if [[ "$curr_chart" != "charts/enterprise/traefik" ]]; then
-    echo "Installing traefik chart"
-    helm install traefik oci://tccr.io/truecharts/traefik --namespace traefik --create-namespace --wait
-    if [[ "$?" != "0" ]]; then
-        echo "Failed to install traefik chart"
-        exit 1
-    fi
-    echo "Done installing traefik chart"
-fi
+# if [[ "$curr_chart" != "charts/enterprise/traefik" ]]; then
+#    echo "Installing traefik chart"
+#    helm install traefik oci://tccr.io/truecharts/traefik --namespace traefik --create-namespace --wait
+#    if [[ "$?" != "0" ]]; then
+#        echo "Failed to install traefik chart"
+#        exit 1
+#    fi
+#    echo "Done installing traefik chart"
+# fi
