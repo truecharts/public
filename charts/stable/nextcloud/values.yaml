@@ -1,5 +1,5 @@
 image:
-  repository: tccr.io/truecharts/nextcloud-fpm
+  repository: tccr.io/tccr/nextcloud-fpm
   pullPolicy: IfNotPresent
   tag: v28.0.1@sha256:41f597b1bf8a1d924d4246f2d4af52704fcab4464ca50dee6b5db930ebc50a18
 nginxImage:
@@ -7,11 +7,11 @@ nginxImage:
   pullPolicy: IfNotPresent
   tag: 1.25.3@sha256:f67dc757811b9140d83408152cf9dc9296ad4f6b7d1ffb87874ad4759842e2be
 imaginaryImage:
-  repository: tccr.io/truecharts/nextcloud-imaginary
+  repository: tccr.io/tccr/nextcloud-imaginary
   pullPolicy: IfNotPresent
   tag: v20230401@sha256:6a227d1b0200d29f25028e07b8852f60e3d91a5814048933e70eccee749dc04c
 hpbImage:
-  repository: tccr.io/truecharts/nextcloud-push-notify
+  repository: tccr.io/tccr/nextcloud-push-notify
   pullPolicy: IfNotPresent
   tag: v0.6.3@sha256:b9c35ab123354eeac3996e361f8c30b8e4de6d2ccd69e5179a7c2a101a67b46f
 clamavImage:

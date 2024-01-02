@@ -1,45 +1,44 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: metallb
-version: 13.1.5
+version: 13.1.6
 appVersion: latest
 description: A network load-balancer implementation for Kubernetes using standard routing protocols
 home: https://truecharts.org/charts/operators/metallb
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/metallb.png
 deprecated: false
 sources:
-  - https://github.com/metallb/metallb
-  - https://metallb.universe.tf
-  - https://github.com/truecharts/charts/tree/master/charts/operators/metallb
-  - https://github.com/truecharts/containers/tree/master/mirroralpine
+    - https://metallb.universe.tf
+    - https://github.com/truecharts/charts/tree/master/charts/operators/metallb
+    - https://github.com/metallb/metallb
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - metallb
-  - loadbalancer
+    - metallb
+    - loadbalancer
 dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-  - name: metallb
-    version: 0.13.12
-    repository: https://metallb.github.io/metallb
-    condition: ""
-    alias: metallb
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.21
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
+    - name: metallb
+      version: 0.13.12
+      repository: https://metallb.github.io/metallb
+      condition: ""
+      alias: metallb
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: operators
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: operators
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: operators
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: operators
 type: application

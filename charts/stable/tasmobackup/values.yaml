@@ -3,7 +3,7 @@ env:
   DBTYPE: sqlite
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/tasmobackup
+  repository: tccr.io/tccr/tasmobackup
   tag: latest@sha256:197cbf9ce71dd849473ea47c09cb60a667d7f80dd456f13123eaca61517d5ff3
 
 securityContext:
