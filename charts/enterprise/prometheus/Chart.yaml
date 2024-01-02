@@ -26,18 +26,11 @@ dependencies:
       alias: ""
       tags: []
       import-values: []
-    - name: node-exporter
-      version: 6.1.6
-      repository: https://deps.truecharts.org
-      condition: exporters.enabled,exporters.node-exporter.enabled
-      alias: ""
-      tags: []
-      import-values: []
-    - name: kube-state-metrics
-      version: 6.1.6
-      repository: https://deps.truecharts.org
-      condition: exporters.enabled,exporters.kube-state-metrics.enabled
-      alias: ""
+    - name: kube-prometheus-stack
+      version: 55.5.1
+      repository: https://prometheus-community.github.io/helm-charts
+      condition: ""
+      alias: "kps"
       tags: []
       import-values: []
 annotations:
