@@ -10,13 +10,12 @@ podSpec:
       enabled: true
       primary: true
       imageSelector: "image"
-      command:
-          - plextraktsync
-          {{- if  .Values.plextraktsync.task }}
-          - {{ .Values.plextraktsync.task }}
-          {{- else }}
-          - sync --sync=all
-          {{- end }}
+      args:
+        {{- if  .Values.plextraktsync.task }}
+        - {{ .Values.plextraktsync.task }}
+        {{- else }}
+        - sync --sync=all
+        {{- end }}
       probes:
         liveness:
           enabled: false
