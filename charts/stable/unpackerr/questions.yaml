@@ -15,9 +15,17 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
+        - variable: config
+          label: App Config Storage
+          description: Stores the App Configuration (/config)
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
         - variable: downloads
-          label: "App downloads Storage"
-          description: "Path to (/downloads)."
+          label: App downloads Storage
+          description: Stores downloads. (Defaults to /downloads)
           schema:
             additional_attrs: true
             type: dict
