@@ -213,7 +213,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/etc/grafana/"
-    targetSelectAll: true
   grafana-tmp:
     enabled: true
     type: emptyDir
