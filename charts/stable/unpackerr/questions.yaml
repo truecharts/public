@@ -15,9 +15,9 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: downloads
-          label: "App downloads Storage"
-          description: "Path to (/downloads)."
+        - variable: config
+          label: "App Config Storage"
+          description: "Stores the Application Configuration"
           schema:
             additional_attrs: true
             type: dict
