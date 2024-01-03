@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: anonaddy
 version: 19.1.9
@@ -8,43 +8,43 @@ home: https://truecharts.org/charts/stable/anonaddy
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/anonaddy.png
 deprecated: false
 sources:
-    - https://hub.docker.com/r/anonaddy/anonaddy
-    - https://github.com/anonaddy/docker
-    - https://github.com/truecharts/charts/tree/master/charts/stable/anonaddy
+  - https://github.com/truecharts/charts/tree/master/charts/stable/anonaddy
+  - https://hub.docker.com/r/anonaddy/anonaddy
+  - https://github.com/anonaddy/docker
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - anonaddy
+  - anonaddy
 dependencies:
-    - name: common
-      version: 17.2.21
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-    - name: mariadb
-      version: 12.1.6
-      repository: https://deps.truecharts.org/
-      condition: mariadb.enabled
-      alias: ""
-      tags: []
-      import-values: []
-    - name: redis
-      version: 11.1.6
-      repository: https://deps.truecharts.org
-      condition: redis.enabled
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: mariadb
+    version: 12.1.6
+    repository: https://deps.truecharts.org/
+    condition: mariadb.enabled
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 11.1.6
+    repository: https://deps.truecharts.org
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: email
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: stable
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: email
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 type: application

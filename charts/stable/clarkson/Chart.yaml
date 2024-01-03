@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: clarkson
 version: 11.1.8
@@ -8,40 +8,40 @@ home: https://truecharts.org/charts/stable/clarkson
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/clarkson.png
 deprecated: false
 sources:
-    - https://github.com/linuxserver/Clarkson
-    - https://github.com/truecharts/charts/tree/master/charts/stable/clarkson
-    - https://ghcr.io/linuxserver/clarkson
+  - https://ghcr.io/linuxserver/clarkson
+  - https://github.com/linuxserver/Clarkson
+  - https://github.com/truecharts/charts/tree/master/charts/stable/clarkson
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - fuel
-    - car
-    - log
-    - fill-up
-    - vehicle
+  - fuel
+  - car
+  - log
+  - fill-up
+  - vehicle
 dependencies:
-    - name: common
-      version: 17.2.21
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-    - name: mariadb
-      version: 12.1.6
-      repository: https://deps.truecharts.org/
-      condition: mariadb.enabled
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: mariadb
+    version: 12.1.6
+    repository: https://deps.truecharts.org/
+    condition: mariadb.enabled
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: vehicle
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: stable
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: vehicle
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 type: application

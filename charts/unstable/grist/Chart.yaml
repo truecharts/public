@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: grist
 version: 9.0.11
@@ -8,46 +8,46 @@ home: https://truecharts.org/charts/incubator/grist
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/grist.png
 deprecated: false
 sources:
-    - https://support.getgrist.com/
-    - https://github.com/truecharts/charts/tree/master/charts/incubator/grist
-    - https://hub.docker.com/r/gristlabs/grist
-    - https://github.com/gristlabs/grist-core
+  - https://support.getgrist.com/
+  - https://github.com/gristlabs/grist-core
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/grist
+  - https://hub.docker.com/r/gristlabs/grist
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - grist
-    - spreadsheet
-    - database
+  - grist
+  - spreadsheet
+  - database
 dependencies:
-    - name: common
-      version: 17.2.21
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-    - name: postgresql
-      version: 11.0.31
-      repository: https://deps.truecharts.org/
-      condition: postgresql.enabled
-      alias: ""
-      tags: []
-      import-values: []
-    - name: redis
-      version: 10.0.1
-      repository: https://deps.truecharts.org
-      condition: redis.enabled
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: postgresql
+    version: 11.0.31
+    repository: https://deps.truecharts.org/
+    condition: postgresql.enabled
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 10.0.1
+    repository: https://deps.truecharts.org
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: productivity
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: incubator
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: productivity
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
 type: application

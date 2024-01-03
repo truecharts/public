@@ -208,7 +208,6 @@ jobs:
         run: |
           ./.github/scripts/install_dependencies.sh "${{ matrix.chart }}"
 
-
       - name: Run chart-testing (install)
         run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade
 
@@ -424,7 +423,6 @@ jobs:
         shell: bash
         run: |
           ./.github/scripts/install_dependencies.sh "${{ matrix.chart }}"
-
 
       - name: Run chart-testing (install)
         run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade

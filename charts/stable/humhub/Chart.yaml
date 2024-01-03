@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: humhub
 version: 6.1.8
@@ -8,43 +8,43 @@ home: https://truecharts.org/charts/stable/humhub
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/humhub.png
 deprecated: false
 sources:
-    - https://ghcr.io/mriedmann/humhub-allinone
-    - https://github.com/truecharts/charts/tree/master/charts/stable/humhub
+  - https://github.com/truecharts/charts/tree/master/charts/stable/humhub
+  - https://ghcr.io/mriedmann/humhub-allinone
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - humhub
-    - Network-Web
+  - humhub
+  - Network-Web
 dependencies:
-    - name: common
-      version: 17.2.21
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-    - name: mariadb
-      version: 12.1.6
-      repository: https://deps.truecharts.org/
-      condition: mariadb.enabled
-      alias: ""
-      tags: []
-      import-values: []
-    - name: redis
-      version: 11.1.6
-      repository: https://deps.truecharts.org
-      condition: redis.enabled
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: mariadb
+    version: 12.1.6
+    repository: https://deps.truecharts.org/
+    condition: mariadb.enabled
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 11.1.6
+    repository: https://deps.truecharts.org
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: Network-Web
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: stable
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Network-Web
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 type: application

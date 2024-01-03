@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: ts-dnsserver
 version: 4.1.5
@@ -8,30 +8,30 @@ home: https://truecharts.org/charts/incubator/ts-dnsserver
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ts-dnsserver.png
 deprecated: false
 sources:
-    - https://hub.docker.com/r/roxedus/ts-dnsserver
-    - https://github.com/TechnitiumSoftware/DnsServer
-    - https://github.com/truecharts/charts/tree/master/charts/incubator/ts-dnsserver
+  - https://github.com/TechnitiumSoftware/DnsServer
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/ts-dnsserver
+  - https://hub.docker.com/r/roxedus/ts-dnsserver
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - ts-dnsserver
-    - Network-DNS
+  - ts-dnsserver
+  - Network-DNS
 dependencies:
-    - name: common
-      version: 17.2.21
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: Network-DNS
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: incubator
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Network-DNS
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
 type: application

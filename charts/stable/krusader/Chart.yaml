@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: krusader
 version: 4.1.5
@@ -8,31 +8,31 @@ home: https://truecharts.org/charts/incubator/krusader
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/krusader.png
 deprecated: false
 sources:
-    - https://krusader.org/
-    - https://github.com/truecharts/charts/tree/master/charts/incubator/krusader
-    - https://hub.docker.com/r/ich777/krusader
+  - https://hub.docker.com/r/ich777/krusader
+  - https://krusader.org/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/krusader
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - krusader
-    - Productivity
-    - Tools-Utilities
+  - krusader
+  - Productivity
+  - Tools-Utilities
 dependencies:
-    - name: common
-      version: 17.2.21
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: Productivity
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: incubator
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Productivity
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
 type: application
