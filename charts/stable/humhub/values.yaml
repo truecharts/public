@@ -141,13 +141,16 @@ workload:
               enabled: true
               type: http
               path: /ping
+              port: 80
             readiness:
               enabled: true
               type: http
               path: /ping
+              port: 80
             startup:
               enabled: true
               type: tcp
+              port: 80
 
 persistence:
   config:
