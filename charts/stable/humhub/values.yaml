@@ -128,6 +128,7 @@ workload:
       containers:
         nginx:
           enabled: true
+          primary: true
           imageSelector: nginxImage
           env:
             NGINX_CLIENT_MAX_BODY_SIZE: "{{ .Values.humhub.nginx.max_client_body_size }}"
