@@ -22,6 +22,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
+# Include{persistenceBasic}
         - variable: downloads
           label: "App downloads Storage"
           description: "Path to (/downloads)."
@@ -29,7 +30,6 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{persistenceBasic}
 # Include{persistenceList}
 # Include{securityContextRoot}
               - variable: runAsUser
