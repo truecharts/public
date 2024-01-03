@@ -1,37 +1,37 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: automatic-ripping-machine
-version: 2.1.8
-appVersion: 2.6.60
+version: 2.1.9
+appVersion: 2.6.67
 description: Automatic Ripping Machine (ARM) Scripts.
 home: https://truecharts.org/charts/incubator/automatic-ripping-machine
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/automatic-ripping-machine.png
 deprecated: false
 sources:
-  - https://github.com/automatic-ripping-machine/automatic-ripping-machine
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/automatic-ripping-machine
-  - https://hub.docker.com/r/automaticrippingmachine/automatic-ripping-machine
+    - https://github.com/automatic-ripping-machine/automatic-ripping-machine
+    - https://github.com/truecharts/charts/tree/master/charts/incubator/automatic-ripping-machine
+    - https://hub.docker.com/r/automaticrippingmachine/automatic-ripping-machine
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - automatic-ripping-machine
-  - media
+    - automatic-ripping-machine
+    - media
 dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.21
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: incubator
 type: application
