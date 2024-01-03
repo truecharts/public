@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: etherpad
 version: 15.1.6
@@ -8,33 +8,33 @@ home: https://truecharts.org/charts/stable/etherpad
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/etherpad.png
 deprecated: false
 sources:
-    - https://etherpad.org/
-    - https://github.com/ether/etherpad-lite
-    - https://github.com/truecharts/charts/tree/master/charts/stable/etherpad
-    - https://ghcr.io/nicholaswilde/etherpad
+  - https://etherpad.org/
+  - https://github.com/ether/etherpad-lite
+  - https://github.com/truecharts/charts/tree/master/charts/stable/etherpad
+  - https://ghcr.io/nicholaswilde/etherpad
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - etherpad
-    - editor
-    - notepad
-    - pad
+  - etherpad
+  - editor
+  - notepad
+  - pad
 dependencies:
-    - name: common
-      version: 17.2.21
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: media
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: stable
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 type: application

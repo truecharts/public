@@ -615,7 +615,7 @@
     },
     {
       "matchDatasources": ["docker"],
-      "versioning": "regex:^nightly-(?<major>\\d*)\\.(?<minor>\\d*)\\.(?<patch>\\d*)\\.\\d*$",
+      "versioning": "regex:^nightly-2\\.(?<major>\\d*)\\.(?<minor>\\d*)\\.(?<patch>\\d*)$",
       "matchPackageNames": ["ghcr.io/hotio/whisparr"],
       "automerge": true,
     },

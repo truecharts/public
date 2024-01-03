@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: digikam
 version: 10.1.6
@@ -8,34 +8,34 @@ home: https://truecharts.org/charts/stable/digikam
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/digikam.png
 deprecated: false
 sources:
-    - https://github.com/linuxserver/docker-digikam
-    - https://www.digikam.org/
-    - https://github.com/truecharts/charts/tree/master/charts/stable/digikam
-    - https://ghcr.io/linuxserver/digikam
+  - https://github.com/linuxserver/docker-digikam
+  - https://www.digikam.org/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/digikam
+  - https://ghcr.io/linuxserver/digikam
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - digikam
-    - photo
-    - management
-    - image
-    - gallery
+  - digikam
+  - photo
+  - management
+  - image
+  - gallery
 dependencies:
-    - name: common
-      version: 17.2.21
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: media
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: stable
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 type: application

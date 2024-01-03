@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: wger
 version: 6.0.11
@@ -8,44 +8,44 @@ home: https://truecharts.org/charts/unstable/wger
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/wger.png
 deprecated: false
 sources:
-    - https://hub.docker.com/_/nginx
-    - https://github.com/wger-project/wger
-    - https://github.com/wger-project/docker
-    - https://github.com/truecharts/charts/tree/master/charts/unstable/wger
+  - https://github.com/wger-project/wger
+  - https://github.com/wger-project/docker
+  - https://github.com/truecharts/charts/tree/master/charts/unstable/wger
+  - https://hub.docker.com/r/wger/server
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - workout
+  - workout
 dependencies:
-    - name: common
-      version: 17.2.21
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-    - name: postgresql
-      version: 11.0.31
-      repository: https://deps.truecharts.org/
-      condition: postgresql.enabled
-      alias: ""
-      tags: []
-      import-values: []
-    - name: redis
-      version: 10.0.1
-      repository: https://deps.truecharts.org
-      condition: redis.enabled
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: postgresql
+    version: 11.0.31
+    repository: https://deps.truecharts.org/
+    condition: postgresql.enabled
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 10.0.1
+    repository: https://deps.truecharts.org
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: life
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: unstable
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: life
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: unstable
 type: application

@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: simply-shorten
 version: 7.1.5
@@ -8,32 +8,32 @@ home: https://truecharts.org/charts/stable/simply-shorten
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/simply-shorten.png
 deprecated: false
 sources:
-    - https://github.com/truecharts/charts/tree/master/charts/stable/simply-shorten
-    - https://hub.docker.com/r/draganczukp/simply-shorten
-    - https://gitlab.com/draganczukp/simply-shorten
+  - https://gitlab.com/draganczukp/simply-shorten
+  - https://github.com/truecharts/charts/tree/master/charts/stable/simply-shorten
+  - https://hub.docker.com/r/draganczukp/simply-shorten
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - simply-shorten
-    - Cloud
-    - Productivity
-    - Network-Web
+  - simply-shorten
+  - Cloud
+  - Productivity
+  - Network-Web
 dependencies:
-    - name: common
-      version: 17.2.21
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: Cloud
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: stable
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Cloud
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 type: application

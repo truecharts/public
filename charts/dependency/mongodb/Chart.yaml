@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: mongodb
 version: 11.1.7
@@ -8,32 +8,32 @@ home: https://truecharts.org/charts/dependency/mongodb
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/mongodb.png
 deprecated: false
 sources:
-    - https://www.mongodb.com
-    - https://github.com/bitnami/bitnami-docker-mongodb
-    - https://github.com/truecharts/charts/tree/master/charts/dependency/mongodb
-    - https://hub.docker.com/r/bitnami/mongodb
+  - https://github.com/truecharts/charts/tree/master/charts/dependency/mongodb
+  - https://hub.docker.com/r/bitnami/mongodb
+  - https://www.mongodb.com
+  - https://github.com/bitnami/bitnami-docker-mongodb
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - mongodb
-    - database
-    - nosql
+  - mongodb
+  - database
+  - nosql
 dependencies:
-    - name: common
-      version: 17.2.21
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: database
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: dependency
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: database
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: dependency
 type: application
