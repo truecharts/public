@@ -1,35 +1,35 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: ddclient
-version: 8.1.6
+version: 8.1.7
 appVersion: 3.11.2
 description: Ddclient is a Perl client used to update dynamic DNS entries for accounts on Dynamic DNS Network Service Provider.
 home: https://truecharts.org/charts/stable/ddclient
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ddclient.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/ddclient
-  - https://ghcr.io/linuxserver/ddclient
+    - https://github.com/truecharts/charts/tree/master/charts/stable/ddclient
+    - https://ghcr.io/linuxserver/ddclient
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - ddclient
+    - ddclient
 dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.21
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: incubator
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: incubator
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application
