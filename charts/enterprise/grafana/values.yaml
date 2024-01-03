@@ -276,3 +276,22 @@ metrics:
 portal:
   open:
     enabled: true
+
+# -- Whether Role Based Access Control objects like roles and rolebindings should be created
+rbac:
+  main:
+    enabled: true
+    primary: true
+    clusterWide: true
+    rules:
+      - apiGroups: [""]
+        resources: ["configmaps", "secrets"]
+        verbs: ["get", "watch", "list"]
+
+serviceAccount:
+  main:
+    enabled: true
+    primary: true
+    
+podOptions:
+  automountServiceAccountToken: true
