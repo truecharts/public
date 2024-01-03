@@ -60,15 +60,15 @@ workload:
             liveness:
               enabled: true
               type: exec
-              command: php-fpm-healtcheck
+              command: /usr/local/bin/php-fpm-healthcheck
             readiness:
               enabled: true
               type: exec
-              command: php-fpm-healtcheck
+              command: /usr/local/bin/php-fpm-healthcheck
             startup:
               enabled: true
               type: exec
-              command: php-fpm-healtcheck
+              command: /usr/local/bin/php-fpm-healthcheck
           env:
             HUMHUB_AUTO_INSTALL: true
             HUMHUB_INTEGRITY_CHECK: true
@@ -135,7 +135,7 @@ workload:
             NGINX_KEEPALIVE_TIMEOUT: "{{ .Values.humhub.nginx.keep_alive_timeout }}"
             NGINX_UPSTREAM: '{{ printf "%s-backend:9000" (include "tc.v1.common.lib.chart.names.fullname" $) }}'
             # Allow IPs for `/ping` ONLY
-            HUMHUB_REVERSEPROXY_WHITELIST: "10.0.0.0/24;172.16.0.0;192.168.0.0"
+            HUMHUB_REVERSEPROXY_WHITELIST: "10.0.0.0/8;172.16.0.0/16;192.168.0.0/24"
           probes:
             liveness:
               enabled: true
