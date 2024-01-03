@@ -225,8 +225,11 @@ persistence:
     mountPath: /tmp/dashboards
     targetSelectAll: true
   sc-dashboard-config:
-  mountPath: /etc/grafana/provisioning/dashboards/sc-dashboardproviders.yaml
-  subPath: provider.yaml
+    enabled: true
+    type: configmap
+    objectName: dashboard-provider
+    mountPath: /etc/grafana/provisioning/dashboards/sc-dashboardproviders.yaml
+    subPath: provider.yaml
   sc-datasource-volume:
     enabled: true
     type: emptyDir
