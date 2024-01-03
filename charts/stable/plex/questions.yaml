@@ -69,7 +69,6 @@ questions:
           schema:
             type: boolean
             default: false
-
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
@@ -110,8 +109,6 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
 # Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}

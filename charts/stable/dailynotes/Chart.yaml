@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: dailynotes
-version: 4.1.0
+version: 4.1.6
 appVersion: latest
 description: |
   App for taking notes and tracking tasks on a daily basis.
@@ -20,8 +20,8 @@ keywords:
   - Other
 dependencies:
   - name: common
-    version: 17.2.2
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

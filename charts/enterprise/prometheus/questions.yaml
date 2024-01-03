@@ -23,7 +23,6 @@ questions:
                 schema:
                   type: string
                   default: "info"
-
   - variable: prometheus
     group: "App Configuration"
     label: "Prometheus Settings"
@@ -119,7 +118,6 @@ questions:
                                     type: string
                                     required: false
                                     default: ""
-
   - variable: exporters
     group: "App Configuration"
     label: "Exporter Settings"
@@ -149,7 +147,6 @@ questions:
                 schema:
                   type: boolean
                   default: true
-
   - variable: alertmanager
     group: "App Configuration"
     label: "Alertmanager Settings"
@@ -233,8 +230,6 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
 # Include{ingressAdvanced}
 # Include{ingressList}
 # Include{advanced}

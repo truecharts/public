@@ -1,17 +1,17 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: gitea
-version: 17.1.1
+version: 17.1.9
 appVersion: 1.21.3
 description: Self hosted GIT repositories
 home: https://truecharts.org/charts/stable/gitea
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/gitea.png
 deprecated: false
 sources:
-  - https://gitea.com/gitea/helm-chart
-  - https://github.com/go-gitea/gitea
   - https://github.com/truecharts/charts/tree/master/charts/stable/gitea
   - https://hub.docker.com/r/gitea/gitea
+  - https://github.com/go-gitea/gitea
+  - https://gitea.com/gitea/helm-chart
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -25,14 +25,14 @@ keywords:
   - gogs
 dependencies:
   - name: common
-    version: 17.2.2
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: memcached
-    version: 11.1.0
+    version: 11.1.6
     repository: https://deps.truecharts.org/
     condition: memcached.enabled
     alias: ""

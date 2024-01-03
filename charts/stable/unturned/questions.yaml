@@ -4,11 +4,9 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
                                 - variable: env
                                   label: Image Environment
                                   schema:
@@ -73,7 +71,6 @@ questions:
                                         schema:
                                           type: string
                                           default: "https://ci.rocketmod.net/job/Rocket.Unturned/lastSuccessfulBuild/artifact/Rocket.Unturned/bin/Release/Rocket.zip"
-
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
@@ -144,7 +141,6 @@ questions:
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceList}
-
 # Include{securityContextRoot}
               - variable: runAsUser
                 label: "runAsUser"
@@ -167,7 +163,6 @@ questions:
                 schema:
                   type: int
                   default: 568
-
 # Include{resources}
 # Include{advanced}
 # Include{addons}

@@ -6,11 +6,9 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
                                 - variable: imageSelector
                                   label: Select Image
                                   schema:
@@ -21,7 +19,6 @@ questions:
                                         description: Image
                                       - value: slimImage
                                         description: Slim
-
                                 - variable: env
                                   label: Image Environment
                                   schema:
@@ -104,10 +101,8 @@ questions:
                                         schema:
                                           type: boolean
                                           default: true
-
 # Include{containerBasic}
 # Include{containerAdvanced}
-
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
@@ -154,12 +149,9 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
 # Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}
-
               - variable: runAsUser
                 label: "runAsUser"
                 description: "The UserID of the user running the application"
@@ -181,7 +173,6 @@ questions:
                 schema:
                   type: int
                   default: 568
-
 # Include{resources}
 # Include{advanced}
 # Include{addons}

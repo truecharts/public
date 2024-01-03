@@ -4,13 +4,11 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
-
   - variable: ark
     group: App Configuration
     label: Ark Configuration
@@ -162,7 +160,6 @@ questions:
                   type: string
                   default: ""
                   required: true
-
 # Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
@@ -244,7 +241,6 @@ questions:
                               type: int
                               default: 27020
                               required: true
-
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
 # Include{serviceList}
@@ -267,9 +263,7 @@ questions:
 # Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressList}
-
 # Include{securityContextRoot}
-
               - variable: runAsUser
                 label: "runAsUser"
                 description: "The UserID of the user running the application"
@@ -291,7 +285,6 @@ questions:
                 schema:
                   type: int
                   default: 568
-
 # Include{resources}
 # Include{advanced}
 # Include{addons}

@@ -6,13 +6,11 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
-
   - variable: vikunja
     group: App Configuration
     label: Vikunja Configuration
@@ -837,7 +835,6 @@ questions:
                               type: string
                               required: true
                               default: <frontend url>/migrate/microsoft-todo
-
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
@@ -884,11 +881,8 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
 # Include{ingressAdvanced}
 # Include{ingressList}
-
 # Include{securityContextRoot}
               - variable: runAsUser
                 label: "runAsUser"
@@ -911,7 +905,6 @@ questions:
                 schema:
                   type: int
                   default: 568
-
 # Include{resources}
 # Include{postgresql}
 # Include{metrics}

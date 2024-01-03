@@ -6,7 +6,6 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
@@ -14,7 +13,6 @@ questions:
 # Include{containerAdvanced}
 # Include{containerConfig}
 # Include{podOptions}
-
   - variable: plik
     group: App Configuration
     label: Plik Configuration
@@ -516,7 +514,6 @@ questions:
                 schema:
                   type: string
                   default: https://eu.api.ovh.com/1.0
-
 # Include{serviceRoot}
         - variable: main
           label: Main Service
@@ -561,12 +558,9 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
 # Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}
-
               - variable: runAsUser
                 label: "runAsUser"
                 description: "The UserID of the user running the application"
@@ -588,7 +582,6 @@ questions:
                 schema:
                   type: int
                   default: 568
-
 # Include{resources}
 # Include{postgresql}
 # Include{advanced}

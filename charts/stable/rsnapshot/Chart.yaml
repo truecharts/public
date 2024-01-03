@@ -1,15 +1,15 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: rsnapshot
-version: 8.1.1
+version: 8.1.6
 appVersion: 1.4.5
 description: Rsnapshot is a filesystem snapshot utility based on rsync.
 home: https://truecharts.org/charts/stable/rsnapshot
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/rsnapshot.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/rsnapshot
   - https://ghcr.io/linuxserver/rsnapshot
+  - https://github.com/truecharts/charts/tree/master/charts/stable/rsnapshot
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -18,8 +18,8 @@ keywords:
   - rsnapshot
 dependencies:
   - name: common
-    version: 17.2.2
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

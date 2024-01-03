@@ -1,17 +1,16 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: openebs
-version: 2.1.0
+version: 2.1.8
 appVersion: latest
 description: OpenEBS is a umbrella container storage provisioner
 home: https://truecharts.org/charts/incubator/openebs
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/openebs.png
 deprecated: false
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/openebs
   - https://cert-manager.io/
   - https://github.com/cert-manager
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/openebs
-  - https://github.com/truecharts/containers/tree/master/mirroralpine
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -21,8 +20,8 @@ keywords:
   - backup
 dependencies:
   - name: common
-    version: 17.2.2
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
