@@ -1,44 +1,44 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: fireflyiii
-version: 24.1.9
-appVersion: 6.1.1
+version: 24.1.10
+appVersion: 6.1.4
 description: A free and open source personal finance manager
 home: https://truecharts.org/charts/stable/fireflyiii
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/fireflyiii.png
 deprecated: false
 sources:
-  - https://github.com/firefly-iii/firefly-iii/
-  - https://github.com/truecharts/charts/tree/master/charts/stable/fireflyiii
-  - https://hub.docker.com/r/fireflyiii/core
+    - https://github.com/firefly-iii/firefly-iii/
+    - https://github.com/truecharts/charts/tree/master/charts/stable/fireflyiii
+    - https://hub.docker.com/r/fireflyiii/core
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - fireflyiii
-  - finacial
+    - fireflyiii
+    - finacial
 dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-  - name: redis
-    version: 11.1.6
-    repository: https://deps.truecharts.org
-    condition: redis.enabled
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.21
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
+    - name: redis
+      version: 11.1.6
+      repository: https://deps.truecharts.org
+      condition: redis.enabled
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: finacial
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: finacial
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application
