@@ -1,14 +1,13 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
-name: recipes
-version: 13.0.11
-appVersion: 1.5.6
-description: Recipes is a Django application to manage, tag and search recipes using either built in models or external storage providers hosting PDF's, Images or other files.
-home: https://truecharts.org/charts/unstable/recipes
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/recipes.png
+name: tandoor-recipes
+version: 14.0.0
+appVersion: 1.5.10
+description: Tandoor Recipes is a Django application to manage, tag and search recipes using either built in models or external storage providers hosting PDF's, Images or other files.
+home: https://truecharts.org/charts/unstable/tandoor-recipes
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/tandoor-recipes.png
 deprecated: false
 sources:
-  - https://hub.docker.com/_/nginx
   - https://github.com/vabene1111/recipes
   - https://github.com/truecharts/charts/tree/master/charts/unstable/recipes
 maintainers:
@@ -16,6 +15,7 @@ maintainers:
     email: info@truecharts.org
     url: https://truecharts.org
 keywords:
+  - tandoor
   - recipes
   - cooking
 dependencies:
@@ -23,13 +23,6 @@ dependencies:
     version: 17.2.21
     repository: oci://tccr.io/truecharts
     condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-  - name: postgresql
-    version: 11.0.31
-    repository: https://deps.truecharts.org/
-    condition: postgresql.enabled
     alias: ""
     tags: []
     import-values: []
