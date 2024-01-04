@@ -7,8 +7,6 @@ sidecarImage:
   repository: quay.io/kiwigrid/k8s-sidecar
   tag: 1.25.2
   
-manifestManager:
-  enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
