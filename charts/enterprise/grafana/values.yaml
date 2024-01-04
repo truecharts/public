@@ -32,12 +32,12 @@ workload:
             GF_INSTALL_PLUGINS: ""
             GF_AUTH_LDAP_ENABLED: "false"
             GF_AUTH_LDAP_ALLOW_SIGN_UP: "false"
-            GF_AUTH_LDAP_CONFIG_FILE: "/etc/grafana/conf/ldap.toml"
-            GF_PATHS_PROVISIONING: "/etc/grafana/provisioning"
-            GF_PATHS_CONFIG: "/etc/grafana/grafana.ini"
-            GF_PATHS_DATA: "/etc/grafana/data"
-            GF_PATHS_LOGS: "/etc/grafana/logs"
-            GF_PATHS_PLUGINS: "/etc/grafana/data/plugins"
+            GF_AUTH_LDAP_CONFIG_FILE: "/app/conf/ldap.toml"
+            GF_PATHS_PROVISIONING: "/app/provisioning"
+            GF_PATHS_CONFIG: "/app/grafana.ini"
+            GF_PATHS_DATA: "/app/data"
+            GF_PATHS_LOGS: "/app/logs"
+            GF_PATHS_PLUGINS: "/app/data/plugins"
           probes:
             liveness:
               path: "/api/health"
@@ -83,7 +83,7 @@ workload:
             LABEL: grafana_datasources
             LABEL_VALUE: ""
             LOG_LEVEL: info
-            FOLDER: /tmp/datasources
+            FOLDER: /app/provisioning/datasources
             RESOURCE: both
             UNIQUE_FILENAMES: false
             # NAMESPACE: null
@@ -112,7 +112,7 @@ workload:
             LABEL: grafana_alerts
             LABEL_VALUE: ""
             LOG_LEVEL: info
-            FOLDER: /tmp/alerts
+            FOLDER: /app/provisioning/alerts
             RESOURCE: both
             UNIQUE_FILENAMES: false
             # NAMESPACE: null
@@ -141,7 +141,7 @@ workload:
             LABEL: grafana_plugins
             LABEL_VALUE: ""
             LOG_LEVEL: info
-            FOLDER: /tmp/plugins
+            FOLDER: /app/provisioning/plugins
             RESOURCE: both
             UNIQUE_FILENAMES: false
             # NAMESPACE: null
@@ -170,7 +170,7 @@ workload:
             LABEL: grafana_notifiers
             LABEL_VALUE: ""
             LOG_LEVEL: info
-            FOLDER: /tmp/notifiers
+            FOLDER: /app/provisioning/notifiers
             RESOURCE: both
             UNIQUE_FILENAMES: false
             # NAMESPACE: null
@@ -212,11 +212,11 @@ configmap:
 persistence:
   config:
     enabled: true
-    mountPath: "/etc/grafana/"
+    mountPath: "/app"
   grafana-tmp:
     enabled: true
     type: emptyDir
-    mountPath: /opt/bitnami/grafana/tmp
+    mountPath: /app/tmp
     targetSelectAll: true
   sc-dashboard-volume:
     enabled: true
@@ -227,27 +227,27 @@ persistence:
     enabled: true
     type: configmap
     objectName: dashboard-provider
-    mountPath: /etc/grafana/provisioning/dashboards/sc-dashboardproviders.yaml
+    mountPath: /app/provisioning/dashboards/sc-dashboardproviders.yaml
     subPath: provider.yaml
   sc-datasource-volume:
     enabled: true
     type: emptyDir
-    mountPath: /etc/grafana/provisioning/datasources
+    mountPath: /app/provisioning/datasources
     targetSelectAll: true
   sc-alerts-volume:
     enabled: true
     type: emptyDir
-    mountPath: /etc/grafana/provisioning/alerts
+    mountPath: /app/provisioning/alerts
     targetSelectAll: true
   sc-plugins-volume:
     enabled: true
     type: emptyDir
-    mountPath: /etc/grafana/provisioning/plugins
+    mountPath: /app/provisioning/plugins
     targetSelectAll: true
   sc-notifiers-volume:
     enabled: true
     type: emptyDir
-    mountPath: /etc/grafana/provisioning/notifiers
+    mountPath: /app/provisioning/notifiers
     targetSelectAll: true
 metrics:
   main:
