@@ -30,8 +30,7 @@ workload:
             GF_INSTALL_PLUGINS: ""
             GF_AUTH_LDAP_ENABLED: "false"
             GF_AUTH_LDAP_ALLOW_SIGN_UP: "false"
-            GF_AUTH_LDAP_CONFIG_FILE: "/config/ldap.toml"
-            GF_PATHS_CONFIG: "/config/grafana.ini"
+
           probes:
             liveness:
               path: "/api/health"
