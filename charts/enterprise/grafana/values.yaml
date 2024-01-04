@@ -202,23 +202,30 @@ configmap:
             options:
               foldersFromFilesStructure: false
               path: /tmp/dashboards
+  config:
+    enabled: true
+    data:
+      grafana.ini: |-
+        # nope
+      ldap.toml: |-
+        # nope
               
 persistence:
   config:
     enabled: true
-    mountPath: "/config"
+    type: configmap
+    objectName: config
+    mountPath: /etc/grafana/grafana.ini
+    subPath: grafana.ini
+  ldap:
+    enabled: true
+    type: configmap
+    objectName: config
+    mountPath: /etc/grafana/ldap.toml
+    subPath: ldap.toml
   data:
     enabled: true
     mountPath: "/var/lib/grafana"
-  home:
-    enabled: true
-    mountPath: "/usr/share/grafana"
-  plugins:
-    enabled: true
-    mountPath: "/var/lib/grafana/plugins"
-  provisioning:
-    enabled: true
-    mountPath: "/etc/grafana/provisioning"
   grafana-tmp:
     enabled: true
     type: emptyDir
