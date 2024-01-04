@@ -11,6 +11,8 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+  varrun:
+    enabled: false
 portal:
   open:
     enabled: true

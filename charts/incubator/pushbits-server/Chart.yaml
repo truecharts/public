@@ -1,8 +1,8 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: pushbits-server
-version: 0.0.10
-appVersion: 0.10.2
+version: 0.0.12
+appVersion: 0.10.3
 description: Send push notifications via a simple web API, and delivers them to your users.
 home: https://truecharts.org/charts/incubator/pushbits-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pushbits-server.png
@@ -21,7 +21,7 @@ keywords:
   - matrix
 dependencies:
   - name: common
-    version: 17.2.18
+    version: 17.2.21
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
