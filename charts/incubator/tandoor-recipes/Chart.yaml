@@ -1,0 +1,37 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: tandoor-recipes
+version: 14.0.0
+appVersion: 1.5.10
+description: Tandoor Recipes is a Django application to manage, tag and search recipes using either built in models or external storage providers hosting PDF's, Images or other files.
+home: https://truecharts.org/charts/incubator/tandoor-recipes
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/tandoor-recipes.png
+deprecated: false
+sources:
+  - https://github.com/vabene1111/recipes
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/tandoor-recipes
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - tandoor
+  - recipes
+  - cooking
+dependencies:
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

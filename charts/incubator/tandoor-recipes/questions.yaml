@@ -18,43 +18,37 @@ questions:
                                     attrs:
                                       - variable: DEBUG
                                         label: "DEBUG"
-                                        description: "Sets the DEBUG env var"
+                                        description: "Only set this to true when testing/debugging"
                                         schema:
                                           type: int
                                           default: 0
                                       - variable: ALLOWED_HOSTS
                                         label: "ALLOWED_HOSTS"
-                                        description: "Sets the ALLOWED_HOSTS env var"
+                                        description: "hosts the application can run under e.g. recipes.mydomain.com,cooking.mydomain.com,..."
                                         schema:
                                           type: string
                                           default: "*"
                                       - variable: CSRF_TRUSTED_ORIGINS
                                         label: "CSRF_TRUSTED_ORIGINS"
-                                        description: "Sets the CSRF_TRUSTED_ORIGINS env var"
+                                        description: "Cross Site Request Forgery protection"
                                         schema:
                                           type: string
                                           default: ""
-                                      - variable: GUNICORN_MEDIA
-                                        label: "GUNICORN_MEDIA"
-                                        description: "Sets the GUNICORN_MEDIA env var"
-                                        schema:
-                                          type: int
-                                          default: 0
                                       - variable: FRACTION_PREF_DEFAULT
                                         label: "FRACTION_PREF_DEFAULT"
-                                        description: "Sets the FRACTION_PREF_DEFAULT env var"
+                                        description: "The default value for the user preference 'fractions' (enable/disable fraction support)"
                                         schema:
                                           type: int
                                           default: 0
                                       - variable: COMMENT_PREF_DEFAULT
                                         label: "COMMENT_PREF_DEFAULT"
-                                        description: "Sets the COMMENT_PREF_DEFAULT env var"
+                                        description: "The default value for the user preference 'comments' (enable/disable commenting system)"
                                         schema:
                                           type: int
                                           default: 1
                                       - variable: SHOPPING_MIN_AUTOSYNC_INTERVAL
                                         label: "SHOPPING_MIN_AUTOSYNC_INTERVAL"
-                                        description: "Sets the SHOPPING_MIN_AUTOSYNC_INTERVAL env var"
+                                        description: "Users can set an amount of time after which the shopping list is refreshed"
                                         schema:
                                           type: int
                                           default: 5
@@ -131,6 +125,7 @@ questions:
                   type: int
                   default: 568
 # Include{resources}
+# Include{postgresql}
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
