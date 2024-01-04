@@ -1,15 +1,15 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: pylon
-version: 8.1.0
+version: 8.1.6
 appVersion: 2.10.0
 description: Pylon is a web based integrated development environment.
 home: https://truecharts.org/charts/stable/pylon
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pylon.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/pylon
   - https://ghcr.io/linuxserver/pylon
+  - https://github.com/truecharts/charts/tree/master/charts/stable/pylon
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -18,8 +18,8 @@ keywords:
   - pylon
 dependencies:
   - name: common
-    version: 17.2.2
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

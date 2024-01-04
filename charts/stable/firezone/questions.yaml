@@ -6,14 +6,11 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
 # Include{containerBasic}
 # Include{containerAdvanced}
-
   - variable: firezone
     group: App Configuration
     label: FireZone
@@ -234,7 +231,6 @@ questions:
                 schema:
                   type: boolean
                   default: false
-
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
@@ -303,8 +299,6 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
 # Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}

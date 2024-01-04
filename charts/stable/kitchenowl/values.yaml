@@ -82,6 +82,13 @@ workload:
           imageSelector: backendImage
           env:
             FRONT_URL: "{{ .Values.workload.main.podSpec.containers.main.env.FRONT_URL }}"
+            OIDC_ISSUER: ""
+            OIDC_CLIENT_ID: ""
+            OIDC_CLIENT_SECRET: ""
+            APPLE_CLIENT_ID: ""
+            APPLE_CLIENT_SECRET: ""
+            GOOGLE_CLIENT_ID: ""
+            GOOGLE_CLIENT_SECRET: ""
             # Changed port to 10248 to avoid conflict with frontend
             HTTP_PORT: "10248"
             JWT_SECRET_KEY:

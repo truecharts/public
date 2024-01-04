@@ -101,12 +101,9 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
 # Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}
-
               - variable: runAsUser
                 label: "runAsUser"
                 description: "The UserID of the user running the application"
@@ -128,7 +125,6 @@ questions:
                 schema:
                   type: int
                   default: 33
-
 # Include{resources}
 # Include{advanced}
 # Include{addons}

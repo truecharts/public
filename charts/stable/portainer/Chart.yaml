@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: portainer
-version: 7.1.0
+version: 7.1.5
 appVersion: 2.19.4
 description: Container management made easy
 home: https://truecharts.org/charts/stable/portainer
@@ -9,9 +9,9 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/portainer.png
 deprecated: false
 sources:
   - https://docs.portainer.io/start/install-ce/server
-  - https://docs.portainer.io/start/install/server
   - https://github.com/truecharts/charts/tree/master/charts/stable/portainer
   - https://hub.docker.com/r/portainer/portainer-ee
+  - https://docs.portainer.io/start/install/server
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -20,8 +20,8 @@ keywords:
   - portainer
 dependencies:
   - name: common
-    version: 17.2.2
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

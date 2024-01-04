@@ -1,8 +1,8 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: syncthing
-version: 17.1.0
-appVersion: 1.27.1
+version: 17.1.6
+appVersion: 1.27.2
 description: P2P file synchronization application
 home: https://truecharts.org/charts/stable/syncthing
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/syncthing.png
@@ -20,8 +20,8 @@ keywords:
   - syncthing
 dependencies:
   - name: common
-    version: 17.2.2
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

@@ -1,7 +1,6 @@
 # Include{groups}
 questions:
 # Include{global}
-
   - variable: backupStorageLocationList
     group: "App Configuration"
     label: "Backup Storage Locations"
@@ -255,7 +254,6 @@ questions:
                       schema:
                         type: string
                         default: ""
-
   - variable: schedules
     group: "App Configuration"
     label: "Pre-Defined Backup Schedules"

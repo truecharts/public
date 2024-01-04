@@ -1,16 +1,16 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: pastey
-version: 5.1.0
+version: 5.1.9
 appVersion: 0.5.1
 description: A lightweight, self-hosted paste platform.
 home: https://truecharts.org/charts/stable/pastey
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pastey.png
 deprecated: false
 sources:
-  - https://github.com/Cesura/pastey
   - https://github.com/truecharts/charts/tree/master/charts/stable/pastey
-  - https://github.com/truecharts/containers/tree/master/mirrorpastey-slim
+  - https://hub.docker.com/r/cesura/pastey
+  - https://github.com/Cesura/pastey
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -21,8 +21,8 @@ keywords:
   - Tools-Utilities
 dependencies:
   - name: common
-    version: 17.2.2
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: google-cloud-storage-backup
-version: 3.0.9
+version: 3.0.13
 appVersion: latest
 description: |
   A simple way to backup important files to Google Cloud Storage.
@@ -21,8 +21,8 @@ keywords:
   - Cloud
 dependencies:
   - name: common
-    version: 16.2.7
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

@@ -4,13 +4,11 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
-
                                 - variable: env
                                   group: App Configuration
                                   label: Image Environment
@@ -115,7 +113,6 @@ questions:
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceList}
-
 # Include{securityContextRoot}
               - variable: runAsUser
                 label: "runAsUser"
@@ -138,7 +135,6 @@ questions:
                 schema:
                   type: int
                   default: 568
-
 # Include{resources}
 # Include{advanced}
 # Include{addons}

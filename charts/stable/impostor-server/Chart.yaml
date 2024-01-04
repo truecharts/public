@@ -1,15 +1,15 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: impostor-server
-version: 7.1.0
+version: 7.1.8
 appVersion: 1.8.4
 description: A private Among Us server
 home: https://truecharts.org/charts/stable/impostor-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/impostor-server.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/impostor-server
   - https://hub.docker.com/r/aeonlucid/impostor
+  - https://github.com/truecharts/charts/tree/master/charts/stable/impostor-server
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -18,8 +18,8 @@ keywords:
   - impostor-server
 dependencies:
   - name: common
-    version: 17.2.2
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

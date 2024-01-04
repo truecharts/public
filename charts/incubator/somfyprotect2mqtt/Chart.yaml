@@ -1,16 +1,16 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: somfyprotect2mqtt
-version: 1.0.9
+version: 1.0.13
 appVersion: 2023.11.1
 description: Somfy Protect to MQTT
 home: https://truecharts.org/charts/incubator/somfyprotect2mqtt
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/somfyprotect2mqtt.png
 deprecated: false
 sources:
+  - https://github.com/Minims/SomfyProtect2MQTT
   - https://github.com/truecharts/charts/tree/master/charts/incubator/somfyprotect2mqtt
   - https://hub.docker.com/r/minims/somfyprotect2mqtt
-  - https://github.com/Minims/SomfyProtect2MQTT
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -20,8 +20,8 @@ keywords:
   - mqtt
 dependencies:
   - name: common
-    version: 16.2.7
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

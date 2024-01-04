@@ -9,6 +9,9 @@ service:
       main:
         enabled: false
 persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
   downloads:
     enabled: true
     mountPath: "/downloads"

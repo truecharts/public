@@ -80,27 +80,39 @@
             type: dict
             additional_attrs: true
             attrs:
-              - variable: registry
-                label: "Registry"
+              - variable: enabled
+                label: Enabled
                 schema:
-                  type: string
-                  required: true
-                  default: "https://index.docker.io/v1/"
-              - variable: username
-                label: "Username"
+                  type: boolean
+                  default: true
+              - variable: data
+                label: Data
                 schema:
-                  type: string
-                  required: true
-                  default: ""
-              - variable: password
-                label: "Password"
-                schema:
-                  type: string
-                  required: true
-                  default: ""
-              - variable: email
-                label: "Email"
-                schema:
-                  type: string
-                  required: true
-                  default: ""
+                  type: dict
+                  additional_attrs: true
+                  attrs:
+                    - variable: registry
+                      label: "Registry"
+                      schema:
+                        type: string
+                        required: true
+                        default: "https://index.docker.io/v1/"
+                    - variable: username
+                      label: "Username"
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: password
+                      label: "Password"
+                      schema:
+                        type: string
+                        required: true
+                        private: true
+                        default: ""
+                    - variable: email
+                      label: "Email"
+                      schema:
+                        type: string
+                        required: true
+                        default: ""

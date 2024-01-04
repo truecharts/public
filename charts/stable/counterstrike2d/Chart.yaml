@@ -1,16 +1,16 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: counterstrike2d
-version: 4.1.0
+version: 4.1.6
 appVersion: latest
 description: This Chart will download and install CounterStrike 2D.
 home: https://truecharts.org/charts/incubator/counterstrike2d
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/counterstrike2d.png
 deprecated: false
 sources:
+  - https://www.steampowered.com/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/counterstrike2d
   - https://hub.docker.com/r/ich777/cs2dserver
-  - https://www.steampowered.com/
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -20,8 +20,8 @@ keywords:
   - GameServers
 dependencies:
   - name: common
-    version: 17.2.2
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

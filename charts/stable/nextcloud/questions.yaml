@@ -573,7 +573,6 @@ questions:
                   type: int
                   required: true
                   default: 128
-
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: html
@@ -609,8 +608,6 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
 # Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}

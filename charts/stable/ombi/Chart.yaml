@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: ombi
-version: 17.1.0
+version: 17.1.7
 appVersion: 4.43.10
 description: Want a Movie or TV Show on Plex or Emby? Use Ombi!
 home: https://truecharts.org/charts/stable/ombi
@@ -10,7 +10,6 @@ deprecated: false
 sources:
   - https://github.com/tidusjar/Ombi
   - https://github.com/truecharts/charts/tree/master/charts/stable/ombi
-  - https://github.com/truecharts/containers/tree/master/mirrorombi
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -24,8 +23,8 @@ keywords:
   - couchpotato
 dependencies:
   - name: common
-    version: 17.2.2
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

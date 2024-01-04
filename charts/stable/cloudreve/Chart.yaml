@@ -1,16 +1,16 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: cloudreve
-version: 4.1.0
+version: 4.1.6
 appVersion: latest
 description: Self-hosted file management and sharing system, supports multiple storage providers
 home: https://truecharts.org/charts/incubator/cloudreve
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/cloudreve.png
 deprecated: false
 sources:
+  - https://hub.docker.com/r/xavierniu/cloudreve
   - https://github.com/cloudreve/Cloudreve
   - https://github.com/truecharts/charts/tree/master/charts/incubator/cloudreve
-  - https://hub.docker.com/r/xavierniu/cloudreve
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -21,8 +21,8 @@ keywords:
   - Network-Web
 dependencies:
   - name: common
-    version: 17.2.2
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

@@ -1,16 +1,16 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: minecraft-java
-version: 7.1.0
+version: 7.1.5
 appVersion: 2023.11.1
 description: Minecraft Java Dedicated Server
 home: https://truecharts.org/charts/stable/minecraft-java
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/minecraft-java.png
 deprecated: false
 sources:
-  - https://hub.docker.com/r/itzg/minecraft-server
   - https://github.com/itzg/docker-minecraft-server
   - https://github.com/truecharts/charts/tree/master/charts/stable/minecraft-java
+  - https://hub.docker.com/r/itzg/minecraft-server
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -20,8 +20,8 @@ keywords:
   - minecraft
 dependencies:
   - name: common
-    version: 17.2.2
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

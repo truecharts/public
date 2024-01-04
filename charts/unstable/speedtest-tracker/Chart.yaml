@@ -1,14 +1,14 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: speedtest-tracker
-version: 4.0.25
-appVersion: latest
+version: 4.0.31
+appVersion: 0.13.4
 description: A self-hosted internet performance tracking application that runs speedtest checks against Ookla's Speedtest service.
 home: https://truecharts.org/charts/incubator/speedtest-tracker
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/speedtest-tracker.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/containers/tree/master/mirrorspeedtest-tracker
+  - https://ghcr.io/alexjustesen/speedtest-tracker
   - https://github.com/alexjustesen/speedtest-tracker
   - https://github.com/truecharts/charts/tree/master/charts/incubator/speedtest-tracker
 maintainers:
@@ -19,8 +19,8 @@ keywords:
   - speedtest
 dependencies:
   - name: common
-    version: 16.2.6
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

@@ -1,8 +1,8 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: linkwarden
-version: 3.2.0
-appVersion: 2.4.5
+version: 3.2.6
+appVersion: 2.4.8
 description: Linkwarden is a self-hosted, open-source collaborative bookmark manager to collect, organize and archive webpages.
 home: https://truecharts.org/charts/stable/linkwarden
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/linkwarden.png
@@ -21,8 +21,8 @@ keywords:
   - manager
 dependencies:
   - name: common
-    version: 17.2.2
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

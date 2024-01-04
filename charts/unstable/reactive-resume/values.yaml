@@ -1,11 +1,11 @@
 image:
-  repository: tccr.io/truecharts/reactive-resume-client
+  repository: amruthpillai/reactive-resume
+  tag: client-3.8.4@853f07b486a66b5549b6784c2aa034fa888409ffebfe53393aeb8f00ed0da590
   pullPolicy: IfNotPresent
-  tag: latest@sha256:f9d11934cb0a01f72b4aed13efdf454296e477172e14d2793d42aab9b5d46e20
 serverImage:
-  repository: tccr.io/truecharts/reactive-resume-server
+  repository: amruthpillai/reactive-resume
+  tag: server-3.8.4@5be7e61a2ff5ef50fbf9a3aa8bfc8b7aa7d6f26ea2c760b9e789596c6eb31e26
   pullPolicy: IfNotPresent
-  tag: latest@sha256:1d1b4862f77ea7cebf2df843fc61a47a0dcaf5acbd10bb65187a75d4db504774
 
 securityContext:
   container:

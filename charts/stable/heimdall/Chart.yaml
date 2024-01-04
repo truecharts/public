@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: heimdall
-version: 18.1.0
+version: 18.1.5
 appVersion: 2.5.7
 description: An Application dashboard and launcher
 home: https://truecharts.org/charts/stable/heimdall
@@ -19,8 +19,8 @@ keywords:
   - heimdall
 dependencies:
   - name: common
-    version: 17.2.2
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

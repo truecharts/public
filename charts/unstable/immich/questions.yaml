@@ -6,13 +6,11 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
-
   - variable: immich
     group: App Configuration
     label: Immich Configuration
@@ -44,7 +42,6 @@ questions:
                 description: verbose
               - value: debug
                 description: debug
-
         - variable: enable_ml
           label: Enable Machine Learning Container
           schema:
@@ -55,7 +52,6 @@ questions:
           schema:
             type: boolean
             default: true
-
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
@@ -134,8 +130,6 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
 # Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}
@@ -160,7 +154,6 @@ questions:
                 schema:
                   type: int
                   default: 568
-
 # Include{resources}
 # Include{postgresql}
 # Include{advanced}

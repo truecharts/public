@@ -1,16 +1,16 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: mailpile
-version: 4.1.0
+version: 4.1.5
 appVersion: latest
 description: Mailpile is software, an e-mail client. It runs on your desktop or laptop computer and you interact with it by using your web browser. The goal of Mailpile is to allow people to send e-mail in a more secure and private manner than before.
 home: https://truecharts.org/charts/incubator/mailpile
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/mailpile.png
 deprecated: false
 sources:
-  - https://www.mailpile.is/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/mailpile
   - https://hub.docker.com/r/rroemhild/mailpile
+  - https://www.mailpile.is/
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -22,8 +22,8 @@ keywords:
   - Network-Messenger
 dependencies:
   - name: common
-    version: 17.2.2
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

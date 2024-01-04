@@ -113,7 +113,6 @@ questions:
                                               schema:
                                                 type: string
                                                 default: "Do not reply <noreply@localhost>"
-
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
@@ -184,8 +183,6 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
 # Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}
