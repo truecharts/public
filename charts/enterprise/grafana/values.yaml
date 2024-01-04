@@ -32,12 +32,8 @@ workload:
             GF_INSTALL_PLUGINS: ""
             GF_AUTH_LDAP_ENABLED: "false"
             GF_AUTH_LDAP_ALLOW_SIGN_UP: "false"
-            GF_AUTH_LDAP_CONFIG_FILE: "/app/conf/ldap.toml"
-            GF_PATHS_PROVISIONING: "/app/provisioning"
-            GF_PATHS_CONFIG: "/app/grafana.ini"
-            GF_PATHS_DATA: "/app/data"
-            GF_PATHS_LOGS: "/app/logs"
-            GF_PATHS_PLUGINS: "/app/data/plugins"
+            GF_AUTH_LDAP_CONFIG_FILE: "/config/ldap.toml"
+            GF_PATHS_CONFIG: "/config/grafana.ini"
           probes:
             liveness:
               path: "/api/health"
@@ -212,7 +208,19 @@ configmap:
 persistence:
   config:
     enabled: true
-    mountPath: "/app"
+    mountPath: "/config"
+  data:
+    enabled: true
+    mountPath: "/var/lib/grafana"
+  home:
+    enabled: true
+    mountPath: "/usr/share/grafana"
+  plugins:
+    enabled: true
+    mountPath: "/var/lib/grafana/plugins"
+  provisioning:
+    enabled: true
+    mountPath: "/etc/grafana/provisioning"
   grafana-tmp:
     enabled: true
     type: emptyDir
@@ -227,27 +235,27 @@ persistence:
     enabled: true
     type: configmap
     objectName: dashboard-provider
-    mountPath: /app/provisioning/dashboards/sc-dashboardproviders.yaml
+    mountPath: /etc/grafana/provisioning/dashboards/sc-dashboardproviders.yaml
     subPath: provider.yaml
   sc-datasource-volume:
     enabled: true
     type: emptyDir
-    mountPath: /app/provisioning/datasources
+    mountPath: /etc/grafana/provisioning/datasources
     targetSelectAll: true
   sc-alerts-volume:
     enabled: true
     type: emptyDir
-    mountPath: /app/provisioning/alerts
+    mountPath: /etc/grafana/provisioning/alerts
     targetSelectAll: true
   sc-plugins-volume:
     enabled: true
     type: emptyDir
-    mountPath: /app/provisioning/plugins
+    mountPath: /etc/grafana/provisioning/plugins
     targetSelectAll: true
   sc-notifiers-volume:
     enabled: true
     type: emptyDir
-    mountPath: /app/provisioning/notifiers
+    mountPath: /etc/grafana/provisioning/notifiers
     targetSelectAll: true
 metrics:
   main:
