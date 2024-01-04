@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: mstream
 version: 9.1.7
@@ -8,32 +8,32 @@ home: https://truecharts.org/charts/stable/mstream
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/mstream.png
 deprecated: false
 sources:
-    - https://github.com/truecharts/charts/tree/master/charts/stable/mstream
-    - https://ghcr.io/linuxserver/mstream
-    - https://github.com/linuxserver/docker-mstream
-    - https://mstream.io/
+  - https://ghcr.io/linuxserver/mstream
+  - https://github.com/linuxserver/docker-mstream
+  - https://mstream.io/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/mstream
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - mstream
-    - server
-    - music
+  - mstream
+  - server
+  - music
 dependencies:
-    - name: common
-      version: 17.2.21
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: media
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: stable
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 type: application

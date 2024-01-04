@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: recipes
 version: 13.0.11
@@ -8,37 +8,37 @@ home: https://truecharts.org/charts/unstable/recipes
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/recipes.png
 deprecated: false
 sources:
-    - https://hub.docker.com/_/nginx
-    - https://github.com/vabene1111/recipes
-    - https://github.com/truecharts/charts/tree/master/charts/unstable/recipes
+  - https://hub.docker.com/_/nginx
+  - https://github.com/vabene1111/recipes
+  - https://github.com/truecharts/charts/tree/master/charts/unstable/recipes
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - recipes
-    - cooking
+  - recipes
+  - cooking
 dependencies:
-    - name: common
-      version: 17.2.21
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-    - name: postgresql
-      version: 11.0.31
-      repository: https://deps.truecharts.org/
-      condition: postgresql.enabled
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: postgresql
+    version: 11.0.31
+    repository: https://deps.truecharts.org/
+    condition: postgresql.enabled
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: media
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: unstable
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: unstable
 type: application
