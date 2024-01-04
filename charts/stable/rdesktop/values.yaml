@@ -105,7 +105,7 @@ service:
     ports:
       main:
         port: 3389
-        protocol: http
+        protocol: tcp
         targetPort: 3389
 persistence:
   config:
