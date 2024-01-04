@@ -33,7 +33,7 @@ workload:
             APPSMITH_REDIS_URL:
               secretKeyRef:
                 expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                name: '{{ printf "%s-%s" .Release.Name "appsmith-rediscreds" }}'
                 key: url
 persistence:
   appsmithstacks:
@@ -42,7 +42,7 @@ persistence:
 
 redis:
   enabled: true
-  existingSecret: rediscreds
+  existingSecret: appsmith-rediscreds
   redisUsername: appsmith
 
 portal:
