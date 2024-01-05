@@ -16,18 +16,22 @@ securityContext:
 
 service:
   main:
+    targetSelector: nginx
     ports:
       main:
         protocol: http
+        targetSelector: nginx
         targetPort: 80
         port: 8080
   backend:
     enabled: true
     type: ClusterIP
+    targetSelector: main
     ports:
       backend:
         enabled: true
         targetPort: 9000
+        targetSelector: main
         port: 9000
 
 humhub:
