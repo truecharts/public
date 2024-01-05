@@ -19,7 +19,6 @@ service:
     ports:
       main:
         port: 8787
-        targetPort: 8080
   headless:
     enabled: true
     primary: false
@@ -27,8 +26,7 @@ service:
     ports:
       headless:
         enabled: true
-        port: 8787
-        targetPort: 8080
+        port: "{{ .Values.service.main.ports.main.port }}"
 workload:
   main:
     podSpec:
@@ -39,10 +37,13 @@ workload:
             A_POD_IP:
               fieldRef:
                 fieldPath: status.podIP
-            LIVEBOOK_CLUSTER: '{{ printf "dns:%s-headless.%s.svc.cluster.local" (include "tc.v1.common.lib.chart.names.fullname" .) .Release.Namespace }}'
+            LIVEBOOK_CLUSTER: '{{ printf "dns:%s-headless" (include "tc.v1.common.lib.chart.names.fullname" .) }}'
             LIVEBOOK_DISTRIBUTION: name
             LIVEBOOK_NODE: livebook@$(A_POD_IP)
-            LIVEBOOK_PORT: "{{ .Values.service.main.ports.main.targetPort }}"
+            LIVEBOOK_PORT: "{{ .Values.service.main.ports.main.port }}"
             LIVEBOOK_HOME: "{{ .Values.persistence.data.mountPath }}"
-            LIVEBOOK_SECRET_KEY_BASE: "{{ randAlphaNum 48 | b64enc }}"
+            LIVEBOOK_SECRET_KEY_BASE:
+              secretKeyRef:
+                name: secrets
+                key: LIVEBOOK_SECRET_KEY_BASE
             LIVEBOOK_COOKIE: "{{ randAlphaNum 20 }}"
