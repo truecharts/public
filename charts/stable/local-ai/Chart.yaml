@@ -1,8 +1,8 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: local-ai
-version: 8.7.5
-appVersion: 2.3.1
+version: 8.8.0
+appVersion: 2.4.0
 description: Self-hosted, community-driven, local OpenAI-compatible API.
 home: https://truecharts.org/charts/stable/local-ai
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/local-ai.png
@@ -10,7 +10,7 @@ deprecated: false
 sources:
   - https://github.com/go-skynet/LocalAI
   - https://github.com/truecharts/charts/tree/master/charts/stable/local-ai
-  - https://quay.io/go-skynet/local-ai
+  - https://hub.docker.com/r/localai/localai
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
