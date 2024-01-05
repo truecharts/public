@@ -1,6 +1,7 @@
 {{/* Define the secrets */}}
 {{- define "livebook.secrets" -}}
 {{- $secretName := (printf "%s-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
+{{/* Base64 encoding is intended, application expects a b64 formatted value */}}
 {{- $secretKeyBase := randAlphaNum 48 | b64enc -}}
 {{- $cookie := randAlphaNum 20 -}}
 {{- with (lookup "v1" "Secret" .Release.Namespace $secretName) -}}
