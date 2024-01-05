@@ -7,7 +7,7 @@ Helm Library Chart for TrueCharts Charts and Apps
 ## Feature addition(s) or enhancements
 
 Please first discuss with us the feature you want to add, especially if it's a large one.
-This is to ensure we haev an extendable and maintainable implementation!
+This is to ensure we have an extendable and maintainable implementation!
 
 Keep in mind that both docs and unit tests are required in order to complete/merge the feature addition or enhancement.
 
