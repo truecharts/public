@@ -250,6 +250,11 @@
     },
     {
       "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["ghcr.io/mriedmann/humhub-"],
+      "groupName": "humhub",
+    },
+    {
+      "matchDatasources": ["docker"],
       "matchPackagePrefixes": ["lscr.io/linuxserver/webtop"],
       "groupName": "webtop",
     },
