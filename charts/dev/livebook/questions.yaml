@@ -22,12 +22,6 @@ questions:
                                           type: string
                                           required: true
                                           private: true
-                                      - variable: Livebook Cookie (LIVEBOOK_COOKIE)
-                                        label: "LIVEBOOK_COOKIE"
-                                        description: "Sets the cookie for running Livebook in a cluster. Random string is generated if blank."
-                                        schema:
-                                          type: string
-                                          private: true
                                       - variable: LIVEBOOK_DEBUG
                                         label: "Debug Logging (LIVEBOOK_DEBUG)"
                                         description: >

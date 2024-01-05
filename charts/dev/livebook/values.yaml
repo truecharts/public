@@ -46,4 +46,7 @@ workload:
               secretKeyRef:
                 name: secrets
                 key: LIVEBOOK_SECRET_KEY_BASE
-            LIVEBOOK_COOKIE: "{{ randAlphaNum 20 }}"
+            LIVEBOOK_COOKIE:
+              secretKeyRef:
+                name: secrets
+                key: LIVEBOOK_COOKIE
