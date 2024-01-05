@@ -16,11 +16,24 @@ questions:
                                     type: dict
                                     attrs:
                                       - variable: LIVEBOOK_PASSWORD
-                                        label: "LIVEBOOK_PASSWORD"
+                                        label: "Password (LIVEBOOK_PASSWORD)"
                                         description: "Password needed to access livebook (must be at least 12 characters)"
                                         schema:
                                           type: string
-                                          default: "livebookiscool"
+                                          required: true
+                                          private: true
+                                      - variable: LIVEBOOK_DEBUG
+                                        label: "Debug Logging (LIVEBOOK_DEBUG)"
+                                        description: >
+                                          enables verbose logging, when set to "true". Disabled by default.
+                                        schema:
+                                          type: boolean
+                                      - variable: LIVEBOOK_UPDATE_INSTRUCTIONS_URL
+                                        label: "Update instruction URL (LIVEBOOK_UPDATE_INSTRUCTIONS_URL)"
+                                        description: >
+                                          sets the URL to direct the user to for updating Livebook when a new version becomes available.
+                                        schema:
+                                          type: string
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
