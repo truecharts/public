@@ -33,7 +33,7 @@ workload:
             APPSMITH_REDIS_URL:
               secretKeyRef:
                 expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "appsmith-rediscreds" }}'
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: url
 persistence:
   appsmithstacks:
