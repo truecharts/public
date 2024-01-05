@@ -96,7 +96,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-231-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-232-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -404,6 +404,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/atanaspam"><img src="https://avatars.githubusercontent.com/u/9085090?v=4?s=100" width="100px;" alt="Atanas Pamukchiev"/><br /><sub><b>Atanas Pamukchiev</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=atanaspam" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Boemeltrein"><img src="https://avatars.githubusercontent.com/u/130394941?v=4?s=100" width="100px;" alt="Boemeltrein"/><br /><sub><b>Boemeltrein</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=Boemeltrein" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/oblique"><img src="https://avatars.githubusercontent.com/u/194040?v=4?s=100" width="100px;" alt="Yiannis Marangos"/><br /><sub><b>Yiannis Marangos</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=oblique" title="Code">💻</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/mruoss"><img src="https://avatars.githubusercontent.com/u/695307?v=4?s=100" width="100px;" alt="Michael Ruoss"/><br /><sub><b>Michael Ruoss</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=mruoss" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
