@@ -1,6 +1,6 @@
 {{/* Define the secrets */}}
 {{- define "livebook.secrets" -}}
-{{- $secretName := (printf "%s-livebook-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
+{{- $secretName := (printf "%s-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
 {{- $secretKeyBase := randAlphaNum 48 | b64enc -}}
 {{- $cookie := randAlphaNum 20 -}}
 {{- with (lookup "v1" "Secret" .Release.Namespace $secretName) -}}
