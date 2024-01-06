@@ -54,7 +54,8 @@ questions:
           description: The model name to use.
           schema:
             type: string
-            default: ""
+            default: "google/flan-t5-small"
+            required: true
         - variable: quant_type
           label: Quant Type
           description: The quantization type to use.

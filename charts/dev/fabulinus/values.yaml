@@ -24,7 +24,7 @@ service:
 fabulinus:
   # cpu | gpu
   device: cpu
-  model: ""
+  model: "google/flan-t5-small"
   # int8 | float16 | bfloat16 | int8_float16 | int8_bfloat16
   quant_type: int8
   max_batch_size: 32
