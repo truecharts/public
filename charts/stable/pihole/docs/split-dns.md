@@ -1,4 +1,6 @@
-# Automatic Split DNS with PiHole
+---
+title: Automatic Split DNS with PiHole
+---
 
 _Using Blocky in conjunction with PiHole enables seamless automated split DNS functionality._
 

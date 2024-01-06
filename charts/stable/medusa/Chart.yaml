@@ -1,15 +1,15 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: medusa
-version: 8.0.9
+version: 9.1.6
 appVersion: 1.0.19
 description: An automatic Video Library Manager for TV Shows
 home: https://truecharts.org/charts/stable/medusa
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/medusa.png
 deprecated: false
 sources:
-  - https://pymedusa.com/
   - https://github.com/linuxserver/docker-medusa
+  - https://pymedusa.com/
   - https://github.com/truecharts/charts/tree/master/charts/stable/medusa
   - https://ghcr.io/linuxserver/medusa
 maintainers:
@@ -25,8 +25,8 @@ keywords:
   - shows
 dependencies:
   - name: common
-    version: 16.2.17
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

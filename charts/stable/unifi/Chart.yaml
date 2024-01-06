@@ -1,15 +1,15 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: unifi
-version: 18.0.9
-appVersion: 8.0.7
+version: 19.1.5
+appVersion: 8.0.24
 description: Ubiquiti Network's Unifi Controller
 home: https://truecharts.org/charts/stable/unifi
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/unifi.png
 deprecated: false
 sources:
-  - https://unifi-network.ui.com
   - https://github.com/jacobalberty/unifi-docker
+  - https://unifi-network.ui.com
   - https://github.com/truecharts/charts/tree/master/charts/stable/unifi
   - https://ghcr.io/goofball222/unifi
 maintainers:
@@ -21,8 +21,8 @@ keywords:
   - unifi
 dependencies:
   - name: common
-    version: 16.2.17
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

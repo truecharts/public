@@ -1,0 +1,41 @@
+hostNetwork: true
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/linuxserver/wireshark
+  tag: 4.0.11@sha256:89b8d94ed3dee86e42d5987ee912997c460c32954663f38493615f7ee9c9b18e
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  varrun:
+    enabled: true
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    capabilities:
+      add:
+        - NET_ADMIN
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 3000
+        protocol: http
+        targetPort: 3000
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: /
+            readiness:
+              path: /
+            startup:
+              path: /

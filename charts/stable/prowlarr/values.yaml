@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/onedr0p/prowlarr-develop
-  tag: 1.11.2.4160@sha256:12c58192e978bf04695cab64abd071ba323b9967b25abf51f79ab0e57f782cb6
+  tag: 1.11.4.4173@sha256:dc649d62dcd09882b7111bd73d9bc664a28ddf073108345063f368da041d29b0
   pullPolicy: IfNotPresent
 exportarrImage:
   repository: ghcr.io/onedr0p/exportarr
@@ -28,6 +28,13 @@ workload:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              path: /ping
+            readiness:
+              path: /ping
+            startup:
+              type: tcp
           env:
             PROWLARR__PORT: "{{ .Values.service.main.ports.main.port }}"
             PROWLARR__AUTHENTICATION_METHOD: ""

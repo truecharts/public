@@ -1,15 +1,15 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: authelia
-version: 20.0.12
+version: 22.1.8
 appVersion: 4.37.5
 description: Authelia is a Single Sign-On Multi-Factor portal for web apps
 home: https://truecharts.org/charts/enterprise/authelia
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/authelia.png
 deprecated: false
 sources:
-  - https://github.com/authelia/chartrepo
   - https://github.com/authelia/authelia
+  - https://github.com/authelia/chartrepo
   - https://github.com/truecharts/charts/tree/master/charts/enterprise/authelia
   - https://ghcr.io/authelia/authelia
 maintainers:
@@ -30,14 +30,14 @@ keywords:
   - LDAP
 dependencies:
   - name: common
-    version: 16.2.17
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 10.0.15
+    version: 11.1.6
     repository: https://deps.truecharts.org
     condition: redis.enabled
     alias: ""

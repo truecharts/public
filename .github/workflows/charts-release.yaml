@@ -70,8 +70,6 @@ jobs:
 
       - name: Prep Helm
         run: |
-          helm repo add truecharts https://charts.truecharts.org
-          helm repo add truecharts-library https://library-charts.truecharts.org
           helm repo add truecharts-deps https://deps.truecharts.org
           helm repo add jetstack https://charts.jetstack.io
           helm repo add vmwaretanzu https://vmware-tanzu.github.io/helm-charts
@@ -162,27 +160,12 @@ jobs:
                    echo "changelog not found, starting with empty changelog..."
                    touch "website/docs/charts/${train}/${chart}/CHANGELOG.md"
                 fi
-                if [[ -f "website/docs/charts/${train}/${chart}/helm-security.md" ]]; then
-                   echo "helm-security found..."
-                   true
-                else
-                   echo "helm-security not found, starting with empty helm-security..."
-                   touch "website/docs/charts/${train}/${chart}/helm-security.md"
-                   echo "# Helm Security" >> website/docs/charts/${train}/${chart}/helm-security.md
-                fi
-                if [[ -f "website/docs/charts/${train}/${chart}/container-security.md" ]]; then
-                   echo "container-security found..."
-                   true
-                else
-                   echo "container-security not found, starting with empty container-security..."
-                   touch "website/docs/charts/${train}/${chart}/container-security.md"
-                   echo "# Helm Security" >> website/docs/charts/${train}/${chart}/container-security.md
-                fi
+
+                echo "Keeping some docs safe..."
                 # keep some docs safe
                 mv -f website/docs/charts/${train}/${chart}/CHANGELOG.md tmp/website/docs/charts/${train}/${chart}/CHANGELOG.md || :
-                mv -f website/docs/charts/${train}/${chart}/helm-security.md tmp/website/docs/charts/${train}/${chart}/helm-security.md || :
-                mv -f website/docs/charts/${train}/${chart}/container-security.md tmp/website/docs/charts/${train}/${chart}/container-security.md || :
 
+                echo "Removing old docs and recreating based on charts repo..."
                 # remove old docs everywhere and recreate based on charts repo
                 rm -rf website/docs/charts/*/${chart} || :
                 mkdir -p website/docs/charts/${train}/${chart} || echo "chart path already exists, continuing..."
@@ -190,18 +173,26 @@ jobs:
                 yes | cp -rf charts/${train}/${chart}/icon.png website/static/img/hotlink-ok/chart-icons/${chart}.png 2>/dev/null || :
                 yes | cp -rf charts/${train}/${chart}/screenshots/* website/static/img/hotlink-ok/chart-screenshots/${chart}/ 2>/dev/null || :
 
+                echo "Copying back kept docs..."
                 # Copy over kept documents
                 mv -f tmp/website/docs/charts/${train}/${chart}/CHANGELOG.md website/docs/charts/${train}/${chart}/CHANGELOG.md 2>/dev/null || :
-                mv -f tmp/website/docs/charts/${train}/${chart}/helm-security.md website/docs/charts/${train}/${chart}/helm-security.md 2>/dev/null || :
-                mv -f tmp/website/docs/charts/${train}/${chart}/container-security.md website/docs/charts/${train}/${chart}/container-security.md 2>/dev/null || :
 
-                # Append SCALE changelog to actual changelog
-                sed -i '1d' "website/docs/charts/${train}/${chart}/CHANGELOG.md" || echo "failed to sed 1d changelog..."
+                echo "Appending SCALE changelog to actual changelog..."
+                # Add SCALE changelog to actual changelog
+                # Remove header from changelog
+                sed -i '/^---$/,/^---$/d' "website/docs/charts/${train}/${chart}/CHANGELOG.md"
+                # Prepend app-changelog to changelog
                 cat "charts/${train}/${chart}/app-changelog.md" | cat - "website/docs/charts/${train}/${chart}/CHANGELOG.md" > temp && mv temp "website/docs/charts/${train}/${chart}/CHANGELOG.md"
-                sed -i '1s/^/# Changelog\n\n/' "website/docs/charts/${train}/${chart}/CHANGELOG.md" || echo "failed to add changelog header..."
+                echo "Adding changelog header..."
+                sed -i '1s/^/---\ntitle: Changelog\n---\n\n/' "website/docs/charts/${train}/${chart}/CHANGELOG.md" || echo "failed to add changelog header..."
 
+                echo "Creating index.md..."
                 touch website/docs/charts/${train}/${chart}/index.md
-                echo "# ${chart}" >> website/docs/charts/${train}/${chart}/index.md
+                (
+                  echo "---"
+                  echo "title: ${chart}"
+                  echo "---"
+                ) >> website/docs/charts/${train}/${chart}/index.md
                 echo "" >> website/docs/charts/${train}/${chart}/index.md
                 version=$(cat charts/${train}/${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
                 appversion=$(cat charts/${train}/${chart}/Chart.yaml | grep "^appVersion: " | awk -F" " '{ print $2 }')
@@ -216,18 +207,40 @@ jobs:
                 echo "## Available Documentation" >> website/docs/charts/${train}/${chart}/index.md
                 echo "" >> website/docs/charts/${train}/${chart}/index.md
 
+                echo "Iterating over all files in the docs directory..."
                 # Iterate over all files in the docs directory
                 for file in website/docs/charts/${train}/${chart}/*.md; do
                   # Extract the file name and first line from each file
                   filename=$(basename "${file}")
-                  title=$(head -n 1 "${file}" | sed 's/# //')
-
-                  # Create a markdown link using the file name and title
-                  link="[**${title}**](${filename%.md})"
-                  if [ ${filename} != "index.md" ]; then
-                    # Append the link to the index.md file
-                    echo "- ${link}" >> website/docs/charts/${train}/${chart}/index.md
-                    echo "" >> website/docs/charts/${train}/${chart}/index.md
+                  echo "Found doc file: ${file}"
+                  ok_title="false"
+                  echo "Getting the first line"
+                  h=$(head -n 1 "${file}")
+                  echo "The first line is: ${h}. Checking validity..."
+                  # Check if the first line has ---
+                  if [[ "${h}" == "---" ]]; then
+                    echo "First line is ---, continuing..."
+                    ok_title="true"
+                  elif [[ "${h}" == "# "* ]]; then
+                    echo "First line is #..."
+                    ok_title="false"
+                  fi
+                  if [ ${ok_title} == "false" ]; then
+                    echo "Doc title should use front matter and not # for title, for example"
+                    echo "---"
+                    echo "title: some title"
+                    echo "---"
+                  else
+                    echo "Not bad title found, continuing..."
+                    title=$(cat "${file}" | grep "title: " | sed 's/title: //' | head -n 1)
+                    echo "The title is: ${title}"
+                    # Create a markdown link using the file name and title
+                    link="[**${title}**](./${filename})"
+                    echo "The link is: ${link}"
+                    if [ ${filename} != "index.md" ]; then
+                      # Append the link to the index.md file
+                      echo "- ${link}" >> website/docs/charts/${train}/${chart}/index.md
+                    fi
                   fi
                 done
 

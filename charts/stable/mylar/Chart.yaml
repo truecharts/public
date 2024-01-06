@@ -1,17 +1,17 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: mylar
-version: 11.0.9
-appVersion: 0.7.6
+version: 12.1.6
+appVersion: 0.7.7
 description: Mylar is a automated Comic Book downloader
 home: https://truecharts.org/charts/stable/mylar
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/mylar.png
 deprecated: false
 sources:
+  - https://github.com/linuxserver/docker-mylar3
   - https://github.com/mylar3/mylar3
   - https://github.com/truecharts/charts/tree/master/charts/stable/mylar
   - https://hub.docker.com/r/linuxserver/mylar3
-  - https://github.com/linuxserver/docker-mylar3
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -20,8 +20,8 @@ keywords:
   - mylar
 dependencies:
   - name: common
-    version: 16.2.17
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

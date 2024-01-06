@@ -1,16 +1,16 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: docker-hub-rss
-version: 3.0.15
+version: 4.1.6
 appVersion: latest
 description: RSS feed for Chart Hub images.
 home: https://truecharts.org/charts/incubator/docker-hub-rss
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/docker-hub-rss.png
 deprecated: false
 sources:
+  - https://github.com/TheConnMan/docker-hub-rss
   - https://github.com/truecharts/charts/tree/master/charts/incubator/docker-hub-rss
   - https://hub.docker.com/r/theconnman/docker-hub-rss
-  - https://github.com/TheConnMan/docker-hub-rss
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -22,8 +22,8 @@ keywords:
   - Network-Web
 dependencies:
   - name: common
-    version: 16.2.17
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

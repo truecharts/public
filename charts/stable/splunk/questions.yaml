@@ -9,13 +9,10 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
-
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
 # Include{podOptions}
-
   - variable: splunk
     group: App Configuration
     label: "Splunk Configuration"
@@ -48,7 +45,6 @@ questions:
                   type: string
                   required: true
                   default: ""
-
 # Include{serviceRoot}
 # Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
@@ -169,8 +165,6 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
 # Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}
@@ -195,7 +189,6 @@ questions:
           schema:
             type: int
             default: 568
-
 # Include{resources}
 # Include{advanced}
 # Include{addons}

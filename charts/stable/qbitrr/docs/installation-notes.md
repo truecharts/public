@@ -1,4 +1,6 @@
-# Installation Notes
+---
+title: Installation Notes
+---
 
 This document will provide information on the successful setup of qBitrr.
 

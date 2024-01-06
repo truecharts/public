@@ -1,4 +1,6 @@
-# Input Validation
+---
+title: Input Validation
+---
 
 **`APP_KEY`**
 Accepted formats are:

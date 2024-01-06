@@ -1,8 +1,8 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: netbox
-version: 4.0.7
-appVersion: 3.6.5-2.7.0
+version: 4.0.12
+appVersion: 3.6.9-2.7.0
 description: NetBox is the leading solution for modeling and documenting modern networks.
 home: https://truecharts.org/charts/unstable/netbox
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/netbox.png
@@ -20,8 +20,8 @@ keywords:
   - netbox
 dependencies:
   - name: common
-    version: 16.2.6
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

@@ -1,17 +1,16 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: metallb
-version: 12.0.9
+version: 13.1.8
 appVersion: latest
 description: A network load-balancer implementation for Kubernetes using standard routing protocols
 home: https://truecharts.org/charts/operators/metallb
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/metallb.png
 deprecated: false
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/operators/metallb
   - https://metallb.universe.tf
   - https://github.com/metallb/metallb
-  - https://github.com/truecharts/charts/tree/master/charts/operators/metallb
-  - https://github.com/truecharts/containers/tree/master/mirroralpine
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -21,8 +20,8 @@ keywords:
   - loadbalancer
 dependencies:
   - name: common
-    version: 16.2.17
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

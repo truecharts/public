@@ -1,16 +1,16 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: qbitmanage
-version: 6.0.9
+version: 7.1.5
 appVersion: 4.0.6
 description: This tool will help manage tedious tasks in qBittorrent and automate them. Tag, categorize, remove orphaned data, remove unregistered torrents and much much more.
 home: https://truecharts.org/charts/stable/qbitmanage
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/qbitmanage.png
 deprecated: false
 sources:
+  - https://hub.docker.com/r/bobokun/qbit_manage
   - https://github.com/StuffAnThings/qbit_manage/wiki/Docker-Installation
   - https://github.com/truecharts/charts/tree/master/charts/stable/qbitmanage
-  - https://hub.docker.com/r/bobokun/qbit_manage
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -21,8 +21,8 @@ keywords:
   - MediaApp-Other
 dependencies:
   - name: common
-    version: 16.2.17
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

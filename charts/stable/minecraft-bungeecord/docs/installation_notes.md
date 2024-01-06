@@ -1,4 +1,6 @@
-# Installation Notes
+---
+title: Installation Notes
+---
 
 - Set `Select Image` to one of the values from the list. `Java 17`, `Java 11`, `Java 8`. Default is `Java 17`.
 - Set `ENABLE_RCON` to **true**, to enable RCON server.

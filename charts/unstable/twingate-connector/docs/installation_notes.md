@@ -1,10 +1,11 @@
-# Installation Notes
+---
+title: Installation Notes
+---
 
-- Requires the following sysctl added to system settings -> advanced -> sysctl:
+Requires the following sysctl added to `System Settings` -> `Advanced` -> `sysctl`
 
-variable: **net.ipv4.ping_group_range**
-
-value: **0 2147483647**
+- Variable: **net.ipv4.ping_group_range**
+- Value: **0 2147483647**
 
 Setting this up may require a reboot.
 

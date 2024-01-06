@@ -1,0 +1,50 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: appsmith/appsmith-ce
+  tag: v1.9.57@sha256:33fdb9a84f202b3ff6dada31107f90946a7af883657849295181fb1393065dd8
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 10217
+        targetPort: 80
+  supervisor:
+    enabled: true
+    ports:
+      supervisor:
+        enabled: true
+        port: 10218
+        targetPort: 9001
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            APPSMITH_ADMIN_EMAILS: me@example.com,you@example.com
+            APPSMITH_REDIS_URL:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: url
+persistence:
+  appsmithstacks:
+    enabled: true
+    mountPath: /appsmith-stacks
+
+redis:
+  enabled: true
+  existingSecret: rediscreds
+  redisUsername: appsmith
+
+portal:
+  open:
+    enabled: true

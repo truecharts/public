@@ -1,0 +1,39 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: self-service-password
+version: 4.0.13
+appVersion: 5.3.3
+description: Self Service Password is a PHP application that allows users to change their password in an LDAP directory.
+home: https://truecharts.org/charts/incubator/self-service-password
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/self-service-password.png
+deprecated: false
+sources:
+  - https://self-service-password.readthedocs.io/en/latest
+  - https://github.com/tiredofit/docker-self-service-password
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/self-service-password
+  - https://hub.docker.com/r/tiredofit/self-service-password
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - password
+  - self-service
+  - ldap
+dependencies:
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: productivity
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

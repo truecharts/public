@@ -1,8 +1,8 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: code-server
-version: 9.0.9
-appVersion: 4.19.1
+version: 10.1.6
+appVersion: 4.20.0
 description: Run VS Code on any machine anywhere and access it in the browser.
 home: https://truecharts.org/charts/stable/code-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/code-server.png
@@ -22,8 +22,8 @@ keywords:
   - vscode
 dependencies:
   - name: common
-    version: 16.2.17
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

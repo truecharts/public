@@ -1,40 +1,34 @@
-# Changelog
-
-
+---
+title: Changelog
+---
 
 ## [misskey-1.0.0]misskey-1.0.0 (2022-11-10)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
-  - Major Change to GUI
+- Auto-update chart README [skip ci]
+- Auto-update chart README [skip ci]
+- Major Change to GUI
 
-  ### Feat
+### Feat
 
 - Add Misskey ([#4315](https://github.com/truecharts/charts/issues/4315))
 
-  ### Fix
+### Fix
 
 - change container config label
 
-
-
-
 ## [misskey-0.0.1]misskey-0.0.1 (2022-11-09)
 
 ### Chore
 
 - Auto-update chart README [skip ci]
-  - Auto-update chart README [skip ci]
+- Auto-update chart README [skip ci]
 
-  ### Feat
+### Feat
 
 - Add Misskey ([#4315](https://github.com/truecharts/charts/issues/4315))
-
-
-
 
 ## [misskey-0.0.1]misskey-0.0.1 (2022-11-09)
 
@@ -42,12 +36,9 @@
 
 - Auto-update chart README [skip ci]
 
-  ### Feat
+### Feat
 
 - Add Misskey ([#4315](https://github.com/truecharts/charts/issues/4315))
-
-
-
 
 ## [misskey-0.0.1]misskey-0.0.1 (2022-11-09)
 

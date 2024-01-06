@@ -1,0 +1,10 @@
+{{- include "tc.v1.common.loader.init" . }}
+
+{{/* Render secrets for recipes */}}
+{{- $secrets := include "recipes.secrets" . | fromYaml -}}
+{{- if $secrets -}}
+  {{- $_ := set .Values.secret "recipes-secrets" $secrets -}}
+{{- end -}}
+
+{{/* Render the templates */}}
+{{ include "tc.v1.common.loader.apply" . }}

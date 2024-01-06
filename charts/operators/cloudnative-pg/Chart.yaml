@@ -1,17 +1,16 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: cloudnative-pg
-version: 4.0.9
+version: 5.2.8
 appVersion: latest
 description: CloudNativePG is a clustered postgresql database operator
 home: https://truecharts.org/charts/operators/cloudnative-pg
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/cloudnative-pg.png
 deprecated: false
 sources:
-  - https://cloudnative-pg.io/
   - https://github.com/cloudnative-pg
+  - https://cloudnative-pg.io/
   - https://github.com/truecharts/charts/tree/master/charts/operators/cloudnative-pg
-  - https://github.com/truecharts/containers/tree/master/mirroralpine
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -22,14 +21,14 @@ keywords:
   - cnpg
 dependencies:
   - name: common
-    version: 16.2.17
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: cloudnative-pg
-    version: 0.19.1
+    version: 0.20.0
     repository: https://cloudnative-pg.github.io/charts
     condition: ""
     alias: cloudnative-pg

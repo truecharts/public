@@ -1,16 +1,16 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: slash
-version: 1.0.9
-appVersion: 0.5.0
+version: 2.1.5
+appVersion: 0.5.1
 description: A bookmarking and link shortening service that enables easy saving and sharing of links.
 home: https://truecharts.org/charts/stable/slash
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/slash.png
 deprecated: false
 sources:
+  - https://github.com/boojack/slash
   - https://github.com/truecharts/charts/tree/master/charts/stable/slash
   - https://hub.docker.com/r/yourselfhosted/slash
-  - https://github.com/boojack/slash
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -21,8 +21,8 @@ keywords:
   - url-shortener
 dependencies:
   - name: common
-    version: 16.2.17
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

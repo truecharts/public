@@ -1,4 +1,6 @@
-# Authelia Rules
+---
+title: Authelia Rules
+---
 
 This is a collection of some common Authelia Rules.
 

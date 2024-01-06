@@ -1,8 +1,7 @@
 ---
+title: Support Policy
 sidebar_position: 3
 ---
-
-# Support Policy
 
 ## TrueCharts on TrueNAS SCALE
 
@@ -19,7 +18,7 @@ We also document which versions of TrueNAS will receive TrueCharts updates and f
 | 22.12.4.2 or prior | `master` | :x:                    | :x:                       | :x:                   | Update to 23.10.X Supported Version [TrueNAS SCALE](https://www.truenas.com/docs/scale/23.10/) |
 | 23.10.0.1          | `master` | :white_check_mark:     | :x:                       | :x:                   | Update to 23.10.1 [TrueNAS SCALE](https://www.truenas.com/docs/scale/23.10/)                   |
 | 23.10.1            | `master` | :white_check_mark:     | :white_check_mark:        | :white_check_mark:    | Stable Release as of 2023-12-19                                                                |
-| Nightly            | `master` | :white_check_mark:     | :x:                       | :white_check_mark:    | Please only submit bug reports during codefreeze                                               |
+| Nightly            | `master` | :white_check_mark:     | :x:                       | :white_check_mark:    | Please only submit bug reports during code-freeze                                              |
 
 ## TrueCharts on Talos-OS
 
@@ -53,7 +52,7 @@ Our [Discord](https://discord.gg/tVsPTHWTtr) support (the ticketing system insid
 ## Stable Train Charts
 
 We provide direct support for getting `stable` train charts working on our [discord](https://discord.gg/tVsPTHWTtr) inside the **#support** channel.
-That includes installation and guidance on getting it working with defaults or basic settings (not advanced customisations or remote smb shares, etc).
+That includes installation and guidance on getting it working with defaults or basic settings (not advanced customizations or remote smb shares, etc).
 Bug reports aren't accepted on [discord](https://discord.gg/tVsPTHWTtr) so if you spot a bug (Charts in the stable train should work with mostly defaults configuration)
 please report them to our [github](https://github.com/truecharts/charts/issues/new/choose). Bug reports that state something doesn't work without supporting items may be closed.
 

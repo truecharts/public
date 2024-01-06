@@ -1,4 +1,6 @@
-# Input Validation
+---
+title: Input Validation
+---
 
 **`Self Signed Issuer Name`, `ACME Issuer Entry` and `CA Issuer Name`**
 Accepted formats are:

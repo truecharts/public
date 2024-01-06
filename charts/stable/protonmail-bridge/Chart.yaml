@@ -1,8 +1,8 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: protonmail-bridge
-version: 12.0.9
-appVersion: 3.7.1-1
+version: 13.1.5
+appVersion: 3.7.1
 description: ProtonMail IMAP/SMTP Bridge to work on the network.
 home: https://truecharts.org/charts/stable/protonmail-bridge
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/protonmail-bridge.png
@@ -20,8 +20,8 @@ keywords:
   - protonmail-bridge
 dependencies:
   - name: common
-    version: 16.2.17
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

@@ -1,4 +1,6 @@
-# Installation Notes
+---
+title: Installation Notes
+---
 
 - Set `App Token` to your discord bot token. Here's a basic guide from [discordGSM](https://discordgsm.com/guide/how-to-get-a-discord-bot-token).
 - Add your discord server's ID to the `Whitelist Guilds` list, single ID per box.

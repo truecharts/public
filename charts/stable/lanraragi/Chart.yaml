@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: lanraragi
-version: 7.0.9
+version: 8.1.5
 appVersion: ""
 description: Open source server for archival of comics/manga.
 home: https://truecharts.org/charts/stable/lanraragi
@@ -10,8 +10,8 @@ deprecated: false
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/lanraragi
   - https://hub.docker.com/r/difegue/lanraragi
-  - https://sugoi.gitbook.io/lanraragi/
   - https://github.com/Difegue/LANraragi
+  - https://sugoi.gitbook.io/lanraragi/
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -22,8 +22,8 @@ keywords:
   - manga
 dependencies:
   - name: common
-    version: 16.2.17
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

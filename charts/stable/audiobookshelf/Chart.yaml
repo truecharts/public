@@ -1,16 +1,16 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: audiobookshelf
-version: 7.0.9
-appVersion: 2.6.0
+version: 8.1.7
+appVersion: 2.7.1
 description: Audiobookshelf is a self-hosted audiobook server for managing and playing your audiobooks.
 home: https://truecharts.org/charts/stable/audiobookshelf
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/audiobookshelf.png
 deprecated: false
 sources:
-  - https://github.com/advplyr/audiobookshelf
   - https://github.com/truecharts/charts/tree/master/charts/stable/audiobookshelf
   - https://hub.docker.com/r/advplyr/audiobookshelf
+  - https://github.com/advplyr/audiobookshelf
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -19,8 +19,8 @@ keywords:
   - audiobookshelf
 dependencies:
   - name: common
-    version: 16.2.17
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: mstream
-version: 8.0.9
+version: 9.1.7
 appVersion: 5.11.4
 description: A personal music streaming server
 home: https://truecharts.org/charts/stable/mstream
@@ -9,9 +9,9 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/mstream.png
 deprecated: false
 sources:
   - https://github.com/linuxserver/docker-mstream
+  - https://mstream.io/
   - https://github.com/truecharts/charts/tree/master/charts/stable/mstream
   - https://ghcr.io/linuxserver/mstream
-  - https://mstream.io/
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -22,8 +22,8 @@ keywords:
   - music
 dependencies:
   - name: common
-    version: 16.2.17
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

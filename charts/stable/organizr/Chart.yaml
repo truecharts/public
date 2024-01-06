@@ -1,16 +1,16 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: organizr
-version: 16.0.9
+version: 17.1.5
 appVersion: latest
 description: HTPC/Homelab Services Organizer
 home: https://truecharts.org/charts/stable/organizr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/organizr.png
 deprecated: false
 sources:
+  - https://hub.docker.com/r/organizr/organizr
   - https://github.com/causefx/Organizr
   - https://github.com/truecharts/charts/tree/master/charts/stable/organizr
-  - https://hub.docker.com/r/organizr/organizr
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -19,8 +19,8 @@ keywords:
   - organizr
 dependencies:
   - name: common
-    version: 16.2.17
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

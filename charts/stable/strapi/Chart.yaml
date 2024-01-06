@@ -1,17 +1,17 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: strapi
-version: 11.1.2
-appVersion: 4.16.2-alpine
+version: 12.1.5
+appVersion: 4.16.2
 description: Open-source headless CMS. JavaScript, fully customizable and developer-first.
 home: https://truecharts.org/charts/stable/strapi
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/strapi.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/strapi
-  - https://hub.docker.com/r/naskio/strapi
   - https://truecharts.org/charts/stable/strapi
   - https://github.com/naskio/docker-strapi
+  - https://github.com/truecharts/charts/tree/master/charts/stable/strapi
+  - https://hub.docker.com/r/naskio/strapi
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -21,8 +21,8 @@ keywords:
   - cms
 dependencies:
   - name: common
-    version: 16.2.17
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

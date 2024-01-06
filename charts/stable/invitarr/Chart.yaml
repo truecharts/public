@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: invitarr
-version: 3.0.15
+version: 4.1.5
 appVersion: latest
 description: A chatbot that invites discord users to plex.
 home: https://truecharts.org/charts/incubator/invitarr
@@ -22,8 +22,8 @@ keywords:
   - Other
 dependencies:
   - name: common
-    version: 16.2.17
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

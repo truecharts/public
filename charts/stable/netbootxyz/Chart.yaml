@@ -1,8 +1,8 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: netbootxyz
-version: 1.0.9
-appVersion: 0.6.7
+version: 3.1.5
+appVersion: 0.7.0
 description: Your favorite operating systems in one place!
 home: https://truecharts.org/charts/incubator/netbootxyz
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/netbootxyz.png
@@ -10,7 +10,7 @@ deprecated: false
 sources:
   - https://github.com/netbootxyz/netboot.xyz
   - https://github.com/truecharts/charts/tree/master/charts/incubator/netbootxyz
-  - https://github.com/truecharts/containers/tree/master/mirrornetbootxyz
+  - https://ghcr.io/netbootxyz/netbootxyz
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -20,8 +20,8 @@ keywords:
   - pxe
 dependencies:
   - name: common
-    version: 16.2.17
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

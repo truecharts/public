@@ -1,0 +1,54 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: snipe-it
+version: 9.0.13
+appVersion: 6.2.3
+description: Open source asset management
+home: https://truecharts.org/charts/incubator/snipe-it
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/snipe-it.png
+deprecated: false
+sources:
+  - https://github.com/snipe/snipe-it
+  - https://snipeitapp.com/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/snipe-it
+  - https://hub.docker.com/r/snipe/snipe-it
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - snipeit
+  - snipe
+  - asset
+  - management
+dependencies:
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: mariadb
+    version: 10.0.2
+    repository: https://deps.truecharts.org/
+    condition: mariadb.enabled
+    alias: ""
+    tags: []
+    import-values: []
+  - name: redis
+    version: 9.0.3
+    repository: https://deps.truecharts.org
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: management
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

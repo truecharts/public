@@ -1,4 +1,6 @@
-# Ingress
+---
+title: Ingress
+---
 
 This chart requires Ingress to be enabled after initial install due to the configuration of the application upstream (see [Duplicati forum post](https://forum.duplicati.com/t/error-message-in-browser-the-host-header-sent-by-the-client-is-not-allowed/5806)). Please install the application without Ingress, access settings of the application and add your hostname inside the settings of the app.
 

@@ -1,17 +1,17 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: grafana
-version: 10.0.10
-appVersion: 10.2.2
+version: 12.0.1
+appVersion: 10.2.3
 description: Grafana is an open source, feature rich metrics dashboard and graph editor for Graphite, Elasticsearch, OpenTSDB, Prometheus and InfluxDB.
 home: https://truecharts.org/charts/enterprise/grafana
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/grafana.png
 deprecated: false
 sources:
-  - https://grafana.com/
   - https://github.com/bitnami/bitnami-docker-grafana
+  - https://grafana.com/
   - https://github.com/truecharts/charts/tree/master/charts/enterprise/grafana
-  - https://hub.docker.com/r/bitnami/grafana
+  - https://quay.io/kiwigrid/k8s-sidecar
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -23,8 +23,8 @@ keywords:
   - logs
 dependencies:
   - name: common
-    version: 16.2.17
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

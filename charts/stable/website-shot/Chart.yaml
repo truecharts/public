@@ -1,16 +1,16 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: website-shot
-version: 8.0.9
+version: 9.1.5
 appVersion: latest
 description: Generate a full web-page screenshot with our service, that provides rich interface to make any kind of web screenshots online for free with no limits. The simplest way to take a full page screenshot.
 home: https://truecharts.org/charts/stable/website-shot
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/website-shot.png
 deprecated: false
 sources:
-  - https://hub.docker.com/r/flowko1/website-shot
   - https://github.com/Flowko/website-shot
   - https://github.com/truecharts/charts/tree/master/charts/stable/website-shot
+  - https://hub.docker.com/r/flowko1/website-shot
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -19,8 +19,8 @@ keywords:
   - website-shot
 dependencies:
   - name: common
-    version: 16.2.17
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

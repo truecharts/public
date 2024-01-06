@@ -1,4 +1,6 @@
-# Important Notes
+---
+title: Important Notes
+---
 
 The Firefly III developers have decided to split their program into multiple different add-on containers, implementing these ourselves into the App is EXTREMELY time-consuming. While we would appreciate people with experience building Helm Charts and adding the feature containers, we have decided to flag them "out of scope" for True Charts.
 

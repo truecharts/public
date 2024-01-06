@@ -4,11 +4,9 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
                                 - variable: env
                                   group: App Configuration
                                   label: Image Environment
@@ -37,7 +35,6 @@ questions:
                                           type: string
                                           default: ""
                                           required: true
-
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
@@ -47,7 +44,6 @@ questions:
 # Include{serviceList}
 # Include{persistenceList}
 # Include{securityContextRoot}
-
               - variable: runAsUser
                 label: "runAsUser"
                 description: "The UserID of the user running the application"
@@ -69,7 +65,6 @@ questions:
                 schema:
                   type: int
                   default: 568
-
 # Include{resources}
 # Include{metrics}
 # Include{prometheusRule}

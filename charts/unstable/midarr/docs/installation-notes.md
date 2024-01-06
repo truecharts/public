@@ -1,4 +1,6 @@
-# Installation Notes
+---
+title: Installation Notes
+---
 
 Midarr requires a sonarr and radarr instance to be setup prior for the app to function.
 

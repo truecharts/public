@@ -1,8 +1,7 @@
-backupStorageLocation: []
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/truecharts/alpine
-  tag: latest@sha256:51c4ca9a8213d3f4026bd560e8aa2de365d275d6cd0298eff2ae20671fef34e9
+  repository: tccr.io/tccr/alpine
+  tag: latest@sha256:12e0f84947ee7fc11f552e065a46d5a2b4e27cfc6ded0f624fc948c3138fb9a9
 manifestManager:
   enabled: false
 operator:
@@ -10,13 +9,16 @@ operator:
 portal:
   open:
     enabled: false
-schedules: []
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
+workload:
+  main:
+    enabled: false
+
 velero:
   configuration:
     backupStorageLocation: []
@@ -41,20 +43,6 @@ velero:
       volumeMounts:
         - mountPath: /target
           name: plugins
-  namespace:
-    labels:
-      - key: pod-security.kubernetes.io/enforce
-        value: privileged
-      - key: pod-security.kubernetes.io/enforce-version
-        value: latest
-      - key: pod-security.kubernetes.io/audit
-        value: privileged
-      - key: pod-security.kubernetes.io/audit-version
-        value: latest
-      - key: pod-security.kubernetes.io/warn
-        value: privileged
-      - key: pod-security.kubernetes.io/warn-version
-        value: latest
   nodeAgent:
     podVolumePath: /var/lib/kubelet/pods
     privileged: true
@@ -67,7 +55,3 @@ velero:
       cpu: 4000m
       memory: 4Gi
   schedules: {}
-volumeSnapshotLocation: []
-workload:
-  main:
-    enabled: false

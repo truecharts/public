@@ -1,8 +1,8 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: uptime-kuma
-version: 8.0.9
-appVersion: 1.23.10-debian
+version: 9.1.6
+appVersion: 1.23.11
 description: A fancy self-hosted monitoring tool
 home: https://truecharts.org/charts/stable/uptime-kuma
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/uptime-kuma.png
@@ -20,8 +20,8 @@ keywords:
   - uptime
 dependencies:
   - name: common
-    version: 16.2.17
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

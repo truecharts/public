@@ -1,0 +1,33 @@
+hostNetwork: true
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/seriousm4x/upsnap
+  tag: 4.1.4@sha256:2ee46f9a31ce66eb8d2a2bbdd2865324660028577c7e3d7ebb40bbed257a62dd
+persistence:
+  data:
+    enabled: true
+    mountPath: /app/pb_data
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10611
+        protocol: http
+        targetPort: 8090
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            UPSNAP_INTERVAL: "@every 10s"
+            UPSNAP_SCAN_RANGE: 192.168.1.0/24
+            UPSNAP_WEBSITE_TITLE: Truecharts WOL

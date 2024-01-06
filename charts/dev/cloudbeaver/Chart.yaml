@@ -1,0 +1,38 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: cloudbeaver
+version: 4.0.14
+appVersion: 23.3.1
+description: Cloud Database Manager (Official Chart)
+home: https://truecharts.org/charts/incubator/cloudbeaver
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/cloudbeaver.png
+deprecated: false
+sources:
+  - https://github.com/dbeaver/cloudbeaver
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/cloudbeaver
+  - https://hub.docker.com/r/dbeaver/cloudbeaver
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - cloudbeaver
+  - Cloud
+  - Tools-Utilities
+dependencies:
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Cloud
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
+type: application

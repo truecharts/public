@@ -1,16 +1,16 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: tagspaces
-version: 1.0.9
+version: 2.1.5
 appVersion: 5.5.2
 description: TagSpaces is an offline, open source, document manager with tagging support.
 home: https://truecharts.org/charts/stable/tagspaces
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/tagspaces.png
 deprecated: false
 sources:
+  - https://github.com/tagspaces/tagspaces
   - https://github.com/truecharts/charts/tree/master/charts/stable/tagspaces
   - https://hub.docker.com/r/tagspaces/tagspaces-lite-web
-  - https://github.com/tagspaces/tagspaces
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -20,8 +20,8 @@ keywords:
   - documents
 dependencies:
   - name: common
-    version: 16.2.17
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

@@ -1,8 +1,8 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: joplin-server
-version: 15.0.9
-appVersion: 2.14.1-beta
+version: 16.2.0
+appVersion: 2.14.1
 description: Allows you to sync any Joplin client.
 home: https://truecharts.org/charts/stable/joplin-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/joplin-server.png
@@ -10,8 +10,8 @@ deprecated: false
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/joplin-server
   - https://hub.docker.com/r/joplin/server
-  - https://github.com/laurent22/joplin
   - https://github.com/laurent22/joplin/tree/dev/packages/server
+  - https://github.com/laurent22/joplin
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -21,8 +21,8 @@ keywords:
   - notes
 dependencies:
   - name: common
-    version: 16.2.17
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

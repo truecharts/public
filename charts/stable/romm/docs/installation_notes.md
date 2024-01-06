@@ -1,4 +1,6 @@
-# Installation Notes
+---
+title: Installation Notes
+---
 
 Set Client Id and Client Secret with the API key from [IGDB](https://api-docs.igdb.com/#about)
 SteamGridDB API Key is WIP and can be optionally set.
@@ -9,7 +11,7 @@ Structure 1 (high priority) - roms folder at root of library folder:
 
 Just set the library PVC to hostpath or nfs mount.
 
-```txt
+```shell
 library/
 ├─ roms/
    ├─ gbc/
@@ -30,7 +32,7 @@ library/
 
 Structure 2 (low priority) - roms folder inside each platform folder
 
-```txt
+```shell
 library/
 ├─ gbc/
 │  ├─ roms/

@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: ckulka/baikal
-  tag: 0.9.3-nginx@sha256:a66b84146894a4014e25f85d94db2751f873f275c98c7cdd4c0002ac78b86b75
+  tag: 0.9.4-nginx@sha256:1433f34408364e500c7da75cf9bff26103e2b52ee8de19b089ef002973578bcb
 persistence:
   config:
     enabled: true
@@ -24,3 +24,10 @@ service:
         port: 10293
         protocol: http
         targetPort: 80
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            BAIKAL_SKIP_CHOWN: false

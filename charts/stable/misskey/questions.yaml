@@ -6,7 +6,6 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
@@ -198,8 +197,6 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
 # Include{ingressAdvanced}
 # Include{ingressList}
 # Include{podSecurityContextRoot}
@@ -224,7 +221,6 @@ questions:
           schema:
             type: int
             default: 33
-
 # Include{resources}
 # Include{postgresql}
 # Include{advanced}

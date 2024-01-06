@@ -365,7 +365,6 @@ questions:
                       schema:
                         type: string
                         default: mail
-
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
@@ -412,11 +411,8 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
 # Include{ingressAdvanced}
 # Include{ingressList}
-
 # Include{securityContextRoot}
               - variable: runAsUser
                 label: "runAsUser"
@@ -439,7 +435,6 @@ questions:
                 schema:
                   type: int
                   default: 568
-
 # Include{resources}
 # Include{postgresql}
 # Include{advanced}

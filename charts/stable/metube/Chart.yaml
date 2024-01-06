@@ -1,16 +1,16 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: metube
-version: 9.0.9
-appVersion: "2023-12-13"
+version: 11.0.0
+appVersion: "2024"
 description: Web GUI for youtube-dl.
 home: https://truecharts.org/charts/stable/metube
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/metube.png
 deprecated: false
 sources:
-  - https://github.com/alexta69/metube
   - https://github.com/truecharts/charts/tree/master/charts/stable/metube
   - https://hub.docker.com/r/alexta69/metube
+  - https://github.com/alexta69/metube
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -20,8 +20,8 @@ keywords:
   - media
 dependencies:
   - name: common
-    version: 16.2.17
-    repository: https://library-charts.truecharts.org
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []

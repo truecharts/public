@@ -6,12 +6,9 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
-
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
@@ -35,6 +32,7 @@ questions:
             type: string
             required: true
             private: true
+            min_length: 8
         - variable: email
           label: "email"
           schema:
@@ -187,12 +185,9 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
 # Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}
-
               - variable: runAsUser
                 label: "runAsUser"
                 description: "The UserID of the user running the application"
@@ -214,7 +209,6 @@ questions:
           schema:
             type: int
             default: 1000
-
 # Include{resources}
 # Include{postgresql}
 # Include{advanced}
