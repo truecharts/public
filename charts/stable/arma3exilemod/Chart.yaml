@@ -4,11 +4,11 @@ name: arma3exilemod
 version: 4.1.6
 appVersion: arma3exilemod
 description: This Chart will download and install SteamCMD. It will also install ArmA III including ExileMod and run it.
-home: https://truecharts.org/charts/incubator/arma3exilemod
+home: https://truecharts.org/charts/stable/arma3exilemod
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/arma3exilemod.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/arma3exilemod
+  - https://github.com/truecharts/charts/tree/master/charts/stable/arma3exilemod
   - https://hub.docker.com/r/ich777/steamcmd
 maintainers:
   - name: TrueCharts
@@ -32,5 +32,5 @@ annotations:
   truecharts.org/category: GameServers
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 type: application

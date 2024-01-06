@@ -4,12 +4,12 @@ name: tubearchivist-redisjson
 version: 4.1.5
 appVersion: latest
 description: This is a dependancy Chart for the application "TubeArchivist"
-home: https://truecharts.org/charts/incubator/tubearchivist-redisjson
+home: https://truecharts.org/charts/stable/tubearchivist-redisjson
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/tubearchivist-redisjson.png
 deprecated: false
 sources:
   - https://github.com/RedisJSON/RedisJSON
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/tubearchivist-redisjson
+  - https://github.com/truecharts/charts/tree/master/charts/stable/tubearchivist-redisjson
   - https://hub.docker.com/r/redislabs/rejson
 maintainers:
   - name: TrueCharts
@@ -33,5 +33,5 @@ annotations:
   truecharts.org/category: MediaServer-Other
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 type: application

@@ -4,11 +4,11 @@ name: tracks
 version: 4.1.5
 appVersion: latest
 description: "Tracks is a web-based todo application to help you implement the GTD methodology. "
-home: https://truecharts.org/charts/incubator/tracks
+home: https://truecharts.org/charts/stable/tracks
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/tracks.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/tracks
+  - https://github.com/truecharts/charts/tree/master/charts/stable/tracks
   - https://hub.docker.com/r/tracksapp/tracks
 maintainers:
   - name: TrueCharts
@@ -32,5 +32,5 @@ annotations:
   truecharts.org/category: Productivity
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 type: application

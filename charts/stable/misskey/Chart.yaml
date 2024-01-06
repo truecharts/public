@@ -4,11 +4,11 @@ name: misskey
 version: 7.1.9
 appVersion: 2023.12.2
 description: Open source decentralized social media platform that's free forever!
-home: https://truecharts.org/charts/incubator/misskey
+home: https://truecharts.org/charts/stable/misskey
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/misskey.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/misskey
+  - https://github.com/truecharts/charts/tree/master/charts/stable/misskey
   - https://hub.docker.com/r/misskey/misskey
   - https://github.com/misskey-dev/misskey/
 maintainers:
@@ -44,5 +44,5 @@ annotations:
   truecharts.org/category: Social
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 type: application

@@ -4,13 +4,13 @@ name: tachidesk-docker
 version: 4.1.5
 appVersion: latest
 description: The official Tachidesk Chart-Chart.
-home: https://truecharts.org/charts/incubator/tachidesk-docker
+home: https://truecharts.org/charts/stable/tachidesk-docker
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/tachidesk-docker.png
 deprecated: false
 sources:
   - https://github.com/suwayomi/docker-tachidesk
   - https://github.com/Suwayomi/Tachidesk-Server
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/tachidesk-docker
+  - https://github.com/truecharts/charts/tree/master/charts/stable/tachidesk-docker
   - https://ghcr.io/suwayomi/tachidesk
 maintainers:
   - name: TrueCharts
@@ -34,5 +34,5 @@ annotations:
   truecharts.org/category: MediaServer-Other
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 type: application

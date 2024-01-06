@@ -4,12 +4,12 @@ name: baikal
 version: 4.2.7
 appVersion: 0.9.4
 description: Baikal is a lightweight CalDAV+CardDAV server
-home: https://truecharts.org/charts/incubator/baikal
+home: https://truecharts.org/charts/stable/baikal
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/baikal.png
 deprecated: false
 sources:
   - https://github.com/ckulka/baikal-docker
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/baikal
+  - https://github.com/truecharts/charts/tree/master/charts/stable/baikal
   - https://hub.docker.com/r/ckulka/baikal
 maintainers:
   - name: TrueCharts
@@ -32,5 +32,5 @@ annotations:
   truecharts.org/category: utilities
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 type: application

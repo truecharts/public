@@ -4,11 +4,11 @@ name: androiddebugbridge
 version: 4.1.6
 appVersion: latest
 description: Control AndroidTV/FireTV devices through ADB from the Home Assistant Core Chart.
-home: https://truecharts.org/charts/incubator/androiddebugbridge
+home: https://truecharts.org/charts/stable/androiddebugbridge
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/androiddebugbridge.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/androiddebugbridge
+  - https://github.com/truecharts/charts/tree/master/charts/stable/androiddebugbridge
   - https://hub.docker.com/r/barnybbb/adb-hass-androidtv
 maintainers:
   - name: TrueCharts
@@ -32,5 +32,5 @@ annotations:
   truecharts.org/category: HomeAutomation
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 type: application

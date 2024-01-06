@@ -4,12 +4,12 @@ name: cs2
 version: 2.1.7
 appVersion: latest
 description: A custom SteamCMD chart that runs CS2.
-home: https://truecharts.org/charts/incubator/cs2
+home: https://truecharts.org/charts/stable/cs2
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/cs2.png
 deprecated: false
 sources:
   - https://github.com/ich777/docker-steamcmd-server/tree/cs2
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/cs2
+  - https://github.com/truecharts/charts/tree/master/charts/stable/cs2
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -32,5 +32,5 @@ annotations:
   truecharts.org/category: games
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 type: application

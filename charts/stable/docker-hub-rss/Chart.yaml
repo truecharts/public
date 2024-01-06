@@ -4,12 +4,12 @@ name: docker-hub-rss
 version: 4.1.6
 appVersion: latest
 description: RSS feed for Chart Hub images.
-home: https://truecharts.org/charts/incubator/docker-hub-rss
+home: https://truecharts.org/charts/stable/docker-hub-rss
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/docker-hub-rss.png
 deprecated: false
 sources:
   - https://github.com/TheConnMan/docker-hub-rss
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/docker-hub-rss
+  - https://github.com/truecharts/charts/tree/master/charts/stable/docker-hub-rss
   - https://hub.docker.com/r/theconnman/docker-hub-rss
 maintainers:
   - name: TrueCharts
@@ -35,5 +35,5 @@ annotations:
   truecharts.org/category: Cloud
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 type: application

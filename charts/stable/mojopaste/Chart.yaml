@@ -4,11 +4,11 @@ name: mojopaste
 version: 4.1.5
 appVersion: latest
 description: Mojopaste is a pastebin application. There's about one million of these out there, but if you have the need to run something internally at work or you just fancy having your own pastebin, this is your application.
-home: https://truecharts.org/charts/incubator/mojopaste
+home: https://truecharts.org/charts/stable/mojopaste
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/mojopaste.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/mojopaste
+  - https://github.com/truecharts/charts/tree/master/charts/stable/mojopaste
   - https://hub.docker.com/r/jhthorsen/mojopaste
   - https://github.com/jhthorsen/app-mojopaste
 maintainers:
@@ -36,5 +36,5 @@ annotations:
   truecharts.org/category: Cloud
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 type: application

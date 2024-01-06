@@ -4,12 +4,12 @@ name: cloudreve
 version: 4.1.6
 appVersion: latest
 description: Self-hosted file management and sharing system, supports multiple storage providers
-home: https://truecharts.org/charts/incubator/cloudreve
+home: https://truecharts.org/charts/stable/cloudreve
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/cloudreve.png
 deprecated: false
 sources:
   - https://github.com/cloudreve/Cloudreve
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/cloudreve
+  - https://github.com/truecharts/charts/tree/master/charts/stable/cloudreve
   - https://hub.docker.com/r/xavierniu/cloudreve
 maintainers:
   - name: TrueCharts
@@ -34,5 +34,5 @@ annotations:
   truecharts.org/category: Cloud
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 type: application

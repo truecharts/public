@@ -4,12 +4,12 @@ name: ciao
 version: 4.1.6
 appVersion: latest
 description: ciao checks HTTP(S) URL endpoints for a HTTP status code (or errors on the lower TCP stack) and sends a notification on status change via E-Mail or Webhooks.
-home: https://truecharts.org/charts/incubator/ciao
+home: https://truecharts.org/charts/stable/ciao
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ciao.png
 deprecated: false
 sources:
   - https://brotandgames.com/ciao/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/ciao
+  - https://github.com/truecharts/charts/tree/master/charts/stable/ciao
   - https://hub.docker.com/r/brotandgames/ciao
 maintainers:
   - name: TrueCharts
@@ -35,5 +35,5 @@ annotations:
   truecharts.org/category: Network-Other
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 type: application

@@ -4,13 +4,13 @@ name: facturascripts
 version: 4.1.6
 appVersion: latest
 description: "FacturaScripts is an accounting, billing and CRM program with it you can manage the day to day of your company: invoices, receipts, expenses, budgets, orders, delivery notes, inventory..."
-home: https://truecharts.org/charts/incubator/facturascripts
+home: https://truecharts.org/charts/stable/facturascripts
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/facturascripts.png
 deprecated: false
 sources:
   - https://hub.docker.com/r/unraides/facturascripts
   - https://facturascripts.com/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/facturascripts
+  - https://github.com/truecharts/charts/tree/master/charts/stable/facturascripts
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -34,5 +34,5 @@ annotations:
   truecharts.org/category: Cloud
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 type: application

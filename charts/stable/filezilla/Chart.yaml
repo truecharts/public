@@ -4,12 +4,12 @@ name: filezilla
 version: 10.2.0
 appVersion: 3.66.4
 description: A Helm chart for Kubernetes
-home: https://truecharts.org/charts/incubator/filezilla
+home: https://truecharts.org/charts/stable/filezilla
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/filezilla.png
 deprecated: false
 sources:
   - https://github.com/linuxserver/docker-filezilla
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/filezilla
+  - https://github.com/truecharts/charts/tree/master/charts/stable/filezilla
   - https://ghcr.io/linuxserver/filezilla
   - https://filezilla-project.org/
 maintainers:
@@ -37,5 +37,5 @@ annotations:
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 type: application

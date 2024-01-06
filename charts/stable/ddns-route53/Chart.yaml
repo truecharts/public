@@ -4,12 +4,12 @@ name: ddns-route53
 version: 4.1.6
 appVersion: latest
 description: Dynamic DNS for Amazon Route 53‎ on a time-based schedule
-home: https://truecharts.org/charts/incubator/ddns-route53
+home: https://truecharts.org/charts/stable/ddns-route53
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ddns-route53.png
 deprecated: false
 sources:
   - https://github.com/crazy-max/ddns-route53
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/ddns-route53
+  - https://github.com/truecharts/charts/tree/master/charts/stable/ddns-route53
   - https://hub.docker.com/r/crazymax/ddns-route53
 maintainers:
   - name: TrueCharts
@@ -33,5 +33,5 @@ annotations:
   truecharts.org/category: Network-DNS
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 type: application

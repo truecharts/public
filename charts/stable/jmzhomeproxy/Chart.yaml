@@ -4,12 +4,12 @@ name: jmzhomeproxy
 version: 4.1.5
 appVersion: latest
 description: Proxy is in quotes because I couldn't think of a better name. There is nothing overly special about this other than using it as a simple and easy to use dashboard for all your self-hosted services.
-home: https://truecharts.org/charts/incubator/jmzhomeproxy
+home: https://truecharts.org/charts/stable/jmzhomeproxy
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/jmzhomeproxy.png
 deprecated: false
 sources:
   - https://github.com/JmzTaylor/homelab_proxy/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/jmzhomeproxy
+  - https://github.com/truecharts/charts/tree/master/charts/stable/jmzhomeproxy
   - https://hub.docker.com/r/jmzsoftware/jmzhomelabproxy
 maintainers:
   - name: TrueCharts
@@ -34,5 +34,5 @@ annotations:
   truecharts.org/category: Cloud
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 type: application

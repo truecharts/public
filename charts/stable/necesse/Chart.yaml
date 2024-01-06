@@ -4,12 +4,12 @@ name: necesse
 version: 4.1.5
 appVersion: necesse
 description: This Chart will download and install SteamCMD. It will also install Necesse and run it.
-home: https://truecharts.org/charts/incubator/necesse
+home: https://truecharts.org/charts/stable/necesse
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/necesse.png
 deprecated: false
 sources:
   - https://www.steampowered.com/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/necesse
+  - https://github.com/truecharts/charts/tree/master/charts/stable/necesse
   - https://hub.docker.com/r/ich777/steamcmd
 maintainers:
   - name: TrueCharts
@@ -33,5 +33,5 @@ annotations:
   truecharts.org/category: GameServers
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 type: application

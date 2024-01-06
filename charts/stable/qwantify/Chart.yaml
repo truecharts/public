@@ -4,12 +4,12 @@ name: qwantify
 version: 2.1.5
 appVersion: "20.04"
 description: Play games with your friends right from the browser.
-home: https://truecharts.org/charts/incubator/qwantify
+home: https://truecharts.org/charts/stable/qwantify
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/qwantify.png
 deprecated: false
 sources:
   - https://github.com/wanjohiryan/qwantify
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/qwantify
+  - https://github.com/truecharts/charts/tree/master/charts/stable/qwantify
   - https://ghcr.io/wanjohiryan/qwantify
 maintainers:
   - name: TrueCharts
@@ -33,5 +33,5 @@ annotations:
   truecharts.org/category: games
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 type: application

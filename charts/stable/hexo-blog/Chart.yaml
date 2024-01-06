@@ -4,12 +4,12 @@ name: hexo-blog
 version: 4.1.5
 appVersion: latest
 description: A self-hosted blogging platform in which posts are written in markdown
-home: https://truecharts.org/charts/incubator/hexo-blog
+home: https://truecharts.org/charts/stable/hexo-blog
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/hexo-blog.png
 deprecated: false
 sources:
   - https://github.com/fletchto99/hexo-dev-docker
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/hexo-blog
+  - https://github.com/truecharts/charts/tree/master/charts/stable/hexo-blog
   - https://hub.docker.com/r/fletchto99/hexo-dev-blog
 maintainers:
   - name: TrueCharts
@@ -33,5 +33,5 @@ annotations:
   truecharts.org/category: Productivity
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 type: application

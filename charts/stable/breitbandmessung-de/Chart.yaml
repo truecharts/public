@@ -4,12 +4,12 @@ name: breitbandmessung-de
 version: 4.1.6
 appVersion: latest
 description: A script to enable customers of lazy ISPs to perform measurement campaigns of the connection speed as described here in an automated way.
-home: https://truecharts.org/charts/incubator/breitbandmessung-de
+home: https://truecharts.org/charts/stable/breitbandmessung-de
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/breitbandmessung-de.png
 deprecated: false
 sources:
   - https://github.com/shneezin/breitbandmessung-node
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/breitbandmessung-de
+  - https://github.com/truecharts/charts/tree/master/charts/stable/breitbandmessung-de
   - https://hub.docker.com/r/shneezin/breitbandmessung-node
 maintainers:
   - name: TrueCharts
@@ -37,5 +37,5 @@ annotations:
   truecharts.org/category: HomeAutomation
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 type: application

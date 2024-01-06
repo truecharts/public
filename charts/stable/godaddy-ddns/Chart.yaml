@@ -4,11 +4,11 @@ name: godaddy-ddns
 version: 4.1.5
 appVersion: latest
 description: Chart to provide a DDNS service for godaddy domains. Uses the GoDaddy REST API to update the given domain's DNS IP address to the public IP address of the host it is executing on. Performs a check every 10 minutes, but you can alter this if you like by modifying /etc/cron.d/godaddy-ddns inside the Chart.
-home: https://truecharts.org/charts/incubator/godaddy-ddns
+home: https://truecharts.org/charts/stable/godaddy-ddns
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/godaddy-ddns.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/godaddy-ddns
+  - https://github.com/truecharts/charts/tree/master/charts/stable/godaddy-ddns
   - https://hub.docker.com/r/jwater7/godaddy-publicip-updater
 maintainers:
   - name: TrueCharts
@@ -32,5 +32,5 @@ annotations:
   truecharts.org/category: Network-Web
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 type: application

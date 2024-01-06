@@ -4,13 +4,13 @@ name: debian-bullseye
 version: 4.1.6
 appVersion: latest
 description: This Chart is a full Debian Bullseye Xfce4 Desktop environment with a noVNC webGUI and all the basic tools pre-installed.
-home: https://truecharts.org/charts/incubator/debian-bullseye
+home: https://truecharts.org/charts/stable/debian-bullseye
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/debian-bullseye.png
 deprecated: false
 sources:
   - https://hub.docker.com/r/ich777/debian-bullseye
   - https://www.debian.org/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/debian-bullseye
+  - https://github.com/truecharts/charts/tree/master/charts/stable/debian-bullseye
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -34,5 +34,5 @@ annotations:
   truecharts.org/category: Productivity
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 type: application

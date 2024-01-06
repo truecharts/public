@@ -4,12 +4,12 @@ name: plex-playlist-sync
 version: 2.1.8
 appVersion: latest
 description: Sync your Spotify and Deezer playlists to your Plex server.
-home: https://truecharts.org/charts/incubator/plex-playlist-sync
+home: https://truecharts.org/charts/stable/plex-playlist-sync
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/plex-playlist-sync.png
 deprecated: false
 sources:
   - https://github.com/rnagabhyrava/plex-playlist-sync
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/plex-playlist-sync
+  - https://github.com/truecharts/charts/tree/master/charts/stable/plex-playlist-sync
   - https://hub.docker.com/r/rnagabhyrava/plexplaylistsync
 maintainers:
   - name: TrueCharts
@@ -38,5 +38,5 @@ annotations:
   truecharts.org/category: Tools-Utilities
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 type: application

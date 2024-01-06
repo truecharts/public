@@ -4,12 +4,12 @@ name: tasmocompiler
 version: 5.1.8
 appVersion: latest
 description: TasmoCompiler is a simple web GUI which allows you to compile fantastic Tasmota firmware with your own settings
-home: https://truecharts.org/charts/incubator/tasmocompiler
+home: https://truecharts.org/charts/stable/tasmocompiler
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/tasmocompiler.png
 deprecated: false
 sources:
   - https://github.com/benzino77/tasmocompiler
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/tasmocompiler
+  - https://github.com/truecharts/charts/tree/master/charts/stable/tasmocompiler
   - https://hub.docker.com/r/benzino77/tasmocompiler
 maintainers:
   - name: TrueCharts
@@ -34,5 +34,5 @@ annotations:
   truecharts.org/category: HomeAutomation
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 type: application

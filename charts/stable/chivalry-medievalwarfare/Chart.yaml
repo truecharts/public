@@ -4,12 +4,12 @@ name: chivalry-medievalwarfare
 version: 4.1.6
 appVersion: chivalrymw
 description: "This Chart will download and install SteamCMD. It will also install Chivalry: Medieval Warfare and run it."
-home: https://truecharts.org/charts/incubator/chivalry-medievalwarfare
+home: https://truecharts.org/charts/stable/chivalry-medievalwarfare
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/chivalry-medievalwarfare.png
 deprecated: false
 sources:
   - https://www.steampowered.com/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/chivalry-medievalwarfare
+  - https://github.com/truecharts/charts/tree/master/charts/stable/chivalry-medievalwarfare
   - https://hub.docker.com/r/ich777/steamcmd
 maintainers:
   - name: TrueCharts
@@ -33,5 +33,5 @@ annotations:
   truecharts.org/category: GameServers
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 type: application

@@ -4,12 +4,12 @@ name: rstudio
 version: 5.1.6
 appVersion: 4.3.2
 description: Integrated development environment for R, a programming language for statistical computing and graphics.
-home: https://truecharts.org/charts/incubator/rstudio
+home: https://truecharts.org/charts/stable/rstudio
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/rstudio.png
 deprecated: false
 sources:
   - https://github.com/rocker-org/rocker-versioned2
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/rstudio
+  - https://github.com/truecharts/charts/tree/master/charts/stable/rstudio
   - https://hub.docker.com/r/rocker/rstudio
 maintainers:
   - name: TrueCharts
@@ -33,5 +33,5 @@ annotations:
   truecharts.org/category: Productivity
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 type: application

@@ -4,12 +4,12 @@ name: rapidphotodownloader
 version: 4.1.5
 appVersion: latest
 description: This Chart will download and install Rapid Photo Downloader.
-home: https://truecharts.org/charts/incubator/rapidphotodownloader
+home: https://truecharts.org/charts/stable/rapidphotodownloader
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/rapidphotodownloader.png
 deprecated: false
 sources:
   - https://www.damonlynch.net/rapid/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/rapidphotodownloader
+  - https://github.com/truecharts/charts/tree/master/charts/stable/rapidphotodownloader
   - https://hub.docker.com/r/ich777/rapidphotodownloader
 maintainers:
   - name: TrueCharts
@@ -36,5 +36,5 @@ annotations:
   truecharts.org/category: MediaApp-Photos
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 type: application
