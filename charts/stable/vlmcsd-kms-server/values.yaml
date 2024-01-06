@@ -17,6 +17,19 @@ service:
         targetPort: 1688
         port: 1688
 
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+
 portal:
   open:
     enabled: false
