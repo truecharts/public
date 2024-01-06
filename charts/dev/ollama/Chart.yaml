@@ -2,15 +2,16 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: ollama
 version: 0.0.1
-appVersion: 0.1.17
+appVersion: 0.1.18
 description: Get up and running with large language models locally.
-home: https://truecharts.org/charts/stable/jackett
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/jackett.png
+home: https://truecharts.org/charts/dev/ollama
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/ollama.png
 deprecated: false
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/ollama
   - https://github.com/jmorganca/ollama
   - https://hub.docker.com/r/ollama/ollama
+  - https://github.com/ollama-webui/ollama-webui
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -20,7 +21,7 @@ keywords:
   - language-models
 dependencies:
   - name: common
-    version: 16.2.17
+    version: 17.2.21
     repository: https://library-charts.truecharts.org
     condition: ""
     alias: ""

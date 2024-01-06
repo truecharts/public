@@ -1,11 +1,11 @@
 image:
   repository: ollama/ollama
   pullPolicy: IfNotPresent
-  tag: 0.1.17@sha256:1d0569baeac589345421eaf35c9206cae29ea9d76f88f2fe6e8d6e7dd68c5ea3
+  tag: 0.1.18@sha256:afd3e969f40c45e333eeb4b86fdfb950147d3a5d685e4801fc813aef48db6c41
 uiImage:
   repository: ghcr.io/ollama-webui/ollama-webui
   pullPolicy: IfNotPresent
-  tag: main@sha256:63c74f1c83c7c5627821bb27a716a797873efae3ba8097e6f6890fe3d791ec91
+  tag: main@sha256:05d979e9632435eb31967f2fbe7af00783ece67d9bbf6ab51daf44676ff49cb6
 
 securityContext:
   container:
@@ -41,6 +41,7 @@ workload:
     podSpec:
       containers:
         main:
+          imageSelector: image
   ui:
     enabled: true
     type: Deployment
@@ -71,7 +72,16 @@ workload:
 persistence:
   config:
     enabled: true
-    mountPath: "/root/.ollama"
+    targetSelector:
+      main:
+        main:
+          mountPath: "/root/.ollama"
+  data:
+    enabled: true
+    targetSelector:
+      ui:
+        ui:
+          mountPath: "/app/backend/data"
 
 portal:
   open:
