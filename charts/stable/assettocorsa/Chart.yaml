@@ -1,15 +1,15 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: assettocorsa
-version: 4.1.6
+version: 4.1.7
 appVersion: assettocorsa
 description: This Chart will download and install SteamCMD. It will also install AssettoCorsa and run it.
-home: https://truecharts.org/charts/incubator/assettocorsa
+home: https://truecharts.org/charts/stable/assettocorsa
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/assettocorsa.png
 deprecated: false
 sources:
   - https://www.assettocorsa.net/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/assettocorsa
+  - https://github.com/truecharts/charts/tree/master/charts/stable/assettocorsa
   - https://hub.docker.com/r/ich777/steamcmd
 maintainers:
   - name: TrueCharts
@@ -33,5 +33,5 @@ annotations:
   truecharts.org/category: GameServers
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 type: application
