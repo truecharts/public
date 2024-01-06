@@ -1,0 +1,27 @@
+image:
+  repository: jorenn92/maintainerr
+  pullPolicy: IfNotPresent
+  tag: 1.7.0@sha256:0bc775f1a3ff502f6bdb6e2a9e318368e7498d9cf77964b8b578d5f547c92340
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 80
+        port: 8154
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/opt/data"
+
+portal:
+  open:
+    enabled: true

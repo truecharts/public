@@ -1,0 +1,37 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: maintainerr
+version: 0.0.1
+appVersion: 1.7.0
+description: Looks and smells like Overseerr, does the opposite. Maintenance tool for the Plex ecosystem.
+home: https://truecharts.org/charts/dev/maintainerr
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/maintainerr.png
+deprecated: false
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/dev/maintainerr
+  - https://github.com/jorenn92/Maintainerr
+  - https://hub.docker.com/r/jorenn92/maintainerr
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - maintainerr
+  - media
+dependencies:
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: dev
+type: application
