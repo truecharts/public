@@ -32,29 +32,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 11434
-                              required: true
-        - variable: ui
-          label: "UI Service"
-          description: "The UI service"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelectorLoadBalancer}
-# Include{serviceSelectorExtras}
-                    - variable: ui
-                      label: "UI Service Port Configuration"
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 8080
+                              default: 10686
                               required: true
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
