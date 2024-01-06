@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: prometheus
 version: 16.1.9
@@ -8,44 +8,44 @@ home: https://truecharts.org/charts/enterprise/prometheus
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/prometheus.png
 deprecated: false
 sources:
-    - https://github.com/prometheus-community/helm-charts
-    - https://github.com/prometheus-operator/kube-prometheus
-    - https://github.com/truecharts/charts/tree/master/charts/enterprise/prometheus
-    - https://quay.io/thanos/thanos
+  - https://github.com/prometheus-community/helm-charts
+  - https://github.com/prometheus-operator/kube-prometheus
+  - https://github.com/truecharts/charts/tree/master/charts/enterprise/prometheus
+  - https://hub.docker.com/r/bitnami/prometheus
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - metrics
+  - metrics
 dependencies:
-    - name: common
-      version: 17.2.21
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
-    - name: node-exporter
-      version: 6.1.6
-      repository: https://deps.truecharts.org
-      condition: exporters.enabled,exporters.node-exporter.enabled
-      alias: ""
-      tags: []
-      import-values: []
-    - name: kube-state-metrics
-      version: 6.1.6
-      repository: https://deps.truecharts.org
-      condition: exporters.enabled,exporters.kube-state-metrics.enabled
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: node-exporter
+    version: 6.1.6
+    repository: https://deps.truecharts.org
+    condition: exporters.enabled,exporters.node-exporter.enabled
+    alias: ""
+    tags: []
+    import-values: []
+  - name: kube-state-metrics
+    version: 6.1.6
+    repository: https://deps.truecharts.org
+    condition: exporters.enabled,exporters.kube-state-metrics.enabled
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: metrics
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: enterprise
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: metrics
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: enterprise
 type: application

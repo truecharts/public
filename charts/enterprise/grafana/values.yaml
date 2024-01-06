@@ -2,11 +2,11 @@ image:
   repository: grafana/grafana
   pullPolicy: IfNotPresent
   tag: 10.2.3
-  
+
 sidecarImage:
   repository: quay.io/kiwigrid/k8s-sidecar
   tag: 1.25.3@sha256:8dc0aca015bf7173378ee5987dd78d49f94ff9a5c3495b3664141750cc55f444
-  
+
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -220,7 +220,7 @@ configmap:
           domain: "{{ if (and .Values.ingress.main.enabled .Values.ingress.main.hosts) }}{{ .Values.ingress.main.hosts | first }}{{ else }}''{{ end }}"
       ldap.toml: |-
         # nope
-              
+
 persistence:
   config:
     enabled: true
@@ -318,6 +318,6 @@ serviceAccount:
   main:
     enabled: true
     primary: true
-    
+
 podOptions:
   automountServiceAccountToken: true

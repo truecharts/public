@@ -2,15 +2,15 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: livebook
 version: 3.1.0
-appVersion: latest
+appVersion: 0.12.1
 description: Livebook is a web application for writing interactive and collaborative code notebooks for Elixir
 home: https://truecharts.org/charts/incubator/livebook
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/livebook.png
 deprecated: false
 sources:
+  - https://ghcr.io/livebook-dev/livebook
   - https://livebook.dev/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/livebook
-  - https://hub.docker.com/r/livebook/livebook
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
