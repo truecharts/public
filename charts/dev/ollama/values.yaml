@@ -15,26 +15,24 @@ securityContext:
 
 service:
   main:
+    targetSelector: ui
     ports:
       main:
         protocol: http
-        targetPort: 11434
-        port: 11434
-  ui:
+        targetPort: 8080
+        port: 10686
+        targetSelector: ui
+  api:
     enabled: true
-    targetSelector: ui
+    type: ClusterIP
+    targetSelector: main
     ports:
-      ui:
+      api:
         enabled: true
         protocol: http
-        targetPort: 8080
-        port: 8080
-        targetSelector: ui
-
-ingress:
-  ui:
-    targetSelector:
-      ui: ui
+        targetPort: 11434
+        port: 11434
+        targetSelector: main
 
 workload:
   main:
@@ -42,6 +40,18 @@ workload:
       containers:
         main:
           imageSelector: image
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              path: /api/version
+            readiness:
+              enabled: true
+              type: http
+              path: /api/version
+            startup:
+              enabled: true
+              type: tcp
   ui:
     enabled: true
     type: Deployment
@@ -55,19 +65,19 @@ workload:
             liveness:
               enabled: true
               type: http
-              path: /
-              port: "{{ .Values.service.ui.ports.ui.port }}"
+              path: /ollama/api/version
+              port: "{{ .Values.service.main.ports.main.port }}"
             readiness:
               enabled: true
               type: http
-              path: /
-              port: "{{ .Values.service.ui.ports.ui.port }}"
+              path: /ollama/api/version
+              port: "{{ .Values.service.main.ports.main.port }}"
             startup:
               enabled: true
               type: tcp
-              port: "{{ .Values.service.ui.ports.ui.port }}"
+              port: "{{ .Values.service.main.ports.main.port }}"
           env:
-            OLLAMA_API_BASE_URL: '{{ printf "http://%v:%v/api" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.main.ports.main.port }}'
+            OLLAMA_API_BASE_URL: '{{ printf "http://%v:%v/api" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.api.ports.api.port }}'
 
 persistence:
   config:

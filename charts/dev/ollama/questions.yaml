@@ -88,16 +88,6 @@ questions:
 # Include{ingressTLS}
 # Include{ingressTraefik}
 # Include{ingressAdvanced}
-        - variable: ui
-          label: "UI Ingress"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
-# Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}
 
