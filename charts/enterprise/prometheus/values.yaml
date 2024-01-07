@@ -28,6 +28,8 @@ workload:
 configmap:
   grafana-datasource:
     enabled: "{{ if .Values.grafana.datasource.enabled }}true{{ else }}false{{ end }}"
+    labels:
+      grafana_datasources: "1"
     data:
       datasource.yaml: |-
         apiVersion: 1
