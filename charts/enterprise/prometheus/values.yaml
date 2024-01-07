@@ -23,6 +23,36 @@ workload:
               enabled: false
             startup:
               enabled: false
+              
+
+configmap:
+  grafana-datasource:
+    enabled: "{{ if .Values.grafana.datasource.enabled }}true{{ else }}false{{ end }}"
+    data:
+      datasource.yaml: |-
+        apiVersion: 1
+        datasources:
+        - name: Prometheus
+          type: prometheus
+          uid: {{ .Values.grafana.datasource.uid | default "prometheus" }}
+          url: http://{{ include "tc.v1.common.lib.chart.names.fullname" $ }}.{{ include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $ "objectData" . "caller" "Configmap") }}:{{ .Values.service.main.ports.main.port }}
+          access: proxy
+          isDefault: {{ .Values.grafana.datasource.default | default true }}
+          jsonData:
+            httpMethod: {{ .Values.grafana.datasource.httpMethod | default "POST" }}
+            timeInterval: {{ .Values.grafana.datasource.scrapeInterval | default "30s" }}
+            {{- if .Values.grafana.datasource.timeout }}
+            timeout: {{ .Values.grafana.datasource.timeout }}
+            {{- end }}
+
+grafana:
+  datasource:
+    enabled: true
+    default: true
+    httpMethod: "POST"
+    scrapeInterval: "30s"
+    uid: "prometheus"
+
 service:
   main:
     selectorLabels:
@@ -30,7 +60,7 @@ service:
       prometheus: '{{ template "kube-prometheus.prometheus.fullname" . }}'
     ports:
       main:
-        port: 10086
+        port: 9090
         targetPort: 9090
         protocol: http
   alertmanager:
@@ -41,7 +71,7 @@ service:
     ports:
       alertmanager:
         enabled: true
-        port: 10087
+        port: 9093
         targetPort: 9093
         protocol: http
   thanos:
