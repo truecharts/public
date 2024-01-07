@@ -30,7 +30,6 @@ service:
       api:
         enabled: true
         protocol: http
-        targetPort: 11434
         port: 11434
         targetSelector: main
 
@@ -53,8 +52,7 @@ workload:
               port: "{{ .Values.service.api.ports.api.port }}"
             startup:
               enabled: true
-              type: http
-              path: /api/version
+              type: tcp
               port: "{{ .Values.service.api.ports.api.port }}"
   ui:
     enabled: true
@@ -78,8 +76,7 @@ workload:
               port: "{{ .Values.service.main.ports.main.port }}"
             startup:
               enabled: true
-              type: http
-              path: /ollama/api/version
+              type: tcp
               port: "{{ .Values.service.main.ports.main.port }}"
           env:
             OLLAMA_API_BASE_URL: '{{ printf "http://%v:%v/api" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.api.ports.api.port }}'
