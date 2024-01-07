@@ -1,11 +1,11 @@
 image:
   pullPolicy: IfNotPresent
   repository: ghcr.io/mriedmann/humhub-phponly
-  tag: 1.15.0@sha256:8cbc2f44a64f4e615b425968aea116944a367947e07d092c19e57c6753ff2f9f
+  tag: 1.15.2@sha256:9987a9e856e682c82846512f813b4dc7fb02235190e35ae1727b239f99e99544
 nginxImage:
   pullPolicy: IfNotPresent
   repository: ghcr.io/mriedmann/humhub-nginx
-  tag: 1.15.0@sha256:3973892d38021d00cf5b2d31eb8e4a962778195d6fb1a737a464bd1126b4f6c2
+  tag: 1.15.2@sha256:9a34e1330e4fb6fc17df22e961e04b56ac63f3826e4de38c910eec41e29b6f15
 
 securityContext:
   container:
@@ -16,18 +16,22 @@ securityContext:
 
 service:
   main:
+    targetSelector: nginx
     ports:
       main:
         protocol: http
+        targetSelector: nginx
         targetPort: 80
         port: 8080
   backend:
     enabled: true
     type: ClusterIP
+    targetSelector: main
     ports:
       backend:
         enabled: true
         targetPort: 9000
+        targetSelector: main
         port: 9000
 
 humhub:

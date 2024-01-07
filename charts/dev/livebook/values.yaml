@@ -1,0 +1,52 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ghcr.io/livebook-dev/livebook
+  tag: 0.12.1@sha256:11c5691efc8e35bf0eee9c336ff029e674bcf4146ec39021b1ef75c1b17fb775
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 8787
+  headless:
+    enabled: true
+    primary: false
+    clusterIP: None
+    ports:
+      headless:
+        enabled: true
+        port: "{{ .Values.service.main.ports.main.port }}"
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            # A_ because these variables are sorted alphabetically and this one needs to come first.
+            A_POD_IP:
+              fieldRef:
+                fieldPath: status.podIP
+            LIVEBOOK_CLUSTER: '{{ printf "dns:%s-headless" (include "tc.v1.common.lib.chart.names.fullname" .) }}'
+            LIVEBOOK_DISTRIBUTION: name
+            LIVEBOOK_NODE: livebook@$(A_POD_IP)
+            LIVEBOOK_PORT: "{{ .Values.service.main.ports.main.port }}"
+            LIVEBOOK_HOME: "{{ .Values.persistence.data.mountPath }}"
+            LIVEBOOK_SECRET_KEY_BASE:
+              secretKeyRef:
+                name: secrets
+                key: LIVEBOOK_SECRET_KEY_BASE
+            LIVEBOOK_COOKIE:
+              secretKeyRef:
+                name: secrets
+                key: LIVEBOOK_COOKIE

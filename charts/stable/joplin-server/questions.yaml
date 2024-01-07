@@ -45,13 +45,21 @@ questions:
                                           show_if: [["MAILER_ENABLED", "=", 1]]
                                           type: int
                                           default: 465
-                                      - variable: MAILER_SECURE
+                                      - variable: tls
                                         label: Mailer Secure
                                         description: Enable SSL for SMTP
                                         schema:
                                           show_if: [["MAILER_ENABLED", "=", 1]]
-                                          type: boolean
-                                          default: true
+                                          type: string
+                                          default: tls
+                                          enum:
+                                            - value: tls
+                                              description: TLS
+                                            - value: starttls
+                                              description: StartTLS
+                                            - value: "none"
+                                              description: "None"
+
                                       - variable: MAILER_AUTH_USER
                                         label: Mailer Auth User
                                         description: Sets the username for the email server
