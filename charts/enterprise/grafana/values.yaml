@@ -45,7 +45,7 @@ workload:
             IGNORE_ALREADY_PROCESSED: false
             METHOD: WATCH
             LABEL: grafana_dashboard
-            LABEL_VALUE: ""
+            LABEL_VALUE: "1"
             LOG_LEVEL: info
             FOLDER: /tmp/dashboards
             RESOURCE: both
@@ -74,7 +74,7 @@ workload:
             IGNORE_ALREADY_PROCESSED: false
             METHOD: WATCH
             LABEL: grafana_datasources
-            LABEL_VALUE: ""
+            LABEL_VALUE: "1"
             LOG_LEVEL: info
             FOLDER: /app/provisioning/datasources
             RESOURCE: both
@@ -103,7 +103,7 @@ workload:
             IGNORE_ALREADY_PROCESSED: false
             METHOD: WATCH
             LABEL: grafana_alerts
-            LABEL_VALUE: ""
+            LABEL_VALUE: "1"
             LOG_LEVEL: info
             FOLDER: /app/provisioning/alerts
             RESOURCE: both
@@ -132,7 +132,7 @@ workload:
             IGNORE_ALREADY_PROCESSED: false
             METHOD: WATCH
             LABEL: grafana_plugins
-            LABEL_VALUE: ""
+            LABEL_VALUE: "1"
             LOG_LEVEL: info
             FOLDER: /app/provisioning/plugins
             RESOURCE: both
@@ -161,7 +161,7 @@ workload:
             IGNORE_ALREADY_PROCESSED: false
             METHOD: WATCH
             LABEL: grafana_notifiers
-            LABEL_VALUE: ""
+            LABEL_VALUE: "1"
             LOG_LEVEL: info
             FOLDER: /app/provisioning/notifiers
             RESOURCE: both
