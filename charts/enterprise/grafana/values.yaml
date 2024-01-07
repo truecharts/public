@@ -77,7 +77,7 @@ workload:
             LABEL: grafana_datasources
             LABEL_VALUE: "1"
             LOG_LEVEL: info
-            FOLDER: /app/provisioning/datasources
+            FOLDER: /etc/grafana/provisioning/datasources
             RESOURCE: both
             NAMESPACE: 'ALL'
             UNIQUE_FILENAMES: false
@@ -107,7 +107,7 @@ workload:
             LABEL: grafana_alerts
             LABEL_VALUE: "1"
             LOG_LEVEL: info
-            FOLDER: /app/provisioning/alerts
+            FOLDER: /etc/grafana/provisioning/alerts
             RESOURCE: both
             NAMESPACE: 'ALL'
             UNIQUE_FILENAMES: false
@@ -137,7 +137,7 @@ workload:
             LABEL: grafana_plugins
             LABEL_VALUE: "1"
             LOG_LEVEL: info
-            FOLDER: /app/provisioning/plugins
+            FOLDER: /etc/grafana/provisioning/plugins
             RESOURCE: both
             NAMESPACE: 'ALL'
             UNIQUE_FILENAMES: false
@@ -167,7 +167,7 @@ workload:
             LABEL: grafana_notifiers
             LABEL_VALUE: "1"
             LOG_LEVEL: info
-            FOLDER: /app/provisioning/notifiers
+            FOLDER: /etc/grafana/provisioning/notifiers
             RESOURCE: both
             NAMESPACE: 'ALL'
             UNIQUE_FILENAMES: false
