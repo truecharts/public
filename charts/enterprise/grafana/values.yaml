@@ -49,6 +49,7 @@ workload:
             LOG_LEVEL: info
             FOLDER: /tmp/dashboards
             RESOURCE: both
+            NAMESPACE: 'ALL'
             UNIQUE_FILENAMES: false
             # NAMESPACE: null
             # FOLDER_ANNOTATION: null
@@ -57,7 +58,7 @@ workload:
             # WATCH_CLIENT_TIMEOUT: 3600
             SKIP_TLS_VERIFY: false
             REQ_USERNAME: "{{ .Values.workload.main.podSpec.containers.main.env.GF_SECURITY_ADMIN_USER }}"
-            REQ_PASSWORD: "{{ .Values.workload.main.podSpec.containers.main.env.GF_SECURITY_ADMIN_USER }}"
+            REQ_PASSWORD: "{{ .Values.workload.main.podSpec.containers.main.env.GF_SECURITY_ADMIN_PASSWORD }}"
             REQ_URL: "http://localhost:3000/api/admin/provisioning/dashboards/reload"
             REQ_METHOD: POST
           probes:
@@ -78,6 +79,7 @@ workload:
             LOG_LEVEL: info
             FOLDER: /app/provisioning/datasources
             RESOURCE: both
+            NAMESPACE: 'ALL'
             UNIQUE_FILENAMES: false
             # NAMESPACE: null
             # FOLDER_ANNOTATION: null
@@ -86,7 +88,7 @@ workload:
             # WATCH_CLIENT_TIMEOUT: 3600
             SKIP_TLS_VERIFY: false
             REQ_USERNAME: "{{ .Values.workload.main.podSpec.containers.main.env.GF_SECURITY_ADMIN_USER }}"
-            REQ_PASSWORD: "{{ .Values.workload.main.podSpec.containers.main.env.GF_SECURITY_ADMIN_USER }}"
+            REQ_PASSWORD: "{{ .Values.workload.main.podSpec.containers.main.env.GF_SECURITY_ADMIN_PASSWORD }}"
             REQ_URL: "http://localhost:3000/api/admin/provisioning/datasources/reload"
             REQ_METHOD: POST
           probes:
@@ -107,6 +109,7 @@ workload:
             LOG_LEVEL: info
             FOLDER: /app/provisioning/alerts
             RESOURCE: both
+            NAMESPACE: 'ALL'
             UNIQUE_FILENAMES: false
             # NAMESPACE: null
             # FOLDER_ANNOTATION: null
@@ -115,7 +118,7 @@ workload:
             # WATCH_CLIENT_TIMEOUT: 3600
             SKIP_TLS_VERIFY: false
             REQ_USERNAME: "{{ .Values.workload.main.podSpec.containers.main.env.GF_SECURITY_ADMIN_USER }}"
-            REQ_PASSWORD: "{{ .Values.workload.main.podSpec.containers.main.env.GF_SECURITY_ADMIN_USER }}"
+            REQ_PASSWORD: "{{ .Values.workload.main.podSpec.containers.main.env.GF_SECURITY_ADMIN_PASSWORD }}"
             REQ_URL: "http://localhost:3000/api/admin/provisioning/alerts/reload"
             REQ_METHOD: POST
           probes:
@@ -136,6 +139,7 @@ workload:
             LOG_LEVEL: info
             FOLDER: /app/provisioning/plugins
             RESOURCE: both
+            NAMESPACE: 'ALL'
             UNIQUE_FILENAMES: false
             # NAMESPACE: null
             # FOLDER_ANNOTATION: null
@@ -144,7 +148,7 @@ workload:
             # WATCH_CLIENT_TIMEOUT: 3600
             SKIP_TLS_VERIFY: false
             REQ_USERNAME: "{{ .Values.workload.main.podSpec.containers.main.env.GF_SECURITY_ADMIN_USER }}"
-            REQ_PASSWORD: "{{ .Values.workload.main.podSpec.containers.main.env.GF_SECURITY_ADMIN_USER }}"
+            REQ_PASSWORD: "{{ .Values.workload.main.podSpec.containers.main.env.GF_SECURITY_ADMIN_PASSWORD }}"
             REQ_URL: "http://localhost:3000/api/admin/provisioning/plugins/reload"
             REQ_METHOD: POST
           probes:
@@ -165,6 +169,7 @@ workload:
             LOG_LEVEL: info
             FOLDER: /app/provisioning/notifiers
             RESOURCE: both
+            NAMESPACE: 'ALL'
             UNIQUE_FILENAMES: false
             # NAMESPACE: null
             # FOLDER_ANNOTATION: null
@@ -173,7 +178,7 @@ workload:
             # WATCH_CLIENT_TIMEOUT: 3600
             SKIP_TLS_VERIFY: false
             REQ_USERNAME: "{{ .Values.workload.main.podSpec.containers.main.env.GF_SECURITY_ADMIN_USER }}"
-            REQ_PASSWORD: "{{ .Values.workload.main.podSpec.containers.main.env.GF_SECURITY_ADMIN_USER }}"
+            REQ_PASSWORD: "{{ .Values.workload.main.podSpec.containers.main.env.GF_SECURITY_ADMIN_PASSWORD }}"
             REQ_URL: "http://localhost:3000/api/admin/provisioning/notifiers/reload"
             REQ_METHOD: POST
           probes:
