@@ -2,15 +2,15 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: lidarr
 version: 19.1.6
-appVersion: 2.1.0.3856
+appVersion: 2.1.1.3877
 description: Looks and smells like Sonarr but made for music
 home: https://truecharts.org/charts/stable/lidarr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/lidarr.png
 deprecated: false
 sources:
-  - https://github.com/Lidarr/Lidarr
   - https://github.com/truecharts/charts/tree/master/charts/stable/lidarr
-  - https://ghcr.io/onedr0p/exportarr
+  - https://ghcr.io/onedr0p/lidarr-develop
+  - https://github.com/Lidarr/Lidarr
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
