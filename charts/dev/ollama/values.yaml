@@ -45,14 +45,17 @@ workload:
               enabled: true
               type: http
               path: /api/version
+              port: "{{ .Values.service.api.ports.api.port }}"
             readiness:
               enabled: true
               type: http
               path: /api/version
+              port: "{{ .Values.service.api.ports.api.port }}"
             startup:
               enabled: true
               type: http
               path: /api/version
+              port: "{{ .Values.service.api.ports.api.port }}"
   ui:
     enabled: true
     type: Deployment
