@@ -51,7 +51,8 @@ workload:
               path: /api/version
             startup:
               enabled: true
-              type: tcp
+              type: http
+              path: /api/version
   ui:
     enabled: true
     type: Deployment
@@ -74,7 +75,8 @@ workload:
               port: "{{ .Values.service.main.ports.main.port }}"
             startup:
               enabled: true
-              type: tcp
+              type: http
+              path: /ollama/api/version
               port: "{{ .Values.service.main.ports.main.port }}"
           env:
             OLLAMA_API_BASE_URL: '{{ printf "http://%v:%v/api" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.api.ports.api.port }}'
