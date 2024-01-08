@@ -1,37 +1,37 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: xwiki
-version: 10.1.7
+version: 10.1.8
 appVersion: 15.10.4
 description: XWiki is a free wiki software platform written in Java with a design emphasis on extensibility
 home: https://truecharts.org/charts/stable/xwiki
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/xwiki.png
 deprecated: false
 sources:
-  - https://github.com/xwiki/xwiki-docker
-  - https://github.com/truecharts/charts/tree/master/charts/stable/xwiki
-  - https://hub.docker.com/_/xwiki
+    - https://hub.docker.com/_/xwiki
+    - https://github.com/xwiki/xwiki-docker
+    - https://github.com/truecharts/charts/tree/master/charts/stable/xwiki
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - xwiki
-  - wiki
+    - xwiki
+    - wiki
 dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.21
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: productivity
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: productivity
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application
