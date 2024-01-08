@@ -1,37 +1,37 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: librespeed
-version: 12.1.5
+version: 12.1.6
 appVersion: 5.3.0
 description: Librespeed is a HTML5 webpage to test upload and download speeds
 home: https://truecharts.org/charts/stable/librespeed
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/librespeed.png
 deprecated: false
 sources:
-  - https://github.com/librespeed/speedtest
-  - https://github.com/truecharts/charts/tree/master/charts/stable/librespeed
-  - https://ghcr.io/linuxserver/librespeed
+    - https://ghcr.io/linuxserver/librespeed
+    - https://github.com/librespeed/speedtest
+    - https://github.com/truecharts/charts/tree/master/charts/stable/librespeed
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - librespeed
-  - speedtest
+    - librespeed
+    - speedtest
 dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.21
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application
