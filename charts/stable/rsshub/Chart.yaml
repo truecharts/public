@@ -1,17 +1,17 @@
 kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: rsshub
-version: 11.1.13
+version: 11.1.14
 appVersion: latest
 description: RSSHub can generate RSS feeds from pretty much everything
 home: https://truecharts.org/charts/stable/rsshub
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/rsshub.png
 deprecated: false
 sources:
+    - https://github.com/truecharts/charts/tree/master/charts/stable/rsshub
+    - https://hub.docker.com/r/browserless/chrome
     - https://github.com/DIYgod/RSSHub
     - https://docs.rsshub.app/en/install/
-    - https://github.com/truecharts/charts/tree/master/charts/stable/rsshub
-    - https://hub.docker.com/r/diygod/rsshub
 maintainers:
     - name: TrueCharts
       email: info@truecharts.org
