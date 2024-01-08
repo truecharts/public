@@ -1,41 +1,41 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: alist
-version: 8.1.6
-appVersion: 3.29.1
+version: 8.2.0
+appVersion: 3.30.0
 description: Alist program that supports multiple storage, powered by Gin and React
 home: https://truecharts.org/charts/stable/alist
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/alist.png
 deprecated: false
 sources:
-  - https://github.com/Xhofe/alist
-  - https://github.com/truecharts/charts/tree/master/charts/stable/alist
-  - https://hub.docker.com/r/xhofe/alist
+    - https://github.com/Xhofe/alist
+    - https://github.com/truecharts/charts/tree/master/charts/stable/alist
+    - https://hub.docker.com/r/xhofe/alist
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - alist
-  - storage
-  - webdav
-  - google driver
-  - aliyun driver
-  - baiduyun
+    - alist
+    - storage
+    - webdav
+    - google driver
+    - aliyun driver
+    - baiduyun
 dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.21
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: cloud
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: cloud
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application
