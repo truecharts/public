@@ -1,38 +1,38 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: kitchenowl
-version: 8.2.0
+version: 8.2.1
 appVersion: latest
 description: KitchenOwl is a smart self-hosted grocery list and recipe manager.
 home: https://truecharts.org/charts/stable/kitchenowl
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/kitchenowl.png
 deprecated: false
 sources:
-  - https://tombursch.github.io/kitchenowl
-  - https://github.com/truecharts/charts/tree/master/charts/stable/kitchenowl
-  - https://hub.docker.com/r/tombursch/kitchenowl-web
+    - https://tombursch.github.io/kitchenowl
+    - https://github.com/truecharts/charts/tree/master/charts/stable/kitchenowl
+    - https://hub.docker.com/r/tombursch/kitchenowl
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - recipes
-  - kitchen
-  - grocery
+    - recipes
+    - kitchen
+    - grocery
 dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.21
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: utilities
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: utilities
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application
