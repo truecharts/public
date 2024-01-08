@@ -1,46 +1,46 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: piwigo
-version: 11.2.8
+version: 11.2.9
 appVersion: 14.1.0
 description: A photo gallery software for the web.
 home: https://truecharts.org/charts/stable/piwigo
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/piwigo.png
 deprecated: false
 sources:
-  - https://ghcr.io/linuxserver/piwigo
-  - https://github.com/linuxserver/docker-piwigo
-  - https://github.com/truecharts/charts/tree/master/charts/stable/piwigo
+    - https://github.com/linuxserver/docker-piwigo
+    - https://github.com/truecharts/charts/tree/master/charts/stable/piwigo
+    - https://ghcr.io/linuxserver/piwigo
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - piwigo
-  - gallery
-  - photo
-  - image
+    - piwigo
+    - gallery
+    - photo
+    - image
 dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-  - name: mariadb
-    version: 12.1.6
-    repository: https://deps.truecharts.org/
-    condition: mariadb.enabled
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.21
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
+    - name: mariadb
+      version: 12.1.6
+      repository: https://deps.truecharts.org/
+      condition: mariadb.enabled
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: media
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application
