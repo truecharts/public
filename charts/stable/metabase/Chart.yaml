@@ -1,36 +1,36 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: metabase
-version: 2.1.5
-appVersion: 0.48.1
+version: 2.1.6
+appVersion: 0.48.2
 description: Business intelligence, dashboards, and data visualization tools
 home: https://truecharts.org/charts/stable/metabase
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/metabase.png
 deprecated: false
 sources:
-  - https://github.com/metabase/metabase
-  - https://github.com/truecharts/charts/tree/master/charts/stable/metabase
-  - https://hub.docker.com/r/metabase/metabase
+    - https://github.com/metabase/metabase
+    - https://github.com/truecharts/charts/tree/master/charts/stable/metabase
+    - https://hub.docker.com/r/metabase/metabase
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - metabase
+    - metabase
 dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.21
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: reporting
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: reporting
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application
