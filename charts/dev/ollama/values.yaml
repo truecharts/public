@@ -1,11 +1,11 @@
 image:
   repository: ollama/ollama
   pullPolicy: IfNotPresent
-  tag: 0.1.18@sha256:afd3e969f40c45e333eeb4b86fdfb950147d3a5d685e4801fc813aef48db6c41
+  tag: 0.1.18@sha256:5327f8c3f43e30804dbdbc039e8fcf253af8291e149f186dc5c7733f68e29217
 uiImage:
   repository: ghcr.io/ollama-webui/ollama-webui
   pullPolicy: IfNotPresent
-  tag: main@sha256:05d979e9632435eb31967f2fbe7af00783ece67d9bbf6ab51daf44676ff49cb6
+  tag: main@sha256:50dfa1104ae2f5c450bdc23920bc503a3cecd50f02efa328df98c317f8552e6c
 
 service:
   main:
