@@ -1,46 +1,46 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: nginx-proxy-manager
-version: 8.1.8
+version: 8.1.9
 appVersion: 2.10.4
 description: Managing Nginx proxy hosts with a simple, powerful interface.
 home: https://truecharts.org/charts/stable/nginx-proxy-manager
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/nginx-proxy-manager.png
 deprecated: false
 sources:
-  - https://nginxproxymanager.com/
-  - https://github.com/NginxProxyManager/nginx-proxy-manager
-  - https://github.com/truecharts/charts/tree/master/charts/stable/nginx-proxy-manager
-  - https://hub.docker.com/r/jc21/nginx-proxy-manager
+    - https://github.com/truecharts/charts/tree/master/charts/stable/nginx-proxy-manager
+    - https://hub.docker.com/r/jc21/nginx-proxy-manager
+    - https://nginxproxymanager.com/
+    - https://github.com/NginxProxyManager/nginx-proxy-manager
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - nginx-proxy-manager
-  - nginx
-  - reverse-proxy
+    - nginx-proxy-manager
+    - nginx
+    - reverse-proxy
 dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-  - name: mariadb
-    version: 12.1.6
-    repository: https://deps.truecharts.org/
-    condition: mariadb.enabled
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.21
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
+    - name: mariadb
+      version: 12.1.6
+      repository: https://deps.truecharts.org/
+      condition: mariadb.enabled
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: networking
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: networking
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application
