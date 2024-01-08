@@ -34,6 +34,9 @@ questions:
                                           sets the URL to direct the user to for updating Livebook when a new version becomes available.
                                         schema:
                                           type: string
+# Include{containerBasic}
+# Include{containerAdvanced}
+# Include{containerConfig}
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
@@ -86,13 +89,13 @@ questions:
                 description: "The UserID of the user running the application"
                 schema:
                   type: int
-                  default: 0
+                  default: 568
               - variable: runAsGroup
                 label: "runAsGroup"
                 description: "The groupID of the user running the application"
                 schema:
                   type: int
-                  default: 0
+                  default: 568
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
