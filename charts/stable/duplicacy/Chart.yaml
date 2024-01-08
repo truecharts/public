@@ -1,37 +1,37 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: duplicacy
-version: 5.1.6
+version: 5.1.7
 appVersion: 1.7.2
 description: A new generation cross-platform cloud backup tool.
 home: https://truecharts.org/charts/stable/duplicacy
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/duplicacy.png
 deprecated: false
 sources:
-  - https://hotio.dev/containers/duplicacy
-  - https://github.com/truecharts/charts/tree/master/charts/stable/duplicacy
-  - https://ghcr.io/hotio/duplicacy
+    - https://hotio.dev/containers/duplicacy
+    - https://github.com/truecharts/charts/tree/master/charts/stable/duplicacy
+    - https://ghcr.io/hotio/duplicacy
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - duplicacy
-  - Backup
+    - duplicacy
+    - Backup
 dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.21
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Backup
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Backup
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application
