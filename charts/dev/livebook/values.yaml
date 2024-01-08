@@ -42,6 +42,7 @@ workload:
             LIVEBOOK_NODE: livebook@$(A_POD_IP)
             LIVEBOOK_PORT: "{{ .Values.service.main.ports.main.port }}"
             LIVEBOOK_HOME: "{{ .Values.persistence.data.mountPath }}"
+            LIVEBOOK_DATA_PATH: "{{ .Values.persistence.data.mountPath }}"
             LIVEBOOK_SECRET_KEY_BASE:
               secretKeyRef:
                 name: secrets
