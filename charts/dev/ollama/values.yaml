@@ -67,16 +67,16 @@ workload:
               enabled: true
               type: http
               path: /
-              port: "{{ .Values.service.main.ports.main.port }}"
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
             readiness:
               enabled: true
               type: http
               path: /
-              port: "{{ .Values.service.main.ports.main.port }}"
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
             startup:
               enabled: true
               type: tcp
-              port: "{{ .Values.service.main.ports.main.port }}"
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
           env:
             OLLAMA_API_BASE_URL: '{{ printf "http://%v:%v/api" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.api.ports.api.port }}'
 
