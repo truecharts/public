@@ -1,38 +1,38 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: whisparr
-version: 8.1.6
+version: 8.1.7
 appVersion: 2.0.0.355
 description: An adult media thingy.
 home: https://truecharts.org/charts/stable/whisparr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/whisparr.png
 deprecated: false
 sources:
-  - https://github.com/onedr0p/containers/tree/main/apps/whisparr
-  - https://github.com/truecharts/charts/tree/master/charts/stable/whisparr
-  - https://ghcr.io/hotio/whisparr
+    - https://github.com/onedr0p/containers/tree/main/apps/whisparr
+    - https://github.com/truecharts/charts/tree/master/charts/stable/whisparr
+    - https://ghcr.io/hotio/whisparr
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - whisparr
-  - Downloaders
-  - MediaApp-Other
+    - whisparr
+    - Downloaders
+    - MediaApp-Other
 dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.21
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Downloaders
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: Downloaders
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application
