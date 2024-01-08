@@ -1,39 +1,39 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: mattermost
-version: 11.1.5
+version: 11.1.6
 appVersion: "9.4"
 description: Mattermost is an open source platform for secure collaboration across the entire software development lifecycle.
 home: https://truecharts.org/charts/stable/mattermost
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/mattermost.png
 deprecated: false
 sources:
-  - https://github.com/mattermost/mattermost-server
-  - https://github.com/mattermost/docker
-  - https://github.com/truecharts/charts/tree/master/charts/stable/mattermost
-  - https://hub.docker.com/r/mattermost/mattermost-enterprise-edition
+    - https://github.com/mattermost/mattermost-server
+    - https://github.com/mattermost/docker
+    - https://github.com/truecharts/charts/tree/master/charts/stable/mattermost
+    - https://hub.docker.com/r/mattermost/mattermost-enterprise-edition
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - team
-  - mattermost
-  - development
+    - team
+    - mattermost
+    - development
 dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.21
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: hosting
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: hosting
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application
