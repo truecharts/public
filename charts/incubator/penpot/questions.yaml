@@ -400,9 +400,9 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: data
-          label: App Data Storage
-          description: Stores the Application Data.
+        - variable: assets
+          label: App Assets Storage
+          description: Stores the Application Assets.
           schema:
             additional_attrs: true
             type: dict

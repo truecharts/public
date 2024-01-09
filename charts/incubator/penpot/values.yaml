@@ -1,3 +1,7 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: penpotapp/frontend
+  tag: 1.19.3@sha256:cfc31dd9d63ec92759dc66b19da5401896748c6ec96ce1f3b06a21604eaa16e9
 backendImage:
   pullPolicy: IfNotPresent
   repository: penpotapp/backend
@@ -6,16 +10,14 @@ exporterImage:
   pullPolicy: IfNotPresent
   repository: penpotapp/exporter
   tag: 1.19.3@sha256:e113a685d07bff470a2e75acab61fd61c5b24185d8931fd19b65d1f622061823
+  
 hostAliases:
   - hostnames:
       - penpot-backend
       - penpot-exporter
       - penpot-frontend
     ip: 127.0.0.1
-image:
-  pullPolicy: IfNotPresent
-  repository: penpotapp/frontend
-  tag: 1.19.3@sha256:cfc31dd9d63ec92759dc66b19da5401896748c6ec96ce1f3b06a21604eaa16e9
+
 penpot:
   flags:
     backend_api_doc: false
@@ -74,14 +76,13 @@ penpot:
     tls: true
     user: ""
   telemetry_enabled: false
+  
 persistence:
   assets:
     enabled: true
     mountPath: /opt/data/assets
-  data:
-    enabled: true
-    mountPath: /opt/data
-    noMount: true
+    targetSelectAll: true
+
 portal:
   open:
     enabled: true
@@ -92,8 +93,7 @@ cnpg:
     user: penpot
 redis:
   enabled: true
-  existingSecret: rediscreds
-  redisUsername: penpot
+  
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -111,11 +111,14 @@ workload:
     podSpec:
       containers:
         main:
+          env:
+            PENPOT_PUBLIC_URI: "{{ .Values.penpot.public_uri | quote }}"
+            PENPOT_FLAGS: '{{ $frontendFlags := list }}{{ $frontendFlags = mustAppend $frontendFlags (printf "%s-demo-warning" (ternary "enable" "disable" .Values.penpot.flags.demo_warning)) }}{{ join " " (concat $commonFlags $frontendFlags) | quote }}'
           envFrom:
             - secretRef:
-                name: "common-secret"
+                name: "shared"
             - secretRef:
-                name: "frontend-secret"
+                name: "frontend"
           probes:
             liveness:
               path: /
@@ -126,3 +129,53 @@ workload:
             startup:
               path: /
               type: http
+        exporter:
+          imageSelector: exporterImage
+          env:
+            PENPOT_PUBLIC_URI: "http://penpot-frontend:{{ .Values.service.main.ports.main.targetPort }}"
+            PENPOT_REDIS_URI:
+              secretKeyRef:
+                name: rediscreds
+                key: url
+          envFrom:
+            - secretRef:
+                name: 'shared'
+            - secretRef:
+                name: 'exporter'
+          probes:
+            liveness:
+              port: 6061
+              type: tcp
+            readiness:
+              port: 6061
+              type: tcp
+            startup:
+              port: 6061
+              type: tcp
+        backend:
+          imageSelector: backendImage
+          envFrom:
+            - secretRef:
+                name: 'shared'
+            - secretRef:
+                name: 'backend'
+          env:
+            PENPOT_DATABASE_URI:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: std
+            PENPOT_REDIS_URI:
+              secretKeyRef:
+                name: rediscreds
+                key: url
+          probes:
+            liveness:
+              port: 6060
+              type: tcp
+            readiness:
+              port: 6060
+              type: tcp
+            startup:
+              port: 6060
+              type: tcp
+
