@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: garrysmod
-version: 4.1.5
+version: 4.1.6
 appVersion: garrysmod
 description: This Chart will download and install SteamCMD. It will also install Garry's Mod and run it.
 home: https://truecharts.org/charts/incubator/garrysmod
@@ -20,7 +20,7 @@ keywords:
   - GameServers
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

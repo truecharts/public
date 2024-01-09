@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: fenrus
-version: 4.1.5
+version: 4.1.6
 appVersion: latest
 description: "Fenrus is a home page / personal dashboard with smart apps.   \n"
 home: https://truecharts.org/charts/incubator/fenrus
@@ -19,7 +19,7 @@ keywords:
   - Productivity
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

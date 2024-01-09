@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: czkawka
-version: 7.1.6
+version: 7.1.7
 appVersion: 23.11.2
 description: Czkawka is a simple, fast and free app to remove unnecessary files from your computer.
 home: https://truecharts.org/charts/stable/czkawka
@@ -22,7 +22,7 @@ keywords:
   - czkawka
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

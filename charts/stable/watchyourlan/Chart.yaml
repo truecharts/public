@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: watchyourlan
-version: 7.1.6
+version: 7.1.7
 appVersion: 1.0.6
 description: Lightweight network IP scanner with web GUI
 home: https://truecharts.org/charts/stable/watchyourlan
@@ -20,7 +20,7 @@ keywords:
   - monitor
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

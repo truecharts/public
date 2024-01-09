@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: homebox
-version: 5.1.6
+version: 5.1.7
 appVersion: 0.10.3
 description: Inventory and organization system built for the Home User.
 home: https://truecharts.org/charts/stable/homebox
@@ -20,7 +20,7 @@ keywords:
   - inventory
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

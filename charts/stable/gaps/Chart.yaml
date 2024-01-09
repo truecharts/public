@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: gaps
-version: 17.1.5
+version: 17.1.6
 appVersion: 0.10.4
 description: Gaps searches through your Plex Server or local folders for all movies, then queries for known movies in the same collection.
 home: https://truecharts.org/charts/stable/gaps
@@ -21,7 +21,7 @@ keywords:
   - plex-media-server
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

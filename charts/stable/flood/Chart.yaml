@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: flood
-version: 12.1.5
+version: 12.1.6
 appVersion: 4.7.0
 description: Flood is a monitoring service for various torrent clients
 home: https://truecharts.org/charts/stable/flood
@@ -22,7 +22,7 @@ keywords:
   - transmission
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

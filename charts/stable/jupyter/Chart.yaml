@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: jupyter
-version: 7.1.5
+version: 7.1.6
 appVersion: "2023"
 description: Jupyter a web based IDE
 home: https://truecharts.org/charts/stable/jupyter
@@ -21,7 +21,7 @@ keywords:
   - Lab
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

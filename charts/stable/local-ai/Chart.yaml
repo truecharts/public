@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: local-ai
-version: 8.14.0
+version: 8.14.1
 appVersion: 2.5.0
 description: Self-hosted, community-driven, local OpenAI-compatible API.
 home: https://truecharts.org/charts/stable/local-ai
@@ -20,7 +20,7 @@ keywords:
   - ai
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

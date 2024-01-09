@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: shapeshifter-obfuscator
-version: 4.1.5
+version: 4.1.6
 appVersion: latest
 description: "Shapeshifter-Obfuscator is a Chartized implementation of shapeshifter-dispatcher provided by The Operator Foundation. The shapeshifter suite provides command-line proxy and obfuscation tools that effectively modify packets to evade advanced IDS systems. "
 home: https://truecharts.org/charts/incubator/shapeshifter-obfuscator
@@ -20,7 +20,7 @@ keywords:
   - Security
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
