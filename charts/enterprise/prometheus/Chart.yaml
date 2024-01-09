@@ -27,14 +27,14 @@ dependencies:
     tags: []
     import-values: []
   - name: node-exporter
-    version: 6.1.6
+    version: 6.1.7
     repository: https://deps.truecharts.org
     condition: exporters.enabled,exporters.node-exporter.enabled
     alias: ""
     tags: []
     import-values: []
   - name: kube-state-metrics
-    version: 6.1.6
+    version: 6.1.7
     repository: https://deps.truecharts.org
     condition: exporters.enabled,exporters.kube-state-metrics.enabled
     alias: ""
