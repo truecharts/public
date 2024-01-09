@@ -1,4 +1,4 @@
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: blender
 version: 4.1.8
@@ -8,32 +8,32 @@ home: https://truecharts.org/charts/incubator/blender
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/blender.png
 deprecated: false
 sources:
-    - https://github.com/linuxserver/docker-blender#readme
-    - https://www.blender.org/
-    - https://github.com/truecharts/charts/tree/master/charts/incubator/blender
-    - https://fleet.linuxserver.io/image?name=linuxserver/blender
-    - https://github.com/orgs/linuxserver/packages/container/package/blender
+  - https://github.com/orgs/linuxserver/packages/container/package/blender
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/blender
+  - https://fleet.linuxserver.io/image?name=linuxserver/blender
+  - https://github.com/linuxserver/docker-blender#readme
+  - https://www.blender.org/
 maintainers:
-    - name: TrueCharts
-      email: info@truecharts.org
-      url: https://truecharts.org
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
 keywords:
-    - blender
-    - Other
+  - blender
+  - Other
 dependencies:
-    - name: common
-      version: 17.2.21
-      repository: oci://tccr.io/truecharts
-      condition: ""
-      alias: ""
-      tags: []
-      import-values: []
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 annotations:
-    max_scale_version: 23.10.2
-    min_scale_version: 23.10.0
-    truecharts.org/SCALE-support: "true"
-    truecharts.org/category: Other
-    truecharts.org/max_helm_version: "3.13"
-    truecharts.org/min_helm_version: "3.12"
-    truecharts.org/train: incubator
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Other
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
 type: application
