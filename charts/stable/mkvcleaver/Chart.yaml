@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: mkvcleaver
-version: 7.1.5
+version: 7.1.6
 appVersion: 23.11.2
 description: MKVCleaver is a tool for batch extraction of data from MKV files
 home: https://truecharts.org/charts/stable/mkvcleaver
@@ -20,7 +20,7 @@ keywords:
   - mkvcleaver
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

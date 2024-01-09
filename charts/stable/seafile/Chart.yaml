@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: seafile
-version: 4.1.8
+version: 4.1.9
 appVersion: 11.0.3
 description: Reliable and Performant File Sync and Share Solution
 home: https://truecharts.org/charts/stable/seafile
@@ -22,7 +22,7 @@ keywords:
   - file-storage
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
