@@ -1,4 +1,4 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: clusterissuer
 version: 6.1.7
@@ -8,16 +8,16 @@ home: https://truecharts.org/charts/enterprise/clusterissuer
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/clusterissuer.png
 deprecated: false
 sources:
-  - https://cert-manager.io/
-  - https://github.com/truecharts/charts/tree/master/charts/enterprise/clusterissuer
-  - https://hub.docker.com/_/hello-world
+    - https://github.com/truecharts/charts/tree/master/charts/enterprise/clusterissuer
+    - https://hub.docker.com/_/hello-world
+    - https://cert-manager.io/
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - cert-manager
-  - certificates
+    - cert-manager
+    - certificates
 dependencies:
   - name: common
     version: 17.2.22
@@ -27,11 +27,11 @@ dependencies:
     tags: []
     import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: core
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: enterprise
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: core
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: enterprise
 type: application
