@@ -1,7 +1,7 @@
 {{/* Define the secret */}}
 {{- define "penpot.secret" -}}
 
-{{- $backendAndExporterSecretName := printf "%s-backend" (include "tc.v1.common.names.fullname" .) }}
+{{- $backendAndExporterSecretName := printf "%s-backend" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 
 {{- $backendFlags := list }}
 {{- $backendFlags = mustAppend $backendFlags (printf "%s-smtp" (ternary "enable" "disable" .Values.penpot.smtp.enabled)) }}
