@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: venstar2mqtt
-version: 4.1.5
+version: 4.1.6
 appVersion: latest
 description: Simple Chart that allows MQTT to be used to view data and push settings to the Venstar Local API Thermostats.  Local API needs to be enabled on the thermostat.  No Web UI or appdata folder necessary.
 home: https://truecharts.org/charts/incubator/venstar2mqtt
@@ -21,7 +21,7 @@ keywords:
   - Tools-Utilities
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

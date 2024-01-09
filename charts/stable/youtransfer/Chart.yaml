@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: youtransfer
-version: 6.1.5
+version: 6.1.6
 appVersion: latest
 description: YouTransfer is a simple but elegant self-hosted file transfer sharing solution.
 home: https://truecharts.org/charts/stable/youtransfer
@@ -21,7 +21,7 @@ keywords:
   - Tools-Utilities
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

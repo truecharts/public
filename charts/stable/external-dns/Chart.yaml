@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: external-dns
-version: 3.1.6
+version: 3.1.7
 appVersion: 0.14.0
 description: ExternalDNS synchronizes exposed Kubernetes Services and Ingresses with DNS providers.
 home: https://truecharts.org/charts/stable/external-dns
@@ -20,7 +20,7 @@ keywords:
   - kubernetes
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

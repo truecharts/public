@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: deepstack
-version: 10.1.6
+version: 10.1.7
 appVersion: 2022.01.1
 description: DeepStack AI provides AI features including Face Recognition, Object Detection, Scene Recognition and custom AI Models
 home: https://truecharts.org/charts/stable/deepstack
@@ -20,7 +20,7 @@ keywords:
   - AI
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
