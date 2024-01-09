@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: nightscout
-version: 4.1.5
+version: 4.1.6
 appVersion: latest
 description: Allows the installation of Nightscout, a remote CGM monitoring system. It allows the upload and display of blood glucous values and can be configuered to issue warnings etc. This is mainly useful to diabetics.
 home: https://truecharts.org/charts/incubator/nightscout
@@ -21,7 +21,7 @@ keywords:
   - Cloud
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

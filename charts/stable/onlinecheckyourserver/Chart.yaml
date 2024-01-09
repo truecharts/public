@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: onlinecheckyourserver
-version: 4.1.5
+version: 4.1.6
 appVersion: latest
 description: This is a simple Chart that will check if a domain name or IP address is pingable and send you a message with Pushover if it goes offline.
 home: https://truecharts.org/charts/incubator/onlinecheckyourserver
@@ -19,7 +19,7 @@ keywords:
   - Tools-Utilities
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

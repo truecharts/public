@@ -1,8 +1,8 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: alist
-version: 8.1.6
-appVersion: 3.29.1
+version: 8.2.1
+appVersion: 3.30.0
 description: Alist program that supports multiple storage, powered by Gin and React
 home: https://truecharts.org/charts/stable/alist
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/alist.png
@@ -24,7 +24,7 @@ keywords:
   - baiduyun
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
