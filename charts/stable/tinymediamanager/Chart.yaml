@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: tinymediamanager
-version: 9.0.0
+version: 9.0.1
 appVersion: 5.0.0
 description: TinyMediaManager is a full featured media manager to organize and clean up your media library.
 home: https://truecharts.org/charts/stable/tinymediamanager
@@ -21,7 +21,7 @@ keywords:
   - manager
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

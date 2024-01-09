@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: sickchill
-version: 9.1.7
+version: 9.1.8
 appVersion: 2023.6.27
 description: An Automatic Video Library Manager for TV Shows
 home: https://truecharts.org/charts/stable/sickchill
@@ -23,7 +23,7 @@ keywords:
   - manager
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

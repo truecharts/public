@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: nextcloud
-version: 28.1.11
+version: 28.1.12
 appVersion: 28.0.1
 description: A private cloud server that puts the control and security of your own data back into your hands.
 home: https://truecharts.org/charts/stable/nextcloud
@@ -24,7 +24,7 @@ keywords:
   - php
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

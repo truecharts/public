@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: minio
-version: 10.0.1
+version: 10.0.2
 appVersion: 2024.01.05
 description: Minio is a self-hosted S3 storage server
 home: https://truecharts.org/charts/stable/minio
@@ -21,7 +21,7 @@ keywords:
   - storage
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

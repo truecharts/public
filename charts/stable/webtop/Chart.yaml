@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: webtop
-version: 8.1.55
+version: 8.1.56
 appVersion: latest
 description: Webtop full desktop environments in officially supported flavors accessible via any modern web browser.
 home: https://truecharts.org/charts/stable/webtop
@@ -22,7 +22,7 @@ keywords:
   - Tools-Utilities
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

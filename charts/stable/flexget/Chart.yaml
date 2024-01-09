@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: flexget
-version: 8.2.6
+version: 8.2.7
 appVersion: 3.11.6
 description: FlexGet is a multipurpose automation tool for all of your media
 home: https://truecharts.org/charts/stable/flexget
@@ -20,7 +20,7 @@ keywords:
   - automation
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

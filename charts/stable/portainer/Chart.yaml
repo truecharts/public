@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: portainer
-version: 7.1.5
+version: 7.1.6
 appVersion: 2.19.4
 description: Container management made easy
 home: https://truecharts.org/charts/stable/portainer
@@ -20,7 +20,7 @@ keywords:
   - portainer
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

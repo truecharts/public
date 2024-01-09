@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: wireguard
-version: 7.1.5
+version: 7.1.6
 appVersion: 1.0.20210914
 description: WireGuard® is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography.
 home: https://truecharts.org/charts/stable/wireguard
@@ -20,7 +20,7 @@ keywords:
   - vpn
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
