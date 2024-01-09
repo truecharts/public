@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: plex-utills
-version: 7.1.5
+version: 7.1.6
 appVersion: latest
 description: A utility to help manage your library.
 home: https://truecharts.org/charts/stable/plex-utills
@@ -21,7 +21,7 @@ keywords:
   - MediaApp-Other
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

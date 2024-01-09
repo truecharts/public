@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: dns-doh-companion
-version: 4.1.7
+version: 4.1.8
 appVersion: latest
 description: A very simple DNS server to connect to DNS-over-HTTPS service. This is similar to my other Pihole-with-DoH Chart, without Pihole.
 home: https://truecharts.org/charts/incubator/dns-doh-companion
@@ -20,7 +20,7 @@ keywords:
   - Network-DNS
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

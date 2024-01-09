@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: actualserver
-version: 7.1.6
+version: 7.1.7
 appVersion: 23.12.1
 description: Actual is a super fast privacy-focused app for managing your finances.
 home: https://truecharts.org/charts/stable/actualserver
@@ -20,7 +20,7 @@ keywords:
   - finance
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

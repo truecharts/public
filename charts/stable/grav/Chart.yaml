@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: grav
-version: 10.1.6
+version: 10.1.7
 appVersion: 1.7.44
 description: A Fast, Simple, and Flexible, file-based Web-platform.
 home: https://truecharts.org/charts/stable/grav
@@ -23,7 +23,7 @@ keywords:
   - file
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: tauticord
-version: 2.2.0
+version: 2.2.1
 appVersion: 3.13.0
 description: A Discord bot that displays live data from Tautulli.
 home: https://truecharts.org/charts/stable/tauticord
@@ -21,7 +21,7 @@ keywords:
   - discord
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: blocky
-version: 12.2.0
+version: 12.2.1
 appVersion: "0.23"
 description: Blocky is a DNS proxy, DNS enhancer and ad-blocker for the local network written in Go
 home: https://truecharts.org/charts/enterprise/blocky
@@ -22,7 +22,7 @@ keywords:
   - blocky
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

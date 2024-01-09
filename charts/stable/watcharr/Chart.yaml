@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: watcharr
-version: 3.3.0
+version: 3.3.1
 appVersion: 1.31.0
 description: Open source, self-hostable watched list
 home: https://truecharts.org/charts/stable/watcharr
@@ -20,7 +20,7 @@ keywords:
   - media
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
