@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: nginx-proxy-manager
-version: 8.1.9
+version: 8.1.10
 appVersion: 2.10.4
 description: Managing Nginx proxy hosts with a simple, powerful interface.
 home: https://truecharts.org/charts/stable/nginx-proxy-manager
@@ -22,7 +22,7 @@ keywords:
   - reverse-proxy
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

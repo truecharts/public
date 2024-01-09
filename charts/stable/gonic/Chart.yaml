@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: gonic
-version: 12.1.5
+version: 12.1.6
 appVersion: 0.16.2
 description: Music streaming server / subsonic server API implementation
 home: https://truecharts.org/charts/stable/gonic
@@ -20,7 +20,7 @@ keywords:
   - subsonic
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

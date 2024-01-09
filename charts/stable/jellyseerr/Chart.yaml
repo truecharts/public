@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: jellyseerr
-version: 8.1.5
+version: 8.1.6
 appVersion: 1.7.0
 description: Jellyseerr is a fork of Overseerr with support for Jellyfin and Emby. It can be used to manage requests for your media library.
 home: https://truecharts.org/charts/stable/jellyseerr
@@ -19,7 +19,7 @@ keywords:
   - jellyseerr
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

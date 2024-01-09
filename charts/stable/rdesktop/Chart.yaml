@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: rdesktop
-version: 7.1.41
+version: 7.1.42
 appVersion: latest
 description: Full desktop environments in many popular flavors for Alpine, Ubuntu, Arch, and Fedora accessible via RDP.
 home: https://truecharts.org/charts/stable/rdesktop
@@ -21,7 +21,7 @@ keywords:
   - desktops
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: mattermost
-version: 11.1.7
+version: 11.1.8
 appVersion: "9.4"
 description: Mattermost is an open source platform for secure collaboration across the entire software development lifecycle.
 home: https://truecharts.org/charts/stable/mattermost
@@ -22,7 +22,7 @@ keywords:
   - development
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

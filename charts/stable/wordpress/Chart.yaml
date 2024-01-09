@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: wordpress
-version: 6.1.8
+version: 6.1.9
 appVersion: 6.4.2
 description: The WordPress rich content management system can utilize plugins, widgets, and themes.
 home: https://truecharts.org/charts/stable/wordpress
@@ -20,7 +20,7 @@ keywords:
   - cms
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

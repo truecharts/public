@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: transmission
-version: 19.1.6
+version: 19.1.7
 appVersion: 4.0.5
 description: fast, easy, and free BitTorrent client.
 home: https://truecharts.org/charts/stable/transmission
@@ -21,7 +21,7 @@ keywords:
   - usenet
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

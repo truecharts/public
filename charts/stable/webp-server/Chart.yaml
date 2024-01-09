@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: webp-server
-version: 4.1.6
+version: 4.1.7
 appVersion: latest
 description: This is a Server based on Golang, which allows you to serve WebP images on the fly. It will convert jpg,jpeg,png files by default, this can be customized by editing the config.json.
 home: https://truecharts.org/charts/incubator/webp-server
@@ -25,7 +25,7 @@ keywords:
   - Network-FTP
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

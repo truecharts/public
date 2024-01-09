@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: resilio-sync
-version: 13.1.6
+version: 13.1.7
 appVersion: 2.7.3
 description: Resilio Sync is a fast, reliable, and simple file sync and share solution, powered by P2P technology
 home: https://truecharts.org/charts/stable/resilio-sync
@@ -22,7 +22,7 @@ keywords:
   - bittorrent
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
