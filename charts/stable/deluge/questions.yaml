@@ -31,6 +31,28 @@ questions:
                               type: int
                               default: 8112
                               required: true
+        - variable: rpc
+          label: "RPC Service"
+          description: "RPC Service"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: rpc
+                      label: "RPC Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 58846
+                              required: true
         - variable: torrent
           label: "TCP Torrent Service"
           description: "TCP Torrent Service"

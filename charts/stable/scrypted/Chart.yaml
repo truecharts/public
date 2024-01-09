@@ -1,16 +1,16 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: scrypted
-version: 3.1.5
+version: 3.1.6
 appVersion: "18"
 description: Scrypted is a high performance home video integration and automation platform.
 home: https://truecharts.org/charts/stable/scrypted
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/scrypted.png
 deprecated: false
 sources:
-  - https://hub.docker.com/r/koush/scrypted
   - https://github.com/koush/scrypted
   - https://github.com/truecharts/charts/tree/master/charts/stable/scrypted
+  - https://hub.docker.com/r/koush/scrypted
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -20,7 +20,7 @@ keywords:
   - automation
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

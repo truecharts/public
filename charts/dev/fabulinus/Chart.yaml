@@ -1,0 +1,37 @@
+kubeVersion: ">=1.24.0-0"
+apiVersion: v2
+name: fabulinus
+version: 0.0.1
+appVersion: latest
+description: Fabulinus is the server component of the TitanML Takeoff server.
+home: https://truecharts.org/charts/dev/fabulinus
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/fabulinus.png
+deprecated: false
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/dev/fabulinus
+  - https://hub.docker.com/r/tytn/fabulinus
+  - https://github.com/titanml/takeoff-communitys
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+keywords:
+  - fabulinus
+  - machine-learning
+dependencies:
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: ai
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: dev
+type: application
