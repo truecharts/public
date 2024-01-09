@@ -16,7 +16,7 @@ configmap:
 image:
   pullPolicy: IfNotPresent
   repository: pydio/cells
-  tag: 4.3.2@sha256:b55f723d7143ef83037d6d5223f069cbdcde453a69b2cc2b65ec69d58e90312c
+  tag: 4.3.3@sha256:0c0631d09f272077b9cee6cacbe125ec5c94382f7dd1f28246f7f9fd30d9431c
 mariadb:
   enabled: true
   existingSecret: mariadbcreds
