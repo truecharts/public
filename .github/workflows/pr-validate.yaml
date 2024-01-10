@@ -81,7 +81,7 @@ jobs:
         with:
           github-token: "${{ secrets.PERS_PAT }}"
       - name: automerge
-        uses: pascalgn/automerge-action@4346d0b231a3ff92a91b825b9e4a22370f0263af # v0.16.0
+        uses: pascalgn/automerge-action@58724c982461efbb7865b3762d7bff0d4756f57a # v0.16.2
         env:
           GITHUB_TOKEN: "${{ secrets.BOT_TOKEN }}"
           UPDATE_RETRIES: 12
