@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: cryptofolio
-version: 11.1.6
+version: 11.1.7
 appVersion: ""
 description: Track your cryptocurrency holdings/portfolio
 home: https://truecharts.org/charts/stable/cryptofolio
@@ -19,7 +19,7 @@ keywords:
   - cryptofolio
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

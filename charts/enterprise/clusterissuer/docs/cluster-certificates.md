@@ -25,7 +25,7 @@ In order for an ACME issuer to issue a wildcard certificate, you need to have a 
 
 :::
 
-![clusterissuer6](./img/clusterissuer6.png)
+![clusterissuer-clusterwidecert](./img/clusterissuer-clusterwidecert.png)
 
 After creating the cluster certificate, verify it is working by checking the `Application Events` created in the `clusterissuer` app (see [how to verify a single app certificate is working](how-to#verifying-clusterissuer-is-working) for more information).
 

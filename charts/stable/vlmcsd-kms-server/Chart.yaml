@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: vlmcsd-kms-server
-version: 4.1.5
+version: 4.1.6
 appVersion: latest
 description: vlmcsd is a replacement for Microsoft's KMS server.
 home: https://truecharts.org/charts/incubator/vlmcsd-kms-server
@@ -22,7 +22,7 @@ keywords:
   - Network-Other
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

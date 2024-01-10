@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: static
-version: 9.1.5
+version: 9.1.6
 appVersion: ersion-ee8a20c
 description: A self-hosted static file serving app which does nothing more than just serve up static files from a mounted volume.
 home: https://truecharts.org/charts/stable/static
@@ -23,7 +23,7 @@ keywords:
   - static
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

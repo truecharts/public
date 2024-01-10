@@ -1,16 +1,16 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: minecraft-bungeecord
-version: 7.1.5
+version: 7.1.6
 appVersion: 2022.4.1
 description: the front-end of a cluster of minecraft-java containers.
 home: https://truecharts.org/charts/stable/minecraft-bungeecord
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/minecraft-bungeecord.png
 deprecated: false
 sources:
+  - https://github.com/itzg/docker-bungeecord
   - https://github.com/truecharts/charts/tree/master/charts/stable/minecraft-bungeecord
   - https://hub.docker.com/r/itzg/bungeecord
-  - https://github.com/itzg/docker-bungeecord
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -21,7 +21,7 @@ keywords:
   - minecraft
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

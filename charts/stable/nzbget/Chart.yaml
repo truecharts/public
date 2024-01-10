@@ -1,8 +1,8 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: nzbget
-version: 17.1.5
-appVersion: "21.1"
+version: 18.0.0
+appVersion: "22.0"
 description: NZBGet is a Usenet downloader client
 home: https://truecharts.org/charts/stable/nzbget
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/nzbget.png
@@ -20,7 +20,7 @@ keywords:
   - usenet
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: meshcentral
-version: 14.1.5
+version: 14.1.6
 appVersion: 1.1.16
 description: MeshCentral is a full computer management web site
 home: https://truecharts.org/charts/stable/meshcentral
@@ -21,7 +21,7 @@ keywords:
   - rdp
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

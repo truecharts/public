@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: hyperion-ng
-version: 12.1.5
+version: 12.1.6
 appVersion: 2.0.15
 description: Hyperion is an opensource Bias or Ambient Lighting implementation
 home: https://truecharts.org/charts/stable/hyperion-ng
@@ -20,7 +20,7 @@ keywords:
   - hyperion
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
