@@ -42,4 +42,4 @@ The following sections have Sonarr/Radarr specific settings. The template config
 
 ### Remaining Sonarr/Radarr Configurations
 
-All of the following sections can be configured based on personal preference. If you chose to rename or delete any of the predefined templates ensure you follow the same schema for the remaining sections. It is recommended that `SearchMissing` be set to false. qBitrr will not have access to your Sonarr/Radarr database file unless they are configured in an unsupported manner. This will disable that functionality.
+All of the following sections can be configured based on personal preference. If you chose to rename or delete any of the predefined templates ensure you follow the same schema for the remaining sections.
