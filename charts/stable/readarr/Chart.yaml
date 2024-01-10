@@ -2,16 +2,16 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: readarr
 version: 19.1.8
-appVersion: 0.3.14.2348
+appVersion: 0.3.14.2358
 description: A fork of Radarr to work with Books & AudioBooks
 home: https://truecharts.org/charts/stable/readarr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/readarr.png
 deprecated: false
 sources:
-  - https://github.com/Readarr/Readarr
   - https://readarr.com
   - https://github.com/truecharts/charts/tree/master/charts/stable/readarr
-  - https://ghcr.io/onedr0p/exportarr
+  - https://ghcr.io/onedr0p/readarr-develop
+  - https://github.com/Readarr/Readarr
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

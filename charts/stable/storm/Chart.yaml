@@ -2,16 +2,16 @@ kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: storm
 version: 4.1.6
-appVersion: "1.3.0"
+appVersion: 1.3.0
 description: A Modern Deluge Interface.
 home: https://truecharts.org/charts/stable/storm
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/storm.png
 deprecated: false
 sources:
+  - https://ghcr.io/relvacode/storm
   - https://github.com/relvacode/storm/pkgs/container/storm
   - https://github.com/relvacode/storm
   - https://github.com/truecharts/charts/tree/master/charts/stable/storm
-  - https://ghcr.io/relvacode/storm
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
