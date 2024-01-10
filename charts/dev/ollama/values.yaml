@@ -78,7 +78,7 @@ workload:
               type: tcp
               port: "{{ .Values.service.main.ports.main.targetPort }}"
           env:
-            OLLAMA_API_BASE_URL: '{{ printf "http://%v:%v/api" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.api.ports.api.port }}'
+            OLLAMA_API_BASE_URL: '{{ printf "http://%v-api:%v/api" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.api.ports.api.port }}'
 
 persistence:
   config:
