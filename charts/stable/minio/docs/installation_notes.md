@@ -4,7 +4,7 @@ title: Installation Notes and Guide for TrueNAS SCALE
 
 :::note Written for
 
-- Platform: TrueNAS SCALE
+- Platform: TrueNAS SCALE Cobia 23.10.1
 - App Version: 2023.12.23
 - Chart Version: 9.1.0
 
