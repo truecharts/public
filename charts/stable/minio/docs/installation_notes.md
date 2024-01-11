@@ -1,5 +1,5 @@
 ---
-title: Installation Notes
+title: Installation Notes and Guide for TrueNAS SCALE
 ---
 
 :::note Written for
