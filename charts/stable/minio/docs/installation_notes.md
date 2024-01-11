@@ -2,8 +2,9 @@
 title: Installation Notes
 ---
 
-:::note Written for version
+:::note Written for
 
+- Platform: TrueNAS SCALE
 - App Version: 2023.12.23
 - Chart Version: 9.1.0
 
