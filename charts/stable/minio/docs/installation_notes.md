@@ -32,5 +32,5 @@ This is a guide containing the minimal required settings for installation:
   - `Type of Storage` set to host path
   - `Host Path` select the dataset <minio_data>
 - Using Ingress and API ingress is recommended
-  - Main Ingress: minio.mydomain.com
+  - Main Ingress (Also the Console) : minio.mydomain.com
   - API ingress: bucket_name.minio.mydomain.com (one entry for each bucket)
