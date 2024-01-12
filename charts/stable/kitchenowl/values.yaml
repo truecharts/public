@@ -101,6 +101,7 @@ workload:
               type: tcp
               port: "{{ .Values.service.backend.ports.backend.targetPort }}"
   frontend:
+    enabled: true
     type: Deployment
     strategy: RollingUpdate
     replicas: 1
