@@ -1,24 +1,9 @@
 {{/* Render the templates */}}
-{{ include "tc.v1.common.loader.init" . }}
 
 {{/*
-Omada automatically redirects to that port.
-Instead of consuming the external 443 port, it's better to switch internal
-But still give user the ability to change it.
-When ingress is enabled, set this to 443, otherwise set it to whatever `port` is set to
+The old behavior of always running on port 443 seams to have changed upstream.  The 
+current upstream behavior is to not allow the port to be changed (without re-install) 
+after setup.   
 */}}
 
-{{- $port := .Values.service.main.ports.main.port -}}
-{{- if .Values.ingress.main.enabled -}}
-  {{- $port = 443 -}}
-{{- end -}}
-
-{{- $_ := set .Values.workload.main.podSpec.containers.main.env "MANAGE_HTTPS_PORT" $port -}}
-
-{{- $_ := set .Values.service.main.ports.main "targetPort" $port -}}
-
-{{- $_ := set .Values.workload.main.podSpec.containers.main.probes.liveness "port" $port -}}
-{{- $_ := set .Values.workload.main.podSpec.containers.main.probes.readiness "port" $port -}}
-{{- $_ := set .Values.workload.main.podSpec.containers.main.probes.startup "port" $port -}}
-
-{{ include "tc.v1.common.loader.apply" . }}
+{{ include "tc.v1.common.loader.all" . }}
