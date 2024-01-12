@@ -132,10 +132,8 @@ workload:
               path: /
               port: "{{ .Values.service.main.ports.main.targetPort }}"
             startup:
-              type: http
-              path: /
+              type: tcp
               port: "{{ .Values.service.main.ports.main.targetPort }}"
-
 # Enabled postgres
 cnpg:
   main:
