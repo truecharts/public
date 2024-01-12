@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: answer
-version: 2.1.8
+version: 2.1.9
 appVersion: 1.2.0
 description: A Q&A platform software for teams at any scales.
 home: https://truecharts.org/charts/incubator/answer
@@ -20,7 +20,7 @@ keywords:
   - forum
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

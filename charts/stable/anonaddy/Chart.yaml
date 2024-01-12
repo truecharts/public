@@ -1,16 +1,16 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: anonaddy
-version: 19.1.9
+version: 19.1.10
 appVersion: 1.0.4
 description: Protect your email from spam using disposable addresses.
 home: https://truecharts.org/charts/stable/anonaddy
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/anonaddy.png
 deprecated: false
 sources:
+  - https://hub.docker.com/r/anonaddy/anonaddy
   - https://github.com/anonaddy/docker
   - https://github.com/truecharts/charts/tree/master/charts/stable/anonaddy
-  - https://hub.docker.com/r/anonaddy/anonaddy
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -19,7 +19,7 @@ keywords:
   - anonaddy
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

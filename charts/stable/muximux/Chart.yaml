@@ -1,15 +1,15 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: muximux
-version: 9.1.5
+version: 9.1.6
 appVersion: ersion-057352e8
 description: A lightweight portal to view & manage your HTPC apps without having to run anything more than a PHP enabled webserver
 home: https://truecharts.org/charts/stable/muximux
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/muximux.png
 deprecated: false
 sources:
-  - https://github.com/mescon/Muximux
   - https://github.com/linuxserver/docker-muximux
+  - https://github.com/mescon/Muximux
   - https://github.com/truecharts/charts/tree/master/charts/stable/muximux
   - https://ghcr.io/linuxserver/muximux
 maintainers:
@@ -23,7 +23,7 @@ keywords:
   - portal
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

@@ -1,16 +1,16 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: lancache-monolithic
-version: 7.1.5
+version: 7.1.6
 appVersion: latest
 description: A monolithic lancache service capable of caching all CDNs in a single instance.
 home: https://truecharts.org/charts/stable/lancache-monolithic
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/lancache-monolithic.png
 deprecated: false
 sources:
-  - https://hub.docker.com/r/lancachenet/monolithic
   - https://github.com/lancachenet/monolithic
   - https://github.com/truecharts/charts/tree/master/charts/stable/lancache-monolithic
+  - https://hub.docker.com/r/lancachenet/monolithic
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -20,7 +20,7 @@ keywords:
   - lancache
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

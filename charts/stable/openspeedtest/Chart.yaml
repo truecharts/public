@@ -1,16 +1,16 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: openspeedtest
-version: 7.1.5
+version: 7.1.6
 appVersion: latest
 description: HTML5 Network Speed Test Server. You can test download & upload speed from any device within your network with a web browser that is IE10 or new.
 home: https://truecharts.org/charts/stable/openspeedtest
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/openspeedtest.png
 deprecated: false
 sources:
+  - https://hub.docker.com/r/openspeedtest/latest
   - https://github.com/openspeedtest/Speed-Test
   - https://github.com/truecharts/charts/tree/master/charts/stable/openspeedtest
-  - https://hub.docker.com/r/openspeedtest/latest
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -21,7 +21,7 @@ keywords:
   - openspeedtest
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

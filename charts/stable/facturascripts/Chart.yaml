@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: facturascripts
-version: 4.1.6
+version: 4.1.7
 appVersion: latest
 description: "FacturaScripts is an accounting, billing and CRM program with it you can manage the day to day of your company: invoices, receipts, expenses, budgets, orders, delivery notes, inventory..."
 home: https://truecharts.org/charts/incubator/facturascripts
@@ -21,7 +21,7 @@ keywords:
   - Productivity
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

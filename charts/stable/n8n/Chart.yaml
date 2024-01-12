@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: n8n
-version: 12.2.0
+version: 12.2.1
 appVersion: 1.23.0
 description: n8n is an extendable workflow automation tool.
 home: https://truecharts.org/charts/stable/n8n
@@ -21,7 +21,7 @@ keywords:
   - automation
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

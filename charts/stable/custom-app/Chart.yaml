@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: custom-app
-version: 11.1.8
+version: 11.1.9
 appVersion: 0.21.1155
 description: Advanced tool to create your own TrueCharts-based App
 home: https://truecharts.org/charts/stable/custom-app
@@ -18,7 +18,7 @@ keywords:
   - custom
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

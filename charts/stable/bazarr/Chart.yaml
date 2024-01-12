@@ -1,16 +1,16 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: bazarr
-version: 17.1.9
+version: 17.1.10
 appVersion: 1.4.0
 description: Bazarr is a companion application to Sonarr and Radarr. It manages and downloads subtitles based on your requirements
 home: https://truecharts.org/charts/stable/bazarr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/bazarr.png
 deprecated: false
 sources:
-  - https://github.com/morpheus65535/bazarr
   - https://github.com/truecharts/charts/tree/master/charts/stable/bazarr
   - https://ghcr.io/onedr0p/exportarr
+  - https://github.com/morpheus65535/bazarr
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -24,7 +24,7 @@ keywords:
   - torrent
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
