@@ -1,8 +1,8 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: dashdot
-version: 7.1.6
-appVersion: 5.2.3
+version: 7.2.1
+appVersion: 5.5.0
 description: dash. (or dashdot) is a modern server dashboard, running on the latest tech, designed with glassmorphism in mind.
 home: https://truecharts.org/charts/stable/dashdot
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/dashdot.png
@@ -20,7 +20,7 @@ keywords:
   - dashdot
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

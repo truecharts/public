@@ -38,8 +38,8 @@ This section has qBittorrent specific settings. Ensure that `Host`, `Port`, `Use
 
 ### Sonarr/Radarr
 
-The following sections have Sonarr/Radarr specific settings. The template configuration file populates two instances for both Sonarr and Radarr by default. These can be renamed/deleted as needed to match your setup. Ensure that `URI`, `API` and `Category` are set correctly so that qBitrr can communicate with your Sonarr and Radarr installation. You can find this by looking at the output of `heavyscript dns -a` again (e.g.: `URI = "http://sonarr.ix-sonarr.svc.cluster.local:8989/"`). The `Category` is what you have set in Sonarr/Radarr to use in qBittorrent (ie. movies, tv).
+The following sections have Sonarr/Radarr specific settings. The template configuration file populates two instances for both Sonarr and Radarr by default. These can be renamed/deleted/duplicated as needed to match your setup (any number os Sonarr/Radarr instances are supported). Ensure that `URI`, `API` and `Category` are set correctly so that qBitrr can communicate with your Sonarr and Radarr installation. You can find this by looking at the output of `heavyscript dns -a` again (e.g.: `URI = "http://sonarr.ix-sonarr.svc.cluster.local:8989/"`). The `Category` is what you have set in Sonarr/Radarr to use in qBittorrent (ie. movies, tv).
 
 ### Remaining Sonarr/Radarr Configurations
 
-All of the following sections can be configured based on personal preference. If you chose to rename or delete any of the predefined templates ensure you follow the same schema for the remaining sections. It is recommended that `SearchMissing` be set to false. qBitrr will not have access to your Sonarr/Radarr database file unless they are configured in an unsupported manner. This will disable that functionality.
+All of the following sections can be configured based on personal preference. If you chose to rename or delete any of the predefined templates ensure you follow the same schema for the remaining sections.

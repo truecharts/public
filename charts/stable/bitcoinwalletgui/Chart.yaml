@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: bitcoinwalletgui
-version: 4.1.6
+version: 4.1.7
 appVersion: latest
 description: |
   Bitcoin wallet with GUI over VNC and NoVNC.&#xD;
@@ -9,8 +9,8 @@ home: https://truecharts.org/charts/incubator/bitcoinwalletgui
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/bitcoinwalletgui.png
 deprecated: false
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/bitcoinwalletgui
   - https://hub.docker.com/r/ulisses1478/bitcoinwallet-gui
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/bitcoinwalletgui
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -20,7 +20,7 @@ keywords:
   - Other
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: restic-rest-server
-version: 4.1.5
+version: 4.1.6
 appVersion: 0.12.1
 description: "Rest Server is a high performance HTTP server that implements restic's REST backend API. It provides secure and efficient way to backup data remotely, using restic backup client via the rest: URL."
 home: https://truecharts.org/charts/incubator/restic-rest-server
@@ -20,7 +20,7 @@ keywords:
   - Backup
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

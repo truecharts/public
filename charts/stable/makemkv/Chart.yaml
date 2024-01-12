@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: makemkv
-version: 8.1.5
+version: 8.1.6
 appVersion: 23.11.2
 description: MakeMKV is your one-click solution to convert video that you own into free and patents-unencumbered format that can be played everywhere.
 home: https://truecharts.org/charts/stable/makemkv
@@ -19,7 +19,7 @@ keywords:
   - mkv
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

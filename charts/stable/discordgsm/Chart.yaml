@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: discordgsm
-version: 6.1.6
+version: 6.1.7
 appVersion: 2.15.1
 description: A discord bot that monitors your game server and tracks the live data of your game servers.
 home: https://truecharts.org/charts/stable/discordgsm
@@ -21,7 +21,7 @@ keywords:
   - monitor
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
