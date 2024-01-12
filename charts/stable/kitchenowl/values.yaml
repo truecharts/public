@@ -92,7 +92,7 @@ workload:
           probes:
             liveness:
               enabled: true
-              type: http
+              type: exec
               port: "{{ .Values.service.backend.ports.backend.targetPort }}"
               path: /api/health/8M4F88S8ooi4sMbLBfkkV7ctWwgibW6V
             readiness:
