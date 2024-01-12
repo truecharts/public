@@ -30,6 +30,7 @@ workload:
             ATUIN_HOST: 0.0.0.0
             ATUIN_PORT: "{{ .Values.service.main.ports.main.port }}"
             ATUIN_OPEN_REGISTRATION: "{{ .Values.atuin.open_registration }}"
+            ATUIN_CONFIG_DIR: /config
             ATUIN_DB_URI:
               secretKeyRef:
                 name: cnpg-main-urls
