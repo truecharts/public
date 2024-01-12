@@ -109,9 +109,6 @@ workload:
         frontend:
           enabled: true
           primary: true
-          envFrom:
-            - configMapRef:
-                name: kitchenowl-config
           env:
             # Main Service
             BACK_URL: '{{ printf "%s-backend:" include "tc.v1.common.names.fullname" . }}'s
