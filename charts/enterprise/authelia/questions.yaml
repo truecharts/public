@@ -73,6 +73,25 @@ questions:
                 description: "json"
               - value: "text"
                 description: "text"
+  - variable: server
+    group: "App Configuration"
+    label: "Server Configuration"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: write_buffer_size
+          label: "Write Buffer Size"
+          description: "Configures the maximum response size. The default of 4096 is generally sufficient for most use cases."
+          schema:
+            type: int
+            default: 4096
+        - variable: read_buffer_size
+          label: "Read Buffer Size"
+          description: "Configures the maximum request size. The default of 4096 is generally sufficient for most use cases."
+          schema:
+            type: int
+            default: 4096
   - variable: totp
     group: "App Configuration"
     label: "TOTP Configuration"
