@@ -111,7 +111,7 @@ workload:
           primary: true
           env:
             # Main Service
-            BACK_URL: '{{ printf "%s-backend:%v" (include "tc.v1.common.names.fullname" . ) .Values.service.backend.ports.backend.port }}'
+            BACK_URL: '{{ printf "%s-backend:%v" (include "tc.v1.common.names.fullname" .) .Values.service.backend.ports.backend.port }}'
           probes:
             liveness:
               type: http
