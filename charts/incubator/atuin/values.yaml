@@ -24,6 +24,9 @@ workload:
     podSpec:
       containers:
         main:
+          args:
+            - server
+            - start
           env:
             ATUIN_HOST: 0.0.0.0
             ATUIN_PORT: "{{ .Values.service.main.ports.main.port }}"
