@@ -102,7 +102,10 @@ workload:
               enabled: true
               type: exec
               port: "{{ .Values.service.backend.ports.backend.targetPort }}"
-              path: /api/health/8M4F88S8ooi4sMbLBfkkV7ctWwgibW6V
+              command:
+                - uwsgi_curl
+                - localhost:5000
+                - /api/health/8M4F88S8ooi4sMbLBfkkV7ctWwgibW6V
             startup:
               enabled: true
               type: tcp
