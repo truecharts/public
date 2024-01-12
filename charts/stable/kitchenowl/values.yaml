@@ -37,8 +37,8 @@ persistence:
   data:
     enabled: true
     targetSelector:
-      backend:
-        backend:
+      main:
+        main:
           mountPath: /data
 
 portal:
@@ -55,6 +55,7 @@ securityContext:
 workload:
   main:
     enabled: true
+    primary: true
     type: Deployment
     podSpec:
       containers:
