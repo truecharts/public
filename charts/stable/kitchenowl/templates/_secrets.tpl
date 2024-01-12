@@ -10,5 +10,5 @@
 
 enabled: true
 data:
-  JWT_SECRET_KEY: {{ $jwtsecret }}
+  JWT_SECRET_KEY: {{ $jwt }}
 {{- end -}}
