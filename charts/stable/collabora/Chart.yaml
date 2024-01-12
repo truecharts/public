@@ -1,37 +1,37 @@
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 apiVersion: v2
 name: collabora
-version: 4.1.7
-appVersion: 23.05.6.4.1
+version: 4.1.8
+appVersion: 23.05.7.2.1
 description: An awesome, Online Office suite image suitable for home use.
 home: https://truecharts.org/charts/stable/collabora
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/collabora.png
 deprecated: false
 sources:
-  - https://hub.docker.com/r/collabora/code
-  - https://github.com/CollaboraOnline/online
-  - https://github.com/truecharts/charts/tree/master/charts/stable/collabora
+    - https://github.com/CollaboraOnline/online
+    - https://github.com/truecharts/charts/tree/master/charts/stable/collabora
+    - https://hub.docker.com/r/collabora/code
 maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+    - name: TrueCharts
+      email: info@truecharts.org
+      url: https://truecharts.org
 keywords:
-  - office
-  - document
+    - office
+    - document
 dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
+    - name: common
+      version: 17.2.22
+      repository: oci://tccr.io/truecharts
+      condition: ""
+      alias: ""
+      tags: []
+      import-values: []
 annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: office
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+    max_scale_version: 23.10.2
+    min_scale_version: 23.10.0
+    truecharts.org/SCALE-support: "true"
+    truecharts.org/category: office
+    truecharts.org/max_helm_version: "3.13"
+    truecharts.org/min_helm_version: "3.12"
+    truecharts.org/train: stable
 type: application
