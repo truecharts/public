@@ -2,7 +2,7 @@ annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Home-Automation
+  truecharts.org/category: home-automation
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
@@ -22,6 +22,7 @@ home: https://truecharts.org/charts/stable/grocy
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/grocy.png
 keywords:
   - grocy
+  - home-automation
 kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
@@ -33,4 +34,4 @@ sources:
   - https://github.com/grocy/grocy
   - https://github.com/truecharts/charts/tree/master/charts/stable/grocy
 type: application
-version: 17.1.7
+version: 17.1.8

@@ -2,7 +2,7 @@ annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
-  truecharts.org/category: homeautomation
+  truecharts.org/category: home-automation
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
@@ -22,6 +22,7 @@ home: https://truecharts.org/charts/stable/mosquitto
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/mosquitto.png
 keywords:
   - mosquitto
+  - home-automation
   - MQTT
   - eclipse-iot
 kubeVersion: ">=1.24.0-0"
@@ -35,4 +36,4 @@ sources:
   - https://hub.docker.com/_/eclipse-mosquitto
   - https://github.com/eclipse/mosquitto
 type: application
-version: 13.1.6
+version: 13.1.7
