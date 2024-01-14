@@ -1,26 +1,13 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: productivity
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 apiVersion: v2
-name: paperless-ngx
-version: 6.3.1
 appVersion: 2.3.2
-description: Paperless-ngx is an application by Daniel Quinn and contributors that indexes your scanned documents.
-home: https://truecharts.org/charts/stable/paperless-ngx
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/paperless-ngx.png
-deprecated: false
-sources:
-  - https://paperless-ngx.readthedocs.io/en/latest/
-  - https://github.com/paperless-ngx/paperless-ngx
-  - https://github.com/truecharts/charts/tree/master/charts/stable/paperless-ngx
-  - https://ghcr.io/paperless-ngx/paperless-ngx
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - paperless-ng
-  - paperless-ngx
-  - documents
-  - paper
 dependencies:
   - name: common
     version: 17.2.22
@@ -36,12 +23,25 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: productivity
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+deprecated: false
+description: Paperless-ngx is an application by Daniel Quinn and contributors that indexes your scanned documents.
+home: https://truecharts.org/charts/stable/paperless-ngx
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/paperless-ngx.png
+keywords:
+  - paperless-ng
+  - paperless-ngx
+  - documents
+  - paper
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: paperless-ngx
+sources:
+  - https://paperless-ngx.readthedocs.io/en/latest/
+  - https://github.com/paperless-ngx/paperless-ngx
+  - https://github.com/truecharts/charts/tree/master/charts/stable/paperless-ngx
+  - https://ghcr.io/paperless-ngx/paperless-ngx
 type: application
+version: 6.3.1

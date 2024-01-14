@@ -1,30 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: unmanic
-version: 9.1.6
-appVersion: 0.2.4
-description: Unmanic is a simple tool for optimising your file library.
-home: https://truecharts.org/charts/stable/unmanic
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/unmanic.png
-deprecated: false
-sources:
-  - https://github.com/Unmanic/unmanic
-  - https://github.com/truecharts/charts/tree/master/charts/stable/unmanic
-  - https://hub.docker.com/r/josh5/unmanic
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - media
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -33,4 +6,31 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: 0.2.4
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Unmanic is a simple tool for optimising your file library.
+home: https://truecharts.org/charts/stable/unmanic
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/unmanic.png
+keywords:
+  - media
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: unmanic
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/unmanic
+  - https://hub.docker.com/r/josh5/unmanic
+  - https://github.com/Unmanic/unmanic
 type: application
+version: 9.1.6

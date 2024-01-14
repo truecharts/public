@@ -1,25 +1,13 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 apiVersion: v2
-name: libremdb
-version: 6.1.16
 appVersion: latest
-description: A free & open source IMDb front-end.
-home: https://truecharts.org/charts/stable/libremdb
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/libremdb.png
-deprecated: false
-sources:
-  - https://github.com/zyachel/libremdb
-  - https://github.com/truecharts/charts/tree/master/charts/stable/libremdb
-  - https://quay.io/pussthecatorg/libremdb
-  - https://github.com/PussTheCat-org/docker-libremdb-quay
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - libremdb
-  - media
-  - imdb
 dependencies:
   - name: common
     version: 17.2.22
@@ -35,12 +23,24 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+deprecated: false
+description: A free & open source IMDb front-end.
+home: https://truecharts.org/charts/stable/libremdb
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/libremdb.png
+keywords:
+  - libremdb
+  - media
+  - imdb
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: libremdb
+sources:
+  - https://github.com/PussTheCat-org/docker-libremdb-quay
+  - https://github.com/truecharts/charts/tree/master/charts/stable/libremdb
+  - https://quay.io/pussthecatorg/libremdb
+  - https://github.com/zyachel/libremdb
 type: application
+version: 6.1.16

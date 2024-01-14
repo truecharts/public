@@ -1,26 +1,13 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: analytics
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 apiVersion: v2
-name: plausible
-version: 8.2.3
 appVersion: 2.0.0
-description: Plausible is lightweight and open source web analytics. No cookies and fully compliant with GDPR, CCPA and PECR.
-home: https://truecharts.org/charts/stable/plausible
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/plausible.png
-deprecated: false
-sources:
-  - https://github.com/plausible/analytics
-  - https://github.com/truecharts/charts/tree/master/charts/stable/plausible
-  - https://hub.docker.com/r/plausible/analytics
-  - https://github.com/plausible/hosting
-  - https://plausible.io/
-  - https://plausible.io/docs/self-hosting
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - plausible
-  - analytics
 dependencies:
   - name: common
     version: 17.2.22
@@ -36,12 +23,25 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: analytics
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+deprecated: false
+description: Plausible is lightweight and open source web analytics. No cookies and fully compliant with GDPR, CCPA and PECR.
+home: https://truecharts.org/charts/stable/plausible
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/plausible.png
+keywords:
+  - plausible
+  - analytics
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: plausible
+sources:
+  - https://github.com/plausible/analytics
+  - https://github.com/plausible/hosting
+  - https://plausible.io/
+  - https://plausible.io/docs/self-hosting
+  - https://github.com/truecharts/charts/tree/master/charts/stable/plausible
+  - https://hub.docker.com/r/plausible/analytics
 type: application
+version: 8.2.3

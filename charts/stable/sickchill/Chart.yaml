@@ -1,34 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: sickchill
-version: 10.0.0
-appVersion: 2024.1.8
-description: An Automatic Video Library Manager for TV Shows
-home: https://truecharts.org/charts/stable/sickchill
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/sickchill.png
-deprecated: false
-sources:
-  - https://ghcr.io/linuxserver/sickchill
-  - https://github.com/SickChill/SickChill
-  - https://github.com/linuxserver/docker-sickchill
-  - https://github.com/truecharts/charts/tree/master/charts/stable/sickchill
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - sickchill
-  - video
-  - library
-  - manager
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -37,4 +6,35 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: 2024.1.8
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: An Automatic Video Library Manager for TV Shows
+home: https://truecharts.org/charts/stable/sickchill
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/sickchill.png
+keywords:
+  - sickchill
+  - video
+  - library
+  - manager
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: sickchill
+sources:
+  - https://github.com/SickChill/SickChill
+  - https://github.com/linuxserver/docker-sickchill
+  - https://github.com/truecharts/charts/tree/master/charts/stable/sickchill
+  - https://ghcr.io/linuxserver/sickchill
 type: application
+version: 10.0.0

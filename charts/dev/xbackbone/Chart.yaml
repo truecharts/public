@@ -1,23 +1,13 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: files
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
 apiVersion: v2
-name: xbackbone
-version: 8.0.13
 appVersion: 3.3.3
-description: XBackBone is a simple, self-hosted, lightweight PHP file manager
-home: https://truecharts.org/charts/incubator/xbackbone
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/xbackbone.png
-deprecated: false
-sources:
-  - https://hub.docker.com/r/pe46dro/xbackbone-docker
-  - https://github.com/SergiX44/XBackBone
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/xbackbone
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - xbackbone
-  - xshare
 dependencies:
   - name: common
     version: 17.2.21
@@ -33,12 +23,22 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: files
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+deprecated: false
+description: XBackBone is a simple, self-hosted, lightweight PHP file manager
+home: https://truecharts.org/charts/incubator/xbackbone
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/xbackbone.png
+keywords:
+  - xbackbone
+  - xshare
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: xbackbone
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/xbackbone
+  - https://hub.docker.com/r/pe46dro/xbackbone-docker
+  - https://github.com/SergiX44/XBackBone
 type: application
+version: 8.0.13

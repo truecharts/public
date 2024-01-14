@@ -1,31 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: fabulinus
-version: 0.0.2
-appVersion: latest-cpu
-description: Fabulinus is the server component of the TitanML Takeoff server.
-home: https://truecharts.org/charts/incubator/fabulinus
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/fabulinus.png
-deprecated: false
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/fabulinus
-  - https://hub.docker.com/r/tytn/fabulinus
-  - https://github.com/titanml/takeoff-communitys
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - fabulinus
-  - machine-learning
-dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -34,4 +6,32 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+apiVersion: v2
+appVersion: latest-cpu
+dependencies:
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Fabulinus is the server component of the TitanML Takeoff server.
+home: https://truecharts.org/charts/incubator/fabulinus
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/fabulinus.png
+keywords:
+  - fabulinus
+  - machine-learning
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: fabulinus
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/fabulinus
+  - https://hub.docker.com/r/tytn/fabulinus
+  - https://github.com/titanml/takeoff-communitys
 type: application
+version: 0.0.2

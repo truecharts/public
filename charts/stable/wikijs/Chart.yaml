@@ -1,32 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: wikijs
-version: 14.1.6
-appVersion: 2.5.300
-description: Make documentation a joy to write using Wiki.js's beautiful and intuitive interface!
-home: https://truecharts.org/charts/stable/wikijs
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/wikijs.png
-deprecated: false
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/wikijs
-  - https://hub.docker.com/r/requarks/wiki
-  - https://docs.requarks.io/install/docker
-  - https://github.com/Requarks/wiki
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - wiki
-  - wikijs
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -35,4 +6,33 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: 2.5.300
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Make documentation a joy to write using Wiki.js's beautiful and intuitive interface!
+home: https://truecharts.org/charts/stable/wikijs
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/wikijs.png
+keywords:
+  - wiki
+  - wikijs
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: wikijs
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/wikijs
+  - https://hub.docker.com/r/requarks/wiki
+  - https://docs.requarks.io/install/docker
+  - https://github.com/Requarks/wiki
 type: application
+version: 14.1.6

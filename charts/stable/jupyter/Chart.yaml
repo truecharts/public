@@ -1,32 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: jupyter
-version: 7.1.6
-appVersion: "2023"
-description: Jupyter a web based IDE
-home: https://truecharts.org/charts/stable/jupyter
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/jupyter.png
-deprecated: false
-sources:
-  - https://github.com/jupyter/docker-stacks
-  - https://github.com/truecharts/charts/tree/master/charts/stable/jupyter
-  - https://hub.docker.com/r/jupyter/scipy-notebook
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - Jupyter
-  - Notebook
-  - Lab
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -35,4 +6,33 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: "2023"
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Jupyter a web based IDE
+home: https://truecharts.org/charts/stable/jupyter
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/jupyter.png
+keywords:
+  - Jupyter
+  - Notebook
+  - Lab
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: jupyter
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/jupyter
+  - https://hub.docker.com/r/jupyter/minimal-notebook
+  - https://github.com/jupyter/docker-stacks
 type: application
+version: 7.1.6

@@ -1,31 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: dns-doh-companion
-version: 4.1.8
-appVersion: latest
-description: A very simple DNS server to connect to DNS-over-HTTPS service. This is similar to my other Pihole-with-DoH Chart, without Pihole.
-home: https://truecharts.org/charts/incubator/dns-doh-companion
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/dns-doh-companion.png
-deprecated: false
-sources:
-  - https://developers.cloudflare.com/1.1.1.1/dns-over-https/cloudflared-proxy/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/dns-doh-companion
-  - https://hub.docker.com/r/testdasi/simple-dns-doh
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - dns-doh-companion
-  - Network-DNS
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -34,4 +6,32 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A very simple DNS server to connect to DNS-over-HTTPS service. This is similar to my other Pihole-with-DoH Chart, without Pihole.
+home: https://truecharts.org/charts/incubator/dns-doh-companion
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/dns-doh-companion.png
+keywords:
+  - dns-doh-companion
+  - Network-DNS
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: dns-doh-companion
+sources:
+  - https://hub.docker.com/r/testdasi/simple-dns-doh
+  - https://developers.cloudflare.com/1.1.1.1/dns-over-https/cloudflared-proxy/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/dns-doh-companion
 type: application
+version: 4.1.8

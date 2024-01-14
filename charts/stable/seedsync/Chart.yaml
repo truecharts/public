@@ -1,31 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: seedsync
-version: 6.1.6
-appVersion: latest
-description: SeedSync is a tool to sync the files on a remote Linux server (like your seedbox, for example). It uses LFTP to transfer files fast!
-home: https://truecharts.org/charts/stable/seedsync
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/seedsync.png
-deprecated: false
-sources:
-  - https://github.com/ipsingh06/seedsync
-  - https://github.com/truecharts/charts/tree/master/charts/stable/seedsync
-  - https://hub.docker.com/r/ipsingh06/seedsync
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - seedsync
-  - Tools-Utilities
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -34,4 +6,32 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: SeedSync is a tool to sync the files on a remote Linux server (like your seedbox, for example). It uses LFTP to transfer files fast!
+home: https://truecharts.org/charts/stable/seedsync
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/seedsync.png
+keywords:
+  - seedsync
+  - Tools-Utilities
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: seedsync
+sources:
+  - https://hub.docker.com/r/ipsingh06/seedsync
+  - https://github.com/ipsingh06/seedsync
+  - https://github.com/truecharts/charts/tree/master/charts/stable/seedsync
 type: application
+version: 6.1.6

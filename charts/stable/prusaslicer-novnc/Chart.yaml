@@ -1,32 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: prusaslicer-novnc
-version: 7.1.8
-appVersion: latest
-description: Enjoy Prusaslicer directly in your browser with this easy to use Chart Chart.
-home: https://truecharts.org/charts/stable/prusaslicer-novnc
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/prusaslicer-novnc.png
-deprecated: false
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/prusaslicer-novnc
-  - https://hub.docker.com/r/mikeah/prusaslicer-novnc
-  - https://www.prusa3d.com/prusaslicer/
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - prusaslicer-novnc
-  - HomeAutomation
-  - Productivity
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -35,4 +6,33 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Enjoy Prusaslicer directly in your browser with this easy to use Chart Chart.
+home: https://truecharts.org/charts/stable/prusaslicer-novnc
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/prusaslicer-novnc.png
+keywords:
+  - prusaslicer-novnc
+  - HomeAutomation
+  - Productivity
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: prusaslicer-novnc
+sources:
+  - https://hub.docker.com/r/mikeah/prusaslicer-novnc
+  - https://www.prusa3d.com/prusaslicer/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/prusaslicer-novnc
 type: application
+version: 7.1.8

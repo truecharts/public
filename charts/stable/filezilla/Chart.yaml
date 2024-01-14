@@ -1,35 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: filezilla
-version: 10.2.1
-appVersion: 3.66.4
-description: A Helm chart for Kubernetes
-home: https://truecharts.org/charts/incubator/filezilla
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/filezilla.png
-deprecated: false
-sources:
-  - https://ghcr.io/linuxserver/filezilla
-  - https://github.com/linuxserver/docker-filezilla
-  - https://filezilla-project.org/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/filezilla
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - filezilla
-  - ftp
-  - sftp
-  - ftps
-  - client
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -38,4 +6,36 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+apiVersion: v2
+appVersion: 3.66.4
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A Helm chart for Kubernetes
+home: https://truecharts.org/charts/incubator/filezilla
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/filezilla.png
+keywords:
+  - filezilla
+  - ftp
+  - sftp
+  - ftps
+  - client
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: filezilla
+sources:
+  - https://github.com/linuxserver/docker-filezilla
+  - https://filezilla-project.org/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/filezilla
+  - https://ghcr.io/linuxserver/filezilla
 type: application
+version: 10.2.1
