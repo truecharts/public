@@ -22,16 +22,16 @@ home: https://truecharts.org/charts/incubator/jitsi
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/jitsi.png
 keywords:
   - jitsi
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: jitsi
 sources:
-  - https://jitsi.org
   - https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-start
+  - https://jitsi.org
   - https://github.com/truecharts/charts/tree/master/charts/incubator/jitsi
-  - https://hub.docker.com/r/jitsi/jicofo
+  - https://hub.docker.com/r/jitsi/jvb
 type: application
-version: 3.0.13
+version: 3.2.0
