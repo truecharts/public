@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.203.2
+appVersion: 0.204.0
 dependencies:
   - name: common
     version: 17.2.22
@@ -29,15 +29,15 @@ home: https://truecharts.org/charts/stable/nocodb
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/nocodb.png
 keywords:
   - nocodb
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: nocodb
 sources:
-  - https://hub.docker.com/r/nocodb/nocodb
   - https://github.com/nocodb/nocodb
   - https://github.com/truecharts/charts/tree/master/charts/stable/nocodb
+  - https://hub.docker.com/r/nocodb/nocodb
 type: application
-version: 12.2.9
+version: 12.3.0
