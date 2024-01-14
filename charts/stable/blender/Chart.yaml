@@ -23,17 +23,17 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/blender.png
 keywords:
   - blender
   - Other
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: blender
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/blender
-  - https://fleet.linuxserver.io/image?name=linuxserver/blender
   - https://www.blender.org/
   - https://github.com/orgs/linuxserver/packages/container/package/blender
   - https://github.com/linuxserver/docker-blender#readme
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/blender
+  - https://fleet.linuxserver.io/image?name=linuxserver/blender
 type: application
-version: 4.1.9
+version: 4.1.10
