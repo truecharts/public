@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
 apiVersion: v2
-appVersion: 5.2.5
+appVersion: 5.2.6
 dependencies:
   - name: common
     version: 17.2.22
@@ -27,14 +27,14 @@ keywords:
   - Network-Web
   - Productivity
   - Tools-Utilities
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: sourcegraph
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/sourcegraph
   - https://hub.docker.com/r/sourcegraph/server
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/sourcegraph
 type: application
-version: 4.1.6
+version: 4.1.7
