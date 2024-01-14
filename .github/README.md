@@ -96,7 +96,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-234-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-235-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -409,6 +409,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/mruoss"><img src="https://avatars.githubusercontent.com/u/695307?v=4?s=100" width="100px;" alt="Michael Ruoss"/><br /><sub><b>Michael Ruoss</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=mruoss" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/aronkahrs-us"><img src="https://avatars.githubusercontent.com/u/85702110?v=4?s=100" width="100px;" alt="Aron Kahrs"/><br /><sub><b>Aron Kahrs</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=aronkahrs-us" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/nemesis1982"><img src="https://avatars.githubusercontent.com/u/139973370?v=4?s=100" width="100px;" alt="nemesis1982"/><br /><sub><b>nemesis1982</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=nemesis1982" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/ekrunch"><img src="https://avatars.githubusercontent.com/u/13153293?v=4?s=100" width="100px;" alt="Ed P"/><br /><sub><b>Ed P</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=ekrunch" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
