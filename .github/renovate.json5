@@ -213,25 +213,25 @@
     },
     {
       "matchDatasources": ["docker"],
+      "versioning": "regex:^18-jammy-(full|lite)-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "matchPackageNames": ["koush/scrypted"],
+      "groupName": "scrypted"
+    },
+    {
+      "matchDatasources": ["docker"],
       "versioning": "regex:^v(?<major>\\d{2})(?<minor>\\d{2})(?<patch>\\d{2})$",
-      "matchPackageNames": ["tccr.io/tccr/photoprism"],
+      "matchPackageNames": ["photoprism"],
     },
     {
       "matchDatasources": ["docker"],
       "versioning": "regex:^v(?<major>\\d{4})-(?<minor>\\d{2})$",
-      "matchPackageNames": ["tccr.io/tccr/rss-bridge"],
+      "matchPackageNames": ["rssbridge/rss-bridge"],
     },
     {
       "matchDatasources": ["docker"],
       "versioning": "regex:^v(?<major>\\d+)-(?<minor>\\d+)$",
       "matchPackagePrefixes": ["jupyter"],
       "groupName": "jupyter",
-    },
-    {
-      "matchDatasources": ["docker"],
-      "versioning": "regex:^(?<major>\\d{1})(?<minor>\\d{1})(?<patch>\\d{2})$",
-      "matchPackagePrefixes": ["tccr.io/tccr/jitsi"],
-      "groupName": "jitsi",
     },
     {
       "matchDatasources": ["docker"],
@@ -270,7 +270,7 @@
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/tccr/zabbix"],
+      "matchPackagePrefixes": ["zabbix/zabbix"],
       "groupName": "zabbix",
     },
     {
@@ -280,7 +280,7 @@
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/tccr/ml-workspace"],
+      "matchPackagePrefixes": ["mltooling/ml-workspace"],
       "groupName": "ml-workspace",
     },
     {
@@ -300,17 +300,12 @@
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/tccr/mealie"],
-      "groupName": "mealie",
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/tccr/librephotos"],
+      "matchPackagePrefixes": ["reallibrephotos/librephotos"],
       "groupName": "librephotos",
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/tccr/kitchenowl"],
+      "matchPackagePrefixes": ["tombursch/kitchenowl"],
       "groupName": "kitchenowl",
     },
     {
@@ -320,42 +315,27 @@
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/tccr/lama-cleaner"],
+      "matchPackagePrefixes": ["cwq1913/lama-cleaner"],
       "groupName": "lama-cleaner",
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/tccr/rickroll"],
-      "groupName": "rickroll",
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/tccr/scrypted"],
-      "groupName": "scrypted",
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/tccr/docspell"],
+      "matchPackagePrefixes": ["docspell/"],
       "groupName": "docspell",
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/tccr/restreamer"],
+      "matchPackagePrefixes": ["datarhei/restreamer"],
       "groupName": "restreamer",
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/tccr/penpot"],
+      "matchPackagePrefixes": ["penpotapp/"],
       "groupName": "penpot",
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/tccr/rdesktop"],
-      "groupName": "rdesktop",
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/tccr/ersatztv"],
+      "matchPackagePrefixes": ["jasongdove/ersatztv"],
       "groupName": "ersatztv",
     },
     // matchPackagePatterns
@@ -387,6 +367,7 @@
       "matchDatasources": ["docker"],
       "versioning": "regex:^stable-(?<major>\\d{1})(?<minor>\\d{1})(?<patch>\\d{2}).*$",
       "matchPackagePatterns": ["^jitsi\\/.*$"],
+      "groupName": "jitsi",
       "automerge": true,
     },
     {
