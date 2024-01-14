@@ -24,15 +24,15 @@ keywords:
   - redis
   - keyvalue
   - database
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: redis
 sources:
+  - https://hub.docker.com/r/bitnami/redis
   - https://github.com/bitnami/bitnami-docker-redis
   - https://github.com/truecharts/charts/tree/master/charts/dependency/redis
-  - https://hub.docker.com/r/bitnami/redis
 type: application
-version: 11.1.7
+version: 11.1.8
