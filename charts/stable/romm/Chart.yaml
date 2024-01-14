@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.3.0
+appVersion: 2.3.1
 dependencies:
   - name: common
     version: 17.2.22
@@ -37,7 +37,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/romm.png
 keywords:
   - romm
   - rom-manager
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -48,4 +48,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/romm
   - https://ghcr.io/zurdi15/romm
 type: application
-version: 6.3.1
+version: 6.3.2
