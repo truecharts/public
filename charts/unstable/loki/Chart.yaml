@@ -1,30 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: loki
-version: 12.0.12
-appVersion: 2.9.3
-description: "Loki: like Prometheus, but for logs."
-home: https://truecharts.org/charts/incubator/loki
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/loki.png
-deprecated: false
-sources:
-  - https://github.com/grafana/loki
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/loki
-  - https://hub.docker.com/r/grafana/loki
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - logs
-dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -33,4 +6,31 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+apiVersion: v2
+appVersion: 2.9.3
+dependencies:
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: "Loki: like Prometheus, but for logs."
+home: https://truecharts.org/charts/incubator/loki
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/loki.png
+keywords:
+  - logs
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: loki
+sources:
+  - https://github.com/grafana/loki
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/loki
+  - https://hub.docker.com/r/grafana/loki
 type: application
+version: 12.0.12

@@ -1,31 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: gamevault-backend
-version: 4.1.7
-appVersion: 10.0.2
-description: the self-hosted gaming platform for alternatively obtained games.
-home: https://truecharts.org/charts/stable/gamevault-backend
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/gamevault-backend.png
-deprecated: false
-sources:
-  - https://github.com/Phalcode/gamevault-backend
-  - https://github.com/truecharts/charts/tree/master/charts/stable/gamevault-backend
-  - https://hub.docker.com/r/phalcode/gamevault-backend
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - gamevault-backend
-  - games
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -34,4 +6,32 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: 10.0.2
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: the self-hosted gaming platform for alternatively obtained games.
+home: https://truecharts.org/charts/stable/gamevault-backend
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/gamevault-backend.png
+keywords:
+  - gamevault-backend
+  - games
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: gamevault-backend
+sources:
+  - https://github.com/Phalcode/gamevault-backend
+  - https://github.com/truecharts/charts/tree/master/charts/stable/gamevault-backend
+  - https://hub.docker.com/r/phalcode/gamevault-backend
 type: application
+version: 4.1.7

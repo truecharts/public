@@ -1,25 +1,13 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
 apiVersion: v2
-name: koel
-version: 8.0.13
 appVersion: latest
-description: Koel is a simple web-based personal audio streaming service written in Vue on the client side and Laravel on the server side.
-home: https://truecharts.org/charts/incubator/koel
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/koel.png
-deprecated: false
-sources:
-  - https://github.com/koel/docker
-  - https://github.com/koel/koel
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/koel
-  - https://hub.docker.com/r/phanan/koel
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - koel
-  - music
-  - stream
 dependencies:
   - name: common
     version: 17.2.21
@@ -35,12 +23,24 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+deprecated: false
+description: Koel is a simple web-based personal audio streaming service written in Vue on the client side and Laravel on the server side.
+home: https://truecharts.org/charts/incubator/koel
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/koel.png
+keywords:
+  - koel
+  - music
+  - stream
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: koel
+sources:
+  - https://github.com/koel/docker
+  - https://github.com/koel/koel
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/koel
+  - https://hub.docker.com/r/phanan/koel
 type: application
+version: 8.0.13

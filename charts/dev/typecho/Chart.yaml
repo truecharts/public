@@ -1,23 +1,13 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: hosting
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
 apiVersion: v2
-name: typecho
-version: 9.0.13
 appVersion: 1.2.1
-description: Typecho is a PHP Blogging Platform.
-home: https://truecharts.org/charts/incubator/typecho
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/typecho.png
-deprecated: false
-sources:
-  - https://github.com/typecho/typecho
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/typecho
-  - https://hub.docker.com/r/joyqi/typecho
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - typecho
-  - blog
 dependencies:
   - name: common
     version: 17.2.21
@@ -33,12 +23,22 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: hosting
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+deprecated: false
+description: Typecho is a PHP Blogging Platform.
+home: https://truecharts.org/charts/incubator/typecho
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/typecho.png
+keywords:
+  - typecho
+  - blog
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: typecho
+sources:
+  - https://github.com/typecho/typecho
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/typecho
+  - https://hub.docker.com/r/joyqi/typecho
 type: application
+version: 9.0.13

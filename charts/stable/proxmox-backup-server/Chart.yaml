@@ -1,30 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: proxmox-backup-server
-version: 2.2.1
-appVersion: 3.1.2
-description: Container for proxmox backup server
-home: https://truecharts.org/charts/incubator/proxmox-backup-server
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/proxmox-backup-server.png
-deprecated: false
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/proxmox-backup-server
-  - https://hub.docker.com/r/ayufan/proxmox-backup-server
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - proxmox-backup-server
-  - pbs
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -33,4 +6,31 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+apiVersion: v2
+appVersion: 3.1.2
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Container for proxmox backup server
+home: https://truecharts.org/charts/incubator/proxmox-backup-server
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/proxmox-backup-server.png
+keywords:
+  - proxmox-backup-server
+  - pbs
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: proxmox-backup-server
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/proxmox-backup-server
+  - https://hub.docker.com/r/ayufan/proxmox-backup-server
 type: application
+version: 2.2.1

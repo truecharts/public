@@ -1,32 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: storm
-version: 4.1.6
-appVersion: 1.3.0
-description: A Modern Deluge Interface.
-home: https://truecharts.org/charts/stable/storm
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/storm.png
-deprecated: false
-sources:
-  - https://ghcr.io/relvacode/storm
-  - https://github.com/relvacode/storm
-  - https://github.com/relvacode/storm/pkgs/container/storm
-  - https://github.com/truecharts/charts/tree/master/charts/stable/storm
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - storm
-  - Downloaders
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -35,4 +6,33 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: 1.3.0
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A Modern Deluge Interface.
+home: https://truecharts.org/charts/stable/storm
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/storm.png
+keywords:
+  - storm
+  - Downloaders
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: storm
+sources:
+  - https://ghcr.io/relvacode/storm
+  - https://github.com/relvacode/storm
+  - https://github.com/relvacode/storm/pkgs/container/storm
+  - https://github.com/truecharts/charts/tree/master/charts/stable/storm
 type: application
+version: 4.1.6

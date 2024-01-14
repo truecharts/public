@@ -1,30 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: satisfactory
-version: 8.1.7
-appVersion: 1.6.1
-description: Satisfactory Dedicated Server
-home: https://truecharts.org/charts/stable/satisfactory
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/satisfactory.png
-deprecated: false
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/satisfactory
-  - https://hub.docker.com/r/wolveix/satisfactory-server
-  - https://github.com/wolveix/satisfactory-server
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - satisfactory
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -33,4 +6,31 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: 1.6.1
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Satisfactory Dedicated Server
+home: https://truecharts.org/charts/stable/satisfactory
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/satisfactory.png
+keywords:
+  - satisfactory
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: satisfactory
+sources:
+  - https://github.com/wolveix/satisfactory-server
+  - https://github.com/truecharts/charts/tree/master/charts/stable/satisfactory
+  - https://hub.docker.com/r/wolveix/satisfactory-server
 type: application
+version: 8.1.7

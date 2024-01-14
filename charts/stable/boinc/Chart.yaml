@@ -1,29 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: boinc
-version: 8.1.9
-appVersion: latest
-description: BOINC is a platform for high-throughput computing on a large scale (thousands or millions of computers).
-home: https://truecharts.org/charts/stable/boinc
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/boinc.png
-deprecated: false
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/boinc
-  - https://ghcr.io/linuxserver/boinc
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - boinc
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -32,4 +6,30 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: BOINC is a platform for high-throughput computing on a large scale (thousands or millions of computers).
+home: https://truecharts.org/charts/stable/boinc
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/boinc.png
+keywords:
+  - boinc
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: boinc
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/boinc
+  - https://ghcr.io/linuxserver/boinc
 type: application
+version: 8.1.9

@@ -1,31 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: red-discordbot
-version: 4.1.7
-appVersion: full
-description: "The newest Red-Discordbot in a convenient multi-arch Chart "
-home: https://truecharts.org/charts/incubator/red-discordbot
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/red-discordbot.png
-deprecated: false
-sources:
-  - https://github.com/PhasecoreX/docker-red-discordbot
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/red-discordbot
-  - https://hub.docker.com/r/phasecorex/red-discordbot
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - red-discordbot
-  - Tools-Utilities
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -34,4 +6,32 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+apiVersion: v2
+appVersion: full
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: "The newest Red-Discordbot in a convenient multi-arch Chart "
+home: https://truecharts.org/charts/incubator/red-discordbot
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/red-discordbot.png
+keywords:
+  - red-discordbot
+  - Tools-Utilities
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: red-discordbot
+sources:
+  - https://hub.docker.com/r/phasecorex/red-discordbot
+  - https://github.com/PhasecoreX/docker-red-discordbot
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/red-discordbot
 type: application
+version: 4.1.7

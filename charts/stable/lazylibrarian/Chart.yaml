@@ -1,32 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: lazylibrarian
-version: 17.1.8
-appVersion: latest
-description: Get all your books, like series with Sonarr...
-home: https://truecharts.org/charts/stable/lazylibrarian
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/lazylibrarian.png
-deprecated: false
-sources:
-  - https://ghcr.io/linuxserver/lazylibrarian
-  - https://lazylibrarian.gitlab.io
-  - https://gitlab.com/LazyLibrarian/LazyLibrarian.git
-  - https://github.com/truecharts/charts/tree/master/charts/stable/lazylibrarian
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - lazylibrarian
-  - ebooks
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -35,4 +6,33 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Get all your books, like series with Sonarr...
+home: https://truecharts.org/charts/stable/lazylibrarian
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/lazylibrarian.png
+keywords:
+  - lazylibrarian
+  - ebooks
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: lazylibrarian
+sources:
+  - https://lazylibrarian.gitlab.io
+  - https://gitlab.com/LazyLibrarian/LazyLibrarian.git
+  - https://github.com/truecharts/charts/tree/master/charts/stable/lazylibrarian
+  - https://ghcr.io/linuxserver/lazylibrarian
 type: application
+version: 17.1.8

@@ -1,31 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: snowflake-proxy
-version: 1.0.13
-appVersion: 2.6.0
-description: Snowflake's Proxy component to help users in the censored regions.
-home: https://truecharts.org/charts/incubator/snowflake-proxy
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/snowflake-proxy.png
-deprecated: false
-sources:
-  - https://gitlab.torproject.org/tpo/anti-censorship/docker-snowflake-proxy
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/snowflake-proxy
-  - https://hub.docker.com/r/thetorproject/snowflake-proxy
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - snowflake-proxy
-  - proxy
-dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -34,4 +6,32 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+apiVersion: v2
+appVersion: 2.6.0
+dependencies:
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Snowflake's Proxy component to help users in the censored regions.
+home: https://truecharts.org/charts/incubator/snowflake-proxy
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/snowflake-proxy.png
+keywords:
+  - snowflake-proxy
+  - proxy
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: snowflake-proxy
+sources:
+  - https://hub.docker.com/r/thetorproject/snowflake-proxy
+  - https://gitlab.torproject.org/tpo/anti-censorship/docker-snowflake-proxy
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/snowflake-proxy
 type: application
+version: 1.0.13

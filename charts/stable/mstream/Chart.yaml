@@ -1,33 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: mstream
-version: 9.1.8
-appVersion: 5.11.4
-description: A personal music streaming server
-home: https://truecharts.org/charts/stable/mstream
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/mstream.png
-deprecated: false
-sources:
-  - https://github.com/linuxserver/docker-mstream
-  - https://mstream.io/
-  - https://github.com/truecharts/charts/tree/master/charts/stable/mstream
-  - https://ghcr.io/linuxserver/mstream
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - mstream
-  - server
-  - music
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -36,4 +6,34 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: 5.11.4
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A personal music streaming server
+home: https://truecharts.org/charts/stable/mstream
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/mstream.png
+keywords:
+  - mstream
+  - server
+  - music
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: mstream
+sources:
+  - https://github.com/linuxserver/docker-mstream
+  - https://mstream.io/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/mstream
+  - https://ghcr.io/linuxserver/mstream
 type: application
+version: 9.1.8

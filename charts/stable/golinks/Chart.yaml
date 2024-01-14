@@ -1,35 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: golinks
-version: 10.1.6
-appVersion: ersion-154c581
-description: A web app that allows you to create smart bookmarks, commands and aliases by pointing your web browser's default search engine at a running instance.
-home: https://truecharts.org/charts/stable/golinks
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/golinks.png
-deprecated: false
-sources:
-  - https://github.com/nicholaswilde/docker-golinks
-  - https://github.com/prologic/golinks
-  - https://github.com/truecharts/charts/tree/master/charts/stable/golinks
-  - https://ghcr.io/nicholaswilde/golinks
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - search
-  - browser
-  - bookmarks
-  - smart-bookmarks
-  - golinks
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -38,4 +6,36 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: ersion-154c581
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A web app that allows you to create smart bookmarks, commands and aliases by pointing your web browser's default search engine at a running instance.
+home: https://truecharts.org/charts/stable/golinks
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/golinks.png
+keywords:
+  - search
+  - browser
+  - bookmarks
+  - smart-bookmarks
+  - golinks
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: golinks
+sources:
+  - https://github.com/nicholaswilde/docker-golinks
+  - https://github.com/prologic/golinks
+  - https://github.com/truecharts/charts/tree/master/charts/stable/golinks
+  - https://ghcr.io/nicholaswilde/golinks
 type: application
+version: 10.1.6

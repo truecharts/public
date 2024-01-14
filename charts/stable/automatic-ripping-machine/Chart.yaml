@@ -1,31 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: automatic-ripping-machine
-version: 2.1.14
-appVersion: 2.6.67
-description: Automatic Ripping Machine (ARM) Scripts.
-home: https://truecharts.org/charts/incubator/automatic-ripping-machine
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/automatic-ripping-machine.png
-deprecated: false
-sources:
-  - https://github.com/automatic-ripping-machine/automatic-ripping-machine
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/automatic-ripping-machine
-  - https://hub.docker.com/r/automaticrippingmachine/automatic-ripping-machine
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - automatic-ripping-machine
-  - media
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -34,4 +6,32 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+apiVersion: v2
+appVersion: 2.6.67
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Automatic Ripping Machine (ARM) Scripts.
+home: https://truecharts.org/charts/incubator/automatic-ripping-machine
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/automatic-ripping-machine.png
+keywords:
+  - automatic-ripping-machine
+  - media
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: automatic-ripping-machine
+sources:
+  - https://github.com/automatic-ripping-machine/automatic-ripping-machine
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/automatic-ripping-machine
+  - https://hub.docker.com/r/automaticrippingmachine/automatic-ripping-machine
 type: application
+version: 2.1.14

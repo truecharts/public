@@ -1,36 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: plex-playlist-sync
-version: 2.1.9
-appVersion: latest
-description: Sync your Spotify and Deezer playlists to your Plex server.
-home: https://truecharts.org/charts/incubator/plex-playlist-sync
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/plex-playlist-sync.png
-deprecated: false
-sources:
-  - https://github.com/rnagabhyrava/plex-playlist-sync
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/plex-playlist-sync
-  - https://hub.docker.com/r/rnagabhyrava/plexplaylistsync
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - plex-playlist-sync
-  - Spotify
-  - Deezer
-  - Tools-Utilities
-  - MediaApp-Other
-  - MediaApp-Video
-  - MediaServer-Video
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -39,4 +6,37 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Sync your Spotify and Deezer playlists to your Plex server.
+home: https://truecharts.org/charts/incubator/plex-playlist-sync
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/plex-playlist-sync.png
+keywords:
+  - plex-playlist-sync
+  - Spotify
+  - Deezer
+  - Tools-Utilities
+  - MediaApp-Other
+  - MediaApp-Video
+  - MediaServer-Video
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: plex-playlist-sync
+sources:
+  - https://github.com/rnagabhyrava/plex-playlist-sync
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/plex-playlist-sync
+  - https://hub.docker.com/r/rnagabhyrava/plexplaylistsync
 type: application
+version: 2.1.9

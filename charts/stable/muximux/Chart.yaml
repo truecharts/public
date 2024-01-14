@@ -1,34 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: muximux
-version: 9.1.6
-appVersion: ersion-057352e8
-description: A lightweight portal to view & manage your HTPC apps without having to run anything more than a PHP enabled webserver
-home: https://truecharts.org/charts/stable/muximux
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/muximux.png
-deprecated: false
-sources:
-  - https://github.com/linuxserver/docker-muximux
-  - https://github.com/mescon/Muximux
-  - https://github.com/truecharts/charts/tree/master/charts/stable/muximux
-  - https://ghcr.io/linuxserver/muximux
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - muximux
-  - htpc
-  - manage
-  - portal
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -37,4 +6,35 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: ersion-057352e8
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A lightweight portal to view & manage your HTPC apps without having to run anything more than a PHP enabled webserver
+home: https://truecharts.org/charts/stable/muximux
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/muximux.png
+keywords:
+  - muximux
+  - htpc
+  - manage
+  - portal
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: muximux
+sources:
+  - https://github.com/linuxserver/docker-muximux
+  - https://github.com/mescon/Muximux
+  - https://github.com/truecharts/charts/tree/master/charts/stable/muximux
+  - https://ghcr.io/linuxserver/muximux
 type: application
+version: 9.1.6

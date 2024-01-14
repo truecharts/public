@@ -1,31 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: quake3
-version: 4.1.6
-appVersion: latest
-description: This Chart will download and install Quake III Server (You have to copy your .pk3 files from your game directory to your server).
-home: https://truecharts.org/charts/incubator/quake3
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/quake3.png
-deprecated: false
-sources:
-  - https://www.idsoftware.com/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/quake3
-  - https://hub.docker.com/r/ich777/quake3
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - quake3
-  - GameServers
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -34,4 +6,32 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: This Chart will download and install Quake III Server (You have to copy your .pk3 files from your game directory to your server).
+home: https://truecharts.org/charts/incubator/quake3
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/quake3.png
+keywords:
+  - quake3
+  - GameServers
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: quake3
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/quake3
+  - https://hub.docker.com/r/ich777/quake3
+  - https://www.idsoftware.com/
 type: application
+version: 4.1.6

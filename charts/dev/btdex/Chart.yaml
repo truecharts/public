@@ -1,31 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: btdex
-version: 3.0.13
-appVersion: latest
-description: This is a Docker Chart for BTDEX based on jlesage/Chart-baseimage-gui Chart.
-home: https://truecharts.org/charts/incubator/btdex
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/btdex.png
-deprecated: false
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/btdex
-  - https://hub.docker.com/r/furritos/docker-btdex
-  - https://btdex.trade/
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - btdex
-  - Crypto
-dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -34,4 +6,32 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: This is a Docker Chart for BTDEX based on jlesage/Chart-baseimage-gui Chart.
+home: https://truecharts.org/charts/incubator/btdex
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/btdex.png
+keywords:
+  - btdex
+  - Crypto
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: btdex
+sources:
+  - https://hub.docker.com/r/furritos/docker-btdex
+  - https://btdex.trade/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/btdex
 type: application
+version: 3.0.13

@@ -1,23 +1,13 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: unstable
 apiVersion: v2
-name: librephotos
-version: 9.0.11
 appVersion: latest
-description: A self-hosted open source photo management service.
-home: https://truecharts.org/charts/unstable/librephotos
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/librephotos.png
-deprecated: false
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/unstable/librephotos
-  - https://hub.docker.com/r/reallibrephotos/librephotos-frontend
-  - https://github.com/LibrePhotos/librephotos
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - photos
-  - gallery
 dependencies:
   - name: common
     version: 17.2.21
@@ -40,12 +30,22 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: unstable
+deprecated: false
+description: A self-hosted open source photo management service.
+home: https://truecharts.org/charts/unstable/librephotos
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/librephotos.png
+keywords:
+  - photos
+  - gallery
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: librephotos
+sources:
+  - https://hub.docker.com/r/reallibrephotos/librephotos
+  - https://github.com/LibrePhotos/librephotos
+  - https://github.com/truecharts/charts/tree/master/charts/unstable/librephotos
 type: application
+version: 9.0.11

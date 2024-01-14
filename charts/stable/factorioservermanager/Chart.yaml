@@ -1,31 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: factorioservermanager
-version: 4.1.7
-appVersion: latest
-description: "A tool for managing Factorio servers "
-home: https://truecharts.org/charts/incubator/factorioservermanager
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/factorioservermanager.png
-deprecated: false
-sources:
-  - https://github.com/OpenFactorioServerManager/factorio-server-manager
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/factorioservermanager
-  - https://hub.docker.com/r/ofsm/ofsm
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - factorioservermanager
-  - GameServers
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -34,4 +6,32 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: "A tool for managing Factorio servers "
+home: https://truecharts.org/charts/incubator/factorioservermanager
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/factorioservermanager.png
+keywords:
+  - factorioservermanager
+  - GameServers
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: factorioservermanager
+sources:
+  - https://hub.docker.com/r/ofsm/ofsm
+  - https://github.com/OpenFactorioServerManager/factorio-server-manager
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/factorioservermanager
 type: application
+version: 4.1.7

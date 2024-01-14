@@ -1,25 +1,13 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: network
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: enterprise
 apiVersion: v2
-name: blocky
-version: 12.2.1
 appVersion: "0.23"
-description: Blocky is a DNS proxy, DNS enhancer and ad-blocker for the local network written in Go
-home: https://truecharts.org/charts/enterprise/blocky
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/blocky.png
-deprecated: false
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/enterprise/blocky
-  - https://quay.io/oriedge/k8s_gateway
-  - https://github.com/0xERR0R/blocky
-  - https://github.com/Mozart409/blocky-frontend
-  - https://0xerr0r.github.io/blocky/
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - dns
-  - blocky
 dependencies:
   - name: common
     version: 17.2.22
@@ -35,12 +23,24 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: network
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: enterprise
+deprecated: false
+description: Blocky is a DNS proxy, DNS enhancer and ad-blocker for the local network written in Go
+home: https://truecharts.org/charts/enterprise/blocky
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/blocky.png
+keywords:
+  - dns
+  - blocky
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: blocky
+sources:
+  - https://quay.io/oriedge/k8s_gateway
+  - https://github.com/0xERR0R/blocky
+  - https://github.com/Mozart409/blocky-frontend
+  - https://0xerr0r.github.io/blocky/
+  - https://github.com/truecharts/charts/tree/master/charts/enterprise/blocky
 type: application
+version: 12.2.1
