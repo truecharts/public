@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.23.0
+appVersion: 1.24.0
 dependencies:
   - name: common
     version: 17.2.22
@@ -30,16 +30,16 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/n8n.png
 keywords:
   - workflows
   - automation
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: n8n
 sources:
-  - https://docs.n8n.io/
   - https://github.com/n8n-io/n8n
   - https://github.com/truecharts/charts/tree/master/charts/stable/n8n
   - https://hub.docker.com/r/n8nio/n8n
+  - https://docs.n8n.io/
 type: application
-version: 12.2.1
+version: 12.3.0

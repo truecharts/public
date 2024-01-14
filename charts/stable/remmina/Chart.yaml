@@ -25,16 +25,16 @@ keywords:
   - remote
   - desktop
   - client
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: remmina
 sources:
-  - https://remmina.org/
-  - https://github.com/linuxserver/docker-remmina
   - https://github.com/truecharts/charts/tree/master/charts/stable/remmina
   - https://ghcr.io/linuxserver/remmina
+  - https://remmina.org/
+  - https://github.com/linuxserver/docker-remmina
 type: application
-version: 9.1.8
+version: 9.1.9
