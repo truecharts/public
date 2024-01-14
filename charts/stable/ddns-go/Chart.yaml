@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 5.7.1
+appVersion: 6.0.2
 dependencies:
   - name: common
     version: 17.2.22
@@ -23,7 +23,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/ddns-go.png
 keywords:
   - ddns-go
   - ddns
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -34,4 +34,4 @@ sources:
   - https://hub.docker.com/r/jeessy/ddns-go
   - https://github.com/jeessy2/ddns-go
 type: application
-version: 8.1.8
+version: 9.0.0
