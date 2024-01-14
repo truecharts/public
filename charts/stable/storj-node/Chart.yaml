@@ -1,32 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: storj-node
-version: 8.1.6
-appVersion: go1.18.8
-description: Storj is an S3-compatible platform and suite of decentralized applications that allows you to store data in a secure and decentralized manner
-home: https://truecharts.org/charts/stable/storj-node
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/storj-node.png
-deprecated: false
-sources:
-  - https://hub.docker.com/r/storjlabs/storagenode
-  - https://docs.storj.io/node/
-  - https://github.com/storj/storj
-  - https://github.com/truecharts/charts/tree/master/charts/stable/storj-node
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - storj
-  - storage
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -35,4 +6,33 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: go1.18.8
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Storj is an S3-compatible platform and suite of decentralized applications that allows you to store data in a secure and decentralized manner
+home: https://truecharts.org/charts/stable/storj-node
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/storj-node.png
+keywords:
+  - storj
+  - storage
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: storj-node
+sources:
+  - https://docs.storj.io/node/
+  - https://github.com/storj/storj
+  - https://github.com/truecharts/charts/tree/master/charts/stable/storj-node
+  - https://hub.docker.com/r/storjlabs/storagenode
 type: application
+version: 8.1.6

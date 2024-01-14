@@ -1,24 +1,13 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: productivity
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
 apiVersion: v2
-name: docspell
-version: 4.0.10
 appVersion: 0.40.0
-description: Docspell is a personal document organizer.
-home: https://truecharts.org/charts/incubator/docspell
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/docspell.png
-deprecated: false
-sources:
-  - https://github.com/eikek/docspell
-  - https://docspell.org/docs/install/docker/
-  - https://docspell.org/docs/configure/defaults/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/docspell
-  - https://hub.docker.com/r/docspell/dsc
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - docs
 dependencies:
   - name: common
     version: 17.2.21
@@ -41,12 +30,23 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: productivity
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+deprecated: false
+description: Docspell is a personal document organizer.
+home: https://truecharts.org/charts/incubator/docspell
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/docspell.png
+keywords:
+  - docs
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: docspell
+sources:
+  - https://github.com/eikek/docspell
+  - https://docspell.org/docs/install/docker/
+  - https://docspell.org/docs/configure/defaults/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/docspell
+  - https://hub.docker.com/r/docspell/restserver
 type: application
+version: 4.0.10

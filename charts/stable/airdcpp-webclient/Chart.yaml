@@ -1,33 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: airdcpp-webclient
-version: 9.1.7
-appVersion: 2.12.1
-description: AirDC++ Web Client is a locally installed application, which is designed for flexible sharing of files or directories within groups of people in a local network or over internet.
-home: https://truecharts.org/charts/stable/airdcpp-webclient
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/airdcpp-webclient.png
-deprecated: false
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/airdcpp-webclient
-  - https://hub.docker.com/r/gangefors/airdcpp-webclient
-  - https://github.com/airdcpp-web/airdcpp-webclient
-  - https://airdcpp-web.github.io/
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - DC++
-  - dcpp
-  - airdcpp
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -36,4 +6,34 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: 2.12.1
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: AirDC++ Web Client is a locally installed application, which is designed for flexible sharing of files or directories within groups of people in a local network or over internet.
+home: https://truecharts.org/charts/stable/airdcpp-webclient
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/airdcpp-webclient.png
+keywords:
+  - DC++
+  - dcpp
+  - airdcpp
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: airdcpp-webclient
+sources:
+  - https://github.com/airdcpp-web/airdcpp-webclient
+  - https://airdcpp-web.github.io/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/airdcpp-webclient
+  - https://hub.docker.com/r/gangefors/airdcpp-webclient
 type: application
+version: 9.1.7

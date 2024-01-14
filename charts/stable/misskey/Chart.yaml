@@ -1,27 +1,13 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Social
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
 apiVersion: v2
-name: misskey
-version: 7.1.10
 appVersion: 2023.12.2
-description: Open source decentralized social media platform that's free forever!
-home: https://truecharts.org/charts/incubator/misskey
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/misskey.png
-deprecated: false
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/misskey
-  - https://hub.docker.com/r/misskey/misskey
-  - https://github.com/misskey-dev/misskey/
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - Misskey
-  - Social
-  - Friend
-  - Social Media
-  - Fediverse
-  - ActivityPub
 dependencies:
   - name: common
     version: 17.2.22
@@ -37,12 +23,26 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Social
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+deprecated: false
+description: Open source decentralized social media platform that's free forever!
+home: https://truecharts.org/charts/incubator/misskey
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/misskey.png
+keywords:
+  - Misskey
+  - Social
+  - Friend
+  - Social Media
+  - Fediverse
+  - ActivityPub
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: misskey
+sources:
+  - https://github.com/misskey-dev/misskey/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/misskey
+  - https://hub.docker.com/r/misskey/misskey
 type: application
+version: 7.1.10

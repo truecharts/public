@@ -1,31 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: awesome-ttrss
-version: 4.0.4
-appVersion: latest-2023-12-18
-description: Awesome TTRSS aims to provide a powerful Chartized all-in-one solution for Tiny Tiny RSS
-home: https://truecharts.org/charts/incubator/awesome-ttrss
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/awesome-ttrss.png
-deprecated: false
-sources:
-  - https://github.com/HenryQW/Awesome-TTRSS
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/awesome-ttrss
-  - https://hub.docker.com/r/wangqiru/ttrss
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - tt-rss
-  - awesome-ttrss
-dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -34,4 +6,32 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+apiVersion: v2
+appVersion: latest-2023-12-18
+dependencies:
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Awesome TTRSS aims to provide a powerful Chartized all-in-one solution for Tiny Tiny RSS
+home: https://truecharts.org/charts/incubator/awesome-ttrss
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/awesome-ttrss.png
+keywords:
+  - tt-rss
+  - awesome-ttrss
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: awesome-ttrss
+sources:
+  - https://github.com/HenryQW/Awesome-TTRSS
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/awesome-ttrss
+  - https://hub.docker.com/r/wangqiru/ttrss
 type: application
+version: 4.0.4

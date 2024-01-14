@@ -1,33 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: rss-proxy
-version: 4.1.6
-appVersion: latest
-description: RSS-proxy 2+ allows you to do create an ATOM or JSON feed of almost static/dynamic websites or feeds (web to feed), just by analyzing just the HTML structure.
-home: https://truecharts.org/charts/incubator/rss-proxy
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/rss-proxy.png
-deprecated: false
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/rss-proxy
-  - https://hub.docker.com/r/damoeb/rss-proxy
-  - https://github.com/damoeb/rss-proxy
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - rss-proxy
-  - Cloud
-  - Tools-Utilities
-  - Network-Web
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -36,4 +6,34 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: RSS-proxy 2+ allows you to do create an ATOM or JSON feed of almost static/dynamic websites or feeds (web to feed), just by analyzing just the HTML structure.
+home: https://truecharts.org/charts/incubator/rss-proxy
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/rss-proxy.png
+keywords:
+  - rss-proxy
+  - Cloud
+  - Tools-Utilities
+  - Network-Web
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: rss-proxy
+sources:
+  - https://github.com/damoeb/rss-proxy
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/rss-proxy
+  - https://hub.docker.com/r/damoeb/rss-proxy
 type: application
+version: 4.1.6

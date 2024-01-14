@@ -1,32 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: unifi
-version: 19.1.7
-appVersion: 8.0.26
-description: Ubiquiti Network's Unifi Controller
-home: https://truecharts.org/charts/stable/unifi
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/unifi.png
-deprecated: false
-sources:
-  - https://github.com/jacobalberty/unifi-docker
-  - https://unifi-network.ui.com
-  - https://github.com/truecharts/charts/tree/master/charts/stable/unifi
-  - https://ghcr.io/goofball222/unifi
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - ubiquiti
-  - unifi
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -35,4 +6,33 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: 8.0.26
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Ubiquiti Network's Unifi Controller
+home: https://truecharts.org/charts/stable/unifi
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/unifi.png
+keywords:
+  - ubiquiti
+  - unifi
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: unifi
+sources:
+  - https://github.com/jacobalberty/unifi-docker
+  - https://unifi-network.ui.com
+  - https://github.com/truecharts/charts/tree/master/charts/stable/unifi
+  - https://ghcr.io/goofball222/unifi
 type: application
+version: 19.1.7

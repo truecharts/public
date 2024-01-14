@@ -1,24 +1,13 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: database
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 apiVersion: v2
-name: mongo-express
-version: 5.1.10
 appVersion: latest
-description: mongo-express is a web-based MongoDB admin interface written in Node.js, Express.js, and Bootstrap3.
-home: https://truecharts.org/charts/stable/mongo-express
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/mongo-express.png
-deprecated: false
-sources:
-  - https://github.com/mongo-express/mongo-express
-  - https://github.com/truecharts/charts/tree/master/charts/stable/mongo-express
-  - https://hub.docker.com/_/mongo-express
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - mongo
-  - mongodb
-  - database
 dependencies:
   - name: common
     version: 17.2.22
@@ -34,12 +23,23 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: database
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+deprecated: false
+description: mongo-express is a web-based MongoDB admin interface written in Node.js, Express.js, and Bootstrap3.
+home: https://truecharts.org/charts/stable/mongo-express
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/mongo-express.png
+keywords:
+  - mongo
+  - mongodb
+  - database
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: mongo-express
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/mongo-express
+  - https://hub.docker.com/_/mongo-express
+  - https://github.com/mongo-express/mongo-express
 type: application
+version: 5.1.10

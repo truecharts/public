@@ -1,32 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: pixelserv-tls
-version: 3.0.13
-appVersion: latest
-description: pixelserv-tls is a tiny bespoke HTTP/1.1 webserver with HTTPS and SNI support. It acts on behalf of hundreds of thousands of advert/tracker servers and responds to all requests with nothing to speed up web browsing.
-home: https://truecharts.org/charts/incubator/pixelserv-tls
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/pixelserv-tls.png
-deprecated: false
-sources:
-  - https://github.com/imTHAI/docker-pixelserv-tls
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/pixelserv-tls
-  - https://hub.docker.com/r/imthai/pixelserv-tls
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - pixelserv-tls
-  - Tools-Utilities
-  - Other
-dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -35,4 +6,33 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: pixelserv-tls is a tiny bespoke HTTP/1.1 webserver with HTTPS and SNI support. It acts on behalf of hundreds of thousands of advert/tracker servers and responds to all requests with nothing to speed up web browsing.
+home: https://truecharts.org/charts/incubator/pixelserv-tls
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/pixelserv-tls.png
+keywords:
+  - pixelserv-tls
+  - Tools-Utilities
+  - Other
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: pixelserv-tls
+sources:
+  - https://hub.docker.com/r/imthai/pixelserv-tls
+  - https://github.com/imTHAI/docker-pixelserv-tls
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/pixelserv-tls
 type: application
+version: 3.0.13

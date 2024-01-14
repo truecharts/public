@@ -1,33 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: plaxt
-version: 7.1.6
-appVersion: latest
-description: This Tools provides a way to keep your watched history synced FROM Plex Server To Trakt.tv
-home: https://truecharts.org/charts/stable/plaxt
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/plaxt.png
-deprecated: false
-sources:
-  - https://github.com/XanderStrike/goplaxt
-  - https://github.com/truecharts/charts/tree/master/charts/stable/plaxt
-  - https://hub.docker.com/r/xanderstrike/goplaxt
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - plaxt
-  - Other
-  - MediaApp-Other
-  - MediaServer-Other
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -36,4 +6,34 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: This Tools provides a way to keep your watched history synced FROM Plex Server To Trakt.tv
+home: https://truecharts.org/charts/stable/plaxt
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/plaxt.png
+keywords:
+  - plaxt
+  - Other
+  - MediaApp-Other
+  - MediaServer-Other
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: plaxt
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/plaxt
+  - https://hub.docker.com/r/xanderstrike/goplaxt
+  - https://github.com/XanderStrike/goplaxt
 type: application
+version: 7.1.6

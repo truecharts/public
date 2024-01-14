@@ -1,34 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: appdaemon
-version: 15.1.7
-appVersion: 4.4.2
-description: AppDaemon is a loosely coupled, multi-threaded, sandboxed python execution environment for writing automation apps.
-home: https://truecharts.org/charts/stable/appdaemon
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/appdaemon.png
-deprecated: false
-sources:
-  - https://github.com/AppDaemon/appdaemon
-  - https://github.com/truecharts/charts/tree/master/charts/stable/appdaemon
-  - https://hub.docker.com/r/acockburn/appdaemon
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-  - name: warllo54
-    email: 20650065+warllo54@users.noreply.github.com
-    url: truecharts.org
-keywords:
-  - appdaemon
-  - homeautomation
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -37,4 +6,32 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: 4.4.2
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: AppDaemon is a loosely coupled, multi-threaded, sandboxed python execution environment for writing automation apps.
+home: https://truecharts.org/charts/stable/appdaemon
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/appdaemon.png
+keywords:
+  - appdaemon
+  - homeautomation
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: appdaemon
+sources:
+  - https://hub.docker.com/r/acockburn/appdaemon
+  - https://github.com/AppDaemon/appdaemon
+  - https://github.com/truecharts/charts/tree/master/charts/stable/appdaemon
 type: application
+version: 15.1.7

@@ -1,23 +1,13 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: operators
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: operators
 apiVersion: v2
-name: metallb
-version: 13.1.9
 appVersion: latest
-description: A network load-balancer implementation for Kubernetes using standard routing protocols
-home: https://truecharts.org/charts/operators/metallb
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/metallb.png
-deprecated: false
-sources:
-  - https://metallb.universe.tf
-  - https://github.com/metallb/metallb
-  - https://github.com/truecharts/charts/tree/master/charts/operators/metallb
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - metallb
-  - loadbalancer
 dependencies:
   - name: common
     version: 17.2.22
@@ -33,12 +23,22 @@ dependencies:
     alias: metallb
     tags: []
     import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: operators
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: operators
+deprecated: false
+description: A network load-balancer implementation for Kubernetes using standard routing protocols
+home: https://truecharts.org/charts/operators/metallb
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/metallb.png
+keywords:
+  - metallb
+  - loadbalancer
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: metallb
+sources:
+  - https://github.com/metallb/metallb
+  - https://github.com/truecharts/charts/tree/master/charts/operators/metallb
+  - https://metallb.universe.tf
 type: application
+version: 13.1.9

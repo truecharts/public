@@ -1,32 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: artifactory-oss
-version: 3.0.12
-appVersion: 7.71.11
-description: JFrog’s Artifactory open source project was created to speed up development cycles using binary repositories. It’s the world’s most advanced repository manager, creating a single place for teams to manage all their binary artifacts efficiently.
-home: https://truecharts.org/charts/unstable/artifactory-oss
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/artifactory-oss.png
-deprecated: false
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/unstable/artifactory-oss
-  - https://registry.hub.docker.com/r/docker.bintray.io/jfrog/artifactory-oss
-  - https://jfrog.com/
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - artifactory-oss
-  - Productivity
-  - Tools-Utilities
-dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -35,4 +6,33 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: unstable
+apiVersion: v2
+appVersion: 7.71.11
+dependencies:
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: JFrog’s Artifactory open source project was created to speed up development cycles using binary repositories. It’s the world’s most advanced repository manager, creating a single place for teams to manage all their binary artifacts efficiently.
+home: https://truecharts.org/charts/unstable/artifactory-oss
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/artifactory-oss.png
+keywords:
+  - artifactory-oss
+  - Productivity
+  - Tools-Utilities
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: artifactory-oss
+sources:
+  - https://jfrog.com/
+  - https://github.com/truecharts/charts/tree/master/charts/unstable/artifactory-oss
+  - https://registry.hub.docker.com/r/docker.bintray.io/jfrog/artifactory-oss
 type: application
+version: 3.0.12

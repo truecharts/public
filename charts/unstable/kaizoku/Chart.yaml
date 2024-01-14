@@ -1,22 +1,13 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
 apiVersion: v2
-name: kaizoku
-version: 0.1.18
 appVersion: 1.6.1
-description: A self-hosted manga downloader.
-home: https://truecharts.org/charts/incubator/kaizoku
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/kaizoku.png
-deprecated: false
-sources:
-  - https://ghcr.io/oae/kaizoku
-  - https://github.com/oae/kaizoku
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/kaizoku
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - kaizoku
 dependencies:
   - name: common
     version: 17.2.21
@@ -32,12 +23,21 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+deprecated: false
+description: A self-hosted manga downloader.
+home: https://truecharts.org/charts/incubator/kaizoku
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/kaizoku.png
+keywords:
+  - kaizoku
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: kaizoku
+sources:
+  - https://ghcr.io/oae/kaizoku
+  - https://github.com/oae/kaizoku
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/kaizoku
 type: application
+version: 0.1.18

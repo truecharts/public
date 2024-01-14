@@ -1,31 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: bender
-version: 4.1.7
-appVersion: 1.0.3
-description: A link dashboard that can be managed without any code.
-home: https://truecharts.org/charts/incubator/bender
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/bender.png
-deprecated: false
-sources:
-  - https://github.com/jez500/bender
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/bender
-  - https://hub.docker.com/r/jez500/bender
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - bender
-  - dashboard
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -34,4 +6,32 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+apiVersion: v2
+appVersion: 1.0.3
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A link dashboard that can be managed without any code.
+home: https://truecharts.org/charts/incubator/bender
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/bender.png
+keywords:
+  - bender
+  - dashboard
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: bender
+sources:
+  - https://github.com/jez500/bender
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/bender
+  - https://hub.docker.com/r/jez500/bender
 type: application
+version: 4.1.7

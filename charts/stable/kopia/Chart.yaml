@@ -1,31 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: kopia
-version: 10.1.9
-appVersion: 0.15.0
-description: Kopia is a simple, cross-platform tool for managing encrypted backups in the cloud. It provides fast, incremental backups, secure, client-side end-to-end encryption, compression and data deduplication.
-home: https://truecharts.org/charts/stable/kopia
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/kopia.png
-deprecated: false
-sources:
-  - https://kopia.io/docs/installation/#docker-images
-  - https://github.com/kopia/kopia
-  - https://github.com/truecharts/charts/tree/master/charts/stable/kopia
-  - https://hub.docker.com/r/kopia/kopia
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - backup
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -34,4 +6,32 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: 0.15.0
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Kopia is a simple, cross-platform tool for managing encrypted backups in the cloud. It provides fast, incremental backups, secure, client-side end-to-end encryption, compression and data deduplication.
+home: https://truecharts.org/charts/stable/kopia
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/kopia.png
+keywords:
+  - backup
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: kopia
+sources:
+  - https://github.com/kopia/kopia
+  - https://github.com/truecharts/charts/tree/master/charts/stable/kopia
+  - https://hub.docker.com/r/kopia/kopia
+  - https://kopia.io/docs/installation/#docker-images
 type: application
+version: 10.1.9

@@ -1,32 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: deemix
-version: 9.1.7
-appVersion: latest
-description: deemix is a deezer downloader built from the ashes of Deezloader Remix.
-home: https://truecharts.org/charts/stable/deemix
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/deemix.png
-deprecated: false
-sources:
-  - https://git.freezerapp.xyz/RemixDev/deemix-py
-  - https://gitlab.com/Bockiii/deemix-docker.git
-  - https://github.com/truecharts/charts/tree/master/charts/stable/deemix
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - music
-  - deemix
-  - deezer
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -35,4 +6,33 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: deemix is a deezer downloader built from the ashes of Deezloader Remix.
+home: https://truecharts.org/charts/stable/deemix
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/deemix.png
+keywords:
+  - music
+  - deemix
+  - deezer
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: deemix
+sources:
+  - https://gitlab.com/Bockiii/deemix-docker.git
+  - https://github.com/truecharts/charts/tree/master/charts/stable/deemix
+  - https://git.freezerapp.xyz/RemixDev/deemix-py
 type: application
+version: 9.1.7

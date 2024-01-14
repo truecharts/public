@@ -1,32 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: mosquitto
-version: 13.1.6
-appVersion: 2.0.18
-description: Eclipse Mosquitto - An open source MQTT broker
-home: https://truecharts.org/charts/stable/mosquitto
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/mosquitto.png
-deprecated: false
-sources:
-  - https://github.com/eclipse/mosquitto
-  - https://github.com/truecharts/charts/tree/master/charts/stable/mosquitto
-  - https://hub.docker.com/_/eclipse-mosquitto
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - mosquitto
-  - MQTT
-  - eclipse-iot
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -35,4 +6,33 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: 2.0.18
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Eclipse Mosquitto - An open source MQTT broker
+home: https://truecharts.org/charts/stable/mosquitto
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/mosquitto.png
+keywords:
+  - mosquitto
+  - MQTT
+  - eclipse-iot
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: mosquitto
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/mosquitto
+  - https://hub.docker.com/_/eclipse-mosquitto
+  - https://github.com/eclipse/mosquitto
 type: application
+version: 13.1.6

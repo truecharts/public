@@ -1,32 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: nosqlclient
-version: 4.1.6
-appVersion: latest
-description: Cross-platform and self hosted, easy to use, intuitive mongodb management tool - Formerly Mongoclient
-home: https://truecharts.org/charts/incubator/nosqlclient
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/nosqlclient.png
-deprecated: false
-sources:
-  - https://github.com/nosqlclient/nosqlclient
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/nosqlclient
-  - https://hub.docker.com/r/mongoclient/mongoclient
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - nosqlclient
-  - Tools-Utilities
-  - Other
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -35,4 +6,33 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Cross-platform and self hosted, easy to use, intuitive mongodb management tool - Formerly Mongoclient
+home: https://truecharts.org/charts/incubator/nosqlclient
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/nosqlclient.png
+keywords:
+  - nosqlclient
+  - Tools-Utilities
+  - Other
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: nosqlclient
+sources:
+  - https://github.com/nosqlclient/nosqlclient
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/nosqlclient
+  - https://hub.docker.com/r/mongoclient/mongoclient
 type: application
+version: 4.1.6
