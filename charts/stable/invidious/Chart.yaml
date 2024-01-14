@@ -24,7 +24,7 @@ keywords:
   - invidious
   - youtube
   - media
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -32,8 +32,8 @@ maintainers:
 name: invidious
 sources:
   - https://github.com/iv-org/invidious
+  - https://docs.invidious.io/installation/#docker
   - https://github.com/truecharts/charts/tree/master/charts/stable/invidious
   - https://quay.io/invidious/invidious
-  - https://docs.invidious.io/installation/#docker
 type: application
-version: 8.1.6
+version: 8.1.7
