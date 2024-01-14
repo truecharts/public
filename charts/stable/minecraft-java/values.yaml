@@ -233,7 +233,7 @@ workload:
             DEST_DIR: "{{.Values.persistence.backups.mountPath }}"
             SRC_DIR: "{{.Values.persistence.data.mountPath }}"
             SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
-            RCON_HOST: '{{ include "tc.v1.common.lib.chart.names.fullname" $ }}-rcon'
+            RCON_HOST: '{{ printf "%s-rcon" (include "tc.v1.common.lib.chart.names.fullname" $) }}'
             RCON_PORT: "{{ .Values.service.rcon.ports.rcon.port }}"
             RCON_PASSWORD: "{{ .Values.workload.main.podSpec.containers.main.env.RCON_PASSWORD }}"
             INITIAL_DELAY: "{{ .Values.mcbackup.initial_delay }}"
@@ -259,7 +259,6 @@ persistence:
           readOnly: true
   backups:
     enabled: true
-    mountPath: /backups
     targetSelector:
       mcbackup:
         mcbackup:
