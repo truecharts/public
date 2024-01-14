@@ -1,33 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: tvheadend
-version: 18.1.7
-appVersion: latest
-description: TVheadend - a TV streaming server and digital video recorder
-home: https://truecharts.org/charts/stable/tvheadend
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/tvheadend.png
-deprecated: false
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/tvheadend
-  - https://ghcr.io/linuxserver/tvheadend
-  - https://github.com/tvheadend/tvheadend
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - tvheadend
-  - tv
-  - streaming
-  - dvb
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -36,4 +6,34 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: TVheadend - a TV streaming server and digital video recorder
+home: https://truecharts.org/charts/stable/tvheadend
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/tvheadend.png
+keywords:
+  - tvheadend
+  - tv
+  - streaming
+  - dvb
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: tvheadend
+sources:
+  - https://github.com/tvheadend/tvheadend
+  - https://github.com/truecharts/charts/tree/master/charts/stable/tvheadend
+  - https://ghcr.io/linuxserver/tvheadend
 type: application
+version: 18.1.7

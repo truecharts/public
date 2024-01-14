@@ -1,23 +1,13 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
 apiVersion: v2
-name: nitter
-version: 5.1.9
 appVersion: latest
-description: A free and open source alternative Twitter front-end focused on privacy and performance.
-home: https://truecharts.org/charts/incubator/nitter
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/nitter.png
-deprecated: false
-sources:
-  - https://github.com/zedeus/nitter
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/nitter
-  - https://hub.docker.com/r/zedeus/nitter
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - nitter
-  - libre
 dependencies:
   - name: common
     version: 17.2.22
@@ -33,12 +23,22 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+deprecated: false
+description: A free and open source alternative Twitter front-end focused on privacy and performance.
+home: https://truecharts.org/charts/incubator/nitter
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/nitter.png
+keywords:
+  - nitter
+  - libre
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: nitter
+sources:
+  - https://github.com/zedeus/nitter
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/nitter
+  - https://hub.docker.com/r/zedeus/nitter
 type: application
+version: 5.1.9

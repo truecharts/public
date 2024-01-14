@@ -1,33 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: trilium-notes
-version: 11.1.7
-appVersion: 0.62.5
-description: Trilium Notes is a hierarchical note taking application with focus on building large personal knowledge bases.
-home: https://truecharts.org/charts/stable/trilium-notes
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/trilium-notes.png
-deprecated: false
-sources:
-  - https://github.com/zadam/trilium
-  - https://github.com/truecharts/charts/tree/master/charts/stable/trilium-notes
-  - https://ghcr.io/zadam/trilium
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - trilium
-  - notes
-  - note
-  - information
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -36,4 +6,34 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: 0.62.5
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Trilium Notes is a hierarchical note taking application with focus on building large personal knowledge bases.
+home: https://truecharts.org/charts/stable/trilium-notes
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/trilium-notes.png
+keywords:
+  - trilium
+  - notes
+  - note
+  - information
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: trilium-notes
+sources:
+  - https://ghcr.io/zadam/trilium
+  - https://github.com/zadam/trilium
+  - https://github.com/truecharts/charts/tree/master/charts/stable/trilium-notes
 type: application
+version: 11.1.7

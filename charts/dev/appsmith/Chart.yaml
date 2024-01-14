@@ -1,22 +1,13 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: productivity
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
 apiVersion: v2
-name: appsmith
-version: 6.0.14
 appVersion: 1.9.57
-description: Turn any datasource into an internal app in minutes. Appsmith lets you drag-and-drop UI components to build pages, connect to any API, database or GraphQL source and write logic with JavaScript objects.
-home: https://truecharts.org/charts/incubator/appsmith
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/appsmith.png
-deprecated: false
-sources:
-  - https://hub.docker.com/r/appsmith/appsmith-ce
-  - https://github.com/appsmithorg/appsmith
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/appsmith
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - appsmith
 dependencies:
   - name: common
     version: 17.2.21
@@ -32,12 +23,21 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: productivity
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+deprecated: false
+description: Turn any datasource into an internal app in minutes. Appsmith lets you drag-and-drop UI components to build pages, connect to any API, database or GraphQL source and write logic with JavaScript objects.
+home: https://truecharts.org/charts/incubator/appsmith
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/appsmith.png
+keywords:
+  - appsmith
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: appsmith
+sources:
+  - https://github.com/appsmithorg/appsmith
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/appsmith
+  - https://hub.docker.com/r/appsmith/appsmith-ce
 type: application
+version: 6.0.14

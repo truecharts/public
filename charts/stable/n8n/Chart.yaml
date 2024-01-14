@@ -1,24 +1,13 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 apiVersion: v2
-name: n8n
-version: 12.2.1
 appVersion: 1.23.0
-description: n8n is an extendable workflow automation tool.
-home: https://truecharts.org/charts/stable/n8n
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/n8n.png
-deprecated: false
-sources:
-  - https://docs.n8n.io/
-  - https://github.com/n8n-io/n8n
-  - https://github.com/truecharts/charts/tree/master/charts/stable/n8n
-  - https://hub.docker.com/r/n8nio/n8n
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - workflows
-  - automation
 dependencies:
   - name: common
     version: 17.2.22
@@ -34,12 +23,23 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+deprecated: false
+description: n8n is an extendable workflow automation tool.
+home: https://truecharts.org/charts/stable/n8n
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/n8n.png
+keywords:
+  - workflows
+  - automation
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: n8n
+sources:
+  - https://docs.n8n.io/
+  - https://github.com/n8n-io/n8n
+  - https://github.com/truecharts/charts/tree/master/charts/stable/n8n
+  - https://hub.docker.com/r/n8nio/n8n
 type: application
+version: 12.2.1

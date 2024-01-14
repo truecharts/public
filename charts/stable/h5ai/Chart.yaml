@@ -1,32 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: h5ai
-version: 4.1.6
-appVersion: latest
-description: h5ai is a modern file indexer for HTTP web servers with focus on your files. Directories are displayed in a appealing way and browsing them is enhanced by different views, a breadcrumb and a tree overview. Initially h5ai was an acronym for HTML5 Apache Index but now it supports other web servers too.
-home: https://truecharts.org/charts/incubator/h5ai
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/h5ai.png
-deprecated: false
-sources:
-  - https://github.com/awesometic/docker-h5ai
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/h5ai
-  - https://hub.docker.com/r/awesometic/h5ai
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - h5ai
-  - Cloud
-  - Network-FTP
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -35,4 +6,33 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: h5ai is a modern file indexer for HTTP web servers with focus on your files. Directories are displayed in a appealing way and browsing them is enhanced by different views, a breadcrumb and a tree overview. Initially h5ai was an acronym for HTML5 Apache Index but now it supports other web servers too.
+home: https://truecharts.org/charts/incubator/h5ai
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/h5ai.png
+keywords:
+  - h5ai
+  - Cloud
+  - Network-FTP
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: h5ai
+sources:
+  - https://github.com/awesometic/docker-h5ai
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/h5ai
+  - https://hub.docker.com/r/awesometic/h5ai
 type: application
+version: 4.1.6

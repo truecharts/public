@@ -1,24 +1,13 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: operators
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: operators
 apiVersion: v2
-name: cert-manager
-version: 3.1.9
 appVersion: latest
-description: Cert-Manager is a kubernetes-aware certificate manager
-home: https://truecharts.org/charts/operators/cert-manager
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/cert-manager.png
-deprecated: false
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/operators/cert-manager
-  - https://github.com/cert-manager
-  - https://cert-manager.io/
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - cert-manager
-  - certificates
-  - security
 dependencies:
   - name: common
     version: 17.2.22
@@ -34,12 +23,23 @@ dependencies:
     alias: certmanager
     tags: []
     import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: operators
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: operators
+deprecated: false
+description: Cert-Manager is a kubernetes-aware certificate manager
+home: https://truecharts.org/charts/operators/cert-manager
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/cert-manager.png
+keywords:
+  - cert-manager
+  - certificates
+  - security
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: cert-manager
+sources:
+  - https://cert-manager.io/
+  - https://github.com/truecharts/charts/tree/master/charts/operators/cert-manager
+  - https://github.com/cert-manager
 type: application
+version: 3.1.9

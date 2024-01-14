@@ -1,32 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: deluge
-version: 17.1.8
-appVersion: 2.1.1
-description: Deluge App for TrueNAS SCALE
-home: https://truecharts.org/charts/stable/deluge
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/deluge.png
-deprecated: false
-sources:
-  - https://github.com/deluge-torrent/deluge
-  - https://github.com/truecharts/charts/tree/master/charts/stable/deluge
-  - https://ghcr.io/linuxserver/deluge
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - transmission
-  - torrent
-  - usenet
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -35,4 +6,33 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: 2.1.1
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Deluge App for TrueNAS SCALE
+home: https://truecharts.org/charts/stable/deluge
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/deluge.png
+keywords:
+  - transmission
+  - torrent
+  - usenet
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: deluge
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/deluge
+  - https://ghcr.io/linuxserver/deluge
+  - https://github.com/deluge-torrent/deluge
 type: application
+version: 17.1.8

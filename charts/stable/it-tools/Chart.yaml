@@ -1,30 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: it-tools
-version: 3.1.6
-appVersion: 2023.12.21
-description: Useful tools for developer and people working in IT.
-home: https://truecharts.org/charts/stable/it-tools
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/it-tools.png
-deprecated: false
-sources:
-  - https://github.com/CorentinTh/it-tools
-  - https://github.com/truecharts/charts/tree/master/charts/stable/it-tools
-  - https://hub.docker.com/r/corentinth/it-tools
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - it-tools
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -33,4 +6,31 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: 2023.12.21
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Useful tools for developer and people working in IT.
+home: https://truecharts.org/charts/stable/it-tools
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/it-tools.png
+keywords:
+  - it-tools
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: it-tools
+sources:
+  - https://github.com/CorentinTh/it-tools
+  - https://github.com/truecharts/charts/tree/master/charts/stable/it-tools
+  - https://hub.docker.com/r/corentinth/it-tools
 type: application
+version: 3.1.6

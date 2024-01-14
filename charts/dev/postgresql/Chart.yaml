@@ -1,33 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: postgresql
-version: 15.0.14
-appVersion: 14.10.0
-description: PostgresSQL
-home: https://truecharts.org/charts/incubator/postgresql
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/postgresql.png
-deprecated: false
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/postgresql
-  - https://hub.docker.com/r/bitnami/postgresql
-  - https://www.postgresql.org/
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - postgres
-  - postgressql
-  - dtabase
-  - sql
-dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -36,4 +6,34 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+apiVersion: v2
+appVersion: 14.10.0
+dependencies:
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: PostgresSQL
+home: https://truecharts.org/charts/incubator/postgresql
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/postgresql.png
+keywords:
+  - postgres
+  - postgressql
+  - dtabase
+  - sql
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: postgresql
+sources:
+  - https://www.postgresql.org/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/postgresql
+  - https://hub.docker.com/r/bitnami/postgresql
 type: application
+version: 15.0.14

@@ -1,29 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: ngircd
-version: 8.1.6
-appVersion: 2021.11.21
-description: Ngircd is a free, portable and lightweight Internet Relay Chat server for small or private networks.
-home: https://truecharts.org/charts/stable/ngircd
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/ngircd.png
-deprecated: false
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/ngircd
-  - https://ghcr.io/linuxserver/ngircd
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - ngircd
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -32,4 +6,30 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: 2021.11.21
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Ngircd is a free, portable and lightweight Internet Relay Chat server for small or private networks.
+home: https://truecharts.org/charts/stable/ngircd
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/ngircd.png
+keywords:
+  - ngircd
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: ngircd
+sources:
+  - https://ghcr.io/linuxserver/ngircd
+  - https://github.com/truecharts/charts/tree/master/charts/stable/ngircd
 type: application
+version: 8.1.6

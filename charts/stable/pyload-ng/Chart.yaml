@@ -1,33 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: pyload-ng
-version: 4.1.8
-appVersion: latest
-description: pyLoad(https://pyload.net/) is a Free and Open Source download manager written in Python and designed to be extremely lightweight, easily extensible and fully manageable via web.
-home: https://truecharts.org/charts/incubator/pyload-ng
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/pyload-ng.png
-deprecated: false
-sources:
-  - https://pyload.net/
-  - https://github.com/orgs/linuxserver/packages/container/package/pyload-ng
-  - https://github.com/linuxserver/docker-pyload-ng#readme
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/pyload-ng
-  - https://fleet.linuxserver.io/image?name=linuxserver/pyload-ng
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - pyload-ng
-  - Other
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -36,4 +6,34 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: pyLoad(https://pyload.net/) is a Free and Open Source download manager written in Python and designed to be extremely lightweight, easily extensible and fully manageable via web.
+home: https://truecharts.org/charts/incubator/pyload-ng
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/pyload-ng.png
+keywords:
+  - pyload-ng
+  - Other
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: pyload-ng
+sources:
+  - https://pyload.net/
+  - https://github.com/orgs/linuxserver/packages/container/package/pyload-ng
+  - https://github.com/linuxserver/docker-pyload-ng#readme
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/pyload-ng
+  - https://fleet.linuxserver.io/image?name=linuxserver/pyload-ng
 type: application
+version: 4.1.8

@@ -1,34 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: openldap
-version: 11.0.13
-appVersion: 1.5.0
-description: Community developed LDAP software
-home: https://truecharts.org/charts/incubator/openldap
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/openldap.png
-deprecated: false
-sources:
-  - https://github.com/jp-gouin/helm-openldap
-  - https://github.com/osixia/docker-openldap
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/openldap
-  - https://hub.docker.com/r/osixia/openldap
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - ldap
-  - openldap
-  - iam-stack
-  - high availability
-dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -37,4 +6,35 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+apiVersion: v2
+appVersion: 1.5.0
+dependencies:
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Community developed LDAP software
+home: https://truecharts.org/charts/incubator/openldap
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/openldap.png
+keywords:
+  - ldap
+  - openldap
+  - iam-stack
+  - high availability
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: openldap
+sources:
+  - https://github.com/jp-gouin/helm-openldap
+  - https://github.com/osixia/docker-openldap
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/openldap
+  - https://hub.docker.com/r/osixia/openldap
 type: application
+version: 11.0.13

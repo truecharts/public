@@ -1,35 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: cops
-version: 7.1.9
-appVersion: 2.2.1
-description: |
-  Cops(http://blog.slucas.fr/en/oss/calibre-opds-php-server) by Sébastien Lucas, stands for Calibre OPDS (and HTML) Php Server.
-home: https://truecharts.org/charts/stable/cops
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/cops.png
-deprecated: false
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/cops
-  - https://fleet.linuxserver.io/image?name=linuxserver/cops
-  - https://github.com/orgs/linuxserver/packages/container/package/cops
-  - https://github.com/linuxserver/docker-cops#readme
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - cops
-  - Cloud
-  - MediaApp-Books
-  - MediaServer-Books
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -38,4 +6,36 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: 2.2.1
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: |
+  Cops(http://blog.slucas.fr/en/oss/calibre-opds-php-server) by Sébastien Lucas, stands for Calibre OPDS (and HTML) Php Server.
+home: https://truecharts.org/charts/stable/cops
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/cops.png
+keywords:
+  - cops
+  - Cloud
+  - MediaApp-Books
+  - MediaServer-Books
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: cops
+sources:
+  - https://fleet.linuxserver.io/image?name=linuxserver/cops
+  - https://github.com/orgs/linuxserver/packages/container/package/cops
+  - https://github.com/linuxserver/docker-cops#readme
+  - https://github.com/truecharts/charts/tree/master/charts/stable/cops
 type: application
+version: 7.1.9

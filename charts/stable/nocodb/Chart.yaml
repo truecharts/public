@@ -1,22 +1,13 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: productivity
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 apiVersion: v2
-name: nocodb
-version: 12.2.9
 appVersion: 0.203.2
-description: Turns any MySQL, PostgreSQL, SQL Server, SQLite & MariaDB into a smart-spreadsheet.
-home: https://truecharts.org/charts/stable/nocodb
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/nocodb.png
-deprecated: false
-sources:
-  - https://github.com/nocodb/nocodb
-  - https://github.com/truecharts/charts/tree/master/charts/stable/nocodb
-  - https://hub.docker.com/r/nocodb/nocodb
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - nocodb
 dependencies:
   - name: common
     version: 17.2.22
@@ -32,12 +23,21 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: productivity
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+deprecated: false
+description: Turns any MySQL, PostgreSQL, SQL Server, SQLite & MariaDB into a smart-spreadsheet.
+home: https://truecharts.org/charts/stable/nocodb
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/nocodb.png
+keywords:
+  - nocodb
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: nocodb
+sources:
+  - https://hub.docker.com/r/nocodb/nocodb
+  - https://github.com/nocodb/nocodb
+  - https://github.com/truecharts/charts/tree/master/charts/stable/nocodb
 type: application
+version: 12.2.9

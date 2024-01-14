@@ -1,34 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: focalboard
-version: 14.0.13
-appVersion: 7.11.4
-description: Focalboard is an open source, self-hosted alternative to Trello, Notion, and Asana.
-home: https://truecharts.org/charts/incubator/focalboard
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/focalboard.png
-deprecated: false
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/focalboard
-  - https://hub.docker.com/r/mattermost/focalboard
-  - https://www.focalboard.com/
-  - https://github.com/mattermost/focalboard
-  - https://github.com/FlipEnergy/container-images/blob/main/focalboard
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - focalboard
-  - kanban
-  - project management
-dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -37,4 +6,35 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+apiVersion: v2
+appVersion: 7.11.4
+dependencies:
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Focalboard is an open source, self-hosted alternative to Trello, Notion, and Asana.
+home: https://truecharts.org/charts/incubator/focalboard
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/focalboard.png
+keywords:
+  - focalboard
+  - kanban
+  - project management
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: focalboard
+sources:
+  - https://www.focalboard.com/
+  - https://github.com/mattermost/focalboard
+  - https://github.com/FlipEnergy/container-images/blob/main/focalboard
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/focalboard
+  - https://hub.docker.com/r/mattermost/focalboard
 type: application
+version: 14.0.13

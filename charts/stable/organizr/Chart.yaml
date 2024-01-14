@@ -1,30 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: organizr
-version: 17.1.6
-appVersion: latest
-description: HTPC/Homelab Services Organizer
-home: https://truecharts.org/charts/stable/organizr
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/organizr.png
-deprecated: false
-sources:
-  - https://github.com/causefx/Organizr
-  - https://github.com/truecharts/charts/tree/master/charts/stable/organizr
-  - https://hub.docker.com/r/organizr/organizr
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - organizr
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -33,4 +6,31 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: HTPC/Homelab Services Organizer
+home: https://truecharts.org/charts/stable/organizr
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/organizr.png
+keywords:
+  - organizr
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: organizr
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/organizr
+  - https://hub.docker.com/r/organizr/organizr
+  - https://github.com/causefx/Organizr
 type: application
+version: 17.1.6

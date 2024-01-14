@@ -1,31 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: docassemble
-version: 0.0.20
-appVersion: latest
-description: A free, open-source expert system for guided interviews and document assembly.
-home: https://truecharts.org/charts/incubator/docassemble
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/docassemble.png
-deprecated: false
-sources:
-  - https://hub.docker.com/r/jhpyle/docassemble
-  - https://github.com/jhpyle/docassemble
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/docassemble
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - docassemble
-  - documentation
-dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -34,4 +6,32 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A free, open-source expert system for guided interviews and document assembly.
+home: https://truecharts.org/charts/incubator/docassemble
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/docassemble.png
+keywords:
+  - docassemble
+  - documentation
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: docassemble
+sources:
+  - https://github.com/jhpyle/docassemble
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/docassemble
+  - https://hub.docker.com/r/jhpyle/docassemble
 type: application
+version: 0.0.20
