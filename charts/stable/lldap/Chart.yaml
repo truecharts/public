@@ -1,33 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: lldap
-version: 4.1.6
-appVersion: 0.5.0-debian
-description: Lightweight ldap server for authentication and user management
-home: https://truecharts.org/charts/stable/lldap
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/lldap.png
-deprecated: false
-sources:
-  - https://github.com/nitnelave/lldap
-  - https://github.com/truecharts/charts/tree/master/charts/stable/lldap
-  - https://hub.docker.com/r/nitnelave/lldap
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - lldap
-  - ldap
-  - authentication
-  - auth
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -36,4 +6,34 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: 0.5.0-debian
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Lightweight ldap server for authentication and user management
+home: https://truecharts.org/charts/stable/lldap
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/lldap.png
+keywords:
+  - lldap
+  - ldap
+  - authentication
+  - auth
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: lldap
+sources:
+  - https://github.com/nitnelave/lldap
+  - https://github.com/truecharts/charts/tree/master/charts/stable/lldap
+  - https://hub.docker.com/r/nitnelave/lldap
 type: application
+version: 4.1.6

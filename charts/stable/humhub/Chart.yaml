@@ -1,22 +1,13 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Network-Web
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 apiVersion: v2
-name: humhub
-version: 6.2.3
 appVersion: 1.15.2
-description: A feature rich and highly flexible OpenSource Social Network Kit written in PHP.
-home: https://truecharts.org/charts/stable/humhub
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/humhub.png
-deprecated: false
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/humhub
-  - https://ghcr.io/mriedmann/humhub-nginx
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - humhub
-  - Network-Web
 dependencies:
   - name: common
     version: 17.2.22
@@ -39,12 +30,21 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Network-Web
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+deprecated: false
+description: A feature rich and highly flexible OpenSource Social Network Kit written in PHP.
+home: https://truecharts.org/charts/stable/humhub
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/humhub.png
+keywords:
+  - humhub
+  - Network-Web
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: humhub
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/humhub
+  - https://ghcr.io/mriedmann/humhub-phponly
 type: application
+version: 6.2.3

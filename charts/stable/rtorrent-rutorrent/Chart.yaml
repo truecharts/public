@@ -1,32 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: rtorrent-rutorrent
-version: 3.1.6
-appVersion: 4.2.9
-description: rTorrent and ruTorrent chart.
-home: https://truecharts.org/charts/stable/rtorrent-rutorrent
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/rtorrent-rutorrent.png
-deprecated: false
-sources:
-  - https://truecharts.org/charts/stable/rtorrent-rutorrent
-  - https://github.com/crazy-max/docker-rtorrent-rutorrent
-  - https://github.com/truecharts/charts/tree/master/charts/stable/rtorrent-rutorrent
-  - https://ghcr.io/crazy-max/rtorrent-rutorrent
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - rutorrent
-  - torrent
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -35,4 +6,33 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: 4.2.9
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: rTorrent and ruTorrent chart.
+home: https://truecharts.org/charts/stable/rtorrent-rutorrent
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/rtorrent-rutorrent.png
+keywords:
+  - rutorrent
+  - torrent
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: rtorrent-rutorrent
+sources:
+  - https://github.com/crazy-max/docker-rtorrent-rutorrent
+  - https://github.com/truecharts/charts/tree/master/charts/stable/rtorrent-rutorrent
+  - https://ghcr.io/crazy-max/rtorrent-rutorrent
+  - https://truecharts.org/charts/stable/rtorrent-rutorrent
 type: application
+version: 3.1.6

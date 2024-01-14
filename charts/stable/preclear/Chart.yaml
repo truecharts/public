@@ -1,34 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: preclear
-version: 4.1.6
-appVersion: latest
-description: A utility to "burn-in" a new disk, before adding it to your array has been requested several times.  Also requested is a process to "pre-clear" a hard disk before adding it to your array.  When a special "signature" is detected, the lengthy "clearing" step otherwise performed by TrueNAS is skipped.
-home: https://truecharts.org/charts/incubator/preclear
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/preclear.png
-deprecated: false
-sources:
-  - https://github.com/binhex/documentation
-  - https://forums.TrueNAS.net/topic/2732-preclear_disksh-a-new-utility-to-burn-in-and-pre-clear-disks-for-quick-add/
-  - https://registry.hub.docker.com/r/binhex/arch-preclear/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/preclear
-  - https://hub.docker.com/r/binhex/arch-preclear
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - preclear
-  - Productivity
-  - Tools-Utilities
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -37,4 +6,35 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A utility to "burn-in" a new disk, before adding it to your array has been requested several times.  Also requested is a process to "pre-clear" a hard disk before adding it to your array.  When a special "signature" is detected, the lengthy "clearing" step otherwise performed by TrueNAS is skipped.
+home: https://truecharts.org/charts/incubator/preclear
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/preclear.png
+keywords:
+  - preclear
+  - Productivity
+  - Tools-Utilities
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: preclear
+sources:
+  - https://forums.TrueNAS.net/topic/2732-preclear_disksh-a-new-utility-to-burn-in-and-pre-clear-disks-for-quick-add/
+  - https://registry.hub.docker.com/r/binhex/arch-preclear/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/preclear
+  - https://hub.docker.com/r/binhex/arch-preclear
+  - https://github.com/binhex/documentation
 type: application
+version: 4.1.6

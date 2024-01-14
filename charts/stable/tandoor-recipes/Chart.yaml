@@ -1,32 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: tandoor-recipes
-version: 15.0.4
-appVersion: 1.5.10
-description: Tandoor Recipes is a Django application to manage, tag and search recipes using either built in models or external storage providers hosting PDF's, Images or other files.
-home: https://truecharts.org/charts/stable/tandoor-recipes
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/tandoor-recipes.png
-deprecated: false
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/tandoor-recipes
-  - https://hub.docker.com/r/vabene1111/recipes
-  - https://github.com/vabene1111/recipes
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - tandoor
-  - recipes
-  - cooking
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -35,4 +6,33 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: 1.5.10
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Tandoor Recipes is a Django application to manage, tag and search recipes using either built in models or external storage providers hosting PDF's, Images or other files.
+home: https://truecharts.org/charts/stable/tandoor-recipes
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/tandoor-recipes.png
+keywords:
+  - tandoor
+  - recipes
+  - cooking
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: tandoor-recipes
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/tandoor-recipes
+  - https://hub.docker.com/r/vabene1111/recipes
+  - https://github.com/vabene1111/recipes
 type: application
+version: 15.0.4

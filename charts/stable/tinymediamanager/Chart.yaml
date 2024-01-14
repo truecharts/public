@@ -1,32 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: tinymediamanager
-version: 9.0.1
-appVersion: 5.0.0
-description: TinyMediaManager is a full featured media manager to organize and clean up your media library.
-home: https://truecharts.org/charts/stable/tinymediamanager
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/tinymediamanager.png
-deprecated: false
-sources:
-  - https://gitlab.com/tinyMediaManager/tinyMediaManager
-  - https://github.com/truecharts/charts/tree/master/charts/stable/tinymediamanager
-  - https://hub.docker.com/r/tinymediamanager/tinymediamanager
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - tiny
-  - media
-  - manager
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -35,4 +6,33 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: 5.0.0
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: TinyMediaManager is a full featured media manager to organize and clean up your media library.
+home: https://truecharts.org/charts/stable/tinymediamanager
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/tinymediamanager.png
+keywords:
+  - tiny
+  - media
+  - manager
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: tinymediamanager
+sources:
+  - https://gitlab.com/tinyMediaManager/tinyMediaManager
+  - https://github.com/truecharts/charts/tree/master/charts/stable/tinymediamanager
+  - https://hub.docker.com/r/tinymediamanager/tinymediamanager
 type: application
+version: 9.0.1

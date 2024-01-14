@@ -1,31 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: autobrr
-version: 7.1.7
-appVersion: 1.34.1
-description: The modern download automation tool for torrents.
-home: https://truecharts.org/charts/stable/autobrr
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/autobrr.png
-deprecated: false
-sources:
-  - https://github.com/autobrr/autobrr
-  - https://github.com/truecharts/charts/tree/master/charts/stable/autobrr
-  - https://ghcr.io/autobrr/autobrr
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - autobrr
-  - torrent
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -34,4 +6,32 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: 1.34.1
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: The modern download automation tool for torrents.
+home: https://truecharts.org/charts/stable/autobrr
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/autobrr.png
+keywords:
+  - autobrr
+  - torrent
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: autobrr
+sources:
+  - https://github.com/autobrr/autobrr
+  - https://github.com/truecharts/charts/tree/master/charts/stable/autobrr
+  - https://ghcr.io/autobrr/autobrr
 type: application
+version: 7.1.7

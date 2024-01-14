@@ -1,24 +1,13 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: monitoring
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
 apiVersion: v2
-name: icinga2
-version: 8.0.13
 appVersion: 2.14.0
-description: A monitoring system which checks the availability of your network resources, notifies users of outages, and generates performance data for reporting.
-home: https://truecharts.org/charts/incubator/icinga2
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/icinga2.png
-deprecated: false
-sources:
-  - https://hub.docker.com/r/jordan/icinga2
-  - https://github.com/jjethwa/icinga2
-  - https://icinga.com/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/icinga2
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - icinga2
-  - monitoring
 dependencies:
   - name: common
     version: 17.2.21
@@ -34,12 +23,23 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: monitoring
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+deprecated: false
+description: A monitoring system which checks the availability of your network resources, notifies users of outages, and generates performance data for reporting.
+home: https://truecharts.org/charts/incubator/icinga2
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/icinga2.png
+keywords:
+  - icinga2
+  - monitoring
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: icinga2
+sources:
+  - https://hub.docker.com/r/jordan/icinga2
+  - https://github.com/jjethwa/icinga2
+  - https://icinga.com/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/icinga2
 type: application
+version: 8.0.13

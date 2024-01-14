@@ -1,23 +1,13 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 apiVersion: v2
-name: romm
-version: 6.3.1
 appVersion: 2.3.0
-description: game library manager focused in retro gaming
-home: https://truecharts.org/charts/stable/romm
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/romm.png
-deprecated: false
-sources:
-  - https://github.com/zurdi15/romm
-  - https://github.com/truecharts/charts/tree/master/charts/stable/romm
-  - https://ghcr.io/zurdi15/romm
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - romm
-  - rom-manager
 dependencies:
   - name: common
     version: 17.2.22
@@ -40,12 +30,22 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+deprecated: false
+description: game library manager focused in retro gaming
+home: https://truecharts.org/charts/stable/romm
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/romm.png
+keywords:
+  - romm
+  - rom-manager
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: romm
+sources:
+  - https://github.com/zurdi15/romm
+  - https://github.com/truecharts/charts/tree/master/charts/stable/romm
+  - https://ghcr.io/zurdi15/romm
 type: application
+version: 6.3.1

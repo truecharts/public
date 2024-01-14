@@ -1,22 +1,13 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: productivity
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 apiVersion: v2
-name: baserow
-version: 11.1.9
 appVersion: 1.22.1
-description: Baserow is an open source no-code database tool and Airtable alternative.
-home: https://truecharts.org/charts/stable/baserow
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/baserow.png
-deprecated: false
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/baserow
-  - https://hub.docker.com/r/baserow/baserow
-  - https://gitlab.com/bramw/baserow/
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - baserow
 dependencies:
   - name: common
     version: 17.2.22
@@ -32,12 +23,21 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: productivity
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+deprecated: false
+description: Baserow is an open source no-code database tool and Airtable alternative.
+home: https://truecharts.org/charts/stable/baserow
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/baserow.png
+keywords:
+  - baserow
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: baserow
+sources:
+  - https://gitlab.com/bramw/baserow/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/baserow
+  - https://hub.docker.com/r/baserow/baserow
 type: application
+version: 11.1.9

@@ -1,34 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: uptimerobot-prometheus
-version: 10.1.6
-appVersion: 0.0.1
-description: Prometheus Exporter for the official uptimerobot CLI
-home: https://truecharts.org/charts/stable/uptimerobot-prometheus
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/uptimerobot-prometheus.png
-deprecated: false
-sources:
-  - https://github.com/k8s-at-home/charts/tree/master/charts/uptimerobot-prometheus
-  - https://github.com/lekpamartin/uptimerobot_exporter
-  - https://github.com/truecharts/charts/tree/master/charts/stable/uptimerobot-prometheus
-  - https://hub.docker.com/r/billimek/prometheus-uptimerobot-exporter
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - uptimerobot
-  - prometheus
-  - grafana
-  - metrics
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -37,4 +6,35 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: 0.0.1
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Prometheus Exporter for the official uptimerobot CLI
+home: https://truecharts.org/charts/stable/uptimerobot-prometheus
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/uptimerobot-prometheus.png
+keywords:
+  - uptimerobot
+  - prometheus
+  - grafana
+  - metrics
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: uptimerobot-prometheus
+sources:
+  - https://github.com/k8s-at-home/charts/tree/master/charts/uptimerobot-prometheus
+  - https://github.com/lekpamartin/uptimerobot_exporter
+  - https://github.com/truecharts/charts/tree/master/charts/stable/uptimerobot-prometheus
+  - https://hub.docker.com/r/billimek/prometheus-uptimerobot-exporter
 type: application
+version: 10.1.6

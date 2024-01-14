@@ -1,33 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: overseerr
-version: 12.1.6
-appVersion: 1.33.2
-description: Overseerr is a free and open source software application for managing requests for your media library. It integrates with your existing services such as Sonarr, Radarr and Plex!
-home: https://truecharts.org/charts/stable/overseerr
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/overseerr.png
-deprecated: false
-sources:
-  - https://github.com/sct/overseerr
-  - https://github.com/truecharts/charts/tree/master/charts/stable/overseerr
-  - https://ghcr.io/sct/overseerr
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - overseerr
-  - plex
-  - sonarr
-  - radarr
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -36,4 +6,34 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: 1.33.2
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Overseerr is a free and open source software application for managing requests for your media library. It integrates with your existing services such as Sonarr, Radarr and Plex!
+home: https://truecharts.org/charts/stable/overseerr
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/overseerr.png
+keywords:
+  - overseerr
+  - plex
+  - sonarr
+  - radarr
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: overseerr
+sources:
+  - https://github.com/sct/overseerr
+  - https://github.com/truecharts/charts/tree/master/charts/stable/overseerr
+  - https://ghcr.io/sct/overseerr
 type: application
+version: 12.1.6

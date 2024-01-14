@@ -1,30 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: openra
-version: 4.1.6
-appVersion: latest
-description: Mudislanders Template for mounting OpenRA's dedicated server by rmoriz [br][br]
-home: https://truecharts.org/charts/incubator/openra
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/openra.png
-deprecated: false
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/openra
-  - https://hub.docker.com/r/rmoriz/openra
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - openra
-  - Network-Other
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -33,4 +6,31 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Mudislanders Template for mounting OpenRA's dedicated server by rmoriz [br][br]
+home: https://truecharts.org/charts/incubator/openra
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/openra.png
+keywords:
+  - openra
+  - Network-Other
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: openra
+sources:
+  - https://hub.docker.com/r/rmoriz/openra
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/openra
 type: application
+version: 4.1.6

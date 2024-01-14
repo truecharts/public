@@ -1,33 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: sqlite-web
-version: 4.1.6
-appVersion: latest
-description: sqlite-web is a web-based SQLite database browser written in Python.
-home: https://truecharts.org/charts/incubator/sqlite-web
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/sqlite-web.png
-deprecated: false
-sources:
-  - https://github.com/coleifer/sqlite-web
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/sqlite-web
-  - https://hub.docker.com/r/coleifer/sqlite-web
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - sqlite-web
-  - Productivity
-  - Tools-Utilities
-  - Network-Other
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -36,4 +6,34 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: sqlite-web is a web-based SQLite database browser written in Python.
+home: https://truecharts.org/charts/incubator/sqlite-web
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/sqlite-web.png
+keywords:
+  - sqlite-web
+  - Productivity
+  - Tools-Utilities
+  - Network-Other
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: sqlite-web
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/sqlite-web
+  - https://hub.docker.com/r/coleifer/sqlite-web
+  - https://github.com/coleifer/sqlite-web
 type: application
+version: 4.1.6

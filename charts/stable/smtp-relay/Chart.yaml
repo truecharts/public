@@ -1,31 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: smtp-relay
-version: 2.1.8
-appVersion: 0.5.2
-description: A SMTP service for relaying emails.
-home: https://truecharts.org/charts/incubator/smtp-relay
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/smtp-relay.png
-deprecated: false
-sources:
-  - https://github.com/ix-ai/smtp
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/smtp-relay
-  - https://ghcr.io/ix-ai/smtp
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - smtp-relay
-  - smtp
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -34,4 +6,32 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+apiVersion: v2
+appVersion: 0.5.2
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A SMTP service for relaying emails.
+home: https://truecharts.org/charts/incubator/smtp-relay
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/smtp-relay.png
+keywords:
+  - smtp-relay
+  - smtp
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: smtp-relay
+sources:
+  - https://github.com/ix-ai/smtp
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/smtp-relay
+  - https://ghcr.io/ix-ai/smtp
 type: application
+version: 2.1.8

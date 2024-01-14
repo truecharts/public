@@ -1,34 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: owncast
-version: 12.1.6
-appVersion: 0.1.2
-description: Take control over your live stream video by running it yourself. Streaming + chat out of the box.
-home: https://truecharts.org/charts/stable/owncast
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/owncast.png
-deprecated: false
-sources:
-  - https://hub.docker.com/r/gabekangas/owncast
-  - https://github.com/owncast/owncast
-  - https://owncast.online/
-  - https://github.com/truecharts/charts/tree/master/charts/stable/owncast
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - owncast
-  - stream
-  - open source
-  - chat
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -37,4 +6,35 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: 0.1.2
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Take control over your live stream video by running it yourself. Streaming + chat out of the box.
+home: https://truecharts.org/charts/stable/owncast
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/owncast.png
+keywords:
+  - owncast
+  - stream
+  - open source
+  - chat
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: owncast
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/owncast
+  - https://hub.docker.com/r/gabekangas/owncast
+  - https://github.com/owncast/owncast
+  - https://owncast.online/
 type: application
+version: 12.1.6

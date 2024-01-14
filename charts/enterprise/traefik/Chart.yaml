@@ -1,32 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: traefik
-version: 25.1.10
-appVersion: 2.10.7
-description: Traefik is a flexible reverse proxy and Ingress Provider.
-home: https://truecharts.org/charts/enterprise/traefik
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/traefik.png
-deprecated: false
-sources:
-  - https://github.com/traefik/traefik
-  - https://github.com/truecharts/charts/tree/master/charts/enterprise/traefik
-  - https://github.com/traefik/traefik-helm-chart
-  - https://traefik.io/
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - traefik
-  - ingress
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -35,4 +6,33 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: enterprise
+apiVersion: v2
+appVersion: 2.10.7
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Traefik is a flexible reverse proxy and Ingress Provider.
+home: https://truecharts.org/charts/enterprise/traefik
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/traefik.png
+keywords:
+  - traefik
+  - ingress
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: traefik
+sources:
+  - https://github.com/traefik/traefik
+  - https://github.com/traefik/traefik-helm-chart
+  - https://traefik.io/
+  - https://github.com/truecharts/charts/tree/master/charts/enterprise/traefik
 type: application
+version: 25.1.10
