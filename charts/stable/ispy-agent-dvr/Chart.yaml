@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 5.2.1.0
+appVersion: 5.2.2.0
 dependencies:
   - name: common
     version: 17.2.22
@@ -24,15 +24,15 @@ keywords:
   - dvr
   - ispy
   - agent
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: ispy-agent-dvr
 sources:
+  - https://github.com/doitandbedone/ispyagentdvr-docker
   - https://github.com/truecharts/charts/tree/master/charts/stable/ispy-agent-dvr
   - https://hub.docker.com/r/doitandbedone/ispyagentdvr
-  - https://github.com/doitandbedone/ispyagentdvr-docker
 type: application
-version: 8.2.0
+version: 8.2.1
