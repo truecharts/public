@@ -24,15 +24,15 @@ keywords:
   - minio
   - s3
   - storage
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: minio
 sources:
-  - https://hub.docker.com/r/minio/minio
   - https://github.com/minio/minio
   - https://github.com/truecharts/charts/tree/master/charts/stable/minio
+  - https://hub.docker.com/r/minio/minio
 type: application
 version: 10.0.3

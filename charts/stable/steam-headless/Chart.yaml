@@ -23,15 +23,15 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/steam-headless.png
 keywords:
   - steam-headless
   - games
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: steam-headless
 sources:
+  - https://github.com/Steam-Headless/docker-steam-headless
   - https://github.com/truecharts/charts/tree/master/charts/incubator/steam-headless
   - https://hub.docker.com/r/josh5/steam-headless
-  - https://github.com/Steam-Headless/docker-steam-headless
 type: application
 version: 2.1.10
