@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
 apiVersion: v2
-appVersion: 0.6.0
+appVersion: 0.6.2
 dependencies:
   - name: common
     version: 17.2.22
@@ -23,15 +23,15 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/adguardhome-sync.png
 keywords:
   - adguardhome-sync
   - Other
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: adguardhome-sync
 sources:
-  - https://ghcr.io/bakito/adguardhome-sync
   - https://github.com/bakito/adguardhome-sync/
   - https://github.com/truecharts/charts/tree/master/charts/incubator/adguardhome-sync
+  - https://ghcr.io/bakito/adguardhome-sync
 type: application
-version: 5.2.0
+version: 5.2.1
