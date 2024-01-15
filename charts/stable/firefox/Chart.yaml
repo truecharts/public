@@ -23,15 +23,15 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/firefox.png
 keywords:
   - firefox
   - browser
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: firefox
 sources:
-  - https://github.com/linuxserver/docker-firefox
   - https://github.com/truecharts/charts/tree/master/charts/stable/firefox
   - https://ghcr.io/linuxserver/firefox
+  - https://github.com/linuxserver/docker-firefox
 type: application
-version: 10.0.2
+version: 10.0.3
