@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: enterprise
 apiVersion: v2
-appVersion: 2.48.1
+appVersion: 2.49.0
 dependencies:
   - name: common
     version: 17.2.22
@@ -36,7 +36,7 @@ home: https://truecharts.org/charts/enterprise/prometheus
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/prometheus.png
 keywords:
   - metrics
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -48,4 +48,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/enterprise/prometheus
   - https://hub.docker.com/r/bitnami/prometheus
 type: application
-version: 16.2.3
+version: 16.3.0
