@@ -1,0 +1,80 @@
+image:
+  repository: utkuozdemir/nvidia_gpu_exporter
+  pullPolicy: IfNotPresent
+  tag: 1.2.0
+securityContext:
+  container:
+    privileged: true
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 9835
+workload:
+  main:
+    type: DaemonSet
+    podSpec:
+      containers:
+        main:
+          args:
+            - --web.listen-address
+            - :{{ .Values.service.main.ports.main.port }}
+            - --web.telemetry-path
+            - /metrics
+            - --nvidia-smi-command
+            - nvidia-smi
+          probes:
+            liveness:
+              path: /
+              port: main
+            readiness:
+              path: /
+              port: main
+            startup:
+              type: tcp
+              port: main
+persistence:
+  nviaictl:
+    enabled: true
+    type: hostPath
+    hostPath: /dev/nvidiactl
+    mountPath: /dev/nvidiactl
+    readOnly: true
+  nvidia0:
+    enabled: true
+    type: hostPath
+    hostPath: /dev/nvidia0
+    mountPath: /dev/nvidia0
+    readOnly: true
+  nvidia-smi:
+    enabled: true
+    type: hostPath
+    hostPath: /usr/bin/nvidia-smi
+    mountPath: /usr/bin/nvidia-smi
+    readOnly: true
+  libnvidia-ml.so:
+    enabled: true
+    type: hostPath
+    hostPath: /usr/lib/x86_64-linux-gnu/libnvidia-ml.so
+    mountPath: /usr/lib/x86_64-linux-gnu/libnvidia-ml.so
+    readOnly: true
+  libnvidia-ml.so.1:
+    enabled: true
+    type: hostPath
+    hostPath: /usr/lib/x86_64-linux-gnu/libnvidia-ml.so.1
+    mountPath: /usr/lib/x86_64-linux-gnu/libnvidia-ml.so.1
+    readOnly: true
+metrics:
+  main:
+    enabled: true
+    type: "servicemonitor"
+    endpoints:
+      - port: main
+        path: /metrics
+portal:
+  open:
+    enabled: false
