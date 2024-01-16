@@ -26,16 +26,16 @@ keywords:
   - Cloud
   - MediaApp-Books
   - MediaServer-Books
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: cops
 sources:
-  - https://github.com/linuxserver/docker-cops#readme
+  - https://github.com/orgs/linuxserver/packages/container/package/cops
   - https://github.com/truecharts/charts/tree/master/charts/stable/cops
   - https://fleet.linuxserver.io/image?name=linuxserver/cops
-  - https://github.com/orgs/linuxserver/packages/container/package/cops
+  - https://github.com/linuxserver/docker-cops#readme
 type: application
 version: 7.1.10
