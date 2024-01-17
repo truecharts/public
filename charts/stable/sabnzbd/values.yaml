@@ -97,14 +97,12 @@ persistence:
           readOnly: true
 metrics:
   main:
-    enabled: true
+    enabled: false
     type: "servicemonitor"
     endpoints:
       - port: metrics
         path: /metrics
     targetSelector: metrics
-    prometheusRule:
-      enabled: false
     apiKey: ""
       
 portal:
