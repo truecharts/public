@@ -44,6 +44,7 @@ workload:
               path: /ping
           env:
             SABNZBD__HOST_WHITELIST_ENTRIES: ""
+            SABNZBD__PORT: "{{ .Values.service.main.ports.main.port }}"
   exportarr:
     enabled: true
     type: Deployment
