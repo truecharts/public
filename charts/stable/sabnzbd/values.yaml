@@ -46,7 +46,7 @@ workload:
             SABNZBD__HOST_WHITELIST_ENTRIES: ""
             SABNZBD__PORT: "{{ .Values.service.main.ports.main.port }}"
   exportarr:
-    enabled: true
+    enabled: "{{ .Values.metrics.main.enabled }}"
     type: Deployment
     strategy: RollingUpdate
     replicas: 1
@@ -108,7 +108,7 @@ metrics:
 portal:
   open:
     enabled: true
-updated: true
+
             
             
             
