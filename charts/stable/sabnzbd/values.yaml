@@ -86,7 +86,7 @@ workload:
             APIKEY: "{{ .Values.metrics.main.apiKey }}"
 persistence:
   config:
-    enabled: true
+    enabled: false
     targetSelector:
       main:
         main:
@@ -103,6 +103,8 @@ metrics:
       - port: metrics
         path: /metrics
     targetSelector: metrics
+    prometheusRule:
+      enabled: false
     apiKey: ""
       
 portal:
