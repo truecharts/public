@@ -83,6 +83,7 @@ workload:
             # enable gathering unknown queue items
             # ENABLE_UNKNOWN_QUEUE_ITEMS: false
             CONFIG: "/config/sabnzbd.ini"
+            APIKEY: "{{ .Values.metrics.main.apiKey }}"
 persistence:
   config:
     enabled: true
@@ -104,6 +105,8 @@ metrics:
     targetSelector: metrics
     prometheusRule:
       enabled: false
+    apiKey: ""
+      
 portal:
   open:
     enabled: true
