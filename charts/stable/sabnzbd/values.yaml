@@ -86,7 +86,7 @@ workload:
             APIKEY: "{{ .Values.metrics.main.apiKey }}"
 persistence:
   config:
-    enabled: true
+    enabled: false
     targetSelector:
       main:
         main:
@@ -97,7 +97,7 @@ persistence:
           readOnly: true
 metrics:
   main:
-    enabled: true
+    enabled: false
     type: "servicemonitor"
     endpoints:
       - port: metrics
