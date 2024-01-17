@@ -32,9 +32,9 @@ maintainers:
     url: https://truecharts.org
 name: grafana
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/enterprise/grafana
+  - https://quay.io/kiwigrid/k8s-sidecar
   - https://grafana.com/
   - https://github.com/bitnami/bitnami-docker-grafana
-  - https://github.com/truecharts/charts/tree/master/charts/enterprise/grafana
-  - https://hub.docker.com/r/grafana/grafana
 type: application
 version: 12.0.5
