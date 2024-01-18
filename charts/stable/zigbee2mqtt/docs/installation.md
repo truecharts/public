@@ -1,5 +1,5 @@
 ---
-title: Installation Hints
+title: Installation Guide for TrueNAS SCALE
 ---
 
 
