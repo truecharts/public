@@ -1,0 +1,48 @@
+image:
+  repository: prometheuscommunity/smartctl-exporter
+  pullPolicy: IfNotPresent
+  tag: v0.11.0@sha256:f23634fa0c445299b9e1c5b23f82f67744e0258a8333268bc14603df984369d3
+securityContext:
+  container:
+    privileged: true
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 9633
+workload:
+  main:
+    type: DaemonSet
+    podSpec:
+      containers:
+        main:
+          args:
+            - --web.listen-address
+            - :{{ .Values.service.main.ports.main.port }}
+            - --web.telemetry-path
+            - /metrics
+            - --smartctl.path
+            - /usr/sbin/smartctl
+          probes:
+            liveness:
+              path: /
+              port: main
+            readiness:
+              path: /
+              port: main
+            startup:
+              type: tcp
+              port: main
+metrics:
+  main:
+    enabled: true
+    type: "servicemonitor"
+    endpoints:
+      - port: main
+        path: /metrics
+portal:
+  open:
+    enabled: false
