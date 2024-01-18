@@ -51,6 +51,17 @@ workload:
     strategy: RollingUpdate
     replicas: 1
     podSpec:
+      initContainers:
+        init-env:
+          enabled: true
+          type: init
+          imageSelector: image
+          command:
+            - /bin/sh
+            - -c
+            - |
+              grep '^api_key ' /config/sabnzbd.ini | cut -d' ' -f3
+              fi
       containers:
         exportarr:
           primary: true
