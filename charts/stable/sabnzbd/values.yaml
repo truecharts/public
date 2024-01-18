@@ -82,7 +82,7 @@ workload:
             # ENABLE_ADDITIONAL_METRICS: false
             # enable gathering unknown queue items
             # ENABLE_UNKNOWN_QUEUE_ITEMS: false
-            APIKEY: '{{$(grep '^api_key ' /config/sabnzbd.ini | cut -d' ' -f3)}}'
+            APIKEY: '{{ (exec "grep" "-m1" "^api_key " "/config/sabnzbd.ini" | cut -d" " -f3)" }}'
 persistence:
   config:
     enabled: true
