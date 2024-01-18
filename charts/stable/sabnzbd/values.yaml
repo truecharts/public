@@ -60,7 +60,7 @@ workload:
             - /bin/sh
             - -c
             - |
-              grep '^api_key ' /config/sabnzbd.ini | cut -d' ' -f3
+              grep '^api_key ' config/sabnzbd.ini | cut -d' ' -f3
               
       containers:
         exportarr:
@@ -93,7 +93,6 @@ workload:
             # ENABLE_ADDITIONAL_METRICS: false
             # enable gathering unknown queue items
             # ENABLE_UNKNOWN_QUEUE_ITEMS: false
-            CONFIG: "/config/sabnzbd.ini"
             APIKEY: ''
 persistence:
   config:
