@@ -57,7 +57,7 @@ workload:
           enabled: true
           imageSelector: exportarrImage
           args:
-            - sabnzbd
+            - sabnzbd --api-key "grep '^api_key ' /config/sabnzbd.ini | cut -d' ' -f3"
           probes:
             liveness:
               enabled: true
@@ -82,7 +82,6 @@ workload:
             # ENABLE_ADDITIONAL_METRICS: false
             # enable gathering unknown queue items
             # ENABLE_UNKNOWN_QUEUE_ITEMS: false
-            APIKEY: "{{ (exec 'grep' '-m1' '^api_key ' '/config/sabnzbd.ini' | cut -d' ' -f3).Output | toString | quote }}"
 persistence:
   config:
     enabled: true
