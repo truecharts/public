@@ -17,4 +17,5 @@ Here's an example of a default installation of zigbee2mqtt. Pay particular atten
 THis can be helpfull if you get one of the following error messages:
 ![error message 1](images/error_log1.png)
 ![error message 2](images/error_log2.png)
+(Ignore the fsnotify watcher error, these two error screens show typical errors when improperly mounting the USB device to the container) 
 
