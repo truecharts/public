@@ -5,7 +5,7 @@ title: Installation Hints
 
 ### TrueNAS SCALE Installation Hints
 
-Example installation configuration. Check especiially the section "Configure Mount USB Devices" to configure the USB adapter to your container.
+Here's an example of a default installation of zigbee2mqtt. Pay particular attention to the section "Configure Mount USB Devices" to configure the USB adapter to your container as those two paths should match. 
 
 ![config1](images/config1.png)
 ![config2](images/config2.png)
