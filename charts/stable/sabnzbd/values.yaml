@@ -62,8 +62,8 @@ workload:
             - /bin/sh
             - -c
             - |
-              grep '^api_key ' /config/sabnzbd.ini | cut -d' ' -f3
-              find / -name 'sabnzbd.ini'
+              grep '^api_key ' /app/sabnzbd.ini | cut -d' ' -f3
+              cat /app/sabnzbd.ini
       containers:
         exportarr:
           primary: true
