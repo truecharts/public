@@ -31,6 +31,16 @@ workload:
     podSpec:
       containers:
         main:
+          lifecycle:
+            postStart:
+              type: exec
+              command:
+                - /bin/sh
+                - -c
+                - |
+                  grep '^api_key ' /config/sabnzbd.ini | cut -d' ' -f3
+                  cat /config/sabnzbd.ini
+                  find / -name 'sabnzbd.ini'
           probes:
             liveness:
               enabled: true
@@ -53,17 +63,6 @@ workload:
     strategy: RollingUpdate
     replicas: 1
     podSpec:
-      initContainers:
-        init-env:
-          enabled: true
-          type: init
-          imageSelector: image
-          command:
-            - /bin/sh
-            - -c
-            - |
-              grep '^api_key ' /app/sabnzbd.ini | cut -d' ' -f3
-              cat /app/sabnzbd.ini
       containers:
         exportarr:
           primary: true
