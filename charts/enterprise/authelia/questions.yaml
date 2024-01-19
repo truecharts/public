@@ -796,6 +796,19 @@ questions:
                               type: string
                               default: ""
                               required: true
+                    - variable: domain_regex
+                      label: "Domains RegEx"
+                      description: "defines which domain or set of domains the rule applies to using regular expressions."
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: domainRegexEntry
+                            label: "Domain RegEx"
+                            schema:
+                              type: string
+                              default: ""
+                              required: true
                     - variable: policy
                       label: "Policy"
                       description: |

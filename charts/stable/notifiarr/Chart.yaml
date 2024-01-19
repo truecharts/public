@@ -1,33 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: notifiarr
-version: 3.1.6
-appVersion: 0.7.0
-description: This is the unified client for Notifiarr.com. The client enables content requests from Media Bot in your Discord Server and also provides reports for Plex usage and system health among many other features.
-home: https://truecharts.org/charts/stable/notifiarr
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/notifiarr.png
-deprecated: false
-sources:
-  - https://github.com/Notifiarr/notifiarr
-  - https://github.com/truecharts/charts/tree/master/charts/stable/notifiarr
-  - https://hub.docker.com/r/golift/notifiarr
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - plex
-  - discord
-  - MediaApp-Other
-  - notification
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -36,4 +6,34 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: 0.7.0
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: This is the unified client for Notifiarr.com. The client enables content requests from Media Bot in your Discord Server and also provides reports for Plex usage and system health among many other features.
+home: https://truecharts.org/charts/stable/notifiarr
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/notifiarr.png
+keywords:
+  - plex
+  - discord
+  - MediaApp-Other
+  - notification
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: notifiarr
+sources:
+  - https://github.com/Notifiarr/notifiarr
+  - https://github.com/truecharts/charts/tree/master/charts/stable/notifiarr
+  - https://hub.docker.com/r/golift/notifiarr
 type: application
+version: 3.1.6

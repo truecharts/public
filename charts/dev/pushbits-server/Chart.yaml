@@ -1,32 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: pushbits-server
-version: 0.0.12
-appVersion: 0.10.3
-description: Send push notifications via a simple web API, and delivers them to your users.
-home: https://truecharts.org/charts/incubator/pushbits-server
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/pushbits-server.png
-deprecated: false
-sources:
-  - https://github.com/pushbits/server
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/pushbits-server
-  - https://ghcr.io/pushbits/server
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - pushbits-server
-  - notifications
-  - matrix
-dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -37,4 +8,33 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+apiVersion: v2
+appVersion: 0.10.3
+dependencies:
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Send push notifications via a simple web API, and delivers them to your users.
+home: https://truecharts.org/charts/incubator/pushbits-server
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/pushbits-server.png
+keywords:
+  - pushbits-server
+  - notifications
+  - matrix
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: pushbits-server
+sources:
+  - https://github.com/pushbits/server
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/pushbits-server
+  - https://ghcr.io/pushbits/server
 type: application
+version: 0.0.12

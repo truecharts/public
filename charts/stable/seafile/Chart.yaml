@@ -1,25 +1,13 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: file-storage
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 apiVersion: v2
-name: seafile
-version: 4.1.9
 appVersion: 11.0.3
-description: Reliable and Performant File Sync and Share Solution
-home: https://truecharts.org/charts/stable/seafile
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/seafile.png
-deprecated: false
-sources:
-  - https://seafile.com
-  - https://github.com/truecharts/charts/tree/master/charts/stable/seafile
-  - https://hub.docker.com/r/seafileltd/seafile-mc
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - seafile
-  - files
-  - cloud
-  - file-storage
 dependencies:
   - name: common
     version: 17.2.22
@@ -35,12 +23,24 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: file-storage
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+deprecated: false
+description: Reliable and Performant File Sync and Share Solution
+home: https://truecharts.org/charts/stable/seafile
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/seafile.png
+keywords:
+  - seafile
+  - files
+  - cloud
+  - file-storage
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: seafile
+sources:
+  - https://seafile.com
+  - https://github.com/truecharts/charts/tree/master/charts/stable/seafile
+  - https://hub.docker.com/r/seafileltd/seafile-mc
 type: application
+version: 4.1.9

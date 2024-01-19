@@ -1,29 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: custom-app
-version: 11.1.9
-appVersion: 0.21.1155
-description: Advanced tool to create your own TrueCharts-based App
-home: https://truecharts.org/charts/stable/custom-app
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/custom-app.png
-deprecated: false
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/custom-app
-  - https://ghcr.io/linuxserver/jackett
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - custom
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -32,4 +6,30 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: 0.21.1155
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Advanced tool to create your own TrueCharts-based App
+home: https://truecharts.org/charts/stable/custom-app
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/custom-app.png
+keywords:
+  - custom
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: custom-app
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/custom-app
+  - https://ghcr.io/linuxserver/jackett
 type: application
+version: 11.1.9

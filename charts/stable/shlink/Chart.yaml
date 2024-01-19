@@ -1,23 +1,13 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: utilities
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 apiVersion: v2
-name: shlink
-version: 12.1.11
 appVersion: 3.7.3
-description: A PHP-based self-hosted URL shortener that can be used to serve shortened URLs under your own custom domain.
-home: https://truecharts.org/charts/stable/shlink
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/shlink.png
-deprecated: false
-sources:
-  - https://github.com/shlinkio/shlink
-  - https://github.com/truecharts/charts/tree/master/charts/stable/shlink
-  - https://hub.docker.com/r/shlinkio/shlink
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - url
-  - shortener
 dependencies:
   - name: common
     version: 17.2.22
@@ -33,12 +23,22 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: utilities
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+deprecated: false
+description: A PHP-based self-hosted URL shortener that can be used to serve shortened URLs under your own custom domain.
+home: https://truecharts.org/charts/stable/shlink
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/shlink.png
+keywords:
+  - url
+  - shortener
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: shlink
+sources:
+  - https://github.com/shlinkio/shlink
+  - https://github.com/truecharts/charts/tree/master/charts/stable/shlink
+  - https://hub.docker.com/r/shlinkio/shlink
 type: application
+version: 12.1.11

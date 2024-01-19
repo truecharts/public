@@ -1,32 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: kiwix-serve
-version: 7.1.7
-appVersion: 3.6.0
-description: Kiwix enables you to have the whole Wikipedia at hand wherever you go!
-home: https://truecharts.org/charts/stable/kiwix-serve
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/kiwix-serve.png
-deprecated: false
-sources:
-  - https://github.com/kiwix/kiwix-tools/blob/master/docker/server
-  - https://www.kiwix.org/
-  - https://github.com/truecharts/charts/tree/master/charts/stable/kiwix-serve
-  - https://ghcr.io/kiwix/kiwix-serve
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - kiwix-serve
-  - Productivity
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -35,4 +6,33 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: 3.6.0
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Kiwix enables you to have the whole Wikipedia at hand wherever you go!
+home: https://truecharts.org/charts/stable/kiwix-serve
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/kiwix-serve.png
+keywords:
+  - kiwix-serve
+  - Productivity
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: kiwix-serve
+sources:
+  - https://github.com/kiwix/kiwix-tools/blob/master/docker/server
+  - https://www.kiwix.org/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/kiwix-serve
+  - https://ghcr.io/kiwix/kiwix-serve
 type: application
+version: 7.1.7
