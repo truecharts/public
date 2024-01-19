@@ -1,23 +1,50 @@
 image:
-  repository: ghcr.io/k8s-at-home/tt-rss
+  repository: cthulhoo/ttrss-fpm-pgsql-static
   pullPolicy: IfNotPresent
-  tag: v2.0.9113@sha256:217951fc8f013623923850c865d87509172914fc01f9227559e3d6e6096c15b3
-service:
-  main:
-    ports:
-      main:
-        port: 10104
-        targetPort: 8080
+  tag: 283ad4eb@sha256:f90470ec756dbe8ed9e7f842f19f9c1d7ed4a20aca0a1886e9694b3e7fa82bf7
+nginxImage:
+  repository: cthulhoo/ttrss-web-nginx
+  pullPolicy: IfNotPresent
+  tag: 283ad4eb@sha256:f963b38ef8695d05c7f219e9405648dcb2f1f3c0b81609353bb1ba078bc8e318
+updaterImage:
+  repository: cthulhoo/ttrss-fpm-pgsql-static
+  pullPolicy: IfNotPresent
+  tag: 283ad4eb@sha256:f90470ec756dbe8ed9e7f842f19f9c1d7ed4a20aca0a1886e9694b3e7fa82bf7
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
 persistence:
+  html:
+      enabled: true
+      targetSelector:
+        main:
+          main:
+            mountPath: /var/www/html
+        nginx:
+          nginx:
+            mountPath: /var/www/html
+            readOnly: true
+        updater:
+          updater:
+            mountPath: /var/www/html
   config:
     enabled: true
-    mountPath: /config
-  plugins:
-    enabled: true
-    mountPath: /app/plugins.local
-  themes:
-    enabled: true
-    mountPath: /app/themes.local
+    targetSelector:
+        main:
+          main:
+            mountPath: /opt/tt-rss/config.d
+        updater:
+          updater:
+            mountPath: /opt/tt-rss/config.d
+  # plugins:
+  #   enabled: true
+  #   mountPath: /var/www/html/tt-rss/plugins.local
+  # themes:
+  #   enabled: true
+  #   mountPath: /var/www/html/tt-rss/themes.local
 cnpg:
   main:
     enabled: true
@@ -26,12 +53,6 @@ cnpg:
 portal:
   open:
     enabled: true
-securityContext:
-  container:
-    readOnlyRootFilesystem: false
-    runAsNonRoot: false
-    runAsUser: 0
-    runAsGroup: 0
 workload:
   main:
     podSpec:
@@ -40,10 +61,13 @@ workload:
           probes:
             liveness:
               type: tcp
+              port: "{{ .Values.service.app.ports.app.port }}"
             readiness:
               type: tcp
+              port: "{{ .Values.service.app.ports.app.port }}"
             startup:
               type: tcp
+              port: "{{ .Values.service.app.ports.app.port }}"
           env:
             TTRSS_SELF_URL_PATH: ""
             TTRSS_DB_NAME: "{{ .Values.cnpg.main.database }}"
@@ -57,3 +81,91 @@ workload:
               secretKeyRef:
                 name: cnpg-main-urls
                 key: host
+  nginx:
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
+        nginx:
+          enabled: true
+          primary: true
+          imageSelector: nginxImage
+          probes:
+            readiness:
+              enabled: true
+              path: "{{ .Values.workload.nginx.podSpec.containers.nginx.env.APP_BASE }}/public.php?op=healthcheck"
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+            liveness:
+              enabled: true
+              path: "{{ .Values.workload.nginx.podSpec.containers.nginx.env.APP_BASE }}/public.php?op=healthcheck"
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+            startup:
+              enabled: true
+              type: tcp
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+          env:
+            APP_UPSTREAM: "ttrss-tt-rss-app.default.svc.cluster.local"
+            RESOLVER: "kube-dns.kube-system.svc.cluster.local"
+            APP_WEB_ROOT: /var/www/html/tt-rss
+            APP_BASE: ""
+  updater:
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
+        updater:
+          enabled: true
+          primary: true
+          imageSelector: updaterImage
+          args: /opt/tt-rss/updater.sh
+          probes:
+            liveness:
+              type: exec
+              command:
+                - /usr/bin/test
+                - -f
+                - "/var/www/html/tt-rss/lock/update_daemon.lock"
+            readiness:
+              type: exec
+              command:
+                - /usr/bin/test
+                - -f
+                - "/var/www/html/tt-rss/lock/update_daemon.lock"
+            startup:
+              type: exec
+              command:
+                - /usr/bin/test
+                - -f
+                - "/var/www/html/tt-rss/lock/update_daemon.lock"
+          env:
+            TTRSS_SELF_URL_PATH: ""
+            TTRSS_DB_NAME: "{{ .Values.cnpg.main.database }}"
+            TTRSS_DB_USER: "{{ .Values.cnpg.main.user }}"
+            TTRSS_DB_PORT: "5432"
+            TTRSS_DB_PASS:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            TTRSS_DB_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+service:
+  # Main service links to ingress easier (according to nextcloud's values.yaml)
+  # That's why the nginx is swapped with app
+  main:
+    targetSelector: nginx
+    ports:
+      main:
+        targetSelector: nginx
+        port: 10104
+        targetPort: 80
+  app:
+    enabled: true
+    targetSelector: main
+    ports:
+      app:
+        enabled: true
+        targetSelector: main
+        port: 9000
+        targetPort: 9000

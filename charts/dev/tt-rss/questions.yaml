@@ -9,22 +9,34 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-                                - variable: env
-                                  group: App Configuration
-                                  label: Image Environment
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                      - variable: TTRSS_SELF_URL_PATH
-                                        label: TTRSS Self URL Path
-                                        description: Sets the URL for the app.
-                                        schema:
-                                          type: string
-                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
+  - variable: env
+    group: App Configuration
+    label: Image Environment
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: TTRSS_SELF_URL_PATH
+          label: TTRSS Self URL Path
+          description: You will likely need to set this to the correct value - it should point to external tt-rss URL as seen in your browser. e.g. http://example.com/tt-rss
+          schema:
+            type: string
+            default: ""
+        # - variable: APP_WEB_ROOT
+        #   label: TTRSS App Web Root Path
+        #   description: Advanced usage. This is the filesystem path for tt-rss. Usually set to "/var/www/html", but the default on this app is "/var/www/html/tt-rss". https://tt-rss.org/wiki/InstallationNotes#how-do-i-make-it-run-without-tt-rss-in-the-url-i.e.-at-website-root
+        #   schema:
+        #     type: string
+        #     default: ""
+        # - variable: APP_BASE
+        #   label: TTRSS App Base Path
+        #   description: Advanced usage. This is the root URL path for tt-rss. Usually set to "/tt-rss", but the default on this app is "". https://tt-rss.org/wiki/InstallationNotes#how-do-i-make-it-run-without-tt-rss-in-the-url-i.e.-at-website-root
+        #   schema:
+        #     type: string
+        #     default: ""
 # Include{podOptions}
 # Include{serviceRoot}
         - variable: main
@@ -53,6 +65,14 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
+        - variable: html
+          label: App HTML Storage
+          description: Stores the Application PHP, theme, and plugin files.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
         - variable: config
           label: App Config Storage
           description: Stores the Application Configuration.
@@ -60,22 +80,22 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{persistenceBasic}
-        - variable: plugins
-          label: App Plugins Storage
-          description: Stores the Application Plugins.
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
-        - variable: themes
-          label: App Themes Storage
-          description: Stores the Application Themes.
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# # Include{persistenceBasic}
+#         - variable: plugins
+#           label: App Plugins Storage
+#           description: Stores the Application Plugins.
+#           schema:
+#             additional_attrs: true
+#             type: dict
+#             attrs:
+# # Include{persistenceBasic}
+#         - variable: themes
+#           label: App Themes Storage
+#           description: Stores the Application Themes.
+#           schema:
+#             additional_attrs: true
+#             type: dict
+#             attrs:
 # Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
