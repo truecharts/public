@@ -1,0 +1,29 @@
+apiVersion: v2
+appVersion: 3.7
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Bluecherry DVR, Powerful Video Surveillance Software
+home: https://truecharts.org/charts/unstable/bluecherrydvr
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/bluecherrydvr.png
+keywords:
+  - dvr
+  - bluecherry
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: bluecherrydvr
+sources:
+  - https://github.com/bluecherrydvr/bluecherry-docker
+  - https://github.com/bluecherrydvr
+  - https://github.com/truecharts/charts/tree/master/charts/unstable/bluecherrydvr
+type: application
+version: 8.2.1
