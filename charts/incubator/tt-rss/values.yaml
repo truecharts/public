@@ -93,19 +93,25 @@ workload:
           probes:
             readiness:
               enabled: true
-              path: "{{ .Values.workload.nginx.podSpec.containers.nginx.env.APP_BASE }}/public.php?op=healthcheck"
+              type: tcp
               port: "{{ .Values.service.main.ports.main.targetPort }}"
+              # path: "{{ .Values.workload.nginx.podSpec.containers.nginx.env.APP_BASE }}/public.php?op=healthcheck"
+              # port: "{{ .Values.service.main.ports.main.targetPort }}"
             liveness:
               enabled: true
-              path: "{{ .Values.workload.nginx.podSpec.containers.nginx.env.APP_BASE }}/public.php?op=healthcheck"
+              type: tcp
               port: "{{ .Values.service.main.ports.main.targetPort }}"
+              # path: "{{ .Values.workload.nginx.podSpec.containers.nginx.env.APP_BASE }}/public.php?op=healthcheck"
+              # port: "{{ .Values.service.main.ports.main.targetPort }}"
             startup:
               enabled: true
               type: tcp
               port: "{{ .Values.service.main.ports.main.targetPort }}"
           env:
-            APP_UPSTREAM: "ttrss-tt-rss-app.default.svc.cluster.local"
-            RESOLVER: "kube-dns.kube-system.svc.cluster.local"
+            # APP_UPSTREAM: "tt-rss-app.ix-tt-rss.svc.cluster.local"
+            APP_UPSTREAM: '{{ printf "%v-app.ix-%v.svc.cluster.local" (include "tc.v1.common.lib.chart.names.fullname" $) (include "tc.v1.common.lib.chart.names.fullname" $) }}'
+            # RESOLVER: "kube-dns.kube-system.svc.cluster.local"
+            RESOLVER: 172.17.0.10
             APP_WEB_ROOT: /var/www/html/tt-rss
             APP_BASE: ""
   updater:
