@@ -9,6 +9,8 @@ exportarrImage:
 securityContext:
   container:
     readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
 service:
   main:
     ports:
@@ -60,8 +62,8 @@ workload:
             - /bin/sh
             - -c
             - |
+              cat sabnzbd.ini
               grep '^api_key ' sabnzbd.ini | cut -d' ' -f3
-              fi
       containers:
         exportarr:
           primary: true
@@ -119,6 +121,11 @@ metrics:
 portal:
   open:
     enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
 
             
             
