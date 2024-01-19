@@ -1,31 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: wbo
-version: 5.0.13
-appVersion: 1.19.1
-description: an online collaborative whiteboard that allows many users to draw simultaneously on a large virtual board.
-home: https://truecharts.org/charts/incubator/wbo
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/wbo.png
-deprecated: false
-sources:
-  - https://github.com/lovasoa/whitebophir
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/wbo
-  - https://hub.docker.com/r/lovasoa/wbo
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - wbo
-  - whiteboard
-dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -34,4 +6,32 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+apiVersion: v2
+appVersion: 1.19.1
+dependencies:
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: an online collaborative whiteboard that allows many users to draw simultaneously on a large virtual board.
+home: https://truecharts.org/charts/incubator/wbo
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/wbo.png
+keywords:
+  - wbo
+  - whiteboard
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: wbo
+sources:
+  - https://github.com/lovasoa/whitebophir
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/wbo
+  - https://hub.docker.com/r/lovasoa/wbo
 type: application
+version: 5.0.13

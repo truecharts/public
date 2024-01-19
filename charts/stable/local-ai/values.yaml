@@ -1,27 +1,27 @@
 image:
-  repository: quay.io/go-skynet/local-ai
+  repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.3.1@sha256:8d4ae57f6c68c778480d0cb0a6596b1513b19a0444d30e4675745c2b403a35d6
+  tag: v2.5.1@sha256:9877d49605709151aedb57eaf7109404ef6836203c61dc56836fc038888417b6
 ffmpegImage:
-  repository: quay.io/go-skynet/local-ai
+  repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.3.0-ffmpeg@sha256:534966e0ae9ee3d1f10dec712e4b96ecf6c38e7ca83665accc64dcedd435a889
+  tag: v2.5.1-ffmpeg-core@sha256:aac7e15bc66888ef1638dc9702de6f17762d19125f01f7cc2f7c32c9f8b59e0f
 cublasCuda12Image:
-  repository: quay.io/go-skynet/local-ai
+  repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.3.0-cublas-cuda12@sha256:967d4dac1e9fdddbcd4f502e4a288bf266388f48b0ac34ec27879479fdb52f8d
+  tag: v2.5.1-cublas-cuda12-core@sha256:4e18896086a231b4619936d4bfd7cd42c2c88e54be008070cedeea34eed39ed8
 cublasCuda12FfmpegImage:
-  repository: quay.io/go-skynet/local-ai
+  repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.3.0-cublas-cuda12-ffmpeg@sha256:d03ef64d27fd02c2311bf80a3b200c9b4fac6c0148e816cb4b3de6369478c0b6
+  tag: v2.5.1-cublas-cuda12-ffmpeg-core@sha256:ee7dc5536273ceee056b9c0c071f8043e867de66b68c47a4a2eb253877601510
 cublasCuda11Image:
-  repository: quay.io/go-skynet/local-ai
+  repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.3.0-cublas-cuda11@sha256:1451fa8be7b12bcd51da87e18cbfeda1536efcb5bfbdaf22da0f157a44054edb
+  tag: v2.5.1-cublas-cuda11-core@sha256:58002847d35ca12c0df1449885d759f0603c83e9775252a03f9d95343d90f493
 cublasCuda11FfmpegImage:
-  repository: quay.io/go-skynet/local-ai
+  repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.3.0-cublas-cuda11-ffmpeg@sha256:c9460b646e38eea6789796a48eb2bb6fa1c808cd999ff7bc43e794865fdc7d35
+  tag: v2.5.1-cublas-cuda11-ffmpeg-core@sha256:086d977d23d9e30c8b2b254d5be17f5a6de15fef529de16f47a95debdb74b540
 securityContext:
   container:
     runAsNonRoot: false

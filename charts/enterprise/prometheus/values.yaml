@@ -1,12 +1,12 @@
 image:
   repository: bitnami/prometheus
-  tag: 2.48.1@sha256:9ee5354395bf5cd60f766107e4d97c28d7e62626f3345fa5746d868fde06d2c3
+  tag: 2.49.0@sha256:7102c3a99cb963d465b7af254a6313dd98fc2d41ac26b21c640e239997176cf8
 thanosImage:
   repository: quay.io/thanos/thanos
   tag: v0.33.0@sha256:f7177edda27b5bc08e363187ffb093a9b7fbedbb15a2f2d0e007216cf42a9525
 alertmanagerImage:
   repository: bitnami/alertmanager
-  tag: 0.26.0@sha256:ec6a6b36356594e486f9cb0461c830123c6c4ca016ae0cdcffcbaaf8e8adb703
+  tag: 0.26.0@sha256:3ff3994b5e7b3188a071b9d5141e7d40548e769f2044b8e5866cf816d22317fc
 global:
   labels: {}
 workload:
@@ -23,6 +23,37 @@ workload:
               enabled: false
             startup:
               enabled: false
+
+configmap:
+  grafana-datasource:
+    enabled: "{{ if .Values.grafana.datasource.enabled }}true{{ else }}false{{ end }}"
+    labels:
+      grafana_datasources: "1"
+    data:
+      datasource.yaml: |-
+        apiVersion: 1
+        datasources:
+        - name: Prometheus
+          type: prometheus
+          uid: {{ .Values.grafana.datasource.uid | default "prometheus" }}
+          url: http://{{ include "tc.v1.common.lib.chart.names.fullname" $ }}.{{ include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $ "objectData" . "caller" "Configmap") }}:{{ .Values.service.main.ports.main.port }}
+          access: proxy
+          isDefault: {{ .Values.grafana.datasource.default | default true }}
+          jsonData:
+            httpMethod: {{ .Values.grafana.datasource.httpMethod | default "POST" }}
+            timeInterval: {{ .Values.grafana.datasource.scrapeInterval | default "30s" }}
+            {{- if .Values.grafana.datasource.timeout }}
+            timeout: {{ .Values.grafana.datasource.timeout }}
+            {{- end }}
+
+grafana:
+  datasource:
+    enabled: true
+    default: true
+    httpMethod: "POST"
+    scrapeInterval: "30s"
+    uid: "prometheus"
+
 service:
   main:
     selectorLabels:
@@ -30,7 +61,7 @@ service:
       prometheus: '{{ template "kube-prometheus.prometheus.fullname" . }}'
     ports:
       main:
-        port: 10086
+        port: 9090
         targetPort: 9090
         protocol: http
   alertmanager:
@@ -41,7 +72,7 @@ service:
     ports:
       alertmanager:
         enabled: true
-        port: 10087
+        port: 9093
         targetPort: 9093
         protocol: http
   thanos:

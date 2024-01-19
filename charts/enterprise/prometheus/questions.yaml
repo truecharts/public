@@ -194,7 +194,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10086
+                              default: 9090
                               required: true
         - variable: alertmanager
           label: "alertmanager Service"
@@ -216,7 +216,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10087
+                              default: 9093
                               required: true
 # Include{serviceExpertRoot}
 # Include{serviceExpert}

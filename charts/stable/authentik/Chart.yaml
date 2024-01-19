@@ -1,26 +1,16 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: authentication
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 apiVersion: v2
-name: authentik
-version: 19.1.8
-appVersion: 2023.10.5
-description: Authentik is an open-source Identity Provider focused on flexibility and versatility.
-home: https://truecharts.org/charts/stable/authentik
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/authentik.png
-deprecated: false
-sources:
-  - https://github.com/goauthentik/authentik
-  - https://github.com/truecharts/charts/tree/master/charts/stable/authentik
-  - https://ghcr.io/goauthentik/proxy
-  - https://goauthentik.io/docs/
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - authentik
+appVersion: 2023.10.6
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -33,12 +23,22 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: authentication
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+deprecated: false
+description: Authentik is an open-source Identity Provider focused on flexibility and versatility.
+home: https://truecharts.org/charts/stable/authentik
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/authentik.png
+keywords:
+  - authentik
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: authentik
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/authentik
+  - https://ghcr.io/maxmind/geoipupdate
+  - https://github.com/goauthentik/authentik
+  - https://goauthentik.io/docs/
 type: application
+version: 19.2.0

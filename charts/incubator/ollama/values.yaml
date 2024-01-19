@@ -1,0 +1,99 @@
+image:
+  repository: ollama/ollama
+  pullPolicy: IfNotPresent
+  tag: 0.1.18@sha256:5327f8c3f43e30804dbdbc039e8fcf253af8291e149f186dc5c7733f68e29217
+uiImage:
+  repository: ghcr.io/ollama-webui/ollama-webui
+  pullPolicy: IfNotPresent
+  tag: main@sha256:50dfa1104ae2f5c450bdc23920bc503a3cecd50f02efa328df98c317f8552e6c
+
+service:
+  main:
+    targetSelector: ui
+    ports:
+      main:
+        protocol: http
+        targetPort: 8080
+        port: 10686
+        targetSelector: ui
+  api:
+    enabled: true
+    type: ClusterIP
+    targetSelector: main
+    ports:
+      api:
+        enabled: true
+        protocol: http
+        port: 11434
+        targetSelector: main
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          imageSelector: image
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+            runAsNonRoot: false
+            readOnlyRootFilesystem: false
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              path: /api/version
+              port: "{{ .Values.service.api.ports.api.port }}"
+            readiness:
+              enabled: true
+              type: http
+              path: /api/version
+              port: "{{ .Values.service.api.ports.api.port }}"
+            startup:
+              enabled: true
+              type: tcp
+              port: "{{ .Values.service.api.ports.api.port }}"
+  ui:
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
+        ui:
+          primary: true
+          enabled: true
+          imageSelector: uiImage
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              path: /
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+            readiness:
+              enabled: true
+              type: http
+              path: /
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+            startup:
+              enabled: true
+              type: tcp
+              port: "{{ .Values.service.main.ports.main.targetPort }}"
+          env:
+            OLLAMA_API_BASE_URL: '{{ printf "http://%v-api:%v/api" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.api.ports.api.port }}'
+
+persistence:
+  config:
+    enabled: true
+    targetSelector:
+      main:
+        main:
+          mountPath: "/root/.ollama"
+  data:
+    enabled: true
+    targetSelector:
+      ui:
+        ui:
+          mountPath: "/app/backend/data"
+
+portal:
+  open:
+    enabled: true

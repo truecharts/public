@@ -1,0 +1,10 @@
+service:
+  main:
+    type: LoadBalancer
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            TTRSS_SELF_URL_PATH: "http://localhost:10104/tt-rss/"

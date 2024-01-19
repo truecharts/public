@@ -1,35 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: serviio
-version: 3.0.13
-appVersion: latest
-description: Serviio is a freeware media server designed to let users stream music, video, or image files to DLNA compliant televisions, Blu-ray players, game consoles, and Android or Windows Mobile devices on a home network.
-home: https://truecharts.org/charts/incubator/serviio
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/serviio.png
-deprecated: false
-sources:
-  - https://serviio.org/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/serviio
-  - https://hub.docker.com/r/riftbit/serviio
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - serviio
-  - MediaServer-Video
-  - MediaServer-Music
-  - MediaServer-Books
-  - MediaServer-Photos
-  - MediaServer-Other
-dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -38,4 +6,36 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.2.21
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Serviio is a freeware media server designed to let users stream music, video, or image files to DLNA compliant televisions, Blu-ray players, game consoles, and Android or Windows Mobile devices on a home network.
+home: https://truecharts.org/charts/incubator/serviio
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/serviio.png
+keywords:
+  - serviio
+  - MediaServer-Video
+  - MediaServer-Music
+  - MediaServer-Books
+  - MediaServer-Photos
+  - MediaServer-Other
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: serviio
+sources:
+  - https://serviio.org/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/serviio
+  - https://hub.docker.com/r/riftbit/serviio
 type: application
+version: 3.0.13

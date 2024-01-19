@@ -85,7 +85,7 @@ service:
 mcbackup:
   enabled: true
   initial_delay: 2m
-  backup_interval: 24hr
+  backup_interval: 24h
   player_online_check_interval: 5m
   prune_backups_days: 7
   pause_if_no_players: false
@@ -233,7 +233,7 @@ workload:
             DEST_DIR: "{{.Values.persistence.backups.mountPath }}"
             SRC_DIR: "{{.Values.persistence.data.mountPath }}"
             SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
-            RCON_HOST: '{{ include "tc.v1.common.lib.chart.names.fullname" $ }}'
+            RCON_HOST: '{{ printf "%s-rcon" (include "tc.v1.common.lib.chart.names.fullname" $) }}'
             RCON_PORT: "{{ .Values.service.rcon.ports.rcon.port }}"
             RCON_PASSWORD: "{{ .Values.workload.main.podSpec.containers.main.env.RCON_PASSWORD }}"
             INITIAL_DELAY: "{{ .Values.mcbackup.initial_delay }}"
@@ -259,7 +259,10 @@ persistence:
           readOnly: true
   backups:
     enabled: true
-    mountPath: /backups
+    targetSelector:
+      mcbackup:
+        mcbackup:
+          mountPath: /backups
 
 portal:
   open:
