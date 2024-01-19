@@ -1,23 +1,13 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "false"
+  truecharts.org/category: CSI
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
 apiVersion: v2
-name: csi-driver-nfs
-version: 1.0.15
 appVersion: latest
-description: csi-driver-nfs is a nfs CSI driver for kubernetes
-home: https://truecharts.org/charts/incubator/csi-driver-nfs
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/csi-driver-nfs.png
-deprecated: false
-sources:
-  - https://github.com/cert-manager
-  - https://cert-manager.io/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/csi-driver-nfs
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - csi-driver-nfs
-  - backup
 dependencies:
   - name: common
     version: 17.2.21
@@ -33,12 +23,22 @@ dependencies:
     alias: csi-driver-nfs
     tags: []
     import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "false"
-  truecharts.org/category: CSI
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+deprecated: false
+description: csi-driver-nfs is a nfs CSI driver for kubernetes
+home: https://truecharts.org/charts/incubator/csi-driver-nfs
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/csi-driver-nfs.png
+keywords:
+  - csi-driver-nfs
+  - backup
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: csi-driver-nfs
+sources:
+  - https://github.com/cert-manager
+  - https://cert-manager.io/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/csi-driver-nfs
 type: application
+version: 1.0.15

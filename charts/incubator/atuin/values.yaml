@@ -36,7 +36,7 @@ workload:
                 name: cnpg-main-urls
                 key: std
             ATUIN_DB_USERNAME: "{{ .Values.cnpg.main.user }}"
-            ATUIN_DB_PASSWORD: 
+            ATUIN_DB_PASSWORD:
               secretKeyRef:
                 name: cnpg-main-user
                 key: password

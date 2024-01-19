@@ -1,30 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: doplarr
-version: 8.1.7
-appVersion: 3.6.2
-description: An *arr Request Bot for Discord
-home: https://truecharts.org/charts/stable/doplarr
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/doplarr.png
-deprecated: false
-sources:
-  - https://github.com/kiranshila/Doplarr
-  - https://github.com/truecharts/charts/tree/master/charts/stable/doplarr
-  - https://ghcr.io/kiranshila/doplarr
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - doplarr
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -33,4 +6,31 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: 3.6.2
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: An *arr Request Bot for Discord
+home: https://truecharts.org/charts/stable/doplarr
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/doplarr.png
+keywords:
+  - doplarr
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: doplarr
+sources:
+  - https://github.com/kiranshila/Doplarr
+  - https://github.com/truecharts/charts/tree/master/charts/stable/doplarr
+  - https://ghcr.io/kiranshila/doplarr
 type: application
+version: 8.1.7

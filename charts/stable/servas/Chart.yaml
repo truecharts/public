@@ -1,23 +1,13 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: bookmarks
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 apiVersion: v2
-name: servas
-version: 3.2.1
 appVersion: 0.1.0
-description: A self-hosted bookmark management tool.
-home: https://truecharts.org/charts/stable/servas
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/servas.png
-deprecated: false
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/servas
-  - https://hub.docker.com/r/beromir/servas
-  - https://github.com/beromir/Servas
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - servas
-  - bookmarks
 dependencies:
   - name: common
     version: 17.2.22
@@ -33,12 +23,22 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: bookmarks
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+deprecated: false
+description: A self-hosted bookmark management tool.
+home: https://truecharts.org/charts/stable/servas
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/servas.png
+keywords:
+  - servas
+  - bookmarks
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: servas
+sources:
+  - https://github.com/beromir/Servas
+  - https://github.com/truecharts/charts/tree/master/charts/stable/servas
+  - https://hub.docker.com/r/beromir/servas
 type: application
+version: 3.2.1

@@ -1,29 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: openhab
-version: 8.1.7
-appVersion: 4.1.1
-description: OpenHab is a home-automation application
-home: https://truecharts.org/charts/stable/openhab
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/openhab.png
-deprecated: false
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/openhab
-  - https://hub.docker.com/r/openhab/openhab
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - openhab
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -32,4 +6,30 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: 4.1.1
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: OpenHab is a home-automation application
+home: https://truecharts.org/charts/stable/openhab
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/openhab.png
+keywords:
+  - openhab
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: openhab
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/openhab
+  - https://hub.docker.com/r/openhab/openhab
 type: application
+version: 8.1.7

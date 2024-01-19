@@ -1,30 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: stun-turn-server
-version: 5.1.9
-appVersion: latest
-description: This is a Basic STUN & TURN server that was mainly created for Nextcloud Talk.
-home: https://truecharts.org/charts/stable/stun-turn-server
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/stun-turn-server.png
-deprecated: false
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/stun-turn-server
-  - https://hub.docker.com/r/ich777/stun-turn-server
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - stun-turn-server
-  - Network
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -33,4 +6,31 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: This is a Basic STUN & TURN server that was mainly created for Nextcloud Talk.
+home: https://truecharts.org/charts/stable/stun-turn-server
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/stun-turn-server.png
+keywords:
+  - stun-turn-server
+  - Network
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: stun-turn-server
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/stun-turn-server
+  - https://hub.docker.com/r/ich777/stun-turn-server
 type: application
+version: 5.1.9

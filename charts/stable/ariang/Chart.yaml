@@ -1,30 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: ariang
-version: 7.1.7
-appVersion: 1.3.6
-description: A modern web frontend making aria2 easier to use | Aria2 WebUI.
-home: https://truecharts.org/charts/stable/ariang
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/ariang.png
-deprecated: false
-sources:
-  - https://github.com/leonismoe/docker-images
-  - https://github.com/truecharts/charts/tree/master/charts/stable/ariang
-  - https://hub.docker.com/r/leonismoe/ariang
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - ariang
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -33,4 +6,31 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: 1.3.6
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A modern web frontend making aria2 easier to use | Aria2 WebUI.
+home: https://truecharts.org/charts/stable/ariang
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/ariang.png
+keywords:
+  - ariang
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: ariang
+sources:
+  - https://github.com/leonismoe/docker-images
+  - https://github.com/truecharts/charts/tree/master/charts/stable/ariang
+  - https://hub.docker.com/r/leonismoe/ariang
 type: application
+version: 7.1.7

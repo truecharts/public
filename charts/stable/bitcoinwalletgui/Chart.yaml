@@ -1,31 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: bitcoinwalletgui
-version: 4.1.7
-appVersion: latest
-description: |
-  Bitcoin wallet with GUI over VNC and NoVNC.&#xD;
-home: https://truecharts.org/charts/incubator/bitcoinwalletgui
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/bitcoinwalletgui.png
-deprecated: false
-sources:
-  - https://hub.docker.com/r/ulisses1478/bitcoinwallet-gui
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/bitcoinwalletgui
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - bitcoinwalletgui
-  - Other
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -34,4 +6,32 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: |
+  Bitcoin wallet with GUI over VNC and NoVNC.&#xD;
+home: https://truecharts.org/charts/incubator/bitcoinwalletgui
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/bitcoinwalletgui.png
+keywords:
+  - bitcoinwalletgui
+  - Other
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: bitcoinwalletgui
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/bitcoinwalletgui
+  - https://hub.docker.com/r/ulisses1478/bitcoinwallet-gui
 type: application
+version: 4.1.7

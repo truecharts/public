@@ -1,34 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: kubernetes-reflector
-version: 3.1.7
-appVersion: 7.1.217
-description: Kubernetes-Reflector is a Kubernetes addon designed to monitor and reflect changes to secrets and configmaps across namespaces
-home: https://truecharts.org/charts/enterprise/kubernetes-reflector
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/kubernetes-reflector.png
-deprecated: false
-sources:
-  - https://github.com/emberstack/kubernetes-reflector
-  - https://github.com/truecharts/charts/tree/master/charts/enterprise/kubernetes-reflector
-  - https://hub.docker.com/r/emberstack/kubernetes-reflector
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - reflector
-  - secrets
-  - configmaps
-  - cert-manager
-  - certificates
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -37,4 +6,35 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: enterprise
+apiVersion: v2
+appVersion: 7.1.217
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Kubernetes-Reflector is a Kubernetes addon designed to monitor and reflect changes to secrets and configmaps across namespaces
+home: https://truecharts.org/charts/enterprise/kubernetes-reflector
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/kubernetes-reflector.png
+keywords:
+  - reflector
+  - secrets
+  - configmaps
+  - cert-manager
+  - certificates
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: kubernetes-reflector
+sources:
+  - https://github.com/emberstack/kubernetes-reflector
+  - https://github.com/truecharts/charts/tree/master/charts/enterprise/kubernetes-reflector
+  - https://hub.docker.com/r/emberstack/kubernetes-reflector
 type: application
+version: 3.1.7

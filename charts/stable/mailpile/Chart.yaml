@@ -1,33 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: mailpile
-version: 4.1.6
-appVersion: latest
-description: Mailpile is software, an e-mail client. It runs on your desktop or laptop computer and you interact with it by using your web browser. The goal of Mailpile is to allow people to send e-mail in a more secure and private manner than before.
-home: https://truecharts.org/charts/incubator/mailpile
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/mailpile.png
-deprecated: false
-sources:
-  - https://www.mailpile.is/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/mailpile
-  - https://hub.docker.com/r/rroemhild/mailpile
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - mailpile
-  - Productivity
-  - Network-Web
-  - Network-Messenger
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -36,4 +6,34 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Mailpile is software, an e-mail client. It runs on your desktop or laptop computer and you interact with it by using your web browser. The goal of Mailpile is to allow people to send e-mail in a more secure and private manner than before.
+home: https://truecharts.org/charts/incubator/mailpile
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/mailpile.png
+keywords:
+  - mailpile
+  - Productivity
+  - Network-Web
+  - Network-Messenger
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: mailpile
+sources:
+  - https://www.mailpile.is/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/mailpile
+  - https://hub.docker.com/r/rroemhild/mailpile
 type: application
+version: 4.1.6

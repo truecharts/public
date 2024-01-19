@@ -1,33 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: docker-hub-rss
-version: 4.1.7
-appVersion: latest
-description: RSS feed for Chart Hub images.
-home: https://truecharts.org/charts/incubator/docker-hub-rss
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/docker-hub-rss.png
-deprecated: false
-sources:
-  - https://github.com/TheConnMan/docker-hub-rss
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/docker-hub-rss
-  - https://hub.docker.com/r/theconnman/docker-hub-rss
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - docker-hub-rss
-  - Cloud
-  - Tools-Utilities
-  - Network-Web
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -36,4 +6,34 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: RSS feed for Chart Hub images.
+home: https://truecharts.org/charts/incubator/docker-hub-rss
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/docker-hub-rss.png
+keywords:
+  - docker-hub-rss
+  - Cloud
+  - Tools-Utilities
+  - Network-Web
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: docker-hub-rss
+sources:
+  - https://github.com/TheConnMan/docker-hub-rss
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/docker-hub-rss
+  - https://hub.docker.com/r/theconnman/docker-hub-rss
 type: application
+version: 4.1.7
