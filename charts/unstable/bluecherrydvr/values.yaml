@@ -1,0 +1,23 @@
+image:
+  repository: bluecherry/bluecherry
+  tag: 3.7@sha256:df4b6c179ae6b8899054405f9d8d61568f5644986eeefb1157d1ed766eb3a592
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 7001
+        targetPort: 7001
+persistence:
+  recordings:
+    enabled: true
+    mountPath: "/var/lib/bluecherr/recordings"
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
