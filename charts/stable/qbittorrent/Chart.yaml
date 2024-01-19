@@ -23,15 +23,15 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/qbittorrent.png
 keywords:
   - qbittorrent
   - torrrent
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: qbittorrent
 sources:
-  - https://hub.docker.com/r/mjmeli/qbittorrent-port-forward-gluetun-server
   - https://github.com/qbittorrent/qBittorrent
   - https://github.com/truecharts/charts/tree/master/charts/stable/qbittorrent
+  - https://hub.docker.com/r/mjmeli/qbittorrent-port-forward-gluetun-server
 type: application
-version: 18.1.6
+version: 18.1.7
