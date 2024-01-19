@@ -61,7 +61,7 @@ workload:
             - -c
             - |
               grep '^api_key ' sabnzbd.ini | cut -d' ' -f3
-              
+              fi
       containers:
         exportarr:
           primary: true
