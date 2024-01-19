@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: flowise
-version: 3.1.7
+version: 3.1.8
 appVersion: 1.4.9
 description: Drag & drop UI to build your customized LLM flow.
 home: https://truecharts.org/charts/stable/flowise
@@ -20,7 +20,7 @@ keywords:
   - ai
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

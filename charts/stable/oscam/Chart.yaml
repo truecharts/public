@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: oscam
-version: 12.1.5
+version: 12.1.6
 appVersion: "11719"
 description: Open Source Conditional Access Module software
 home: https://truecharts.org/charts/stable/oscam
@@ -19,7 +19,7 @@ keywords:
   - oscam
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

@@ -1,8 +1,8 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: clickhouse
-version: 10.2.6
-appVersion: 23.12.1.1368
+version: 10.2.8
+appVersion: 23.12.2.59
 description: ClickHouse is a column-oriented database management system (DBMS) for online analytical processing of queries (OLAP).
 home: https://truecharts.org/charts/dependency/clickhouse
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/clickhouse.png
@@ -21,7 +21,7 @@ keywords:
   - sql
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

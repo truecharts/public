@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: homarr
-version: 9.1.6
+version: 9.1.7
 appVersion: 0.14.3
 description: Homarr is a simple and lightweight homepage for your server, that helps you easily access all of your services in one place.
 home: https://truecharts.org/charts/stable/homarr
@@ -19,7 +19,7 @@ keywords:
   - dashboard
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

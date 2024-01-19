@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: bender
-version: 4.1.6
+version: 4.1.7
 appVersion: 1.0.3
 description: A link dashboard that can be managed without any code.
 home: https://truecharts.org/charts/incubator/bender
@@ -20,7 +20,7 @@ keywords:
   - dashboard
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""

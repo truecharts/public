@@ -1,7 +1,7 @@
 kubeVersion: ">=1.24.0-0"
 apiVersion: v2
 name: sia-daemon
-version: 4.1.5
+version: 4.1.6
 appVersion: master
 description: Sia is a decentralized cloud storage platform that radically alters the landscape of cloud storage. By leveraging smart contracts, client-side encryption, and sophisticated redundancy (via Reed-Solomon codes), Sia allows users to safely store their data with hosts that they do not know or trust. The result is a cloud storage marketplace where hosts compete to offer the best service at the lowest price. And since there is no barrier to entry for hosts, anyone with spare storage capacity can join the network and start making money.
 home: https://truecharts.org/charts/incubator/sia-daemon
@@ -22,7 +22,7 @@ keywords:
   - Other
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.22
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
