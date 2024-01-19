@@ -28,15 +28,15 @@ keywords:
   - accounting
   - mrp
   - marketing
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: odoo
 sources:
-  - https://hub.docker.com/_/odoo
   - https://github.com/odoo/docker
   - https://github.com/truecharts/charts/tree/master/charts/stable/odoo
+  - https://hub.docker.com/_/odoo
 type: application
-version: 16.1.7
+version: 16.1.8
