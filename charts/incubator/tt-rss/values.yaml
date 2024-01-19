@@ -70,6 +70,7 @@ workload:
               port: "{{ .Values.service.app.ports.app.port }}"
           env:
             TTRSS_SELF_URL_PATH: ""
+            ADMIN_USER_PASS: ""
             TTRSS_DB_NAME: "{{ .Values.cnpg.main.database }}"
             TTRSS_DB_USER: "{{ .Values.cnpg.main.user }}"
             TTRSS_DB_PORT: "5432"
