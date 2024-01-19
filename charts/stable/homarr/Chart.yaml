@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.14.3
+appVersion: 0.14.4
 dependencies:
   - name: common
     version: 17.2.22
@@ -22,15 +22,15 @@ home: https://truecharts.org/charts/stable/homarr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/homarr.png
 keywords:
   - dashboard
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: homarr
 sources:
-  - https://github.com/ajnart/homarr
   - https://github.com/truecharts/charts/tree/master/charts/stable/homarr
   - https://ghcr.io/ajnart/homarr
+  - https://github.com/ajnart/homarr
 type: application
-version: 9.1.7
+version: 9.1.8
