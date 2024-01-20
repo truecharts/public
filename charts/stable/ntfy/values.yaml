@@ -50,6 +50,7 @@ workload:
             ENABLE_ATTACHMENT_CACHE_DIR: false
             ENABLE_AUTH_FILE: false
             NTFY_ENABLE_METRICS: "{{ .Values.metrics.main.enabled }}"
+            NTFY_UPSTREAM_BASE_URL: "https://ntfy.sh"
             # NTFY_CACHE_DURATION: "12h"
             # NTFY_KEEPALIVE_INTERVAL: "45s"
             # NTFY_MANAGER_INTERVAL: "1m"
