@@ -1,25 +1,13 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: productivity
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
 apiVersion: v2
-name: grist
-version: 9.0.12
 appVersion: 1.1.10
-description: Grist is a modern relational spreadsheet. It combine the flexibility of a spreadsheet with the robustness of a database to organize your data.
-home: https://truecharts.org/charts/incubator/grist
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/grist.png
-deprecated: false
-sources:
-  - https://github.com/gristlabs/grist-core
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/grist
-  - https://hub.docker.com/r/gristlabs/grist
-  - https://support.getgrist.com/
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - grist
-  - spreadsheet
-  - database
 dependencies:
   - name: common
     version: 17.2.21
@@ -42,12 +30,24 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: productivity
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+deprecated: false
+description: Grist is a modern relational spreadsheet. It combine the flexibility of a spreadsheet with the robustness of a database to organize your data.
+home: https://truecharts.org/charts/incubator/grist
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/grist.png
+keywords:
+  - grist
+  - spreadsheet
+  - database
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: grist
+sources:
+  - https://hub.docker.com/r/gristlabs/grist
+  - https://github.com/gristlabs/grist-core
+  - https://support.getgrist.com/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/grist
 type: application
+version: 9.0.12

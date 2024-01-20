@@ -1,25 +1,13 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: productivity
+  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: incubator
 apiVersion: v2
-name: kimai
-version: 8.0.21
 appVersion: 2.1.0
-description: Kimai is a free, open source and online time-tracking software designed for small businesses and freelancers.
-home: https://truecharts.org/charts/incubator/kimai
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/kimai.png
-deprecated: false
-sources:
-  - https://github.com/tobybatch/kimai2
-  - https://github.com/kevinpapst/kimai2
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/kimai
-  - https://hub.docker.com/r/kimai/kimai2
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - kimai
-  - time
-  - tracking
 dependencies:
   - name: common
     version: 17.2.21
@@ -35,12 +23,24 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: productivity
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+deprecated: false
+description: Kimai is a free, open source and online time-tracking software designed for small businesses and freelancers.
+home: https://truecharts.org/charts/incubator/kimai
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/kimai.png
+keywords:
+  - kimai
+  - time
+  - tracking
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: kimai
+sources:
+  - https://github.com/tobybatch/kimai2
+  - https://github.com/kevinpapst/kimai2
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/kimai
+  - https://hub.docker.com/r/kimai/kimai2
 type: application
+version: 8.0.21

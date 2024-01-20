@@ -1,35 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: vaultwarden
-version: 25.1.7
-appVersion: 1.30.1
-description: Unofficial Bitwarden compatible server written in Rust
-home: https://truecharts.org/charts/enterprise/vaultwarden
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/vaultwarden.png
-deprecated: false
-sources:
-  - https://github.com/dani-garcia/vaultwarden
-  - https://github.com/truecharts/charts/tree/master/charts/enterprise/vaultwarden
-  - https://hub.docker.com/r/vaultwarden/server
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - bitwarden
-  - bitwardenrs
-  - bitwarden_rs
-  - vaultwarden
-  - password
-  - rust
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -38,4 +6,36 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: enterprise
+apiVersion: v2
+appVersion: 1.30.1
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: Unofficial Bitwarden compatible server written in Rust
+home: https://truecharts.org/charts/enterprise/vaultwarden
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/vaultwarden.png
+keywords:
+  - bitwarden
+  - bitwardenrs
+  - bitwarden_rs
+  - vaultwarden
+  - password
+  - rust
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: vaultwarden
+sources:
+  - https://github.com/dani-garcia/vaultwarden
+  - https://github.com/truecharts/charts/tree/master/charts/enterprise/vaultwarden
+  - https://hub.docker.com/r/vaultwarden/server
 type: application
+version: 25.1.7

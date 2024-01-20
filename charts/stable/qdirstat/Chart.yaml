@@ -1,31 +1,3 @@
-kubeVersion: ">=1.24.0-0"
-apiVersion: v2
-name: qdirstat
-version: 7.1.6
-appVersion: 23.11.2
-description: QDirStat is a graphical application to show where your disk space has gone and to help you to clean it up.
-home: https://truecharts.org/charts/stable/qdirstat
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/qdirstat.png
-deprecated: false
-sources:
-  - https://github.com/jlesage/docker-qdirstat
-  - https://github.com/truecharts/charts/tree/master/charts/stable/qdirstat
-  - https://hub.docker.com/r/jlesage/qdirstat
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - stats
-  - qdirstat
-dependencies:
-  - name: common
-    version: 17.2.22
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
 annotations:
   max_scale_version: 23.10.2
   min_scale_version: 23.10.0
@@ -34,4 +6,32 @@ annotations:
   truecharts.org/max_helm_version: "3.13"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
+apiVersion: v2
+appVersion: 23.11.2
+dependencies:
+  - name: common
+    version: 17.2.22
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: QDirStat is a graphical application to show where your disk space has gone and to help you to clean it up.
+home: https://truecharts.org/charts/stable/qdirstat
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/qdirstat.png
+keywords:
+  - stats
+  - qdirstat
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: qdirstat
+sources:
+  - https://github.com/jlesage/docker-qdirstat
+  - https://github.com/truecharts/charts/tree/master/charts/stable/qdirstat
+  - https://hub.docker.com/r/jlesage/qdirstat
 type: application
+version: 7.1.6
