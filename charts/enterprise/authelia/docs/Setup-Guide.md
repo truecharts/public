@@ -67,9 +67,9 @@ Check your mail provider for this, generally Gmail gives you an app specific pas
 
 ### Access Control Configuration
 
-- This section is to set rules to connect to `Authelia` and which users can go where. This is a basic general rule below where users of the `admin` group (Steven) can access all the site using a wildcard
+- This section is to set rules to connect to `Authelia` and which users can go where. This is a basic general rule where users of the `admin` group (Steven) can access all the site using a wildcard.
 
-Set the default `deny`. Then click `Add` next to `Rules` to get the screen below
+Set the default `deny`. Then click `Add` next to `Rules` to get the screen below.
 
 ![AutheliaAccessControl](./img/AutheliaAccessControl.png)
 
@@ -77,7 +77,7 @@ Set the default `deny`. Then click `Add` next to `Rules` to get the screen below
 - Set policy to `one_factor` or `two_factor`, up to you.
 - Click `Add Subject` and add a subject of `group:admin` since `Steven` is part of that group.
 
-Please see [Authelia Rules](https://truecharts.org/charts/enterprise/authelia/authelia-rules) for more advanced rules.
+Please see [Authelia Rules](./authelia-rules) for more advanced rules.
 
 #### Setup Authelia Ingress
 
