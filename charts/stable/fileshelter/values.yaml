@@ -13,7 +13,7 @@ workload:
       containers:
         main:
           args:
-            - --http-port="{{ .Values.service.main.ports.main.port }}"
+            - --http-port={{ .Values.service.main.ports.main.port }}
             - --http-address=0.0.0.0
 service:
   main:
