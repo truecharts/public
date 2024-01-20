@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.21.3
+appVersion: 1.21.4
 dependencies:
   - name: common
     version: 17.2.22
@@ -34,16 +34,16 @@ keywords:
   - wiki
   - gitea
   - gogs
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: gitea
 sources:
-  - https://gitea.com/gitea/helm-chart
-  - https://github.com/go-gitea/gitea
   - https://github.com/truecharts/charts/tree/master/charts/stable/gitea
   - https://hub.docker.com/r/gitea/gitea
+  - https://gitea.com/gitea/helm-chart
+  - https://github.com/go-gitea/gitea
 type: application
-version: 17.1.10
+version: 17.1.11
