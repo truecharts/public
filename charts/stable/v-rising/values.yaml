@@ -24,6 +24,13 @@ service:
         port: 9876
         protocol: udp
         targetPort: 9876
+  query:
+    enabled: true
+    type: LoadBalancer
+    ports:
+        enabled: true
+        port: 9877
+        protocol: udp
 workload:
   main:
     podSpec:
