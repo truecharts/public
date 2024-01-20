@@ -7,12 +7,20 @@ securityContext:
     readOnlyRootFilesystem: false
     runAsGroup: 0
     runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          args:
+            - --http-port="{{ .Values.service.main.ports.main.port }}"
+            - --http-address=0.0.0.0
 service:
   main:
     ports:
       main:
-        port: 5901
-        targetPort: 5901
+        port: 5091
+        targetPort: 5091
 persistence:
   config:
     enabled: true
