@@ -34,7 +34,7 @@ questions:
             private: true
             default: ""
         - variable: RESOLVER
-          label: TTRSS Internal Nginx DNS Resolver
+          label: TTRSS DNS Resolver
           description: Advanced usage. Set to the default DNS server for TrueNAS Scale.
           schema:
             type: string
