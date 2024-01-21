@@ -10,7 +10,7 @@ fi
 
 echo "Chart name: $curr_chart"
 
-if [[ "$curr_chart" == "charts/operators/metallb-config" ]]; then
+if [[ "$curr_chart" == "charts/enterprise/metallb-config" ]]; then
     echo "Installing metallb chart"
     helm install metallb oci://tccr.io/truecharts/metallb --namespace metallb --create-namespace --wait
     if [[ "$?" != "0" ]]; then
