@@ -3,11 +3,11 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: networking
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.11.0
+appVersion: 2.11.1
 dependencies:
   - name: common
     version: 17.2.22
@@ -31,7 +31,7 @@ keywords:
   - nginx-proxy-manager
   - nginx
   - reverse-proxy
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -39,8 +39,8 @@ maintainers:
 name: nginx-proxy-manager
 sources:
   - https://nginxproxymanager.com/
+  - https://github.com/NginxProxyManager/nginx-proxy-manager
   - https://github.com/truecharts/charts/tree/master/charts/stable/nginx-proxy-manager
   - https://hub.docker.com/r/jc21/nginx-proxy-manager
-  - https://github.com/NginxProxyManager/nginx-proxy-manager
 type: application
-version: 8.2.0
+version: 8.2.1
