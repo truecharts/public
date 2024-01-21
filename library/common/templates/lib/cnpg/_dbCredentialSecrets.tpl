@@ -14,21 +14,21 @@
   {{- $jdbcTmpl := printf "jdbc:postgresql://%s-%%s:5432/%s" $objectData.name $objectData.database -}}
 
   {{- $creds := (dict
-    "std" (printf $stdTmpl "pooler-rw")
-    "nossl" (printf $nosslTmpl "pooler-rw")
-    "portHost" (printf $portHostTmpl "pooler-rw")
-    "host" (printf $hostTmpl "pooler-rw")
-    "jdbc" (printf $jdbcTmpl "pooler-rw")
+    "std" (printf $stdTmpl "rw")
+    "nossl" (printf $nosslTmpl "rw")
+    "portHost" (printf $portHostTmpl "rw")
+    "host" (printf $hostTmpl "rw")
+    "jdbc" (printf $jdbcTmpl "rw")
   ) -}}
 
   {{- $credsRO := dict -}}
   {{- if $objectData.pooler.createRO -}}
     {{- $credsRO = (dict
-      "std" (printf $stdTmpl "pooler-ro")
-      "nossl" (printf $nosslTmpl "pooler-ro")
-      "portHost" (printf $portHostTmpl "pooler-ro")
-      "host" (printf $hostTmpl "pooler-ro")
-      "jdbc" (printf $jdbcTmpl "pooler-ro")
+      "std" (printf $stdTmpl "ro")
+      "nossl" (printf $nosslTmpl "ro")
+      "portHost" (printf $portHostTmpl "ro")
+      "host" (printf $hostTmpl "ro")
+      "jdbc" (printf $jdbcTmpl "ro")
     ) -}}
   {{- end -}}
 
