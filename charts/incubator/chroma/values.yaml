@@ -21,8 +21,6 @@ workload:
               path: "/api/v1/heartbeat"
             readiness:
               path: "/api/v1/heartbeat"
-            startup:
-              path: "/api/v1/heartbeat"
           env:
             IS_PERSISTENT: TRUE
 
