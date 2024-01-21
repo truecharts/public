@@ -56,7 +56,7 @@ configmap:
         default="/config/init"
         if [ ! -f "$config" ]; then
           echo "File [$config] does NOT exist. Creating..."
-          cp "$default/configuration.default" "$config"
+          cp "$default/configuration.yaml.default" "$config"
         fi
         if ! grep -q "recorder:" "$config"; then
           echo "Section [recorder] does NOT exist in [$config]. Appending..."
