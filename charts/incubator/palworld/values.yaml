@@ -61,7 +61,7 @@ workload:
             SERVER_DIR: "{{ .Values.persistence.serverfiles.mountPath }}"
             STEAMCMD_DIR: "{{ .Values.persistence.steamcmd.mountPath }}"
             GAME_ID: "{{ .Values.palworld.game.id }}"
-            SRV_ADMIN_PWD: "{{ .Values.palworld.admdin.password }}"
+            SRV_ADMIN_PWD: "{{ .Values.palworld.admin.password }}"
             GAME_PARAMS: '{{ join " " .Values.palworld.params }}'
             GAME_PARAMS_EXTRA: '{{ join " " .Values.palworld.params_extra }}'
             UPDATE_PUBLIC_IP: "{{ .Values.palworld.update_public_ip }}"
