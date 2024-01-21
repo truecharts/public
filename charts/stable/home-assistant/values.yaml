@@ -51,37 +51,32 @@ configmap:
     data:
       init.sh: |-
         #!/bin/sh
+        {{ $haDBURL := (printf "%s?client_encoding=utf8" (.Values.cnpg.main.creds.std | trimAll "\"")) | quote }}
         config_file="/config/configuration.yaml"
-        if test -f "$config_file"; then
-          echo "configuration.yaml exists."
-          if grep -q recorder: "$config_file"; then
-            echo "configuration.yaml already contains recorder"
-          else
-            echo "" >> "$config_file"
-            cat /config/init/recorder.default >> "$config_file"
-          fi
-          if grep -q http: "$config_file"; then
-            echo "configuration.yaml already contains http section"
-          else
-            echo "" >> "$config_file"
-            cat /config/init/http.default >> "$config_file"
-          fi
-        else
-          echo "configuration.yaml does NOT exist."
-          cp /config/init/configuration.yaml.default "$config_file"
-          echo "" >> "$config_file"
-          cat /config/init/recorder.default >> "$config_file"
-          echo "" >> "$config_file"
-          cat /config/init/http.default >> "$config_file"
-          echo "" >> "$config_file"
+        default="/config/init"
+        if [ ! -f "$config" ]; then
+          echo "File [$config] does NOT exist. Creating..."
+          cp "$default/configuration.default" "$config"
         fi
+        if ! grep -q "recorder:" "$config"; then
+          echo "Section [recorder] does NOT exist in [$config]. Appending..."
+          echo "" >> "$config"
+          cat "$default/recorder.default" >> "$config"
+        fi
+        if ! grep -q "http:" "$config"; then
+          echo "Section [http] does NOT exist in [$config]. Appending..."
+          echo "" >> "$config"
+          cat "$default/http.default" >> "$config"
+        fi
+
+        echo "Updating database URL"
+        yq -i '.recorder.db_url = "{{ $haDBURL }}"' "$config"
+        echo "Done"
 
         echo "Creating include files..."
         for include_file in groups.yaml automations.yaml scripts.yaml scenes.yaml; do
-          if test -f "/config/$include_file"; then
-            echo "$include_file exists."
-          else
-            echo "$include_file does NOT exist."
+          if ! -f "/config/$include_file"; then
+            echo "File [$include_file] missing. Creating"
             touch "/config/$include_file"
           fi
         done
