@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: productivity
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: dev
 apiVersion: v2
 appVersion: 1.9.57
 dependencies:
@@ -25,11 +25,11 @@ dependencies:
     import-values: []
 deprecated: false
 description: Turn any datasource into an internal app in minutes. Appsmith lets you drag-and-drop UI components to build pages, connect to any API, database or GraphQL source and write logic with JavaScript objects.
-home: https://truecharts.org/charts/incubator/appsmith
+home: https://truecharts.org/charts/dev/appsmith
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/appsmith.png
 keywords:
   - appsmith
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -37,7 +37,7 @@ maintainers:
 name: appsmith
 sources:
   - https://github.com/appsmithorg/appsmith
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/appsmith
+  - https://github.com/truecharts/charts/tree/master/charts/dev/appsmith
   - https://hub.docker.com/r/appsmith/appsmith-ce
 type: application
-version: 6.0.14
+version: 6.0.15

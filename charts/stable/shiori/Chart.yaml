@@ -3,7 +3,7 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
@@ -25,16 +25,16 @@ keywords:
   - bookmark
   - bookmark-manager
   - web-interface
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: shiori
 sources:
-  - https://ghcr.io/go-shiori/shiori
   - https://github.com/go-shiori/shiori/pkgs/container/shiori
   - https://github.com/go-shiori/shiori
   - https://github.com/truecharts/charts/tree/master/charts/stable/shiori
+  - https://ghcr.io/go-shiori/shiori
 type: application
-version: 15.1.6
+version: 15.1.7

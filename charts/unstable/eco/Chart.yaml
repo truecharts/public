@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: games
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: unstable
 apiVersion: v2
 appVersion: eco
 dependencies:
@@ -18,12 +18,12 @@ dependencies:
     import-values: []
 deprecated: false
 description: A custom SteamCMD chart that runs ECO.
-home: https://truecharts.org/charts/incubator/eco
+home: https://truecharts.org/charts/unstable/eco
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/eco.png
 keywords:
   - eco
   - GameServers
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -31,7 +31,7 @@ maintainers:
 name: eco
 sources:
   - https://github.com/ich777/docker-steamcmd-server/tree/eco
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/eco
+  - https://github.com/truecharts/charts/tree/master/charts/unstable/eco
   - https://hub.docker.com/r/ich777/steamcmd
 type: application
-version: 3.1.19
+version: 3.1.20

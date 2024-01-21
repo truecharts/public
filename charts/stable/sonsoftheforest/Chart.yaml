@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: GameServers
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: sonsoftheforest
 dependencies:
@@ -18,12 +18,12 @@ dependencies:
     import-values: []
 deprecated: false
 description: A custom SteamCMD chart that runs Sons Of The Forest Server.
-home: https://truecharts.org/charts/incubator/sonsoftheforest
+home: https://truecharts.org/charts/stable/sonsoftheforest
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/sonsoftheforest.png
 keywords:
   - sonsoftheforest
   - GameServers
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -31,7 +31,7 @@ maintainers:
 name: sonsoftheforest
 sources:
   - https://github.com/ich777/docker-steamcmd-server/tree/sonsoftheforest
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/sonsoftheforest
+  - https://github.com/truecharts/charts/tree/master/charts/stable/sonsoftheforest
   - https://hub.docker.com/r/ich777/steamcmd
 type: application
-version: 2.1.9
+version: 2.1.10

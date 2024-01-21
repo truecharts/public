@@ -3,7 +3,7 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
@@ -24,7 +24,7 @@ keywords:
   - handbrake
   - encode
   - media
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -32,8 +32,8 @@ maintainers:
 name: handbrake
 sources:
   - https://handbrake.fr/
+  - https://github.com/jlesage/docker-handbrake
   - https://github.com/truecharts/charts/tree/master/charts/stable/handbrake
   - https://hub.docker.com/r/jlesage/handbrake
-  - https://github.com/jlesage/docker-handbrake
 type: application
-version: 20.0.1
+version: 20.0.2

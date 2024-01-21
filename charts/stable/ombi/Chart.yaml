@@ -3,7 +3,7 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
@@ -27,7 +27,7 @@ keywords:
   - sonarr
   - radarr
   - couchpotato
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -36,5 +36,6 @@ name: ombi
 sources:
   - https://github.com/tidusjar/Ombi
   - https://github.com/truecharts/charts/tree/master/charts/stable/ombi
+  - https://github.com/truecharts/containers/tree/master/apps/ombi
 type: application
-version: 17.1.9
+version: 17.1.10

@@ -3,11 +3,11 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: utilities
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.0.0-RC2
+appVersion: 1.0.0
 dependencies:
   - name: common
     version: 17.2.22
@@ -22,7 +22,7 @@ home: https://truecharts.org/charts/stable/mealie
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/mealie.png
 keywords:
   - grocy
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -33,4 +33,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/mealie
   - https://ghcr.io/mealie-recipes/mealie
 type: application
-version: 20.1.6
+version: 20.1.7

@@ -3,7 +3,7 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: home-automation
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
@@ -22,15 +22,15 @@ home: https://truecharts.org/charts/stable/wyoming-piper
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/wyoming-piper.png
 keywords:
   - wyoming-piper
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: wyoming-piper
 sources:
+  - https://github.com/home-assistant/addons/tree/master/piper
   - https://github.com/truecharts/charts/tree/master/charts/stable/wyoming-piper
   - https://hub.docker.com/r/rhasspy/wyoming-piper
-  - https://github.com/home-assistant/addons/tree/master/piper
 type: application
-version: 3.1.6
+version: 3.1.7

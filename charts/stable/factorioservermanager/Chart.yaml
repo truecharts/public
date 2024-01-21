@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: GameServers
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: latest
 dependencies:
@@ -17,21 +17,21 @@ dependencies:
     tags: []
     import-values: []
 deprecated: false
-description: "A tool for managing Factorio servers "
-home: https://truecharts.org/charts/incubator/factorioservermanager
+description: 'A tool for managing Factorio servers '
+home: https://truecharts.org/charts/stable/factorioservermanager
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/factorioservermanager.png
 keywords:
   - factorioservermanager
   - GameServers
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: factorioservermanager
 sources:
-  - https://hub.docker.com/r/ofsm/ofsm
   - https://github.com/OpenFactorioServerManager/factorio-server-manager
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/factorioservermanager
+  - https://github.com/truecharts/charts/tree/master/charts/stable/factorioservermanager
+  - https://hub.docker.com/r/ofsm/ofsm
 type: application
-version: 4.1.7
+version: 4.1.8

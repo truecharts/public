@@ -3,11 +3,11 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: ersion-154c581
+appVersion: 154c581
 dependencies:
   - name: common
     version: 17.2.22
@@ -26,16 +26,16 @@ keywords:
   - bookmarks
   - smart-bookmarks
   - golinks
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: golinks
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/golinks
-  - https://ghcr.io/nicholaswilde/golinks
   - https://github.com/nicholaswilde/docker-golinks
   - https://github.com/prologic/golinks
+  - https://github.com/truecharts/charts/tree/master/charts/stable/golinks
+  - https://ghcr.io/nicholaswilde/golinks
 type: application
-version: 10.1.6
+version: 10.1.7

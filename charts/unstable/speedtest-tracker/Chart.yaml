@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: speedtest
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: unstable
 apiVersion: v2
 appVersion: 0.13.4
 dependencies:
@@ -18,11 +18,11 @@ dependencies:
     import-values: []
 deprecated: false
 description: A self-hosted internet performance tracking application that runs speedtest checks against Ookla's Speedtest service.
-home: https://truecharts.org/charts/incubator/speedtest-tracker
+home: https://truecharts.org/charts/unstable/speedtest-tracker
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/speedtest-tracker.png
 keywords:
   - speedtest
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -30,7 +30,7 @@ maintainers:
 name: speedtest-tracker
 sources:
   - https://github.com/alexjustesen/speedtest-tracker
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/speedtest-tracker
+  - https://github.com/truecharts/charts/tree/master/charts/unstable/speedtest-tracker
   - https://ghcr.io/alexjustesen/speedtest-tracker
 type: application
-version: 4.0.31
+version: 4.0.32

@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: documentation
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: unstable
 apiVersion: v2
 appVersion: latest
 dependencies:
@@ -18,12 +18,12 @@ dependencies:
     import-values: []
 deprecated: false
 description: A free, open-source expert system for guided interviews and document assembly.
-home: https://truecharts.org/charts/incubator/docassemble
+home: https://truecharts.org/charts/unstable/docassemble
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/docassemble.png
 keywords:
   - docassemble
   - documentation
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -31,7 +31,7 @@ maintainers:
 name: docassemble
 sources:
   - https://github.com/jhpyle/docassemble
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/docassemble
+  - https://github.com/truecharts/charts/tree/master/charts/unstable/docassemble
   - https://hub.docker.com/r/jhpyle/docassemble
 type: application
-version: 0.0.20
+version: 0.0.21

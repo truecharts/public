@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: notifications
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: dev
 apiVersion: v2
 appVersion: 0.9.7
 dependencies:
@@ -18,21 +18,21 @@ dependencies:
     import-values: []
 deprecated: false
 description: Push notifications that work with just about every platform!
-home: https://truecharts.org/charts/incubator/apprise-api
+home: https://truecharts.org/charts/dev/apprise-api
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/apprise-api.png
 keywords:
   - apprise-api
   - notifications
   - usenet
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: apprise-api
 sources:
-  - https://hub.docker.com/r/caronc/apprise
   - https://github.com/caronc/apprise-api
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/apprise-api
+  - https://github.com/truecharts/charts/tree/master/charts/dev/apprise-api
+  - https://hub.docker.com/r/caronc/apprise
 type: application
-version: 4.0.14
+version: 4.0.15

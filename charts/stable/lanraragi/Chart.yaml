@@ -1,25 +1,13 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 apiVersion: v2
-name: lanraragi
-version: 8.1.6
-appVersion: ""
-description: Open source server for archival of comics/manga.
-home: https://truecharts.org/charts/stable/lanraragi
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/lanraragi.png
-deprecated: false
-sources:
-  - https://github.com/Difegue/LANraragi
-  - https://sugoi.gitbook.io/lanraragi/
-  - https://github.com/truecharts/charts/tree/master/charts/stable/lanraragi
-  - https://hub.docker.com/r/difegue/lanraragi
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - lanraragi
-  - comics
-  - manga
+appVersion: 0.9.0
 dependencies:
   - name: common
     version: 17.2.22
@@ -28,12 +16,24 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+deprecated: false
+description: Open source server for archival of comics/manga.
+home: https://truecharts.org/charts/stable/lanraragi
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/lanraragi.png
+keywords:
+  - lanraragi
+  - comics
+  - manga
+kubeVersion: '>=1.24.0-0'
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: lanraragi
+sources:
+  - https://github.com/Difegue/LANraragi
+  - https://sugoi.gitbook.io/lanraragi/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/lanraragi
+  - https://hub.docker.com/r/difegue/lanraragi
 type: application
+version: 8.1.7

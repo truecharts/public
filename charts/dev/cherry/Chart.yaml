@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: bookmark
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: dev
 apiVersion: v2
 appVersion: 0.0.7
 dependencies:
@@ -18,11 +18,11 @@ dependencies:
     import-values: []
 deprecated: false
 description: An open source self-hosted bookmark service
-home: https://truecharts.org/charts/incubator/cherry
+home: https://truecharts.org/charts/dev/cherry
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/cherry.png
 keywords:
   - bookmark
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -31,7 +31,7 @@ name: cherry
 sources:
   - https://cherry.haishan.me/
   - https://github.com/haishanh/cherry
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/cherry
+  - https://github.com/truecharts/charts/tree/master/charts/dev/cherry
   - https://hub.docker.com/r/haishanh/cherry
 type: application
-version: 3.0.13
+version: 3.0.14

@@ -3,7 +3,7 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: productivity
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
@@ -23,15 +23,15 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/traggo.png
 keywords:
   - time-tracking
   - tag
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: traggo
 sources:
-  - https://hub.docker.com/r/traggo/server
   - https://github.com/traggo/server
   - https://github.com/truecharts/charts/tree/master/charts/stable/traggo
+  - https://hub.docker.com/r/traggo/server
 type: application
-version: 5.1.6
+version: 5.1.7

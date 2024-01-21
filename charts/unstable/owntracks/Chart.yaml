@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: unstable
 apiVersion: v2
 appVersion: 0.9.6
 dependencies:
@@ -18,12 +18,12 @@ dependencies:
     import-values: []
 deprecated: false
 description: The OwnTracks Recorder is a lightweight program for storing and accessing location data published via MQTT (or HTTP) by the OwnTracks apps.
-home: https://truecharts.org/charts/incubator/owntracks
+home: https://truecharts.org/charts/unstable/owntracks
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/owntracks.png
 keywords:
   - owncharts
   - location
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -32,7 +32,7 @@ name: owntracks
 sources:
   - https://github.com/owntracks/recorder
   - https://github.com/owntracks/docker-recorder
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/owntracks
+  - https://github.com/truecharts/charts/tree/master/charts/unstable/owntracks
   - https://hub.docker.com/r/owntracks/recorder
 type: application
-version: 1.0.13
+version: 1.0.14

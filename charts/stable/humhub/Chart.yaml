@@ -3,7 +3,7 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Network-Web
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
@@ -37,7 +37,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/humhub.png
 keywords:
   - humhub
   - Network-Web
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -46,5 +46,6 @@ name: humhub
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/humhub
   - https://ghcr.io/mriedmann/humhub-nginx
+  - https://ghcr.io/mriedmann/humhub-phponly
 type: application
-version: 6.2.3
+version: 6.2.4

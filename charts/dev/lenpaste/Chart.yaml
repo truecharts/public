@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: productivity
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: dev
 apiVersion: v2
 appVersion: 1.1.1
 dependencies:
@@ -18,11 +18,11 @@ dependencies:
     import-values: []
 deprecated: false
 description: Lenpaste is a web service that allows you to share notes anonymously
-home: https://truecharts.org/charts/incubator/lenpaste
+home: https://truecharts.org/charts/dev/lenpaste
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/lenpaste.png
 keywords:
   - lenpaste
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -30,6 +30,6 @@ maintainers:
 name: lenpaste
 sources:
   - https://git.lcomrade.su/root/lenpaste
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/lenpaste
+  - https://github.com/truecharts/charts/tree/master/charts/dev/lenpaste
 type: application
-version: 4.0.13
+version: 4.0.14

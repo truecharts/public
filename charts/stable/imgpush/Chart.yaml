@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Cloud
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: latest
 dependencies:
@@ -18,7 +18,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Minimalist Self-hosted Image Service for user submitted images in your app (e.g. avatars).
-home: https://truecharts.org/charts/incubator/imgpush
+home: https://truecharts.org/charts/stable/imgpush
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/imgpush.png
 keywords:
   - imgpush
@@ -27,15 +27,15 @@ keywords:
   - MediaServer-Photos
   - Network-Web
   - Network-FTP
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: imgpush
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/imgpush
-  - https://hub.docker.com/r/hauxir/imgpush
   - https://github.com/hauxir/imgpush
+  - https://github.com/truecharts/charts/tree/master/charts/stable/imgpush
+  - https://hub.docker.com/r/hauxir/imgpush
 type: application
-version: 4.1.7
+version: 4.1.8

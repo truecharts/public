@@ -3,7 +3,7 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: MediaApp-Other
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
@@ -25,15 +25,15 @@ keywords:
   - MediaApp-Other
   - Tools-Utilities
   - Other
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: pasta
 sources:
+  - https://github.com/cglatot/pasta
   - https://github.com/truecharts/charts/tree/master/charts/stable/pasta
   - https://hub.docker.com/r/cglatot/pasta
-  - https://github.com/cglatot/pasta
 type: application
-version: 7.1.6
+version: 7.1.7

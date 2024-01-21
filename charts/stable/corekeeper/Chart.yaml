@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: GameServers
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: corekeeper
 dependencies:
@@ -18,12 +18,12 @@ dependencies:
     import-values: []
 deprecated: false
 description: This Chart will download and install SteamCMD. It will also install CoreKeeper and run it.
-home: https://truecharts.org/charts/incubator/corekeeper
+home: https://truecharts.org/charts/stable/corekeeper
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/corekeeper.png
 keywords:
   - corekeeper
   - GameServers
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -31,7 +31,7 @@ maintainers:
 name: corekeeper
 sources:
   - https://steampowered.com/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/corekeeper
+  - https://github.com/truecharts/charts/tree/master/charts/stable/corekeeper
   - https://hub.docker.com/r/ich777/steamcmd
 type: application
-version: 4.1.7
+version: 4.1.8

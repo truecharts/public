@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Cloud
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: latest
 dependencies:
@@ -18,7 +18,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Quick and simple file sharing between different devices.
-home: https://truecharts.org/charts/incubator/quickshare
+home: https://truecharts.org/charts/stable/quickshare
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/quickshare.png
 keywords:
   - quickshare
@@ -26,7 +26,7 @@ keywords:
   - Productivity
   - Tools-Utilities
   - Network-FTP
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -34,7 +34,7 @@ maintainers:
 name: quickshare
 sources:
   - https://github.com/ihexxa/quickshare
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/quickshare
+  - https://github.com/truecharts/charts/tree/master/charts/stable/quickshare
   - https://hub.docker.com/r/hexxa/quickshare
 type: application
-version: 4.1.6
+version: 4.1.7

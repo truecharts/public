@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Downloaders
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: latest
 dependencies:
@@ -18,21 +18,21 @@ dependencies:
     import-values: []
 deprecated: false
 description: gPodder is a simple, open source podcast client written in Python using GTK+. In development since 2005 with a proven, mature codebase.&amp;#xD;
-home: https://truecharts.org/charts/incubator/gpodder
+home: https://truecharts.org/charts/stable/gpodder
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/gpodder.png
 keywords:
   - gpodder
   - Downloaders
   - MediaApp-Other
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: gpodder
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/gpodder
-  - https://hub.docker.com/r/xthursdayx/gpodder-docker
   - https://gpodder.github.io/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/gpodder
+  - https://hub.docker.com/r/xthursdayx/gpodder-docker
 type: application
-version: 4.1.6
+version: 4.1.7

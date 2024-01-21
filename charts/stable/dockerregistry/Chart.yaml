@@ -3,11 +3,11 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Cloud
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
-appVersion: "2"
+appVersion: 2.0.0
 dependencies:
   - name: common
     version: 17.2.22
@@ -19,7 +19,7 @@ dependencies:
 deprecated: false
 description: |
   Docker Registry is used to store and distribute Docker images using HTTP API. This allows you host your own private Registry and store your images. Uses official Chart Registry image @ https://hub.Chart.com/_/registry/
-home: https://truecharts.org/charts/incubator/dockerregistry
+home: https://truecharts.org/charts/stable/dockerregistry
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/dockerregistry.png
 keywords:
   - dockerregistry
@@ -27,7 +27,7 @@ keywords:
   - Network-Management
   - Productivity
   - Tools-Utilities
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,8 +35,8 @@ maintainers:
 name: dockerregistry
 sources:
   - https://registry.hub.docker.com/_/registry/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/dockerregistry
-  - https://hub.docker.com/_/registry
   - https://github.com/distribution/distribution
+  - https://github.com/truecharts/charts/tree/master/charts/stable/dockerregistry
+  - https://hub.docker.com/_/registry
 type: application
-version: 4.1.7
+version: 4.1.8

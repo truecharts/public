@@ -3,7 +3,7 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: database
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
@@ -31,15 +31,15 @@ keywords:
   - mongo
   - mongodb
   - database
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: mongo-express
 sources:
-  - https://hub.docker.com/_/mongo-express
   - https://github.com/mongo-express/mongo-express
   - https://github.com/truecharts/charts/tree/master/charts/stable/mongo-express
+  - https://hub.docker.com/_/mongo-express
 type: application
-version: 5.1.10
+version: 5.1.11

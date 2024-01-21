@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Downloaders
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: latest
 dependencies:
@@ -18,12 +18,12 @@ dependencies:
     import-values: []
 deprecated: false
 description: a xml grabber for enigma with open webif
-home: https://truecharts.org/charts/incubator/owi2plex
+home: https://truecharts.org/charts/stable/owi2plex
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/owi2plex.png
 keywords:
   - owi2plex
   - Downloaders
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -31,7 +31,7 @@ maintainers:
 name: owi2plex
 sources:
   - https://github.com/alturismo/owi2plex
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/owi2plex
+  - https://github.com/truecharts/charts/tree/master/charts/stable/owi2plex
   - https://hub.docker.com/r/alturismo/owi2plex
 type: application
-version: 4.1.6
+version: 4.1.7

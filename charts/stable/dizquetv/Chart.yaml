@@ -3,7 +3,7 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
@@ -23,15 +23,15 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/dizquetv.png
 keywords:
   - dizqueTV
   - dizquetv
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: dizquetv
 sources:
-  - https://hub.docker.com/r/vexorian/dizquetv
   - https://github.com/vexorian/dizquetv
   - https://github.com/truecharts/charts/tree/master/charts/stable/dizquetv
+  - https://hub.docker.com/r/vexorian/dizquetv
 type: application
-version: 13.1.7
+version: 13.1.8

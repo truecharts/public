@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: dev
 apiVersion: v2
 appVersion: 1.19.3
 dependencies:
@@ -25,13 +25,13 @@ dependencies:
     import-values: []
 deprecated: false
 description: Open Source design and prototyping platform.
-home: https://truecharts.org/charts/incubator/penpot
+home: https://truecharts.org/charts/dev/penpot
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/penpot.png
 keywords:
   - penpot
   - media
   - design
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -39,7 +39,9 @@ maintainers:
 name: penpot
 sources:
   - https://github.com/penpot/penpot
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/penpot
+  - https://github.com/truecharts/charts/tree/master/charts/dev/penpot
+  - https://hub.docker.com/r/penpotapp/backend
+  - https://hub.docker.com/r/penpotapp/exporter
   - https://hub.docker.com/r/penpotapp/frontend
 type: application
-version: 4.0.12
+version: 4.0.13

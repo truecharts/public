@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: dev
 apiVersion: v2
 appVersion: 6.3.12
 dependencies:
@@ -18,22 +18,22 @@ dependencies:
     import-values: []
 deprecated: false
 description: OpenKM integrates all essential documents management, collaboration and an advanced search functionality into one easy to use solution.
-home: https://truecharts.org/charts/incubator/openkm
+home: https://truecharts.org/charts/dev/openkm
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/openkm.png
 keywords:
   - openkm
   - documentation management
   - docs
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: openkm
 sources:
-  - https://hub.docker.com/r/openkm/openkm-ce
   - https://github.com/openkm/document-management-system
   - https://www.openkm.com/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/openkm
+  - https://github.com/truecharts/charts/tree/master/charts/dev/openkm
+  - https://hub.docker.com/r/openkm/openkm-ce
 type: application
-version: 12.0.13
+version: 12.0.14

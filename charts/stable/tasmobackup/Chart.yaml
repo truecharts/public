@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: home-automation
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: 1.05.00
 dependencies:
@@ -18,21 +18,21 @@ dependencies:
     import-values: []
 deprecated: false
 description: backup all your tasmota devices in one place.
-home: https://truecharts.org/charts/incubator/tasmobackup
+home: https://truecharts.org/charts/stable/tasmobackup
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/tasmobackup.png
 keywords:
   - tasmobackup
   - home-automation
   - Network-Management
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: tasmobackup
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/tasmobackup
-  - https://hub.docker.com/r/danmed/tasmobackupv1
   - https://github.com/danmed/TasmoBackupV1
+  - https://github.com/truecharts/charts/tree/master/charts/stable/tasmobackup
+  - https://hub.docker.com/r/danmed/tasmobackupv1
 type: application
-version: 5.1.10
+version: 5.1.11
