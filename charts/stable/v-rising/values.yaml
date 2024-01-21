@@ -24,6 +24,14 @@ service:
         port: 9876
         protocol: udp
         targetPort: 9876
+  query:
+    enabled: true
+    ports:
+      query:
+        enabled: true
+        port: 9877
+        protocol: udp
+        targetPort: 9877
 workload:
   main:
     podSpec:

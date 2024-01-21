@@ -59,6 +59,12 @@ questions:
                                           type: string
                                           required: true
                                           default: "1m"
+                                      - variable: NTFY_UPSTREAM_BASE_URL
+                                        label: "Upstream Base URL"
+                                        description: "Needed for iOS Push Notifications"
+                                        schema:
+                                          type: string
+                                          default: "https://ntfy.sh"
                                       - variable: NTFY_GLOBAL_TOPIC_LIMIT
                                         label: "Global Topic Limit"
                                         description: "Rate limiting: Total number of topics before the server rejects new topics."

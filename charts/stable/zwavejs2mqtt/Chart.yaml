@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 9.6.2
+appVersion: 9.7.0
 dependencies:
   - name: common
     version: 17.2.22
@@ -32,8 +32,8 @@ maintainers:
     url: https://truecharts.org
 name: zwavejs2mqtt
 sources:
-  - https://github.com/zwave-js/zwavejs2mqtt
   - https://github.com/truecharts/charts/tree/master/charts/stable/zwavejs2mqtt
   - https://hub.docker.com/r/zwavejs/zwave-js-ui
+  - https://github.com/zwave-js/zwavejs2mqtt
 type: application
-version: 18.1.6
+version: 18.2.0
