@@ -15,7 +15,7 @@ workload:
         init:
           type: init
           enabled: true
-          imageSelector: image
+          imageSelector: yqImage
           command: /config/init/init.sh
 # # Enable devices to be discoverable
 # hostNetwork: true
@@ -51,8 +51,8 @@ configmap:
     data:
       init.sh: |-
         #!/bin/sh
-        {{ $haDBURL := (printf "%s?client_encoding=utf8" (.Values.cnpg.main.creds.std | trimAll "\"")) | quote }}
-        config_file="/config/configuration.yaml"
+        {{- $haDBURL := (printf "%s?client_encoding=utf8" ($.Values.cnpg.main.creds.std | trimAll "\"")) }}
+        config="/config/configuration.yaml"
         default="/config/init"
         if [ ! -f "$config" ]; then
           echo "File [$config] does NOT exist. Creating..."
@@ -75,7 +75,7 @@ configmap:
 
         echo "Creating include files..."
         for include_file in groups.yaml automations.yaml scripts.yaml scenes.yaml; do
-          if ! -f "/config/$include_file"; then
+          if [ ! -f "/config/$include_file" ]; then
             echo "File [$include_file] missing. Creating"
             touch "/config/$include_file"
           fi
@@ -83,7 +83,7 @@ configmap:
 
         cd "/config" || echo "Could not change path to /config"
         echo "Creating custom_components directory..."
-        mkdir "/config/custom_components" || echo "custom_components directory already exists"
+        mkdir -p "/config/custom_components" || echo "custom_components directory already exists"
 
         echo "Changing to the custom_components directory..."
         cd "/config/custom_components" || echo "Could not change path to /config/custom_components"
@@ -97,7 +97,7 @@ configmap:
         fi
 
         echo "Creating HACS directory..."
-        mkdir "/config/custom_components/hacs"
+        mkdir -p "/config/custom_components/hacs"
 
         echo "Unpacking HACS..."
         unzip "/config/custom_components/hacs.zip" -d "/config/custom_components/hacs" >/dev/null 2>&1
