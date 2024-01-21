@@ -25,7 +25,7 @@ workload:
         main:
           env:
             SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
-            STORAGE_DIR: "{{ .Values.persistence.config.mountPath }}"
+            STORAGE_DIR: "{{.Values.persistence.storage.mountPath }}"
             # forces users to use ingress if https is needed.
             # keep false.
             ENABLE_HTTPS: false
