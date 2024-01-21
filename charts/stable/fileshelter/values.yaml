@@ -1,11 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: epoupon/fileshelter
-  tag: latest@sha256:0ed70bdc5197566dedfa7e49bc2c92d71d279562993664ecf9554c7b4374e8c3
-persistence: {}
-portal:
-  open:
-    enabled: false
+  tag: 6.1.0@sha256:b8d12b464bfcac2b6b56c27dc2bc8bd5230610d13d971434c0d3d06f471693db
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -13,19 +9,14 @@ securityContext:
     runAsUser: 0
 service:
   main:
-    enabled: false
     ports:
       main:
-        enabled: false
-workload:
-  main:
-    podSpec:
-      containers:
-        main:
-          probes:
-            liveness:
-              enabled: false
-            readiness:
-              enabled: false
-            startup:
-              enabled: false
+        port: 5091
+        targetPort: 5091
+persistence:
+  config:
+    enabled: true
+    mountPath: /var/fileshelter
+portal:
+  open:
+    enabled: true

@@ -213,12 +213,6 @@
     },
     {
       "matchDatasources": ["docker"],
-      "versioning": "regex:^18-jammy-(full|lite)-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
-      "matchPackageNames": ["koush/scrypted"],
-      "groupName": "scrypted"
-    },
-    {
-      "matchDatasources": ["docker"],
       "versioning": "regex:^v(?<major>\\d{2})(?<minor>\\d{2})(?<patch>\\d{2})$",
       "matchPackageNames": ["photoprism"],
     },
@@ -384,7 +378,7 @@
     },
     {
       "matchDatasources": ["docker"],
-      "versioning": "regex:^\\d*-jammy-(?<variant>.+)-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "versioning": "regex:^\\d+-jammy-(?<compatibility>(full|lite))-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
       "matchPackagePatterns": ["^.+\\/koush\\/scrypted$"],
       "automerge": true,
     },
