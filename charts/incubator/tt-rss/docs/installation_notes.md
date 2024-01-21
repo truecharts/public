@@ -2,7 +2,7 @@
 title: TT-RSS Installation Notes
 ---
 
-#### Credentials
+## Credentials
 
 TT-RSS will create a user (named `admin`) on first run. If no password is given in the *TTRSS Admin User Pass* field, then a password is automatically generated and printed to the app's logs. Otherwise the password entered in that field will be used.
 
@@ -17,23 +17,23 @@ To reach the automatically generated password, select the tt-rss app in TrueNAS'
 *****************************************************************************
 ```
 
-### Configuring path and URL
+## Configuring path and URL
 
 TT-RSS has defaults which expect it to be installed and reachable at a url ending in `/tt-rss/` (e.g. https://rss.me.com/tt-rss/). This SCALE app comes with adjusted defaults that eliminate this ending portion (e.g. https://rss.me.com/).
 
 If an advanced user wishes to alter the app path, use the *App Web Root Path* and *App Base Path* fields to do so. Read more here: https://tt-rss.org/wiki/InstallationNotes#how-do-i-make-it-run-without-tt-rss-in-the-url-i.e.-at-website-root
 
-#### Install to subdomain with traefik + ingress
+### Install to subdomain with traefik + ingress
 
 - Set `TTRSS Self URL Path` to `https://subdomain.scale_domain.tld/`.
   - Configure ingress on the app
 
-#### Install to IP address
+### Install to IP address
 
 - Set `TTRSS Self URL Path` to `http://SCALE_IP:APP_PORT/`.
   - Ensure the app's port is set to LoadBalancer to allow external browsers to reach it.
 
-#### Resolver - Advanced Usage
+## Resolver - Advanced Usage
 
 :::danger TrueNAS DNS IP
 Changing the `Cluster DNS IP` address in TrueNAS SCALE will **DELETE your APPS and APP DATA!**
