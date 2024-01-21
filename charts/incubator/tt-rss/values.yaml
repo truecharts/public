@@ -48,12 +48,12 @@ persistence:
         nginx:
           mountPath: /etc/nginx/templates/nginx.conf.template
           subPath: nginx.conf.template
-  # plugins:
-  #   enabled: true
-  #   mountPath: /var/www/html/tt-rss/plugins.local
-  # themes:
-  #   enabled: true
-  #   mountPath: /var/www/html/tt-rss/themes.local
+  plugins:
+    enabled: true
+    mountPath: /var/www/html/tt-rss/plugins.local
+  themes:
+    enabled: true
+    mountPath: /var/www/html/tt-rss/themes.local
 cnpg:
   main:
     enabled: true
