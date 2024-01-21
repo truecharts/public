@@ -1,7 +1,6 @@
 ---
-title: Installation Guide for TrueNAS SCALE
+title: Installation Guide
 ---
-
 
 ### TrueNAS SCALE Installation Hints
 
