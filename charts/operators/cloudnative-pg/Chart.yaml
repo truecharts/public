@@ -3,7 +3,7 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: operators
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: operators
 apiVersion: v2
@@ -31,7 +31,7 @@ keywords:
   - database
   - cloudnative-pg
   - cnpg
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -41,5 +41,6 @@ sources:
   - https://cloudnative-pg.io/
   - https://github.com/cloudnative-pg
   - https://github.com/truecharts/charts/tree/master/charts/operators/cloudnative-pg
+  - https://github.com/truecharts/containers/tree/master/apps/alpine
 type: application
-version: 5.2.9
+version: 5.2.10

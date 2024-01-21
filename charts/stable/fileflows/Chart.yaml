@@ -3,11 +3,11 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: "24.01"
+appVersion: 24.01.0
 dependencies:
   - name: common
     version: 17.2.22
@@ -29,8 +29,8 @@ maintainers:
     url: https://truecharts.org
 name: fileflows
 sources:
-  - https://hub.docker.com/r/revenz/fileflows
   - https://github.com/revenz/FileFlows
   - https://github.com/truecharts/charts/tree/master/charts/stable/fileflows
+  - https://hub.docker.com/r/revenz/fileflows
 type: application
-version: 9.0.0
+version: 9.0.1

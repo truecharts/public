@@ -3,7 +3,7 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
@@ -22,7 +22,7 @@ home: https://truecharts.org/charts/stable/channels-dvr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/channels-dvr.png
 keywords:
   - channels-dvr
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -32,4 +32,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/channels-dvr
   - https://hub.docker.com/r/fancybits/channels-dvr
 type: application
-version: 5.1.8
+version: 5.1.9

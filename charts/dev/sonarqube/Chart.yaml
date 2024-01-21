@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Tools-Utilities
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: dev
 apiVersion: v2
 appVersion: latest
 dependencies:
@@ -17,13 +17,13 @@ dependencies:
     tags: []
     import-values: []
 deprecated: false
-description: "SonarQube is an open source platform for continuous inspection of code quality.   "
-home: https://truecharts.org/charts/incubator/sonarqube
+description: 'SonarQube is an open source platform for continuous inspection of code quality.   '
+home: https://truecharts.org/charts/dev/sonarqube
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/sonarqube.png
 keywords:
   - sonarqube
   - Tools-Utilities
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -31,7 +31,7 @@ maintainers:
 name: sonarqube
 sources:
   - https://github.com/SonarSource/sonarqube
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/sonarqube
+  - https://github.com/truecharts/charts/tree/master/charts/dev/sonarqube
   - https://hub.docker.com/_/sonarqube
 type: application
-version: 3.0.13
+version: 3.0.14

@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Tools-Utilities
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: latest
 dependencies:
@@ -18,12 +18,12 @@ dependencies:
     import-values: []
 deprecated: false
 description: Not everyone, especially people new to Linux and Unraid, know what a command that they type i will actually do.
-home: https://truecharts.org/charts/incubator/explainshell
+home: https://truecharts.org/charts/stable/explainshell
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/explainshell.png
 keywords:
   - explainshell
   - Tools-Utilities
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -31,7 +31,7 @@ maintainers:
 name: explainshell
 sources:
   - https://github.com/idank/explainshell
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/explainshell
+  - https://github.com/truecharts/charts/tree/master/charts/stable/explainshell
   - https://hub.docker.com/r/spaceinvaderone/explainshell
 type: application
-version: 4.1.7
+version: 4.1.8

@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: notes
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: latest
 dependencies:
@@ -18,11 +18,11 @@ dependencies:
     import-values: []
 deprecated: false
 description: BatNoter is a web application that allows users to store notes in their git repository.
-home: https://truecharts.org/charts/incubator/batnoter
+home: https://truecharts.org/charts/stable/batnoter
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/batnoter.png
 keywords:
   - notes
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -30,7 +30,7 @@ maintainers:
 name: batnoter
 sources:
   - https://github.com/batnoter/batnoter
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/batnoter
+  - https://github.com/truecharts/charts/tree/master/charts/stable/batnoter
   - https://ghcr.io/batnoter/batnoter/batnoter-ui
 type: application
-version: 4.1.7
+version: 4.1.8

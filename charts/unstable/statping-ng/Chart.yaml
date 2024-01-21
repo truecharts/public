@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: statistics
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: unstable
 apiVersion: v2
 appVersion: 0.90.80
 dependencies:
@@ -18,13 +18,13 @@ dependencies:
     import-values: []
 deprecated: false
 description: Status page for monitoring your websites and applications.
-home: https://truecharts.org/charts/incubator/statping-ng
+home: https://truecharts.org/charts/unstable/statping-ng
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/statping-ng.png
 keywords:
   - statping-ng
   - status
   - status-page
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -32,7 +32,7 @@ maintainers:
 name: statping-ng
 sources:
   - https://github.com/statping/statping
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/statping-ng
+  - https://github.com/truecharts/charts/tree/master/charts/unstable/statping-ng
   - https://quay.io/statping-ng/statping-ng
 type: application
-version: 13.0.12
+version: 13.0.13

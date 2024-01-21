@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: incubator
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: dev
 apiVersion: v2
 appVersion: 7.5.5
 dependencies:
@@ -18,18 +18,18 @@ dependencies:
     import-values: []
 deprecated: false
 description: LibreOffice is a free and powerful office suite, and a successor to OpenOffice.org.
-home: https://truecharts.org/charts/incubator/libreoffice
+home: https://truecharts.org/charts/dev/libreoffice
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/libreoffice.png
 keywords:
   - libreoffice
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: libreoffice
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/libreoffice
+  - https://github.com/truecharts/charts/tree/master/charts/dev/libreoffice
   - https://ghcr.io/linuxserver/libreoffice
 type: application
-version: 6.0.13
+version: 6.0.14

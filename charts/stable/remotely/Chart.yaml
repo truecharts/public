@@ -3,11 +3,11 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Tools-Utilities
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
-appVersion: "1380"
+appVersion: 1380.0.0
 dependencies:
   - name: common
     version: 17.2.22
@@ -18,12 +18,12 @@ dependencies:
     import-values: []
 deprecated: false
 description: A remote control and remote scripting solution, built with .NET 5, Blazor, SignalR Core, and WebRTC.
-home: https://truecharts.org/charts/incubator/remotely
+home: https://truecharts.org/charts/stable/remotely
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/remotely.png
 keywords:
   - remotely
   - Tools-Utilities
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -31,7 +31,7 @@ maintainers:
 name: remotely
 sources:
   - https://remotely.one/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/remotely
+  - https://github.com/truecharts/charts/tree/master/charts/stable/remotely
   - https://hub.docker.com/r/immybot/remotely
 type: application
-version: 4.1.6
+version: 4.1.7

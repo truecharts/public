@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "false"
   truecharts.org/category: CSI
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: operators
 apiVersion: v2
 appVersion: latest
 dependencies:
@@ -25,12 +25,12 @@ dependencies:
     import-values: []
 deprecated: false
 description: csi-driver-smb is a smb CSI driver for kubernetes
-home: https://truecharts.org/charts/incubator/csi-driver-smb
+home: https://truecharts.org/charts/operators/csi-driver-smb
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/csi-driver-smb.png
 keywords:
   - csi-driver-smb
   - backup
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -39,6 +39,7 @@ name: csi-driver-smb
 sources:
   - https://cert-manager.io/
   - https://github.com/cert-manager
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/csi-driver-smb
+  - https://github.com/truecharts/charts/tree/master/charts/operators/csi-driver-smb
+  - https://github.com/truecharts/containers/tree/master/apps/alpine
 type: application
-version: 2.2.0
+version: 2.2.1

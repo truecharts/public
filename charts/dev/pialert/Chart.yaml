@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: networking
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: dev
 apiVersion: v2
 appVersion: latest
 dependencies:
@@ -18,12 +18,12 @@ dependencies:
     import-values: []
 deprecated: false
 description: Monitoring your WIFI/LAN network and alerting of new (intruder or hacker) devices.
-home: https://truecharts.org/charts/incubator/pialert
+home: https://truecharts.org/charts/dev/pialert
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pialert.png
 keywords:
   - pialert
   - networking
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -31,7 +31,7 @@ maintainers:
 name: pialert
 sources:
   - https://github.com/jokob-sk/Pi.Alert
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/pialert
+  - https://github.com/truecharts/charts/tree/master/charts/dev/pialert
   - https://hub.docker.com/r/jokobsk/pi.alert
 type: application
-version: 3.0.13
+version: 3.0.14

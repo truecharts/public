@@ -3,7 +3,7 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: incubator
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
@@ -22,14 +22,14 @@ home: https://truecharts.org/charts/stable/nano-wallet
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/nano-wallet.png
 keywords:
   - nano-wallet
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: nano-wallet
 sources:
-  - https://ghcr.io/linuxserver/nano-wallet
   - https://github.com/truecharts/charts/tree/master/charts/stable/nano-wallet
+  - https://ghcr.io/linuxserver/nano-wallet
 type: application
-version: 8.1.6
+version: 8.1.7

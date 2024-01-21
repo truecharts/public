@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Network-Messenger
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: stable
 dependencies:
@@ -18,12 +18,12 @@ dependencies:
     import-values: []
 deprecated: false
 description: Convos is the simplest way to use IRC and it is always online
-home: https://truecharts.org/charts/incubator/convos
+home: https://truecharts.org/charts/stable/convos
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/convos.png
 keywords:
   - convos
   - Network-Messenger
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -31,7 +31,7 @@ maintainers:
 name: convos
 sources:
   - https://convos.chat/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/convos
+  - https://github.com/truecharts/charts/tree/master/charts/stable/convos
   - https://hub.docker.com/r/convos/convos
 type: application
-version: 4.1.7
+version: 4.1.8

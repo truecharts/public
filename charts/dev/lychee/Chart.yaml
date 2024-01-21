@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: dev
 apiVersion: v2
 appVersion: 4.13.0
 dependencies:
@@ -25,13 +25,13 @@ dependencies:
     import-values: []
 deprecated: false
 description: Lychee is a free photo-management tool, which runs on your server or web-space
-home: https://truecharts.org/charts/incubator/lychee
+home: https://truecharts.org/charts/dev/lychee
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/lychee.png
 keywords:
   - lychee
   - photo
   - pictures
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -39,7 +39,7 @@ maintainers:
 name: lychee
 sources:
   - https://github.com/LycheeOrg/Lychee
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/lychee
+  - https://github.com/truecharts/charts/tree/master/charts/dev/lychee
   - https://hub.docker.com/r/lycheeorg/lychee-laravel
 type: application
-version: 18.0.13
+version: 18.0.14

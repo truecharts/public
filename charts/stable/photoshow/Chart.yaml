@@ -3,11 +3,11 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: ersion-48aabb98
+appVersion: 48aabb98
 dependencies:
   - name: common
     version: 17.2.22
@@ -26,7 +26,7 @@ keywords:
   - show
   - gallary
   - image
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -38,4 +38,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/photoshow
   - https://ghcr.io/linuxserver/photoshow
 type: application
-version: 9.1.6
+version: 9.1.7

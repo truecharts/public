@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Cloud
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: latest
 dependencies:
@@ -17,8 +17,8 @@ dependencies:
     tags: []
     import-values: []
 deprecated: false
-description: "Homepage: http://bpatrik.github.io/pigallery2/"
-home: https://truecharts.org/charts/incubator/pigallery2
+description: 'Homepage: http://bpatrik.github.io/pigallery2/'
+home: https://truecharts.org/charts/stable/pigallery2
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pigallery2.png
 keywords:
   - pigallery2
@@ -29,7 +29,7 @@ keywords:
   - MediaServer-Video
   - MediaServer-Music
   - MediaServer-Photos
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -37,7 +37,7 @@ maintainers:
 name: pigallery2
 sources:
   - https://github.com/bpatrik/pigallery2
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/pigallery2
+  - https://github.com/truecharts/charts/tree/master/charts/stable/pigallery2
   - https://hub.docker.com/r/bpatrik/pigallery2
 type: application
-version: 4.1.6
+version: 4.1.7

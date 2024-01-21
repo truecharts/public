@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: home-automation
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: latest
 dependencies:
@@ -19,12 +19,12 @@ dependencies:
 deprecated: false
 description: |
   Chart Chart with Fast.com CLI sending data directly to MQTT Broker
-home: https://truecharts.org/charts/incubator/fastcom-mqtt
+home: https://truecharts.org/charts/stable/fastcom-mqtt
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/fastcom-mqtt.png
 keywords:
   - fastcom-mqtt
   - home-automation
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -32,7 +32,7 @@ maintainers:
 name: fastcom-mqtt
 sources:
   - https://github.com/simonjenny/fastcom-mqtt
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/fastcom-mqtt
+  - https://github.com/truecharts/charts/tree/master/charts/stable/fastcom-mqtt
   - https://hub.docker.com/r/simonjenny/fastcom-mqtt
 type: application
-version: 4.1.7
+version: 4.1.8

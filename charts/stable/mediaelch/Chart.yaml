@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Tools
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: latest
 dependencies:
@@ -18,13 +18,13 @@ dependencies:
     import-values: []
 deprecated: false
 description: Mediaelch is a Tool to manage your movie and show libary regarding the metadata and artwork.
-home: https://truecharts.org/charts/incubator/mediaelch
+home: https://truecharts.org/charts/stable/mediaelch
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/mediaelch.png
 keywords:
   - mediaelch
   - Tools
   - MediaApp-Video
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -32,7 +32,7 @@ maintainers:
 name: mediaelch
 sources:
   - https://github.com/Komet/MediaElch
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/mediaelch
+  - https://github.com/truecharts/charts/tree/master/charts/stable/mediaelch
   - https://hub.docker.com/r/masonxx/mediaelch
 type: application
-version: 4.1.6
+version: 4.1.7

@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: GameServers
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: dev
 apiVersion: v2
 appVersion: latest
 dependencies:
@@ -17,13 +17,13 @@ dependencies:
     tags: []
     import-values: []
 deprecated: false
-description: "Vault Hunters - 1.13.4 Modded Minecraft Server[br][br][b]Vault Hunters - 1.13.4[/b][br]Level up, loot the vaults and defeat the bosses to collect 16 artifacts![br][br]Setup:[br][li]You must accept the EULA by setting the [b]EULA[/b] variable to [span style='color: #00E800;']true[/span] or the install will fail.[br]Optional:[br][li]You can setup a comma separated list of players who will have admin privileges in game by setting [b]OPS[/b]"
-home: https://truecharts.org/charts/incubator/vaulthunters
+description: 'Vault Hunters - 1.13.4 Modded Minecraft Server[br][br][b]Vault Hunters - 1.13.4[/b][br]Level up, loot the vaults and defeat the bosses to collect 16 artifacts![br][br]Setup:[br][li]You must accept the EULA by setting the [b]EULA[/b] variable to [span style=''color: #00E800;'']true[/span] or the install will fail.[br]Optional:[br][li]You can setup a comma separated list of players who will have admin privileges in game by setting [b]OPS[/b]'
+home: https://truecharts.org/charts/dev/vaulthunters
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/vaulthunters.png
 keywords:
   - vaulthunters
   - GameServers
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -31,7 +31,7 @@ maintainers:
 name: vaulthunters
 sources:
   - https://vaulthunters.gg
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/vaulthunters
+  - https://github.com/truecharts/charts/tree/master/charts/dev/vaulthunters
   - https://hub.docker.com/r/goobaroo/vaulthunters
 type: application
-version: 3.0.13
+version: 3.0.14

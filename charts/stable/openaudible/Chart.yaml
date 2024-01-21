@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: latest
 dependencies:
@@ -18,11 +18,11 @@ dependencies:
     import-values: []
 deprecated: false
 description: All your audiobooks in one place
-home: https://truecharts.org/charts/incubator/openaudible
+home: https://truecharts.org/charts/stable/openaudible
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/openaudible.png
 keywords:
   - audible
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -30,7 +30,7 @@ maintainers:
 name: openaudible
 sources:
   - https://github.com/openaudible/openaudible_docker
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/openaudible
+  - https://github.com/truecharts/charts/tree/master/charts/stable/openaudible
   - https://hub.docker.com/r/openaudible/openaudible
 type: application
-version: 4.1.6
+version: 4.1.7

@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Tools-Utilities
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: dev
 apiVersion: v2
 appVersion: latest
 dependencies:
@@ -18,13 +18,13 @@ dependencies:
     import-values: []
 deprecated: false
 description: pixelserv-tls is a tiny bespoke HTTP/1.1 webserver with HTTPS and SNI support. It acts on behalf of hundreds of thousands of advert/tracker servers and responds to all requests with nothing to speed up web browsing.
-home: https://truecharts.org/charts/incubator/pixelserv-tls
+home: https://truecharts.org/charts/dev/pixelserv-tls
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pixelserv-tls.png
 keywords:
   - pixelserv-tls
   - Tools-Utilities
   - Other
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -32,7 +32,7 @@ maintainers:
 name: pixelserv-tls
 sources:
   - https://github.com/imTHAI/docker-pixelserv-tls
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/pixelserv-tls
+  - https://github.com/truecharts/charts/tree/master/charts/dev/pixelserv-tls
   - https://hub.docker.com/r/imthai/pixelserv-tls
 type: application
-version: 3.0.13
+version: 3.0.14

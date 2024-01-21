@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: database
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: dev
 apiVersion: v2
 appVersion: 14.10.0
 dependencies:
@@ -18,14 +18,14 @@ dependencies:
     import-values: []
 deprecated: false
 description: PostgresSQL
-home: https://truecharts.org/charts/incubator/postgresql
+home: https://truecharts.org/charts/dev/postgresql
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/postgresql.png
 keywords:
   - postgres
   - postgressql
   - dtabase
   - sql
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -33,7 +33,7 @@ maintainers:
 name: postgresql
 sources:
   - https://www.postgresql.org/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/postgresql
+  - https://github.com/truecharts/charts/tree/master/charts/dev/postgresql
   - https://hub.docker.com/r/bitnami/postgresql
 type: application
-version: 15.0.14
+version: 15.0.15

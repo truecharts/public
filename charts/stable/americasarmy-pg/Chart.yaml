@@ -3,11 +3,11 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: GameServers
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
-appVersion: aaprovinggrounds
+appVersion: aaproinggrounds
 dependencies:
   - name: common
     version: 17.2.22
@@ -17,13 +17,13 @@ dependencies:
     tags: []
     import-values: []
 deprecated: false
-description: "This Chart will download and install SteamCMD. It will also install America's Army: Proving Grounds and run it."
-home: https://truecharts.org/charts/incubator/americasarmy-pg
+description: 'This Chart will download and install SteamCMD. It will also install America''s Army: Proving Grounds and run it.'
+home: https://truecharts.org/charts/stable/americasarmy-pg
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/americasarmy-pg.png
 keywords:
   - americasarmy-pg
   - GameServers
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -31,7 +31,7 @@ maintainers:
 name: americasarmy-pg
 sources:
   - https://www.americasarmy.com/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/americasarmy-pg
+  - https://github.com/truecharts/charts/tree/master/charts/stable/americasarmy-pg
   - https://hub.docker.com/r/ich777/steamcmd
 type: application
-version: 4.1.7
+version: 4.1.8

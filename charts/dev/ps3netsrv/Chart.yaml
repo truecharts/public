@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Network-Other
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: dev
 apiVersion: v2
 appVersion: 1.6.0
 dependencies:
@@ -18,12 +18,12 @@ dependencies:
     import-values: []
 deprecated: false
 description: Allows Multiman or Webman to play game backups.
-home: https://truecharts.org/charts/incubator/ps3netsrv
+home: https://truecharts.org/charts/dev/ps3netsrv
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ps3netsrv.png
 keywords:
   - ps3netsrv
   - Network-Other
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -31,7 +31,7 @@ maintainers:
 name: ps3netsrv
 sources:
   - https://github.com/aldostools/webMAN-MOD/tree/master/_Projects_/ps3netsrv
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/ps3netsrv
+  - https://github.com/truecharts/charts/tree/master/charts/dev/ps3netsrv
   - https://hub.docker.com/r/shawly/ps3netsrv
 type: application
-version: 3.0.13
+version: 3.0.14
