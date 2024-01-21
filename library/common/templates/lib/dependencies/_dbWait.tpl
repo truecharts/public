@@ -372,7 +372,7 @@ command:
       pg_isready -U {{ .user }} -d {{ .database }} -h {{ $cnpgName }}-pooler-rw
       do sleep 5
     done
-    {{ if $cnpg.acceptRO }}
+    {{ if and $cnpg.pooler $cnpg.pooler.createRO }}
     echo "Detected RO pooler, testing RO pooler availability..."
     until
       echo "Testing database on url:  {{ $cnpgName }}-pooler-ro"
