@@ -104,23 +104,18 @@ workload:
               type: http
               path: "/public.php?op=healthcheck"
               port: "{{ .Values.service.main.ports.main.targetPort }}"
-              timeoutSeconds: 10
             liveness:
               enabled: true
               type: http
               path: "/public.php?op=healthcheck"
               port: "{{ .Values.service.main.ports.main.targetPort }}"
-              initialDelaySeconds: 60
-              timeoutSeconds: 10
             startup:
               enabled: true
               type: tcp
               port: "{{ .Values.service.main.ports.main.targetPort }}"
           env:
-            # APP_UPSTREAM: "tt-rss-app.ix-tt-rss.svc.cluster.local"
-            APP_UPSTREAM: '{{ printf "%s-app" (include "tc.v1.common.lib.chart.names.fullname" $) }}'
-            # RESOLVER: "kube-dns.kube-system.svc.cluster.local"
-            RESOLVER: 172.17.0.10
+            APP_UPSTREAM: '{{ include "tc.v1.common.lib.chart.names.fullname" . }}-app.{{ .Release.Namespace }}.svc.cluster.local'
+            RESOLVER: "kube-dns.kube-system.svc.cluster.local"
             APP_WEB_ROOT: /var/www/html/tt-rss
             APP_BASE: ""
   updater:
