@@ -3,11 +3,11 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 23.12.20240108
+appVersion: 23.12.20240115
 dependencies:
   - name: common
     version: 17.2.22
@@ -34,7 +34,7 @@ keywords:
   - organizer
   - server
   - hosted
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -45,4 +45,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/bookstack
   - https://ghcr.io/linuxserver/bookstack
 type: application
-version: 11.2.10
+version: 11.2.11
