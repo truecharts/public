@@ -489,6 +489,11 @@ wgetImage:
   tag: v1.0.0@sha256:2c26ff54ed4bed9e4f1a97132119ba22f75710655d08c400bcef15dc08f9e0d1
   pullPolicy: IfNotPresent
 
+yqImage:
+  pullPolicy: IfNotPresent
+  repository: mikefarah/yq
+  tag: 4.40.5@sha256:8d1595f180373c9aa4d05b18b48df7c24bfd0ab55e3bda1b5b6dd59e16eb531a
+
 postgresClientImage:
   repository: tccr.io/tccr/db-wait-postgres
   tag: v1.1.0@sha256:4e4e5b9f37a5d0c8d90d744de23d1857079095fbb55d2944ec91d83241f60376
