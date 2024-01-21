@@ -33,15 +33,16 @@ keywords:
   - http
   - web
   - php
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: nextcloud
 sources:
+  - https://hub.docker.com/r/nginxinc/nginx-unprivileged
   - https://github.com/nextcloud/docker
   - https://github.com/truecharts/charts/tree/master/charts/stable/nextcloud
   - https://github.com/nextcloud/helm
 type: application
-version: 28.1.14
+version: 28.1.16
