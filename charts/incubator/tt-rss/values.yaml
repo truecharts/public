@@ -104,11 +104,14 @@ workload:
               type: http
               path: "/public.php?op=healthcheck"
               port: "{{ .Values.service.main.ports.main.targetPort }}"
+              timeoutSeconds: 10
             liveness:
               enabled: true
               type: http
               path: "/public.php?op=healthcheck"
               port: "{{ .Values.service.main.ports.main.targetPort }}"
+              initialDelaySeconds: 60
+              timeoutSeconds: 10
             startup:
               enabled: true
               type: tcp
