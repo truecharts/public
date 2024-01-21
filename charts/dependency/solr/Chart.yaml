@@ -3,11 +3,11 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: search
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: dependency
 apiVersion: v2
-appVersion: 9.4.0
+appVersion: 9.4.1
 dependencies:
   - name: common
     version: 17.2.22
@@ -24,7 +24,7 @@ keywords:
   - solr
   - apache
   - search
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/dependency/solr
   - https://hub.docker.com/r/bitnami/solr
 type: application
-version: 9.1.7
+version: 9.1.8
