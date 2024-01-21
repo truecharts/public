@@ -112,16 +112,16 @@ workload:
               enabled: true
               type: http
               path: "/public.php?op=healthcheck"
-              port: "{{ .Values.service.main.ports.main.targetPort }}"
+              port: "{{ .Values.service.main.ports.main.port }}"
             liveness:
               enabled: true
               type: http
               path: "/public.php?op=healthcheck"
-              port: "{{ .Values.service.main.ports.main.targetPort }}"
+              port: "{{ .Values.service.main.ports.main.port }}"
             startup:
               enabled: true
               type: tcp
-              port: "{{ .Values.service.main.ports.main.targetPort }}"
+              port: "{{ .Values.service.main.ports.main.port }}"
           env:
             APP_UPSTREAM: '{{ printf "%s-app" (include "tc.v1.common.lib.chart.names.fullname" .) }}'
             APP_WEB_ROOT: /var/www/html/tt-rss
@@ -177,7 +177,6 @@ service:
       main:
         targetSelector: nginx
         port: 10104
-        targetPort: 80
   app:
     enabled: true
     targetSelector: main
@@ -220,8 +219,7 @@ configmap:
           #resolver ${RESOLVER} valid=5s;
 
           server {
-            listen 80;
-            listen [::]:80;
+            listen {{ .Values.service.main.ports.main.port }};
             root ${APP_WEB_ROOT};
 
             location ${APP_BASE}/cache {
