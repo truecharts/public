@@ -1,30 +1,30 @@
 image:
   pullPolicy: IfNotPresent
   repository: lscr.io/linuxserver/rdesktop
-  tag: latest@sha256:df6bc9e296c737553a062eb17dffc27f72d1039819bcfbc8c236c4cffb6e7b0d
+  tag: latest@sha256:e1bff73d0b087cad046d2d9944ad95a92ed549724c320c35d7190a433b304206
 ubuntuXFCEImage:
   repository: lscr.io/linuxserver/rdesktop
-  tag: ubuntu-xfce@sha256:6bd2bad7cf7c3adc436a6f170ab1087babbe3298dd6b5e43722f95f068358df5
+  tag: ubuntu-xfce@sha256:051ee371737846122b545a2c21fa158a01edd7deeb3a17732b67b1edfdbb116c
   pullPolicy: Always
 fedoraXFCEImage:
   repository: lscr.io/linuxserver/rdesktop
-  tag: fedora-xfce@sha256:db3abdfc91582a10b3a30e3015400dbab994c1872e7191271e895755b836ef85
+  tag: fedora-xfce@sha256:bd8e059ab26d743a6bc9909f53a12de9c496b01bd302b57e4b7248084e1d1b7f
   pullPolicy: Always
 archXFCEImage:
   repository: lscr.io/linuxserver/rdesktop
-  tag: arch-xfce@sha256:147cc41dde768cbb59a28a1413232ddf8e93a21b78fafc717698910f4c7282eb
+  tag: arch-xfce@sha256:b8aca76c2d5523c53c47ac75078a4f86700ddceb9bd3056906ae7e6a6f89e182
   pullPolicy: Always
 alpineKDEImage:
   repository: lscr.io/linuxserver/rdesktop
-  tag: alpine-kde@sha256:ccbc476b442577262f4aab320a6147a89beeff46e9238a1c1f1444618479a32a
+  tag: alpine-kde@sha256:4b87518fd75777366649210d91ac646002dc1235462817f2c293249319e5aac8
   pullPolicy: Always
 ubuntuKDEImage:
   repository: lscr.io/linuxserver/rdesktop
-  tag: ubuntu-kde@sha256:f523d902b444cebcbb9a1553b3e386f1a81d37cf92dae92f35b9c5da39788bba
+  tag: ubuntu-kde@sha256:cea042745b0c9262022c56e9c19925b6d61ac38fd2a1076860235a567e6ca4df
   pullPolicy: Always
 fedoraKDEImage:
   repository: lscr.io/linuxserver/rdesktop
-  tag: fedora-kde@sha256:29ca0c69f39ca5461ff9a50748a91197f1231b5217077719d0810dc65ecd5409
+  tag: fedora-kde@sha256:91d803adbb194bd0ccbca975bf49bf5ec46875445007d912f9994f457a3982ef
   pullPolicy: Always
 archKDEImage:
   repository: lscr.io/linuxserver/rdesktop
@@ -32,15 +32,15 @@ archKDEImage:
   pullPolicy: Always
 alpineMATEImage:
   repository: lscr.io/linuxserver/rdesktop
-  tag: alpine-mate@sha256:32e729f09145275128ae0c1d17ca9dc2a6ec6a7084179291a61179a20f1552bd
+  tag: alpine-mate@sha256:8e8357158cab6787af8580e0ec6446743939ff2334a8119d69c235064a69d062
   pullPolicy: Always
 ubuntuMATEImage:
   repository: lscr.io/linuxserver/rdesktop
-  tag: ubuntu-mate@sha256:59d3bf27c56299d07f187e186331432851c126e546b656690b8569d013946640
+  tag: ubuntu-mate@sha256:d5b62a3530b71099513901ad63a72e6e300b5daff5a3d0796b4408beebf462cc
   pullPolicy: Always
 fedoraMATEImage:
   repository: lscr.io/linuxserver/rdesktop
-  tag: fedora-mate@sha256:ac95ad59fa61065ca37b643150b1f2cef592919a0eaf13ce52e326d93554be42
+  tag: fedora-mate@sha256:37db97a8b5d846a95ffd031283e74a2a2c1f8d5b72190d4b6612ae16010b1973
   pullPolicy: Always
 archMATEImage:
   repository: lscr.io/linuxserver/rdesktop
@@ -48,7 +48,7 @@ archMATEImage:
   pullPolicy: Always
 alpineI3Image:
   repository: lscr.io/linuxserver/rdesktop
-  tag: alpine-i3@sha256:4af870fc2bcf54c090ef70d6636dca20af5d15a5696e082072a66fa00195d221
+  tag: alpine-i3@sha256:57a73a0867ddcb7b582181fac2760a02909bcca844bd9b3c6b4b57abc4c55855
   pullPolicy: Always
 ubuntuI3Image:
   repository: lscr.io/linuxserver/rdesktop
@@ -56,15 +56,15 @@ ubuntuI3Image:
   pullPolicy: Always
 fedoraI3Image:
   repository: lscr.io/linuxserver/rdesktop
-  tag: fedora-i3@sha256:27ed18fe394a91958b24d3444bcfc7f3e9c4f110b28407cb60de35356449ea50
+  tag: fedora-i3@sha256:690bc17da707254199826726d0a74bac7b5d65c8a50fa24d622e3687659426ae
   pullPolicy: Always
 archI3Image:
   repository: lscr.io/linuxserver/rdesktop
-  tag: arch-i3@sha256:49399877d72e623b8170bef1ea0b327bbaaf05ece34c26b6547aa21fc47bb112
+  tag: arch-i3@sha256:a6a225c4202512ea60864746652db3e23578cdf86573c56c10d1e6b1c71b8a6c
   pullPolicy: Always
 alpineOpenBoxImage:
   repository: lscr.io/linuxserver/rdesktop
-  tag: alpine-openbox@sha256:ab8a8b8879bee70ad53d4743657bb71498811ae1477ee255176fb4f27b9f7ec4
+  tag: alpine-openbox@sha256:afdc28d40192838712fbde3e479d83e8757f1619579c464174e119450070a653
   pullPolicy: Always
 ubuntuOpenBoxImage:
   repository: lscr.io/linuxserver/rdesktop
@@ -76,11 +76,11 @@ fedoraOpenBoxImage:
   pullPolicy: Always
 archOpenBoxImage:
   repository: lscr.io/linuxserver/rdesktop
-  tag: arch-openbox@sha256:c5b24e43d2eb977dc51d8f3731afc5574025267b6e0e85e91b54cc4d6e36a42a
+  tag: arch-openbox@sha256:ec7079bc65c25e40366a44d14075a3edc90a892495eb6cf19704760cfd61d936
   pullPolicy: Always
 alpineICEWMImage:
   repository: lscr.io/linuxserver/rdesktop
-  tag: alpine-icewm@sha256:466f9dbc3a830c42714ad79ebab23c25dfb042b6be526f06d375f498a19e0283
+  tag: alpine-icewm@sha256:d3438466e2d9a283857793504f8f52012aef23aa332cf4a32b2b26eddbbdd71f
   pullPolicy: Always
 ubuntuICEWMImage:
   repository: lscr.io/linuxserver/rdesktop
@@ -88,11 +88,11 @@ ubuntuICEWMImage:
   pullPolicy: Always
 fedoraICEWMImage:
   repository: lscr.io/linuxserver/rdesktop
-  tag: fedora-icewm@sha256:c4ab1376d5db5770b34a817f5588423cf9e15929c0a7da144c76cd0c2ef6109b
+  tag: fedora-icewm@sha256:4485804b7c2979d67942391b540d145fe10dee12b7137f1feb04d4c9a1915639
   pullPolicy: Always
 archICEWMImage:
   repository: lscr.io/linuxserver/rdesktop
-  tag: arch-icewm@sha256:67c9bff84d7ee97d66b5ff5803cf746ff82c2ab839470aee074d009846c0c39b
+  tag: arch-icewm@sha256:9a73f4c11c768bb36e18d056f48ed3d39f5711760054fdfb73fa96eb4c0a9591
   pullPolicy: Always
 workload:
   main:
