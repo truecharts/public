@@ -20,7 +20,7 @@ tests:
         isKind:
           of: Deployment
       - documentIndex: *deploymentDoc
-        isNull:
+        isNullOrEmpty:
           path: spec.template.spec.runtimeClassName
 
   - it: should pass with runtimeClassName from "global"
@@ -148,7 +148,7 @@ tests:
           podSpec: {}
     asserts:
       - documentIndex: *deploymentDoc
-        isNull:
+        isNullOrEmpty:
           path: spec.template.spec.runtimeClassName
 
   - it: should pass with runtimeClassName from ixChartContext without targetSelector (on primary workload)
@@ -186,7 +186,7 @@ tests:
         isKind:
           of: CronJob
       - documentIndex: *cronJobDoc
-        isNull:
+        isNullOrEmpty:
           path: spec.jobTemplate.spec.template.spec.runtimeClassName
 
   - it: should pass with runtimeClassName not set from ixChartContext without gpu value

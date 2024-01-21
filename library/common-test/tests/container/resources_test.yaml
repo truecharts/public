@@ -424,7 +424,7 @@ tests:
         isAPIVersion:
           of: apps/v1
       - documentIndex: *otherDeploymentDoc
-        isNull:
+        isNullOrEmpty:
           path: spec.template.spec.runtimeClassName
       - documentIndex: *otherDeploymentDoc
         isSubset:
@@ -488,7 +488,7 @@ tests:
         isAPIVersion:
           of: apps/v1
       - documentIndex: *deploymentDoc
-        isNull:
+        isNullOrEmpty:
           path: spec.template.spec.runtimeClassName
       - documentIndex: *deploymentDoc
         isSubset:
@@ -620,7 +620,7 @@ tests:
         isAPIVersion:
           of: apps/v1
       - documentIndex: *otherDeploymentDoc
-        isNull:
+        isNullOrEmpty:
           path: spec.template.spec.runtimeClassName
       - documentIndex: *otherDeploymentDoc
         isSubset:

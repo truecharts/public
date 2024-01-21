@@ -12,7 +12,7 @@
   {{- if (hasKey $objectData.schedData "backupOwnerReference") -}}
     {{- $validOwnerRefs := (list "none" "self" "cluster") -}}
     {{- if not (mustHas $objectData.schedData.backupOwnerReference $validOwnerRefs) -}}
-      {{- fail (printf "CNPG Scheduled Backup - Expected [backupOwnerReference] in [backups.scheduledBackups] entry to be one of [%s], but got [%s] " (join ", " $validOwnerRefs) $objectData.schedData.backupOwnerReference) -}}
+      {{- fail (printf "CNPG Scheduled Backup - Expected [backupOwnerReference] in [backups.scheduledBackups] entry to be one of [%s], but got [%s]" (join ", " $validOwnerRefs) $objectData.schedData.backupOwnerReference) -}}
     {{- end -}}
   {{- end -}}
 

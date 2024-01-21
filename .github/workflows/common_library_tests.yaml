@@ -23,7 +23,7 @@ jobs:
       matrix:
         helm-version:
           - v3.12.3
-          - v3.13.3
+          - v3.14.0
     steps:
       - name: Checkout
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
@@ -56,13 +56,13 @@ jobs:
     name: Unit Tests
     runs-on: ubuntu-22.04
     env:
-      helmUnitVersion: 0.3.0
+      helmUnitVersion: 0.4.1
     strategy:
       fail-fast: false
       matrix:
         helm-version:
           - v3.12.3
-          - v3.13.3
+          - v3.14.0
     steps:
       - name: Checkout
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
@@ -110,7 +110,7 @@ jobs:
         # We run tests on Helm version of latest SCALE, fluxcd and latest helm release
         helm-version:
           - v3.12.3
-          - v3.13.3
+          - v3.14.0
         values:
           - basic-values.yaml
           - configmap-values.yaml
@@ -215,7 +215,8 @@ jobs:
           fi
           if [[ "${{ matrix.values }}" =~ ingress.*-values.yaml ]]; then
             helm install cert-manager oci://tccr.io/truecharts/cert-manager --namespace cert-manager --create-namespace --wait
-            helm install traefik oci://tccr.io/truecharts/traefik --namespace traefik --create-namespace --wait
+            helm install traefik oci://tccr.io/truecharts/traefik --namespace traefik --create-namespace --wait \
+              --set service.main.type=ClusterIP --set service.tcp.type=ClusterIP
           fi
 
       - name: Run chart-testing (install)
@@ -257,7 +258,7 @@ jobs:
 #        # We run tests on Helm version of latest SCALE release
 #        helm-version:
 #          - v3.12.3
-#          - v3.13.3
+#          - v3.14.0
 #        values:
 #          - basic-values.yaml
 #          - configmap-values.yaml
@@ -321,7 +322,7 @@ jobs:
 #        # We run tests on Helm version of latest SCALE release
 #        helm-version:
 #          - v3.12.3
-#          - v3.13.3
+#          - v3.14.0
 #        values:
 #          - ingress-values.yaml
 #          - metrics-values.yaml
@@ -342,7 +343,8 @@ jobs:
 #        run: |
 #            helm install prometheus-operator oci://tccr.io/truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
 #            helm install cloudnative-pg oci://tccr.io/truecharts/cloudnative-pg --namespace cloudnative-pg --create-namespace --wait
-#            helm install traefik oci://tccr.io/truecharts/traefik --namespace traefik --create-namespace --wait
+#            helm install traefik oci://tccr.io/truecharts/traefik --namespace traefik --create-namespace --wait \
+#              --set service.main.type=ClusterIP --set service.tcp.type=ClusterIP
 #
 #      - name: Checkout
 #        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
@@ -379,7 +381,7 @@ jobs:
 #        # We run tests on Helm version of latest SCALE release
 #        helm-version:
 #          - v3.12.3
-#          - v3.13.3
+#          - v3.14.0
 #        values:
 #          - vpn-gluetun-values.yaml
 #          - vpn-tailscale-values.yaml
