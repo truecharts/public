@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: dev
 apiVersion: v2
 appVersion: 23.11.3
 dependencies:
@@ -18,12 +18,12 @@ dependencies:
     import-values: []
 deprecated: false
 description: dupeGuru is a tool to find duplicate files on your computer. It can scan either filenames or contents.
-home: https://truecharts.org/charts/incubator/dupeguru
+home: https://truecharts.org/charts/dev/dupeguru
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/dupeguru.png
 keywords:
   - dedupe
   - dupeguru
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -31,7 +31,7 @@ maintainers:
 name: dupeguru
 sources:
   - https://github.com/jlesage/docker-dupeguru
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/dupeguru
+  - https://github.com/truecharts/charts/tree/master/charts/dev/dupeguru
   - https://hub.docker.com/r/jlesage/dupeguru
 type: application
-version: 5.0.14
+version: 5.0.15

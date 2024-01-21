@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: productivity
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: unstable
 apiVersion: v2
 appVersion: 5.73.2
 dependencies:
@@ -25,13 +25,13 @@ dependencies:
     import-values: []
 deprecated: false
 description: Ghost is an open source, professional publishing platform built on a modern Node.js technology stack designed for teams who need power, flexibility and performance.
-home: https://truecharts.org/charts/incubator/ghost
+home: https://truecharts.org/charts/unstable/ghost
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ghost.png
 keywords:
   - ghost
   - blog
   - cms
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -40,7 +40,7 @@ name: ghost
 sources:
   - https://ghost.org/docs/
   - https://github.com/TryGhost/Ghost
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/ghost
+  - https://github.com/truecharts/charts/tree/master/charts/unstable/ghost
   - https://hub.docker.com/_/ghost
 type: application
-version: 7.0.12
+version: 7.0.13

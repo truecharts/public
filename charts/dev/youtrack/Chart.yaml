@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: ProjectManagement
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: dev
 apiVersion: v2
 appVersion: 2023.2.22656
 dependencies:
@@ -18,12 +18,12 @@ dependencies:
     import-values: []
 deprecated: false
 description: YouTrack is a project management tool that can be adapted to your processes to help you deliver great products.
-home: https://truecharts.org/charts/incubator/youtrack
+home: https://truecharts.org/charts/dev/youtrack
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/youtrack.png
 keywords:
   - youtrack
   - ProjectManagement
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -31,7 +31,7 @@ maintainers:
 name: youtrack
 sources:
   - https://www.jetbrains.com/youtrack/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/youtrack
+  - https://github.com/truecharts/charts/tree/master/charts/dev/youtrack
   - https://hub.docker.com/r/jetbrains/youtrack
 type: application
-version: 3.0.14
+version: 3.0.15

@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Backup
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: dev
 apiVersion: v2
 appVersion: latest
 dependencies:
@@ -18,13 +18,13 @@ dependencies:
     import-values: []
 deprecated: false
 description: Vorta is a backup client for macOS and Linux desktops. It integrates the mighty BorgBackup with your desktop environment to protect your data from disk failure, ransomware and theft.
-home: https://truecharts.org/charts/incubator/vorta
+home: https://truecharts.org/charts/dev/vorta
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/vorta.png
 keywords:
   - vorta
   - Backup
   - Tools-Utilities
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -32,7 +32,7 @@ maintainers:
 name: vorta
 sources:
   - https://github.com/borgbase/vorta-docker
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/vorta
+  - https://github.com/truecharts/charts/tree/master/charts/dev/vorta
   - https://ghcr.io/borgbase/vorta-docker
 type: application
-version: 3.0.14
+version: 3.0.15

@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: hosting
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: dev
 apiVersion: v2
 appVersion: 1.2.1
 dependencies:
@@ -25,12 +25,12 @@ dependencies:
     import-values: []
 deprecated: false
 description: Typecho is a PHP Blogging Platform.
-home: https://truecharts.org/charts/incubator/typecho
+home: https://truecharts.org/charts/dev/typecho
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/typecho.png
 keywords:
   - typecho
   - blog
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -38,7 +38,7 @@ maintainers:
 name: typecho
 sources:
   - https://github.com/typecho/typecho
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/typecho
+  - https://github.com/truecharts/charts/tree/master/charts/dev/typecho
   - https://hub.docker.com/r/joyqi/typecho
 type: application
-version: 9.0.13
+version: 9.0.14

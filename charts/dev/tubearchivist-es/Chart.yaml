@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Tools-Utilities
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: dev
 apiVersion: v2
 appVersion: latest
 dependencies:
@@ -18,13 +18,13 @@ dependencies:
     import-values: []
 deprecated: false
 description: This is a dependancy Chart for the application "TubeArchivist"
-home: https://truecharts.org/charts/incubator/tubearchivist-es
+home: https://truecharts.org/charts/dev/tubearchivist-es
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/tubearchivist-es.png
 keywords:
   - tubearchivist-es
   - Tools-Utilities
   - MediaServer-Other
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -32,7 +32,7 @@ maintainers:
 name: tubearchivist-es
 sources:
   - https://github.com/elastic/elasticsearch
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/tubearchivist-es
+  - https://github.com/truecharts/charts/tree/master/charts/dev/tubearchivist-es
   - https://hub.docker.com/r/bbilly1/tubearchivist-es
 type: application
-version: 3.0.13
+version: 3.0.14

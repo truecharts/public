@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: management
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: dev
 apiVersion: v2
 appVersion: 6.2.3
 dependencies:
@@ -32,14 +32,14 @@ dependencies:
     import-values: []
 deprecated: false
 description: Open source asset management
-home: https://truecharts.org/charts/incubator/snipe-it
+home: https://truecharts.org/charts/dev/snipe-it
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/snipe-it.png
 keywords:
   - snipeit
   - snipe
   - asset
   - management
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -48,7 +48,7 @@ name: snipe-it
 sources:
   - https://github.com/snipe/snipe-it
   - https://snipeitapp.com/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/snipe-it
+  - https://github.com/truecharts/charts/tree/master/charts/dev/snipe-it
   - https://hub.docker.com/r/snipe/snipe-it
 type: application
-version: 9.0.13
+version: 9.0.14

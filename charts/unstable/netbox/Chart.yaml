@@ -3,11 +3,11 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: network
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: unstable
 apiVersion: v2
-appVersion: 3.6.9-2.7.0
+appVersion: 3.6.9
 dependencies:
   - name: common
     version: 17.2.21
@@ -37,7 +37,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/netbox.png
 keywords:
   - network
   - netbox
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -48,4 +48,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/unstable/netbox
   - https://hub.docker.com/r/netboxcommunity/netbox
 type: application
-version: 4.0.12
+version: 4.0.13

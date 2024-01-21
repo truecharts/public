@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: monitoring
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: dev
 apiVersion: v2
 appVersion: 2.2.0
 dependencies:
@@ -18,20 +18,20 @@ dependencies:
     import-values: []
 deprecated: false
 description: Checkmk is a leading tool for Infrastructure and Application Monitoring. Simple configuration, scalable, flexible. It provides powerful monitoring of networks, servers, clouds, containers and applications.
-home: https://truecharts.org/charts/incubator/checkmk
+home: https://truecharts.org/charts/dev/checkmk
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/checkmk.png
 keywords:
   - checkmk
   - monitoring
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: checkmk
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/checkmk
-  - https://hub.docker.com/r/checkmk/check-mk-raw
   - https://github.com/tribe29/checkmk
+  - https://github.com/truecharts/charts/tree/master/charts/dev/checkmk
+  - https://hub.docker.com/r/checkmk/check-mk-raw
 type: application
-version: 1.0.13
+version: 1.0.14

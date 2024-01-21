@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: dev
 apiVersion: v2
 appVersion: 1.3.2
 dependencies:
@@ -18,12 +18,12 @@ dependencies:
     import-values: []
 deprecated: false
 description: Jump is yet another self-hosted startpage for your server designed to be simple, stylish, fast and secure.
-home: https://truecharts.org/charts/incubator/jump
+home: https://truecharts.org/charts/dev/jump
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/jump.png
 keywords:
   - dashboard
   - jump
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -31,7 +31,7 @@ maintainers:
 name: jump
 sources:
   - https://github.com/daledavies/jump
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/jump
+  - https://github.com/truecharts/charts/tree/master/charts/dev/jump
   - https://hub.docker.com/r/daledavies/jump
 type: application
-version: 3.0.13
+version: 3.0.14

@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: dev
 apiVersion: v2
 appVersion: latest
 dependencies:
@@ -25,13 +25,13 @@ dependencies:
     import-values: []
 deprecated: false
 description: Koel is a simple web-based personal audio streaming service written in Vue on the client side and Laravel on the server side.
-home: https://truecharts.org/charts/incubator/koel
+home: https://truecharts.org/charts/dev/koel
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/koel.png
 keywords:
   - koel
   - music
   - stream
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -40,7 +40,7 @@ name: koel
 sources:
   - https://github.com/koel/koel
   - https://github.com/koel/docker
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/koel
+  - https://github.com/truecharts/charts/tree/master/charts/dev/koel
   - https://hub.docker.com/r/phanan/koel
 type: application
-version: 8.0.13
+version: 8.0.14

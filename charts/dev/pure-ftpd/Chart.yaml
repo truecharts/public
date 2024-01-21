@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Tools-Utilities
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: dev
 apiVersion: v2
 appVersion: latest
 dependencies:
@@ -18,21 +18,21 @@ dependencies:
     import-values: []
 deprecated: false
 description: Pure-FTPd is a free (BSD), secure, production-quality and standard-conformant FTP server. [br]Creating user by using console "pure-pw useradd admin -u 99 -g 100 -d /home/admin -m"[/br]
-home: https://truecharts.org/charts/incubator/pure-ftpd
+home: https://truecharts.org/charts/dev/pure-ftpd
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pure-ftpd.png
 keywords:
   - pure-ftpd
   - Tools-Utilities
   - Network-FTP
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: pure-ftpd
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/pure-ftpd
-  - https://hub.docker.com/r/crazymax/pure-ftpd
   - https://www.pureftpd.org/project/pure-ftpd/
+  - https://github.com/truecharts/charts/tree/master/charts/dev/pure-ftpd
+  - https://hub.docker.com/r/crazymax/pure-ftpd
 type: application
-version: 3.0.13
+version: 3.0.14

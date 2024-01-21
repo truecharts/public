@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: smart
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: dev
 apiVersion: v2
 appVersion: latest
 dependencies:
@@ -18,20 +18,20 @@ dependencies:
     import-values: []
 deprecated: false
 description: Open source modular smart mirror platform.
-home: https://truecharts.org/charts/incubator/magicmirror2
+home: https://truecharts.org/charts/dev/magicmirror2
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/magicmirror2.png
 keywords:
   - magicmirror2
   - iot
   - smart
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: magicmirror2
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/magicmirror2
+  - https://github.com/truecharts/charts/tree/master/charts/dev/magicmirror2
   - https://hub.docker.com/r/ich777/magic-mirror2
 type: application
-version: 3.0.13
+version: 3.0.14

@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Productivity
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: dev
 apiVersion: v2
 appVersion: latest
 dependencies:
@@ -18,12 +18,12 @@ dependencies:
     import-values: []
 deprecated: false
 description: LXDE desktop ubuntu (use remote desktop client to connect)
-home: https://truecharts.org/charts/incubator/ubuntu-xrdp
+home: https://truecharts.org/charts/dev/ubuntu-xrdp
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ubuntu-xrdp.png
 keywords:
   - ubuntu-xrdp
   - Productivity
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -31,7 +31,7 @@ maintainers:
 name: ubuntu-xrdp
 sources:
   - https://registry.hub.docker.com/r/snoopy86/desktop-dockers/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/ubuntu-xrdp
+  - https://github.com/truecharts/charts/tree/master/charts/dev/ubuntu-xrdp
   - https://hub.docker.com/r/snoopy86/desktop-dockers
 type: application
-version: 3.0.13
+version: 3.0.14
