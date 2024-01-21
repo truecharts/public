@@ -32,15 +32,3 @@ If an advanced user wishes to alter the app path, use the *App Web Root Path* an
 
 - Set `TTRSS Self URL Path` to `http://SCALE_IP:APP_PORT/`.
   - Ensure the app's port is set to LoadBalancer to allow external browsers to reach it.
-
-## Resolver - Advanced Usage
-
-:::danger TrueNAS DNS IP
-Changing the `Cluster DNS IP` address in TrueNAS SCALE will **DELETE your APPS and APP DATA!**
-
-*ANY* change should only be made to the `TTRSS DNS Resolver` field in the app's edit dialog, and no change should be needed for regular app usage.
-:::
-
-TT-RSS sets the default nginx resolver to 127.0.0.11, which appears not to work on SCALE apps. The resolver for this app has been altered to TrueNAS SCALE's default of `172.17.0.10`. If a user has a different SCALE DNS IP, it must be reflected here in the app's configuration.
-
-Check the SCALE DNS IP by navigating to `Applications` > `Settings` (dropdown) > `Advanced Settings`. A sidebar titled "Kubernetes Settings" will appear, and toward the bottom is `Cluster DNS IP` *(Do not change! See warning above!)* with the IP address that should match this app's `TTRSS DNS Resolver` field.
