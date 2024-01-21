@@ -60,14 +60,14 @@ workload:
           env:
             SERVER_DIR: "{{ .Values.persistence.serverfiles.mountPath }}"
             STEAMCMD_DIR: "{{ .Values.persistence.steamcmd.mountPath }}"
-            GAME_ID: "{{ .values.palworld.game.id }}"
-            SRV_ADMIN_PWD: "{{ .values.palworld.admdin.password }}"
+            GAME_ID: "{{ .Values.palworld.game.id }}"
+            SRV_ADMIN_PWD: "{{ .Values.palworld.admdin.password }}"
             GAME_PARAMS: '{{ join " " .Values.palworld.params }}'
             GAME_PARAMS_EXTRA: '{{ join " " .Values.palworld.params_extra }}'
-            UPDATE_PUBLIC_IP: "{{ .values.palworld.update_public_ip }}"
-            VALIDATE: "{{ .values.palworld.validate }}"
-            USERNAME: "{{ .values.palworld.steam.username }}"
-            PASSWRD: "{{ .values.palworld.steam.password }}"
+            UPDATE_PUBLIC_IP: "{{ .Values.palworld.update_public_ip }}"
+            VALIDATE: "{{ .Values.palworld.validate }}"
+            USERNAME: "{{ .Values.palworld.steam.username }}"
+            PASSWRD: "{{ .Values.palworld.steam.password }}"
 
 persistence:
   steamcmd:
