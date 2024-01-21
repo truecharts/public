@@ -368,15 +368,15 @@ command:
     {{ $cnpgName = printf "%v-cnpg-%v" $cnpgName $name }}
     echo "Detected RW pooler, testing RW pooler availability..."
     until
-      echo "Testing database on url:  {{ $cnpgName }}-rw"
-      pg_isready -U {{ .user }} -d {{ .database }} -h {{ $cnpgName }}-rw
+      echo "Testing database on url:  {{ $cnpgName }}-pooler-rw"
+      pg_isready -U {{ .user }} -d {{ .database }} -h {{ $cnpgName }}-pooler-rw
       do sleep 5
     done
     {{ if $cnpg.acceptRO }}
     echo "Detected RO pooler, testing RO pooler availability..."
     until
-      echo "Testing database on url:  {{ $cnpgName }}-ro"
-      pg_isready -U {{ .user }} -d {{ .database }} -h {{ $cnpgName }}-ro
+      echo "Testing database on url:  {{ $cnpgName }}-pooler-ro"
+      pg_isready -U {{ .user }} -d {{ .database }} -h {{ $cnpgName }}-pooler-ro
       do sleep 5
     done
     {{ end }}

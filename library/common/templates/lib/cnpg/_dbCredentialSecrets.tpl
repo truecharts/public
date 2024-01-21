@@ -2,24 +2,43 @@
   {{- $objectData := .objectData -}}
   {{- $cnpg := .cnpg -}}
   {{- $rootCtx := .rootCtx -}}
+
   {{- $dbPass := $objectData.password -}}
+  {{- $auth := printf "%s:%s" $objectData.user $dbPass -}}
+
+  {{/* Double "%" to escape the interpolation and use the template on another printf */}}
+  {{- $stdTmpl := printf "postgresql://%s@%s-%%s:5432/%s" $auth $objectData.name $objectData.database -}}
+  {{- $nosslTmpl := printf "postgresql://%s@%s-%%s:5432/%s?sslmode=disable" $auth $objectData.name $objectData.database -}}
+  {{- $portHostTmpl := printf "%s-%%s:5432" $objectData.name -}}
+  {{- $hostTmpl := printf "%s-%%s" $objectData.name -}}
+  {{- $jdbcTmpl := printf "jdbc:postgresql://%s-%%s:5432/%s" $objectData.name $objectData.database -}}
 
   {{- $creds := (dict
-    "std" (printf "postgresql://%v:%v@%v-rw:5432/%v" $objectData.user $dbPass $objectData.name $objectData.database)
-    "nossl" (printf "postgresql://%v:%v@%v-rw:5432/%v?sslmode=disable" $objectData.user $dbPass $objectData.name $objectData.database)
-    "porthost" (printf "%s-rw:5432" $objectData.name)
-    "host" (printf "%s-rw" $objectData.name)
-    "jdbc" (printf "jdbc:postgresql://%v-rw:5432/%v" $objectData.name $objectData.database)
+    "std" (printf $stdTmpl "rw")
+    "nossl" (printf $nosslTmpl "rw")
+    "portHost" (printf $portHostTmpl "rw")
+    "host" (printf $hostTmpl "rw")
+    "jdbc" (printf $jdbcTmpl "rw")
+    "poolerStd" (printf $stdTmpl "pooler-rw")
+    "poolerNossl" (printf $nosslTmpl "pooler-rw")
+    "poolerPortHost" (printf $portHostTmpl "pooler-rw")
+    "poolerHost" (printf $hostTmpl "pooler-rw")
+    "poolerJdbc" (printf $jdbcTmpl "pooler-rw")
   ) -}}
 
   {{- $credsRO := dict -}}
   {{- if $objectData.pooler.createRO -}}
     {{- $credsRO = (dict
-      "std" (printf "postgresql://%v:%v@%v-ro:5432/%v" $objectData.user $dbPass $objectData.name $objectData.database)
-      "nossl" (printf "postgresql://%v:%v@%v-ro:5432/%v?sslmode=disable" $objectData.user $dbPass $objectData.name $objectData.database)
-      "porthost" (printf "%s-ro:5432" $objectData.name)
-      "host" (printf "%s-ro" $objectData.name)
-      "jdbc" (printf "jdbc:postgresql://%v-ro:5432/%v" $objectData.name $objectData.database)
+      "std" (printf $stdTmpl "ro")
+      "nossl" (printf $nosslTmpl "ro")
+      "portHost" (printf $portHostTmpl "ro")
+      "host" (printf $hostTmpl "ro")
+      "jdbc" (printf $jdbcTmpl "ro")
+      "poolerStd" (printf $stdTmpl "pooler-ro")
+      "poolerNossl" (printf $nosslTmpl "pooler-ro")
+      "poolerPortHost" (printf $portHostTmpl "pooler-ro")
+      "poolerHost" (printf $hostTmpl "pooler-ro")
+      "poolerJdbc" (printf $jdbcTmpl "pooler-ro")
     ) -}}
   {{- end -}}
 
@@ -40,16 +59,26 @@
 
   {{- $_ := set $cnpg.creds "std" $creds.std -}}
   {{- $_ := set $cnpg.creds "nossl" $creds.nossl -}}
-  {{- $_ := set $cnpg.creds "porthost" $creds.porthost -}}
+  {{- $_ := set $cnpg.creds "porthost" $creds.portHost -}}
   {{- $_ := set $cnpg.creds "host" $creds.host -}}
   {{- $_ := set $cnpg.creds "jdbc" $creds.jdbc -}}
+  {{- $_ := set $cnpg.creds "poolerstd" $creds.poolerStd -}}
+  {{- $_ := set $cnpg.creds "poolernossl" $creds.poolerNossl -}}
+  {{- $_ := set $cnpg.creds "poolerporthost" $creds.poolerPortHost -}}
+  {{- $_ := set $cnpg.creds "poolerhost" $creds.poolerHost -}}
+  {{- $_ := set $cnpg.creds "poolerjdbc" $creds.poolerJdbc -}}
 
   {{- if $objectData.pooler.createRO -}}
     {{- $_ := set $cnpg.creds "stdRO" $credsRO.std -}}
     {{- $_ := set $cnpg.creds "nosslRO" $credsRO.nossl -}}
-    {{- $_ := set $cnpg.creds "porthostRO" $credsRO.porthost -}}
+    {{- $_ := set $cnpg.creds "porthostRO" $credsRO.portHost -}}
     {{- $_ := set $cnpg.creds "hostRO" $credsRO.host -}}
     {{- $_ := set $cnpg.creds "jdbcRO" $credsRO.jdbc -}}
+    {{- $_ := set $cnpg.creds "poolerstdRO" $credsRO.poolerStd -}}
+    {{- $_ := set $cnpg.creds "poolernosslRO" $credsRO.poolerNossl -}}
+    {{- $_ := set $cnpg.creds "poolerporthostRO" $credsRO.poolerPortHost -}}
+    {{- $_ := set $cnpg.creds "poolerhostRO" $credsRO.poolerHost -}}
+    {{- $_ := set $cnpg.creds "poolerjdbcRO" $credsRO.poolerJdbc -}}
   {{- end -}}
 
 {{- end -}}
@@ -61,15 +90,25 @@ enabled: true
 data:
   std: {{ $creds.std }}
   nossl: {{ $creds.nossl }}
-  porthost: {{ $creds.porthost }}
+  porthost: {{ $creds.portHost }}
   host: {{ $creds.host }}
   jdbc: {{ $creds.jdbc }}
+  poolerstd: {{ $creds.poolerStd }}
+  poolernossl: {{ $creds.poolerNossl }}
+  poolerporthost: {{ $creds.poolerPortHost }}
+  poolerhost: {{ $creds.poolerHost }}
+  poolerjdbc: {{ $creds.poolerJdbc }}
   {{- if $credsRO }}
   stdRO: {{ $credsRO.std }}
   nosslRO: {{ $credsRO.nossl }}
-  porthostRO: {{ $credsRO.porthost }}
+  porthostRO: {{ $credsRO.portHost }}
   hostRO: {{ $credsRO.host }}
   jdbcRO: {{ $credsRO.jdbc }}
+  poolerstdRO: {{ $credsRO.poolerStd }}
+  poolernosslRO: {{ $credsRO.poolerNossl }}
+  poolerporthostRO: {{ $credsRO.poolerPortHost }}
+  poolerhostRO: {{ $credsRO.poolerHost }}
+  poolerjdbcRO: {{ $credsRO.poolerJdbc }}
   {{- end -}}
 {{- end -}}
 
