@@ -3,11 +3,11 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 4.0.0.748
+appVersion: 4.0.1.929
 dependencies:
   - name: common
     version: 17.2.22
@@ -24,15 +24,16 @@ keywords:
   - sonarr
   - torrent
   - usenet
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: sonarr
 sources:
-  - https://ghcr.io/onedr0p/exportarr
   - https://github.com/Sonarr/Sonarr
   - https://github.com/truecharts/charts/tree/master/charts/stable/sonarr
+  - https://ghcr.io/onedr0p/sonarr
+  - https://ghcr.io/onedr0p/exportarr
 type: application
-version: 19.0.26
+version: 19.0.27
