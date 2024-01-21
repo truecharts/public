@@ -30,18 +30,6 @@ questions:
                                           type: string
                                           private: true
                                           default: ""
-                                      - variable: APP_WEB_ROOT
-                                        label: TTRSS App Web Root Path
-                                        description: Advanced usage. This is the filesystem path for tt-rss. Usually set to "/var/www/html", but the default on this app is "/var/www/html/tt-rss". https://tt-rss.org/wiki/InstallationNotes#how-do-i-make-it-run-without-tt-rss-in-the-url-i.e.-at-website-root
-                                        schema:
-                                          type: string
-                                          default: "/var/www/html/tt-rss"
-                                      - variable: APP_BASE
-                                        label: TTRSS App Base Path
-                                        description: Advanced usage. This is the root URL path for tt-rss. Usually set to "/tt-rss", but the default on this app is "". https://tt-rss.org/wiki/InstallationNotes#how-do-i-make-it-run-without-tt-rss-in-the-url-i.e.-at-website-root
-                                        schema:
-                                          type: string
-                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
