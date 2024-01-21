@@ -3,11 +3,11 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: metrics
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: enterprise
 apiVersion: v2
-appVersion: 2.49.0
+appVersion: 2.49.1
 dependencies:
   - name: common
     version: 17.2.22
@@ -36,16 +36,18 @@ home: https://truecharts.org/charts/enterprise/prometheus
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/prometheus.png
 keywords:
   - metrics
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: prometheus
 sources:
-  - https://quay.io/thanos/thanos
   - https://github.com/prometheus-community/helm-charts
   - https://github.com/prometheus-operator/kube-prometheus
   - https://github.com/truecharts/charts/tree/master/charts/enterprise/prometheus
+  - https://hub.docker.com/r/bitnami/prometheus
+  - https://hub.docker.com/r/bitnami/alertmanager
+  - https://quay.io/thanos/thanos
 type: application
-version: 16.3.1
+version: 16.3.2
