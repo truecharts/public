@@ -111,7 +111,7 @@ workload:
               port: "{{ .Values.service.main.ports.main.targetPort }}"
           env:
             # APP_UPSTREAM: "tt-rss-app.ix-tt-rss.svc.cluster.local"
-            APP_UPSTREAM: '{{ printf "%v-app.ix-%v.svc.cluster.local" (include "tc.v1.common.lib.chart.names.fullname" $) (include "tc.v1.common.lib.chart.names.fullname" $) }}'
+            APP_UPSTREAM: '{{ printf "%s-app" (include "tc.v1.common.lib.chart.names.fullname" $) }}'
             # RESOLVER: "kube-dns.kube-system.svc.cluster.local"
             RESOLVER: 172.17.0.10
             APP_WEB_ROOT: /var/www/html/tt-rss
