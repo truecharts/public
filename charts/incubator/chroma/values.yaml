@@ -3,6 +3,10 @@ image:
   pullPolicy: IfNotPresent
   tag: 0.4.22@sha256:5c52289301c2f55b5d889edd16966f7349cb7b0e60619597f11e135ee406fec2
 
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+
 service:
   main:
     ports:
