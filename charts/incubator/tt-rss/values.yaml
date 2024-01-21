@@ -95,16 +95,14 @@ workload:
           probes:
             readiness:
               enabled: true
-              type: tcp
+              type: http
+              path: "/public.php?op=healthcheck"
               port: "{{ .Values.service.main.ports.main.targetPort }}"
-              # path: "{{ .Values.workload.nginx.podSpec.containers.nginx.env.APP_BASE }}/public.php?op=healthcheck"
-              # port: "{{ .Values.service.main.ports.main.targetPort }}"
             liveness:
               enabled: true
-              type: tcp
+              type: http
+              path: "/public.php?op=healthcheck"
               port: "{{ .Values.service.main.ports.main.targetPort }}"
-              # path: "{{ .Values.workload.nginx.podSpec.containers.nginx.env.APP_BASE }}/public.php?op=healthcheck"
-              # port: "{{ .Values.service.main.ports.main.targetPort }}"
             startup:
               enabled: true
               type: tcp
