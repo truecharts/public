@@ -16,7 +16,11 @@
   {{- $poolerAnnotations := $objectData.pooler.annotations | default dict -}}
   {{- $poolerAnnotations = mustMerge $poolerAnnotations $objAnnotations -}}
 
-  {{- $instances := $objectData.pooler.instances | default 2 }}
+  {{- $instances := $objectData.pooler.instances | default 2 -}}
+  {{/* Stop All */}}
+  {{- if or $objectData.hibernate (include "tc.v1.common.lib.util.stopAll" $rootCtx) -}}
+    {{- $instances = 0 -}}
+  {{- end }}
 ---
 apiVersion: postgresql.cnpg.io/v1
 kind: Pooler
