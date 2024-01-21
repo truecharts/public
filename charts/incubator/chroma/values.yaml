@@ -22,7 +22,7 @@ workload:
             readiness:
               path: "/api/v1/heartbeat"
           env:
-            IS_PERSISTENT: TRUE
+            IS_PERSISTENT: true
 
 persistence:
   config:
