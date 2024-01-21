@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Tools-Utilities
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: latest
 dependencies:
@@ -18,19 +18,19 @@ dependencies:
     import-values: []
 deprecated: false
 description: mproved Go Playground powered by Monaco Editor and React
-home: https://truecharts.org/charts/incubator/go-playground
+home: https://truecharts.org/charts/stable/go-playground
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/go-playground.png
 keywords:
   - go-playground
   - Tools-Utilities
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: go-playground
 sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/go-playground
   - https://hub.docker.com/r/x1unix/go-playground
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/go-playground
 type: application
-version: 4.1.7
+version: 4.1.8
