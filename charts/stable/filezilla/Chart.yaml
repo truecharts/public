@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: 3.66.4
 dependencies:
@@ -18,7 +18,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: A Helm chart for Kubernetes
-home: https://truecharts.org/charts/incubator/filezilla
+home: https://truecharts.org/charts/stable/filezilla
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/filezilla.png
 keywords:
   - filezilla
@@ -26,7 +26,7 @@ keywords:
   - sftp
   - ftps
   - client
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,7 +35,7 @@ name: filezilla
 sources:
   - https://github.com/linuxserver/docker-filezilla
   - https://filezilla-project.org/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/filezilla
+  - https://github.com/truecharts/charts/tree/master/charts/stable/filezilla
   - https://ghcr.io/linuxserver/filezilla
 type: application
-version: 10.2.1
+version: 10.2.2
