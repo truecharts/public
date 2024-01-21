@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: GameServers
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: stable
 dependencies:
@@ -18,20 +18,20 @@ dependencies:
     import-values: []
 deprecated: false
 description: A game in which you build and maintain factories.
-home: https://truecharts.org/charts/incubator/factorio
+home: https://truecharts.org/charts/stable/factorio
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/factorio.png
 keywords:
   - factorio
   - GameServers
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
 name: factorio
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/factorio
-  - https://hub.docker.com/r/factoriotools/factorio
   - https://github.com/factoriotools/factorio-docker
+  - https://github.com/truecharts/charts/tree/master/charts/stable/factorio
+  - https://hub.docker.com/r/factoriotools/factorio
 type: application
-version: 6.1.11
+version: 6.1.12
