@@ -29,10 +29,10 @@ workload:
             - nvidia-smi
           probes:
             liveness:
-              path: /
+              path: /metrics
               port: main
             readiness:
-              path: /
+              path: /metrics
               port: main
             startup:
               type: tcp
