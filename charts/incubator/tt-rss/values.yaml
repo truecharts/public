@@ -60,11 +60,17 @@ workload:
         main:
           probes:
             liveness:
-              type: tcp
-              port: "{{ .Values.service.app.ports.app.port }}"
+              type: exec
+              command:
+                - /bin/sh
+                - -c
+                - netstat -npl | grep :9000
             readiness:
-              type: tcp
-              port: "{{ .Values.service.app.ports.app.port }}"
+              type: exec
+              command:
+                - /bin/sh
+                - -c
+                - ls /var/www/html/tt-rss/.app_is_ready
             startup:
               type: tcp
               port: "{{ .Values.service.app.ports.app.port }}"
