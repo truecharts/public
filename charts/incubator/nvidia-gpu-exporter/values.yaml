@@ -24,15 +24,19 @@ workload:
             - --web.listen-address
             - :{{ .Values.service.main.ports.main.port }}
             - --web.telemetry-path
-            - /metrics
+            - "{{ .Values.metricsEndpoint }}"
             - --nvidia-smi-command
             - nvidia-smi
+            - --log.level
+            - "{{ .Values.logs.general.level }}"
+            - --log.format
+            - "{{ .Values.logs.general.format }}"
           probes:
             liveness:
-              path: /metrics
+              path: "{{ .Values.metricsEndpoint }}"
               port: main
             readiness:
-              path: /metrics
+              path: "{{ .Values.metricsEndpoint }}"
               port: main
             startup:
               type: tcp
@@ -74,7 +78,12 @@ metrics:
     type: "servicemonitor"
     endpoints:
       - port: main
-        path: /metrics
+        path: "{{ .Values.metricsEndpoint }}"
 portal:
   open:
     enabled: false
+metricsEndpoint: "/metrics"
+logs:
+  general:
+    level: info
+    format: logfmt
