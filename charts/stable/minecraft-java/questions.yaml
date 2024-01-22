@@ -133,7 +133,7 @@ questions:
                                           type: string
                                           default: ""
                                           show_if: [[TYPE, "=", "CUSTOM"]]
-                                      - variable: CUSTOM_PACKWIZ_URL
+                                      - variable: PACKWIZ_URL
                                         label: Packwiz URL
                                         schema:
                                           type: string
@@ -165,7 +165,7 @@ questions:
                                           type: string
                                           default: ""
                                           show_if: [[TYPE, "=", "QUILT"]]
-                                      - variable: QUILT_PACKWIZ_URL
+                                      - variable: PACKWIZ_URL
                                         label: Packwiz URL
                                         schema:
                                           type: string
@@ -196,7 +196,7 @@ questions:
                                           type: string
                                           default: ""
                                           show_if: [[TYPE, "=", "FORGE"]]
-                                      - variable: FORGE_PACKWIZ_URL
+                                      - variable: PACKWIZ_URL
                                         label: Packwiz URL
                                         schema:
                                           type: string
@@ -208,7 +208,7 @@ questions:
                                           type: string
                                           default: "47.1.79"
                                           show_if: [[TYPE, "=", "NEOFORGE"]]
-                                      - variable: NEOFORGE_PACKWIZ_URL
+                                      - variable: PACKWIZ_URL
                                         label: Packwiz URL
                                         schema:
                                           type: string
@@ -232,7 +232,7 @@ questions:
                                           type: string
                                           default: ""
                                           show_if: [[TYPE, "=", "FABRIC"]]
-                                      - variable: FABRIC_PACKWIZ_URL
+                                      - variable: PACKWIZ_URL
                                         label: Packwiz URL
                                         schema:
                                           type: string
