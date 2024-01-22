@@ -133,6 +133,12 @@ questions:
                                           type: string
                                           default: ""
                                           show_if: [[TYPE, "=", "CUSTOM"]]
+                                      - variable: PACKWIZ_URL
+                                        label: Packwiz URL
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          show_if: [[TYPE, "=", "CUSTOM"]]
                                       - variable: QUILT_LOADER_VERSION
                                         label: Quilt loader version
                                         schema:
@@ -155,6 +161,12 @@ questions:
                                       - variable: QUILT_LAUNCHER_URL
                                         label: Quilt launcher url
                                         description: URL to a custom launcher jar
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          show_if: [[TYPE, "=", "QUILT"]]
+                                      - variable: PACKWIZ_URL
+                                        label: Packwiz URL
                                         schema:
                                           type: string
                                           default: ""
@@ -184,11 +196,23 @@ questions:
                                           type: string
                                           default: ""
                                           show_if: [[TYPE, "=", "FORGE"]]
+                                      - variable: PACKWIZ_URL
+                                        label: Packwiz URL
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          show_if: [[TYPE, "=", "FORGE"]]
                                       - variable: NEOFORGE_VERSION
                                         label: NeoForge Version
                                         schema:
                                           type: string
                                           default: "47.1.79"
+                                          show_if: [[TYPE, "=", "NEOFORGE"]]
+                                      - variable: PACKWIZ_URL
+                                        label: Packwiz URL
+                                        schema:
+                                          type: string
+                                          default: ""
                                           show_if: [[TYPE, "=", "NEOFORGE"]]
                                       - variable: FABRIC_LOADER_VERSION
                                         label: Fabric Loader Version
