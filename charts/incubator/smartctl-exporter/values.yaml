@@ -28,7 +28,7 @@ workload:
             - /usr/sbin/smartctl
             - --smartctl.interval
             - "{{ .Values.smartctl.pollInterval }}"
-            - --smartctl.resca
+            - --smartctl.rescan
             - "{{ .Values.smartctl.rescanInterval }}"
             - --smartctl.device-exclude
             - "{{ .Values.smartctl.excludedDevices }}"
@@ -56,8 +56,8 @@ metrics:
 portal:
   open:
     enabled: false
-metricsEndpoint: "/metrics"
 smartctl:
+  metricsEndpoint: "/metrics"
   pollInterval: "60s"
   rescanInterval: "10m"
   excludedDevices: ""
