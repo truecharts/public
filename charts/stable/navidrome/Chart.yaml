@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.50.2
+appVersion: 0.51.0
 dependencies:
   - name: common
     version: 17.2.28
@@ -24,7 +24,7 @@ keywords:
   - navidrome
   - music
   - streaming
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/navidrome
   - https://hub.docker.com/r/deluan/navidrome
 type: application
-version: 18.1.9
+version: 18.2.0
