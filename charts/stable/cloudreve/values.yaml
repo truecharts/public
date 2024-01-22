@@ -1,7 +1,11 @@
 image:
   pullPolicy: IfNotPresent
-  repository: xavierniu/cloudreve
-  tag: latest@sha256:cdd00367bbdf3247e15feebfbde354237586a308c6fac730856670dd31b44b47
+  repository: cloudreve/cloudreve
+  tag: 3.8.3@sha256:a9e2373b7ca59bc43b9a4ceb50e7f6b80539c1732a9439b96dfe1aec6354a6c5
+imageAria2:
+  pullPolicy: IfNotPresent
+  repository: p3terx/aria2-pro
+  tag: 202209060423@sha256:41eb2a91901b7b612f7eb87a617ad05aa02e3f7ed0b7e9531e805818608f99ca
 persistence:
   avatarpath:
     enabled: true
@@ -15,18 +19,78 @@ persistence:
   uploadpath:
     enabled: true
     mountPath: /cloudreve/uploads
-portal:
-  open:
+  aria2-config:
     enabled: true
+    mountPath: /config
+  aria2-downloads:
+    enabled: true
+    targetSelector:
+      main:
+        main:
+          mountPath: /data
+      aria2:
+        aria2:
+          mountPath: /downloads
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsGroup: 0
     runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: "/"
+            readiness:
+              path: "/"
+            startup:
+              path: "/"
+  aria2:
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
+        aria2:
+          enabled: true
+          primary: true
+          imageSelector: imageAria2
+          probes:
+            liveness:
+              enabled: true
+              type: tcp
+              port: "{{ .Values.service.aria2.ports.aria2.port }}"
+            readiness:
+              enabled: true
+              type: tcp
+              port: "{{ .Values.service.aria2.ports.aria2.port }}"
+            startup:
+              enabled: true
+              type: tcp
+              port: "{{ .Values.service.aria2.ports.aria2.port }}"
+          env:
+            RPC_SECRET:
+              secretKeyRef:
+                name: cloudreve-secrets
+                key: RPC_SECRET
+            RPC_PORT: "{{ .Values.service.aria2.ports.aria2.port }}"
+            IPV6_MODE: false
 service:
   main:
     ports:
       main:
         port: 5212
-        protocol: tcp
-        targetPort: 5212
+  aria2:
+    enabled: true
+    type: ClusterIP
+    targetSelector: aria2
+    ports:
+      aria2:
+        enabled: true
+        port: 6800
+        targetSelector: aria2
+portal:
+  open:
+    enabled: true
