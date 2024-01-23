@@ -22,7 +22,7 @@ workload:
       containers:
         main:
           env:
-            FILE_DIR: "{{ Values.persistence.uploadpath.mounthPath}}"
+            FILE_DIR: "{{ .Values.persistence.uploadpath.mounthPath}}"
             PORT: "{{ .Values.service.main.ports.main.port }}"
             BASE_URL: http://192.168.0.100:1443
             MAX_DOWNLOADS: "100"
