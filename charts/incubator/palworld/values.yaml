@@ -45,6 +45,34 @@ palworld:
 workload:
   main:
     podSpec:
+      initContainers:
+        create-init-config-file:
+          enabled: true
+          type: init
+          imageSelector: "image"
+          command:
+            - /bin/sh
+            - -c
+          args:
+            - |
+              config={{ .Values.persistence.serverfiles.mountPath }}/Pal/Saved/Config/LinuxServer
+              cfgFile=${config}/PalWorldSettings.ini
+              mkdir -p ${config}
+              if [ ! -f ${cfgFile} ]; then
+                echo "Config file not found, fetching..."
+                # Fetch the config file if it doesn't exist, just like the container does
+                wget -qO ${cfgFile} https://github.com/ich777/docker-steamcmd-server/raw/palworld/config/PalWorldSettings.ini
+              fi
+              echo "Setting RCON status..."
+              sed -i 's/\(RCONEnabled=\)[^,]*/\1True/g' ${cfgFile}
+              echo "Set to [$(grep -Po 'RCONEnabled=[^,]*' ${cfgFile})]"
+              echo "Setting RCON Port..."
+              sed -i 's/\(RCONPort=\)[^,]*/\1{{ .Values.service.rcon.ports.rcon.port }}/g' ${cfgFile}
+              echo "Set to [$(grep -Po 'RCONPort=[^,]*' ${cfgFile})]"
+              echo "Setting Game Port..."
+              sed -i 's/\(PublicPort=\)[^,]*/\1{{ .Values.service.main.ports.main.port }}/g' ${cfgFile}
+              echo "Set to [$(grep -Po 'PublicPort=[^,]*' ${cfgFile})]"
+              echo "Done!"
       containers:
         main:
           probes:
