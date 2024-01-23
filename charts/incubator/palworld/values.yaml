@@ -101,7 +101,13 @@ persistence:
     mountPath: /serverdata/steamcmd
   serverfiles:
     enabled: true
-    mountPath: /serverdata/serverfiles
+    targetSelector:
+      main:
+        main:
+          mountPath: /serverdata/serverfiles
+      update-config-ini:
+        update-config-ini:
+          mountPath: /serverdata/serverfiles
 
 portal:
   open:
