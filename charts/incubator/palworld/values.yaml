@@ -14,7 +14,6 @@ service:
     ports:
       main:
         protocol: udp
-        targetPort: 8211
         port: 8211
   rcon:
     enabled: true
@@ -22,7 +21,6 @@ service:
       rcon:
         enabled: true
         protocol: tcp
-        targetPort: 25575
         port: 25575
 
 palworld:
@@ -46,7 +44,7 @@ workload:
   main:
     podSpec:
       initContainers:
-        create-init-config-file:
+        update-config-ini:
           enabled: true
           type: init
           imageSelector: "image"
