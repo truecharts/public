@@ -53,7 +53,7 @@ workload:
             - -c
           args:
             - |
-              config={{ .Values.persistence.serverfiles.mountPath }}/Pal/Saved/Config/LinuxServer
+              config=/serverdata/serverfiles/Pal/Saved/Config/LinuxServer
               cfgFile=${config}/PalWorldSettings.ini
               mkdir -p ${config}
               if [ ! -f ${cfgFile} ]; then
@@ -84,8 +84,8 @@ workload:
               type: tcp
               port: "{{ .Values.service.rcon.ports.rcon.port }}"
           env:
-            SERVER_DIR: "{{ .Values.persistence.serverfiles.mountPath }}"
             STEAMCMD_DIR: "{{ .Values.persistence.steamcmd.mountPath }}"
+            # SERVER_DIR: "{{ .Values.persistence.serverfiles.mountPath }}"
             GAME_ID: "{{ .Values.palworld.game.id }}"
             SRV_ADMIN_PWD: "{{ .Values.palworld.admin.password }}"
             GAME_PARAMS: '{{ join " " .Values.palworld.params }}'
