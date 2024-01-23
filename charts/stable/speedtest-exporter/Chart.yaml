@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 3.5.4
 dependencies:
   - name: common
-    version: 17.2.28
+    version: 17.2.29
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -21,7 +21,7 @@ description: Speedtest Exporter made in python using the official speedtest bin
 home: https://truecharts.org/charts/stable/speedtest-exporter
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/speedtest-exporter.png
 keywords:
-  - speedtest-exporter
+  - speedtest-exporter 
   - speedtest
   - metrics
 kubeVersion: ">=1.24.0-0"
@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/speedtest-exporter
   - https://ghcr.io/miguelndecarvalho/speedtest-exporter
 type: application
-version: 9.1.9
+version: 9.1.11
