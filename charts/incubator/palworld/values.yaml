@@ -85,7 +85,7 @@ workload:
               port: "{{ .Values.service.rcon.ports.rcon.port }}"
           env:
             STEAMCMD_DIR: "{{ .Values.persistence.steamcmd.mountPath }}"
-            SERVER_DIR: "{{ .Values.persistence.serverfiles.mountPath }}"
+            SERVER_DIR: "{{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}"
             GAME_ID: "{{ .Values.palworld.game.id }}"
             SRV_ADMIN_PWD: "{{ .Values.palworld.admin.password }}"
             GAME_PARAMS: '{{ join " " .Values.palworld.params }}'
