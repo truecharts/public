@@ -8,16 +8,15 @@ persistence:
     mountPath: /cloudreve/avatar
   config:
     enabled: true
-    mountPath: /cloudreve/config
-  databasepath:
-    enabled: true
-    mountPath: /cloudreve/db
+    targetSelector:
+      main:
+        main:
+          mountPath: /cloudreve
+        init:
+          mountPath: /conf-init
   uploadpath:
     enabled: true
     mountPath: /cloudreve/uploads
-  aria2-downloads:
-    enabled: true
-    mountPath: /data
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -26,6 +25,19 @@ securityContext:
 workload:
   main:
     podSpec:
+      initContainers:
+        init:
+          enabled: true
+          type: init # Needs to run on upgrade and install...
+          imageSelector: image
+          command:
+            - "/bin/sh"
+            - "-c"
+            - |
+              set -x
+              ls -lasth /cloudreve
+              cp -a /cloudreve/cloudreve /conf-init/cloudreve
+              ls -lasht /conf-init
       containers:
         main:
           probes:
