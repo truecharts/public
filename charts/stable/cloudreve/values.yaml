@@ -28,7 +28,8 @@ workload:
       initContainers:
         init:
           enabled: true
-          type: init # Needs to run on upgrade and install...
+          # Only needs to run on upgrade and install..
+          type: init
           imageSelector: image
           command:
             - "/bin/sh"
