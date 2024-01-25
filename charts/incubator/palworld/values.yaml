@@ -57,7 +57,7 @@ workload:
             - -c
           args:
             - |
-              config={{ .Values.persistence.serverfiles.targetSelector.main.update-config-ini.mountPath }}/Pal/Saved/Config/LinuxServer
+              config={{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}/Pal/Saved/Config/LinuxServer
               cfgFile=${config}/PalWorldSettings.ini
               mkdir -p ${config}
               if [ ! -f ${cfgFile} ]; then
