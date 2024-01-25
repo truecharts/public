@@ -1,0 +1,42 @@
+image:
+  repository: domoticz/domoticz
+  pullPolicy: IfNotPresent
+  tag: stable@sha256:927f1595e67c3323b937215ce5271da674b5fd790e6122c62597111fc74fff05
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        targetPort: 8080
+        port: 10144
+  comm1:
+    enabled: true
+    ports:
+      comm1:
+        enabled: true
+        targetPort: 6144
+        port: 6144
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+            readiness:
+              type: tcp
+            startup:
+              type: tcp
+persistence:
+  config:
+    enabled: true
+    mountPath: /opt/domoticz/userdata
+portal:
+  open:
+    enabled: true
