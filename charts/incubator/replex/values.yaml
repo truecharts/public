@@ -37,7 +37,8 @@ replex:
   disable_user_state: false
   disable_leaf_count: false
   force_max_quality: false
-  force_direct_play_for: false
+  # 720 | 1080 | 4k
+  force_direct_play_for: ""
   # 1080 | 4k
   video_transcode_fallback_for: "1080"
   auto_select_version: false

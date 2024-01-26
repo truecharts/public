@@ -88,10 +88,19 @@ questions:
             default: false
         - variable: force_direct_play_for
           label: Force Direct Play For
-          description: 	Force direct play for the given resolutions. Options are "4k", "1080" and "720" (not recommended).
+          description: 	Force direct play for the given resolutions. (not recommended).
           schema:
-            type: boolean
-            default: false
+            type: string
+            default: ""
+            enum:
+              - value: ""
+                description: "Disabled"
+              - value: "720"
+                description: "720"
+              - value: "1080"
+                description: "1080"
+              - value: "4k"
+                description: "4K"
         - variable: video_transcode_fallback_for
           label: Video Transcode FallBack For
           description: Remove unplayed badges from row items.
