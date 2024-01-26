@@ -1,0 +1,113 @@
+image:
+  repository: ghcr.io/ich777/steamcmd
+  pullPolicy: IfNotPresent
+  tag: palworld@sha256:c7ed87dfb13890f340d663ca0a97acb6a8b83a40ab81a9c94c8675cee03af325
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: udp
+        port: 8211
+  rcon:
+    enabled: true
+    ports:
+      rcon:
+        enabled: true
+        protocol: tcp
+        port: 25575
+
+palworld:
+  game:
+    id: "2394010"
+  steam:
+    username: ""
+    password: ""
+  admin:
+    password: adminDocker
+  params:
+    - EpicApp=PalServer
+  params_extra:
+    - -No-useperfthreads
+    - -NoAsyncLoadingThread
+    - -UseMultithreadForDS
+  update_public_ip: false
+  validate: false
+
+workload:
+  main:
+    podSpec:
+      initContainers:
+        update-config-ini:
+          enabled: true
+          type: init
+          imageSelector: "image"
+          command:
+            - /bin/sh
+            - -c
+          args:
+            - |
+              config=/serverdata/serverfiles/Pal/Saved/Config/LinuxServer
+              cfgFile=${config}/PalWorldSettings.ini
+              mkdir -p ${config}
+              if [ ! -f ${cfgFile} ]; then
+                echo "Config file not found, fetching..."
+                # Fetch the config file if it doesn't exist, just like the container does
+                wget -qO ${cfgFile} https://github.com/ich777/docker-steamcmd-server/raw/palworld/config/PalWorldSettings.ini
+              fi
+              echo "Setting RCON status..."
+              sed -i 's/\(RCONEnabled=\)[^,]*/\1True/g' ${cfgFile}
+              echo "Set to [$(grep -Po 'RCONEnabled=[^,]*' ${cfgFile})]"
+              echo "Setting RCON Port..."
+              sed -i 's/\(RCONPort=\)[^,]*/\1{{ .Values.service.rcon.ports.rcon.port }}/g' ${cfgFile}
+              echo "Set to [$(grep -Po 'RCONPort=[^,]*' ${cfgFile})]"
+              echo "Setting Game Port..."
+              sed -i 's/\(PublicPort=\)[^,]*/\1{{ .Values.service.main.ports.main.port }}/g' ${cfgFile}
+              echo "Set to [$(grep -Po 'PublicPort=[^,]*' ${cfgFile})]"
+              echo "Done!"
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+              port: "{{ .Values.service.rcon.ports.rcon.port }}"
+            readiness:
+              type: tcp
+              port: "{{ .Values.service.rcon.ports.rcon.port }}"
+            startup:
+              type: tcp
+              port: "{{ .Values.service.rcon.ports.rcon.port }}"
+          env:
+            STEAMCMD_DIR: "{{ .Values.persistence.steamcmd.mountPath }}"
+            SERVER_DIR: "{{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}"
+            GAME_ID: "{{ .Values.palworld.game.id }}"
+            SRV_ADMIN_PWD: "{{ .Values.palworld.admin.password }}"
+            GAME_PARAMS: '{{ join " " .Values.palworld.params }}'
+            GAME_PARAMS_EXTRA: '{{ join " " .Values.palworld.params_extra }}'
+            UPDATE_PUBLIC_IP: "{{ .Values.palworld.update_public_ip }}"
+            VALIDATE: "{{ .Values.palworld.validate }}"
+            USERNAME: "{{ .Values.palworld.steam.username }}"
+            PASSWRD: "{{ .Values.palworld.steam.password }}"
+
+persistence:
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+  serverfiles:
+    enabled: true
+    targetSelector:
+      main:
+        main:
+          mountPath: /serverdata/serverfiles
+        update-config-ini:
+          mountPath: /serverdata/serverfiles
+
+portal:
+  open:
+    enabled: false

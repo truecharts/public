@@ -1,0 +1,209 @@
+# Include{groups}
+portals: {}
+questions:
+# Include{global}
+# Include{workload}
+# Include{workloadDeployment}
+# Include{replicas1}
+# Include{podSpec}
+# Include{containerMain}
+
+# Include{containerBasic}
+# Include{containerAdvanced}
+
+  - variable: palworld
+    group: App Configuration
+    label: Palworld Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: game
+          label: Game Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: id
+                label: Game Id
+                description: The ID of the container to download at start up.
+                schema:
+                  type: string
+                  required: true
+                  default: "2394010"
+        - variable: steam
+          label: Steam Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: username
+                label: Username
+                description: Optionally set a steam username otherwise (disable Steam Guard).
+                schema:
+                  type: string
+                  default: ""
+              - variable: password
+                label: Password
+                description: Optionally set a steam password (disable Steam Guard).
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+        - variable: admin
+          label: Admin Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: password
+                label: Server Admin Password
+                description: Optionally set a password for the admin (this field accepts no spaces)
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+        - variable: params
+          label: Game Params
+          schema:
+            type: list
+            default:
+              - EpicApp=PalServer
+            required: true
+            items:
+              - variable: param
+                label: Param
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+        - variable: params_extra
+          label: Game Params Extra
+          schema:
+            type: list
+            default:
+              - -No-useperfthreads
+              - -NoAsyncLoadingThread
+              - -UseMultithreadForDS
+            required: true
+            items:
+              - variable: extra_param
+                label: Extra Param
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+        - variable: update_public_ip
+          label: Update Public IP
+          description: Will check if the Public IP is still valid (the container will try to grab your public IP on the first server start since the public IP is necessary to run a community server).
+          schema:
+            type: boolean
+            default: false
+        - variable: validate
+          label: Validate
+          description: Validates the game data.
+          schema:
+            type: boolean
+            default: false
+
+# Include{containerConfig}
+# Include{podOptions}
+# Include{serviceRoot}
+# Include{serviceMain}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: main
+                      label: "Main Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 8211
+                              required: true
+        - variable: rcon
+          label: RCON Service
+          description: The RCON service.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: rcon
+                      label: RCON Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 25575
+                              required: true
+# Include{serviceExpertRoot}
+# Include{serviceExpert}
+# Include{serviceList}
+# Include{persistenceRoot}
+        - variable: steamcmd
+          label: "App SteamCMD Storage"
+          description: "Stores the Application SteamCMD."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: serverfiles
+          label: "App Server Files Storage"
+          description: "Stores the Application Server Files."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+# Include{persistenceList}
+# Include{ingressRoot}
+        - variable: main
+          label: "Main Ingress"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+# Include{ingressAdvanced}
+# Include{ingressList}
+# Include{securityContextRoot}
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
+# Include{securityContextContainer}
+# Include{securityContextAdvanced}
+# Include{securityContextPod}
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
+                schema:
+                  type: int
+                  default: 568
+# Include{resources}
+# Include{advanced}
+# Include{addons}
+# Include{codeserver}
+# Include{netshoot}
+# Include{vpn}
+# Include{documentation}
