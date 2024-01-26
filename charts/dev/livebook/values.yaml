@@ -56,9 +56,9 @@ workload:
                 name: secrets
                 key: LIVEBOOK_PASSWORD
             LIVEBOOK_DEBUG: '{{ ternary "true" "false" .Values.livebookDebug }}'
-            LIVEBOOK_UPDATE_INSTRUCTIONS_URL: '{{ .Values.livebookUpdateInstructionsUrl }}'
+            LIVEBOOK_UPDATE_INSTRUCTIONS_URL: {{ .Values.livebookUpdateInstructionsUrl }}
             LIVEBOOK_AWS_CREDENTIALS: '{{ ternary "true" "false" .Values.livebookAwsCredentials }}'
-            AWS_ACCESS_KEY_ID: '{{ .Values.awsAccessKeyId }}'
+            AWS_ACCESS_KEY_ID: {{ .Values.awsAccessKeyId }}
             AWS_SECRET_ACCESS_KEY:
               secretKeyRef:
                 name: secrets
