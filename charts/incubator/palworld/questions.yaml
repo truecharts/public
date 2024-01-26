@@ -36,13 +36,13 @@ questions:
                 description: The name of your server.
                 schema:
                   type: string
-                  default: "Palworld Docker"
+                  default: "Palworld Kubernetes"
               - variable: description
                 label: Server Description
                 description: The description of your server.
                 schema:
                   type: string
-                  default: "Palworld running in Docker"
+                  default: "Palworld running in Kubernetes"
               - variable: max_players
                 label: Max Players
                 description: The max players that can play on your server.
@@ -55,7 +55,7 @@ questions:
                 schema:
                   type: string
                   private: true
-                  default: "Docker"
+                  default: ""
         - variable: steam
           label: Steam Configuration
           schema:
