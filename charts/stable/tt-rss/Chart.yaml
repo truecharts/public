@@ -5,9 +5,9 @@ annotations:
   truecharts.org/category: rss
   truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+  truecharts.org/train: incubator
 apiVersion: v2
-appVersion: 2.0.9113
+appVersion: 3.0.0
 dependencies:
   - name: common
     version: 17.2.29
@@ -32,6 +32,6 @@ name: tt-rss
 sources:
   - https://git.tt-rss.org/fox/tt-rss
   - https://github.com/truecharts/charts/tree/master/charts/stable/tt-rss
-  - https://ghcr.io/k8s-at-home/tt-rss
+  - https://hub.docker.com/r/cthulhoo/ttrss-fpm-pgsql-static/tags
 type: application
-version: 14.1.10
+version: 15.0.0
