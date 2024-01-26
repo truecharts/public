@@ -125,7 +125,6 @@ questions:
           schema:
             type: string
             default: ""
-            show_if: [[redirect_streams, "=", true]]
         - variable: cache_ttl
           label: Cache TTL
           description: Time to live for caches in seconds. Set to 0 to disable (not recommended).
