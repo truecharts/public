@@ -16,6 +16,13 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
+  - name: redis
+    version: 11.1.6
+    repository: https://deps.truecharts.org
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
 deprecated: false
 description: A fork of Mozilla's Firefox Send.Mozilla discontinued Send, this fork is a community effort to keep the project up-to-date and alive.
 home: https://truecharts.org/charts/stable/send
@@ -34,4 +41,4 @@ sources:
   - https://gitlab.com/timvisee/send
   - https://github.com/truecharts/charts/tree/master/charts/stable/send
 type: application
-version: 4.1.10
+version: 4.2.0
