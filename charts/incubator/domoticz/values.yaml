@@ -1,6 +1,6 @@
 image:
   repository: domoticz/domoticz
-  pullPolicy: Always
+  pullPolicy: IfNotPresent
   tag: stable@sha256:927f1595e67c3323b937215ce5271da674b5fd790e6122c62597111fc74fff05
 securityContext:
   container:
