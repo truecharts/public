@@ -1,0 +1,209 @@
+# Include{groups}
+portals:
+  open:
+# Include{portalLink}
+questions:
+# Include{global}
+# Include{workload}
+# Include{workloadDeployment}
+# Include{replicas1}
+# Include{podSpec}
+
+# Include{containerMain}
+
+# Include{containerBasic}
+# Include{containerAdvanced}
+
+  - variable: replex
+    group: App Configuration
+    label: Replex Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: host
+          label: Plex Host
+          description: Url of your plex instance.
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: hero_rows
+          label: Hero Rows
+          description: List of hubidentifiers to make hero style.
+          schema:
+            type: list
+            empty: false
+            default:
+              - home.movies.recent
+              - movies.recent
+              - movie.recentlyadded
+              - movie.topunwatched
+              - movie.recentlyviewed
+              - hub.movie.recentlyreleased
+              - movie.recentlyreleased
+              - home.television.recent
+              - tv.recentlyadded
+              - tv.toprated
+              - tv.inprogress
+              - tv.recentlyaired
+            required: true
+            items:
+              - variable: row
+                label: Row
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+        - variable: exclude_watched
+          label: Exclude Watched
+          description: Hide watched items for recommended rows.
+          schema:
+            type: boolean
+            default: false
+        - variable: disable_continue_watching
+          label: Disable Continue Watching
+          description: Disable/remove the continue watching row.
+          schema:
+            type: boolean
+            default: false
+        - variable: disable_user_state
+          label: Disable User State
+          description: Remove unplayed badges from row items.
+          schema:
+            type: boolean
+            default: false
+        - variable: disable_leaf_count
+          label: Disable Leaf Count
+          description: Remove episode count label from show artwork.
+          schema:
+            type: boolean
+            default: false
+        - variable: force_max_quality
+          label: Force Max Quality
+          description: This will force clients to use the maximum quality.
+          schema:
+            type: boolean
+            default: false
+        - variable: force_direct_play_for
+          label: Force Direct Play For
+          description: 	Force direct play for the given resolutions. Options are "4k", "1080" and "720" (not recommended).
+          schema:
+            type: boolean
+            default: false
+        - variable: video_transcode_fallback_for
+          label: Video Transcode FallBack For
+          description: Remove unplayed badges from row items.
+          schema:
+            type: string
+            default: "4k"
+            enum:
+              - value: "1080"
+                description: "1080"
+              - value: "4k"
+                description: "4K"
+        - variable: auto_select_version
+          label: Auto Select Version
+          description: If you have multiple versions of a media item then this setting will choose the one thats closest to the client resolution.
+          schema:
+            type: boolean
+            default: false
+        - variable: disable_related
+          label: Disable Related
+          schema:
+            type: boolean
+            default: false
+        - variable: redirect_streams
+          label: Redirect Streams
+          description: Redirect streams to another endpoint.
+          schema:
+            type: boolean
+            default: false
+        - variable: redirect_streams_host
+          label: Redirect Streams Host
+          description: Alternative streams endpoint.
+          schema:
+            type: string
+            default: ""
+            show_if: [[redirect_streams, "=", true]]
+        - variable: cache_ttl
+          label: Cache TTL
+          description: Time to live for caches in seconds. Set to 0 to disable (not recommended).
+          schema:
+            type: int
+            default: 1800
+            min: 0
+        - variable: cache_rows
+          label: Cache Rows
+          schema:
+            type: boolean
+            default: true
+        - variable: cache_rows_refresh
+          label: Cache Rows Refresh
+          description: Auto refresh cached rows.
+          schema:
+            type: boolean
+            default: true
+
+# Include{containerConfig}
+# Include{podOptions}
+# Include{serviceRoot}
+# Include{serviceMain}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: main
+                      label: "Main Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 32401
+                              required: true
+# Include{serviceExpertRoot}
+# Include{serviceExpert}
+# Include{serviceList}
+# Include{persistenceList}
+# Include{ingressRoot}
+        - variable: main
+          label: "Main Ingress"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+# Include{ingressAdvanced}
+# Include{ingressList}
+# Include{securityContextRoot}
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
+                schema:
+                  type: int
+                  default: 0
+# Include{securityContextContainer}
+# Include{securityContextAdvanced}
+# Include{securityContextPod}
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
+                schema:
+                  type: int
+                  default: 0
+# Include{resources}
+# Include{advanced}
+# Include{addons}
+# Include{codeserver}
+# Include{netshoot}
+# Include{vpn}
+# Include{documentation}

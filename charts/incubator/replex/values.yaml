@@ -1,0 +1,76 @@
+image:
+  repository: ghcr.io/lostb1t/replex
+  pullPolicy: IfNotPresent
+  tag: 0.20.0@sha256:f6cdeb27e7aaad36317c0fdf3cce06bbc96189cb2aacd5d60a98878fc6e8c467
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 80
+        port: 32401
+
+replex:
+  host: ""
+  hero_rows:
+    - home.movies.recent
+    - movies.recent
+    - movie.recentlyadded
+    - movie.topunwatched
+    - movie.recentlyviewed
+    - hub.movie.recentlyreleased
+    - movie.recentlyreleased
+    - home.television.recent
+    - tv.recentlyadded
+    - tv.toprated
+    - tv.inprogress
+    - tv.recentlyaired
+  exclude_watched: false
+  disable_continue_watching: false
+  disable_user_state: false
+  disable_leaf_count: false
+  force_max_quality: false
+  force_direct_play_for: false
+  # 1080 | 4k
+  video_transcode_fallback_for: "1080"
+  auto_select_version: false
+  disable_related: false
+  redirect_streams: false
+  redirect_streams_host: ""
+  cache_ttl: 1800
+  cache_rows: true
+  cache_rows_refresh: true
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            REPLEX_HOST: "{{ .Values.replex.host }}"
+            REPLEX_HERO_ROWS: '{{ join "," .Values.replex.hero_rows }}'
+            REPLEX_EXCLUDE_WATCHED: "{{ .Values.replex.exclude_watched }}"
+            REPLEX_DISABLE_CONTINUE_WATCHING: "{{ .Values.replex.disable_continue_watching }}"
+            REPLEX_DISABLE_USER_STATE: "{{ .Values.replex.disable_user_state }}"
+            REPLEX_DISABLE_LEAF_COUNT: "{{ .Values.replex.disable_leaf_count }}"
+            REPLEX_FORCE_MAXIMUM_QUALITY: "{{ .Values.replex.force_max_quality }}"
+            REPLEX_FORCE_DIRECT_PLAY_FOR: "{{ .Values.replex.force_direct_play_for }}"
+            REPLEX_VIDEO_TRANSCODE_FALLBACK_FOR: "{{ .Values.replex.video_transcode_fallback_for }}"
+            REPLEX_AUTO_SELECT_VERSION: "{{ .Values.replex.auto_select_version }}"
+            REPLEX_DISABLE_RELATED: "{{ .Values.replex.disable_related }}"
+            REPLEX_REDIRECT_STREAMS: "{{ .Values.replex.redirect_streams }}"
+            REPLEX_REDIRECT_STREAMS_HOST: "{{ .Values.replex.redirect_streams_host }}"
+            REPLEX_CACHE_TTL: "{{ .Values.replex.cache_ttl }}"
+            REPLEX_CACHE_ROWS: "{{ .Values.replex.cache_rows }}"
+            REPLEX_CACHE_ROWS_REFRESH: "{{ .Values.replex.cache_rows_refresh }}"
+
+portal:
+  open:
+    enabled: true
