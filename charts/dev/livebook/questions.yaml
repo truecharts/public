@@ -17,23 +17,31 @@ questions:
                                     attrs:
                                       - variable: LIVEBOOK_PASSWORD
                                         label: "Password (LIVEBOOK_PASSWORD)"
-                                        description: "Password needed to access livebook (must be at least 12 characters)"
+                                        description: Password needed to access livebook (must be at least 12 characters)
                                         schema:
                                           type: string
+                                          min_length: 12
                                           required: true
                                           private: true
                                       - variable: LIVEBOOK_DEBUG
                                         label: "Debug Logging (LIVEBOOK_DEBUG)"
                                         description: >
-                                          enables verbose logging, when set to "true". Disabled by default.
+                                          Enables verbose logging, when set to "true". Disabled by default.
                                         schema:
                                           type: boolean
                                       - variable: LIVEBOOK_UPDATE_INSTRUCTIONS_URL
                                         label: "Update instruction URL (LIVEBOOK_UPDATE_INSTRUCTIONS_URL)"
                                         description: >
-                                          sets the URL to direct the user to for updating Livebook when a new version becomes available.
+                                          Sets the URL to direct the user to for updating Livebook when a new version becomes available.
                                         schema:
                                           type: string
+                                      - variable: LIVEBOOK_AWS_CREDENTIALS
+                                        label: "Read AWS Credentials From Env (LIVEBOOK_AWS_CREDENTIALS)"
+                                        description: >
+                                          Enable Livebook to read AWS Credentials from environment variables,
+                                          AWS Credentials, EC2/ECS metadata when configuring S3 buckets.
+                                        schema:
+                                          type: boolean
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
