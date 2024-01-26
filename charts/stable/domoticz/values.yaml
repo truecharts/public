@@ -28,9 +28,9 @@ workload:
         main:
           probes:
             liveness:
-              type: tcp
+              path: /
             readiness:
-              type: tcp
+              path: /
             startup:
               type: tcp
 persistence:
