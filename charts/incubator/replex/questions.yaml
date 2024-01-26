@@ -8,7 +8,6 @@ questions:
 # Include{workloadDeployment}
 # Include{replicas1}
 # Include{podSpec}
-
 # Include{containerMain}
 
 # Include{containerBasic}
@@ -151,14 +150,14 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: "Main Service Port Configuration"
+                      label: Main Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 32401
@@ -169,7 +168,7 @@ questions:
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: "Main Ingress"
+          label: Main Ingress
           schema:
             additional_attrs: true
             type: dict
@@ -198,7 +197,7 @@ questions:
                 description: "The group that should own ALL storage."
                 schema:
                   type: int
-                  default: 0
+                  default: 568
 # Include{resources}
 # Include{advanced}
 # Include{addons}
