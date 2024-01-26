@@ -13,6 +13,8 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
+# Include{containerConfig}
+
   - variable: replex
     group: App Configuration
     label: Replex Configuration
@@ -143,7 +145,6 @@ questions:
             type: boolean
             default: true
 
-# Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
 # Include{serviceMain}
