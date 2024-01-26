@@ -29,12 +29,12 @@ palworld:
     name: "Palworld Kubernetes"
     description: "Palworld running in Kubernetes"
     max_players: 32
-    password: ""
+    password: "abc123$"
   steam:
     username: ""
     password: ""
   admin:
-    password: ""
+    password: "1234567890$"
   params:
     - EpicApp=PalServer
   params_extra:
@@ -84,12 +84,13 @@ workload:
               sed -i 's/\(ServerPlayerMaxNum=\)[^,]*/\1{{ .Values.palworld.game.max_players }}/g' ${cfgFile}
               echo "Set to [$(grep -Po 'ServerPlayerMaxNum=[^,]*' ${cfgFile})]"
               echo "Setting Server Password..."
-              sed -i 's/\(ServerPassword=\)[^,]*/\1{{ .Values.palworld.game.password }}/g' ${cfgFile}
-              echo "Set to [$(grep -Po 'ServerPassword=[^,]*' ${cfgFile})]"
+              sed -i "s/\(ServerPassword=\)[^,]*/\1$(echo "${{ .Values.palworld.game.password }}" | sed -e 's/[\/&]/\\&/g')/g" "${cfgFile}"
+              echo "Set to [$(grep -Po 'ServerPassword=[^,]*' "${cfgFile}")]"
               echo "Setting Server Admin Password..."
-              sed -i 's/\(AdminPassword=\)[^,]*/\1{{ .Values.palworld.admin.password }}/g' ${cfgFile}
+              sed -i "s/\(AdminPassword=\)[^,]*/\1$(echo "${{ .Values.palworld.admin.password }}" | sed -e 's/[\/&]/\\&/g')/g" "${cfgFile}"
               echo "Set to [$(grep -Po 'AdminPassword=[^,]*' ${cfgFile})]"
               echo "Done!"
+
       containers:
         main:
           probes:
