@@ -12,7 +12,6 @@ service:
   main:
     ports:
       main:
-        targetPort: 8080
         port: 10144
   comm1:
     enabled: true
@@ -33,6 +32,9 @@ workload:
               path: /
             startup:
               type: tcp
+          env:
+            # Set default http port. Container also has SSL_PORT variable for SSL.
+            WWW_PORT: "{{ .Values.service.main.ports.main.port }}"
 persistence:
   config:
     enabled: true
