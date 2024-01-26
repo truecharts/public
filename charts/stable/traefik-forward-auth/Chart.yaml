@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 17.2.28
+    version: 17.2.29
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -38,4 +38,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/traefik-forward-auth
   - https://hub.docker.com/r/thomseddon/traefik-forward-auth
 type: application
-version: 2.1.12
+version: 2.1.13
