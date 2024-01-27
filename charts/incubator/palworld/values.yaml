@@ -34,7 +34,7 @@ palworld:
     username: ""
     password: ""
   admin:
-    password: "$adminDocker^%"
+    password: "adminDocker$"
   params:
     - EpicApp=PalServer
   params_extra:
@@ -79,19 +79,19 @@ workload:
                   local value="${2}"
 
                   echo "Setting ${key}..."
-                  sed -i "s/\(${key}=\)[^,]*/\1${value}/g" "${cfgFile}"
-                  echo "Set to [$(grep -Po "${key}=[^,]*" "${cfgFile}")]"
+                  sed -i "s|\(${key}=\)[^,]*|\1${value}|g" "${cfgFile}"
+                  echo "Set to $(grep -Po "${key}=[^,]*" "${cfgFile}")"
               }
+
               set_ini_value "RCONEnabled" "True"
               set_ini_value "RCONPort" "${rconPort}"
               set_ini_value "PublicPort" "${mainPort}"
               set_ini_value "ServerName" "${nameServer}"
               set_ini_value "ServerDescription" "${descriptionServer}"
               set_ini_value "ServerPlayerMaxNum" "${maxPlayers}"
-              set_ini_value "ServerPassword" "$(echo "${gamePass}" | sed -e 's/[\/&]/\\&/g')"
-              set_ini_value "AdminPassword" "$(echo "${adminPass}" | sed -e 's/[\/&]/\\&/g')"
+              set_ini_value "ServerPassword" "${gamePass}"
+              set_ini_value "AdminPassword" "${adminPass}"
               echo "Done!"
-
       containers:
         main:
           probes:
