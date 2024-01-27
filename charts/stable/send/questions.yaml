@@ -16,59 +16,29 @@ questions:
                                     type: dict
                                     attrs:
                                       - variable: BASE_URL
-                                        label: "BASE_URL"
-                                        description: "Base URL"
+                                        label: "Base Url"
+                                        description: "URL where traffic will be served "
                                         schema:
                                           type: string
                                           default: "http://192.168.0.100:1443"
                                       - variable: MAX_FILE_SIZE
-                                        label: "MAX_FILE_SIZE"
-                                        description: "Max File Size (Bytes)"
+                                        label: "Max File Size"
+                                        description: "Maximum upload file size in bytes (defaults to 2147483648 aka 2GB)"
                                         schema:
                                           type: string
                                           default: "2147483648"
                                       - variable: MAX_EXPIRE_SECONDS
-                                        label: "MAX_EXPIRE_SECONDS"
-                                        description: "Max Expire Seconds"
+                                        label: "Max Expire Seconds"
+                                        description: "Maximum upload expiry time in seconds (defaults to 604800 aka 7 days)"
                                         schema:
                                           type: string
                                           default: "604800"
                                       - variable: MAX_DOWNLOADS
-                                        label: "MAX_DOWNLOADS"
-                                        description: "Max Downloads"
+                                        label: "Max Downloads"
+                                        description: "Maximum number of downloads (defaults to 100)"
                                         schema:
                                           type: string
                                           default: "100"
-                                      - variable: REDIS_HOST
-                                        label: "REDIS_HOST"
-                                        description: "Redis Host"
-                                        schema:
-                                          type: string
-                                          default: "192.168.0.100"
-                                      - variable: REDIS_PASSWORD
-                                        label: "REDIS_PASSWORD"
-                                        description: "Redis Password (If there is)"
-                                        schema:
-                                          type: string
-                                          default: "password"
-                                      - variable: REDIS_PORT
-                                        label: "REDIS_PORT"
-                                        description: "Redis Port"
-                                        schema:
-                                          type: string
-                                          default: "6379"
-                                      - variable: FILE_DIR
-                                        label: "FILE_DIR"
-                                        description: "FILEDIR"
-                                        schema:
-                                          type: string
-                                          default: "/uploads"
-                                      - variable: NODE_ENV
-                                        label: "NODE_ENV"
-                                        description: "NODEENV"
-                                        schema:
-                                          type: string
-                                          default: "production"
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
@@ -97,8 +67,8 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: uploadpath
-          label: "uploadpath Storage"
-          description: "Upload Path"
+          label: App Uploads Storage
+          description: "Stores the Application Uploads."
           schema:
             additional_attrs: true
             type: dict
