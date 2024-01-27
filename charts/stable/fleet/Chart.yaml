@@ -17,7 +17,7 @@ dependencies:
     tags: []
     import-values: []
   - name: mariadb
-    version: 12.1.6
+    version: 12.1.12
     repository: https://deps.truecharts.org/
     condition: mariadb.enabled
     alias: ""
@@ -39,4 +39,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/fleet
   - https://ghcr.io/linuxserver/fleet
 type: application
-version: 11.1.16
+version: 11.1.17
