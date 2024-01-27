@@ -29,12 +29,12 @@ palworld:
     name: "Palworld Kubernetes"
     description: "Palworld running in Kubernetes"
     max_players: 32
-    password: "abc123$"
+    password: ""
   steam:
     username: ""
     password: ""
   admin:
-    password: "1234567890$"
+    password: ""
   params:
     - EpicApp=PalServer
   params_extra:
@@ -75,27 +75,35 @@ workload:
               echo "Setting RCON status..."
               sed -i 's/\(RCONEnabled=\)[^,]*/\1True/g' ${cfgFile}
               echo "Set to [$(grep -Po 'RCONEnabled=[^,]*' ${cfgFile})]"
+
               echo "Setting RCON Port..."
               sed -i 's/\(RCONPort=\)[^,]*/\1${rconPort}/g' ${cfgFile}
               echo "Set to [$(grep -Po 'RCONPort=[^,]*' ${cfgFile})]"
+
               echo "Setting Game Port..."
-              sed -i 's/\(PublicPort=\)[^,]*/\1${mainPort}/g' ${cfgFile}
-              echo "Set to [$(grep -Po 'PublicPort=[^,]*' ${cfgFile})]"
+              sed -i "s/\(PublicPort=\)[^,]*/\1${mainPort}/g" "${cfgFile}"
+              echo "Set to [$(grep -Po 'PublicPort=[^,]*' "${cfgFile}")]"
+
               echo "Setting Server Name..."
-              sed -i 's/\(ServerName=\)[^,]*/\1${serverName}/g' ${cfgFile}
+              sed -i "s/\(ServerName=\)[^,]*/\1${serverName}/g" "${cfgFile}"
               echo "Set to [$(grep -Po 'ServerName=[^,]*' ${cfgFile})]"
+
               echo "Setting Server Description..."
-              sed -i 's/\(ServerDescription=\)[^,]*/\1${serverDescription}/g' ${cfgFile}
+              sed -i "s/\(ServerDescription=\)[^,]*/\1${serverDescription}/g" "${cfgFile}"
               echo "Set to [$(grep -Po 'ServerDescription=[^,]*' ${cfgFile})]"
+
               echo "Setting Server  Player Max Num..."
-              sed -i 's/\(ServerPlayerMaxNum=\)[^,]*/\1${maxPlayers}/g' ${cfgFile}
+              sed -i "s/\(ServerPlayerMaxNum=\)[^,]*/\1${maxPlayers}/g" "${cfgFile}"
               echo "Set to [$(grep -Po 'ServerPlayerMaxNum=[^,]*' ${cfgFile})]"
+
               echo "Setting Server Password..."
               sed -i "s/\(ServerPassword=\)[^,]*/\1$(echo "${gamePass}" | sed -e 's/[\/&]/\\&/g')/g" "${cfgFile}"
               echo "Set to [$(grep -Po 'ServerPassword=[^,]*' "${cfgFile}")]"
+
               echo "Setting Server Admin Password..."
               sed -i "s/\(AdminPassword=\)[^,]*/\1$(echo "${adminPass}" | sed -e 's/[\/&]/\\&/g')/g" "${cfgFile}"
               echo "Set to [$(grep -Po 'AdminPassword=[^,]*' ${cfgFile})]"
+
               echo "Done!"
 
       containers:
