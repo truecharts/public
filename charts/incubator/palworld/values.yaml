@@ -59,6 +59,13 @@ workload:
             - |
               config={{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}/Pal/Saved/Config/LinuxServer
               cfgFile=${config}/PalWorldSettings.ini
+              rconPort={{ .Values.service.rcon.ports.rcon.port }}
+              mainPort={{ .Values.service.main.ports.main.port }}
+              serverName={{ .Values.palworld.game.name }}
+              serverDescription={{ .Values.palworld.game.description }}
+              maxPlayers={{ .Values.palworld.game.max_players }}
+              gamePass={{ .Values.palworld.game.password }}
+              adminPass={{ .Values.palworld.admin.password }}
               mkdir -p ${config}
               if [ ! -f ${cfgFile} ]; then
                 echo "Config file not found, fetching..."
@@ -69,25 +76,25 @@ workload:
               sed -i 's/\(RCONEnabled=\)[^,]*/\1True/g' ${cfgFile}
               echo "Set to [$(grep -Po 'RCONEnabled=[^,]*' ${cfgFile})]"
               echo "Setting RCON Port..."
-              sed -i 's/\(RCONPort=\)[^,]*/\1{{ .Values.service.rcon.ports.rcon.port }}/g' ${cfgFile}
+              sed -i 's/\(RCONPort=\)[^,]*/\1${rconPort}/g' ${cfgFile}
               echo "Set to [$(grep -Po 'RCONPort=[^,]*' ${cfgFile})]"
               echo "Setting Game Port..."
-              sed -i 's/\(PublicPort=\)[^,]*/\1{{ .Values.service.main.ports.main.port }}/g' ${cfgFile}
+              sed -i 's/\(PublicPort=\)[^,]*/\1${mainPort}/g' ${cfgFile}
               echo "Set to [$(grep -Po 'PublicPort=[^,]*' ${cfgFile})]"
               echo "Setting Server Name..."
-              sed -i 's/\(ServerName=\)[^,]*/\1{{ .Values.palworld.game.name }}/g' ${cfgFile}
+              sed -i 's/\(ServerName=\)[^,]*/\1${serverName}/g' ${cfgFile}
               echo "Set to [$(grep -Po 'ServerName=[^,]*' ${cfgFile})]"
               echo "Setting Server Description..."
-              sed -i 's/\(ServerDescription=\)[^,]*/\1{{ .Values.palworld.game.description }}/g' ${cfgFile}
+              sed -i 's/\(ServerDescription=\)[^,]*/\1${serverDescription}/g' ${cfgFile}
               echo "Set to [$(grep -Po 'ServerDescription=[^,]*' ${cfgFile})]"
               echo "Setting Server  Player Max Num..."
-              sed -i 's/\(ServerPlayerMaxNum=\)[^,]*/\1{{ .Values.palworld.game.max_players }}/g' ${cfgFile}
+              sed -i 's/\(ServerPlayerMaxNum=\)[^,]*/\1${maxPlayers}/g' ${cfgFile}
               echo "Set to [$(grep -Po 'ServerPlayerMaxNum=[^,]*' ${cfgFile})]"
               echo "Setting Server Password..."
-              sed -i "s/\(ServerPassword=\)[^,]*/\1$(echo "${{ .Values.palworld.game.password }}" | sed -e 's/[\/&]/\\&/g')/g" "${cfgFile}"
+              sed -i "s/\(ServerPassword=\)[^,]*/\1$(echo "${gamePass}" | sed -e 's/[\/&]/\\&/g')/g" "${cfgFile}"
               echo "Set to [$(grep -Po 'ServerPassword=[^,]*' "${cfgFile}")]"
               echo "Setting Server Admin Password..."
-              sed -i "s/\(AdminPassword=\)[^,]*/\1$(echo "${{ .Values.palworld.admin.password }}" | sed -e 's/[\/&]/\\&/g')/g" "${cfgFile}"
+              sed -i "s/\(AdminPassword=\)[^,]*/\1$(echo "${adminPass}" | sed -e 's/[\/&]/\\&/g')/g" "${cfgFile}"
               echo "Set to [$(grep -Po 'AdminPassword=[^,]*' ${cfgFile})]"
               echo "Done!"
 
