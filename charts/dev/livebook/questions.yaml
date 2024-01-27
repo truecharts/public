@@ -13,8 +13,8 @@ questions:
 # Include{containerAdvanced}
 # Include{containerConfig}
 # Include{podOptions}
-  - variable: livebookPassword
-    group: "App Configuration"
+  - variable: password
+    group: App Configuration
     label: "Password (LIVEBOOK_PASSWORD)"
     description: Password needed to access livebook (must be at least 12 characters)
     schema:
@@ -22,43 +22,53 @@ questions:
       min_length: 12
       required: true
       private: true
-  - variable: livebookDebug
-    group: "App Configuration"
+  - variable: debug
+    group: App Configuration
     label: "Debug Logging (LIVEBOOK_DEBUG)"
     description: >
       Enables verbose logging, when set to "true". Disabled by default.
     schema:
       type: boolean
-  - variable: livebookUpdateInstructionsUrl
-    group: "App Configuration"
+      default: false
+  - variable: updateInstructionsUrl
+    group: App Configuration
     label: "Update instruction URL (LIVEBOOK_UPDATE_INSTRUCTIONS_URL)"
     description: >
       Sets the URL to direct the user to for updating Livebook when a new version becomes available.
     schema:
       type: string
-  - variable: livebookAwsCredentials
-    group: "App Configuration"
-    label: "Read AWS Credentials From Env (LIVEBOOK_AWS_CREDENTIALS)"
-    description: >
-      Enable Livebook to read AWS Credentials from environment variables,
-      AWS Credentials, EC2/ECS metadata when configuring S3 buckets.
+  - variable: awsCredentials
+    group: App Configuration
+    label: AWS Credentials
     schema:
-      type: boolean
-  - variable: awsAccessKeyId
-    group: "App Configuration"
-    label: "AWS Access Key ID"
-    description: >
-      AWS Access Key ID in case you want to configure AWS S3 Storage inside Livebook
-    schema:
-      type: string
-  - variable: awsSecretAccessKey
-    group: "App Configuration"
-    label: "AWS Secret Access Key"
-    description: >
-      AWS Secret Access Key in case you want to configure AWS S3 Storage inside Livebook
-    schema:
-      type: string
-      private: true
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: enabled
+          label: "Set AWS Credentials"
+          description: >
+            Enable Livebook to read AWS Credentials from environment variables,
+            AWS Credentials, EC2/ECS metadata when configuring S3 buckets.
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: accessKeyId
+                group: App Configuration
+                label: "AWS Access Key ID"
+                description: >
+                  AWS Access Key ID in case you want to configure AWS S3 Storage inside Livebook
+                schema:
+                  type: string
+              - variable: secretAccessKey
+                group: App Configuration
+                label: "AWS Secret Access Key"
+                description: >
+                  AWS Secret Access Key in case you want to configure AWS S3 Storage inside Livebook
+                schema:
+                  type: string
+                  private: true
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
