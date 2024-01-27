@@ -31,6 +31,31 @@ questions:
                   type: string
                   required: true
                   default: "2394010"
+              - variable: name
+                label: Server Name
+                description: The name of your server.
+                schema:
+                  type: string
+                  default: "TrueCharts Palworld Server"
+              - variable: description
+                label: Server Description
+                description: The description of your server.
+                schema:
+                  type: string
+                  default: "A Palworld Server running in Kubernetes"
+              - variable: max_players
+                label: Max Players
+                description: The max players that can play on your server.
+                schema:
+                  type: int
+                  default: 32
+              - variable: password
+                label: Server Password
+                description: Optionally set a password for the server.
+                schema:
+                  type: string
+                  private: true
+                  default: ""
         - variable: steam
           label: Steam Configuration
           schema:
@@ -82,7 +107,7 @@ questions:
           schema:
             type: list
             default:
-              - -No-useperfthreads
+              - -useperfthreads
               - -NoAsyncLoadingThread
               - -UseMultithreadForDS
             required: true
@@ -168,15 +193,6 @@ questions:
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceList}
-# Include{ingressRoot}
-        - variable: main
-          label: "Main Ingress"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{ingressDefault}
-# Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}
               - variable: runAsUser

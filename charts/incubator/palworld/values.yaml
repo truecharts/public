@@ -26,15 +26,19 @@ service:
 palworld:
   game:
     id: "2394010"
+    name: "TrueCharts Palworld Server"
+    description: "A Palworld Server running in Kubernetes"
+    max_players: 32
+    password: ""
   steam:
     username: ""
     password: ""
   admin:
-    password: adminDocker
+    password: ""
   params:
     - EpicApp=PalServer
   params_extra:
-    - -No-useperfthreads
+    - -useperfthreads
     - -NoAsyncLoadingThread
     - -UseMultithreadForDS
   update_public_ip: false
@@ -53,23 +57,40 @@ workload:
             - -c
           args:
             - |
-              config=/serverdata/serverfiles/Pal/Saved/Config/LinuxServer
+              config={{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}/Pal/Saved/Config/LinuxServer
               cfgFile=${config}/PalWorldSettings.ini
+              rconPort={{ .Values.service.rcon.ports.rcon.port }}
+              mainPort={{ .Values.service.main.ports.main.port }}
+              name="{{ .Values.palworld.game.name }}"
+              description="{{ .Values.palworld.game.description }}"
+              maxPlayers={{ .Values.palworld.game.max_players }}
+              gamePass={{ .Values.palworld.game.password }}
+              adminPass={{ .Values.palworld.admin.password }}
+
               mkdir -p ${config}
               if [ ! -f ${cfgFile} ]; then
                 echo "Config file not found, fetching..."
                 # Fetch the config file if it doesn't exist, just like the container does
                 wget -qO ${cfgFile} https://github.com/ich777/docker-steamcmd-server/raw/palworld/config/PalWorldSettings.ini
               fi
-              echo "Setting RCON status..."
-              sed -i 's/\(RCONEnabled=\)[^,]*/\1True/g' ${cfgFile}
-              echo "Set to [$(grep -Po 'RCONEnabled=[^,]*' ${cfgFile})]"
-              echo "Setting RCON Port..."
-              sed -i 's/\(RCONPort=\)[^,]*/\1{{ .Values.service.rcon.ports.rcon.port }}/g' ${cfgFile}
-              echo "Set to [$(grep -Po 'RCONPort=[^,]*' ${cfgFile})]"
-              echo "Setting Game Port..."
-              sed -i 's/\(PublicPort=\)[^,]*/\1{{ .Values.service.main.ports.main.port }}/g' ${cfgFile}
-              echo "Set to [$(grep -Po 'PublicPort=[^,]*' ${cfgFile})]"
+
+              set_ini_value() {
+                  local key="${1}"
+                  local value="${2}"
+
+                  echo "Setting ${key}..."
+                  sed -i "s|\(${key}=\)[^,]*|\1${value}|g" "${cfgFile}"
+                  echo "Set to $(grep -Po "${key}=[^,]*" "${cfgFile}")"
+              }
+
+              set_ini_value "RCONEnabled" "True"
+              set_ini_value "RCONPort" "${rconPort}"
+              set_ini_value "PublicPort" "${mainPort}"
+              set_ini_value "ServerName" "${name}"
+              set_ini_value "ServerDescription" "${description}"
+              set_ini_value "ServerPlayerMaxNum" "${maxPlayers}"
+              set_ini_value "ServerPassword" "${gamePass}"
+              set_ini_value "AdminPassword" "${adminPass}"
               echo "Done!"
       containers:
         main:
