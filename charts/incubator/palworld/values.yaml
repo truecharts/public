@@ -26,15 +26,15 @@ service:
 palworld:
   game:
     id: "2394010"
-    name: "Palworld Server"
-    description: "Palworld running in Kubernetes"
+    name: "TrueCharts Palworld Server"
+    description: "A Palworld Server running in Kubernetes"
     max_players: 32
-    password: "^Docker$"
+    password: ""
   steam:
     username: ""
     password: ""
   admin:
-    password: "adminDocker$"
+    password: ""
   params:
     - EpicApp=PalServer
   params_extra:
