@@ -26,7 +26,7 @@ service:
 palworld:
   game:
     id: "2394010"
-    name: "Palworld Kubernetes"
+    name: "PalworldServer"
     description: "Palworld running in Kubernetes"
     max_players: 32
     password: "Docker"
@@ -61,8 +61,8 @@ workload:
               cfgFile=${config}/PalWorldSettings.ini
               rconPort={{ .Values.service.rcon.ports.rcon.port }}
               mainPort={{ .Values.service.main.ports.main.port }}
-              serverName={{ .Values.palworld.game.name }}
-              serverDescription={{ .Values.palworld.game.description }}
+              nameServer={{ .Values.palworld.game.name }}
+              descriptionServer={{ .Values.palworld.game.description }}
               maxPlayers={{ .Values.palworld.game.max_players }}
               gamePass={{ .Values.palworld.game.password }}
               adminPass={{ .Values.palworld.admin.password }}
@@ -85,8 +85,8 @@ workload:
               set_ini_value "RCONEnabled" "True"
               set_ini_value "RCONPort" "${rconPort}"
               set_ini_value "PublicPort" "${mainPort}"
-              set_ini_value "ServerName" "${serverName}"
-              set_ini_value "ServerDescription" "${serverDescription}"
+              set_ini_value "ServerName" "${nameServer}"
+              set_ini_value "ServerDescription" "${DescriptionServer}"
               set_ini_value "ServerPlayerMaxNum" "$(echo "${maxPlayers}" | sed -e 's/[\/&]/\\&/g')"
               set_ini_value "ServerPassword" "$(echo "${gamePass}" | sed -e 's/[\/&]/\\&/g')"
               set_ini_value "AdminPassword" "$(echo "${adminPass}" | sed -e 's/[\/&]/\\&/g')"
