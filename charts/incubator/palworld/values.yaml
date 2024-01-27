@@ -79,7 +79,7 @@ workload:
                   local value="${2}"
 
                   echo "Setting ${key}..."
-                  sed -i "s|\(${key}=\).*|$(printf '%s\n' "${key}=${value}" | sed 's/[\/&]/\\&/g')|" "${cfgFile}"
+                  sed -i "s|^${key}=.*|${key}=${value}|" "${cfgFile}"
                   echo "Set to [$(grep -Po "${key}=[^,]*" "${cfgFile}")]"
               }
 
@@ -88,9 +88,9 @@ workload:
               set_ini_value "PublicPort" "${mainPort}"
               set_ini_value "ServerName" "${nameServer}"
               set_ini_value "ServerDescription" "${descriptionServer}"
-              set_ini_value "ServerPlayerMaxNum" "$(echo "${maxPlayers}"
-              set_ini_value "ServerPassword" "$(echo "${gamePass}"
-              set_ini_value "AdminPassword" "$(echo "${adminPass}"
+              set_ini_value "ServerPlayerMaxNum" "${maxPlayers}"
+              set_ini_value "ServerPassword" "${gamePass}"
+              set_ini_value "AdminPassword" "${adminPass}"
               echo "Done!"
 
       containers:
