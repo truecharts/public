@@ -18,9 +18,17 @@ questions:
                                     attrs:
                                       - variable: TTRSS_SELF_URL_PATH
                                         label: TTRSS Self URL Path
-                                        description: Sets the URL for the app.
+                                        description: You will likely need to set this to the correct value - it should point to external tt-rss URL as seen in your browser. e.g. https://rss.example.com
                                         schema:
                                           type: string
+                                          required: true
+                                          default: ""
+                                      - variable: ADMIN_USER_PASS
+                                        label: TTRSS Admin User Password
+                                        description: Leave blank and tt-rss will generate a random password to use with admin account on first run. Check container logs for password.
+                                        schema:
+                                          type: string
+                                          private: true
                                           default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
@@ -53,6 +61,14 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
+        - variable: html
+          label: App HTML Storage
+          description: Stores the Application files.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
         - variable: config
           label: App Config Storage
           description: Stores the Application Configuration.
