@@ -126,6 +126,12 @@ questions:
                                               description: Pufferfish
                                             - value: CUSTOM
                                               description: Custom
+                                      - variable: PACKWIZ_URL
+                                        label: Packwiz URL
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          show_if: [[TYPE, "!=", "VANILLA"]]
                                       - variable: CUSTOM_SERVER
                                         label: Custom Server
                                         description: URL or a container path to an existing JAR file, will ONLY download once.
@@ -204,12 +210,6 @@ questions:
                                           show_if: [[TYPE, "=", "FABRIC"]]
                                       - variable: FABRIC_INSTALLER_URL
                                         label: Fabric Installer URL
-                                        schema:
-                                          type: string
-                                          default: ""
-                                          show_if: [[TYPE, "=", "FABRIC"]]
-                                      - variable: PACKWIZ_URL
-                                        label: Packwiz URL
                                         schema:
                                           type: string
                                           default: ""
