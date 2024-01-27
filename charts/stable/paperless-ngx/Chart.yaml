@@ -17,7 +17,7 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 11.1.6
+    version: 11.1.16
     repository: https://deps.truecharts.org
     condition: redis.enabled
     alias: ""
@@ -44,4 +44,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/paperless-ngx
   - https://ghcr.io/paperless-ngx/paperless-ngx
 type: application
-version: 6.4.5
+version: 6.4.6
