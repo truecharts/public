@@ -40,14 +40,7 @@ workload:
               cp -a /cloudreve/cloudreve /conf-init/cloudreve
               ls -lasht /conf-init
       containers:
-        main:
-          probes:
-            liveness:
-              path: "/"
-            readiness:
-              path: "/"
-            startup:
-              path: "/"
+        main: {}
 service:
   main:
     ports:
