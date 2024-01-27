@@ -29,12 +29,12 @@ palworld:
     name: "Palworld Kubernetes"
     description: "Palworld running in Kubernetes"
     max_players: 32
-    password: ""
+    password: "Docker"
   steam:
     username: ""
     password: ""
   admin:
-    password: ""
+    password: "adminDocker"
   params:
     - EpicApp=PalServer
   params_extra:
@@ -66,7 +66,7 @@ workload:
               maxPlayers={{ .Values.palworld.game.max_players }}
               gamePass={{ .Values.palworld.game.password }}
               adminPass={{ .Values.palworld.admin.password }}
-              
+
               mkdir -p ${config}
               if [ ! -f ${cfgFile} ]; then
                 echo "Config file not found, fetching..."
@@ -74,38 +74,22 @@ workload:
                 wget -qO ${cfgFile} https://github.com/ich777/docker-steamcmd-server/raw/palworld/config/PalWorldSettings.ini
               fi
 
-              echo "Setting RCON status..."
-              sed -i 's/\(RCONEnabled=\)[^,]*/\1True/g' ${cfgFile}
-              echo "Set to [$(grep -Po 'RCONEnabled=[^,]*' ${cfgFile})]"
+              set_ini_value() {
+                  local key="${1}"
+                  local value="${2}"
 
-              echo "Setting RCON Port..."
-              sed -i "s/\(RCONPort=\)[^,]*/\1${rconPort}/g" "${cfgFile}"
-              echo "Set to [$(grep -Po 'RCONPort=[^,]*' "${cfgFile}")]"
-
-              echo "Setting Game Port..."
-              sed -i "s/\(PublicPort=\)[^,]*/\1${mainPort}/g" "${cfgFile}"
-              echo "Set to [$(grep -Po 'PublicPort=[^,]*' "${cfgFile}")]"
-
-              echo "Setting Server Name..."
-              sed -i "s/\(ServerName=\)[^,]*/\1${serverName}/g" "${cfgFile}"
-              echo "Set to [$(grep -Po 'ServerName=[^,]*' "${cfgFile}")]"
-
-              echo "Setting Server Description..."
-              sed -i "s/\(ServerDescription=\)[^,]*/\1${serverDescription}/g" "${cfgFile}"
-              echo "Set to [$(grep -Po 'ServerDescription=[^,]*' "${cfgFile}")]"
-
-              echo "Setting Server Player Max Num..."
-              sed -i "s/\(ServerPlayerMaxNum=\)[^,]*/\1${maxPlayers}/g" "${cfgFile}"
-              echo "Set to [$(grep -Po 'ServerPlayerMaxNum=[^,]*' "${cfgFile}")]"
-
-              echo "Setting Server Password..."
-              sed -i "s/\(ServerPassword=\)[^,]*/\1$(echo "${gamePass}" | sed -e 's/[\/&]/\\&/g')/g" "${cfgFile}"
-              echo "Set to [$(grep -Po 'ServerPassword=[^,]*' "${cfgFile}")]"
-
-              echo "Setting Server Admin Password..."
-              sed -i "s/\(AdminPassword=\)[^,]*/\1$(echo "${adminPass}" | sed -e 's/[\/&]/\\&/g')/g" "${cfgFile}"
-              echo "Set to [$(grep -Po 'AdminPassword=[^,]*' ${cfgFile})]"
-
+                  echo "Setting ${key}..."
+                  sed -i "s/\(${key}=\)[^,]*/\1${value}/g" "${cfgFile}"
+                  echo "Set to [$(grep -Po "${key}=[^,]*" "${cfgFile}")]"
+              }
+              set_ini_value "RCONEnabled" "True"
+              set_ini_value "RCONPort" "${rconPort}"
+              set_ini_value "PublicPort" "${mainPort}"
+              set_ini_value "ServerName" "${serverName}"
+              set_ini_value "ServerDescription" "${serverDescription}"
+              set_ini_value "ServerPlayerMaxNum" "$(echo "${maxPlayers}" | sed -e 's/[\/&]/\\&/g')"
+              set_ini_value "ServerPassword" "$(echo "${gamePass}" | sed -e 's/[\/&]/\\&/g')"
+              set_ini_value "AdminPassword" "$(echo "${adminPass}" | sed -e 's/[\/&]/\\&/g')"
               echo "Done!"
 
       containers:
