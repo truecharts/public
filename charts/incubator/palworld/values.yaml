@@ -111,6 +111,13 @@ workload:
                   echo "Set to $(get_ini_value "$key")"
               }
 
+              get_ini_value() {
+                  local key="${1}"
+
+                  # Output only the value of the key
+                  grep -Po "(?<=${key}=)[^,]*" "${cfgFile}"
+              }
+
               set_ini_value "RCONEnabled" "True"
               set_ini_value "RCONPort" "{{ .Values.service.rcon.ports.rcon.port }}"
               set_ini_value "PublicPort" "{{ .Values.service.main.ports.main.port }}"
