@@ -66,19 +66,21 @@ workload:
               maxPlayers={{ .Values.palworld.game.max_players }}
               gamePass={{ .Values.palworld.game.password }}
               adminPass={{ .Values.palworld.admin.password }}
+              
               mkdir -p ${config}
               if [ ! -f ${cfgFile} ]; then
                 echo "Config file not found, fetching..."
                 # Fetch the config file if it doesn't exist, just like the container does
                 wget -qO ${cfgFile} https://github.com/ich777/docker-steamcmd-server/raw/palworld/config/PalWorldSettings.ini
               fi
+
               echo "Setting RCON status..."
               sed -i 's/\(RCONEnabled=\)[^,]*/\1True/g' ${cfgFile}
               echo "Set to [$(grep -Po 'RCONEnabled=[^,]*' ${cfgFile})]"
 
               echo "Setting RCON Port..."
-              sed -i 's/\(RCONPort=\)[^,]*/\1${rconPort}/g' ${cfgFile}
-              echo "Set to [$(grep -Po 'RCONPort=[^,]*' ${cfgFile})]"
+              sed -i "s/\(RCONPort=\)[^,]*/\1${rconPort}/g" "${cfgFile}"
+              echo "Set to [$(grep -Po 'RCONPort=[^,]*' "${cfgFile}")]"
 
               echo "Setting Game Port..."
               sed -i "s/\(PublicPort=\)[^,]*/\1${mainPort}/g" "${cfgFile}"
@@ -86,15 +88,15 @@ workload:
 
               echo "Setting Server Name..."
               sed -i "s/\(ServerName=\)[^,]*/\1${serverName}/g" "${cfgFile}"
-              echo "Set to [$(grep -Po 'ServerName=[^,]*' ${cfgFile})]"
+              echo "Set to [$(grep -Po 'ServerName=[^,]*' "${cfgFile}")]"
 
               echo "Setting Server Description..."
               sed -i "s/\(ServerDescription=\)[^,]*/\1${serverDescription}/g" "${cfgFile}"
-              echo "Set to [$(grep -Po 'ServerDescription=[^,]*' ${cfgFile})]"
+              echo "Set to [$(grep -Po 'ServerDescription=[^,]*' "${cfgFile}")]"
 
-              echo "Setting Server  Player Max Num..."
+              echo "Setting Server Player Max Num..."
               sed -i "s/\(ServerPlayerMaxNum=\)[^,]*/\1${maxPlayers}/g" "${cfgFile}"
-              echo "Set to [$(grep -Po 'ServerPlayerMaxNum=[^,]*' ${cfgFile})]"
+              echo "Set to [$(grep -Po 'ServerPlayerMaxNum=[^,]*' "${cfgFile}")]"
 
               echo "Setting Server Password..."
               sed -i "s/\(ServerPassword=\)[^,]*/\1$(echo "${gamePass}" | sed -e 's/[\/&]/\\&/g')/g" "${cfgFile}"
