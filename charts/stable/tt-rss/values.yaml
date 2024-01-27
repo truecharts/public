@@ -33,12 +33,12 @@ persistence:
   config:
     enabled: true
     targetSelector:
+      main:
         main:
-          main:
-            mountPath: /opt/tt-rss/config.d
+          mountPath: /opt/tt-rss/config.d
+      updater:
         updater:
-          updater:
-            mountPath: /opt/tt-rss/config.d
+          mountPath: /opt/tt-rss/config.d
   nginx-conf:
     enabled: true
     type: configmap

@@ -4,7 +4,7 @@ title: TT-RSS Installation Notes
 
 ## Credentials
 
-TT-RSS will create a user (named `admin`) on first run. If no password is given in the *TTRSS Admin User Pass* field, then a password is automatically generated and printed to the app's logs. Otherwise the password entered in that field will be used.
+TT-RSS will create a user (named `admin`) on first run. If no password is given in the _TTRSS Admin User Pass_ field, then a password is automatically generated and printed to the app's logs. Otherwise the password entered in that field will be used.
 
 Be warned that if the app restarts before collecting the automatically generated password, it may be rotated out of the logs and the app will require re-installing to set and print a new password.
 
@@ -21,7 +21,7 @@ To reach the automatically generated password, select the tt-rss app in TrueNAS'
 
 TT-RSS has defaults which expect it to be installed and reachable at a url ending in `/tt-rss/` (e.g. https://rss.me.com/tt-rss/). This SCALE app comes with adjusted defaults that eliminate this ending portion (e.g. https://rss.me.com/).
 
-If an advanced user wishes to alter the app path, use the *App Web Root Path* and *App Base Path* fields to do so. Read more here: https://tt-rss.org/wiki/InstallationNotes#how-do-i-make-it-run-without-tt-rss-in-the-url-i.e.-at-website-root
+If an advanced user wishes to alter the app path, use the _App Web Root Path_ and _App Base Path_ fields to do so. Read more here: https://tt-rss.org/wiki/InstallationNotes#how-do-i-make-it-run-without-tt-rss-in-the-url-i.e.-at-website-root
 
 ### Install to subdomain with traefik + ingress
 
