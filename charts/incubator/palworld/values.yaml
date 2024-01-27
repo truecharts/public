@@ -108,14 +108,7 @@ workload:
 
                   echo "Setting ${key}..."
                   sed -i "s|\(${key}=\)[^,]*|\1${value}|g" "${cfgFile}"
-                  echo "Set to $(get_ini_value "$key")"
-              }
-
-              get_ini_value() {
-                  local key="${1}"
-
-                  # Output only the value of the key
-                  grep -Po "(?<=${key}=)[^,]*" "${cfgFile}"
+                  echo "Set to $(grep -Po "(?<=${key}=)[^,]*" "${cfgFile}")"
               }
 
               set_ini_value "RCONEnabled" "True"
