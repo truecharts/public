@@ -79,9 +79,10 @@ workload:
                   local value="${2}"
 
                   echo "Setting ${key}..."
-                  sed -i "s/\(${key}=\)[^,]*/\1${value}/g" "${cfgFile}"
+                  sed -i "s/\(${key}=\).*$/\1${value}/" "${cfgFile}"
                   echo "Set to [$(grep -Po "${key}=[^,]*" "${cfgFile}")]"
               }
+
               set_ini_value "RCONEnabled" "True"
               set_ini_value "RCONPort" "${rconPort}"
               set_ini_value "PublicPort" "${mainPort}"
