@@ -18,8 +18,8 @@ For theses rules to work as intended, your default access control policy must be
 
 All rules requiring Authelia authentication were configured with `two_factor` (2FA). If you do not want 2FA on some or all rules replace the Policy with `one_factor`.
 
-In this guide we assume you have a group `admin` and a group `user` in ldap.  
-Members of the `admin` group will have access to everything.  
+In this guide we assume you have a group `admin` and a group `user` in ldap.
+Members of the `admin` group will have access to everything.
 Members of the `user` group will only have access to a select set of apps you choose.
 
 ## API Rule
