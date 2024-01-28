@@ -13,62 +13,63 @@ questions:
 # Include{containerAdvanced}
 # Include{containerConfig}
 # Include{podOptions}
-  - variable: password
+  - variable: livebook
     group: App Configuration
-    label: "Password (LIVEBOOK_PASSWORD)"
-    description: Password needed to access livebook (must be at least 12 characters)
-    schema:
-      type: string
-      min_length: 12
-      required: true
-      private: true
-  - variable: debug
-    group: App Configuration
-    label: "Debug Logging (LIVEBOOK_DEBUG)"
-    description: >
-      Enables verbose logging, when set to "true". Disabled by default.
-    schema:
-      type: boolean
-      default: false
-  - variable: updateInstructionsUrl
-    group: App Configuration
-    label: "Update instruction URL (LIVEBOOK_UPDATE_INSTRUCTIONS_URL)"
-    description: >
-      Sets the URL to direct the user to for updating Livebook when a new version becomes available.
-    schema:
-      type: string
-  - variable: awsCredentials
-    group: App Configuration
-    label: AWS Credentials
+    label: Livebook
     schema:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: enabled
-          label: "Set AWS Credentials"
+        - variable: password
+          label: "Password (LIVEBOOK_PASSWORD)"
+          description: Password needed to access livebook (must be at least 12 characters)
+          schema:
+            type: string
+            min_length: 12
+            required: true
+            private: true
+        - variable: debug
+          label: "Debug Logging (LIVEBOOK_DEBUG)"
           description: >
-            Enable Livebook to read AWS Credentials from environment variables,
-            AWS Credentials, EC2/ECS metadata when configuring S3 buckets.
+            Enables verbose logging, when set to "true". Disabled by default.
           schema:
             type: boolean
             default: false
-            show_subquestions_if: true
-            subquestions:
-              - variable: accessKeyId
-                group: App Configuration
-                label: "AWS Access Key ID"
+        - variable: updateInstructionsUrl
+          label: "Update instruction URL (LIVEBOOK_UPDATE_INSTRUCTIONS_URL)"
+          description: >
+            Sets the URL to direct the user to for updating Livebook when a new version becomes available.
+          schema:
+            type: string
+        - variable: awsCredentials
+          label: AWS Credentials
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Set AWS Credentials"
                 description: >
-                  AWS Access Key ID in case you want to configure AWS S3 Storage inside Livebook
+                  Enable Livebook to read AWS Credentials from environment variables,
+                  AWS Credentials, EC2/ECS metadata when configuring S3 buckets.
                 schema:
-                  type: string
-              - variable: secretAccessKey
-                group: App Configuration
-                label: "AWS Secret Access Key"
-                description: >
-                  AWS Secret Access Key in case you want to configure AWS S3 Storage inside Livebook
-                schema:
-                  type: string
-                  private: true
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: accessKeyId
+                      label: "AWS Access Key ID"
+                      description: >
+                        AWS Access Key ID in case you want to configure AWS S3 Storage inside Livebook
+                      schema:
+                        type: string
+                    - variable: secretAccessKey
+                      label: "AWS Secret Access Key"
+                      description: >
+                        AWS Secret Access Key in case you want to configure AWS S3 Storage inside Livebook
+                      schema:
+                        type: string
+                        private: true
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"

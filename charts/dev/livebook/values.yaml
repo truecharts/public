@@ -55,15 +55,16 @@ workload:
               secretKeyRef:
                 name: secrets
                 key: LIVEBOOK_PASSWORD
-            LIVEBOOK_DEBUG: '{{ ternary "true" "false" .Values.debug }}'
-            LIVEBOOK_UPDATE_INSTRUCTIONS_URL: "{{ .Values.updateInstructionsUrl }}"
-            LIVEBOOK_AWS_CREDENTIALS: '{{ ternary "true" "false" .Values.awsCredentials.enabled }}'
-            AWS_ACCESS_KEY_ID: "{{ .Values.awsCredentials.accessKeyId }}"
+            LIVEBOOK_DEBUG: '{{ ternary "true" "false" .Values.livebook.debug }}'
+            LIVEBOOK_UPDATE_INSTRUCTIONS_URL: "{{ .Values.livebook.updateInstructionsUrl }}"
+            LIVEBOOK_AWS_CREDENTIALS: '{{ ternary "true" "false" .Values.livebook.awsCredentials.enabled }}'
+            AWS_ACCESS_KEY_ID: "{{ .Values.livebook.awsCredentials.accessKeyId }}"
             AWS_SECRET_ACCESS_KEY:
               secretKeyRef:
                 name: secrets
                 key: AWS_SECRET_ACCESS_KEY
 # default values
-debug: false
-awsCredentials:
-  enabled: false
+livebook:
+  debug: false
+  awsCredentials:
+    enabled: false
