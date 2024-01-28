@@ -11,6 +11,29 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
+- variable: metrics
+    label: metrics Configuration
+    group: App Configuration
+    schema:
+      type: dict
+      additional_attrs: true
+      attrs:
+        - variable: general
+          label: General Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+                    - variable: scrapeTimeout
+                      label: API Session Timeout (in seconds)
+                      schema:
+                        type: int
+                        default: "60s"
+                    - variable: interval
+                      label: API Session Timeout (in seconds)
+                      schema:
+                        type: int
+                        default: "1h" 
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
