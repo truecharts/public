@@ -11,6 +11,14 @@ gpu11Image:
   repository: codeproject/ai-server
   tag: cuda11_7-2.5.1@sha256:b48a17af31d10b839baaa07495449bb185493e0d90d88520bd6d6339e6a168cf
 imageSelector: image
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
 persistence:
   data:
     enabled: true

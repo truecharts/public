@@ -85,13 +85,13 @@ questions:
                 description: "The UserID of the user running the application"
                 schema:
                   type: int
-                  default: 568
+                  default: 0
               - variable: fsGroup
                 label: "fsGroup"
                 description: "The group that should own ALL storage."
                 schema:
                   type: int
-                  default: 568
+                  default: 0
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
