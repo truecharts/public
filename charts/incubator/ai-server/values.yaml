@@ -1,0 +1,24 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: codeproject/senseai-server
+  tag: cpu-2.5.1@sha256:4ac7e0ace01abdb26e6d1876011a95f9f294352abd23936e4c6040f23582ed9f
+gpuimage:
+  pullPolicy: IfNotPresent
+  repository: codeproject/senseai-server
+  tag: cuda12_2-2.5.1@sha256:c846c67adb140912ff344a7ba57b3498019d18dfeaf70a32ab68ff389db74efd
+persistence:
+  data:
+    enabled: true
+    mountPath: /etc/codeproject/ai
+  downloads:
+    enabled: true
+    mountPath: /app/modules
+portal:
+  open:
+    enabled: true
+service:
+  main:
+    ports:
+      main:
+        port: 32168
+        targetPort: 32168
