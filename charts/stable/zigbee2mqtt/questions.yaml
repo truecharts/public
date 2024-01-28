@@ -42,13 +42,7 @@ questions:
                                               description: "This will override the specific value of config file"
                                               schema:
                                                 type: boolean
-                                                default: true
-                                            - variable: ZIGBEE2MQTT_CONFIG_EXPIRIMENTAL_NEW_API
-                                              label: "ZIGBEE2MQTT_CONFIG_EXPIRIMENTAL_NEW_API"
-                                              description: "This will override the specific value of config file"
-                                              schema:
-                                                type: boolean
-                                                default: true
+                                                default: false
                                             - variable: ZIGBEE2MQTT_CONFIG_MQTT_SERVER
                                               label: "MQTT Server"
                                               description: "This will override the specific value of config file"
