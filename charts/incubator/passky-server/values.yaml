@@ -41,6 +41,28 @@ workload:
                 key: mariadb-password
             MYSQL_SSL: "false"
             MYSQL_SSL_CA: "/etc/ssl/certs/ca-certificates.crt"
+            REDIS_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: plainhost
+            REDIS_PORT: 6379
+            REDIS_PASSWORD:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: redis-password
+            REDIS_LOCAL_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: plainhost
+            REDIS_LOCAL_PORT: 6379
+            REDIS_LOCAL_PASSWORD:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: redis-password
             MYSQL_CACHE_MODE: 0
             MAIL_ENABLED: "false"
             ACCOUNT_MAX: 100
@@ -67,10 +89,15 @@ workload:
             LIMITER_REMOVE_YUBIKEY: 10
             LIMITER_UPGRADE_ACCOUNT: 10
             LIMITER_GET_REPORT: -1
+
 mariadb:
   enabled: true
   mariadbUsername: passky
   mariadbDatabase: passky
+
+redis:
+  enabled: true
+
 portal:
   open:
     enabled: true
