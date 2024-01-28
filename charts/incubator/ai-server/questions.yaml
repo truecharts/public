@@ -17,8 +17,10 @@ questions:
                                     enum:
                                       - value: image
                                         description: Default (CPU)
-                                      - value: gpuimage
-                                        description: CUDA (Nvidia GPUs) image
+                                      - value: gpu11Image
+                                        description: CUDA 11 (Nvidia GPUs) image
+                                      - value: gpu11Image
+                                        description: CUDA 11 (Nvidia GPUs) image
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
