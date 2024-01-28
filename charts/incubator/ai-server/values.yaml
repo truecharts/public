@@ -11,19 +11,26 @@ gpu11Image:
   repository: codeproject/ai-server
   tag: cuda11_7-2.5.1@sha256:b48a17af31d10b839baaa07495449bb185493e0d90d88520bd6d6339e6a168cf
 
-workload:
-  main:
-    podSpec:
-      containers:
-        main:
-          imageSelector: image
-
 securityContext:
   container:
     runAsNonRoot: false
     readOnlyRootFilesystem: false
     runAsUser: 0
     runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 32168
+        targetPort: 32168
+        
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          imageSelector: image
 
 persistence:
   data:
@@ -32,12 +39,8 @@ persistence:
   downloads:
     enabled: true
     mountPath: /app/modules
+   
 portal:
   open:
     enabled: true
-service:
-  main:
-    ports:
-      main:
-        port: 32168
-        targetPort: 32168
+
