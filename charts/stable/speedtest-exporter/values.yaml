@@ -23,6 +23,8 @@ metrics:
       - port: main
         path: /metrics
         interval: 1h
+        scrapeTimeout: 60s
+        
     prometheusRule:
       enabled: false
 portal:
@@ -30,4 +32,8 @@ portal:
     enabled: true
 securityContext:
   container:
+    runAsNonRoot: false
     readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
