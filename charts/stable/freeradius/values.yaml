@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/tccr/freeradius
+  repository: freeradius/freeradius-server
   pullPolicy: IfNotPresent
-  tag: v3.2.0@sha256:e6a9295ae6caf282e957d0e329810e13bbdedc3bec3865e8ab322a0055107623
+  tag: v3.2.3@sha256:1ca67fbd54c319029750051671341f5ea96b9bb5ea76198e81548593b4d41a70
 securityContext:
   container:
     readOnlyRootFilesystem: false
