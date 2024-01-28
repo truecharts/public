@@ -10,7 +10,13 @@ gpu11Image:
   pullPolicy: IfNotPresent
   repository: codeproject/ai-server
   tag: cuda11_7-2.5.1@sha256:b48a17af31d10b839baaa07495449bb185493e0d90d88520bd6d6339e6a168cf
-imageSelector: image
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          imageSelector: image
 
 securityContext:
   container:
