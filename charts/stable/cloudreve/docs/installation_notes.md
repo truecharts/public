@@ -4,9 +4,7 @@ title: Important Notes
 
 ## Credentials
 
-On first run, cloudreve will generate an admin user and print the email and password to the app logs. To retrieve, wait for the app to finish deploying, and then click the `View Logs` icon in the `Workload` card.
-
-The section with the new user details will look like this:
+On first run, cloudreve will generate an admin user and print the email and password to the app logs. It will look something like this:
 
 ```
    ___ _                 _                    
@@ -29,6 +27,8 @@ The section with the new user details will look like this:
 [Info]    2024-01-22 03:27:06 Current running mode: Master.
 [Info]    2024-01-22 03:27:06 Listening to ":5212"
 ```
+
+To retrieve the password in TrueNAS SCALE, wait for the app to finish deploying and then navigate to the `Workload` card and click the `View Logs` icon.
 
 ## Aria2
 
