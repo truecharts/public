@@ -9,6 +9,83 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: SOCKS_PROXY_ENABLED
+                                        label: "Enable Socks Proxy"
+                                        description: "Whether Suwayomi will connect through a SOCKS5 proxy"
+                                        schema:
+                                          type: bool
+                                          default: false
+                                      - variable: SOCKS_PROXY_HOST
+                                        label: "SOCKS Proxy TCP Host"
+                                        description: "The TCP host of the SOCKS5 proxy"
+                                        schema:
+                                          show_if: [["SOCKS_PROXY_ENABLED", "=", true]]
+                                          type: string
+                                          default: ""
+                                      - variable: SOCKS_PROXY_PORT
+                                        label: "SOCKS Proxy PORT"
+                                        description: "The port of the SOCKS5 proxy"
+                                        schema:
+                                          show_if: [["SOCKS_PROXY_ENABLED", "=", true]]
+                                          type: string
+                                          default: ""
+                                      - variable: DOWNLOAD_AS_CBZ
+                                        label: "Download in CBZ format"
+                                        description: "Whether Suwayomi should save the manga to disk in CBZ format"
+                                        schema:
+                                          type: bool
+                                          default: false
+                                      - variable: BASIC_AUTH_ENABLED
+                                        label: "Enabled Basic Authentication"
+                                        description: "Whether Suwayomi requires HTTP Basic Auth to get in."
+                                        schema:
+                                          type: bool
+                                          default: false
+                                      - variable: BASIC_AUTH_USERNAME
+                                        label: "Basic Auth Username"
+                                        description: "Enter User"
+                                        schema:
+                                          show_if: [["BASIC_AUTH_ENABLED", "=", true]]
+                                          type: string
+                                          default: ""
+                                      - variable: BASIC_AUTH_PASSWORD
+                                        label: "Basic Auth Password"
+                                        description: "Enter Password"
+                                        schema:
+                                          show_if: [["BASIC_AUTH_ENABLED", "=", true]]
+                                          type: string
+                                          default: ""
+                                      - variable: DEBUG
+                                        label: "Enable DEBUG mode"
+                                        description: "If extra logging is enabled. Useful for development and troubleshooting."
+                                        schema:
+                                          type: bool
+                                          default: false
+                                      - variable: GQL_DEBUG
+                                        label: "Enable GQL_DEBUG mode"
+                                        description: "If graphql logging is enabled. Useful for development and troubleshooting. Can overload the log output."
+                                        schema:
+                                          type: bool
+                                          default: false
+                                      - variabble: AUTO_DOWNLOAD_CHAPTERS
+                                        label: "Automatic Download Chapters"
+                                        description: "If new chapters that have been retrieved should get automatically downloaded"
+                                        schema:
+                                          type: bool
+                                          default: false
+                                      - variabble: AUTO_DOWNLOAD_EXCLUDE_UNREAD
+                                        label: "Exclude Unread Automatic Download Chapters"
+                                        description: "Ignore automatic chapter downloads of entries with unread chapters"
+                                        schema:
+                                          type: bool
+                                          default: true
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
@@ -49,7 +126,7 @@ questions:
             attrs:
 # Include{persistenceBasic}
         - variable: library
-          label: "library Storage"
+          label: "Downloads Storage"
           description: "(Optional) Path to where your Downloads should be stored.Default is in Appdata folder."
           schema:
             additional_attrs: true
@@ -57,7 +134,7 @@ questions:
             attrs:
 # Include{persistenceBasic}
         - variable: local-library
-          label: "local-library Storage"
+          label: "Local Library Storage"
           description: "(Optional) You can add your local Library here.Should work like standard Tachiyomi.(httpstachiyomi.orghelpguideslocal-manga)"
           schema:
             additional_attrs: true
