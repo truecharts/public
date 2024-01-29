@@ -122,6 +122,18 @@ questions:
                                         schema:
                                           type: boolean
                                           default: true
+                                      - variable: UPDATE_INTERVAL
+                                        label: "Global Update Interval"
+                                        description: "Time in hours (0 to disable) it Interval in which the global update will be automatically triggered"
+                                        schema:
+                                          type: int
+                                          default: 12
+                                      - variable: UPDATE_MANGA_INFO
+                                        label: "Update Manga Info"
+                                        description: "If manga info should be updated along with the chapters"
+                                        schema:
+                                          type: boolean
+                                          default: false
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
