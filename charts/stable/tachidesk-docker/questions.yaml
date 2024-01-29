@@ -20,7 +20,7 @@ questions:
                                         label: "Enable Socks Proxy"
                                         description: "Whether Suwayomi will connect through a SOCKS5 proxy"
                                         schema:
-                                          type: bool
+                                          type: boolean
                                           default: false
                                       - variable: SOCKS_PROXY_HOST
                                         label: "SOCKS Proxy TCP Host"
@@ -40,13 +40,13 @@ questions:
                                         label: "Download in CBZ format"
                                         description: "Whether Suwayomi should save the manga to disk in CBZ format"
                                         schema:
-                                          type: bool
+                                          type: boolean
                                           default: false
                                       - variable: BASIC_AUTH_ENABLED
                                         label: "Enabled Basic Authentication"
                                         description: "Whether Suwayomi requires HTTP Basic Auth to get in."
                                         schema:
-                                          type: bool
+                                          type: boolean
                                           default: false
                                       - variable: BASIC_AUTH_USERNAME
                                         label: "Basic Auth Username"
@@ -66,25 +66,25 @@ questions:
                                         label: "Enable DEBUG mode"
                                         description: "If extra logging is enabled. Useful for development and troubleshooting."
                                         schema:
-                                          type: bool
+                                          type: boolean
                                           default: false
                                       - variable: GQL_DEBUG
                                         label: "Enable GQL_DEBUG mode"
                                         description: "If graphql logging is enabled. Useful for development and troubleshooting. Can overload the log output."
                                         schema:
-                                          type: bool
+                                          type: boolean
                                           default: false
                                       - variable: AUTO_DOWNLOAD_CHAPTERS
                                         label: "Automatic Download Chapters"
                                         description: "If new chapters that have been retrieved should get automatically downloaded"
                                         schema:
-                                          type: bool
+                                          type: boolean
                                           default: false
                                       - variable: AUTO_DOWNLOAD_EXCLUDE_UNREAD
                                         label: "Exclude Unread Automatic Download Chapters"
                                         description: "Ignore automatic chapter downloads of entries with unread chapters"
                                         schema:
-                                          type: bool
+                                          type: boolean
                                           default: true
                                       - variable: AUTO_DOWNLOAD_AHEAD_LIMIT
                                         label: "Auto Download Chapters Ahead Limit"
