@@ -471,6 +471,14 @@ questions:
                         type: string
                         required: true
                         default: ""
+                    - variable: callback_url
+                      label: Callback URL
+                      description: |
+                        The internal FQDN and port of the Nextcloud Server.
+                      schema:
+                        type: string
+                        required: true
+                        default: "http://nextcloud.ix-nextcloud.svc.cluster.local:8080"
                     - variable: verify_ssl
                       label: Verify SSL (Advanced)
                       description: |

@@ -27,7 +27,6 @@
 {{/* Define the configmap */}}
 {{- define "nextcloud.configmaps" -}}
 {{- $fullname := (include "tc.v1.common.lib.chart.names.fullname" $) -}}
-{{- $fqdn := (include "tc.v1.common.lib.chart.names.fqdn" $) -}}
 {{- $accessUrl := (include "nextcloud.accessurl" $) -}}
 {{- $accessHost := (include "nextcloud.accesshost" $) -}}
 {{- $accessHostPort := regexReplaceAll ".*://(.*)" $accessUrl "${1}" -}}
@@ -200,7 +199,7 @@ nextcloud-config:
     NX_ONLYOFFICE_URL: {{ .Values.nextcloud.onlyoffice.url | quote }}
     NX_ONLYOFFICE_INTERNAL_URL: {{ .Values.nextcloud.onlyoffice.internal_url | quote }}
     NX_ONLYOFFICE_VERIFY_SSL: {{ .Values.nextcloud.onlyoffice.verify_ssl | quote }}
-    NX_ONLYOFFICE_NEXTCLOUD_INTERNAL_URL: {{ printf "http://%v.svc.cluster.local:%v" $fqdn .Values.service.main.ports.main.port }}
+    NX_ONLYOFFICE_NEXTCLOUD_INTERNAL_URL: {{ .Values.nextcloud.onlyoffice.callback_url | quote }}
     NX_ONLYOFFICE_JWT: {{ .Values.nextcloud.onlyoffice.jwt | quote }}
     NX_ONLYOFFICE_JWT_HEADER: {{ .Values.nextcloud.onlyoffice.jwt_header | quote }}
     {{- end }}
