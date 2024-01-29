@@ -15,7 +15,8 @@ workload:
       containers:
         main:
           env:
-            BIND_PORT: {{ .Values.service.main.ports.main.port }}
+            BIND_IP: "0.0.0.0"
+            BIND_PORT: "{{ .Values.service.main.ports.main.port }}"
             SOCKS_PROXY_ENABLED: false
             SOCKS_PROXY_HOST: ""
             SOCKS_PROXY_PORT: ""
@@ -39,7 +40,7 @@ workload:
             UPDATE_EXCLUDE_COMPLETED: true
             UPDATE_INTERVAL: 12
             UPDATE_MANGA_INFO: false
-            BACKUP_TIME: 00:00
+            BACKUP_TIME: "00:00"
             BACKUP_INTERVAL: 1
             BACKUP_TTL: 14
             FLARESOLVERR_ENABLED: false
