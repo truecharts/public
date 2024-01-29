@@ -96,8 +96,8 @@ questions:
                                         label: "Additional Extension Repo"
                                         description: "Any additional extension repos to use, the format is ["https://github.com/MY_ACCOUNT/MY_REPO/tree/repo", "https://github.com/MY_ACCOUNT_2/MY_REPO_2/"]"
                                         schema:
-                                          type: list
-                                          default: []
+                                          type: string
+                                          default: ""
                                       - variable: MAX_SOURCES_IN_PARALLEL
                                         label: "Max Sources (Uploads/Downloads) in Parallel"
                                         description: "Range: 1 <= n <= 20 - Sets how many sources can do requests (updates, downloads) in parallel. Updates/Downloads are grouped by source and all mangas of a source are updated/downloaded synchronously"
