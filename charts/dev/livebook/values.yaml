@@ -65,6 +65,10 @@ workload:
                 key: AWS_SECRET_ACCESS_KEY
 # default values
 livebook:
+  password: ""
+  updateInstructionsUrl: ""
   debug: false
   awsCredentials:
     enabled: false
+    accessKeyId: ""
+    secretAccessKey: ""
