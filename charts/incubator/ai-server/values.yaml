@@ -24,7 +24,7 @@ service:
       main:
         port: 32168
         targetPort: 32168
-        
+
 workload:
   main:
     podSpec:
@@ -39,8 +39,7 @@ persistence:
   downloads:
     enabled: true
     mountPath: /app/modules
-   
+
 portal:
   open:
     enabled: true
-

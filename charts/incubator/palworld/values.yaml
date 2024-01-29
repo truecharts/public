@@ -149,7 +149,7 @@ workload:
               set_ini_value "ServerPassword" "{{ .Values.palworld.game.password }}"
               set_ini_value "AdminPassword" "{{ .Values.palworld.game.admin_password }}"
               set_ini_value "BanListURL" "{{ .Values.palworld.game.ban_list_url }}"
-              
+
               echo "Done!"
 
       containers:
