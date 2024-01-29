@@ -21,26 +21,11 @@ workload:
         main:
           probes:
             liveness:
-              enabled: true
-              type: exec
-              command:
-                - /bin/sh
-                - -c
-                - curl --fail localhost:{{ .Values.service.main.ports.main.port }}/
+              type: http
             readiness:
-              enabled: true
-              type: exec
-              command:
-                - /bin/sh
-                - -c
-                - curl --fail localhost:{{ .Values.service.main.ports.main.port }}/
+              type: http
             startup:
-              enabled: true
-              type: exec
-              command:
-                - /bin/sh
-                - -c
-                - curl --fail localhost:{{ .Values.service.main.ports.main.port }}/
+              type: tcp
 
 persistence:
   config:
