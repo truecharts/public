@@ -6,8 +6,8 @@ image:
 securityContext:
   container:
     readOnlyRootFilesystem: false
-    runAsGroup: 0
-    runAsUser: 0
+    runAsGroup: 568
+    runAsUser: 568
 
 workload:
   main:
@@ -40,7 +40,7 @@ workload:
             UPDATE_EXCLUDE_COMPLETED: true
             UPDATE_INTERVAL: 12
             UPDATE_MANGA_INFO: false
-            BACKUP_TIME: "00:00"
+            BACKUP_TIME: ""
             BACKUP_INTERVAL: 1
             BACKUP_TTL: 14
             FLARESOLVERR_ENABLED: false
