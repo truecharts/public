@@ -92,6 +92,9 @@ spec:
   {{- if .Values.prometheus.disableCompaction }}
   disableCompaction: {{ .Values.prometheus.disableCompaction }}
   {{- end }}
+  {{- if .Values.prometheus.enableRemoteWriteReceiver }}
+  enableRemoteWriteReceiver: {{ .Values.prometheus.enableRemoteWriteReceiver }}
+  {{- end }}
   {{- if .Values.prometheus.walCompression }}
   walCompression: {{ .Values.prometheus.walCompression }}
   {{- end }}
