@@ -15,7 +15,6 @@ workload:
       containers:
         main:
           env:
-            DB_EN
             BIND_PORT: "{{ .Values.service.main.ports.main.port }}"
             SOCKS_PROXY_ENABLED: false
             SOCKS_PROXY_HOST:	""
