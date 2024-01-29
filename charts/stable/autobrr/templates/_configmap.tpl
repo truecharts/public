@@ -3,7 +3,7 @@
 {{- $fullname := (include "tc.v1.common.lib.chart.names.fullname" $) -}}
 
 {{- $mainPort := .Values.service.main.ports.main.port -}}
-{{- $logLevel := .Values.autorr.log_level -}}
+{{- $logLevel := .Values.autobrr.log_level -}}
 
 {{- $sessionSecret := randAlphaNum 32 -}}
 
