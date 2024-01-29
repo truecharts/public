@@ -46,6 +46,7 @@ service:
     ports:
       main:
         port: 5212
+        targetPort: 5212
 portal:
   open:
     enabled: true
