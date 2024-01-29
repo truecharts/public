@@ -1,0 +1,201 @@
+image:
+  repository: ghcr.io/ich777/steamcmd
+  pullPolicy: IfNotPresent
+  tag: palworld@sha256:c7ed87dfb13890f340d663ca0a97acb6a8b83a40ab81a9c94c8675cee03af325
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: udp
+        port: 8211
+  rcon:
+    enabled: true
+    ports:
+      rcon:
+        enabled: true
+        protocol: tcp
+        port: 25575
+
+palworld:
+  steam:
+    id: "2394010"
+    username: ""
+    password: ""
+    validate: false
+  game:
+    name: "TrueCharts Palworld Server"
+    description: "A Palworld Server running in Kubernetes"
+    use_auth: true
+    admin_password: ""
+    password: ""
+    difficulty: "None"
+    death_penalty: "ALL"
+    max_players: 32
+    max_players_coop: 4
+    max_players_guild: 20
+    drop_item_max: 3000
+    drop_item_max_unko: 100
+    base_camp_max: 128
+    base_camp_worker_max: 15
+    enable_pvp_damage: false
+    enable_friendly_fire: false
+    enable_invader_enemy: true
+    enable_defense_other_guild_player: true
+    enable_non_login_penalty: true
+    enable_aim_assist_pad: false
+    enable_aim_assist_kb: false
+    enable_fast_travel: true
+    is_multiplay: false
+    is_pvp: false
+    is_start_location_select_by_map: true
+    active_unko: false
+    guild_auto_reset_no_online_players: false
+    auto_reset_guild_time_no_online_players: "72.000000"
+    can_pickup_other_guild_death_penalty_drop: false
+    exist_players_after_logout: true
+    update_public_ip: false
+    ban_list_url: "https://api.palworldgame.com/api/banlist.txt"
+    params:
+      - EpicApp=PalServer
+    params_extra:
+      - -useperfthreads
+      - -NoAsyncLoadingThread
+      - -UseMultithreadForDS
+  backup:
+    enabled: true
+    interval: 120
+    to_keep: 12
+
+workload:
+  main:
+    podSpec:
+      initContainers:
+        update-config-ini:
+          enabled: true
+          type: init
+          imageSelector: "image"
+          command:
+            - /bin/sh
+            - -c
+          args:
+            - |
+              config={{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}/Pal/Saved/Config/LinuxServer
+              cfgFile=${config}/PalWorldSettings.ini
+
+              mkdir -p ${config}
+              if [ ! -f ${cfgFile} ]; then
+                echo "Config file not found, fetching..."
+                # Fetch the config file if it doesn't exist, just like the container does
+                wget -qO ${cfgFile} https://github.com/ich777/docker-steamcmd-server/raw/palworld/config/PalWorldSettings.ini
+              fi
+
+              set_ini_value() {
+                local key="${1}"
+                local value="${2}"
+
+                # Check if the value contains spaces or special characters
+                if echo "$value" | grep -q '[[:space:]]\|[^\w.-]'; then
+                  # Add quotes around the value
+                  value="\"$value\""
+                fi
+
+                echo "Setting ${key}..."
+                sed -i "s|\(${key}=\)[^,]*|\1${value}|g" "${cfgFile}"
+                echo "Set to $(grep -Po "(?<=${key}=)[^,]*" "${cfgFile}")"
+              }
+
+              set_ini_value "RCONEnabled" "True"
+              set_ini_value "RCONPort" "{{ .Values.service.rcon.ports.rcon.port }}"
+              set_ini_value "PublicPort" "{{ .Values.service.main.ports.main.port }}"
+
+              set_ini_value "ServerName" "{{ .Values.palworld.game.name }}"
+              set_ini_value "ServerDescription" "{{ .Values.palworld.game.description }}"
+              set_ini_value "Difficulty" "{{ .Values.palworld.game.difficulty }}"
+              set_ini_value "DeathPenalty" "{{ .Values.palworld.game.death_penalty }}"
+
+              set_ini_value "ServerPlayerMaxNum" "{{ .Values.palworld.game.max_players }}"
+              set_ini_value "CoopPlayerMaxNum" "{{ .Values.palworld.game.max_players_coop }}"
+              set_ini_value "GuildPlayerMaxNum" "{{ .Values.palworld.game.max_players_guild }}"
+
+              set_ini_value "DropItemMaxNum" "{{ .Values.palworld.game.max_players_guild }}"
+              set_ini_value "DropItemMaxNum_UNKO" "{{ .Values.palworld.game.drop_item_max_unko }}"
+              set_ini_value "BaseCampMaxNum" "{{ .Values.palworld.game.base_camp_max }}"
+              set_ini_value "BaseCampWorkerMaxNum" "{{ .Values.palworld.game.base_camp_worker_max }}"
+
+              set_ini_value "bUseAuth" "{{ .Values.palworld.game.use_auth }}"
+              set_ini_value "bEnablePlayerToPlayerDamage" "{{ .Values.palworld.game.enable_pvp_damage }}"
+              set_ini_value "bEnableFriendlyFire" "{{ .Values.palworld.game.enable_friendly_fire }}"
+              set_ini_value "bEnableInvaderEnemy" "{{ .Values.palworld.game.enable_invader_enemy }}"
+              set_ini_value "bEnableAimAssistPad" "{{ .Values.palworld.game.enable_aim_assist_pad }}"
+              set_ini_value "bEnableAimAssistKeyboard" "{{ .Values.palworld.game.enable_aim_assist_kb }}"
+              set_ini_value "bEnableNonLoginPenalty" "{{ .Values.palworld.game.enable_non_login_penalty }}"
+              set_ini_value "bEnableFastTravel" "{{ .Values.palworld.game.enable_fast_travel }}"
+              set_ini_value "bEnableDefenseOtherGuildPlayer" "{{ .Values.palworld.game.enable_defense_other_guild_player }}"
+              set_ini_value "bIsMultiplay" "{{ .Values.palworld.game.is_multiplay }}"
+              set_ini_value "bIsStartLocationSelectByMap" "{{ .Values.palworld.game.is_start_location_select_by_map }}"
+              set_ini_value "bIsPvP" "{{ .Values.palworld.game.is_pvp }}"
+              set_ini_value "bExistPlayerAfterLogout" "{{ .Values.palworld.game.exist_players_after_logout }}"
+              set_ini_value "bActiveUNKO" "{{ .Values.palworld.game.active_unko }}"
+              set_ini_value "bAutoResetGuildNoOnlinePlayers" "{{ .Values.palworld.game.guild_auto_reset_no_online_players }}"
+              set_ini_value "AutoResetGuildTimeNoOnlinePlayers" "{{ .Values.palworld.game.auto_reset_guild_time_no_online_players }}"
+              set_ini_value "bCanPickupOtherGuildDeathPenaltyDrop" "{{ .Values.palworld.game.can_pickup_other_guild_death_penalty_drop }}"
+              set_ini_value "ServerPassword" "{{ .Values.palworld.game.password }}"
+              set_ini_value "AdminPassword" "{{ .Values.palworld.game.admin_password }}"
+              set_ini_value "BanListURL" "{{ .Values.palworld.game.ban_list_url }}"
+
+              echo "Done!"
+
+      containers:
+        main:
+          probes:
+            liveness:
+              type: tcp
+              port: "{{ .Values.service.rcon.ports.rcon.port }}"
+            readiness:
+              type: tcp
+              port: "{{ .Values.service.rcon.ports.rcon.port }}"
+            startup:
+              type: tcp
+              port: "{{ .Values.service.rcon.ports.rcon.port }}"
+          env:
+            # paths
+            STEAMCMD_DIR: "{{ .Values.persistence.steamcmd.mountPath }}"
+            SERVER_DIR: "{{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}"
+            # steam
+            GAME_ID: "{{ .Values.palworld.steam.id }}"
+            USERNAME: "{{ .Values.palworld.steam.username }}"
+            PASSWRD: "{{ .Values.palworld.steam.password }}"
+            VALIDATE: "{{ .Values.palworld.steam.validate }}"
+            # game
+            SRV_ADMIN_PWD: "{{ .Values.palworld.game.admin_password }}"
+            UPDATE_PUBLIC_IP: "{{ .Values.palworld.game.update_public_ip }}"
+            GAME_PARAMS: '{{ join " " .Values.palworld.game.params }}'
+            GAME_PARAMS_EXTRA: '{{ join " " .Values.palworld.game.params_extra }}'
+            # backup
+            BACKUP: "{{ .Values.palworld.backup.enabled }}"
+            BACKUP_INTERVAL: "{{ .Values.palworld.backup.interval }}"
+            BACKUP_TO_KEEP: "{{ .Values.palworld.backup.to_keep }}"
+
+persistence:
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+  serverfiles:
+    enabled: true
+    targetSelector:
+      main:
+        main:
+          mountPath: /serverdata/serverfiles
+        update-config-ini:
+          mountPath: /serverdata/serverfiles
+
+portal:
+  open:
+    enabled: false

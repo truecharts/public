@@ -3,28 +3,28 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Network-Web
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
 appVersion: 1.15.2
 dependencies:
   - name: common
-    version: 17.2.22
+    version: 17.2.29
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mariadb
-    version: 12.1.6
+    version: 12.1.12
     repository: https://deps.truecharts.org/
     condition: mariadb.enabled
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 11.1.6
+    version: 11.1.16
     repository: https://deps.truecharts.org
     condition: redis.enabled
     alias: ""
@@ -45,6 +45,7 @@ maintainers:
 name: humhub
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/humhub
+  - https://ghcr.io/mriedmann/humhub-phponly
   - https://ghcr.io/mriedmann/humhub-nginx
 type: application
-version: 6.2.3
+version: 6.2.8

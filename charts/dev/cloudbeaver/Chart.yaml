@@ -3,9 +3,9 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Cloud
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: dev
 apiVersion: v2
 appVersion: 23.3.1
 dependencies:
@@ -18,7 +18,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Cloud Database Manager (Official Chart)
-home: https://truecharts.org/charts/incubator/cloudbeaver
+home: https://truecharts.org/charts/dev/cloudbeaver
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/cloudbeaver.png
 keywords:
   - cloudbeaver
@@ -32,7 +32,7 @@ maintainers:
 name: cloudbeaver
 sources:
   - https://github.com/dbeaver/cloudbeaver
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/cloudbeaver
+  - https://github.com/truecharts/charts/tree/master/charts/dev/cloudbeaver
   - https://hub.docker.com/r/dbeaver/cloudbeaver
 type: application
-version: 4.0.14
+version: 4.0.15

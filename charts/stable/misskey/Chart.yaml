@@ -3,21 +3,21 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Social
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: 2023.12.2
 dependencies:
   - name: common
-    version: 17.2.22
+    version: 17.2.29
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 11.1.6
+    version: 11.1.16
     repository: https://deps.truecharts.org
     condition: redis.enabled
     alias: ""
@@ -25,7 +25,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Open source decentralized social media platform that's free forever!
-home: https://truecharts.org/charts/incubator/misskey
+home: https://truecharts.org/charts/stable/misskey
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/misskey.png
 keywords:
   - Misskey
@@ -41,8 +41,8 @@ maintainers:
     url: https://truecharts.org
 name: misskey
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/misskey
-  - https://hub.docker.com/r/misskey/misskey
   - https://github.com/misskey-dev/misskey/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/misskey
+  - https://hub.docker.com/r/misskey/misskey
 type: application
-version: 7.1.10
+version: 7.1.15

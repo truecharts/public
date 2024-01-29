@@ -3,14 +3,14 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: networking
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: "10"
+appVersion: 10.0.0
 dependencies:
   - name: common
-    version: 17.2.22
+    version: 17.2.29
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -31,8 +31,8 @@ maintainers:
     url: https://truecharts.org
 name: wg-easy
 sources:
-  - https://ghcr.io/wg-easy/wg-easy
   - https://github.com/WeeJeWel/wg-easy
   - https://github.com/truecharts/charts/tree/master/charts/stable/wg-easy
+  - https://ghcr.io/wg-easy/wg-easy
 type: application
-version: 9.0.0
+version: 9.0.7

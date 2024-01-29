@@ -3,14 +3,14 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Tools-Utilities
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 17.2.22
+    version: 17.2.29
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -18,7 +18,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: "This simple Chart will update a namecheap dynamic dns domain. You must set an 'A + Dynamic DNS Record' for the host and enable Dynamic DNS in the manage page for your domain. "
-home: https://truecharts.org/charts/incubator/namecheap-ddns
+home: https://truecharts.org/charts/stable/namecheap-ddns
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/namecheap-ddns.png
 keywords:
   - namecheap-ddns
@@ -33,7 +33,7 @@ maintainers:
 name: namecheap-ddns
 sources:
   - https://github.com/EdwardChamberlain/namecheap_ddns
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/namecheap-ddns
+  - https://github.com/truecharts/charts/tree/master/charts/stable/namecheap-ddns
   - https://hub.docker.com/r/edchamberlain/namecheap_ddns
 type: application
-version: 4.1.6
+version: 4.1.10

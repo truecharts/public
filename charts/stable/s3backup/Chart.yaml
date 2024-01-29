@@ -3,14 +3,14 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Backup
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 17.2.22
+    version: 17.2.29
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -18,7 +18,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: A simple way to backup important files to Amazon S3 and Glacier.
-home: https://truecharts.org/charts/incubator/s3backup
+home: https://truecharts.org/charts/stable/s3backup
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/s3backup.png
 keywords:
   - s3backup
@@ -31,8 +31,8 @@ maintainers:
     url: https://truecharts.org
 name: s3backup
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/s3backup
-  - https://hub.docker.com/r/joch/s3backup
   - https://registry.hub.docker.com/r/joch/s3backup/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/s3backup
+  - https://hub.docker.com/r/joch/s3backup
 type: application
-version: 4.1.6
+version: 4.1.10

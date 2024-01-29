@@ -3,14 +3,14 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Cloud
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 17.2.22
+    version: 17.2.29
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -18,7 +18,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: ecoDMS 18.09 (apu) Full Installation - Document Management System (DMS) - Audit-compliant archive for scanning, archiving, managing and retrieving all data and documents.
-home: https://truecharts.org/charts/incubator/ecodms
+home: https://truecharts.org/charts/stable/ecodms
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ecodms.png
 keywords:
   - ecodms
@@ -32,7 +32,7 @@ maintainers:
 name: ecodms
 sources:
   - https://www.ecodms.de/index.php/en/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/ecodms
+  - https://github.com/truecharts/charts/tree/master/charts/stable/ecodms
   - https://hub.docker.com/r/ecodms/allinone-18.09
 type: application
-version: 4.1.7
+version: 4.1.11

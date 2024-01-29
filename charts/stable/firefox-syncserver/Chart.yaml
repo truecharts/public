@@ -3,14 +3,14 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
 appVersion: 1.8.0
 dependencies:
   - name: common
-    version: 17.2.22
+    version: 17.2.29
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -32,8 +32,8 @@ maintainers:
     url: https://truecharts.org
 name: firefox-syncserver
 sources:
-  - https://ghcr.io/crazy-max/firefox-syncserver
   - https://moz-services-docs.readthedocs.io/en/latest/howtos/run-sync-1.5.html
   - https://github.com/truecharts/charts/tree/master/charts/stable/firefox-syncserver
+  - https://ghcr.io/crazy-max/firefox-syncserver
 type: application
-version: 16.1.6
+version: 16.1.10

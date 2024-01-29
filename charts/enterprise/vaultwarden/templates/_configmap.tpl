@@ -46,7 +46,7 @@ data:
   {{- if .Values.vaultwarden.smtp.fromName }}
   SMTP_FROM_NAME: {{ .Values.vaultwarden.smtp.fromName | quote }}
   {{- end }}
-  {{- if .Values.vaultwarden.smtp.ssl }}
+  {{- if .Values.vaultwarden.smtp.security }}
   SMTP_SECURITY: {{ .Values.vaultwarden.smtp.security | quote }}
   {{- end }}
   {{- if .Values.vaultwarden.smtp.port }}

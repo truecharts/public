@@ -3,14 +3,14 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: downloads
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
 appVersion: 23.12.2
 dependencies:
   - name: common
-    version: 17.2.22
+    version: 17.2.29
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -30,9 +30,9 @@ maintainers:
     url: https://truecharts.org
 name: jdownloader2
 sources:
-  - https://hub.docker.com/r/jlesage/jdownloader-2
-  - https://github.com/jlesage/docker-jdownloader-2
   - https://jdownloader.org/
+  - https://github.com/jlesage/docker-jdownloader-2
   - https://github.com/truecharts/charts/tree/master/charts/stable/jdownloader2
+  - https://hub.docker.com/r/jlesage/jdownloader-2
 type: application
-version: 14.2.6
+version: 14.2.10

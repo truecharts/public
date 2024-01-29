@@ -1,0 +1,46 @@
+image:
+  repository: ghcr.io/mintplex-labs/anything-llm
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:398218457ffe5e3be2d686f99ed759a9683075030f72832a89c4cc4429c481ac
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+    capabilities:
+      add:
+        - SYS_ADMIN
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 3001
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
+            STORAGE_DIR: "{{.Values.persistence.storage.mountPath }}"
+            # forces users to use ingress if https is needed.
+            # keep false.
+            ENABLE_HTTPS: false
+
+persistence:
+  storage:
+    enabled: true
+    mountPath: "/app/server/storage"
+  hotdir:
+    enabled: true
+    mountPath: "/app/collector/hotdir"
+  outputs:
+    enabled: true
+    mountPath: "/app/collector/outputs"
+
+portal:
+  open:
+    enabled: true

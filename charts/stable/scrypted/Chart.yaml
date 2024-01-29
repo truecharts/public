@@ -3,14 +3,14 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 18.0.83
+appVersion: 18.0.0
 dependencies:
   - name: common
-    version: 17.2.22
+    version: 17.2.29
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -30,8 +30,8 @@ maintainers:
     url: https://truecharts.org
 name: scrypted
 sources:
-  - https://hub.docker.com/r/koush/scrypted
   - https://github.com/koush/scrypted
   - https://github.com/truecharts/charts/tree/master/charts/stable/scrypted
+  - https://hub.docker.com/r/koush/scrypted
 type: application
-version: 3.3.0
+version: 3.3.4

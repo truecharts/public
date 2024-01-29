@@ -3,7 +3,7 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: system
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
 apiVersion: v2
@@ -30,8 +30,8 @@ maintainers:
     url: https://truecharts.org
 name: atuin
 sources:
+  - https://github.com/atuinsh/atuin
   - https://github.com/truecharts/charts/tree/master/charts/incubator/atuin
   - https://ghcr.io/atuinsh/atuin
-  - https://github.com/atuinsh/atuin
 type: application
-version: 0.0.1
+version: 0.0.2

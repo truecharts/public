@@ -10,7 +10,7 @@ fi
 
 echo "Chart name: $curr_chart"
 
-if [[ "$curr_chart" == "charts/operators/metallb-config" ]]; then
+if [[ "$curr_chart" == "charts/enterprise/metallb-config" ]]; then
     echo "Installing metallb chart"
     helm install metallb oci://tccr.io/truecharts/metallb --namespace metallb --create-namespace --wait
     if [[ "$?" != "0" ]]; then
@@ -51,12 +51,13 @@ if [[ "$curr_chart" != "charts/operators/prometheus-operator" ]]; then
     echo "Done installing prometheus-operator chart"
 fi
 
-# if [[ "$curr_chart" != "charts/enterprise/traefik" ]]; then
-#    echo "Installing traefik chart"
-#    helm install traefik oci://tccr.io/truecharts/traefik --namespace traefik --create-namespace --wait
-#    if [[ "$?" != "0" ]]; then
-#        echo "Failed to install traefik chart"
-#        exit 1
-#    fi
-#    echo "Done installing traefik chart"
-# fi
+if [[ "$curr_chart" != "charts/enterprise/traefik" ]]; then
+   echo "Installing traefik chart"
+   helm install traefik oci://tccr.io/truecharts/traefik --namespace traefik --create-namespace --wait \
+     --set "service.main.type=ClusterIP" --set "service.tcp.type=ClusterIP"
+   if [[ "$?" != "0" ]]; then
+       echo "Failed to install traefik chart"
+       exit 1
+   fi
+   echo "Done installing traefik chart"
+fi

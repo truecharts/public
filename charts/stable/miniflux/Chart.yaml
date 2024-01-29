@@ -3,14 +3,14 @@ annotations:
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: rss
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
 appVersion: 2.0.51
 dependencies:
   - name: common
-    version: 17.2.22
+    version: 17.2.29
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -31,8 +31,8 @@ maintainers:
     url: https://truecharts.org
 name: miniflux
 sources:
+  - https://github.com/miniflux/v2
   - https://github.com/truecharts/charts/tree/master/charts/stable/miniflux
   - https://hub.docker.com/r/miniflux/miniflux
-  - https://github.com/miniflux/v2
 type: application
-version: 13.1.6
+version: 13.1.10

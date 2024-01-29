@@ -96,7 +96,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-237-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-241-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -309,7 +309,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Dhs92"><img src="https://avatars.githubusercontent.com/u/3068714?v=4?s=100" width="100px;" alt="Alex"/><br /><sub><b>Alex</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=Dhs92" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/bjsemrad"><img src="https://avatars.githubusercontent.com/u/1234356?v=4?s=100" width="100px;" alt="Brian Semrad"/><br /><sub><b>Brian Semrad</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=bjsemrad" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://256.makerslocal.org/wiki/User:Ctag"><img src="https://avatars.githubusercontent.com/u/6200085?v=4?s=100" width="100px;" alt="Christopher"/><br /><sub><b>Christopher</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=ctag" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://256.makerslocal.org/wiki/User:Ctag"><img src="https://avatars.githubusercontent.com/u/6200085?v=4?s=100" width="100px;" alt="Christopher"/><br /><sub><b>Christopher</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=ctag" title="Code">💻</a> <a href="https://github.com/truecharts/charts/commits?author=ctag" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/engedics"><img src="https://avatars.githubusercontent.com/u/11065639?v=4?s=100" width="100px;" alt="Csaba Engedi"/><br /><sub><b>Csaba Engedi</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=engedics" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Cyb3rzombie"><img src="https://avatars.githubusercontent.com/u/19274374?v=4?s=100" width="100px;" alt="Cyb3rzombie"/><br /><sub><b>Cyb3rzombie</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=Cyb3rzombie" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://cloudtutorial.net/"><img src="https://avatars.githubusercontent.com/u/1249095?v=4?s=100" width="100px;" alt="Eric Cavalcanti"/><br /><sub><b>Eric Cavalcanti</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=CajuCLC" title="Code">💻</a></td>
@@ -412,6 +412,12 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/ekrunch"><img src="https://avatars.githubusercontent.com/u/13153293?v=4?s=100" width="100px;" alt="Ed P"/><br /><sub><b>Ed P</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=ekrunch" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/fnadeau"><img src="https://avatars.githubusercontent.com/u/1904563?v=4?s=100" width="100px;" alt="Frédéric Nadeau"/><br /><sub><b>Frédéric Nadeau</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=fnadeau" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/frapbod"><img src="https://avatars.githubusercontent.com/u/48932093?v=4?s=100" width="100px;" alt="frapbod"/><br /><sub><b>frapbod</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=frapbod" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://bahuma.io"><img src="https://avatars.githubusercontent.com/u/5746121?v=4?s=100" width="100px;" alt="Max Bachhuber"/><br /><sub><b>Max Bachhuber</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=bahuma20" title="Code">💻</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/zierbeek"><img src="https://avatars.githubusercontent.com/u/58994651?v=4?s=100" width="100px;" alt="zierbeek"/><br /><sub><b>zierbeek</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=zierbeek" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/ac1dburnz"><img src="https://avatars.githubusercontent.com/u/10972668?v=4?s=100" width="100px;" alt="Ac1dburn"/><br /><sub><b>Ac1dburn</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=ac1dburnz" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/antoinesaget"><img src="https://avatars.githubusercontent.com/u/38580521?v=4?s=100" width="100px;" alt="Antoine Saget"/><br /><sub><b>Antoine Saget</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=antoinesaget" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>
