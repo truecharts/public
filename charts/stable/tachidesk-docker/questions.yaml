@@ -92,6 +92,36 @@ questions:
                                         schema:
                                           type: int
                                           default: 0
+                                      - variable: EXTENSIONS_REPOS
+                                        label: "Additional Extension Repo"
+                                        description: "Any additional extension repos to use, the format is ["https://github.com/MY_ACCOUNT/MY_REPO/tree/repo", "https://github.com/MY_ACCOUNT_2/MY_REPO_2/"]"
+                                        schema:
+                                          type: list
+                                          default: []
+                                      - variable: MAX_SOURCES_IN_PARALLEL
+                                        label: "Max Sources (Uploads/Downloads) in Parallel"
+                                        description: "Range: 1 <= n <= 20 - Sets how many sources can do requests (updates, downloads) in parallel. Updates/Downloads are grouped by source and all mangas of a source are updated/downloaded synchronously"
+                                        schema:
+                                          type: int
+                                          default: 6
+                                      - variable: UPDATE_EXCLUDE_UNREAD
+                                        label: "Exclude Unread Manga"
+                                        description: "If unread manga should be excluded from updates"
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: UPDATE_EXCLUDE_STARTED
+                                        label: "Exclude Started Manga"
+                                        description: "If started manga should be excluded from updates"
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: UPDATE_EXCLUDE_COMPLETED
+                                        label: "Exclude completed Manga"
+                                        description: "If completed manga should be excluded from updates"
+                                        schema:
+                                          type: boolean
+                                          default: true
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
