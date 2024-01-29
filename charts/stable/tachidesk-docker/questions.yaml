@@ -74,18 +74,24 @@ questions:
                                         schema:
                                           type: bool
                                           default: false
-                                      - variabble: AUTO_DOWNLOAD_CHAPTERS
+                                      - variable: AUTO_DOWNLOAD_CHAPTERS
                                         label: "Automatic Download Chapters"
                                         description: "If new chapters that have been retrieved should get automatically downloaded"
                                         schema:
                                           type: bool
                                           default: false
-                                      - variabble: AUTO_DOWNLOAD_EXCLUDE_UNREAD
+                                      - variable: AUTO_DOWNLOAD_EXCLUDE_UNREAD
                                         label: "Exclude Unread Automatic Download Chapters"
                                         description: "Ignore automatic chapter downloads of entries with unread chapters"
                                         schema:
                                           type: bool
                                           default: true
+                                      - variable: AUTO_DOWNLOAD_AHEAD_LIMIT
+                                        label: "Auto Download Chapters Ahead Limit"
+                                        description: "0 to disable - how many unread downloaded chapters should be available - if the limit is reached, new chapters won't be downloaded automatically"
+                                        schema:
+                                          type: int
+                                          default: 0
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
