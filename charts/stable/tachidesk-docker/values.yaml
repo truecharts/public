@@ -17,7 +17,7 @@ workload:
           env:
             BIND_PORT: "{{ .Values.service.main.ports.main.port }}"
             SOCKS_PROXY_ENABLED: false
-            SOCKS_PROXY_HOST:	""
+            SOCKS_PROXY_HOST: ""
             SOCKS_PROXY_PORT: ""
             DOWNLOAD_AS_CBZ: false
             BASIC_AUTH_ENABLED: false
