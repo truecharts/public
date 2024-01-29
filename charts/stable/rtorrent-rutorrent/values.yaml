@@ -55,7 +55,7 @@ service:
       rtinc:
         enabled: true
         port: 50000
-metrics:
+  metrics:
     enabled: true
     type: ClusterIP
     targetSelector: exportarr
@@ -139,17 +139,7 @@ persistence:
           mountPath: /config
           readOnly: true
 
-metrics:
-  main:
-    enabled: true
-    type: "servicemonitor"
-    endpoints:
-      - port: metrics
-        path: /metrics
-    targetSelector: metrics
-    prometheusRule:
-      enabled: true
-
 portal:
   open:
     enabled: true
+
