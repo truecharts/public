@@ -124,7 +124,7 @@ questions:
                                           default: true
                                       - variable: UPDATE_INTERVAL
                                         label: "Global Update Interval"
-                                        description: "Time in hours (0 to disable) it Interval in which the global update will be automatically triggered"
+                                        description: "Time in hours (0 to disable it) for the innterval in which the global update will be automatically triggered"
                                         schema:
                                           type: int
                                           default: 12
@@ -140,6 +140,18 @@ questions:
                                         schema:
                                           type: string
                                           default: "00:00"
+                                      - variable: BACKUP_INTERVAL
+                                        label: "Backup Update Interval"
+                                        description: "Time in days (0 to disable it) for the interval in which the server will automatically create a backup"
+                                        schema:
+                                          type: int
+                                          default: 1
+                                      - variable: BACKUP_TTL
+                                        label: "Backup Retentions Interval"
+                                        description: "Time in days (0 to disable it) for how long backup files will be kept before they will get deleted"
+                                        schema:
+                                          type: int
+                                          default: 1
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
