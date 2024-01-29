@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.22.0
+appVersion: 0.22.1
 dependencies:
   - name: common
     version: 17.2.29
@@ -29,7 +29,7 @@ home: https://truecharts.org/charts/stable/vikunja
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/vikunja.png
 keywords:
   - vikunja
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -38,8 +38,8 @@ name: vikunja
 sources:
   - https://vikunja.io/docs
   - https://github.com/truecharts/charts/tree/master/charts/stable/vikunja
-  - https://hub.docker.com/r/vikunja/frontend
-  - https://hub.docker.com/r/vikunja/api
   - https://hub.docker.com/_/nginx
+  - https://hub.docker.com/r/vikunja/api
+  - https://hub.docker.com/r/vikunja/frontend
 type: application
-version: 12.1.15
+version: 12.1.17
