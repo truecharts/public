@@ -2,6 +2,10 @@ image:
   repository: ghcr.io/crazy-max/rtorrent-rutorrent
   pullPolicy: IfNotPresent
   tag: 4.2.9-0.9.8_2-0.13.8_1@sha256:8d089b00282a203886361268d9210106956302c2194e75ae56982a6f0398aef9
+exportarrImage:
+  repository: ghcr.io/thde/rtorrent_exporter
+  pullPolicy: IfNotPresent
+  tag: v1.2.1@sha256:ef223d7ed51ceaba54755b2b1792997dd0e0a11657b5175b9c92677df24527ee
 
 securityContext:
   container:
@@ -51,7 +55,16 @@ service:
       rtinc:
         enabled: true
         port: 50000
-
+metrics:
+    enabled: true
+    type: ClusterIP
+    targetSelector: exportarr
+    ports:
+      metrics:
+        enabled: true
+        port: 9135
+        targetSelector: exportarr
+        
 workload:
   main:
     podSpec:
@@ -78,16 +91,64 @@ workload:
             WEBDAV_PORT: "{{ .Values.service.webdav.ports.webdav.port }}"
             RT_INC_PORT: "{{ .Values.service.rtinc.ports.rtinc.port }}"
 
+exportarr:
+    enabled: true
+    type: Deployment
+    strategy: RollingUpdate
+    replicas: 1
+    podSpec:
+      containers:
+        exportarr:
+          primary: true
+          enabled: true
+          imageSelector: exportarrImage
+          args:
+            - rtorrent_exporter --rtorrent.scrape-uri=http://rtorrent:8000/RPC2
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            INTERFACE: 0.0.0.0
+            PORT: "{{ .Values.service.metrics.ports.metrics.port }}"
+            URL: '{{ printf "http://%v:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.main.ports.main.port }}'
+            # additional metrics (slow)
+            # ENABLE_ADDITIONAL_METRICS: false
+            # enable gathering unknown queue items
+            # ENABLE_UNKNOWN_QUEUE_ITEMS: false
+
 persistence:
-  data:
+  config:
     enabled: true
-    mountPath: "/data"
-  downloads:
+    targetSelector:
+      main:
+        data:
+          enabled: true
+          mountPath: "/data"
+        downloads:
+          enabled: true
+          mountPath: "/downloads"
+        passwd:
+          enabled: true
+          mountPath: "/passwd"       
+      exportarr:
+        exportarr:
+          mountPath: /config
+          readOnly: true
+
+metrics:
+  main:
     enabled: true
-    mountPath: "/downloads"
-  passwd:
-    enabled: true
-    mountPath: "/passwd"
+    type: "servicemonitor"
+    endpoints:
+      - port: metrics
+        path: /metrics
+    targetSelector: metrics
+    prometheusRule:
+      enabled: true
 
 portal:
   open:
