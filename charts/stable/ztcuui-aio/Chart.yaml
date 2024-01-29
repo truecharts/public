@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2023.5.2
+appVersion: 2024.1.28
 dependencies:
   - name: common
     version: 17.2.29
@@ -22,7 +22,7 @@ home: https://truecharts.org/charts/stable/ztcuui-aio
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/ztcuui-aio.png
 keywords:
   - ztcuui-aio
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -33,4 +33,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/ztcuui-aio
   - https://ghcr.io/kmahyyg/ztncui-aio
 type: application
-version: 6.1.10
+version: 7.0.0
