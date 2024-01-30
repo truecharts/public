@@ -2,6 +2,10 @@ image:
   repository: ghcr.io/ich777/steamcmd
   pullPolicy: IfNotPresent
   tag: palworld@sha256:c7ed87dfb13890f340d663ca0a97acb6a8b83a40ab81a9c94c8675cee03af325
+rconImage:
+  repository: outdead/rcon
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:8bf03935771ae6b44449eb8e74e1f4d249ead591e9c1e4e43539d33be1a3ac67
 
 securityContext:
   container:
@@ -149,9 +153,7 @@ workload:
               set_ini_value "ServerPassword" "{{ .Values.palworld.game.password }}"
               set_ini_value "AdminPassword" "{{ .Values.palworld.game.admin_password }}"
               set_ini_value "BanListURL" "{{ .Values.palworld.game.ban_list_url }}"
-
               echo "Done!"
-
       containers:
         main:
           probes:
@@ -182,6 +184,31 @@ workload:
             BACKUP: "{{ .Values.palworld.backup.enabled }}"
             BACKUP_INTERVAL: "{{ .Values.palworld.backup.interval }}"
             BACKUP_TO_KEEP: "{{ .Values.palworld.backup.to_keep }}"
+  rcon:
+    enabled: true
+    type: Deployment
+    strategy: RollingUpdate
+    replicas: 1
+    podSpec:
+      containers:
+        rcon:
+          primary: true
+          enabled: true
+          imageSelector: rconImage
+          tty: true
+          stdin: true
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          args:
+            - -a
+            - '{{ printf "http://%v-rcon:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.rcon.ports.rcon.port }}'
+            - -p
+            - "{{ .Values.workload.main.podSpec.containers.main.env.palworld.game.admin_password }}"
 
 persistence:
   steamcmd:
