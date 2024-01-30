@@ -24,7 +24,7 @@ dependencies:
     tags: []
     import-values: []
   - name: kube-state-metrics
-    version: 6.1.14
+    version: 6.1.15
     repository: https://deps.truecharts.org
     condition: exporters.enabled,exporters.kube-state-metrics.enabled
     alias: ""
@@ -50,4 +50,4 @@ sources:
   - https://quay.io/thanos/thanos
   - https://hub.docker.com/r/bitnami/alertmanager
 type: application
-version: 16.4.0
+version: 16.4.1
