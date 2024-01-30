@@ -12,7 +12,7 @@ dscImage:
 image:
   pullPolicy: IfNotPresent
   repository: docspell/restserver
-  tag: v0.40.0@sha256:3495d25517e3aa2db8e1ea76bc9f6dad04598e9c6ad59acf2223cacc9493c53b
+  tag: v0.41.0@sha256:83a9bf76568007946cfd98d3d6214471a706d5279f21dd4c21116db41556919c
 joex:
   addons:
     cache_dir: /tmp/docspell-addons-cache
@@ -238,7 +238,7 @@ joex:
 joexImage:
   pullPolicy: IfNotPresent
   repository: docspell/joex
-  tag: v0.40.0@sha256:09cb3b82f596cfa1999228a4ded65c53a749879c1923a438a7b6961167212930
+  tag: v0.41.0@sha256:aa764ec49a2892acb1d43b81fe45e91da3848b01b15ab42f0196e8bcfd1ad168
 persistence:
   import:
     enabled: true
