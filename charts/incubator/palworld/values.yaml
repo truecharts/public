@@ -206,9 +206,9 @@ workload:
               enabled: false
           args:
             - -a
-            - '{{ printf "http://%v-rcon:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.rcon.ports.rcon.port }}'
+            - '{{ printf "%v-rcon:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.rcon.ports.rcon.port }}'
             - -p
-            - "{{ .Values.workload.main.podSpec.containers.main.env.SRV_ADMIN_PWD }}"
+            - "{{ .Values.palworld.game.admin_password }}"
 
 persistence:
   steamcmd:
