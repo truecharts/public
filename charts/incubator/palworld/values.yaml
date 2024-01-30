@@ -205,7 +205,7 @@ workload:
             startup:
               enabled: false
           args:
-            - rcon
+            - ./rcon
             - -a
             - '{{ printf "%v-rcon:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.rcon.ports.rcon.port }}'
             - -p
