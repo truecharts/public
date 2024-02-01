@@ -139,7 +139,7 @@ workload:
 
                 if [ "$quote_flag" = true ]; then
                     # Add quotes around the value if required
-                    if echo "$value" | grep '[[:space:]]\|[^\w.-]'; then
+                    if echo "$value" | grep -q '[[:space:]]\|[^\w.-]' >/dev/null; then
                         # Add quotes around the value
                         value="\"$value\""
                     fi
@@ -150,7 +150,7 @@ workload:
                 echo "Set to $(grep -Po "(?<=${key}=)[^,]*" "${cfgFile}")"
               }
 
-              echo the following options are updating....
+              echo "the following options are updating...."
 
               set_ini_value "RCONEnabled" "True" true
               set_ini_value "RCONPort" "{{ .Values.service.rcon.ports.rcon.port }}" true
