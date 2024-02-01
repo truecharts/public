@@ -1,0 +1,43 @@
+image:
+  repository: ccrisan/motioneye
+  pullPolicy: IfNotPresent
+  tag: master-amd64
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env: {}
+service:
+  main:
+    ports:
+      main:
+        port: 8765
+        protocol: http
+        targetPort: 8765
+persistence:
+  server-files:
+    enabled: true
+    mountPath: /etc/motioneye
+  user-files:
+    enabled: true
+    mountPath: /var/lib/motioneye
+portal:
+  open:
+    enabled: true
