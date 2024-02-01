@@ -272,10 +272,6 @@ workload:
               enabled: false
             startup:
               enabled: false
-          args:
-            - ./rcon
-            - -c
-            - "{{ .Values.persistence.palworldrcon.targetSelector.rcon.rcon.mountPath }}"
 
 persistence:
   steamcmd:
@@ -287,19 +283,16 @@ persistence:
       main:
         main:
           mountPath: /serverdata/serverfiles
-      rcon:
-        rcon:
-          mountPath: /serverdata/serverfiles
         update-config-ini:
           mountPath: /serverdata/serverfiles
-  palworldrcon:
+  palworld-rcon:
     enabled: true
     type: configmap
     objectName: palworld-rcon
     targetSelector:
       rcon:
         rcon:
-          mountPath: /serverdata/serverfiles/rcon.yaml
+          mountPath: /rcon.yaml
           subPath: rcon.yaml
           readOnly: true
 portal:

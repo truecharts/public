@@ -5,7 +5,7 @@ title: PalWorld RCON Notes
 Shell into the app from the web gui or use heavyscript and select the RCON container; the following commands can be used.
 
 ```shell
-./rcon /Info
+./rcon info
 ```
 
 :::note
