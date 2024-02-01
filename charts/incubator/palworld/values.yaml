@@ -267,17 +267,18 @@ workload:
           stdin: true
           probes:
             liveness:
-              enabled: false
+              type: tcp
+              port: "{{ .Values.service.rcon.ports.rcon.port }}"
             readiness:
-              enabled: false
+              type: tcp
+              port: "{{ .Values.service.rcon.ports.rcon.port }}"
             startup:
-              enabled: false
+              type: tcp
+              port: "{{ .Values.service.rcon.ports.rcon.port }}"
           args:
             - ./rcon
-            - -a
-            - '{{ printf "%v-rcon:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.rcon.ports.rcon.port }}'
-            - -p
-            - "{{ .Values.palworld.game.admin_password }}"
+            - -c
+            - "{{ .Values.persistence.palworldrcon.targetSelector.rcon.rcon.mountPath }}"
 
 persistence:
   steamcmd:
@@ -289,9 +290,21 @@ persistence:
       main:
         main:
           mountPath: /serverdata/serverfiles
+      rcon:
+        rcon:
+          mountPath: /serverdata/serverfiles
         update-config-ini:
           mountPath: /serverdata/serverfiles
-
+  palworldrcon:
+    enabled: true
+    type: configmap
+    objectName: palworld-rcon
+    targetSelector:
+      rcon:
+        rcon:
+          mountPath: /serverdata/serverfiles/rcon.yaml
+          subPath: rcon.yaml
+          readOnly: true
 portal:
   open:
     enabled: false

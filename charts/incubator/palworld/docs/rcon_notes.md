@@ -4,7 +4,11 @@ title: PalWorld RCON Notes
 
 Shell into the app from the web gui or use heavyscript and select the RCON container; the following commands can be used.
 
-::: note
+```shell
+./rcon /Info
+```
+
+:::note
 
 To use the same commands while in game;
 type in chat:
