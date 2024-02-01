@@ -118,6 +118,12 @@ workload:
             - |
               config={{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}/Pal/Saved/Config/LinuxServer
               cfgFile=${config}/PalWorldSettings.ini
+              dfCfgFile={{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}/DefaultPalWorldSettings.ini
+
+              if [ ! -f ${cfgFile} ]; then
+                echo "Config file not found, copying default file..."
+                cp -r ${dfCfgFile} ${cfgFile}
+              fi
 
               set_ini_value() {
                   local key
