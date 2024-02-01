@@ -115,7 +115,7 @@ workload:
           env:
             INTERFACE: 0.0.0.0
             PORT: "{{ .Values.service.metrics.ports.metrics.port }}"
-            URL: '{{ printf "http://%v:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.main.ports.main.port }}'
+            URL: '{{ printf "http://%v:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.xmlrpc.ports.xmlrpc.port }}'
             ENABLE_ADDITIONAL_METRICS: false
             ENABLE_UNKNOWN_QUEUE_ITEMS: false
 
