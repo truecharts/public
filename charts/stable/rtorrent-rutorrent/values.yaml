@@ -104,7 +104,7 @@ workload:
           enabled: true
           imageSelector: exportarrImage
           args:
-            - --rtorrent.scrape-uri='{{ printf "http://%v:%v/RPC2/" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.main.ports.main.port }}'
+            - --rtorrent.scrape-uri={{ printf "http://%v:%v/RPC2/" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.main.ports.main.port }}
           probes:
             liveness:
               enabled: false
