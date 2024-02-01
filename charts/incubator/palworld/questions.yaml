@@ -72,7 +72,7 @@ questions:
                 label: Use Auth
                 schema:
                   type: boolean
-                  private: true
+                  default: true
               - variable: admin_password
                 label: Admin Server Password
                 description: Optionally set a password for the admin (this field accepts no spaces)
@@ -87,16 +87,180 @@ questions:
                   type: string
                   private: true
                   default: ""
-              - variable: difficulty
-                label: Server Difficulty
+              - variable: auto_reset_guild_time_no_online_players
+                label: Auto Reset Guid Time No Online Players
                 schema:
                   type: string
-                  default: "None"
+                  default: "72.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
+              - variable: ban_list_url
+                label: Ban List Url
+                schema:
+                  type: string
+                  default: "https://api.palworldgame.com/api/banlist.txt"
+              - variable: base_camp_max
+                label: Base Camp Max
+                schema:
+                  type: int
+                  default: 128
+                  min: 1
+              - variable: base_camp_worker_max
+                label: Base Camp Worker Max
+                schema:
+                  type: int
+                  default: 15
+                  min: 1
+              - variable: build_object_damage_rate
+                label: Build Object Damage Rate
+                schema:
+                  type: string
+                  default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
+              - variable: build_object_deterioration_damage_rate
+                label: Build Object Deterioration Damage Rate
+                schema:
+                  type: string
+                  default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
+              - variable: can_pickup_other_guild_death_penalty_drop
+                label: Can Pickup Other Guild Death Penalty Drop
+                schema:
+                  type: boolean
+                  default: false
+              - variable: collection_drop_rate
+                label: Collection Drop Rate
+                schema:
+                  type: string
+                  default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
+              - variable: collection_object_hp_rate
+                label: Collection Object HP Rate
+                schema:
+                  type: string
+                  default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
+              - variable: collection_object_respawn_speed_rate
+                label: Collection Object Respawn Speed Rate
+                schema:
+                  type: string
+                  default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
+              - variable: day_time_speed_rate
+                label: Day Time Speed Rate
+                schema:
+                  type: string
+                  default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
               - variable: death_penalty
                 label: Server Death Penalty
                 schema:
                   type: string
                   default: "ALL"
+              - variable: difficulty
+                label: Server Difficulty
+                schema:
+                  type: string
+                  default: "None"
+              - variable: drop_item_alive_max_hours
+                label: Drop Item Alive Max Hours
+                schema:
+                  type: string
+                  default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
+              - variable: drop_item_max
+                label: Drop Item Max
+                schema:
+                  type: int
+                  default: 3000
+                  min: 1
+              - variable: drop_item_max_unko
+                label: Drop Item Max Unko
+                schema:
+                  type: int
+                  default: 100
+                  min: 1
+              - variable: enable_aim_assist_kb
+                label: Enable Aim Assist KeyBoard
+                schema:
+                  type: boolean
+                  default: false
+              - variable: enable_aim_assist_pad
+                label: Enable Aim Assist Pad
+                schema:
+                  type: boolean
+                  default: false
+              - variable: enable_defense_other_guild_player
+                label: Enable Defense Other Guild Player
+                schema:
+                  type: boolean
+                  default: true
+              - variable: enable_fast_travel
+                label: Enable Fast Travel
+                schema:
+                  type: boolean
+                  default: true
+              - variable: enable_friendly_fire
+                label: Enable Friendly Fire
+                schema:
+                  type: boolean
+                  default: false
+              - variable: enable_invader_enemy
+                label: Enable Invader Enemy
+                schema:
+                  type: boolean
+                  default: true
+              - variable: active_unko
+                label: Active Unko
+                schema:
+                  type: boolean
+                  default: false
+              - variable: enable_non_login_penalty
+                label: Enable Non Login Penalty
+                schema:
+                  type: boolean
+                  default: true
+              - variable: enable_pvp_damage
+                label: Enable PVP Damage
+                schema:
+                  type: boolean
+                  default: false
+              - variable: exist_players_after_logout
+                label: Exist Players After LogOut
+                schema:
+                  type: boolean
+                  default: false
+              - variable: enemy_drop_item_rate
+                label: Enemy Drop Item Rate
+                schema:
+                  type: string
+                  default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
+              - variable: exp_rate
+                label: Experience Rate
+                schema:
+                  type: string
+                  default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
+              - variable: guild_auto_reset_no_online_players
+                label: Guild Auto Reset No Online Players
+                schema:
+                  type: boolean
+                  default: false
+              - variable: is_multiplay
+                label: Is Multiplay
+                schema:
+                  type: boolean
+                  default: false
+              - variable: is_pvp
+                label: Is PVP
+                schema:
+                  type: boolean
+                  default: false
+              - variable: is_start_location_select_by_map
+                label: Is Start Location Select By Map
+                schema:
+                  type: boolean
+                  default: true
               - variable: max_players
                 label: Max Players
                 schema:
@@ -114,151 +278,125 @@ questions:
                   type: int
                   default: 20
                   min: 1
-              - variable: drop_item_max
-                label: Drop Item Max
+              - variable: name
+                label: Server Name
+                description: The name of your server.
                 schema:
-                  type: int
-                  default: 3000
-                  min: 1
-              - variable: drop_item_max_unko
-                label: Drop Item Max Unko
+                  type: string
+                  default: "TrueCharts Palworld Server"
+              - variable: night_time_speed_rate
+                label: Night Time Speed Rate
                 schema:
-                  type: int
-                  default: 100
-                  min: 1
-              - variable: base_camp_max
-                label: Base Camp Max
+                  type: string
+                  default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
+              - variable: pal_auto_hp_regene_rate
+                label: Pal Auto HP Regene Rate
                 schema:
-                  type: int
-                  default: 128
-                  min: 1
-              - variable: base_camp_worker_max
-                label: Base Camp Worker Max
+                  type: string
+                  default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
+              - variable: pal_auto_hp_regene_rate_in_sleep
+                label: Pal Auto HP Regene Rate in Sleep
                 schema:
-                  type: int
-                  default: 15
-                  min: 1
-              - variable: enable_pvp_damage
-                label: Enable PVP Damage
+                  type: string
+                  default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
+              - variable: pal_capture_rate
+                label: Pal Capture Rate
                 schema:
-                  type: boolean
-                  default: false
-              - variable: enable_friendly_fire
-                label: Enable Friendly Fire
+                  type: string
+                  default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
+              - variable: pal_damage_rate_attack
+                label: Pal Damage Rate Attack
                 schema:
-                  type: boolean
-                  default: false
-              - variable: enable_invader_enemy
-                label: Enable Invader Enemy
+                  type: string
+                  default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
+              - variable: pal_damage_rate_defense
+                label: Pal Damage Rate Defense
                 schema:
-                  type: boolean
-                  default: true
-              - variable: enable_defense_other_guild_player
-                label: Enable Defense Other Guild Player
-                schema:
-                  type: boolean
-                  default: true
-              - variable: enable_non_login_penalty
-                label: Enable Non Login Penalty
-                schema:
-                  type: boolean
-                  default: true
-              - variable: enable_aim_assist_pad
-                label: Enable Aim Assist Pad
-                schema:
-                  type: boolean
-                  default: false
-              - variable: enable_aim_assist_kb
-                label: Enable Aim Assist KeyBoard
-                schema:
-                  type: boolean
-                  default: false
-              - variable: enable_fast_travel
-                label: Enable Fast Travel
-                schema:
-                  type: boolean
-                  default: true
-              - variable: is_multiplay
-                label: Is Multiplay
-                schema:
-                  type: boolean
-                  default: false
-              - variable: is_pvp
-                label: Is PVP
-                schema:
-                  type: boolean
-                  default: false
-              - variable: is_start_location_select_by_map
-                label: Is Start Location Select By Map
-                schema:
-                  type: boolean
-                  default: true
-              - variable: active_unko
-                label: Active Unko
-                schema:
-                  type: boolean
-                  default: false
-              - variable: guild_auto_reset_no_online_players
-                label: Guild Auto Reset No Online Players
-                schema:
-                  type: boolean
-                  default: false
-              - variable: auto_reset_guild_time_no_online_players
-                label: Auto Reset Guid Time No Online Players
+                  type: string
+                  default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
+              - variable: pal_egg_default_hatching_time
+                label: Pal Egg Default Hatching Time
                 schema:
                   type: string
                   default: "72.000000"
-              - variable: can_pickup_other_guild_death_penalty_drop
-                label: Can Pickup Other Guild Death Penalty Drop
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
+              - variable: pal_spawn_num_rate
+                label: Pal Spawn Number Rate
                 schema:
-                  type: boolean
-                  default: false
-              - variable: exist_players_after_logout
-                label: Exist Players After LogOut
+                  type: string
+                  default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
+              - variable: pal_stamina_decreace_rate
+                label: Pal Stamina Decreace Rate
                 schema:
-                  type: boolean
-                  default: false
+                  type: string
+                  default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
+              - variable: pal_stomach_decreace_rate
+                label: Pal Stomach Decreace Rate
+                schema:
+                  type: string
+                  default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
+              - variable: player_auto_hp_regene_rate
+                label: Player Auto HP Regene Rate
+                schema:
+                  type: string
+                  default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
+              - variable: player_auto_hp_regene_rate_in_sleep
+                label: Player Auto HP Regene Rate in Sleep
+                schema:
+                  type: string
+                  default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
+              - variable: player_damage_rate_attack
+                label: Player Damage Rate Attack
+                schema:
+                  type: string
+                  default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
+              - variable: player_damage_rate_defense
+                label: Player Damage Rate Defense
+                schema:
+                  type: string
+                  default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
+              - variable: player_stamina_decreace_rate
+                label: Player Stamina Decreace Rate
+                schema:
+                  type: string
+                  default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
+              - variable: player_stomach_decreace_rate
+                label: Player Stomach Decreace Rate
+                schema:
+                  type: string
+                  default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
+              - variable: region
+                label: Region
+                schema:
+                  type: string
+                  default: ""
+              - variable: work_speed_rate
+                label: Work Speed Rate
+                schema:
+                  type: string
+                  default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
               - variable: update_public_ip
                 label: Update Public IP
                 description: Will check if the Public IP is still valid.
                 schema:
                   type: boolean
                   default: false
-              - variable: ban_list_url
-                label: Ban List Url
-                schema:
-                  type: string
-                  default: "https://api.palworldgame.com/api/banlist.txt"
-              - variable: params
-                label: Game Params
-                schema:
-                  type: list
-                  default:
-                    - EpicApp=PalServer
-                  required: true
-                  items:
-                    - variable: param
-                      label: Param
-                      schema:
-                        type: string
-                        required: true
-                        default: ""
-              - variable: params_extra
-                label: Game Params Extra
-                schema:
-                  type: list
-                  default:
-                    - -useperfthreads
-                    - -NoAsyncLoadingThread
-                    - -UseMultithreadForDS
-                  required: true
-                  items:
-                    - variable: extra_param
-                      label: Extra Param
-                      schema:
-                        type: string
-                        required: true
-                        default: ""
         - variable: backup
           label: Backup Configuration
           schema:
@@ -348,7 +486,6 @@ questions:
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceList}
-# Include{ingressList}
 # Include{securityContextRoot}
               - variable: runAsUser
                 label: "runAsUser"

@@ -2,6 +2,10 @@ image:
   repository: ghcr.io/ich777/steamcmd
   pullPolicy: IfNotPresent
   tag: palworld@sha256:c7ed87dfb13890f340d663ca0a97acb6a8b83a40ab81a9c94c8675cee03af325
+rconImage:
+  repository: outdead/rcon
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:8bf03935771ae6b44449eb8e74e1f4d249ead591e9c1e4e43539d33be1a3ac67
 
 securityContext:
   container:
@@ -33,35 +37,62 @@ palworld:
     name: "TrueCharts Palworld Server"
     description: "A Palworld Server running in Kubernetes"
     use_auth: true
-    admin_password: ""
     password: ""
-    difficulty: "None"
-    death_penalty: "ALL"
-    max_players: 32
-    max_players_coop: 4
-    max_players_guild: 20
-    drop_item_max: 3000
-    drop_item_max_unko: 100
+    admin_password: ""
+    auto_reset_guild_time_no_online_players: "72.000000"
+    ban_list_url: "https://api.palworldgame.com/api/banlist.txt"
     base_camp_max: 128
     base_camp_worker_max: 15
-    enable_pvp_damage: false
+    build_object_damage_rate: "1.000000"
+    build_object_deterioration_damage_rate: "1.000000"
+    can_pickup_other_guild_death_penalty_drop: false
+    collection_drop_rate: "1.000000"
+    collection_object_hp_rate: "1.000000"
+    collection_object_respawn_speed_rate: "1.000000"
+    day_time_speed_rate: "1.000000"
+    death_penalty: "ALL"
+    difficulty: "None"
+    drop_item_alive_max_hours: "1.000000"
+    drop_item_max: 3000
+    drop_item_max_unko: 100
+    enable_aim_assist_kb: false
+    enable_aim_assist_pad: false
+    enable_defense_other_guild_player: true
+    enable_fast_travel: true
     enable_friendly_fire: false
     enable_invader_enemy: true
-    enable_defense_other_guild_player: true
+    active_unko: false
     enable_non_login_penalty: true
-    enable_aim_assist_pad: false
-    enable_aim_assist_kb: false
-    enable_fast_travel: true
+    enable_pvp_damage: false
+    exist_players_after_logout: true
+    enemy_drop_item_rate: "1.000000"
+    exp_rate: "1.000000"
+    guild_auto_reset_no_online_players: false
     is_multiplay: false
     is_pvp: false
     is_start_location_select_by_map: true
-    active_unko: false
-    guild_auto_reset_no_online_players: false
-    auto_reset_guild_time_no_online_players: "72.000000"
-    can_pickup_other_guild_death_penalty_drop: false
-    exist_players_after_logout: true
+    max_players: 32
+    max_players_coop: 4
+    max_players_guild: 20
+    night_time_speed_rate: "1.000000"
+    pal_auto_hp_regene_rate: "1.000000"
+    pal_auto_hp_regene_rate_in_sleep: "1.000000"
+    pal_capture_rate: "1.000000"
+    pal_damage_rate_attack: "1.000000"
+    pal_damage_rate_defense: "1.000000"
+    pal_egg_default_hatching_time: "72.000000"
+    pal_spawn_num_rate: "1.000000"
+    pal_stamina_decreace_rate: "1.000000"
+    pal_stomach_decreace_rate: "1.000000"
+    player_auto_hp_regene_rate: "1.000000"
+    player_auto_hp_regene_rate_in_sleep: "1.000000"
+    player_damage_rate_attack: "1.000000"
+    player_damage_rate_defense: "1.000000"
+    player_stamina_decreace_rate: "1.000000"
+    player_stomach_decreace_rate: "1.000000"
+    region: ""
+    work_speed_rate: "1.000000"
     update_public_ip: false
-    ban_list_url: "https://api.palworldgame.com/api/banlist.txt"
     params:
       - EpicApp=PalServer
     params_extra:
@@ -88,70 +119,109 @@ workload:
             - |
               config={{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}/Pal/Saved/Config/LinuxServer
               cfgFile=${config}/PalWorldSettings.ini
+              dfCfgFile={{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}/DefaultPalWorldSettings.ini
 
               mkdir -p ${config}
-              if [ ! -f ${cfgFile} ]; then
-                echo "Config file not found, fetching..."
-                # Fetch the config file if it doesn't exist, just like the container does
-                wget -qO ${cfgFile} https://github.com/ich777/docker-steamcmd-server/raw/palworld/config/PalWorldSettings.ini
+              if [ ! -f "${cfgFile}" ]; then
+                  if [ -f "${dfCfgFile}" ]; then
+                      echo "Default config file found, copying as cfgFile..."
+                      cp "${dfCfgFile}" "${cfgFile}"
+                  else
+                      echo "Config file not found, fetching..."
+                      # Fetch the config file if it doesn't exist, just like the container does
+                      wget -qO "${cfgFile}" https://github.com/ich777/docker-steamcmd-server/raw/palworld/config/PalWorldSettings.ini
+                  fi
               fi
 
               set_ini_value() {
-                local key="${1}"
-                local value="${2}"
+                  local key="${1}"
+                  local value="${2}"
+                  local quote_flag="${3:-}"
 
-                # Check if the value contains spaces or special characters
-                if echo "$value" | grep -q '[[:space:]]\|[^\w.-]'; then
-                  # Add quotes around the value
-                  value="\"$value\""
-                fi
+                  # Check if the key exists
+                  if ! grep -q "${key}=" "${cfgFile}"; then
+                      echo "Key '${key}' does not exist in '${cfgFile}'. Skipping..."
+                      return
+                  fi
 
-                echo "Setting ${key}..."
-                sed -i "s|\(${key}=\)[^,]*|\1${value}|g" "${cfgFile}"
-                echo "Set to $(grep -Po "(?<=${key}=)[^,]*" "${cfgFile}")"
+                  if [ "$quote_flag" = "-q" ]; then
+                      # Add quotes around the value
+                      value="\"$value\""
+                  fi
+
+                  echo "Setting ${key}..."
+                  sed -i "s|\(${key}=\)[^,]*|\1${value}|g" "${cfgFile}"
+                  echo "Set to $(grep -Po "(?<=${key}=)[^,]*" "${cfgFile}")"
               }
 
-              set_ini_value "RCONEnabled" "True"
-              set_ini_value "RCONPort" "{{ .Values.service.rcon.ports.rcon.port }}"
-              set_ini_value "PublicPort" "{{ .Values.service.main.ports.main.port }}"
+              echo "the following options are updating...."
 
-              set_ini_value "ServerName" "{{ .Values.palworld.game.name }}"
-              set_ini_value "ServerDescription" "{{ .Values.palworld.game.description }}"
-              set_ini_value "Difficulty" "{{ .Values.palworld.game.difficulty }}"
-              set_ini_value "DeathPenalty" "{{ .Values.palworld.game.death_penalty }}"
+              set_ini_value "RCONEnabled" "True" -q
+              set_ini_value "RCONPort" "{{ .Values.service.rcon.ports.rcon.port }}" -q
+              set_ini_value "PublicPort" "{{ .Values.service.main.ports.main.port }}" -q
 
-              set_ini_value "ServerPlayerMaxNum" "{{ .Values.palworld.game.max_players }}"
-              set_ini_value "CoopPlayerMaxNum" "{{ .Values.palworld.game.max_players_coop }}"
-              set_ini_value "GuildPlayerMaxNum" "{{ .Values.palworld.game.max_players_guild }}"
+              set_ini_value "ServerPassword" "{{ .Values.palworld.game.password }}" -q
+              set_ini_value "AdminPassword" "{{ .Values.palworld.game.admin_password }}" -q
 
-              set_ini_value "DropItemMaxNum" "{{ .Values.palworld.game.max_players_guild }}"
-              set_ini_value "DropItemMaxNum_UNKO" "{{ .Values.palworld.game.drop_item_max_unko }}"
+              set_ini_value "ServerName" "{{ .Values.palworld.game.name }}" -q
+              set_ini_value "ServerDescription" "{{ .Values.palworld.game.description }}" -q
+              set_ini_value "Difficulty" "{{ .Values.palworld.game.difficulty }}" -q
+              set_ini_value "DeathPenalty" "{{ .Values.palworld.game.death_penalty }}" -q
+              set_ini_value "Region" "{{ .Values.palworld.game.region }}" -q
+              
+              set_ini_value "AutoResetGuildTimeNoOnlinePlayers" "{{ .Values.palworld.game.auto_reset_guild_time_no_online_players }}"
               set_ini_value "BaseCampMaxNum" "{{ .Values.palworld.game.base_camp_max }}"
               set_ini_value "BaseCampWorkerMaxNum" "{{ .Values.palworld.game.base_camp_worker_max }}"
-
-              set_ini_value "bUseAuth" "{{ .Values.palworld.game.use_auth }}"
-              set_ini_value "bEnablePlayerToPlayerDamage" "{{ .Values.palworld.game.enable_pvp_damage }}"
-              set_ini_value "bEnableFriendlyFire" "{{ .Values.palworld.game.enable_friendly_fire }}"
-              set_ini_value "bEnableInvaderEnemy" "{{ .Values.palworld.game.enable_invader_enemy }}"
-              set_ini_value "bEnableAimAssistPad" "{{ .Values.palworld.game.enable_aim_assist_pad }}"
-              set_ini_value "bEnableAimAssistKeyboard" "{{ .Values.palworld.game.enable_aim_assist_kb }}"
-              set_ini_value "bEnableNonLoginPenalty" "{{ .Values.palworld.game.enable_non_login_penalty }}"
-              set_ini_value "bEnableFastTravel" "{{ .Values.palworld.game.enable_fast_travel }}"
-              set_ini_value "bEnableDefenseOtherGuildPlayer" "{{ .Values.palworld.game.enable_defense_other_guild_player }}"
-              set_ini_value "bIsMultiplay" "{{ .Values.palworld.game.is_multiplay }}"
-              set_ini_value "bIsStartLocationSelectByMap" "{{ .Values.palworld.game.is_start_location_select_by_map }}"
-              set_ini_value "bIsPvP" "{{ .Values.palworld.game.is_pvp }}"
-              set_ini_value "bExistPlayerAfterLogout" "{{ .Values.palworld.game.exist_players_after_logout }}"
-              set_ini_value "bActiveUNKO" "{{ .Values.palworld.game.active_unko }}"
-              set_ini_value "bAutoResetGuildNoOnlinePlayers" "{{ .Values.palworld.game.guild_auto_reset_no_online_players }}"
-              set_ini_value "AutoResetGuildTimeNoOnlinePlayers" "{{ .Values.palworld.game.auto_reset_guild_time_no_online_players }}"
-              set_ini_value "bCanPickupOtherGuildDeathPenaltyDrop" "{{ .Values.palworld.game.can_pickup_other_guild_death_penalty_drop }}"
-              set_ini_value "ServerPassword" "{{ .Values.palworld.game.password }}"
-              set_ini_value "AdminPassword" "{{ .Values.palworld.game.admin_password }}"
-              set_ini_value "BanListURL" "{{ .Values.palworld.game.ban_list_url }}"
+              set_ini_value "BanListURL" "{{ .Values.palworld.game.ban_list_url }}" -q
+              set_ini_value "BuildObjectDamageRate" "{{ .Values.palworld.game.build_object_damage_rate }}"
+              set_ini_value "BuildObjectDeteriorationDamageRate" "{{ .Values.palworld.game.build_object_deterioration_damage_rate }}"
+              set_ini_value "bCanPickupOtherGuildDeathPenaltyDrop" "{{ .Values.palworld.game.can_pickup_other_guild_death_penalty_drop }}" -q
+              set_ini_value "bUseAuth" "{{ .Values.palworld.game.use_auth }}" -q
+              set_ini_value "bEnablePlayerToPlayerDamage" "{{ .Values.palworld.game.enable_pvp_damage }}" -q
+              set_ini_value "bEnableFriendlyFire" "{{ .Values.palworld.game.enable_friendly_fire }}" -q
+              set_ini_value "bEnableInvaderEnemy" "{{ .Values.palworld.game.enable_invader_enemy }}" -q
+              set_ini_value "bEnableAimAssistPad" "{{ .Values.palworld.game.enable_aim_assist_pad }}" -q
+              set_ini_value "bEnableAimAssistKeyboard" "{{ .Values.palworld.game.enable_aim_assist_kb }}" -q
+              set_ini_value "bEnableNonLoginPenalty" "{{ .Values.palworld.game.enable_non_login_penalty }}" -q
+              set_ini_value "bEnableFastTravel" "{{ .Values.palworld.game.enable_fast_travel }}" -q
+              set_ini_value "bEnableDefenseOtherGuildPlayer" "{{ .Values.palworld.game.enable_defense_other_guild_player }}" -q
+              set_ini_value "bIsMultiplay" "{{ .Values.palworld.game.is_multiplay }}" -q
+              set_ini_value "bIsStartLocationSelectByMap" "{{ .Values.palworld.game.is_start_location_select_by_map }}" -q
+              set_ini_value "bIsPvP" "{{ .Values.palworld.game.is_pvp }}" -q
+              set_ini_value "bExistPlayerAfterLogout" "{{ .Values.palworld.game.exist_players_after_logout }}" -q
+              set_ini_value "bActiveUNKO" "{{ .Values.palworld.game.active_unko }}" -q
+              set_ini_value "bAutoResetGuildNoOnlinePlayers" "{{ .Values.palworld.game.guild_auto_reset_no_online_players }}" -q
+              set_ini_value "CollectionDropRate" "{{ .Values.palworld.game.collection_drop_rate }}"
+              set_ini_value "CollectionObjectHpRate" "{{ .Values.palworld.game.collection_object_hp_rate }}"
+              set_ini_value "CollectionObjectRespawnSpeedRate" "{{ .Values.palworld.game.collection_object_respawn_speed_rate }}"
+              set_ini_value "CoopPlayerMaxNum" "{{ .Values.palworld.game.max_players_coop }}"
+              set_ini_value "DayTimeSpeedRate" "{{ .Values.palworld.game.day_time_speed_rate }}"
+              set_ini_value "DropItemMaxNum" "{{ .Values.palworld.game.drop_item_max }}"
+              set_ini_value "DropItemMaxNum_UNKO" "{{ .Values.palworld.game.drop_item_max_unko }}"
+              set_ini_value "DropItemAliveMaxHours" "{{ .Values.palworld.game.drop_item_alive_max_hours }}"
+              set_ini_value "EnemyDropItemRate" "{{ .Values.palworld.game.enemy_drop_item_rate }}"
+              set_ini_value "GuildPlayerMaxNum" "{{ .Values.palworld.game.max_players_guild }}"
+              set_ini_value "NightTimeSpeedRate" "{{ .Values.palworld.game.night_time_speed_rate }}"
+              set_ini_value "PalCaptureRate" "{{ .Values.palworld.game.pal_capture_rate }}"
+              set_ini_value "PalEggDefaultHatchingTime" "{{ .Values.palworld.game.pal_egg_default_hatching_time }}"
+              set_ini_value "PalSpawnNumRate" "{{ .Values.palworld.game.pal_spawn_num_rate }}"
+              set_ini_value "PalDamageRateAttack" "{{ .Values.palworld.game.pal_damage_rate_attack }}"
+              set_ini_value "PalDamageRateDefense" "{{ .Values.palworld.game.pal_damage_rate_defense }}"
+              set_ini_value "PlayerDamageRateAttack" "{{ .Values.palworld.game.player_damage_rate_attack }}"
+              set_ini_value "PlayerDamageRateDefense" "{{ .Values.palworld.game.player_damage_rate_defense }}"
+              set_ini_value "PlayerStomachDecreaceRate" "{{ .Values.palworld.game.player_stomach_decreace_rate }}"
+              set_ini_value "PlayerStaminaDecreaceRate" "{{ .Values.palworld.game.player_stamina_decreace_rate }}"
+              set_ini_value "PlayerAutoHPRegeneRate" "{{ .Values.palworld.game.player_auto_hp_regene_rate }}"
+              set_ini_value "PlayerAutoHpRegeneRateInSleep" "{{ .Values.palworld.game.player_auto_hp_regene_rate_in_sleep }}"
+              set_ini_value "PalStomachDecreaceRate" "{{ .Values.palworld.game.pal_stomach_decreace_rate }}"
+              set_ini_value "PalStaminaDecreaceRate" "{{ .Values.palworld.game.pal_stamina_decreace_rate }}"
+              set_ini_value "PalAutoHPRegeneRate" "{{ .Values.palworld.game.pal_auto_hp_regene_rate }}"
+              set_ini_value "PalAutoHpRegeneRateInSleep" "{{ .Values.palworld.game.pal_auto_hp_regene_rate_in_sleep }}"
+              set_ini_value "ServerPlayerMaxNum" "{{ .Values.palworld.game.max_players }}"
+              set_ini_value "WorkSpeedRate" "{{ .Values.palworld.game.work_speed_rate }}"
+              set_ini_value "ExpRate" "{{ .Values.palworld.game.exp_rate }}"
 
               echo "Done!"
-
       containers:
         main:
           probes:
@@ -182,6 +252,32 @@ workload:
             BACKUP: "{{ .Values.palworld.backup.enabled }}"
             BACKUP_INTERVAL: "{{ .Values.palworld.backup.interval }}"
             BACKUP_TO_KEEP: "{{ .Values.palworld.backup.to_keep }}"
+  rcon:
+    enabled: true
+    type: Deployment
+    strategy: RollingUpdate
+    replicas: 1
+    podSpec:
+      containers:
+        rcon:
+          primary: true
+          enabled: true
+          imageSelector: rconImage
+          tty: true
+          stdin: true
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          args:
+            - ./rcon
+            - -a
+            - '{{ printf "%v-rcon:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.rcon.ports.rcon.port }}'
+            - -p
+            - "{{ .Values.palworld.game.admin_password }}"
 
 persistence:
   steamcmd:
