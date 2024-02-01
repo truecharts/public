@@ -1,5 +1,5 @@
 {{/* Define the configmap */}}
-{{- define "odoo.configmaps" -}}
+{{- define "palworld.configmaps" -}}
 {{- $fullname := (include "tc.v1.common.lib.chart.names.fullname" $) -}}
 
 {{- $rconPath := .Values.persistence.serverfiles.targetSelector.rcon.rcon.mountPath -}}
