@@ -120,21 +120,21 @@ workload:
               cfgFile=${config}/PalWorldSettings.ini
               dfCfgFile={{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}/DefaultPalWorldSettings.ini
 
-              # Check if config file exists
-              if [ -f ${cfgFile} ]; then
-                echo "Config file exists."
+              mkdir -p ${config}
+              if [ ! -f "${cfgFile}" ]; then
+                  if [ -f "${dfCfgFile}" ]; then
+                      echo "Default config file found, copying as cfgFile..."
+                      cp "${dfCfgFile}" "${cfgFile}"
+                  else
+                      echo "Config file not found, fetching..."
+                      # Fetch the config file if it doesn't exist, just like the container does
+                      wget -qO "${cfgFile}" https://github.com/ich777/docker-steamcmd-server/raw/palworld/config/PalWorldSettings.ini
+                  fi
+              fi
+
+              if [ -f "${cfgFile}" ]; then
+                echo config exists!
                 update_ini_values()
-              else
-                # If config file doesn't exist, copy default file
-                if [ -f ${dfCfgFile} ]; then
-                  echo "Config file not found, copying default file..."
-                  cp -r ${dfCfgFile} ${cfgFile}
-                  update_ini_values()
-                else
-                  echo "Default config file not found. Fetching from repository..."
-                  wget -qO ${cfgFile} https://github.com/ich777/docker-steamcmd-server/raw/palworld/config/PalWorldSettings.ini
-                  update_ini_values()
-                fi
               fi
 
               set_ini_value() {
@@ -156,6 +156,8 @@ workload:
               }
 
               update_ini_values(){
+                echo the following options are updating....
+                
                 set_ini_value "RCONEnabled" "True" true
                 set_ini_value "RCONPort" "{{ .Values.service.rcon.ports.rcon.port }}" true
                 set_ini_value "PublicPort" "{{ .Values.service.main.ports.main.port }}" true
