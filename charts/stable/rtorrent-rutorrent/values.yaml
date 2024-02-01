@@ -122,23 +122,17 @@ workload:
 persistence:
   data:
     enabled: true
-    targetSelector:
-      main:
-        main:
-          mountPath: "/data"
-      exportarr:
-        exportarr:
-          mountPath: "/config"
-          readOnly: true
+    mountPath: "/data"
   downloads:
     enabled: true
     mountPath: "/downloads"
   passwd:
     enabled: true
     mountPath: "/passwd"
-
-
-
+  exportarr:
+    enabled: true
+    mountPath: "/config"
+    readOnly: true
           
 metrics:
     main:
