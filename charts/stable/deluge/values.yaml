@@ -32,6 +32,7 @@ service:
         enabled: true
         port: "{{ .Values.service.torrent.ports.tcp.port }}"
         targetPort: "{{ .Values.service.torrent.ports.tcp.targetPort }}"
+        protocol: udp
 workload:
   main:
     podSpec:
