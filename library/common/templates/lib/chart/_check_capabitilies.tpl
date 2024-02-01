@@ -11,8 +11,10 @@
   {{- end -}}
 
   {{- if not (semverCompare $helmVerCond $helmVersion) -}}
-    {{- if .Values.global.ixChartContext -}}
-      {{- fail (printf "Expected helm version [%s], but found [%s]. Upgrade TrueNAS SCALE OS" $helmVerCond $helmVersion) -}}
+    {{- if .Values.global -}}
+      {{- if .Values.global.ixChartContext -}}
+        {{- fail (printf "Expected helm version [%s], but found [%s]. Upgrade TrueNAS SCALE OS" $helmVerCond $helmVersion) -}}
+      {{- end -}}
     {{- else -}}
       {{- fail (printf "Expected helm version [%s], but found [%s]. Upgrade helm cli tool." $helmVerCond $helmVersion) -}}
     {{- end -}}
