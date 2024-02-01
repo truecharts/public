@@ -108,11 +108,11 @@ workload:
             - --rtorrent.scrape-uri=http://rtorrent:8000/RPC2
           probes:
             liveness:
-              enabled: true
+              enabled: false
             readiness:
-              enabled: true
+              enabled: false
             startup:
-              enabled: true
+              enabled: false
           env:
             INTERFACE: 0.0.0.0
             PORT: "{{ .Values.service.metrics.ports.metrics.port }}"
