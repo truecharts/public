@@ -13,4 +13,5 @@ palworld-rcon:
        address: "{{ printf "%v-rcon:%v" $fullname $rconPort }}"
        password: {{ $adminPassword }}
        log: "rcon-palworld.log"
+       timeout: "86400s"
 {{- end -}}
