@@ -290,14 +290,14 @@ questions:
                   type: string
                   default: "1.000000"
                   valid_chars: '^\d{1,}\.[0-9]{6}$'
-              - variable: pal_auto_hp_regen_rate
-                label: Pal Auto HP Regen Rate
+              - variable: pal_auto_hp_regene_rate
+                label: Pal Auto HP Regene Rate
                 schema:
                   type: string
                   default: "1.000000"
                   valid_chars: '^\d{1,}\.[0-9]{6}$'
-              - variable: pal_auto_hp_regen_rate_in_sleep
-                label: Pal Auto HP Regen Rate in Sleep
+              - variable: pal_auto_hp_regene_rate_in_sleep
+                label: Pal Auto HP Regene Rate in Sleep
                 schema:
                   type: string
                   default: "1.000000"
@@ -332,26 +332,26 @@ questions:
                   type: string
                   default: "1.000000"
                   valid_chars: '^\d{1,}\.[0-9]{6}$'
-              - variable: pal_stamina_decrease_rate
-                label: Pal Stamina Decrease Rate
+              - variable: pal_stamina_decreace_rate
+                label: Pal Stamina Decreace Rate
                 schema:
                   type: string
                   default: "1.000000"
                   valid_chars: '^\d{1,}\.[0-9]{6}$'
-              - variable: pal_stomach_decrease_rate
-                label: Pal Stomach Decrease Rate
+              - variable: pal_stomach_decreace_rate
+                label: Pal Stomach Decreace Rate
                 schema:
                   type: string
                   default: "1.000000"
                   valid_chars: '^\d{1,}\.[0-9]{6}$'
-              - variable: player_auto_hp_regen_rate
-                label: Player Auto HP Regen Rate
+              - variable: player_auto_hp_regene_rate
+                label: Player Auto HP Regene Rate
                 schema:
                   type: string
                   default: "1.000000"
                   valid_chars: '^\d{1,}\.[0-9]{6}$'
-              - variable: player_auto_hp_regen_rate_in_sleep
-                label: Player Auto HP Regen Rate in Sleep
+              - variable: player_auto_hp_regene_rate_in_sleep
+                label: Player Auto HP Regene Rate in Sleep
                 schema:
                   type: string
                   default: "1.000000"
@@ -368,18 +368,23 @@ questions:
                   type: string
                   default: "1.000000"
                   valid_chars: '^\d{1,}\.[0-9]{6}$'
-              - variable: player_stamina_decrease_rate
-                label: Player Stamina Decrease Rate
+              - variable: player_stamina_decreace_rate
+                label: Player Stamina Decreace Rate
                 schema:
                   type: string
                   default: "1.000000"
                   valid_chars: '^\d{1,}\.[0-9]{6}$'
-              - variable: player_stomach_decrease_rate
-                label: Player Stomach Decrease Rate
+              - variable: player_stomach_decreace_rate
+                label: Player Stomach Decreace Rate
                 schema:
                   type: string
                   default: "1.000000"
                   valid_chars: '^\d{1,}\.[0-9]{6}$'
+              - variable: region
+                label: Region
+                schema:
+                  type: string
+                  default: ""
               - variable: work_speed_rate
                 label: Work Speed Rate
                 schema:
