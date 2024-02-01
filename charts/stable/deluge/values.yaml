@@ -28,14 +28,10 @@ service:
         enabled: true
         port: 51413
         targetPort: 51413
-  torrent-udp:
-    enabled: true
-    ports:
       udp:
         enabled: true
         port: "{{ .Values.service.torrent.ports.tcp.port }}"
-        targetPort: "{{ .Values.service.torrent.ports.tcp.port }}"
-        protocol: udp
+        targetPort: "{{ .Values.service.torrent.ports.tcp.targetPort }}"
 workload:
   main:
     podSpec:
