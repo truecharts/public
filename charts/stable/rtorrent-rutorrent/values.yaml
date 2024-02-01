@@ -104,8 +104,7 @@ workload:
           enabled: true
           imageSelector: exportarrImage
           args:
-            - rtorrent_exporter
-            - --rtorrent.scrape-uri=http://rtorrent:8000/RPC2
+          - "--rtorrent.scrape-uri=http://0.0.0.0:8000/RPC2"
           probes:
             liveness:
               enabled: false
