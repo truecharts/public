@@ -120,9 +120,18 @@ workload:
               cfgFile=${config}/PalWorldSettings.ini
               dfCfgFile={{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}/DefaultPalWorldSettings.ini
 
-              if [ ! -f ${cfgFile} ]; then
-                echo "Config file not found, copying default file..."
-                cp -r ${dfCfgFile} ${cfgFile}
+              # Check if config file exists
+              if [ -f ${cfgFile} ]; then
+                echo "Config file exists."
+              else
+                # If config file doesn't exist, copy default file
+                if [ -f ${dfCfgFile} ]; then
+                  echo "Config file not found, copying default file..."
+                  cp -r ${dfCfgFile} ${cfgFile}
+                else
+                  echo "Default config file not found. Fetching from repository..."
+                  wget -qO ${cfgFile} https://github.com/ich777/docker-steamcmd-server/raw/palworld/config/PalWorldSettings.ini
+                fi
               fi
 
               set_ini_value() {
