@@ -223,6 +223,11 @@
     },
     {
       "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d{2})\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "matchPackageNames": ["linuxserver/heimdall"],
+    },
+    {
+      "matchDatasources": ["docker"],
       "versioning": "regex:^v(?<major>\\d+)-(?<minor>\\d+)$",
       "matchPackagePrefixes": ["jupyter"],
       "groupName": "jupyter",
