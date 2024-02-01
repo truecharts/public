@@ -40,6 +40,7 @@ palworld:
     password: ""
     admin_password: ""
     auto_reset_guild_time_no_online_players: "72.000000"
+    ban_list_url: "https://api.palworldgame.com/api/banlist.txt"
     base_camp_max: 128
     base_camp_worker_max: 15
     build_object_damage_rate: "1.000000"
@@ -64,6 +65,7 @@ palworld:
     enable_non_login_penalty: true
     enable_pvp_damage: false
     exist_players_after_logout: true
+    enemy_drop_item_rate: "1.000000"
     exp_rate: "1.000000"
     guild_auto_reset_no_online_players: false
     is_multiplay: false
@@ -88,8 +90,8 @@ palworld:
     player_damage_rate_defense: "1.000000"
     player_stamina_decrease_rate: "1.000000"
     player_stomach_decrease_rate: "1.000000"
+    work_speed_rate: "1.000000"
     update_public_ip: false
-    ban_list_url: "https://api.palworldgame.com/api/banlist.txt"
     params:
       - EpicApp=PalServer
     params_extra:
@@ -125,28 +127,52 @@ workload:
               fi
 
               set_ini_value() {
-                local key="${1}"
-                local value="${2}"
+                  local key
+                  local value
+                  local quote_flag=false
+                  local special_characters=false
 
-                # Check if the value contains spaces or special characters
-                if echo "$value" | grep -q '[[:space:]]\|[^\w.-]'; then
-                  # Add quotes around the value
-                  value="\"$value\""
-                fi
+                  # Parse flags
+                  while getopts ":qsc" opt; do
+                      case ${opt} in
+                          q) quote_flag=true ;;
+                          sc) special_characters=true ;;
+                          \?) echo "Invalid option: -$OPTARG" >&2 ;;
+                      esac
+                  done
+                  shift $((OPTIND -1))
 
-                echo "Setting ${key}..."
-                sed -i "s|\(${key}=\)[^,]*|\1${value}|g" "${cfgFile}"
-                echo "Set to $(grep -Po "(?<=${key}=)[^,]*" "${cfgFile}")"
+                  key="${1}"
+                  value="${2}"
+
+                  # Check if the quote flag is set
+                  if [ "$quote_flag" = true ]; then
+                      # Add quotes around the value
+                      value="\"$value\""
+                  fi
+
+                  if [ "$special_characters" = true ]; then
+                      echo "Setting ${key}..."
+                      awk -v key="$key" -v value="$value" 'BEGIN {FS=OFS="="} $1 == key {gsub(/[^=]+$/, "\"" value "\"")} 1' "${cfgFile}" > "${cfgFile}.tmp" && mv "${cfgFile}.tmp" "${cfgFile}"
+                      echo "Set to $(grep -Po "(?<=${key}=)[^,]*" "${cfgFile}")"
+                  else
+                      echo "Setting ${key}..."
+                      sed -i "s|\(${key}=\)[^,]*|\1${value}|g" "${cfgFile}"
+                      echo "Set to $(grep -Po "(?<=${key}=)[^,]*" "${cfgFile}")"
+                  fi
               }
 
-              set_ini_value "RCONEnabled" "True"
-              set_ini_value "RCONPort" "{{ .Values.service.rcon.ports.rcon.port }}"
-              set_ini_value "PublicPort" "{{ .Values.service.main.ports.main.port }}"
+              set_ini_value -q "RCONEnabled"
+              set_ini_value -q "RCONPort" "{{ .Values.service.rcon.ports.rcon.port }}"
+              set_ini_value -q "PublicPort" "{{ .Values.service.main.ports.main.port }}"
 
-              set_ini_value "ServerName" "{{ .Values.palworld.game.name }}"
-              set_ini_value "ServerDescription" "{{ .Values.palworld.game.description }}"
-              set_ini_value "Difficulty" "{{ .Values.palworld.game.difficulty }}"
-              set_ini_value "DeathPenalty" "{{ .Values.palworld.game.death_penalty }}"
+              set_ini_value -q -sc "ServerPassword" "{{ .Values.palworld.game.password }}"
+              set_ini_value -q -sc "AdminPassword" "{{ .Values.palworld.game.admin_password }}"
+
+              set_ini_value -q "ServerName" "{{ .Values.palworld.game.name }}"
+              set_ini_value -q "ServerDescription" "{{ .Values.palworld.game.description }}"
+              set_ini_value -q "Difficulty" "{{ .Values.palworld.game.difficulty }}"
+              set_ini_value -q "DeathPenalty" "{{ .Values.palworld.game.death_penalty }}"
 
               set_ini_value "ServerPlayerMaxNum" "{{ .Values.palworld.game.max_players }}"
               set_ini_value "CoopPlayerMaxNum" "{{ .Values.palworld.game.max_players_coop }}"
@@ -157,25 +183,23 @@ workload:
               set_ini_value "BaseCampMaxNum" "{{ .Values.palworld.game.base_camp_max }}"
               set_ini_value "BaseCampWorkerMaxNum" "{{ .Values.palworld.game.base_camp_worker_max }}"
 
-              set_ini_value "bUseAuth" "{{ .Values.palworld.game.use_auth }}"
-              set_ini_value "bEnablePlayerToPlayerDamage" "{{ .Values.palworld.game.enable_pvp_damage }}"
-              set_ini_value "bEnableFriendlyFire" "{{ .Values.palworld.game.enable_friendly_fire }}"
-              set_ini_value "bEnableInvaderEnemy" "{{ .Values.palworld.game.enable_invader_enemy }}"
-              set_ini_value "bEnableAimAssistPad" "{{ .Values.palworld.game.enable_aim_assist_pad }}"
-              set_ini_value "bEnableAimAssistKeyboard" "{{ .Values.palworld.game.enable_aim_assist_kb }}"
-              set_ini_value "bEnableNonLoginPenalty" "{{ .Values.palworld.game.enable_non_login_penalty }}"
-              set_ini_value "bEnableFastTravel" "{{ .Values.palworld.game.enable_fast_travel }}"
-              set_ini_value "bEnableDefenseOtherGuildPlayer" "{{ .Values.palworld.game.enable_defense_other_guild_player }}"
-              set_ini_value "bIsMultiplay" "{{ .Values.palworld.game.is_multiplay }}"
-              set_ini_value "bIsStartLocationSelectByMap" "{{ .Values.palworld.game.is_start_location_select_by_map }}"
-              set_ini_value "bIsPvP" "{{ .Values.palworld.game.is_pvp }}"
-              set_ini_value "bExistPlayerAfterLogout" "{{ .Values.palworld.game.exist_players_after_logout }}"
-              set_ini_value "bActiveUNKO" "{{ .Values.palworld.game.active_unko }}"
-              set_ini_value "bAutoResetGuildNoOnlinePlayers" "{{ .Values.palworld.game.guild_auto_reset_no_online_players }}"
+              set_ini_value -q "bUseAuth" "{{ .Values.palworld.game.use_auth }}"
+              set_ini_value -q "bEnablePlayerToPlayerDamage" "{{ .Values.palworld.game.enable_pvp_damage }}"
+              set_ini_value -q "bEnableFriendlyFire" "{{ .Values.palworld.game.enable_friendly_fire }}"
+              set_ini_value -q "bEnableInvaderEnemy" "{{ .Values.palworld.game.enable_invader_enemy }}"
+              set_ini_value -q "bEnableAimAssistPad" "{{ .Values.palworld.game.enable_aim_assist_pad }}"
+              set_ini_value -q "bEnableAimAssistKeyboard" "{{ .Values.palworld.game.enable_aim_assist_kb }}"
+              set_ini_value -q "bEnableNonLoginPenalty" "{{ .Values.palworld.game.enable_non_login_penalty }}"
+              set_ini_value -q "bEnableFastTravel" "{{ .Values.palworld.game.enable_fast_travel }}"
+              set_ini_value -q "bEnableDefenseOtherGuildPlayer" "{{ .Values.palworld.game.enable_defense_other_guild_player }}"
+              set_ini_value -q "bIsMultiplay" "{{ .Values.palworld.game.is_multiplay }}"
+              set_ini_value -q "bIsStartLocationSelectByMap" "{{ .Values.palworld.game.is_start_location_select_by_map }}"
+              set_ini_value -q "bIsPvP" "{{ .Values.palworld.game.is_pvp }}"
+              set_ini_value -q "bExistPlayerAfterLogout" "{{ .Values.palworld.game.exist_players_after_logout }}"
+              set_ini_value -q "bActiveUNKO" "{{ .Values.palworld.game.active_unko }}"
+              set_ini_value -q "bAutoResetGuildNoOnlinePlayers" "{{ .Values.palworld.game.guild_auto_reset_no_online_players }}"
               set_ini_value "AutoResetGuildTimeNoOnlinePlayers" "{{ .Values.palworld.game.auto_reset_guild_time_no_online_players }}"
-              set_ini_value "bCanPickupOtherGuildDeathPenaltyDrop" "{{ .Values.palworld.game.can_pickup_other_guild_death_penalty_drop }}"
-              set_ini_value "ServerPassword" "{{ .Values.palworld.game.password }}"
-              set_ini_value "AdminPassword" "{{ .Values.palworld.game.admin_password }}"
+              set_ini_value -q "bCanPickupOtherGuildDeathPenaltyDrop" "{{ .Values.palworld.game.can_pickup_other_guild_death_penalty_drop }}"
               set_ini_value "BanListURL" "{{ .Values.palworld.game.ban_list_url }}"
               set_ini_value "WorkSpeedRate" "{{ .Values.palworld.game.work_speed_rate }}"
 

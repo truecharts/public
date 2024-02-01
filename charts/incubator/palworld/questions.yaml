@@ -92,6 +92,12 @@ questions:
                 schema:
                   type: string
                   default: "72.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
+              - variable: ban_list_url
+                label: Ban List Url
+                schema:
+                  type: string
+                  default: "https://api.palworldgame.com/api/banlist.txt"
               - variable: base_camp_max
                 label: Base Camp Max
                 schema:
@@ -109,11 +115,13 @@ questions:
                 schema:
                   type: string
                   default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
               - variable: build_object_deterioration_damage_rate
                 label: Build Object Deterioration Damage Rate
                 schema:
                   type: string
                   default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
               - variable: can_pickup_other_guild_death_penalty_drop
                 label: Can Pickup Other Guild Death Penalty Drop
                 schema:
@@ -124,21 +132,25 @@ questions:
                 schema:
                   type: string
                   default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
               - variable: collection_object_hp_rate
                 label: Collection Object HP Rate
                 schema:
                   type: string
                   default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
               - variable: collection_object_respawn_speed_rate
                 label: Collection Object Respawn Speed Rate
                 schema:
                   type: string
                   default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
               - variable: day_time_speed_rate
                 label: Day Time Speed Rate
                 schema:
                   type: string
                   default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
               - variable: death_penalty
                 label: Server Death Penalty
                 schema:
@@ -154,6 +166,7 @@ questions:
                 schema:
                   type: string
                   default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
               - variable: drop_item_max
                 label: Drop Item Max
                 schema:
@@ -216,11 +229,18 @@ questions:
                 schema:
                   type: boolean
                   default: false
+              - variable: enemy_drop_item_rate
+                label: Enemy Drop Item Rate
+                schema:
+                  type: string
+                  default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
               - variable: exp_rate
                 label: Experience Rate
                 schema:
                   type: string
                   default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
               - variable: guild_auto_reset_no_online_players
                 label: Guild Auto Reset No Online Players
                 schema:
@@ -269,92 +289,109 @@ questions:
                 schema:
                   type: string
                   default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
               - variable: pal_auto_hp_regen_rate
                 label: Pal Auto HP Regen Rate
                 schema:
                   type: string
                   default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
               - variable: pal_auto_hp_regen_rate_in_sleep
                 label: Pal Auto HP Regen Rate in Sleep
                 schema:
                   type: string
                   default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
               - variable: pal_capture_rate
                 label: Pal Capture Rate
                 schema:
                   type: string
                   default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
               - variable: pal_damage_rate_attack
                 label: Pal Damage Rate Attack
                 schema:
                   type: string
                   default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
               - variable: pal_damage_rate_defense
                 label: Pal Damage Rate Defense
                 schema:
                   type: string
                   default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
               - variable: pal_egg_default_hatching_time
                 label: Pal Egg Default Hatching Time
                 schema:
                   type: string
                   default: "72.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
               - variable: pal_spawn_num_rate
                 label: Pal Spawn Number Rate
                 schema:
                   type: string
                   default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
               - variable: pal_stamina_decrease_rate
                 label: Pal Stamina Decrease Rate
                 schema:
                   type: string
                   default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
               - variable: pal_stomach_decrease_rate
                 label: Pal Stomach Decrease Rate
                 schema:
                   type: string
                   default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
               - variable: player_auto_hp_regen_rate
                 label: Player Auto HP Regen Rate
                 schema:
                   type: string
                   default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
               - variable: player_auto_hp_regen_rate_in_sleep
                 label: Player Auto HP Regen Rate in Sleep
                 schema:
                   type: string
                   default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
               - variable: player_damage_rate_attack
                 label: Player Damage Rate Attack
                 schema:
                   type: string
                   default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
               - variable: player_damage_rate_defense
                 label: Player Damage Rate Defense
                 schema:
                   type: string
                   default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
               - variable: player_stamina_decrease_rate
                 label: Player Stamina Decrease Rate
                 schema:
                   type: string
                   default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
               - variable: player_stomach_decrease_rate
                 label: Player Stomach Decrease Rate
                 schema:
                   type: string
                   default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
+              - variable: work_speed_rate
+                label: Work Speed Rate
+                schema:
+                  type: string
+                  default: "1.000000"
+                  valid_chars: '^\d{1,}\.[0-9]{6}$'
               - variable: update_public_ip
                 label: Update Public IP
                 description: Will check if the Public IP is still valid.
                 schema:
                   type: boolean
                   default: false
-              - variable: ban_list_url
-                label: Ban List Url
-                schema:
-                  type: string
-                  default: "https://api.palworldgame.com/api/banlist.txt"
         - variable: backup
           label: Backup Configuration
           schema:
