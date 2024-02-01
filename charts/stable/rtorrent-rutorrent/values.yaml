@@ -129,10 +129,6 @@ persistence:
   passwd:
     enabled: true
     mountPath: "/passwd"
-  exportarr:
-    enabled: true
-    mountPath: "/config"
-    readOnly: true
           
 metrics:
     main:
