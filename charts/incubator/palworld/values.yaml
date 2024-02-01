@@ -119,13 +119,6 @@ workload:
               config={{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}/Pal/Saved/Config/LinuxServer
               cfgFile=${config}/PalWorldSettings.ini
 
-              mkdir -p ${config}
-              if [ ! -f ${cfgFile} ]; then
-                echo "Config file not found, fetching..."
-                # Fetch the config file if it doesn't exist, just like the container does
-                wget -qO ${cfgFile} https://github.com/ich777/docker-steamcmd-server/raw/palworld/config/PalWorldSettings.ini
-              fi
-
               set_ini_value() {
                   local key
                   local value
