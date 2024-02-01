@@ -133,8 +133,8 @@ workload:
               fi
 
               if [ -f "${cfgFile}" ]; then
-                echo config exists!
-                update_ini_values()
+                  echo "config exists!"
+                  update_ini_values
               fi
 
               set_ini_value() {
@@ -157,7 +157,7 @@ workload:
 
               update_ini_values(){
                 echo the following options are updating....
-                
+
                 set_ini_value "RCONEnabled" "True" true
                 set_ini_value "RCONPort" "{{ .Values.service.rcon.ports.rcon.port }}" true
                 set_ini_value "PublicPort" "{{ .Values.service.main.ports.main.port }}" true
