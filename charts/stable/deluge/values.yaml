@@ -26,8 +26,8 @@ service:
     ports:
       tcp:
         enabled: true
-        port: 51413
-        targetPort: 51413
+        port: 6881
+        targetPort: 6881
       udp:
         enabled: true
         port: "{{ .Values.service.torrent.ports.tcp.port }}"
