@@ -120,23 +120,26 @@ workload:
             ENABLE_UNKNOWN_QUEUE_ITEMS: false
 
 persistence:
-  config:
+  data:
     enabled: true
     targetSelector:
       main:
-        data:
-          enabled: true
+        main:
           mountPath: "/data"
-        downloads:
-          enabled: true
-          mountPath: "/downloads"
-        passwd:
-          enabled: true
-          mountPath: "/passwd"
       exportarr:
         exportarr:
-          mountPath: /config
+          mountPath: "/config"
           readOnly: true
+  downloads:
+    enabled: true
+    mountPath: "/downloads"
+  passwd:
+    enabled: true
+    mountPath: "/passwd"
+
+
+
+          
 metrics:
     main:
       enabled: true
