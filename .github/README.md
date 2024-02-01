@@ -96,7 +96,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-241-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-242-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -418,6 +418,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/zierbeek"><img src="https://avatars.githubusercontent.com/u/58994651?v=4?s=100" width="100px;" alt="zierbeek"/><br /><sub><b>zierbeek</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=zierbeek" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/ac1dburnz"><img src="https://avatars.githubusercontent.com/u/10972668?v=4?s=100" width="100px;" alt="Ac1dburn"/><br /><sub><b>Ac1dburn</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=ac1dburnz" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/antoinesaget"><img src="https://avatars.githubusercontent.com/u/38580521?v=4?s=100" width="100px;" alt="Antoine Saget"/><br /><sub><b>Antoine Saget</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=antoinesaget" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/bbodenmiller"><img src="https://avatars.githubusercontent.com/u/1192780?v=4?s=100" width="100px;" alt="Ben Bodenmiller"/><br /><sub><b>Ben Bodenmiller</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Abbodenmiller" title="Bug reports">🐛</a></td>
     </tr>
   </tbody>
 </table>
