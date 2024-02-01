@@ -162,7 +162,7 @@ workload:
                   fi
               }
 
-              set_ini_value -q "RCONEnabled"
+              set_ini_value -q "RCONEnabled" "True"
               set_ini_value -q "RCONPort" "{{ .Values.service.rcon.ports.rcon.port }}"
               set_ini_value -q "PublicPort" "{{ .Values.service.main.ports.main.port }}"
 
@@ -200,7 +200,7 @@ workload:
               set_ini_value -q "bAutoResetGuildNoOnlinePlayers" "{{ .Values.palworld.game.guild_auto_reset_no_online_players }}"
               set_ini_value "AutoResetGuildTimeNoOnlinePlayers" "{{ .Values.palworld.game.auto_reset_guild_time_no_online_players }}"
               set_ini_value -q "bCanPickupOtherGuildDeathPenaltyDrop" "{{ .Values.palworld.game.can_pickup_other_guild_death_penalty_drop }}"
-              set_ini_value "BanListURL" "{{ .Values.palworld.game.ban_list_url }}"
+              set_ini_value -q "BanListURL" "{{ .Values.palworld.game.ban_list_url }}"
               set_ini_value "WorkSpeedRate" "{{ .Values.palworld.game.work_speed_rate }}"
 
               set_ini_value "DayTimeSpeedRate" "{{ .Values.palworld.game.day_time_speed_rate }}"
