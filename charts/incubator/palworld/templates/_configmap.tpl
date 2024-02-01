@@ -2,7 +2,6 @@
 {{- define "palworld.configmaps" -}}
 {{- $fullname := (include "tc.v1.common.lib.chart.names.fullname" $) -}}
 
-{{- $rconPath := .Values.persistence.serverfiles.targetSelector.rcon.rcon.mountPath -}}
 {{- $adminPassword := .Values.palworld.game.admin_password -}}
 {{- $rconPort := .Values.service.rcon.ports.rcon.port -}}
 
@@ -13,5 +12,5 @@ palworld-rcon:
      default:
        address: "{{ printf "%v-rcon:%v" $fullname $rconPort }}"
        password: {{ $adminPassword }}
-       log: "{{ $rconPath }}/rcon.log"
+       log: "rcon-palworld.log"
 {{- end -}}
