@@ -28,7 +28,6 @@ workload:
       initContainers:
         init:
           enabled: "{{ or .Release.IsUpgrade .Release.IsInstall }}"
-          # Only needs to run on upgrade and install..
           type: init
           imageSelector: image
           command:
