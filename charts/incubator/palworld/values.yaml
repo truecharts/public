@@ -267,14 +267,11 @@ workload:
           stdin: true
           probes:
             liveness:
-              type: tcp
-              port: "{{ .Values.service.rcon.ports.rcon.port }}"
+              enabled: false
             readiness:
-              type: tcp
-              port: "{{ .Values.service.rcon.ports.rcon.port }}"
+              enabled: false
             startup:
-              type: tcp
-              port: "{{ .Values.service.rcon.ports.rcon.port }}"
+              enabled: false
           args:
             - ./rcon
             - -c
