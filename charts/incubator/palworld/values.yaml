@@ -37,33 +37,57 @@ palworld:
     name: "TrueCharts Palworld Server"
     description: "A Palworld Server running in Kubernetes"
     use_auth: true
-    admin_password: ""
     password: ""
-    difficulty: "None"
-    death_penalty: "ALL"
-    max_players: 32
-    max_players_coop: 4
-    max_players_guild: 20
-    drop_item_max: 3000
-    drop_item_max_unko: 100
+    admin_password: ""
+    auto_reset_guild_time_no_online_players: "72.000000"
     base_camp_max: 128
     base_camp_worker_max: 15
-    enable_pvp_damage: false
+    build_object_damage_rate: "1.000000"
+    build_object_deterioration_damage_rate: "1.000000"
+    can_pickup_other_guild_death_penalty_drop: false
+    collection_drop_rate: "1.000000"
+    collection_object_hp_rate: "1.000000"
+    collection_object_respawn_speed_rate: "1.000000"
+    day_time_speed_rate: "1.000000"
+    death_penalty: "ALL"
+    difficulty: "None"
+    drop_item_alive_max_hours: "1.000000"
+    drop_item_max: 3000
+    drop_item_max_unko: 100
+    enable_aim_assist_kb: false
+    enable_aim_assist_pad: false
+    enable_defense_other_guild_player: true
+    enable_fast_travel: true
     enable_friendly_fire: false
     enable_invader_enemy: true
-    enable_defense_other_guild_player: true
+    active_unko: false
     enable_non_login_penalty: true
-    enable_aim_assist_pad: false
-    enable_aim_assist_kb: false
-    enable_fast_travel: true
+    enable_pvp_damage: false
+    exist_players_after_logout: true
+    exp_rate: "1.000000"
+    guild_auto_reset_no_online_players: false
     is_multiplay: false
     is_pvp: false
     is_start_location_select_by_map: true
-    active_unko: false
-    guild_auto_reset_no_online_players: false
-    auto_reset_guild_time_no_online_players: "72.000000"
-    can_pickup_other_guild_death_penalty_drop: false
-    exist_players_after_logout: true
+    max_players: 32
+    max_players_coop: 4
+    max_players_guild: 20
+    night_time_speed_rate: "1.000000"
+    pal_auto_hp_regen_rate: "1.000000"
+    pal_auto_hp_regen_rate_in_sleep: "1.000000"
+    pal_capture_rate: "1.000000"
+    pal_damage_rate_attack: "1.000000"
+    pal_damage_rate_defense: "1.000000"
+    pal_egg_default_hatching_time: "72.000000"
+    pal_spawn_num_rate: "1.000000"
+    pal_stamina_decrease_rate: "1.000000"
+    pal_stomach_decrease_rate: "1.000000"
+    player_auto_hp_regen_rate: "1.000000"
+    player_auto_hp_regen_rate_in_sleep: "1.000000"
+    player_damage_rate_attack: "1.000000"
+    player_damage_rate_defense: "1.000000"
+    player_stamina_decrease_rate: "1.000000"
+    player_stomach_decrease_rate: "1.000000"
     update_public_ip: false
     ban_list_url: "https://api.palworldgame.com/api/banlist.txt"
     params:
@@ -128,7 +152,7 @@ workload:
               set_ini_value "CoopPlayerMaxNum" "{{ .Values.palworld.game.max_players_coop }}"
               set_ini_value "GuildPlayerMaxNum" "{{ .Values.palworld.game.max_players_guild }}"
 
-              set_ini_value "DropItemMaxNum" "{{ .Values.palworld.game.max_players_guild }}"
+              set_ini_value "DropItemMaxNum" "{{ .Values.palworld.game.drop_item_max }}"
               set_ini_value "DropItemMaxNum_UNKO" "{{ .Values.palworld.game.drop_item_max_unko }}"
               set_ini_value "BaseCampMaxNum" "{{ .Values.palworld.game.base_camp_max }}"
               set_ini_value "BaseCampWorkerMaxNum" "{{ .Values.palworld.game.base_camp_worker_max }}"
@@ -153,7 +177,32 @@ workload:
               set_ini_value "ServerPassword" "{{ .Values.palworld.game.password }}"
               set_ini_value "AdminPassword" "{{ .Values.palworld.game.admin_password }}"
               set_ini_value "BanListURL" "{{ .Values.palworld.game.ban_list_url }}"
-              
+              set_ini_value "WorkSpeedRate" "{{ .Values.palworld.game.work_speed_rate }}"
+
+              set_ini_value "DayTimeSpeedRate" "{{ .Values.palworld.game.day_time_speed_rate }}"
+              set_ini_value "NightTimeSpeedRate" "{{ .Values.palworld.game.night_time_speed_rate }}"
+              set_ini_value "ExpRate" "{{ .Values.palworld.game.exp_rate }}"
+              set_ini_value "PalCaptureRate" "{{ .Values.palworld.game.pal_capture_rate }}"
+              set_ini_value "PalSpawnNumRate" "{{ .Values.palworld.game.pal_spawn_num_rate }}"
+              set_ini_value "PalDamageRateAttack" "{{ .Values.palworld.game.pal_damage_rate_attack }}"
+              set_ini_value "PalDamageRateDefense" "{{ .Values.palworld.game.pal_damage_rate_defense }}"
+              set_ini_value "PlayerDamageRateAttack" "{{ .Values.palworld.game.player_damage_rate_attack }}"
+              set_ini_value "PlayerDamageRateDefense" "{{ .Values.palworld.game.player_damage_rate_defense }}"
+              set_ini_value "PlayerStomachDecreaseRate" "{{ .Values.palworld.game.player_stomach_decrease_rate }}"
+              set_ini_value "PlayerStaminaDecreaseRate" "{{ .Values.palworld.game.player_stamina_decrease_rate }}"
+              set_ini_value "PlayerAutoHPRegenRate" "{{ .Values.palworld.game.player_auto_hp_regen_rate }}"
+              set_ini_value "PlayerAutoHpRegenRateInSleep" "{{ .Values.palworld.game.player_auto_hp_regen_rate_in_sleep }}"
+              set_ini_value "PalStomachDecreaseRate" "{{ .Values.palworld.game.pal_stomach_decrease_rate }}"
+              set_ini_value "PalStaminaDecreaseRate" "{{ .Values.palworld.game.pal_stamina_decrease_rate }}"
+              set_ini_value "PalAutoHPRegenRate" "{{ .Values.palworld.game.pal_auto_hp_regen_rate }}"
+              set_ini_value "PalAutoHpRegenRateInSleep" "{{ .Values.palworld.game.pal_auto_hp_regen_rate_in_sleep }}"
+              set_ini_value "BuildObjectDamageRate" "{{ .Values.palworld.game.build_object_damage_rate }}"
+              set_ini_value "BuildObjectDeteriorationDamageRate" "{{ .Values.palworld.game.build_object_deterioration_damage_rate }}"
+              set_ini_value "CollectionDropRate" "{{ .Values.palworld.game.collection_drop_rate }}"
+              set_ini_value "CollectionObjectHpRate" "{{ .Values.palworld.game.collection_object_hp_rate }}"
+              set_ini_value "CollectionObjectRespawnSpeedRate" "{{ .Values.palworld.game.collection_object_respawn_speed_rate }}"
+              set_ini_value "EnemyDropItemRate" "{{ .Values.palworld.game.enemy_drop_item_rate }}"
+
               echo "Done!"
       containers:
         main:
