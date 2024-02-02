@@ -168,7 +168,7 @@ workload:
               set_ini_value "Difficulty" "{{ .Values.palworld.game.difficulty }}" -q
               set_ini_value "DeathPenalty" "{{ .Values.palworld.game.death_penalty }}" -q
               set_ini_value "Region" "{{ .Values.palworld.game.region }}" -q
-              
+
               set_ini_value "AutoResetGuildTimeNoOnlinePlayers" "{{ .Values.palworld.game.auto_reset_guild_time_no_online_players }}"
               set_ini_value "BaseCampMaxNum" "{{ .Values.palworld.game.base_camp_max }}"
               set_ini_value "BaseCampWorkerMaxNum" "{{ .Values.palworld.game.base_camp_worker_max }}"
