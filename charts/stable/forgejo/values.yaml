@@ -22,7 +22,7 @@ persistence:
     targetSelectAll: true
   varlib:
     enabled: true
-    mountPath: "/var/lib/gitea"
+    mountPath: "/var/lib/Forgejo"
     type: emptyDir
 # Configure commit/action signing prerequisites
 signing:

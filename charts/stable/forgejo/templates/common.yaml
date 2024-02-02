@@ -41,7 +41,7 @@ targetSelector:
     main:
       mountPath: /secrets/config
     1-init-directories:
-      mountPath: /etc/gitea/conf
+      mountPath: /etc/Forgejo/conf
 {{- end -}}
 
 {{- $_ := set .Values.persistence "init" (include "forgejo.initvolume" . | fromYaml) -}}

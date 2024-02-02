@@ -54,7 +54,7 @@ secret:
       {{- end }}
 
       [repository]
-      ROOT = /data/git/gitea-repositories
+      ROOT = /data/git/Forgejo-repositories
       {{- range $catindex, $catvalue := .Values.customConfig }}
       {{- if eq $catvalue.name "repository" }}
       {{- range $index, $value := $catvalue.keys }}
@@ -125,7 +125,7 @@ init:
 
       mkdir -p /data/git/.ssh
       chmod -R 700 /data/git/.ssh
-      [ ! -d /data/gitea ] && mkdir -p /data/gitea/conf
+      [ ! -d /data/Forgejo ] && mkdir -p /data/Forgejo/conf
 
       # prepare temp directory structure
       mkdir -p "${FORGEJO_TEMP}"
@@ -133,12 +133,12 @@ init:
       chmod ug+rwx "${FORGEJO_TEMP}"
 
       # Copy config file to writable volume
-      cp /etc/gitea/conf/app.ini /data/gitea/conf/app.ini
+      cp /etc/Forgejo/conf/app.ini /data/Forgejo/conf/app.ini
       chown -Rf {{ .Values.securityContext.container.runAsUser }}:{{ .Values.securityContext.pod.fsGroup }}  "/data"
-      chmod a+rwx /data/gitea/conf/app.ini
+      chmod a+rwx /data/Forgejo/conf/app.ini
 
       # Patch dockercontainer for dynamic users
-      chown -Rf {{ .Values.securityContext.container.runAsUser }}:{{ .Values.securityContext.pod.fsGroup }}  "/var/lib/gitea"
+      chown -Rf {{ .Values.securityContext.container.runAsUser }}:{{ .Values.securityContext.pod.fsGroup }}  "/var/lib/Forgejo"
 
     configure_forgejo.sh: |-
       #!/usr/bin/env bash
@@ -167,22 +167,22 @@ init:
       test_db_connection
 
 
-      echo '==== BEGIN GITEA MIGRATION ===='
+      echo '==== BEGIN FORGEJO MIGRATION ===='
 
-      gitea migrate
+      Forgejo migrate
 
-      echo '==== BEGIN GITEA CONFIGURATION ===='
+      echo '==== BEGIN FORGEJO CONFIGURATION ===='
 
       {{- if or .Values.admin.existingSecret (and .Values.admin.username .Values.admin.password) }}
       function configure_admin_user() {
-        local ACCOUNT_ID=$(gitea admin user list --admin | grep -e "\s\+${FORGEJO_ADMIN_USERNAME}\|{{ .Values.admin.email }}\s\+" | awk -F " " "{printf \$1}")
+        local ACCOUNT_ID=$(Forgejo admin user list --admin | grep -e "\s\+${FORGEJO_ADMIN_USERNAME}\|{{ .Values.admin.email }}\s\+" | awk -F " " "{printf \$1}")
         if [[ -z "${ACCOUNT_ID}" ]]; then
           echo "No admin user '${FORGEJO_ADMIN_USERNAME}' found, neither email '{{ .Values.admin.email }}' is assigned to an admin. Creating now..."
-          gitea admin user create --admin --username "${FORGEJO_ADMIN_USERNAME}" --password "${FORGEJO_ADMIN_PASSWORD}" --email {{ .Values.admin.email | quote }} --must-change-password=false
+          Forgejo admin user create --admin --username "${FORGEJO_ADMIN_USERNAME}" --password "${FORGEJO_ADMIN_PASSWORD}" --email {{ .Values.admin.email | quote }} --must-change-password=false
           echo '...created.'
         else
           echo "Admin account '${FORGEJO_ADMIN_USERNAME}' or email {{ .Values.admin.email }} already exist. Running update to sync password..."
-          gitea admin user change-password --username "${FORGEJO_ADMIN_USERNAME}" --password "${FORGEJO_ADMIN_PASSWORD}"
+          Forgejo admin user change-password --username "${FORGEJO_ADMIN_USERNAME}" --password "${FORGEJO_ADMIN_PASSWORD}"
           echo '...password sync done.'
         fi
       }
@@ -193,15 +193,15 @@ init:
       {{- if .Values.ldap.enabled }}
       function configure_ldap() {
         local LDAP_NAME={{ (printf "%s" .Values.ldap.name) | squote }}
-        local FORGEJO_AUTH_ID=$(gitea admin auth list --vertical-bars | grep -E "\|${LDAP_NAME}\s+\|" | grep -iE '\|LDAP \(via BindDN\)\s+\|' | awk -F " "  "{print \$1}")
+        local FORGEJO_AUTH_ID=$(Forgejo admin auth list --vertical-bars | grep -E "\|${LDAP_NAME}\s+\|" | grep -iE '\|LDAP \(via BindDN\)\s+\|' | awk -F " "  "{print \$1}")
 
         if [[ -z "${FORGEJO_AUTH_ID}" ]]; then
           echo "No ldap configuration found with name '${LDAP_NAME}'. Installing it now..."
-          gitea admin auth add-ldap {{- include "forgejo.ldap_settings" . | indent 1 }}
+          Forgejo admin auth add-ldap {{- include "forgejo.ldap_settings" . | indent 1 }}
           echo '...installed.'
         else
           echo "Existing ldap configuration with name '${LDAP_NAME}': '${FORGEJO_AUTH_ID}'. Running update to sync settings..."
-          gitea admin auth update-ldap --id "${FORGEJO_AUTH_ID}" {{- include "forgejo.ldap_settings" . | indent 1 }}
+          Forgejo admin auth update-ldap --id "${FORGEJO_AUTH_ID}" {{- include "forgejo.ldap_settings" . | indent 1 }}
           echo '...sync settings done.'
         fi
       }
@@ -212,15 +212,15 @@ init:
       {{- if .Values.oauth.enabled }}
       function configure_oauth() {
         local OAUTH_NAME={{ (printf "%s" .Values.oauth.name) | squote }}
-        local AUTH_ID=$(gitea admin auth list --vertical-bars | grep -E "\|${OAUTH_NAME}\s+\|" | grep -iE '\|OAuth2\s+\|' | awk -F " "  "{print \$1}")
+        local AUTH_ID=$(Forgejo admin auth list --vertical-bars | grep -E "\|${OAUTH_NAME}\s+\|" | grep -iE '\|OAuth2\s+\|' | awk -F " "  "{print \$1}")
 
         if [[ -z "${AUTH_ID}" ]]; then
           echo "No oauth configuration found with name '${OAUTH_NAME}'. Installing it now..."
-          gitea admin auth add-oauth {{- include "gitea.oauth_settings" . | indent 1 }}
+          Forgejo admin auth add-oauth {{- include "Forgejo.oauth_settings" . | indent 1 }}
           echo '...installed.'
         else
           echo "Existing oauth configuration with name '${OAUTH_NAME}': '${AUTH_ID}'. Running update to sync settings..."
-          gitea admin auth update-oauth --id "${AUTH_ID}" {{- include "gitea.oauth_settings" . | indent 1 }}
+          Forgejo admin auth update-oauth --id "${AUTH_ID}" {{- include "Forgejo.oauth_settings" . | indent 1 }}
           echo '...sync settings done.'
         fi
       }
@@ -228,6 +228,6 @@ init:
       configure_oauth
       {{- end }}
 
-      echo '==== END GITEA CONFIGURATION ===='
+      echo '==== END FORGEJO CONFIGURATION ===='
 
 {{- end -}}
