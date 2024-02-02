@@ -19,13 +19,13 @@ title: Installation Notes
 
 ![cf-tunnel-hostname](./img/cf-tunnel-hostname.png)
 
-![cf-tunnel-priv-network](./img/cf-tunnel-priv-network.png)
-
-Notes:
+:::notes
 
 - You MAY need to modify cloudflared Zero Trust various settings in order for this work out-of-the-box which is beyond the scope of this guide.
 
 - You can use this as a reverse proxy directly or use it in conjunction with traefik if you are behind a CGNAT, do not have a static IP, or can not port forward 443 (SSL).
+
+:::
 
 ## Setting up individual apps
 
@@ -46,10 +46,9 @@ Then you need to do the same to set up the subdomain for each app you want to ex
 
 ![cloudflare-setup](./img/cloudflare-setup2.png)
 
-:::danger Wildcard Subdomains
+:::danger No TLS Verify
 
-It's also possible to set up access to all apps at once by using a wildcard `*` subdomain public hostname, and then adding a CNAME record in the DNS settings with name=`*` and target equal to the target in the CNAME record for the parent domain, but this is not recommended due to security concerns.
-
+Do NOT check the `No TLS Verify` this option will disable TLS verification and WILL allow any certificate from the origin to be accepted.
 :::
 
 ### Without traefik
