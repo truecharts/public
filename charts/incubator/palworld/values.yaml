@@ -232,8 +232,11 @@ workload:
               type: tcp
               port: "{{ .Values.service.rcon.ports.rcon.port }}"
             startup:
-              type: tcp
-              port: "{{ .Values.service.rcon.ports.rcon.port }}"
+              type: exec
+              command:
+                - /bin/sh
+                - -c
+                - pgrep -f "{{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}/Pal/Binaries/Linux/PalServer-Linux-Test" >/dev/null || exit 1
           env:
             # paths
             STEAMCMD_DIR: "{{ .Values.persistence.steamcmd.mountPath }}"
