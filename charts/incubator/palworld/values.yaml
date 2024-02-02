@@ -226,11 +226,17 @@ workload:
         main:
           probes:
             liveness:
-              type: tcp
-              port: "{{ .Values.service.rcon.ports.rcon.port }}"
+              type: exec
+              command:
+                - /bin/sh
+                - -c
+                - pgrep -f "{{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}/Pal/Binaries/Linux/PalServer-Linux-Test" >/dev/null || exit 1
             readiness:
-              type: tcp
-              port: "{{ .Values.service.rcon.ports.rcon.port }}"
+              type: exec
+              command:
+                - /bin/sh
+                - -c
+                - pgrep -f "{{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}/Pal/Binaries/Linux/PalServer-Linux-Test" >/dev/null || exit 1
             startup:
               type: exec
               command:
@@ -270,11 +276,23 @@ workload:
           stdin: true
           probes:
             liveness:
-              enabled: false
+              type: exec
+              command:
+                - /bin/sh
+                - -c
+                - pgrep -f "{{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}/Pal/Binaries/Linux/PalServer-Linux-Test" >/dev/null || exit 1
             readiness:
-              enabled: false
+              type: exec
+              command:
+                - /bin/sh
+                - -c
+                - pgrep -f "{{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}/Pal/Binaries/Linux/PalServer-Linux-Test" >/dev/null || exit 1
             startup:
-              enabled: false
+              type: exec
+              command:
+                - /bin/sh
+                - -c
+                - pgrep -f "{{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}/Pal/Binaries/Linux/PalServer-Linux-Test" >/dev/null || exit 1
 
 persistence:
   steamcmd:
@@ -287,6 +305,9 @@ persistence:
         main:
           mountPath: /serverdata/serverfiles
         update-config-ini:
+          mountPath: /serverdata/serverfiles
+      ron:
+        rcon:
           mountPath: /serverdata/serverfiles
   palworld-rcon:
     enabled: true
