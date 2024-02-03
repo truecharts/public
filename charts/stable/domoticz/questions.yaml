@@ -11,6 +11,19 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
+  - variable: env
+    group: "App Configuration"
+    label: "Additional Arguments"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: EXTRA_CMD_ARG
+          label: "EXTRA_CMD_ARG"
+          description: "Append additional values for EXTRA_CMD_ARG here."
+          schema:
+            type: string
+            default: "-userdata /config"
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
