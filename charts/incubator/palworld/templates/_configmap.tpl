@@ -14,7 +14,7 @@ palworld-ini:
      [/Script/Pal.PalGameWorldSettings]
      OptionSettings=(
      Difficulty={{ $palworldGame.difficulty }},
-     DayTimeSpeedRate={{ $$palworldGame.day_time_speed_rate }},
+     DayTimeSpeedRate={{ $palworldGame.day_time_speed_rate }},
      NightTimeSpeedRate={{ $palworldGame.night_time_speed_rate }},
      ExpRate={{ $palworldGame.exp_rate }},
      PalCaptureRate={{ $palworldGame.pal_capture_rate }},
