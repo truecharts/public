@@ -226,23 +226,14 @@ workload:
         main:
           probes:
             liveness:
-              type: exec
-              command:
-                - /bin/sh
-                - -c
-                - pgrep -f "{{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}/Pal/Binaries/Linux/PalServer-Linux-Test" >/dev/null || exit 1
+              type: tcp
+              port: "{{ .Values.service.rcon.ports.rcon.port }}"
             readiness:
-              type: exec
-              command:
-                - /bin/sh
-                - -c
-                - pgrep -f "{{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}/Pal/Binaries/Linux/PalServer-Linux-Test" >/dev/null || exit 1
+              type: tcp
+              port: "{{ .Values.service.rcon.ports.rcon.port }}"
             startup:
-              type: exec
-              command:
-                - /bin/sh
-                - -c
-                - pgrep -f "{{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}/Pal/Binaries/Linux/PalServer-Linux-Test" >/dev/null || exit 1
+              type: tcp
+              port: "{{ .Values.service.rcon.ports.rcon.port }}"
           env:
             # paths
             STEAMCMD_DIR: "{{ .Values.persistence.steamcmd.mountPath }}"
@@ -276,23 +267,11 @@ workload:
           stdin: true
           probes:
             liveness:
-              type: exec
-              command:
-                - /bin/sh
-                - -c
-                - pgrep -f "{{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}/Pal/Binaries/Linux/PalServer-Linux-Test" >/dev/null || exit 1
+              enabled: false
             readiness:
-              type: exec
-              command:
-                - /bin/sh
-                - -c
-                - pgrep -f "{{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}/Pal/Binaries/Linux/PalServer-Linux-Test" >/dev/null || exit 1
+              enabled: false
             startup:
-              type: exec
-              command:
-                - /bin/sh
-                - -c
-                - pgrep -f "{{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}/Pal/Binaries/Linux/PalServer-Linux-Test" >/dev/null || exit 1
+              enabled: false
 
 persistence:
   steamcmd:
@@ -305,9 +284,6 @@ persistence:
         main:
           mountPath: /serverdata/serverfiles
         update-config-ini:
-          mountPath: /serverdata/serverfiles
-      ron:
-        rcon:
           mountPath: /serverdata/serverfiles
   palworld-rcon:
     enabled: true
