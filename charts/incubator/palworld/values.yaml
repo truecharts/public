@@ -90,6 +90,7 @@ palworld:
     player_damage_rate_defense: "1.000000"
     player_stamina_decreace_rate: "1.000000"
     player_stomach_decreace_rate: "1.000000"
+    public_ip: ""
     region: ""
     work_speed_rate: "1.000000"
     update_public_ip: false
@@ -107,125 +108,6 @@ palworld:
 workload:
   main:
     podSpec:
-      initContainers:
-        update-config-ini:
-          enabled: true
-          type: init
-          imageSelector: "image"
-          command:
-            - /bin/sh
-            - -c
-          args:
-            - |
-              config={{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}/Pal/Saved/Config/LinuxServer
-              cfgFile=${config}/PalWorldSettings.ini
-              dfCfgFile={{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}/DefaultPalWorldSettings.ini
-
-              mkdir -p ${config}
-              if [ ! -f "${cfgFile}" ]; then
-                  if [ -f "${dfCfgFile}" ]; then
-                      echo "Default config file found, copying as cfgFile..."
-                      cp "${dfCfgFile}" "${cfgFile}"
-                  else
-                      echo "Config file not found, fetching..."
-                      # Fetch the config file if it doesn't exist, just like the container does
-                      wget -qO "${cfgFile}" https://github.com/ich777/docker-steamcmd-server/raw/palworld/config/PalWorldSettings.ini
-                  fi
-              fi
-
-              set_ini_value() {
-                local key="${1}"
-                local value="${2}"
-                local quote_flag="${3:-}"
-
-                # Check if the key exists
-                if ! grep -q "${key}=" "${cfgFile}"; then
-                    echo "Key '${key}' does not exist in '${cfgFile}'. Skipping..."
-                    return
-                fi
-
-                if [ "$quote_flag" = "-q" ]; then
-                    # Add quotes around the value
-                    value="\"$value\""
-                fi
-
-                # Check if the key is OptionSettings
-                if [ "${key}" = "OptionSettings" ]; then
-                    echo "Setting ${key}..."
-                    # Replace the content within OptionSettings, preserving the parentheses
-                    sed -i "s|\(${key}=(\).*\)|\1${value})|g" "${cfgFile}"
-                    echo "Set to $(grep -Po "(?<=${key}=\()[^)]*" "${cfgFile}")"
-                fi
-              }
-
-              echo "the following options are updating...."
-
-              set_ini_value "RCONEnabled" "True" -q
-              set_ini_value "RCONPort" "{{ .Values.service.rcon.ports.rcon.port }}" -q
-              set_ini_value "PublicPort" "{{ .Values.service.main.ports.main.port }}" -q
-
-              set_ini_value "ServerPassword" "{{ .Values.palworld.game.password }}" -q
-              set_ini_value "AdminPassword" "{{ .Values.palworld.game.admin_password }}" -q
-
-              set_ini_value "ServerName" "{{ .Values.palworld.game.name }}" -q
-              set_ini_value "ServerDescription" "{{ .Values.palworld.game.description }}" -q
-              set_ini_value "Difficulty" "{{ .Values.palworld.game.difficulty }}" -q
-              set_ini_value "DeathPenalty" "{{ .Values.palworld.game.death_penalty }}" -q
-              set_ini_value "Region" "{{ .Values.palworld.game.region }}" -q
-              
-              set_ini_value "AutoResetGuildTimeNoOnlinePlayers" "{{ .Values.palworld.game.auto_reset_guild_time_no_online_players }}"
-              set_ini_value "BaseCampMaxNum" "{{ .Values.palworld.game.base_camp_max }}"
-              set_ini_value "BaseCampWorkerMaxNum" "{{ .Values.palworld.game.base_camp_worker_max }}"
-              set_ini_value "BanListURL" "{{ .Values.palworld.game.ban_list_url }}" -q
-              set_ini_value "BuildObjectDamageRate" "{{ .Values.palworld.game.build_object_damage_rate }}"
-              set_ini_value "BuildObjectDeteriorationDamageRate" "{{ .Values.palworld.game.build_object_deterioration_damage_rate }}"
-              set_ini_value "bCanPickupOtherGuildDeathPenaltyDrop" "{{ .Values.palworld.game.can_pickup_other_guild_death_penalty_drop }}" -q
-              set_ini_value "bUseAuth" "{{ .Values.palworld.game.use_auth }}" -q
-              set_ini_value "bEnablePlayerToPlayerDamage" "{{ .Values.palworld.game.enable_pvp_damage }}" -q
-              set_ini_value "bEnableFriendlyFire" "{{ .Values.palworld.game.enable_friendly_fire }}" -q
-              set_ini_value "bEnableInvaderEnemy" "{{ .Values.palworld.game.enable_invader_enemy }}" -q
-              set_ini_value "bEnableAimAssistPad" "{{ .Values.palworld.game.enable_aim_assist_pad }}" -q
-              set_ini_value "bEnableAimAssistKeyboard" "{{ .Values.palworld.game.enable_aim_assist_kb }}" -q
-              set_ini_value "bEnableNonLoginPenalty" "{{ .Values.palworld.game.enable_non_login_penalty }}" -q
-              set_ini_value "bEnableFastTravel" "{{ .Values.palworld.game.enable_fast_travel }}" -q
-              set_ini_value "bEnableDefenseOtherGuildPlayer" "{{ .Values.palworld.game.enable_defense_other_guild_player }}" -q
-              set_ini_value "bIsMultiplay" "{{ .Values.palworld.game.is_multiplay }}" -q
-              set_ini_value "bIsStartLocationSelectByMap" "{{ .Values.palworld.game.is_start_location_select_by_map }}" -q
-              set_ini_value "bIsPvP" "{{ .Values.palworld.game.is_pvp }}" -q
-              set_ini_value "bExistPlayerAfterLogout" "{{ .Values.palworld.game.exist_players_after_logout }}" -q
-              set_ini_value "bActiveUNKO" "{{ .Values.palworld.game.active_unko }}" -q
-              set_ini_value "bAutoResetGuildNoOnlinePlayers" "{{ .Values.palworld.game.guild_auto_reset_no_online_players }}" -q
-              set_ini_value "CollectionDropRate" "{{ .Values.palworld.game.collection_drop_rate }}"
-              set_ini_value "CollectionObjectHpRate" "{{ .Values.palworld.game.collection_object_hp_rate }}"
-              set_ini_value "CollectionObjectRespawnSpeedRate" "{{ .Values.palworld.game.collection_object_respawn_speed_rate }}"
-              set_ini_value "CoopPlayerMaxNum" "{{ .Values.palworld.game.max_players_coop }}"
-              set_ini_value "DayTimeSpeedRate" "{{ .Values.palworld.game.day_time_speed_rate }}"
-              set_ini_value "DropItemMaxNum" "{{ .Values.palworld.game.drop_item_max }}"
-              set_ini_value "DropItemMaxNum_UNKO" "{{ .Values.palworld.game.drop_item_max_unko }}"
-              set_ini_value "DropItemAliveMaxHours" "{{ .Values.palworld.game.drop_item_alive_max_hours }}"
-              set_ini_value "EnemyDropItemRate" "{{ .Values.palworld.game.enemy_drop_item_rate }}"
-              set_ini_value "GuildPlayerMaxNum" "{{ .Values.palworld.game.max_players_guild }}"
-              set_ini_value "NightTimeSpeedRate" "{{ .Values.palworld.game.night_time_speed_rate }}"
-              set_ini_value "PalCaptureRate" "{{ .Values.palworld.game.pal_capture_rate }}"
-              set_ini_value "PalEggDefaultHatchingTime" "{{ .Values.palworld.game.pal_egg_default_hatching_time }}"
-              set_ini_value "PalSpawnNumRate" "{{ .Values.palworld.game.pal_spawn_num_rate }}"
-              set_ini_value "PalDamageRateAttack" "{{ .Values.palworld.game.pal_damage_rate_attack }}"
-              set_ini_value "PalDamageRateDefense" "{{ .Values.palworld.game.pal_damage_rate_defense }}"
-              set_ini_value "PlayerDamageRateAttack" "{{ .Values.palworld.game.player_damage_rate_attack }}"
-              set_ini_value "PlayerDamageRateDefense" "{{ .Values.palworld.game.player_damage_rate_defense }}"
-              set_ini_value "PlayerStomachDecreaceRate" "{{ .Values.palworld.game.player_stomach_decreace_rate }}"
-              set_ini_value "PlayerStaminaDecreaceRate" "{{ .Values.palworld.game.player_stamina_decreace_rate }}"
-              set_ini_value "PlayerAutoHPRegeneRate" "{{ .Values.palworld.game.player_auto_hp_regene_rate }}"
-              set_ini_value "PlayerAutoHpRegeneRateInSleep" "{{ .Values.palworld.game.player_auto_hp_regene_rate_in_sleep }}"
-              set_ini_value "PalStomachDecreaceRate" "{{ .Values.palworld.game.pal_stomach_decreace_rate }}"
-              set_ini_value "PalStaminaDecreaceRate" "{{ .Values.palworld.game.pal_stamina_decreace_rate }}"
-              set_ini_value "PalAutoHPRegeneRate" "{{ .Values.palworld.game.pal_auto_hp_regene_rate }}"
-              set_ini_value "PalAutoHpRegeneRateInSleep" "{{ .Values.palworld.game.pal_auto_hp_regene_rate_in_sleep }}"
-              set_ini_value "ServerPlayerMaxNum" "{{ .Values.palworld.game.max_players }}"
-              set_ini_value "WorkSpeedRate" "{{ .Values.palworld.game.work_speed_rate }}"
-              set_ini_value "ExpRate" "{{ .Values.palworld.game.exp_rate }}"
-
-              echo "Done!"
       containers:
         main:
           probes:
@@ -249,7 +131,8 @@ workload:
             VALIDATE: "{{ .Values.palworld.steam.validate }}"
             # game
             SRV_ADMIN_PWD: "{{ .Values.palworld.game.admin_password }}"
-            UPDATE_PUBLIC_IP: "{{ .Values.palworld.game.update_public_ip }}"
+            # mounting the file manually; unable to use this function.
+            UPDATE_PUBLIC_IP: false
             GAME_PARAMS: '{{ join " " .Values.palworld.game.params }}'
             GAME_PARAMS_EXTRA: '{{ join " " .Values.palworld.game.params_extra }}'
             # backup
@@ -289,6 +172,13 @@ persistence:
           mountPath: /serverdata/serverfiles
         update-config-ini:
           mountPath: /serverdata/serverfiles
+  palworld-ini:
+    enabled: true
+    type: configmap
+    objectName: palworld-ini
+    mountPath: /serverdata/serverfiles/Pal/Saved/Config/LinuxServer/PalWorldSettings.ini
+    subPath: PalWorldSettings.ini
+    readOnly: true
   palworld-rcon:
     enabled: true
     type: configmap
