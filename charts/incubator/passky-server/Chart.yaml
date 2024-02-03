@@ -16,9 +16,16 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
+  - name: redis
+    version: 11.1.16
+    repository: https://deps.truecharts.org
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
   - name: mariadb
     version: 12.1.12
-    repository: https://deps.truecharts.org/
+    repository: https://deps.truecharts.org
     condition: mariadb.enabled
     alias: ""
     tags: []
