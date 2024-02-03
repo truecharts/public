@@ -39,6 +39,7 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: mariadb-password
+            MYSQL_CACHE_MODE: 0
             REDIS_HOST:
               secretKeyRef:
                 expandObjectName: false
@@ -61,7 +62,6 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: redis-password
-            MYSQL_CACHE_MODE: 0
             MAIL_ENABLED: "false"
             ACCOUNT_MAX: 100
             ACCOUNT_MAX_PASSWORDS: 1000
