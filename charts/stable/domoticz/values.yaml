@@ -28,10 +28,12 @@ workload:
           env:
             # Set default http port. Container also has SSL_PORT variable for SSL.
             WWW_PORT: "{{ .Values.service.main.ports.main.port }}"
+            # Set userdata path to match previous linuxserver.io default
+            EXTRA_CMD_ARG: "-userdata /config"
 persistence:
   config:
     enabled: true
-    mountPath: /opt/domoticz/userdata
+    mountPath: /config
 portal:
   open:
     enabled: true
