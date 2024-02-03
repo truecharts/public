@@ -75,7 +75,7 @@ radicale-config:
       type = {{ .Values.radicale.auth.type }}
 
       # Htpasswd filename
-      #htpasswd_filename = /etc/radicale/users
+      htpasswd_filename = /config/users
 
       # Htpasswd encryption method
       # Value: plain | bcrypt | md5
