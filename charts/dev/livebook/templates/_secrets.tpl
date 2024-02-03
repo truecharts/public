@@ -10,6 +10,8 @@
 {{- end }}
 enabled: true
 data:
-  LIVEBOOK_SECRET_KEY_BASE: {{ $secretKeyBase }}
-  LIVEBOOK_COOKIE: {{ $cookie }}
+  LIVEBOOK_SECRET_KEY_BASE: {{ $secretKeyBase | quote }}
+  LIVEBOOK_COOKIE: {{ $cookie | quote }}
+  LIVEBOOK_PASSWORD: {{ .Values.livebook.password | quote }}
+  AWS_SECRET_ACCESS_KEY: {{ .Values.livebook.awsCredentials.secretAccessKey | default "" | quote }}
 {{- end -}}
