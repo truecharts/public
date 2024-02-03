@@ -27,7 +27,7 @@ workload:
     podSpec:
       initContainers:
         init:
-          enabled: "{{ or .Release.IsUpgrade .Release.IsInstall }}"
+          enabled: true
           type: init
           imageSelector: image
           command:
