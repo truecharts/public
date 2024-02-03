@@ -39,8 +39,6 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: mariadb-password
-            MYSQL_SSL: "false"
-            MYSQL_SSL_CA: "/etc/ssl/certs/ca-certificates.crt"
             REDIS_HOST:
               secretKeyRef:
                 expandObjectName: false
