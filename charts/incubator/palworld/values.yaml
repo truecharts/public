@@ -134,24 +134,28 @@ workload:
               fi
 
               set_ini_value() {
-                  local key="${1}"
-                  local value="${2}"
-                  local quote_flag="${3:-}"
+                local key="${1}"
+                local value="${2}"
+                local quote_flag="${3:-}"
 
-                  # Check if the key exists
-                  if ! grep -q "${key}=" "${cfgFile}"; then
-                      echo "Key '${key}' does not exist in '${cfgFile}'. Skipping..."
-                      return
-                  fi
+                # Check if the key exists
+                if ! grep -q "${key}=" "${cfgFile}"; then
+                    echo "Key '${key}' does not exist in '${cfgFile}'. Skipping..."
+                    return
+                fi
 
-                  if [ "$quote_flag" = "-q" ]; then
-                      # Add quotes around the value
-                      value="\"$value\""
-                  fi
+                if [ "$quote_flag" = "-q" ]; then
+                    # Add quotes around the value
+                    value="\"$value\""
+                fi
 
-                  echo "Setting ${key}..."
-                  sed -i "s|\(${key}=\)[^,]*|\1${value}|g" "${cfgFile}"
-                  echo "Set to $(grep -Po "(?<=${key}=)[^,]*" "${cfgFile}")"
+                # Check if the key is OptionSettings
+                if [ "${key}" = "OptionSettings" ]; then
+                    echo "Setting ${key}..."
+                    # Replace the content within OptionSettings, preserving the parentheses
+                    sed -i "s|\(${key}=(\).*\)|\1${value})|g" "${cfgFile}"
+                    echo "Set to $(grep -Po "(?<=${key}=\()[^)]*" "${cfgFile}")"
+                fi
               }
 
               echo "the following options are updating...."
