@@ -1,0 +1,7 @@
+{{/* Define the configmap */}}
+{{- define "dendrite.configmap" -}}
+enabled: true
+data:
+  dendrite.yml: |
+    {{- .Values.dendrite_Config | toYaml | nindent 2 }}
+{{- end -}}

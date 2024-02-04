@@ -1,1 +1,11 @@
-{{ include "tc.v1.common.loader.all" . }}
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.v1.common.loader.init" . }}
+
+{{/* Render configmap for dendrite */}}
+{{- $config := include "dendrite.configmap" . | fromYaml -}}
+{{- if $config -}}
+  {{- $_ := set .Values.configmap "dendrite-config" $config -}}
+{{- end -}}
+
+{{/* Render the templates */}}
+{{ include "tc.v1.common.loader.apply" . }}
