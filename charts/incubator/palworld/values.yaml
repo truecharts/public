@@ -243,8 +243,8 @@ workload:
               set_ini_value "ExpRate" "{{ .Values.palworld.game.exp_rate }}"
 
               # Check if update_public_ip is not true
-              if [ "$update_public_ip" != "true" ]; then
-                  set_ini_value "PublicIP" "{{ .Values.palworld.game.update_public_ip }}" -q
+              if [ "${update_public_ip}" != "true" ]; then
+                  set_ini_value "PublicIP" "{{ .Values.palworld.game.public_ip }}" -q
               fi
               echo "Done!"
       containers:
