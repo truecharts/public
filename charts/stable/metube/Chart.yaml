@@ -7,10 +7,10 @@ annotations:
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2024.1.5
+appVersion: 2024.1.26
 dependencies:
   - name: common
-    version: 17.2.29
+    version: 17.2.30
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/metube
   - https://hub.docker.com/r/alexta69/metube
 type: application
-version: 11.0.6
+version: 11.0.8

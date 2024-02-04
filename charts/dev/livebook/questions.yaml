@@ -9,31 +9,67 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-                                - variable: env
-                                  label: Image Environment
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                      - variable: LIVEBOOK_PASSWORD
-                                        label: "Password (LIVEBOOK_PASSWORD)"
-                                        description: "Password needed to access livebook (must be at least 12 characters)"
-                                        schema:
-                                          type: string
-                                          required: true
-                                          private: true
-                                      - variable: LIVEBOOK_DEBUG
-                                        label: "Debug Logging (LIVEBOOK_DEBUG)"
-                                        description: >
-                                          enables verbose logging, when set to "true". Disabled by default.
-                                        schema:
-                                          type: boolean
-                                      - variable: LIVEBOOK_UPDATE_INSTRUCTIONS_URL
-                                        label: "Update instruction URL (LIVEBOOK_UPDATE_INSTRUCTIONS_URL)"
-                                        description: >
-                                          sets the URL to direct the user to for updating Livebook when a new version becomes available.
-                                        schema:
-                                          type: string
+# Include{containerBasic}
+# Include{containerAdvanced}
+# Include{containerConfig}
+# Include{podOptions}
+  - variable: livebook
+    group: App Configuration
+    label: Livebook
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: password
+          label: "Password (LIVEBOOK_PASSWORD)"
+          description: Password needed to access livebook (must be at least 12 characters)
+          schema:
+            type: string
+            min_length: 12
+            required: true
+            private: true
+        - variable: debug
+          label: "Debug Logging (LIVEBOOK_DEBUG)"
+          description: >
+            Enables verbose logging, when set to "true". Disabled by default.
+          schema:
+            type: boolean
+            default: false
+        - variable: updateInstructionsUrl
+          label: "Update instruction URL (LIVEBOOK_UPDATE_INSTRUCTIONS_URL)"
+          description: >
+            Sets the URL to direct the user to for updating Livebook when a new version becomes available.
+          schema:
+            type: string
+        - variable: awsCredentials
+          label: AWS Credentials
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: "Set AWS Credentials"
+                description: >
+                  Enable Livebook to read AWS Credentials from environment variables,
+                  AWS Credentials, EC2/ECS metadata when configuring S3 buckets.
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: accessKeyId
+                      label: "AWS Access Key ID"
+                      description: >
+                        AWS Access Key ID in case you want to configure AWS S3 Storage inside Livebook
+                      schema:
+                        type: string
+                    - variable: secretAccessKey
+                      label: "AWS Secret Access Key"
+                      description: >
+                        AWS Secret Access Key in case you want to configure AWS S3 Storage inside Livebook
+                      schema:
+                        type: string
+                        private: true
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
@@ -86,13 +122,13 @@ questions:
                 description: "The UserID of the user running the application"
                 schema:
                   type: int
-                  default: 0
+                  default: 568
               - variable: runAsGroup
                 label: "runAsGroup"
                 description: "The groupID of the user running the application"
                 schema:
                   type: int
-                  default: 0
+                  default: 568
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}

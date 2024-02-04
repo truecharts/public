@@ -7,17 +7,17 @@ annotations:
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 11.0.3
+appVersion: 11.0.4
 dependencies:
   - name: common
-    version: 17.2.29
+    version: 17.2.30
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mariadb
-    version: 12.1.6
+    version: 12.1.12
     repository: https://deps.truecharts.org/
     condition: mariadb.enabled
     alias: ""
@@ -43,4 +43,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/seafile
   - https://hub.docker.com/r/seafileltd/seafile-mc
 type: application
-version: 4.1.13
+version: 4.1.16

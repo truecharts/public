@@ -26,6 +26,8 @@ LLDAP is a `Stable` train chart and therefore isn't supported at the same level 
 
 - Once in `LLDAP`, create a user inside the `lldap_password_manager` group and change your default `admin` password. That `lldap_password_manager` user will be used to bind to `Authelia`. I've created a user called `Steven`
 
+- Create an `admin` group and add `Steven` to it. We will allow users of this group to access the site with Authelia later in the guide.
+
 ## Setup Authelia
 
 - The setup for Authelia is very specific, and the logs won't tell you where you've messed up, but there's precise steps used to integrate `LLDAP` into `Authelia`. The info comes from the [LLDAP Authelia Docs](https://truecharts.org/charts/stable/lldap/authelia) and the upstream repo.
@@ -65,15 +67,17 @@ Check your mail provider for this, generally Gmail gives you an app specific pas
 
 ### Access Control Configuration
 
-- This section is to set rules to connect to `Authelia` and which users can go where. This is a basic general rule below where the main user (Steven) can access all the site using a wildcard
+- This section is to set rules to connect to `Authelia` and which users can go where. This is a basic general rule where users of the `admin` group (Steven) can access all the site using a wildcard.
 
-Leave the default `one_factor` unless you've setup TOTP above. Then click `Add` next to `Rules` to get the screen below
+Set the default `deny`. Then click `Add` next to `Rules` to get the screen below.
 
 ![AutheliaAccessControl](./img/AutheliaAccessControl.png)
 
 - Add your `Domain` and a `Wildcard` for your subdomains.
-- Leave policy `one_factor`
-- Click `Add Subject` and add a subject of `group:lldap_password_manager` since `Steven` is part of that group
+- Set policy to `one_factor` or `two_factor`, up to you.
+- Click `Add Subject` and add a subject of `group:admin` since `Steven` is part of that group.
+
+Please see [Authelia Rules](./authelia-rules) for more advanced rules.
 
 #### Setup Authelia Ingress
 

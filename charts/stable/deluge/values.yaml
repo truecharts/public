@@ -26,15 +26,12 @@ service:
     ports:
       tcp:
         enabled: true
-        port: 51413
-        targetPort: 51413
-  torrent-udp:
-    enabled: true
-    ports:
+        port: 6881
+        targetPort: 6881
       udp:
         enabled: true
         port: "{{ .Values.service.torrent.ports.tcp.port }}"
-        targetPort: "{{ .Values.service.torrent.ports.tcp.port }}"
+        targetPort: "{{ .Values.service.torrent.ports.tcp.targetPort }}"
         protocol: udp
 workload:
   main:

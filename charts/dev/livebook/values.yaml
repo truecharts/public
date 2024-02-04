@@ -12,8 +12,8 @@ portal:
 securityContext:
   container:
     readOnlyRootFilesystem: false
-    runAsGroup: 0
-    runAsUser: 0
+    runAsGroup: 568
+    runAsUser: 568
 service:
   main:
     ports:
@@ -42,6 +42,7 @@ workload:
             LIVEBOOK_NODE: livebook@$(A_POD_IP)
             LIVEBOOK_PORT: "{{ .Values.service.main.ports.main.port }}"
             LIVEBOOK_HOME: "{{ .Values.persistence.data.mountPath }}"
+            LIVEBOOK_DATA_PATH: "{{ .Values.persistence.data.mountPath }}"
             LIVEBOOK_SECRET_KEY_BASE:
               secretKeyRef:
                 name: secrets
@@ -50,3 +51,24 @@ workload:
               secretKeyRef:
                 name: secrets
                 key: LIVEBOOK_COOKIE
+            LIVEBOOK_PASSWORD:
+              secretKeyRef:
+                name: secrets
+                key: LIVEBOOK_PASSWORD
+            LIVEBOOK_DEBUG: '{{ ternary "true" "false" .Values.livebook.debug }}'
+            LIVEBOOK_UPDATE_INSTRUCTIONS_URL: "{{ .Values.livebook.updateInstructionsUrl }}"
+            LIVEBOOK_AWS_CREDENTIALS: '{{ ternary "true" "false" .Values.livebook.awsCredentials.enabled }}'
+            AWS_ACCESS_KEY_ID: "{{ .Values.livebook.awsCredentials.accessKeyId }}"
+            AWS_SECRET_ACCESS_KEY:
+              secretKeyRef:
+                name: secrets
+                key: AWS_SECRET_ACCESS_KEY
+# default values
+livebook:
+  password: ""
+  updateInstructionsUrl: ""
+  debug: false
+  awsCredentials:
+    enabled: false
+    accessKeyId: ""
+    secretAccessKey: ""

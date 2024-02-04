@@ -10,21 +10,21 @@ apiVersion: v2
 appVersion: 1.15.2
 dependencies:
   - name: common
-    version: 17.2.29
+    version: 17.2.30
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mariadb
-    version: 12.1.6
+    version: 12.1.12
     repository: https://deps.truecharts.org/
     condition: mariadb.enabled
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 11.1.6
+    version: 11.1.16
     repository: https://deps.truecharts.org
     condition: redis.enabled
     alias: ""
@@ -48,4 +48,4 @@ sources:
   - https://ghcr.io/mriedmann/humhub-phponly
   - https://ghcr.io/mriedmann/humhub-nginx
 type: application
-version: 6.2.7
+version: 6.2.9

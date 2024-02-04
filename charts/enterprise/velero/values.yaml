@@ -31,13 +31,13 @@ velero:
       volumeMounts:
         - mountPath: /target
           name: plugins
-    - image: velero/velero-plugin-for-csi:v0.6.3@sha256:6f6fe00b772cc7730fb2c4db6ebc8c194bcd456f9acc2c93bb0eea0caa2fd359
+    - image: velero/velero-plugin-for-csi:v0.7.0@sha256:3ba643989cd2128963cfd5914de28acaa061e8216999e44330fd64a647c503ff
       imagePullPolicy: IfNotPresent
       name: velero-plugin-for-csi
       volumeMounts:
         - mountPath: /target
           name: plugins
-    - image: velero/velero-plugin-for-aws:v1.8.2@sha256:edfb14403fc4ee45ac99f34930125869a06465c44ffacaf57e351e477e2c6b53
+    - image: velero/velero-plugin-for-aws:v1.9.0@sha256:198955f28c21fbf8d5e3a343a7660684f12bdd62d6f27c74ed3ca6cf31c87cec
       imagePullPolicy: IfNotPresent
       name: velero-plugin-for-aws
       volumeMounts:
