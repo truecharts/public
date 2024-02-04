@@ -138,7 +138,12 @@ workload:
               set_ini() {
                 local key="${1}"
                 local value="${2}"
-                local flags=("${@:3}")  # Store all flags in an array
+                local flags=()  # Initialize an empty array for flags
+
+                # Loop through arguments starting from the third one
+                for ((i = 3; i <= $#; i++)); do
+                    flags+=("${!i}")  # Append each flag to the flags array
+                done
 
                 # Check if the key exists in the OptionSettings section
                 if ! grep -q 'OptionSettings=(' "$cfgFile"; then
