@@ -356,6 +356,13 @@ persistence:
     enabled: true
     mountPath: /var/dendrite/searchindex
 
+    # Enabled postgres
+cnpg:
+  main:
+    enabled: true
+    user: dendrite
+    database: dendrite
+
 portal:
   open:
     enabled: true
