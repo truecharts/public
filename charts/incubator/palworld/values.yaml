@@ -121,6 +121,7 @@ workload:
               config={{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}/Pal/Saved/Config/LinuxServer
               cfgFile=${config}/PalWorldSettings.ini
               dfCfgFile={{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}/DefaultPalWorldSettings.ini
+              update_public_ip="{{ .Values.palworld.game.update_public_ip }}"
 
               mkdir -p ${config}
               if [ ! -f "${cfgFile}" ]; then
