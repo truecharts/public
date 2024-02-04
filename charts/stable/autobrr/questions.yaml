@@ -12,6 +12,31 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
+
+  - variable: autobrr
+    group: App Configuration
+    label: Autobrr Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: log_level
+          label: Log Level
+          schema:
+            type: string
+            default: "DEBUG"
+            enum:
+              - value: "ERROR"
+                description: "Error"
+              - value: "DEBUG"
+                description: "Debug"
+              - value: "INFO"
+                description: "Info"
+              - value: "WARN"
+                description: "Warn"
+              - value: "TRACE"
+                description: "Trace"
+
 # Include{podOptions}
 # Include{serviceRoot}
         - variable: main

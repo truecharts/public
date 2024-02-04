@@ -2,6 +2,25 @@
 {{- define "radicale.configmaps" -}}
 {{- $fullname := (include "tc.v1.common.lib.chart.names.fullname" $) -}}
 
+{{- $mainPort := .Values.service.main.ports.main.port }}
+{{- $maxContentLength := .Values.radicale.server.max_content_length }}
+{{- $maxConnections := .Values.radicale.server.max_connections }}
+{{- $request := .Values.radicale.encoding.request }}
+{{- $authType := .Values.radicale.auth.type }}
+{{- $authDelay := .Values.radicale.auth.delay }}
+{{- $authRealm := .Values.radicale.auth.realm }}
+{{- $rightsType := .Values.radicale.rights.type }}
+{{- $storageType := .Values.radicale.storage.type }}
+{{- $webType := .Values.radicale.web.type }}
+{{- $maxSyncTokenAge := .Values.radicale.storage.max_sync_token_age }}
+
+{{- $stock := .Values.radicale.encoding.stock }}
+{{- $loggingLevel := .Values.radicale.logging.level }}
+{{- $authUsers := .Values.radicale.auth.users }}
+{{- $maskPasswords := .Values.radicale.logging.mask_passwords }}
+
+{{- $timeout := .Values.radicale.server.timeout }}
+
 radicale-config:
   enabled: true
   data:
@@ -24,11 +43,11 @@ radicale-config:
       # IPv6 syntax: [address]:port
       # For example: 0.0.0.0:9999, [::]:9999
       #hosts = localhost:5232
-      hosts = "0.0.0.0:{{ .Values.service.main.ports.main.port }}"
+      hosts = 0.0.0.0:{{ $mainPort }}
 
       # Max parallel connections
       #max_connections = 8
-      max_connections = {{ .Values.radicale.server.max_connections }}
+      max_connections = {{ $maxConnections }}
 
       # Max size of request body (bytes)
       #max_content_length = 100000000
@@ -36,11 +55,11 @@ radicale-config:
         Multiply by 1, so large integers aren't rendered in scientific notation
         See: https://github.com/helm/helm/issues/1707#issuecomment-1167860346
       */}}
-      max_content_length = {{ mul .Values.radicale.server.max_content_length 1 }}
+      max_content_length = {{ mul $maxContentLength 1 }}
 
       # Socket timeout (seconds)
       #timeout = 30
-      timeout = {{ .Values.radicale.server.timeout }}
+      timeout = {{ $timeout }}
 
       # SSL flag, enable HTTPS protocol
       #ssl = False
@@ -60,11 +79,11 @@ radicale-config:
 
       # Encoding for responding requests
       #request = utf-8
-      request = {{ .Values.radicale.encoding.request }}
+      request = {{ $request }}
 
       # Encoding for storing local collections
       #stock = utf-8
-      stock = {{ .Values.radicale.encoding.stock }}
+      stock = {{ $stock }}
 
 
       [auth]
@@ -72,10 +91,10 @@ radicale-config:
       # Authentication method
       # Value: none | htpasswd | remote_user | http_x_remote_user
       #type = none
-      type = {{ .Values.radicale.auth.type }}
+      type = {{ $authType }}
 
       # Htpasswd filename
-      #htpasswd_filename = /etc/radicale/users
+      htpasswd_filename = /config/users
 
       # Htpasswd encryption method
       # Value: plain | bcrypt | md5
@@ -85,18 +104,18 @@ radicale-config:
 
       # Incorrect authentication delay (seconds)
       #delay = 1
-      delay = {{ .Values.radicale.auth.delay }}
+      delay = {{ $authDelay }}
 
       # Message displayed in the client when a password is needed
       #realm = Radicale - Password Required
-      realm = {{ .Values.radicale.auth.realm }}
+      realm = {{ $authRealm }}
 
       [rights]
 
       # Rights backend
       # Value: none | authenticated | owner_only | owner_write | from_file
       #type = owner_only
-      type = {{ .Values.radicale.rights.type }}
+      type = {{ $rightsType }}
 
       # File for rights management from_file
       #file = /etc/radicale/rights
@@ -107,7 +126,7 @@ radicale-config:
       # Storage backend
       # Value: multifilesystem | multifilesystem_nolock
       #type = multifilesystem
-      type = {{ .Values.radicale.storage.type }}
+      type = {{ $storageType }}
 
       # Folder for storing local collections, created if not present
       #filesystem_folder = /var/lib/radicale/collections
@@ -119,7 +138,7 @@ radicale-config:
         Multiply by 1, so large integers aren't rendered in scientific notation
         See: https://github.com/helm/helm/issues/1707#issuecomment-1167860346
       */}}
-      max_sync_token_age = {{ mul .Values.radicale.storage.max_sync_token_age 1 }}
+      max_sync_token_age = {{ mul $maxSyncTokenAge 1 }}
 
       # Command that is run after changes to storage
       # Example: ([ -d .git ] || git init) && git add -A && (git diff --cached --quiet || git commit -m "Changes by "%(user)s)
@@ -131,7 +150,7 @@ radicale-config:
       # Web interface backend
       # Value: none | internal
       #type = internal
-      type = {{ .Values.radicale.web.type }}
+      type = {{ $webType }}
 
 
       [logging]
@@ -139,11 +158,11 @@ radicale-config:
       # Threshold for the logger
       # Value: debug | info | warning | error | critical
       #level = warning
-      level = {{ .Values.radicale.logging.level }}
+      level = {{ $loggingLevel }}
 
       # Don't include passwords in logs
       #mask_passwords = True
-      mask_passwords = {{ .Values.radicale.logging.mask_passwords | ternary "True" "False" }}
+      mask_passwords = {{ $maskPasswords | ternary "True" "False" }}
 
 
       [headers]
@@ -155,7 +174,7 @@ radicale-users:
   enabled: true
   data:
     users: |-
-      {{- range .Values.radicale.auth.users }}
+      {{- range $authUsers }}
       {{ htpasswd .username .password }}
       {{- end }}
 {{- end }}
