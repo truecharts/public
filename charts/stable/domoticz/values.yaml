@@ -29,7 +29,7 @@ workload:
             # Set default http port. Container also has SSL_PORT variable for SSL.
             WWW_PORT: "{{ .Values.service.main.ports.main.port }}"
             # Set userdata path to match previous linuxserver.io default
-            EXTRA_CMD_ARG: "-userdata /config"
+            EXTRA_CMD_ARG: "-userdata {{ .Values.persistence.config.mountPath }}"
 persistence:
   config:
     enabled: true
