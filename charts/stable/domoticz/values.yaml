@@ -1,7 +1,7 @@
 image:
-  repository: ghcr.io/linuxserver/domoticz
+  repository: domoticz/domoticz
   pullPolicy: IfNotPresent
-  tag: 2023.2.20231129@sha256:db5939da7ee7979a2a29ac455f5bee6646d59ef32f3ea20a3be0d77667ef8428
+  tag: 2024.3@sha256:59775bc770f805f5f8454f2ca6f480477f371011488b41c86ccc82c4c23c3d60
 securityContext:
   container:
     runAsNonRoot: false
@@ -12,7 +12,6 @@ service:
   main:
     ports:
       main:
-        targetPort: 8080
         port: 10144
   comm1:
     enabled: true
@@ -21,27 +20,16 @@ service:
         enabled: true
         targetPort: 6144
         port: 6144
-  comm2:
-    enabled: true
-    ports:
-      comm2:
-        enabled: true
-        targetPort: 1443
-        port: 1443
 workload:
   main:
     podSpec:
       containers:
         main:
-          probes:
-            liveness:
-              type: tcp
-            readiness:
-              type: tcp
-            startup:
-              type: tcp
           env:
-            WEBROOT: "domoticz"
+            # Set default http port. Container also has SSL_PORT variable for SSL.
+            WWW_PORT: "{{ .Values.service.main.ports.main.port }}"
+            # Set userdata path to match previous linuxserver.io default
+            EXTRA_CMD_ARG: "-userdata {{ .Values.persistence.config.mountPath }}"
 persistence:
   config:
     enabled: true
