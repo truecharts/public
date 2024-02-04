@@ -93,6 +93,7 @@ palworld:
     region: ""
     work_speed_rate: "1.000000"
     update_public_ip: false
+    public_ip: ""
     params:
       - EpicApp=PalServer
     params_extra:
@@ -120,6 +121,7 @@ workload:
               config={{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}/Pal/Saved/Config/LinuxServer
               cfgFile=${config}/PalWorldSettings.ini
               dfCfgFile={{ .Values.persistence.serverfiles.targetSelector.main.main.mountPath }}/DefaultPalWorldSettings.ini
+              update_public_ip="{{ .Values.palworld.game.update_public_ip }}"
 
               mkdir -p ${config}
               if [ ! -f "${cfgFile}" ]; then
@@ -134,24 +136,43 @@ workload:
               fi
 
               set_ini_value() {
-                  local key="${1}"
-                  local value="${2}"
-                  local quote_flag="${3:-}"
+                local key="${1}"
+                local value="${2}"
+                local quote_flag="${3:-}"
 
-                  # Check if the key exists
-                  if ! grep -q "${key}=" "${cfgFile}"; then
-                      echo "Key '${key}' does not exist in '${cfgFile}'. Skipping..."
-                      return
-                  fi
+                # Check if the key exists in the OptionSettings section
+                if ! grep -q 'OptionSettings=(' "$cfgFile"; then
+                    echo "OptionSettings section not found in '${cfgFile}'. Skipping..."
+                    return
+                fi
 
-                  if [ "$quote_flag" = "-q" ]; then
-                      # Add quotes around the value
-                      value="\"$value\""
-                  fi
+                # Check if the key exists within the OptionSettings section
+                if ! grep -q "${key}=" "$cfgFile"; then
+                    echo "Key '${key}' does not exist in the OptionSettings section of '${cfgFile}'. Skipping..."
+                    return
+                fi
 
-                  echo "Setting ${key}..."
-                  sed -i "s|\(${key}=\)[^,]*|\1${value}|g" "${cfgFile}"
-                  echo "Set to $(grep -Po "(?<=${key}=)[^,]*" "${cfgFile}")"
+                # Add quotes around the value if quote_flag is set
+                if [ "$quote_flag" = "-q" ]; then
+                    value="\"$value\""
+                fi
+
+                # Update the value within the OptionSettings section
+                sed -i "/OptionSettings=(/ {
+                    :loop
+                    /)$/! {
+                        N
+                        b loop
+                    }
+                    s|\(${key}=\)[^,]*|\1${value}|
+                }" "${cfgFile}"
+
+                # Check if the closing parenthesis is missing, and if so, add it
+                if ! grep -q ')$' "${cfgFile}"; then
+                    sed -i "\|OptionSettings=(| s|$|)|" "${cfgFile}"
+                fi
+
+                echo "Set ${key} to ${value}"
               }
 
               echo "the following options are updating...."
@@ -160,15 +181,15 @@ workload:
               set_ini_value "RCONPort" "{{ .Values.service.rcon.ports.rcon.port }}" -q
               set_ini_value "PublicPort" "{{ .Values.service.main.ports.main.port }}" -q
 
-              set_ini_value "ServerPassword" "{{ .Values.palworld.game.password }}" -q
-              set_ini_value "AdminPassword" "{{ .Values.palworld.game.admin_password }}" -q
+              set_ini_value "ServerPassword" '{{ .Values.palworld.game.password }}' -q
+              set_ini_value "AdminPassword" '{{ .Values.palworld.game.admin_password }}' -q
 
-              set_ini_value "ServerName" "{{ .Values.palworld.game.name }}" -q
-              set_ini_value "ServerDescription" "{{ .Values.palworld.game.description }}" -q
+              set_ini_value "ServerName" '{{ .Values.palworld.game.name }}' -q
+              set_ini_value "ServerDescription" '{{ .Values.palworld.game.description }}' -q
               set_ini_value "Difficulty" "{{ .Values.palworld.game.difficulty }}" -q
               set_ini_value "DeathPenalty" "{{ .Values.palworld.game.death_penalty }}" -q
               set_ini_value "Region" "{{ .Values.palworld.game.region }}" -q
-
+              
               set_ini_value "AutoResetGuildTimeNoOnlinePlayers" "{{ .Values.palworld.game.auto_reset_guild_time_no_online_players }}"
               set_ini_value "BaseCampMaxNum" "{{ .Values.palworld.game.base_camp_max }}"
               set_ini_value "BaseCampWorkerMaxNum" "{{ .Values.palworld.game.base_camp_worker_max }}"
@@ -221,6 +242,10 @@ workload:
               set_ini_value "WorkSpeedRate" "{{ .Values.palworld.game.work_speed_rate }}"
               set_ini_value "ExpRate" "{{ .Values.palworld.game.exp_rate }}"
 
+              # Check if update_public_ip is not true
+              if [ "${update_public_ip}" != "true" ]; then
+                  set_ini_value "PublicIP" "{{ .Values.palworld.game.public_ip }}" -q
+              fi
               echo "Done!"
       containers:
         main:
@@ -245,7 +270,7 @@ workload:
             VALIDATE: "{{ .Values.palworld.steam.validate }}"
             # game
             SRV_ADMIN_PWD: "{{ .Values.palworld.game.admin_password }}"
-            UPDATE_PUBLIC_IP: "{{ .Values.palworld.game.update_public_ip }}"
+            UPDATE_PUBLIC_IP: "{{ .Values.palworld.game.update_public_ip }}" 
             GAME_PARAMS: '{{ join " " .Values.palworld.game.params }}'
             GAME_PARAMS_EXTRA: '{{ join " " .Values.palworld.game.params_extra }}'
             # backup
@@ -272,12 +297,6 @@ workload:
               enabled: false
             startup:
               enabled: false
-          args:
-            - ./rcon
-            - -a
-            - '{{ printf "%v-rcon:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.rcon.ports.rcon.port }}'
-            - -p
-            - "{{ .Values.palworld.game.admin_password }}"
 
 persistence:
   steamcmd:
@@ -291,7 +310,16 @@ persistence:
           mountPath: /serverdata/serverfiles
         update-config-ini:
           mountPath: /serverdata/serverfiles
-
+  palworld-rcon:
+    enabled: true
+    type: configmap
+    objectName: palworld-rcon
+    targetSelector:
+      rcon:
+        rcon:
+          mountPath: /rcon.yaml
+          subPath: rcon.yaml
+          readOnly: true
 portal:
   open:
     enabled: false

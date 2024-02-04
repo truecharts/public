@@ -2,9 +2,15 @@
 title: PalWorld Installation Notes
 ---
 
-::: note
+:::note
 
 All app configuration defined in the GUI will take precedence over ANY manual configuration changed via the ini file.
+
+:::
+
+:::info
+
+You may need to restart the chart every 24 to 48hrs to keep the server from running out of memory and crashing.
 
 :::
 
