@@ -299,7 +299,7 @@ workload:
   main:
     podSpec:
       initContainers:
-        update-config-ini:
+        update-config:
           enabled: true
           type: init
           imageSelector: "image"
@@ -308,9 +308,9 @@ workload:
             - -c
           args:
             - |
-              config={{ .Values.persistence.config.targetSelector.main.main.mountPath }}
+              config={{ .Values.persistence.config.targetSelector.main.mountPath }}
               cfgFile=${config}/dendrite.yaml
-              dfCfgFile={{ .Values.persistence.config.targetSelector.main.main.mountPath }}/dendrite.yaml
+              dfCfgFile={{ .Values.persistence.config.targetSelector.main.mountPath }}/dendrite.yaml
 
               mkdir -p ${config}
               if [ ! -f "${cfgFile}" ]; then
@@ -341,7 +341,6 @@ persistence:
     enabled: true
     targetSelector:
       main:
-        main:
         mountPath: /etc/dendrite
       update-config:
         mountPath: /etc/dendrite
