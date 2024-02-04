@@ -9,6 +9,8 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
+# Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
 # Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
@@ -43,6 +45,13 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
+        - variable: uploads
+          label: App Files Server Uploads
+          description: Stores the files uploaded to application.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
 # Include{persistenceBasic}
         - variable: logs
           label: "App Logs Storage"
@@ -51,13 +60,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-        - variable: uploads
-          label: App Files Server Uploads
-          description: Stores the files uploaded to application.
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
