@@ -385,11 +385,18 @@ questions:
                   type: string
                   default: "1.000000"
                   valid_chars: '^\d{1,}\.[0-9]{6}$'
+              - variable: update_public_ip
+                label: Update Public IP
+                description: Will check if the Public IP is still valid.
+                schema:
+                  type: boolean
+                  default: false
               - variable: public_ip
                 label: Public IP
                 schema:
                   type: string
                   default: ""
+                  show_if: [[update_public_ip, "!=", "true"]]
               - variable: params
                 label: Game Params
                 schema:
