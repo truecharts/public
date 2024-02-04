@@ -5,7 +5,7 @@ annotations:
   truecharts.org/category: Backup
   truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+  truecharts.org/train: unstable
 apiVersion: v2
 appVersion: latest
 dependencies:
@@ -32,7 +32,7 @@ maintainers:
 name: fogproject
 sources:
   - https://github.com/redvex2460/fogproject
-  - https://github.com/truecharts/charts/tree/master/uncharts/stable/fogproject
+  - https://github.com/truecharts/charts/tree/master/charts/unstable/fogproject
   - https://hub.docker.com/r/redvex2460/fogproject
 type: application
 version: 4.1.11
