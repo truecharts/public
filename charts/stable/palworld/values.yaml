@@ -138,11 +138,13 @@ workload:
               set_ini() {
                 local key="${1}"
                 local value="${2}"
-                local flags=()  # Initialize an empty array for flags
+                local flags=""  # Initialize an empty string for flags
 
                 # Loop through arguments starting from the third one
-                for ((i = 3; i <= $#; i++)); do
-                    flags+=("${!i}")  # Append each flag to the flags array
+                for arg in "$@"; do
+                    if [ "$arg" != "$key" ] && [ "$arg" != "$value" ]; then
+                        flags="$flags $arg"  # Append each flag to the flags string
+                    fi
                 done
 
                 # Check if the key exists in the OptionSettings section
@@ -158,7 +160,7 @@ workload:
                 fi
 
                 # Iterate over flags
-                for flag in "${flags[@]}"; do
+                for flag in $flags; do
                     case $flag in
                         -q)
                             # Add quotes around the value
@@ -166,7 +168,7 @@ workload:
                             ;;
                         -b)
                             # Handle boolean flag
-                            if [ "${value,,}" = "true" ]; then
+                            if [ "$(echo "$value" | tr '[:upper:]' '[:lower:]')" = "true" ]; then
                                 value="True"
                             else
                                 value="False"
