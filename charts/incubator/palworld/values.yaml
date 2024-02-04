@@ -184,8 +184,8 @@ workload:
               set_ini_value "ServerPassword" '{{ .Values.palworld.game.password }}' -q
               set_ini_value "AdminPassword" '{{ .Values.palworld.game.admin_password }}' -q
 
-              set_ini_value "ServerName" "{{ .Values.palworld.game.name }}" -q
-              set_ini_value "ServerDescription" "{{ .Values.palworld.game.description }}" -q
+              set_ini_value "ServerName" '{{ .Values.palworld.game.name }}' -q
+              set_ini_value "ServerDescription" '{{ .Values.palworld.game.description }}' -q
               set_ini_value "Difficulty" "{{ .Values.palworld.game.difficulty }}" -q
               set_ini_value "DeathPenalty" "{{ .Values.palworld.game.death_penalty }}" -q
               set_ini_value "Region" "{{ .Values.palworld.game.region }}" -q
