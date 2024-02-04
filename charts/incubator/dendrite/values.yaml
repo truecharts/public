@@ -68,7 +68,7 @@ dendrite_config:
     database:
       # -- The connection string for connections to Postgres.
       # This will be set automatically if using the Postgres dependency
-      connection_string: "{{ (printf "%s?client_encoding=utf8" (.Values.cnpg.main.creds.std | trimAll "\"")) | quote }}"-postgresql/dendrite?sslmode=disable""
+      connection_string: "{{ .Values.cnpg.main.creds.std }}-postgresql/dendrite?sslmode=disable""
 
       # -- Default database maximum open connections
       max_open_conns: 90
