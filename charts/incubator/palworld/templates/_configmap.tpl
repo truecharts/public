@@ -4,6 +4,7 @@
 
 {{- $adminPassword := .Values.palworld.game.admin_password -}}
 {{- $rconPort := .Values.service.rcon.ports.rcon.port }}
+{{- $rcon := .Values.palworld.rcon }}
 
 palworld-rcon:
   enabled: true
@@ -13,5 +14,5 @@ palworld-rcon:
        address: "{{ printf "%v-rcon:%v" $fullname $rconPort }}"
        password: {{ $adminPassword }}
        log: "rcon-palworld.log"
-       timeout: "10s"
+       timeout: "{{ $rcon.timeout }}"
 {{- end -}}

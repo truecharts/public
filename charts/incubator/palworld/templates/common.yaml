@@ -7,5 +7,11 @@
   {{- $_ := mustMergeOverwrite .Values.configmap $configmaps -}}
 {{- end -}}
 
+{{/* Disable [rcon] if requested */}}
+{{- if not .Values.palworld.rcon.enabled -}}
+  {{- $_ := set .Values.workload.rcon "enabled" false -}}
+{{- end -}}
+
+
 {{/* Render the templates */}}
 {{- include "tc.v1.common.loader.apply" . -}}
