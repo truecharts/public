@@ -272,7 +272,9 @@ workload:
               if [ "${update_public_ip}" != "true" ]; then
                   set_ini "PublicIP" "{{ .Values.palworld.game.public_ip }}" -q
               fi
+
               echo "Done!"
+
       containers:
         main:
           probes:
@@ -346,6 +348,7 @@ persistence:
           mountPath: /rcon.yaml
           subPath: rcon.yaml
           readOnly: true
+
 portal:
   open:
     enabled: false
