@@ -7,10 +7,10 @@ annotations:
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.35.1
+appVersion: 1.35.2
 dependencies:
   - name: common
-    version: 17.2.29
+    version: 17.2.30
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -24,7 +24,7 @@ keywords:
   - zigbee
   - mqtt
   - home-assistant
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/zigbee2mqtt
   - https://hub.docker.com/r/koenkk/zigbee2mqtt
 type: application
-version: 10.4.0
+version: 10.4.2

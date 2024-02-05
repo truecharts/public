@@ -7,10 +7,10 @@ annotations:
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 25.0.1
+appVersion: 25.0.2
 dependencies:
   - name: common
-    version: 17.2.29
+    version: 17.2.30
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -32,4 +32,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/docker
   - https://hub.docker.com/_/docker
 type: application
-version: 4.0.4
+version: 4.0.8

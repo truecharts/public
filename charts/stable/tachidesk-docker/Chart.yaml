@@ -7,10 +7,10 @@ annotations:
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: latest
+appVersion: preiew
 dependencies:
   - name: common
-    version: 17.2.29
+    version: 17.2.30
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -23,7 +23,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/tachidesk-docker.png
 keywords:
   - tachidesk-docker
   - MediaServer-Other
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/tachidesk-docker
   - https://ghcr.io/suwayomi/tachidesk
 type: application
-version: 4.1.10
+version: 5.0.1
