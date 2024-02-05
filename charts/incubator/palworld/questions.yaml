@@ -396,7 +396,6 @@ questions:
                 schema:
                   type: string
                   default: ""
-                  show_if: [[update_public_ip, "!=", "true"]]
               - variable: params
                 label: Game Params
                 schema:
