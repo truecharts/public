@@ -7,9 +7,9 @@ title: Important Notes
 On first run, cloudreve will generate an admin user and print the email and password to the app logs. It will look something like this:
 
 ```
-   ___ _                 _                    
-  / __\ | ___  _   _  __| |_ __ _____   _____ 
- / /  | |/ _ \| | | |/ _  | '__/ _ \ \ / / _ \  
+   ___ _                 _
+  / __\ | ___  _   _  __| |_ __ _____   _____
+ / /  | |/ _ \| | | |/ _  | '__/ _ \ \ / / _ \
 / /___| | (_) | |_| | (_| | | |  __/\ V /  __/
 \____/|_|\___/ \__,_|\__,_|_|  \___| \_/ \___|
 
@@ -36,9 +36,9 @@ To use cloudreve with aria2, install the [TrueCharts aria2 app](https://truechar
 
 Once aria2 is installed, open cloudreve's webpage and navigate to the Dashboard (Click on profile icon in top right corner -> Dashboard). In the dashboard, select `Nodes` and then click the edit icon beside `Master (Local Machine)`. In the edit dialog, click `Enable` and then fill out the settings:
 
-* RPC Server: find with `heavyscript dns`, and read about internal DNS [here](https://truecharts.org/manual/SCALE/guides/linking-apps/).
-* RPC Secret: Set the shared secret here. Must also be set in the Aria2 app.
-* Absolute Path: Set this to a custom persistent mount that you've created for this cloudreve app, and have also mounted to Aria2.
+- RPC Server: find with `heavyscript dns`, and read about internal DNS [here](https://truecharts.org/manual/SCALE/guides/linking-apps/).
+- RPC Secret: Set the shared secret here. Must also be set in the Aria2 app.
+- Absolute Path: Set this to a custom persistent mount that you've created for this cloudreve app, and have also mounted to Aria2.
 
 ### Example RPC Secrete Generation
 
