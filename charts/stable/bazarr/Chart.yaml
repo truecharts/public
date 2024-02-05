@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.4.0
+appVersion: 1.4.1
 dependencies:
   - name: common
     version: 17.2.30
@@ -27,7 +27,7 @@ keywords:
   - subtitles
   - usenet
   - torrent
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -39,4 +39,4 @@ sources:
   - https://ghcr.io/onedr0p/exportarr
   - https://ghcr.io/onedr0p/bazarr
 type: application
-version: 17.1.16
+version: 17.1.17
