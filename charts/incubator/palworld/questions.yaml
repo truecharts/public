@@ -396,7 +396,6 @@ questions:
                 schema:
                   type: string
                   default: ""
-                  show_if: [[update_public_ip, "!=", "true"]]
               - variable: params
                 label: Game Params
                 schema:
@@ -453,6 +452,25 @@ questions:
                   type: int
                   default: 12
                   min: 1
+        - variable: rcon
+          label: RCON Sidecar Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: Enable the RCON sidecar.
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: timeout
+                      label: Rcon TimeOut
+                      schema:
+                        type: string
+                        required: true
+                        default: 10s
 
 # Include{containerConfig}
 # Include{serviceRoot}
