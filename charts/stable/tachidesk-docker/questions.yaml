@@ -166,12 +166,6 @@ questions:
                                           default: ""
                                       - variable: FLARESOLVERR_TIMEOUT
                                         label: "Flaresolverr Timeout in Seconds"
-                                        description: "Time in days (0 to disable it) for how long backup files will be kept before they will get deleted"
-                                        schema:
-                                          type: int
-                                          default: 60
-                                      - variable: FLARESOLVERR_TIMEOUT
-                                        label: "Flaresolverr Timeout in Seconds"
                                         description: "Time in seconds before it times out"
                                         schema:
                                           type: int
