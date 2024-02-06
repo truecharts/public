@@ -25,7 +25,7 @@
 {{/* Returns the fqdn of the Chart */}}
 {{- define "tc.v1.common.lib.chart.names.fqdn" -}}
 
-  {{- printf "%s.%s" (include "tc.v1.common.lib.chart.names.name" .) .Release.Namespace | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
+  {{- printf "%s.%s" (include "tc.v1.common.lib.chart.names.fullname" .) .Release.Namespace | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
 
 {{- end -}}
 
