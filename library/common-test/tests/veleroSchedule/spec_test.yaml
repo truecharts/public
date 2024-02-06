@@ -22,8 +22,10 @@ tests:
         equal:
           path: spec
           value:
-            schedule: "0 2 * * *"
-
+            schedule: 0 2 * * *
+            template:
+              includedNamespaces:
+                - test-release-namespace
   - it: should generate correct spec with useOwnerReferencesInBackup
     set:
       schedules:
@@ -44,6 +46,9 @@ tests:
           value:
             schedule: "0 2 * * *"
             useOwnerReferencesInBackup: true
+            template:
+              includedNamespaces:
+                - test-release-namespace
 
   - it: should generate correct spec with template
     set:
@@ -71,6 +76,8 @@ tests:
               ttl: 720h
               includeClusterResources: true
               snapshotVolumes: true
+              includedNamespaces:
+                - test-release-namespace
 
   # Failures
   - it: should fail without schedule

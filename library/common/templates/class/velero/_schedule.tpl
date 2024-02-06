@@ -14,12 +14,20 @@ objectData:
 
   {{- $rootCtx := .rootCtx -}}
   {{- $objectData := .objectData }}
+  {{- $namespace := (include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $rootCtx "objectData" $objectData "caller" "Schedule")) -}}
+  {{- $lookupBSL := (lookup "velero.io/v1" "BackupStorageLocation" "" "") -}}
+  {{- if and $lookupBSL $lookupBSL.items -}}
+      {{- $lookupBSL = $lookupBSL.items  -}}
+  {{- end -}}
+  {{- range $BSL := $lookupBSL -}}
+    {{- $namespace = $BSL.metadata.namespace -}}
+  {{- end }}
 ---
 apiVersion: velero.io/v1
 kind: Schedule
 metadata:
   name: {{ $objectData.name }}
-  namespace: {{ include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $rootCtx "objectData" $objectData "caller" "Schedule") }}
+  namespace: {{ $namespace }}
   {{- $labels := (mustMerge ($objectData.labels | default dict) (include "tc.v1.common.lib.metadata.allLabels" $rootCtx | fromYaml)) -}}
   {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "labels" $labels) | trim) }}
   labels:
@@ -34,9 +42,17 @@ spec:
   schedule: {{ $objectData.schedule | quote }}
   {{- if (kindIs "bool" $objectData.useOwnerReferencesInBackup) }}
   useOwnerReferencesInBackup: {{ $objectData.useOwnerReferencesInBackup }}
-  {{- end -}}
-  {{- with $objectData.template }}
+  {{- end }}
   template:
+    {{- if not $objectData.template }}
+    includedNamespaces:
+      - {{ include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $rootCtx "objectData" $objectData "caller" "Schedule") }}
+    {{- end -}}
+    {{- with $objectData.template }}
     {{- toYaml . | nindent 4 }}
-  {{- end -}}
+    {{- if not .includedNamespaces }}
+    includedNamespaces:
+      - {{ include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $rootCtx "objectData" $objectData "caller" "Schedule") }}
+    {{- end -}}
+    {{- end -}}
 {{- end -}}

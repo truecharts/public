@@ -826,11 +826,10 @@ schedules: {}
 #       myenv: foo
 #     schedule: "0 0 * * *"
 #     useOwnerReferencesInBackup: false
+#     ## Included namespace, is set by default to the chart itself, unless explicitly specified
 #     template:
 #       ttl: "240h"
 #       storageLocation: default
-#       includedNamespaces:
-#       - foo
 # # -- create volumeSnapshotClass on demand
 # volumeSnapshotClass:
 #   example:

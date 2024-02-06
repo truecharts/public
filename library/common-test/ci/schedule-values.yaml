@@ -40,7 +40,10 @@ manifestManager:
   enabled: false
 
 schedules:
-  - name:
+  test:
+    enabled: true
+    schedule: "0 0 * * *"
+  test2:
     enabled: true
     labels:
       myenv: foo
@@ -48,6 +51,12 @@ schedules:
       myenv: foo
     schedule: "0 0 * * *"
     useOwnerReferencesInBackup: false
+    template:
+      ttl: "240h"
+      storageLocation: default
+  test3:
+    enabled: true
+    schedule: "0 0 * * *"
     template:
       ttl: "240h"
       storageLocation: default
