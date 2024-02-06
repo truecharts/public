@@ -1,7 +1,7 @@
 image:
-  repository: linuxserver/sabnzbd
+  repository: ghcr.io/onedr0p/sabnzbd
   pullPolicy: IfNotPresent
-  tag: latest
+  tag: 4.2.1@sha256:c9f2577a9483ed1a53295ed6315f4ebfcf9e99507c1095f49b5bc2f0cf080179
 exportarrImage:
   repository: ghcr.io/onedr0p/exportarr
   pullPolicy: IfNotPresent
@@ -15,7 +15,7 @@ service:
   main:
     ports:
       main:
-        port: 80
+        port: 10097
         targetPort: 8080
   metrics:
     enabled: true
@@ -27,17 +27,6 @@ service:
         port: 8990
         targetSelector: exportarr
 workload:
-  main:
-    podSpec:
-      containers:
-        main:
-          probes:
-            liveness:
-              enabled: false
-            readiness:
-              enabled: false
-            startup:
-              enabled: false
   exportarr:
     enabled: "{{ .Values.metrics.main.enabled }}"
     type: Deployment
@@ -70,7 +59,7 @@ workload:
           env:
             INTERFACE: 0.0.0.0
             PORT: "{{ .Values.service.metrics.ports.metrics.port }}"
-            URL: '{{ printf "http://%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.main.ports.main.port }}'
+            URL: '{{ printf "http://%v:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.main.ports.main.port }}'
             APIKEY: "{{ .Values.metrics.main.apiKey }}"
             SABNZBD__HOST_WHITELIST_ENTRIES: ""
             SABNZBD__PORT: "{{ .Values.service.main.ports.main.port }}"
@@ -99,3 +88,4 @@ metrics:
 portal:
   open:
     enabled: true
+            
