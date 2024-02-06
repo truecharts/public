@@ -27,17 +27,6 @@ service:
         port: 8990
         targetSelector: exportarr
 workload:
-  main:
-    podSpec:
-      containers:
-        main:
-          probes:
-            liveness:
-              enabled: false
-            readiness:
-              enabled: false
-            startup:
-              enabled: false
   exportarr:
     enabled: "{{ .Values.metrics.main.enabled }}"
     type: Deployment
