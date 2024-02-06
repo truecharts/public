@@ -90,6 +90,7 @@ workload:
             INTERFACE: 0.0.0.0
             PORT: "{{ .Values.service.metrics.ports.metrics.port }}"
             URL: '{{ printf "http://%v:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.main.ports.main.port }}'
+            APIKEY: "{{ .Values.metrics.main.apiKey }}"
             # additional metrics (slow)
             # ENABLE_ADDITIONAL_METRICS: false
             # enable gathering unknown queue items
@@ -108,14 +109,14 @@ persistence:
           readOnly: true
 metrics:
   main:
-    enabled: true
+    enabled: false
     type: "servicemonitor"
     endpoints:
       - port: metrics
         path: /metrics
     targetSelector: metrics
-    prometheusRule:
-      enabled: false
+    # Required for exportarr
+    apiKey: ""
       
 portal:
   open:
