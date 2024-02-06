@@ -11,11 +11,11 @@
             type: dict
             additional_attrs: true
             attrs:
-              - variable: disabled
-                label: "disabled"
+              - variable: enabled
+                label: "enabled"
                 schema:
                   type: boolean
-                  default: true
+                  default: false
               - variable: schedule
                 label: "schedule"
                 show_if: [["disabled", "=", false]]
