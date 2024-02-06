@@ -22,7 +22,6 @@ To update the server; restart the chart, it will download the latest available v
 
 :::
 
-
 ## Default Values
 
 | KEY                                  | VALUE                                          |
