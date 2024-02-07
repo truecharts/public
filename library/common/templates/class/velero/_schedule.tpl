@@ -66,7 +66,7 @@ spec:
     includedNamespaces:
       - {{ include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $rootCtx "objectData" $objectData "caller" "Schedule") }}
     {{- end -}}
-    {{- if not (hasKey .  includeClusterResources)}}
+    {{- if not (hasKey .  "includeClusterResources") }}
     includeClusterResources: true
     {{- end -}}
     {{- end -}}
