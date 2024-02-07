@@ -48,19 +48,27 @@ spec:
     includeClusterResources: true
     includedNamespaces:
       - {{ include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $rootCtx "objectData" $objectData "caller" "Schedule") }}
-    labelSelector:
-      matchLabels:
-        app.kubernetes.io/instance: {{ $rootCtx.Release.Name }}
-        release: {{ $rootCtx.Release.Name }}
+    orLabelSelectors:
+      - matchLabels:
+          app.kubernetes.io/instance: {{ $rootCtx.Release.Name }}
+      - matchLabels:
+          release: {{ $rootCtx.Release.Name }}
+      - matchLabels:
+          owner: helm
+          name: {{ $rootCtx.Release.Name }}
     {{- end -}}
 
     {{- with $objectData.template }}
     {{- toYaml . | nindent 4 }}
-    {{- if not .labelSelector }}
-    labelSelector:
-      matchLabels:
-        app.kubernetes.io/instance: {{ $rootCtx.Release.Name }}
-        release: {{ $rootCtx.Release.Name }}
+    {{- if not .orLabelSelectors }}
+    orLabelSelectors:
+      - matchLabels:
+          app.kubernetes.io/instance: {{ $rootCtx.Release.Name }}
+      - matchLabels:
+          release: {{ $rootCtx.Release.Name }}
+      - matchLabels:
+          owner: helm
+          name: {{ $rootCtx.Release.Name }}
     {{- end -}}
     {{- if not .includedNamespaces }}
     includedNamespaces:
