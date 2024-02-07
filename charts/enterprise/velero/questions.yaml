@@ -244,8 +244,18 @@ questions:
                       schema:
                         type: string
                         default: ""
-                    - variable: apiTimeout
-                      label: "apiTimeout"
+                    - variable: s3ForcePathStyle
+                      label: "s3ForcePathStyle"
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: s3Url
+                      label: "s3Url"
+                      schema:
+                        type: string
+                        default: ""
+                    - variable: kmsKeyId
+                      label: "kmsKeyId"
                       schema:
                         type: string
                         default: ""
@@ -254,18 +264,18 @@ questions:
                       schema:
                         type: string
                         default: ""
-                    - variable: incremental
-                      label: "incremental"
+                    - variable: storageAccount
+                      label: "storageAccount"
                       schema:
                         type: string
                         default: ""
-                    - variable: snapshotLocation
-                      label: "snapshotLocation"
+                    - variable: publicUrl
+                      label: "publicUrl"
                       schema:
                         type: string
                         default: ""
-                    - variable: project
-                      label: "project"
+                    - variable: insecureSkipTLSVerify
+                      label: "insecureSkipTLSVerify"
                       schema:
                         type: string
                         default: ""
