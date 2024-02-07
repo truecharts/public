@@ -61,7 +61,7 @@ questions:
                    - value: aws
                      description: aws
               - variable: credential
-                label: credential
+                label: 'Storage Location Credential'
                 schema:
                   additional_attrs: true
                   type: dict
@@ -99,7 +99,7 @@ questions:
                               type: string
                               default: ""
               - variable: config
-                label: config
+                label: 'Storage Location Config'
                 schema:
                   additional_attrs: true
                   type: dict
@@ -174,14 +174,12 @@ questions:
                 schema:
                   type: string
                   required: true
-                  default: "s3"
+                  default: "openebs.io/zfspv-blockstore"
                   enum:
-                   - value: s3
-                     description: S3
-                   - value: aws
-                     description: aws
+                   - value: openebs.io/zfspv-blockstore
+                     description: openebs.io/zfspv-blockstore
               - variable: credential
-                label: credential
+                label: 'Storage Location Credential'
                 schema:
                   additional_attrs: true
                   type: dict
@@ -219,11 +217,28 @@ questions:
                               type: string
                               default: ""
               - variable: config
-                label: config
+                label: 'Storage Location Config'
                 schema:
                   additional_attrs: true
                   type: dict
                   attrs:
+                    - variable: provider
+                      label: "Provider"
+                      schema:
+                        type: string
+                        required: true
+                        default: "s3"
+                        enum:
+                         - value: s3
+                           description: S3
+                         - value: aws
+                           description: aws
+                    - variable: bucket
+                      label: "bucket"
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
                     - variable: region
                       label: "region"
                       schema:
@@ -254,4 +269,3 @@ questions:
                       schema:
                         type: string
                         default: ""
-# Include{veleroSchedule}
