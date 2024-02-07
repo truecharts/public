@@ -18,7 +18,6 @@ service:
         targetSelector: ui
   api:
     enabled: true
-    type: ClusterIP
     targetSelector: main
     ports:
       api:
@@ -26,6 +25,11 @@ service:
         protocol: http
         port: 11434
         targetSelector: main
+
+ingress:
+  api:
+    targetSelector:
+      api: api
 
 workload:
   main:
