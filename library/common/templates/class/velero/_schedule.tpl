@@ -50,8 +50,8 @@ spec:
       - {{ include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $rootCtx "objectData" $objectData "caller" "Schedule") }}
     labelSelector:
       matchLabels:
-        app.kubernetes.io/instance: {{ .Release.Name }}
-        release: {{ .Release.Name }}
+        app.kubernetes.io/instance: {{ $rootCtx.Release.Name }}
+        release: {{ $rootCtx.Release.Name }}
     {{- end -}}
 
     {{- with $objectData.template }}
@@ -59,8 +59,8 @@ spec:
     {{- if not .labelSelector }}
     labelSelector:
       matchLabels:
-        app.kubernetes.io/instance: {{ $.Release.Name }}
-        release: {{ $.Release.Name }}
+        app.kubernetes.io/instance: {{ $rootCtx.Release.Name }}
+        release: {{ $rootCtx.Release.Name }}
     {{- end -}}
     {{- if not .includedNamespaces }}
     includedNamespaces:
