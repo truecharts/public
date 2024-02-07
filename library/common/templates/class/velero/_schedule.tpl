@@ -45,11 +45,22 @@ spec:
   {{- end }}
   template:
     {{- if not $objectData.template }}
+    includeClusterResources: true
     includedNamespaces:
       - {{ include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $rootCtx "objectData" $objectData "caller" "Schedule") }}
+    labelSelector:
+      matchLabels:
+        app.kubernetes.io/instance: {{ .Release.Name }}
+        release: {{ .Release.Name }}
     {{- end -}}
     {{- with $objectData.template }}
     {{- toYaml . | nindent 4 }}
+    {{- if not .labelSelector }}
+    labelSelector:
+      matchLabels:
+        app.kubernetes.io/instance: {{ .Release.Name }}
+        release: {{ .Release.Name }}
+    {{- end -}}
     {{- if not .includedNamespaces }}
     includedNamespaces:
       - {{ include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $rootCtx "objectData" $objectData "caller" "Schedule") }}
