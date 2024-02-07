@@ -18,4 +18,6 @@
 
   {{- include "tc.v1.common.values.volumeSnapshotClassList" . -}}
 
+  {{- include "tc.v1.common.values.schedulesList" . -}}
+
 {{- end -}}
