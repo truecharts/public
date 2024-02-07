@@ -5,9 +5,9 @@ image:
 
 securityContext:
   container:
-    readOnlyRootFilesystem: true
-    runAsUser: 568
-    runAsGroup: 568
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
 
 service:
   main:
