@@ -53,6 +53,7 @@ spec:
         app.kubernetes.io/instance: {{ .Release.Name }}
         release: {{ .Release.Name }}
     {{- end -}}
+
     {{- with $objectData.template }}
     {{- toYaml . | nindent 4 }}
     {{- if not .labelSelector }}
@@ -64,6 +65,9 @@ spec:
     {{- if not .includedNamespaces }}
     includedNamespaces:
       - {{ include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $rootCtx "objectData" $objectData "caller" "Schedule") }}
+    {{- end -}}
+    {{- if not (hasKey .  includeClusterResources)}}
+    includeClusterResources: true
     {{- end -}}
     {{- end -}}
 {{- end -}}
