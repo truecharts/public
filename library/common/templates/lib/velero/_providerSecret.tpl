@@ -4,13 +4,14 @@
   {{- $prefix := .prefix -}}
 
   {{- $creds := "" -}}
+  {{- $provider := "" -}}
 
   {{/* Use credential provider when creating secret for VSL */}}
   {{/* Make sure provider is a string */}}
   {{- if eq $prefix "vsl" -}}
-    {{- $provider := $objectData.credential.provider | toString -}}
+    {{- $provider = $objectData.credential.provider | toString -}}
   {{- else -}}
-    {{- $provider := $objectData.provider | toString -}}
+    {{- $provider = $objectData.provider | toString -}}
   {{- end -}}
  
 
