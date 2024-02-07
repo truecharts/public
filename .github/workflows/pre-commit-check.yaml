@@ -29,14 +29,14 @@ jobs:
 
     # run only if changed files were detected
     - name: Run against changes
-      uses: pre-commit/action@646c83fcd040023954eafda54b4db0192ce70507 # tag=v3.0.0
+      uses: pre-commit/action@2c7b3805fd2a0fd8c1884dcaebf91fc102a13ecd # v3.0.1
       if: steps.filter.outputs.addedOrModified == 'true'
       with:
         extra_args: --files ${{ steps.filter.outputs.addedOrModified_files }}
 
     # run if no changed files were detected (e.g. workflow_dispatch on master branch)
     - name: Run against all files
-      uses: pre-commit/action@646c83fcd040023954eafda54b4db0192ce70507 # tag=v3.0.0
+      uses: pre-commit/action@2c7b3805fd2a0fd8c1884dcaebf91fc102a13ecd # v3.0.1
       if: steps.filter.outputs.addedOrModified != 'true'
       with:
         extra_args: --all-files
