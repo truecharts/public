@@ -59,8 +59,8 @@ spec:
     {{- if not .labelSelector }}
     labelSelector:
       matchLabels:
-        app.kubernetes.io/instance: {{ .Release.Name }}
-        release: {{ .Release.Name }}
+        app.kubernetes.io/instance: {{ $.Release.Name }}
+        release: {{ $.Release.Name }}
     {{- end -}}
     {{- if not .includedNamespaces }}
     includedNamespaces:
