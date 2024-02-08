@@ -5,7 +5,7 @@ configmap:
     enabled: true
     data:
       DENDRITE_SERVER_NAME: ""
-      DENDRITE_KEY_VALIDITY: 168h0m0s
+      DENDRITE_KEY_VALIDITY: "168h0m0s"
 
     {{- .Values.dendrite_Config | toYaml | nindent 2 }}
 {{- end -}}
