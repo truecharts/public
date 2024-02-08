@@ -27,7 +27,7 @@ questions:
                                         description: "You need to enable the USE_X_SETTINGS environment variable in changedetection.io for it to respect HTTP headers sent from the reverse proxy (such as Host, X-Forwarded-Prefix and X-Forwarded-Proto)."
                                         schema:
                                           type: boolean
-                                          default: "1"
+                                          default: true
                                       - variable: HIDE_REFERER
                                         label: "HIDE_REFERER"
                                         description: " Hides the `Referer` header so that monitored websites can't see the changedetection.io hostname."
