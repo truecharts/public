@@ -1,0 +1,36 @@
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.2.30
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A collection of scripts which makes managing plex and meta manager easier.
+home: https://truecharts.org/charts/stable/userscripts
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/autoscan.png
+keywords:
+  - userscripts
+  - media
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: autoscan
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/userscripts
+  - https://ghcr.io/drazzilb08/userscripts
+type: application
+version: 7.1.16
