@@ -5,7 +5,7 @@ annotations:
   truecharts.org/category: AI
   truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: 2.5.1
 dependencies:
@@ -18,7 +18,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: A standalone, self-hosted, fast, free and Open Source Artificial Intelligence microserver for any platform, any language.
-home: https://truecharts.org/charts/incubator/codeprojectai-server
+home: https://truecharts.org/charts/stable/codeprojectai-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/codeprojectai-server.png
 keywords:
   - ai-server
@@ -31,7 +31,7 @@ maintainers:
 name: codeprojectai-server
 sources:
   - https://github.com/codeproject/CodeProject.AI-Server
-  - https://github.com/truecharts/charts/tree/master/charts/stabe/codeprojectai-server
+  - https://github.com/truecharts/charts/tree/master/charts/stable/codeprojectai-server
   - https://hub.docker.com/r/codeproject/ai-server
 type: application
 version: 1.0.0
