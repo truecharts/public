@@ -16,6 +16,13 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
+  - name: cert-manager-webhook-desec-http
+    version: 1.0.1
+    repository: ghcr.io/irreleph4nt/cert-manager-webhook-desec-http
+    condition: {{ eq .Values.questions.clusterIssuer.ACME.type "desec" }}
+    alias: webhookDesec
+    tags: []
+    import-values: []
 deprecated: false
 description: Certificate management for Kubernetes
 home: https://truecharts.org/charts/enterprise/clusterissuer

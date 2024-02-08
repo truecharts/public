@@ -14,7 +14,7 @@
   {{- if or (not .name) (not (mustRegexMatch "^[a-z]+(-?[a-z]){0,63}-?[a-z]+$" .name)) -}}
     {{- fail "ACME - Expected name to be all lowercase with hyphens, but not start or end with a hyphen" -}}
   {{- end -}}
-  {{- $validTypes := list "HTTP01" "cloudflare" "route53" "digitalocean" "akamai" "rfc2136" "acmedns" -}}
+  {{- $validTypes := list "HTTP01" "cloudflare" "route53" "digitalocean" "akamai" "rfc2136" "acmedns" "desec" -}}
   {{- if not (mustHas .type $validTypes) -}}
     {{- fail (printf "Expected ACME type to be one of [%s], but got [%s]" (join ", " $validTypes) .type) -}}
   {{- end -}}
@@ -101,6 +101,11 @@ spec:
           accountSecretRef:
             name: {{ $issuerSecretName }}
             key: acmednsJson
+      {{- else if eq .type "desec" }}
+        desec:
+          apiUrl: https://desec.io/api/v1
+          name: {{ $issuerSecretName }}
+          key: desec-token
       {{- end -}}
     {{- end }}
 ---
@@ -124,5 +129,6 @@ stringData:
 {{- else if $acmednsDict }}
   acmednsJson: {{ toJson $acmednsDict | quote }}
 {{- end -}}
+  desec-token: {{ .desec-token | default "" }}
   {{- end -}}
 {{- end -}}

@@ -49,6 +49,8 @@ questions:
                             description: HTTP01 (Experimental)
                           - value: acmedns
                             description: ACME DNS (Advanced)
+                          - value: desec
+                            description: deSEC (Advanced)
                     - variable: server
                       label: Server
                       description: "Server for ACME, for example: letsencrypt"
@@ -261,6 +263,14 @@ questions:
                                           type: ipaddr
                                           cidr: true
                                           required: true
+                    - variable: desec-token
+                      label: deSEC Token
+                      description: "deSEC Access Token"
+                      schema:
+                        show_if: [["type", "=", "desec"]]
+                        type: string
+                        required: true
+                        default: ""
         - variable: CA
           label: Certificate Authority Issuer
           schema:
