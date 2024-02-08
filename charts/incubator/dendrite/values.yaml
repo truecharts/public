@@ -23,306 +23,190 @@ service:
         protocol: http
         port: 8448
 
-dendrite_config:
-  version: 2
-  global:
-    # -- **REQUIRED** Servername for this Dendrite deployment.
-    server_name: ""
-
-    # -- The private key to use. (**NOTE**: This is overriden in Helm)
-    private_key: /etc/dendrite/secrets/signing.key
-
-    # -- The server name to delegate server-server communications to, with optional port
-    # e.g. localhost:443
-    well_known_server_name: ""
-
-    # -- The server name to delegate client-server communications to, with optional port
-    # e.g. localhost:443
-    well_known_client_name: ""
-
-    # -- Lists of domains that the server will trust as identity servers to verify third
-    # party identifiers such as phone numbers and email addresses.
-    trusted_third_party_id_servers:
-      - matrix.org
-      - vector.im
-
-    # -- The paths and expiry timestamps (as a UNIX timestamp in millisecond precision)
-    # to old signing keys that were formerly in use on this domain name. These
-    # keys will not be used for federation request or event signing, but will be
-    # provided to any other homeserver that asks when trying to verify old events.
-    old_private_keys:
-    #  If the old private key file is available:
-    #  - private_key: old_matrix_key.pem
-    #    expired_at: 1601024554498
-    #  If only the public key (in base64 format) and key ID are known:
-    #  - public_key: mn59Kxfdq9VziYHSBzI7+EDPDcBS2Xl7jeUdiiQcOnM=
-    #    key_id: ed25519:mykeyid
-    #    expired_at: 1601024554498
-
-    # -- Disable federation. Dendrite will not be able to make any outbound HTTP requests
-    # to other servers and the federation API will not be exposed.
-    disable_federation: false
-
-    key_validity_period: 168h0m0s
-
-    database:
-      # -- The connection string for connections to Postgres.
-      # This will be set automatically if using the Postgres dependency
-      connection_string: "{{ .Values.cnpg.main.creds.std }}-postgresql/dendrite?sslmode=disable"
-      # -- Default database maximum open connections
-      max_open_conns: 90
-      # -- Default database maximum idle connections
-      max_idle_conns: 5
-      # -- Default database maximum lifetime
-      conn_max_lifetime: -1
-
-    jetstream:
-      # -- Persistent directory to store JetStream streams in.
-      storage_path: "/var/dendrite/jetstream"
-      # -- NATS JetStream server addresses if not using internal NATS.
-      addresses: []
-      # -- The prefix for JetStream streams
-      topic_prefix: "Dendrite"
-      # -- Keep all data in memory. (**NOTE**: This is overriden in Helm to `false`)
-      in_memory: false
-      # -- Disables TLS validation. This should **NOT** be used in production.
-      disable_tls_validation: true
-
-    cache:
-      # -- The estimated maximum size for the global cache in bytes, or in terabytes,
-      # gigabytes, megabytes or kilobytes when the appropriate 'tb', 'gb', 'mb' or
-      # 'kb' suffix is specified. Note that this is not a hard limit, nor is it a
-      # memory limit for the entire process. A cache that is too small may ultimately
-      # provide little or no benefit.
-      max_size_estimated: 1gb
-      # -- The maximum amount of time that a cache entry can live for in memory before
-      # it will be evicted and/or refreshed from the database. Lower values result in
-      # easier admission of new cache entries but may also increase database load in
-      # comparison to higher values, so adjust conservatively. Higher values may make
-      # it harder for new items to make it into the cache, e.g. if new rooms suddenly
-      # become popular.
-      max_age: 1h
-
-    report_stats:
-      # -- Configures phone-home statistics reporting. These statistics contain the server
-      # name, number of active users and some information on your deployment config.
-      # We use this information to understand how Dendrite is being used in the wild.
-      enabled: false
-      # -- Endpoint to report statistics to.
-      endpoint: https://matrix.org/report-usage-stats/push
-
-    presence:
-      # -- Controls whether we receive presence events from other servers
-      enable_inbound: false
-      # -- Controls whether we send presence events for our local users to other servers.
-      # (_May increase CPU/memory usage_)
-      enable_outbound: false
-
-    server_notices:
-      # -- Server notices allows server admins to send messages to all users on the server.
-      enabled: false
-      # -- The local part for the user sending server notices.
-      local_part: "_server"
-      # -- The display name for the user sending server notices.
-      display_name: "Server Alerts"
-      # -- The avatar URL (as a mxc:// URL) name for the user sending server notices.
-      avatar_url: ""
-      # The room name to be used when sending server notices. This room name will
-      # appear in user clients.
-      room_name: "Server Alerts"
-
-    # prometheus metrics
-    metrics:
-      # -- Whether or not Prometheus metrics are enabled.
-      enabled: false
-      # HTTP basic authentication to protect access to monitoring.
-      basic_auth:
-        # -- HTTP basic authentication username
-        user: "metrics"
-        # -- HTTP basic authentication password
-        password: metrics
-
-    dns_cache:
-      # -- Whether or not the DNS cache is enabled.
-      enabled: false
-      # -- Maximum number of entries to hold in the DNS cache
-      cache_size: 256
-      # -- Duration for how long DNS cache items should be considered valid ([see time.ParseDuration](https://pkg.go.dev/time#ParseDuration) for more)
-      cache_lifetime: "10m"
-
-    profiling:
-      # -- Enable pprof. You will need to manually create a port forwarding to the deployment to access PPROF,
-      # as it will only listen on localhost and the defined port.
-      # e.g. `kubectl port-forward deployments/dendrite 65432:65432`
-      enabled: false
-      # -- pprof port, if enabled
-      port: 65432
-
-  # -- Configuration for experimental MSC's. (Valid values are: msc2836)
-  mscs:
-    mscs: []
-      # A list of enabled MSC's
-      # Currently valid values are:
-      # - msc2836    (Threading, see https://github.com/matrix-org/matrix-doc/pull/2836)
-
-  app_service_api:
-    # -- Disable the validation of TLS certificates of appservices. This is
-    # not recommended in production since it may allow appservice traffic
-    # to be sent to an insecure endpoint.
-    disable_tls_validation: false
-    # -- Appservice config files to load on startup. (**NOTE**: This is overriden by Helm, if a folder `./appservices/` exists)
-    config_files: []
-
-  client_api:
-    # -- Prevents new users from being able to register on this homeserver, except when
-    # using the registration shared secret below.
-    registration_disabled: true
-
-    # Prevents new guest accounts from being created. Guest registration is also
-    # disabled implicitly by setting 'registration_disabled' above.
-    guests_disabled: true
-
-    # -- If set, allows registration by anyone who knows the shared secret, regardless of
-    # whether registration is otherwise disabled.
-    registration_shared_secret: ""
-
-    # -- enable reCAPTCHA registration
-    enable_registration_captcha: false
-    # -- reCAPTCHA public key
-    recaptcha_public_key: ""
-    # -- reCAPTCHA private key
-    recaptcha_private_key: ""
-    # -- reCAPTCHA bypass secret
-    recaptcha_bypass_secret: ""
-    recaptcha_siteverify_api: ""
-
-    # TURN server information that this homeserver should send to clients.
-    turn:
-      # -- Duration for how long users should be considered valid ([see time.ParseDuration](https://pkg.go.dev/time#ParseDuration) for more)
-      turn_user_lifetime: "24h"
-      turn_uris: []
-      turn_shared_secret: ""
-      # -- The TURN username
-      turn_username: ""
-      # -- The TURN password
-      turn_password: ""
-
-    rate_limiting:
-      # -- Enable rate limiting
-      enabled: true
-      # -- After how many requests a rate limit should be activated
-      threshold: 20
-      # -- Cooloff time in milliseconds
-      cooloff_ms: 500
-      # -- Users which should be exempt from rate limiting
-      exempt_user_ids:
-
-  federation_api:
-    # -- Federation failure threshold. How many consecutive failures that we should
-    # tolerate when sending federation requests to a specific server. The backoff
-    # is 2**x seconds, so 1 = 2 seconds, 2 = 4 seconds, 3 = 8 seconds, etc.
-    # The default value is 16 if not specified, which is circa 18 hours.
-    send_max_retries: 16
-    # -- Disable TLS validation. This should **NOT** be used in production.
-    disable_tls_validation: false
-    prefer_direct_fetch: false
-    # -- Prevents Dendrite from keeping HTTP connections
-    # open for reuse for future requests. Connections will be closed quicker
-    # but we may spend more time on TLS handshakes instead.
-    disable_http_keepalives: false
-    # -- Perspective keyservers, to use as a backup when direct key fetch
-    # requests don't succeed.
-    # @default -- See value.yaml
-    key_perspectives:
-      - server_name: matrix.org
-        keys:
-          - key_id: ed25519:auto
-            public_key: Noi6WqcDj0QmPxCNQqgezwTlBKrfqehY1u2FyWP9uYw
-          - key_id: ed25519:a_RXGa
-            public_key: l8Hft5qXKn1vfHrg3p4+W8gELQVo8N13JkluMfmn2sQ
-
-  media_api:
-    # -- The path to store media files (e.g. avatars) in
-    base_path: "/var/dendrite/media_store"
-    # -- The max file size for uploaded media files
-    max_file_size_bytes: 10485760
-    # Whether to dynamically generate thumbnails if needed.
-    dynamic_thumbnails: false
-    # -- The maximum number of simultaneous thumbnail generators to run.
-    max_thumbnail_generators: 10
-    # -- A list of thumbnail sizes to be generated for media content.
-    # @default -- See value.yaml
-    thumbnail_sizes:
-      - width: 32
-        height: 32
-        method: crop
-      - width: 96
-        height: 96
-        method: crop
-      - width: 640
-        height: 480
-        method: scale
-
-  sync_api:
-    # -- This option controls which HTTP header to inspect to find the real remote IP
-    # address of the client. This is likely required if Dendrite is running behind
-    # a reverse proxy server.
-    real_ip_header: X-Real-IP
-    # -- Configuration for the full-text search engine.
-    search:
-      # -- Whether fulltext search is enabled.
-      enabled: true
-      # -- The path to store the search index in.
-      index_path: "/var/dendrite/search"
-      # -- The language most likely to be used on the server - used when indexing, to
-      # ensure the returned results match expectations. A full list of possible languages
-      # can be found [here](https://github.com/matrix-org/dendrite/blob/76db8e90defdfb9e61f6caea8a312c5d60bcc005/internal/fulltext/bleve.go#L25-L46)
-      language: "en"
-
-  user_api:
-    # -- bcrypt cost to use when hashing passwords.
-    # (ranges from 4-31; 4 being least secure, 31 being most secure; _NOTE: Using a too high value can cause clients to timeout and uses more CPU._)
-    bcrypt_cost: 10
-    # -- OpenID Token lifetime in milliseconds.
-    openid_token_lifetime_ms: 3600000
-    # - Disable TLS validation when hitting push gateways. This should **NOT** be used in production.
-    push_gateway_disable_tls_validation: false
-    # -- Rooms to join users to after registration
-    auto_join_rooms: []
-
-  # -- Default logging configuration
-  logging:
-  - type: std
-    level: info
-
 workload:
   main:
     podSpec:
       initContainers:
-        update-config:
+        init-config:
           enabled: true
+          imageSelector: image
           type: init
-          imageSelector: "image"
+          envFrom:
+            - configMapRef:
+                name: dendrite-env
           command:
             - /bin/sh
             - -c
           args:
-            - |
-              config={{ .Values.persistence.config.targetSelector.main.mountPath }}
-              cfgFile=${config}/dendrite.yaml
-              dfCfgFile={{ .Values.persistence.config.targetSelector.main.mountPath }}/dendrite.yaml
-
-              mkdir -p ${config}
-              if [ ! -f "${cfgFile}" ]; then
-                  if [ -f "${dfCfgFile}" ]; then
-                      echo "Default config file found, copying as cfgFile..."
-                      cp "${dfCfgFile}" "${cfgFile}"
-                  else
-                      echo "Config file not found, fetching..."
-                      # Fetch the config file if it doesn't exist, just like the container does
-                      wget -qO "${cfgFile}" https://github.com/matrix-org/dendrite/raw/main/dendrite-sample.yaml
-                  fi
-              fi
+            - >
+              if [ -f /etc/dendrite/dendrite.yaml ] || [ ${USE_CUSTOM_CONFIG_FILE} == true ]; then
+                echo "Initial configuration exists or User selected to use custom configuration file. Skipping...";
+              else
+                echo "Creating initial configuration";
+                touch /etc/dendrite/dendrite.yaml;
+                echo "# Configuration bellow will be always be overridden" >> /etc/dendrite/dendrite.yaml;
+                echo "# from environment settings on the Scale Apps UI." >> /etc/dendrite/dendrite.yaml;
+                echo "# You however will not see this values change in the file." >> /etc/dendrite/dendrite.yaml;
+                echo "# It's a generated file based on the values provided on initial install." >> /etc/dendrite/dendrite.yaml;
+                echo "##########################################################" >> /etc/dendrite/dendrite.yaml;
+                echo "version: 2" >> /etc/dendrite/dendrite.yaml;
+                echo "global:" >> /etc/dendrite/dendrite.yaml;
+                echo "  server_name: $DENDRITE_SERVER_NAME" >> /etc/dendrite/dendrite.yaml;
+                echo "" >> /etc/dendrite/dendrite.yaml;
+                echo "  private_key: matrix_key.pem" >> /etc/dendrite/dendrite.yaml
+                echo "  old_private_keys:" >> /etc/dendrite/dendrite.yaml;
+                echo "" >> /etc/dendrite/dendrite.yaml;
+                echo "  key_validity_period: $DENDRITE_KEY_VALIDITY" >> /etc/dendrite/dendrite.yaml;
+                echo "" >> /etc/dendrite/dendrite.yaml;
+                echo "  database:" >> /etc/dendrite/dendrite.yaml;
+                echo "    connection_string: $DENDRITE_POSTGRES_STRING" >> /etc/dendrite/dendrite.yaml;
+                echo "    max_open_conns: $DENDRITE_POSTGRES_OPEN_CONNS" >> /etc/dendrite/dendrite.yaml;
+                echo "    conn_max_lifetime: $DENDRITE_POSTGRES_CONN_LIFETIME" >> /etc/dendrite/dendrite.yaml;
+                echo "" >> /etc/dendrite/dendrite.yaml;
+                echo "  cache:" >> /etc/dendrite/dendrite.yaml;
+                echo "    max_size_estimated: $DENDRITE_CACHE_MAX_SIZE" >> /etc/dendrite/dendrite.yaml;
+                echo "" >> /etc/dendrite/dendrite.yaml;
+                echo "    max_age: $DENDRITE_CACHE_MAX_AGE" >> /etc/dendrite/dendrite.yaml;
+                echo "" >> /etc/dendrite/dendrite.yaml;
+                echo "  well_known_server_name: $DENDRITE_WELL_KNOWN_SERVER_NAME" >> /etc/dendrite/dendrite.yaml;
+                echo "" >> /etc/dendrite/dendrite.yaml;
+                echo "  well_known_client_name: $DENDRITE_WELL_KNOWN_CLIENT_NAME" >> /etc/dendrite/dendrite.yaml;
+                echo "" >> /etc/dendrite/dendrite.yaml;
+                echo "  well_known_sliding_sync_proxy: $DENDRITE_WELL_KNOWN_SYNC_PROXY" >> /etc/dendrite/dendrite.yaml;
+                echo "" >> /etc/dendrite/dendrite.yaml;
+                echo "  trusted_third_party_id_servers:" >> /etc/dendrite/dendrite.yaml;
+                echo "    - matrix.org" >> /etc/dendrite/dendrite.yaml;
+                echo "    - vector.im" >> /etc/dendrite/dendrite.yaml;
+                echo "" >> /etc/dendrite/dendrite.yaml;
+                echo "  disable_federation: $DENDRITE_DISABLE_FEDERATION" >> /etc/dendrite/dendrite.yaml;
+                echo "" >> /etc/dendrite/dendrite.yaml;
+                echo "  presence:" >> /etc/dendrite/dendrite.yaml;
+                echo "    enable_inbound: $DENDRITE_PRESENCE_INBOUND" >> /etc/dendrite/dendrite.yaml;
+                echo "    enable_outbound: $DENDRITE_PRESENCE_OUTBOUND" >> /etc/dendrite/dendrite.yaml;
+                echo "" >> /etc/dendrite/dendrite.yaml;
+                echo "  report_stats" >> /etc/dendrite/dendrite.yaml;
+                echo "    enabled: $DENDRITE_REPORT_STATS" >> /etc/dendrite/dendrite.yaml;
+                echo "    endpoint: https://panopticon.matrix.org/push" >> /etc/dendrite/dendrite.yaml;
+                echo "" >> /etc/dendrite/dendrite.yaml;
+                echo "  server_notices:" >> /etc/dendrite/dendrite.yaml;
+                echo "    enabled: false" >> /etc/dendrite/dendrite.yaml;
+                echo "    local_part: "_server" >> /etc/dendrite/dendrite.yaml;
+                echo "    display_name: "Server Alerts" >> /etc/dendrite/dendrite.yaml;
+                echo "    avatar_url: "" >> /etc/dendrite/dendrite.yaml;
+                echo "    room_name: "Server Alerts" >> /etc/dendrite/dendrite.yaml;
+                echo "" >> /etc/dendrite/dendrite.yaml;
+                echo "  jetstream:" >> /etc/dendrite/dendrite.yaml;
+                echo "    addresses:" >> /etc/dendrite/dendrite.yaml;
+                echo "    # - localhost:4222" >> /etc/dendrite/dendrite.yaml;
+                echo "    storage_path: /var/dendrite/jetstream" >> /etc/dendrite/dendrite.yaml;
+                echo "    topic_prefix: Dendrite" >> /etc/dendrite/dendrite.yaml;
+                echo "  metrics:" >> /etc/dendrite/dendrite.yaml;
+                echo "    enabled: $DENDRITE_METRICS_ENABLED" >> /etc/dendrite/dendrite.yaml;
+                echo "    basic_auth:" >> /etc/dendrite/dendrite.yaml;
+                echo "      username: metrics /var/dendrite/jetstream" >> /etc/dendrite/dendrite.yaml;
+                echo "      password: metrics" >> /etc/dendrite/dendrite.yaml;
+                echo "  dns_cache:" >> /etc/dendrite/dendrite.yaml;
+                echo "     enabled: $DENDRITE_DNS_CACHE_ENABLED" >> /etc/dendrite/dendrite.yaml;
+                echo "     cache_size: $DENDRITE_DNS_CACHE_SIZE" >> /etc/dendrite/dendrite.yaml;
+                echo "     cache_lifetime: $DENDRITE_DNS_CACHE_LIFETIME" >> /etc/dendrite/dendrite.yaml;
+                echo "app_service_api:" >> /etc/dendrite/dendrite.yaml;
+                echo "  legacy_auth: $DENDRITE_LEGACY_AUTH" >> /etc/dendrite/dendrite.yaml;
+                echo "  legacy_paths: $DENDRITE_LEGARY_PATHS" >> /etc/dendrite/dendrite.yaml;
+                echo "  config_files: $DENDRITE_APPSERVICE_CONFIG_FILES" >> /etc/dendrite/dendrite.yaml;
+                echo "" >> /etc/dendrite/dendrite.yaml;
+                echo "client_api:" >> /etc/dendrite/dendrite.yaml;
+                echo "  registration_disabled: $DENDRITE_REGISTRATION_DISABLED" >> /etc/dendrite/dendrite.yaml;
+                echo "  guest_disabled: $DENDRITE_GUEST_DISABLED" >> /etc/dendrite/dendrite.yaml;
+                echo "  registration_shared_secret: $DENDRITE_REGISTRATION_SHARED_SECRET" >> /etc/dendrite/dendrite.yaml;
+                echo "  enable_registration_captcha: $DENDRITE_REGISTRATION_CAPTCHA" >> /etc/dendrite/dendrite.yaml;
+                echo "  recaptcha_public_key: $DENDRITE_RECAPTCHA_PUBLIC_KEY" >> /etc/dendrite/dendrite.yaml;
+                echo "  recaptcha_private_key: $DENDRITE_RECAPTCHA_PRIVATE_KEY" >> /etc/dendrite/dendrite.yaml;
+                echo "  recaptcha_bypass_secret: $DENDRITE_BYPASS_SECRET" >> /etc/dendrite/dendrite.yaml;
+                echo "" >> /etc/dendrite/dentrite.yaml;
+                echo "  turn:" >> /etc/dendrite/dendrite.yaml;
+                echo "    turn_user_lifetime: $DENDRITE_TURN_USER_LIFETIME" >> /etc/dendrite/dendrite.yaml;
+                echo "    turn_uris:" >> /etc/dendrite/dendrite.yaml; >> /etc/dendrite/dendrite.yaml;
+                echo "      - turn:$DENDRITE_TURN_SERVER_TCP" >> /etc/dendrite/dendrite.yaml;
+                echo "      - turn:$DENDRITE_TURN_SERVER_UDP" >> /etc/dendrite/dendrite.yaml;
+                echo "    turn_shared_secret" >> /etc/dendrite/dendrite.yaml;
+                echo "" >> /etc/dendrite/dentrite.yaml;
+                echo "  rate_limiting:" >> /etc/dendrite/dendrite.yaml;
+                echo "    enabled: $DENDRITE_RATE_LIMITING" >> /etc/dendrite/dendrite.yaml;
+                echo "    threshold: $DENDRITE_RATE_THRESHOLD" >> /etc/dendrite/dendrite.yaml;
+                echo "    cooloff_ms: $DENDRITE_RATE_COOLOFF" >> /etc/dendrite/dendrite.yaml;
+                echo "    exempt_user_ids: $DENDRITE_RATE_EXEMPTS_IDS" >> /etc/dendrite/dendrite.yaml;
+                echo "" >> /etc/dendrite/dendrite.yaml
+                echo "federation_api:" >> /etc/dendrite/dendrite.yaml
+                echo "  send_max_retries: $DENDRITE_FEDERATION_MAX_RETRIES" >> /etc/dendrite/dendrite.yaml;
+                echo ""  >> /etc/dendrite/dendrite.yaml;
+                echo "  disable_tls_validation: $DENDRITE_FEDERATION_DISABLE_TLS"  >> /etc/dendrite/dendrite.yaml;
+                echo "" >> /etc/dendrite/dendrite.yaml;
+                echo "  disable_http_keepalives: $DENDRITE_FEDERATION_HTTP_KEEPALIVES" >> /etc/dendrite/dendrite.yaml;
+                echo "" >> /etc/dendrite/dendrite.yaml;
+                echo "  key_perspectives:" >> /etc/dendrite/dendrite.yaml;
+                echo "   - server_name: matrix.org" >> /etc/dendrite/dendrite.yaml;
+                echo "     keys:" >> /etc/dendrite/dendrite.yaml;
+                echo "       - key_id: ed25519:auto" >> /etc/dendrite/dendrite.yaml;
+                echo "         public_key: Noi6WqcDj0QmPxCNQqgezwTlBKrfqehY1u2FyWP9uYw" >> /etc/dendrite/dendrite.yaml
+                echo "       - key_id: ed25519:a_RXGa" >> /etc/dendrite/dendrite.yaml;
+                echo "         public_key: l8Hft5qXKn1vfHrg3p4+W8gELQVo8N13JkluMfmn2sQ" >> /etc/dendrite/dendrite.yaml
+                echo "" >> /etc/dendrite/dendrite.yaml
+                echo "  prefer_direct_fetch: $DENDRITE_FEDERATION_DIRECT_FETCH" >> /etc/dendrite/dendrite.yaml
+                echo "" >> /etc/dendrite/dendrite.yaml
+                echo "media_api:" >> /etc/dendrite/dendrite.yaml
+                echo "" >> /etc/dendrite/dendrite.yaml
+                echo "  base_path: /var/dendrite/media >> /etc/dendrite/dendrite.yaml
+                echo "" >> /etc/dendrite/dendrite.yaml
+                echo "  max_file_size_bytes: $DENDRITE_MEDIA_MAX_FILESIZE" >> /etc/dendrite/dendrite.yaml
+                echo "" >> /etc/dendrite/dendrite.yaml
+                echo "  dynamic_thumbnails: $DENDRITE_DYNAMIC_THUMBNAILS" >> /etc/dendrite/dendrite.yaml
+                echo "" >> /etc/dendrite/dendrite.yaml
+                echo "  max_thumbnail_generators: $DENDRITE_MAX_THUMB_GENERATORS" >> /etc/dendrite/dendrite.yaml
+                echo "" >> /etc/dendrite/dendrite.yaml
+                echo "  thumbnail_sizes:" >> /etc/dendrite/dendrite.yaml
+                echo "    - width: 32" >> /etc/dendrite/dendrite.yaml
+                echo "      height: 32" >> /etc/dendrite/dendrite.yaml
+                echo "      method: crop" >> /etc/dendrite/dendrite.yaml
+                echo "    - width: 96" >> /etc/dendrite/dendrite.yaml
+                echo "      height: 96" >> /etc/dendrite/dendrite.yaml
+                echo "      method: crop" >> /etc/dendrite/dendrite.yaml
+                echo "    - width: 640" >> /etc/dendrite/dendrite.yaml
+                echo "      height: 480" >> /etc/dendrite/dendrite.yaml
+                echo "      method: scale" >> /etc/dendrite/dendrite.yaml
+                echo "" >> /etc/dendrite/dendrite.yaml
+                echo "mscs:" >> /etc/dendrite/dendrite.yaml
+                echo "  mscs:" >> /etc/dendrite/dendrite.yaml
+                echo "#    - msc2836" >> /etc/dendrite/dendrite.yaml
+                echo "" >> /etc/dendrite/dendrite.yaml
+                echo "sync_api:" >> /etc/dendrite/dendrite.yaml
+                echo "  real_ip_header: X-Real-IP" >> /etc/dendrite/dendrite.yaml
+                echo "" >> /etc/dendrite/dendrite.yaml
+                echo "  search:" >> /etc/dendrite/dendrite.yaml
+                echo "    enabled: $DENDRITE_ENABLE_SEARCH" >> /etc/dendrite/dendrite.yaml
+                echo ""
+                echo "    index_path: /var/dendrite/searchindex" >> /etc/dendrite/dendrite.yaml
+                echo "" >> /etc/dendrite/dendrite.yaml
+                echo "    language: $DENDRITE_SEARCH_LANG" >> /etc/dendrite/dendrite.yaml
+                echo "" >> /etc/dendrite/dendrite.yaml
+                echo "user_api:" >> /etc/dendrite/dendrite.yaml
+                echo "  bcrypt_cost: $DENDRITE_USER_BCRYPT_COST" >> /etc/dendrite/dendrite.yaml
+                echo ""  >> /etc/dendrite/dendrite.yaml
+                echo "  auto_join_room:" >> /etc/dendrite/dendrite.yaml
+                echo "#" >> /etc/dendrite/dendrite.yaml
+                echo "" >> /etc/dendrite/dendrite.yaml
+                echo "tracing:" >> /etc/dendrite/dendrite.yaml
+                echo "  enabled: false" >> /etc/dendrite/dendrite.yaml
+                echo "" >> /etc/dendrite/dendrite.yaml
+                echo "logging:" >> /etc/dendrite/dendrite.yaml
+                echo "  - type: std" >> /etc/dendrite/dendrite.yaml
+                echo "    level: info" >> /etc/dendrite/dendrite.yaml
+                echo "  - type: file" >> /etc/dendrite/dendrite.yaml
+                echo "    level: info" >> /etc/dendrite/dendrite.yaml
+                echo "    params:" >> /etc/dendrite/dendrite.yaml
+                echo "      path: ./logs" >> /etc/dendrite/dendrite.yaml
+                echo "##########################################################" >> /etc/dendrite/dendrite.yaml;
+                echo 'Initial configuration file created at "/etc/dendrite/dendrite.yaml"';
+              fi;
       containers:
         main:
           probes:
@@ -339,11 +223,7 @@ workload:
 persistence:
   config:
     enabled: true
-    targetSelector:
-      main:
-        mountPath: /etc/dendrite
-      update-config:
-        mountPath: /etc/dendrite
+    mountPath: /etc/dendrite
   media:
     enabled: true
     mountPath: /var/dendrite/media
