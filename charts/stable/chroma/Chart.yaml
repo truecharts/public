@@ -5,33 +5,34 @@ annotations:
   truecharts.org/category: AI
   truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
-appVersion: latest-cpu
+appVersion: 0.4.22
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.2.26
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
 deprecated: false
-description: Fabulinus is the server component of the TitanML Takeoff server.
-home: https://truecharts.org/charts/incubator/fabulinus
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/fabulinus.png
+description: the AI-native open-source embedding database.
+home: https://truecharts.org/charts/stable/chroma
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/chroma.png
 keywords:
-  - fabulinus
-  - machine-learning
+  - chroma
+  - embedding
+  - database
 kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
-name: fabulinus
+name: chroma
 sources:
-  - https://github.com/titanml/takeoff-communitys
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/fabulinus
-  - https://hub.docker.com/r/tytn/fabulinus
+  - https://github.com/chroma-core/chroma
+  - https://github.com/truecharts/charts/tree/master/charts/stable/chroma
+  - https://ghcr.io/chroma-core/chroma
 type: application
-version: 0.0.3
+version: 1.0.0

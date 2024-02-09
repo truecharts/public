@@ -18,14 +18,19 @@ service:
         targetSelector: ui
   api:
     enabled: true
-    type: ClusterIP
     targetSelector: main
     ports:
       api:
         enabled: true
         protocol: http
+        targetPort: 11434
         port: 11434
         targetSelector: main
+
+ingress:
+  api:
+    targetSelector:
+      api: api
 
 workload:
   main:
@@ -78,7 +83,7 @@ workload:
               type: tcp
               port: "{{ .Values.service.main.ports.main.targetPort }}"
           env:
-            OLLAMA_API_BASE_URL: '{{ printf "http://%v-api:%v/api" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.api.ports.api.port }}'
+            OLLAMA_API_BASE_URL: '{{ printf "http://%v-api:%v/api" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.api.ports.api.targetPort }}'
 
 persistence:
   config:
