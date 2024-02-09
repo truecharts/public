@@ -1,7 +1,7 @@
 image:
   repository: jorenn92/maintainerr
   pullPolicy: IfNotPresent
-  tag: 1.7.0@sha256:0bc775f1a3ff502f6bdb6e2a9e318368e7498d9cf77964b8b578d5f547c92340
+  tag: 2.0.0@sha256:7377075b39985b64369d1fddd1ea9ad39f59a8e98c777e2da4cd7041a93b6380
 
 securityContext:
   container:
@@ -14,8 +14,8 @@ service:
     ports:
       main:
         protocol: http
-        targetPort: 80
-        port: 8154
+        targetPort: 6246
+        port: 6246
 
 persistence:
   data:

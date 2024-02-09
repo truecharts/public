@@ -9,6 +9,37 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: BASE_URL
+                                        label: "BASE_URL"
+                                        description: "Set your URL if using a Reverse Proxy such as Traefik"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: USE_X_SETTINGS
+                                        label: "USE_X_SETTINGS"
+                                        description: "You need to enable the USE_X_SETTINGS environment variable in changedetection.io for it to respect HTTP headers sent from the reverse proxy (such as Host, X-Forwarded-Prefix and X-Forwarded-Proto)."
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: HIDE_REFERER
+                                        label: "HIDE_REFERER"
+                                        description: " Hides the `Referer` header so that monitored websites can't see the changedetection.io hostname."
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: FETCH_WORKERS
+                                        label: "FETCH_WORKERS"
+                                        description: " Default number of parallel/concurrent fetchers"
+                                        schema:
+                                          type: int
+                                          default: 10
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
@@ -28,13 +59,13 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 9117
+                              default: 5000
                               required: true
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: config
+        - variable: datastore
           label: "App Config Storage"
           description: "Stores the Application Configuration."
           schema:
@@ -59,13 +90,13 @@ questions:
                 description: "The UserID of the user running the application"
                 schema:
                   type: int
-                  default: 0
+                  default: 568
               - variable: runAsGroup
                 label: "runAsGroup"
                 description: "The groupID of the user running the application"
                 schema:
                   type: int
-                  default: 0
+                  default: 568
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
@@ -74,7 +105,7 @@ questions:
                 description: "The group that should own ALL storage."
                 schema:
                   type: int
-                  default: 0
+                  default: 568
 # Include{resources}
 # Include{advanced}
 # Include{addons}
