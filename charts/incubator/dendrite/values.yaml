@@ -9,6 +9,12 @@ securityContext:
     runAsUser: 0
     runAsGroup: 0
 
+dendrite:
+  # Enable config file mount from host path
+  enabled: false
+  configFileHostPath: ""
+  configFileHostReadOnly: true
+
 dendriteConfig:
   version: 2
   global:
