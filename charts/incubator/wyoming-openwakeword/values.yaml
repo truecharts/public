@@ -11,22 +11,6 @@ wyoming_openwakeword:
   threshold: "0.5"
   trigger_level: 1
 
-workload:
-  main:
-    podSpec:
-      containers:
-        main:
-          probes:
-            liveness:
-              port: 10400
-              type: tcp
-            readiness:
-              port: 10400
-              type: tcp
-            startup:
-              port: 10400
-              type: tcp
-
 service:
   main:
     ports:
