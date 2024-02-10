@@ -432,12 +432,6 @@
     },
     {
       "matchDatasources": ["docker"],
-      "versioning": "regex:^version-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
-      "matchPackageNames": ["linuxserver/heimdall"],
-      "automerge": true,
-    },
-    {
-      "matchDatasources": ["docker"],
       "versioning": "regex:^postgresql-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
       "matchPackageNames": ["ghcr.io/umami-software/umami"],
       "automerge": true,
