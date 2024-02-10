@@ -51,6 +51,19 @@ questions:
                   type: boolean
                   default: true
                   show_subquestions_if: false
+        - variable: debug
+          label: Debug
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: Enabled
+                description: "Enable debug logging. Useful for seeing satellite connections and each wake word detection in the logs."
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: false
         - variable: custom_model
           label: Custom model
           schema:
