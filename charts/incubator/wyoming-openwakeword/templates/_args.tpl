@@ -11,6 +11,9 @@ args:
   - --custom-model-dir
   - {{ $openwakeword.custom_model.path | quote }}
   {{- end }}
+  {{- if $openwakeword.debug }}
+  - --debug
+  {{- end }}
   - --threshold
   - {{ $openwakeword.threshold | quote }}
   - --trigger-level
