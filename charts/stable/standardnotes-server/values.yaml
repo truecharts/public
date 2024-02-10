@@ -70,13 +70,13 @@ workload:
                 name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: plainhost
             DB_PORT: 3306
-            DB_USERNAME: std_notes_user
+            DB_USERNAME: '{{ .Values.mariadb.mariadbUsername }}'
             DB_PASSWORD:
               secretKeyRef:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: mariadb-password
-            DB_DATABASE: standard_notes_db
+            DB_DATABASE: '{{ .Values.mariadb.mariadbDatabase }}'
             DB_TYPE: mysql
             REDIS_PORT: 6379
             REDIS_HOST:
@@ -119,8 +119,8 @@ workload:
             LS_LOG: warn
 mariadb:
   enabled: true
-  mariadbUsername: std_notes_user
-  mariadbDatabase: standard_notes_db
+  mariadbUsername: standardnotes
+  mariadbDatabase: standardnotes
 redis:
   enabled: true
 configmap:
