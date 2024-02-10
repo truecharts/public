@@ -1,0 +1,39 @@
+image:
+  repository: rhasspy/wyoming-openwakeword
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:1352a632e75cf49aaf18a12c01551c7ac1068c6b0a332483a8b42ab148c0ddc6
+
+wyoming_openwakeword:
+  model: ok_nabu
+  preload_model: true
+  custom_model:
+    path: ""
+  threshold: "0.5"
+  trigger_level: 1
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              port: 10400
+              type: tcp
+            readiness:
+              port: 10400
+              type: tcp
+            startup:
+              port: 10400
+              type: tcp
+
+service:
+  main:
+    ports:
+      main:
+        port: 10400
+        protocol: tcp
+        targetPort: 10400
+portal:
+  open:
+    enabled: false
