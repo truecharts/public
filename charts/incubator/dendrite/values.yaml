@@ -52,15 +52,9 @@ dendriteConfig:
     key_validity_period: 168h0m0s
 
     database:
-      # -- The connection string for connections to Postgres.
-      # This will be set automatically if using the Postgres dependency
-      connection_string: "{{ (printf "%s?client_encoding=utf8" (.Values.cnpg.main.creds.std | trimAll "\"")) | quote }}"
-
-      # -- Default database maximum open connections
+      connection_string: '{{ .Values.cnpg.main.creds.std | trimAll "\""  }}'
       max_open_conns: 90
-      # -- Default database maximum idle connections
       max_idle_conns: 5
-      # -- Default database maximum lifetime
       conn_max_lifetime: -1
 
     jetstream:
