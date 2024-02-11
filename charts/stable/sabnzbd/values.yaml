@@ -22,11 +22,7 @@ service:
         port: 8990
         targetSelector: exportarr
 workload:
-  exportarr:
-    enabled: "{{ .Values.metrics.main.enabled }}"
-    type: Deployment
-    strategy: RollingUpdate
-    replicas: 1
+  main:
     podSpec:
       containers:
         main:
@@ -37,6 +33,13 @@ workload:
               enabled: false
             startup:
               enabled: false
+  exportarr:
+    enabled: "{{ .Values.metrics.main.enabled }}"
+    type: Deployment
+    strategy: RollingUpdate
+    replicas: 1
+    podSpec:
+      containers:
         exportarr:
           primary: true
           enabled: true
@@ -91,4 +94,4 @@ metrics:
 portal:
   open:
     enabled: true
-          
+            
