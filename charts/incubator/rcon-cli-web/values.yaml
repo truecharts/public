@@ -1,0 +1,52 @@
+image:
+  repository: ghcr.io/xstar97/rcon-cli-web
+  pullPolicy: IfNotPresent
+  tag: v0.0.5@sha256:c39d3e210b90b97e681b722ee7e81fae207b753a2f5eb8e6ccb364493d530004
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 3000
+
+rcon_cli_web:
+  servers: # list
+    default: # name
+      address: "" # host:port, for example 127.0.0.1:16260
+      password: ""
+      type: "rcon" # rcon, telnet, web.
+      timeout: "10s"
+      log: "/config/logs/rcon-default.log" # not exposed to the end user
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          args:
+            - --port={{ .Values.service.main.ports.main.port }}
+            - --cli-config={{ .Values.persistence.rcon_config.mountPath }}
+            - --db-json-file=/config/saved.json
+          env:
+            # for container
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+
+persistence:
+  config:
+    enabled: true
+    mountPath: "/config"
+  logs:
+    enabled: true
+    mountPath: "/logs"
+  rcon_config:
+    enabled: true
+    type: configmap
+    objectName: rcon-config
+    mountPath: /config/rcon.yaml
+    subPath: rcon.yaml
+    readOnly: true
+
+portal:
+  open:
+    enabled: true
