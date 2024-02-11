@@ -30,6 +30,13 @@ workload:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
         exportarr:
           primary: true
           enabled: true
@@ -84,4 +91,4 @@ metrics:
 portal:
   open:
     enabled: true
-            
+          
