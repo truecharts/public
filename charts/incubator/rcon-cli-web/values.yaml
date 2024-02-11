@@ -11,13 +11,13 @@ service:
         port: 3000
 
 rcon_cli_web:
-  servers: # list
-    default: # name
-      address: "" # host:port, for example 127.0.0.1:16260
+  servers:
+    default:
+      address: ""
       password: ""
-      type: "rcon" # rcon, telnet, web.
+      type: "rcon"
       timeout: "10s"
-      log: "/config/logs/rcon-default.log" # not exposed to the end user
+      log: "/config/logs/rcon-default.log"
 
 workload:
   main:
