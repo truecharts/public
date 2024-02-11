@@ -26,7 +26,7 @@ workload:
         main:
           args:
             - --port={{ .Values.service.main.ports.main.port }}
-            - --cli-config={{ .Values.persistence.rcon_config.mountPath }}
+            - --cli-config={{ .Values.persistence.rcon-config.mountPath }}
             - --db-json-file=/config/saved.json
           env:
             # for container
@@ -39,7 +39,7 @@ persistence:
   logs:
     enabled: true
     mountPath: "/logs"
-  rcon_config:
+  rcon-config:
     enabled: true
     type: configmap
     objectName: rcon-config
