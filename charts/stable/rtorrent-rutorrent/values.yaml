@@ -104,7 +104,7 @@ workload:
           enabled: true
           imageSelector: exportarrImage
           args:
-            - --rtorrent.scrape-uri={{ printf "http://%s-xmlrpc.%s.svc.cluster.local:%v/RPC2/" .Release.Name .Release.Namespace .Values.service.xmlrpc.ports.xmlrpc.port }}
+            - --rtorrent.scrape-uri={{ printf "http://%s-xmlrpc.%s:%v/RPC2/" .Release.Name .Release.Namespace .Values.service.xmlrpc.ports.xmlrpc.port }}
           probes:
             liveness:
               enabled: false
