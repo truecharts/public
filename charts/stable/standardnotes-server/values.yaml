@@ -19,6 +19,14 @@ persistence:
       main:
         main:
           mountPath: /opt/server/packages/files/dist/uploads
+  bootstrap:
+    enabled: true
+    targetSelector:
+      localstack:
+        localstack:
+          mountPath: /etc/localstack/init/ready.d
+        bootstrap-init:
+          mountPath: /etc/localstack/init/ready.d
 portal:
   open:
     enabled: false
@@ -92,7 +100,7 @@ workload:
     type: Deployment
     podSpec:
       initContainers:
-        init:
+        bootstrap-init:
           enabled: true
           type: init
           imageSelector: localstackImage
@@ -101,9 +109,9 @@ workload:
             - "-c"
             - |
               set -x
-              mkdir -p /etc/localstack/init/ready.d
               curl -L --output-dir "/etc/localstack/init/ready.d" --output "localstack_bootstrap.sh" \
               https://raw.githubusercontent.com/standardnotes/server/main/docker/localstack_bootstrap.sh
+              chmod +x /etc/localstack/init/ready.d/localstack_bootstrap.sh
       containers:
         localstack:
           enabled: true
