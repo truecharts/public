@@ -6,11 +6,6 @@ exportarrImage:
   repository: ghcr.io/onedr0p/exportarr
   pullPolicy: IfNotPresent
   tag: v1.6.0@sha256:b522e128509b766cf66f847190fccd225ff194dc76775fe6a215f2dd3010cac2
-securityContext:
-  container:
-    readOnlyRootFilesystem: false
-    runAsGroup: 0
-    runAsUser: 0
 service:
   main:
     ports:
@@ -34,6 +29,7 @@ workload:
     replicas: 1
     podSpec:
       containers:
+        main:
         exportarr:
           primary: true
           enabled: true
