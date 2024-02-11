@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/xstar97/rcon-cli-web
   pullPolicy: IfNotPresent
-  tag: v0.0.5@sha256:c39d3e210b90b97e681b722ee7e81fae207b753a2f5eb8e6ccb364493d530004
+  tag: v0.0.6@sha256:70c5b8eba3ca5f33c14ed2ef5b79a281fde64906a75f466ac5e6943e44adafca
 
 service:
   main:
@@ -13,8 +13,8 @@ service:
 rcon_cli_web:
   servers:
     default:
-      address: ""
-      password: ""
+      address: "localhost:25575"
+      password: "1234567890"
       type: "rcon"
       timeout: "10s"
       log: "/config/logs/rcon-default.log"
@@ -25,9 +25,10 @@ workload:
       containers:
         main:
           args:
+            - "./app/rcon-cli-web"
             - --port={{ .Values.service.main.ports.main.port }}
             - --cli-config={{ .Values.persistence.rcon.mountPath }}
-            - --db-json-file=/config/saved.json
+            - --db-json-file={{ .Values.persistence.config.mountPath }}/saved.json
           env:
             # for container
             PORT: "{{ .Values.service.main.ports.main.port }}"
