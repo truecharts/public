@@ -1,7 +1,7 @@
 image:
-  repository: xhofe/alist
+  repository: xhofe/alist-aria2
   pullPolicy: IfNotPresent
-  tag: v3.30.0@sha256:084ba82603563ac6e178d1d2bb90e6b3417efeca90a59aa75f7d1c60db7a5b26
+  tag: v3.30.0@sha256:3be44197b5fe4009edbca01541bd3bd60b9956dcdcfba5c69af08304bfc16949
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -15,6 +15,14 @@ service:
         targetPort: 5244
         protocol: http
         port: 10167
+  aria2:
+    enabled: true
+    ports:
+      aria2:
+        enabled: true
+        targetPort: 6800
+        protocol: http
+        port: 6800
 workload:
   main:
     podSpec:
