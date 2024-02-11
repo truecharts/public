@@ -25,7 +25,7 @@ workload:
       containers:
         main:
           args:
-            - "./app/rcon-cli-web"
+            - "/app/rcon-cli-web"
             - --port={{ .Values.service.main.ports.main.port }}
             - --cli-config={{ .Values.persistence.rcon.mountPath }}
             - --db-json-file={{ .Values.persistence.config.mountPath }}/saved.json
