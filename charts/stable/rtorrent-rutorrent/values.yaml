@@ -115,7 +115,7 @@ workload:
           env:
             INTERFACE: 0.0.0.0
             PORT: "{{ .Values.service.metrics.ports.metrics.port }}"
-            URL: '{{ printf "http://%s-xmlrpc.%s.svc.cluster.local:%v/RPC2/" .Release.Name .Release.Namespace .Values.service.xmlrpc.ports.xmlrpc.port }}' same here
+            URL: '{{ printf "http://%s-xmlrpc.%s.svc.cluster.local:%v/RPC2/" .Release.Name .Release.Namespace .Values.service.xmlrpc.ports.xmlrpc.port }}'
             ENABLE_ADDITIONAL_METRICS: false
             ENABLE_UNKNOWN_QUEUE_ITEMS: false
 
