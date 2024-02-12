@@ -23,7 +23,7 @@ questions:
           schema:
             type: string
             required: true
-            default: ""
+            default: kopia
         - variable: password
           label: Repo Password
           schema:
@@ -57,7 +57,7 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: "Main Service Port Configuration"
+                      label: "Main Service Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -69,6 +69,43 @@ questions:
                               type: int
                               default: 10238
                               required: true
+                          - variable: protocol
+                            label: "Protocol"
+                            description: "Which protocol to host the service with"
+                            schema:
+                              type: string
+                              default: http
+                              required: true
+                              enum:
+                                - value: http
+                                  description: "HTTP (insecure)"
+                                - value: https
+                                  description: "HTTPS (TLS)"
+                          - variable: certs
+                            label: "TLS Certificate Configuration"
+                            schema:
+                              show_if: [["protocol", "=", "https"]]
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: generate
+                                  label: "Generate TLS Certificates"
+                                  description: "Create certificates on server start (disable after the first run)"
+                                  schema:
+                                    type: boolean
+                                    default: false
+                                - variable: certPath
+                                  label: "Certificate Path"
+                                  description: "Container path to TLS certificate"
+                                  schema:
+                                    type: string
+                                    default: /app/config/kopia.cert
+                                - variable: keyPath
+                                  label: "Certificate Key Path"
+                                  description: "Container path to TLS certificate key"
+                                  schema:
+                                    type: string
+                                    default: /app/config/kopia.key
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
 # Include{serviceList}

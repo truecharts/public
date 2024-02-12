@@ -11,6 +11,10 @@ For more information about this App, please check the docs on the TrueCharts [we
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
+### Running Kopia as a Repository Server
+
+To successfully run Kopia as a repository server so it can be used to back up multiple computers, or act as a remote host follow the [instructions here](docs/SERVER.md)
+
 ## Support
 
 - Please check our [quick-start guides for TrueNAS SCALE](https://truecharts.org/manual/SCALE/guides/scale-intro).

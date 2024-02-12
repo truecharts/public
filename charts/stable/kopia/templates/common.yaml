@@ -7,5 +7,20 @@
   {{- $_ := set .Values.secret "kopia-secrets" $secrets -}}
 {{- end -}}
 
+{{/* Set the startup arguments */}}
+{{- $args := list "server" "start" ( printf "--address=%s://0.0.0.0:%d" .Values.service.main.protocol ( .Values.service.main.ports.main.port | int ) ) -}}
+
+{{- if eq .Values.service.main.protocol "http" -}}
+  {{- $args = append $args "--insecure" -}}
+{{- else -}}
+  {{ if .Values.service.main.certs.generate -}}
+    {{- $args = append $args "--tls-generate-cert" -}}
+  {{- end -}}
+  {{- $certs := list "--tls-cert-file={{.Values.service.main.certs.certPath}}" "--tls-key-file={{.Values.service.main.certs.keyPath}}" -}}
+  {{- $args = concat $args $certs -}}
+{{- end -}}
+
+{{- $_ := set .Values.workload.main.podSpec.containers.main "args" $args -}}
+
 {{/* Render the templates */}}
 {{ include "tc.v1.common.loader.apply" . }}
