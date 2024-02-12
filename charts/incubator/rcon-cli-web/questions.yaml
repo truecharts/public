@@ -12,6 +12,65 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
+  - variable: rcon_cli_web
+    group: App Configuration
+    label: Rcon CLi Web
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: servers
+          label: Server List
+          description: Configure the rcon.yaml config.
+          schema:
+            type: list
+            default: []
+            required: true
+            items:
+              - variable: server
+                label: Server Configuration
+                schema:
+                  type: dict
+                  attrs:
+                    - variable: name
+                      label: Server Name
+                      schema:
+                        type: string
+                        required: true
+                        default: "default"
+                    - variable: address_port
+                      label: Server Address and Port
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: password
+                      label: Server Rcon Password
+                      schema:
+                        type: string
+                        required: true
+                        private: true
+                        default: ""
+                    - variable: type
+                      label: Type
+                      schema:
+                        type: string
+                        required: true
+                        default: "rcon"
+                        enum:
+                          - value: "rcon"
+                            description: "RCON"
+                          - value: "web"
+                            description: "Web"
+                          - value: "telnet"
+                            description: "Telnet"
+                    - variable: timeout
+                      label: Timeout
+                      schema:
+                        type: string
+                        required: true
+                        default: "10s"
+
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
