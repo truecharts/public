@@ -11,13 +11,22 @@ service:
         port: 3000
 
 rcon_cli_web:
-  servers: []
-  #  - name: "default"
-  #    address: "localhost:25575"
-  #    password: "1234567890"
-  #    type: "rcon"
-  #    timeout: "10s"
-  #    log: "/config/logs/rcon-default.log"
+  servers:
+    - name: "default"
+      address: "localhost:25575"
+      password: "1234567890"
+      type: "rcon"
+      timeout: "30s"
+    - name: "server1"
+      address: "localhost:25576"
+      password: "123456789"
+      type: "rcon"
+      timeout: "20s"
+    - name: "server2"
+      address: "localhost:25577"
+      password: "12345678"
+      type: "rcon"
+      timeout: "10s"
 
 workload:
   main:
