@@ -24,8 +24,8 @@ certificate fingerprint
 > - Username: kopia
 > - Protocol: HTTPS (TLS)
 > - Generate TLS Certificates: Checked -> Edit the app and uncheck after first start
-> - App Config Storage: Host Path -> Choose a dataset
 > - Additional App Storage: Host Path -> Choose a dataset -> Mount path: `/repository`
+> - (optional, for saving certificates outside the config PVC) Additional App Storage: Host Path -> Choose a dataset -> Mount path: `/certs`. If you use this, also change the Certificate Path and Certificate Key Path to match.
 
 ## Detailed Instructions
 
@@ -41,11 +41,7 @@ paths specified. It is also recommended that you set the "User" parameter to
 If you would prefer Kopia to generate certificates for you, check "Generate TLS
 Certificates" and run the app once. After it is running edit the application
 configuration and uncheck "Generate TLS Certificates" to allow the server to
-reuse the one it created on the first run. If you have Kopia generate the
-certificates you should consider having the Kopia configuration saved to a host
-volume instead of a PVC. This will ensure you have access to the certificate in
-case you need to re-deploy the application and wish your clients to be able to
-connect to the new instance.
+reuse the one it created on the first run.
 
 ![HTTPS Configuration options](images/https_config.png)
 
@@ -53,15 +49,17 @@ connect to the new instance.
 
 #### Storage and Persistance Configuration
 
-When running Kopia as a server you should at a minimum configure the App Config
-Storage to be a Host Path volume in case you need to redeploy the application
-and lose the persistent volume claim.
+It may be useful to have a Host Path volume to use for the actual data which
+will be stored by Kopia. You can do this by creating an Additional App Storage
+configuration, choosing your local dataset, and choosing a mount path for it in
+the Kopia App. `/repository` is a good default because it is what Kopia will
+default to.
 
-Additionally, it may be useful to have a
-Host Path volume to use for the actual data which will be stored by Kopia. You
-can do this by creating an Additional App Storage configuration, choosing your
-local dataset, and choosing a path for it inside the Kopia App. `/repository` is
-a good default because it is what Kopia will default to.
+In addition, you may want to save the TLS certificates outside the configuration
+volume claim in case you need to redeploy or migrate Kopia. Another Additional
+App Storage configuration which points to a host path should be used in this
+case. If you do, also update the values for Certificate Path and Certificate Key
+Path to match the mount path you choose for this.
 
 ![Recommended Additional App Storage options](images/volume_config.png)
 
