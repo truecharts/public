@@ -5,7 +5,7 @@ annotations:
   truecharts.org/category: operators
   truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+  truecharts.org/train: enterprise
 apiVersion: v2
 appVersion: latest
 dependencies:
@@ -25,7 +25,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: KubeApps is a Kubernetes-as-Apps solution
-home: https://truecharts.org/charts/incubator/KubeApps
+home: https://truecharts.org/charts/enterprise/KubeApps
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/KubeApps.png
 keywords:
   - kubeapps
@@ -39,7 +39,6 @@ name: kubeapps
 sources:
   - https://cert-manager.io/
   - https://github.com/cert-manager
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/KubeApps
-  - https://github.com/truecharts/containers/tree/master/apps/alpine
+  - https://github.com/truecharts/charts/tree/master/charts/enterprise/KubeApps
 type: application
-version: 0.0.2
+version: 0.0.3
