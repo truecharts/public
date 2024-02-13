@@ -15,13 +15,23 @@ workload:
     
 service:
   main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+  kubeapps:
     enabled: true
+    primary: true
+    expandObjectName: false
+    labels:
+      truecharts.org/flagged: "true"
     selectorLabels:
       app.kubernetes.io/component: frontend
       truecharts.org/kahack: frontend
     ports:
-      main:
+      kubeapps:
         enabled: true
+        primary: true
         port: 8080
         targetPort: 8080
 

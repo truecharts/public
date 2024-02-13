@@ -5,7 +5,7 @@ portals:
 questions:
 # Include{global}
 # Include{serviceRoot}
-        - variable: main
+        - variable: kubeapps
           label: "Main Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
@@ -14,7 +14,7 @@ questions:
             attrs:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
-                    - variable: main
+                    - variable: kubeapps
                       label: "Main Service Port Configuration"
                       schema:
                         additional_attrs: true
