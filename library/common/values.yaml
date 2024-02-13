@@ -456,7 +456,7 @@ gluetunImage:
 
 netshootImage:
   repository: tccr.io/tccr/netshoot
-  tag: v0.11.0@sha256:8b3dad19c9cafb44af6385e399c0cc612b0ccef722f3573843bbf113cf06cff1
+  tag: v0.12.0@sha256:5eaa1962bc601b104c8b66ecc5ab11f986f72110caa7faeacb4a47d10526bf21
   pullPolicy: IfNotPresent
 
 tailscaleImage:
@@ -466,12 +466,12 @@ tailscaleImage:
 
 codeserverImage:
   repository: tccr.io/tccr/code-server
-  tag: v4.21.0@sha256:199386557f4be0d92bb184d070f679b1ec618887138b67493ffdbd527a99a114
+  tag: v4.21.1@sha256:357dc45ea807df9291623890d31590a5cf33779464a25415bb412dcbc7c5bee2
   pullPolicy: IfNotPresent
 
 alpineImage:
   repository: tccr.io/tccr/alpine
-  tag: v3.19.0@sha256:14eaf3fc268822c9631c45eeabb818f6c357edada9380fd725d6591b70e6edcc
+  tag: v3.19.1@sha256:ade0065e19edaa4f6903d464ee70605111a48394536deb94f31b661264704558
   pullPolicy: IfNotPresent
 
 scratchImage:
@@ -492,7 +492,7 @@ wgetImage:
 yqImage:
   pullPolicy: IfNotPresent
   repository: mikefarah/yq
-  tag: 4.40.5@sha256:8d1595f180373c9aa4d05b18b48df7c24bfd0ab55e3bda1b5b6dd59e16eb531a
+  tag: 4.40.7@sha256:c597eb784a17f698410584666bb9c2b5226af3d6060ecef25b9701695cd9edb8
 
 postgresClientImage:
   repository: tccr.io/tccr/db-wait-postgres
