@@ -12,14 +12,14 @@ portal:
 workload:
   main:
     enabled: false
-
+    
 service:
   main:
     enabled: false
     ports:
       main:
         enabled: false
-  kubeapps:
+  tckubeapps:
     enabled: true
     primary: true
     expandObjectName: false
@@ -29,17 +29,18 @@ service:
       app.kubernetes.io/component: frontend
       truecharts.org/kahack: frontend
     ports:
-      kubeapps:
+      tckubeapps:
         enabled: true
         primary: true
         port: 8080
         targetPort: 8080
 
+    
 serviceAccount:
   kubeapps-operator:
     enabled: true
     primary: true
-
+    
 secret:
   kubeapps-operator-token:
     enabled: true
@@ -47,7 +48,7 @@ secret:
     annotations:
       kubernetes.io/service-account.name: kubeapps-operator
     stringData: "-"
-
+    
 rbac:
   kubeapps-operator:
     enabled: true
@@ -58,14 +59,14 @@ rbac:
       - apiGroups: ["*"]
         resources: ["*"]
         verbs: ["*"]
-
+        
 kubeapps:
   frontend:
     podLabels:
       truecharts.org/kahack: frontend
-    apprepository:
-      initialRepos:
-        - name: truecharts
-          url: https://charts.truecharts.org
-        - name: bitnami
-          url: https://charts.bitnami.com/bitnami
+  apprepository:
+    initialRepos:
+      - name: truecharts
+        url: https://charts.truecharts.org
+      - name: bitnami
+        url: https://charts.bitnami.com/bitnami
