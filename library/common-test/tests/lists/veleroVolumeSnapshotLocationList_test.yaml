@@ -10,7 +10,9 @@ tests:
       volumeSnapshotLocationList:
         - name: my-snap1
           enabled: true
-          provider: aws
+          provider: my-snapshot-plugin
+          config:
+            provider: aws
           credential:
             aws:
               id: my-id
@@ -40,7 +42,9 @@ tests:
         equal:
           path: spec
           value:
-            provider: velero.io/aws
+            provider: my-snapshot-plugin
+            config:
+              provider: aws
             credential:
               name: vsl-test-release-name-common-test-my-snap1
               key: cloud

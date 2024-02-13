@@ -24,8 +24,18 @@ tests:
           value:
             schedule: 0 2 * * *
             template:
+              includeClusterResources: true
               includedNamespaces:
                 - test-release-namespace
+              orLabelSelectors:
+                - matchLabels:
+                    app.kubernetes.io/instance: test-release-name
+                - matchLabels:
+                    release: test-release-name
+                - matchLabels:
+                    name: test-release-name
+                    owner: helm
+
   - it: should generate correct spec with useOwnerReferencesInBackup
     set:
       schedules:
@@ -47,10 +57,19 @@ tests:
             schedule: "0 2 * * *"
             useOwnerReferencesInBackup: true
             template:
+              includeClusterResources: true
               includedNamespaces:
                 - test-release-namespace
+              orLabelSelectors:
+                - matchLabels:
+                    app.kubernetes.io/instance: test-release-name
+                - matchLabels:
+                    release: test-release-name
+                - matchLabels:
+                    name: test-release-name
+                    owner: helm
 
-  - it: should generate correct spec with template
+  - it: should generate correct spec with template and override on includedNamespaces
     set:
       schedules:
         my-sched:
@@ -60,6 +79,8 @@ tests:
             ttl: 720h
             includeClusterResources: true
             snapshotVolumes: true
+            includedNamespaces:
+              - some-namespace
     asserts:
       - documentIndex: &scheduleDoc 0
         isKind:
@@ -77,7 +98,15 @@ tests:
               includeClusterResources: true
               snapshotVolumes: true
               includedNamespaces:
-                - test-release-namespace
+                - some-namespace
+              orLabelSelectors:
+                - matchLabels:
+                    app.kubernetes.io/instance: test-release-name
+                - matchLabels:
+                    release: test-release-name
+                - matchLabels:
+                    name: test-release-name
+                    owner: helm
 
   # Failures
   - it: should fail without schedule

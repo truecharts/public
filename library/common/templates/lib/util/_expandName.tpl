@@ -18,7 +18,7 @@
     {{- $expandName = tpl $expandName $rootCtx -}}
 
     {{/* After tpl it becomes a string, not a bool */}}
-    {{-  if eq $expandName "true" -}}
+    {{- if eq $expandName "true" -}}
       {{- $expandName = true -}}
     {{- else if eq $expandName "false" -}}
       {{- $expandName = false -}}

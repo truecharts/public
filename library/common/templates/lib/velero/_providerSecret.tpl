@@ -4,23 +4,26 @@
   {{- $prefix := .prefix -}}
 
   {{- $creds := "" -}}
-  {{- $provider := "" -}}
-
-  {{/* Use credential provider when creating secret for VSL */}}
   {{/* Make sure provider is a string */}}
-  {{- if eq $prefix "vsl" -}}
-    {{- $provider = $objectData.credential.provider | toString -}}
-  {{- else -}}
-    {{- $provider = $objectData.provider | toString -}}
+  {{- $provider := $objectData.provider | toString -}}
+
+  {{/* Use config.provider when creating secret for VSL */}}
+  {{- if and (eq $prefix "vsl") $objectData.config -}}
+    {{- $provider = $objectData.config.provider | toString -}}
   {{- end -}}
- 
 
   {{- if and (eq $provider "aws") $objectData.credential.aws -}}
     {{- $creds = (include "tc.v1.common.lib.velero.provider.aws.secret" (dict "creds" $objectData.credential.aws) | fromYaml).data -}}
-    {{- $_ := set $objectData "provider" "velero.io/aws" -}}
+    {{- if ne $prefix "vsl" -}} {{/* If its not VSL, update the provider with a prefix */}}
+      {{- $_ := set $objectData "provider" "velero.io/aws" -}}
+    {{- end -}}
   {{- else if and (eq $provider "s3") $objectData.credential.s3 -}}
     {{- $creds = (include "tc.v1.common.lib.velero.provider.aws.secret" (dict "creds" $objectData.credential.s3) | fromYaml).data -}}
-    {{- $_ := set $objectData "provider" "velero.io/aws" -}}
+    {{- if eq $prefix "vsl" -}} {{/* Convert s3 to aws for vsl under config.provider */}}
+      {{- $_ := set $objectData.config "provider" "aws" -}}
+    {{- else -}} {{/* If its not VSL, update the provider with a prefix */}}
+      {{- $_ := set $objectData "provider" "velero.io/aws" -}}
+    {{- end -}}
   {{- end -}}
 
   {{/* If we matched a provider, create the secret */}}

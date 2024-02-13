@@ -10,14 +10,18 @@ tests:
       volumeSnapshotLocation:
         my-snap1:
           enabled: true
-          provider: aws
+          provider: some-snapshot-plugin
+          config:
+            provider: aws
           credential:
             aws:
               id: my-id
               key: my-key
         my-snap2:
           enabled: true
-          provider: aws
+          provider: some-snapshot-plugin
+          config:
+            provider: aws
           credential:
             aws:
               id: my-id

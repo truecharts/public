@@ -19,6 +19,25 @@
 
       {{- $objectName := $name -}}
 
+      {{/*
+        Default to false for schedule objects.
+        This is because those objects are usualy used
+        from the velero cli and having the object expanded
+        would make it harder to use the cli.
+      */}}
+      {{- if not (hasKey $objectData "expandObjectName") -}}
+        {{- $_ := set $objectData "expandObjectName" "false" -}}
+      {{- end -}}
+
+      {{- $expandName := (include "tc.v1.common.lib.util.expandName" (dict
+                "rootCtx" $ "objectData" $objectData
+                "name" $name "caller" "Velero Schedule"
+                "key" "schedules")) -}}
+
+      {{- if eq $expandName "true" -}}
+        {{- $objectName = (printf "%s-%s" $fullname $name) -}}
+      {{- end -}}
+
       {{- include "tc.v1.common.lib.util.metaListToDict" (dict "objectData" $objectData) -}}
 
       {{/* Perform validations */}} {{/* schedules have a max name length of 253 */}}

@@ -14,13 +14,16 @@ objectData:
 
   {{- $rootCtx := .rootCtx -}}
   {{- $objectData := .objectData }}
-  {{- $namespace := (include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $rootCtx "objectData" $objectData "caller" "Schedule")) -}}
+  {{- $namespace := (include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $rootCtx "objectData" $objectData "caller" "Velero Schedule")) -}}
+
+  {{/* Get existing BSLs */}}
   {{- $lookupBSL := (lookup "velero.io/v1" "BackupStorageLocation" "" "") -}}
-  {{- if and $lookupBSL $lookupBSL.items -}}
-      {{- $lookupBSL = $lookupBSL.items  -}}
-  {{- end -}}
-  {{- range $BSL := $lookupBSL -}}
-    {{- $namespace = $BSL.metadata.namespace -}}
+  {{- if $lookupBSL.items -}}
+    {{/*
+      Find the velero namespace (this is where BSLs are created)
+      And use it as the namespace for the schedule too.
+    */}}
+    {{- $namespace = ($lookupBSL.items | first).metadata.namespace -}}
   {{- end }}
 ---
 apiVersion: velero.io/v1
@@ -44,10 +47,10 @@ spec:
   useOwnerReferencesInBackup: {{ $objectData.useOwnerReferencesInBackup }}
   {{- end }}
   template:
-    {{- if not $objectData.template }}
+  {{- if not $objectData.template }}
     includeClusterResources: true
     includedNamespaces:
-      - {{ include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $rootCtx "objectData" $objectData "caller" "Schedule") }}
+      - {{ include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $rootCtx "objectData" $objectData "caller" "Velero Schedule") }}
     orLabelSelectors:
       - matchLabels:
           app.kubernetes.io/instance: {{ $rootCtx.Release.Name }}
@@ -56,10 +59,18 @@ spec:
       - matchLabels:
           owner: helm
           name: {{ $rootCtx.Release.Name }}
-    {{- end -}}
-
-    {{- with $objectData.template }}
+  {{- end -}}
+  {{- with $objectData.template }}
+    {{/*
+      TODO: This toYaml should **not** be here if any of the checks
+      below renders when a key is present. Currently, checks below
+      only render when a key is not present, which is mostly safe
+      to use along with the toYaml.
+     */}}
     {{- toYaml . | nindent 4 }}
+    {{- if not (hasKey . "includeClusterResources") }}
+    includeClusterResources: true
+    {{- end -}}
     {{- if not .orLabelSelectors }}
     orLabelSelectors:
       - matchLabels:
@@ -72,10 +83,7 @@ spec:
     {{- end -}}
     {{- if not .includedNamespaces }}
     includedNamespaces:
-      - {{ include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $rootCtx "objectData" $objectData "caller" "Schedule") }}
+      - {{ include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $rootCtx "objectData" $objectData "caller" "Velero Schedule") }}
     {{- end -}}
-    {{- if not (hasKey .  "includeClusterResources") }}
-    includeClusterResources: true
-    {{- end -}}
-    {{- end -}}
+  {{- end -}}
 {{- end -}}

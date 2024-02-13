@@ -35,7 +35,9 @@ tests:
           labelsList:
             - name: some-label
               value: some-value
-          provider: aws
+          provider: some-snapshot-plugin
+          config:
+            provider: aws
           credential:
             aws:
               id: my-id

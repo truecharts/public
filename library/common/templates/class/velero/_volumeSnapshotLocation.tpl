@@ -30,7 +30,7 @@ metadata:
   annotations:
     {{- . | nindent 4 }}
   {{- end }}
-spec:
+spec: {{/* This is the volume snapshot provider */}}
   provider: {{ $objectData.provider }}
   {{- with $objectData.credential }}
   credential:

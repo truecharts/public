@@ -14,6 +14,7 @@ tests:
         my-sched2:
           enabled: true
           schedule: "0 0 * * *"
+          expandObjectName: true
     asserts:
       - documentIndex: &scheduleDoc 0
         isKind:
@@ -24,7 +25,7 @@ tests:
       - documentIndex: *scheduleDoc
         equal:
           path: metadata.name
-          value: test-release-name-common-test-my-sched1
+          value: my-sched1
       - documentIndex: &otherScheduleDoc 1
         isKind:
           of: Schedule

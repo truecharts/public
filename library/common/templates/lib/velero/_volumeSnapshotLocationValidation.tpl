@@ -14,6 +14,14 @@ objectData:
     {{- fail "Volume Snapshot Location - Expected non-empty [provider]" -}}
   {{- end -}}
 
+  {{- if not $objectData.config -}}
+    {{- fail "Volume Snapshot Location - Expected non-empty [config]" -}}
+  {{- end -}}
+
+  {{- if not $objectData.config.provider -}}
+    {{- fail "Volume Snapshot Location - Expected non-empty [config.provider]" -}}
+  {{- end -}}
+
   {{- if not $objectData.credential -}}
     {{- fail "Volume Snapshot Location - Expected non-empty [credential]" -}}
   {{- end -}}
