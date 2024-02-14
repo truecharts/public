@@ -1,0 +1,71 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: tccr.io/tccr/alpine
+  tag: latest@sha256:ade0065e19edaa4f6903d464ee70605111a48394536deb94f31b661264704558
+manifestManager:
+  enabled: false
+operator:
+  register: false
+portal:
+  open:
+    enabled: false
+workload:
+  main:
+    enabled: false
+
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+  tckubeapps:
+    enabled: true
+    primary: true
+    expandObjectName: false
+    labels:
+      truecharts.org/flagged: "true"
+    selectorLabels:
+      app.kubernetes.io/component: frontend
+      truecharts.org/kahack: frontend
+    ports:
+      tckubeapps:
+        enabled: true
+        primary: true
+        port: 8080
+        targetPort: 8080
+
+serviceAccount:
+  kubeapps-operator:
+    enabled: true
+    primary: true
+
+secret:
+  kubeapps-operator-token:
+    enabled: true
+    type: kubernetes.io/service-account-token
+    annotations:
+      kubernetes.io/service-account.name: kubeapps-operator
+    stringData: "-"
+
+rbac:
+  kubeapps-operator:
+    enabled: true
+    primary: true
+    clusterWide: true
+    allServiceAccounts: true
+    rules:
+      - apiGroups: ["*"]
+        resources: ["*"]
+        verbs: ["*"]
+
+kubeapps:
+  frontend:
+    podLabels:
+      truecharts.org/kahack: frontend
+  apprepository:
+    initialRepos:
+      - name: truecharts
+        url: https://charts.truecharts.org
+      - name: bitnami
+        url: https://charts.bitnami.com/bitnami
