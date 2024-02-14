@@ -17,7 +17,7 @@ dependencies:
     tags: []
     import-values: []
   - name: clickhouse
-    version: 10.2.12
+    version: 11.0.0
     repository: oci://tccr.io/truecharts
     condition: clickhouse.enabled
     alias: ""
@@ -44,4 +44,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/plausible
   - https://hub.docker.com/r/plausible/analytics
 type: application
-version: 8.2.9
+version: 9.0.0
