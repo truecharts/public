@@ -17,8 +17,8 @@ dependencies:
     tags: []
     import-values: []
   - name: mariadb
-    version: 11.0.2
-    repository: https://deps.truecharts.org/
+    version: 12.1.17
+    repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
     tags: []

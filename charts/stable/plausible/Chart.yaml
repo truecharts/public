@@ -18,7 +18,7 @@ dependencies:
     import-values: []
   - name: clickhouse
     version: 10.2.12
-    repository: https://deps.truecharts.org/
+    repository: oci://tccr.io/truecharts
     condition: clickhouse.enabled
     alias: ""
     tags: []
