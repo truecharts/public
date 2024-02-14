@@ -12,7 +12,7 @@ portal:
 workload:
   main:
     enabled: false
-    
+
 service:
   main:
     enabled: false
@@ -35,12 +35,11 @@ service:
         port: 8080
         targetPort: 8080
 
-    
 serviceAccount:
   kubeapps-operator:
     enabled: true
     primary: true
-    
+
 secret:
   kubeapps-operator-token:
     enabled: true
@@ -48,7 +47,7 @@ secret:
     annotations:
       kubernetes.io/service-account.name: kubeapps-operator
     stringData: "-"
-    
+
 rbac:
   kubeapps-operator:
     enabled: true
@@ -59,7 +58,7 @@ rbac:
       - apiGroups: ["*"]
         resources: ["*"]
         verbs: ["*"]
-        
+
 kubeapps:
   frontend:
     podLabels:
