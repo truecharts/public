@@ -89,6 +89,14 @@ questions:
                   type: int
                   default: 568
 # Include{resources}
+# Include{metrics}
+                    - variable: apiKey
+                      label: "Sabnzbd API key"
+                      description: "Can be found in the Bazarr settings"
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
