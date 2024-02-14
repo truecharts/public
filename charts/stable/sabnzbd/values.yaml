@@ -33,6 +33,9 @@ workload:
               enabled: false
             startup:
               enabled: false
+          env:
+            SABNZBD__HOST_WHITELIST_ENTRIES: ""
+            SABNZBD__PORT: "{{ .Values.service.main.ports.main.port }}"
   exportarr:
     enabled: "{{ .Values.metrics.main.enabled }}"
     type: Deployment
@@ -67,8 +70,6 @@ workload:
             PORT: "{{ .Values.service.metrics.ports.metrics.port }}"
             URL: '{{ printf "http://%v:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.main.ports.main.port }}'
             APIKEY: "{{ .Values.metrics.main.apiKey }}"
-            SABNZBD__HOST_WHITELIST_ENTRIES: ""
-            SABNZBD__PORT: "{{ .Values.service.main.ports.main.port }}"
 persistence:
   config:
     enabled: true
