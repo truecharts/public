@@ -18,14 +18,14 @@ dependencies:
     import-values: []
   - name: postgresql
     version: 11.0.31
-    repository: https://deps.truecharts.org/
+    repository: oci://tccr.io/truecharts
     condition: postgresql.enabled
     alias: ""
     tags: []
     import-values: []
   - name: solr
     version: 8.0.1
-    repository: https://deps.truecharts.org/
+    repository: oci://tccr.io/truecharts
     condition: solr.enabled
     alias: ""
     tags: []

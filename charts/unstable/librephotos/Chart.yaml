@@ -18,7 +18,7 @@ dependencies:
     import-values: []
   - name: postgresql
     version: 11.0.31
-    repository: https://deps.truecharts.org/
+    repository: oci://tccr.io/truecharts
     condition: postgresql.enabled
     alias: ""
     tags: []
