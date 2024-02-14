@@ -319,6 +319,12 @@ jobs:
           GPG_KEYRING_BASE64: "${{ secrets.GPG_KEYRING_BASE64 }}"
           GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
 
+      # Optional step if GPG signing is used
+      - name: Clean Questions
+        shell: bash
+        run: |
+          find . -type f -name 'questions.yaml' -exec rm {} \;
+  
       - name: Run chart-releaser for dependency apps
         uses: helm/chart-releaser-action@a917fd15b20e8b64b94d9158ad54cd6345335584 # v1.6.0
         if: |
@@ -330,7 +336,30 @@ jobs:
         env:
           CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
           CR_SKIP_EXISTING: "true"
-
+  
+      - name: Helm | Login
+        shell: bash
+        run: echo ${{ secrets.QUAY_SECRET }} | helm registry login -u ${{ secrets.QUAY_USER }} --password-stdin quay.io
+  
+      - name: Push Charts to Quay
+        shell: bash
+        run: |
+          for pkg in .cr-release-packages/*.tgz; do
+            if [ -z "${pkg:-}" ]; then
+              break
+            fi
+            filename=$(basename "$pkg")
+            name="${filename%%-[0-9]*.[0-9]*.[0-9]*.tgz}"
+            echo "uploading $name"
+            helm push "${pkg}" oci://quay.io/truecharts || echo "failed to upload $pkg to OCI"
+            curl -X POST -H "Content-Type: application/json" -d '{"visibility": "public"}' -H "Authorization: Bearer ${{ secrets.QUAY_TOKEN }}" "https://quay.io/api/v1/repository/truecharts/$name/changevisibility"  || echo "failed to set $pkg to public on OCI"
+          done
+  
+      - name: Helm | Logout
+        shell: bash
+        run: helm registry logout quay.io
+  
+  
       - name: Tag App Releases
         if: |
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
