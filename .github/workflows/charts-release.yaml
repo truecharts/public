@@ -76,8 +76,7 @@ jobs:
           
       - name: Prep go-yq
         run: |
-            wget https://github.com/mikefarah/yq/releases/download/v4.26.1/yq_linux_amd64 -O /usr/bin/go-yq && \
-            chmod +x /usr/bin/go-yq && \
+            wget https://github.com/mikefarah/yq/releases/download/v4.26.1/yq_linux_amd64 -O /usr/bin/go-yq && chmod +x /usr/bin/go-yq 
 
       # Optional step if GPG signing is used
       - name: Prepare GPG key
