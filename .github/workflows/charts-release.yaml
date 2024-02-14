@@ -339,10 +339,14 @@ jobs:
   
       - name: Helm | Login
         shell: bash
+        env: 
+          HELM_EXPERIMENTAL_OCI: 1
         run: echo ${{ secrets.QUAY_SECRET }} | helm registry login -u ${{ secrets.QUAY_USER }} --password-stdin quay.io
   
       - name: Push Charts to Quay
         shell: bash
+        env: 
+          HELM_EXPERIMENTAL_OCI: 1
         run: |
           for pkg in .cr-release-packages/*.tgz; do
             if [ -z "${pkg:-}" ]; then
@@ -357,6 +361,8 @@ jobs:
   
       - name: Helm | Logout
         shell: bash
+        env: 
+          HELM_EXPERIMENTAL_OCI: 1
         run: helm registry logout quay.io
   
   
