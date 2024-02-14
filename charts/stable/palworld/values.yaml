@@ -302,7 +302,7 @@ workload:
             # game
             SRV_ADMIN_PWD: "{{ .Values.palworld.game.admin_password }}"
             UPDATE_PUBLIC_IP: "{{ .Values.palworld.game.update_public_ip }}"
-            GAME_PARAMS: '{{ join " " .Values.palworld.game.params }}'
+            GAME_PARAMS: '{{ printf "-port=%s -publicport=%s %s" .Values.service.main.ports.main.port .Values.service.main.ports.main.port (join " " .Values.palworld.game.params) }}'
             GAME_PARAMS_EXTRA: '{{ join " " .Values.palworld.game.params_extra }}'
             # backup
             BACKUP: "{{ .Values.palworld.backup.enabled }}"
