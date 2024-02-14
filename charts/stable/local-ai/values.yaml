@@ -1,27 +1,27 @@
 image:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.7.0@sha256:41e5c852a3419d00f8116d040bef078c814629879403b2ef8c7ac697784b7b9e
+  tag: v2.8.0@sha256:ee0002e91f208ebea176b50db407c23ae508941bef16808801b9aea5c8125925
 ffmpegImage:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.7.0-ffmpeg-core@sha256:b5815fd4fdbe56f3d524b58155303995344da3fd417f7160b956cd7e9168fe4c
+  tag: v2.8.0-ffmpeg-core@sha256:cdd16d9e8915654914e36b879a1569fa710ee3cd1730168b877e2e502fa23d88
 cublasCuda12Image:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.7.0-cublas-cuda12-core@sha256:1b4a32a63cc4118b9378569541d276cc880bf230b3d1da8d5f2cf43ec33cf1a3
+  tag: v2.8.0-cublas-cuda12-core@sha256:5a71a46746bf285f7b1a2190df085f73e42d57c13b84f879fe31f54691b13f43
 cublasCuda12FfmpegImage:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.7.0-cublas-cuda12-ffmpeg-core@sha256:bf11fe260047002cd9206fec370ca1e78f360d68b5e386192f1c1a0bdee975c7
+  tag: v2.8.0-cublas-cuda12-ffmpeg-core@sha256:aeea669b8c2f52acbcedb6aeda2027b040a62bfc0fb12f5c5ad21b6dcb03680a
 cublasCuda11Image:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.7.0-cublas-cuda11-core@sha256:7272a60b4dd96259d36f2ac346b97342c781d91d6e1924ade735b9b562a1d164
+  tag: v2.8.0-cublas-cuda11-core@sha256:1f0c7bb873356fe0f33446ca2b391a011eb0cf24eaae74882a2d3609577ee33b
 cublasCuda11FfmpegImage:
   repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v2.7.0-cublas-cuda11-ffmpeg-core@sha256:e0e35edc309c9e83cacc122cc6e4af5aa95fbc7d7834312c47ce301220e6ef81
+  tag: v2.8.0-cublas-cuda11-ffmpeg-core@sha256:7759d50eb7a4831ababbb4c6819b5e727ccc52b534d329d9c60ff9575ada7f3b
 securityContext:
   container:
     runAsNonRoot: false
