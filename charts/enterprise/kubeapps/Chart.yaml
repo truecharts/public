@@ -1,0 +1,45 @@
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: operators
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: enterprise
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.3.9
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: kubeapps
+    version: 14.3.3
+    repository: https://charts.bitnami.com/bitnami
+    condition: ""
+    alias: kubeapps
+    tags: []
+    import-values: []
+deprecated: false
+description: KubeApps is a Kubernetes-as-Apps solution
+home: https://truecharts.org/charts/enterprise/kubeapps
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/kubeapps.png
+keywords:
+  - kubeapps
+  - catalog
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: kubeapps
+sources:
+  - https://cert-manager.io/
+  - https://github.com/cert-manager
+  - https://github.com/truecharts/charts/tree/master/charts/enterprise/kubeapps
+  - https://github.com/truecharts/containers/tree/master/apps/alpine
+type: application
+version: 1.0.0

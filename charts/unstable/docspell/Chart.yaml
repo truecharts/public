@@ -18,14 +18,14 @@ dependencies:
     import-values: []
   - name: postgresql
     version: 11.0.31
-    repository: https://deps.truecharts.org/
+    repository: oci://tccr.io/truecharts
     condition: postgresql.enabled
     alias: ""
     tags: []
     import-values: []
   - name: solr
-    version: 8.0.1
-    repository: https://deps.truecharts.org/
+    version: 9.1.17
+    repository: oci://tccr.io/truecharts
     condition: solr.enabled
     alias: ""
     tags: []
@@ -47,8 +47,8 @@ sources:
   - https://github.com/eikek/docspell
   - https://docspell.org/docs/install/docker/
   - https://github.com/truecharts/charts/tree/master/charts/unstable/docspell
+  - https://hub.docker.com/r/docspell/restserver
   - https://hub.docker.com/r/docspell/dsc
   - https://hub.docker.com/r/docspell/joex
-  - https://hub.docker.com/r/docspell/restserver
 type: application
 version: 4.0.11
