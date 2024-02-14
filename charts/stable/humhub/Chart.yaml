@@ -17,14 +17,14 @@ dependencies:
     tags: []
     import-values: []
   - name: mariadb
-    version: 12.1.12
+    version: 12.1.17
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 11.1.16
+    version: 11.1.21
     repository: https://deps.truecharts.org
     condition: redis.enabled
     alias: ""
@@ -48,4 +48,4 @@ sources:
   - https://ghcr.io/mriedmann/humhub-phponly
   - https://ghcr.io/mriedmann/humhub-nginx
 type: application
-version: 6.2.9
+version: 6.2.10

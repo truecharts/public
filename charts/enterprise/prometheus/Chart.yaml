@@ -17,14 +17,14 @@ dependencies:
     tags: []
     import-values: []
   - name: node-exporter
-    version: 6.1.15
+    version: 6.1.20
     repository: https://deps.truecharts.org
     condition: exporters.enabled,exporters.node-exporter.enabled
     alias: ""
     tags: []
     import-values: []
   - name: kube-state-metrics
-    version: 6.1.15
+    version: 6.1.21
     repository: https://deps.truecharts.org
     condition: exporters.enabled,exporters.kube-state-metrics.enabled
     alias: ""
@@ -50,4 +50,4 @@ sources:
   - https://hub.docker.com/r/bitnami/alertmanager
   - https://quay.io/thanos/thanos
 type: application
-version: 16.4.9
+version: 16.4.10
