@@ -129,17 +129,17 @@ persistence:
   passwd:
     enabled: true
     mountPath: "/passwd"
-          
+
 metrics:
-    main:
-      enabled: true
-      type: "servicemonitor"
-      endpoints:
-        - port: metrics
-          path: /metrics
-      targetSelector: metrics
-      prometheusRule:
-        enabled: false
+  main:
+    enabled: true
+    type: "servicemonitor"
+    endpoints:
+      - port: metrics
+        path: /metrics
+    targetSelector: metrics
+    prometheusRule:
+      enabled: false
 
 portal:
   open:

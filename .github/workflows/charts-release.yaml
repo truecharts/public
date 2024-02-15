@@ -73,10 +73,10 @@ jobs:
           helm repo add cnpg https://cloudnative-pg.github.io/charts
           helm repo add metallb https://metallb.github.io/metallb
           helm repo update
-          
+
       - name: Prep go-yq
         run: |
-            wget https://github.com/mikefarah/yq/releases/download/v4.26.1/yq_linux_amd64 -O /usr/local/bin/go-yq && chmod +x /usr/local/bin/go-yq 
+          wget https://github.com/mikefarah/yq/releases/download/v4.26.1/yq_linux_amd64 -O /usr/local/bin/go-yq && chmod +x /usr/local/bin/go-yq
 
       # Optional step if GPG signing is used
       - name: Prepare GPG key
@@ -303,7 +303,7 @@ jobs:
         run: |
           git config user.name "TrueCharts-Bot"
           git config user.email "bot@truecharts.org"
-          
+
       - name: Install Helm
         uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # tag=v3
         with:
@@ -329,7 +329,7 @@ jobs:
         shell: bash
         run: |
           find . -type f -name 'questions.yaml' -exec rm {} \;
-  
+
       - name: Run chart-releaser for dependency apps
         uses: helm/chart-releaser-action@a917fd15b20e8b64b94d9158ad54cd6345335584 # v1.6.0
         if: |
@@ -341,16 +341,16 @@ jobs:
         env:
           CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
           CR_SKIP_EXISTING: "true"
-  
+
       - name: Helm | Login
         shell: bash
-        env: 
+        env:
           HELM_EXPERIMENTAL_OCI: 1
         run: echo ${{ secrets.QUAY_SECRET }} | helm registry login -u ${{ secrets.QUAY_USER }} --password-stdin quay.io
-  
+
       - name: Push Charts to Quay
         shell: bash
-        env: 
+        env:
           HELM_EXPERIMENTAL_OCI: 1
         run: |
           for pkg in .cr-release-packages/*.tgz; do
@@ -363,14 +363,13 @@ jobs:
             helm push "${pkg}" oci://quay.io/truecharts || echo "failed to upload $pkg to OCI"
             curl -X POST -H "Content-Type: application/json" -d '{"visibility": "public"}' -H "Authorization: Bearer ${{ secrets.QUAY_TOKEN }}" "https://quay.io/api/v1/repository/truecharts/$name/changevisibility"  || echo "failed to set $pkg to public on OCI"
           done
-  
+
       - name: Helm | Logout
         shell: bash
-        env: 
+        env:
           HELM_EXPERIMENTAL_OCI: 1
         run: helm registry logout quay.io
-  
-  
+
       - name: Tag App Releases
         if: |
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
