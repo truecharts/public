@@ -17,8 +17,8 @@ dependencies:
     tags: []
     import-values: []
   - name: mariadb
-    version: 12.1.12
-    repository: https://deps.truecharts.org/
+    version: 12.1.17
+    repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
     tags: []
@@ -43,4 +43,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/piwigo
   - https://ghcr.io/linuxserver/piwigo
 type: application
-version: 11.3.0
+version: 11.3.2
