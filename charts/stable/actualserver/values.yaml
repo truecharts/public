@@ -34,10 +34,10 @@ service:
 persistence:
   server-files:
     enabled: true
-    mountPath: /app/server-files
+    mountPath: /data/server-files
   user-files:
     enabled: true
-    mountPath: /app/user-files
+    mountPath: /data/user-files
 portal:
   open:
     enabled: true

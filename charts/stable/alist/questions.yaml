@@ -30,6 +30,28 @@ questions:
                               type: int
                               default: 10167
                               required: true
+        - variable: aria2
+          label: Aria 2 RPC Service Port
+          description: Adds another port for Aria 2 RPC connections
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: aria2
+                      label: Aria 2 RPC Service Port
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 6800
+                              required: true
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
 # Include{serviceList}
