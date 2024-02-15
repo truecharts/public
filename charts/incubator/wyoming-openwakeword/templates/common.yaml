@@ -1,0 +1,8 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.v1.common.loader.init" . }}
+
+{{- $newArgs := (include "wyoming-openwakeword.args" . | fromYaml) }}
+{{- $_ := set .Values.workload.main.podSpec.containers.main "args" $newArgs.args -}}
+
+{{/* Render the templates */}}
+{{ include "tc.v1.common.loader.apply" . }}
