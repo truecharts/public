@@ -25,6 +25,21 @@
                   type: string
                   default: 8Gi
                   valid_chars: '^(?!^0(e[0-9]|[EPTGMK]i?|)$)([0-9]+)(|[EPTGMK]i?|e[0-9]+)$'
+              - variable: 'intel.com/i915'
+                label: Add Intel i915 GPUs
+                schema:
+                  type: int
+                  default: 0
+              - variable: 'nvidia.com/gpu'
+                label: Add NVIDIA GPUs (Experimental)
+                schema:
+                  type: int
+                  default: 0
+              - variable: 'amd.com/gpu'
+                label: Add AMD GPUs
+                schema:
+                  type: int
+                  default: 0
         - variable: requests
           label: "Minimum Resources Required (request)"
           schema:
