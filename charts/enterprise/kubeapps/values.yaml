@@ -35,10 +35,12 @@ workload:
 
 service:
   main:
-    enabled: false
+    enabled: true
     ports:
       main:
+        enabled: true
         port: 3000
+        targetPort: 3000
   tckubeapps:
     enabled: true
     primary: true
