@@ -55,9 +55,11 @@ workload:
             liveness:
               path: /wp-login.php
               type: http
+              periodSeconds: 30
             readiness:
               port: /wp-login.php
               type: http
+              periodSeconds: 30
             startup:
               port: /wp-login.php
               type: http
