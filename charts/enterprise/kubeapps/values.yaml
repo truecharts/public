@@ -1,44 +1,24 @@
 image:
   pullPolicy: IfNotPresent
-  repository: ghcr.io/xstar97/my-proxy-service
-  tag: v0.0.1@sha256:2ef9bb1b94f24966e9e52bc398e9c1eb52f1582f22ffe2ebc3629cd2977e49c4
-
+  repository: tccr.io/tccr/alpine
+  tag: latest@sha256:ade0065e19edaa4f6903d464ee70605111a48394536deb94f31b661264704558
+manifestManager:
+  enabled: false
 operator:
   register: false
-  
 portal:
   open:
-    enabled: true
-    
-persistence:
-  token:
-    projected:
-      mountPath: /service-account
-      sources:
-        - serviceAccountToken:
-            expirationSeconds: 3600
-            path: token
-          
-    
+    enabled: false
 workload:
   main:
-    enabled: true
-    podSpec:
-      containers:
-        container-name:
-          env:
-            PORT: 3000    
-          args:
-            - --api-file /service-account/token
-            - --proxy-target http://tckubeapps:8080
-            - --auth-token-header authorization
+    enabled: false
 
 service:
   main:
     enabled: false
     ports:
       main:
-        port: 3000
+        enabled: false
   tckubeapps:
     enabled: true
     primary: true
