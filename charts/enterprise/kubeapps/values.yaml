@@ -1,28 +1,73 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/tccr/alpine
-  tag: latest@sha256:ade0065e19edaa4f6903d464ee70605111a48394536deb94f31b661264704558
-manifestManager:
-  enabled: false
+  repository: ghcr.io/xstar97/my-proxy-service
+  tag: v0.0.1@sha256:2ef9bb1b94f24966e9e52bc398e9c1eb52f1582f22ffe2ebc3629cd2977e49c4
+
 operator:
   register: false
+  
 portal:
   open:
-    enabled: false
+    enabled: true
+    
+persistence:
+  token:
+    type: projected
+    mountPath: /service-account
+    sources:
+      - serviceAccountToken:
+          expirationSeconds: 3600
+          path: token
+          
+podOptions:
+  automountServiceAccountToken: true
+    
 workload:
   main:
     enabled: false
+  tcopen:
+    enabled: true
+    expandObjectName: false
+    type: Deployment
+    podSpec:
+      containers:
+        container-name:
+          env:
+            PORT: 3000    
+          args:
+            - --api-file /service-account/token
+            - --proxy-target http://tckubeapps:8080
+            - --auth-token-header authorization
+          probes:
+            liveness:
+              enabled: true
+              type: tcp
+              port: 3000
+            readiness:
+              enabled: true
+              type: tcp
+              port: 3000
+            startup:
+              enabled: true
+              type: tcp
+              port: 3000
 
 service:
   main:
     enabled: false
+  tcopen:
+    enabled: true
+    expandObjectName: false
     ports:
-      main:
-        enabled: false
+      tcopen:
+        enabled: true
+        primary: true
+        port: 3000
+        targetPort: 3000
   tckubeapps:
     enabled: true
-    primary: true
     expandObjectName: false
+    primary: true
     labels:
       truecharts.org/flagged: "true"
     selectorLabels:
@@ -39,14 +84,6 @@ serviceAccount:
   kubeapps-operator:
     enabled: true
     primary: true
-
-secret:
-  kubeapps-operator-token:
-    enabled: true
-    type: kubernetes.io/service-account-token
-    annotations:
-      kubernetes.io/service-account.name: kubeapps-operator
-    stringData: "-"
 
 rbac:
   kubeapps-operator:
