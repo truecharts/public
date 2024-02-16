@@ -5,17 +5,17 @@ portals:
 questions:
 # Include{global}
 # Include{serviceRoot}
-        - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+        - variable: tcopen
+          label: "token-bypass Service"
+          description: "The token-bypass service"
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
-                    - variable: main
-                      label: "Main Service Port Configuration"
+                    - variable: tcopen
+                      label: "token-bypass Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
