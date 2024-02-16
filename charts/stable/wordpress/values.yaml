@@ -16,6 +16,18 @@ workload:
                 name: env-config
             - secretRef:
                 name: env-secret
+          probes:
+            liveness:
+              path: /wp-login.php
+              type: http
+              periodSeconds: 30
+            readiness:
+              port: /wp-login.php
+              type: http
+              periodSeconds: 30
+            startup:
+              port: /wp-login.php
+              type: http
 wordpress:
   user: user
   pass: bitnami
@@ -46,23 +58,6 @@ service:
         protocol: http
         port: 10591
         targetPort: 80
-workload:
-  main:
-    podSpec:
-      containers:
-        main:
-          probes:
-            liveness:
-              path: /wp-login.php
-              type: http
-              periodSeconds: 30
-            readiness:
-              port: /wp-login.php
-              type: http
-              periodSeconds: 30
-            startup:
-              port: /wp-login.php
-              type: http
 persistence:
   config:
     enabled: true
