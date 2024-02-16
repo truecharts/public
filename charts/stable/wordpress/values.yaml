@@ -45,6 +45,22 @@ service:
       main:
         protocol: http
         port: 10591
+        targetPort: 80
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: /wp-login.php
+              type: http
+            readiness:
+              port: /wp-login.php
+              type: http
+            startup:
+              port: /wp-login.php
+              type: http
 persistence:
   config:
     enabled: true
