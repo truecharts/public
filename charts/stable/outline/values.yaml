@@ -75,6 +75,8 @@ workload:
             WEB_CONCURRENCY: 1
             MAXIMUM_IMPORT_SIZE: 5120000
             DEFAULT_LANGUAGE: "en_US"
+            FILE_STORAGE: ""
+            FILE_STORAGE_UPLOAD_MAX_SIZE: ""
             # TEAM_LOGO: ""
             # COLLABORATION_URL: ""
             # SLACK_KEY: ""
@@ -130,3 +132,7 @@ workload:
               secretKeyRef:
                 name: secrets
                 key: UTILS_SECRET
+persistence:
+  data:
+    enabled: true
+    mountPath: /var/lib/outline/data
