@@ -4,11 +4,8 @@ image:
   tag: latest
 
 config:
-  nextauth_url: "http://example.com"
-  pagination_take_count: 20
-  autoscroll_timeout: 30
-  disable_registration: false
-  archive_limit: 5
+  admin_username: "admin"
+  admin_password: "changeme"
 
 securityContext:
   container:
@@ -20,7 +17,7 @@ service:
   main:
     ports:
       main:
-        port: 5959
+        port: 9598
         targetPort: 8000
 
 workload:
