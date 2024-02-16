@@ -34,10 +34,8 @@ workload:
         container-name:
           env:
             PORT: 3000    
-          args:
-            - --api-file /service-account/token
-            - --proxy-target http://tckubeapps:8080
-            - --auth-token-header authorization
+            API_FILE: /service-account/token
+            PROXY_TARGET: http://tckubeapps:8080
           probes:
             liveness:
               enabled: true
