@@ -23,7 +23,7 @@ jobs:
       matrix:
         helm-version:
           - v3.12.3
-          - v3.14.0
+          - v3.14.1
     steps:
       - name: Checkout
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
@@ -62,7 +62,7 @@ jobs:
       matrix:
         helm-version:
           - v3.12.3
-          - v3.14.0
+          - v3.14.1
     steps:
       - name: Checkout
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
@@ -110,7 +110,7 @@ jobs:
         # We run tests on Helm version of latest SCALE, fluxcd and latest helm release
         helm-version:
           - v3.12.3
-          - v3.14.0
+          - v3.14.1
         values:
           - basic-values.yaml
           - configmap-values.yaml
@@ -200,10 +200,7 @@ jobs:
           tar -xvzf kail_${KAIL_VERSION}_linux_amd64.tar.gz
           chmod +x kail
 
-      - name: Prep Helm
-        run: |
-          helm repo add truecharts-deps https://deps.truecharts.org
-          helm repo update
+
 
       - name: Add Dependencies
         run: |
@@ -335,10 +332,7 @@ jobs:
 #        with:
 #          version: ${{ matrix.helm-version }}
 #
-#      - name: Prep Helm
-#        run: |
-#          helm repo add truecharts-deps https://deps.truecharts.org
-#          helm repo update
+
 #      - name: Add Dependencies
 #        run: |
 #            helm install prometheus-operator oci://tccr.io/truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
