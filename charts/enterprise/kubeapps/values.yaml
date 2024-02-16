@@ -27,11 +27,14 @@ workload:
     enabled: false
   tcopen:
     enabled: true
+    primary: true
     expandObjectName: false
     type: Deployment
     podSpec:
       containers:
-        container-name:
+        tcopen:
+          enabled: true
+          primary: true
           env:
             PORT: 3000    
             API_FILE: /service-account/token
