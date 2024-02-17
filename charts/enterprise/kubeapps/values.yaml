@@ -53,6 +53,7 @@ workload:
 service:
   main:
     enabled: true
+    primary: true
     expandObjectName: false
     ports:
       main:
@@ -63,7 +64,6 @@ service:
   tckubeapps:
     enabled: true
     expandObjectName: false
-    primary: true
     labels:
       truecharts.org/flagged: "true"
     selectorLabels:
