@@ -199,7 +199,7 @@ copy_docs() {
 prep_helm() {
     if [[ -z "$standalone" ]]; then
         echo "helm repo update..."
-        # helm repo update
+        helm repo update
     fi
     }
     export -f prep_helm

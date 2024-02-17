@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 17.3.9
+    version: 17.4.2
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -20,7 +20,7 @@ dependencies:
     version: 14.3.3
     repository: https://charts.bitnami.com/bitnami
     condition: ""
-    alias: kubeapps
+    alias: ogkubeapps
     tags: []
     import-values: []
 deprecated: false
@@ -42,4 +42,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/enterprise/kubeapps
   - https://github.com/truecharts/containers/tree/master/apps/alpine
 type: application
-version: 1.0.0
+version: 1.1.0
