@@ -5,7 +5,7 @@ portals:
 questions:
 # Include{global}
 # Include{serviceRoot}
-        - variable: tcopen
+        - variable: main
           label: "token-bypass Service"
           description: "The token-bypass service"
           schema:
@@ -14,7 +14,7 @@ questions:
             attrs:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
-                    - variable: tcopen
+                    - variable: main
                       label: "token-bypass Service Port Configuration"
                       schema:
                         additional_attrs: true
