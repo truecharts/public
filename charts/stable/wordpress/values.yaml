@@ -18,13 +18,13 @@ workload:
                 name: env-secret
           probes:
             liveness:
-              path: /wp-admin/install.php
+              path: /
               type: http
             readiness:
               path: /wp-login.php
               type: http
             startup:
-              path: /wp-login.php
+              path: /
               type: http
 wordpress:
   user: user
