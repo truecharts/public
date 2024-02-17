@@ -18,13 +18,13 @@ workload:
                 name: env-secret
           probes:
             liveness:
-              path: /
+              port: 80
               type: http
             readiness:
-              path: /wp-login.php
+              port: 80
               type: http
             startup:
-              path: /
+              port: 80
               type: http
 wordpress:
   user: user
