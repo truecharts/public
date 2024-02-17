@@ -16,16 +16,6 @@ workload:
                 name: env-config
             - secretRef:
                 name: env-secret
-          probes:
-            liveness:
-              port: 80
-              type: http
-            readiness:
-              port: 80
-              type: http
-            startup:
-              port: 80
-              type: http
 wordpress:
   user: user
   pass: bitnami
