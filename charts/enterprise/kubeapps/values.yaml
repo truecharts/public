@@ -80,6 +80,7 @@ serviceAccount:
   kubeapps-operator:
     enabled: true
     primary: true
+    targetSelectAll: true
 
 rbac:
   kubeapps-operator:
