@@ -18,7 +18,7 @@ workload:
                 name: env-secret
           probes:
             liveness:
-              path: wp-admin/install.php
+              path: /wp-admin/install.php
               type: http
             readiness:
               path: /wp-login.php
