@@ -1,27 +1,59 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/tccr/alpine
-  tag: latest@sha256:ade0065e19edaa4f6903d464ee70605111a48394536deb94f31b661264704558
-manifestManager:
-  enabled: false
+  repository: ghcr.io/xstar97/my-proxy-service
+  tag: v0.0.2@sha256:8d25a6ff316f140be1f198376e84208902ddf61a38a78076c1b11a81924d4019
+
 operator:
   register: false
+  
 portal:
   open:
-    enabled: false
+    enabled: true
+          
+podOptions:
+  automountServiceAccountToken: true
+    
 workload:
   main:
-    enabled: false
+    enabled: true
+    primary: true
+    type: Deployment
+    podSpec:
+      containers:
+        main:
+          enabled: true
+          primary: true
+          env:
+            PORT: 3000    
+            API_FILE: /var/run/secrets/kubernetes.io/serviceaccount/token
+            PROXY_TARGET: http://tckubeapps:8080
+          probes:
+            liveness:
+              enabled: true
+              type: tcp
+              port: 3000
+            readiness:
+              enabled: true
+              type: tcp
+              port: 3000
+            startup:
+              enabled: true
+              type: tcp
+              port: 3000
 
 service:
   main:
-    enabled: false
-    ports:
-      main:
-        enabled: false
-  tckubeapps:
     enabled: true
     primary: true
+    expandObjectName: false
+    ports:
+      main:
+        enabled: true
+        primary: true
+        port: 3000
+        targetPort: 3000
+  tckubeapps:
+    enabled: true
     expandObjectName: false
     labels:
       truecharts.org/flagged: "true"
@@ -39,14 +71,7 @@ serviceAccount:
   kubeapps-operator:
     enabled: true
     primary: true
-
-secret:
-  kubeapps-operator-token:
-    enabled: true
-    type: kubernetes.io/service-account-token
-    annotations:
-      kubernetes.io/service-account.name: kubeapps-operator
-    stringData: "-"
+    targetSelectAll: true
 
 rbac:
   kubeapps-operator:
@@ -59,7 +84,7 @@ rbac:
         resources: ["*"]
         verbs: ["*"]
 
-kubeapps:
+ogkubeapps:
   frontend:
     podLabels:
       truecharts.org/kahack: frontend

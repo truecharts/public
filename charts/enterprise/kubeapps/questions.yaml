@@ -5,8 +5,30 @@ portals:
 questions:
 # Include{global}
 # Include{serviceRoot}
+        - variable: main
+          label: "token-bypass Service"
+          description: "The token-bypass service"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: main
+                      label: "token-bypass Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 8080
+                              required: true
         - variable: tckubeapps
-          label: "Main Service"
+          label: "KubeApps Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
           schema:
             additional_attrs: true
@@ -15,7 +37,7 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: tckubeapps
-                      label: "Main Service Port Configuration"
+                      label: "KubeApps Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict

@@ -437,12 +437,12 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 
 ---
 
-Truecharts, is primarily based on a BSD-3-clause license, this ensures almost everyone can use and modify our charts.
-As a lot of Charts are based on upstream Helm Charts, Licences can vary on a per-Chart basis. This can easily be seen by the presence of a "LICENSE" file in said folder.
+Truecharts, is primarily based on a AGPL-v3 license, this ensures almost everyone can use and modify our charts.
+Licences can vary on a per-Chart basis. This can easily be seen by the presence of a "LICENSE" file in said folder.
 
-An exception to this, has been made for every document inside folders labeled as `docs` or `doc` and their subfolders: those folders are not licensed under BSD-3-clause and are considered "all rights reserved". Said content can be modified and changes submitted per PR, in accordance to the github End User License Agreement.
+An exception to this, has been made for every document inside folders labeled as `docs` or `doc` and their subfolders: those folders are not licensed under AGPL-v3 and are considered "all rights reserved". Said content can be modified and changes submitted per PR, in accordance to the github End User License Agreement.
 
-`SPDX-License-Identifier: BSD-3-Clause`
+`SPDX-License-Identifier: AGPL-3.0`
 
 ---
 
