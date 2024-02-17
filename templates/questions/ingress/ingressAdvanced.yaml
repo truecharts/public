@@ -222,10 +222,3 @@
                                     show_if: [["certificateIssuer", "=", ""]]
                                     type: string
                                     default: ""
-                                - variable: scaleCert
-                                  label: 'Use TrueNAS SCALE Certificate (Deprecated)'
-                                  schema:
-                                    show_if: [["certificateIssuer", "=", ""]]
-                                    type: int
-                                    $ref:
-                                      - "definitions/certificate"

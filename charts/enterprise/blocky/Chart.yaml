@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 0.23.0
 dependencies:
   - name: common
-    version: 17.2.30
+    version: 17.4.2
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -18,7 +18,7 @@ dependencies:
     import-values: []
   - name: redis
     version: 11.1.21
-    repository: https://deps.truecharts.org
+    repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
     tags: []
@@ -41,7 +41,7 @@ sources:
   - https://0xerr0r.github.io/blocky/
   - https://github.com/0xERR0R/blocky
   - https://github.com/truecharts/charts/tree/master/charts/enterprise/blocky
-  - https://quay.io/oriedge/k8s_gateway
   - https://hub.docker.com/r/spx01/blocky
+  - https://quay.io/oriedge/k8s_gateway
 type: application
-version: 12.2.8
+version: 12.3.0
