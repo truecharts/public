@@ -22,11 +22,11 @@ workload:
               type: http
               periodSeconds: 30
             readiness:
-              port: /wp-login.php
+              path: /wp-login.php
               type: http
               periodSeconds: 30
             startup:
-              port: /wp-login.php
+              path: /wp-login.php
               type: http
 wordpress:
   user: user
