@@ -28,6 +28,9 @@ limits:
   memory: {{ . }}
     {{- end -}}
     {{- include "tc.v1.common.lib.container.resources.gpu" (dict "rootCtx" $rootCtx "objectData" $objectData) | trim | nindent 2 -}}
+    {{- range $k, $v := (omit $resources.limits "cpu" "memory") }} {{/* Omit cpu and memory, as they are handled above */}}
+  {{ $k }}: {{ $v }}
+    {{- end -}}
   {{- end -}}
 {{- end -}}
 

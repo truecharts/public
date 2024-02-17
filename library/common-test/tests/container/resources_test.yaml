@@ -67,6 +67,8 @@ tests:
                   limits:
                     cpu: 2000m
                     memory: 4Gi
+                    some-resource: 1
+                    some-other-resource: 0
     asserts:
       - documentIndex: &deploymentDoc 0
         isKind:
@@ -82,6 +84,53 @@ tests:
               limits:
                 cpu: 2000m
                 memory: 4Gi
+                some-resource: 1
+                some-other-resource: 0
+              requests:
+                cpu: 10m
+                memory: 50Mi
+
+  - it: should override the default limits from top level
+    set:
+      image: *image
+      resources:
+        limits:
+          some-resource: 1
+          some-other-resource: 0
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                resources:
+                  limits:
+                    cpu: 2000m
+                    memory: 4Gi
+                    some-resource: 2
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 2000m
+                memory: 4Gi
+                some-resource: 2
+                some-other-resource: 0
               requests:
                 cpu: 10m
                 memory: 50Mi

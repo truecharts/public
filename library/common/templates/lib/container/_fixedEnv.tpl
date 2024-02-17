@@ -45,14 +45,36 @@ objectData: The object data to be used to render the container.
   {{- $fixed = mustAppend $fixed (dict "k" "TZ" "v" $TZ) -}}
   {{- $fixed = mustAppend $fixed (dict "k" "UMASK" "v" $UMASK) -}}
   {{- $fixed = mustAppend $fixed (dict "k" "UMASK_SET" "v" $UMASK) -}}
-  {{/* TODO: Offer gpu section in resources for native helm and adjust this include, then we can remove the "if inside ixChartContext" */}}
+
+  {{- $nvidia := false -}}
   {{- if eq (include "tc.v1.common.lib.container.resources.gpu" (dict "rootCtx" $rootCtx "objectData" $objectData "returnBool" true)) "true" -}}
-    {{- $fixed = mustAppend $fixed (dict "k" "NVIDIA_DRIVER_CAPABILITIES" "v" (join "," $nvidiaCaps)) -}}
-  {{- else -}} {{/* Only when in SCALE */}}
-    {{- if hasKey $rootCtx.Values.global "ixChartContext" -}}
-      {{- $fixed = mustAppend $fixed (dict "k" "NVIDIA_VISIBLE_DEVICES" "v" "void") -}}
+    {{- $nvidia = true -}}
+  {{- end -}}
+
+  {{- if and ($rootCtx.Values.resources) ($rootCtx.Values.resources.limits) -}}
+    {{- range $k, $v := $rootCtx.Values.resources.limits -}}
+      {{- if and (eq $k "nvidia.com/gpu") (gt ($v | int) 0) -}}
+        {{- $nvidia = true -}}
+        {{- break -}}
+      {{- end -}}
     {{- end -}}
   {{- end -}}
+
+  {{- if and ($objectData.resources) ($objectData.resources.limits) -}}
+    {{- range $k, $v := $objectData.resources.limits -}}
+      {{- if and (eq $k "nvidia.com/gpu") (gt ($v | int) 0) -}}
+        {{- $nvidia = true -}}
+        {{- break -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- if $nvidia -}}
+    {{- $fixed = mustAppend $fixed (dict "k" "NVIDIA_DRIVER_CAPABILITIES" "v" (join "," $nvidiaCaps)) -}}
+  {{- else -}}
+    {{- $fixed = mustAppend $fixed (dict "k" "NVIDIA_VISIBLE_DEVICES" "v" "void") -}}
+  {{- end -}}
+
   {{/* If running as root and PUID is set (0 or greater), set related envs */}}
   {{- if and (or (eq (int $secContext.runAsUser) 0) (eq (int $secContext.runAsGroup) 0)) (ge (int $PUID) 0) -}}
     {{- $fixed = mustAppend $fixed (dict "k" "PUID" "v" $PUID) -}}

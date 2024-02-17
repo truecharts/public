@@ -48,6 +48,8 @@ tests:
                 value: "0022"
               - name: UMASK_SET
                 value: "0022"
+              - name: NVIDIA_VISIBLE_DEVICES
+                value: void
               - name: S6_READ_ONLY_ROOT
                 value: "1"
 
@@ -90,6 +92,8 @@ tests:
                 value: "0022"
               - name: UMASK_SET
                 value: "0022"
+              - name: NVIDIA_VISIBLE_DEVICES
+                value: void
               - name: PUID
                 value: "568"
               - name: USER_ID
@@ -146,6 +150,8 @@ tests:
                 value: "0022"
               - name: UMASK_SET
                 value: "0022"
+              - name: NVIDIA_VISIBLE_DEVICES
+                value: void
               - name: PUID
                 value: "568"
               - name: USER_ID
@@ -201,6 +207,8 @@ tests:
                 value: "0022"
               - name: UMASK_SET
                 value: "0022"
+              - name: NVIDIA_VISIBLE_DEVICES
+                value: void
               - name: PUID
                 value: "568"
               - name: USER_ID
@@ -354,6 +362,8 @@ tests:
                 value: "0022"
               - name: UMASK_SET
                 value: "0022"
+              - name: NVIDIA_VISIBLE_DEVICES
+                value: void
               - name: PUID
                 value: "0"
               - name: USER_ID
@@ -452,6 +462,8 @@ tests:
                 value: "0022"
               - name: UMASK_SET
                 value: "0022"
+              - name: NVIDIA_VISIBLE_DEVICES
+                value: void
               - name: PUID
                 value: "200000514"
               - name: USER_ID
@@ -464,6 +476,107 @@ tests:
                 value: "100000514"
               - name: GID
                 value: "100000514"
+              - name: S6_READ_ONLY_ROOT
+                value: "1"
+
+  - it: should create correct fixEnvs with nvidia.com/gpu in top level resources
+    set:
+      image: *image
+      resources:
+        limits:
+          nvidia.com/gpu: 1
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            env:
+              - name: TZ
+                value: UTC
+              - name: UMASK
+                value: "0022"
+              - name: UMASK_SET
+                value: "0022"
+              - name: NVIDIA_DRIVER_CAPABILITIES
+                value: all
+              - name: S6_READ_ONLY_ROOT
+                value: "1"
+
+  - it: should create correct fixEnvs with nvidia.com/gpu in container level resources
+    set:
+      image: *image
+      workload:
+        workload-name:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+                resources:
+                  limits:
+                    nvidia.com/gpu: 1
+              container-name2:
+                enabled: true
+                imageSelector: image
+                probes: *probes
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            env:
+              - name: TZ
+                value: UTC
+              - name: UMASK
+                value: "0022"
+              - name: UMASK_SET
+                value: "0022"
+              - name: NVIDIA_DRIVER_CAPABILITIES
+                value: all
+              - name: S6_READ_ONLY_ROOT
+                value: "1"
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[1]
+          content:
+            env:
+              - name: TZ
+                value: UTC
+              - name: UMASK
+                value: "0022"
+              - name: UMASK_SET
+                value: "0022"
+              - name: NVIDIA_VISIBLE_DEVICES
+                value: void
               - name: S6_READ_ONLY_ROOT
                 value: "1"
 
