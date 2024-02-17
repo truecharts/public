@@ -24,15 +24,12 @@ podOptions:
     
 workload:
   main:
-    enabled: false
-  tcopen:
     enabled: true
     primary: true
-    expandObjectName: false
     type: Deployment
     podSpec:
       containers:
-        tcopen:
+        main:
           enabled: true
           primary: true
           env:
@@ -55,12 +52,10 @@ workload:
 
 service:
   main:
-    enabled: false
-  tcopen:
     enabled: true
     expandObjectName: false
     ports:
-      tcopen:
+      main:
         enabled: true
         primary: true
         port: 3000
