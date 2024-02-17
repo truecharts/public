@@ -20,15 +20,15 @@ workload:
             liveness:
               enabled: true
               type: tcp
-              port: 80
+              port: 10591
             readiness:
               enabled: true
               type: tcp
-              port: 80
+              port: 10591
             startup:
               enabled: true
               type: tcp
-              port: 80
+              port: 10591
 wordpress:
   user: user
   pass: bitnami
@@ -58,7 +58,6 @@ service:
       main:
         protocol: http
         port: 10591
-        targetPort: 80
 persistence:
   config:
     enabled: true
