@@ -48,6 +48,12 @@ persistence:
   config:
     enabled: true
     mountPath: "/root/.gaseous-server"
+  logs:
+    enabled: true
+    mountPath: "/root/.gaseous-server/Logs"
+  data:
+    enabled: true
+    mountPath: "/root/.gaseous-server/Data"
 
 mariadb:
   enabled: true
