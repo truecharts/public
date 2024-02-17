@@ -18,9 +18,8 @@ workload:
                 name: env-secret
           probes:
             liveness:
-              path: /wp-login.php
+              path: wp-admin/install.php
               type: http
-              periodSeconds: 30
             readiness:
               path: /wp-login.php
               type: http
