@@ -9,15 +9,6 @@ operator:
 portal:
   open:
     enabled: true
-    
-persistence:
-  token:
-    type: projected
-    mountPath: /service-account
-    sources:
-      - serviceAccountToken:
-          expirationSeconds: 3600
-          path: token
           
 podOptions:
   automountServiceAccountToken: true
@@ -34,7 +25,7 @@ workload:
           primary: true
           env:
             PORT: 3000    
-            API_FILE: /service-account/token
+            API_FILE: /var/run/secrets/kubernetes.io/serviceaccount/token
             PROXY_TARGET: http://tckubeapps:8080
           probes:
             liveness:
