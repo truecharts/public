@@ -23,7 +23,6 @@ workload:
             readiness:
               path: /wp-login.php
               type: http
-              periodSeconds: 30
             startup:
               path: /wp-login.php
               type: http
