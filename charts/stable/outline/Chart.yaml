@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 0.74.0
 dependencies:
   - name: common
-    version: 17.2.30
+    version: 17.3.9
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -18,7 +18,7 @@ dependencies:
     import-values: []
   - name: redis
     version: 11.1.21
-    repository: https://deps.truecharts.org
+    repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
     tags: []
@@ -41,4 +41,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/outline
   - https://hub.docker.com/r/outlinewiki/outline
 type: application
-version: 11.1.16
+version: 11.2.0

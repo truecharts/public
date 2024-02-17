@@ -68,6 +68,24 @@ questions:
                                         schema:
                                           type: string
                                           default: ""
+                                      - variable: localstorage
+                                        label: "Enable Local Storage + Settings"
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                          show_subquestions_if: true
+                                          subquestions:
+                                            - variable: FILE_STORAGE
+                                              label: "Enable Local File Storage"
+                                              description: Set local to enable local file storage bypassing Minio or S3
+                                              schema:
+                                                type: string
+                                                default: "local"
+                                            - variable: FILE_STORAGE_MAX_UPLOAD_SIZE
+                                              label: "Local File Storage Max Upload Size"
+                                              schema:
+                                                type: int
+                                                default: "26214400"
                                       - variable: slackenabled
                                         label: "Enable Slack Settings"
                                         schema:
@@ -319,6 +337,15 @@ questions:
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
 # Include{serviceList}
+# Include{persistenceRoot}
+        - variable: data
+          label: "App Data Storage"
+          description: "Stores the Application's Data."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
