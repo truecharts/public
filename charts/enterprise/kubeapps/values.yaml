@@ -97,7 +97,7 @@ rbac:
         resources: ["*"]
         verbs: ["*"]
 
-kubeapps:
+ogkubeapps:
   frontend:
     podLabels:
       truecharts.org/kahack: frontend
