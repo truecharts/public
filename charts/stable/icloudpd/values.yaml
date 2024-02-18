@@ -11,11 +11,7 @@ securityContext:
     runAsUser: 0
     capabilities:
       add:
-        - NET_ADMIN
-        - SETFCAP
-        - SETPCAP
-        - KILL
-        - SYS_CHROOT
+        - SYS_ADMIN
 
 icloudpd:
   apple_id: your@appleid.com
