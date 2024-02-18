@@ -42,14 +42,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-        - variable: download
-          label: App Download Location
-          description: Stores the Application's Downloads
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
