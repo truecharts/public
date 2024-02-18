@@ -15,6 +15,7 @@ securityContext:
         - SETFCAP
         - SETPCAP
         - KILL
+        - SYS_CHROOT
 
 icloudpd:
   apple_id: your@appleid.com
