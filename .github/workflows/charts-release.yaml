@@ -60,7 +60,7 @@ jobs:
       ref: ${{ steps.save-commit-hash.outputs.commit_hash }}
     steps:
       - name: Install Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@af4ebb1af1efd30c5bd84a2e9773355ad6362a33 # v0.9.3
+        uses: yokawasa/action-setup-kube-tools@93f6df178ec13d1b814a7622073ba28727716ca2 # v0.10.0
         with:
           setup-tools: |
             helmv3
