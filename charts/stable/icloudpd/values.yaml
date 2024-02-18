@@ -9,6 +9,12 @@ securityContext:
     runAsNonRoot: false
     runAsGroup: 0
     runAsUser: 0
+    capabilities:
+      add:
+        - NET_ADMIN
+        - SETFCAP
+        - SETPCAP
+        - KILL
 
 icloudpd:
   apple_id: your@appleid.com
