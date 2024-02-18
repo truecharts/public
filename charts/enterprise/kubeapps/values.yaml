@@ -5,14 +5,14 @@ image:
 
 operator:
   register: false
-  
+
 portal:
   open:
     enabled: true
-          
+
 podOptions:
   automountServiceAccountToken: true
-    
+
 workload:
   main:
     enabled: true
@@ -24,7 +24,7 @@ workload:
           enabled: true
           primary: true
           env:
-            PORT: 3000    
+            PORT: 3000
             API_FILE: /var/run/secrets/kubernetes.io/serviceaccount/token
             PROXY_TARGET: http://tckubeapps:8080
           probes:
