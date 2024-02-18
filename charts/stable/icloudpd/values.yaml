@@ -15,7 +15,7 @@ securityContext:
         - SETFCAP
         - SETPCAP
         - KILL
-        - NET_BIND_SERVICE
+        - SYS_CHROOT
 
 icloudpd:
   apple_id: your@appleid.com
