@@ -11,7 +11,6 @@ service:
     ports:
       main:
         port: 10097
-        targetPort: 8080
   metrics:
     enabled: true
     type: ClusterIP
@@ -26,13 +25,6 @@ workload:
     podSpec:
       containers:
         main:
-          probes:
-            liveness:
-              enabled: false
-            readiness:
-              enabled: false
-            startup:
-              enabled: false
           env:
             SABNZBD__HOST_WHITELIST_ENTRIES: ""
             SABNZBD__PORT: "{{ .Values.service.main.ports.main.port }}"
