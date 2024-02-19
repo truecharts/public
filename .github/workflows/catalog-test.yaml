@@ -15,7 +15,7 @@ jobs:
     name: Test SCALE Catalog
     runs-on: ubuntu-latest
     container:
-      image: tccr.io/tccr/devcontainer:v4.0.0@sha256:32429df132dddb24ecffc073b1cc3c1b16294bda1d04acef7c87d0ece155a7ab
+      image: tccr.io/tccr/devcontainer:v4.0.1
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         name: Checkout
