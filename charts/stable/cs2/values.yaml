@@ -12,10 +12,12 @@ securityContext:
 service:
   main:
     ports:
-      main:
+      main-udp:
         protocol: udp
         port: 27015
-
+      main-tcp:
+        protocol: tcp
+        port: 27015
 cs2:
   game:
     id: 730
@@ -25,11 +27,15 @@ cs2:
     params:
       - -dedicated
       - -dev
+      - +hostname
+      - "My CS2 server"
       - +map
       - de_inferno
       - +game_type 0
       - +game_mode 1
       - -usercon
+      - +rcon_password
+      - CHANGEME
 
 workload:
   main:
