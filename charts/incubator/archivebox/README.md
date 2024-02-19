@@ -8,7 +8,7 @@ TrueCharts can be installed as both _normal_ Helm Charts or as Apps on TrueNAS S
 However only installations using the TrueNAS SCALE Apps system are supported.
 
 For more information about this App, please check the docs on:
-- the TrueCharts [website](https://truecharts.org/charts/stable/archivebox)
+- the TrueCharts [website](https://truecharts.org/charts/incubator/archivebox)
 - the ArchiveBox [website](https://github.com/ArchiveBox/ArchiveBox)
 - the ArchiveBox [wiki](https://github.com/ArchiveBox/ArchiveBox/wiki/Docker)
 
