@@ -13,6 +13,11 @@ securityContext:
     capabilities:
       add:
         - SYS_ADMIN
+        - CHOWN
+        - SETUID
+        - SETGID
+        - FOWNER
+        - DAC_OVERRIDE
 
 icloudpd:
   apple_id: your@appleid.com
