@@ -6,13 +6,12 @@ image:
 securityContext:
   container:
     readOnlyRootFilesystem: false
-    allowPrivilegeEscalation: true
     runAsNonRoot: false
     runAsGroup: 0
     runAsUser: 0
     capabilities:
       add:
-        - SYS_ADMIN
+        - NET_ADMIN
 
 icloudpd:
   apple_id: your@appleid.com
