@@ -6,9 +6,13 @@ image:
 securityContext:
   container:
     readOnlyRootFilesystem: false
+    allowPrivilegeEscalation: true
     runAsNonRoot: false
     runAsGroup: 0
     runAsUser: 0
+    capabilities:
+      add:
+        - SYS_ADMIN
 
 icloudpd:
   apple_id: your@appleid.com
@@ -35,8 +39,6 @@ icloudpd:
   delete_empty_directories: false
   command_line_options: ""
   notification_title: "iCloud PD"
-  directory_permissions: "770"
-  file_permissions: "660"
   # https://github.com/boredazfcuk/docker-icloudpd/blob/master/NOTIFICATIONS.md
   notification_type: ""
   # prowl_api_key: ""
@@ -76,11 +78,6 @@ workload:
     podSpec:
       containers:
         main:
-          securityContext:
-            apabilities:
-              allowPrivilegeEscalation: true
-              add:
-                - SYS_ADMIN
           env:
             user: apps
             group: apps
