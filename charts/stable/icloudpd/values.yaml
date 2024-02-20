@@ -38,6 +38,8 @@ icloudpd:
   delete_empty_directories: false
   command_line_options: ""
   notification_title: "iCloud PD"
+  directory_permissions: "770"
+  file_permissions: "660"
   # https://github.com/boredazfcuk/docker-icloudpd/blob/master/NOTIFICATIONS.md
   notification_type: ""
   # prowl_api_key: ""
@@ -77,6 +79,10 @@ workload:
     podSpec:
       containers:
         main:
+          securityContext:
+            apabilities:
+              add:
+                - SYS_ADMIN
           env:
             user: apps
             group: apps
