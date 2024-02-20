@@ -95,4 +95,4 @@ jobs:
       - name: Test Catalog
         run: |
           echo "Starting Catalog Validation"
-          python3 .catalog_validation/catalog_validation/scripts/catalog_validate.py validate --path "${PWD}" --ignore-catalog-json
+          python3 .catalog_validation/catalog_validation/scripts/catalog_validate.py validate --path "${PWD}/catalog" --ignore-catalog-json
