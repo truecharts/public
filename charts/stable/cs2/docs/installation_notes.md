@@ -5,7 +5,7 @@ title: CS2 Installation Notes
 It's **highly recommened** to setup a password for the RCon.
 
 Command line options can be added in the "Game params" section.
-For more information about which console commands are available, for more information see the official Valve [https://developer.valvesoftware.com/wiki/Command_line_options](docs)
+For more information about which console commands are available, for more information see the official Valve [docs](https://developer.valvesoftware.com/wiki/Command_line_options)
 
 ## Default Values
 
