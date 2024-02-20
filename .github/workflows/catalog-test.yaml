@@ -17,8 +17,6 @@ jobs:
   catalog-tests:
     name: Test SCALE Catalog
     runs-on: ubuntu-latest
-    container:
-      image: tccr.io/tccr/devcontainer:v4.0.1
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         name: Checkout
@@ -28,6 +26,22 @@ jobs:
 
       - name: Setting repo parent dir as safe safe.directory
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+        
+      - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3
+        name: Checkout-validate
+        with:
+          fetch-depth: 1
+          repository: truecharts/catalog_validation
+          token: ${{ secrets.BOT_TOKEN }}
+          path: .catalog_validation
+          
+      - name: install catalog_validation
+        shell: bash
+        run: |
+          cd .catalog_validation
+          pip install -r requirements.txt
+          pip install -U --no-cache-dir .
+          cd -
 
       - name: Install go-yq
         run: |
@@ -62,7 +76,7 @@ jobs:
           CHANGED=$(echo '${{ steps.list-changed.outputs.CHANGED_CHARTS }}' | jq --raw-output '.[]')
           ./charttool deps ${CHANGED}
           
-      - name: test catalog
+      - name: Build Catalog
         shell: bash
         if: steps.list-changed.outputs.detected == 'true'
         env:
@@ -70,6 +84,7 @@ jobs:
         run: |
           CHANGED=$(echo '${{ steps.list-changed.outputs.CHANGED_CHARTS }}' | jq --raw-output '.[]')
           ./charttool buildSCALE ${CHANGED}
+
 
       ## TODO: Only run on the existing catalog when CI or template changes are actually detected
       # - name: Checkout
@@ -80,5 +95,5 @@ jobs:
 
       - name: Test Catalog
         run: |
-           echo "Starting Catalog Validation"
-           /usr/local/bin/catalog_validate validate --path "${PWD}/catalog"
+          echo "Starting Catalog Validation"
+          python3 .catalog_validation/catalog_validation/scripts/catalog_validate.py validate --path "${PWD}" --ignore-catalog-json
