@@ -32,7 +32,6 @@ jobs:
         with:
           fetch-depth: 1
           repository: truecharts/catalog_validation
-          token: ${{ secrets.BOT_TOKEN }}
           path: .catalog_validation
           
       - name: install catalog_validation
