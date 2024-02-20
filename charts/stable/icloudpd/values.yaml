@@ -78,6 +78,7 @@ workload:
         main:
           securityContext:
             apabilities:
+              allowPrivilegeEscalation: true
               add:
                 - SYS_ADMIN
           env:
