@@ -12,10 +12,14 @@ securityContext:
 service:
   main:
     ports:
-      main-udp:
+      main:
         protocol: udp
         port: 27015
-      main-tcp:
+  rcon:
+    enabled: true
+    ports:
+      rcon:
+        enabled: true
         protocol: tcp
         port: 27015
 cs2:
@@ -27,15 +31,11 @@ cs2:
     params:
       - -dedicated
       - -dev
-      - +hostname
-      - "My CS2 server"
       - +map
       - de_inferno
       - +game_type 0
       - +game_mode 1
       - -usercon
-      - +rcon_password
-      - CHANGEME
 
 workload:
   main:
