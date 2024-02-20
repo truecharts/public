@@ -12,6 +12,7 @@ securityContext:
     capabilities:
       add:
         - NET_RAW
+        - NET_ADMIN
 
 icloudpd:
   apple_id: your@appleid.com
