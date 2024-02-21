@@ -18,7 +18,7 @@ dependencies:
     import-values: []
   - name: kube-prometheus-stack
     version: 56.8.2
-    repository: https://prometheus-community.github.io/helm-charts
+    repository: oci://ghcr.io/prometheus-community/charts
     condition: ""
     alias: kps
     tags: []
