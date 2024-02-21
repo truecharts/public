@@ -7,10 +7,10 @@ annotations:
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 7.4.0
+appVersion: 7.5.1
 dependencies:
   - name: common
-    version: 17.2.30
+    version: 17.4.2
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -22,7 +22,7 @@ home: https://truecharts.org/charts/stable/calibre
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/calibre.png
 keywords:
   - calibre
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -33,4 +33,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/calibre
   - https://ghcr.io/linuxserver/calibre
 type: application
-version: 13.3.6
+version: 13.5.1

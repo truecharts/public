@@ -7,10 +7,10 @@ annotations:
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.0.51
+appVersion: 2.1.0
 dependencies:
   - name: common
-    version: 17.2.30
+    version: 17.4.2
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -24,7 +24,7 @@ keywords:
   - miniflux
   - rss
   - news
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/miniflux
   - https://hub.docker.com/r/miniflux/miniflux
 type: application
-version: 13.1.11
+version: 13.3.0

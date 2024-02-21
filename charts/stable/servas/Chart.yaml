@@ -10,15 +10,15 @@ apiVersion: v2
 appVersion: 0.1.0
 dependencies:
   - name: common
-    version: 17.2.30
+    version: 17.4.2
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mariadb
-    version: 12.1.12
-    repository: https://deps.truecharts.org/
+    version: 12.2.1
+    repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
     tags: []
@@ -41,4 +41,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/servas
   - https://hub.docker.com/r/beromir/servas
 type: application
-version: 3.2.7
+version: 3.4.0

@@ -10,15 +10,15 @@ apiVersion: v2
 appVersion: 0.54.1
 dependencies:
   - name: common
-    version: 17.2.30
+    version: 17.4.2
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 11.1.16
-    repository: https://deps.truecharts.org
+    version: 11.2.1
+    repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
     tags: []
@@ -41,4 +41,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/van-dam
   - https://ghcr.io/floppy/van_dam
 type: application
-version: 3.1.19
+version: 3.3.0

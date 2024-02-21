@@ -181,12 +181,9 @@ excluded-charts:
   - charts/stable/zalando-postgres-cluster
   - charts/stable/zigbee2mqtt
 chart-repos:
-  - truecharts-deps=https://deps.truecharts.org
   - jetstack=https://charts.jetstack.io
-  - vmwaretanzu=https://vmware-tanzu.github.io/helm-charts
   - cnpg=https://cloudnative-pg.github.io/charts
   - metallb=https://metallb.github.io/metallb
-  - prometheus-community=https://prometheus-community.github.io/helm-charts
   - openebs=https://openebs.github.io/charts
   - csi-driver-smb=https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts
   - csi-driver-nfs=https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts

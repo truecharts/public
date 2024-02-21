@@ -34,6 +34,28 @@ questions:
                               type: int
                               default: 10686
                               required: true
+        - variable: api
+          label: API Service
+          description: The API service.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: api
+                      label: API Service Port Configuration
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 11434
+                              required: true
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
 # Include{serviceList}
@@ -58,6 +80,16 @@ questions:
 # Include{ingressRoot}
         - variable: main
           label: "Main Ingress"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+# Include{ingressTLS}
+# Include{ingressTraefik}
+# Include{ingressAdvanced}
+        - variable: api
+          label: "API Ingress"
           schema:
             additional_attrs: true
             type: dict

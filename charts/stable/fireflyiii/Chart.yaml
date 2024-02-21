@@ -7,18 +7,18 @@ annotations:
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 6.1.8
+appVersion: 6.1.9
 dependencies:
   - name: common
-    version: 17.2.30
+    version: 17.4.2
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 11.1.16
-    repository: https://deps.truecharts.org
+    version: 11.2.1
+    repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
     tags: []
@@ -41,4 +41,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/fireflyiii
   - https://hub.docker.com/r/fireflyiii/core
 type: application
-version: 24.1.21
+version: 24.3.0

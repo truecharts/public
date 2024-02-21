@@ -10,15 +10,15 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 17.3.8
+    version: 17.4.2
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: velero
-    version: 5.2.2
-    repository: https://vmware-tanzu.github.io/helm-charts
+    version: 5.4.1
+    repository: oci://ghcr.io/vmware-tanzu/charts
     condition: ""
     alias: velero
     tags: []
@@ -42,4 +42,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/enterprise/velero
   - https://github.com/truecharts/containers/tree/master/apps/alpine
 type: application
-version: 3.2.7
+version: 3.4.0

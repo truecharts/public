@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 7.2.4
 dependencies:
   - name: common
-    version: 17.2.30
+    version: 17.4.2
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -24,7 +24,7 @@ keywords:
   - redis
   - keyvalue
   - database
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/dependency/redis
   - https://hub.docker.com/r/bitnami/redis
 type: application
-version: 11.1.18
+version: 11.2.1

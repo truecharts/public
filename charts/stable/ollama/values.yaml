@@ -1,7 +1,7 @@
 image:
   repository: ollama/ollama
   pullPolicy: IfNotPresent
-  tag: 0.1.23@sha256:3f2db54ed0eb615d75fd83c0f10b6e5d196e95e4550cde383f6be410b3deb74b
+  tag: 0.1.25@sha256:21824867532d4aaaecac4b0234c7ac6c8bb0144d86407bdd5e4141686c9fd2e4
 uiImage:
   repository: ghcr.io/ollama-webui/ollama-webui
   pullPolicy: IfNotPresent
@@ -18,14 +18,19 @@ service:
         targetSelector: ui
   api:
     enabled: true
-    type: ClusterIP
     targetSelector: main
     ports:
       api:
         enabled: true
         protocol: http
+        targetPort: 11434
         port: 11434
         targetSelector: main
+
+ingress:
+  api:
+    targetSelector:
+      api: api
 
 workload:
   main:
@@ -78,7 +83,7 @@ workload:
               type: tcp
               port: "{{ .Values.service.main.ports.main.targetPort }}"
           env:
-            OLLAMA_API_BASE_URL: '{{ printf "http://%v-api:%v/api" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.api.ports.api.port }}'
+            OLLAMA_API_BASE_URL: '{{ printf "http://%v-api:%v/api" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.api.ports.api.targetPort }}'
 
 persistence:
   config:
