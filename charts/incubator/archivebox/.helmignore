@@ -1,0 +1,35 @@
+# Patterns to ignore when building packages.
+# This supports shell glob matching, relative path matching, and
+# negation (prefixed with !). Only one pattern per line.
+.DS_Store
+._*
+*.pyc
+__pycache__/
+.mypy_cache/
+.pytest_cache/
+.github/
+.pdm-build/
+.pdm-python
+.eggs/
+.git/
+!.git/HEAD
+!.git/refs/heads/*
+
+venv/
+.venv/
+.venv-old/
+.docker-venv/
+node_modules/
+
+docs/
+build/
+dist/
+brew_dist/
+deb_dist/
+pip_dist/
+assets/
+docker/
+
+data/
+data*/
+output/
