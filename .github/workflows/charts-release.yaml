@@ -276,10 +276,6 @@ jobs:
           CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
           ./charttool deps
           ./charttool buildSCALE
-          pip install yq
-          parthreads=$(($(nproc) * 2))
-          parallel -j ${parthreads} .github/scripts/build-catalog.sh '2>&1' ::: ${CHARTS[@]}
-          rm -rf website
 
       - name: Commit Catalog
         if: |
