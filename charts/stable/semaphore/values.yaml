@@ -1,0 +1,47 @@
+image:
+  repository: semaphoreui/semaphore
+  tag: v2.9.45@sha256:6a7dbb3e39ab8d1f6331006c2f251ac277360d30b281ab96f5ada81ccc269997
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 13000
+        targetPort: 3000
+persistence:
+  config:
+    enabled: true
+    mountPath: "/usr/local/xwiki"
+cnpg:
+  main:
+    enabled: true
+    user: semaphore
+    database: semaphore
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            SEMAPHORE_DB_DIALECT: postgres
+            SEMAPHORE_DB_USER: "{{ .Values.cnpg.main.user }}"
+            SEMAPHORE_DB: "{{ .Values.cnpg.main.database }}"
+            SEMAPHORE_DB_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            SEMAPHORE_DB_PASS:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            SEMAPHORE_ADMIN_PASSWORD: ""
+            SEMAPHORE_ACCESS_KEY_ENCRYPTION: ""
