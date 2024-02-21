@@ -15,7 +15,7 @@ service:
         port: 10097
         targetPort: 8080
   metrics:
-    enabled: true
+    enabled: "{{ .Values.metrics.main.enabled }}"
     type: ClusterIP
     targetSelector: exportarr
     ports:
