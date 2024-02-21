@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.4.1
+appVersion: 1.4.2
 dependencies:
   - name: common
     version: 17.4.2
@@ -22,7 +22,7 @@ home: https://truecharts.org/charts/stable/picoshare
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/picoshare.png
 keywords:
   - picoshare
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -33,4 +33,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/picoshare
   - https://hub.docker.com/r/mtlynch/picoshare
 type: application
-version: 8.2.0
+version: 8.2.1
