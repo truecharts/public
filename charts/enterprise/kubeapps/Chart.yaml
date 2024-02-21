@@ -17,8 +17,8 @@ dependencies:
     tags: []
     import-values: []
   - name: kubeapps
-    version: 14.4.0
-    repository: https://charts.bitnami.com/bitnami
+    version: 14.4.6
+    repository: oci://registry-1.docker.io/bitnamicharts
     condition: ""
     alias: ogkubeapps
     tags: []
@@ -42,4 +42,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/enterprise/kubeapps
   - https://ghcr.io/xstar97/my-proxy-service
 type: application
-version: 1.2.1
+version: 1.2.2
