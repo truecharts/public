@@ -25,6 +25,13 @@ questions:
                                         schema:
                                           type: string
                                           default: ""
+                                      - variable: SABNZBD__API_KEY
+                                        label: "Force SabNZBD API Key (required for metrics)"
+                                        schema:
+                                          type: string
+                                          default: ""
+
+                                          
 # Include{containerBasic}
 # Include{containerAdvanced}
 
