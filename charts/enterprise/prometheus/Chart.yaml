@@ -17,7 +17,7 @@ dependencies:
     tags: []
     import-values: []
   - name: node-exporter
-    version: 6.1.20
+    version: 6.2.1
     repository: oci://tccr.io/truecharts
     condition: exporters.enabled,exporters.node-exporter.enabled
     alias: ""
@@ -50,4 +50,4 @@ sources:
   - https://hub.docker.com/r/bitnami/alertmanager
   - https://hub.docker.com/r/bitnami/prometheus
 type: application
-version: 16.6.0
+version: 16.7.0
