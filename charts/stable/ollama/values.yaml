@@ -84,6 +84,10 @@ workload:
               port: "{{ .Values.service.main.ports.main.targetPort }}"
           env:
             OLLAMA_API_BASE_URL: '{{ printf "http://%v-api:%v/api" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.api.ports.api.targetPort }}'
+            WEBUI_SECRET_KEY:
+              secretKeyRef:
+                name: ollama-secrets
+                key: WEBUI_SECRET_KEY
 
 persistence:
   config:
