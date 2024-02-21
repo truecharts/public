@@ -6,14 +6,11 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
 # Include{containerBasic}
 # Include{containerAdvanced}
-
   - variable: redisinsight
     group: App Configuration
     label: Redis Insight Configuration
@@ -64,10 +61,8 @@ questions:
           schema:
             type: int
             default: 30
-
 # Include{containerConfig}
 # Include{podOptions}
-
 # Include{serviceRoot}
         - variable: main
           label: Main Service
@@ -120,12 +115,9 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
 # Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}
-
               - variable: runAsUser
                 label: runAsUser
                 description: The UserID of the user running the application
@@ -147,7 +139,6 @@ questions:
                 schema:
                   type: int
                   default: 568
-
 # Include{resources}
 # Include{advanced}
 # Include{addons}

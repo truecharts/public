@@ -3,7 +3,7 @@
 
   {{- $fullname := include "tc.v1.common.lib.chart.names.fullname" $ -}}
   {{- $serverHost := printf "https://%v:%v" $fullname .Values.service.main.ports.main.port -}}
-  {{- $host := .Values.chartContext.APPURL }}
+  {{- $host := .Values.chartContext.appUrl }}
 server:
   enabled: true
   data:

@@ -1,12 +1,12 @@
 image:
   repository: bitnami/prometheus
-  tag: 2.48.0@sha256:43de9da8d70cff6b862daedd3afd323465bee5ab87ef2f67a1811bf15a39019a
+  tag: 2.49.1@sha256:1afc5f1fd44212719f8e303003d120b375463ef7ef770dd644e9ed2638579211
 thanosImage:
   repository: quay.io/thanos/thanos
-  tag: v0.32.5@sha256:3e5c47dd3a0bfc6c595036c1c49c7ca95979a89c1fb93ee4cdee3bf5d296f944
+  tag: v0.34.1@sha256:567346c3f6ff2927c2c6c0daad977b2213f62d45eca54d48afd19e6deb902181
 alertmanagerImage:
   repository: bitnami/alertmanager
-  tag: 0.26.0@sha256:3da5256271a71100d822125dc4af6466f7f2d0a4a1680ba6c01087207be95192
+  tag: 0.26.0@sha256:5779c22b78afa1dec3a2f0285ccb1d7077f60b42482cde06a4fe62b539c7229c
 global:
   labels: {}
 workload:
@@ -23,6 +23,37 @@ workload:
               enabled: false
             startup:
               enabled: false
+
+configmap:
+  grafana-datasource:
+    enabled: "{{ if .Values.grafana.datasource.enabled }}true{{ else }}false{{ end }}"
+    labels:
+      grafana_datasources: "1"
+    data:
+      datasource.yaml: |-
+        apiVersion: 1
+        datasources:
+        - name: Prometheus
+          type: prometheus
+          uid: {{ .Values.grafana.datasource.uid | default "prometheus" }}
+          url: http://{{ include "tc.v1.common.lib.chart.names.fullname" $ }}.{{ include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $ "objectData" . "caller" "Configmap") }}:{{ .Values.service.main.ports.main.port }}
+          access: proxy
+          isDefault: {{ .Values.grafana.datasource.default | default true }}
+          jsonData:
+            httpMethod: {{ .Values.grafana.datasource.httpMethod | default "POST" }}
+            timeInterval: {{ .Values.grafana.datasource.scrapeInterval | default "30s" }}
+            {{- if .Values.grafana.datasource.timeout }}
+            timeout: {{ .Values.grafana.datasource.timeout }}
+            {{- end }}
+
+grafana:
+  datasource:
+    enabled: true
+    default: true
+    httpMethod: "POST"
+    scrapeInterval: "30s"
+    uid: "prometheus"
+
 service:
   main:
     selectorLabels:
@@ -30,7 +61,7 @@ service:
       prometheus: '{{ template "kube-prometheus.prometheus.fullname" . }}'
     ports:
       main:
-        port: 10086
+        port: 9090
         targetPort: 9090
         protocol: http
   alertmanager:
@@ -41,7 +72,7 @@ service:
     ports:
       alertmanager:
         enabled: true
-        port: 10087
+        port: 9093
         targetPort: 9093
         protocol: http
   thanos:
@@ -516,6 +547,9 @@ prometheus:
   ## @param prometheus.walCompression Enable compression of the write-ahead log using Snappy
   ##
   walCompression: false
+  ## @param prometheus.enableRemoteWriteReceiver Enable Prometheus to be used as a receiver for the Prometheus remote write protocol
+  ##
+  enableRemoteWriteReceiver: false
   ## @param prometheus.paused If true, the Operator won't process any Prometheus configuration changes
   ##
   paused: false

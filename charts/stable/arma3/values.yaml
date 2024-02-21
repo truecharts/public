@@ -1,0 +1,81 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ich777/steamcmd
+  tag: arma3@sha256:92104ad540e3fcb19294d8c63c2c50bc1f7f57628b01bb5db38ce9ae8e41261b
+persistence:
+  profiles:
+    enabled: true
+    mountPath: /serverdata/.local/share
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 2302
+        protocol: tcp
+        targetPort: 2302
+  udpbattleyetra:
+    enabled: true
+    ports:
+      udpbattleyetra:
+        enabled: true
+        port: 2306
+        protocol: udp
+        targetPort: 2306
+  udpgameport:
+    enabled: true
+    ports:
+      udpgameport:
+        enabled: true
+        port: 2302
+        protocol: udp
+        targetPort: 2302
+  udpsteammaster:
+    enabled: true
+    ports:
+      udpsteammaster:
+        enabled: true
+        port: 2304
+        protocol: udp
+        targetPort: 2304
+  udpsteamquerry:
+    enabled: true
+    ports:
+      udpsteamquerry:
+        enabled: true
+        port: 2303
+        protocol: udp
+        targetPort: 2303
+  udpvonport:
+    enabled: true
+    ports:
+      udpvonport:
+        enabled: true
+        port: 2305
+        protocol: udp
+        targetPort: 2305
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GAME_ID: "233780"
+            GAME_PARAMS: -config=server.cfg -mod=
+            GAME_PORT: "2302"
+            PASSWRD: ""
+            USERNAME: ""
+            VALIDATE: "false"

@@ -7,13 +7,11 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
-
 # Include{containerConfig}
 # Include{podOptions}
   - variable: expertIngressClass
@@ -247,7 +245,7 @@ questions:
                             label: "Entrypoints Port"
                             schema:
                               type: int
-                              default: 9080
+                              default: 80
                               required: true
                           - variable: advanced
                             label: Show Advanced Settings
@@ -277,7 +275,7 @@ questions:
                             label: "Entrypoints Port"
                             schema:
                               type: int
-                              default: 9443
+                              default: 443
                               required: true
                           - variable: advanced
                             label: Show Advanced Settings
@@ -379,8 +377,6 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
 # Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}
@@ -405,7 +401,6 @@ questions:
                 schema:
                   type: int
                   default: 568
-
 # Include{resources}
 # Include{metrics}
 # Include{prometheusRule}
@@ -415,3 +410,17 @@ questions:
 # Include{netshoot}
 # Include{vpn}
 # Include{documentation}
+  - variable: warning
+    group: Documentation
+    label: 'WARNING: If installed, be sure to move the TrueNAS GUI to another port (not 80 or 443).'
+    description: 'See: <br /><a href="https://truecharts.org/charts/enterprise/traefik/how-to">https://truecharts.org/charts/enterprise/traefik/how-to</a> for more info.'
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: warningconfim
+          label: I am aware that I will brick my system, if I did not follow the instructions.
+          schema:
+            type: boolean
+            default: true
+            required: true

@@ -1,0 +1,29 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: advplyr/fotosho
+  tag: latest@sha256:49dc426c6bdaf99927df571a7084eb6d7f593ea76ab8a99c5c7e1c9fccc77e12
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  photos:
+    enabled: true
+    mountPath: /photos
+  thumbs:
+    enabled: true
+    mountPath: /thumbnails
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 13377
+        protocol: tcp
+        targetPort: 80

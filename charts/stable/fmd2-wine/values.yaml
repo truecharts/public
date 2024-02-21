@@ -1,0 +1,35 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: banhcanh/docker-fmd2
+  tag: latest@sha256:153ccc161e7ed9f2b44f6ec7176ed4e5e53fc0962465d3556176b6489eae20eb
+persistence:
+  appluamodulespath:
+    enabled: true
+    mountPath: /app/FMD2/lua
+  appuserdata:
+    enabled: true
+    mountPath: /app/FMD2/userdata
+  appwineconfig:
+    enabled: true
+    mountPath: /config/.wine
+  data:
+    enabled: true
+    mountPath: /app/FMD2/data
+  downloaddirectory:
+    enabled: true
+    mountPath: /downloads
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 6080
+        protocol: tcp
+        targetPort: 6080

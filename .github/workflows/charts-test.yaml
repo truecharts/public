@@ -123,9 +123,9 @@ jobs:
       - name: Install Helm
         uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # v3
         with:
-          version: v3.13.2
+          version: v3.14.0
 
-      - uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4
+      - uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5
         with:
           python-version: "3.11"
 
@@ -145,35 +145,14 @@ jobs:
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
       - name: Prep Helm
+        shell: bash
         run: |
-          helm repo add truecharts https://charts.truecharts.org
-          helm repo add truecharts-deps https://deps.truecharts.org
-          helm repo add truecharts-library https://library-charts.truecharts.org
-          helm repo add jetstack https://charts.jetstack.io
-          helm repo add vmwaretanzu https://vmware-tanzu.github.io/helm-charts
-          helm repo add cnpg https://cloudnative-pg.github.io/charts
-          helm repo add metallb https://metallb.github.io/metallb
-          helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-          helm repo update
+          ./.github/scripts/prep_helm.sh
 
       - name: Add Dependencies
+        shell: bash
         run: |
-          if [[ "${{ matrix.chart }}" == "charts/operators/metallb-config" ]]; then
-            helm install metallb truecharts/metallb --namespace metallb --create-namespace --wait
-          fi
-          ## TODO: Only add when required
-          if [[ "${{ matrix.chart }}" == "charts/enterprise/clusterissuer" ]]; then
-            helm install cert-manager truecharts/cert-manager --namespace cert-manager --create-namespace --wait
-          fi
-          if [[ "${{ matrix.chart }}" != "charts/operators/cloudnative-pg" ]]; then
-            helm install cloudnative-pg truecharts/cloudnative-pg --namespace cloudnative-pg --create-namespace --wait
-          fi
-          if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
-            helm install prometheus-operator truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
-          fi
-          if [[ "${{ matrix.chart }}" != "charts/enterprise/traefik" ]]; then
-            helm install traefik truecharts/traefik --namespace traefik --create-namespace --wait
-          fi
+          ./.github/scripts/install_dependencies.sh "${{ matrix.chart }}"
 
       - name: Run chart-testing (install)
         run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade
@@ -198,9 +177,9 @@ jobs:
       - name: Install Helm
         uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # v3
         with:
-          version: v3.13.2
+          version: v3.14.0
 
-      - uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4
+      - uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5
         with:
           python-version: "3.11"
 
@@ -219,24 +198,15 @@ jobs:
         run: |
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
-      - name: Add Dependencies
+      - name: Prep Helm
+        shell: bash
         run: |
-          if [[ "${{ matrix.chart }}" == "charts/operators/metallb-config" ]]; then
-            helm install metallb truecharts/metallb --namespace metallb --create-namespace --wait
-          fi
-          ## TODO: Only add when required
-          if [[ "${{ matrix.chart }}" == "charts/enterprise/clusterissuer" ]]; then
-            helm install cert-manager truecharts/cert-manager --namespace cert-manager --create-namespace --wait
-          fi
-          if [[ "${{ matrix.chart }}" != "charts/operators/cloudnative-pg" ]]; then
-            helm install cloudnative-pg truecharts/cloudnative-pg --namespace cloudnative-pg --create-namespace --wait
-          fi
-          if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
-            helm install prometheus-operator truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
-          fi
-          if [[ "${{ matrix.chart }}" != "charts/enterprise/traefik" ]]; then
-            helm install traefik truecharts/traefik --namespace traefik --create-namespace --wait
-          fi
+          ./.github/scripts/prep_helm.sh
+
+      - name: Add Dependencies
+        shell: bash
+        run: |
+          ./.github/scripts/install_dependencies.sh "${{ matrix.chart }}"
 
       - name: Run chart-testing (install)
         run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade
@@ -261,9 +231,9 @@ jobs:
       - name: Install Helm
         uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # v3
         with:
-          version: v3.13.2
+          version: v3.14.0
 
-      - uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4
+      - uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5
         with:
           python-version: "3.11"
 
@@ -282,24 +252,15 @@ jobs:
         run: |
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
-      - name: Add Dependencies
+      - name: Prep Helm
+        shell: bash
         run: |
-          if [[ "${{ matrix.chart }}" == "charts/operators/metallb-config" ]]; then
-            helm install metallb truecharts/metallb --namespace metallb --create-namespace --wait
-          fi
-          ## TODO: Only add when required
-          if [[ "${{ matrix.chart }}" == "charts/enterprise/clusterissuer" ]]; then
-            helm install cert-manager truecharts/cert-manager --namespace cert-manager --create-namespace --wait
-          fi
-          if [[ "${{ matrix.chart }}" != "charts/operators/cloudnative-pg" ]]; then
-            helm install cloudnative-pg truecharts/cloudnative-pg --namespace cloudnative-pg --create-namespace --wait
-          fi
-          if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
-            helm install prometheus-operator truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
-          fi
-          if [[ "${{ matrix.chart }}" != "charts/enterprise/traefik" ]]; then
-            helm install traefik truecharts/traefik --namespace traefik --create-namespace --wait
-          fi
+          ./.github/scripts/prep_helm.sh
+
+      - name: Add Dependencies
+        shell: bash
+        run: |
+          ./.github/scripts/install_dependencies.sh "${{ matrix.chart }}"
 
       - name: Run chart-testing (install)
         run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade
@@ -324,9 +285,9 @@ jobs:
       - name: Install Helm
         uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # v3
         with:
-          version: v3.13.2
+          version: v3.14.0
 
-      - uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4
+      - uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5
         with:
           python-version: "3.11"
 
@@ -345,24 +306,15 @@ jobs:
         run: |
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
-      - name: Add Dependencies
+      - name: Prep Helm
+        shell: bash
         run: |
-          if [[ "${{ matrix.chart }}" == "charts/operators/metallb-config" ]]; then
-            helm install metallb truecharts/metallb --namespace metallb --create-namespace --wait
-          fi
-          ## TODO: Only add when required
-          if [[ "${{ matrix.chart }}" == "charts/enterprise/clusterissuer" ]]; then
-            helm install cert-manager truecharts/cert-manager --namespace cert-manager --create-namespace --wait
-          fi
-          if [[ "${{ matrix.chart }}" != "charts/operators/cloudnative-pg" ]]; then
-            helm install cloudnative-pg truecharts/cloudnative-pg --namespace cloudnative-pg --create-namespace --wait
-          fi
-          if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
-            helm install prometheus-operator truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
-          fi
-          if [[ "${{ matrix.chart }}" != "charts/enterprise/traefik" ]]; then
-            helm install traefik truecharts/traefik --namespace traefik --create-namespace --wait
-          fi
+          ./.github/scripts/prep_helm.sh
+
+      - name: Add Dependencies
+        shell: bash
+        run: |
+          ./.github/scripts/install_dependencies.sh "${{ matrix.chart }}"
 
       - name: Run chart-testing (install)
         run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade
@@ -387,9 +339,9 @@ jobs:
       - name: Install Helm
         uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # v3
         with:
-          version: v3.13.2
+          version: v3.14.0
 
-      - uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4
+      - uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5
         with:
           python-version: "3.11"
 
@@ -408,24 +360,15 @@ jobs:
         run: |
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
-      - name: Add Dependencies
+      - name: Prep Helm
+        shell: bash
         run: |
-          if [[ "${{ matrix.chart }}" == "charts/operators/metallb-config" ]]; then
-            helm install metallb truecharts/metallb --namespace metallb --create-namespace --wait
-          fi
-          ## TODO: Only add when required
-          if [[ "${{ matrix.chart }}" == "charts/enterprise/clusterissuer" ]]; then
-            helm install cert-manager truecharts/cert-manager --namespace cert-manager --create-namespace --wait
-          fi
-          if [[ "${{ matrix.chart }}" != "charts/operators/cloudnative-pg" ]]; then
-            helm install cloudnative-pg truecharts/cloudnative-pg --namespace cloudnative-pg --create-namespace --wait
-          fi
-          if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
-            helm install prometheus-operator truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
-          fi
-          if [[ "${{ matrix.chart }}" != "charts/enterprise/traefik" ]]; then
-            helm install traefik truecharts/traefik --namespace traefik --create-namespace --wait
-          fi
+          ./.github/scripts/prep_helm.sh
+
+      - name: Add Dependencies
+        shell: bash
+        run: |
+          ./.github/scripts/install_dependencies.sh "${{ matrix.chart }}"
 
       - name: Run chart-testing (install)
         run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade
@@ -450,9 +393,9 @@ jobs:
       - name: Install Helm
         uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # v3
         with:
-          version: v3.13.2
+          version: v3.14.0
 
-      - uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4
+      - uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5
         with:
           python-version: "3.11"
 
@@ -471,24 +414,15 @@ jobs:
         run: |
           kubectl taint --all=true nodes node.cloudprovider.kubernetes.io/uninitialized- || true
 
-      - name: Add Dependencies
+      - name: Prep Helm
+        shell: bash
         run: |
-          if [[ "${{ matrix.chart }}" == "charts/operators/metallb-config" ]]; then
-            helm install metallb truecharts/metallb --namespace metallb --create-namespace --wait
-          fi
-          ## TODO: Only add when required
-          if [[ "${{ matrix.chart }}" == "charts/enterprise/clusterissuer" ]]; then
-            helm install cert-manager truecharts/cert-manager --namespace cert-manager --create-namespace --wait
-          fi
-          if [[ "${{ matrix.chart }}" != "charts/operators/cloudnative-pg" ]]; then
-            helm install cloudnative-pg truecharts/cloudnative-pg --namespace cloudnative-pg --create-namespace --wait
-          fi
-          if [[ "${{ matrix.chart }}" != "charts/operators/prometheus-operator" ]]; then
-            helm install prometheus-operator truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
-          fi
-          if [[ "${{ matrix.chart }}" != "charts/enterprise/traefik" ]]; then
-            helm install traefik truecharts/traefik --namespace traefik --create-namespace --wait
-          fi
+          ./.github/scripts/prep_helm.sh
+
+      - name: Add Dependencies
+        shell: bash
+        run: |
+          ./.github/scripts/install_dependencies.sh "${{ matrix.chart }}"
 
       - name: Run chart-testing (install)
         run: ct install --config ".github/ct-install.yaml" --charts "${{ matrix.chart }}" # --upgrade

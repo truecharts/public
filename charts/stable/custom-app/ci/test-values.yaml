@@ -1,18 +1,24 @@
 image:
-  repository: tccr.io/truecharts/jackett
+  repository: traefik/whoami
   pullPolicy: IfNotPresent
-  tag: v0.21.1155@sha256:e5422906419a2f5ddd24028d22c41e7abbf9133dc5ac87a06491cbbfe495f9cd
+  tag: v1.10.1@sha256:6bebf84c091b5da4d4228bf8905436e33ca371afc6f3bd52b1682b40d76b23de
 
-securityContext:
-  readOnlyRootFilesystem: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          args:
+            - --port
+            - "8080"
 
 service:
   main:
     enabled: true
     ports:
       main:
-        port: 9117
-        targetPort: 9117
+        port: 8080
+        targetPort: 8080
     portsList:
       - name: "extraport"
         enabled: true

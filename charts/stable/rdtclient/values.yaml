@@ -1,0 +1,118 @@
+image:
+  repository: ghcr.io/rogerfar/rdtclient
+  pullPolicy: IfNotPresent
+  tag: 2.0.62@sha256:cfca17b4de24683926a9b6069065aa78fd7756676124566112dcf5cfb85c3122
+aria2Image:
+  repository: p3terx/aria2-pro
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:086d1a37c586edb07ec0fb956bf9edd89d1d38d138ad5309ff96d510c8c9a011
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 6500
+        port: 6500
+  aria2:
+    enabled: true
+    type: ClusterIP
+    targetSelector: aria2
+    ports:
+      rpc:
+        enabled: true
+        port: 6800
+        targetSelector: aria2
+  torrent:
+    enabled: true
+    type: ClusterIP
+    targetSelector: aria2
+    ports:
+      torrent:
+        enabled: true
+        port: 6888
+        targetSelector: aria2
+      torrent-udp:
+        enabled: true
+        port: 6888
+        protocol: udp
+        targetSelector: aria2
+
+aria2:
+  enabled: true
+  rpc_secret: MY_SECRET
+  disk_cache: 64M
+  update_trackers: true
+  custom_trackers_url: "https://trackerslist.com/all_aria2.txt"
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              path: "/"
+            readiness:
+              path: "/"
+            startup:
+              path: "/"
+  aria2:
+    enabled: true
+    type: Deployment
+    strategy: RollingUpdate
+    replicas: 1
+    podSpec:
+      containers:
+        aria2:
+          primary: true
+          enabled: true
+          imageSelector: aria2Image
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+            readOnlyRootFilesystem: false
+            runAsNonRoot: false
+          probes:
+            liveness:
+              enabled: true
+              type: tcp
+              port: "{{ .Values.service.aria2.ports.rpc.port }}"
+            readiness:
+              enabled: true
+              type: tcp
+              port: "{{ .Values.service.aria2.ports.rpc.port }}"
+            startup:
+              enabled: true
+              type: tcp
+              port: "{{ .Values.service.aria2.ports.rpc.port }}"
+          env:
+            RPC_PORT: "{{ .Values.service.aria2.ports.rpc.port }}"
+            LISTEN_PORT: "{{ .Values.service.torrent.ports.torrent.port }}"
+            RPC_SECRET: "{{ .Values.aria2.rpc_secret }}"
+            DISK_CACHE: "{{ .Values.aria2.disk_cache }}"
+            IPV6_MODE: false
+            UPDATE_TRACKERS: "{{ .Values.aria2.update_trackers }}"
+            CUSTOM_TRACKER_URL: "{{ .Values.aria2.custom_trackers_url }}"
+
+persistence:
+  db:
+    enabled: true
+    mountPath: "/data/db"
+  config:
+    enabled: true
+    targetSelector:
+      aria2:
+        aria2:
+          mountPath: /config
+
+portal:
+  open:
+    enabled: true

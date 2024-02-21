@@ -1,4 +1,6 @@
-# Configure password authentication
+---
+title: Configure password authentication
+---
 
 ## Edit chart config
 

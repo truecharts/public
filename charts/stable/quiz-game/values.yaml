@@ -1,0 +1,23 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: patrickstigler/quiz-game
+  tag: latest@sha256:553f335b16bdbd87b4b640d6a266b0d3fbf982f18ec6365b8dfc2bd18fc3e0e1
+persistence:
+  config:
+    enabled: true
+    mountPath: /app
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10588
+        protocol: http
+        targetPort: 80

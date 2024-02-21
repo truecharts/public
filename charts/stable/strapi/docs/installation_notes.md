@@ -1,4 +1,6 @@
-# Installation Notes
+---
+title: Installation Notes
+---
 
 - Create a `Jwt Secret` to be used to signed the JWT for Users-Permissions plugin.
 - Create a `Admin Jwt Secret` to be used to sign the JWT for the Admin panel.

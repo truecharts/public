@@ -2,8 +2,8 @@
 {{- define "traefik.ingressRoute" -}}
 {{ if .Values.ingressRoute.dashboard.enabled }}
 
-{{- $ingressRouteLabels := .Values.ingressRoute.dashboard.labels -}}
-{{- $ingressRouteAnnotations := .Values.ingressRoute.dashboard.annotations -}}
+{{- $ingressRouteLabels := .Values.ingressRoute.dashboard.labels }}
+{{- $ingressRouteAnnotations := .Values.ingressRoute.dashboard.annotations }}
 
 ---
 apiVersion: traefik.io/v1alpha1
@@ -31,4 +31,4 @@ spec:
     - name: api@internal
       kind: TraefikService
 {{ end }}
-{{- end -}}
+{{- end }}

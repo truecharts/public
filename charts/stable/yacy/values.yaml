@@ -1,0 +1,31 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: yacy/yacy_search_server
+  tag: latest@sha256:78dc1fd08f6ff0c4b994733e631c26716cdc20795df209b11fe54a13c97bf3da
+persistence:
+  appdata:
+    enabled: true
+    mountPath: /opt/yacy_search_server/DATA
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  https:
+    enabled: true
+    ports:
+      https:
+        enabled: true
+        port: 8443
+        protocol: tcp
+        targetPort: 8443
+  main:
+    ports:
+      main:
+        port: 8090
+        protocol: http
+        targetPort: 8090

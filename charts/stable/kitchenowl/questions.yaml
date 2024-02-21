@@ -6,12 +6,9 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
-
                                 - variable: env
                                   group: "App Configuration"
                                   label: "Image Environment"
@@ -26,9 +23,50 @@ questions:
                                           type: string
                                           required: true
                                           default: ""
+                                      - variable: OIDC_ISSUER
+                                        label: "OIDC Issuer"
+                                        description: "See https://docs.kitchenowl.org/self-hosting/oidc/"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: OIDC_CLIENT_ID
+                                        label: "OIDC Client ID"
+                                        description: "See https://docs.kitchenowl.org/self-hosting/oidc/"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: OIDC_CLIENT_SECRET
+                                        label: "OIDC Client Secret"
+                                        description: "See https://docs.kitchenowl.org/self-hosting/oidc/"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: APPLE_CLIENT_ID
+                                        label: "Apple Client ID"
+                                        description: "See https://docs.kitchenowl.org/self-hosting/oidc/"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: APPLE_CLIENT_SECRET
+                                        label: "Apple Client Secret"
+                                        description: "See https://docs.kitchenowl.org/self-hosting/oidc/"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: GOOGLE_CLIENT_ID
+                                        label: "Google Client ID"
+                                        description: "See https://docs.kitchenowl.org/self-hosting/oidc/"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: GOOGLE_CLIENT_SECRET
+                                        label: "Google Client Secret"
+                                        description: "See https://docs.kitchenowl.org/self-hosting/oidc/"
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
-
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
@@ -69,12 +107,9 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
 # Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}
-
               - variable: runAsUser
                 label: "runAsUser"
                 description: "The UserID of the user running the application"
@@ -96,8 +131,8 @@ questions:
                 schema:
                   type: int
                   default: 568
-
 # Include{resources}
+# Include{postgresql}
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}

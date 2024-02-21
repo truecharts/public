@@ -6,14 +6,11 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
 # Include{containerBasic}
 # Include{containerAdvanced}
-
   - variable: redmine
     group: "App Configuration"
     label: "Redmine Configuration"
@@ -33,7 +30,6 @@ questions:
           schema:
             type: boolean
             default: false
-
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
@@ -74,24 +70,21 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
 # Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}
-
               - variable: runAsUser
                 label: "runAsUser"
                 description: "The UserID of the user running the application"
                 schema:
                   type: int
-                  default: 568
+                  default: 999
               - variable: runAsGroup
                 label: "runAsGroup"
                 description: "The groupID this App of the user running the application"
                 schema:
                   type: int
-                  default: 568
+                  default: 999
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
@@ -100,9 +93,9 @@ questions:
                 description: "The group that should own ALL storage."
                 schema:
                   type: int
-                  default: 568
-
+                  default: 999
 # Include{resources}
+# Include{postgresql}
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}

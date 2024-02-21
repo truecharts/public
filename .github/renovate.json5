@@ -6,7 +6,7 @@
   "suppressNotifications": ["prIgnoreNotification"],
   "commitMessageTopic": "{{depName}}",
   "commitMessageExtra": "to {{newVersion}}",
-  "commitMessageSuffix": "",
+  "commitMessageSuffix": "By Renovate",
   "rebaseWhen": "conflicted",
   "prConcurrentLimit": 150,
   "timezone":"Europe/Amsterdam",
@@ -30,33 +30,40 @@
     {
       "datasources": ["helm"],
       "matchManagers": ["helmv3"],
-      "commitMessageTopic": "Helm chart {{depName}}"
+      "commitMessageTopic": "Helm chart {{depName}}",
+      "ignorePaths": ["charts/unstable/**"],
+      "autoApprove": true,
     },
     // global docker datasource settings
     {
       "datasources": ["docker"],
-      "matchManagers": ["helm-values"],
       "enabled": true,
       "pinDigests": true,
       "automerge": false,
-      "commitMessageTopic": "container image {{depName}}",
-      "commitMessageExtra": "to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}",
-      "matchUpdateTypes": ["major", "minor", "patch", "digest"],
-    },
-    {
-      "datasources": ["docker"],
-      "enabled": true,
-      "pinDigests": true,
-      "automerge": false,
+      "autoApprove": true,
       "separateMinorPatch": true,
+      "ignorePaths": ["charts/unstable/**"],
       "commitMessageTopic": "container image {{depName}}",
-      "commitMessageExtra": "to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}",
+      "commitMessageExtra": "to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}@{{newDigestShort}}",
     },
     // Setup datasources for github actions
     {
       "matchManagers": ["github-actions"],
       "excludePackageNames": ["stefanzweifel/git-auto-commit-action"],
+      "labels": ["automerge"],
       "automerge": true,
+      "autoApprove": true,
+    },
+    //
+    // catch to prevent stable updates
+    //
+    {
+      "automerge": false,
+      "labels": ["update/ignored"],
+      "groupName": ["ignored"],
+      "matchPaths": ["charts/unstable/**", "charts/dev/**", "charts/incubator/**", "templates/app/**"],
+      "commitMessageTopic": "Ignored Updates",
+      "autoApprove": false,
     },
     //
     // helm deps
@@ -68,66 +75,31 @@
       "bumpVersion": "major",
       "labels": ["update/helm/dependency/major"],
       "groupName": ["helm dependency major"],
-      "matchPaths": ["charts/dependency/**", "templates/**"],
+      "matchPaths": ["charts/dependency/**"],
+      "autoApprove": false,
     },
+
     {
       "matchDatasources": ["helm"],
-      "automerge": false,
+      "automerge": true,
       "matchUpdateTypes": [
         "minor",
-        "patch"
       ],
-      "bumpVersion": "patch",
-      "labels": ["update/helm/dependency/non-major", "automerge"],
-      "matchPaths": ["charts/dependency/**", "templates/**"],
-      "groupName": "helm dependency non-major",
-    },
-    //
-    // helm ent and operators
-    //
-    {
-      "matchDatasources": ["helm"],
-      "updateTypes": ["major"],
-      "bumpVersion": "major",
-      "enabled": true,
-      "labels": ["update/helm/general/major"],
-      "groupName": ["helm general major"],
-      "matchPaths": ["charts/enterprise/**", "charts/operators/**"],
-      "schedule": [
-        "before 10pm on tuesday"
-      ],
-    },
-    {
-      "matchDatasources": ["helm"],
-      "automerge": false,
-      "matchUpdateTypes": [
-        "minor"
-      ],
-      "enabled": true,
-      "bumpVersion": "patch",
-      "labels": ["update/helm/general/non-major", "automerge"],
-      "groupName": "helm general non-major",
-      "matchPaths": ["charts/enterprise/**", "charts/operators/**"],
-      "schedule": [
-        "before 10pm on tuesday"
-      ],
+      "bumpVersion": "minor",
+      "labels": ["update/helm/dependency/minor", "automerge"],
+      "matchPaths": ["charts/dependency/**"],
+      "groupName": "helm dependency minor",
     },
     {
       "matchDatasources": ["helm"],
       "automerge": true,
       "matchUpdateTypes": [
-        "digest",
-        "patch",
-        "pin"
+        "patch"
       ],
-      "enabled": true,
       "bumpVersion": "patch",
-      "labels": ["update/helm/general/non-major", "automerge"],
-      "groupName": "helm general non-major",
-      "matchPaths": ["charts/enterprise/**", "charts/operators/**"],
-      "schedule": [
-        "before 10pm on tuesday"
-      ],
+      "labels": ["update/helm/dependency/patch", "automerge"],
+      "matchPaths": ["charts/dependency/**"],
+      "groupName": "helm dependency patch",
     },
     //
     // helm charts
@@ -136,15 +108,16 @@
       "matchDatasources": ["helm"],
       "updateTypes": ["major"],
       "bumpVersion": "major",
-      "enabled": false,
+      "enabled": true,
       "labels": ["update/helm/general/major"],
+      "automerge": false,
       "groupName": ["helm general major"],
-      "matchPaths": ["charts/incubator/**", "charts/SCALE/**", "charts/dev/**", "charts/stable/**", "templates/app/**"],
+      "matchPaths": ["charts/stable/**", "charts/enterprise/**", "charts/operators/**"],
       "schedule": [
         "before 10pm on tuesday"
       ],
+      "autoApprove": false,
     },
-
     {
       "matchDatasources": ["helm"],
       "automerge": true,
@@ -152,10 +125,10 @@
       "matchUpdateTypes": [
         "minor"
       ],
-      "bumpVersion": "patch",
-      "labels": ["update/helm/general/non-major", "automerge"],
-      "groupName": "helm general non-major",
-      "matchPaths": ["charts/incubator/**", "charts/SCALE/**", "charts/dev/**", "charts/stable/**", "templates/app/**"],
+      "bumpVersion": "minor",
+      "labels": ["update/helm/general/minor", "automerge"],
+      "groupName": "helm general minor",
+      "matchPaths": ["charts/stable/**", "charts/enterprise/**", "charts/operators/**"],
       "schedule": [
         "before 10pm on tuesday"
       ],
@@ -172,104 +145,25 @@
       "bumpVersion": "patch",
       "labels": ["update/helm/general/non-major", "automerge"],
       "groupName": "helm general non-major",
-      "matchPaths": ["charts/incubator/**", "charts/SCALE/**", "charts/dev/**", "charts/stable/**", "templates/app/**"],
+      "matchPaths": ["charts/stable/**", "charts/enterprise/**", "charts/operators/**"],
       "schedule": [
         "before 10pm on tuesday"
       ],
     },
     //
-    // Tag updates for semantic Docker tags on enterprise and operatorApps
-    //
-    {
-      "matchDatasources": ["docker"],
-      "updateTypes": ["major"],
-      "enabled": true,
-      "bumpVersion": "major",
-      "labels": ["update/docker/enterprise/major"],
-      "matchPaths": ["charts/enterprise/**", "charts/operators/**"],
-    },
-    {
-      "matchDatasources": ["docker"],
-      "automerge": false,
-      "matchUpdateTypes": [
-        "minor",
-      ],
-      "enabled": true,
-      "bumpVersion": "minor",
-      "labels": ["update/docker/enterprise/minor"],
-      "matchPaths": ["charts/enterprise/**", "charts/operators/**"],
-    },
-    {
-      "matchDatasources": ["docker"],
-      "automerge": true,
-      "matchUpdateTypes": [
-        "patch",
-        "digest",
-        "pin",
-      ],
-      "bumpVersion": "patch",
-      "enabled": true,
-      "labels": ["update/docker/enterprise/patch", "automerge"],
-      "matchPaths": ["charts/enterprise/**"],
-    },
-    {
-      "matchDatasources": ["docker"],
-      "automerge": true,
-      "matchUpdateTypes": [
-        "patch",
-        "digest",
-        "pin",
-      ],
-      "bumpVersion": "patch",
-      "enabled": true,
-      "labels": ["update/docker/operator/patch"],
-      "matchPaths": ["charts/operator/**"],
-    },
-    //
-    // Tag updates for semantic tags on incubator and dev charts
-    //
-    {
-      "matchDatasources": ["docker"],
-      "updateTypes": ["major"],
-      "bumpVersion": "minor",
-      "enabled": false,
-      "labels": ["update/docker/incubator/major", "automerge"],
-      "matchPaths": ["charts/incubator/**", "charts/dev/**"],
-    },
-    {
-      "matchDatasources": ["docker"],
-      "automerge": false,
-      "matchUpdateTypes": [
-        "minor",
-        "patch",
-        "digest",
-      ],
-      "bumpVersion": "patch",
-      "enabled": false,
-      "labels": ["update/docker/incubator/non-major", "automerge"],
-      "matchPaths": ["charts/incubator/**", "charts/dev/**"],
-    },
-    {
-      "matchDatasources": ["docker"],
-      "automerge": false,
-      "matchUpdateTypes": [
-        "pin",
-      ],
-      "bumpVersion": "patch",
-      "enabled": true,
-      "labels": ["update/docker/incubator/non-major", "automerge"],
-      "matchPaths": ["charts/incubator/**", "charts/dev/**"],
-    },
-    //
-    // Tag updates for semantic tags on all but enterprise, operator and incubator Apps
+    // Tag updates for semantic tags
     //
     {
       "matchDatasources": ["docker"],
       "updateTypes": ["major"],
       "bumpVersion": "minor",
       "enabled": true,
-      "labels": ["update/docker/general/major", "automerge"],
-      "matchPaths": ["charts/dependency/**", "charts/SCALE/**", "charts/stable/**", "templates/app/**"],
+      "labels": ["update/docker/general/major"],
+      "matchPaths": ["charts/dependency/**", "charts/stable/**", "charts/incubator/**", "charts/enterprise/**", "charts/operators/**"],
+      "schedule": [
+        "before 10pm on monday"
+      ],
+      "autoApprove": false,
     },
     {
       "matchDatasources": ["docker"],
@@ -280,7 +174,10 @@
       "bumpVersion": "minor",
       "enabled": true,
       "labels": ["update/docker/general/non-major", "automerge"],
-      "matchPaths": ["charts/dependency/**", "charts/SCALE/**", "charts/library/**", "charts/stable/**", "templates/app/**"],
+      "matchPaths": ["charts/dependency/**", "charts/stable/**", "charts/incubator/**", "charts/enterprise/**", "charts/operators/**"],
+      "schedule": [
+        "before 10pm on monday"
+      ],
     },
     {
       "matchDatasources": ["docker"],
@@ -293,32 +190,18 @@
       "bumpVersion": "patch",
       "enabled": true,
       "labels": ["update/docker/general/non-major", "automerge"],
-      "matchPaths": ["charts/dependency/**", "charts/SCALE/**", "charts/library/**", "charts/stable/**", "templates/app/**"],
+      "matchPaths": ["charts/dependency/**", "charts/stable/**", "charts/incubator/**", "charts/enterprise/**", "charts/operators/**"],
+      "schedule": [
+        "before 10pm on monday"
+      ],
     },
-
+    //
+    // Tag tccr.io/truecharts based on semver
+    //
     {
       "matchDatasources": ["docker"],
-      "matchUpdateTypes": ["major"],
-      "commitMessagePrefix": "feat(images)!: ",
-      "labels": ["renovate/image", "dep/major"],
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchUpdateTypes": ["minor"],
-      "semanticCommitType": "feat",
-      "labels": ["renovate/image", "dep/minor"],
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchUpdateTypes": ["patch"],
-      "semanticCommitType": "fix",
-      "labels": ["renovate/image", "dep/patch"],
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchUpdateTypes": ["digest"],
-      "semanticCommitType": "fix",
-      "labels": ["renovate/image", "dep/digest"],
+      "versioning": "semver",
+      "matchPackagePrefixes": ["tccr.io/truecharts"],
     },
     //
     // Tag semantic version type based on regex
@@ -326,138 +209,132 @@
     {
       "matchDatasources": ["docker"],
       "versioning": "regex:^(?<major>14)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
-      "matchPackageNames": ["tccr.io/truecharts/postgresql"],
+      "matchPackageNames": ["tccr.io/tccr/postgresql"],
     },
     {
       "matchDatasources": ["docker"],
       "versioning": "regex:^v(?<major>\\d{2})(?<minor>\\d{2})(?<patch>\\d{2})$",
-      "matchPackageNames": ["tccr.io/truecharts/photoprism"],
+      "matchPackageNames": ["photoprism"],
     },
     {
       "matchDatasources": ["docker"],
       "versioning": "regex:^v(?<major>\\d{4})-(?<minor>\\d{2})$",
-      "matchPackageNames": ["tccr.io/truecharts/rss-bridge"],
+      "matchPackageNames": ["rssbridge/rss-bridge"],
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?<major>\\d{2})\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "matchPackageNames": ["linuxserver/heimdall"],
     },
     {
       "matchDatasources": ["docker"],
       "versioning": "regex:^v(?<major>\\d+)-(?<minor>\\d+)$",
-      "matchPackagePrefixes": ["tccr.io/truecharts/jupyter"],
+      "matchPackagePrefixes": ["jupyter"],
       "groupName": "jupyter",
     },
     {
       "matchDatasources": ["docker"],
-      "versioning": "regex:^(?<major>\\d{1})(?<minor>\\d{1})(?<patch>\\d{2})$",
-      "matchPackagePrefixes": ["tccr.io/truecharts/jitsi"],
-      "groupName": "jitsi",
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/immich"],
+      "matchPackagePrefixes": ["altran1502/immich"],
       "groupName": "immich",
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/portainer"],
+      "matchPackagePrefixes": ["portainer"],
       "groupName": "portainer",
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/neko"],
+      "matchPackagePrefixes": ["m1k1o/neko"],
       "groupName": "neko",
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/webtop"],
+      "matchPackagePrefixes": ["ghcr.io/mriedmann/humhub-"],
+      "groupName": "humhub",
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["lscr.io/linuxserver/webtop"],
       "groupName": "webtop",
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/metallb"],
-      "groupName": "metallb",
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/zabbix"],
-      "groupName": "zabbix",
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/vikunja"],
-      "groupName": "vikunja",
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/ml-workspace"],
-      "groupName": "ml-workspace",
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/bungeecord"],
-      "groupName": "bungeecord",
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/minecraft-java"],
-      "groupName": "minecraft-java",
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/mealie"],
-      "groupName": "mealie",
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/librephotos"],
-      "groupName": "librephotos",
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/kitchenowl"],
-      "groupName": "kitchenowl",
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/authentik"],
-      "groupName": "authentik",
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/lama-cleaner"],
-      "groupName": "lama-cleaner",
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/rickroll"],
-      "groupName": "rickroll",
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/scrypted"],
-      "groupName": "scrypted",
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/docspell"],
-      "groupName": "docspell",
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/restreamer"],
-      "groupName": "restreamer",
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/penpot"],
-      "groupName": "penpot",
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/rdesktop"],
+      "matchPackagePrefixes": ["lscr.io/linuxserver/rdesktop"],
       "groupName": "rdesktop",
     },
     {
       "matchDatasources": ["docker"],
-      "matchPackagePrefixes": ["tccr.io/truecharts/ersatztv"],
+      "matchPackagePrefixes": ["tccr.io/tccr/metallb"],
+      "groupName": "metallb",
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["zabbix/zabbix"],
+      "groupName": "zabbix",
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["vikunja"],
+      "groupName": "vikunja",
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["mltooling/ml-workspace"],
+      "groupName": "ml-workspace",
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["itzg/bungeecord"],
+      "groupName": "bungeecord",
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["tccr.io/tccr/nextcloud-"],
+      "groupName": "nextcloud",
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["itzg/minecraft-java"],
+      "groupName": "minecraft-java",
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["reallibrephotos/librephotos"],
+      "groupName": "librephotos",
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["tombursch/kitchenowl"],
+      "groupName": "kitchenowl",
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["ghcr.io/goauthentik/"],
+      "groupName": "authentik",
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["cwq1913/lama-cleaner"],
+      "groupName": "lama-cleaner",
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["docspell/"],
+      "groupName": "docspell",
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["datarhei/restreamer"],
+      "groupName": "restreamer",
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["penpotapp/"],
+      "groupName": "penpot",
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackagePrefixes": ["jasongdove/ersatztv"],
       "groupName": "ersatztv",
     },
     // matchPackagePatterns
@@ -489,6 +366,13 @@
       "matchDatasources": ["docker"],
       "versioning": "regex:^stable-(?<major>\\d{1})(?<minor>\\d{1})(?<patch>\\d{2}).*$",
       "matchPackagePatterns": ["^jitsi\\/.*$"],
+      "groupName": "jitsi",
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^latest-(?<major>\\d{4})-(?<minor>\\d{2})-(?<patch>\\d{2})$",
+      "matchPackagePatterns": ["^wangqiru/ttrss$"],
       "automerge": true,
     },
     {
@@ -499,7 +383,7 @@
     },
     {
       "matchDatasources": ["docker"],
-      "versioning": "regex:^\\d*-jammy-(?<variant>.+)-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "versioning": "regex:^\\d+-jammy-(?<compatibility>(full|lite))-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
       "matchPackagePatterns": ["^.+\\/koush\\/scrypted$"],
       "automerge": true,
     },
@@ -544,12 +428,6 @@
       "matchDatasources": ["docker"],
       "versioning": "regex:^version-(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
       "matchPackageNames": ["linuxserver/calibre-web"],
-      "automerge": true,
-    },
-    {
-      "matchDatasources": ["docker"],
-      "versioning": "regex:^version-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
-      "matchPackageNames": ["linuxserver/heimdall"],
       "automerge": true,
     },
     {
@@ -712,6 +590,12 @@
       "matchDatasources": ["docker"],
       "versioning": "regex:^(?<major>\\d*)\\.(?<minor>\\d*)\\.(?<patch>\\d*)-\\d*$",
       "matchPackageNames": ["sameersbn/apt-cacher-ng"],
+      "automerge": true,
+    },
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^nightly-2\\.(?<major>\\d*)\\.(?<minor>\\d*)\\.(?<patch>\\d*)$",
+      "matchPackageNames": ["ghcr.io/hotio/whisparr"],
       "automerge": true,
     },
     {

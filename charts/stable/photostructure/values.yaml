@@ -1,0 +1,45 @@
+image:
+  repository: photostructure/server
+  tag: 2023.12.0-alpha.7@sha256:ad73bfc73884bfc60aceb38dfd932b83522934f8a349fd11de621becfdb19c45
+  pullPolicy: IfNotPresent
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 1787
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            PS_HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
+            PS_LOG_LEVEL: "error"
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /ps/config
+  library:
+    enabled: true
+    mountPath: /ps/library
+  logs:
+    enabled: true
+    mountPath: /ps/logs
+  tempscratchdisk:
+    enabled: true
+    mountPath: /ps/tmp
+
+portal:
+  open:
+    enabled: true

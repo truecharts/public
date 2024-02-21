@@ -1,4 +1,6 @@
-# Community Migration Guide
+---
+title: Community Migration Guide
+---
 
 :::caution
 

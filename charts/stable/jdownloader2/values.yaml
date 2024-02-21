@@ -1,7 +1,7 @@
 image:
   repository: jlesage/jdownloader-2
   pullPolicy: IfNotPresent
-  tag: v23.11.1@sha256:acf80e0fcf3dfd01ff37ec1d0e761ca34605072bbb26890db8610a093ecd6d2f
+  tag: v24.01.1@sha256:b020fd3132a1e1f4b3d13b85df0c3046e13ce4b5d2d3e4234c0e2af62cb5d472
 service:
   main:
     ports:
@@ -22,6 +22,12 @@ service:
         enabled: true
         port: 10056
         targetPort: 5900
+ingress:
+  main:
+    integrations:
+      homepage:
+        widget:
+          type: jdownloader
 jdownloader:
   # General Settings
   KEEP_APP_RUNNING: false

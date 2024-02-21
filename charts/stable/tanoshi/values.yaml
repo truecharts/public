@@ -1,0 +1,23 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: faldez/tanoshi
+  tag: latest@sha256:bb6ce408c3786e33092fc59ef85d2221c16dc48c7b70eaf6bf8ec4df9701f1bf
+persistence:
+  directoryconfig:
+    enabled: true
+    mountPath: /tanoshi
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 80
+        protocol: tcp
+        targetPort: 80

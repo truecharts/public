@@ -73,6 +73,12 @@ questions:
                         type: string
                         show_if: [["server", "=", "custom"]]
                         default: 'https://acme-staging-v02.api.letsencrypt.org/directory'
+                    - variable: caBundle
+                      label: Trusted CABundle for private ACME server
+                      description: "Trusted CABundle for private ACME server, encoded in base64"
+                      schema:
+                        type: string
+                        show_if: [["server", "=", "custom"]]
                     - variable: email
                       label: Email
                       description: "Email adress to use for certificate issuing must match your DNS provider email when required"
@@ -307,7 +313,6 @@ questions:
                         max_length: 10240
                         show_if: [["selfSigned", "=", false]]
                         default: ""
-
         - variable: selfSigned
           label: 'SelfSigned Issuer'
           schema:
@@ -328,7 +333,6 @@ questions:
                   required: true
                   valid_chars: '^[a-z]+(-?[a-z]){0,63}-?[a-z]+$'
                   default: "selfsigned"
-
   - variable: clusterCertificates
     group: App Configuration
     label: Cluster Wide Certificates (Advanced)
@@ -381,7 +385,6 @@ questions:
                               type: string
                               default: ""
                               required: true
-
   - variable: customMetrics
     group: Metrics
     label: Prometheus Metrics

@@ -1,4 +1,6 @@
-# Installation Notes
+---
+title: Installation Notes
+---
 
 You need to have at least one `.zim` file.
 

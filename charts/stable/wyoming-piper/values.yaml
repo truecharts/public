@@ -2,13 +2,24 @@ image:
   repository: rhasspy/wyoming-piper
   pullPolicy: IfNotPresent
   tag: 1.4.0@sha256:4c3c056e043aa15e85bbca1ba4b15b9a866b49d50d9c778475179a747e25f489
+
+service:
+  main:
+    ports:
+      main:
+        port: 10200
+        protocol: tcp
+        targetPort: 10200
+
 wyoming_piper:
   voice: en_US-lessac-medium
+  # custom_voice: ""
   speaker: 0
   length_scale: "1.0"
   noise_scale: "0.667"
   noise_w: "0.333"
   max_piper_procs: 1
+
 workload:
   main:
     podSpec:
@@ -24,30 +35,12 @@ workload:
             startup:
               port: 10200
               type: tcp
-          args:
-            - --voice
-            - "{{ .Values.wyoming_piper.voice }}"
-            - --speaker
-            - "{{ .Values.wyoming_piper.speaker }}"
-            - --length-scale
-            - "{{ .Values.wyoming_piper.length_scale }}"
-            - --noise-scale
-            - "{{ .Values.wyoming_piper.noise_scale }}"
-            - --noise-w
-            - "{{ .Values.wyoming_piper.noise_w }}"
-            - --max-piper-procs
-            - "{{ .Values.wyoming_piper.max_piper_procs }}"
-service:
-  main:
-    ports:
-      main:
-        port: 10200
-        protocol: tcp
-        targetPort: 10200
+
 persistence:
   config:
     enabled: true
     mountPath: /data
+
 portal:
   open:
     enabled: false

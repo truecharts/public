@@ -6,7 +6,6 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
@@ -43,13 +42,7 @@ questions:
                                               description: "This will override the specific value of config file"
                                               schema:
                                                 type: boolean
-                                                default: true
-                                            - variable: ZIGBEE2MQTT_CONFIG_EXPIRIMENTAL_NEW_API
-                                              label: "ZIGBEE2MQTT_CONFIG_EXPIRIMENTAL_NEW_API"
-                                              description: "This will override the specific value of config file"
-                                              schema:
-                                                type: boolean
-                                                default: true
+                                                default: false
                                             - variable: ZIGBEE2MQTT_CONFIG_MQTT_SERVER
                                               label: "MQTT Server"
                                               description: "This will override the specific value of config file"
@@ -89,7 +82,6 @@ questions:
                                                     description: "zstack"
 # Include{containerBasic}
 # Include{containerAdvanced}
-
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
@@ -130,12 +122,9 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
 # Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}
-
               - variable: runAsUser
                 label: "runAsUser"
                 description: "The UserID of the user running the application"
@@ -157,7 +146,6 @@ questions:
                 schema:
                   type: int
                   default: 568
-
 # Include{resources}
 # Include{advanced}
 # Include{addons}

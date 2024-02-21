@@ -6,16 +6,39 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
-
 # Include{containerBasic}
 # Include{containerAdvanced}
-
 # Include{containerConfig}
+  - variable: qbitportforward
+    group: App Configuration
+    label: Gluetun Port Forwarding
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: enabled
+          label: Enable Gluetun Port Forwarding Automation
+          description: Enable and configure Gluetun Port Forwarding Automation.
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: QBT_USERNAME
+                label: qBittorrent Username
+                description: qBittorrent WebUI Username
+                schema:
+                  type: string
+                  default: "admin"
+              - variable: QBT_PASSWORD
+                label: qBittorrent Password
+                description: qBittorrent WebUI Password
+                schema:
+                  type: string
+                  default: "adminadmin"
 # Include{podOptions}
 # Include{serviceRoot}
 # Include{serviceMain}
@@ -77,12 +100,9 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
 # Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}
-
               - variable: runAsUser
                 label: "runAsUser"
                 description: "The UserID of the user running the application"
@@ -104,7 +124,6 @@ questions:
                 schema:
                   type: int
                   default: 568
-
 # Include{resources}
 # Include{advanced}
 # Include{addons}

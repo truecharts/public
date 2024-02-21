@@ -1,0 +1,39 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: accetto/ubuntu-vnc-xfce-opengl-g3
+  tag: latest@sha256:cf2f93aaaba5877ed52bb5a00a42e8bf78f62ec5161de188cd32a9c992f5ea0e
+persistence:
+  internalshare:
+    enabled: true
+    mountPath: /UNRAID_SHARE
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 6901
+        protocol: http
+        targetPort: 6901
+  webuivnc:
+    enabled: true
+    ports:
+      webuivnc:
+        enabled: true
+        port: 5901
+        protocol: tcp
+        targetPort: 5901
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            VNC_PW: unraid
+            VNC_RESOLUTION: 1360x768

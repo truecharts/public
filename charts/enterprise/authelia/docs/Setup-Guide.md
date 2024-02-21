@@ -1,4 +1,6 @@
-# Authelia + LLDAP + Traefik ForwardAuth Setup guide
+---
+title: Authelia + LLDAP + Traefik ForwardAuth Setup guide
+---
 
 This quick guide should take you through the steps necessary to setup `Authelia` as your `forwardAuth` for `Traefik`. We'll be using `LLDAP` as the backend for `Authelia` since it's lightweight and simple enough for most users. A more complete video is available on our YouTube Channel
 
@@ -18,11 +20,13 @@ LLDAP is a `Stable` train chart and therefore isn't supported at the same level 
 
 - Follow the steps included in the [Installation Notes](https://truecharts.org/charts/stable/lldap/installation-notes) for [LLDAP](https://truecharts.org/charts/stable/lldap/). Pretty straightforward. Change `dc=example,dc=com` to your domain, i.e. `dc=MYDOMAIN,dc=net` and then change your password. Also make sure you have the `Operators` train enabled and `CloudnativePG` operator installed, since you'll need it for `LLDAP` and `Authelia`
 
-![LLDAP Config](img/LLDAPCatalogConfig.png)
+![LLDAP Config](./img/LLDAPCatalogConfig.png)
 
 - I've set the services to `ClusterIP` since I'll be using ingress
 
 - Once in `LLDAP`, create a user inside the `lldap_password_manager` group and change your default `admin` password. That `lldap_password_manager` user will be used to bind to `Authelia`. I've created a user called `Steven`
+
+- Create an `admin` group and add `Steven` to it. We will allow users of this group to access the site with Authelia later in the guide.
 
 ## Setup Authelia
 
@@ -63,21 +67,23 @@ Check your mail provider for this, generally Gmail gives you an app specific pas
 
 ### Access Control Configuration
 
-- This section is to set rules to connect to `Authelia` and which users can go where. This is a basic general rule below where the main user (Steven) can access all the site using a wildcard
+- This section is to set rules to connect to `Authelia` and which users can go where. This is a basic general rule where users of the `admin` group (Steven) can access all the site using a wildcard.
 
-Leave the default `one_factor` unless you've setup TOTP above. Then click `Add` next to `Rules` to get the screen below
+Set the default `deny`. Then click `Add` next to `Rules` to get the screen below.
 
-![AutheliaAccessControl](img/AutheliaAccessControl.png)
+![AutheliaAccessControl](./img/AutheliaAccessControl.png)
 
 - Add your `Domain` and a `Wildcard` for your subdomains.
-- Leave policy `one_factor`
-- Click `Add Subject` and add a subject of `group:lldap_password_manager` since `Steven` is part of that group
+- Set policy to `one_factor` or `two_factor`, up to you.
+- Click `Add Subject` and add a subject of `group:admin` since `Steven` is part of that group.
+
+Please see [Authelia Rules](./authelia-rules) for more advanced rules.
 
 #### Setup Authelia Ingress
 
 - Make sure you're using the same domain as the `Default Redirection URL` above, so for me that's `auth.mydomain.com`
 
-![AutheliaIngress](img/AutheliaIngress.png)
+![AutheliaIngress](./img/AutheliaIngress.png)
 
 ## Traefik ForwardAuth Setup
 
@@ -85,7 +91,7 @@ Leave the default `one_factor` unless you've setup TOTP above. Then click `Add` 
 
 - Scroll down to `forwardAuth` and click `Add`
 
-![TraefikForwardAuth](img/TraefikForwardAuth.png)
+![TraefikForwardAuth](./img/TraefikForwardAuth.png)
 
 - Name your `forwardauth` something you'll remember, since that's the middleware you'll add to your ingress going forward. Most people use `auth`
 - Address: `http://authelia.ix-authelia.svc.cluster.local:9091/api/verify?rd=https://auth.mydomain.com/` and replace the last part based on `mydomain.com`, and if you've changed ports/names you can get that from `Heavyscript`
@@ -102,7 +108,7 @@ The last step is adding the `forwardauth` along with the standard `ingress` sett
 
 - In this example we use the same name as above, or `auth`. Click `Add` to the `Traefik Middlewares` section, and enter your `forwardauth` name.
 
-![TraefikForwardAuthMiddleware](img/TraefikForwardAuthMiddleware.png)
+![TraefikForwardAuthMiddleware](./img/TraefikForwardAuthMiddleware.png)
 
 ### References
 

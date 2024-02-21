@@ -1,11 +1,11 @@
 image:
   repository: spx01/blocky
-  tag: v0.22@sha256:7def473b1b553b730dd38ba0bc436fc732193c15d35681aa0b0eb962dd6350aa
+  tag: v0.23@sha256:24855b63986c790093554a1f62b58379a06bc10a90ee073906e7c39bf692adcc
   pullPolicy: IfNotPresent
 k8sgatewayImage:
   repository: quay.io/oriedge/k8s_gateway
   pullPolicy: IfNotPresent
-  tag: v0.3.4@sha256:21571315aa3939d708dcf040a7cb78328fd957bf60887299ffdd417e7240387b
+  tag: v0.4.0@sha256:7bdbd447c0244b8f89de9cd6f4826ed0ac66c9406fac3a4ac80081020c251c6b
 manifestManager:
   enabled: true
 workload:

@@ -1,24 +1,36 @@
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 apiVersion: v2
-appVersion: "7.0.0"
+appVersion: 7.5.1
 dependencies:
   - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+    version: 17.4.2
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
 description: Calibre is a powerful and easy to use e-book manager.
 home: https://truecharts.org/charts/stable/calibre
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/calibre.png
 keywords:
   - calibre
-kubeVersion: ">=1.16.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
+  - name: TrueCharts
+    email: info@truecharts.org
     url: https://truecharts.org
 name: calibre
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/calibre
   - https://github.com/kovidgoyal/calibre/
-version: 11.0.33
-annotations:
-  truecharts.org/category: media
-  truecharts.org/SCALE-support: "true"
+  - https://github.com/truecharts/charts/tree/master/charts/stable/calibre
+  - https://ghcr.io/linuxserver/calibre
+type: application
+version: 13.5.1

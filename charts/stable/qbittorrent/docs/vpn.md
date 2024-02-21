@@ -1,4 +1,6 @@
-# Using VPN
+---
+title: Using VPN
+---
 
 When using VPN, in order for qbittorent to use it, you have to set the correct interface in the WebUI.
 

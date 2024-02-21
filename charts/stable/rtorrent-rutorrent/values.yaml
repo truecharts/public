@@ -1,0 +1,146 @@
+image:
+  repository: ghcr.io/crazy-max/rtorrent-rutorrent
+  pullPolicy: IfNotPresent
+  tag: 4.2.9-0.9.8_2-0.13.8_1@sha256:8d089b00282a203886361268d9210106956302c2194e75ae56982a6f0398aef9
+
+exportarrImage:
+  repository: ghcr.io/thde/rtorrent_exporter
+  pullPolicy: IfNotPresent
+  tag: v1.3.1@sha256:0a7716d8b434f8ecf9370053c46e099cfde3c98a60555d3128e07e6da7438fcd
+
+securityContext:
+  container:
+    PUID: 33
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 8080
+  rtorrent:
+    enabled: true
+    ports:
+      rtorrent:
+        enabled: true
+        protocol: tcp
+        port: 33942
+  xmlrpc:
+    enabled: true
+    ports:
+      xmlrpc:
+        enabled: true
+        protocol: http
+        port: 8000
+  dht:
+    enabled: true
+    ports:
+      dht:
+        enabled: true
+        protocol: udp
+        port: 6881
+  webdav:
+    enabled: true
+    ports:
+      webdav:
+        enabled: true
+        protocol: http
+        port: 9000
+  rtinc:
+    enabled: true
+    ports:
+      rtinc:
+        enabled: true
+        port: 50000
+  metrics:
+    enabled: true
+    type: ClusterIP
+    targetSelector: exportarr
+    ports:
+      metrics:
+        enabled: true
+        port: 9135
+        targetSelector: exportarr
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              exec:
+                command:
+                  - /usr/local/bin/healthcheck
+            readiness:
+              exec:
+                command:
+                  - /usr/local/bin/healthcheck
+            startup:
+              exec:
+                command:
+                  - /usr/local/bin/healthcheck
+          env:
+            RUTORRENT_PORT: "{{ .Values.service.main.ports.main.port }}"
+            PORT_RTORRENT: "{{ .Values.service.rtorrent.ports.rtorrent.port }}"
+            RT_DHT_PORT: "{{ .Values.service.dht.ports.dht.port }}"
+            XMLRPC_PORT: "{{ .Values.service.xmlrpc.ports.xmlrpc.port }}"
+            WEBDAV_PORT: "{{ .Values.service.webdav.ports.webdav.port }}"
+            RT_INC_PORT: "{{ .Values.service.rtinc.ports.rtinc.port }}"
+
+  exportarr:
+    enabled: true
+    type: Deployment
+    strategy: RollingUpdate
+    replicas: 1
+    podSpec:
+      containers:
+        exportarr:
+          primary: true
+          enabled: true
+          imageSelector: exportarrImage
+          args:
+            - --rtorrent.scrape-uri={{ printf "http://%s-xmlrpc.%s:%v/RPC2/" .Release.Name .Release.Namespace .Values.service.xmlrpc.ports.xmlrpc.port }}
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            INTERFACE: 0.0.0.0
+            PORT: "{{ .Values.service.metrics.ports.metrics.port }}"
+            URL: '{{ printf "http://%s-xmlrpc.%s:%v/RPC2/" .Release.Name .Release.Namespace .Values.service.xmlrpc.ports.xmlrpc.port }}'
+            ENABLE_ADDITIONAL_METRICS: false
+            ENABLE_UNKNOWN_QUEUE_ITEMS: false
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/data"
+  downloads:
+    enabled: true
+    mountPath: "/downloads"
+  passwd:
+    enabled: true
+    mountPath: "/passwd"
+
+metrics:
+  main:
+    enabled: true
+    type: "servicemonitor"
+    endpoints:
+      - port: metrics
+        path: /metrics
+    targetSelector: metrics
+    prometheusRule:
+      enabled: false
+
+portal:
+  open:
+    enabled: true

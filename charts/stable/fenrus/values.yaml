@@ -1,0 +1,26 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: revenz/fenrus
+  tag: latest@sha256:ad2af9f34b3d163cb04536030dead590379c5cdb47faaac9602a4efc7e2b3ed8
+persistence:
+  data:
+    enabled: true
+    mountPath: /app/data
+  images:
+    enabled: true
+    mountPath: /app/wwwroot/images
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 3000
+        protocol: tcp
+        targetPort: 3000

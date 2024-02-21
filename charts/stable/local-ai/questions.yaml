@@ -4,11 +4,9 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-
                                 - variable: imageSelector
                                   label: Select Image
                                   schema:
@@ -27,10 +25,8 @@ questions:
                                         description: Cublas Cuda 11
                                       - value: cublasCuda11FfmpegImage
                                         description: Cublas Cuda 11 FFmpeg
-
 # Include{containerBasic}
 # Include{containerAdvanced}
-
   - variable: localai
     group: App Configuration
     label: LocalAI Configuration
@@ -117,7 +113,6 @@ questions:
                   type: string
                   required: true
                   default: "*"
-
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
@@ -172,11 +167,8 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
 # Include{ingressAdvanced}
 # Include{ingressList}
-
 # Include{securityContextRoot}
               - variable: runAsUser
                 label: "runAsUser"
@@ -199,7 +191,6 @@ questions:
                 schema:
                   type: int
                   default: 568
-
 # Include{resources}
 # Include{advanced}
 # Include{addons}

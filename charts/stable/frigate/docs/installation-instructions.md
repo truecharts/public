@@ -1,4 +1,6 @@
-# Installation instructions
+---
+title: Installation instructions
+---
 
 ## Hardcoded values
 

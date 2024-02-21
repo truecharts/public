@@ -1,9 +1,21 @@
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: website
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
 dependencies:
   - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+    version: 17.4.2
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 deprecated: false
 description: Docusaurus makes it easy to maintain Open Source documentation websites.
 home: https://truecharts.org/charts/stable/docusaurus
@@ -12,17 +24,15 @@ keywords:
   - documentation
   - website
   - Docusaurus
-kubeVersion: ">=1.16.0-0"
+kubeVersion: ">=1.24.0-0"
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
+  - name: TrueCharts
+    email: info@truecharts.org
     url: https://truecharts.org
 name: docusaurus
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/docusaurus
   - https://github.com/awesometic/docker-docusaurus
+  - https://github.com/truecharts/charts/tree/master/charts/stable/docusaurus
+  - https://hub.docker.com/r/awesometic/docusaurus
 type: application
-version: 5.0.9
-annotations:
-  truecharts.org/category: website
-  truecharts.org/SCALE-support: "true"
+version: 7.2.0

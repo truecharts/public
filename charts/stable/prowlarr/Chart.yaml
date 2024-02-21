@@ -1,9 +1,22 @@
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.10.4.408
+appVersion: 1.13.3.4273
 dependencies:
   - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+    version: 17.4.2
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
 description: Indexer manager/proxy built on the popular arr net base stack to integrate with your various PVR apps.
 home: https://truecharts.org/charts/stable/prowlarr
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/prowlarr.png
@@ -11,17 +24,17 @@ keywords:
   - prowlarr
   - torrent
   - usenet
-kubeVersion: ">=1.16.0-0"
+kubeVersion: ">=1.24.0-0"
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
+  - name: TrueCharts
+    email: info@truecharts.org
     url: https://truecharts.org
 name: prowlarr
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/prowlarr
   - https://github.com/Prowlarr/Prowlarr
   - https://github.com/k8s-at-home/container-images
-version: 12.0.28
-annotations:
-  truecharts.org/category: media
-  truecharts.org/SCALE-support: "true"
+  - https://github.com/truecharts/charts/tree/master/charts/stable/prowlarr
+  - https://ghcr.io/onedr0p/exportarr
+  - https://ghcr.io/onedr0p/prowlarr-develop
+type: application
+version: 14.4.0

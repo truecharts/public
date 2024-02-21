@@ -1,0 +1,31 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: uberchuckie/observium
+  tag: latest@sha256:60859fd66bcd2f526afc01bcadecc216768900059626da73f5c8d1259d746092
+persistence:
+  observium:
+    enabled: true
+    mountPath: /opt/observium/rrd
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 8668
+        protocol: http
+        targetPort: 8668
+  udpport1:
+    enabled: true
+    ports:
+      udpport1:
+        enabled: true
+        port: 8514
+        protocol: udp
+        targetPort: 514

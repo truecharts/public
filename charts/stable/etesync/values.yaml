@@ -28,6 +28,7 @@ workload:
               type: tcp
           env:
             PORT: "{{ .Values.service.main.ports.main.port }}"
+            REGEN_INI: true
             # App
             SERVER: http
             AUTO_UPDATE: true

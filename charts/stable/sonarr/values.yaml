@@ -1,11 +1,11 @@
 image:
   repository: ghcr.io/onedr0p/sonarr
   pullPolicy: IfNotPresent
-  tag: 3.0.10.1567@sha256:ea8acd3ec2c212e254c8c8f6d8f748227c0691d90816761d220bd3e4765b21c7
+  tag: 4.0.1.929@sha256:f655ae59dfd9c75c798c04d08472deb2de61d8b13efac2735ff73d320ce7095b
 exportarrImage:
   repository: ghcr.io/onedr0p/exportarr
   pullPolicy: IfNotPresent
-  tag: v1.6.0@sha256:b522e128509b766cf66f847190fccd225ff194dc76775fe6a215f2dd3010cac2
+  tag: v1.6.1@sha256:60cf3d44aa0b7dea2a65160b2e2e373c1ae38cd6b12a45fe81b8afa45ac31c22
 service:
   main:
     ports:
@@ -41,18 +41,6 @@ workload:
           env:
             SONARR__PORT: "{{ .Values.service.main.ports.main.port }}"
             SONARR__AUTHENTICATION_METHOD: ""
-            # Enable postgres if v4 of sonarr supports it.
-            # SONARR__POSTGRES_PORT: 5432
-            # SONARR__POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
-            # SONARR__POSTGRES_MAIN_DB: "{{ .Values.cnpg.main.database }}"
-            # SONARR__POSTGRES_HOST:
-            #   secretKeyRef:
-            #     name: cnpg-main-urls
-            #     key: host
-            # SONARR__POSTGRES_PASSWORD:
-            #   secretKeyRef:
-            #     name: cnpg-main-urls
-            #     key: password
   exportarr:
     enabled: true
     type: Deployment
@@ -102,12 +90,6 @@ persistence:
         exportarr:
           mountPath: /config
           readOnly: true
-# might be supported on sonarr v4 upon released
-cnpg:
-  main:
-    enabled: false
-    database: sonarr
-    user: sonarr
 metrics:
   main:
     enabled: true

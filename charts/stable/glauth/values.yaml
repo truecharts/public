@@ -1,0 +1,39 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: glauth/glauth
+  tag: latest@sha256:fc0d6107d420fc1fad3bbc16902ccc1562efd3afec2b6852271c8c323e631a10
+persistence:
+  config:
+    enabled: true
+    mountPath: /app/config
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  ldapport:
+    enabled: true
+    ports:
+      ldapport:
+        enabled: true
+        port: 389
+        protocol: tcp
+        targetPort: 389
+  ldapsport:
+    enabled: true
+    ports:
+      ldapsport:
+        enabled: true
+        port: 636
+        protocol: tcp
+        targetPort: 636
+  main:
+    ports:
+      main:
+        port: 5555
+        protocol: http
+        targetPort: 5555

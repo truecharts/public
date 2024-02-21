@@ -1,0 +1,55 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: registry.gitlab.com/timvisee/send
+  tag: latest@sha256:1ee495161f176946e6e4077e17be2b8f8634c2d502172cc530a8cd5affd7078f
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 1443
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            FILE_DIR: "{{ .Values.persistence.uploadpath.mountPath}}"
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+            BASE_URL: http://192.168.0.100:1443
+            MAX_DOWNLOADS: "100"
+            MAX_EXPIRE_SECONDS: "604800"
+            MAX_FILE_SIZE: "2147483648"
+            NODE_ENV: production
+            REDIS_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: plainhost
+            REDIS_PASSWORD:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: redis-password
+            REDIS_USER: "{{ .Values.redis.redisUsername }}"
+            REDIS_PORT: "6379"
+
+persistence:
+  uploadpath:
+    enabled: true
+    mountPath: /uploads
+
+redis:
+  enabled: true
+
+portal:
+  open:
+    enabled: true

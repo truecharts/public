@@ -1,0 +1,40 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: alturismo/owi2plex
+  tag: latest@sha256:559cdf995d558492f728523229d31d53ab92f2f108e0f9680ca21c88d293962f
+persistence:
+  config:
+    enabled: true
+    mountPath: /config
+  owi2plex:
+    enabled: true
+    mountPath: /owi2plex
+  tvh:
+    enabled: true
+    mountPath: /TVH
+portal:
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

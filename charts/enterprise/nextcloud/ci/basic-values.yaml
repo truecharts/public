@@ -1,0 +1,16 @@
+nextcloud:
+  clamav:
+    enabled: true
+  collabora:
+    enabled: true
+  general:
+    accessIP: 127.0.0.1
+
+ingress:
+  main:
+    enabled: true
+    hosts:
+      - host: nextcloud.example.com
+        paths:
+          - path: /
+            pathType: Prefix

@@ -1,25 +1,35 @@
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: games
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 apiVersion: v2
-appVersion: "1.8.4"
+appVersion: 1.9.0
 dependencies:
   - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+    version: 17.4.2
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 deprecated: false
 description: A private Among Us server
 home: https://truecharts.org/charts/stable/impostor-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/impostor-server.png
 keywords:
   - impostor-server
-kubeVersion: ">=1.16.0-0"
+kubeVersion: ">=1.24.0-0"
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
+  - name: TrueCharts
+    email: info@truecharts.org
     url: https://truecharts.org
 name: impostor-server
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/impostor-server
+  - https://hub.docker.com/r/aeonlucid/impostor
 type: application
-version: 5.0.11
-annotations:
-  truecharts.org/category: games
-  truecharts.org/SCALE-support: "true"
+version: 7.3.0

@@ -1,9 +1,22 @@
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 apiVersion: v2
-appVersion: 4.19.0
+appVersion: 4.21.1
 dependencies:
   - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
+    version: 17.4.2
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
 description: Run VS Code on any machine anywhere and access it in the browser.
 home: https://truecharts.org/charts/stable/code-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/code-server.png
@@ -12,17 +25,15 @@ keywords:
   - vs
   - visual studio
   - vscode
-kubeVersion: ">=1.16.0-0"
+kubeVersion: ">=1.24.0-0"
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
+  - name: TrueCharts
+    email: info@truecharts.org
     url: https://truecharts.org
 name: code-server
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/code-server
   - https://github.com/cdr/code-server
+  - https://github.com/truecharts/charts/tree/master/charts/stable/code-server
+  - https://hub.docker.com/r/codercom/code-server
 type: application
-version: 8.1.12
-annotations:
-  truecharts.org/category: media
-  truecharts.org/SCALE-support: "true"
+version: 10.3.0

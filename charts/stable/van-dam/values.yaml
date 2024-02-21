@@ -1,0 +1,57 @@
+image:
+  repository: ghcr.io/floppy/van_dam
+  tag: 0.54.1@sha256:27c28fe82ef1e5992590ccd30725ee74f9fe13177ec7946dc6e4dbaec0109751
+  pullPolicy: IfNotPresent
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        targetPort: 3214
+        port: 3214
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DATABASE_URL:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: std
+            REDIS_URL:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: url
+            SECRET_KEY_BASE:
+              secretKeyRef:
+                name: vandam-secrets
+                key: SECRET_KEY_BASE
+
+persistence:
+  libraries:
+    enabled: true
+    mountPath: "/libraries"
+
+cnpg:
+  main:
+    enabled: true
+    user: vandam
+    database: vandam
+
+redis:
+  enabled: true
+
+portal:
+  open:
+    enabled: true

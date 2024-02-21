@@ -1,13 +1,28 @@
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: bookmarks
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 apiVersion: v2
-appVersion: "0.0.6"
+appVersion: 0.1.0
 dependencies:
   - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
-  - condition: mariadb.enabled
-    name: mariadb
-    repository: https://deps.truecharts.org/
-    version: 7.0.70
+    version: 17.4.2
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: mariadb
+    version: 12.1.17
+    repository: oci://tccr.io/truecharts
+    condition: mariadb.enabled
+    alias: ""
+    tags: []
+    import-values: []
 deprecated: false
 description: A self-hosted bookmark management tool.
 home: https://truecharts.org/charts/stable/servas
@@ -15,17 +30,15 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/servas.png
 keywords:
   - servas
   - bookmarks
-kubeVersion: ">=1.16.0-0"
+kubeVersion: ">=1.24.0-0"
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
+  - name: TrueCharts
+    email: info@truecharts.org
     url: https://truecharts.org
 name: servas
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/servas
   - https://github.com/beromir/Servas
+  - https://github.com/truecharts/charts/tree/master/charts/stable/servas
+  - https://hub.docker.com/r/beromir/servas
 type: application
-version: 0.0.23
-annotations:
-  truecharts.org/category: bookmarks
-  truecharts.org/SCALE-support: "true"
+version: 3.3.0

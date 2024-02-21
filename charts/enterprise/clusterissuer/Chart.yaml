@@ -1,5 +1,21 @@
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: core
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: enterprise
 apiVersion: v2
-appVersion: "latest"
+appVersion: latest
+dependencies:
+  - name: common
+    version: 17.4.2
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 deprecated: false
 description: Certificate management for Kubernetes
 home: https://truecharts.org/charts/enterprise/clusterissuer
@@ -7,22 +23,15 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/clusterissuer.png
 keywords:
   - cert-manager
   - certificates
-dependencies:
-  - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
-kubeVersion: ">=1.16.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
+  - name: TrueCharts
+    email: info@truecharts.org
     url: https://truecharts.org
 name: clusterissuer
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/enterprise/clusterissuer
   - https://cert-manager.io/
+  - https://github.com/truecharts/charts/tree/master/charts/enterprise/clusterissuer
+  - https://hub.docker.com/_/hello-world
 type: application
-version: 4.2.10
-annotations:
-  truecharts.org/category: core
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/grade: U
+version: 6.2.1

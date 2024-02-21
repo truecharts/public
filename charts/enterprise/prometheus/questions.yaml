@@ -23,7 +23,6 @@ questions:
                 schema:
                   type: string
                   default: "info"
-
   - variable: prometheus
     group: "App Configuration"
     label: "Prometheus Settings"
@@ -80,6 +79,12 @@ questions:
                 schema:
                   type: boolean
                   default: false
+              - variable: enableRemoteWriteReceiver
+                label: "Remote Write Receiver"
+                description: "Enable Prometheus to be used as a receiver for the Prometheus remote write protocol"
+                schema:
+                  type: boolean
+                  default: false
               - variable: remoteWrite
                 label: "Remote Write"
                 schema:
@@ -119,7 +124,6 @@ questions:
                                     type: string
                                     required: false
                                     default: ""
-
   - variable: exporters
     group: "App Configuration"
     label: "Exporter Settings"
@@ -149,7 +153,6 @@ questions:
                 schema:
                   type: boolean
                   default: true
-
   - variable: alertmanager
     group: "App Configuration"
     label: "Alertmanager Settings"
@@ -197,7 +200,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10086
+                              default: 9090
                               required: true
         - variable: alertmanager
           label: "alertmanager Service"
@@ -219,7 +222,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10087
+                              default: 9093
                               required: true
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
@@ -233,8 +236,6 @@ questions:
             type: dict
             attrs:
 # Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
 # Include{ingressAdvanced}
 # Include{ingressList}
 # Include{advanced}

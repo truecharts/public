@@ -1,0 +1,41 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ich777/steamcmd
+  tag: longvinter@sha256:3b111133726807212eb77dbdc654b855eb4b66da781f3d5c4a9343de8129dd7a
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 27016
+        protocol: udp
+        targetPort: 27016
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            GAME_PARAMS: ""
+            GAME_PORT: "27016"
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

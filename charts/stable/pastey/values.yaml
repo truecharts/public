@@ -1,0 +1,64 @@
+image:
+  repository: cesura/pastey
+  tag: 0.5.1@sha256:4c4f6e7a31f574a2034e0807bf874e03e350c8931d4477521fae2b3f3e2aecfe
+  pullPolicy: IfNotPresent
+slimImage:
+  repository: cesura/pastey
+  tag: 0.5.1-slim@sha256:dc994c07aa45ce94e7f67958c4d03a6dac95f56427e7113500f0e88a258d3b13
+  pullPolicy: IfNotPresent
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 5000
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          imageSelector: image
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+          env:
+            PASTEY_LISTEN_PORT: "{{ .Values.service.main.ports.main.port }}"
+            PASTEY_LISTEN_ADDRESS: "0.0.0.0"
+            PASTEY_BEHIND_PROXY: false
+            PASTEY_GUESS_THRESHOLD: "0.20"
+            PASTEY_RATE_LIMIT: 5/hour
+            PASTEY_RECENT_PASTES: "10"
+            PASTEY_RESTRICT_PASTING: false
+            PASTEY_USE_WHITELIST: true
+            PASTEY_WHITELIST_CIDR: 127.0.0.1/32,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
+            # PASTEY_BLACKLIST_CIDR: ""
+            PASTEY_DEFAULT_THEME: "Dark"
+            PASTEY_PURGE_INTERVAL: 3600
+            PASTEY_FORCE_SHOW_RECENT: false
+            PASTEY_IGNORE_GUESS: "TeX,SQL"
+            PASTEY_SHOW_CLI_BUTTON: true
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /app/data
+
+portal:
+  open:
+    enabled: true

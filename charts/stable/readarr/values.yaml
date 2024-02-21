@@ -1,11 +1,11 @@
 image:
   repository: ghcr.io/onedr0p/readarr-develop
   pullPolicy: IfNotPresent
-  tag: 0.3.10.2287@sha256:c8e4418f32af29d42d4c277dd3696a4c5d905965053a937f66c2c3773c973466
+  tag: 0.3.18.2411@sha256:a1d9eb2001d499322e00876106a675c36b6f750cd253843595bb8e022a54f37a
 exportarrImage:
   repository: ghcr.io/onedr0p/exportarr
   pullPolicy: IfNotPresent
-  tag: v1.6.0@sha256:b522e128509b766cf66f847190fccd225ff194dc76775fe6a215f2dd3010cac2
+  tag: v1.6.1@sha256:60cf3d44aa0b7dea2a65160b2e2e373c1ae38cd6b12a45fe81b8afa45ac31c22
 securityContext:
   container:
     readOnlyRootFilesystem: false

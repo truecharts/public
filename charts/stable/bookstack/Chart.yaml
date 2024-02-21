@@ -1,14 +1,30 @@
+annotations:
+  max_scale_version: 23.10.2
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 apiVersion: v2
-appVersion: "23.10.2023"
+appVersion: 23.12.20240115
 dependencies:
   - name: common
-    repository: https://library-charts.truecharts.org
-    version: 14.3.5
-  - condition: mariadb.enabled
-    name: mariadb
-    repository: https://deps.truecharts.org/
-    version: 7.0.70
-description: "A simple, self-hosted, easy-to-use platform for organising and storing information."
+    version: 17.4.2
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+  - name: mariadb
+    version: 12.1.17
+    repository: oci://tccr.io/truecharts
+    condition: mariadb.enabled
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: A simple, self-hosted, easy-to-use platform for organising and storing information.
 home: https://truecharts.org/charts/stable/bookstack
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/bookstack.png
 keywords:
@@ -18,16 +34,15 @@ keywords:
   - organizer
   - server
   - hosted
-kubeVersion: ">=1.16.0-0"
+kubeVersion: ">=1.24.0-0"
 maintainers:
-  - email: info@truecharts.org
-    name: TrueCharts
+  - name: TrueCharts
+    email: info@truecharts.org
     url: https://truecharts.org
 name: bookstack
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/bookstack
   - https://www.bookstackapp.com/
-version: 8.0.11
-annotations:
-  truecharts.org/category: media
-  truecharts.org/SCALE-support: "true"
+  - https://github.com/truecharts/charts/tree/master/charts/stable/bookstack
+  - https://ghcr.io/linuxserver/bookstack
+type: application
+version: 11.3.0

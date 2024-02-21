@@ -1,14 +1,14 @@
 image:
   repository: vikunja/api
-  tag: 0.21.0@sha256:e541ef5599d08f50a24e8de1fd8136f9d0a7ef514916fac6d6bf8ac6c7c16712
+  tag: 0.22.1@sha256:c9415431e6235229302bb8f9ee6660b74c24859d1e8adbc4a3e25bd418604b57
   pullPolicy: IfNotPresent
 frontendImage:
   repository: vikunja/frontend
-  tag: 0.21.0@sha256:fdd4582979beee4a6bef2d4d8e3744809b82ab2e198d708a829d7189a0ad9882
+  tag: 0.22.1@sha256:f0223d441997fe29c377d0b476dc4bb2fc091b44b9c24d76b1b88c213df520c5
   pullPolicy: IfNotPresent
 nginxImage:
   repository: nginx
-  tag: 1.25.3@sha256:86e53c4c16a6a276b204b0fd3a8143d86547c967dc8258b3d47c3a21bb68d3c6
+  tag: 1.25.4@sha256:c26ae7472d624ba1fafd296e73cecc4f93f853088e6a9c13c0d52f6ca5865107
 workload:
   main:
     podSpec:

@@ -1,0 +1,9 @@
+# -- Options for the main traefik service, where the entrypoints traffic comes from
+# from.
+service:
+  tcp:
+    ports:
+      web:
+        port: 9080
+      websecure:
+        port: 9443

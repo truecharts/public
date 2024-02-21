@@ -1,0 +1,73 @@
+image:
+  repository: rnagabhyrava/plexplaylistsync
+  tag: latest@sha256:c9e85cb9def574004602c5a37b25b360b635fd4547e274fb1572318068180cf4
+  pullPolicy: IfNotPresent
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsGroup: 0
+    runAsUser: 0
+
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+pps:
+  plex:
+    url: "http://localhost:32400"
+    token: "plextoken123"
+  spotify:
+    user_id: ""
+    client_id: ""
+    client_secret: ""
+  deezer:
+    user_id: ""
+    playlist_id: []
+  other:
+    write_missing_as_csv: false
+    append_service_suffix: true
+    add_playlist_poster: true
+    add_playlist_description: true
+    append_instead_of_sync: false
+    seconds_to_wait: 84000
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            PLEX_URL: "{{ .Values.pps.plex.url }}"
+            PLEX_TOKEN: "{{ .Values.pps.plex.token }}"
+            SPOTIFY_USER_ID: "{{ .Values.pps.spotify.user_id }}"
+            SPOTIFY_CLIENT_ID: "{{ .Values.pps.spotify.client_id }}"
+            SPOTIFY_CLIENT_SECRET: "{{ .Values.pps.spotify.client_secret }}"
+            DEEZER_USER_ID: "{{ .Values.pps.deezer.user_id }}"
+            DEEZER_PLAYLIST_ID: '{{ join " " .Values.pps.deezer.playlist_id }}'
+            WRITE_MISSING_AS_CSV: "{{ .Values.pps.other.write_missing_as_csv }}"
+            APPEND_SERVICE_SUFFIX: "{{ .Values.pps.other.append_service_suffix }}"
+            ADD_PLAYLIST_POSTER: "{{ .Values.pps.other.add_playlist_poster }}"
+            ADD_PLAYLIST_DESCRIPTION: "{{ .Values.pps.other.add_playlist_description }}"
+            APPEND_INSTEAD_OF_SYNC: "{{ .Values.pps.other.append_instead_of_sync }}"
+            SECONDS_TO_WAIT: "{{ .Values.pps.other.seconds_to_wait }}"
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+
+portal:
+  open:
+    enabled: false

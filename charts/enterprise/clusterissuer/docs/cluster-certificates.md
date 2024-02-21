@@ -1,4 +1,6 @@
-# Cluster Certificates Setup Guide
+---
+title: Cluster Certificates Setup Guide
+---
 
 This guide will walk you through setting up and using `cluster certificates`.
 
@@ -23,7 +25,7 @@ In order for an ACME issuer to issue a wildcard certificate, you need to have a 
 
 :::
 
-![clusterissuer6](img/clusterissuer6.png)
+![clusterissuer-clusterwidecert](./img/clusterissuer-clusterwidecert.png)
 
 After creating the cluster certificate, verify it is working by checking the `Application Events` created in the `clusterissuer` app (see [how to verify a single app certificate is working](how-to#verifying-clusterissuer-is-working) for more information).
 
@@ -31,7 +33,7 @@ After creating the cluster certificate, verify it is working by checking the `Ap
 
 After you have verified the certificate was created successfully, edit the settings of the app you wish to use it for and go to the _Ingress_ section.
 
-If you have previously used a single domain certificate from clusterissuer, remove the specified issuer name. Then, click on _Show Advanced Settings_  and add a _TLS_ entry. Enter the name of your cluster certificate, and the certificate host(s) which it will be used for. These are usually the same as your app host(s), unless you wish to use more than one certificate. Save the chart.
+If you have previously used a single domain certificate from clusterissuer, remove the specified issuer name. Then, click on _Show Advanced Settings_ and add a _TLS_ entry. Enter the name of your cluster certificate, and the certificate host(s) which it will be used for. These are usually the same as your app host(s), unless you wish to use more than one certificate. Save the chart.
 
 :::note
 
@@ -39,4 +41,4 @@ In order for your cluster certificate to show up as valid, the certificate hosts
 
 :::
 
-![clusterissuer7](img/clusterissuer7.png)
+![clusterissuer7](./img/clusterissuer7.png)

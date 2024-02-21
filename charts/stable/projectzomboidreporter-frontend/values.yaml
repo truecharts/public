@@ -1,0 +1,31 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: chrisashtear/zomboid-reporter-frontend
+  tag: latest@sha256:e1524291dce7d62218701ddf7ce159fdfa5bebb1090efb54f9ac9df33a5ea057
+persistence: {}
+portal:
+  open:
+    enabled: false
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

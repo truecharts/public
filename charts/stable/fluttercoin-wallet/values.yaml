@@ -1,0 +1,49 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ich777/fluttercoin
+  tag: latest@sha256:532b141ca5d5ef1a9910061490ac4ff55c08a62e2411eaeba5c4332832af32db
+persistence:
+  datapath:
+    enabled: true
+    mountPath: /fluttercoin
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  jsonremoteport:
+    enabled: true
+    ports:
+      jsonremoteport:
+        enabled: true
+        port: 7474
+        protocol: tcp
+        targetPort: 7474
+  main:
+    ports:
+      main:
+        port: 8080
+        protocol: http
+        targetPort: 8080
+  peertopeerconn:
+    enabled: true
+    ports:
+      peertopeerconn:
+        enabled: true
+        port: 7408
+        protocol: tcp
+        targetPort: 7408
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            CUSTOM_RES_H: "768"
+            CUSTOM_RES_W: "1024"
+            DATA_PERM: "770"
+            EXTRA_PARAMS: -bind=0.0.0.0

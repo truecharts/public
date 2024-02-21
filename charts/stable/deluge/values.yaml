@@ -14,20 +14,24 @@ service:
       main:
         port: 8112
         targetPort: 8112
+  rpc:
+    enabled: true
+    ports:
+      rpc:
+        enabled: true
+        port: 58846
+        targetPort: 58846
   torrent:
     enabled: true
     ports:
       tcp:
         enabled: true
-        port: 51413
-        targetPort: 51413
-  torrent-udp:
-    enabled: true
-    ports:
+        port: 6881
+        targetPort: 6881
       udp:
         enabled: true
-        port: 51413
-        targetPort: 51413
+        port: "{{ .Values.service.torrent.ports.tcp.port }}"
+        targetPort: "{{ .Values.service.torrent.ports.tcp.targetPort }}"
         protocol: udp
 workload:
   main:
@@ -44,7 +48,6 @@ workload:
             startup:
               type: http
               path: /
-          env: {}
 persistence:
   config:
     enabled: true

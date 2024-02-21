@@ -1,7 +1,7 @@
 image:
-  repository: jlongster/actual-server
+  repository: ghcr.io/actualbudget/actual-server
   pullPolicy: IfNotPresent
-  tag: 23.10.0@sha256:43f321864f98e7b9759507853e0e64908bb844305bbe72a3ffc893c42b962495
+  tag: 24.2.0@sha256:e8c362dcc34498a5c44acd3184febe257d8e7f46781964b5705289195cba4d47
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -34,10 +34,10 @@ service:
 persistence:
   server-files:
     enabled: true
-    mountPath: /app/server-files
+    mountPath: /data/server-files
   user-files:
     enabled: true
-    mountPath: /app/user-files
+    mountPath: /data/user-files
 portal:
   open:
     enabled: true

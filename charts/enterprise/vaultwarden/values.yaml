@@ -1,7 +1,7 @@
 image:
   repository: docker.io/vaultwarden/server
   pullPolicy: IfNotPresent
-  tag: 1.30.0@sha256:27638a2ae977d66d99891c06562ff9ba78a60869d2e5a94cf2953f1d03fde12f
+  tag: 1.30.3@sha256:153defd78a3ede850445d64d6fca283701d0c25978e513c61688cf63bd47a14a
 manifestManager:
   enabled: true
 service:
@@ -147,3 +147,6 @@ cnpg:
 portal:
   open:
     enabled: true
+ingress:
+  main:
+    required: true

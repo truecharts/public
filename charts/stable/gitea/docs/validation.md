@@ -1,4 +1,6 @@
-# Input Validation
+---
+title: Input Validation
+---
 
 **`username`**
 Accepted formats are:

@@ -1,27 +1,27 @@
 image:
-  repository: quay.io/go-skynet/local-ai
+  repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v1.40.0@sha256:3aac12d7637c905afdac67ee33351594eaa58fe77eeeb145f114f45e5f358cf3
+  tag: v2.8.2@sha256:7fea9bf502d71fd5330cd5d3e7e4910db484cfe97a56431d84c113ee03ef4546
 ffmpegImage:
-  repository: quay.io/go-skynet/local-ai
+  repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v1.40.0-ffmpeg@sha256:94c778847b34bc6cb7c6767731be15cc33767dd05159aed4af08ea52b401200e
+  tag: v2.8.2-ffmpeg-core@sha256:f7bdc8d64650d33a09b6a13f5cbddb59a807908fc2afecde29edf4ac56b6c6f7
 cublasCuda12Image:
-  repository: quay.io/go-skynet/local-ai
+  repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v1.40.0-cublas-cuda12@sha256:b1ce4420bb9f46cc101d1e6d0a4867da3090bb3f86c36f92bab538162f05752e
+  tag: v2.8.2-cublas-cuda12-core@sha256:6e9fdcbd8ee69962a411114b60622da1bb800b28c0d9f86a459f40f94816848c
 cublasCuda12FfmpegImage:
-  repository: quay.io/go-skynet/local-ai
+  repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v1.40.0-cublas-cuda12-ffmpeg@sha256:42fae783cbffab75c0e409b758b3cf2dbd773b8f8b04169de4e6ad02e6084ba9
+  tag: v2.8.2-cublas-cuda12-ffmpeg-core@sha256:09c3531e2904f883f9580b40070a3ed84e71fbce08a7c5c5ecc095cb6f5030ad
 cublasCuda11Image:
-  repository: quay.io/go-skynet/local-ai
+  repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v1.40.0-cublas-cuda11@sha256:1af527795ae1b6e04ccc02d531756710966c33e31356ddeefba88d1cae8d4e83
+  tag: v2.8.2-cublas-cuda11-core@sha256:9df853000abb7bdb15cac5239077694289c2bda8da19067d9b434e61755c06c3
 cublasCuda11FfmpegImage:
-  repository: quay.io/go-skynet/local-ai
+  repository: docker.io/localai/localai
   pullPolicy: IfNotPresent
-  tag: v1.40.0-cublas-cuda11-ffmpeg@sha256:fc16b363e9071ed2dc5ec40b91c20bda764301fd4422439288bdcbb986761a28
+  tag: v2.8.2-cublas-cuda11-ffmpeg-core@sha256:74b285bc21afd8ce90571bdbfa47d5aba7021a23f43bc99968cc606e52759e84
 securityContext:
   container:
     runAsNonRoot: false

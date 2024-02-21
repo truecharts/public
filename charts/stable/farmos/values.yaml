@@ -1,0 +1,23 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: farmos/farmos
+  tag: latest@sha256:9a872a703173b17a5ad55556162b890bacb0a8a6a336bca668ecead48bf0acd2
+persistence:
+  sitesdirectory:
+    enabled: true
+    mountPath: /var/www/html/sites
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 80
+        protocol: tcp
+        targetPort: 80

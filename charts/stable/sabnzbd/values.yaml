@@ -1,13 +1,11 @@
 image:
   repository: ghcr.io/onedr0p/sabnzbd
   pullPolicy: IfNotPresent
-  tag: 4.1.0@sha256:91f3cd6b9f1c9988af5447f464b299630706eb7f691dee857eab1487d4bb626e
+  tag: 4.2.2@sha256:5b1f15c8d25afa2342505492486361d4ecf14449e1453aeea45cd7c1e5eeb63a
 exportarrImage:
-  repository: tccr.io/truecharts/exportarr
+  repository: ghcr.io/onedr0p/exportarr
   pullPolicy: IfNotPresent
-  tag: v1.6.0@sha256:ee118701a2ebe8ccb5c25e1003fbed9ef7ce217d4e4b8b6df30cc2a0def818f8
-
-
+  tag: v1.6.1@sha256:60cf3d44aa0b7dea2a65160b2e2e373c1ae38cd6b12a45fe81b8afa45ac31c22
 service:
   main:
     ports:
@@ -40,14 +38,6 @@ portal:
   open:
     enabled: true
 
-metrics:
-  main:
-    enabled: true
-    type: "servicemonitor"
-    endpoints:
-      - port: metrics
-        path: /metrics
-    targetSelector: metrics
 
 workload:
   main:
@@ -57,6 +47,7 @@ workload:
           env:
             SABNZBD__HOST_WHITELIST_ENTRIES: ""
             SABNZBD__API_KEY: ""
+            SABNZBD__PORT: "{{ .Values.service.main.ports.main.port }}"
   exportarr:
     enabled: "{{ .Values.metrics.main.enabled }}"
     type: Deployment
@@ -89,7 +80,29 @@ workload:
           env:
             INTERFACE: 0.0.0.0
             PORT: "{{ .Values.service.metrics.ports.metrics.port }}"
-            URL: '{{ printf "http://%v.%v.svc.cluster.local:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Release.Namespace .Values.service.main.ports.main.port }}'
             CONFIG: "/config/config.xml"
             APIKEY: "{{ .Values.workload.podSpec.containers.main.env.SABNZBD__API_KEY }}"
+            URL: '{{ printf "http://%v:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.main.ports.main.port }}'
+persistence:
+  config:
+    enabled: true
+    targetSelector:
+      main:
+        main:
+          mountPath: /config
+      exportarr:
+        exportarr:
+          mountPath: /config
+          readOnly: true
+metrics:
+  main:
+    enabled: false
+    type: "servicemonitor"
+    endpoints:
+      - port: metrics
+        path: /metrics
+    targetSelector: metrics
 
+portal:
+  open:
+    enabled: true

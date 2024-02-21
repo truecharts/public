@@ -1,0 +1,55 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: ich777/steamcmd
+  tag: vrising@sha256:aa618a940b9dc025059aa9d411cc5ee3c4ac11e3827c5ed42176686c2677462f
+persistence:
+  serverfiles:
+    enabled: true
+    mountPath: /serverdata/serverfiles
+  steamcmd:
+    enabled: true
+    mountPath: /serverdata/steamcmd
+portal:
+  open:
+    enabled: true
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+service:
+  main:
+    ports:
+      main:
+        port: 9876
+        protocol: udp
+        targetPort: 9876
+  query:
+    enabled: true
+    ports:
+      query:
+        enabled: true
+        port: 9877
+        protocol: udp
+        targetPort: 9877
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            ENABLE_BEPINEX: ""
+            GAME_ID: "1829350"
+            GAME_PARAMS: ""
+            PASSWRD: ""
+            SERVER_NAME: V Rising Docker
+            USERNAME: ""
+            VALIDATE: "false"
+            WORLD_NAME: world1
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false

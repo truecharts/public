@@ -13,8 +13,6 @@ on:
 jobs:
   release-helm:
     runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/truecharts/devcontainer:3.1.10@sha256:c239addf725eb5cedf79517f8089fdafdc32b5270d1893ee87ae6e511b9bcae3
     steps:
       - name: Checkout
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
@@ -29,6 +27,10 @@ jobs:
           repository: truecharts/helm-staging
           token: ${{ secrets.BOT_TOKEN }}
           path: helm
+          
+      - name: Install pre-commit, yamale and yamllint
+        run: |
+          pip3 install --no-cache-dir pre-commit
 
       - name: Fix Pre-Commit issues
         shell: bash
@@ -58,26 +60,17 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       ref: ${{ steps.save-commit-hash.outputs.commit_hash }}
-    container:
-      image: ghcr.io/truecharts/devcontainer:3.1.10@sha256:c239addf725eb5cedf79517f8089fdafdc32b5270d1893ee87ae6e511b9bcae3
     steps:
       - name: Install Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@af4ebb1af1efd30c5bd84a2e9773355ad6362a33 # v0.9.3
+        uses: yokawasa/action-setup-kube-tools@93f6df178ec13d1b814a7622073ba28727716ca2 # v0.10.0
         with:
           setup-tools: |
             helmv3
-          helm: "3.13.2"
+          helm: "3.14.0"
 
-      - name: Prep Helm
+      - name: Prep go-yq
         run: |
-          helm repo add truecharts https://charts.truecharts.org
-          helm repo add truecharts-library https://library-charts.truecharts.org
-          helm repo add truecharts-deps https://deps.truecharts.org
-          helm repo add jetstack https://charts.jetstack.io
-          helm repo add vmwaretanzu https://vmware-tanzu.github.io/helm-charts
-          helm repo add cnpg https://cloudnative-pg.github.io/charts
-          helm repo add metallb https://metallb.github.io/metallb
-          helm repo update
+          wget https://github.com/mikefarah/yq/releases/download/v4.26.1/yq_linux_amd64 -O /usr/local/bin/go-yq && chmod +x /usr/local/bin/go-yq
 
       # Optional step if GPG signing is used
       - name: Prepare GPG key
@@ -100,6 +93,11 @@ jobs:
         with:
           token: ${{ secrets.BOT_TOKEN }}
           fetch-depth: 0
+          
+      - name: Prep Helm
+        shell: bash
+        run: |
+          ./.github/scripts/prep_helm.sh
 
       - name: Setting repo parent dir as safe safe.directory
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
@@ -162,27 +160,12 @@ jobs:
                    echo "changelog not found, starting with empty changelog..."
                    touch "website/docs/charts/${train}/${chart}/CHANGELOG.md"
                 fi
-                if [[ -f "website/docs/charts/${train}/${chart}/helm-security.md" ]]; then
-                   echo "helm-security found..."
-                   true
-                else
-                   echo "helm-security not found, starting with empty helm-security..."
-                   touch "website/docs/charts/${train}/${chart}/helm-security.md"
-                   echo "# Helm Security" >> website/docs/charts/${train}/${chart}/helm-security.md
-                fi
-                if [[ -f "website/docs/charts/${train}/${chart}/container-security.md" ]]; then
-                   echo "container-security found..."
-                   true
-                else
-                   echo "container-security not found, starting with empty container-security..."
-                   touch "website/docs/charts/${train}/${chart}/container-security.md"
-                   echo "# Helm Security" >> website/docs/charts/${train}/${chart}/container-security.md
-                fi
+
+                echo "Keeping some docs safe..."
                 # keep some docs safe
                 mv -f website/docs/charts/${train}/${chart}/CHANGELOG.md tmp/website/docs/charts/${train}/${chart}/CHANGELOG.md || :
-                mv -f website/docs/charts/${train}/${chart}/helm-security.md tmp/website/docs/charts/${train}/${chart}/helm-security.md || :
-                mv -f website/docs/charts/${train}/${chart}/container-security.md tmp/website/docs/charts/${train}/${chart}/container-security.md || :
 
+                echo "Removing old docs and recreating based on charts repo..."
                 # remove old docs everywhere and recreate based on charts repo
                 rm -rf website/docs/charts/*/${chart} || :
                 mkdir -p website/docs/charts/${train}/${chart} || echo "chart path already exists, continuing..."
@@ -190,18 +173,26 @@ jobs:
                 yes | cp -rf charts/${train}/${chart}/icon.png website/static/img/hotlink-ok/chart-icons/${chart}.png 2>/dev/null || :
                 yes | cp -rf charts/${train}/${chart}/screenshots/* website/static/img/hotlink-ok/chart-screenshots/${chart}/ 2>/dev/null || :
 
+                echo "Copying back kept docs..."
                 # Copy over kept documents
                 mv -f tmp/website/docs/charts/${train}/${chart}/CHANGELOG.md website/docs/charts/${train}/${chart}/CHANGELOG.md 2>/dev/null || :
-                mv -f tmp/website/docs/charts/${train}/${chart}/helm-security.md website/docs/charts/${train}/${chart}/helm-security.md 2>/dev/null || :
-                mv -f tmp/website/docs/charts/${train}/${chart}/container-security.md website/docs/charts/${train}/${chart}/container-security.md 2>/dev/null || :
 
-                # Append SCALE changelog to actual changelog
-                sed -i '1d' "website/docs/charts/${train}/${chart}/CHANGELOG.md" || echo "failed to sed 1d changelog..."
+                echo "Appending SCALE changelog to actual changelog..."
+                # Add SCALE changelog to actual changelog
+                # Remove header from changelog
+                sed -i '/^---$/,/^---$/d' "website/docs/charts/${train}/${chart}/CHANGELOG.md"
+                # Prepend app-changelog to changelog
                 cat "charts/${train}/${chart}/app-changelog.md" | cat - "website/docs/charts/${train}/${chart}/CHANGELOG.md" > temp && mv temp "website/docs/charts/${train}/${chart}/CHANGELOG.md"
-                sed -i '1s/^/# Changelog\n\n/' "website/docs/charts/${train}/${chart}/CHANGELOG.md" || echo "failed to add changelog header..."
+                echo "Adding changelog header..."
+                sed -i '1s/^/---\ntitle: Changelog\n---\n\n/' "website/docs/charts/${train}/${chart}/CHANGELOG.md" || echo "failed to add changelog header..."
 
+                echo "Creating index.md..."
                 touch website/docs/charts/${train}/${chart}/index.md
-                echo "# ${chart}" >> website/docs/charts/${train}/${chart}/index.md
+                (
+                  echo "---"
+                  echo "title: ${chart}"
+                  echo "---"
+                ) >> website/docs/charts/${train}/${chart}/index.md
                 echo "" >> website/docs/charts/${train}/${chart}/index.md
                 version=$(cat charts/${train}/${chart}/Chart.yaml | grep "^version: " | awk -F" " '{ print $2 }')
                 appversion=$(cat charts/${train}/${chart}/Chart.yaml | grep "^appVersion: " | awk -F" " '{ print $2 }')
@@ -216,18 +207,40 @@ jobs:
                 echo "## Available Documentation" >> website/docs/charts/${train}/${chart}/index.md
                 echo "" >> website/docs/charts/${train}/${chart}/index.md
 
+                echo "Iterating over all files in the docs directory..."
                 # Iterate over all files in the docs directory
                 for file in website/docs/charts/${train}/${chart}/*.md; do
                   # Extract the file name and first line from each file
                   filename=$(basename "${file}")
-                  title=$(head -n 1 "${file}" | sed 's/# //')
-
-                  # Create a markdown link using the file name and title
-                  link="[**${title}**](${filename%.md})"
-                  if [ ${filename} != "index.md" ]; then
-                    # Append the link to the index.md file
-                    echo "- ${link}" >> website/docs/charts/${train}/${chart}/index.md
-                    echo "" >> website/docs/charts/${train}/${chart}/index.md
+                  echo "Found doc file: ${file}"
+                  ok_title="false"
+                  echo "Getting the first line"
+                  h=$(head -n 1 "${file}")
+                  echo "The first line is: ${h}. Checking validity..."
+                  # Check if the first line has ---
+                  if [[ "${h}" == "---" ]]; then
+                    echo "First line is ---, continuing..."
+                    ok_title="true"
+                  elif [[ "${h}" == "# "* ]]; then
+                    echo "First line is #..."
+                    ok_title="false"
+                  fi
+                  if [ ${ok_title} == "false" ]; then
+                    echo "Doc title should use front matter and not # for title, for example"
+                    echo "---"
+                    echo "title: some title"
+                    echo "---"
+                  else
+                    echo "Not bad title found, continuing..."
+                    title=$(cat "${file}" | grep "title: " | sed 's/title: //' | head -n 1)
+                    echo "The title is: ${title}"
+                    # Create a markdown link using the file name and title
+                    link="[**${title}**](./${filename})"
+                    echo "The link is: ${link}"
+                    if [ ${filename} != "index.md" ]; then
+                      # Append the link to the index.md file
+                      echo "- ${link}" >> website/docs/charts/${train}/${chart}/index.md
+                    fi
                   fi
                 done
 
@@ -263,14 +276,8 @@ jobs:
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         run: |
           CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
-          charts_path="charts"
-          for changed in ${CHARTS[@]}; do
-            .github/scripts/fetch_helm_deps.sh "${changed}"
-          done
-          pip install yq
-          parthreads=$(($(nproc) * 2))
-          parallel -j ${parthreads} .github/scripts/build-catalog.sh '2>&1' ::: ${CHARTS[@]}
-          rm -rf website
+          ./charttool deps
+          ./charttool buildSCALE
 
       - name: Commit Catalog
         if: |
@@ -293,6 +300,11 @@ jobs:
           git config user.name "TrueCharts-Bot"
           git config user.email "bot@truecharts.org"
 
+      - name: Install Helm
+        uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # tag=v3
+        with:
+          version: v3.14.0
+
         # Optional step if GPG signing is used
       - name: Prepare GPG key
         shell: bash
@@ -309,6 +321,11 @@ jobs:
           GPG_KEYRING_BASE64: "${{ secrets.GPG_KEYRING_BASE64 }}"
           GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
 
+      - name: Clean Questions
+        shell: bash
+        run: |
+          find . -type f -name 'questions.yaml' -exec rm {} \;
+
       - name: Run chart-releaser for dependency apps
         uses: helm/chart-releaser-action@a917fd15b20e8b64b94d9158ad54cd6345335584 # v1.6.0
         if: |
@@ -320,6 +337,34 @@ jobs:
         env:
           CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
           CR_SKIP_EXISTING: "true"
+
+      - name: Helm | Login
+        shell: bash
+        env:
+          HELM_EXPERIMENTAL_OCI: 1
+        run: echo ${{ secrets.QUAY_SECRET }} | helm registry login -u ${{ secrets.QUAY_USER }} --password-stdin quay.io
+
+      - name: Push Charts to Quay
+        shell: bash
+        env:
+          HELM_EXPERIMENTAL_OCI: 1
+        run: |
+          for pkg in .cr-release-packages/*.tgz; do
+            if [ -z "${pkg:-}" ]; then
+              break
+            fi
+            filename=$(basename "$pkg")
+            name="${filename%%-[0-9]*.[0-9]*.[0-9]*.tgz}"
+            echo "uploading $name"
+            helm push "${pkg}" oci://quay.io/truecharts || echo "failed to upload $pkg to OCI"
+            curl -X POST -H "Content-Type: application/json" -d '{"visibility": "public"}' -H "Authorization: Bearer ${{ secrets.QUAY_TOKEN }}" "https://quay.io/api/v1/repository/truecharts/$name/changevisibility"  || echo "failed to set $pkg to public on OCI"
+          done
+
+      - name: Helm | Logout
+        shell: bash
+        env:
+          HELM_EXPERIMENTAL_OCI: 1
+        run: helm registry logout quay.io
 
       - name: Tag App Releases
         if: |

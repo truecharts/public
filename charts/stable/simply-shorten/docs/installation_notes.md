@@ -1,4 +1,6 @@
-# Installation Notes
+---
+title: Installation Notes
+---
 
 - Set `username` to a username that is hard to guess.
 - Set `password` to a password that is hard to guess.

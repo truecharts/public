@@ -49,6 +49,7 @@ jobs:
     with:
       checkoutCommit: ${{ needs.charts-changelog.outputs.commitHash }}
       chartChangesDetected: ${{ needs.pr-changes.outputs.addedOrModified }}
+      modifiedCharts: ${{ needs.pr-changes.outputs.addedOrModifiedCharts }}
 
   print_head_msg:
     name: print commit message
@@ -73,7 +74,7 @@ jobs:
       - charts-test
       - charts-lint
       - print_head_msg
-    if: needs.print_head_msg.outputs.head-commit-message == 'Commit bumped Chart Version'
+    if: ${{ contains( needs.print_head_msg.outputs.head-commit-message, 'By Renovate' ) }}
     name: Automerge and Approve build
     runs-on: ubuntu-latest
     steps:
@@ -81,7 +82,7 @@ jobs:
         with:
           github-token: "${{ secrets.PERS_PAT }}"
       - name: automerge
-        uses: pascalgn/automerge-action@22948e0bc22f0aa673800da838595a3e7347e584 # v0.15.6
+        uses: pascalgn/automerge-action@58724c982461efbb7865b3762d7bff0d4756f57a # v0.16.2
         env:
           GITHUB_TOKEN: "${{ secrets.BOT_TOKEN }}"
           UPDATE_RETRIES: 12
