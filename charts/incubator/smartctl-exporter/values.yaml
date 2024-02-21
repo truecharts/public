@@ -1,0 +1,67 @@
+image:
+  repository: prometheuscommunity/smartctl-exporter
+  pullPolicy: IfNotPresent
+  tag: v0.11.0@sha256:f23634fa0c445299b9e1c5b23f82f67744e0258a8333268bc14603df984369d3
+securityContext:
+  container:
+    privileged: true
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        protocol: http
+        port: 9633
+workload:
+  main:
+    type: DaemonSet
+    podSpec:
+      containers:
+        main:
+          args:
+            - --web.listen-address
+            - :{{ .Values.service.main.ports.main.port }}
+            - --web.telemetry-path
+            - "{{ .Values.smartctl.metricsEndpoint }}"
+            - --smartctl.path
+            - /usr/sbin/smartctl
+            - --smartctl.interval
+            - "{{ .Values.smartctl.pollInterval }}"
+            - --smartctl.rescan
+            - "{{ .Values.smartctl.rescanInterval }}"
+            - --smartctl.device-exclude
+            - "{{ .Values.smartctl.excludedDevices }}"
+            - --log.level
+            - "{{ .Values.logs.general.level }}"
+            - --log.format
+            - "{{ .Values.logs.general.format }}"
+          probes:
+            liveness:
+              path: "{{ .Values.smartctl.metricsEndpoint }}"
+              port: main
+            readiness:
+              path: "{{ .Values.smartctl.metricsEndpoint }}"
+              port: main
+            startup:
+              type: tcp
+              port: main
+metrics:
+  main:
+    enabled: true
+    type: "servicemonitor"
+    endpoints:
+      - port: main
+        path: "{{ .Values.smartctl.metricsEndpoint }}"
+portal:
+  open:
+    enabled: false
+smartctl:
+  metricsEndpoint: "/metrics"
+  pollInterval: "60s"
+  rescanInterval: "10m"
+  excludedDevices: ""
+logs:
+  general:
+    level: info
+    format: logfmt
