@@ -13,8 +13,6 @@ on:
 jobs:
   release-helm:
     runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/truecharts/devcontainer:3.1.10@sha256:c239addf725eb5cedf79517f8089fdafdc32b5270d1893ee87ae6e511b9bcae3
     steps:
       - name: Checkout
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
@@ -29,6 +27,10 @@ jobs:
           repository: truecharts/helm-staging
           token: ${{ secrets.BOT_TOKEN }}
           path: helm
+          
+      - name: Install pre-commit, yamale and yamllint
+        run: |
+          pip3 install --no-cache-dir pre-commit
 
       - name: Fix Pre-Commit issues
         shell: bash
@@ -66,14 +68,6 @@ jobs:
             helmv3
           helm: "3.14.0"
 
-      - name: Prep Helm
-        run: |
-          helm repo add jetstack https://charts.jetstack.io
-          helm repo add vmwaretanzu https://vmware-tanzu.github.io/helm-charts
-          helm repo add cnpg https://cloudnative-pg.github.io/charts
-          helm repo add metallb https://metallb.github.io/metallb
-          helm repo update
-
       - name: Prep go-yq
         run: |
           wget https://github.com/mikefarah/yq/releases/download/v4.26.1/yq_linux_amd64 -O /usr/local/bin/go-yq && chmod +x /usr/local/bin/go-yq
@@ -99,6 +93,11 @@ jobs:
         with:
           token: ${{ secrets.BOT_TOKEN }}
           fetch-depth: 0
+          
+      - name: Prep Helm
+        shell: bash
+        run: |
+          ./.github/scripts/prep_helm.sh
 
       - name: Setting repo parent dir as safe safe.directory
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
@@ -278,10 +277,7 @@ jobs:
         run: |
           CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
           ./charttool deps
-          pip install yq
-          parthreads=$(($(nproc) * 2))
-          parallel -j ${parthreads} .github/scripts/build-catalog.sh '2>&1' ::: ${CHARTS[@]}
-          rm -rf website
+          ./charttool buildSCALE
 
       - name: Commit Catalog
         if: |
