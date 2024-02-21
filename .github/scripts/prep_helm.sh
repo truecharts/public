@@ -1,6 +1,5 @@
 #!/bin/bash
 
-helm repo add truecharts-deps https://deps.truecharts.org
 helm repo add jetstack https://charts.jetstack.io
 helm repo add vmwaretanzu https://vmware-tanzu.github.io/helm-charts
 helm repo add cnpg https://cloudnative-pg.github.io/charts
