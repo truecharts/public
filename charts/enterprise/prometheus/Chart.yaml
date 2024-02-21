@@ -1,5 +1,5 @@
 annotations:
-  max_scale_version: 23.10.2
+  max_scale_version: 24.04.0
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: metrics
@@ -46,8 +46,8 @@ sources:
   - https://github.com/prometheus-community/helm-charts
   - https://github.com/prometheus-operator/kube-prometheus
   - https://github.com/truecharts/charts/tree/master/charts/enterprise/prometheus
-  - https://quay.io/thanos/thanos
-  - https://hub.docker.com/r/bitnami/alertmanager
   - https://hub.docker.com/r/bitnami/prometheus
+  - https://hub.docker.com/r/bitnami/alertmanager
+  - https://quay.io/thanos/thanos
 type: application
-version: 16.7.0
+version: 16.7.1
