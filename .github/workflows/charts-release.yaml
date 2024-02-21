@@ -66,10 +66,6 @@ jobs:
             helmv3
           helm: "3.14.0"
 
-      - name: Prep Helm
-        run: |
-          ./.github/scripts/prep_helm.sh
-
       - name: Prep go-yq
         run: |
           wget https://github.com/mikefarah/yq/releases/download/v4.26.1/yq_linux_amd64 -O /usr/local/bin/go-yq && chmod +x /usr/local/bin/go-yq
@@ -95,6 +91,11 @@ jobs:
         with:
           token: ${{ secrets.BOT_TOKEN }}
           fetch-depth: 0
+          
+      - name: Prep Helm
+        shell: bash
+        run: |
+          ./.github/scripts/prep_helm.sh
 
       - name: Setting repo parent dir as safe safe.directory
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
