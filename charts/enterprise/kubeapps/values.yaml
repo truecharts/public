@@ -1,30 +1,32 @@
 image:
   pullPolicy: IfNotPresent
   repository: ghcr.io/xstar97/my-proxy-service
-  tag: v0.0.2@sha256:8d25a6ff316f140be1f198376e84208902ddf61a38a78076c1b11a81924d4019
+  tag: v0.0.3@sha256:272f4af7f79fac47de413b9a756d2ca23df27df4fb5af2e41a2c9f8cfe6ce642
 
 operator:
   register: false
-  
+
 portal:
   open:
     enabled: true
-          
+
 podOptions:
   automountServiceAccountToken: true
-    
+
 workload:
+  ## TODO: Enable
   main:
-    enabled: true
+    enabled: false
     primary: true
     type: Deployment
     podSpec:
       containers:
+        ## TODO: Enable
         main:
-          enabled: true
+          enabled: false
           primary: true
           env:
-            PORT: 3000    
+            PORT: 3000
             API_FILE: /var/run/secrets/kubernetes.io/serviceaccount/token
             PROXY_TARGET: http://tckubeapps:8080
           probes:
@@ -42,19 +44,23 @@ workload:
               port: 3000
 
 service:
+  ## TODO: Enable
   main:
-    enabled: true
-    primary: true
-    expandObjectName: false
-    ports:
-      main:
-        enabled: true
-        primary: true
-        port: 3000
-        targetPort: 3000
+   enabled: false
+   primary: true
+   expandObjectName: false
+   ports:
+     main:
+       ## TODO: Enable
+       enabled: false
+       primary: true
+       port: 3000
+       targetPort: 3000
   tckubeapps:
     enabled: true
     expandObjectName: false
+    ## TODO: Move to main service
+    primary: true
     labels:
       truecharts.org/flagged: "true"
     selectorLabels:

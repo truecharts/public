@@ -17,14 +17,14 @@ dependencies:
     tags: []
     import-values: []
   - name: mariadb
-    version: 12.1.17
+    version: 12.2.1
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 11.1.21
+    version: 11.2.1
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -48,4 +48,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/ctfd
   - https://ghcr.io/ctfd/ctfd
 type: application
-version: 3.2.0
+version: 3.3.0
