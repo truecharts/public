@@ -56,7 +56,7 @@ workload:
         main:
           env:
             SABNZBD__HOST_WHITELIST_ENTRIES: ""
-            SABNZBD__API_KEY: {{ $apiKey }}
+            SABNZBD__API_KEY: ""
   exportarr:
     enabled: true
     type: Deployment
