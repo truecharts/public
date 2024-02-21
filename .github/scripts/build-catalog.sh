@@ -4,6 +4,11 @@ set -o nounset
 set -o pipefail
 
 patch_apps() {
+local chart="$1"
+local chartname="$2"
+local train="$3"
+local chartversion="$4"
+local target="catalog/${train}/${chartname}/${chartversion}"
 # Copy changelog from website
 if [[ ! -f "website/docs/charts/${train}/${chartname}/CHANGELOG.md" ]]; then
     touch "website/docs/charts/${train}/${chartname}/CHANGELOG.md"
