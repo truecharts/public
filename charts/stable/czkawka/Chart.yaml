@@ -1,5 +1,5 @@
 annotations:
-  max_scale_version: 23.10.2
+  max_scale_version: 24.04.0
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: duplicates
@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 23.11.2
+appVersion: 24.02.1
 dependencies:
   - name: common
     version: 17.4.2
@@ -24,7 +24,7 @@ keywords:
   - duplicates
   - file management
   - czkawka
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -36,4 +36,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/czkawka
   - https://hub.docker.com/r/jlesage/czkawka
 type: application
-version: 7.2.0
+version: 8.0.0
