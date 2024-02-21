@@ -93,6 +93,8 @@ jobs:
       #     path: catalog
 
       - name: Test Catalog
+        shell: bash
+        if: steps.list-changed.outputs.detected == 'true'
         run: |
           echo "Starting Catalog Validation"
           python3 .catalog_validation/catalog_validation/scripts/catalog_validate.py validate --path "${PWD}/catalog" --ignore-catalog-json
