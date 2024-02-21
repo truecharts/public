@@ -56,9 +56,7 @@ workload:
         main:
           env:
             SABNZBD__HOST_WHITELIST_ENTRIES: ""
-          envFrom:
-            - secretRef:
-                name: sabnzbdsecret
+            SABNZBD__API_KEY: {{ $apiKey }}
   exportarr:
     enabled: true
     type: Deployment
@@ -93,12 +91,5 @@ workload:
             PORT: "{{ .Values.service.metrics.ports.metrics.port }}"
             URL: '{{ printf "http://%v.%v.svc.cluster.local:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Release.Namespace .Values.service.main.ports.main.port }}'
             CONFIG: "/config/config.xml"
-            APIKEY:
-              secretKeyRef:
-                name: sabnzbdsecret
-                key: SABNZBD__API_KEY
+            APIKEY: "{{ .Values.workload.podSpec.containers.main.env.SABNZBD__API_KEY }}"
 
-sabnzbd:
-  api_key:
-    enabled: false
-    # secret:
