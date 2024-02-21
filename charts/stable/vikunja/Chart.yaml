@@ -1,5 +1,5 @@
 annotations:
-  max_scale_version: 23.10.2
+  max_scale_version: 24.04.0
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: productivity
@@ -17,7 +17,7 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 11.1.21
+    version: 11.2.1
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -38,8 +38,8 @@ name: vikunja
 sources:
   - https://vikunja.io/docs
   - https://github.com/truecharts/charts/tree/master/charts/stable/vikunja
-  - https://hub.docker.com/r/vikunja/api
   - https://hub.docker.com/r/vikunja/frontend
   - https://hub.docker.com/_/nginx
+  - https://hub.docker.com/r/vikunja/api
 type: application
-version: 12.2.1
+version: 12.3.0

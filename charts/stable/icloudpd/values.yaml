@@ -11,7 +11,8 @@ securityContext:
     runAsUser: 0
     capabilities:
       add:
-        - SYS_ADMIN
+        - NET_RAW
+        - NET_ADMIN
 
 icloudpd:
   apple_id: your@appleid.com
