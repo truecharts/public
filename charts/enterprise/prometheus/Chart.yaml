@@ -24,7 +24,7 @@ dependencies:
     tags: []
     import-values: []
   - name: kube-state-metrics
-    version: 6.1.21
+    version: 6.2.1
     repository: oci://tccr.io/truecharts
     condition: exporters.enabled,exporters.kube-state-metrics.enabled
     alias: ""
@@ -50,4 +50,4 @@ sources:
   - https://hub.docker.com/r/bitnami/alertmanager
   - https://hub.docker.com/r/bitnami/prometheus
 type: application
-version: 16.5.3
+version: 16.6.0
