@@ -58,7 +58,7 @@ workload:
             SABNZBD__HOST_WHITELIST_ENTRIES: ""
             SABNZBD__API_KEY: ""
   exportarr:
-    enabled: true
+    enabled: "{{ .Values.metrics.main.enabled }}"
     type: Deployment
     strategy: RollingUpdate
     replicas: 1
