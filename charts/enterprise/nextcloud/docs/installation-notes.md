@@ -45,3 +45,9 @@ The following configurations must be set during initially setup for nextcloud to
 ### Storage
 
 You can change the User Data Storage option to your preference here if you previously setup the proper dataset permissions. All other Storage should remain the default of PVC.
+
+### FAQs
+
+**What if I get stuck in a deploy-loop?**
+
+One reason was a too difficult initial admin password. As I only used letters and numbers (instead of characters like ", ), $, %) the problem was resolved
