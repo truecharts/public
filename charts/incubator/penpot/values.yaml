@@ -98,7 +98,7 @@ workload:
         main:
           env:
             PENPOT_PUBLIC_URI: "{{ .Values.penpot.public_uri | quote }}"
-            PENPOT_FLAGS: '{{ $frontendFlags := list }}{{ $frontendFlags = mustAppend $frontendFlags (printf "%s-demo-warning" (ternary "enable" "disable" .Values.penpot.flags.demo_warning)) }}{{ join " " (concat $commonFlags $frontendFlags) | quote }}'
+            # PENPOT_FLAGS: '{{ $frontendFlags := list }}{{ $frontendFlags = mustAppend $frontendFlags (printf "%s-demo-warning" (ternary "enable" "disable" .Values.penpot.flags.demo_warning)) }}{{ join " " (concat $commonFlags $frontendFlags) | quote }}'
           envFrom:
             - secretRef:
                 name: "penpot-secrets"
