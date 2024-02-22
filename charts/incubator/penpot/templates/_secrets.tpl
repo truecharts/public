@@ -1,8 +1,6 @@
 {{/* Define the secrets */}}
 {{- define "penpot.secrets" -}}
-
-
-{{- $backendAndExporterSecretName := printf "%s-backend" (include "tc.v1.common.lib.chart.names.fullname" .) }}
+{{- $secretName := (printf "%s-penpot-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
 
 {{- $backendFlags := list }}
 {{- $backendFlags = mustAppend $backendFlags (printf "%s-smtp" (ternary "enable" "disable" .Values.penpot.smtp.enabled)) }}
@@ -70,7 +68,7 @@ backend:
   data:
     PENPOT_FLAGS: {{ join " " (concat $commonFlags $backendFlags) | quote }}
     PENPOT_PUBLIC_URI: {{ .Values.penpot.public_uri | quote }}
-    {{- with (lookup "v1" "Secret" .Release.Namespace $backendAndExporterSecretName) }}
+    {{- with (lookup "v1" "Secret" .Release.Namespace $secretName) }}
     PENPOT_SECRET_KEY: {{ index .data "PENPOT_SECRET_KEY" | b64dec }}
     {{- else }}
     PENPOT_SECRET_KEY: {{ randAlphaNum 32 }}

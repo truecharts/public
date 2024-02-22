@@ -99,6 +99,9 @@ workload:
           env:
             PENPOT_PUBLIC_URI: "{{ .Values.penpot.public_uri | quote }}"
             PENPOT_FLAGS: '{{ $frontendFlags := list }}{{ $frontendFlags = mustAppend $frontendFlags (printf "%s-demo-warning" (ternary "enable" "disable" .Values.penpot.flags.demo_warning)) }}{{ join " " (concat $commonFlags $frontendFlags) | quote }}'
+          envFrom:
+            - secretRef:
+                name: "penpot-secrets"
           probes:
             liveness:
               path: /
@@ -117,6 +120,9 @@ workload:
               secretKeyRef:
                 name: rediscreds
                 key: url
+          envFrom:
+            - secretRef:
+                name: "penpot-secrets"
           probes:
             liveness:
               port: 6061
@@ -129,6 +135,9 @@ workload:
               type: tcp
         backend:
           imageSelector: backendImage
+          envFrom:
+            - secretRef:
+                name: "penpot-secrets"
           env:
             PENPOT_DATABASE_URI:
               secretKeyRef:
