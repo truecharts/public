@@ -8,10 +8,6 @@ service:
       main:
         port: 13000
         targetPort: 3000
-persistence:
-  config:
-    enabled: true
-    mountPath: "/usr/local/xwiki"
 cnpg:
   main:
     enabled: true
@@ -35,6 +31,7 @@ workload:
             SEMAPHORE_DB_DIALECT: postgres
             SEMAPHORE_DB_USER: "{{ .Values.cnpg.main.user }}"
             SEMAPHORE_DB: "{{ .Values.cnpg.main.database }}"
+            SEMAPHORE_DB_PORT: 5432
             SEMAPHORE_DB_HOST:
               secretKeyRef:
                 name: cnpg-main-urls
@@ -44,4 +41,10 @@ workload:
                 name: cnpg-main-user
                 key: password
             SEMAPHORE_ADMIN_PASSWORD: ""
-            SEMAPHORE_ACCESS_KEY_ENCRYPTION: ""
+            SEMAPHORE_ACCESS_KEY_ENCRYPTION:
+              secretKeyRef:
+                name: semaphore-secrets
+                key: SEMAPHORE_ACCESS_KEY_ENCRYPTION
+            SEMAPHORE_ADMIN_NAME: admin
+            SEMAPHORE_ADMIN_EMAIL: admin@localhost
+            SEMAPHORE_ADMIN: admin

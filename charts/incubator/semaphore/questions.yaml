@@ -17,11 +17,33 @@ questions:
                                     type: dict
                                     attrs:
                                       - variable: SEMAPHORE_ADMIN_PASSWORD
-                                        label: "SEMAPHORE_ADMIN_PASSWORD"
+                                        label: "Admin Password"
                                         schema:
                                           type: string
-                                          default: ""
+                                          private: true
                                           required: true
+                                          default: ""
+                                      - variable: SEMAPHORE_ADMIN_NAME
+                                        label: "Admin Displayname"
+                                        schema:
+                                          type: string
+                                          private: true
+                                          required: false
+                                          default: "admin"
+                                      - variable: SEMAPHORE_ADMIN
+                                        label: "Admin Name"
+                                        schema:
+                                          type: string
+                                          private: true
+                                          required: false
+                                          default: "admin"
+                                      - variable: SEMAPHORE_ADMIN_EMAIL
+                                        label: "Admin E-Mail"
+                                        schema:
+                                          type: string
+                                          private: true
+                                          required: false
+                                          default: "admin@localhost"
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
