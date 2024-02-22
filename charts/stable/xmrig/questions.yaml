@@ -27,8 +27,8 @@ questions:
                                           private: true
                                           default: ""
                                       - variable: YOUR_WORKER_NAME
-                                        label: "WORKER"
-                                        description: "Enter a name for your worker. Some pools use a hidden option with this (Nanopool included) that allows you to change your payment threshold on their website. If you want to use this option, you can change this to workernameemail, eg. TrueNAStest@example.com, where test@example.com is your own email address. This option is basically a password. Please take note that if you post your logs in the support thread you would be best to redact the email address, eg. change out the instances of your email with @. to prevent your email address being posted in a public forum."
+                                        label: "Worker Name"
+                                        description: "Enter a name for your worker."
                                         schema:
                                           type: string
                                           default: "TrueNAS"
