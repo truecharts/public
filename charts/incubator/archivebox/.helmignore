@@ -2,34 +2,29 @@
 # This supports shell glob matching, relative path matching, and
 # negation (prefixed with !). Only one pattern per line.
 .DS_Store
-._*
-*.pyc
-__pycache__/
-.mypy_cache/
-.pytest_cache/
-.github/
-.pdm-build/
-.pdm-python
-.eggs/
+# Common VCS dirs
 .git/
-!.git/HEAD
-!.git/refs/heads/*
-
-venv/
-.venv/
-.venv-old/
-.docker-venv/
-node_modules/
-
-docs/
-build/
-dist/
-brew_dist/
-deb_dist/
-pip_dist/
-assets/
-docker/
-
-data/
-data*/
-output/
+.gitignore
+.bzr/
+.bzrignore
+.hg/
+.hgignore
+.svn/
+# Common backup files
+*.swp
+*.bak
+*.tmp
+*~
+# Various IDEs
+.project
+.idea/
+*.tmproj
+.vscode/
+# OWNERS file for Kubernetes
+OWNERS
+# helm-docs templates
+*.gotmpl
+# docs folder
+/docs
+# icon
+icon.png

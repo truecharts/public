@@ -1,9 +1,9 @@
 annotations:
-  max_scale_version: 23.10.2
+  max_scale_version: 24.04.0
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: metrics
-  truecharts.org/max_helm_version: "3.13"
+  truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
@@ -31,8 +31,8 @@ maintainers:
     url: https://truecharts.org
 name: nvidia-gpu-exporter
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/nvidia-gpu-exporter
   - https://github.com/utkuozdemir/nvidia_gpu_exporter
+  - https://github.com/truecharts/charts/tree/master/charts/stable/nvidia-gpu-exporter
   - https://hub.docker.com/r/utkuozdemir/nvidia_gpu_exporter
 type: application
 version: 1.0.0
