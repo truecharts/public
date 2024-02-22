@@ -1,5 +1,5 @@
 annotations:
-  max_scale_version: 23.10.2
+  max_scale_version: 24.04.0
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: bookmarks
@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: incubator
 apiVersion: v2
-appVersion: 2.4.9
+appVersion: latest
 dependencies:
   - name: common
     version: 17.2.30
@@ -30,9 +30,6 @@ maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
-  - name: Nick Sweeting
-    email: truecharts@archivebox.io
-    url: https://archivebox.io
 name: archivebox
 sources:
   - https://github.com/ArchiveBox/ArchiveBox
