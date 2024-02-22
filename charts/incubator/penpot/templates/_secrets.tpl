@@ -1,5 +1,6 @@
-{{/* Define the secret */}}
-{{- define "penpot.secret" -}}
+{{/* Define the secrets */}}
+{{- define "penpot.secrets" -}}
+
 
 {{- $backendAndExporterSecretName := printf "%s-backend" (include "tc.v1.common.lib.chart.names.fullname" .) }}
 

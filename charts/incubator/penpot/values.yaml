@@ -11,6 +11,20 @@ exporterImage:
   repository: penpotapp/exporter
   tag: 1.19.3@sha256:e113a685d07bff470a2e75acab61fd61c5b24185d8931fd19b65d1f622061823
   
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 10592
+        protocol: http
+        targetPort: 80
+
 hostAliases:
   - hostnames:
       - penpot-backend
@@ -76,36 +90,7 @@ penpot:
     tls: true
     user: ""
   telemetry_enabled: false
-  
-persistence:
-  assets:
-    enabled: true
-    mountPath: /opt/data/assets
-    targetSelectAll: true
 
-portal:
-  open:
-    enabled: true
-cnpg:
-  main:
-    enabled: true
-    database: penpot
-    user: penpot
-redis:
-  enabled: true
-  
-securityContext:
-  container:
-    readOnlyRootFilesystem: false
-    runAsGroup: 0
-    runAsUser: 0
-service:
-  main:
-    ports:
-      main:
-        port: 10592
-        protocol: http
-        targetPort: 80
 workload:
   main:
     podSpec:
@@ -179,3 +164,21 @@ workload:
               port: 6060
               type: tcp
 
+persistence:
+  assets:
+    enabled: true
+    mountPath: /opt/data/assets
+    targetSelectAll: true
+
+cnpg:
+  main:
+    enabled: true
+    database: penpot
+    user: penpot
+
+redis:
+  enabled: true
+
+portal:
+  open:
+    enabled: true
