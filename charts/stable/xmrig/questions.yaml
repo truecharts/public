@@ -13,19 +13,19 @@ questions:
                                     additional_attrs: true
                                     type: dict
                                     attrs:
-                                      - variable: POOL
+                                      - variable: POOL_URL
                                         label: "POOL"
                                         description: "Address for your mining pool. Eg. xmr-au1.nanopool.org14444"
                                         schema:
                                           type: string
                                           default: "xmr-au1.nanopool.org:14444"
-                                      - variable: WALLET
+                                      - variable: YOUR_ADDRESS
                                         label: "WALLET"
                                         description: "Wallet address for receiving mined coin. If you are privacy conscious, you can redact this in logs posted to the support thread by replacing it with WALLET. If you use Monero, sharing this address will only allow people to send you Monero and possibly identify you if you send someone else Monero, but being a privacy oriented coin its entirely up to you."
                                         schema:
                                           type: string
                                           default: "84e8UJvXHDGVfE5HZDQfhn3Kh3RGJKebz31G7D4H24TLPMe9x7bQLBw8iyBhNx9USXB8MhvhBe3DyVW1LcuVAf4jBiADNLw"
-                                      - variable: WORKER
+                                      - variable: YOUR_WORKER_NAME
                                         label: "WORKER"
                                         description: "Enter a name for your worker. Some pools use a hidden option with this (Nanopool included) that allows you to change your payment threshold on their website. If you want to use this option, you can change this to workernameemail, eg. TrueNAStest@example.com, where test@example.com is your own email address. This option is basically a password. Please take note that if you post your logs in the support thread you would be best to redact the email address, eg. change out the instances of your email with @. to prevent your email address being posted in a public forum."
                                         schema:
