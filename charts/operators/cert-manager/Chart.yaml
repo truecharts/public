@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 17.4.2
+    version: 17.5.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -43,4 +43,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/operators/cert-manager
   - https://github.com/truecharts/containers/tree/master/apps/alpine
 type: application
-version: 3.3.0
+version: 3.4.0
