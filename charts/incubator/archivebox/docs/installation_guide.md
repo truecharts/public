@@ -2,10 +2,8 @@
 title: Installation Guide
 ---
 
-1. First, make sure you have the TrueCharts `incubator` train enabled:  
-   `Discover Apps > Manage Catalogs > TrueCharts > Edit`
-
-2. Then go to `Discover Apps`, **search for `ArchiveBox`**, and **click `Install`** to set it up.
+## SCALE App
+1. to setup archivebox:
 
 - `App Configuration > Admin Username & Admin Password`  
   Configure an initial admin username and password you want to log in with in the Web UI (only applied on first setup run).  
@@ -33,9 +31,9 @@ title: Installation Guide
   <img width="500" alt="Screenshot of example Archivebox extra configuration" src="https://github.com/pirate/truecharts/assets/511499/936b3ca6-28e5-484f-8858-2049c0210a3a">
 
 
-3. ✅ Then **click `Install`** at the bottom, and wait a few minutes for it to finish deploying.
+2. ✅ Then **click `Install`** at the bottom, and wait a few minutes for it to finish deploying.
 
-4. Once deployed, **click `Applications > ArchiveBox > Web Portal` to access ArchiveBox** on the port set above.
+3. Once deployed, **click `Applications > ArchiveBox > Web Portal` to access ArchiveBox** .
     <img width="150" alt="Screenshot TrueNAS Apps UI to access Web Portal" src="https://github.com/pirate/truecharts/assets/511499/08b902c8-7674-427f-b2d1-d546d78855b0" align="top">
     <img width="650" alt="Screenshot ArchiveBox UI open in browser" src="https://github.com/pirate/truecharts/assets/511499/12bbcd8a-a473-44f5-8d65-c4cbd7d7d5ab" align="top">  
     Click the `Log In` (upper right) and proceed with the admin username and password you configured above.  
@@ -46,7 +44,7 @@ title: Installation Guide
 
 ---
 
-### Further Reading
+## Further Reading
 
 - [ArchiveBox Documentation](https://github.com/ArchiveBox/ArchiveBox/wiki/)
 - [ArchiveBox UI Usage](https://github.com/ArchiveBox/ArchiveBox/wiki/Usage#ui-usage)
