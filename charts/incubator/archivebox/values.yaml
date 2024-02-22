@@ -10,6 +10,7 @@ config:
 securityContext:
   container:
     readOnlyRootFilesystem: false
+    runAsNonRoot: false
     runAsGroup: 0
     runAsUser: 0
 
@@ -18,6 +19,7 @@ service:
     ports:
       main:
         port: 9598
+        protocol: http
         targetPort: 8000
 
 workload:
@@ -25,6 +27,10 @@ workload:
     podSpec:
       containers:
         main:
+          probes:
+            liveness:
+              type: http
+              path: /health/
           env:
             ADMIN_USERNAME: "{{ .Values.config.admin_username }}"
             ADMIN_PASSWORD: "{{ .Values.config.admin_password }}"
