@@ -1,6 +1,8 @@
 {{/* Define the secrets */}}
 {{- define "penpot.secrets" -}}
-{{- $secretName := (printf "%s-penpot-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
+
+{{- $fullname := include "tc.v1.common.lib.chart.names.fullname" $ -}}
+{{- $secretsBackend := printf "%v-backend" $fullname -}}
 
 {{- $backendFlags := list }}
 {{- $backendFlags = mustAppend $backendFlags (printf "%s-smtp" (ternary "enable" "disable" .Values.penpot.smtp.enabled)) }}
@@ -25,7 +27,7 @@
 
 {{- $secretKey := randAlphaNum 32 -}}
 
- {{- with lookup "v1" "Secret" .Release.Namespace $secretName -}}
+ {{- with lookup "v1" "Secret" .Release.Namespace $secretsBackend -}}
    {{- $secretKey = index .data "PENPOT_SECRET_KEY" | b64dec -}}
  {{- end }}
 

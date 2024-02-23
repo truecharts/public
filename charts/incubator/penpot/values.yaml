@@ -101,7 +101,7 @@ workload:
             # PENPOT_FLAGS: '{{ $frontendFlags := list }}{{ $frontendFlags = mustAppend $frontendFlags (printf "%s-demo-warning" (ternary "enable" "disable" .Values.penpot.flags.demo_warning)) }}{{ join " " (concat $commonFlags $frontendFlags) | quote }}'
           envFrom:
             - secretRef:
-                name: "shared"
+                name: shared
           probes:
             liveness:
               path: /
@@ -122,9 +122,9 @@ workload:
                 key: url
           envFrom:
             - secretRef:
-                name: "shared"
+                name: shared
             - secretRef:
-                name: "backend"
+                name: backend
           probes:
             liveness:
               port: 6061
@@ -139,9 +139,9 @@ workload:
           imageSelector: backendImage
           envFrom:
             - secretRef:
-                name: 'shared'
+                name: shared
             - secretRef:
-                name: 'backend'
+                name: backend
           env:
             PENPOT_DATABASE_URI:
               secretKeyRef:
