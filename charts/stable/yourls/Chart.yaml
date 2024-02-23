@@ -1,39 +1,39 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Cloud
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 apiVersion: v2
-name: yourls
-version: 4.1.6
 appVersion: latest
-description: YOURLS is a set of PHP scripts that will allow you to run Your Own URL Shortener.
-home: https://truecharts.org/charts/incubator/yourls
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/yourls.png
+dependencies:
+  - name: common
+    version: 17.5.0
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 deprecated: false
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/yourls
-  - https://hub.docker.com/_/yourls
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+description: YOURLS is a set of PHP scripts that will allow you to run Your Own URL Shortener.
+home: https://truecharts.org/charts/stable/yourls
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/yourls.png
 keywords:
   - yourls
   - Cloud
   - Tools-Utilities
   - Network-Web
   - Network-Other
-dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Cloud
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: yourls
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/stable/yourls
+  - https://hub.docker.com/_/yourls
 type: application
+version: 4.3.0

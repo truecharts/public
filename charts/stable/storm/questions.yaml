@@ -9,6 +9,7 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
                                 - variable: env
                                   label: Image Environment
                                   schema:
@@ -16,43 +17,49 @@ questions:
                                     type: dict
                                     attrs:
                                       - variable: DELUGE_RPC_HOSTNAME
-                                        label: "DELUGE_RPC_HOSTNAME"
-                                        description: "Change this to the current name for the deluge container you want to connect storms webUI to"
+                                        label: Deluge RPC Hostname
+                                        description: "The Deluge RPC hostname."
                                         schema:
                                           type: string
                                           default: ""
+                                      - variable: DELUGE_RPC_PORT
+                                        label: Deluge RPC Port
+                                        description: "The Deluge RPC port."
+                                        schema:
+                                          type: int
+                                          default: 58846
                                       - variable: DELUGE_RPC_USERNAME
-                                        label: "DELUGE_RPC_USERNAME"
-                                        description: "The username storm will use to connect to the deluge container. Set this in appdatadelugeauth file"
+                                        label: Deluge RPC Username
+                                        description: "The username from Deluge auth."
                                         schema:
                                           type: string
                                           default: ""
                                       - variable: DELUGE_RPC_PASSWORD
-                                        label: "DELUGE_RPC_PASSWORD"
-                                        description: "The password storm will use to connect to the deluge container. Set this in appdatadelugeauth file"
+                                        label: Deluge RPC Password
+                                        description: "The password from Deluge auth."
                                         schema:
                                           type: string
                                           default: ""
                                       - variable: DELUGE_RPC_VERSION
-                                        label: "DELUGE_RPC_VERSION"
-                                        description: "RPC connection version to use.Depends on your deluge version."
+                                        label: Deluge RPC Version
+                                        description: "RPC connection version to use. (Depends on your deluge version)"
                                         schema:
                                           type: string
                                           default: "v2"
                                       - variable: STORM_API_KEY
-                                        label: "STORM_API_KEY"
-                                        description: "Set this to a reasonably secure password.Any requests made to Storm must now provide the API key in the request."
+                                        label: Storm API Key
+                                        description: "Enable authentication for the Storm API."
                                         schema:
                                           type: string
                                           default: ""
+
+# Include{containerBasic}
+# Include{containerAdvanced}
+
+# Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
-        - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main

@@ -1,5 +1,7 @@
 # Include{groups}
-portals: {}
+portals:
+  open:
+# Include{portalLink}
 questions:
 # Include{global}
 # Include{workload}
@@ -9,10 +11,48 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
+# Include{containerConfig}
+# Include{podOptions}
+# Include{serviceRoot}
+# Include{serviceMain}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: main
+                      label: "Main Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 5091
+                              required: true
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
 # Include{serviceList}
+# Include{persistenceRoot}
+        - variable: config
+          label: "App Config Storage"
+          description: "Stores the Application Data."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
 # Include{persistenceList}
+# Include{ingressRoot}
+        - variable: main
+          label: "Main Ingress"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{ingressDefault}
+# Include{ingressAdvanced}
+# Include{ingressList}
 # Include{securityContextRoot}
               - variable: runAsUser
                 label: "runAsUser"

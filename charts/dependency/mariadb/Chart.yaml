@@ -1,41 +1,41 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: database
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: dependency
 apiVersion: v2
-name: mariadb
-version: 12.1.6
-appVersion: 11.2.2
-description: Fast, reliable, scalable, and easy to use open-source relational database system.
-home: https://truecharts.org/charts/dependency/mariadb
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/mariadb.png
-deprecated: false
-sources:
-  - https://github.com/prometheus/mysqld_exporter
-  - https://mariadb.org
-  - https://github.com/truecharts/charts/tree/master/charts/dependency/mariadb
-  - https://hub.docker.com/r/bitnami/mariadb
-  - https://github.com/bitnami/bitnami-docker-mariadb
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - mariadb
-  - mysql
-  - database
-  - sql
+appVersion: 11.2.3
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.5.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: database
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: dependency
+deprecated: false
+description: Fast, reliable, scalable, and easy to use open-source relational database system.
+home: https://truecharts.org/charts/dependency/mariadb
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/mariadb.png
+keywords:
+  - mariadb
+  - mysql
+  - database
+  - sql
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: mariadb
+sources:
+  - https://github.com/prometheus/mysqld_exporter
+  - https://mariadb.org
+  - https://github.com/bitnami/bitnami-docker-mariadb
+  - https://github.com/truecharts/charts/tree/master/charts/dependency/mariadb
+  - https://hub.docker.com/r/bitnami/mariadb
 type: application
+version: 12.3.0

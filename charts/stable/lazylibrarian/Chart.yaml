@@ -1,38 +1,38 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 apiVersion: v2
-name: lazylibrarian
-version: 17.1.7
 appVersion: latest
-description: Get all your books, like series with Sonarr...
-home: https://truecharts.org/charts/stable/lazylibrarian
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/lazylibrarian.png
-deprecated: false
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/lazylibrarian
-  - https://ghcr.io/linuxserver/lazylibrarian
-  - https://gitlab.com/LazyLibrarian/LazyLibrarian.git
-  - https://lazylibrarian.gitlab.io
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - lazylibrarian
-  - ebooks
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.5.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+deprecated: false
+description: Get all your books, like series with Sonarr...
+home: https://truecharts.org/charts/stable/lazylibrarian
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/lazylibrarian.png
+keywords:
+  - lazylibrarian
+  - ebooks
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: lazylibrarian
+sources:
+  - https://lazylibrarian.gitlab.io
+  - https://gitlab.com/LazyLibrarian/LazyLibrarian.git
+  - https://github.com/truecharts/charts/tree/master/charts/stable/lazylibrarian
+  - https://ghcr.io/linuxserver/lazylibrarian
 type: application
+version: 17.3.0

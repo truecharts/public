@@ -1,36 +1,36 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 apiVersion: v2
-name: picoshare
-version: 8.1.5
-appVersion: 1.4.1
-description: PicoShare is a minimalist service that allows you to share files easily.
-home: https://truecharts.org/charts/stable/picoshare
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/picoshare.png
-deprecated: false
-sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/picoshare
-  - https://hub.docker.com/r/mtlynch/picoshare
-  - https://github.com/mtlynch/picoshare
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - picoshare
+appVersion: 1.4.2
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.5.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+deprecated: false
+description: PicoShare is a minimalist service that allows you to share files easily.
+home: https://truecharts.org/charts/stable/picoshare
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/picoshare.png
+keywords:
+  - picoshare
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: picoshare
+sources:
+  - https://github.com/mtlynch/picoshare
+  - https://github.com/truecharts/charts/tree/master/charts/stable/picoshare
+  - https://hub.docker.com/r/mtlynch/picoshare
 type: application
+version: 8.3.0

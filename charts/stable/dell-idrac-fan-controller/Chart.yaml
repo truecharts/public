@@ -1,38 +1,38 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: utilities
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 apiVersion: v2
-name: dell-idrac-fan-controller
-version: 4.1.6
 appVersion: latest
-description: Control your Dell PowerEdge fans via IPMI
-home: https://truecharts.org/charts/stable/dell-idrac-fan-controller
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/dell-idrac-fan-controller.png
-deprecated: false
-sources:
-  - https://ghcr.io/tigerblue77/dell_idrac_fan_controller
-  - https://github.com/tigerblue77/Dell_iDRAC_fan_controller_Docker
-  - https://github.com/truecharts/charts/tree/master/charts/stable/dell-idrac-fan-controller
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - iDrac
-  - Dell
-  - fan-controller
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.5.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: utilities
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+deprecated: false
+description: Control your Dell PowerEdge fans via IPMI
+home: https://truecharts.org/charts/stable/dell-idrac-fan-controller
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/dell-idrac-fan-controller.png
+keywords:
+  - iDrac
+  - Dell
+  - fan-controller
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: dell-idrac-fan-controller
+sources:
+  - https://github.com/tigerblue77/Dell_iDRAC_fan_controller_Docker
+  - https://github.com/truecharts/charts/tree/master/charts/stable/dell-idrac-fan-controller
+  - https://ghcr.io/tigerblue77/dell_idrac_fan_controller
 type: application
+version: 4.3.0

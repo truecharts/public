@@ -1,6 +1,6 @@
 image:
   repository: mbentley/omada-controller
-  tag: 5.13@sha256:b11eeedd5596a3cca48be586ac624636e5c924ca1405de709ed6b7aaac9e7d8e
+  tag: 5.13@sha256:a31a1c092e3a436082828de8411ae833bff2da014f375facdcf6eb3d7d1f5424
   pullPolicy: IfNotPresent
 service:
   main:
@@ -67,6 +67,7 @@ workload:
       containers:
         main:
           env:
+            MANAGE_HTTPS_PORT: "{{ .Values.service.main.ports.main.port }}"
             PORTAL_HTTPS_PORT: "{{ .Values.service.comm.ports.comm.port }}"
           probes:
             startup:

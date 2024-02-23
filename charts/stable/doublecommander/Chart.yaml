@@ -1,39 +1,39 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 apiVersion: v2
-name: doublecommander
-version: 11.1.8
 appVersion: latest
-description: A free cross platform open source file manager with two panels side by side.
-home: https://truecharts.org/charts/stable/doublecommander
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/doublecommander.png
-deprecated: false
-sources:
-  - https://doublecmd.sourceforge.io/
-  - https://github.com/linuxserver/docker-doublecommander
-  - https://github.com/truecharts/charts/tree/master/charts/stable/doublecommander
-  - https://ghcr.io/linuxserver/doublecommander
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - doublecommander
-  - file
-  - manager
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.5.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+deprecated: false
+description: A free cross platform open source file manager with two panels side by side.
+home: https://truecharts.org/charts/stable/doublecommander
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/doublecommander.png
+keywords:
+  - doublecommander
+  - file
+  - manager
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: doublecommander
+sources:
+  - https://github.com/linuxserver/docker-doublecommander
+  - https://doublecmd.sourceforge.io/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/doublecommander
+  - https://ghcr.io/linuxserver/doublecommander
 type: application
+version: 11.3.0

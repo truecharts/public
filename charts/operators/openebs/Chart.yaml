@@ -1,26 +1,16 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: CSI
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: operators
 apiVersion: v2
-name: openebs
-version: 2.1.8
 appVersion: latest
-description: OpenEBS is a umbrella container storage provisioner
-home: https://truecharts.org/charts/incubator/openebs
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/openebs.png
-deprecated: false
-sources:
-  - https://github.com/cert-manager
-  - https://cert-manager.io/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/openebs
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - openebs
-  - backup
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.5.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -33,12 +23,23 @@ dependencies:
     alias: openebs
     tags: []
     import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "false"
-  truecharts.org/category: CSI
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+deprecated: false
+description: OpenEBS is a umbrella container storage provisioner
+home: https://truecharts.org/charts/operators/openebs
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/openebs.png
+keywords:
+  - openebs
+  - backup
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: openebs
+sources:
+  - https://github.com/cert-manager
+  - https://cert-manager.io/
+  - https://github.com/truecharts/charts/tree/master/charts/operators/openebs
+  - https://github.com/truecharts/containers/tree/master/apps/alpine
 type: application
+version: 2.3.0

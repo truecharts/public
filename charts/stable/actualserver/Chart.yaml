@@ -1,37 +1,37 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: finance
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 apiVersion: v2
-name: actualserver
-version: 7.1.6
-appVersion: 23.12.1
-description: Actual is a super fast privacy-focused app for managing your finances.
-home: https://truecharts.org/charts/stable/actualserver
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/actualserver.png
-deprecated: false
-sources:
-  - https://github.com/Kippenhof/docker-templates
-  - https://github.com/truecharts/charts/tree/master/charts/stable/actualserver
-  - https://ghcr.io/actualbudget/actual-server
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
-keywords:
-  - actualserver
-  - finance
+appVersion: 24.2.0
 dependencies:
   - name: common
-    version: 17.2.21
+    version: 17.5.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: finance
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+deprecated: false
+description: Actual is a super fast privacy-focused app for managing your finances.
+home: https://truecharts.org/charts/stable/actualserver
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/actualserver.png
+keywords:
+  - actualserver
+  - finance
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: actualserver
+sources:
+  - https://github.com/Kippenhof/docker-templates
+  - https://github.com/truecharts/charts/tree/master/charts/stable/actualserver
+  - https://ghcr.io/actualbudget/actual-server
 type: application
+version: 9.2.0

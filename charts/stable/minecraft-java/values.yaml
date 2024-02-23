@@ -60,7 +60,7 @@ j8j9Image:
   pullPolicy: Always
 mcBackupImage:
   repository: itzg/mc-backup
-  tag: latest@sha256:ff029105f6557acfd2a3a8c8b0ad4c460cbb62a38d33fbde37b500036d707e69
+  tag: latest@sha256:a4747aa504bc96d144e27c21b33de4ae84ab9f872a858b83d24fc5e22d59885c
   pullPolicy: Always
 
 service:
@@ -85,7 +85,7 @@ service:
 mcbackup:
   enabled: true
   initial_delay: 2m
-  backup_interval: 24hr
+  backup_interval: 24h
   player_online_check_interval: 5m
   prune_backups_days: 7
   pause_if_no_players: false
@@ -158,6 +158,7 @@ workload:
             ONLINE_MODE: true
             MEMORY: 2048M
             RCON_PASSWORD: "secretrconpass"
+            # PACKWIZ_URL: ""
             # CUSTOM_SERVER: ""
             # QUILT_LOADER_VERSION: ""
             # QUILT_LAUNCHER: ""
@@ -174,7 +175,6 @@ workload:
             # BUKKIT_DOWNLOAD_URL: ""
             # PAPERBUILD: ""
             # PAPER_DOWNLOAD_URL: ""
-            # PACKWIZ_URL: ""
             # AIRPLANE_BUILD: "lastSuccessfulBuild"
             # MAGMA_CHANNEL: "stable"
             # MOHIST_BUILD: ""
@@ -233,7 +233,7 @@ workload:
             DEST_DIR: "{{.Values.persistence.backups.mountPath }}"
             SRC_DIR: "{{.Values.persistence.data.mountPath }}"
             SERVER_PORT: "{{ .Values.service.main.ports.main.port }}"
-            RCON_HOST: '{{ include "tc.v1.common.lib.chart.names.fullname" $ }}'
+            RCON_HOST: '{{ printf "%s-rcon" (include "tc.v1.common.lib.chart.names.fullname" $) }}'
             RCON_PORT: "{{ .Values.service.rcon.ports.rcon.port }}"
             RCON_PASSWORD: "{{ .Values.workload.main.podSpec.containers.main.env.RCON_PASSWORD }}"
             INITIAL_DELAY: "{{ .Values.mcbackup.initial_delay }}"
@@ -259,7 +259,10 @@ persistence:
           readOnly: true
   backups:
     enabled: true
-    mountPath: /backups
+    targetSelector:
+      mcbackup:
+        mcbackup:
+          mountPath: /backups
 
 portal:
   open:

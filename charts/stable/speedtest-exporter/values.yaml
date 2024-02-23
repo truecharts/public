@@ -7,8 +7,14 @@ service:
     ports:
       main:
         enabled: true
-        protocol: tcp
         port: 9798
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            SPEEDTEST_PORT: "{{ .Values.service.main.ports.main.port }}"
 metrics:
   main:
     enabled: true
@@ -17,11 +23,15 @@ metrics:
       - port: main
         path: /metrics
         interval: 1h
+        scrapeTimeout: 60s
+
     prometheusRule:
       enabled: false
 portal:
   open:
-    enabled: false
+    enabled: true
 securityContext:
   container:
     readOnlyRootFilesystem: false
+    runAsUser: 1000
+    runAsGroup: 1000

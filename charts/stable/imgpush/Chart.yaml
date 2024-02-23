@@ -1,20 +1,25 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Cloud
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 apiVersion: v2
-name: imgpush
-version: 4.1.6
 appVersion: latest
-description: Minimalist Self-hosted Image Service for user submitted images in your app (e.g. avatars).
-home: https://truecharts.org/charts/incubator/imgpush
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/imgpush.png
+dependencies:
+  - name: common
+    version: 17.5.0
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 deprecated: false
-sources:
-  - https://github.com/hauxir/imgpush
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/imgpush
-  - https://hub.docker.com/r/hauxir/imgpush
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+description: Minimalist Self-hosted Image Service for user submitted images in your app (e.g. avatars).
+home: https://truecharts.org/charts/stable/imgpush
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/imgpush.png
 keywords:
   - imgpush
   - Cloud
@@ -22,20 +27,15 @@ keywords:
   - MediaServer-Photos
   - Network-Web
   - Network-FTP
-dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Cloud
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: imgpush
+sources:
+  - https://github.com/hauxir/imgpush
+  - https://github.com/truecharts/charts/tree/master/charts/stable/imgpush
+  - https://hub.docker.com/r/hauxir/imgpush
 type: application
+version: 4.3.0

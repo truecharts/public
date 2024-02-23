@@ -9,19 +9,6 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-                                - variable: env
-                                  group: "App Configuration"
-                                  label: "Image Environment"
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                      - variable: WEBROOT
-                                        label: "WEBROOT"
-                                        description: "WEBROOT"
-                                        schema:
-                                          type: string
-                                          default: "domoticz"
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
@@ -50,8 +37,8 @@ questions:
                               default: 10144
                               required: true
         - variable: comm1
-          label: "comm1 Service"
-          description: "The comm1 service."
+          label: "comm1 / Remote Shared Service"
+          description: "The remote shared (previously comm1) service."
           schema:
             additional_attrs: true
             type: dict
@@ -70,28 +57,6 @@ questions:
                             schema:
                               type: int
                               default: 6144
-                              required: true
-        - variable: comm2
-          label: "comm2 Service"
-          description: "The comm2 service."
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelectorLoadBalancer}
-# Include{serviceSelectorExtras}
-                    - variable: comm2
-                      label: "comm2 Service Port Configuration"
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 1443
                               required: true
 # Include{serviceExpertRoot}
 # Include{serviceExpert}

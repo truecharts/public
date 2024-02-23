@@ -1,12 +1,12 @@
 image:
   repository: bitnami/prometheus
-  tag: 2.48.1@sha256:9ee5354395bf5cd60f766107e4d97c28d7e62626f3345fa5746d868fde06d2c3
+  tag: 2.49.1@sha256:1afc5f1fd44212719f8e303003d120b375463ef7ef770dd644e9ed2638579211
 thanosImage:
   repository: quay.io/thanos/thanos
-  tag: v0.33.0@sha256:f7177edda27b5bc08e363187ffb093a9b7fbedbb15a2f2d0e007216cf42a9525
+  tag: v0.34.1@sha256:567346c3f6ff2927c2c6c0daad977b2213f62d45eca54d48afd19e6deb902181
 alertmanagerImage:
   repository: bitnami/alertmanager
-  tag: 0.26.0@sha256:3ff3994b5e7b3188a071b9d5141e7d40548e769f2044b8e5866cf816d22317fc
+  tag: 0.26.0@sha256:9e7e46e5a8fa16d7c67bcae3fc7fcd96e19958459c6dbee487bf538867a0465c
 global:
   labels: {}
 workload:
@@ -547,6 +547,9 @@ prometheus:
   ## @param prometheus.walCompression Enable compression of the write-ahead log using Snappy
   ##
   walCompression: false
+  ## @param prometheus.enableRemoteWriteReceiver Enable Prometheus to be used as a receiver for the Prometheus remote write protocol
+  ##
+  enableRemoteWriteReceiver: false
   ## @param prometheus.paused If true, the Operator won't process any Prometheus configuration changes
   ##
   paused: false

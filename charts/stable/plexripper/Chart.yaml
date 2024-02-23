@@ -1,20 +1,25 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: media
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 apiVersion: v2
-name: plexripper
-version: 7.1.5
 appVersion: 0.14.0
+dependencies:
+  - name: common
+    version: 17.5.0
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
 description: A multi-platform media downloader that indexes and downloads content from your accessible Plex servers.
 home: https://truecharts.org/charts/stable/plexripper
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/plexripper.png
-deprecated: false
-sources:
-  - https://github.com/PlexRipper/PlexRipper/
-  - https://github.com/truecharts/charts/tree/master/charts/stable/plexripper
-  - https://hub.docker.com/r/plexripper/plexripper
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
 keywords:
   - plexripper
   - Backup
@@ -23,20 +28,15 @@ keywords:
   - MediaApp-Music
   - MediaApp-Photos
   - MediaApp-Other
-dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: media
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: stable
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: plexripper
+sources:
+  - https://github.com/PlexRipper/PlexRipper/
+  - https://github.com/truecharts/charts/tree/master/charts/stable/plexripper
+  - https://hub.docker.com/r/plexripper/plexripper
 type: application
+version: 7.3.0

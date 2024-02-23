@@ -48,14 +48,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-        - variable: databasepath
-          label: "databasepath Storage"
-          description: "Container Path cloudrevedb"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
         - variable: avatarpath
           label: "avatarpath Storage"
           description: "Container Path cloudreveavatar"

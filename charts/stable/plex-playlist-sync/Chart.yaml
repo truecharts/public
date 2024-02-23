@@ -1,20 +1,25 @@
-kubeVersion: ">=1.24.0-0"
+annotations:
+  max_scale_version: 24.04.0
+  min_scale_version: 23.10.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: Tools-Utilities
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: stable
 apiVersion: v2
-name: plex-playlist-sync
-version: 2.1.8
 appVersion: latest
-description: Sync your Spotify and Deezer playlists to your Plex server.
-home: https://truecharts.org/charts/incubator/plex-playlist-sync
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/plex-playlist-sync.png
+dependencies:
+  - name: common
+    version: 17.5.0
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
 deprecated: false
-sources:
-  - https://github.com/rnagabhyrava/plex-playlist-sync
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/plex-playlist-sync
-  - https://hub.docker.com/r/rnagabhyrava/plexplaylistsync
-maintainers:
-  - name: TrueCharts
-    email: info@truecharts.org
-    url: https://truecharts.org
+description: Sync your Spotify and Deezer playlists to your Plex server.
+home: https://truecharts.org/charts/stable/plex-playlist-sync
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/plex-playlist-sync.png
 keywords:
   - plex-playlist-sync
   - Spotify
@@ -23,20 +28,15 @@ keywords:
   - MediaApp-Other
   - MediaApp-Video
   - MediaServer-Video
-dependencies:
-  - name: common
-    version: 17.2.21
-    repository: oci://tccr.io/truecharts
-    condition: ""
-    alias: ""
-    tags: []
-    import-values: []
-annotations:
-  max_scale_version: 23.10.2
-  min_scale_version: 23.10.0
-  truecharts.org/SCALE-support: "true"
-  truecharts.org/category: Tools-Utilities
-  truecharts.org/max_helm_version: "3.13"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: incubator
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: plex-playlist-sync
+sources:
+  - https://github.com/rnagabhyrava/plex-playlist-sync
+  - https://github.com/truecharts/charts/tree/master/charts/stable/plex-playlist-sync
+  - https://hub.docker.com/r/rnagabhyrava/plexplaylistsync
 type: application
+version: 2.3.0
