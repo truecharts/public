@@ -32,7 +32,7 @@ workload:
     podSpec:
       initContainers:
         startup:
-          type: install
+          type: init
           enabled: true
           imageSelector: "image"
           command:
