@@ -47,12 +47,14 @@ workload:
             SEMAPHORE_ADMIN_NAME: admin
             SEMAPHORE_ADMIN_PASSWORD: changeme
             SEMAPHORE_ADMIN_EMAIL: admin@localhost
-
+            
             # LDAP
-            # SEMAPHORE_LDAP_ACTIVATED: 'no' # if you wish to use ldap, set to: 'yes' 
+            # no | yes
+            SEMAPHORE_LDAP_ACTIVATED: 'no' # if you wish to use ldap, set to: 'yes' 
             # SEMAPHORE_LDAP_HOST: dc01.local.example.com
             # SEMAPHORE_LDAP_PORT: '636'
-            # SEMAPHORE_LDAP_NEEDTLS: 'yes'
+            # no | yes
+            SEMAPHORE_LDAP_NEEDTLS: 'no'
             # SEMAPHORE_LDAP_DN_BIND: 'uid=bind_user,cn=users,cn=accounts,dc=local,dc=shiftsystems,dc=net'
             # SEMAPHORE_LDAP_PASSWORD: 'ldap_bind_account_password'
             # SEMAPHORE_LDAP_DN_SEARCH: 'dc=local,dc=example,dc=com'

@@ -53,12 +53,12 @@ questions:
                                               schema:
                                                 type: string
                                                 required: true
-                                                default: no
+                                                default: "no"
                                                 enum:
                                                   - value: no
-                                                    description: "False"
+                                                    description: No
                                                   - value: yes
-                                                    description: "True"
+                                                    description: Yes
                                             - variable: SEMAPHORE_LDAP_HOST
                                               label: LDAP Host
                                               schema:
@@ -76,9 +76,9 @@ questions:
                                                 default: "no"
                                                 enum:
                                                   - value: no
-                                                    description: "False"
+                                                    description: No
                                                   - value: yes
-                                                    description: "True"
+                                                    description: Yes
                                             - variable: SEMAPHORE_LDAP_DN_BIND
                                               label: LDAP DN Bind
                                               schema:
