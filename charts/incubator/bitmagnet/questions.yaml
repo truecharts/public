@@ -28,7 +28,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10095
+                              default: 3333
                               required: true
         - variable: torrent
           label: "Torrent Service"
@@ -50,7 +50,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 6881
+                              default: 3334
                               required: true
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
