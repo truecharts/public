@@ -19,6 +19,14 @@ service:
         enabled: true
         port: "{{ .Values.service.torrent.ports.torrent.port }}"
         protocol: udp
+cnpg:
+  main:
+    enabled: true
+    user: bitmagnet
+    database: bitmagnet
+portal:
+  open:
+    enabled: true
 workload:
   main:
     podSpec:
@@ -34,17 +42,6 @@ workload:
             - --keys=queue_server
             # disable the next line to run without DHT crawler
             - --keys=dht_crawler
-cnpg:
-  main:
-    enabled: true
-    user: bitmagnet
-    database: bitmagnet
-portal:
-  open:
-    enabled: true
-workload:
-  main:
-    podSpec:
       containers:
         main:
           env:
