@@ -2,12 +2,12 @@
 {{- define "semaphore.secrets" -}}
 {{- $secretName := (printf "%s-semaphore-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
 
-{{- $authKey := randAlphaNum 32 -}}
+{{- $accessKey := randAlphaNum 32 -}}
 
  {{- with lookup "v1" "Secret" .Release.Namespace $secretName -}}
-   {{- $authKey = index .data "SEMAPHORE_ACCESS_KEY_ENCRYPTION" | b64dec -}}
+   {{- $accessKey = index .data "SEMAPHORE_ACCESS_KEY_ENCRYPTION" | b64dec -}}
  {{- end }}
 enabled: true
 data:
-  SEMAPHORE_ACCESS_KEY_ENCRYPTION: {{ $authKey }}
+  SEMAPHORE_ACCESS_KEY_ENCRYPTION: {{ $accessKey }}
 {{- end -}}
