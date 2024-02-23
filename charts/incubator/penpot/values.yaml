@@ -96,6 +96,9 @@ workload:
     podSpec:
       containers:
         main:
+          envFrom:
+            - secretRef:
+                name: shared
           env:
             PENPOT_PUBLIC_URI: "{{ .Values.penpot.public_uri | quote }}"
           probes:
@@ -110,6 +113,11 @@ workload:
               type: http
         exporter:
           imageSelector: exporterImage
+          envFrom:
+            - secretRef:
+                name: shared
+            - secretRef:
+                name: backend
           env:
             PENPOT_PUBLIC_URI: "http://penpot-frontend:{{ .Values.service.main.ports.main.targetPort }}"
             PENPOT_REDIS_URI:
@@ -128,6 +136,11 @@ workload:
               type: tcp
         backend:
           imageSelector: backendImage
+          envFrom:
+            - secretRef:
+                name: shared
+            - secretRef:
+                name: backend
           env:
             PENPOT_DATABASE_URI:
               secretKeyRef:
