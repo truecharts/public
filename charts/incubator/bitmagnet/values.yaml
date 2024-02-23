@@ -1,0 +1,62 @@
+image:
+  repository: ghcr.io/bitmagnet-io/bitmagnet
+  tag: 0.7.5@sha256:40c91a1fc711d1988a5d630968f7051e59733446f340ff745d27b65a624c7b41
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 3333
+        targetPort: 3333
+  torrent:
+    enabled: true
+    ports:
+      torrent:
+        enabled: true
+        port: 3334
+        protocol: tcp
+      torrentudp:
+        enabled: true
+        port: "{{ .Values.service.torrent.ports.torrent.port }}"
+        protocol: udp
+workload:
+  main:
+    podSpec:
+      initContainers:
+        startup:
+          type: install
+          enabled: true
+          imageSelector: "image"
+          command:
+            - worker
+            - run
+            - --keys=http_server
+            - --keys=queue_server
+            # disable the next line to run without DHT crawler
+            - --keys=dht_crawler
+cnpg:
+  main:
+    enabled: true
+    user: bitmagnet
+    database: bitmagnet
+portal:
+  open:
+    enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            DB_TYPE: "postgres"
+            DB_NAME: "{{ .Values.cnpg.main.database }}"
+            DB_USER: "{{ .Values.cnpg.main.user }}"
+            DB_PORT: "5432"
+            DB_PASS:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            DB_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
