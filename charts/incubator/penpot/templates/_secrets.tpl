@@ -12,8 +12,6 @@
 {{- $backendFlags = mustAppend $backendFlags (printf "%s-cors" (ternary "enable" "disable" .Values.penpot.flags.backend_api_doc)) }}
 {{- $backendFlags = mustAppend $backendFlags (printf "%s-backend-api-doc" (ternary "enable" "disable" .Values.penpot.flags.backend_api_doc)) }}
 
-
-
 {{- $commonFlags := list }}
 {{- $commonFlags = mustAppend $commonFlags (printf "%s-login" (ternary "enable" "disable" .Values.penpot.flags.login)) }}
 {{- $commonFlags = mustAppend $commonFlags (printf "%s-registration" (ternary "enable" "disable" .Values.penpot.flags.registration)) }}
@@ -24,6 +22,12 @@
 {{- $commonFlags = mustAppend $commonFlags (printf "%s-login-with-gitlab" (ternary "enable" "disable" .Values.penpot.identity_providers.gitlab.enabled)) }}
 {{- $commonFlags = mustAppend $commonFlags (printf "%s-login-with-oidc" (ternary "enable" "disable" .Values.penpot.identity_providers.oidc.enabled)) }}
 {{- $commonFlags = mustAppend $commonFlags (printf "%s-login-with-ldap" (ternary "enable" "disable" .Values.penpot.identity_providers.ldap.enabled)) }}
+
+{{- $secretKey := randAlphaNum 32 -}}
+
+ {{- with lookup "v1" "Secret" .Release.Namespace $secretName -}}
+   {{- $secretKey = index .data "PENPOT_SECRET_KEY" | b64dec -}}
+ {{- end }}
 
 shared:
   enabled: true
@@ -68,11 +72,7 @@ backend:
   data:
     PENPOT_FLAGS: {{ join " " (concat $commonFlags $backendFlags) | quote }}
     PENPOT_PUBLIC_URI: {{ .Values.penpot.public_uri | quote }}
-    {{- with (lookup "v1" "Secret" .Release.Namespace $secretName) }}
-    PENPOT_SECRET_KEY: {{ index .data "PENPOT_SECRET_KEY" | b64dec }}
-    {{- else }}
-    PENPOT_SECRET_KEY: {{ randAlphaNum 32 }}
-    {{- end }}
+    PENPOT_SECRET_KEY: {{ $secretKey }}
     {{/* Dependencies */}}
     PENPOT_DATABASE_USERNAME: {{ .Values.cnpg.main.user }}
     PENPOT_DATABASE_PASSWORD: {{ .Values.cnpg.main.creds.password | trimAll "\"" }}
