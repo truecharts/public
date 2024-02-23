@@ -38,30 +38,12 @@ questions:
                                         schema:
                                           type: string
                                           default: "--no-color "
-                                      - variable: DONATE
-                                        label: "DONATE"
-                                        description: "% that you would like to donate. Enter a whole number between 0-100, no symbols."
+                                      - variable: ALGO_MODE
+                                        label: "Algorithm"
+                                        description: "Select an algorithm to mine eg. rx/0 visit https://xmrig.com/docs/algorithms for more info."
                                         schema:
                                           type: string
-                                          default: "1"
-                                      - variable: FEE
-                                        label: "FEE"
-                                        description: "Select where you would like to donate the developer fee. Options are dev-fee, lnxd-fee and no-fee."
-                                        schema:
-                                          type: string
-                                          default: "lnxd-fee"
-                                      - variable: COIN
-                                        label: "COIN"
-                                        description: "Select a coin to mine. Options are monero, arqma and dero. You can optionally disable this to use the --algo flag in Additional XMRig Arguments by setting this to x."
-                                        schema:
-                                          type: string
-                                          default: "monero"
-                                      - variable: DRIVERV
-                                        label: "DRIVERV"
-                                        description: "Please note while you can mine Monero with a GPU, it is designed to be mined with a CPU. If you have a GPU, please confirm it is not more profitable to mine a currency that does not intentionally bottleneck GPU mining.  Set 20.20 for AMD, other options are for testing purposes only (18.20, 20.45, 20.50). If you have an Nvidia card, enter CUDA  Please note that this container will not work with both AMD Drivers and Cuda installed at the same time. if you want to do this, please set this container up for one and create a second, separate container for the other.  Please also note that if you use the CUDA value, the container will end up around 3gb in size and take a very long time to start after updates."
-                                        schema:
-                                          type: string
-                                          default: ""
+                                          default: "rx/0"
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
