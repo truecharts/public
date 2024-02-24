@@ -43,6 +43,8 @@ workload:
               secretKeyRef:
                 name: cnpg-main-urls
                 key: host
+            TMDB_API_KEY: ""
+            DHT_CRAWLER_SAVE_FILES_THRESHOLD: "50"
           args:
             - worker
             - run
