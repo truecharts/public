@@ -224,12 +224,6 @@ tests:
 
   - it: should create the correct fixed envs with GPU
     set:
-      scaleGPU:
-        - gpu:
-            nvidia.com/gpu: 1
-          targetSelector:
-            workload-name:
-              - container-name1
       image: *image
       TZ: Europe/London
       containerOptions:
@@ -248,6 +242,9 @@ tests:
                 primary: true
                 imageSelector: image
                 probes: *probes
+                resources:
+                  limits:
+                    nvidia.com/gpu: 1
     asserts:
       - documentIndex: &deploymentDoc 0
         isKind:
@@ -273,12 +270,6 @@ tests:
 
   - it: should create the correct fixed envs with GPU and overridden on container level
     set:
-      scaleGPU:
-        - gpu:
-            nvidia.com/gpu: 1
-          targetSelector:
-            workload-name:
-              - container-name1
       image: *image
       TZ: Europe/London
       containerOptions:
@@ -297,6 +288,9 @@ tests:
                 primary: true
                 imageSelector: image
                 probes: *probes
+                resources:
+                  limits:
+                    nvidia.com/gpu: 1
                 fixedEnv:
                   NVIDIA_CAPS:
                     - all

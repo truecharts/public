@@ -354,7 +354,7 @@ tests:
               - 568
             sysctls: []
 
-  - it: should pass with with gpu assigned to primary pod
+  - it: should pass with with gpu assigned to single container
     set:
       workload:
         workload-name1:
@@ -365,14 +365,25 @@ tests:
             securityContext:
               supplementalGroups:
                 - 1000
+            containers:
+              container1:
+                enabled: true
+                primary: true
+                probes:
+                  liveness:
+                    enabled: false
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+                resources:
+                  limits:
+                    nvidia.com/gpu: 1
         workload-name2:
           enabled: true
           primary: false
           type: Deployment
           podSpec: {}
-      scaleGPU:
-        - gpu:
-            nvidia: "1"
     asserts:
       - documentIndex: &deploymentDoc 0
         isKind:
@@ -402,7 +413,7 @@ tests:
               - 568
             sysctls: []
 
-  - it: should pass with with gpu assigned to specific pod
+  - it: should pass with with gpu assigned to multiple pods
     set:
       workload:
         workload-name1:
@@ -413,70 +424,39 @@ tests:
             securityContext:
               supplementalGroups:
                 - 1000
+            containers:
+              container1:
+                enabled: true
+                primary: true
+                probes:
+                  liveness:
+                    enabled: false
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+                resources:
+                  limits:
+                    nvidia.com/gpu: 1
         workload-name2:
           enabled: true
           primary: false
-          type: Deployment
-          podSpec: {}
-      scaleGPU:
-        - gpu:
-            nvidia: "1"
-          targetSelector:
-            workload-name1:
-              - container-name1
-    asserts:
-      - documentIndex: &deploymentDoc 0
-        isKind:
-          of: Deployment
-      - documentIndex: *deploymentDoc
-        equal:
-          path: spec.template.spec.securityContext
-          value:
-            fsGroup: 568
-            fsGroupChangePolicy: OnRootMismatch
-            supplementalGroups:
-              - 1000
-              - 44
-              - 107
-              - 568
-            sysctls: []
-      - documentIndex: &otherDeploymentDoc 1
-        isKind:
-          of: Deployment
-      - documentIndex: *otherDeploymentDoc
-        equal:
-          path: spec.template.spec.securityContext
-          value:
-            fsGroup: 568
-            fsGroupChangePolicy: OnRootMismatch
-            supplementalGroups:
-              - 568
-            sysctls: []
-
-  - it: should pass with with gpu assigned to multiple pod
-    set:
-      workload:
-        workload-name1:
-          enabled: true
-          primary: true
           type: Deployment
           podSpec:
-            securityContext:
-              supplementalGroups:
-                - 1000
-        workload-name2:
-          enabled: true
-          primary: false
-          type: Deployment
-          podSpec: {}
-      scaleGPU:
-        - gpu:
-            nvidia: "1"
-          targetSelector:
-            workload-name1:
-              - container-name1
-            workload-name2:
-              - container-name1
+            containers:
+              container1:
+                enabled: true
+                primary: true
+                probes:
+                  liveness:
+                    enabled: false
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+                resources:
+                  limits:
+                    nvidia.com/gpu: 1
     asserts:
       - documentIndex: &deploymentDoc 0
         isKind:

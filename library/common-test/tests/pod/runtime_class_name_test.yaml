@@ -74,149 +74,6 @@ tests:
           path: spec.template.spec.runtimeClassName
           value: some-other-runtime-class
 
-  - it: should pass with runtimeClassName from ixChartContext with targetSelector
-    set:
-      scaleGPU:
-        - gpu:
-            key: value
-          targetSelector:
-            workload-name1:
-              - container-name1
-            workload-name3:
-              - container-name1
-      global:
-        namespace: ix-namespace
-        ixChartContext:
-          addNvidiaRuntimeClass: true
-          nvidiaRuntimeClassName: ix-runtime
-      podOptions:
-        runtimeClassName: some-class
-      workload:
-        workload-name1:
-          enabled: true
-          primary: true
-          type: Deployment
-          podSpec:
-            runtimeClassName: some-other-class
-        workload-name2:
-          enabled: true
-          primary: false
-          type: DaemonSet
-          podSpec:
-            runtimeClassName: some-class
-        workload-name3:
-          enabled: true
-          primary: false
-          type: StatefulSet
-          podSpec:
-            runtimeClassName: some-class
-    asserts:
-      - documentIndex: *deploymentDoc
-        equal:
-          path: spec.template.spec.runtimeClassName
-          value: ix-runtime
-      - documentIndex: &daemonSetDoc 1
-        isKind:
-          of: DaemonSet
-      - documentIndex: *daemonSetDoc
-        equal:
-          path: spec.template.spec.runtimeClassName
-          value: some-class
-      - documentIndex: &statefulSetDoc 2
-        isKind:
-          of: StatefulSet
-      - documentIndex: *statefulSetDoc
-        equal:
-          path: spec.template.spec.runtimeClassName
-          value: ix-runtime
-
-  - it: should not add runtimeClassName with gpu value 0
-    set:
-      scaleGPU:
-        - gpu:
-            key: 0
-      global:
-        namespace: ix-namespace
-        ixChartContext:
-          addNvidiaRuntimeClass: true
-          nvidiaRuntimeClassName: ix-runtime
-      workload:
-        workload-name1:
-          enabled: true
-          primary: true
-          type: Deployment
-          podSpec: {}
-    asserts:
-      - documentIndex: *deploymentDoc
-        isNullOrEmpty:
-          path: spec.template.spec.runtimeClassName
-
-  - it: should pass with runtimeClassName from ixChartContext without targetSelector (on primary workload)
-    set:
-      scaleGPU:
-        - gpu:
-            key: value
-      global:
-        namespace: ix-namespace
-        ixChartContext:
-          addNvidiaRuntimeClass: true
-          nvidiaRuntimeClassName: ix-runtime
-      workload:
-        workload-name1:
-          enabled: true
-          primary: true
-          type: Job
-          podSpec:
-            runtimeClassName: some-other-class
-        workload-name2:
-          enabled: true
-          primary: false
-          type: CronJob
-          schedule: "* * * * *"
-          podSpec: {}
-    asserts:
-      - documentIndex: &jobDoc 0
-        isKind:
-          of: Job
-      - documentIndex: *jobDoc
-        equal:
-          path: spec.template.spec.runtimeClassName
-          value: ix-runtime
-      - documentIndex: &cronJobDoc 1
-        isKind:
-          of: CronJob
-      - documentIndex: *cronJobDoc
-        isNullOrEmpty:
-          path: spec.jobTemplate.spec.template.spec.runtimeClassName
-
-  - it: should pass with runtimeClassName not set from ixChartContext without gpu value
-    set:
-      scaleGPU:
-        - gpu: {}
-          targetSelector:
-            workload-name1:
-              - container-name1
-      global:
-        namespace: ix-namespace
-        ixChartContext:
-          addNvidiaRuntimeClass: true
-          nvidiaRuntimeClassName: ix-runtime
-      workload:
-        workload-name1:
-          enabled: true
-          primary: true
-          type: Job
-          podSpec:
-            runtimeClassName: some-other-class
-    asserts:
-      - documentIndex: *jobDoc
-        isKind:
-          of: Job
-      - documentIndex: *jobDoc
-        equal:
-          path: spec.template.spec.runtimeClassName
-          value: some-other-class
-
   - it: should pass with runtimeClass set to nvidia when in SCALE and using the container "resources" directly
     set:
       global:
@@ -249,6 +106,39 @@ tests:
         equal:
           path: spec.template.spec.runtimeClassName
           value: nvidia
+
+  - it: should pass with runtimeClass NOT set when in SCALE and 0 gpu
+    set:
+      global:
+        namespace: ix-namespace
+        ixChartContext:
+          addNvidiaRuntimeClass: true
+          nvidiaRuntimeClassName: ix-runtime
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name:
+                enabled: true
+                primary: true
+                probes:
+                  liveness:
+                    enabled: false
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+                resources:
+                  limits:
+                    nvidia.com/gpu:
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.runtimeClassName
+          value: null
 
   - it: should pass with runtimeClass set to nvidia when in SCALE and using the top level "resources" directly
     set:

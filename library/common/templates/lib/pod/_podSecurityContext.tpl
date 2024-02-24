@@ -20,18 +20,7 @@ objectData: The object data to be used to render the Pod.
     {{- $secContext = mustMergeOverwrite $secContext . -}}
   {{- end -}}
 
-  {{- $gpuAdded := false -}}
-  {{- range $GPUValues := $rootCtx.Values.scaleGPU -}}
-    {{/* If there is a selector and pod is selected */}}
-    {{- if $GPUValues.targetSelector -}}
-      {{- if mustHas $objectData.shortName ($GPUValues.targetSelector | keys) -}}
-        {{- $gpuAdded = true -}}
-      {{- end -}}
-    {{/* If there is not a selector, but pod is primary */}}
-    {{- else if $objectData.primary -}}
-      {{- $gpuAdded = true -}}
-    {{- end -}}
-  {{- end -}}
+  {{- $gpu := (include "tc.v1.common.lib.pod.resources.hasGPU" (dict "rootCtx" $rootCtx "objectData" $objectData)) -}}
 
   {{- $deviceGroups := (list 5 10 20 24) -}}
   {{- $deviceAdded := false -}}
@@ -84,7 +73,7 @@ objectData: The object data to be used to render the Pod.
     {{- end -}}
   {{- end -}}
 
-  {{- if $gpuAdded -}}
+  {{- if eq $gpu "true" -}}
     {{- $_ := set $secContext "supplementalGroups" (concat $secContext.supplementalGroups (list 44 107)) -}}
     {{- $hostUsers = true -}}
   {{- end -}}

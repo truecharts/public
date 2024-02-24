@@ -27,71 +27,10 @@ limits:
     {{- with $resources.limits.memory }} {{/* Passing 0, will not render it, meaning unlimited */}}
   memory: {{ . }}
     {{- end -}}
-    {{- include "tc.v1.common.lib.container.resources.gpu" (dict "rootCtx" $rootCtx "objectData" $objectData) | trim | nindent 2 -}}
     {{- range $k, $v := (omit $resources.limits "cpu" "memory") }} {{/* Omit cpu and memory, as they are handled above */}}
   {{ $k }}: {{ $v }}
     {{- end -}}
   {{- end -}}
-{{- end -}}
-
-{{/* Returns GPU resource */}}
-{{/* Call this template:
-{{ include "tc.v1.common.lib.container.resources.gpu" (dict "rootCtx" $rootCtx "objectData" $objectData) }}
-rootCtx: The root context of the chart.
-objectData: The object data to be used to render the container.
-*/}}
-{{- define "tc.v1.common.lib.container.resources.gpu" -}}
-  {{- $objectData := .objectData -}}
-  {{- $rootCtx := .rootCtx -}}
-  {{- $returnBool := .returnBool -}}
-
-  {{- $gpuResource := list -}}
-
-  {{- range $GPUValues := $rootCtx.Values.scaleGPU -}}
-    {{- if not $GPUValues.gpu -}}
-      {{- fail "Container - Expected non-empty [scaleGPU.gpu]" -}}
-    {{- end -}}
-
-    {{- $selected := false -}}
-
-    {{/* Parse selector if defined */}}
-    {{- if $GPUValues.targetSelector -}}
-      {{- range $podName, $containers := $GPUValues.targetSelector -}}
-        {{- if not $containers -}}
-          {{- fail "Container - Expected non-empty list under pod in [scaleGPU.targetSelector]" -}}
-        {{- end -}}
-
-        {{- if and (eq $podName $objectData.podShortName) (mustHas $objectData.shortName $containers) -}}
-          {{- $selected = true -}}
-        {{- end -}}
-      {{- end -}}
-    {{/* If no selector, select primary pod/container */}}
-    {{- else if and $objectData.podPrimary $objectData.primary -}}
-      {{- $selected = true -}}
-    {{- end -}}
-
-    {{- if $selected -}}
-      {{- $gpuResource = mustAppend $gpuResource $GPUValues.gpu -}}
-    {{- end -}}
-  {{- end -}}
-
-  {{- if not $returnBool -}}
-    {{- range $gpu := $gpuResource -}}
-      {{- range $k, $v := $gpu -}}
-        {{- if or (kindIs "invalid" $v) (eq (toString $v) "") -}}
-          {{- fail "Container - Expected non-empty [scaleGPU] [value]" -}}
-        {{- end -}} {{/* Don't try to schedule 0 GPUs */}}
-        {{- if gt (int $v) 0 }}
-{{ $k }}: {{ $v | quote }}
-        {{- end -}}
-      {{- end -}}
-    {{- end -}}
-  {{- else -}}
-    {{- if $gpuResource -}}
-      {{- "true" -}}
-    {{- end -}}
-  {{- end -}}
-
 {{- end -}}
 
 {{/* Validates resources to match a pattern */}}
@@ -140,4 +79,60 @@ resources: The resources object
 
     {{- end -}}
   {{- end -}}
+{{- end -}}
+
+{{- define "tc.v1.common.lib.pod.resources.hasGPU" -}}
+  {{- $rootCtx := .rootCtx -}}
+  {{- $objectData := .objectData -}}
+  {{- $gpuType := .gpuType -}}
+
+  {{- $types := (list "nvidia.com/gpu" "amd.com/gpu" "intel.com/i915") -}}
+  {{- if $gpuType -}}
+    {{- $types = (list $gpuType) -}}
+  {{- end -}}
+
+  {{- $gpu := false -}}
+
+  {{- if and ($rootCtx.Values.resources) ($rootCtx.Values.resources.limits) -}}
+    {{- range $t := $types -}}
+      {{- if gt ((get $rootCtx.Values.resources.limits $t) | int) 0 -}}
+        {{- $gpu = true -}}
+        {{- break -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- if $objectData.podSpec -}}
+    {{- range $k, $v := $objectData.podSpec.containers -}}
+      {{- if not $v.enabled -}}
+        {{- continue -}}
+      {{- end -}}
+
+      {{- range $t := $types -}}
+        {{- if eq (include "tc.v1.common.lib.container.resources.hasGPU" (dict "rootCtx" $rootCtx "objectData" $v "gpuType" $t)) "true" -}}
+          {{- $gpu = true -}}
+          {{- break -}}
+        {{- end -}}
+      {{- end -}}
+
+    {{- end -}}
+  {{- end -}}
+
+  {{- $gpu | toString -}}
+{{- end -}}
+
+{{- define "tc.v1.common.lib.container.resources.hasGPU" -}}
+  {{- $rootCtx := .rootCtx -}}
+  {{- $objectData := .objectData -}}
+  {{- $gpuType := .gpuType -}}
+
+  {{- $gpu := false -}}
+
+  {{- if and ($objectData.resources) ($objectData.resources.limits) -}}
+    {{- if gt ((get $objectData.resources.limits $gpuType) | int) 0 -}}
+      {{- $gpu = true -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- $gpu | toString -}}
 {{- end -}}

@@ -47,7 +47,7 @@ objectData: The object data to be used to render the container.
   {{- $fixed = mustAppend $fixed (dict "k" "UMASK_SET" "v" $UMASK) -}}
 
   {{- $nvidia := false -}}
-  {{- if eq (include "tc.v1.common.lib.container.resources.gpu" (dict "rootCtx" $rootCtx "objectData" $objectData "returnBool" true)) "true" -}}
+  {{- if eq (include "tc.v1.common.lib.container.resources.hasGPU" (dict "rootCtx" $rootCtx "objectData" $objectData "gpuType" "nvidia.com/gpu")) "true" -}}
     {{- $nvidia = true -}}
   {{- end -}}
 

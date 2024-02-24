@@ -141,11 +141,45 @@ tests:
           path: spec.template.spec.hostUsers
           value: true
 
-  - it: should pass with enabled hostUsers because of gpu
+  - it: should pass with enabled hostUsers because of nvidia gpu
     set:
-      scaleGPU:
-        - gpu:
-            nvidia: "1"
+      resources:
+        limits:
+          nvidia.com/gpu: 1
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.hostUsers
+          value: true
+
+  - it: should pass with enabled hostUsers because of amd gpu
+    set:
+      resources:
+        limits:
+          amd.com/gpu: 1
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.hostUsers
+          value: true
+
+  - it: should pass with enabled hostUsers because of intel gpu
+    set:
+      resources:
+        limits:
+          intel.com/i915: 1
       workload:
         workload-name1:
           enabled: true
