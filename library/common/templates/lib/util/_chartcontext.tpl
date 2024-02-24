@@ -106,7 +106,7 @@
     {{- end -}}
 
     {{- $tls := ((.tls | default list) | mustFirst) -}}
-    {{- if (or $tls.secretName $tls.scaleCert $tls.certificateIssuer $tls.clusterCertificate) -}}
+    {{- if (or $tls.secretName $tls.certificateIssuer $tls.clusterCertificate) -}}
       {{- $protocol = "https" -}}
       {{- $port = "443" -}}
     {{- end -}}

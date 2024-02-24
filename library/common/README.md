@@ -17,7 +17,6 @@
 - Containers: `$ContainerName`
 - ConfigMap: `$FullName-$ConfigMapName`
 - Secret: `$FullName-$SecretName`
-- Scale Certificate: `$FullName-$CertName`
 - Scale External Interface: `ix-$ReleaseName-$index`
 
 > Full name -> `$ReleaseName-$ChartName`

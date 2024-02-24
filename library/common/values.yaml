@@ -376,9 +376,6 @@ rbac: {}
 # -- (docs/scaleExternalInterface.md)
 scaleExternalInterface: []
 
-# -- (docs/scaleCertificate.md)
-scaleCertificate: {}
-
 # NOTES.txt
 notes:
   header: |
@@ -388,10 +385,9 @@ notes:
     {{- if .Values.iXPortals }}
     ## Connecting externally
     You can use this Chart by opening one of the following links in your browser:
-
-    {{- range .Values.iXPortals }}
+      {{- range .Values.iXPortals }}
     - {{ toYaml . }}
-    {{- end -}}
+      {{- end -}}
     {{- end }}
 
     ## Sources for {{ .Chart.Name }}
@@ -569,10 +565,7 @@ ingress:
     # Gets ignored when clusterIssuer is filled
     tls: []
     #  - secretName: chart-example-tls
-    #    # Cannot be combined with scaleCert
     #    certificateIssuer: ""
-    #    # Cannot be combined with certificateIssuer
-    #    scaleCert: ""
     #    hosts:
     #      - chart-example.local
     integrations:

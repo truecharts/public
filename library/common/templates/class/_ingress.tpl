@@ -88,8 +88,6 @@ spec:
       {{- $secretName := "" -}}
       {{- if $t.secretName -}}
         {{- $secretName = tpl $t.secretName $rootCtx -}}
-      {{- else if $t.scaleCert -}}
-        {{- $secretName = printf "%s-scale-tls-%d" $objectData.name ($idx | int) -}}
       {{- else if $t.certificateIssuer -}}
         {{- $secretName = printf "%s-tls-%d" $objectData.name ($idx | int) -}}
       {{- else if $t.clusterCertificate -}}
