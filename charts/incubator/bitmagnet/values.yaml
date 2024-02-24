@@ -30,30 +30,23 @@ portal:
 workload:
   main:
     podSpec:
-      initContainers:
-        startup:
-          type: init
-          enabled: true
-          imageSelector: "image"
-          command:
+      containers:
+        main:
+          env:
+            POSTGRES_NAME: "{{ .Values.cnpg.main.database }}"
+            POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
+            POSTGRES_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            POSTGRES_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+          args:
             - worker
             - run
             - --keys=http_server
             - --keys=queue_server
             # disable the next line to run without DHT crawler
             - --keys=dht_crawler
-      containers:
-        main:
-          env:
-            DB_TYPE: "postgres"
-            DB_NAME: "{{ .Values.cnpg.main.database }}"
-            DB_USER: "{{ .Values.cnpg.main.user }}"
-            DB_PORT: "5432"
-            DB_PASS:
-              secretKeyRef:
-                name: cnpg-main-user
-                key: password
-            DB_HOST:
-              secretKeyRef:
-                name: cnpg-main-urls
-                key: host
