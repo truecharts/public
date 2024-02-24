@@ -1,11 +1,7 @@
 {{- define "monero.args" -}}
 args:
-  {{- with .Values.monero.rpcbindip }}
-  - --rpc-restricted-bind-ip={{ . }}
-  {{- end -}}
-  {{- with .Values.monero.rpcbindport }}
-  - --rpc-restricted-bind-port={{ . }}
-  {{- end -}}
+  - --rpc-restricted-bind-ip={{ .Values.monero.rpcbindip }}
+  - --rpc-restricted-bind-port={{ .Values.service.rpc.ports.rpc.port }}
   {{- if .Values.monero.publicnode }}
   - --public-node
   {{- end -}}
