@@ -135,13 +135,13 @@ questions:
                                         schema:
                                           type: string
                                           default: "llama2"
-                                          show_if: [[LLM_PROVIDER, "=", "ollama"]]                                      - variable: LOCAL_AI_API_KEY
+                                          show_if: [[LLM_PROVIDER, "=", "ollama"]]
                                       - variable: OLLAMA_MODEL_TOKEN_LIMIT
                                         label: Ollama Model Token Limit
                                         schema:
                                           type: int
                                           default: 4096
-                                          show_if: [[LLM_PROVIDER, "=", "ollama"]]                                      - variable: LOCAL_AI_API_KEY
+                                          show_if: [[LLM_PROVIDER, "=", "ollama"]]
                                       - variable: TOGETHER_AI_API_KEY
                                         label: Together AI API Key
                                         schema:

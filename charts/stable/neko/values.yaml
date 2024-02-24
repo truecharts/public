@@ -1,23 +1,23 @@
 braveImage:
   pullPolicy: IfNotPresent
   repository: m1k1o/neko
-  tag: brave@sha256:8e4cbd90e93c38a87e15d03a108bc6facf8bc21b2f3a9783c50fad8251451400
+  tag: brave@sha256:7e6b9341face69a37946a369bfb7174a971412403fce4646d6591c97e1522eae
 chromeImage:
   pullPolicy: IfNotPresent
   repository: m1k1o/neko
-  tag: google-chrome@sha256:7768f34ee887e8bf9575ddc2dad657b4fb0895b9b8c8a954bde39fa0e675bd83
+  tag: google-chrome@sha256:dcf4bebc224e3a01f7cb51ad6b8ba0b9818361325bce186a71106a37e3774c15
 chromiumImage:
   pullPolicy: IfNotPresent
   repository: m1k1o/neko
-  tag: chromium@sha256:7cd3914c8559b84252b0d66606069e5eace333465fd630d5bf825f48c215d142
+  tag: chromium@sha256:8ca28d21bc6bc69046779f1cbbb078468e552fa60a9e018c5c2266c82c7a5a2e
 edgeImage:
   pullPolicy: IfNotPresent
   repository: m1k1o/neko
-  tag: microsoft-edge@sha256:e3215132835372eed4fc9b60c10ad71acbc35e9bfd9525566ceee5ca5a8a8196
+  tag: microsoft-edge@sha256:ef159a3d6909571e5cc2ee5e9dfe5bcafddef69b536ff14e90f8b8e2aff2e8dc
 image:
   pullPolicy: IfNotPresent
   repository: m1k1o/neko
-  tag: firefox@sha256:1cb6c9dcb5d81d10166c1b67d2cd93a6ab327009aa3b9dcfa083e468fa49aa92
+  tag: firefox@sha256:72f72672bd5e3b447010a57f987282e86ee3017d1f3237f4bb7e5d1e787b23da
 imageSelector: image
 portal:
   open:
@@ -25,7 +25,7 @@ portal:
 remminaImage:
   pullPolicy: IfNotPresent
   repository: m1k1o/neko
-  tag: remmina@sha256:e28e0d19845671c40381ed748bbca050ce5bfdf3329f5433265664c0b3826b2d
+  tag: remmina@sha256:e1f6e8731009fbd56729b0e225f40cb4b1a128a2848f4516d311576611f99cb7
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -57,15 +57,15 @@ service:
 torImage:
   pullPolicy: IfNotPresent
   repository: m1k1o/neko
-  tag: tor-browser@sha256:42c3729254e74009c460339e1946ac845226d71e7e77f37b3adfaa865d6ac6f8
+  tag: tor-browser@sha256:2f831187ebad4bb7fa460c81134f13fc1caf570fecfb422685f7d02570cdd28b
 vivaldiImage:
   pullPolicy: IfNotPresent
   repository: m1k1o/neko
-  tag: vivaldi@sha256:5001b3b35197892d1ea59d7de8193bae695890155d27f2cf8e97f98c12ed0ee6
+  tag: vivaldi@sha256:e3c44a09a4796ea4f99915685a3ba810ecfdd1f9b583b80c3a3daac43115df63
 vlcImage:
   pullPolicy: IfNotPresent
   repository: m1k1o/neko
-  tag: vlc@sha256:dc0ad9c59dd7135c1efdae672bbf90632796301de6716bc6274acce5141a32c1
+  tag: vlc@sha256:0a22c52e34d956050c2184a9f88addf7feaba24f63e1d9f48065e97d3f793eef
 vncviewerImage:
   pullPolicy: IfNotPresent
   repository: m1k1o/neko
@@ -90,4 +90,4 @@ workload:
 xfceImage:
   pullPolicy: IfNotPresent
   repository: m1k1o/neko
-  tag: xfce@sha256:2c4d7187d19c3cd13780a0fc30d37ad79d0922083eb0bb761a3de98d98547ff6
+  tag: xfce@sha256:242ad91b15e5fbf8eaf85d7f9ea46bb211569e60be781a8689c22d185e7ff1ad

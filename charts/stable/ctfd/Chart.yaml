@@ -1,5 +1,5 @@
 annotations:
-  max_scale_version: 23.10.2
+  max_scale_version: 24.04.0
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: learning
@@ -10,21 +10,21 @@ apiVersion: v2
 appVersion: 3.6.1
 dependencies:
   - name: common
-    version: 17.4.2
+    version: 17.5.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mariadb
-    version: 12.1.17
+    version: 12.2.1
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 11.1.21
+    version: 11.2.1
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -48,4 +48,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/ctfd
   - https://ghcr.io/ctfd/ctfd
 type: application
-version: 3.2.0
+version: 3.4.0

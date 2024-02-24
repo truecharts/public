@@ -1,11 +1,11 @@
 image:
   repository: ollama/ollama
   pullPolicy: IfNotPresent
-  tag: 0.1.24@sha256:bb575e1ebe018b89b5adb1a654967ae337c05109e942b7b32ce90d6d731bb641
+  tag: 0.1.25@sha256:21824867532d4aaaecac4b0234c7ac6c8bb0144d86407bdd5e4141686c9fd2e4
 uiImage:
   repository: ghcr.io/ollama-webui/ollama-webui
   pullPolicy: IfNotPresent
-  tag: main@sha256:06e060b8bf3f9d13c036cec749bea4cf3e9cc3e61a6cb33132d1776d3d57403d
+  tag: main@sha256:d5a5c1126b5decbfbfcac4f2c3d0595e0bbf7957e3fcabc9ee802d3bc66db6d2
 
 service:
   main:
@@ -84,6 +84,10 @@ workload:
               port: "{{ .Values.service.main.ports.main.targetPort }}"
           env:
             OLLAMA_API_BASE_URL: '{{ printf "http://%v-api:%v/api" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.api.ports.api.targetPort }}'
+            WEBUI_SECRET_KEY:
+              secretKeyRef:
+                name: ollama-secrets
+                key: WEBUI_SECRET_KEY
 
 persistence:
   config:
