@@ -46,16 +46,16 @@ workload:
 service:
   ## TODO: Enable
   main:
-   enabled: false
-   primary: true
-   expandObjectName: false
-   ports:
-     main:
-       ## TODO: Enable
-       enabled: false
-       primary: true
-       port: 3000
-       targetPort: 3000
+    enabled: false
+    primary: true
+    expandObjectName: false
+    ports:
+      main:
+        ## TODO: Enable
+        enabled: false
+        primary: true
+        port: 3000
+        targetPort: 3000
   tckubeapps:
     enabled: true
     expandObjectName: false

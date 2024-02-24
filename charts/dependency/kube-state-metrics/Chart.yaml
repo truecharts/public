@@ -1,5 +1,5 @@
 annotations:
-  max_scale_version: 23.10.2
+  max_scale_version: 24.04.0
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: metrics
@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 2.10.1
 dependencies:
   - name: common
-    version: 17.4.2
+    version: 18.0.2
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/dependency/kube-state-metrics
   - https://hub.docker.com/r/bitnami/kube-state-metrics
 type: application
-version: 6.2.1
+version: 7.1.2
