@@ -21,6 +21,7 @@ questions:
                                         description: bitmagnet uses the TMDB API to fetch metadata for movies and TV shows.
                                         schema:
                                           type: string
+                                          private: true
                                           default: ""
                                       - variable: DHT_CRAWLER_SAVE_FILES_THRESHOLD
                                         label: DHT Crawler Save Files Threshold
