@@ -14,10 +14,12 @@ service:
       tcp:
         enabled: true
         port: 3334
+        targetPort: 3334
         protocol: tcp
       udp:
         enabled: true
         port: "{{ .Values.service.torrent.ports.tcp.port }}"
+        targetPort: 3334
         protocol: udp
 cnpg:
   main:
