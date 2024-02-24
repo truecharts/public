@@ -11,13 +11,13 @@ service:
   torrent:
     enabled: true
     ports:
-      torrent:
+      tcp:
         enabled: true
         port: 3334
         protocol: tcp
-      torrentudp:
+      udp:
         enabled: true
-        port: "{{ .Values.service.torrent.ports.torrent.port }}"
+        port: "{{ .Values.service.torrent.ports.tcp.port }}"
         protocol: udp
 cnpg:
   main:
