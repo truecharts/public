@@ -107,6 +107,39 @@ tests:
           path: spec.template.spec.runtimeClassName
           value: nvidia
 
+  - it: should pass with runtimeClassName NOT set to nvidia when in SCALE with amd gpu
+    set:
+      global:
+        namespace: ix-namespace
+        ixChartContext:
+          addNvidiaRuntimeClass: true
+          nvidiaRuntimeClassName: ix-runtime
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name:
+                enabled: true
+                primary: true
+                probes:
+                  liveness:
+                    enabled: false
+                  readiness:
+                    enabled: false
+                  startup:
+                    enabled: false
+                resources:
+                  limits:
+                    amd.com/gpu: 1
+    asserts:
+      - documentIndex: *deploymentDoc
+        equal:
+          path: spec.template.spec.runtimeClassName
+          value: null
+
   - it: should pass with runtimeClass NOT set when in SCALE and 0 gpu
     set:
       global:

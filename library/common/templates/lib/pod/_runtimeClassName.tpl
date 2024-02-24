@@ -36,7 +36,7 @@ objectData: The object data to be used to render the Pod.
   {{- $objectData := .objectData -}}
 
   {{- $runtime := "" -}}
-  {{- $nvidia := (include "tc.v1.common.lib.pod.resources.hasGPU" (dict "rootCtx" $rootCtx "objectData" $objectData)) -}}
+  {{- $nvidia := (include "tc.v1.common.lib.pod.resources.hasGPU" (dict "rootCtx" $rootCtx "objectData" $objectData "gpuType" "nvidia.com/gpu")) -}}
   {{- if eq $nvidia "true" -}}
     {{/* https://github.com/truenas/middleware/blob/0bfc05166c3f95b1ab4ca4a9614691f14303db2e/src/middlewared/middlewared/plugins/kubernetes_linux/utils.py#L16 */}}
     {{- $runtime = "nvidia" -}}
