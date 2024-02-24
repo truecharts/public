@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.1.25
+appVersion: 0.1.27
 dependencies:
   - name: common
     version: 18.0.1
@@ -36,4 +36,4 @@ sources:
   - https://hub.docker.com/r/ollama/ollama
   - https://ghcr.io/ollama-webui/ollama-webui
 type: application
-version: 3.0.0
+version: 3.0.1
