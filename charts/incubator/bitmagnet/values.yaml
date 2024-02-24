@@ -19,7 +19,7 @@ service:
       udp:
         enabled: true
         port: "{{ .Values.service.torrent.ports.tcp.port }}"
-        targetPort: 3334
+        targetPort: "{{ .Values.service.torrent.ports.tcp.targetPort }}"
         protocol: udp
 cnpg:
   main:
