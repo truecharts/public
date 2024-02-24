@@ -1,0 +1,76 @@
+image:
+  repository: ghcr.io/bitmagnet-io/bitmagnet
+  tag: 0.7.5@sha256:40c91a1fc711d1988a5d630968f7051e59733446f340ff745d27b65a624c7b41
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 3333
+        targetPort: 3333
+  torrent:
+    enabled: true
+    ports:
+      tcp:
+        enabled: true
+        port: 3334
+        targetPort: 3334
+        protocol: tcp
+      udp:
+        enabled: true
+        port: "{{ .Values.service.torrent.ports.tcp.port }}"
+        targetPort: "{{ .Values.service.torrent.ports.tcp.targetPort }}"
+        protocol: udp
+cnpg:
+  main:
+    enabled: true
+    user: bitmagnet
+    database: bitmagnet
+portal:
+  open:
+    enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            POSTGRES_NAME: "{{ .Values.cnpg.main.database }}"
+            POSTGRES_USER: "{{ .Values.cnpg.main.user }}"
+            POSTGRES_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
+            POSTGRES_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            TMDB_API_KEY: ""
+            DHT_CRAWLER_SAVE_FILES_THRESHOLD: "50"
+          args:
+            - worker
+            - run
+            - --all
+          probes:
+            readiness:
+              enabled: true
+              type: http
+              path: /status
+            liveness:
+              enabled: true
+              type: http
+              path: /status
+            startup:
+              enabled: true
+              type: http
+              path: /status
+metrics:
+  main:
+    enabled: true
+    type: "servicemonitor"
+    endpoints:
+      - port: main
+        path: /metrics
+    targetSelector: main
+    prometheusRule:
+      enabled: false
