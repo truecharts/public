@@ -33,7 +33,7 @@ workload:
             - /bin/sh
             - -c
             - |
-              mkdir -p /config
+              mkdir -p /config/model_cache
               if [ ! -f /config/config.yml ]; then
                 echo "Config file not found, copying dummy..."
                 cp /dummy-config/config.yml.dummy /config/config.yml
@@ -90,6 +90,10 @@ persistence:
       main:
         main: {}
         init-config: {}
+  modelcache:
+    # Only enable when using frigateConfig
+    enabled: false
+    mountPath: /config/model_cache
 portal:
   open:
     enabled: true
