@@ -10,14 +10,14 @@ apiVersion: v2
 appVersion: 1.7.1
 dependencies:
   - name: common
-    version: 17.3.9
+    version: 18.0.1
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mariadb
-    version: 12.1.17
+    version: 13.0.0
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -41,4 +41,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/gaseous-server
   - https://hub.docker.com/r/gaseousgames/gaseousserver
 type: application
-version: 1.0.0
+version: 1.1.0
