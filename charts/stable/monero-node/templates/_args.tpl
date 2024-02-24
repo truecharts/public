@@ -1,21 +1,21 @@
 {{- define "monero.args" -}}
 args:
-  {{- with .Values.monero.rpc-bind-ip }}
+  {{- with .Values.monero.rpcbindip }}
   - --rpc-restricted-bind-ip={{ . }}
   {{- end -}}
-  {{- with .Values.monero.rpc-bind-port }}
+  {{- with .Values.monero.rpcbindport }}
   - --rpc-restricted-bind-port={{ . }}
   {{- end -}}
-  {{- if .Values.monero.public-node }}
+  {{- if .Values.monero.publicnode }}
   - --public-node
   {{- end -}}
-  {{- if .Values.monero.no-igd }}
+  {{- if .Values.monero.noigd }}
   - --no-igd
   {{- end -}}
-  {{- if .Values.monero.enable-dns-blocklist }}
+  {{- if .Values.monero.enablednsblocklist }}
   - --enable-dns-blocklist
   {{- end -}}
-  {{- if .Values.monero.prune-blockchain }}
+  {{- if .Values.monero.pruneblockchain }}
   - --prune-blockchain
   {{- end -}}
 {{- end -}}
