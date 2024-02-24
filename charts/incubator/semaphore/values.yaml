@@ -49,11 +49,11 @@ workload:
             SEMAPHORE_ADMIN_EMAIL: admin@localhost
             # LDAP
             # no | yes
-            SEMAPHORE_LDAP_ACTIVATED: 'no'
+            SEMAPHORE_LDAP_ACTIVATED: "no"
             # SEMAPHORE_LDAP_HOST: dc01.local.example.com
             # SEMAPHORE_LDAP_PORT: '636'
             # no | yes
-            SEMAPHORE_LDAP_NEEDTLS: 'no'
+            SEMAPHORE_LDAP_NEEDTLS: "no"
             # SEMAPHORE_LDAP_DN_BIND: 'uid=bind_user,cn=users,cn=accounts,dc=local,dc=shiftsystems,dc=net'
             # SEMAPHORE_LDAP_PASSWORD: 'ldap_bind_account_password'
             # SEMAPHORE_LDAP_DN_SEARCH: 'dc=local,dc=example,dc=com'
@@ -62,10 +62,10 @@ workload:
 persistence:
   config:
     enabled: true
-    mountPath: /etc/semaphore 
+    mountPath: /etc/semaphore
   data:
     enabled: true
-    mountPath: /data 
+    mountPath: /data
 
 cnpg:
   main:
