@@ -49,3 +49,30 @@ workload:
             - worker
             - run
             - --all
+          probes:
+            readiness:
+              enabled: true
+              type: http
+              path: /status
+            liveness:
+              enabled: true
+              type: http
+              path: /status
+            startup:
+              enabled: true
+              type: http
+              path: /status
+metrics:
+  main:
+    enabled: true
+    type: "servicemonitor"
+    endpoints:
+      - port: main
+        path: /metrics
+    targetSelector: main
+    prometheusRule:
+      enabled: false
+portal:
+  open:
+    enabled: true
+updated: true
