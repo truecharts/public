@@ -53,8 +53,6 @@ objectData: The object data to be used to render the Pod.
 
         {{- if eq "pvc" $type -}}
           {{- include "tc.v1.common.lib.pod.volume.pvc" (dict "rootCtx" $rootCtx "objectData" $persistence) | trim | nindent 0 -}}
-        {{- else if eq "ixVolume" $type -}}
-          {{- include "tc.v1.common.lib.pod.volume.ixVolume" (dict "rootCtx" $rootCtx "objectData" $persistence) | trim | nindent 0 -}}
         {{- else if eq "hostPath" $type -}}
           {{- include "tc.v1.common.lib.pod.volume.hostPath" (dict "rootCtx" $rootCtx "objectData" $persistence) | trim | nindent 0 -}}
         {{- else if eq "secret" $type -}}

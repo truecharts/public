@@ -1,7 +1,7 @@
 {{/* Contains the auto-permissions job */}}
 {{- define "tc.v1.common.lib.util.autoperms" -}}
 
-{{- $permAllowedTypes := (list "hostPath" "emptyDir" "nfs" "ixVolume") -}}
+{{- $permAllowedTypes := (list "hostPath" "emptyDir" "nfs") -}}
 {{/* If you change this path, you must change it under _volumeMounts.tpl too*/}}
 {{- $basePath := "/mounts" -}}
 

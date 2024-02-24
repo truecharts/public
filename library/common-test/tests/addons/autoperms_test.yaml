@@ -333,8 +333,6 @@ tests:
         namespace: ix-namespace
         ixChartContext:
           some: context
-      ixVolumes:
-        - hostPath: /mnt/pool/ix-applications/test
       persistence:
         test1:
           enabled: true
@@ -400,16 +398,6 @@ tests:
             chmod: 770
             recursive: true
           mountPath: /test7
-        test8:
-          enabled: true
-          type: ixVolume
-          datasetName: test
-          autoPermissions:
-            enabled: true
-            chown: true
-            chmod: 770
-            recursive: true
-          mountPath: /test8
         test9:
           enabled: true
           type: nfs
@@ -419,13 +407,6 @@ tests:
             enabled: true
             chown: true
           mountPath: /test9
-        # Should not show up, without enabled true
-        test10:
-          type: ixVolume
-          datasetName: test
-          autoPermissions:
-            chown: true
-          mountPath: /test10
     asserts:
       - documentIndex: *jobDoc
         isKind:
@@ -494,13 +475,6 @@ tests:
         contains:
           path: spec.template.spec.volumes
           content:
-            name: test8
-            hostPath:
-              path: /mnt/pool/ix-applications/test
-      - documentIndex: *jobDoc
-        contains:
-          path: spec.template.spec.volumes
-          content:
             name: test9
             nfs:
               server: 1.1.1.1
@@ -554,13 +528,6 @@ tests:
           content:
             name: test7
             mountPath: /mounts/test7
-            readOnly: false
-      - documentIndex: *jobDoc
-        contains:
-          path: spec.template.spec.containers[0].volumeMounts
-          content:
-            name: test8
-            mountPath: /mounts/test8
             readOnly: false
       - documentIndex: *jobDoc
         contains:
@@ -656,19 +623,6 @@ tests:
                   echo "Ownership before: [$before]"
                   echo "Ownership after: [$(stat -c "%u:%g" /mounts/test7)]"
                   echo ""
-                  echo "Automatically correcting permissions for /mounts/test8..."
-                  before=$(stat -c "%a" /mounts/test8)
-                  chmod -R 770 /mounts/test8 || echo "Failed setting permissions using chmod..."
-                  echo "Permissions before: [$before]"
-                  echo "Permissions after: [$(stat -c "%a" /mounts/test8)]"
-                  echo ""
-                  echo "Automatically correcting ownership for /mounts/test8..."
-                  before=$(stat -c "%u:%g" /mounts/test8)
-                      /usr/sbin/nfs4xdr_winacl -a chown -G 568 -r -c "/mounts/test8" -p "/mounts/test8" || echo "Failed setting ownership using winacl..."
-
-                  echo "Ownership before: [$before]"
-                  echo "Ownership after: [$(stat -c "%u:%g" /mounts/test8)]"
-                  echo ""
                   echo "Automatically correcting ownership for /mounts/test9..."
                   before=$(stat -c "%u:%g" /mounts/test9)
                       /usr/sbin/nfs4xdr_winacl -a chown -G 568  -c "/mounts/test9" -p "/mounts/test9" || echo "Failed setting ownership using winacl..."
@@ -755,7 +709,7 @@ tests:
             chown: true
     asserts:
       - failedTemplate:
-          errorMessage: Auto Permissions - Allowed persistent types for auto permissions are [hostPath, emptyDir, nfs, ixVolume], but got [device] on [test]
+          errorMessage: Auto Permissions - Allowed persistent types for auto permissions are [hostPath, emptyDir, nfs], but got [device] on [test]
 
   - it: should fail trying to set permissions on readOnly
     set:
