@@ -81,7 +81,7 @@ The new version of Nextcloud uses apps instead of www-data for file ownership. A
 
 ## Install Nextcloud
 
-Install with a temporary user that you do not currently use for Nextcloud (ie. temp)
+Install with a temporary admin user that you do not currently use for Nextcloud (ie. temp)
 
 Setup Nextcloud UserData storage with your previous UserData dataset or the dataset you copied your UserData to.
 

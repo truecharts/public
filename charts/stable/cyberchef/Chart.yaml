@@ -1,5 +1,5 @@
 annotations:
-  max_scale_version: 23.10.2
+  max_scale_version: 24.04.0
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: utilities
@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 10.8.1
 dependencies:
   - name: common
-    version: 17.4.2
+    version: 17.5.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -22,7 +22,7 @@ home: https://truecharts.org/charts/stable/cyberchef
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/cyberchef.png
 keywords:
   - cyberchef
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -32,4 +32,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/cyberchef
   - https://hub.docker.com/r/mpepping/cyberchef
 type: application
-version: 8.5.0
+version: 8.6.0

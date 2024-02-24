@@ -1,5 +1,5 @@
 annotations:
-  max_scale_version: 23.10.2
+  max_scale_version: 24.04.0
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: web-server
@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 2.27.0
 dependencies:
   - name: common
-    version: 17.4.2
+    version: 17.5.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -24,7 +24,7 @@ keywords:
   - web-server
   - apache
   - rust
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -36,4 +36,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/static-web-server
   - https://ghcr.io/static-web-server/static-web-server
 type: application
-version: 3.5.0
+version: 3.6.0

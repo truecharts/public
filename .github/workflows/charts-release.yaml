@@ -27,7 +27,7 @@ jobs:
           repository: truecharts/helm-staging
           token: ${{ secrets.BOT_TOKEN }}
           path: helm
-          
+
       - name: Install pre-commit, yamale and yamllint
         run: |
           pip3 install --no-cache-dir pre-commit
@@ -93,7 +93,7 @@ jobs:
         with:
           token: ${{ secrets.BOT_TOKEN }}
           fetch-depth: 0
-          
+
       - name: Prep Helm
         shell: bash
         run: |
