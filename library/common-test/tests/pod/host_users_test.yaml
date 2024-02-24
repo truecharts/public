@@ -179,7 +179,7 @@ tests:
     set:
       resources:
         limits:
-          intel.com/i915: 1
+          gpu.intel.com/i915: 1
       workload:
         workload-name1:
           enabled: true

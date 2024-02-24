@@ -86,7 +86,7 @@ resources: The resources object
   {{- $objectData := .objectData -}}
   {{- $gpuType := .gpuType -}}
 
-  {{- $types := (list "nvidia.com/gpu" "amd.com/gpu" "intel.com/i915") -}}
+  {{- $types := (list "nvidia.com/gpu" "amd.com/gpu" "gpu.intel.com/i915") -}}
   {{- if $gpuType -}}
     {{- $types = (list $gpuType) -}}
   {{- end -}}
