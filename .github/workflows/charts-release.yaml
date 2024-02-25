@@ -40,6 +40,12 @@ jobs:
           # Fix sh files to always be executable
           find . -name '*.sh' | xargs chmod +x
 
+      # Optional step if GPG signing is used
+      - name: Clean Questions
+        shell: bash
+        run: |
+          find ./helm -type f -name 'questions.yaml' -exec rm {} \;
+
       - name: Commit Helm Changes
         run: |
           rm -rf helm/charts
