@@ -1,25 +1,22 @@
 image:
   pullPolicy: IfNotPresent
-  repository: kannix/monero-full-node
-  tag: latest@sha256:24071a723ae6a748ddbe892dfb8f6029f51aec381b760284ea71ccc16030a18e
-persistence:
-  blockchainstorage:
-    enabled: true
-    mountPath: /home/monero/.bitmonero
-  containerdir1:
-    enabled: true
-    mountPath: /usr/local
-  containerdir2:
-    enabled: true
-    mountPath: /src
-portal:
-  open:
-    enabled: true
+  repository: ghcr.io/sethforprivacy/simple-monerod
+  tag: v0.18.3.1@sha256:26492ad584d1022c62efe3529574264fc0a30107e797d23686c42c4c62eea093
+
+monero:
+  rpcbindip: "0.0.0.0"
+  rpcbindport: "18089"
+  publicnode: true
+  noigd: true
+  enablednsblocklist: true
+  pruneblockchain: true
+
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsGroup: 0
     runAsUser: 0
+
 service:
   main:
     ports:
@@ -27,18 +24,20 @@ service:
         port: 18080
         protocol: tcp
         targetPort: 18080
-  port2:
+  rpc:
     enabled: true
     ports:
-      port2:
+      rpc:
         enabled: true
-        port: 18081
+        port: 18089
         protocol: tcp
-        targetPort: 18081
-workload:
-  main:
-    podSpec:
-      containers:
-        main:
-          env:
-            name: monerod
+        targetPort: 18089
+
+persistence:
+  blockchainstorage:
+    enabled: true
+    mountPath: /home/monero/.bitmonero
+
+portal:
+  open:
+    enabled: true
