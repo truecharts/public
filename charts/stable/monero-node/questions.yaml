@@ -9,7 +9,7 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerConfig}
+# Include{containerAdvanced}
   - variable: monero
     group: App Configuration
     label: Monero Node Configuration
@@ -53,6 +53,9 @@ questions:
           schema:
             type: boolean
             default: true
+# Include{containerConfig}
+# Include{podOptions}
+# Include{serviceMain}
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
