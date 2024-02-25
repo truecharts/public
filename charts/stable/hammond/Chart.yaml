@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.0.0
+appVersion: 0.0.24
 dependencies:
   - name: common
     version: 18.0.2
@@ -29,8 +29,8 @@ maintainers:
     url: https://truecharts.org
 name: hammond
 sources:
-  - https://github.com/akhilrex/hammond
+  - https://github.com/AlfHou/hammond
   - https://github.com/truecharts/charts/tree/master/charts/stable/hammond
-  - https://hub.docker.com/r/akhilrex/hammond
+  - https://github.com/alfhou/hammond/pkgs/container/hammond
 type: application
-version: 9.1.1
+version: 9.1.2
