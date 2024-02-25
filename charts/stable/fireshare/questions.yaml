@@ -51,6 +51,7 @@ questions:
                                               description: Password for the admin user.
                                               schema:
                                                 type: string
+                                                private: true
                                                 default: ""
                                             - variable: LDAP_BASEDN
                                               label: LDAP BASEDN
