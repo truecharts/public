@@ -27,6 +27,49 @@ questions:
                                         schema:
                                           type: int
                                           default: 5
+                                      - variable: LDAP_ENABLE
+                                        label: Enable LDAP
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                          show_subquestions_if: true
+                                          subquestions:
+                                            - variable: LDAP_URL
+                                              label: LDAP URL
+                                              description: LDAP Server connection URL.
+                                              schema:
+                                                type: string
+                                                default: "ldap://localhost:3890"
+                                            - variable: LDAP_BINDDN
+                                              label: LDAP BINDDN
+                                              description: DN for the admin user.
+                                              schema:
+                                                type: string
+                                                default: "uid=admin,ou=people"
+                                            - variable: LDAP_PASSWORD
+                                              label: LDAP PASSWORD
+                                              description: Password for the admin user.
+                                              schema:
+                                                type: string
+                                                default: ""
+                                            - variable: LDAP_BASEDN
+                                              label: LDAP BASEDN
+                                              description: Base DN
+                                              schema:
+                                                type: string
+                                                default: "dc=example,dc=com"
+                                            - variable: LDAP_USER_FILTER
+                                              label: LDAP USER FILTER
+                                              description: User filter for LDAP login
+                                              schema:
+                                                type: string
+                                                default: "(&(|(uid={input})(mail={input}))(objectClass=person))"
+                                            - variable: LDAP_ADMIN_GROUP
+                                              label: LDAP ADMIN GROUP
+                                              description: LDAP group to be admin in fireshare. If not provided, everyone is admin.
+                                              schema:
+                                                type: string
+                                                default: "lldap_admin"
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
