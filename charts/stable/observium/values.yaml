@@ -5,9 +5,16 @@ image:
 
 securityContext:
   container:
-    readOnlyRootFilesystem: false
-    runAsGroup: 0
+    PUID: 0
     runAsUser: 0
+    runAsGroup: 0
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    capabilities:
+      add:
+        - NET_ADMIN
+        - NET_RAW
+        - SYS_MODULE
 
 service:
   main:
