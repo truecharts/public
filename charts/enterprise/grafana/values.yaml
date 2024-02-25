@@ -43,11 +43,6 @@ workload:
               secretKeyRef:
                 name: cnpg-main-user
                 key: password
-            
-    POSTGRES_DB: {{ .Values.cnpg.main.database | quote }}
-    POSTGRES_USER: {{ .Values.cnpg.main.user | quote }}
-    POSTGRES_PASSWORD: {{ .Values.cnpg.main.creds.password | trimAll "\"" }}
-    POSTGRES_HOST: {{ .Values.cnpg.main.creds.host | trimAll "\"" }}
           probes:
             liveness:
               path: "/api/health"
