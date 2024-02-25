@@ -16,6 +16,13 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
+  - name: mariadb
+    version: 13.0.0
+    repository: oci://tccr.io/truecharts
+    condition: mariadb.enabled
+    alias: ""
+    tags: []
+    import-values: []
 deprecated: false
 description: Observium is an autodiscovering network monitoring platform supporting a wide range of hardware platforms and operating systems.[br][br]
 home: https://truecharts.org/charts/stable/observium
@@ -32,6 +39,6 @@ name: observium
 sources:
   - https://www.observium.org/
   - https://github.com/truecharts/charts/tree/master/charts/stable/observium
-  - https://hub.docker.com/r/uberchuckie/observium
+  - https://github.com/pvrmza/docker-observium
 type: application
 version: 5.1.1
