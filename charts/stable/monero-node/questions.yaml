@@ -9,6 +9,7 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+# Include{containerBasic}
 # Include{containerAdvanced}
   - variable: monero
     group: App Configuration
@@ -37,7 +38,7 @@ questions:
             default: true
         - variable: noigd
           label: Enable No IGD
-          description: Enable --no-igd arg
+          description: Enable no-igd arg
           schema:
             type: boolean
             default: true
@@ -49,13 +50,12 @@ questions:
             default: true
         - variable: pruneblockchain
           label: Prune Blockchain
-          description: Enable --prune-blockchain arg
+          description: Enable prune-blockchain arg
           schema:
             type: boolean
             default: true
 # Include{containerConfig}
 # Include{podOptions}
-# Include{serviceMain}
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
