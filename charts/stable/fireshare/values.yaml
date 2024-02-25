@@ -22,12 +22,12 @@ workload:
             MINUTES_BETWEEN_VIDEO_SCANS: 5
             ADMIN_PASSWORD: "changeme"
             LDAP_ENABLE: false
-            LDAP_URL: ""
-            LDAP_BINDDN: ""
-            LDAP_PASSWORD: ""
-            LDAP_BASEDN: ""
-            LDAP_USER_FILTER: ""
-            LDAP_ADMIN_GROUP: ""
+            LDAP_URL: "ldap://localhost:3890"
+            LDAP_BINDDN: "uid=admin,ou=people"
+            LDAP_PASSWORD: "changeme"
+            LDAP_BASEDN: "dc=example,dc=com"
+            LDAP_USER_FILTER: "(&(|(uid={input})(mail={input}))(objectClass=person))"
+            LDAP_ADMIN_GROUP: "lldap_admin"
 
 service:
   main:
