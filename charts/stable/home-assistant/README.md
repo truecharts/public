@@ -17,6 +17,7 @@ For more information about this App, please check the docs on the TrueCharts [we
 - See the [Website](https://truecharts.org)
 - Check our [Discord](https://discord.gg/tVsPTHWTtr)
 - Open a [issue](https://github.com/truecharts/charts/issues/new/choose)
+- Installation Notes [Notes](https://github.com/truecharts/chartsdysnle/home-assistane/docs/installation_notes.md)
 
 ---
 
