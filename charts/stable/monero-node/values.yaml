@@ -33,14 +33,6 @@ service:
         protocol: tcp
         targetPort: 18089
 
-workload:
-  main:
-    podSpec:
-      containers:
-        main:
-          args:
-            name: monerod
-
 persistence:
   blockchainstorage:
     enabled: true
