@@ -26,6 +26,60 @@ questions:
                                         schema:
                                           type: string
                                           default: ""
+                                      variable: mail
+                                        label: Show Mail Server Settings
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                          show_subquestions_if: true
+                                          subquestions:
+                                            - variable: MAIL_MAILER
+                                              label: Server Memory
+                                              schema:
+                                                type: string
+                                                required: true
+                                                default: "smtp"
+                                            - variable: MAIL_HOST
+                                              label: Host
+                                              schema:
+                                                type: string
+                                                required: true
+                                                default: ""
+                                            - variable: MAIL_PORT
+                                              label: Port
+                                              schema:
+                                                type: int
+                                                required: true
+                                                default: 465
+                                            - variable: MAIL_USERNAME
+                                              label: Username
+                                              schema:
+                                                type: string
+                                                required: true
+                                                default: ""
+                                            - variable: MAIL_PASSWORD
+                                              label: Password
+                                              schema:
+                                                type: string
+                                                required: true
+                                                private: true
+                                                default: ""
+                                            - variable: MAIL_ENCRYPTION
+                                              label: Mail Server Port
+                                              schema:
+                                                type: string
+                                                required: true
+                                                default: ""
+                                            - variable: MAIL_FROM_ADDRESS
+                                              label: Sender Address
+                                              schema:
+                                                type: string
+                                                default: "SSL"
+                                            - variable: MAIL_FROM_NAME
+                                              label: Sender Name
+                                              schema:
+                                                type: string
+                                                default: "Speedtest Tracker"
 
 # Include{containerBasic}
 # Include{containerAdvanced}

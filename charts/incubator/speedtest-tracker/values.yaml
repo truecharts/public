@@ -48,7 +48,6 @@ workload:
               httpHeaders:
                 Host: localhost
           env:
-            PAPERLESS_PORT: "{{ .Values.service.main.ports.main.targetPort }}"
             APP_URL: ""
             PUID: "{{ .Values.securityContext.container.PUID }}"
             PGID: "{{ .Values.securityContext.pod.fsGroup }}"
@@ -66,11 +65,12 @@ workload:
               secretKeyRef:
                 name: cnpg-main-user
                 key: password
-            MAIL_MAILER: ""
+            APP_KEY: ""
+            MAIL_MAILER: "smtp"
             MAIL_PORT : 465
             MAIL_USERNAME: ""
             MAIL_PASSWORD: ""
             MAIL_ENCRYPTION: ""
             MAIL_FROM_ADDRESS: ""
-            MAIL_FROM_NAME: ""
-            APP_KEY: ""
+            MAIL_FROM_NAME: "Speedtest Tracker"
+
