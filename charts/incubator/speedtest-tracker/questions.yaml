@@ -9,7 +9,6 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-# Include{containerMain}
                                 - variable: env
                                   group: "App Configuration"
                                   label: "Image Environment"
@@ -75,7 +74,7 @@ questions:
                                               label: Sender Address
                                               schema:
                                                 type: string
-                                                default: "SSL"
+                                                default: ""
                                             - variable: MAIL_FROM_NAME
                                               label: Sender Name
                                               schema:
@@ -89,72 +88,72 @@ questions:
 # Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
-  - variable: main
-    label: "Main Service Port Configuration"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: port
-          label: "Port"
-          description: "This port exposes the container port on the service"
-          schema:
-            type: int
-            default: 10140
-            required: true
+                    - variable: main
+                      label: "Main Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 9004
+                              required: true
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-  - variable: config
-    label: "App Config Storage"
-    description: "This is where speedtest-tracker stores its config"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
+        - variable: config
+          label: App Config Storage
+          description: Stores the Application Config.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
 # Include{persistenceBasic}
-  - variable: web
-    label: App SSL Storage
-    description: "This is where speedtest-tracker stores its SSL Certs"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
+        - variable: web
+          label: App SSL Storage
+          description: "This is where speedtest-tracker stores its SSL Certs"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
 # Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
-  - variable: main
-    label: "Main Ingress"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
+        - variable: main
+          label: "Main Ingress"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
 # Include{ingressDefault}
 # Include{ingressAdvanced}
 # Include{ingressList}
 # Include{securityContextRoot}
-  - variable: runAsUser
-    label: "runAsUser"
-    description: "The UserID of the user running the application"
-    schema:
-      type: int
-      default: 0
-  - variable: runAsGroup
-    label: "runAsGroup"
-    description: "The groupID this App of the user running the application"
-    schema:
-      type: int
-      default: 0
+              - variable: runAsUser
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
+                schema:
+                  type: int
+                  default: 568
+              - variable: runAsGroup
+                label: "runAsGroup"
+                description: "The groupID this App of the user running the application"
+                schema:
+                  type: int
+                  default: 568
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
-  - variable: fsGroup
-    label: "fsGroup"
-    description: "The group that should own ALL storage."
-    schema:
-      type: int
-      default: 568
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
+                schema:
+                  type: int
+                  default: 568
 # Include{resources}
 # Include{postgresql}
 # Include{advanced}
