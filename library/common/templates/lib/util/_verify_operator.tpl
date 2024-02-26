@@ -3,26 +3,6 @@
     {{/* Go over all operators that need to be verified */}}
     {{- $operatorList := .Values.operator.verify.additionalOperators -}}
 
-    {{- $cnpg := false -}}
-    {{- range $opName := $.Values.cnpg -}}
-      {{- if .enabled -}}
-        {{- $cnpg = true -}}
-      {{- end -}}
-    {{- end -}}
-    {{- if $cnpg -}}
-      {{- $operatorList = mustAppend $operatorList "cloudnative-pg" -}}
-    {{- end -}}
-
-    {{- $ingress := false -}}
-    {{- range $opName := $.Values.ingress -}}
-      {{- if .enabled -}}
-        {{- $ingress = true -}}
-      {{- end -}}
-    {{- end -}}
-    {{- if $ingress -}}
-      {{- $operatorList = mustAppend $operatorList "traefik" -}}
-    {{- end -}}
-
     {{- $clusterCertificate := false -}}
     {{- if $.Values.clusterCertificates -}}
       {{- range $opName := $.Values.clusterCertificates.certificates -}}

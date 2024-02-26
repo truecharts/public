@@ -14,6 +14,9 @@
   {{- if and (hasKey $values "nameOverride") $values.nameOverride -}}
     {{- $podmonitorName = printf "%v-%v" $podmonitorName $values.nameOverride -}}
   {{- end }}
+
+  {{- include "tc.v1.common.lib.util.verifycrd" (dict "crd" "podmonitors.monitoring.coreos.com" "missing" "Grafana-Agent-Operator or Prometheus-Operator") }}
+
 ---
 apiVersion: {{ include "tc.v1.common.capabilities.podmonitor.apiVersion" $ }}
 kind: PodMonitor

@@ -855,6 +855,10 @@ metrics:
         #   # list to support adding rules via the SCALE GUI without overwrithing the rules
         #   additionalrules: []
 
+crd:
+  verify:
+    enabled: true
+
 # -- Contains specific settings for helm charts containing or using operators
 operator:
   # -- Adds a configmap to the operator to register this chart as an operator

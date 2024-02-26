@@ -25,6 +25,9 @@ objectData:
     */}}
     {{- $namespace = ($lookupBSL.items | first).metadata.namespace -}}
   {{- end }}
+
+  {{- include "tc.v1.common.lib.util.verifycrd" (dict "rootCtx" $rootCtx "crd" "schedules.velero.io" "missing" "Velero") }}
+
 ---
 apiVersion: velero.io/v1
 kind: Schedule
