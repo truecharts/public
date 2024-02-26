@@ -43,7 +43,6 @@ workload:
               type: http
           env:
             APP_URL: ""
-            PGID: "{{ .Values.securityContext.pod.fsGroup }}"
             TZ: "{{ .Values.TZ }}"
             DB_CONNECTION: pgsql
             DB_HOST:
