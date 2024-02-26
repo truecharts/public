@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 3.2.20240219
+appVersion: 3.2.20240226
 dependencies:
   - name: common
     version: 18.0.3
@@ -24,7 +24,7 @@ keywords:
   - cron
   - monitoring
   - alert
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
