@@ -43,12 +43,12 @@ fi
 
 if [[ "$curr_chart" != "charts/operators/grafana-agent-operator" ]]; then
     echo "Installing Grafana-Agent-Operator chart"
-	# TODO Enable later
-    # helm install prometheus-operator oci://tccr.io/truecharts/grafana-agent-operator --namespace grafana-agent-operator --create-namespace --wait
-    # if [[ "$?" != "0" ]]; then
-    #     echo "Failed to install grafana-agent-operator chart"
-    #     exit 1
-    # fi
+	TODO Enable later
+    helm install prometheus-operator oci://tccr.io/truecharts/grafana-agent-operator --namespace grafana-agent-operator --create-namespace --wait
+    if [[ "$?" != "0" ]]; then
+        echo "Failed to install grafana-agent-operator chart"
+        exit 1
+    fi
     echo "Done installing grafana-agent-operator chart"
 fi
 
