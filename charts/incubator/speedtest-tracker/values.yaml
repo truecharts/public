@@ -39,7 +39,6 @@ workload:
               add:
                 - SYS_CHROOT
                 - KILL
-                - NET_BIND_SERVICE
           probes:
             liveness:
               type: http
@@ -61,7 +60,10 @@ workload:
               secretKeyRef:
                 name: cnpg-main-user
                 key: password
-            APP_KEY: ""
+            APP_KEY:
+              secretKeyRef:
+                name: secrets
+                key: APP_KEY
             MAIL_MAILER: "smtp"
             MAIL_PORT : 465
             MAIL_USERNAME: ""
