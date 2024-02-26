@@ -51,6 +51,17 @@ if [[ "$curr_chart" != "charts/operators/prometheus-operator" ]]; then
     echo "Done installing prometheus-operator chart"
 fi
 
+if [[ "$curr_chart" == "charts/enterprise/mimir" ]]; then
+    echo "Installing Grafana-Agent-Operator chart"
+	# TODO Enable later
+    # helm install prometheus-operator oci://tccr.io/truecharts/grafana-agent-operator --namespace grafana-agent-operator --create-namespace --wait
+     if [[ "$?" != "0" ]]; then
+         echo "Failed to install grafana-agent-operator chart"
+         exit 1
+     fi
+    echo "Done installing grafana-agent-operator chart"
+fi
+
 if [[ "$curr_chart" != "charts/enterprise/traefik" ]]; then
    echo "Installing traefik chart"
    helm install traefik oci://tccr.io/truecharts/traefik --namespace traefik --create-namespace --wait \
