@@ -32,7 +32,7 @@ configmap:
         apiVersion: 1
         datasources:
         - name: Mimir
-          type: Prometheus
+          type: prometheus
           uid: {{ .Values.grafana.datasource.uid | default "prometheus" }}
           url: http://{{ if ne .Release.Name "mimir" }}{{ .Release.Name }}-{{ end }}mimir-nginx.{{ .Release.Namespace }}/prometheus
           access: proxy
