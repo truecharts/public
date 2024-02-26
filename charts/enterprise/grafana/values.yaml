@@ -31,6 +31,18 @@ workload:
             GF_AUTH_LDAP_ENABLED: "false"
             GF_AUTH_LDAP_ALLOW_SIGN_UP: "false"
             GF_SERVER_HTTP_PORT: 3000
+            GF_DATABASE_TYPE: postgres
+            GF_DATABASE_NAME: "{{ .Values.cnpg.main.user }}"
+            GF_DATABASE_USER: "{{ .Values.cnpg.main.database }}"
+            GF_DATABASE_SSL_MODE: disable
+            GF_DATABASE_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            GF_DATABASE_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
           probes:
             liveness:
               path: "/api/health"
@@ -326,3 +338,9 @@ serviceAccount:
 
 podOptions:
   automountServiceAccountToken: true
+
+cnpg:
+  main:
+    enabled: true
+    user: grafana
+    database: grafana
