@@ -34,7 +34,7 @@ configmap:
         - name: Mimir
           type: Prometheus
           uid: {{ .Values.grafana.datasource.uid | default "prometheus" }}
-          url: http://{{ .Release.Name }}-mimir-nginx/prometheus
+          url: http://{{ if ne .Release.Name "mimir" }}{{ .Release.Name }}-{{ end }}mimir-nginx.{{ .Release.Namespace }}/prometheus
           access: proxy
           isDefault: {{ .Values.grafana.datasource.default | default true }}
           jsonData:
