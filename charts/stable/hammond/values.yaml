@@ -9,7 +9,7 @@ service:
       main:
         targetPort: 3000
         port: 10186
-        
+
 workload:
   main:
     podSpec:
@@ -23,7 +23,7 @@ workload:
             # manually define storage paths
             CONFIG: "{{.Values.persistence.config.mountPath }}"
             DATA: "{{.Values.persistence.assets.mountPath }}"
-                
+
 persistence:
   config:
     enabled: true
