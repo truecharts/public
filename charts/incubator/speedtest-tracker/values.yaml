@@ -62,7 +62,7 @@ workload:
                 key: password
             APP_KEY:
               secretKeyRef:
-                name: secrets
+                name: speedtest-tracker-secrets
                 key: APP_KEY
             MAIL_MAILER: "smtp"
             MAIL_PORT : 465
