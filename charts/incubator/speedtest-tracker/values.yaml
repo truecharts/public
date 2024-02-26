@@ -1,7 +1,7 @@
 image:
-  repository: lscr.io/linuxserver/speedtest-tracker
+  repository: ghcr.io/linuxserver/speedtest-tracker
   pullPolicy: IfNotPresent
-  tag: v0.17.2@sha256:8740fac580ae9e7d4d7d0da9e213280f7a97b7faaf1375db69f61eb7e563106a
+  tag: 0.17.2@sha256:739aaa9df772ff38014d34eb1deddcea16a9e8ab6f72b30e24b23963ca397681
 service:
   main:
     ports:
@@ -12,6 +12,9 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+  web:
+    enabled: true
+    mountPath: "/etc/ssl/web"
 cnpg:
   main:
     enabled: true
@@ -46,15 +49,28 @@ workload:
                 Host: localhost
           env:
             PAPERLESS_PORT: "{{ .Values.service.main.ports.main.targetPort }}"
+            APP_URL: ""
             PUID: "{{ .Values.securityContext.container.PUID }}"
             PGID: "{{ .Values.securityContext.pod.fsGroup }}"
             TZ: "{{ .Values.TZ }}"
             DB_CONNECTION: pgsql
+            DB_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            DB_PORT: "5432"
             DB_DATABASE: "{{ .Values.cnpg.main.database }}"
             DB_USERNAME: "{{ .Values.cnpg.main.user }}"
-            DB_PORT: "5432"
             DB_PASSWORD: "{{ .Values.cnpg.main.password }}"
             DB_PASSWORD:
               secretKeyRef:
                 name: cnpg-main-user
                 key: password
+            MAIL_MAILER: ""
+            MAIL_PORT : 465
+            MAIL_USERNAME: ""
+            MAIL_PASSWORD: ""
+            MAIL_ENCRYPTION: ""
+            MAIL_FROM_ADDRESS: ""
+            MAIL_FROM_NAME: ""
+            APP_KEY: ""
