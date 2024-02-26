@@ -22,11 +22,11 @@ workload:
       containers:
         main:
           env:
-          WEB_PORT:	"{{ .Values.service.main.ports.main.port }}"
-          NUT_HOST:	"localhost"
-          NUT_PORT:	3493
-          USERNAME:	""
-          PASSWORD: ""
+            WEB_PORT:	"{{ .Values.service.main.ports.main.port }}"
+            NUT_HOST:	"localhost"
+            NUT_PORT:	3493
+            USERNAME:	""
+            PASSWORD: ""
 
 portal:
   open:
