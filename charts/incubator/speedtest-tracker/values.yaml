@@ -37,16 +37,10 @@ workload:
           probes:
             liveness:
               type: http
-              httpHeaders:
-                Host: localhost
             startup:
               type: http
-              httpHeaders:
-                Host: localhost
             readiness:
               type: http
-              httpHeaders:
-                Host: localhost
           env:
             APP_URL: ""
             PUID: "{{ .Values.securityContext.container.PUID }}"
