@@ -1,0 +1,45 @@
+image:
+  repository: tccr.io/truecharts/scratch
+  pullPolicy: IfNotPresent
+  tag: 18.0.1@sha256:49df5708d7fc085acf76c7868f10f25fa7ba947c8a7d3354a97207ba69c85cc3
+
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+workload:
+  main:
+    enabled: false
+    podSpec:
+      containers:
+        main:
+          enabled: false
+
+portal:
+  open:
+    enabled: false
+ 
+
+# -- Values exposed by the [Grafana agent-operator chart](https://github.com/grafana/helm-charts/blob/main/charts/agent-operator/values.yaml)
+grafana-agent-operator:
+  podSecurityContext:
+    fsGroup: 10001
+    runAsGroup: 10001
+    runAsNonRoot: true
+    runAsUser: 10001
+    seccompProfile:
+      type: RuntimeDefault
+
+  containerSecurityContext:
+    allowPrivilegeEscalation: false
+    readOnlyRootFilesystem: true
+    capabilities:
+      drop: [ALL]
+      
+  crds:
+    # Disable included crd system in favor of ours
+    create: false
+
