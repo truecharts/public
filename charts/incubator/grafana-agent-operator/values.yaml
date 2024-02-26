@@ -1,7 +1,10 @@
 image:
-  repository: tccr.io/truecharts/scratch
+  repository: grafana/agent-operator
   pullPolicy: IfNotPresent
-  tag: 18.0.1@sha256:49df5708d7fc085acf76c7868f10f25fa7ba947c8a7d3354a97207ba69c85cc3
+  tag: v0.39.1
+
+podOptions:
+  automountServiceAccountToken: true
 
 service:
   main:
@@ -12,34 +15,78 @@ service:
 
 workload:
   main:
-    enabled: false
     podSpec:
       containers:
         main:
-          enabled: false
-
+          args: 
+            - "--kubelet-service={{ .Values.kubeletService.namespace }}/{{ .Values.kubeletService.serviceName }}"
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+                
 portal:
   open:
     enabled: false
  
 
-# -- Values exposed by the [Grafana agent-operator chart](https://github.com/grafana/helm-charts/blob/main/charts/agent-operator/values.yaml)
-grafana-agent-operator:
-  podSecurityContext:
-    fsGroup: 10001
-    runAsGroup: 10001
-    runAsNonRoot: true
-    runAsUser: 10001
-    seccompProfile:
-      type: RuntimeDefault
-
-  containerSecurityContext:
-    allowPrivilegeEscalation: false
-    readOnlyRootFilesystem: true
-    capabilities:
-      drop: [ALL]
-      
-  crds:
-    # Disable included crd system in favor of ours
-    create: false
-
+rbac:
+  main:
+    enabled: true
+    primary: true
+    clusterWide: true
+    rules:
+      - apiGroups: [monitoring.grafana.com]
+        resources:
+        - grafanaagents
+        - metricsinstances
+        - logsinstances
+        - podlogs
+        - integrations
+        verbs: [get, list, watch]
+      - apiGroups: [monitoring.grafana.com]
+        resources:
+        - grafanaagents/finalizers
+        - metricsinstances/finalizers
+        - logsinstances/finalizers
+        - podlogs/finalizers
+        - integrations/finalizers
+        verbs: [get, list, watch, update]
+      - apiGroups: [monitoring.coreos.com]
+        resources:
+        - podmonitors
+        - probes
+        - servicemonitors
+        verbs: [get, list, watch]
+      - apiGroups: [monitoring.coreos.com]
+        resources:
+        - podmonitors/finalizers
+        - probes/finalizers
+        - servicemonitors/finalizers
+        verbs: [get, list, watch, update]
+      - apiGroups: [""]
+        resources:
+        - namespaces
+        - nodes
+        verbs: [get, list, watch]
+      - apiGroups: [""]
+        resources:
+        - secrets
+        - services
+        - configmaps
+        - endpoints
+        verbs: [get, list, watch, create, update, patch, delete]
+      - apiGroups: ["apps"]
+        resources:
+        - statefulsets
+        - daemonsets
+        - deployments
+        verbs: [get, list, watch, create, update, patch, delete]
+# -- The service account the pods will use to interact with the Kubernetes API
+serviceAccount:
+  main:
+    enabled: true
+    primary: true
