@@ -20,7 +20,7 @@ dependencies:
     version: 5.2.1
     repository: https://grafana.github.io/helm-charts
     condition: ""
-    alias: ""
+    alias: "mimir"
     tags: []
     import-values: []
 deprecated: false
@@ -39,4 +39,4 @@ name: mimir
 sources:
   - https://grafana.com
 type: application
-version: 0.1.0
+version: 0.1.4
