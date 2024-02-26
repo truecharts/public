@@ -13,8 +13,6 @@ on:
 jobs:
   release-helm:
     runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/truecharts/devcontainer:3.1.10@sha256:c239addf725eb5cedf79517f8089fdafdc32b5270d1893ee87ae6e511b9bcae3
     steps:
       - name: Checkout
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
@@ -30,6 +28,10 @@ jobs:
           token: ${{ secrets.BOT_TOKEN }}
           path: helm
 
+      - name: Install pre-commit, yamale and yamllint
+        run: |
+          pip3 install --no-cache-dir pre-commit
+
       - name: Fix Pre-Commit issues
         shell: bash
         run: |
@@ -37,6 +39,12 @@ jobs:
           pre-commit run --all ||:
           # Fix sh files to always be executable
           find . -name '*.sh' | xargs chmod +x
+
+      # Optional step if GPG signing is used
+      - name: Clean Questions
+        shell: bash
+        run: |
+          find ./helm -type f -name 'questions.yaml' -exec rm {} \;
 
       - name: Commit Helm Changes
         run: |
@@ -60,19 +68,11 @@ jobs:
       ref: ${{ steps.save-commit-hash.outputs.commit_hash }}
     steps:
       - name: Install Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@af4ebb1af1efd30c5bd84a2e9773355ad6362a33 # v0.9.3
+        uses: yokawasa/action-setup-kube-tools@dc0754a9a47b40f22f9bd52ffb082bbe6d142b22 # v0.11.0
         with:
           setup-tools: |
             helmv3
           helm: "3.14.0"
-
-      - name: Prep Helm
-        run: |
-          helm repo add jetstack https://charts.jetstack.io
-          helm repo add vmwaretanzu https://vmware-tanzu.github.io/helm-charts
-          helm repo add cnpg https://cloudnative-pg.github.io/charts
-          helm repo add metallb https://metallb.github.io/metallb
-          helm repo update
 
       - name: Prep go-yq
         run: |
@@ -99,6 +99,11 @@ jobs:
         with:
           token: ${{ secrets.BOT_TOKEN }}
           fetch-depth: 0
+
+      - name: Prep Helm
+        shell: bash
+        run: |
+          ./.github/scripts/prep_helm.sh
 
       - name: Setting repo parent dir as safe safe.directory
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
@@ -278,10 +283,7 @@ jobs:
         run: |
           CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
           ./charttool deps
-          pip install yq
-          parthreads=$(($(nproc) * 2))
-          parallel -j ${parthreads} .github/scripts/build-catalog.sh '2>&1' ::: ${CHARTS[@]}
-          rm -rf website
+          ./charttool buildSCALE
 
       - name: Commit Catalog
         if: |

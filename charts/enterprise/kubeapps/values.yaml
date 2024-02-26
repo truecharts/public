@@ -1,28 +1,66 @@
 image:
   pullPolicy: IfNotPresent
-  repository: tccr.io/tccr/alpine
-  tag: latest@sha256:ade0065e19edaa4f6903d464ee70605111a48394536deb94f31b661264704558
-manifestManager:
-  enabled: false
+  repository: ghcr.io/xstar97/my-proxy-service
+  tag: v0.0.3@sha256:272f4af7f79fac47de413b9a756d2ca23df27df4fb5af2e41a2c9f8cfe6ce642
+
 operator:
   register: false
+
 portal:
   open:
-    enabled: false
+    enabled: true
+
+podOptions:
+  automountServiceAccountToken: true
+
 workload:
+  ## TODO: Enable
   main:
     enabled: false
+    primary: true
+    type: Deployment
+    podSpec:
+      containers:
+        ## TODO: Enable
+        main:
+          enabled: false
+          primary: true
+          env:
+            PORT: 3000
+            API_FILE: /var/run/secrets/kubernetes.io/serviceaccount/token
+            PROXY_TARGET: http://tckubeapps:8080
+          probes:
+            liveness:
+              enabled: true
+              type: tcp
+              port: 3000
+            readiness:
+              enabled: true
+              type: tcp
+              port: 3000
+            startup:
+              enabled: true
+              type: tcp
+              port: 3000
 
 service:
+  ## TODO: Enable
   main:
     enabled: false
-    ports:
-      main:
-        enabled: false
-  tckubeapps:
-    enabled: true
     primary: true
     expandObjectName: false
+    ports:
+      main:
+        ## TODO: Enable
+        enabled: false
+        primary: true
+        port: 3000
+        targetPort: 3000
+  tckubeapps:
+    enabled: true
+    expandObjectName: false
+    ## TODO: Move to main service
+    primary: true
     labels:
       truecharts.org/flagged: "true"
     selectorLabels:
@@ -39,14 +77,7 @@ serviceAccount:
   kubeapps-operator:
     enabled: true
     primary: true
-
-secret:
-  kubeapps-operator-token:
-    enabled: true
-    type: kubernetes.io/service-account-token
-    annotations:
-      kubernetes.io/service-account.name: kubeapps-operator
-    stringData: "-"
+    targetSelectAll: true
 
 rbac:
   kubeapps-operator:
@@ -59,7 +90,7 @@ rbac:
         resources: ["*"]
         verbs: ["*"]
 
-kubeapps:
+ogkubeapps:
   frontend:
     podLabels:
       truecharts.org/kahack: frontend

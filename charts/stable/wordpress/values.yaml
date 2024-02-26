@@ -1,7 +1,7 @@
 image:
   repository: bitnami/wordpress
   pullPolicy: IfNotPresent
-  tag: 6.4.3@sha256:a7bab323d9056207b275ac953d8ce55c53b807759486ece516713caa584b8ae7
+  tag: 6.4.3@sha256:12f579206273f9b1e4574f28f1dad28956da23d51d977c1430c88aa413e194d1
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -16,6 +16,19 @@ workload:
                 name: env-config
             - secretRef:
                 name: env-secret
+          probes:
+            liveness:
+              enabled: true
+              type: tcp
+              port: 10591
+            readiness:
+              enabled: true
+              type: tcp
+              port: 10591
+            startup:
+              enabled: true
+              type: tcp
+              port: 10591
 wordpress:
   user: user
   pass: bitnami

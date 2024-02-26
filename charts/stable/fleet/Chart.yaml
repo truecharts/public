@@ -1,5 +1,5 @@
 annotations:
-  max_scale_version: 23.10.2
+  max_scale_version: 24.04.0
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: incubator
@@ -10,14 +10,14 @@ apiVersion: v2
 appVersion: 2.3.3
 dependencies:
   - name: common
-    version: 17.2.30
+    version: 18.0.2
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mariadb
-    version: 12.1.17
+    version: 13.0.0
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -29,7 +29,7 @@ home: https://truecharts.org/charts/stable/fleet
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/fleet.png
 keywords:
   - fleet
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -39,4 +39,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/fleet
   - https://ghcr.io/linuxserver/fleet
 type: application
-version: 11.1.22
+version: 12.2.3

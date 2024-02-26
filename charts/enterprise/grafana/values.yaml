@@ -1,7 +1,7 @@
 image:
   repository: grafana/grafana
   pullPolicy: IfNotPresent
-  tag: 10.3.1@sha256:7567a7c70a3c1d75aeeedc968d1304174a16651e55a60d1fb132a05e1e63a054
+  tag: 10.3.3@sha256:8640e5038e83ca4554ed56b9d76375158bcd51580238c6f5d8adaf3f20dd5379
 
 sidecarImage:
   repository: quay.io/kiwigrid/k8s-sidecar
@@ -31,6 +31,18 @@ workload:
             GF_AUTH_LDAP_ENABLED: "false"
             GF_AUTH_LDAP_ALLOW_SIGN_UP: "false"
             GF_SERVER_HTTP_PORT: 3000
+            GF_DATABASE_TYPE: postgres
+            GF_DATABASE_NAME: "{{ .Values.cnpg.main.user }}"
+            GF_DATABASE_USER: "{{ .Values.cnpg.main.database }}"
+            GF_DATABASE_SSL_MODE: disable
+            GF_DATABASE_HOST:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: host
+            GF_DATABASE_PASSWORD:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: password
           probes:
             liveness:
               path: "/api/health"
@@ -326,3 +338,9 @@ serviceAccount:
 
 podOptions:
   automountServiceAccountToken: true
+
+cnpg:
+  main:
+    enabled: true
+    user: grafana
+    database: grafana

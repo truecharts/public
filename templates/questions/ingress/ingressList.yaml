@@ -115,13 +115,6 @@
                             schema:
                               type: string
                               default: ""
-                          - variable: scaleCert
-                            label: Use TrueNAS SCALE Certificate (Deprecated)
-                            schema:
-                              show_if: [["certificateIssuer", "=", ""]]
-                              type: int
-                              $ref:
-                                - "definitions/certificate"
                           - variable: clusterCertificate
                             label:  'Cluster Certificate (Advanced)'
                             description: 'Add the name of your cluster-wide certificate, that you set up in the ClusterIssuer chart.'

@@ -1,5 +1,5 @@
 annotations:
-  max_scale_version: 23.10.2
+  max_scale_version: 24.04.0
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: security
@@ -7,10 +7,10 @@ annotations:
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 5.2.5.0
+appVersion: 5.2.8.0
 dependencies:
   - name: common
-    version: 17.2.30
+    version: 18.0.2
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/ispy-agent-dvr
   - https://hub.docker.com/r/doitandbedone/ispyagentdvr
 type: application
-version: 8.2.9
+version: 9.1.2

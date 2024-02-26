@@ -1,5 +1,5 @@
 annotations:
-  max_scale_version: 23.10.2
+  max_scale_version: 24.04.0
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
@@ -7,10 +7,10 @@ annotations:
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 3.2.20240212
+appVersion: 3.2.20240219
 dependencies:
   - name: common
-    version: 17.2.30
+    version: 18.0.2
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/healthchecks
   - https://ghcr.io/linuxserver/healthchecks
 type: application
-version: 13.2.1
+version: 14.1.2

@@ -1,5 +1,5 @@
 annotations:
-  max_scale_version: 23.10.2
+  max_scale_version: 24.04.0
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: hosting
@@ -7,10 +7,10 @@ annotations:
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 9.5.0
+appVersion: 9.6.0
 dependencies:
   - name: common
-    version: 17.2.30
+    version: 18.0.2
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -24,7 +24,7 @@ keywords:
   - team
   - mattermost
   - development
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -36,4 +36,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/mattermost
   - https://hub.docker.com/r/mattermost/mattermost-enterprise-edition
 type: application
-version: 11.2.5
+version: 12.2.0
