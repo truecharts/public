@@ -106,7 +106,7 @@ mimir:
         requiredDuringSchedulingIgnoredDuringExecution:
           - labelSelector:
               matchExpressions:
-                - key: target # support for enterprise.legacyLabels
+                - key: target
                   operator: In
                   values:
                     - ingester
@@ -200,7 +200,7 @@ mimir:
         requiredDuringSchedulingIgnoredDuringExecution:
           - labelSelector:
               matchExpressions:
-                - key: target # support for enterprise.legacyLabels
+                - key: target
                   operator: In
                   values:
                     - store-gateway
