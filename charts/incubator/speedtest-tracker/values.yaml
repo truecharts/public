@@ -60,7 +60,6 @@ workload:
             DB_PORT: "5432"
             DB_DATABASE: "{{ .Values.cnpg.main.database }}"
             DB_USERNAME: "{{ .Values.cnpg.main.user }}"
-            DB_PASSWORD: "{{ .Values.cnpg.main.password }}"
             DB_PASSWORD:
               secretKeyRef:
                 name: cnpg-main-user
