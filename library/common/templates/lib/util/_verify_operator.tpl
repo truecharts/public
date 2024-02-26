@@ -35,16 +35,6 @@
       {{- end -}}
     {{- end -}}
 
-    {{- $metrics := false -}}
-    {{- range $opName := $.Values.metrics -}}
-      {{- if .enabled -}}
-        {{- $metrics = true -}}
-      {{- end -}}
-    {{- end -}}
-    {{- if $metrics -}}
-      {{- $operatorList = mustAppend $operatorList "prometheus-operator" -}}
-    {{- end -}}
-
     {{- range $opName := $operatorList -}}
       {{- $fetchedOpData := include "tc.v1.common.lib.util.operator.verify" (dict "rootCtx" $ "opName" $opName) -}}
 
