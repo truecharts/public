@@ -43,6 +43,9 @@ configmap:
             {{- if .Values.grafana.datasource.timeout }}
             timeout: {{ .Values.grafana.datasource.timeout }}
             {{- end }}
+            httpHeaderName1: 'X-Scope-OrgID'
+          secureJsonData:
+            httpHeaderValue1: 'metamonitoring'
 
 grafana:
   datasource:
