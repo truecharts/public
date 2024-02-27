@@ -1,7 +1,7 @@
 {{/* Make sure all variables are set properly */}}
 {{- include "tc.v1.common.loader.init" . }}
 
-{{- $overrideService := dict "name" "tckubeapps" "port" 8080 "expandObjectName" false -}}
+{{- $overrideService := dict "name" "tckubeapps" "port" 8080 -}}
 {{- $hosts := list -}}
 {{- range $.Values.ingress.main.hosts -}}
   {{- $paths := list -}}

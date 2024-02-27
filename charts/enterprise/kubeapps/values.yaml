@@ -58,8 +58,6 @@ service:
         targetPort: 3000
   tckubeapps:
     enabled: true
-    expandObjectName: false
-    ## TODO: Move to main service
     primary: true
     labels:
       truecharts.org/flagged: "true"
