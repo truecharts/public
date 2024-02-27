@@ -84,6 +84,4 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: url
-            REDIS_DB: ""
-            REDIS_CACHE_DB: ""
 
