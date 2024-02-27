@@ -300,7 +300,7 @@ metrics:
   main:
     # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
     # @default -- See values.yaml
-    enabled: false
+    enabled: true
     type: "servicemonitor"
     endpoints:
       - port: main
@@ -322,6 +322,16 @@ metrics:
       #   for: 5m
       #   labels:
       #     severity: critical
+      
+configmap:
+  dashboard:
+    enabled: true
+    labels:
+      grafanadasboard: '1'
+    data:
+      blocky.json: >-
+        {{ .Files.Get "dashboard.json" | indent 8 }}
+      
 redis:
   enabled: true
 # CANNOT be defined in above yaml section
@@ -342,4 +352,4 @@ cnpg:
     enabled: false
     user: blocky
     database: blocky
-updated: true
+
