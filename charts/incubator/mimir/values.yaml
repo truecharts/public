@@ -43,9 +43,6 @@ configmap:
             {{- if .Values.grafana.datasource.timeout }}
             timeout: {{ .Values.grafana.datasource.timeout }}
             {{- end }}
-            httpHeaderName1: 'X-Scope-OrgID'
-          secureJsonData:
-            httpHeaderValue1: 'metamonitoring'
 
 grafana:
   datasource:
@@ -68,6 +65,12 @@ mimir:
     grafanaAgent:
       enabled: true
       installOperator: false
+      metrics:
+        remote:
+          url: http://{{ if ne .Release.Name "mimir" }}{{ .Release.Name }}-{{ end }}mimir-nginx.{{ .Release.Namespace }}/prometheus
+          headers: {}
+        scrapeK8s:
+          enabled: false
 
   alertmanager:
     persistentVolume:
@@ -245,3 +248,128 @@ mimir:
       requests:
         cpu: 20m
         memory: 10Mi
+
+
+kps:
+  ## Install Prometheus Operator CRDs
+  ##
+  crds:
+    enabled: false
+
+  ## Manages Prometheus and Alertmanager components
+  ##
+  prometheusOperator:
+    enabled: false
+
+  ####
+  ##
+  ## Everything down here, explicitly disables everything BUT the operator itself
+  ##
+  ####
+
+  ##
+  global:
+    rbac:
+      create: true
+
+  ## Create default rules for monitoring the cluster
+  ##
+  defaultRules:
+    create: true
+
+  windowsMonitoring:
+    ## Deploys the windows-exporter and Windows-specific dashboards and rules (job name must be 'windows-exporter')
+    enabled: false
+
+  ## Configuration for prometheus-windows-exporter
+  ## ref: https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-windows-exporter
+  ##
+  prometheus-windows-exporter:
+    ## Enable ServiceMonitor and set Kubernetes label to use as a job label
+    ##
+    prometheus:
+      monitor:
+        enabled: false
+
+  ## Configuration for alertmanager
+  ## ref: https://prometheus.io/docs/alerting/alertmanager/
+  ##
+  alertmanager:
+    ## Deploy alertmanager
+    ##
+    enabled: false
+
+  ## Using default values from https://github.com/grafana/helm-charts/blob/main/charts/grafana/values.yaml
+  ##
+  grafana:
+    enabled: false
+    forceDeployDashboards: true
+    defaultDashboardsEnabled: true
+
+  ## Flag to disable all the kubernetes component scrapers
+  ##
+  kubernetesServiceMonitors:
+    enabled: true
+
+  ## Component scraping the kube api server
+  ##
+  kubeApiServer:
+    enabled: true
+
+  ## Component scraping the kubelet and kubelet-hosted cAdvisor
+  ##
+  kubelet:
+    enabled: true
+
+  ## Component scraping the kube controller manager
+  ##
+  kubeControllerManager:
+    enabled: true
+
+  ## Component scraping coreDns. Use either this or kubeDns
+  ##
+  coreDns:
+    enabled: true
+
+  ## Component scraping kubeDns. Use either this or coreDns
+  ##
+  kubeDns:
+    enabled: false
+
+  ## Component scraping etcd
+  ##
+  kubeEtcd:
+    enabled: true
+
+  ## Component scraping kube scheduler
+  ##
+  kubeScheduler:
+    enabled: true
+
+  ## Component scraping kube proxy
+  ##
+  kubeProxy:
+    enabled: false
+
+  ## Component scraping kube state metrics
+  ##
+  kubeStateMetrics:
+    enabled: true
+
+  ## dontDeploy node exporter as a daemonset to all nodes
+  ##
+  nodeExporter:
+    enabled: true
+
+  ## dont Deploy a Prometheus instance
+  ##
+  prometheus:
+    enabled: false
+
+  ## Configuration for thanosRuler
+  ## ref: https://thanos.io/tip/components/rule.md/
+  ##
+  thanosRuler:
+    ## Dont Deploy thanosRuler
+    ##
+    enabled: false
