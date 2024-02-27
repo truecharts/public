@@ -15,7 +15,7 @@
     {{- $servicemonitorName = printf "%v-%v" $servicemonitorName $values.nameOverride -}}
   {{- end }}
 
-  {{- include "tc.v1.common.lib.util.verifycrd" (dict "crd" "servicemonitors.monitoring.coreos.com" "missing" "Grafana-Agent-Operator or Prometheus-Operator") }}
+  {{- include "tc.v1.common.lib.util.verifycrd" (dict "rootCtx" . "crd" "servicemonitors.monitoring.coreos.com" "missing" "Prometheus-Operator") }}
 
 ---
 apiVersion: {{ include "tc.v1.common.capabilities.servicemonitor.apiVersion" $ }}
