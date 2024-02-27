@@ -35,7 +35,7 @@ configmap:
   dashboard:
     enabled: true
     labels:
-      grafanadasboard: '1'
+      grafanadasboard: "1"
     data:
       dashboard.json: |
         {{ .Files.Get "dashboard.json" | indent 8 }}
