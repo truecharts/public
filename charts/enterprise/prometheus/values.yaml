@@ -64,7 +64,7 @@ kps:
   ##
   prometheusOperator:
     enabled: false
-    
+
   ##
   global:
     rbac:
@@ -171,7 +171,6 @@ kps:
     ## Dont Deploy thanosRuler
     ##
     enabled: false
-
 
 service:
   main:
@@ -324,10 +323,10 @@ serviceAccount:
   main:
     enabled: true
     primary: true
-    
+
 securityContext:
   readOnlyRootFilesystem: false
-  
+
 probes:
   # -- Liveness probe configuration
   # @default -- See below
