@@ -119,14 +119,25 @@ logs:
     format: common
 metrics:
   main:
-    enabled: false
+    enabled: true
     type: servicemonitor
     endpoints:
       - port: metrics
         path: /metrics
     targetSelector: metrics
+
 globalArguments:
   - "--global.checknewversion"
+  
+configmap:
+  dashboard:
+    enabled: true
+    labels:
+      grafana_dashboard: '1'
+    data:
+      traefik.json: >-
+        {{ .Files.Get "dashboard.json" | indent 8 }}
+  
 ##
 # -- Additional arguments to be passed at Traefik's binary
 # All available options available on https://docs.traefik.io/reference/static-configuration/cli/
