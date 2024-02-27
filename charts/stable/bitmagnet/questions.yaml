@@ -28,7 +28,7 @@ questions:
                                         description: This parameter provides a compromise over disabling the saving of files altogether. Some torrents contain many thousands of files, which impacts performance and uses a lot of database disk space. This parameter will discard the files info when the number of files is greater than the threshold.
                                         schema:
                                           type: string
-                                          default: "50"
+                                          default: "100"
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
