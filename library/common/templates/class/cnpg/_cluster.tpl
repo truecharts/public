@@ -94,7 +94,6 @@
   {{/* Node Maintenance Window */}}
   {{- if or $rootCtx.Values.global.ixChartContext $objectData.cluster.singleNode -}}
     {{- $inProgress = true -}}
-    {{- $reusePVC = true -}}
   {{- end -}}
 
   {{- with $objectData.cluster.nodeMaintenanceWindow -}}
