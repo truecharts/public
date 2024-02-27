@@ -22,6 +22,7 @@ jobs:
       fail-fast: false
       matrix:
         helm-version:
+          - v3.11.3
           - v3.12.3
           - v3.14.1
     steps:
@@ -61,7 +62,6 @@ jobs:
       fail-fast: false
       matrix:
         helm-version:
-          - v3.12.3
           - v3.14.1
     steps:
       - name: Checkout
@@ -107,8 +107,10 @@ jobs:
           - v1.26
           - v1.27
           - v1.28
+          - v1.29
         # We run tests on Helm version of latest SCALE, fluxcd and latest helm release
         helm-version:
+          - v3.11.3
           - v3.12.3
           - v3.14.1
         values:
