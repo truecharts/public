@@ -12,6 +12,9 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+redis:
+  enabled: true
+  redisUsername: default
 cnpg:
   main:
     enabled: true
@@ -76,4 +79,11 @@ workload:
             MAIL_FROM_NAME: "Speedtest Tracker"
             TELEGRAM_BOT_TOKEN: ""
             CACHE_DRIVER: redis
+            REDIS_URL:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: url
+            REDIS_DB:
+            REDIS_CACHE_DB:
 

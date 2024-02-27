@@ -16,6 +16,13 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
+  - name: redis
+    version: 11.2.1
+    repository: oci://tccr.io/truecharts
+    condition: redis.enabled
+    alias: ""
+    tags: []
+    import-values: []
 deprecated: false
 description: Speedtest Tracker is a self-hosted internet performance tracking application that runs speedtest checks against Ookla's Speedtest service.
 home: https://truecharts.org/charts/incubator/speedtest-tracker
