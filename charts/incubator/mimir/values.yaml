@@ -144,6 +144,10 @@ mimir:
   chunks-cache:
     enabled: true
     replicas: 2
+    resources:
+      requests:
+        cpu: 20m
+        memory: 10Mi
   
   index-cache:
     enabled: true
@@ -231,11 +235,7 @@ mimir:
   
     zoneAwareReplication:
       topologyKey: 'kubernetes.io/hostname'
-  chunks-cache:
-    resources:
-      requests:
-        cpu: 20m
-        memory: 10Mi
+
   nginx:
     replicas: 1
     resources:
