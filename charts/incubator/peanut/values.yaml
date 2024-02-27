@@ -2,20 +2,18 @@ image:
   repository: brandawg93/peanut
   pullPolicy: IfNotPresent
   tag: 2.5.0@sha256:9624673053d8c38c64e932f836aa2c0a33256af391dd8aa2d79d222401cab768
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
+    runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
-
 service:
   main:
     ports:
       main:
         protocol: http
-        port: 3000
-
+        port: 10688
 workload:
   main:
     podSpec:
@@ -27,7 +25,6 @@ workload:
             NUT_PORT:	3493
             USERNAME:	""
             PASSWORD: ""
-
 portal:
   open:
     enabled: true
