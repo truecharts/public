@@ -31,6 +31,16 @@ if [[ "$curr_chart" == "charts/enterprise/clusterissuer" ]]; then
     echo "Done installing cert-manager chart"
 fi
 
+if [[ "$curr_chart" != "charts/operators/prometheus-operator" ]]; then
+    echo "Installing prometheus-operator chart"
+    helm install prometheus-operator oci://tccr.io/truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
+    if [[ "$?" != "0" ]]; then
+        echo "Failed to install prometheus-operator chart"
+        exit 1
+    fi
+    echo "Done installing prometheus-operator chart"
+fi
+
 if [[ "$curr_chart" != "charts/operators/cloudnative-pg" ]]; then
     echo "Installing cloudnative-pg chart"
     helm install cloudnative-pg oci://tccr.io/truecharts/cloudnative-pg --namespace cloudnative-pg --create-namespace --wait
@@ -39,17 +49,6 @@ if [[ "$curr_chart" != "charts/operators/cloudnative-pg" ]]; then
         exit 1
     fi
     echo "Done installing cloudnative-pg chart"
-fi
-
-if [[ "$curr_chart" != "charts/operators/grafana-agent-operator" ]]; then
-    echo "Installing Grafana-Agent-Operator chart"
-	TODO Enable later
-    helm install prometheus-operator oci://tccr.io/truecharts/grafana-agent-operator --namespace grafana-agent-operator --create-namespace --wait
-    if [[ "$?" != "0" ]]; then
-        echo "Failed to install grafana-agent-operator chart"
-        exit 1
-    fi
-    echo "Done installing grafana-agent-operator chart"
 fi
 
 if [[ "$curr_chart" != "charts/enterprise/traefik" ]]; then

@@ -18,7 +18,7 @@ workload:
     podSpec:
       containers:
         main:
-          args: 
+          args:
             - "--kubelet-service={{ .Values.kubeletService.namespace }}/{{ .Values.kubeletService.serviceName }}"
           probes:
             liveness:
@@ -27,11 +27,10 @@ workload:
               enabled: false
             startup:
               enabled: false
-                
+
 portal:
   open:
     enabled: false
- 
 
 rbac:
   main:
@@ -41,59 +40,58 @@ rbac:
     rules:
       - apiGroups: [monitoring.grafana.com]
         resources:
-        - grafanaagents
-        - metricsinstances
-        - logsinstances
-        - podlogs
-        - integrations
+          - grafanaagents
+          - metricsinstances
+          - logsinstances
+          - podlogs
+          - integrations
         verbs: [get, list, watch]
       - apiGroups: [monitoring.grafana.com]
         resources:
-        - grafanaagents/finalizers
-        - metricsinstances/finalizers
-        - logsinstances/finalizers
-        - podlogs/finalizers
-        - integrations/finalizers
+          - grafanaagents/finalizers
+          - metricsinstances/finalizers
+          - logsinstances/finalizers
+          - podlogs/finalizers
+          - integrations/finalizers
         verbs: [get, list, watch, update]
       - apiGroups: [monitoring.coreos.com]
         resources:
-        - podmonitors
-        - probes
-        - servicemonitors
+          - podmonitors
+          - probes
+          - servicemonitors
         verbs: [get, list, watch]
       - apiGroups: [monitoring.coreos.com]
         resources:
-        - podmonitors/finalizers
-        - probes/finalizers
-        - servicemonitors/finalizers
+          - podmonitors/finalizers
+          - probes/finalizers
+          - servicemonitors/finalizers
         verbs: [get, list, watch, update]
       - apiGroups: [""]
         resources:
-        - namespaces
-        - nodes
+          - namespaces
+          - nodes
         verbs: [get, list, watch]
       - apiGroups: [""]
         resources:
-        - secrets
-        - services
-        - configmaps
-        - endpoints
+          - secrets
+          - services
+          - configmaps
+          - endpoints
         verbs: [get, list, watch, create, update, patch, delete]
       - apiGroups: ["apps"]
         resources:
-        - statefulsets
-        - daemonsets
-        - deployments
+          - statefulsets
+          - daemonsets
+          - deployments
         verbs: [get, list, watch, create, update, patch, delete]
 # -- The service account the pods will use to interact with the Kubernetes API
 serviceAccount:
   main:
     enabled: true
     primary: true
-    
+
 # -- If both are set, Agent Operator will create and maintain a service for scraping kubelets
 # https://grafana.com/docs/agent/latest/operator/getting-started/#monitor-kubelets
 kubeletService:
   namespace: default
   serviceName: kubelet
-  

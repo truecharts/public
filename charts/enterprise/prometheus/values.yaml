@@ -54,6 +54,124 @@ grafana:
     scrapeInterval: "30s"
     uid: "prometheus"
 
+kps:
+  ## Install Prometheus Operator CRDs
+  ##
+  crds:
+    enabled: false
+
+  ## Manages Prometheus and Alertmanager components
+  ##
+  prometheusOperator:
+    enabled: false
+
+  ##
+  global:
+    rbac:
+      create: true
+
+  ## Create default rules for monitoring the cluster
+  ##
+  defaultRules:
+    create: true
+
+  windowsMonitoring:
+    ## Deploys the windows-exporter and Windows-specific dashboards and rules (job name must be 'windows-exporter')
+    enabled: false
+
+  ## Configuration for prometheus-windows-exporter
+  ## ref: https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-windows-exporter
+  ##
+  prometheus-windows-exporter:
+    ## Enable ServiceMonitor and set Kubernetes label to use as a job label
+    ##
+    prometheus:
+      monitor:
+        enabled: false
+
+  ## Configuration for alertmanager
+  ## ref: https://prometheus.io/docs/alerting/alertmanager/
+  ##
+  alertmanager:
+    ## Deploy alertmanager
+    ##
+    enabled: false
+
+  ## Using default values from https://github.com/grafana/helm-charts/blob/main/charts/grafana/values.yaml
+  ##
+  grafana:
+    enabled: false
+    forceDeployDashboards: true
+    defaultDashboardsEnabled: true
+
+  ## Flag to disable all the kubernetes component scrapers
+  ##
+  kubernetesServiceMonitors:
+    enabled: true
+
+  ## Component scraping the kube api server
+  ##
+  kubeApiServer:
+    enabled: true
+
+  ## Component scraping the kubelet and kubelet-hosted cAdvisor
+  ##
+  kubelet:
+    enabled: true
+
+  ## Component scraping the kube controller manager
+  ##
+  kubeControllerManager:
+    enabled: true
+
+  ## Component scraping coreDns. Use either this or kubeDns
+  ##
+  coreDns:
+    enabled: true
+
+  ## Component scraping kubeDns. Use either this or coreDns
+  ##
+  kubeDns:
+    enabled: false
+
+  ## Component scraping etcd
+  ##
+  kubeEtcd:
+    enabled: true
+
+  ## Component scraping kube scheduler
+  ##
+  kubeScheduler:
+    enabled: true
+
+  ## Component scraping kube proxy
+  ##
+  kubeProxy:
+    enabled: false
+
+  ## Component scraping kube state metrics
+  ##
+  kubeStateMetrics:
+    enabled: true
+
+  ## dontDeploy node exporter as a daemonset to all nodes
+  ##
+  nodeExporter:
+    enabled: true
+
+  ## dont Deploy a Prometheus instance
+  ##
+  prometheus:
+    enabled: false
+
+  ## Configuration for thanosRuler
+  ## ref: https://thanos.io/tip/components/rule.md/
+  ##
+  thanosRuler:
+    ## Dont Deploy thanosRuler
+    ##
+    enabled: false
+
 service:
   main:
     selectorLabels:
@@ -205,8 +323,10 @@ serviceAccount:
   main:
     enabled: true
     primary: true
+
 securityContext:
   readOnlyRootFilesystem: false
+
 probes:
   # -- Liveness probe configuration
   # @default -- See below
@@ -856,6 +976,7 @@ prometheus:
   ## @param prometheus.portName Port name used for the pods and governing service. This defaults to web
   ##
   portName: main
+
 ####
 ## Alert Manager Config
 ####
@@ -1133,245 +1254,7 @@ alertmanager:
   ## @param alertmanager.configSelector Namespaces to be selected for AlertmanagerConfig discovery. If nil, only check own namespace. This defaults to {}
   ##
   configSelector: {}
-####
-## Exporters
-####
 
-## @section Exporters
-
-## Exporters
-##
-exporters:
-  node-exporter:
-    ## @param exporters.node-exporter.enabled Enable node-exporter
-    ##
-    enabled: true
-  kube-state-metrics:
-    ## @param exporters.kube-state-metrics.enabled Enable kube-state-metrics
-    ##
-    enabled: true
-## @param kube-state-metrics [object] Node Exporter deployment configuration
-##
-kube-state-metrics:
-  serviceMonitor:
-    enabled: true
-    honorLabels: true
-## Component scraping for kubelet and kubelet hosted cAdvisor
-##
-kubelet:
-  ## @param kubelet.enabled Create a ServiceMonitor to scrape kubelet service
-  ##
-  enabled: true
-  ## @param kubelet.namespace Namespace where kubelet service is deployed. Related configuration `operator.kubeletService.namespace`
-  ##
-  namespace: kube-system
-  serviceMonitor:
-    ## @param kubelet.serviceMonitor.https Enable scraping of the kubelet over HTTPS
-    ##
-    https: true
-    ## @param kubelet.serviceMonitor.interval Scrape interval (use by default, falling back to Prometheus' default)
-    ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/api.md#endpoint
-    ##
-    interval: ""
-    ## @param kubelet.serviceMonitor.metricRelabelings Metric relabeling
-    ## ref: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#metric_relabel_configs
-    ##
-    metricRelabelings: []
-    ## @param kubelet.serviceMonitor.relabelings Relabel configs
-    ## ref: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config
-    ##
-    relabelings: []
-    ## @param kubelet.serviceMonitor.cAdvisorMetricRelabelings Metric relabeling for scraping cAdvisor
-    ## ref: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#metric_relabel_configs
-    ##
-    cAdvisorMetricRelabelings: []
-    ## @param kubelet.serviceMonitor.cAdvisorRelabelings Relabel configs for scraping cAdvisor
-    ## ref: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#metric_relabel_configs
-    ##
-    cAdvisorRelabelings: []
-## Component scraping the kube-apiserver
-##
-kubeApiServer:
-  ## @param kubeApiServer.enabled Create a ServiceMonitor to scrape kube-apiserver service
-  ##
-  enabled: true
-  serviceMonitor:
-    ## @param kubeApiServer.serviceMonitor.interval Scrape interval. If not set, the Prometheus default scrape interval is used.
-    ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/api.md#endpoint
-    ##
-    interval: ""
-    ## @param kubeApiServer.serviceMonitor.metricRelabelings Metric relabeling
-    ## ref: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#metric_relabel_configs
-    ##
-    metricRelabelings: []
-    ## @param kubeApiServer.serviceMonitor.relabelings Relabel configs
-    ## ref: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config
-    ##
-    relabelings: []
-## Component scraping the kube-controller-manager
-##
-kubeControllerManager:
-  ## @param kubeControllerManager.enabled Create a ServiceMonitor to scrape kube-controller-manager service
-  ##
-  enabled: false
-  ## @param kubeControllerManager.endpoints If your kube controller manager is not deployed as a pod, specify IPs it can be found on
-  ## endpoints:
-  ##  - 10.141.4.22
-  ##  - 10.141.4.23
-  ##  - 10.141.4.24
-  ##
-  endpoints: []
-  ## @param kubeControllerManager.namespace Namespace where kube-controller-manager service is deployed.
-  ##
-  namespace: kube-system
-  ## Service ports and selector information
-  ## @param kubeControllerManager.service.enabled Whether or not to create a Service object for kube-controller-manager
-  ## @param kubeControllerManager.service.port Listening port of the kube-controller-manager Service object
-  ## @param kubeControllerManager.service.targetPort Port to target on the kube-controller-manager Pods. This should be the port that kube-controller-manager is exposing metrics on
-  ## @param kubeControllerManager.service.selector Optional PODs Label selector for the service
-  ##
-  service:
-    enabled: true
-    port: 10252
-    targetPort: 10252
-    ## selector:
-    ##   component: kube-controller-manager
-    ##
-    selector: {}
-  serviceMonitor:
-    ## @param kubeControllerManager.serviceMonitor.interval Scrape interval (use by default, falling back to Prometheus' default)
-    ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/api.md#endpoint
-    ##
-    interval: ""
-    ## @param kubeControllerManager.serviceMonitor.https Enable scraping kube-controller-manager over https
-    ## Requires proper certs (not self-signed) and delegated authentication/authorization checks
-    ##
-    https: false
-    ## @param kubeControllerManager.serviceMonitor.insecureSkipVerify Skip TLS certificate validation when scraping
-    ##
-    insecureSkipVerify: ""
-    ## @param kubeControllerManager.serviceMonitor.serverName Name of the server to use when validating TLS certificate
-    serverName: ""
-    ## @param kubeControllerManager.serviceMonitor.metricRelabelings Metric relabeling
-    ## ref: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#metric_relabel_configs
-    ##
-    metricRelabelings: []
-    ## @param kubeControllerManager.serviceMonitor.relabelings Relabel configs
-    ## ref: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config
-    ##
-    relabelings: []
-## Component scraping kube scheduler
-##
-kubeScheduler:
-  ## @param kubeScheduler.enabled Create a ServiceMonitor to scrape kube-scheduler service
-  ##
-  enabled: false
-  ## @param kubeScheduler.endpoints If your kube scheduler is not deployed as a pod, specify IPs it can be found on
-  ## endpoints:
-  ##  - 10.141.4.22
-  ##  - 10.141.4.23
-  ##  - 10.141.4.24
-  ##
-  endpoints: []
-  ## @param kubeScheduler.namespace Namespace where kube-scheduler service is deployed.
-  ##
-  namespace: kube-system
-  ## If using kubeScheduler.endpoints only the port and targetPort are used
-  ## @param kubeScheduler.service.enabled Whether or not to create a Service object for kube-scheduler
-  ## @param kubeScheduler.service.port Listening port of the kube scheduler Service object
-  ## @param kubeScheduler.service.targetPort Port to target on the kube scheduler Pods. This should be the port that kube scheduler is exposing metrics on
-  ## @param kubeScheduler.service.selector Optional PODs Label selector for the service
-  ##
-  service:
-    enabled: true
-    port: 10251
-    targetPort: 10251
-    ## selector:
-    ##   component: kube-scheduler
-    ##
-    selector: {}
-  serviceMonitor:
-    ## @param kubeScheduler.serviceMonitor.interval Scrape interval (use by default, falling back to Prometheus' default)
-    ##
-    interval: ""
-    ## @param kubeScheduler.serviceMonitor.https Enable scraping kube-scheduler over https
-    ## Requires proper certs (not self-signed) and delegated authentication/authorization checks
-    ##
-    https: false
-    ## @param kubeScheduler.serviceMonitor.insecureSkipVerify Skip TLS certificate validation when scraping
-    ##
-    insecureSkipVerify: ""
-    ## @param kubeScheduler.serviceMonitor.serverName Name of the server to use when validating TLS certificate
-    ##
-    serverName: ""
-    ## @param kubeScheduler.serviceMonitor.metricRelabelings Metric relabeling
-    ## metricRelabelings:
-    ##  - action: keep
-    ##    regex: 'kube_(daemonset|deployment|pod|namespace|node|statefulset).+'
-    ##    sourceLabels: [__name__]
-    ##
-    metricRelabelings: []
-    ## @param kubeScheduler.serviceMonitor.relabelings Relabel configs
-    ## relabelings:
-    ##  - sourceLabels: [__meta_kubernetes_pod_node_name]
-    ##    separator: ;
-    ##    regex: ^(.*)$
-    ##    targetLabel: nodename
-    ##    replacement: $1
-    ##    action: replace
-    ##
-    relabelings: []
-## Component scraping coreDns
-##
-coreDns:
-  ## @param coreDns.enabled Create a ServiceMonitor to scrape coredns service
-  ##
-  enabled: true
-  ## @param coreDns.namespace Namespace where core dns service is deployed.
-  ##
-  namespace: kube-system
-  ## Create a ServiceMonitor to scrape coredns service
-  ## @param coreDns.service.enabled Whether or not to create a Service object for coredns
-  ## @param coreDns.service.port Listening port of the coredns Service object
-  ## @param coreDns.service.targetPort Port to target on the coredns Pods. This should be the port that coredns is exposing metrics on
-  ## @param coreDns.service.selector Optional PODs Label selector for the service
-  ##
-  service:
-    enabled: true
-    port: 9153
-    targetPort: 9153
-    ## selector:
-    ##   component: kube-dns
-    ##
-    selector: {}
-  serviceMonitor:
-    ## @param coreDns.serviceMonitor.interval Scrape interval. If not set, the Prometheus default scrape interval is used.
-    ##
-    interval: ""
-    ## @param coreDns.serviceMonitor.metricRelabelings Metric relabel configs to apply to samples before ingestion.
-    ## metricRelabelings:
-    ##  - action: keep
-    ##    regex: 'kube_(daemonset|deployment|pod|namespace|node|statefulset).+'
-    ##    sourceLabels: [__name__]
-    ##
-    metricRelabelings: []
-    ## @param coreDns.serviceMonitor.relabelings Relabel configs to apply to samples before ingestion.
-    ## relabelings:
-    ##  - sourceLabels: [__meta_kubernetes_pod_node_name]
-    ##    separator: ;
-    ##    regex: ^(.*)$
-    ##    targetLabel: nodename
-    ##    replacement: $1
-    ##    action: replace
-    ##
-    relabelings: []
-## Component scraping the kube-proxy
-##
-kubeProxy:
-  ## @param kubeProxy.enabled Create a ServiceMonitor to scrape the kube-proxy Service
-  ##
-  enabled: false
 portal:
   open:
     enabled: true
-updated: true

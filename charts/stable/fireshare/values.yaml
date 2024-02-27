@@ -21,6 +21,14 @@ workload:
                 key: SECRET_KEY
             MINUTES_BETWEEN_VIDEO_SCANS: 5
             ADMIN_PASSWORD: "changeme"
+            # TODO ADD LDAP
+            # LDAP_ENABLE: false
+            # LDAP_URL: ""
+            # LDAP_BINDDN: ""
+            # LDAP_PASSWORD: ""
+            # LDAP_BASEDN: ""
+            # LDAP_USER_FILTER: ""
+            # LDAP_ADMIN_GROUP: ""
 
 service:
   main:
