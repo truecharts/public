@@ -4,7 +4,7 @@ annotations:
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: productivity
   truecharts.org/max_helm_version: "3.14"
-  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: incubator
 apiVersion: v2
 appVersion: 0.17.2
@@ -30,7 +30,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/speedtest-tracker.png
 keywords:
   - speedtest
   - speedtest-tracker
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -40,6 +40,6 @@ sources:
   - https://github.com/alexjustesen/speedtest-tracker
   - https://github.com/linuxserver/docker-speedtest-tracker
   - https://github.com/truecharts/charts/tree/master/charts/incubator/speedtest-tracker
-  - https://ghcr.io/paperless-ngx/paperless-ngx
+  - https://ghcr.io/linuxserver/speedtest-tracker
 type: application
 version: 0.0.1

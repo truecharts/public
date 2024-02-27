@@ -71,7 +71,7 @@ workload:
                 name: speedtest-tracker-secrets
                 key: APP_KEY
             MAIL_MAILER: "smtp"
-            MAIL_PORT : 465
+            MAIL_PORT: 465
             MAIL_USERNAME: ""
             MAIL_PASSWORD: ""
             MAIL_ENCRYPTION: ""
@@ -84,4 +84,3 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: url
-
