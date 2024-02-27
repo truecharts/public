@@ -21,6 +21,15 @@ portal:
 operator:
   register: true
 
+configmap:
+  dashboard:
+    enabled: true
+    labels:
+      grafanadasboard: '1'
+    data:
+      dashboard.json: >-
+        {{ .Files.Get "dashboard.json" | indent 8 }}
+
 certmanager:
   dns01RecursiveNameservers: "1.1.1.1:53,1.0.0.1:53"
   dns01RecursiveNameserversOnly: false
@@ -31,11 +40,4 @@ certmanager:
     servicemonitor:
       enabled: true
 
-configmap:
-  dashboard:
-    enabled: true
-    labels:
-      grafanadasboard: "1"
-    data:
-      dashboard.json: |
-        {{ .Files.Get "dashboard.json" | indent 8 }}
+
