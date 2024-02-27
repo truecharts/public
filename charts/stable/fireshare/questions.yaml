@@ -20,6 +20,7 @@ questions:
                                         description: "The admin account password"
                                         schema:
                                           type: string
+                                          private: true
                                           default: ""
                                       - variable: MINUTES_BETWEEN_VIDEO_SCANS
                                         label: "MINUTES_BETWEEN_VIDEO_SCANS"
@@ -27,6 +28,10 @@ questions:
                                         schema:
                                           type: int
                                           default: 5
+# Include{containerBasic}
+# Include{containerAdvanced}
+# Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
