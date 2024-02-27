@@ -10,42 +10,39 @@ questions:
 # Include{podSpec}
 # Include{containerMain}
 
-                                - variable: env
-                                  label: Image Environment
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                      - variable: NUT_HOST
-                                        label: NUT Host
-                                        description: Host of NUT server
-                                        schema:
-                                          type: string
-                                          required: true
-                                          default: ""
-                                      - variable: NUT_PORT
-                                        label: NUT Port
-                                        description: Port of NUT server
-                                        schema:
-                                          type: int
-                                          required: true
-                                          default: 3493
-                                      - variable: USERNAME
-                                        label: Username
-                                        description: Optional NUT Username
-                                        schema:
-                                          type: string
-                                          default: ""
-                                      - variable: PASSWORD
-                                        label: Password
-                                        description: Optional NUT password
-                                        schema:
-                                          type: string
-                                          private: true
-                                          default: ""
-
 # Include{containerBasic}
 # Include{containerAdvanced}
+  - variable: peanut
+    group: App Configuration
+    label: Peanut
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: host
+          label: NUT Host
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: port
+          label: NUT Port
+          schema:
+            type: int
+            required: true
+            default: 3493
+        - variable: user
+          label: Optional NUT user
+          schema:
+            type: string
+            default: ""
+        - variable: pass
+          label: Optional NUT password
+          schema:
+            type: string
+            private: true
+            default: ""
+
 # Include{containerConfig}
 # Include{serviceRoot}
 # Include{serviceMain}
@@ -70,7 +67,7 @@ questions:
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: "Main Ingress"
+          label: Main Ingress
           schema:
             additional_attrs: true
             type: dict
@@ -80,14 +77,14 @@ questions:
 # Include{ingressList}
 # Include{securityContextRoot}
               - variable: runAsUser
-                label: "runAsUser"
-                description: "The UserID of the user running the application"
+                label: runAsUser
+                description: The UserID of the user running the application
                 schema:
                   type: int
                   default: 0
               - variable: runAsGroup
-                label: "runAsGroup"
-                description: "The groupID of the user running the application"
+                label: runAsGroup
+                description: The groupID of the user running the application
                 schema:
                   type: int
                   default: 0
@@ -95,8 +92,8 @@ questions:
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
               - variable: fsGroup
-                label: "fsGroup"
-                description: "The group that should own ALL storage."
+                label: fsGroup
+                description: The group that should own ALL storage.
                 schema:
                   type: int
                   default: 568

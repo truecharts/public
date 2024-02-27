@@ -14,6 +14,11 @@ service:
       main:
         protocol: http
         port: 10688
+peanut:
+  host: "localhost"
+  port: 3493
+  user: ""
+  pass: ""
 workload:
   main:
     podSpec:
@@ -21,10 +26,10 @@ workload:
         main:
           env:
             WEB_PORT:	"{{ .Values.service.main.ports.main.port }}"
-            NUT_HOST:	"localhost"
-            NUT_PORT:	3493
-            USERNAME:	""
-            PASSWORD: ""
+            NUT_HOST:	"{{ .Values.peanut.host }}"
+            NUT_PORT:	"{{ .Values.peanut.port }}"
+            USERNAME:	"{{ .Values.peanut.user }}"
+            PASSWORD: "{{ .Values.peanut.pass }}"
 portal:
   open:
     enabled: true
