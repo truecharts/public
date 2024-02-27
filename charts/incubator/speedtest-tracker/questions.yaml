@@ -21,6 +21,11 @@ questions:
                                         schema:
                                           type: string
                                           default: ""
+                                      - variable: TELEGRAM_BOT_TOKEN
+                                        label: "Speedtest-Tracker Telegram Token"
+                                        schema:
+                                          type: string
+                                          default: ""
                                       - variable: mail
                                         label: Show Mail Server Settings
                                         schema:
@@ -103,14 +108,6 @@ questions:
         - variable: config
           label: App Config Storage
           description: Stores the Application Config.
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
-        - variable: web
-          label: App SSL Storage
-          description: "This is where speedtest-tracker stores its SSL Certs"
           schema:
             additional_attrs: true
             type: dict

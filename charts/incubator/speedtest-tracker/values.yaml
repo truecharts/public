@@ -12,9 +12,6 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
-  web:
-    enabled: true
-    mountPath: "/etc/ssl/web"
 cnpg:
   main:
     enabled: true
@@ -71,4 +68,6 @@ workload:
             MAIL_ENCRYPTION: ""
             MAIL_FROM_ADDRESS: ""
             MAIL_FROM_NAME: "Speedtest Tracker"
+            TELEGRAM_BOT_TOKEN: ""
+            CACHE_DRIVER: redis
 
