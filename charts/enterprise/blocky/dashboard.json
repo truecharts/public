@@ -1911,7 +1911,25 @@
   "templating": {
     "list": [
       {
-        "hide": 2,
+        "current": {
+          "selected": false,
+          "text": "Prometheus",
+          "value": "Prometheus"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "multi": false,
+        "name": "DS_PROMETHEUS",
+        "label": "datasource",
+        "options": [],
+        "query": "prometheus",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
+      },
+      {
+        "hide": 0,
         "label": "blocky API URL",
         "name": "blocky_url",
         "query": "${VAR_BLOCKY_URL}",
@@ -1933,7 +1951,8 @@
       {
         "current": {},
         "datasource": {
-          "type": "prometheus"
+          "type": "prometheus",
+          "uid": "${DS_PROMETHEUS}"
         },
         "definition": "label_values(blocky_blocking_enabled,job)",
         "hide": 0,
