@@ -7,10 +7,10 @@ annotations:
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.5.3
+appVersion: 2.5.4
 dependencies:
   - name: common
-    version: 17.5.0
+    version: 18.0.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -44,4 +44,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/paperless-ngx
   - https://ghcr.io/paperless-ngx/paperless-ngx
 type: application
-version: 6.8.0
+version: 7.1.4

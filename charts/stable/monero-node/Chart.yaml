@@ -7,10 +7,10 @@ annotations:
   truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: latest
+appVersion: 0.18.3.1
 dependencies:
   - name: common
-    version: 17.5.0
+    version: 18.0.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,6 +34,6 @@ name: monero-node
 sources:
   - https://github.com/kannix/monero-full-node
   - https://github.com/truecharts/charts/tree/master/charts/stable/monero-node
-  - https://hub.docker.com/r/kannix/monero-full-node
+  - https://ghcr.io/sethforprivacy/simple-monerod
 type: application
-version: 4.3.0
+version: 6.0.3
