@@ -118,7 +118,7 @@
                 {
                     "expr": "sum by (condition) (certmanager_certificate_ready_status{ })",
                     "interval": "",
-                    "legendFormat": "{ {condition } }",
+                    "legendFormat": "{{condition }}",
                     "refId": "A"
                 }
             ],
@@ -419,7 +419,7 @@
                 {
                     "expr": "sum by (controller) (\n  rate(certmanager_controller_sync_call_count{ }[$__rate_interval ])\n)",
                     "interval": "",
-                    "legendFormat": "{ {controller } }",
+                    "legendFormat": "{{controller }}",
                     "refId": "A"
                 }
             ],
@@ -520,7 +520,7 @@
                 {
                     "expr": "sum by (method, path, status) (\n  rate(certmanager_http_acme_client_request_count{ }[$__rate_interval ])\n)",
                     "interval": "",
-                    "legendFormat": "{ {method } } { {path } } { {status } }",
+                    "legendFormat": "{{method }} {{path }} {{status }}",
                     "refId": "A"
                 }
             ],
@@ -621,7 +621,7 @@
                 {
                     "expr": "sum by (method, path, status) (rate(certmanager_http_acme_client_request_duration_seconds_sum{ }[$__rate_interval ]))\n/\nsum by (method, path, status) (rate(certmanager_http_acme_client_request_duration_seconds_count{ }[$__rate_interval ]))",
                     "interval": "",
-                    "legendFormat": "{ {method } } { {path } } { {status } }",
+                    "legendFormat": "{{method }} {{path }} {{status }}",
                     "refId": "A"
                 }
             ],
@@ -742,7 +742,7 @@
                     "hide": false,
                     "interval": "",
                     "intervalFactor": 2,
-                    "legendFormat": "CPU { {pod } }",
+                    "legendFormat": "CPU {{pod }}",
                     "refId": "A"
                 },
                 {
@@ -751,7 +751,7 @@
                     "hide": true,
                     "interval": "",
                     "intervalFactor": 1,
-                    "legendFormat": "Limit { {pod } }",
+                    "legendFormat": "Limit {{pod }}",
                     "refId": "B"
                 },
                 {
@@ -760,7 +760,7 @@
                     "hide": true,
                     "interval": "",
                     "intervalFactor": 1,
-                    "legendFormat": "Request { {pod } }",
+                    "legendFormat": "Request {{pod }}",
                     "refId": "C"
                 }
             ],
@@ -871,7 +871,7 @@
                     "hide": false,
                     "interval": "",
                     "intervalFactor": 2,
-                    "legendFormat": "{ {pod } }",
+                    "legendFormat": "{{pod }}",
                     "refId": "A"
                 }
             ],
@@ -992,7 +992,7 @@
                     "hide": false,
                     "interval": "",
                     "intervalFactor": 1,
-                    "legendFormat": "Memory { {pod } }",
+                    "legendFormat": "Memory {{pod }}",
                     "refId": "A"
                 },
                 {
@@ -1000,7 +1000,7 @@
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 1,
-                    "legendFormat": "Limit { {pod } }",
+                    "legendFormat": "Limit {{pod }}",
                     "refId": "B"
                 },
                 {
@@ -1008,7 +1008,7 @@
                     "format": "time_series",
                     "interval": "",
                     "intervalFactor": 1,
-                    "legendFormat": "Request { {pod } }",
+                    "legendFormat": "Request {{pod }}",
                     "refId": "C"
                 }
             ],
