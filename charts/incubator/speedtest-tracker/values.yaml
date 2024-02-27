@@ -38,11 +38,17 @@ workload:
                 - KILL
           probes:
             liveness:
+              enabled: true
               type: http
+              path: /api/healthcheck
             startup:
+              enabled: true
               type: http
+              path: /api/healthcheck
             readiness:
+              enabled: true
               type: http
+              path: /api/healthcheck
           env:
             APP_URL: ""
             DB_CONNECTION: pgsql
