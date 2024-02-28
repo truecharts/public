@@ -13,6 +13,13 @@ questions:
 # Include{containerAdvanced}
 # Include{containerConfig}
 # Include{podOptions}
+# Include{serviceRoot}
+# Include{serviceMain}
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+# Include{serviceExpertRoot}
+# Include{serviceExpert}
+# Include{serviceList}
 # Include{persistenceRoot}
         - variable: config
           label: App Config Storage
@@ -30,6 +37,10 @@ questions:
             attrs:
 # Include{persistenceBasic}
 # Include{persistenceList}
+# Include{ingressRoot}
+# Include{ingressDefault}
+# Include{ingressAdvanced}
+# Include{ingressList}
 # Include{securityContextRoot}
               - variable: runAsUser
                 label: "runAsUser"
@@ -56,4 +67,6 @@ questions:
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
+# Include{netshoot}
+# Include{vpn}
 # Include{documentation}
