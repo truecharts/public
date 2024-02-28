@@ -18,6 +18,8 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+  varrun:
+    enabled: false
 redis:
   enabled: true
   redisUsername: default
