@@ -318,7 +318,7 @@ configmap:
         - name: BlockyPostgres
           type: postgres
           uid: blockypostgres
-          url: {{ printf "%s:5432" (.Values.cnpg.main.creds.host | trimAll "\"") }}
+          url: {{ printf "%s.%s:5432" (.Values.cnpg.main.creds.host | trimAll "\"") .Release.Namespace }}
           access: proxy
           user: {{ .Values.cnpg.main.user }}
           secureJsonData:
