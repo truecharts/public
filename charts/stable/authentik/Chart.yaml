@@ -4,7 +4,7 @@ annotations:
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: authentication
   truecharts.org/max_helm_version: "3.14"
-  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
 appVersion: 2024.2.1
@@ -40,9 +40,9 @@ sources:
   - https://github.com/goauthentik/authentik
   - https://github.com/truecharts/charts/tree/master/charts/stable/authentik
   - https://ghcr.io/goauthentik/radius
-  - https://ghcr.io/goauthentik/server
-  - https://ghcr.io/maxmind/geoipupdate
-  - https://ghcr.io/goauthentik/proxy
   - https://ghcr.io/goauthentik/ldap
+  - https://ghcr.io/goauthentik/server
+  - https://ghcr.io/goauthentik/proxy
+  - https://ghcr.io/maxmind/geoipupdate
 type: application
 version: 24.1.3

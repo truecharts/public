@@ -4,7 +4,7 @@ annotations:
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.14"
-  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
 appVersion: 5.3.6.8612
@@ -33,7 +33,7 @@ name: radarr
 sources:
   - https://github.com/Radarr/Radarr
   - https://github.com/truecharts/charts/tree/master/charts/stable/radarr
-  - https://ghcr.io/onedr0p/radarr
   - https://ghcr.io/onedr0p/exportarr
+  - https://ghcr.io/onedr0p/radarr
 type: application
 version: 20.1.3

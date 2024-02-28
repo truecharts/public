@@ -296,16 +296,16 @@ k8sgateway:
     options:
       - name: tls_servername
         value: cloudflare-dns.com
-        
+
 configmap:
   dashboard:
     enabled: true
     labels:
-      grafana_dashboard: '1'
+      grafana_dashboard: "1"
     data:
       blocky.json: >-
         {{ .Files.Get "dashboard.json" | indent 8 }}
-        
+
 metrics:
   main:
     # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
@@ -332,9 +332,7 @@ metrics:
       #   for: 5m
       #   labels:
       #     severity: critical
-      
 
-      
 redis:
   enabled: true
 # CANNOT be defined in above yaml section
@@ -355,4 +353,3 @@ cnpg:
     enabled: false
     user: blocky
     database: blocky
-

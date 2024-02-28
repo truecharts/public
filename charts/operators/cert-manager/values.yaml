@@ -25,7 +25,7 @@ configmap:
   dashboard:
     enabled: true
     labels:
-      grafana_dashboard: '1'
+      grafana_dashboard: "1"
     data:
       cert-manager.json: >-
         {{ .Files.Get "dashboard.json" | indent 8 }}
@@ -39,5 +39,3 @@ certmanager:
     enabled: true
     servicemonitor:
       enabled: true
-
-
