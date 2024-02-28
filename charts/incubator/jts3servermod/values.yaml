@@ -20,10 +20,7 @@ service:
         enabled: false
 securityContext:
   container:
-    runAsNonRoot: true
-    readOnlyRootFilesystem: true
-    runAsUser: 568
-    runAsGroup: 568
+    readOnlyRootFilesystem: false
 workload:
   main:
     podSpec:
