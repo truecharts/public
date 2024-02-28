@@ -8,6 +8,12 @@ service:
       main:
         targetPort: 80
         port: 9004
+ingress:
+  main:
+    integrations:
+      homepage:
+        widget:
+          type: speedtest
 persistence:
   config:
     enabled: true
