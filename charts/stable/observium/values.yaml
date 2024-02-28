@@ -6,12 +6,9 @@ image:
 securityContext:
   container:
     readOnlyRootFilesystem: false
-    runAsNonRoot: false
-    allowPrivilegeEscalation: true
-    privileged: true
+    runAsNonRoot: true
     runAsGroup: 0
-    runAsUser: 0
-    fsGroup: 0
+    runAsUser: 568
 
 service:
   main:
