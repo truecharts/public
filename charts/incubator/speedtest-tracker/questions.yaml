@@ -34,7 +34,7 @@ questions:
                                           show_subquestions_if: true
                                           subquestions:
                                             - variable: MAIL_MAILER
-                                              label: Server Memory
+                                              label: Protocol
                                               schema:
                                                 type: string
                                                 required: true
@@ -65,20 +65,22 @@ questions:
                                                 private: true
                                                 default: ""
                                             - variable: MAIL_ENCRYPTION
-                                              label: Mail Server Port
+                                              label: Encryption
                                               schema:
                                                 type: string
                                                 required: true
-                                                default: ""
+                                                default: "SSL"
                                             - variable: MAIL_FROM_ADDRESS
                                               label: Sender Address
                                               schema:
                                                 type: string
+                                                required: true
                                                 default: ""
                                             - variable: MAIL_FROM_NAME
                                               label: Sender Name
                                               schema:
                                                 type: string
+                                                required: true
                                                 default: "Speedtest Tracker"
 # Include{containerBasic}
 # Include{containerAdvanced}

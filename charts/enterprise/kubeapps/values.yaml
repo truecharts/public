@@ -47,19 +47,17 @@ service:
   ## TODO: Enable
   main:
     enabled: false
-    primary: true
+    primary: false
     expandObjectName: false
     ports:
       main:
         ## TODO: Enable
         enabled: false
-        primary: true
+        primary: false
         port: 3000
         targetPort: 3000
   tckubeapps:
     enabled: true
-    expandObjectName: false
-    ## TODO: Move to main service
     primary: true
     labels:
       truecharts.org/flagged: "true"
