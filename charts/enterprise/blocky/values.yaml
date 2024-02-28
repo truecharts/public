@@ -307,6 +307,11 @@ configmap:
         {{ .Files.Get "dashboard.json" | indent 8 }}
       blockypostgres.json: >-
         {{ .Files.Get "dashboardpsql.json" | indent 8 }}
+  datasource:
+    enabled: true
+    labels:
+      grafana_datasource: "1"
+    data:
       datasourceblockypsql.yaml: |-
         apiVersion: 1
         datasources:
