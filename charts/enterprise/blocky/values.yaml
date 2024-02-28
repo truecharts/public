@@ -318,7 +318,7 @@ configmap:
         - name: BlockyPostgres
           type: postgres
           uid: blockypostgres
-          url: {{ .Values.cnpg.main.creds.portHost | default "na" }}
+          url: {{ printf "%s:5432" (.Values.cnpg.main.creds.host | trimAll "\"") }}
           access: proxy
           user: {{ .Values.cnpg.main.user }}
           secureJsonData:
@@ -375,6 +375,7 @@ queryLog:
   creationAttempts: 3
   # optional: Time between the creation attempts, default: 2s
   creationCooldown: 2s
+
 cnpg:
   main:
     enabled: true
