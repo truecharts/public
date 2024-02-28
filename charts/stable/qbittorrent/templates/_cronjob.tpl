@@ -1,7 +1,7 @@
 {{/* Define the cronjob */}}
 {{- define "qbittorrent.cronjob" -}}
 {{- $fullname := (include "tc.v1.common.lib.chart.names.fullname" $) }}
-enabled: "{{ .Values.qbitportforward.enabled }}"
+enabled: true
 type: "CronJob"
 schedule: "0 8 * * *"
 podSpec:
