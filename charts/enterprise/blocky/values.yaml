@@ -310,7 +310,7 @@ configmap:
   datasource:
     enabled: true
     labels:
-      grafana_datasource: "1"
+      grafana_datasources: "1"
     data:
       datasourceblockypsql.yaml: |-
         apiVersion: 1
