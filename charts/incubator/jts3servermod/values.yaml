@@ -9,9 +9,6 @@ persistence:
   logs:
     enabled: true
     mountPath: "/jts3servermod/logs/"
-portal:
-  open:
-    enabled: true
 securityContext:
   container:
     runAsNonRoot: true
