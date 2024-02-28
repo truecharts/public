@@ -315,9 +315,9 @@ configmap:
       datasourceblockypsql.yaml: |-
         apiVersion: 1
         datasources:
-        - name: BlockyPostgresql
-          type: postgresql
-          uid: blockypostgresql
+        - name: BlockyPostgres
+          type: postgres
+          uid: blockypostgres
           url: {{ .Values.cnpg.main.creds.portHost | default "na" }}
           access: proxy
           user: {{ .Values.cnpg.main.user }}
