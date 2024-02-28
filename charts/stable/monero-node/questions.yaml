@@ -9,17 +9,53 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-                                - variable: env
-                                  label: Image Environment
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                      - variable: name
-                                        label: "name"
-                                        schema:
-                                          type: string
-                                          default: "monerod"
+# Include{containerBasic}
+# Include{containerAdvanced}
+  - variable: monero
+    group: App Configuration
+    label: Monero Node Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: rpcbindip
+          label: Restricted Bind Ip
+          description: Restrict bind IP, default is 0.0.0.0 or none
+          schema:
+            type: string
+            default: "0.0.0.0"
+        - variable: rpcbindport
+          label: Restricted Bind Port
+          description: Restrict bind port, default is 18089
+          schema:
+            type: string
+            default: "18089"
+        - variable: publicnode
+          label: Enable Public Node
+          description: Make node pbulic
+          schema:
+            type: boolean
+            default: true
+        - variable: noigd
+          label: Enable No IGD
+          description: Enable no-igd arg
+          schema:
+            type: boolean
+            default: true
+        - variable: enablednsblocklist
+          label: Enable DNS Blocklist
+          description: Use built-in DNS Blocklist
+          schema:
+            type: boolean
+            default: true
+        - variable: pruneblockchain
+          label: Prune Blockchain
+          description: Enable prune-blockchain arg
+          schema:
+            type: boolean
+            default: true
+# Include{containerConfig}
+# Include{podOptions}
 # Include{serviceRoot}
         - variable: main
           label: "Main Service"
@@ -43,16 +79,16 @@ questions:
                               type: int
                               default: 18080
                               required: true
-        - variable: port2
-          label: 'port2 service'
+        - variable: rpc
+          label: 'RPC service'
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
-                    - variable: port2
-                      label: "port2 Service Port Configuration"
+                    - variable: rpc
+                      label: "RPC Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -62,28 +98,14 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 18081
+                              default: 18089
                               required: true
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: containerdir1
-          label: "containerdir1 Storage"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
-        - variable: containerdir2
-          label: "containerdir2 Storage"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
         - variable: blockchainstorage
-          label: "blockchainstorage Storage"
+          label: "Main Container / Blockchain Storage"
           schema:
             additional_attrs: true
             type: dict

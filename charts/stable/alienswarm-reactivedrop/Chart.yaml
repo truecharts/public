@@ -4,26 +4,26 @@ annotations:
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: GameServers
   truecharts.org/max_helm_version: "3.14"
-  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
 appVersion: alienswarmreactiedrop
 dependencies:
   - name: common
-    version: 18.0.2
+    version: 18.0.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
 deprecated: false
-description: 'This Chart will download and install SteamCMD. It will also install Alien Swarm: Reactive Drop and run it.'
+description: "This Chart will download and install SteamCMD. It will also install Alien Swarm: Reactive Drop and run it."
 home: https://truecharts.org/charts/stable/alienswarm-reactivedrop
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/alienswarm-reactivedrop.png
 keywords:
   - alienswarm-reactivedrop
   - GameServers
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/alienswarm-reactivedrop
   - https://hub.docker.com/r/ich777/steamcmd
 type: application
-version: 5.1.1
+version: 5.1.3

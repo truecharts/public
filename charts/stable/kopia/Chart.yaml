@@ -4,13 +4,13 @@ annotations:
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: utility
   truecharts.org/max_helm_version: "3.14"
-  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
 appVersion: 0.15.0
 dependencies:
   - name: common
-    version: 18.0.2
+    version: 18.0.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -22,7 +22,7 @@ home: https://truecharts.org/charts/stable/kopia
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/kopia.png
 keywords:
   - backup
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/kopia
   - https://hub.docker.com/r/kopia/kopia
 type: application
-version: 11.1.1
+version: 11.1.3

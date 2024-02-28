@@ -4,20 +4,20 @@ annotations:
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: operators
   truecharts.org/max_helm_version: "3.14"
-  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: operators
 apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 18.0.2
+    version: 18.0.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: kube-prometheus-stack
-    version: 56.8.2
+    version: 56.9.0
     repository: oci://ghcr.io/prometheus-community/charts
     condition: ""
     alias: kps
@@ -31,7 +31,7 @@ keywords:
   - operator
   - prometheus
   - metics
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -42,4 +42,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/operators/prometheus-operator
   - https://github.com/truecharts/containers/tree/master/apps/alpine
 type: application
-version: 6.1.1
+version: 6.2.2

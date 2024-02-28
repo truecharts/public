@@ -296,11 +296,43 @@ k8sgateway:
     options:
       - name: tls_servername
         value: cloudflare-dns.com
+
+configmap:
+  dashboard:
+    enabled: true
+    labels:
+      grafana_dashboard: "1"
+    data:
+      blocky.json: >-
+        {{ .Files.Get "dashboard.json" | indent 8 }}
+      blockypostgres.json: >-
+        {{ .Files.Get "dashboardpsql.json" | indent 8 }}
+      datasourceblockypsql.yaml: |-
+        apiVersion: 1
+        datasources:
+        - name: BlockyPostgresql
+          type: postgresql
+          uid: blockypostgresql
+          url: {{ .Values.cnpg.main.creds.portHost | default "na" }}
+          access: proxy
+          user: {{ .Values.cnpg.main.user }}
+          secureJsonData:
+            password: {{ .Values.cnpg.main.creds.password | default "na" }}
+          jsonData:
+            database: {{ .Values.cnpg.main.database }}
+            sslmode: 'disable' # disable/require/verify-ca/verify-full
+            maxOpenConns: 100 # Grafana v5.4+
+            maxIdleConns: 100 # Grafana v5.4+
+            maxIdleConnsAuto: true # Grafana v9.5.1+
+            connMaxLifetime: 14400 # Grafana v5.4+
+            postgresVersion: 1000 # 903=9.3, 904=9.4, 905=9.5, 906=9.6, 1000=10
+            timescaledb: false
+
 metrics:
   main:
     # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
     # @default -- See values.yaml
-    enabled: false
+    enabled: true
     type: "servicemonitor"
     endpoints:
       - port: main
@@ -322,6 +354,7 @@ metrics:
       #   for: 5m
       #   labels:
       #     severity: critical
+
 redis:
   enabled: true
 # CANNOT be defined in above yaml section
@@ -339,7 +372,6 @@ queryLog:
   creationCooldown: 2s
 cnpg:
   main:
-    enabled: false
+    enabled: true
     user: blocky
     database: blocky
-updated: true

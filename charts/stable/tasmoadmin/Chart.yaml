@@ -4,13 +4,13 @@ annotations:
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: home-automation
   truecharts.org/max_helm_version: "3.14"
-  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
 appVersion: 4.0.1
 dependencies:
   - name: common
-    version: 18.0.2
+    version: 18.0.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -24,7 +24,7 @@ keywords:
   - tasmoadmin
   - home-automation
   - Network-Management
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/tasmoadmin
   - https://ghcr.io/tasmoadmin/tasmoadmin
 type: application
-version: 8.1.1
+version: 8.1.3

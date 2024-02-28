@@ -40,6 +40,12 @@ jobs:
           # Fix sh files to always be executable
           find . -name '*.sh' | xargs chmod +x
 
+      # Optional step if GPG signing is used
+      - name: Clean Questions
+        shell: bash
+        run: |
+          find ./helm -type f -name 'questions.yaml' -exec rm {} \;
+
       - name: Commit Helm Changes
         run: |
           rm -rf helm/charts
@@ -111,6 +117,7 @@ jobs:
         if: |
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         run: |
+          go install github.com/git-chglog/git-chglog/cmd/git-chglog@latest
           CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
           parthreads=$(($(nproc) * 2))
           parallel -j ${parthreads} .github/scripts/changelog.sh '2>&1' ::: ${CHARTS[@]}
