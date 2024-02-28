@@ -20,7 +20,7 @@ service:
         enabled: false
 securityContext:
   container:
-    runAsNonRoot: false
+    runAsNonRoot: true
     readOnlyRootFilesystem: true
     runAsUser: 568
     runAsGroup: 568
