@@ -1,5 +1,5 @@
 ---
-title: Default Username/Password
+title: Default credentials
 ---
 
 - Email: `admin@example.com`
