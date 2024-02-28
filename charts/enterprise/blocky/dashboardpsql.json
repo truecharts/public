@@ -801,22 +801,22 @@
   "templating": {
     "list": [
       {
-          "current": {
-              "selected": false,
-              "text": "Postgres",
-              "value": "Postgres"
-          },
-          "hide": 0,
-          "includeAll": false,
-          "multi": false,
-          "name": "DS_POSTGRES",
-          "label": "datasource",
-          "options": [],
-          "query": "Postgres",
-          "refresh": 1,
-          "regex": "",
-          "skipUrlSync": false,
-          "type": "datasource"
+        "current": {
+          "selected": false,
+          "text": "BlockyPostgres",
+          "value": "blockypostgres"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "datasource",
+        "multi": false,
+        "name": "DS_POSTGRES",
+        "options": [],
+        "query": "grafana-postgresql-datasource",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
       },
       {
         "allValue": "",

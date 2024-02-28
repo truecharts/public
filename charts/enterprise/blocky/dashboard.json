@@ -1850,23 +1850,22 @@
     "templating": {
         "list": [
             {
-              "current": {
-                "selected": false,
-                "text": "BlockyPostgres",
-                "value": "blockypostgres"
-              },
-              "hide": 0,
-              "includeAll": false,
-              "label": "datasource",
-              "multi": false,
-              "name": "DS_POSTGRES",
-              "options": [],
-              "query": "grafana-postgresql-datasource",
-              "queryValue": "",
-              "refresh": 1,
-              "regex": "",
-              "skipUrlSync": false,
-              "type": "datasource"
+                "current": {
+                    "selected": false,
+                    "text": "Prometheus",
+                    "value": "Prometheus"
+                },
+                "hide": 0,
+                "includeAll": false,
+                "multi": false,
+                "name": "DS_PROMETHEUS",
+                "label": "datasource",
+                "options": [],
+                "query": "prometheus",
+                "refresh": 1,
+                "regex": "",
+                "skipUrlSync": false,
+                "type": "datasource"
             },
             {
                 "hide": 0,
