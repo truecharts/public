@@ -11,6 +11,36 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
+  - variable: peanut
+    group: App Configuration
+    label: Peanut
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: host
+          label: NUT Host
+          schema:
+            type: string
+            required: true
+            default: ""
+        - variable: port
+          label: NUT Port
+          schema:
+            type: int
+            required: true
+            default: 3493
+        - variable: user
+          label: Optional NUT user
+          schema:
+            type: string
+            default: ""
+        - variable: pass
+          label: Optional NUT password
+          schema:
+            type: string
+            private: true
+            default: ""
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
@@ -33,15 +63,6 @@ questions:
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
 # Include{serviceList}
-# Include{persistenceRoot}
-        - variable: config
-          label: "App Config Storage"
-          description: "Stores the Application Configuration."
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
