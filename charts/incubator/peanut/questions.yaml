@@ -9,38 +9,37 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: NUT_HOST
+                                        label: NUT Host
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+                                      - variable: NUT_PORT
+                                        label: NUT Port
+                                        schema:
+                                          type: int
+                                          required: true
+                                          default: 3493
+                                      - variable: USERNAME
+                                        label: Optional NUT user
+                                        schema:
+                                          type: string
+                                          default: ""
+                                      - variable: PASSWORD
+                                        label: Optional NUT password
+                                        schema:
+                                          type: string
+                                          private: true
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
-  - variable: peanut
-    group: App Configuration
-    label: Peanut
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: host
-          label: NUT Host
-          schema:
-            type: string
-            required: true
-            default: ""
-        - variable: port
-          label: NUT Port
-          schema:
-            type: int
-            required: true
-            default: 3493
-        - variable: user
-          label: Optional NUT user
-          schema:
-            type: string
-            default: ""
-        - variable: pass
-          label: Optional NUT password
-          schema:
-            type: string
-            private: true
-            default: ""
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
