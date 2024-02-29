@@ -20,17 +20,23 @@ workload:
               enabled: true
               type: exec
               command:
-                - /usr/local/bin/mc-monitor status-bedrock --host 127.0.0.1 --port "{{ .Values.service.main.ports.main.port }}"
+                - mc-monitor status-bedrock --host 127.0.0.1 --port {{ .Values.service.main.ports.main.port }}
+              spec:
+                periodSeconds: 60
             readiness:
               enabled: true
               type: exec
               command:
-                - /usr/local/bin/mc-monitor status-bedrock --host 127.0.0.1 --port "{{ .Values.service.main.ports.main.port }}"
+                - mc-monitor status-bedrock --host 127.0.0.1 --port {{ .Values.service.main.ports.main.port }}
+              spec:
+                periodSeconds: 60
             startup:
               enabled: true
               type: exec
               command:
-                - /usr/local/bin/mc-monitor status-bedrock --host 127.0.0.1 --port "{{ .Values.service.main.ports.main.port }}"
+                - mc-monitor status-bedrock --host 127.0.0.1 --port {{ .Values.service.main.ports.main.port }}
+              spec:
+                periodSeconds: 60
           env:
             EULA: true
             ENABLE_LAN_VISIBILITY: false
