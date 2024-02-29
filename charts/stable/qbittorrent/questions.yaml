@@ -24,7 +24,8 @@ questions:
           description: Enable and configure Gluetun Port Forwarding Automation.
           schema:
             type: boolean
-            default: false
+            # Change back to false before merge
+            default: true
             show_subquestions_if: true
             subquestions:
               - variable: QBT_USERNAME

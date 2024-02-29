@@ -42,6 +42,7 @@ workload:
     type: CronJob
     schedule: "*/5 * * * *"
     podSpec:
+      restartPolicy: OnFailure
       containers:
         qbitportforward:
           primary: true
