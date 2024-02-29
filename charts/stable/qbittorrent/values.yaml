@@ -41,8 +41,6 @@ workload:
     enabled: true
     type: CronJob
     schedule: "5 * * * *"
-    strategy: RollingUpdate
-    replicas: 1
     podSpec:
       containers:
         qbitportforward:
