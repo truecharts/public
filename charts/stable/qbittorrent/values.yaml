@@ -40,7 +40,7 @@ workload:
   qbitportforward:
     enabled: true
     type: CronJob
-    schedule: "5 * * * *"
+    schedule: "/5 * * * *"
     podSpec:
       containers:
         qbitportforward:
