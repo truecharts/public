@@ -36,6 +36,3 @@ workload:
               enabled: true
               type: http
               port: "{{ .Values.service.main.ports.main.port }}"
-
-manifestManager:
-  enabled: false

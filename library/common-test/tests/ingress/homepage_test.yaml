@@ -15,9 +15,6 @@ tests:
       k4: some-url
       k5: some-type
       k6: some-group
-      operator: &operator
-        verify:
-          enabled: false
       service:
         my-service:
           enabled: true
@@ -206,7 +203,6 @@ tests:
   # Failures
   - it: should fail with podSelector not a slice
     set:
-      operator: *operator
       service: &service
         my-service:
           enabled: true
@@ -234,7 +230,6 @@ tests:
 
   - it: should fail with custom widget not a map
     set:
-      operator: *operator
       service: *service
       ingress:
         my-ingress1:
@@ -254,7 +249,6 @@ tests:
 
   - it: should fail with customkv widget not a slice
     set:
-      operator: *operator
       service: *service
       ingress:
         my-ingress1:
@@ -274,7 +268,6 @@ tests:
 
   - it: should fail with customkv having empty key
     set:
-      operator: *operator
       service: *service
       ingress:
         my-ingress1:

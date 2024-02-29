@@ -8,9 +8,6 @@ tests:
   - it: should generate correct spec
     set:
       param: someValue
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true

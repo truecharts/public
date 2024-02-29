@@ -9,9 +9,6 @@ release:
 tests:
   - it: should pass with ingress created with certManager integration
     set:
-      operator: &operator
-        verify:
-          enabled: false
       service: &service
         my-service:
           enabled: true
@@ -59,7 +56,6 @@ tests:
 
   - it: should pass with ingress created with clusterCertificate
     set:
-      operator: *operator
       service: *service
       ingress:
         my-ingress:
@@ -105,7 +101,6 @@ tests:
 
   - it: should pass with ingress created with tls with certificateIssuer
     set:
-      operator: *operator
       service: *service
       otherhost: other-test-host
       othercertissuer: some-other-issuer

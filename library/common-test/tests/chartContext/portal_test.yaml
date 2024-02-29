@@ -88,9 +88,6 @@ tests:
       enabled: true
       host: example.com
       path: /some-path
-      operator:
-        verify:
-          enabled: false
       ingress:
         my-ingress:
           enabled: "{{ .Values.enabled }}"
@@ -135,9 +132,6 @@ tests:
       portal:
         main:
           enabled: true
-      operator:
-        verify:
-          enabled: false
       ingress:
         my-ingress:
           enabled: true
@@ -185,9 +179,6 @@ tests:
       portal:
         main:
           enabled: true
-      operator:
-        verify:
-          enabled: false
       ingress:
         my-ingress:
           enabled: true
@@ -239,9 +230,6 @@ tests:
       portal:
         main:
           enabled: true
-      operator:
-        verify:
-          enabled: false
       ingress:
         my-ingress:
           enabled: true
@@ -293,9 +281,6 @@ tests:
       portal:
         main:
           enabled: true
-      operator:
-        verify:
-          enabled: false
       ingress:
         my-ingress:
           enabled: true
@@ -350,9 +335,6 @@ tests:
             protocol: "http"
             host: "test.example.com"
             port: "123"
-      operator:
-        verify:
-          enabled: false
       ingress:
         my-ingress:
           enabled: true
@@ -414,9 +396,6 @@ tests:
             protocol: "http"
             host: "test123.example.com"
             port: "456"
-      operator:
-        verify:
-          enabled: false
       ingress:
         my-ingress:
           enabled: true
@@ -488,9 +467,6 @@ tests:
           path: /some-other-path
           targetSelector:
             ingress: my-other-ingress
-      operator:
-        verify:
-          enabled: false
       ingress:
         my-ingress:
           enabled: true
@@ -577,9 +553,6 @@ tests:
           path: /some-other-path
           targetSelector:
             service: my-other-service
-      operator:
-        verify:
-          enabled: false
       service:
         my-service:
           enabled: true
@@ -642,9 +615,6 @@ tests:
           targetSelector:
             service: my-other-service
             port: my-other-port
-      operator:
-        verify:
-          enabled: false
       service:
         my-service:
           enabled: true
@@ -710,9 +680,6 @@ tests:
           targetSelector:
             service: my-other-service
             port: ""
-      operator:
-        verify:
-          enabled: false
       service:
         my-service:
           enabled: true

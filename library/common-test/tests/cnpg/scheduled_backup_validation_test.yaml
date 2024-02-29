@@ -7,9 +7,6 @@ release:
 tests:
   - it: should fail without name in scheduledBackups backup
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -28,9 +25,6 @@ tests:
 
   - it: should fail without schedule in scheduledBackups backup
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -72,9 +66,6 @@ tests:
 
   - it: should fail with invalid name in scheduledBackups backup
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -95,9 +86,6 @@ tests:
 
   - it: should fail with suspend not a bool in scheduledBackups backup
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -119,9 +107,6 @@ tests:
 
   - it: should fail with immediate not a bool in scheduledBackups backup
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true

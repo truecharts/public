@@ -7,9 +7,6 @@ release:
 tests:
   - it: should fail without name in manualBackups backup
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -26,9 +23,6 @@ tests:
 
   - it: should fail with invalid name in manualBackups backup
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true

@@ -22,7 +22,16 @@ objectData:
   {{- $hasEnabledPort := false -}}
   {{- if ne $objectData.type "ExternalName" -}}
     {{- range $name, $port := $objectData.ports -}}
-      {{- if $port.enabled -}}
+      {{- $enabled := "false" -}}
+
+      {{- if not (kindIs "invalid" $port.enabled) -}}
+        {{- $enabled = (include "tc.v1.common.lib.util.enabled" (dict
+                  "rootCtx" $rootCtx "objectData" $port
+                  "name" $name "caller" "Service Validation Util"
+                  "key" "port")) -}}
+      {{- end -}}
+
+      {{- if eq $enabled "true" -}}
         {{- $hasEnabledPort = true -}}
 
         {{- if and $port.targetSelector (not (kindIs "string" $port.targetSelector)) -}}
@@ -62,9 +71,16 @@ objectData:
   {{- $hasEnabled := false -}}
 
   {{- range $name, $service := .Values.service -}}
+    {{- $enabled := "false" -}}
 
-    {{/* If service is enabled */}}
-    {{- if $service.enabled -}}
+    {{- if not (kindIs "invalid" $service.enabled) -}}
+      {{- $enabled = (include "tc.v1.common.lib.util.enabled" (dict
+                "rootCtx" $ "objectData" $service
+                "name" $name "caller" "Service Validation Util"
+                "key" "service")) -}}
+    {{- end -}}
+
+    {{- if eq $enabled "true" -}}
       {{- $hasEnabled = true -}}
 
       {{/* And service is primary */}}

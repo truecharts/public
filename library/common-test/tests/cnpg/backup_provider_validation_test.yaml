@@ -7,9 +7,6 @@ release:
 tests:
   - it: should fail with invalid provider
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -24,9 +21,6 @@ tests:
 
   - it: should fail with missing "provider" object
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -41,9 +35,6 @@ tests:
 
   - it: should fail with missing storageAccount or connectionString with azure provider
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -60,9 +51,6 @@ tests:
 
   - it: should fail with missing storageKey or storageSasToken with azure provider
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -79,9 +67,6 @@ tests:
 
   - it: should fail with both storageKey and storageSasToken defined with azure provider
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -100,9 +85,6 @@ tests:
 
   - it: should fail with applicationCredentials missing with google provider
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -119,9 +101,6 @@ tests:
 
   - it: should fail with accessKey missing with s3 provider
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -138,9 +117,6 @@ tests:
 
   - it: should fail with secretKey missing with s3 provider
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true

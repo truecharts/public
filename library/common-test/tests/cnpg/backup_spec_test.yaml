@@ -7,9 +7,6 @@ release:
 tests:
   - it: should generate correct spec
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true

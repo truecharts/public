@@ -7,9 +7,6 @@ release:
 tests:
   - it: should pass with hibernate
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -43,9 +40,6 @@ tests:
 
   - it: should set suspend on stopAll
     set:
-      operator:
-        verify:
-          enabled: false
       global:
         stopAll: true
       cnpg:
@@ -81,9 +75,6 @@ tests:
 
   - it: should set suspend on ixChartContext - isStopped (true)
     set:
-      operator:
-        verify:
-          enabled: false
       global:
         namespace: ix-something
         ixChartContext:
@@ -122,9 +113,6 @@ tests:
 
   - it: should not suspend on ixChartContext - isStopped (false)
     set:
-      operator:
-        verify:
-          enabled: false
       global:
         namespace: ix-something
         ixChartContext:

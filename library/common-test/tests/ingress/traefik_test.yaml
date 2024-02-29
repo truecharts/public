@@ -9,9 +9,6 @@ release:
 tests:
   - it: should pass with ingress created with annotations from traefik
     set:
-      operator: &operator
-        verify:
-          enabled: false
       global: &global
         traefik:
           fixedMiddlewares:
@@ -56,7 +53,6 @@ tests:
 
   - it: should pass with ingress created without traefik annotations when traefik false
     set:
-      operator: *operator
       service: *service
       ingress:
         my-ingress:
@@ -80,7 +76,6 @@ tests:
 
   - it: should replace local fixedMiddlewares when allowCors true
     set:
-      operator: *operator
       service: *service
       global:
         traefik:
@@ -120,7 +115,6 @@ tests:
 
   - it: should replace global fixedMiddlewares when allowCors true
     set:
-      operator: *operator
       service: *service
       global:
         traefik:
@@ -157,7 +151,6 @@ tests:
 
   - it: should replace global fixedMiddlewares when local fixedMiddlewares is defined
     set:
-      operator: *operator
       service: *service
       global: *global
       ingress:
@@ -189,7 +182,6 @@ tests:
 
   - it: should override default entrypoint(s)
     set:
-      operator: *operator
       service: *service
       global: *global
       ingress:
@@ -221,7 +213,6 @@ tests:
 
   - it: should not contain fixed middlewares when global is disabled
     set:
-      operator: *operator
       service: *service
       global:
         traefik:
@@ -247,7 +238,6 @@ tests:
 
   - it: should not contain fixed middlewares when local is disabled
     set:
-      operator: *operator
       service: *service
       global:
         traefik:
@@ -274,7 +264,6 @@ tests:
 
   - it: should add the defined middlewares to the ingress
     set:
-      operator: *operator
       service: *service
       global: *global
       ingress:
@@ -311,7 +300,6 @@ tests:
 
   - it: should add the the tls annotation
     set:
-      operator: *operator
       service: *service
       global: *global
       ingress:
@@ -346,7 +334,6 @@ tests:
 
   - it: should not add the the tls annotation
     set:
-      operator: *operator
       service: *service
       global: *global
       ingress:
@@ -381,7 +368,6 @@ tests:
   # Failures
   - it: should fail with entrypoint not a slice
     set:
-      operator: *operator
       service: *service
       ingress:
         my-ingress1:
@@ -398,7 +384,6 @@ tests:
 
   - it: should fail with middlewares not a slice
     set:
-      operator: *operator
       service: *service
       ingress:
         my-ingress1:
@@ -415,7 +400,6 @@ tests:
 
   - it: should fail with fixedMiddlewares not a slice
     set:
-      operator: *operator
       service: *service
       ingress:
         my-ingress1:
@@ -432,7 +416,6 @@ tests:
 
   - it: should fail with duplicate middlewares
     set:
-      operator: *operator
       service: *service
       global: *global
       ingress:
@@ -452,7 +435,6 @@ tests:
 
   - it: should fail with duplicate entrypoints
     set:
-      operator: *operator
       service: *service
       ingress:
         my-ingress1:
@@ -471,7 +453,6 @@ tests:
 
   - it: should fail when a middleware does not have a namespace (or failed to be looked up)
     set:
-      operator: *operator
       service: *service
       global: *global
       ingress:

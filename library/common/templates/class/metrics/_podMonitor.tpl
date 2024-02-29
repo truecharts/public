@@ -13,7 +13,7 @@
 
   {{- if and (hasKey $values "nameOverride") $values.nameOverride -}}
     {{- $podmonitorName = printf "%v-%v" $podmonitorName $values.nameOverride -}}
-  {{- end }}
+  {{- end -}}
 
   {{- include "tc.v1.common.lib.util.verifycrd" (dict "rootCtx" . "crd" "podmonitors.monitoring.coreos.com" "missing" "Prometheus-Operator") }}
 

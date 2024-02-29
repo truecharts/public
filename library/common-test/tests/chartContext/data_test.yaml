@@ -82,9 +82,6 @@ tests:
       enabled: true
       host: example.com
       path: /some-path
-      operator:
-        verify:
-          enabled: false
       ingress:
         my-ingress:
           enabled: "{{ .Values.enabled }}"
@@ -129,9 +126,6 @@ tests:
   - it: should pass with ingress and traefik integration
     set:
       createChartContextConfigmap: true
-      operator:
-        verify:
-          enabled: false
       ingress:
         my-ingress:
           enabled: true
@@ -179,9 +173,6 @@ tests:
   - it: should pass with ingress and tls and traefik integration
     set:
       createChartContextConfigmap: true
-      operator:
-        verify:
-          enabled: false
       ingress:
         my-ingress:
           enabled: true
@@ -233,9 +224,6 @@ tests:
   - it: should pass with ingress and tls and traefik integration
     set:
       createChartContextConfigmap: true
-      operator:
-        verify:
-          enabled: false
       ingress:
         my-ingress:
           enabled: true
@@ -287,9 +275,6 @@ tests:
   - it: should pass with ingress and certManager integration and traefik integration
     set:
       createChartContextConfigmap: true
-      operator:
-        verify:
-          enabled: false
       ingress:
         my-ingress:
           enabled: true

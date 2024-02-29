@@ -7,9 +7,6 @@ release:
 tests:
   - it: should fail without user
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -20,9 +17,6 @@ tests:
 
   - it: should fail without database
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -33,9 +27,6 @@ tests:
 
   - it: should fail with invalid version
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -48,9 +39,6 @@ tests:
 
   - it: should fail with hibernate not a bool
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -63,9 +51,6 @@ tests:
 
   - it: should fail with invalid mode
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -78,9 +63,6 @@ tests:
 
   - it: should fail with invalid type
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -93,9 +75,6 @@ tests:
 
   - it: should fail with invalid log level
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -109,9 +88,6 @@ tests:
 
   - it: should fail with invalid primaryUpdateStrategy
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -125,9 +101,6 @@ tests:
 
   - it: should fail with invalid primaryUpdateMethod
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -141,9 +114,6 @@ tests:
 
   - it: should fail with invalid walSegmentSize
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -158,9 +128,6 @@ tests:
 
   - it: should fail with too large walSegmentSize
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -175,9 +142,6 @@ tests:
 
   - it: should fail without recovery object when mode is recovery
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -190,9 +154,6 @@ tests:
 
   - it: should fail with invalid recovery method
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -207,9 +168,6 @@ tests:
 
   - it: should fail without backupName on recovery method backup
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -224,9 +182,6 @@ tests:
 
   - it: should fail with invalid provider on recovery method object_store
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -242,9 +197,6 @@ tests:
 
   - it: should fail with missing "provider" key on recovery method object_store
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -260,9 +212,6 @@ tests:
 
   - it: should fail with missing destinationPath and google bucket on recovery method object_store
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -280,9 +229,6 @@ tests:
 
   - it: should fail with missing destinationPath and s3 bucket on recovery method object_store
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -301,9 +247,6 @@ tests:
 
   - it: should fail with missing endpointURL and s3 region on recovery method object_store
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -323,9 +266,6 @@ tests:
 
   - it: should fail with missing destinationPath and azure storageAccount on recovery method object_store
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -343,9 +283,6 @@ tests:
 
   - it: should fail with missing destinationPath and azure serviceName on recovery method object_store
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -364,9 +301,6 @@ tests:
 
   - it: should fail with missing destinationPath and azure containerName on recovery method object_store
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -386,9 +320,6 @@ tests:
 
   - it: should fail with invalid target when backups are enabled
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -406,9 +337,6 @@ tests:
 
   - it: should fail with invalid retentionPolicy when backups are enabled
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -427,9 +355,6 @@ tests:
 
   - it: should fail with missing destinationPath and google bucket on backups
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -448,9 +373,6 @@ tests:
 
   - it: should fail with missing destinationPath and s3 bucket on backups
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -470,9 +392,6 @@ tests:
 
   - it: should fail with missing endpointURL and s3 region on backups
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -493,9 +412,6 @@ tests:
 
   - it: should fail with missing destinationPath and azure storageAccount on backups
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -514,9 +430,6 @@ tests:
 
   - it: should fail with missing destinationPath and azure serviceName on backups
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -536,9 +449,6 @@ tests:
 
   - it: should fail with missing destinationPath and azure containerName on backups
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -559,9 +469,6 @@ tests:
 
   - it: should fail with instances less than 1
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true

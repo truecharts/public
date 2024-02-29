@@ -215,9 +215,6 @@ tests:
   - it: should apply ingress settings with primary
     set:
       workload: *workload
-      operator:
-        verify:
-          enabled: false
       service:
         main:
           enabled: true

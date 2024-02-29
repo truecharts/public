@@ -20,9 +20,6 @@ tests:
         annotations:
           g_annotation1: global_annotation1
           g_annotation2: "{{ .Values.annotation2 }}"
-      operator: &operator
-        verify:
-          enabled: false
       service: &service
         my-service:
           enabled: true
@@ -127,7 +124,6 @@ tests:
   - it: should pass with ingress created with object namespace from tpl
     set:
       key: some-namespace
-      operator: *operator
       service: *service
       ingress:
         my-ingress1:
@@ -147,7 +143,6 @@ tests:
       key: global-namespace
       global:
         namespace: "{{ .Values.key }}"
-      operator: *operator
       service: *service
       ingress:
         my-ingress1:
@@ -167,7 +162,6 @@ tests:
       namespace: "{{ .Values.key }}"
       global:
         namespace: global-namespace
-      operator: *operator
       service: *service
       ingress:
         my-ingress1:
@@ -187,7 +181,6 @@ tests:
         ixChartContext:
           iAmNotEmpty: true
       namespace: ix-namespace
-      operator: *operator
       service: *service
       ingress:
         my-ingress1:

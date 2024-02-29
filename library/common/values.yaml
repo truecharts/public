@@ -1274,8 +1274,6 @@ redis:
   enabled: false
   # -- can be used to make an easy accessible note which URLS to use to access the DB.
   creds: {}
-  manifestManager:
-    enabled: false
   secret:
     credentials:
       enabled: false
@@ -1287,8 +1285,6 @@ mariadb:
   existingSecret: "mariadbcreds"
   # -- can be used to make an easy accessable note which URLS to use to access the DB.
   creds: {}
-  manifestManager:
-    enabled: false
 
 # -- mongodb dependency configuration
 # @default -- See below
@@ -1297,8 +1293,6 @@ mongodb:
   existingSecret: "mongodbcreds"
   # -- can be used to make an easy accessable note which URLS to use to access the DB.
   creds: {}
-  manifestManager:
-    enabled: false
 
 # -- clickhouse dependency configuration
 # @default -- See below
@@ -1307,8 +1301,6 @@ clickhouse:
   existingSecret: "clickhousecreds"
   # -- can be used to make an easy accessable note which URLS to use to access the DB.
   creds: {}
-  manifestManager:
-    enabled: false
 
 # -- solr dependency configuration
 # @default -- See below
@@ -1319,8 +1311,6 @@ solr:
   existingSecret: "solrcreds"
   # -- can be used to make an easy accessable note which URLS to use to access the DB.
   creds: {}
-  manifestManager:
-    enabled: false
 
 # -- List of extra objects to deploy with the release
 extraTpl: []

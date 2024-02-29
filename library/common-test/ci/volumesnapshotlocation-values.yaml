@@ -36,10 +36,6 @@ workload:
               type: http
               port: "{{ .Values.service.main.ports.main.port }}"
 
-manifestManager:
-  enabled: false
-
-
 # Parameters for the VolumeSnapshotLocation(s). Configure multiple by adding other element(s) to the volumeSnapshotLocation slice.
 # See https://velero.io/docs/v1.6/api-types/volumesnapshotlocation/
 volumeSnapshotLocation:

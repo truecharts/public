@@ -7,9 +7,6 @@ release:
 tests:
   - it: should create configmap with recovery string when forceRecovery is enabled
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true

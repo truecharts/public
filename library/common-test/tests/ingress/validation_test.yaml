@@ -5,11 +5,40 @@ release:
   name: test-release-name
   namespace: test-release-namespace
 tests:
+  - it: should fail without traefik installed
+    set:
+      crd:
+        verify:
+          enabled: true
+      service:
+        my-service:
+          enabled: true
+          primary: true
+          ports:
+            main:
+              enabled: true
+              primary: true
+              port: 80
+      ingress:
+        my-ingress:
+          enabled: true
+          primary: true
+          hosts:
+            - host: test-host
+              paths:
+                - path: /test-path
+          integrations: &integrations
+            traefik:
+              enabled: true
+              fixedMiddlewares:
+                - name: chain-basic
+                  namespace: test-release-namespace
+    asserts:
+      - failedTemplate:
+          errorMessage: Traefik has to be installed first
+
   - it: should fail if required is true but enabled is false
     set:
-      operator: &operator
-        verify:
-          enabled: false
       service: &service
         my-service:
           enabled: true
@@ -29,7 +58,6 @@ tests:
 
   - it: should fail with name longer than 253 characters
     set:
-      operator: *operator
       service: *service
       ingress:
         my-ing:
@@ -50,7 +78,6 @@ tests:
 
   - it: should fail with name starting with underscore
     set:
-      operator: *operator
       service: *service
       ingress:
         my-ing:
@@ -65,7 +92,6 @@ tests:
 
   - it: should fail with namespace longer than 63 characters
     set:
-      operator: *operator
       service: *service
       ingress:
         my-ingress:
@@ -83,7 +109,6 @@ tests:
       global:
         ixChartContext:
           iAmNotEmpty: true
-      operator: *operator
       service:
         my-service:
           enabled: true
@@ -107,7 +132,6 @@ tests:
 
   - it: should fail with labels not a dict
     set:
-      operator: *operator
       ingress:
         my-ingress:
           enabled: true
@@ -119,7 +143,6 @@ tests:
 
   - it: should fail with annotations not a dict
     set:
-      operator: *operator
       ingress:
         my-ingress:
           enabled: true
@@ -131,7 +154,6 @@ tests:
 
   - it: should fail with empty enabled
     set:
-      operator: *operator
       ingress:
         my-ingress:
           enabled:
@@ -141,7 +163,6 @@ tests:
 
   - it: should fail with targetSelector not a map
     set:
-      operator: *operator
       ingress:
         my-ingress:
           enabled: true
@@ -153,7 +174,6 @@ tests:
 
   - it: should fail with targetSelector having more than one key
     set:
-      operator: *operator
       ingress:
         my-ingress:
           enabled: true
@@ -167,7 +187,6 @@ tests:
 
   - it: should fail with targetSelector key missing value
     set:
-      operator: *operator
       ingress:
         my-ingress:
           enabled: true
@@ -180,7 +199,6 @@ tests:
 
   - it: should fail with targetSelector key having non-string value
     set:
-      operator: *operator
       ingress:
         my-ingress:
           enabled: true
@@ -194,7 +212,6 @@ tests:
 
   - it: should fail with no hosts
     set:
-      operator: *operator
       ingress:
         my-ingress:
           enabled: true
@@ -206,7 +223,6 @@ tests:
 
   - it: should fail with hosts not a slice
     set:
-      operator: *operator
       ingress:
         my-ingress:
           enabled: true
@@ -218,7 +234,6 @@ tests:
 
   - it: should fail with no hosts.host
     set:
-      operator: *operator
       ingress:
         my-ingress:
           enabled: true
@@ -232,7 +247,6 @@ tests:
 
   - it: should fail with host starting with https://
     set:
-      operator: *operator
       ingress:
         my-ingress:
           enabled: true
@@ -247,7 +261,6 @@ tests:
 
   - it: should fail with host starting with http://
     set:
-      operator: *operator
       ingress:
         my-ingress:
           enabled: true
@@ -262,7 +275,6 @@ tests:
 
   - it: should fail with host contain ":"
     set:
-      operator: *operator
       ingress:
         my-ingress:
           enabled: true
@@ -277,7 +289,6 @@ tests:
 
   - it: should fail without paths
     set:
-      operator: *operator
       ingress:
         my-ingress:
           enabled: true
@@ -290,7 +301,6 @@ tests:
 
   - it: should fail with paths not a slice
     set:
-      operator: *operator
       ingress:
         my-ingress:
           enabled: true
@@ -304,7 +314,6 @@ tests:
 
   - it: should fail with invalid pathType
     set:
-      operator: *operator
       ingress:
         my-ingress:
           enabled: true
@@ -320,7 +329,6 @@ tests:
 
   - it: should fail with path not starting with / (only on pathType Exact and Prefix)
     set:
-      operator: *operator
       ingress:
         my-ingress:
           enabled: true
@@ -336,7 +344,6 @@ tests:
 
   - it: should fail if name in the overrideService is missing
     set:
-      operator: *operator
       ingress:
         my-ingress:
           enabled: true
@@ -353,7 +360,6 @@ tests:
 
   - it: should fail if port in the overrideService is missing
     set:
-      operator: *operator
       ingress:
         my-ingress:
           enabled: true
@@ -370,7 +376,6 @@ tests:
 
   - it: should fail if targeted service does not exist
     set:
-      operator: *operator
       ingress:
         my-ingress:
           enabled: true
@@ -387,7 +392,6 @@ tests:
 
   - it: should fail if targeted service is not enabled
     set:
-      operator: *operator
       service:
         my-service:
           enabled: false
@@ -413,7 +417,6 @@ tests:
 
   - it: should fail without primary service or a targetSelector
     set:
-      operator: *operator
       ingress:
         my-ingress:
           enabled: true
@@ -428,7 +431,6 @@ tests:
 
   - it: should fail if the targeted service does not have the targeted port
     set:
-      operator: *operator
       service:
         my-service:
           enabled: true
@@ -454,7 +456,6 @@ tests:
 
   - it: should fail if the targeted service port is not enabled
     set:
-      operator: *operator
       service:
         my-service:
           enabled: true
@@ -484,7 +485,6 @@ tests:
 
   - it: should fail if tls.hosts are empty
     set:
-      operator: *operator
       service: *service
       ingress:
         my-ingress:
@@ -499,7 +499,6 @@ tests:
 
   - it: should fail if tls.hosts is not a slice
     set:
-      operator: *operator
       service: *service
       ingress:
         my-ingress:
@@ -514,7 +513,6 @@ tests:
 
   - it: should fail if tls.hosts.host is empty
     set:
-      operator: *operator
       service: *service
       ingress:
         my-ingress:
@@ -530,7 +528,6 @@ tests:
 
   - it: should fail if tls.hosts.host starts with https://
     set:
-      operator: *operator
       service: *service
       ingress:
         my-ingress:
@@ -546,7 +543,6 @@ tests:
 
   - it: should fail if tls.hosts.host starts with http://
     set:
-      operator: *operator
       service: *service
       ingress:
         my-ingress:
@@ -562,7 +558,6 @@ tests:
 
   - it: should fail if tls.hosts.host contains ":"
     set:
-      operator: *operator
       service: *service
       ingress:
         my-ingress:
@@ -578,7 +573,6 @@ tests:
 
   - it: should fail if more than 1 cert option is set under tls
     set:
-      operator: *operator
       service: *service
       ingress:
         my-ingress:
@@ -596,7 +590,6 @@ tests:
 
   - it: should fail with ingressClassName set to tc-stopped
     set:
-      operator: *operator
       service: *service
       ingress:
         my-ingress:

@@ -9,9 +9,6 @@ release:
 tests:
   - it: should pass with cnpg created with labels and annotations
     set:
-      operator:
-        verify:
-          enabled: false
       label1: label1
       label2: global_label2
       label3: label3
@@ -92,9 +89,6 @@ tests:
 
   - it: should pass with cnpg created with namespace
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -109,9 +103,6 @@ tests:
 
   - it: should pass with cnpg created with object namespace from tpl
     set:
-      operator:
-        verify:
-          enabled: false
       key: some-namespace
       cnpg:
         my-pg:
@@ -127,9 +118,6 @@ tests:
 
   - it: should pass with cnpg created with namespace from global with tpl
     set:
-      operator:
-        verify:
-          enabled: false
       key: global-namespace
       global:
         namespace: "{{ .Values.key }}"
@@ -146,9 +134,6 @@ tests:
 
   - it: should pass with cnpg created with namespace from root with tpl
     set:
-      operator:
-        verify:
-          enabled: false
       key: local-namespace
       namespace: "{{ .Values.key }}"
       global:
@@ -166,9 +151,6 @@ tests:
 
   - it: should pass with cnpg created with namespace in TrueNAS SCALE
     set:
-      operator:
-        verify:
-          enabled: false
       global:
         ixChartContext:
           iAmNotEmpty: true

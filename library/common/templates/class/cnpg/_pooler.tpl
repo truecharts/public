@@ -20,7 +20,7 @@
   {{/* Stop All */}}
   {{- if or $objectData.hibernate (include "tc.v1.common.lib.util.stopAll" $rootCtx) -}}
     {{- $instances = 0 -}}
-  {{- end }}
+  {{- end -}}
 
   {{- include "tc.v1.common.lib.util.verifycrd" (dict "rootCtx" $rootCtx "crd" "poolers.postgresql.cnpg.io" "missing" "CloudNative-PG") }}
 

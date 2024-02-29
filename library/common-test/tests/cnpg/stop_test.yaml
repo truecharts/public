@@ -7,9 +7,6 @@ release:
 tests:
   - it: should pass with hibernate
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         mypg:
           enabled: true
@@ -43,9 +40,6 @@ tests:
 
   - it: should set hibernate and 0 instances on stopAll
     set:
-      operator:
-        verify:
-          enabled: false
       global:
         stopAll: true
       cnpg:
@@ -81,9 +75,6 @@ tests:
 
   - it: should set hibernate and 0 instances on ixChartContext - isStopped (true)
     set:
-      operator:
-        verify:
-          enabled: false
       global:
         namespace: ix-something
         ixChartContext:
@@ -122,9 +113,6 @@ tests:
 
   - it: should not set hibernate and 0 instances on ixChartContext - isStopped (false)
     set:
-      operator:
-        verify:
-          enabled: false
       global:
         namespace: ix-something
         ixChartContext:
@@ -163,9 +151,6 @@ tests:
 
   - it: should not set hibernate and 0 instances on ixChartContext - isStopped (true) and ignoreIsStopped (true)
     set:
-      operator:
-        verify:
-          enabled: false
       global:
         namespace: ix-something
         ignoreIsStopped: true

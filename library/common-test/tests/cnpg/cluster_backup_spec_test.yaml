@@ -7,9 +7,6 @@ release:
 tests:
   - it: should generate correct spec with backups (azure)
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -85,9 +82,6 @@ tests:
 
   - it: should generate correct spec with backups (google)
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -152,9 +146,6 @@ tests:
 
   - it: should generate correct spec with backups (s3)
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -224,9 +215,6 @@ tests:
 
   - it: should generate correct spec with empty target
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true

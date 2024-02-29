@@ -7,9 +7,6 @@ release:
 tests:
   - it: should fail with invalid poolMode
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -23,9 +20,6 @@ tests:
 
   - it: should fail with pooler instances less than 1
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true

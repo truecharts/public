@@ -7,9 +7,6 @@ release:
 tests:
   - it: should generate correct spec
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -69,9 +66,6 @@ tests:
 
   - it: should override options
     set:
-      operator:
-        verify:
-          enabled: false
       ext1: some-extension
       ext2: some-other-extension
       cnpg:
@@ -178,9 +172,6 @@ tests:
 
   - it: should override resources from top level
     set:
-      operator:
-        verify:
-          enabled: false
       resources:
         limits:
           cpu: 2000m
@@ -211,9 +202,6 @@ tests:
 
   - it: should pass with custom-conf
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -244,9 +232,6 @@ tests:
 
   - it: should pass with timescaledb
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -292,9 +277,6 @@ tests:
 
   - it: should pass with enabled monitoring
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -316,9 +298,6 @@ tests:
 
   - it: should pass with override monitoring
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true

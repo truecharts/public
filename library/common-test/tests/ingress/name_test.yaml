@@ -7,9 +7,6 @@ release:
 tests:
   - it: should generate correct name
     set:
-      operator:
-        verify:
-          enabled: false
       service:
         my-service:
           enabled: true

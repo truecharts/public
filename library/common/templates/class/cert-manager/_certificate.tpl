@@ -12,7 +12,7 @@ objectData:
 {{- define "tc.v1.common.class.certificate" -}}
 
   {{- $rootCtx := .rootCtx -}}
-  {{- $objectData := .objectData }}
+  {{- $objectData := .objectData -}}
 
   {{- include "tc.v1.common.lib.util.verifycrd" (dict "rootCtx" $rootCtx "crd" "certificates.cert-manager.io" "missing" "Cert-Manager") }}
 

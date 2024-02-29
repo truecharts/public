@@ -36,14 +36,9 @@ workload:
               type: http
               port: "{{ .Values.service.main.ports.main.port }}"
 
-
 args:
   - --port
   - '8080'
-
-manifestManager:
-  enabled: false
-  staging: false
 
 addons:
   netshoot:

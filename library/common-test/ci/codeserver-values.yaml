@@ -47,10 +47,6 @@ persistence:
     type: pvc
     mountPath: /testpvc
 
-manifestManager:
-  enabled: false
-  staging: false
-
 addons:
   codeserver:
     enabled: true

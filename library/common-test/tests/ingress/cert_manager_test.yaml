@@ -9,9 +9,6 @@ release:
 tests:
   - it: should pass with ingress created with annotations from cert manager
     set:
-      operator: &operator
-        verify:
-          enabled: false
       service: &service
         my-service:
           enabled: true
@@ -56,7 +53,6 @@ tests:
 
   - it: should pass with ingress created without cert manager annotations when cert manager false
     set:
-      operator: *operator
       service: *service
       ingress:
         my-ingress:
@@ -82,7 +78,6 @@ tests:
   # Failures
   - it: should fail with missing certificateIssuer
     set:
-      operator: *operator
       service: *service
       ingress:
         my-ingress1:
@@ -98,7 +93,6 @@ tests:
 
   - it: should fail with certificateIssuer not a string
     set:
-      operator: *operator
       service: *service
       ingress:
         my-ingress1:

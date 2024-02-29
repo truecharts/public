@@ -120,7 +120,7 @@
 
   {{- with $objectData.cluster.walStorage.size -}}
     {{- $walSize = . -}}
-  {{- end }}
+  {{- end -}}
 
   {{- include "tc.v1.common.lib.util.verifycrd" (dict "rootCtx" $rootCtx "crd" "clusters.postgresql.cnpg.io" "missing" "CloudNative-PG") }}
 

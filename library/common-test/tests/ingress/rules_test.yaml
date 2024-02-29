@@ -9,9 +9,6 @@ release:
 tests:
   - it: should pass with ingress created with ingressClassName
     set:
-      operator: &operator
-        verify:
-          enabled: false
       service:
         my-service:
           enabled: true
@@ -48,9 +45,6 @@ tests:
 
   - it: should pass with ingress created with rules
     set:
-      operator: &operator
-        verify:
-          enabled: false
       service:
         my-service:
           enabled: true
@@ -141,9 +135,6 @@ tests:
 
   - it: should pass with ingress created with rules with targetSelector
     set:
-      operator: &operator
-        verify:
-          enabled: false
       service:
         my-service:
           enabled: true

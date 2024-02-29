@@ -37,10 +37,6 @@ service:
         protocol: http
         port: 8081
 
-manifestManager:
-  enabled: false
-  staging: false
-
 # -- Configure the ingresses for the chart here.
 # Additional ingresses can be added by adding a dictionary key similar to the 'main' ingress.
 # @default -- See below

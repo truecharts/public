@@ -7,9 +7,6 @@ release:
 tests:
   - it: should generate correct spec with recovery/backup
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -74,9 +71,6 @@ tests:
 
   - it: should generate correct spec with recovery/objectStore (google)
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -148,9 +142,6 @@ tests:
 
   - it: should generate correct spec with recovery/objectStore (google - destinationPath)
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -221,9 +212,6 @@ tests:
 
   - it: should generate correct spec with recovery/objectStore (s3)
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -296,9 +284,6 @@ tests:
 
   - it: should generate correct spec with recovery/objectStore (s3 - destinationPath/endpointURL)
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -370,9 +355,6 @@ tests:
 
   - it: should generate correct spec with recovery/objectStore (azure)
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true
@@ -453,9 +435,6 @@ tests:
 
   - it: should generate correct spec with recovery/objectStore (azure - destinationPath)
     set:
-      operator:
-        verify:
-          enabled: false
       cnpg:
         my-pg:
           enabled: true

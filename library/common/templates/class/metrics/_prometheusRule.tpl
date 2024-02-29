@@ -13,7 +13,7 @@
 
   {{- if and (hasKey $values "nameOverride") $values.nameOverride -}}
     {{- $prometheusruleName = printf "%v-%v" $prometheusruleName $values.nameOverride -}}
-  {{- end }}
+  {{- end -}}
 
   {{- include "tc.v1.common.lib.util.verifycrd" (dict "rootCtx" .  "crd" "prometheusrules.monitoring.coreos.com" "missing" "Prometheus-Operator") }}
 

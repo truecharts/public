@@ -9,9 +9,6 @@ release:
 tests:
   - it: should pass with stopAll
     set:
-      operator: &operator
-        verify:
-          enabled: false
       global:
         stopAll: true
       service: &service
@@ -54,7 +51,6 @@ tests:
 
   - it: should pass with ixChartContext - isStopped (true)
     set:
-      operator: *operator
       global:
         namespace: ix-something
         ixChartContext:
@@ -80,7 +76,6 @@ tests:
 
   - it: should pass with ixChartContext - isStopped (false)
     set:
-      operator: *operator
       global:
         namespace: ix-something
         ixChartContext:
@@ -108,7 +103,6 @@ tests:
 
   - it: should ignore isStopped in ixChartContext
     set:
-      operator: *operator
       global:
         namespace: ix-something
         ignoreIsStopped: true
