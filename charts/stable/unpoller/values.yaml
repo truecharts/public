@@ -41,7 +41,7 @@ configmap:
   dashboards:
     enabled: true
     labels:
-      grafana_dashboard: '1'
+      grafana_dashboard: "1"
     data:
       upUAP.json: >-
         {{ .Files.Get "dashboards/UAP.json" | indent 8 }}
