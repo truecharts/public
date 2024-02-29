@@ -23,7 +23,7 @@ jobs:
           fetch-depth: 0
           ref: main
           path: main
-      - uses: dorny/paths-filter@v2
+      - uses: dorny/paths-filter@ebc4d7e9ebcb0b1eb21480bb8f43113e996ac77a # v3
         id: filter
         with:
           list-files: json
