@@ -67,6 +67,8 @@ workload:
           primary: true
           enabled: true
           imageSelector: uiImage
+          securityContext:
+            readOnlyRootFilesystem: false
           probes:
             liveness:
               enabled: true
