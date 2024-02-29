@@ -20,7 +20,7 @@ workload:
               enabled: true
               type: exec
               command:
-                - mc-monitor
+                - /usr/local/bin/mc-monitor
                 - status-bedrock 
                 - --host 127.0.0.1
                 - --port "{{ .Values.service.main.ports.main.port }}"
@@ -28,7 +28,7 @@ workload:
               enabled: true
               type: exec
               command:
-                - mc-monitor
+                - /usr/local/bin/mc-monitor
                 - status-bedrock 
                 - --host 127.0.0.1
                 - --port "{{ .Values.service.main.ports.main.port }}"
@@ -36,7 +36,7 @@ workload:
               enabled: true
               type: exec
               command:
-                - mc-monitor
+                - /usr/local/bin/mc-monitor
                 - status-bedrock 
                 - --host 127.0.0.1
                 - --port "{{ .Values.service.main.ports.main.port }}"
