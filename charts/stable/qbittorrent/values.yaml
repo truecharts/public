@@ -36,11 +36,32 @@ service:
         port: 8000
         targetPort: 8000
         protocol: http
-cronjob:
-  schedule: "0 3 * * *"
-  annotations: {}
-  failedJobsHistoryLimit: 5
-  successfulJobsHistoryLimit: 2
+workload:
+  qbitportforward:
+    enabled: true
+    type: CronJob
+    schedule: "5 * * * *"
+    strategy: RollingUpdate
+    replicas: 1
+    podSpec:
+      containers:
+        qbitportforward:
+          primary: true
+          enabled: true
+          imageSelector: qbitportforwardImage
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            QBT_USERNAME: "{{ .Values.qbitportforward.QBT_USERNAME }}"
+            QBT_PASSWORD: "{{ .Values.qbitportforward.QBT_PASSWORD }}"
+            QBT_ADDR: '{{ printf "http://%v:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.main.ports.main.port }}'
+            GTN_ADDR: '{{ printf "http://%v-gluetun:8000" (include "tc.v1.common.lib.chart.names.fullname" $) }}'
+          cmd: ./main.sh
 persistence:
   config:
     enabled: true
