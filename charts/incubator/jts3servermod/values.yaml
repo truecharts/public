@@ -36,6 +36,4 @@ workload:
             startup:
               enabled: false
           env:
-            JTS3_USER: "{{ .Values.securityContext.container.PUID }}"
-            JTS3_GROUP: "{{ .Values.securityContext.pod.fsGroup }}"
             JTS3_LOG: /jts3servermod/logs/JTS3ServerMod_InstanceManager.cfg
