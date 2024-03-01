@@ -43,3 +43,13 @@ The `/data/permissions.json` should look something like this:
 - If you found a bug in our chart, open a Github [issue](https://github.com/truecharts/apps/issues/new/choose) but generally it's advised to contact us on Discord first in most cases.
 
 :::
+
+## Executing server commands
+
+This image comes bundled with a script called send-command that will send a Bedrock command and argument to the Bedrock server console. The output of the command only be visible in the container logs.
+
+shell into the container and run whatever command you want for example:
+
+```shell
+send-command gamerule dofiretick false
+```
