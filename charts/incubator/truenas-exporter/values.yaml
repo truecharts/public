@@ -23,7 +23,7 @@ workload:
       containers:
         main:
           args:
-            - --graphite.mapping-config=/config/graphite_mapping.conf
+            - '--graphite.mapping-config=/config/graphite_mapping.conf'
 
 metrics:
   main:
