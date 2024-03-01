@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 2024.2.1
 dependencies:
   - name: common
-    version: 18.0.3
+    version: 18.1.2
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -39,10 +39,10 @@ sources:
   - https://goauthentik.io/docs/
   - https://github.com/goauthentik/authentik
   - https://github.com/truecharts/charts/tree/master/charts/stable/authentik
-  - https://ghcr.io/goauthentik/proxy
   - https://ghcr.io/goauthentik/server
-  - https://ghcr.io/maxmind/geoipupdate
-  - https://ghcr.io/goauthentik/ldap
+  - https://ghcr.io/goauthentik/proxy
   - https://ghcr.io/goauthentik/radius
+  - https://ghcr.io/goauthentik/ldap
+  - https://ghcr.io/maxmind/geoipupdate
 type: application
-version: 24.1.3
+version: 24.2.0
