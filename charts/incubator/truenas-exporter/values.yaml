@@ -9,6 +9,10 @@ service:
       main:
         protocol: tcp
         port: 9109
+      main-udp:
+        enabled: true
+        protocol: udp
+        port: 9109
   metrics:
     enabled: true
     ports:
