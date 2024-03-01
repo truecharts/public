@@ -28,6 +28,11 @@ workload:
     podSpec:
       containers:
         main:
+          command:
+            - /bin/bash
+            - -c
+            - |
+               ls -laR /
           probes:
             liveness:
               enabled: false
