@@ -10,8 +10,10 @@ service:
         protocol: tcp
         port: 9109
   metrics:
+    enabled: true
     ports:
       metrics:
+        enabled: true
         protocol: http
         port: 9108
 
