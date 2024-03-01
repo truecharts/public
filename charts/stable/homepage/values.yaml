@@ -121,7 +121,7 @@ persistence:
   force-services-config:
     # Only enable when not using homepageConfig
     enabled: false
-    mountPath: /app/services/services.yaml
+    mountPath: /app/config/services.yaml
     subPath: services.yaml
     readOnly: true
     type: "configmap"
