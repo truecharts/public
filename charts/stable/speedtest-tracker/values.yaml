@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/linuxserver/speedtest-tracker
   pullPolicy: IfNotPresent
-  tag: 0.17.2@sha256:739aaa9df772ff38014d34eb1deddcea16a9e8ab6f72b30e24b23963ca397681
+  tag: 0.17.3@sha256:792c6a6585e572979f23a07cb9193f8822535b85c2075f11f2a36162471ed1c2
 service:
   main:
     ports:
@@ -18,6 +18,8 @@ persistence:
   config:
     enabled: true
     mountPath: "/config"
+  varrun:
+    enabled: false
 redis:
   enabled: true
   redisUsername: default

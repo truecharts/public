@@ -20,15 +20,15 @@ workload:
             liveness:
               enabled: true
               type: tcp
-              port: 10591
+              port: "{{ .Values.service.main.ports.main.port }}"
             readiness:
               enabled: true
               type: tcp
-              port: 10591
+              port: "{{ .Values.service.main.ports.main.port }}"
             startup:
               enabled: true
               type: tcp
-              port: 10591
+              port: "{{ .Values.service.main.ports.main.port }}"
 wordpress:
   user: user
   pass: bitnami
