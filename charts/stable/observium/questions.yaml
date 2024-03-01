@@ -22,7 +22,7 @@ questions:
                                         schema:
                                           type: string
                                           required: true
-                                          default: "please-change"
+                                          default: ""
                                       - variable: OBSERVIUM_ADMIN_PASS
                                         label: "Admin Password"
                                         description: "Observium Admin Password"
@@ -30,7 +30,7 @@ questions:
                                           type: string
                                           private: true
                                           required: true
-                                          default: "Ch4angeME"
+                                          default: ""
                                       - variable: OBSERVIUM_base_url
                                         label: "Base URL"
                                         description: "Observium Base URL"
