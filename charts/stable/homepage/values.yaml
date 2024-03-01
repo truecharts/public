@@ -33,7 +33,7 @@ workload:
                 echo "Config file copied, you can now edit it at /app/config/settings.yaml"
               fi
               if [ ! -f /app/config/widgets.yaml ]; then
-                echo "wdigets file not found, copying dummy..."
+                echo "widgets file not found, copying dummy..."
                 cp /dummy-config/widgets.yaml /app/config/widgets.yaml
                 echo "Config file copied, you can now edit it at /app/config/widgets.yaml"
               fi
