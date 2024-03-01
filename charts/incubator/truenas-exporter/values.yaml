@@ -22,6 +22,15 @@ metrics:
     endpoints:
      - port: metrics
 
+configmap:
+  dashboard:
+    enabled: true
+    labels:
+      grafana_dashboard: "1"
+    data:
+      truenasexporter.json: >-
+        {{ .Files.Get "dashboard.json" | indent 8 }}
+
 portal:
   open:
     enabled: false
