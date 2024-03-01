@@ -1,0 +1,66 @@
+image:
+  repository: ghcr.io/galexrt/jts3servermod
+  pullPolicy: IfNotPresent
+  tag: main@sha256:fb8fb98f77b3dc83c44bf41dcfa74cb7f6c45972a954f856d5cc0fe2c7282a85
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsUser: 3000
+    runAsGroup: 3000
+
+configmap:
+  entrypoint:
+    enabled: true
+    data:
+      # https://github.com/galexrt/container-jts3servermod/pull/5
+      entrypoint.sh: |
+        #!/bin/bash
+        JTS3_LOG="${JTS3_LOG:-JTS3ServerMod_InstanceManager.cfg}"
+        if [ ! "$(ls -A "$JTS3_DIR/config/")" ]; then
+            echo "ENTRYPOINT: JTS3 Config volume is empty, copying default files to volume"
+            cp -ar "$JTS3_DIR"/default_config/* "$JTS3_DIR/config/"
+        fi
+        cd "$JTS3_DIR" || { echo "ENTRYPOINT: Failed to enter JTS3_DIR ($JTS3_DIR), exiting"; exit 1; }
+        exec java "$JTS3_JAVA_ARGS" -jar "$JTS3_DIR/JTS3ServerMod.jar" -log "$JTS3_LOG" "$@"
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          env:
+            JTS3_LOG: /jts3servermod/logs/JTS3ServerMod_InstanceManager.cfg
+
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+
+persistence:
+  entrypoint:
+    enabled: true
+    objectName: entrypoint
+    type: configmap
+    defaultMode: "0755"
+    mountPath: /entrypoint.sh
+    subPath: entrypoint.sh
+  config:
+    enabled: true
+    mountPath: "/jts3servermod/config"
+  logs:
+    enabled: true
+    mountPath: "/jts3servermod/logs"
+
+portal:
+  open:
+    enabled: false
