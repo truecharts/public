@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 18.0.3
+    version: 18.1.2
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -43,4 +43,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/operators/cloudnative-pg
   - https://github.com/truecharts/containers/tree/master/apps/alpine
 type: application
-version: 6.2.1
+version: 6.3.0
