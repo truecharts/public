@@ -21,6 +21,8 @@ service:
 securityContext:
   container:
     readOnlyRootFilesystem: false
+    runAsUser: 3000
+    runAsGroup: 3000
 workload:
   main:
     podSpec:
