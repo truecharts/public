@@ -7,7 +7,7 @@ service:
   main:
     ports:
       main:
-        protocol: http
+        protocol: tcp
         port: 9109
   metrics:
     ports:
