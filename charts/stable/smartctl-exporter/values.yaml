@@ -65,3 +65,12 @@ logs:
   general:
     level: info
     format: logfmt
+
+configmap:
+  dashboard:
+    enabled: true
+    labels:
+      grafana_dashboard: "1"
+    data:
+      smartctl.json: >-
+        {{ .Files.Get "dashboard.json" | indent 8 }}
