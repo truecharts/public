@@ -21,7 +21,7 @@ workload:
   main:
     podSpec:
       containers:
-        container-name:
+        main:
           args:
             - --graphite.mapping-config=/config/graphite_mapping.conf
 
