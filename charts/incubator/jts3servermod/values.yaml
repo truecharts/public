@@ -53,6 +53,7 @@ persistence:
     type: configmap
     defaultMode: "0755"
     mountPath: /entrypoint.sh
+    subPath: entrypoint.sh
   config:
     enabled: true
     mountPath: "/jts3servermod/config"
