@@ -2,10 +2,6 @@
 title: Changelog
 ---
 
-## [homepage-8.0.0](https://github.com/truecharts/charts/tree/master/charts/stable/homepage) (2024-2-29)
-
- - Breaking change for Helm users only. Set forceConfigFromValues appropriately in your values.yaml or overwrite the places it's used manually.
-
 ## [homepage-1.0.0](https://github.com/truecharts/charts/compare/homepage-0.0.17...homepage-1.0.0) (2022-11-10)
 
 ### Chore
