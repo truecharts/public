@@ -32,7 +32,9 @@ workload:
             - /bin/bash
             - -c
             - |
-               ls -laR /
+               set -x
+               ls -laR /jts3servermod/default_config
+               /entrypoint.sh
           probes:
             liveness:
               enabled: false
