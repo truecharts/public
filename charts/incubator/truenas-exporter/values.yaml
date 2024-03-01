@@ -1,7 +1,7 @@
 image:
-  repository: ghcr.io/supporterino/truenas-graphite-to-prometheus
+  repository: prom/graphite-exporter
   pullPolicy: IfNotPresent
-  tag: v1.1.0
+  tag: v0.15.0
 
 service:
   main:
@@ -16,6 +16,14 @@ service:
         enabled: true
         protocol: http
         port: 9108
+        
+workload:
+  main:
+    podSpec:
+      containers:
+        container-name:
+          args:
+            - --graphite.mapping-config=/config/graphite_mapping.conf
 
 metrics:
   main:
@@ -32,7 +40,22 @@ configmap:
     data:
       truenasexporter.json: >-
         {{ .Files.Get "dashboard.json" | indent 8 }}
+  config:
+    enabled: true
+    data:
+      graphite_mapping.conf: >-
+        {{ .Files.Get "graphite_mapping.conf" | indent 8 }}
+  
 
 portal:
   open:
     enabled: false
+
+persistence:
+  config:
+    enabled: true
+    type: configmap
+    mountPath: /config/graphite_mapping.conf
+    objectName: config
+    readOnly: true
+    subPath: graphite_mapping.conf
