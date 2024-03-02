@@ -26,8 +26,8 @@ questions:
                                         label: NUT_PORT
                                         description: Port of NUT server
                                         schema:
-                                          type: string
-                                          default: "3493"
+                                          type: int
+                                          default: 3493
                                       - variable: USERNAME
                                         label: USERNAME
                                         schema:
@@ -83,7 +83,7 @@ questions:
                   default: 0
               - variable: runAsGroup
                 label: "runAsGroup"
-                description: "The groupID this App of the user running the application"
+                description: "The groupID of the user running the application"
                 schema:
                   type: int
                   default: 0
@@ -97,9 +97,6 @@ questions:
                   type: int
                   default: 568
 # Include{resources}
-# Include{postgresql}
-# Include{metrics}
-# Include{prometheusRule}
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}

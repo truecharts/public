@@ -22,7 +22,7 @@ workload:
         main:
           env:
             NUT_HOST: "localhost"
-            NUT_PORT: "3493"
+            NUT_PORT: 3493
             USERNAME: ""
             PASSWORD: ""
             WEB_PORT: "{{ .Values.service.main.ports.main.port }}"
