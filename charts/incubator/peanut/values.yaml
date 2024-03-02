@@ -1,0 +1,23 @@
+image:
+  repository: brandawg93/peanut
+  tag: 2.5.0@sha256:a0f89c76c8fbfe180ce09729aea221ec84a4a97d71165e2da6a301e20cfd1ffb
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 10688
+portal:
+  open:
+    enabled: true
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            NUT_HOST: "localhost"
+            NUT_PORT: "3493"
+            USERNAME: ""
+            PASSWORD: ""
+            WEB_PORT: "{{ .Values.service.main.ports.main.port }}"
