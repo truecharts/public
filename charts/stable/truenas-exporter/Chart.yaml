@@ -5,9 +5,9 @@ annotations:
   truecharts.org/category: system
   truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
-appVersion: 18.0.1
+appVersion: 0.15.0
 dependencies:
   - name: common
     version: 17.5.1
@@ -18,7 +18,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: A metrics exporter for TrueNAS
-home: https://truecharts.org/charts/incubator/truenas-exporter
+home: https://truecharts.org/charts/stable/truenas-exporter
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/truenas-exporter.png
 keywords:
   - truenas-exporter
@@ -31,5 +31,7 @@ maintainers:
 name: truenas-exporter
 sources:
   - https://github.com/Supporterino/truenas-graphite-to-prometheus/tree/main
+  - https://github.com/truecharts/charts/tree/master/charts/stable/truenas-exporter
+  - https://hub.docker.com/r/prom/graphite-exporter
 type: application
 version: 1.0.0

@@ -46,14 +46,14 @@ workload:
             startup:
               type: tcp
               port: main
-              
+
 persistence:
   hostdev:
     enabled: true
     type: hostPath
     hostPath: /dev
     mountPath: /hostdev
-    
+
 metrics:
   main:
     enabled: true

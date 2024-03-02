@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: incubator
 apiVersion: v2
-appVersion: main
+appVersion: 20240301.0.0
 dependencies:
   - name: common
     version: 18.0.3
@@ -33,6 +33,6 @@ name: jts3servermod
 sources:
   - https://github.com/galexrt/container-jts3servermod
   - https://github.com/truecharts/charts/tree/master/charts/incubator/jts3servermod
-  - https://hub.docker.com/r/nickslowinski/jts3servermod-dockerized
+  - https://ghcr.io/galexrt/jts3servermod
 type: application
 version: 0.0.2

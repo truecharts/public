@@ -21,11 +21,11 @@ workload:
               type: exec
               command:
                 - /usr/local/bin/mc-monitor
-                - status-bedrock 
+                - status-bedrock
                 - --host
-                - 127.0.0.1 
+                - 127.0.0.1
                 - --port
-                -  "{{ .Values.service.main.ports.main.port }}"
+                - "{{ .Values.service.main.ports.main.port }}"
               spec:
                 periodSeconds: 60
             readiness:
@@ -33,11 +33,11 @@ workload:
               type: exec
               command:
                 - /usr/local/bin/mc-monitor
-                - status-bedrock 
+                - status-bedrock
                 - --host
-                - 127.0.0.1 
+                - 127.0.0.1
                 - --port
-                -  "{{ .Values.service.main.ports.main.port }}"
+                - "{{ .Values.service.main.ports.main.port }}"
               spec:
                 periodSeconds: 60
             startup:
@@ -45,11 +45,11 @@ workload:
               type: exec
               command:
                 - /usr/local/bin/mc-monitor
-                - status-bedrock 
+                - status-bedrock
                 - --host
-                - 127.0.0.1 
+                - 127.0.0.1
                 - --port
-                -  "{{ .Values.service.main.ports.main.port }}"
+                - "{{ .Values.service.main.ports.main.port }}"
               spec:
                 periodSeconds: 60
           env:
