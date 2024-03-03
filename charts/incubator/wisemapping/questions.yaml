@@ -9,6 +9,20 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: ADMIN_EMAIL
+                                        label: "ADMIN USER in email format"
+                                        description: "Enter an email for the admin users"
+                                        schema:
+                                          type: string
+                                          private: true
+                                          default: "change@me.com"
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}

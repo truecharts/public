@@ -25,7 +25,7 @@ data:
      database.validation.query=
      database.validation.enabled=false
      ; Paths
-     admin.user = admin@wisemapping.org
+     admin.user = {{ .Values.workload.main.podSpec.containers.main.env.ADMIN_EMAIL }}
      #site.baseurl = http://localhost:8080
      # Site Homepage URL. This will be used as URL for homepage location.
      site.homepage = c/login

@@ -40,6 +40,11 @@ workload:
                 cp /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties.dummy /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties
                 echo "Config file copied, you can now edit it at /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties"
               fi
+      containers:
+        main:
+          env:
+            ADMIN_EMAIL: "change@me.com" 
+
 
 persistence:
   config:
