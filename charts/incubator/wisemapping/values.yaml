@@ -3,6 +3,9 @@ image:
   pullPolicy: IfNotPresent
   tag: 5.0.14@sha256:7ceea1a5d49160f894c6b8efbfe350ba6b4460a9c0f2ccab221a38ce9dcfe90d
 
+# When this is defined, the contents will be mounted
+# as configmap into the container at /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties.
+wisemappingConfig: {}
 
 securityContext:
   container:
@@ -17,42 +20,41 @@ service:
       main:
         port: 8080
         targetPort: 8080
+
 workload:
   main:
     podSpec:
       initContainers:
-        1-create-key-file:
-          type: install
-          enabled: true
-          imageSelector: "image"
-          envFrom:
-            - configMapRef:
-                name: wisemapping-config
+        init-config:
+          enabled: "{{ not .Values.wisemappingConfig }}"
+          type: init
+          imageSelector: alpineImage
           command:
-            - sh
+            - /bin/sh
             - -c
-          args:
             - |
-              keyfile="/usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties";
-              if [ ! -f ${keyfile} ]; then
-                echo "No ${keyfile} File...";
-                echo "Creating ${keyfile} file...";
-                echo "${SECRET_KEY}" > ${keyfile};
-                if [ -f ${keyfile} ];
-                then
-                  echo "Success!";
-                else
-                  echo "Failed.";
-                fi;
-              else
-                echo "${keyfile} File exists. Skipping...";
-              fi;
+              mkdir -p /usr/local/tomcat/webapps/ROOT/WEB-INF/
+              if [ ! -f /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties ]; then
+                echo "Config file not found, copying dummy..."
+                cp /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties.dummy /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties
+                echo "Config file copied, you can now edit it at /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties"
+              fi
 
+persistence:
+  config:
+    # Only enable when not using wisemappingConfig
+    enabled: false
+    mountPath: /config
+    targetSelector:
+      main:
+        main: {}
+        init-config: {}
 persistence:
   config:
     enabled: true
     hostPathType: File
     mountPath: /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties
+    subPath: app.properties
     targetSelectAll: true
 
 cnpg:
