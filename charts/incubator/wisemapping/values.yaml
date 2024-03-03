@@ -27,7 +27,7 @@ workload:
           imageSelector: "image"
           envFrom:
             - configMapRef:
-                name: wisemapping-env
+                name: wisemapping-config
           command:
             - sh
             - -c
