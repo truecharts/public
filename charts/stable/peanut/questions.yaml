@@ -17,19 +17,19 @@ questions:
                                     type: dict
                                     attrs:
                                       - variable: NUT_HOST
-                                        label: Nut Host
+                                        label: NUT Host
                                         description: Host of NUT server
                                         schema:
                                           type: string
                                           default: "localhost"
                                       - variable: NUT_PORT
-                                        label: Nut Port
+                                        label: NUT Port
                                         description: Port of NUT server
                                         schema:
                                           type: int
                                           default: 3493
                                       - variable: USERNAME
-                                        label: UserName
+                                        label: Username
                                         schema:
                                           type: string
                                           default: ""
