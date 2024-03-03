@@ -1154,7 +1154,7 @@ cnpg:
       # * `object_store` - Recovers a CNPG cluster from a barman object store (PITR supported).
       # * `pg_basebackup` - Recovers a CNPG cluster viaa streaming replication protocol. Useful if you want to
       #        migrate databases to CloudNativePG, even from outside Kubernetes. # TODO
-      method: backup
+      method: object_store
 
       ## Point in time recovery target. Specify one of the following:
       pitrTarget:
