@@ -505,7 +505,7 @@ ingress:
   main:
     required: true
   proxy:
-    enabled: "{{ $.Values.authentik.proxy.enabled }}"
+    enabled: "{{ .Values.authentik.proxy.enabled }}"
     primary: false
     targetSelector:
       proxy: https
