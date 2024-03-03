@@ -7,6 +7,9 @@
 {{- $pgpassword := .Values.cnpg.main.creds.password | trimAll "\"" -}}
 {{- $pghost := .Values.cnpg.main.creds.host | trimAll "\"" -}}
 
+enabled: true
+data:
+
   {{- if .Values.wisemappingConfig }}
   app.properties: |
     {{- .Values.wisemappingConfig | toYaml | nindent 4 }}
