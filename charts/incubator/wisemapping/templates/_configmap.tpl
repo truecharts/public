@@ -31,6 +31,8 @@ data:
      site.homepage = c/login
      # Font end static content can be deployed externally to the web app. Uncomment here and specify the url base location.
      site.static.js.url = /static
+  {{- end }}
+{{- end -}}
 
 {{- define "wisemapping.configVolume" -}}
 enabled: true
