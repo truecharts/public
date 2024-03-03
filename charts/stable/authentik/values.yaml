@@ -508,7 +508,7 @@ ingress:
     enabled: "{{ $.Values.authentik.proxy.enabled }}"
     primary: false
     targetSelector:
-      proxy: http
+      proxy: https
       traefik:
         enabled: true
         entrypoints:
