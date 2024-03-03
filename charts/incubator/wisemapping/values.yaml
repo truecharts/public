@@ -27,7 +27,7 @@ workload:
           imageSelector: "image"
           envFrom:
             - configMapRef:
-                name: gitea-env
+                name: wisemapping-env
           command:
             - sh
             - -c
