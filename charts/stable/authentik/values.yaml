@@ -87,6 +87,7 @@ workload:
   main:
     enabled: true
     type: Deployment
+    strategy: RollingUpdate
     podSpec:
       containers:
         main:
@@ -129,6 +130,7 @@ workload:
   worker:
     enabled: true
     type: Deployment
+    strategy: RollingUpdate
     podSpec:
       containers:
         worker:
@@ -169,6 +171,7 @@ workload:
   proxy:
     enabled: true
     type: Deployment
+    strategy: RollingUpdate
     podSpec:
       containers:
         proxy:
@@ -206,6 +209,7 @@ workload:
   radius:
     enabled: true
     type: Deployment
+    strategy: RollingUpdate
     podSpec:
       containers:
         radius:
@@ -243,6 +247,7 @@ workload:
   ldap:
     enabled: true
     type: Deployment
+    strategy: RollingUpdate
     podSpec:
       containers:
         ldap:
@@ -495,8 +500,23 @@ metrics:
         path: /metrics
     prometheusRule:
       enabled: false
-updated: true
 
 ingress:
   main:
     required: true
+  proxy:
+    enabled: "{{ $.Values.authentik.proxy.enabled }}"
+    primary: false
+    targetSelector:
+      proxy: http
+      traefik:
+        enabled: true
+        entrypoints:
+          - websecure
+        enableFixedMiddlewares: true
+        forceTLS: true
+        allowCors: false
+        fixedMiddlewares:
+          - name: chain-basic
+            namespace: ""
+        middlewares: []
