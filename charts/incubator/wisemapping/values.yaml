@@ -45,17 +45,11 @@ persistence:
     # Only enable when not using wisemappingConfig
     enabled: false
     mountPath: /config
+    subPath: app.properties
     targetSelector:
       main:
         main: {}
         init-config: {}
-persistence:
-  config:
-    enabled: true
-    hostPathType: File
-    mountPath: /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties
-    subPath: app.properties
-    targetSelectAll: true
 
 cnpg:
   main:
