@@ -45,8 +45,7 @@ persistence:
   config:
     # Only enable when not using wisemappingConfig
     enabled: false
-    mountPath: /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties
-    subPath: app.properties
+    mountPath: /usr/local/tomcat/webapps/ROOT/WEB-INF/
     targetSelector:
       main:
         main: {}
