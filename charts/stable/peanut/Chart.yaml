@@ -5,7 +5,7 @@ annotations:
   truecharts.org/category: system
   truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: 2.5.0
 dependencies:
@@ -18,7 +18,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: A Tiny Dashboard for Network UPS Tools.
-home: https://truecharts.org/charts/incubator/peanut
+home: https://truecharts.org/charts/stable/peanut
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/peanut.png
 keywords:
   - peanut
@@ -31,7 +31,7 @@ maintainers:
 name: peanut
 sources:
   - https://github.com/Brandawg93/PeaNUT
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/peanut
+  - https://github.com/truecharts/charts/tree/master/charts/stable/peanut
   - https://hub.docker.com/r/brandawg93/peanut
 type: application
-version: 0.0.1
+version: 1.0.0
