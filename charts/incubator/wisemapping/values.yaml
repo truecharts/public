@@ -51,6 +51,7 @@ workload:
 persistence:
   config:
     enabled: true
+    hostPathType: File
     mountPath: /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties
     targetSelectAll: true
 
