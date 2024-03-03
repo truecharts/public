@@ -26,12 +26,13 @@ workload:
     podSpec:
       initContainers:
         init-config:
-          enabled: "{{ not .Values.wisemappingConfig }}"
+          enabled: true
           type: init
-          imageSelector: alpineImage
+          imageSelector: "image"
           command:
             - /bin/sh
             - -c
+          args:
             - |
               mkdir -p /usr/local/tomcat/webapps/ROOT/WEB-INF/
               if [ ! -f /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties ]; then
