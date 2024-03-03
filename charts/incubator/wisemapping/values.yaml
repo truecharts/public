@@ -1,0 +1,66 @@
+image:
+  repository: wisemapping/wisemapping
+  pullPolicy: IfNotPresent
+  tag: 5.0.14@sha256:7ceea1a5d49160f894c6b8efbfe350ba6b4460a9c0f2ccab221a38ce9dcfe90d
+
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 8080
+        targetPort: 8080
+workload:
+  main:
+    podSpec:
+      initContainers:
+        1-create-key-file:
+          type: install
+          enabled: true
+          imageSelector: "image"
+          envFrom:
+            - configMapRef:
+                name: gitea-env
+          command:
+            - sh
+            - -c
+          args:
+            - |
+              keyfile="/usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties";
+              if [ ! -f ${keyfile} ]; then
+                echo "No ${keyfile} File...";
+                echo "Creating ${keyfile} file...";
+                echo "${SECRET_KEY}" > ${keyfile};
+                if [ -f ${keyfile} ];
+                then
+                  echo "Success!";
+                else
+                  echo "Failed.";
+                fi;
+              else
+                echo "${keyfile} File exists. Skipping...";
+              fi;
+
+persistence:
+  config:
+    enabled: true
+    mountPath: /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties
+    targetSelectAll: true
+
+cnpg:
+  main:
+    enabled: true
+    user: wisemapping
+    database: wisemapping
+
+portal:
+  open:
+    enabled: true
+
