@@ -1132,7 +1132,7 @@ cnpg:
     # -- set to enable prometheus metrics
     monitoring:
       enablePodMonitor: true
-      disableDefaultQueries: true
+      disableDefaultQueries: false
       customQueries: []
         # - name: "pg_cache_hit_ratio"
         #   expandObjectName: true
