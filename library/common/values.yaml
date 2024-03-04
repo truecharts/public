@@ -1232,12 +1232,12 @@ cnpg:
         gkeEnvironment: false
         applicationCredentials: ""
 
-      scheduledBackups: []
-        # - name: daily-backup # Daily at midnight
-        #   schedule: "0 0 0 * * *" # Daily at midnight
-        #   backupOwnerReference: self
-        #   immediate: false
-        #   suspend: false
+      scheduledBackups:
+        - name: daily-backup # Daily at midnight
+          schedule: "0 0 0 * * *" # Daily at midnight
+          backupOwnerReference: self
+          immediate: true
+          suspend: false
 
       retentionPolicy: "30d"
 
