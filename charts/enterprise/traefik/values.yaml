@@ -502,6 +502,12 @@ persistence:
     enabled: true
     mountPath: "/plugins-storage"
     type: emptyDir
+  crowdsec-bouncer-tls:
+    enabled: "{{ if .Values.middlewares.crowdsecBouncer }}true{{ else }}false{{ end }}"
+    mountPath: "/etc/traefik/crowdsec-certs"
+    type: secret
+    expandObjectName: false
+    objectName: crowdsec-bouncer-tls
 portal:
   open:
     enabled: true
