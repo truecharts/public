@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.11.0
+appVersion: 0.12.0
 dependencies:
   - name: common
     version: 18.1.2
@@ -24,7 +24,7 @@ keywords:
   - prometheus
   - smartctl-exporter
   - monitoring
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/smartctl-exporter
   - https://hub.docker.com/r/prometheuscommunity/smartctl-exporter
 type: application
-version: 2.3.1
+version: 2.4.0
