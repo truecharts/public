@@ -180,6 +180,10 @@ args:
   {{- if .Values.middlewares.modsecurity }}
   - "--experimental.localPlugins.traefik-modsecurity-plugin.modulename=github.com/acouvreur/traefik-modsecurity-plugin"
   {{- end }}
+  {{/* CrowdsecBouncer */}}
+  {{- if .Values.middlewares.crowdsecBouncer }}
+  - "--experimental.localPlugins.crowdsec-bouncer.modulename=github.com/maxlerebourg/crowdsec-bouncer-traefik-plugin"
+  {{- end }}
   {{/* End of ModSecurity */}}
   {{/* RewriteResponseHeaders */}}
   {{- if .Values.middlewares.rewriteResponseHeaders }}
