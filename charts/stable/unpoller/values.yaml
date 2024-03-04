@@ -36,3 +36,22 @@ workload:
             # UP_UNIFI_DEFAULT_USER: "unifipoller"
             # UP_UNIFI_DEFAULT_PASS: "unifipoller"
             UP_PROMETHEUS_DISABLE: false
+
+configmap:
+  dashboards:
+    enabled: true
+    labels:
+      grafana_dashboard: "1"
+    data:
+      upUAP.json: >-
+        {{ .Files.Get "dashboards/UAP.json" | indent 8 }}
+      upclients.json: >-
+        {{ .Files.Get "dashboards/clients.json" | indent 8 }}
+      upUSW.json: >-
+        {{ .Files.Get "dashboards/USW.json" | indent 8 }}
+      upnetwork.json: >-
+        {{ .Files.Get "dashboards/network.json" | indent 8 }}
+      upUSG.json: >-
+        {{ .Files.Get "dashboards/USG.json" | indent 8 }}
+      upDPI.json: >-
+        {{ .Files.Get "dashboards/DPI.json" | indent 8 }}

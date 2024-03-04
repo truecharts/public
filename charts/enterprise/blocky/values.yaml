@@ -296,11 +296,48 @@ k8sgateway:
     options:
       - name: tls_servername
         value: cloudflare-dns.com
+
+configmap:
+  dashboard:
+    enabled: true
+    labels:
+      grafana_dashboard: "1"
+    data:
+      blocky.json: >-
+        {{ .Files.Get "dashboard.json" | indent 8 }}
+      blockypostgres.json: >-
+        {{ .Files.Get "dashboardpsql.json" | indent 8 }}
+  datasource:
+    enabled: true
+    labels:
+      grafana_datasources: "1"
+    data:
+      datasourceblockypsql.yaml: |-
+        apiVersion: 1
+        datasources:
+        - name: BlockyPostgres
+          type: postgres
+          uid: blockypostgres
+          url: {{ printf "%s.%s:5432" (.Values.cnpg.main.creds.host | trimAll "\"") .Release.Namespace }}
+          access: proxy
+          user: {{ .Values.cnpg.main.user }}
+          secureJsonData:
+            password: {{ .Values.cnpg.main.creds.password | default "na" }}
+          jsonData:
+            database: {{ .Values.cnpg.main.database }}
+            sslmode: 'disable' # disable/require/verify-ca/verify-full
+            maxOpenConns: 100 # Grafana v5.4+
+            maxIdleConns: 100 # Grafana v5.4+
+            maxIdleConnsAuto: true # Grafana v9.5.1+
+            connMaxLifetime: 14400 # Grafana v5.4+
+            postgresVersion: 1500 # 903=9.3, 904=9.4, 905=9.5, 906=9.6, 1000=10
+            timescaledb: false
+
 metrics:
   main:
     # -- Enable and configure a Prometheus serviceMonitor for the chart under this key.
     # @default -- See values.yaml
-    enabled: false
+    enabled: true
     type: "servicemonitor"
     endpoints:
       - port: main
@@ -322,12 +359,13 @@ metrics:
       #   for: 5m
       #   labels:
       #     severity: critical
+
 redis:
   enabled: true
 # CANNOT be defined in above yaml section
 queryLog:
   # optional one of: mysql, postgresql, csv, csv-client. If empty, log to console
-  type: ""
+  type: "postgresql"
   # directory (should be mounted as volume in docker) for csv, db connection string for mysql, ignored for included postgresql
   # target: /var/log/something
   # postgresql target: postgres://user:password@db_host_or_ip:5432/db_name
@@ -337,9 +375,9 @@ queryLog:
   creationAttempts: 3
   # optional: Time between the creation attempts, default: 2s
   creationCooldown: 2s
+
 cnpg:
   main:
-    enabled: false
+    enabled: true
     user: blocky
     database: blocky
-updated: true

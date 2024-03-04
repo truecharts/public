@@ -103,6 +103,13 @@ questions:
                                         schema:
                                           type: boolean
                                           default: false
+                                      - variable: WHITE_LIST_USERS
+                                        label: "White List Users"
+                                        description: "A user:xuid comma separated list."
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          show_if: [[WHITE_LIST, "=", true]]
                                       - variable: OPS
                                         label: "OPS"
                                         description: "To OP a player, use the XUID value, not the player's username. Multiple values accepted in this format `XUID,XUID` separated by a comma."

@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
-  repository: lnxd/xmrig
-  tag: latest@sha256:ca138a54b0bfd76400dab458df69bcd4b379146bb31eb5c231a61a2d5789c7ce
+  repository: cooleye72/xmrig
+  tag: 6.21.0@sha256:5ad4b674874a4024462d320a823b7f361129875f2d8616e4e1bb26e8169f5409
 persistence: {}
 portal:
   open:
@@ -24,13 +24,10 @@ workload:
         main:
           env:
             ADDITIONAL: "--no-color "
-            COIN: monero
-            DONATE: "1"
-            DRIVERV: ""
-            FEE: lnxd-fee
-            POOL: xmr-au1.nanopool.org:14444
-            WALLET: 84e8UJvXHDGVfE5HZDQfhn3Kh3RGJKebz31G7D4H24TLPMe9x7bQLBw8iyBhNx9USXB8MhvhBe3DyVW1LcuVAf4jBiADNLw
-            WORKER: Unraid
+            ALGO_MODE: rx/0
+            POOL_URL: gulf.moneroocean.stream:10128
+            YOUR_ADDRESS: ""
+            YOUR_WORKER_NAME: TrueNAS
           probes:
             liveness:
               enabled: false

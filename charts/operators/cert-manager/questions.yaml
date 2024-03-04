@@ -19,3 +19,15 @@ questions:
             type: string
             required: true
             default: "1.1.1.1:53,1.0.0.1:53"
+        - variable: dns01RecursiveNameserversOnly
+          label: DNS01 Recursive Nameservers Only (Modifications are unsupported)
+          description: |
+            Forces cert-manager to only use the recursive nameservers for verification.
+            Enabling this option could cause the DNS01 self check to take longer
+            due to caching performed by the recursive nameservers.
+            Default is: false </br>
+            If this is modified, you are NOT covered by support.
+          schema:
+            type: boolean
+            required: true
+            default: false

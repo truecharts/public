@@ -1,23 +1,23 @@
 annotations:
-  max_scale_version: 23.10.2
+  max_scale_version: 24.04.0
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: operators
   truecharts.org/max_helm_version: "3.14"
-  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: enterprise
 apiVersion: v2
 appVersion: 0.0.3
 dependencies:
   - name: common
-    version: 17.4.2
+    version: 18.1.2
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: kubeapps
-    version: 14.4.6
+    version: 14.6.0
     repository: oci://registry-1.docker.io/bitnamicharts
     condition: ""
     alias: ogkubeapps
@@ -30,7 +30,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/kubeapps.png
 keywords:
   - kubeapps
   - catalog
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -42,4 +42,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/enterprise/kubeapps
   - https://ghcr.io/xstar97/my-proxy-service
 type: application
-version: 1.2.2
+version: 2.3.0

@@ -25,7 +25,7 @@
                   type: string
                   default: 8Gi
                   valid_chars: '^(?!^0(e[0-9]|[EPTGMK]i?|)$)([0-9]+)(|[EPTGMK]i?|e[0-9]+)$'
-              - variable: 'intel.com/i915'
+              - variable: 'gpu.intel.com/i915'
                 label: Add Intel i915 GPUs
                 schema:
                   type: int
@@ -104,31 +104,3 @@
                 schema:
                   type: string
                   default: "/dev/ttyACM0"
-  - variable: scaleGPU
-    label: GPU Configuration
-    group: Resources and Devices
-    schema:
-      type: list
-      default: []
-      items:
-        - variable: scaleGPUEntry
-          label: GPU
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-              # Specify GPU configuration
-              - variable: gpu
-                label: Select GPU
-                schema:
-                  additional_attrs: true
-                  type: dict
-                  $ref:
-                    - "definitions/gpuConfiguration"
-                  attrs: []
-              - variable: workaround
-                label: "Workaround"
-                schema:
-                  type: string
-                  default: workaround
-                  hidden: true
