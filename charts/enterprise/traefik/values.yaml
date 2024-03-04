@@ -193,6 +193,7 @@ service:
         enabled: true
         port: 80
         protocol: http
+        externalTrafficPolicy: local
         redirectTo: websecure
         # Options: Empty, 0 (ingore), or positive int
         # redirectPort:
@@ -214,6 +215,7 @@ service:
         enabled: true
         port: 443
         protocol: https
+        externalTrafficPolicy: local
         # -- Configure (Forwarded Headers)[https://doc.traefik.io/traefik/routing/entrypoints/#forwarded-headers] Support
         forwardedHeaders:
           enabled: false
