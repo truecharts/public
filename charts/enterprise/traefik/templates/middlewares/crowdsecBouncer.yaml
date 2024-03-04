@@ -8,105 +8,105 @@ metadata:
 spec:
   plugin:
     bouncer:
-    {{ with $middlewareData.enabled -}}
-      enabled:  {{ . }}
+    {{- with $middlewareData.enabled }}
+      enabled: {{ . }}
     {{- end }}
-    {{ with $middlewareData.logLevel -}}
-      logLevel:  {{ . }}
+    {{- with $middlewareData.logLevel }}
+      logLevel: {{ . }}
     {{- end }}
-    {{ with $middlewareData.updateIntervalSeconds -}}
-      updateIntervalSeconds:  {{ . }}
+    {{- with $middlewareData.updateIntervalSeconds }}
+      updateIntervalSeconds: {{ . }}
     {{- end }}
-    {{ with $middlewareData.defaultDecisionSeconds -}}
-      defaultDecisionSeconds:  {{ . }}
+    {{- with $middlewareData.defaultDecisionSeconds }}
+      defaultDecisionSeconds: {{ . }}
     {{- end }}
-    {{ with $middlewareData.httpTimeoutSeconds -}}
-      httpTimeoutSeconds:  {{ . }}
+    {{- with $middlewareData.httpTimeoutSeconds }}
+      httpTimeoutSeconds: {{ . }}
     {{- end }}
-    {{ with $middlewareData.crowdsecMode -}}
-      crowdsecMode:  {{ . }}
+    {{- with $middlewareData.crowdsecMode }}
+      crowdsecMode: {{ . }}
     {{- end }}
-    {{ with $middlewareData.crowdsecAppsecEnabled -}}
-      crowdsecAppsecEnabled:  {{ . }}
+    {{- with $middlewareData.crowdsecAppsecEnabled }}
+      crowdsecAppsecEnabled: {{ . }}
     {{- end }}
-    {{ with $middlewareData.crowdsecAppsecHost -}}
+    {{- with $middlewareData.crowdsecAppsecHost }}
       crowdsecAppsecHost: {{ . }}
     {{- end }}
-    {{ with $middlewareData.crowdsecAppsecFailureBlock -}}
+    {{- with $middlewareData.crowdsecAppsecFailureBlock }}
       crowdsecAppsecFailureBlock: {{ . }}
     {{- end }}
-    {{ with $middlewareData.crowdsecLapiKey -}}
+    {{- with $middlewareData.crowdsecLapiKey }}
       crowdsecLapiKey: {{ . }}
     {{- end }}
-    {{ with $middlewareData.crowdsecLapiKeyFile -}}
+    {{- with $middlewareData.crowdsecLapiKeyFile }}
       crowdsecLapiKeyFile: {{ . }}
     {{- end }}
-    {{ with $middlewareData.crowdsecLapiHost -}}
+    {{- with $middlewareData.crowdsecLapiHost }}
       crowdsecLapiHost: {{ . }}
     {{- end }}
-    {{ with $middlewareData.crowdsecLapiScheme -}}
+    {{- with $middlewareData.crowdsecLapiScheme }}
       crowdsecLapiScheme: {{ . }}
     {{- end }}
-    {{ with $middlewareData.crowdsecLapiTLSInsecureVerify -}}
+    {{- with $middlewareData.crowdsecLapiTLSInsecureVerify }}
       crowdsecLapiTLSInsecureVerify: {{ . }}
     {{- end }}
-    {{ with $middlewareData.crowdsecCapiMachineId -}}
+    {{- with $middlewareData.crowdsecCapiMachineId }}
       crowdsecCapiMachineId: {{ . }}
     {{- end }}
-    {{ with $middlewareData.crowdsecCapiPassword -}}
+    {{- with $middlewareData.crowdsecCapiPassword }}
       crowdsecCapiPassword: {{ . }}
     {{- end }}
-    {{- if $middlewareData.crowdsecCapiScenarios -}}
+    {{- if $middlewareData.crowdsecCapiScenarios }}
       crowdsecCapiScenarios:
-      {{- range $middlewareData.crowdsecCapiScenarios -}}
+      {{- range $middlewareData.crowdsecCapiScenarios }}
         - {{ . }}
       {{- end }}
     {{- end }}
-    {{- if $middlewareData.forwardedHeadersTrustedIPs -}}
+    {{- if $middlewareData.forwardedHeadersTrustedIPs }}
       forwardedHeadersTrustedIPs: 
-      {{- range $middlewareData.forwardedHeadersTrustedIPs -}}
+      {{- range $middlewareData.forwardedHeadersTrustedIPs }}
         - {{ . }}
       {{- end }}
     {{- end }}
-    {{- if $middlewareData.clientTrustedIPs -}}
+    {{- if $middlewareData.clientTrustedIPs }}
       clientTrustedIPs: 
-      {{- range $middlewareData.clientTrustedIPs -}}
+      {{- range $middlewareData.clientTrustedIPs }}
         - {{ . }}
       {{- end }}
     {{- end }}
-    {{ with $middlewareData.forwardedHeadersCustomName -}}
+    {{- with $middlewareData.forwardedHeadersCustomName }}
       forwardedHeadersCustomName: {{ . }}
     {{- end }}
-    {{ with $middlewareData.redisCacheEnabled -}}
+    {{- with $middlewareData.redisCacheEnabled }}
       redisCacheEnabled: {{ . }}
     {{- end }}
-    {{ with $middlewareData.redisCacheHost -}}
+    {{- with $middlewareData.redisCacheHost }}
       redisCacheHost: {{ . }}
     {{- end }}
-    {{ with $middlewareData.redisCachePassword -}}
+    {{- with $middlewareData.redisCachePassword }}
       redisCachePassword: {{ . }}
     {{- end }}
-    {{ with $middlewareData.redisCacheDatabase -}}
+    {{- with $middlewareData.redisCacheDatabase }}
       redisCacheDatabase: {{ . }}
     {{- end }}
-    {{ with $middlewareData.crowdsecLapiTLSCertificateAuthority -}}  
+    {{- with $middlewareData.crowdsecLapiTLSCertificateAuthority }}  
       crowdsecLapiTLSCertificateAuthority: {{ . }}
     {{- end }}
-    {{ with $middlewareData.crowdsecLapiTLSCertificateAuthorityFile -}}
+    {{- with $middlewareData.crowdsecLapiTLSCertificateAuthorityFile }}
       crowdsecLapiTLSCertificateAuthorityFile: {{ . }}
     {{- end }}
-    {{ with $middlewareData.crowdsecLapiTLSCertificateBouncer -}}  
+    {{- with $middlewareData.crowdsecLapiTLSCertificateBouncer }}  
       crowdsecLapiTLSCertificateBouncer: {{ . }}
     {{- end }}
-    {{ with $middlewareData.crowdsecLapiTLSCertificateBouncerFile -}}
+    {{- with $middlewareData.crowdsecLapiTLSCertificateBouncerFile }}
       crowdsecLapiTLSCertificateBouncerFile: {{ . }}
     {{- end }}
-    {{ with $middlewareData.crowdsecLapiTLSCertificateBouncerKey -}}
+    {{- with $middlewareData.crowdsecLapiTLSCertificateBouncerKey }}
       crowdsecLapiTLSCertificateBouncerKey: {{ . }}
     {{- end }}
-    {{ with $middlewareData.crowdsecLapiTLSCertificateBouncerKeyFile -}}
+    {{- with $middlewareData.crowdsecLapiTLSCertificateBouncerKeyFile }}
       crowdsecLapiTLSCertificateBouncerKeyFile: {{ . }}
     {{- end }}
 
       
-{{- end -}}
+{{- end }}
