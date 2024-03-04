@@ -60,21 +60,20 @@ spec:
       crowdsecCapiScenarios:
 	    {{- range $middlewareData.crowdsecCapiScenarios -}}
         - {{ . }}
-        {{- end -}}
       {{- end -}}
+    {{- end -}}
 	  {{- if $middlewareData.forwardedHeadersTrustedIPs -}}
       forwardedHeadersTrustedIPs: 
 	    {{- range $middlewareData.forwardedHeadersTrustedIPs -}}
         - {{ . }}
-        {{- end -}}
       {{- end -}}
+    {{- end -}}
 	  {{- if $middlewareData.clientTrustedIPs -}}
       clientTrustedIPs: 
 	    {{- range $middlewareData.clientTrustedIPs -}}
         - {{ . }}
-        {{- end -}}
       {{- end -}}
-      {{- end -}}
+    {{- end -}}
 	  {{- with $middlewareData.forwardedHeadersCustomName -}}
       forwardedHeadersCustomName: {{ . }}
 	  {{- end -}}
