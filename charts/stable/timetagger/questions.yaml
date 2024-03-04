@@ -39,7 +39,7 @@ questions:
                                         schema:
                                           type: string
                                           default: "X-Remote-User"
-                                          required: flase
+                                          required: false
                                           show_if: [[TIMETAGGER_PROXY_AUTH_ENABLED, "=", "true"]]
                                       - variable: TIMETAGGER_LOG_LEVEL
                                         label: "TIMETAGGER_LOG_LEVEL"
