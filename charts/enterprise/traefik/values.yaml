@@ -438,6 +438,60 @@ middlewares:
   #   modSecurityUrl: modSecurity container URL
   #   timeoutMillis: Configurated  timeout
   #   maxBodySize: maxBodySize
+  crowdsecBouncer: []
+  # - name: modsecurityName
+  #   enabled: false
+  #   logLevel: DEBUG
+  #   updateIntervalSeconds: 60
+  #   defaultDecisionSeconds: 60
+  #   httpTimeoutSeconds: 10
+  #   crowdsecMode: live
+  #   crowdsecAppsecEnabled: false
+  #   crowdsecAppsecHost: crowdsec:7422
+  #   crowdsecAppsecFailureBlock: true
+  #   crowdsecLapiKey: privateKey-foo
+  #   crowdsecLapiKeyFile: /etc/traefik/cs-privateKey-foo
+  #   crowdsecLapiHost: crowdsec:8080
+  #   crowdsecLapiScheme: http
+  #   crowdsecLapiTLSInsecureVerify: false
+  #   crowdsecCapiMachineId: login
+  #   crowdsecCapiPassword: password
+  #   crowdsecCapiScenarios:
+  #     - crowdsecurity/http-path-traversal-probing
+  #     - crowdsecurity/http-xss-probing
+  #     - crowdsecurity/http-generic-bf
+  #   forwardedHeadersTrustedIPs: 
+  #     - 10.0.10.23/32
+  #     - 10.0.20.0/24
+  #   clientTrustedIPs: 
+  #     - 192.168.1.0/24
+  #   forwardedHeadersCustomName: X-Custom-Header
+  #   redisCacheEnabled: false
+  #   redisCacheHost: "redis:6379"
+  #   redisCachePassword: password
+  #   redisCacheDatabase: "5"
+  #   crowdsecLapiTLSCertificateAuthority: |-
+  #     -----BEGIN CERTIFICATE-----
+  #     MIIEBzCCAu+gAwIBAgICEAAwDQYJKoZIhvcNAQELBQAwgZQxCzAJBgNVBAYTAlVT
+  #     ...
+  #     Q0veeNzBQXg1f/JxfeA39IDIX1kiCf71tGlT
+  #     -----END CERTIFICATE-----
+  #   crowdsecLapiTLSCertificateAuthorityFile: /etc/traefik/crowdsec-certs/ca.pem
+  #   crowdsecLapiTLSCertificateBouncer: |-
+  #     -----BEGIN CERTIFICATE-----
+  #     MIIEHjCCAwagAwIBAgIUOBTs1eqkaAUcPplztUr2xRapvNAwDQYJKoZIhvcNAQEL
+  #     ...
+  #     RaXAnYYUVRblS1jmePemh388hFxbmrpG2pITx8B5FMULqHoj11o2Rl0gSV6tHIHz
+  #     N2U=
+  #     -----END CERTIFICATE-----
+  #   crowdsecLapiTLSCertificateBouncerFile: /etc/traefik/crowdsec-certs/bouncer.pem
+  #   crowdsecLapiTLSCertificateBouncerKey: |-
+  #     -----BEGIN RSA PRIVATE KEY-----
+  #     MIIEogIBAAKCAQEAtYQnbJqifH+ZymePylDxGGLIuxzcAUU4/ajNj+qRAdI/Ux3d
+  #     ...
+  #     ic5cDRo6/VD3CS3MYzyBcibaGaV34nr0G/pI+KEqkYChzk/PZRA=
+  #     -----END RSA PRIVATE KEY-----
+  #   crowdsecLapiTLSCertificateBouncerKeyFile: /etc/traefik/crowdsec-certs/bouncer-key.pem
   ## Note: body of every request will be buffered in memory while the request is in-flight
   ## (i.e.: during the security check and during the request processing by traefik and the backend),
   ## so you may want to tune maxBodySize depending on how much RAM you have.
