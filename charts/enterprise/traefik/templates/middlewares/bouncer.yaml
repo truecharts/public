@@ -1,4 +1,4 @@
-{{- range $index, $middlewareData := .Values.middlewares.crowdsecBouncer }}
+{{- range $index, $middlewareData := .Values.middlewares.bouncer }}
 ---
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
