@@ -21,8 +21,7 @@ questions:
                                         label: LLM Provider
                                         schema:
                                           type: string
-                                          required: true
-                                          default: default
+                                          default: ""
                                           enum:
                                             - value: ""
                                               description: Default
@@ -193,7 +192,6 @@ questions:
                                         label: Embedding Engine
                                         schema:
                                           type: string
-                                          required: true
                                           default: default
                                           enum:
                                             - value: ""
@@ -223,7 +221,6 @@ questions:
                                         label: Vector DB
                                         schema:
                                           type: string
-                                          required: true
                                           default: default
                                           enum:
                                             - value: ""
