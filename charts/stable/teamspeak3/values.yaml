@@ -28,6 +28,11 @@ service:
       main:
         port: 10011
         targetPort: 10011
+  query:
+    ports:
+      main:
+        port: 10022
+        targetPort: 10022
   voice:
     enabled: true
     ports:
