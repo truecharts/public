@@ -1155,6 +1155,11 @@ cnpg:
       # * `pg_basebackup` - Recovers a CNPG cluster viaa streaming replication protocol. Useful if you want to
       #        migrate databases to CloudNativePG, even from outside Kubernetes. # TODO
       method: object_store
+      ## set a revision to append to the serverName to ensure restore and backup dont target the same thing
+      # revision: 1
+
+      # override serverName in recovery obkect
+      servername: ""
 
       ## Point in time recovery target. Specify one of the following:
       pitrTarget:
@@ -1202,6 +1207,13 @@ cnpg:
       # Overrides the provider specific default endpoint. Defaults to:
       # S3: https://s3.<region>.amazonaws.com"
       endpointURL: "" # Leave empty if using the default S3 endpoint
+
+      ## set a revision to append to the serverName to ensure restore and backup dont target the same thing
+      # revision: 1
+
+      # override serverName in recovery obkect
+      servername: ""
+
 
       # Overrides the provider specific default path. Defaults to:
       # S3: s3://<bucket><path>

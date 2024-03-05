@@ -6,6 +6,7 @@
 
   {{- $fullname := include "tc.v1.common.lib.chart.names.fullname" $rootCtx -}}
   {{- $secretName := (printf "%s-cnpg-%s-provider-%s-azure-creds" $fullname $objectData.shortName $type) -}}
+  {{- $serverName :=  $objectData.clusterName -}}
 
   {{- $endpointURL := "" -}}
   {{- $destinationPath := "" -}}
@@ -14,10 +15,22 @@
     {{- $endpointURL = $objectData.recovery.endpointURL -}}
     {{- $destinationPath = $objectData.recovery.destinationPath -}}
     {{- $k = "recovery" -}}
+    {{- if $objectData.recovery.serverName -}}
+      {{- $serverName = $objectData.recovery.serverName -}}
+    {{- end -}}
+    {{- if $objectData.recovery.revision -}}
+      {{- $serverName = printf "%s-%s" $serverName $objectData.recovery.revision -}}
+    {{- end -}}
   {{- else if eq $type "backup" -}}
     {{- $endpointURL = $objectData.backups.endpointURL -}}
     {{- $destinationPath = $objectData.backups.destinationPath -}}
     {{- $k = "backups" -}}
+    {{- if $objectData.backups.serverName -}}
+      {{- $serverName = $objectData.backups.serverName -}}
+    {{- end -}}
+    {{- if $objectData.backups.revision -}}
+      {{- $serverName = printf "%s-%s" $serverName $objectData.backups.revision -}}
+    {{- end -}}
   {{- end -}}
   {{- if not $destinationPath -}}
     {{- if not $data.storageAccount -}}
@@ -33,6 +46,7 @@
   {{- end }}
 endpointURL: {{ $endpointURL }}
 destinationPath: {{ $destinationPath }}
+serverName: {{  $serverName }}
 azureCredentials:
   connectionString:
     name: {{ $secretName }}
