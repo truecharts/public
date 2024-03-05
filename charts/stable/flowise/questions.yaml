@@ -28,6 +28,16 @@ questions:
                                           type: string
                                           private: true
                                           default: ""
+                                      - variable: FLOWISE_FILE_SIZE_LIMIT
+                                        label: File Size Limit
+                                        schema:
+                                          type: string
+                                          default: "50mb"
+                                      - variable: CORS_ORIGINS
+                                        label: Cors Origins
+                                        schema:
+                                          type: string
+                                          default: "*"
                                       - variable: EXECUTION_MODE
                                         label: Execution Mode
                                         description: Whether predictions run in their own process or the main process.
@@ -62,6 +72,30 @@ questions:
                                               description: Verbose
                                             - value: debug
                                               description: Debug
+                                      - variable: LANGCHAIN_TRACING_V2
+                                        label: Enable LangChain Tracing V2
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                          show_subquestions_if: true
+                                          subquestions:
+                                            - variable: LANGCHAIN_ENDPOINT
+                                              label: LangChain Endpoint
+                                              schema:
+                                                type: string
+                                                default: ""
+                                            - variable: LANGCHAIN_API_KEY
+                                              label: LangChain API Key
+                                              schema:
+                                                type: string
+                                                private: true
+                                                default: ""
+                                            - variable: LANGCHAIN_PROJECT
+                                              label: LangChain Project
+                                              schema:
+                                                type: string
+                                                default: ""
+
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
