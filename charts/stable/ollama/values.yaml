@@ -5,7 +5,7 @@ image:
 uiImage:
   repository: ghcr.io/open-webui/open-webui
   pullPolicy: IfNotPresent
-  tag: main@sha256:d0a095f05f3dd0b5860e83bd997b792e866ff2ef910072f6800c870894c0360d
+  tag: latest@sha256:9c90b1505b9cea51cda075883aa336d29e28986af958c1d3646a39fbcd07adbf
 
 service:
   main:
@@ -68,6 +68,9 @@ workload:
           enabled: true
           imageSelector: uiImage
           securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+            runAsNonRoot: false
             readOnlyRootFilesystem: false
           probes:
             liveness:
