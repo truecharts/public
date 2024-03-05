@@ -120,7 +120,7 @@ questions:
   - variable: password_policy
     group: "App Configuration"
     label: "Password Policy Configuration"
-    description: "Authelia allows administrators to configure an enforced password policy."
+    description: "Authelia allows administrators to configure an enforced password policy. Choose one of Standard or zxcvbn and not both, refer to upstream docs for more info "
     schema:
       additional_attrs: true
       type: dict

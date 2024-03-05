@@ -7,10 +7,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 3.31.0
+appVersion: 3.32.0
 dependencies:
   - name: common
-    version: 18.0.3
+    version: 18.1.6
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -38,4 +38,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/alist
   - https://hub.docker.com/r/xhofe/alist-aria2
 type: application
-version: 9.2.3
+version: 9.4.1

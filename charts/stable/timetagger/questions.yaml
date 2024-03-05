@@ -15,19 +15,32 @@ questions:
                                     additional_attrs: true
                                     type: dict
                                     attrs:
-                                      - variable: tg_user
-                                        label: "Username"
+                                      - variable: TIMETAGGER_CREDENTIALS
+                                        label: "Basic Auth User/Pass"
+                                        description: "Generate at https://timetagger.app/cred"
                                         schema:
                                           type: string
                                           default: ""
-                                          required: true
-                                      - variable: tg_pass
-                                        label: "Password"
+                                          required: false
+                                      - variable: TIMETAGGER_PROXY_AUTH_ENABLED
+                                        label: "Enable Proxy Auth"
+                                        schema:
+                                          type: string
+                                          default: "false"
+                                          required: false
+                                      - variable: TIMETAGGER_PROXY_AUTH_TRUSTED
+                                        label: "Trusted Proxy"
                                         schema:
                                           type: string
                                           default: ""
-                                          required: true
-                                          private: true
+                                          show_if: [[TIMETAGGER_PROXY_AUTH_ENABLED, "=", "true"]]
+                                      - variable: TIMETAGGER_PROXY_AUTH_HEADER
+                                        label: "Header"
+                                        schema:
+                                          type: string
+                                          default: "X-Remote-User"
+                                          required: false
+                                          show_if: [[TIMETAGGER_PROXY_AUTH_ENABLED, "=", "true"]]
                                       - variable: TIMETAGGER_LOG_LEVEL
                                         label: "TIMETAGGER_LOG_LEVEL"
                                         schema:
@@ -89,13 +102,13 @@ questions:
                 description: "The UserID of the user running the application"
                 schema:
                   type: int
-                  default: 568
+                  default: 1000
               - variable: fsGroup
                 label: "fsGroup"
                 description: "The group that should own ALL storage."
                 schema:
                   type: int
-                  default: 568
+                  default: 1000
 # Include{securityContextContainer}
 # Include{securityContextAdvanced}
 # Include{securityContextPod}

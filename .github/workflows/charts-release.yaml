@@ -1,4 +1,4 @@
-name: "Charts: Release"
+tname: "Charts: Release"
 
 concurrency: helm-release
 
@@ -117,7 +117,7 @@ jobs:
         if: |
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         run: |
-          GOBIN=/usr/local/bin/
+          export GOBIN=/usr/local/bin/
           go install github.com/git-chglog/git-chglog/cmd/git-chglog@latest
           CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
           parthreads=$(($(nproc) * 2))

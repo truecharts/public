@@ -8,9 +8,9 @@ metadata:
   name: default
 spec:
   certificates:
-    - secretName: clusterissuer-templated-{{ tpl .Values.defaultCertificate $ }}
+    - secretName: certificate-issuer-{{ tpl .Values.defaultCertificate $ }}
   defaultCertificate:
-    secretName: clusterissuer-templated-{{ tpl .Values.defaultCertificate $ }}
+    secretName: certificate-issuer-{{ tpl .Values.defaultCertificate $ }}
 {{- end }}
 
 {{- range $name, $config := .Values.tlsStore }}

@@ -7,10 +7,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.446.0
+appVersion: 2.447.0
 dependencies:
   - name: common
-    version: 18.0.3
+    version: 18.1.6
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/jenkins
   - https://hub.docker.com/r/jenkins/jenkins
 type: application
-version: 7.2.3
+version: 7.4.1
