@@ -723,31 +723,9 @@ questions:
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
-        - variable: main
-          label: Main Service
-          description: The Primary service on which the healthcheck runs, often the webUI
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelectorLoadBalancer}
-# Include{serviceSelectorExtras}
-                    - variable: main
-                      label: Main Service Port Configuration
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: Port
-                            description: This port exposes the container port on the service
-                            schema:
-                              type: int
-                              default: 4000
-                              required: true
-        - variable: dnstcp
-          label: DNS TCP Service
-          description: The DNS TCP service
+        - variable: dns
+          label: DNS Service
+          description: The DNS service
           schema:
             additional_attrs: true
             type: dict
@@ -767,15 +745,6 @@ questions:
                               type: int
                               default: 53
                               required: true
-        - variable: dnsudp
-          label: DNS UDP Service
-          description: The DNS UDP service
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelectorLoadBalancer}
-# Include{serviceSelectorExtras}
                     - variable: dnsudp
                       label: DNS UDP Port Configuration
                       schema:
