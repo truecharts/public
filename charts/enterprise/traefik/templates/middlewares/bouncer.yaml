@@ -63,13 +63,13 @@ spec:
       {{- end }}
     {{- end }}
     {{- if $middlewareData.forwardedHeadersTrustedIPs }}
-      forwardedHeadersTrustedIPs: 
+      forwardedHeadersTrustedIPs:
       {{- range $middlewareData.forwardedHeadersTrustedIPs }}
         - {{ . }}
       {{- end }}
     {{- end }}
     {{- if $middlewareData.clientTrustedIPs }}
-      clientTrustedIPs: 
+      clientTrustedIPs:
       {{- range $middlewareData.clientTrustedIPs }}
         - {{ . }}
       {{- end }}
@@ -89,13 +89,13 @@ spec:
     {{- with $middlewareData.redisCacheDatabase }}
       redisCacheDatabase: {{ . }}
     {{- end }}
-    {{- with $middlewareData.crowdsecLapiTLSCertificateAuthority }}  
+    {{- with $middlewareData.crowdsecLapiTLSCertificateAuthority }}
       crowdsecLapiTLSCertificateAuthority: {{ . }}
     {{- end }}
     {{- with $middlewareData.crowdsecLapiTLSCertificateAuthorityFile }}
       crowdsecLapiTLSCertificateAuthorityFile: {{ . }}
     {{- end }}
-    {{- with $middlewareData.crowdsecLapiTLSCertificateBouncer }}  
+    {{- with $middlewareData.crowdsecLapiTLSCertificateBouncer }}
       crowdsecLapiTLSCertificateBouncer: {{ . }}
     {{- end }}
     {{- with $middlewareData.crowdsecLapiTLSCertificateBouncerFile }}
@@ -108,5 +108,5 @@ spec:
       crowdsecLapiTLSCertificateBouncerKeyFile: {{ . }}
     {{- end }}
 
-      
+
 {{- end }}
