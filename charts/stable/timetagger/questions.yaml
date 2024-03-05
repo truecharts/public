@@ -20,27 +20,27 @@ questions:
                                         description: "Generate at https://timetagger.app/cred"
                                         schema:
                                           type: string
-                                          default: "test:$$2a$$08$$0CD1NFiIbancwWsu3se1v.RNR/b7YeZd71yg3cZ/3whGlyU6Iny5i"
+                                          default: ""
                                           required: false
-                                     # - variable: TIMETAGGER_PROXY_AUTH_ENABLED
-                                     #   label: "Enable Proxy Auth"
-                                     #   schema:
-                                     #     type: boleen
-                                     #     default: "false"
-                                     #     required: false
-                                     # - variable: TIMETAGGER_PROXY_AUTH_TRUSTED
-                                     #   label: "Trusted Proxy"
-                                     #   schema:
-                                     #     type: string
-                                     #     default: ""
-                                     #     show_if: [[TIMETAGGER_PROXY_AUTH_ENABLED, "=", "true"]]
-                                     # - variable: TIMETAGGER_PROXY_AUTH_HEADER
-                                     #   label: "Header"
-                                     #   schema:
-                                     #     type: string
-                                     #     default: "X-Remote-User"
-                                     #     required: false
-                                     #     show_if: [[TIMETAGGER_PROXY_AUTH_ENABLED, "=", "true"]]
+                                      - variable: TIMETAGGER_PROXY_AUTH_ENABLED
+                                        label: "Enable Proxy Auth"
+                                        schema:
+                                          type: string
+                                          default: "false"
+                                          required: false
+                                      - variable: TIMETAGGER_PROXY_AUTH_TRUSTED
+                                        label: "Trusted Proxy"
+                                        schema:
+                                          type: string
+                                          default: ""
+                                          show_if: [[TIMETAGGER_PROXY_AUTH_ENABLED, "=", "true"]]
+                                      - variable: TIMETAGGER_PROXY_AUTH_HEADER
+                                        label: "Header"
+                                        schema:
+                                          type: string
+                                          default: "X-Remote-User"
+                                          required: false
+                                          show_if: [[TIMETAGGER_PROXY_AUTH_ENABLED, "=", "true"]]
                                       - variable: TIMETAGGER_LOG_LEVEL
                                         label: "TIMETAGGER_LOG_LEVEL"
                                         schema:
