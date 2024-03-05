@@ -20,7 +20,10 @@ annotations: The annotations variable reference, to append the MetalLB annotatio
 
   {{- if (hasKey $rootCtx.Values.global "metallb") -}}
     {{- if $rootCtx.Values.global.metallb.addServiceAnnotations -}}
-      {{- $_ := set $annotations "metallb.universe.tf/allow-shared-ip" $sharedKey -}}
+
+      {{- if eq $objectData.externalTrafficPolicy "Cluster" -}}
+        {{- $_ := set $annotations "metallb.universe.tf/allow-shared-ip" $sharedKey -}}
+      {{- end -}}
 
       {{- if and $objectData.loadBalancerIP $objectData.loadBalancerIPs -}}
         {{- fail "Service - Expected on of [loadBalancerIP, loadBalancerIPs] to be defined but got both" -}}
