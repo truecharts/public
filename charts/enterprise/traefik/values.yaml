@@ -188,7 +188,7 @@ service:
   tcp:
     enabled: true
     type: LoadBalancer
-    externalTrafficPolicy: local
+    externalTrafficPolicy: Local
     ports:
       web:
         enabled: true
