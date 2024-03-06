@@ -45,7 +45,7 @@ upstream:
 
 ports:
   {{- if .Values.service.dns.enabled }}
-  dns: {{ .Values.service.dns.ports.dnsudp.targetPort }}
+  dns: {{ .Values.service.dns.ports.dns.targetPort }}
   {{- end }}
   {{- if .Values.service.dot.enabled }}
   tls: {{ .Values.service.dot.ports.dot.targetPort }}
