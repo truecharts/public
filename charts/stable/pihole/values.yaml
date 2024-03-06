@@ -44,13 +44,6 @@ service:
       main:
         port: 9089
         targetPort: 80
-  dns-tcp:
-    enabled: true
-    ports:
-      dns-tcp:
-        enabled: true
-        port: 53
-        targetPort: 53
   dns:
     enabled: true
     ports:
@@ -59,6 +52,10 @@ service:
         protocol: udp
         port: 53
         targetPort: 53
+      dns-tcp:
+        enabled: true
+        port: "{{ .Values.service.dns.ports.dns.port }}"
+        targetPort: "{{ .Values.service.dns.ports.dns.targetPort }}"
 persistence:
   config:
     enabled: true
