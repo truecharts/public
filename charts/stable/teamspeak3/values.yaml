@@ -26,6 +26,7 @@ service:
   main:
     ports:
       main:
+        enabled: true
         port: 10011
         targetPort: 10011
   query:
