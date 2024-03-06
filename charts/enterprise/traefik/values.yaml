@@ -188,7 +188,8 @@ service:
   tcp:
     enabled: true
     type: LoadBalancer
-    externalTrafficPolicy: Local
+    ## In most cases, you want this changed to `Local`
+    externalTrafficPolicy: Cluster
     ports:
       web:
         enabled: true
