@@ -5,7 +5,7 @@ annotations:
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: 1.7.1
 dependencies:
@@ -25,7 +25,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: A game ROM manager using multiple sources to identify and provide metadata.
-home: https://truecharts.org/charts/incubator/gaseous-server
+home: https://truecharts.org/charts/stable/gaseous-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/gaseous-server.png
 keywords:
   - gaseous-server
@@ -38,7 +38,7 @@ maintainers:
 name: gaseous-server
 sources:
   - https://github.com/gaseous-project/gaseous-server
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/gaseous-server
+  - https://github.com/truecharts/charts/tree/master/charts/stable/gaseous-server
   - https://hub.docker.com/r/gaseousgames/gaseousserver
 type: application
-version: 1.0.4
+version: 1.0.5
