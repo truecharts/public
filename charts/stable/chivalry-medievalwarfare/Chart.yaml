@@ -4,7 +4,7 @@ annotations:
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: GameServers
   truecharts.org/max_helm_version: "3.14"
-  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
 appVersion: chialrymw
@@ -17,13 +17,13 @@ dependencies:
     tags: []
     import-values: []
 deprecated: false
-description: 'This Chart will download and install SteamCMD. It will also install Chivalry: Medieval Warfare and run it.'
+description: "This Chart will download and install SteamCMD. It will also install Chivalry: Medieval Warfare and run it."
 home: https://truecharts.org/charts/stable/chivalry-medievalwarfare
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/chivalry-medievalwarfare.png
 keywords:
   - chivalry-medievalwarfare
   - GameServers
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
