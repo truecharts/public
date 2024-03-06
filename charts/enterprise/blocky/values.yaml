@@ -53,13 +53,16 @@ service:
         port: 4000
         protocol: http
         targetPort: 4000
-  dns:
+  dnstcp:
     enabled: true
     ports:
       dnstcp:
         enabled: true
         port: 53
         targetPort: 53
+  dnsudp:
+    enabled: true
+    ports:
       dnsudp:
         enabled: true
         port: 53
