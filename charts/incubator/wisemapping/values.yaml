@@ -72,12 +72,15 @@ workload:
 persistence:
   config:
     enabled: true
-    mountPath: /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties
     subPath: app.properties
     targetSelector:
       main:
-        main: {}
-        init-config: {}
+        main:
+          mountPath: /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties
+          subPath: app.properties
+        init-config:
+          mountPath: /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties
+          subPath: app.properties
 
 cnpg:
   main:
