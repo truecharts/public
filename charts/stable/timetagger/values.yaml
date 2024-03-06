@@ -26,4 +26,3 @@ workload:
         main:
           env:
             TIMETAGGER_BIND: 0.0.0.0:{{ .Values.service.main.ports.main.port }}
-

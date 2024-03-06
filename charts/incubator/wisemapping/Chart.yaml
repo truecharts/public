@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: incubator
 apiVersion: v2
-appVersion: 5.0.13
+appVersion: latest
 dependencies:
   - name: common
     version: 18.1.2
@@ -32,8 +32,8 @@ maintainers:
 name: wisemapping
 sources:
   - https://www.wisemapping.com/
-  - https://hub.docker.com/r/wisemapping/wisemapping
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/wise-mapping
   - https://bitbucket.org/wisemapping/wisemapping-open-source/src/develop/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/wisemapping
+  - https://hub.docker.com/r/wisemapping/wisemapping
 type: application
-version: 0.0.1
+version: 0.0.3
