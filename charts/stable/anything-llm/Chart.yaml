@@ -5,7 +5,7 @@ annotations:
   truecharts.org/category: AI
   truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: latest
 dependencies:
@@ -18,7 +18,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Open-source ChatGPT experience for LLMs, embedders, and vector databases.
-home: https://truecharts.org/charts/incubator/anything-llm
+home: https://truecharts.org/charts/stable/anything-llm
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/anything-llm.png
 keywords:
   - anything-llm
@@ -31,7 +31,7 @@ maintainers:
 name: anything-llm
 sources:
   - https://github.com/Mintplex-Labs/anything-llm
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/anything-llm
+  - https://github.com/truecharts/charts/tree/master/charts/stable/anything-llm
   - https://ghcr.io/mintplex-labs/anything-llm
 type: application
-version: 1.0.5
+version: 1.0.6
