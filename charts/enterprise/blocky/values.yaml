@@ -6,8 +6,7 @@ k8sgatewayImage:
   repository: quay.io/oriedge/k8s_gateway
   pullPolicy: IfNotPresent
   tag: v0.4.0@sha256:7bdbd447c0244b8f89de9cd6f4826ed0ac66c9406fac3a4ac80081020c251c6b
-manifestManager:
-  enabled: true
+
 workload:
   main:
     replicas: 2
@@ -56,15 +55,16 @@ service:
   dns:
     enabled: true
     ports:
-      dnstcp:
-        enabled: true
-        port: 53
-        targetPort: 53
-      dnsudp:
+      dns:
         enabled: true
         port: 53
         protocol: udp
         targetPort: 53
+      dnstcp:
+        enabled: true
+        protocol: tcp
+        port: "{{ .Values.service.dns.dns.port }}"
+        targetPort: "{{ .Values.service.dns.dns.targetPort }}"
   dot:
     enabled: true
     ports:
