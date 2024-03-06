@@ -3,10 +3,6 @@ image:
   pullPolicy: IfNotPresent
   tag: latest@sha256:4242fce8570c3f288c664c3615e5efe197249fed9def881c35528bcc0287699e
 
-# When this is defined, the contents will be mounted
-# as configmap into the container at /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties.
-wisemappingConfig: {}
-
 securityContext:
   container:
     readOnlyRootFilesystem: false
@@ -29,27 +25,55 @@ workload:
           enabled: true
           type: init
           imageSelector: "image"
+          env:
+            ADMIN_EMAIL: "change@test1.com"
           command:
             - /bin/sh
             - -c
           args:
-            - |
-              mkdir -p /usr/local/tomcat/webapps/ROOT/WEB-INF/
-              if [ ! -f /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties ]; then
-                echo "Config file not found, copying dummy..."
-                cp /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties.dummy /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties
-                echo "Config file copied, you can now edit it at /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties"
+            - >
+              if [ -f usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties ] || [ ${USE_CUSTOM_CONFIG_FILE} == true ]; then
+                echo "Initial configuration exists or User selected to use custom configuration file. Skipping...";
+              else
+                echo "Creating initial configuration";
+                touch /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
+                echo "# Configuration bellow will be always be overridden" >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
+                echo "# from environment settings defined in the Chart or Questions." >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
+                echo "# You however will not see this values change in the file." >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
+                echo "# It's a generated file based on the values provided on initial install." >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
+                echo "##########################################################" >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
+                echo "# Database Configuration" >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
+                echo "##########################################################" >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
+                echo "" >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
+                echo "database.url=jdbc:{{ $pghost }}/wisemapping" >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
+                echo "database.driver=org.postgresql.Driver" >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
+                echo "database.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect" >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
+                echo "database.username= {{ $pguser }}" >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
+                echo "database.password= {{ $pgpassword }}" >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
+                echo "database.validation.enabled=true" >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
+                echo "database.validation.query=" >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
+                echo "database.validation.enabled=false" >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
+                echo "##########################################################" >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
+                echo "# Users Registration Configuration" >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
+                echo "##########################################################" >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
+                echo "admin.user = {{ .Values.workload.main.podSpec.containers.main.env.ADMIN_EMAIL }}" >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
+                echo "#site.baseurl = http://localhost:8080" >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
+                echo "# Site Homepage URL. This will be used as URL for homepage location." >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
+                echo "site.homepage = c/login" >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
+                echo "# Font end static content can be deployed externally to the web app. Uncomment here and specify the url base location." >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
+                echo "site.static.js.url = /static" >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
               fi
       containers:
         main:
           env:
-            ADMIN_EMAIL: "change@me.com"
+            ADMIN_EMAIL: "change@test.com"
+            USE_CUSTOM_CONFIG_FILE: false
 
 persistence:
   config:
-    # Only enable when not using wisemappingConfig
-    enabled: false
-    mountPath: /usr/local/tomcat/webapps/ROOT/WEB-INF/
+    enabled: true
+    mountPath: /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties
+    subPath: app.properties
     targetSelector:
       main:
         main: {}
