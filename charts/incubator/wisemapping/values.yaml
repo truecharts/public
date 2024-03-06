@@ -45,11 +45,11 @@ workload:
                 echo "# Database Configuration" >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
                 echo "##########################################################" >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
                 echo "" >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
-                echo "database.url=jdbc:{{ $pghost }}/wisemapping" >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
+                echo "database.url=jdbc:{{ .Values.cnpg.main.creds.host | trimAll "\"" }}/wisemapping" >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
                 echo "database.driver=org.postgresql.Driver" >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
                 echo "database.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect" >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
-                echo "database.username= {{ $pguser }}" >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
-                echo "database.password= {{ $pgpassword }}" >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
+                echo "database.username= {{ .Values.cnpg.main.user }}" >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
+                echo "database.password= {{ .Values.cnpg.main.creds.password | trimAll "\"" }}" >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
                 echo "database.validation.enabled=true" >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
                 echo "database.validation.query=" >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
                 echo "database.validation.enabled=false" >> /usr/local/tomcat/webapps/ROOT/WEB-INF/app.properties;
