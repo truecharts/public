@@ -63,8 +63,8 @@ service:
       dnstcp:
         enabled: true
         protocol: tcp
-        port: "{{ .Values.service.dns.dns.port }}"
-        targetPort: "{{ .Values.service.dns.dns.targetPort }}"
+        port: "{{ .Values.service.dns.ports.dns.port }}"
+        targetPort: "{{ .Values.service.dns.ports.dns.targetPort }}"
   dot:
     enabled: true
     ports:
