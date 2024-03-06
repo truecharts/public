@@ -732,21 +732,8 @@ questions:
             attrs:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
-                    - variable: dnstcp
-                      label: DNS TCP Port Configuration
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: Port
-                            description: This port exposes the container port on the service
-                            schema:
-                              type: int
-                              default: 53
-                              required: true
-                    - variable: dnsudp
-                      label: DNS UDP Port Configuration
+                    - variable: dns
+                      label: DNS Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
