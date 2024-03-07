@@ -5,7 +5,11 @@
 
   {{- if eq $objectData.recovery.method "object_store" }}
 externalClusters:
-  - name: objectStoreRecoveryCluster
+  {{- $serverName :=  $objectData.recovery.serverName | default $objectData.clusterName }}
+  {{- if $objectData.recovery.revision }}
+    {{- $serverName = printf "%s-r%s" $serverName $objectData.recovery.revision }}
+  {{- end }}
+  - name: {{ $serverName }}
     barmanObjectStore:
 
     {{- $provider := $objectData.recovery.provider -}}

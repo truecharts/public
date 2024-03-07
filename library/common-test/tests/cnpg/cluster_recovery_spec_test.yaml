@@ -122,7 +122,7 @@ tests:
                   name: test-release-name-common-test-cnpg-my-pg-user
                 owner: test-user
                 database: test-db
-                source: objectStoreRecoveryCluster
+                source: test-release-name-common-test-cnpg-my-pg
                 recoveryTarget:
                   targetTime: "2021-01-01T00:00:00Z"
       - documentIndex: *clusterDoc
@@ -130,8 +130,9 @@ tests:
           path: spec
           content:
             externalClusters:
-              - name: objectStoreRecoveryCluster
+              - name: test-release-name-common-test-cnpg-my-pg
                 barmanObjectStore:
+                  serverName: test-release-name-common-test-cnpg-my-pg
                   destinationPath: gs://some-bucket/some-path
                   endpointURL: null
                   googleCredentials:
@@ -192,7 +193,7 @@ tests:
                   name: test-release-name-common-test-cnpg-my-pg-user
                 owner: test-user
                 database: test-db
-                source: objectStoreRecoveryCluster
+                source: test-release-name-common-test-cnpg-my-pg
                 recoveryTarget:
                   targetTime: "2021-01-01T00:00:00Z"
       - documentIndex: *clusterDoc
@@ -200,8 +201,9 @@ tests:
           path: spec
           content:
             externalClusters:
-              - name: objectStoreRecoveryCluster
+              - name: test-release-name-common-test-cnpg-my-pg
                 barmanObjectStore:
+                  serverName: test-release-name-common-test-cnpg-my-pg
                   destinationPath: gs://some-bucket
                   endpointURL: null
                   googleCredentials:
@@ -264,14 +266,15 @@ tests:
                   name: test-release-name-common-test-cnpg-my-pg-user
                 owner: test-user
                 database: test-db
-                source: objectStoreRecoveryCluster
+                source: test-release-name-common-test-cnpg-my-pg
       - documentIndex: *clusterDoc
         isSubset:
           path: spec
           content:
             externalClusters:
-              - name: objectStoreRecoveryCluster
+              - name: test-release-name-common-test-cnpg-my-pg
                 barmanObjectStore:
+                  serverName: test-release-name-common-test-cnpg-my-pg
                   destinationPath: s3://some-bucket/some-path
                   endpointURL: https://s3.some-region.amazonaws.com
                   s3Credentials:
@@ -335,14 +338,15 @@ tests:
                   name: test-release-name-common-test-cnpg-my-pg-user
                 owner: test-user
                 database: test-db
-                source: objectStoreRecoveryCluster
+                source: test-release-name-common-test-cnpg-my-pg
       - documentIndex: *clusterDoc
         isSubset:
           path: spec
           content:
             externalClusters:
-              - name: objectStoreRecoveryCluster
+              - name: test-release-name-common-test-cnpg-my-pg
                 barmanObjectStore:
+                  serverName: test-release-name-common-test-cnpg-my-pg
                   destinationPath: s3://some-bucket
                   endpointURL: some-endpoint-url
                   s3Credentials:
@@ -409,14 +413,15 @@ tests:
                   name: test-release-name-common-test-cnpg-my-pg-user
                 owner: test-user
                 database: test-db
-                source: objectStoreRecoveryCluster
+                source: test-release-name-common-test-cnpg-my-pg
       - documentIndex: *clusterDoc
         isSubset:
           path: spec
           content:
             externalClusters:
-              - name: objectStoreRecoveryCluster
+              - name: test-release-name-common-test-cnpg-my-pg
                 barmanObjectStore:
+                  serverName: test-release-name-common-test-cnpg-my-pg
                   destinationPath: https://some-storage-account.some-service-name.core.windows.net/some-container-name/some-path
                   endpointURL: null
                   azureCredentials:
@@ -486,14 +491,15 @@ tests:
                   name: test-release-name-common-test-cnpg-my-pg-user
                 owner: test-user
                 database: test-db
-                source: objectStoreRecoveryCluster
+                source: test-release-name-common-test-cnpg-my-pg
       - documentIndex: *clusterDoc
         isSubset:
           path: spec
           content:
             externalClusters:
-              - name: objectStoreRecoveryCluster
+              - name: test-release-name-common-test-cnpg-my-pg
                 barmanObjectStore:
+                  serverName: test-release-name-common-test-cnpg-my-pg
                   destinationPath: https://some-storage-account.some-service-name.core.windows.net/some-container-name
                   endpointURL: null
                   azureCredentials:

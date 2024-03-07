@@ -10,7 +10,11 @@ recovery:
   backup:
     name: {{ $objectData.recovery.backupName }}
   {{- else if eq $objectData.recovery.method "object_store" }}
-  source: objectStoreRecoveryCluster
+  {{- $serverName :=  $objectData.recovery.serverName | default $objectData.clusterName }}
+  {{- if $objectData.recovery.revision }}
+    {{- $serverName = printf "%s-r%s" $serverName $objectData.recovery.revision }}
+  {{- end }}
+  source: {{ $serverName }}
   {{- end -}}
   {{- if $objectData.recovery.pitrTarget -}}
     {{- with $objectData.recovery.pitrTarget.time }}

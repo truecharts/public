@@ -54,18 +54,7 @@ tests:
           path: spec
           content:
             backup:
-              target: primary
-              retentionPolicy: 10d
               barmanObjectStore:
-                wal:
-                  compression: gzip
-                  encryption: AES256
-                data:
-                  compression: gzip
-                  encryption: AES256
-                  jobs: 2
-                endpointURL: null
-                destinationPath: some-path
                 azureCredentials:
                   connectionString:
                     key: CONNECTION_STRING
@@ -79,6 +68,18 @@ tests:
                   storageSasToken:
                     key: STORAGE_SAS_TOKEN
                     name: test-release-name-common-test-cnpg-my-pg-provider-backup-azure-creds
+                data:
+                  compression: gzip
+                  encryption: AES256
+                  jobs: 2
+                destinationPath: some-path
+                endpointURL: null
+                serverName: test-release-name-common-test-cnpg-my-pg
+                wal:
+                  compression: gzip
+                  encryption: AES256
+              retentionPolicy: 10d
+              target: primary
 
   - it: should generate correct spec with backups (google)
     set:
@@ -126,23 +127,24 @@ tests:
           path: spec
           content:
             backup:
-              target: primary
-              retentionPolicy: 10d
               barmanObjectStore:
-                wal:
-                  compression: gzip
-                  encryption: AES256
                 data:
                   compression: gzip
                   encryption: AES256
                   jobs: 2
-                endpointURL: null
                 destinationPath: some-path
+                endpointURL: null
                 googleCredentials:
-                  gkeEnvironment: false
                   applicationCredentials:
                     key: APPLICATION_CREDENTIALS
                     name: test-release-name-common-test-cnpg-my-pg-provider-backup-google-creds
+                  gkeEnvironment: false
+                serverName: test-release-name-common-test-cnpg-my-pg
+                wal:
+                  compression: gzip
+                  encryption: AES256
+              retentionPolicy: 10d
+              target: primary
 
   - it: should generate correct spec with backups (s3)
     set:
@@ -193,18 +195,13 @@ tests:
           path: spec
           content:
             backup:
-              target: primary
-              retentionPolicy: 10d
               barmanObjectStore:
-                wal:
-                  compression: gzip
-                  encryption: AES256
                 data:
                   compression: gzip
                   encryption: AES256
                   jobs: 2
-                endpointURL: some-url
                 destinationPath: some-path
+                endpointURL: some-url
                 s3Credentials:
                   accessKeyId:
                     key: ACCESS_KEY_ID
@@ -212,6 +209,12 @@ tests:
                   secretAccessKey:
                     key: ACCESS_SECRET_KEY
                     name: test-release-name-common-test-cnpg-my-pg-provider-backup-s3-creds
+                serverName: test-release-name-common-test-cnpg-my-pg
+                wal:
+                  compression: gzip
+                  encryption: AES256
+              retentionPolicy: 10d
+              target: primary
 
   - it: should generate correct spec with empty target
     set:

@@ -53,8 +53,11 @@ fallbackDefaults:
   pvcSize: 100Gi
   # -- Default VCT Size
   vctSize: 100Gi
-  # -- Default PVC/VCT Access Modes
+  # -- Default PVC Access Modes
   accessModes:
+    - ReadWriteOnce
+  # -- Default VCT Access Modes
+  vctAccessModes:
     - ReadWriteOnce
   # -- Default probe timeouts
   probeTimeouts:

@@ -102,7 +102,26 @@
       {{- if not (mustRegexMatch $regexPolicy $objectData.backups.retentionPolicy) -}}
         {{- fail (printf "CNPG Backup - Expected [backups.retentionPolicy] to match regex [%s], got [%s]" $regexPolicy $objectData.backups.retentionPolicy) -}}
       {{- end -}}
+
+      {{- if eq $objectData.mode "recovery" -}}
+        {{- $serverNameBackup := $objectData.backups.serverName | default $objectData.clusterName -}}
+        {{- $serverNameRecovery := $objectData.recovery.serverName | default $objectData.clusterName -}}
+        {{- if $objectData.backups.revision -}}
+          {{- $serverNameBackup = printf "%s-r%s" $serverNameBackup $objectData.backups.revision -}}
+        {{- end -}}
+        {{- if $objectData.recovery.revision -}}
+          {{- $serverNameRecovery = printf "%s-r%s" $serverNameRecovery $objectData.recovery.revision -}}
+        {{- end -}}
+        {{- if eq $serverNameBackup $serverNameRecovery -}}
+          {{- if $objectData.backups.serverName -}}
+            {{- fail (printf "CNPG Backup/Recovery - [backups.serverName] and [backups.revision] cannot match [recovery.serverName] and [recovery.revision] when in recovery mode and backup is enabled, for cnpg cluster [%s]" $objectData.clusterName) -}}
+          {{- else -}}
+            {{- fail (printf "CNPG Backup/Recovery - [backups.revision] cannot match [recovery.revision] when in recovery mode and backup is enabled, for cnpg cluster [%s]" $objectData.clusterName) -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
     {{- end -}}
   {{- end -}}
+
 
 {{- end -}}

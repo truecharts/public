@@ -22,6 +22,8 @@
   {{- $primaryUpdateStrategy := "unsupervised" -}}
   {{- $primaryUpdateMethod := "switchover" -}}
   {{- $logLevel := "info" -}}
+  {{- $accessModes := $rootCtx.Values.fallbackDefaults.vctAccessModes -}}
+  {{- $walAccessModes := $rootCtx.Values.fallbackDefaults.vctAccessModes -}}
 
   {{/* Make sure keys exist before try to access any sub keys */}}
   {{- if not (hasKey $objectData "cluster") -}}
@@ -122,6 +124,14 @@
     {{- $walSize = . -}}
   {{- end -}}
 
+  {{- with $objectData.cluster.storage.accessModes -}}
+    {{- $accessModes = . -}}
+  {{- end -}}
+
+  {{- with $objectData.cluster.walStorage.accessModes -}}
+    {{- $walAccessModes = . -}}
+  {{- end -}}
+
   {{- include "tc.v1.common.lib.util.verifycrd" (dict "rootCtx" $rootCtx "crd" "clusters.postgresql.cnpg.io" "missing" "CloudNative-PG") }}
 
 ---
@@ -174,10 +184,14 @@ spec:
   storage:
     pvcTemplate:
       {{- $_ := set $objectData.cluster.storage "size" $size -}}
+      {{- $_ := set $objectData.cluster.storage "accessModes" $accessModes -}}
+
       {{- include "tc.v1.common.lib.storage.pvc.spec" (dict "rootCtx" $rootCtx "objectData" $objectData.cluster.storage) | trim | nindent 6 }}
   walStorage:
     pvcTemplate:
       {{- $_ := set $objectData.cluster.walStorage "size" $walSize -}}
+      {{- $_ := set $objectData.cluster.storage "accessModes" $walAccessModes -}}
+
       {{- include "tc.v1.common.lib.storage.pvc.spec" (dict "rootCtx" $rootCtx "objectData" $objectData.cluster.walStorage) | trim | nindent 6 }}
   {{- if $enableMonitoring }}
   monitoring:
