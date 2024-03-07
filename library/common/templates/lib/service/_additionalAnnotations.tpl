@@ -20,8 +20,11 @@ annotations: The annotations variable reference, to append the MetalLB annotatio
 
   {{- if (hasKey $rootCtx.Values.global "metallb") -}}
     {{- if $rootCtx.Values.global.metallb.addServiceAnnotations -}}
-
-      {{- if eq $objectData.externalTrafficPolicy "Cluster" -}}
+      {{- if $objectData.externalTrafficPolicy -}}
+        {{- if ne $objectData.externalTrafficPolicy "Local" -}}
+          {{- $_ := set $annotations "metallb.universe.tf/allow-shared-ip" $sharedKey -}}
+        {{- end -}}
+      {{- else -}}
         {{- $_ := set $annotations "metallb.universe.tf/allow-shared-ip" $sharedKey -}}
       {{- end -}}
 
