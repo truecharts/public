@@ -4,7 +4,7 @@ annotations:
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: network
   truecharts.org/max_helm_version: "3.14"
-  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
 appVersion: latest
@@ -27,7 +27,7 @@ keywords:
   - auth
   - ingress
   - middleware
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -38,4 +38,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/traefik-forward-auth
   - https://hub.docker.com/r/thomseddon/traefik-forward-auth
 type: application
-version: 3.4.0
+version: 3.4.1

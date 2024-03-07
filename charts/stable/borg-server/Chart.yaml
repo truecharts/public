@@ -4,7 +4,7 @@ annotations:
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: backup
   truecharts.org/max_helm_version: "3.14"
-  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/min_helm_version: "3.12"
   truecharts.org/train: stable
 apiVersion: v2
 appVersion: 2.2.5
@@ -23,7 +23,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/borg-server.png
 keywords:
   - borg-server
   - backup
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/borg-server
   - https://ghcr.io/anotherstranger/borg-server
 type: application
-version: 4.4.0
+version: 4.4.1
