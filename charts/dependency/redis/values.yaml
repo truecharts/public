@@ -138,6 +138,8 @@ service:
 volumeClaimTemplates:
   data:
     enabled: true
+    accessModes:
+      - ReadWriteOnce
     mountPath: "/bitnami/redis"
 persistence:
   redis-health:
