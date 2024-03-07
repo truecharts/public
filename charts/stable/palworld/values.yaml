@@ -331,27 +331,6 @@ workload:
     strategy: RollingUpdate
     replicas: 1
     podSpec:
-      initContainers:
-        create-db:
-          enabled: true
-          type: install
-          imageSelector: adminImage
-          command: ["sh", "-c"]
-          args:
-            - |
-              dbfile="/app/pst.db";
-              if [ ! -f ${dbfile} ]; then
-                echo "No DB File...";
-                echo "Creating DB file...";
-                touch ${dbfile}
-                if [ -f ${dbfile} ]; then
-                  echo "Success!";
-                else
-                  echo "Failed.";
-                fi;
-              else
-                echo "DB File exists. Skipping...";
-              fi;
       containers:
         admin:
           primary: true
@@ -401,14 +380,6 @@ persistence:
       admin:
         admin:
           mountPath: /serverdata/serverfiles
-  admin:
-    enabled: true
-    targetSelector:
-      admin:
-        admin:
-          mountPath: /app
-        create-db:
-          mountPath: /app
 
 portal:
   open:

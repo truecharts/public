@@ -609,14 +609,6 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-        - variable: admin
-          label: "App Admin Storage"
-          description: "Stores the Application Admin Files."
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: admin
