@@ -38,7 +38,7 @@ initdb:
     name: {{ printf "%s-user" $objectData.clusterName }}
   database: {{ $objectData.database }}
   owner: {{ $objectData.user }}
-  dataChecksums: {{ $dataChecksums }}
+  dataChecksums: {{ $dataChecksums | default true }}
   {{- with $objectData.cluster.initdb.encoding }}
   encoding: {{ . }}
   {{- end -}}
