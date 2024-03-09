@@ -53,3 +53,44 @@ tests:
             name: pvc-vol
             persistentVolumeClaim:
               claimName: some-existing-claim
+
+  # Failures
+  - it: should fail when DaemonSet and RWO volume from fallback
+    set:
+      fallbackDefaults:
+        accessModes:
+          - ReadWriteOnce
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: DaemonSet
+          podSpec: {}
+      persistence:
+        pvc-vol:
+          enabled: true
+          type: pvc
+    asserts:
+      - failedTemplate:
+          errorMessage: Expected [accessMode] to not be [ReadWriteOnce] when used on a [DaemonSet]
+
+  - it: should fail when DaemonSet and RWO volume from persistence
+    set:
+      fallbackDefaults:
+        accessModes:
+          - ReadWriteMany
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: DaemonSet
+          podSpec: {}
+      persistence:
+        pvc-vol:
+          enabled: true
+          accessModes:
+            - ReadWriteOnce
+          type: pvc
+    asserts:
+      - failedTemplate:
+          errorMessage: Expected [accessMode] to not be [ReadWriteOnce] when used on a [DaemonSet]

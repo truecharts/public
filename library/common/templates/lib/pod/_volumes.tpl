@@ -51,6 +51,20 @@ objectData: The object data to be used to render the Pod.
         {{/* Define the volume based on type */}}
         {{- $type := ($persistence.type | default $rootCtx.Values.fallbackDefaults.persistenceType) -}}
 
+        {{- if eq $objectData.type "DaemonSet" -}}
+          {{/* Only check accessModes if persistence is one of those types */}}
+          {{- $typesWithAccessMode := (list "pvc") -}}
+          {{- if (mustHas $type $typesWithAccessMode) -}}
+            {{- $modes := include "tc.v1.common.lib.pvc.accessModes" (dict "rootCtx" $rootCtx "objectData" $persistence "caller" "Volumes") | fromYamlArray -}}
+
+            {{- range $m := $modes -}}
+              {{- if eq $m "ReadWriteOnce" -}}
+                {{- fail "Expected [accessMode] to not be [ReadWriteOnce] when used on a [DaemonSet]" -}}
+              {{- end -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+
         {{- if eq "pvc" $type -}}
           {{- include "tc.v1.common.lib.pod.volume.pvc" (dict "rootCtx" $rootCtx "objectData" $persistence) | trim | nindent 0 -}}
         {{- else if eq "hostPath" $type -}}
