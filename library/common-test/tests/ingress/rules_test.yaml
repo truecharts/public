@@ -82,6 +82,10 @@ tests:
                     # must be just the fullname
                     name: my-service
                     port: 8080
+            - host: "host-without-explicit-paths"
+            - host: "host-without-explicit-path"
+              paths:
+                - pathType: Exact
           integrations: *integrations
     asserts:
       - documentIndex: &ingressDoc 1
@@ -132,6 +136,26 @@ tests:
                         name: test-release-name-common-test
                         port:
                           number: 8080
+            - host: "host-without-explicit-paths"
+              http:
+                paths:
+                  - path: /
+                    pathType: Prefix
+                    backend:
+                      service:
+                        name: test-release-name-common-test
+                        port:
+                          number: 80
+            - host: "host-without-explicit-path"
+              http:
+                paths:
+                  - path: /
+                    pathType: Exact
+                    backend:
+                      service:
+                        name: test-release-name-common-test
+                        port:
+                          number: 80
 
   - it: should pass with ingress created with rules with targetSelector
     set:

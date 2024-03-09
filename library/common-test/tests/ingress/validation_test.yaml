@@ -287,18 +287,6 @@ tests:
       - failedTemplate:
           errorMessage: Ingress - Expected [hosts.host] to not contain [:], but got [test-host:123]
 
-  - it: should fail without paths
-    set:
-      ingress:
-        my-ingress:
-          enabled: true
-          primary: true
-          hosts:
-            - host: test-host
-    asserts:
-      - failedTemplate:
-          errorMessage: Ingress - Expected non-empty [hosts.paths]
-
   - it: should fail with paths not a slice
     set:
       ingress:
@@ -521,7 +509,7 @@ tests:
           hosts: *hosts
           tls:
             - hosts:
-              - ""
+                - ""
     asserts:
       - failedTemplate:
           errorMessage: Ingress - Expected non-empty entry in [tls.hosts]
@@ -536,7 +524,7 @@ tests:
           hosts: *hosts
           tls:
             - hosts:
-              - https://test-host
+                - https://test-host
     asserts:
       - failedTemplate:
           errorMessage: Ingress - Expected entry in [tls.hosts] to not start with [https://], but got [https://test-host]
@@ -551,7 +539,7 @@ tests:
           hosts: *hosts
           tls:
             - hosts:
-              - http://test-host
+                - http://test-host
     asserts:
       - failedTemplate:
           errorMessage: Ingress - Expected entry in [tls.hosts] to not start with [http://], but got [http://test-host]
@@ -566,7 +554,7 @@ tests:
           hosts: *hosts
           tls:
             - hosts:
-              - test-host:123
+                - test-host:123
     asserts:
       - failedTemplate:
           errorMessage: Ingress - Expected entry in [tls.hosts] to not contain [:], but got [test-host:123]
@@ -581,7 +569,7 @@ tests:
           hosts: *hosts
           tls:
             - hosts:
-              - test-host
+                - test-host
               secretName: test-secret
               clusterCertificate: some-cert
     asserts:
