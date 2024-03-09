@@ -157,6 +157,99 @@ tests:
             metallb.universe.tf/allow-shared-ip: test-release-name-common-test
             traefik.ingress.kubernetes.io/service.serversscheme: https
 
+  - it: should add metallb shared ip annotation without externalTrafficPolicy
+    set:
+      global:
+        metallb:
+          addServiceAnnotations: true
+      service:
+        my-service1:
+          enabled: true
+          primary: true
+          type: LoadBalancer
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 12345
+      workload:
+        my-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: *serviceDoc
+        isKind:
+          of: Service
+      - documentIndex: *serviceDoc
+        isSubset:
+          path: metadata.annotations
+          content:
+            metallb.universe.tf/allow-shared-ip: test-release-name-common-test
+
+  - it: should add metallb shared ip annotation with externalTrafficPolicy set to Cluster
+    set:
+      global:
+        metallb:
+          addServiceAnnotations: true
+      service:
+        my-service1:
+          enabled: true
+          primary: true
+          type: LoadBalancer
+          externalTrafficPolicy: Cluster
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 12345
+      workload:
+        my-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: *serviceDoc
+        isKind:
+          of: Service
+      - documentIndex: *serviceDoc
+        isSubset:
+          path: metadata.annotations
+          content:
+            metallb.universe.tf/allow-shared-ip: test-release-name-common-test
+
+  - it: should NOT add metallb shared ip annotation with externalTrafficPolicy set to Local
+    set:
+      global:
+        metallb:
+          addServiceAnnotations: true
+      service:
+        my-service1:
+          enabled: true
+          primary: true
+          type: LoadBalancer
+          externalTrafficPolicy: Local
+          ports:
+            port-name:
+              enabled: true
+              primary: true
+              port: 12345
+      workload:
+        my-workload:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec: {}
+    asserts:
+      - documentIndex: *serviceDoc
+        isKind:
+          of: Service
+      - documentIndex: *serviceDoc
+        notExists:
+          path: metadata.annotations.metallb\.universe\.tf/allow-shared-ip
+
   - it: should pass with correct selector with targetSelector
     set:
       service:

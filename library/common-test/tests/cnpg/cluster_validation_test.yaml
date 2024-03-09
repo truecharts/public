@@ -152,6 +152,22 @@ tests:
       - failedTemplate:
           errorMessage: CNPG Recovery - Expected a non-empty [recovery] key
 
+  - it: should fail with revision in recovery not a string
+    set:
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          mode: recovery
+          recovery:
+            method: backup
+            backupName: some-backup-name
+            revision: 5
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG Recovery - Expected [recovery.revision] to be a string, got [float64]
+
   - it: should fail with invalid recovery method
     set:
       cnpg:
@@ -317,6 +333,24 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: CNPG Recovery - You need to specify [recovery.azure.containerName] or [recovery.destinationPath]
+
+  - it: should fail with revision in backups not a string
+    set:
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          backups:
+            enabled: true
+            provider: azure
+            revision: 5
+            azure:
+              connectionString: some-connection-string
+            target: primary
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG Backup - Expected [backups.revision] to be a string, got [float64]
 
   - it: should fail with invalid target when backups are enabled
     set:

@@ -6,7 +6,7 @@
   {{- $postInitSQL := list -}}
   {{- $postInitTemplateSQL := list -}}
   {{- $postInitApplicationSQL := list -}}
-  {{- $dataChecksums := false -}}
+  {{- $dataChecksums := true -}}
   {{- if not (hasKey $objectData.cluster "initdb") -}}
     {{- $_ := set $objectData.cluster "initdb" dict -}}
   {{- end -}}
@@ -38,7 +38,7 @@ initdb:
     name: {{ printf "%s-user" $objectData.clusterName }}
   database: {{ $objectData.database }}
   owner: {{ $objectData.user }}
-  dataChecksums: {{ $dataChecksums | default true }}
+  dataChecksums: {{ $dataChecksums }}
   {{- with $objectData.cluster.initdb.encoding }}
   encoding: {{ . }}
   {{- end -}}

@@ -515,3 +515,220 @@ tests:
                     storageSasToken:
                       key: STORAGE_SAS_TOKEN
                       name: test-release-name-common-test-cnpg-my-pg-provider-recovery-azure-creds
+
+  - it: should use revision in serverName when set
+    set:
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          mode: recovery
+          recovery:
+            method: object_store
+            provider: google
+            destinationPath: gs://some-bucket
+            revision: some-revision
+            google:
+              applicationCredentials: some-credentials
+            pitrTarget:
+              time: "2021-01-01T00:00:00Z"
+    asserts:
+      - documentIndex: &secretDoc 2
+        isKind:
+          of: Secret
+      - documentIndex: *secretDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *secretDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg-provider-recovery-google-creds
+      - documentIndex: *secretDoc
+        equal:
+          path: stringData
+          value:
+            APPLICATION_CREDENTIALS: some-credentials
+      - documentIndex: &clusterDoc 1
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *clusterDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            bootstrap:
+              recovery:
+                secret:
+                  name: test-release-name-common-test-cnpg-my-pg-user
+                owner: test-user
+                database: test-db
+                source: test-release-name-common-test-cnpg-my-pg-rsome-revision
+                recoveryTarget:
+                  targetTime: "2021-01-01T00:00:00Z"
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            externalClusters:
+              - name: test-release-name-common-test-cnpg-my-pg-rsome-revision
+                barmanObjectStore:
+                  serverName: test-release-name-common-test-cnpg-my-pg-rsome-revision
+                  destinationPath: gs://some-bucket
+                  endpointURL: null
+                  googleCredentials:
+                    applicationCredentials:
+                      key: APPLICATION_CREDENTIALS
+                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-google-creds
+                    gkeEnvironment: false
+
+  - it: should override serverName when set
+    set:
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          mode: recovery
+          recovery:
+            method: object_store
+            provider: google
+            destinationPath: gs://some-bucket
+            serverName: some-server-name
+            google:
+              applicationCredentials: some-credentials
+            pitrTarget:
+              time: "2021-01-01T00:00:00Z"
+    asserts:
+      - documentIndex: &secretDoc 2
+        isKind:
+          of: Secret
+      - documentIndex: *secretDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *secretDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg-provider-recovery-google-creds
+      - documentIndex: *secretDoc
+        equal:
+          path: stringData
+          value:
+            APPLICATION_CREDENTIALS: some-credentials
+      - documentIndex: &clusterDoc 1
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *clusterDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            bootstrap:
+              recovery:
+                secret:
+                  name: test-release-name-common-test-cnpg-my-pg-user
+                owner: test-user
+                database: test-db
+                source: some-server-name
+                recoveryTarget:
+                  targetTime: "2021-01-01T00:00:00Z"
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            externalClusters:
+              - name: some-server-name
+                barmanObjectStore:
+                  serverName: some-server-name
+                  destinationPath: gs://some-bucket
+                  endpointURL: null
+                  googleCredentials:
+                    applicationCredentials:
+                      key: APPLICATION_CREDENTIALS
+                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-google-creds
+                    gkeEnvironment: false
+
+  - it: should override serverName when set along with revision
+    set:
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          mode: recovery
+          recovery:
+            method: object_store
+            provider: google
+            destinationPath: gs://some-bucket
+            serverName: some-server-name
+            revision: "20"
+            google:
+              applicationCredentials: some-credentials
+            pitrTarget:
+              time: "2021-01-01T00:00:00Z"
+    asserts:
+      - documentIndex: &secretDoc 2
+        isKind:
+          of: Secret
+      - documentIndex: *secretDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *secretDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg-provider-recovery-google-creds
+      - documentIndex: *secretDoc
+        equal:
+          path: stringData
+          value:
+            APPLICATION_CREDENTIALS: some-credentials
+      - documentIndex: &clusterDoc 1
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *clusterDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            bootstrap:
+              recovery:
+                secret:
+                  name: test-release-name-common-test-cnpg-my-pg-user
+                owner: test-user
+                database: test-db
+                source: some-server-name-r20
+                recoveryTarget:
+                  targetTime: "2021-01-01T00:00:00Z"
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            externalClusters:
+              - name: some-server-name-r20
+                barmanObjectStore:
+                  serverName: some-server-name-r20
+                  destinationPath: gs://some-bucket
+                  endpointURL: null
+                  googleCredentials:
+                    applicationCredentials:
+                      key: APPLICATION_CREDENTIALS
+                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-google-creds
+                    gkeEnvironment: false

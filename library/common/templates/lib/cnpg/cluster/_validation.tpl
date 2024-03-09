@@ -91,6 +91,18 @@
     {{- end -}}
   {{- end -}}
 
+  {{- if and $objectData.recovery $objectData.recovery.revision -}}
+    {{- if not (kindIs "string" $objectData.recovery.revision) -}}
+      {{- fail (printf "CNPG Recovery - Expected [recovery.revision] to be a string, got [%s]" (kindOf $objectData.recovery.revision)) -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- if and $objectData.backups $objectData.backups.revision -}}
+    {{- if not (kindIs "string" $objectData.backups.revision) -}}
+      {{- fail (printf "CNPG Backup - Expected [backups.revision] to be a string, got [%s]" (kindOf $objectData.backups.revision)) -}}
+    {{- end -}}
+  {{- end -}}
+
   {{- if (hasKey $objectData "backups") -}}
     {{- if and $objectData.backups.enabled $objectData.backups.target -}}
       {{- $validTargets := (list "primary" "prefer-standby") -}}
@@ -106,17 +118,20 @@
       {{- if eq $objectData.mode "recovery" -}}
         {{- $serverNameBackup := $objectData.backups.serverName | default $objectData.clusterName -}}
         {{- $serverNameRecovery := $objectData.recovery.serverName | default $objectData.clusterName -}}
+
         {{- if $objectData.backups.revision -}}
           {{- $serverNameBackup = printf "%s-r%s" $serverNameBackup $objectData.backups.revision -}}
         {{- end -}}
+
         {{- if $objectData.recovery.revision -}}
           {{- $serverNameRecovery = printf "%s-r%s" $serverNameRecovery $objectData.recovery.revision -}}
         {{- end -}}
+
         {{- if eq $serverNameBackup $serverNameRecovery -}}
           {{- if $objectData.backups.serverName -}}
-            {{- fail (printf "CNPG Backup/Recovery - [backups.serverName] and [backups.revision] cannot match [recovery.serverName] and [recovery.revision] when in recovery mode and backup is enabled, for cnpg cluster [%s]" $objectData.clusterName) -}}
+            {{- fail (printf "CNPG Backup/Recovery - [backups.serverName] and [backups.revision] cannot match [recovery.serverName] and [recovery.revision] when in recovery mode and backup is enabled, for CNPG cluster [%s]" $objectData.clusterName) -}}
           {{- else -}}
-            {{- fail (printf "CNPG Backup/Recovery - [backups.revision] cannot match [recovery.revision] when in recovery mode and backup is enabled, for cnpg cluster [%s]" $objectData.clusterName) -}}
+            {{- fail (printf "CNPG Backup/Recovery - [backups.revision] cannot match [recovery.revision] when in recovery mode and backup is enabled, for CNPG cluster [%s]" $objectData.clusterName) -}}
           {{- end -}}
         {{- end -}}
       {{- end -}}

@@ -39,7 +39,7 @@ tests:
           path: spec.volumeClaimTemplates[0].spec.resources.requests.storage
           value: 100Gi
       - documentIndex: *statefulSetDoc
-        isNull:
+        notExists:
           path: spec.volumeClaimTemplates[0].spec.storageClassName
 
   - it: should create vct with accessModes set as string
@@ -67,7 +67,35 @@ tests:
           value:
             - ReadWriteMany
 
-  - it: should create pvc with accessModes set as list
+  - it: should create vct with changed fallback accessModes
+    set:
+      fallbackDefaults:
+        vctAccessModes:
+          - ReadWriteMany
+          - ReadWriteOnce
+      persistence:
+        my-volume1:
+          enabled: true
+          type: vct
+          mountPath: /some/path
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - documentIndex: *statefulSetDoc
+        isKind:
+          of: StatefulSet
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.volumeClaimTemplates[0].spec.accessModes
+          value:
+            - ReadWriteMany
+            - ReadWriteOnce
+
+  - it: should create vct with accessModes set as list
     set:
       some_mode: ReadWriteMany
       persistence:
@@ -95,7 +123,7 @@ tests:
             - ReadWriteMany
             - ReadWriteOnce
 
-  - it: should create pvc with size set
+  - it: should create vct with size set
     set:
       persistence:
         my-volume1:
@@ -117,6 +145,30 @@ tests:
         equal:
           path: spec.volumeClaimTemplates[0].spec.resources.requests.storage
           value: 20Gi
+
+  - it: should create vct with size set from tpl
+    set:
+      some_size: 40Gi
+      persistence:
+        my-volume1:
+          enabled: true
+          type: vct
+          mountPath: /some/path
+          size: "{{ .Values.some_size }}"
+      workload:
+        main:
+          enabled: true
+          primary: true
+          type: StatefulSet
+          podSpec: {}
+    asserts:
+      - documentIndex: *statefulSetDoc
+        isKind:
+          of: StatefulSet
+      - documentIndex: *statefulSetDoc
+        equal:
+          path: spec.volumeClaimTemplates[0].spec.resources.requests.storage
+          value: 40Gi
 
   - it: should create vct with storageClass set "-"
     set:

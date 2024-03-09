@@ -62,7 +62,50 @@ tests:
                   name: test-release-name-common-test-cnpg-my-pg-user
                 database: test-db
                 owner: test-user
-                dataChecksums: false
+                dataChecksums: true
+
+  - it: should respect changed fallbackDefaults
+    set:
+      fallbackDefaults:
+        vctAccessModes:
+          - ReadWriteMany
+          - ReadWriteOnce
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+    asserts:
+      - documentIndex: &clusterDoc 1
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *clusterDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            storage:
+              pvcTemplate:
+                accessModes:
+                  - ReadWriteMany
+                  - ReadWriteOnce
+                resources:
+                  requests:
+                    storage: 100Gi
+            walStorage:
+              pvcTemplate:
+                accessModes:
+                  - ReadWriteMany
+                  - ReadWriteOnce
+                resources:
+                  requests:
+                    storage: 100Gi
 
   - it: should override options
     set:
@@ -80,7 +123,7 @@ tests:
             logLevel: debug
             instances: 3
             initdb:
-              dataChecksums: true
+              dataChecksums: false
               encoding: some-encoding
               localeCollate: some-locale
               localeCtype: some-locale
@@ -155,7 +198,7 @@ tests:
                   name: test-release-name-common-test-cnpg-my-pg-user
                 database: test-db
                 owner: test-user
-                dataChecksums: true
+                dataChecksums: false
                 encoding: some-encoding
                 localeCollate: some-locale
                 localeCtype: some-locale
@@ -270,7 +313,7 @@ tests:
                   name: test-release-name-common-test-cnpg-my-pg-user
                 database: app
                 owner: app
-                dataChecksums: false
+                dataChecksums: true
                 postInitApplicationSQL:
                   - CREATE EXTENSION IF NOT EXISTS some-extension;
                   - CREATE EXTENSION IF NOT EXISTS timescaledb;

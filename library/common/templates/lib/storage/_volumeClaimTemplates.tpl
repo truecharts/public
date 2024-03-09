@@ -14,7 +14,7 @@ objectData: The object data to be used to render the Pod.
                   "name" $name "caller" "Volume Claim Templates"
                   "key" "persistence")) -}}
 
-    {{- if and (eq $enabled "true")  (eq $vctValues.type "vct") -}}
+    {{- if and (eq $enabled "true") (eq $vctValues.type "vct") -}}
       {{- $vct := (mustDeepCopy $vctValues) -}}
 
       {{- $selected := false -}}
@@ -42,13 +42,13 @@ objectData: The object data to be used to render the Pod.
         {{- $vctSize := $rootCtx.Values.fallbackDefaults.vctSize -}}
         {{- with $vct.size -}}
           {{- $vctSize = tpl . $rootCtx -}}
-        {{- end }}
-        {{- $_ := set $vct "size" $vctSize }}
+        {{- end -}}
+        {{- $_ := set $vct "size" $vctSize -}}
 
         {{- $vctAccessModes := $rootCtx.Values.fallbackDefaults.vctAccessModes -}}
         {{- with $vct.accessModes -}}
-          {{- $vctAccessModes = $vct.accessModes -}}
-        {{- end }}
+          {{- $vctAccessModes = . -}}
+        {{- end -}}
         {{- $_ := set $vct "accessModes" $vctAccessModes }}
 - metadata:
     name: {{ include "tc.v1.common.lib.storage.pvc.name" (dict "rootCtx" $rootCtx "objectName" $vct.shortName "objectData" $vct) }}

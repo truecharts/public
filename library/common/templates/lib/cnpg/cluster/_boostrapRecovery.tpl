@@ -1,6 +1,6 @@
 {{/* Recovery Template, called when mode is recovery */}}
 {{- define "tc.v1.common.lib.cnpg.cluster.bootstrap.recovery" }}
-  {{- $objectData := .objectData -}}
+  {{- $objectData := .objectData }}
 recovery:
   secret:
     name: {{ printf "%s-user" $objectData.clusterName }}
@@ -9,11 +9,11 @@ recovery:
   {{- if eq $objectData.recovery.method "backup" }}
   backup:
     name: {{ $objectData.recovery.backupName }}
-  {{- else if eq $objectData.recovery.method "object_store" }}
-  {{- $serverName :=  $objectData.recovery.serverName | default $objectData.clusterName }}
-  {{- if $objectData.recovery.revision }}
-    {{- $serverName = printf "%s-r%s" $serverName $objectData.recovery.revision }}
-  {{- end }}
+  {{- else if eq $objectData.recovery.method "object_store" -}}
+    {{- $serverName := $objectData.recovery.serverName | default $objectData.clusterName -}}
+    {{- if $objectData.recovery.revision -}}
+      {{- $serverName = printf "%s-r%s" $serverName $objectData.recovery.revision -}}
+    {{- end }}
   source: {{ $serverName }}
   {{- end -}}
   {{- if $objectData.recovery.pitrTarget -}}
