@@ -397,7 +397,6 @@ notes:
     - {{ toYaml . }}
       {{- end -}}
     {{- end }}
-
     ## Sources for {{ .Chart.Name }}
 
     {{- range .Chart.Sources }}
@@ -417,6 +416,7 @@ notes:
 
     OpenSource can only exist with your help, please consider supporting TrueCharts:
     https://truecharts.org/sponsor
+  warnings: []
 
 # -- iXsystems prototype values.yaml based portals
 iXPortals: []

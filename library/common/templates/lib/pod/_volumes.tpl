@@ -51,19 +51,10 @@ objectData: The object data to be used to render the Pod.
         {{/* Define the volume based on type */}}
         {{- $type := ($persistence.type | default $rootCtx.Values.fallbackDefaults.persistenceType) -}}
 
-        {{- if eq $objectData.type "DaemonSet" -}}
-          {{/* Only check accessModes if persistence is one of those types */}}
-          {{- $typesWithAccessMode := (list "pvc") -}}
-          {{- if (mustHas $type $typesWithAccessMode) -}}
-            {{- $modes := include "tc.v1.common.lib.pvc.accessModes" (dict "rootCtx" $rootCtx "objectData" $persistence "caller" "Volumes") | fromYamlArray -}}
-
-            {{- range $m := $modes -}}
-              {{- if eq $m "ReadWriteOnce" -}}
-                {{- fail "Expected [accessMode] to not be [ReadWriteOnce] when used on a [DaemonSet]" -}}
-              {{- end -}}
-            {{- end -}}
-          {{- end -}}
-        {{- end -}}
+        {{- include "tc.v1.common.lib.pod.volumes.checkRWO" (dict
+            "rootCtx" $rootCtx "objectData" $objectData "persistence" $persistence
+            "type" $type "name" $name)
+        -}}
 
         {{- if eq "pvc" $type -}}
           {{- include "tc.v1.common.lib.pod.volume.pvc" (dict "rootCtx" $rootCtx "objectData" $persistence) | trim | nindent 0 -}}
@@ -88,5 +79,41 @@ objectData: The object data to be used to render the Pod.
       {{- end -}}
 
     {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- define "tc.v1.common.lib.pod.volumes.checkRWO" -}}
+  {{- $rootCtx := .rootCtx -}}
+  {{- $objectData := .objectData -}}
+  {{- $persistence := .persistence -}}
+  {{- $type := .type -}}
+  {{- $name := .name -}}
+
+  {{/* Only check accessModes if persistence is one of those types */}}
+  {{- $typesWithAccessMode := (list "pvc") -}}
+  {{- if (mustHas $type $typesWithAccessMode) -}}
+    {{- $modes := include "tc.v1.common.lib.pvc.accessModes" (dict "rootCtx" $rootCtx
+        "objectData" $persistence "caller" "Volumes") | fromYamlArray
+    -}}
+
+    {{- $hasRWO := false -}}
+    {{- range $m := $modes -}}
+      {{- if eq $m "ReadWriteOnce" -}}
+        {{- $hasRWO = true -}}
+        {{- break -}}
+      {{- end -}}
+    {{- end -}}
+
+    {{- if $hasRWO -}}
+      {{- if eq $objectData.type "DaemonSet" -}}
+        {{- fail "Expected [accessMode] to not be [ReadWriteOnce] when used on a [DaemonSet]" -}}
+
+      {{- else if and (mustHas $objectData.type (list "Deployment" "StatefulSet")) (gt (($objectData.replicas| default 1) | int) 1) -}}
+        {{- include "add.warning" (dict "rootCtx" $rootCtx
+            "warn" (printf "WARNING: The [accessModes] on volume [%s] is set to [ReadWriteOnce] when on a [Deployment] with more than 1 replica" $name))
+        -}}
+      {{- end -}}
+    {{- end -}}
+
   {{- end -}}
 {{- end -}}
