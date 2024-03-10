@@ -13,22 +13,31 @@
   {{- $hostTmpl := printf "%s-%%s" $objectData.name -}}
   {{- $jdbcTmpl := printf "jdbc:postgresql://%s-%%s:5432/%s" $objectData.name $objectData.database -}}
 
+  {{- $rwString := "rw" -}}
+  {{- $roString := "ro" -}}
+  {{- $poolEnabled := false -}}
+  {{- if and $objectData.pooler $objectData.pooler.enabled -}}
+    {{- $poolEnabled = true -}}
+    {{- $rwString = "pooler-rw" -}}
+    {{- $roString = "pooler-ro" -}}
+  {{- end -}}
+
   {{- $creds := (dict
-    "std" (printf $stdTmpl "rw")
-    "nossl" (printf $nosslTmpl "rw")
-    "portHost" (printf $portHostTmpl "rw")
-    "host" (printf $hostTmpl "rw")
-    "jdbc" (printf $jdbcTmpl "rw")
+    "std" (printf $stdTmpl $rwString)
+    "nossl" (printf $nosslTmpl $rwString)
+    "portHost" (printf $portHostTmpl $rwString)
+    "host" (printf $hostTmpl $rwString)
+    "jdbc" (printf $jdbcTmpl $rwString)
   ) -}}
 
   {{- $credsRO := dict -}}
-  {{- if $objectData.pooler.createRO -}}
+  {{- if and $poolEnabled $objectData.pooler.createRO -}}
     {{- $credsRO = (dict
-      "std" (printf $stdTmpl "ro")
-      "nossl" (printf $nosslTmpl "ro")
-      "portHost" (printf $portHostTmpl "ro")
-      "host" (printf $hostTmpl "ro")
-      "jdbc" (printf $jdbcTmpl "ro")
+      "std" (printf $stdTmpl $roString)
+      "nossl" (printf $nosslTmpl $roString)
+      "portHost" (printf $portHostTmpl $roString)
+      "host" (printf $hostTmpl $roString)
+      "jdbc" (printf $jdbcTmpl $roString)
     ) -}}
   {{- end -}}
 
@@ -53,7 +62,7 @@
   {{- $_ := set $cnpg.creds "host" $creds.host -}}
   {{- $_ := set $cnpg.creds "jdbc" $creds.jdbc -}}
 
-  {{- if $objectData.pooler.createRO -}}
+  {{- if and $poolEnabled $objectData.pooler.createRO -}}
     {{- $_ := set $cnpg.creds "stdRO" $credsRO.std -}}
     {{- $_ := set $cnpg.creds "nosslRO" $credsRO.nossl -}}
     {{- $_ := set $cnpg.creds "porthostRO" $credsRO.portHost -}}

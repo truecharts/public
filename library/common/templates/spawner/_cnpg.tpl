@@ -60,7 +60,9 @@
       {{- end -}}
 
       {{/* Handle Pooler(s) */}}
-      {{- include "tc.v1.common.lib.cnpg.spawner.pooler" (dict "rootCtx" $ "objectData" $objectData) -}}
+      {{- if and $objectData.pooler $objectData.pooler.enabled -}}
+        {{- include "tc.v1.common.lib.cnpg.spawner.pooler" (dict "rootCtx" $ "objectData" $objectData) -}}
+      {{- end -}}
 
       {{/* Handle Cluster */}}
       {{/* Validate Cluster */}}

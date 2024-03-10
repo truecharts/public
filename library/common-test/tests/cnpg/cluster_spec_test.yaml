@@ -13,7 +13,7 @@ tests:
           user: test-user
           database: test-db
     asserts:
-      - documentIndex: &clusterDoc 1
+      - documentIndex: &clusterDoc 0
         isKind:
           of: Cluster
       - documentIndex: *clusterDoc
@@ -83,7 +83,7 @@ tests:
           user: test-user
           database: test-db
     asserts:
-      - documentIndex: &clusterDoc 1
+      - documentIndex: *clusterDoc
         isKind:
           of: Cluster
       - documentIndex: *clusterDoc
@@ -128,7 +128,7 @@ tests:
           pgVersion: "15"
           type: vectors
     asserts:
-      - documentIndex: &clusterDoc 1
+      - documentIndex: *clusterDoc
         isKind:
           of: Cluster
       - documentIndex: *clusterDoc
@@ -155,7 +155,7 @@ tests:
           database: test-db
           pgVersion: "15"
     asserts:
-      - documentIndex: &clusterDoc 1
+      - documentIndex: *clusterDoc
         isKind:
           of: Cluster
       - documentIndex: *clusterDoc

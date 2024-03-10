@@ -21,7 +21,7 @@ tests:
             azure:
               connectionString: some-connection-string
     asserts:
-      - documentIndex: &secretDoc 3
+      - documentIndex: &secretDoc 2
         isKind:
           of: Secret
       - documentIndex: *secretDoc
@@ -39,7 +39,7 @@ tests:
             STORAGE_ACCOUNT: ""
             STORAGE_KEY: ""
             STORAGE_SAS_TOKEN: ""
-      - documentIndex: &clusterDoc 1
+      - documentIndex: &clusterDoc 0
         isKind:
           of: Cluster
       - documentIndex: *clusterDoc
@@ -97,7 +97,7 @@ tests:
             google:
               applicationCredentials: some-credentials
     asserts:
-      - documentIndex: &secretDoc 3
+      - documentIndex: &secretDoc 2
         isKind:
           of: Secret
       - documentIndex: *secretDoc
@@ -112,7 +112,7 @@ tests:
           path: stringData
           value:
             APPLICATION_CREDENTIALS: some-credentials
-      - documentIndex: &clusterDoc 1
+      - documentIndex: &clusterDoc 0
         isKind:
           of: Cluster
       - documentIndex: *clusterDoc
@@ -164,7 +164,7 @@ tests:
               accessKey: some-access-key
               secretKey: some-secret-key
     asserts:
-      - documentIndex: &secretDoc 3
+      - documentIndex: &secretDoc 2
         isKind:
           of: Secret
       - documentIndex: *secretDoc
@@ -180,7 +180,7 @@ tests:
           value:
             ACCESS_KEY_ID: some-access-key
             ACCESS_SECRET_KEY: some-secret-key
-      - documentIndex: &clusterDoc 1
+      - documentIndex: &clusterDoc 0
         isKind:
           of: Cluster
       - documentIndex: *clusterDoc
@@ -235,7 +235,7 @@ tests:
               accessKey: some-access-key
               secretKey: some-secret-key
     asserts:
-      - documentIndex: &secretDoc 3
+      - documentIndex: &secretDoc 2
         isKind:
           of: Secret
       - documentIndex: *secretDoc
@@ -251,7 +251,7 @@ tests:
           value:
             ACCESS_KEY_ID: some-access-key
             ACCESS_SECRET_KEY: some-secret-key
-      - documentIndex: &clusterDoc 1
+      - documentIndex: &clusterDoc 0
         isKind:
           of: Cluster
       - documentIndex: *clusterDoc
@@ -306,7 +306,7 @@ tests:
               accessKey: some-access-key
               secretKey: some-secret-key
     asserts:
-      - documentIndex: &secretDoc 3
+      - documentIndex: &secretDoc 2
         isKind:
           of: Secret
       - documentIndex: *secretDoc
@@ -322,7 +322,7 @@ tests:
           value:
             ACCESS_KEY_ID: some-access-key
             ACCESS_SECRET_KEY: some-secret-key
-      - documentIndex: &clusterDoc 1
+      - documentIndex: &clusterDoc 0
         isKind:
           of: Cluster
       - documentIndex: *clusterDoc
@@ -378,7 +378,7 @@ tests:
               accessKey: some-access-key
               secretKey: some-secret-key
     asserts:
-      - documentIndex: &secretDoc 3
+      - documentIndex: &secretDoc 2
         isKind:
           of: Secret
       - documentIndex: *secretDoc
@@ -394,7 +394,7 @@ tests:
           value:
             ACCESS_KEY_ID: some-access-key
             ACCESS_SECRET_KEY: some-secret-key
-      - documentIndex: &clusterDoc 1
+      - documentIndex: &clusterDoc 0
         isKind:
           of: Cluster
       - documentIndex: *clusterDoc
@@ -445,7 +445,7 @@ tests:
             azure:
               connectionString: some-connection-string
     asserts:
-      - documentIndex: &clusterDoc 1
+      - documentIndex: &clusterDoc 0
         isKind:
           of: Cluster
       - documentIndex: *clusterDoc

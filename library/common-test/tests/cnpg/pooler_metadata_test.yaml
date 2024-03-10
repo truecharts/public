@@ -40,6 +40,7 @@ tests:
             - name: some-label
               value: some-value
           pooler:
+            enabled: true
             labels:
               label3: "{{ .Values.label3 }}"
             annotations:
@@ -61,7 +62,7 @@ tests:
       - documentIndex: *poolerDoc
         matchRegex:
           path: metadata.annotations.rollme
-          pattern: '^[0-9a-zA-Z]{5}$'
+          pattern: "^[0-9a-zA-Z]{5}$"
       - documentIndex: *poolerDoc
         equal:
           path: metadata.labels
@@ -94,6 +95,8 @@ tests:
           user: test-user
           database: test-db
           namespace: some-namespace
+          pooler:
+            enabled: true
     asserts:
       - documentIndex: *poolerDoc
         equal:
@@ -109,6 +112,8 @@ tests:
           user: test-user
           database: test-db
           namespace: "{{ .Values.key }}"
+          pooler:
+            enabled: true
     asserts:
       - documentIndex: *poolerDoc
         equal:
@@ -125,6 +130,8 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          pooler:
+            enabled: true
     asserts:
       - documentIndex: *poolerDoc
         equal:
@@ -142,6 +149,8 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          pooler:
+            enabled: true
     asserts:
       - documentIndex: *poolerDoc
         equal:
@@ -160,6 +169,8 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          pooler:
+            enabled: true
     asserts:
       - documentIndex: *poolerDoc
         equal:

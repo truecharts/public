@@ -1294,6 +1294,7 @@ cnpg:
 
     # Database cluster PgBouncer configuration
     pooler:
+      enabled: false
       # -- enable to create extra pgbouncer for readonly access
       createRO: false
       poolMode: session

@@ -12,11 +12,14 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          pooler:
+            enabled: true
         my-pg2:
           enabled: true
           user: test-user
           database: test-db
           pooler:
+            enabled: true
             createRO: true
     asserts:
       - documentIndex: &poolerDoc 0

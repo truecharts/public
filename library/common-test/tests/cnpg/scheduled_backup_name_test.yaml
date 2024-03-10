@@ -51,7 +51,7 @@ tests:
         equal:
           path: metadata.name
           value: test-release-name-common-test-cnpg-my-pg-sched-backup-daily
-      - documentIndex: &otherbackupDoc 3
+      - documentIndex: &otherbackupDoc 2
         isKind:
           of: ScheduledBackup
       - documentIndex: *otherbackupDoc

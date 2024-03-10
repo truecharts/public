@@ -45,7 +45,7 @@ tests:
             annotations:
               annotation3: "{{ .Values.annotation3 }}"
     asserts:
-      - documentIndex: &clusterDoc 1
+      - documentIndex: &clusterDoc 0
         isKind:
           of: Cluster
       - documentIndex: *clusterDoc

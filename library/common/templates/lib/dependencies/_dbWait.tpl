@@ -361,27 +361,41 @@ command:
   - "-c"
   - |
     /bin/sh <<'EOF'
-    {{ range $name, $cnpg := .Values.cnpg }}
-    {{ if $cnpg.enabled }}
+{{- range $name, $cnpg := .Values.cnpg -}}
+  {{- if $cnpg.enabled }}
     echo "Executing DB waits..."
-    {{ $cnpgName := include "tc.v1.common.lib.chart.names.fullname" $ }}
-    {{ $cnpgName = printf "%v-cnpg-%v" $cnpgName $name }}
-    echo "Detected RW pooler, testing RW pooler availability..."
-    until
-      echo "Testing database on url:  {{ $cnpgName }}-rw"
-      pg_isready -U {{ .user }} -d {{ .database }} -h {{ $cnpgName }}-rw
-      do sleep 5
-    done
-    {{ if and $cnpg.pooler $cnpg.pooler.createRO }}
-    echo "Detected RO pooler, testing RO pooler availability..."
-    until
-      echo "Testing database on url:  {{ $cnpgName }}-ro"
-      pg_isready -U {{ .user }} -d {{ .database }} -h {{ $cnpgName }}-ro
-      do sleep 5
-    done
-    {{ end }}
-    {{ end }}
-    {{ end }}
-    sleep 5
+    {{- $cnpgName := include "tc.v1.common.lib.chart.names.fullname" $ -}}
+    {{- $cnpgName = printf "%v-cnpg-%v" $cnpgName $name -}}
+
+    {{/* Wait RW CNPG */}}
+    {{- include "cnpg.wait.script" (dict "url" (printf "%s-rw" $cnpgName) "user" .user "db" .database "on" "CNPG RW") | nindent 4 -}}
+
+    {{- if and $cnpg.pooler $cnpg.pooler.enabled -}}
+      {{/* Wait RW Pooler */}}
+      {{- include "cnpg.wait.script" (dict "url" (printf "%s-pooler-rw" $cnpgName) "user" .user "db" .database "on" "CNPG Pooler RW") | nindent 4 -}}
+
+      {{/* Wait RO Pooler */}}
+      {{- if $cnpg.pooler.createRO -}}
+        {{- include "cnpg.wait.script" (dict "url" (printf "%s-pooler-ro" $cnpgName) "user" .user "db" .database "on" "CNPG Pooler RO") | nindent 4 -}}
+      {{- end -}}
+
+    {{- end -}}
+  {{- end -}}
+{{- end }}
+    echo "Done executing DB waits..."
     EOF
+{{- end -}}
+
+{{- define "cnpg.wait.script" -}}
+  {{- $url := .url -}}
+  {{- $user := .user -}}
+  {{- $db := .db -}}
+  {{- $on := .on -}}
+echo "Testing Database availability on [{{ $on }}]"
+until
+  echo "Testing database on url: [{{ $url }}]"
+  pg_isready -U {{ $user }} -d {{ $db }} -h {{ $url }}
+  do sleep 5
+done
+echo "Database available on url: [{{ $url }}]"
 {{- end -}}

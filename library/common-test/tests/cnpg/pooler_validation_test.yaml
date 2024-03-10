@@ -13,6 +13,7 @@ tests:
           user: test-user
           database: test-db
           pooler:
+            enabled: true
             poolMode: invalid
     asserts:
       - failedTemplate:
@@ -26,6 +27,7 @@ tests:
           user: test-user
           database: test-db
           pooler:
+            enabled: true
             instances: 0
     asserts:
       - failedTemplate:
