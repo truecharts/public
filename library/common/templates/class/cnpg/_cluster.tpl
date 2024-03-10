@@ -17,13 +17,13 @@
   {{- $inProgress := false -}}
   {{- $reusePVC := true -}}
   {{- $preloadLibraries := list -}}
-  {{- $walSize := $rootCtx.Values.fallbackDefaults.vctSize -}}
-  {{- $size := $rootCtx.Values.fallbackDefaults.vctSize -}}
+  {{- $walSize := $rootCtx.Values.global.fallbackDefaults.vctSize -}}
+  {{- $size := $rootCtx.Values.global.fallbackDefaults.vctSize -}}
   {{- $primaryUpdateStrategy := "unsupervised" -}}
   {{- $primaryUpdateMethod := "switchover" -}}
   {{- $logLevel := "info" -}}
-  {{- $accessModes := $rootCtx.Values.fallbackDefaults.vctAccessModes -}}
-  {{- $walAccessModes := $rootCtx.Values.fallbackDefaults.vctAccessModes -}}
+  {{- $accessModes := $rootCtx.Values.global.fallbackDefaults.vctAccessModes -}}
+  {{- $walAccessModes := $rootCtx.Values.global.fallbackDefaults.vctAccessModes -}}
 
   {{/* Make sure keys exist before try to access any sub keys */}}
   {{- if not (hasKey $objectData "cluster") -}}

@@ -17,7 +17,7 @@ objectData: The object data of the pvc
   {{- end -}}
 
   {{- if not $accessModes -}}
-    {{- $accessModes = $rootCtx.Values.fallbackDefaults.accessModes -}}
+    {{- $accessModes = $rootCtx.Values.global.fallbackDefaults.accessModes -}}
   {{- end -}}
 
   {{- $validAccessModes := (list "ReadWriteOnce" "ReadOnlyMany" "ReadWriteMany" "ReadWriteOncePod") -}}

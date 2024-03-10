@@ -159,8 +159,9 @@ tests:
 
   - it: should create pvc with storageClass not set, but have fallbackDefaults set
     set:
-      fallbackDefaults:
-        storageClass: some-storage-class
+      global:
+        fallbackDefaults:
+          storageClass: some-storage-class
       persistence:
         my-volume1:
           enabled: true

@@ -11,7 +11,7 @@ objectData: The service data, that will be used to render the Service object.
   {{- $rootCtx := .rootCtx -}}
   {{- $objectData := .objectData -}}
 
-  {{- $svcType := $objectData.type | default $rootCtx.Values.fallbackDefaults.serviceType -}}
+  {{- $svcType := $objectData.type | default $rootCtx.Values.global.fallbackDefaults.serviceType -}}
 
   {{/* Init variables */}}
   {{- $hasHTTPSPort := false -}}

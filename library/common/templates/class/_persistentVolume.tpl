@@ -18,14 +18,14 @@ objectData:
   {{- $rootCtx := .rootCtx -}}
   {{- $objectData := .objectData -}}
 
-  {{- $retain := $rootCtx.Values.fallbackDefaults.pvcRetain -}}
+  {{- $retain := $rootCtx.Values.global.fallbackDefaults.pvcRetain -}}
   {{- if not (kindIs "invalid" $objectData.retain) -}}
     {{- $retain = $objectData.retain -}}
   {{- end -}}
 
   {{- $reclaimPolicy := ternary "Retain" "Delete" $retain -}}
 
-  {{- $pvcSize := $rootCtx.Values.fallbackDefaults.pvcSize -}}
+  {{- $pvcSize := $rootCtx.Values.global.fallbackDefaults.pvcSize -}}
   {{- with $objectData.size -}}
     {{- $pvcSize = tpl . $rootCtx -}}
   {{- end }}

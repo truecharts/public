@@ -14,7 +14,7 @@
     {{/* If autoPermissions is enabled...*/}}
     {{- if $mount.autoPermissions.enabled -}}
       {{- if or $mount.autoPermissions.chown $mount.autoPermissions.chmod -}}
-        {{- $type := $.Values.fallbackDefaults.persistenceType -}}
+        {{- $type := $.Values.global.fallbackDefaults.persistenceType -}}
         {{- if $mount.type -}}
           {{- $type = $mount.type -}}
         {{- end -}}

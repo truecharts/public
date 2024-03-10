@@ -73,10 +73,9 @@ tests:
       global:
         fallbackDefaults:
           pgVersion: "15"
-      fallbackDefaults:
-        vctAccessModes:
-          - ReadWriteMany
-          - ReadWriteOnce
+          vctAccessModes:
+            - ReadWriteMany
+            - ReadWriteOnce
       cnpg:
         my-pg:
           enabled: true

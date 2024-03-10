@@ -8,7 +8,7 @@ objectData: The object data to be used to render the Pod.
 {{- $rootCtx := .rootCtx -}}
 {{- $objectData := .objectData -}}
 
-{{- $size := $rootCtx.Values.fallbackDefaults.pvcSize -}}
+{{- $size := $rootCtx.Values.global.fallbackDefaults.pvcSize -}}
 {{- with $objectData.size -}}
   {{- $size = tpl . $rootCtx -}}
 {{- end }}

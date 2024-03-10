@@ -57,9 +57,10 @@ tests:
   # Failures
   - it: should fail when DaemonSet and RWO volume from fallback
     set:
-      fallbackDefaults:
-        accessModes:
-          - ReadWriteOnce
+      global:
+        fallbackDefaults:
+          accessModes:
+            - ReadWriteOnce
       workload:
         workload-name1:
           enabled: true
@@ -76,9 +77,10 @@ tests:
 
   - it: should fail when DaemonSet and RWO volume from persistence
     set:
-      fallbackDefaults:
-        accessModes:
-          - ReadWriteMany
+      global:
+        fallbackDefaults:
+          accessModes:
+            - ReadWriteMany
       workload:
         workload-name1:
           enabled: true

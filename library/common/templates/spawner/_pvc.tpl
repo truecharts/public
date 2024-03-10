@@ -17,7 +17,7 @@
       {{/* Create a copy of the persistence */}}
       {{- $objectData := (mustDeepCopy $persistence) -}}
 
-      {{- $_ := set $objectData "type" ($objectData.type | default $.Values.fallbackDefaults.persistenceType) -}}
+      {{- $_ := set $objectData "type" ($objectData.type | default $.Values.global.fallbackDefaults.persistenceType) -}}
 
       {{- include "tc.v1.common.lib.util.metaListToDict" (dict "objectData" $objectData) -}}
 

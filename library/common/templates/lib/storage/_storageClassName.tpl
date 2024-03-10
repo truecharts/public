@@ -17,7 +17,7 @@ objectData: The object data of the pvc
 
     Else if we are in an ixChartContext, always return the storageClassName defined on the ixChartContext
 
-    Else if there is a storageClass defined in Values.fallbackDefaults.storageClass, return this
+    Else if there is a storageClass defined in Values.global.fallbackDefaults.storageClass, return this
 
     In any other case, return nothing
   */}}
@@ -43,9 +43,9 @@ objectData: The object data of the pvc
     {{- end -}}
     {{- $className = tpl $rootCtx.Values.global.ixChartContext.storageClassName $rootCtx -}}
 
-  {{- else if $rootCtx.Values.fallbackDefaults.storageClass -}}
+  {{- else if $rootCtx.Values.global.fallbackDefaults.storageClass -}}
 
-    {{- $className = tpl $rootCtx.Values.fallbackDefaults.storageClass $rootCtx -}}
+    {{- $className = tpl $rootCtx.Values.global.fallbackDefaults.storageClass $rootCtx -}}
 
   {{- end -}}
 

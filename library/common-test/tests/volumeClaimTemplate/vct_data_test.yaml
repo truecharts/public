@@ -69,10 +69,11 @@ tests:
 
   - it: should create vct with changed fallback accessModes
     set:
-      fallbackDefaults:
-        vctAccessModes:
-          - ReadWriteMany
-          - ReadWriteOnce
+      global:
+        fallbackDefaults:
+          vctAccessModes:
+            - ReadWriteMany
+            - ReadWriteOnce
       persistence:
         my-volume1:
           enabled: true
@@ -220,8 +221,9 @@ tests:
 
   - it: should create vct with storageClass not set, but have fallbackDefaults set
     set:
-      fallbackDefaults:
-        storageClass: some-storage-class
+      global:
+        fallbackDefaults:
+          storageClass: some-storage-class
       persistence:
         my-volume1:
           enabled: true

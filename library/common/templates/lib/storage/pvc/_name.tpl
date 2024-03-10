@@ -19,7 +19,7 @@ objectData: The object data to be used to render the Pod.
   {{- if $objectData.static -}}
     {{- if and $objectData.static.mode (mustHas $objectData.static.mode $modes) -}}
 
-      {{- $size := $objectData.size | default $rootCtx.Values.fallbackDefaults.pvcSize -}}
+      {{- $size := $objectData.size | default $rootCtx.Values.global.fallbackDefaults.pvcSize -}}
 
       {{/* Create a unique name taking into account server and share,
           without this, changing one of those values is not possible */}}

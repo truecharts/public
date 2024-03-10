@@ -49,7 +49,7 @@ objectData: The object data to be used to render the Pod.
       {{/* If pod selected */}}
       {{- if $selected -}}
         {{/* Define the volume based on type */}}
-        {{- $type := ($persistence.type | default $rootCtx.Values.fallbackDefaults.persistenceType) -}}
+        {{- $type := ($persistence.type | default $rootCtx.Values.global.fallbackDefaults.persistenceType) -}}
 
         {{- include "tc.v1.common.lib.pod.volumes.checkRWO" (dict
             "rootCtx" $rootCtx "objectData" $objectData "persistence" $persistence

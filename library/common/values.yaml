@@ -8,6 +8,49 @@ global:
   # TODO: Currently some objects do not support this
   namespace: ""
   fallbackDefaults:
+    # -- Define a storageClassName that will be used for all PVCs
+    # Can be overruled per PVC
+    storageClass:
+    # -- Default probe type
+    probeType: http
+    # -- Default Service Protocol
+    serviceProtocol: tcp
+    # -- Default Service Type
+    serviceType: ClusterIP
+    # -- Default persistence type
+    persistenceType: pvc
+    # -- Default Retain PVC
+    pvcRetain: false
+    # -- Default PVC Size
+    pvcSize: 100Gi
+    # -- Default VCT Size
+    vctSize: 100Gi
+    # -- Default PVC Access Modes
+    accessModes:
+      - ReadWriteOnce
+    # -- Default VCT Access Modes
+    vctAccessModes:
+      - ReadWriteOnce
+    # -- Default probe timeouts
+    probeTimeouts:
+      liveness:
+        initialDelaySeconds: 10
+        periodSeconds: 10
+        timeoutSeconds: 5
+        failureThreshold: 5
+        successThreshold: 1
+      readiness:
+        initialDelaySeconds: 10
+        periodSeconds: 10
+        timeoutSeconds: 5
+        failureThreshold: 5
+        successThreshold: 2
+      startup:
+        initialDelaySeconds: 10
+        periodSeconds: 5
+        timeoutSeconds: 2
+        failureThreshold: 60
+        successThreshold: 1
     # -- Define a postgresql version for CNPG
     # will be used for all CNPG objects
     # Can be overruled per CNPG objects
@@ -39,51 +82,6 @@ global:
   # -- Enable to stop most pods and containers including cnpg
   # does not include stand-alone pods
   stopAll: false
-
-fallbackDefaults:
-  # -- Define a storageClassName that will be used for all PVCs
-  # Can be overruled per PVC
-  storageClass:
-  # -- Default probe type
-  probeType: http
-  # -- Default Service Protocol
-  serviceProtocol: tcp
-  # -- Default Service Type
-  serviceType: ClusterIP
-  # -- Default persistence type
-  persistenceType: pvc
-  # -- Default Retain PVC
-  pvcRetain: false
-  # -- Default PVC Size
-  pvcSize: 100Gi
-  # -- Default VCT Size
-  vctSize: 100Gi
-  # -- Default PVC Access Modes
-  accessModes:
-    - ReadWriteOnce
-  # -- Default VCT Access Modes
-  vctAccessModes:
-    - ReadWriteOnce
-  # -- Default probe timeouts
-  probeTimeouts:
-    liveness:
-      initialDelaySeconds: 10
-      periodSeconds: 10
-      timeoutSeconds: 5
-      failureThreshold: 5
-      successThreshold: 1
-    readiness:
-      initialDelaySeconds: 10
-      periodSeconds: 10
-      timeoutSeconds: 5
-      failureThreshold: 5
-      successThreshold: 2
-    startup:
-      initialDelaySeconds: 10
-      periodSeconds: 5
-      timeoutSeconds: 2
-      failureThreshold: 60
-      successThreshold: 1
 
 # -- Explicitly set a namespace for this chart only
 namespace: ""

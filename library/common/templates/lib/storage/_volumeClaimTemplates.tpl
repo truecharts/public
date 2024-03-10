@@ -39,13 +39,13 @@ objectData: The object data to be used to render the Pod.
 
       {{/* If pod selected */}}
       {{- if $selected -}}
-        {{- $vctSize := $rootCtx.Values.fallbackDefaults.vctSize -}}
+        {{- $vctSize := $rootCtx.Values.global.fallbackDefaults.vctSize -}}
         {{- with $vct.size -}}
           {{- $vctSize = tpl . $rootCtx -}}
         {{- end -}}
         {{- $_ := set $vct "size" $vctSize -}}
 
-        {{- $vctAccessModes := $rootCtx.Values.fallbackDefaults.vctAccessModes -}}
+        {{- $vctAccessModes := $rootCtx.Values.global.fallbackDefaults.vctAccessModes -}}
         {{- with $vct.accessModes -}}
           {{- $vctAccessModes = . -}}
         {{- end -}}

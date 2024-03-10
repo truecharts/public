@@ -34,7 +34,7 @@ objectData: The object data to be used to render the container.
 
     {{- if $isEnabled -}}
 
-      {{- $probeType := $rootCtx.Values.fallbackDefaults.probeType -}}
+      {{- $probeType := $rootCtx.Values.global.fallbackDefaults.probeType -}}
 
       {{- with $probe.type -}}
         {{- $probeType = tpl . $rootCtx -}}
@@ -71,7 +71,7 @@ objectData: The object data to be used to render the container.
   {{- $objectData := .objectData -}}
   {{- $probeName := .probeName -}}
 
-  {{- $timeouts := mustDeepCopy (get $rootCtx.Values.fallbackDefaults.probeTimeouts $probeName) -}}
+  {{- $timeouts := mustDeepCopy (get $rootCtx.Values.global.fallbackDefaults.probeTimeouts $probeName) -}}
 
   {{- if $objectData.spec -}} {{/* Overwrite with defined timeouts */}}
     {{- $timeouts = mustMergeOverwrite $timeouts $objectData.spec -}}
