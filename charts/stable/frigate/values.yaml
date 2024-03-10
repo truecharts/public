@@ -90,6 +90,11 @@ persistence:
       main:
         main: {}
         init-config: {}
+  modelcache:
+    # Only enable when using frigateConfig
+    enabled: false
+    mountPath: /config/model_cache
+
 portal:
   open:
     enabled: true
