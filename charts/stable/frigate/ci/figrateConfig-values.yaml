@@ -9,5 +9,6 @@ frigateConfig:
           - path: rtsp://127.0.0.1:554/rtsp
             roles:
               - detect
-      detect:
-        enabled: false 
+database:
+  # The path to store the SQLite DB
+  path: /db/frigate.db
