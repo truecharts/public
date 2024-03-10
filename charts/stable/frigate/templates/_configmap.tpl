@@ -33,6 +33,6 @@ targetSelector:
 {{- if .Values.frigateConfig }}
 mountPath: /config/config.yaml
 {{- else  }}
-mountPath: /dummy-config/config.yml.dummy
+mountPath: /dummy-config/config.yml
 {{- end -}}
 {{- end -}}
