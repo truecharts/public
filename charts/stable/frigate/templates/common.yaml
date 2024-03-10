@@ -7,11 +7,6 @@
   {{- $_ := set .Values.configmap "frigate-config" $config -}}
 {{- end -}}
 
-{{- if .Values.frigateConfig -}}
-  {{- $_ := set .Values.persistence.modelcache "enabled" true -}}
-{{- else }}
-  {{- $_ := set .Values.persistence.config "enabled" true -}}
-{{- end -}}
 
 {{- $vol := include "frigate.configVolume" . | fromYaml -}}
 {{- if $vol -}}

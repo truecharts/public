@@ -6,6 +6,7 @@ tensorrtImage:
   repository: ghcr.io/blakeblackshear/frigate
   pullPolicy: IfNotPresent
   tag: 0.13.2-tensorrt@sha256:07cc224cdf2feef0af9c860c044ac7ea0ac4adfca7f68b37dc3958bc3a3ee357
+
 # When this is defined, the contents will be mounted
 # as configmap into the container at /config/config.yml.
 frigateConfig: {}
@@ -36,15 +37,19 @@ workload:
               mkdir -p /config
               if [ ! -f /config/config.yml ]; then
                 echo "Config file not found, copying dummy..."
-                cp /dummy-config/config.yml.dummy /config/config.yml
+                cp /dummy-config/config.yml /config/config.yml
                 echo "Config file copied, you can now edit it at /config/config.yml"
+              else
+                echo "Config file found, you can edit it at /config/config.yml"
               fi
+
 securityContext:
   container:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
+
 service:
   main:
     ports:
@@ -78,24 +83,19 @@ service:
         port: 8555
         protocol: udp
         targetPort: 8555
+
 persistence:
   media:
     enabled: true
     mountPath: /media
   config:
-    # Only enable when not using frigateConfig
-    enabled: false
+    enabled: true
     mountPath: /config
     targetSelector:
       main:
         main: {}
         init-config: {}
-  modelcache:
-    # Only enable when using frigateConfig
-    enabled: false
-    mountPath: /config/model_cache
 
 portal:
   open:
     enabled: true
-updated: true
