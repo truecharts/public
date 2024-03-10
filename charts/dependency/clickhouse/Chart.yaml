@@ -4,13 +4,13 @@ annotations:
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: database
   truecharts.org/max_helm_version: "3.14"
-  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: dependency
 apiVersion: v2
-appVersion: 24.1.5.6
+appVersion: 24.2.1.2248
 dependencies:
   - name: common
-    version: 17.5.0
+    version: 19.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/dependency/clickhouse
   - https://hub.docker.com/r/clickhouse/clickhouse-server
 type: application
-version: 11.2.0
+version: 12.5.1

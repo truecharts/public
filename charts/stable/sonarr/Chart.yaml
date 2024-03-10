@@ -4,13 +4,13 @@ annotations:
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.14"
-  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 4.0.1.929
+appVersion: 4.0.2.1183
 dependencies:
   - name: common
-    version: 17.5.0
+    version: 19.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -33,7 +33,7 @@ name: sonarr
 sources:
   - https://github.com/Sonarr/Sonarr
   - https://github.com/truecharts/charts/tree/master/charts/stable/sonarr
-  - https://ghcr.io/onedr0p/sonarr
   - https://ghcr.io/onedr0p/exportarr
+  - https://ghcr.io/onedr0p/sonarr
 type: application
-version: 19.2.0
+version: 21.2.1

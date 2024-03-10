@@ -1,7 +1,7 @@
 image:
   repository: prometheuscommunity/smartctl-exporter
   pullPolicy: IfNotPresent
-  tag: v0.11.0@sha256:f23634fa0c445299b9e1c5b23f82f67744e0258a8333268bc14603df984369d3
+  tag: v0.12.0@sha256:479e2cfa0e5c841ae02e075edd38cd0133a19bb058b4a3077d7484cfc92ba93d
 securityContext:
   container:
     privileged: true
@@ -46,6 +46,14 @@ workload:
             startup:
               type: tcp
               port: main
+
+persistence:
+  hostdev:
+    enabled: true
+    type: hostPath
+    hostPath: /dev
+    mountPath: /hostdev
+
 metrics:
   main:
     enabled: true
@@ -65,3 +73,12 @@ logs:
   general:
     level: info
     format: logfmt
+
+configmap:
+  dashboard:
+    enabled: true
+    labels:
+      grafana_dashboard: "1"
+    data:
+      smartctl.json: >-
+        {{ .Files.Get "dashboard.json" | indent 8 }}

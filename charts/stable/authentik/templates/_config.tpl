@@ -85,10 +85,10 @@ proxy:
     AUTHENTIK_LISTEN__HTTP: {{ printf "0.0.0.0:%v" .Values.service.proxy.ports.http.port | quote }}
     AUTHENTIK_LISTEN__HTTPS: {{ printf "0.0.0.0:%v" .Values.service.proxy.ports.https.port | quote }}
     AUTHENTIK_LISTEN__METRICS: {{ printf "0.0.0.0:%v" .Values.service.proxymetrics.ports.proxymetrics.port | quote }}
-    AUTHENTIK_HOST: {{ $serverHost }}
+    AUTHENTIK_HOST: {{ .Values.authentik.outposts.proxy.host | default $serverHost }}
     AUTHENTIK_INSECURE: "true"
     # TODO: node ip or ingress host
-    AUTHENTIK_HOST_BROWSER: {{ $host }}
+    AUTHENTIK_HOST_BROWSER: {{ .Values.authentik.outposts.proxy.browserHost | default  $host }}
 {{- end -}}
 
 {{- if .Values.authentik.outposts.radius.enabled }}

@@ -4,13 +4,13 @@ annotations:
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Network-Proxy
   truecharts.org/max_helm_version: "3.14"
-  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
 appVersion: 3.7.4
 dependencies:
   - name: common
-    version: 17.5.0
+    version: 19.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -36,4 +36,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/apt-cacher-ng
   - https://hub.docker.com/r/sameersbn/apt-cacher-ng
 type: application
-version: 7.3.0
+version: 8.4.1

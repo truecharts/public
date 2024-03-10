@@ -4,13 +4,13 @@ annotations:
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: security
   truecharts.org/max_helm_version: "3.14"
-  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: enterprise
 apiVersion: v2
 appVersion: 4.37.5
 dependencies:
   - name: common
-    version: 17.5.0
+    version: 19.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -51,4 +51,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/enterprise/authelia
   - https://ghcr.io/authelia/authelia
 type: application
-version: 22.5.0
+version: 23.4.1

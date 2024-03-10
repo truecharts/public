@@ -134,12 +134,6 @@ questions:
                                         schema:
                                           type: boolean
                                           default: false
-                                      - variable: BACKUP_TIME
-                                        label: "Backup Time in 00:00 format"
-                                        description: "    Range: hour: 0-23, minute: 0-59 - Time of day at which the automated backup should be triggered"
-                                        schema:
-                                          type: string
-                                          default: "00:00"
                                       - variable: BACKUP_INTERVAL
                                         label: "Backup Update Interval"
                                         description: "Time in days (0 to disable it) for the interval in which the server will automatically create a backup"

@@ -1,6 +1,6 @@
 image:
   repository: tccr.io/tccr/traefik
-  tag: v2.11.0@sha256:b117ffbec2ea61d02154a2a93e6c3ad5ffe8e3e5539bd08e8e96078d79e4454a
+  tag: v2.11.0@sha256:bc607266aea202d65460dda5621d5dff4f143610ed012f46ab91b3238a601a35
   pullPolicy: IfNotPresent
 manifestManager:
   enabled: true
@@ -119,14 +119,25 @@ logs:
     format: common
 metrics:
   main:
-    enabled: false
+    enabled: true
     type: servicemonitor
     endpoints:
       - port: metrics
         path: /metrics
     targetSelector: metrics
+
 globalArguments:
   - "--global.checknewversion"
+
+configmap:
+  dashboard:
+    enabled: true
+    labels:
+      grafana_dashboard: "1"
+    data:
+      traefik.json: >-
+        {{ .Files.Get "dashboard.json" | indent 8 }}
+
 ##
 # -- Additional arguments to be passed at Traefik's binary
 # All available options available on https://docs.traefik.io/reference/static-configuration/cli/
@@ -177,6 +188,8 @@ service:
   tcp:
     enabled: true
     type: LoadBalancer
+    ## In most cases, you want this changed to `Local`
+    externalTrafficPolicy: Cluster
     ports:
       web:
         enabled: true
@@ -425,6 +438,44 @@ middlewares:
   #   modSecurityUrl: modSecurity container URL
   #   timeoutMillis: Configurated  timeout
   #   maxBodySize: maxBodySize
+  bouncer: []
+  # - name: bouncer
+  #   enabled: false
+  #   logLevel: DEBUG
+  #   updateIntervalSeconds: 60
+  #   defaultDecisionSeconds: 60
+  #   httpTimeoutSeconds: 10
+  #   crowdsecMode: live
+  #   crowdsecAppsecEnabled: false
+  #   crowdsecAppsecHost: crowdsec:7422
+  #   crowdsecAppsecFailureBlock: true
+  #   crowdsecLapiKey: privateKey-foo
+  #   crowdsecLapiKeyFile: /etc/traefik/cs-privateKey-foo
+  #   crowdsecLapiHost: crowdsec:8080
+  #   crowdsecLapiScheme: http
+  #   crowdsecLapiTLSInsecureVerify: false
+  #   crowdsecCapiMachineId: login
+  #   crowdsecCapiPassword: password
+  #   crowdsecCapiScenarios:
+  #     - crowdsecurity/http-path-traversal-probing
+  #     - crowdsecurity/http-xss-probing
+  #     - crowdsecurity/http-generic-bf
+  #   forwardedHeadersTrustedIPs:
+  #     - 10.0.10.23/32
+  #     - 10.0.20.0/24
+  #   clientTrustedIPs:
+  #     - 192.168.1.0/24
+  #   forwardedHeadersCustomName: X-Custom-Header
+  #   redisCacheEnabled: false
+  #   redisCacheHost: "redis:6379"
+  #   redisCachePassword: password
+  #   redisCacheDatabase: "5"
+  #   crowdsecLapiTLSCertificateAuthority: |-
+  #   crowdsecLapiTLSCertificateAuthorityFile: /etc/traefik/crowdsec-certs/ca.pem
+  #   crowdsecLapiTLSCertificateBouncer: |-
+  #   crowdsecLapiTLSCertificateBouncerFile: /etc/traefik/crowdsec-certs/bouncer.pem
+  #   crowdsecLapiTLSCertificateBouncerKey: |-
+  #   crowdsecLapiTLSCertificateBouncerKeyFile: /etc/traefik/crowdsec-certs/bouncer-key.pem
   ## Note: body of every request will be buffered in memory while the request is in-flight
   ## (i.e.: during the security check and during the request processing by traefik and the backend),
   ## so you may want to tune maxBodySize depending on how much RAM you have.
@@ -435,6 +486,12 @@ persistence:
     enabled: true
     mountPath: "/plugins-storage"
     type: emptyDir
+  crowdsec-bouncer-tls:
+    enabled: "{{ if .Values.middlewares.bouncer }}true{{ else }}false{{ end }}"
+    mountPath: "/etc/traefik/crowdsec-certs"
+    type: secret
+    expandObjectName: false
+    objectName: crowdsec-bouncer-tls
 portal:
   open:
     enabled: true

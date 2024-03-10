@@ -40,6 +40,12 @@ jobs:
           # Fix sh files to always be executable
           find . -name '*.sh' | xargs chmod +x
 
+      # Optional step if GPG signing is used
+      - name: Clean Questions
+        shell: bash
+        run: |
+          find ./helm -type f -name 'questions.yaml' -exec rm {} \;
+
       - name: Commit Helm Changes
         run: |
           rm -rf helm/charts
@@ -62,7 +68,7 @@ jobs:
       ref: ${{ steps.save-commit-hash.outputs.commit_hash }}
     steps:
       - name: Install Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@93f6df178ec13d1b814a7622073ba28727716ca2 # v0.10.0
+        uses: yokawasa/action-setup-kube-tools@dc0754a9a47b40f22f9bd52ffb082bbe6d142b22 # v0.11.0
         with:
           setup-tools: |
             helmv3
@@ -111,6 +117,8 @@ jobs:
         if: |
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         run: |
+          export GOBIN=/usr/local/bin/
+          go install github.com/git-chglog/git-chglog/cmd/git-chglog@latest
           CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
           parthreads=$(($(nproc) * 2))
           parallel -j ${parthreads} .github/scripts/changelog.sh '2>&1' ::: ${CHARTS[@]}
@@ -301,7 +309,7 @@ jobs:
           git config user.email "bot@truecharts.org"
 
       - name: Install Helm
-        uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # tag=v3
+        uses: azure/setup-helm@b7246b12e77f7134dc2d460a3d5bad15bbe29390 # v4
         with:
           version: v3.14.0
 

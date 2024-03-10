@@ -9,6 +9,34 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+                                - variable: env
+                                  group: "App Configuration"
+                                  label: "Image Environment"
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: OBSERVIUM_ADMIN_USER
+                                        label: "Admin User"
+                                        description: "Observium Admin User"
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+                                      - variable: OBSERVIUM_ADMIN_PASS
+                                        label: "Admin Password"
+                                        description: "Observium Admin Password"
+                                        schema:
+                                          type: string
+                                          private: true
+                                          required: true
+                                          default: ""
+                                      - variable: OBSERVIUM_base_url
+                                        label: "Base URL"
+                                        description: "Observium Base URL"
+                                        schema:
+                                          type: string
+                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
