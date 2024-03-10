@@ -7,7 +7,9 @@
   {{- $_ := set .Values.configmap "frigate-config" $config -}}
 {{- end -}}
 
-{{- if not .Values.frigateConfig -}}
+{{- if .Values.frigateConfig -}}
+  {{- $_ := set .Values.persistence.modelcache "enabled" true -}}
+{{- else }}
   {{- $_ := set .Values.persistence.config "enabled" true -}}
 {{- end -}}
 
