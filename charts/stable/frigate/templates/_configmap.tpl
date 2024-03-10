@@ -28,7 +28,8 @@ targetSelector:
   main:
     main: 
       subPath: config.yml
-    init-config: {}
+    init-config:
+      subPath: config.yml
 {{- if .Values.frigateConfig }}
 mountPath: /config/config.yaml
 {{- else  }}
