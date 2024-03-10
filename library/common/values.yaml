@@ -7,6 +7,11 @@ global:
   # -- Set a global namespace
   # TODO: Currently some objects do not support this
   namespace: ""
+  fallbackDefaults:
+    # -- Define a postgresql version for CNPG
+    # will be used for all CNPG objects
+    # Can be overruled per CNPG objects
+    pgVersion: 16
   metallb:
     # -- Adds metalLB annotations to services
     addServiceAnnotations: true
@@ -504,6 +509,36 @@ mongodbClientImage:
   tag: v1.1.0@sha256:9268e23927c4abd9bd031ef62a8a36c58e15361cf3f617906029fa4b6f25c71c
   pullPolicy: IfNotPresent
 
+postgres15Image:
+  repository: ghcr.io/cloudnative-pg/postgresql
+  tag: "15.6"
+  pullPolicy: IfNotPresent
+
+postgres16Image:
+  repository: ghcr.io/cloudnative-pg/postgresql
+  tag: "16.2"
+  pullPolicy: IfNotPresent
+
+postgresPostgis15Image:
+  repository: ghcr.io/cloudnative-pg/postgis
+  tag: "15-3.4"
+  pullPolicy: IfNotPresent
+
+postgresPostgis16Image:
+  repository: ghcr.io/cloudnative-pg/postgis
+  tag: "16-3.4"
+  pullPolicy: IfNotPresent
+
+postgresVectors15Image:
+  repository: ghcr.io/tensorchord/cloudnative-pgvecto.rs
+  tag: "15.6-v0.2.1"
+  pullPolicy: IfNotPresent
+
+postgresVectors16Image:
+  repository: ghcr.io/tensorchord/cloudnative-pgvecto.rs
+  tag: "16.2-v0.2.1"
+  pullPolicy: IfNotPresent
+
 # -- OpenVPN specific configuration
 # @default -- See below
 openvpnImage:
@@ -543,7 +578,7 @@ ingress:
     annotations: {}
     # -- Set the ingressClass that is used for this ingress.
     # Requires Kubernetes >=1.19
-    ingressClassName:  ""
+    ingressClassName: ""
     # Defaults to primary service and primary port
     # targetSelector:
     #   # service: port
@@ -646,28 +681,28 @@ route:
     labels: {}
     # -- Configure the resource the route attaches to.
     parentRefs:
-    -  # Group of the referent resource.
-      group: gateway.networking.k8s.io
-      # Kind of the referent resource.
-      kind: Gateway
-      # Name of the referent resource
-      name:
-      # Namespace of the referent resource
-      namespace:
-      # Name of the section within the target resource.
-      sectionName:
+      -  # Group of the referent resource.
+        group: gateway.networking.k8s.io
+        # Kind of the referent resource.
+        kind: Gateway
+        # Name of the referent resource
+        name:
+        # Namespace of the referent resource
+        namespace:
+        # Name of the section within the target resource.
+        sectionName:
     # -- Host addresses
     hostnames: []
     # -- Configure rules for routing. Defaults to the primary service.
     rules:
-      -  # -- Configure backends where matching requests should be sent.
+      - # -- Configure backends where matching requests should be sent.
         backendRefs:
-        - group: ""
-          kind: Service
-          name:
-          namespace:
-          port:
-          weight: 1
+          - group: ""
+            kind: Service
+            name:
+            namespace:
+            port:
+            weight: 1
         ## Configure conditions used for matching incoming requests. Only for HTTPRoutes
         matches:
           - path:
@@ -693,7 +728,6 @@ webhook:
     enabled: false
     type: mutating
     webhooks: []
-
 
 priorityClass: {}
 # priorityClass:
@@ -837,11 +871,11 @@ metrics:
     # defaults to selectorLabels
     selector: {}
     endpoints:
-     - port: main
-       interval: 5s
-       scrapeTimeout: 5s
-       path: /
-       honorLabels: false
+      - port: main
+        interval: 5s
+        scrapeTimeout: 5s
+        path: /
+        honorLabels: false
     prometheusRule:
       enabled: false
       groups: {}
@@ -933,7 +967,6 @@ addons:
       # - name: someenv
       #  value: somevalue
 
-
     # -- you can directly specify the config file here
     config: ""
 
@@ -966,7 +999,6 @@ addons:
     killSwitch: true
     excludedNetworks_IPv4: []
     excludedNetworks_IPv6: []
-
 
   # -- The common library supports adding a code-server add-on to access files. It can be configured under this key.
   # @default -- See values.yaml
@@ -1028,7 +1060,6 @@ addons:
     # -- Set any environment variables for netshoot here
     env: {}
 
-
 ##########################################################################
 # This section contains some pre-config for frequently used dependencies #
 ##########################################################################
@@ -1043,20 +1074,17 @@ cnpg:
     labels: {}
     annotations: {}
 
-    # -- Destroys the current cluster to forge a new cluster or recovery operation
-    # ABSOLUTELY DESTRUCTIVE
-    forceRecovery: false
-
     # Type of the CNPG database. Available types:
-    # * `postgresql`
+    # * `postgres`
     # * `postgis`
     # * `timescaledb`
-    type: postgresql
+    # * `vectors`
+    type: postgres
 
     # Version of Postgresql to use, changes cluster naming scheme
-    # * `legacy`
-    # TODO: allow for selecting other versions
-    version: legacy
+    # * `15`
+    # * `16`
+    pgVrsion: 16
 
     # Cluster mode of operation. Available modes:
     # * `standalone` - default mode. Creates new or updates an existing CNPG cluster.
@@ -1217,7 +1245,6 @@ cnpg:
       # override serverName in recovery obkect
       servername: ""
 
-
       # Overrides the provider specific default path. Defaults to:
       # S3: s3://<bucket><path>
       # Azure: https://<storageAccount>.<serviceName>.core.windows.net/<clusterName><path>
@@ -1278,10 +1305,8 @@ cnpg:
       labels: {}
       annotations: {}
 
-
     # -- contains credentials and urls output by generator
     creds: {}
-
 
 # -- Redis dependency configuration
 # @default -- See below

@@ -1,0 +1,79 @@
+suite: cnpg pgVersion configmap test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should generate correct configmap
+    set:
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+    asserts:
+      - documentIndex: &cmDoc 2
+        isKind:
+          of: ConfigMap
+      - documentIndex: *cmDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *cmDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg-pgversion
+      - documentIndex: *cmDoc
+        equal:
+          path: data.version
+          value: "16"
+
+  - it: should generate correct configmap with changed defaults
+    set:
+      global:
+        fallbackDefaults:
+          pgVersion: "15"
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+    asserts:
+      - documentIndex: &cmDoc 2
+        isKind:
+          of: ConfigMap
+      - documentIndex: *cmDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *cmDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg-pgversion
+      - documentIndex: *cmDoc
+        equal:
+          path: data.version
+          value: "15"
+
+  - it: should generate correct configmap with changed at cnpg level
+    set:
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+          pgVersion: "15"
+    asserts:
+      - documentIndex: &cmDoc 2
+        isKind:
+          of: ConfigMap
+      - documentIndex: *cmDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *cmDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg-pgversion
+      - documentIndex: *cmDoc
+        equal:
+          path: data.version
+          value: "15"

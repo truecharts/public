@@ -10,9 +10,9 @@ function cleanup {
   if [ -d "$common_test_path/charts" ]; then
     echo "🧹 Cleaning up charts..."
     rm -r "$common_test_path/charts"
-    rm  "$common_test_path/Chart.lock"
+    rm "$common_test_path/Chart.lock"
     # Clean snapshots
-    rm -r "$common_test_path/**/__snapshot__" 2> /dev/null
+    rm -r "$common_test_path/**/__snapshot__" 2>/dev/null
   fi
 }
 

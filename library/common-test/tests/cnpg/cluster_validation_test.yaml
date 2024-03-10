@@ -25,17 +25,17 @@ tests:
       - failedTemplate:
           errorMessage: CNPG - Expected a non-empty [database] key
 
-  - it: should fail with invalid version
+  - it: should fail with invalid pgVersion
     set:
       cnpg:
         my-pg:
           enabled: true
           user: test-user
           database: test-db
-          version: invalid
+          pgVersion: invalid
     asserts:
       - failedTemplate:
-          errorMessage: CNPG - Expected [version] to be one of [legacy], but got [invalid]
+          errorMessage: CNPG - Expected [pgVersion] to be one of [15, 16], but got [invalid]
 
   - it: should fail with hibernate not a bool
     set:
@@ -71,7 +71,7 @@ tests:
           type: invalid
     asserts:
       - failedTemplate:
-          errorMessage: CNPG Cluster - Expected [type] to be one of [postgresql, postgis, timescaledb], but got [invalid]
+          errorMessage: CNPG Cluster - Expected [type] to be one of [postgres, postgis, timescaledb, vectors], but got [invalid]
 
   - it: should fail with invalid log level
     set:

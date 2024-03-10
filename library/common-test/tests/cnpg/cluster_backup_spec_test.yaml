@@ -21,7 +21,7 @@ tests:
             azure:
               connectionString: some-connection-string
     asserts:
-      - documentIndex: &secretDoc 2
+      - documentIndex: &secretDoc 3
         isKind:
           of: Secret
       - documentIndex: *secretDoc
@@ -97,7 +97,7 @@ tests:
             google:
               applicationCredentials: some-credentials
     asserts:
-      - documentIndex: &secretDoc 2
+      - documentIndex: &secretDoc 3
         isKind:
           of: Secret
       - documentIndex: *secretDoc
@@ -164,7 +164,7 @@ tests:
               accessKey: some-access-key
               secretKey: some-secret-key
     asserts:
-      - documentIndex: &secretDoc 2
+      - documentIndex: &secretDoc 3
         isKind:
           of: Secret
       - documentIndex: *secretDoc
@@ -235,7 +235,7 @@ tests:
               accessKey: some-access-key
               secretKey: some-secret-key
     asserts:
-      - documentIndex: &secretDoc 2
+      - documentIndex: &secretDoc 3
         isKind:
           of: Secret
       - documentIndex: *secretDoc
@@ -306,7 +306,7 @@ tests:
               accessKey: some-access-key
               secretKey: some-secret-key
     asserts:
-      - documentIndex: &secretDoc 2
+      - documentIndex: &secretDoc 3
         isKind:
           of: Secret
       - documentIndex: *secretDoc
@@ -378,7 +378,7 @@ tests:
               accessKey: some-access-key
               secretKey: some-secret-key
     asserts:
-      - documentIndex: &secretDoc 2
+      - documentIndex: &secretDoc 3
         isKind:
           of: Secret
       - documentIndex: *secretDoc
