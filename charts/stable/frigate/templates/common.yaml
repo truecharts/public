@@ -9,6 +9,7 @@
 
 {{- if .Values.frigateConfig -}}
   {{- $_ := set .Values.persistence.modelcache "enabled" true -}}
+  {{- $_ := set .Values.persistence.db "enabled" true -}}
 {{- else }}
   {{- $_ := set .Values.persistence.config "enabled" true -}}
 {{- end -}}
