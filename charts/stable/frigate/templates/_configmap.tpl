@@ -18,7 +18,6 @@ data:
               roles:
                 - detect
     database:
-      # The path to store the SQLite DB
       path: /db/frigate.db
   {{- end }}
 {{- end -}}
