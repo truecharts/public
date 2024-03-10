@@ -22,7 +22,9 @@ objectData: The object data to be used to render the container.
     {{- if and (eq $enabled "true") (not (and (eq $persistenceValues.type "vct") (ne $objectData.podType "StatefulSet"))) -}}
       {{/* Dont try to mount configmap/sercet/vct to codeserver */}}
       {{- if not (and (eq $objectData.shortName "codeserver") (mustHas $persistenceValues.type $codeServerIgnoredTypes)) -}}
-        {{- $volMount := (fromJson (include "tc.v1.common.lib.container.volumeMount.isSelected" (dict "persistenceName" $persistenceName "persistenceValues" $persistenceValues "objectData" $objectData))) -}}
+        {{- $volMount := (include "tc.v1.common.lib.container.volumeMount.isSelected" (dict
+          "rootCtx" $rootCtx "persistenceName" $persistenceName "persistenceValues" $persistenceValues "objectData" $objectData
+        )) | fromJson -}}
         {{- if $volMount -}}
           {{- $volMounts = mustAppend $volMounts $volMount -}}
         {{- end -}}
@@ -69,9 +71,14 @@ objectData: The object data to be used to render the container.
   {{- $persistenceName := .persistenceName -}}
   {{- $persistenceValues := .persistenceValues -}}
   {{- $objectData := .objectData -}}
+  {{- $rootCtx := .rootCtx -}}
 
   {{/* Initialize from the default values */}}
   {{- $volMount := dict -}}
+  {{- if eq $persistenceValues.type "vct" -}}
+    {{- $fullname := include "tc.v1.common.lib.chart.names.fullname" $rootCtx -}}
+    {{- $persistenceName = printf "%s-%s" $fullname $persistenceName -}}
+  {{- end -}}
   {{- $_ := set $volMount "name" $persistenceName -}}
   {{- if eq $persistenceValues.type "device" -}} {{/* On devices use the hostPath as default if mountpath is not defined */}}
     {{- $_ := set $volMount "mountPath" ($persistenceValues.mountPath | default $persistenceValues.hostPath | default "") -}}

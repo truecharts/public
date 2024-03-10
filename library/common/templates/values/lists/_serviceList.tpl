@@ -5,7 +5,7 @@
   {{- range $svcName, $svcValues := $rootCtx.Values.service -}}
     {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
                     "rootCtx" $rootCtx "objectData" $svcValues
-                    "name" $svcName "caller" "ServiceList"
+                    "name" $svcName "caller" "Service"
                     "key" "service")) -}}
 
     {{- if eq $enabled "true" -}}

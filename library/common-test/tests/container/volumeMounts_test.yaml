@@ -554,7 +554,7 @@ tests:
         contains:
           path: spec.template.spec.containers[0].volumeMounts
           content:
-            name: vct-vol
+            name: test-release-name-common-test-vct-vol
             mountPath: /some/path
             readOnly: false
       - documentIndex: &otherStatefulSetDoc 1

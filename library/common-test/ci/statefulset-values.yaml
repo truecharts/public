@@ -38,6 +38,7 @@ workload:
 
 persistence:
   data:
+    enabled: true
     mountPath: /data
     type: vct
     accessMode: "ReadWriteOnce"

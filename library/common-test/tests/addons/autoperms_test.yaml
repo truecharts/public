@@ -87,8 +87,9 @@ tests:
             enabled: true
             chown: true
           mountPath: /test9
-        # Should not show up, without enabled true
+        # Should not show up
         test10:
+          enabled: false
           type: hostPath
           hostPath: /testhost10
           autoPermissions:
@@ -690,7 +691,7 @@ tests:
               cpu: 2000m
               memory: 2Gi
 
-# Failures
+  # Failures
   - it: should fail trying to set ownership on non hostPath
     set:
       workload:

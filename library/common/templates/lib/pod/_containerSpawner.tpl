@@ -11,7 +11,12 @@ objectData: The object data to be used to render the Pod.
   {{- include "tc.v1.common.lib.container.primaryValidation" (dict "rootCtx" $rootCtx "objectData" $objectData) -}}
 
   {{- range $containerName, $containerValues := $objectData.podSpec.containers -}}
-    {{- if $containerValues.enabled -}}
+    {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
+                    "rootCtx" $rootCtx "objectData" $containerValues
+                    "name" $containerName "caller" "Container"
+                    "key" "containers")) -}}
+
+    {{- if eq $enabled "true" -}}
       {{- $container := (mustDeepCopy $containerValues) -}}
       {{- $name := include "tc.v1.common.lib.chart.names.fullname" $rootCtx -}}
       {{- if not $container.primary -}}

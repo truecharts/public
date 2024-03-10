@@ -18,20 +18,12 @@ objectData: The object data to be used to render the Pod.
   {{- $mergedContainers := $objectData.podSpec.initContainers -}}
 
   {{- range $containerName, $containerValues := $mergedContainers -}}
+    {{- $enabled := (include "tc.v1.common.lib.util.enabled" (dict
+                    "rootCtx" $rootCtx "objectData" $containerValues
+                    "name" $containerName "caller" "Init Container"
+                    "key" "initContainers")) -}}
 
-    {{- $enabled := $containerValues.enabled -}}
-    {{- if kindIs "string" $enabled -}}
-      {{- $enabled = tpl $enabled $rootCtx -}}
-
-      {{/* After tpl it becomes a string, not a bool */}}
-      {{-  if eq $enabled "true" -}}
-        {{- $enabled = true -}}
-      {{- else if eq $enabled "false" -}}
-        {{- $enabled = false -}}
-      {{- end -}}
-    {{- end -}}
-
-    {{- if $enabled -}}
+    {{- if eq $enabled "true" -}}
 
       {{- if not ($containerValues.type) -}}
         {{- fail "InitContainer - Expected non-empty [type]" -}}
