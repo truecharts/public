@@ -17,8 +17,6 @@ data:
             - path: rtsp://127.0.0.1:554/rtsp
               roles:
                 - detect
-    database:
-      path: /db/frigate.db
   {{- end }}
 {{- end -}}
 
@@ -28,17 +26,12 @@ type: configmap
 objectName: frigate-config
 targetSelector:
   main:
-    main: {}
+    main: 
+      subPath: config.yml
     init-config: {}
 {{- if .Values.frigateConfig }}
-mountPath: /config
-items:
-  - key: config.yml
-    path: config.yml
+mountPath: /config/config.yaml
 {{- else  }}
-mountPath: /dummy-config
-items:
-  - key: config.yml.dummy
-    path: config.yml.dummy
+mountPath: /dummy-config/config.yml.dummy
 {{- end -}}
 {{- end -}}

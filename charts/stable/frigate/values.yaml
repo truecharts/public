@@ -20,9 +20,7 @@ frigateConfig: {}
 #         - path: rtsp://127.0.0.1:554/rtsp
 #           roles:
 #             - detect
-# database:
-#  # The path to store the SQLite DB
-#  path: /db/frigate.db
+
 workload:
   main:
     podSpec:
@@ -85,21 +83,12 @@ persistence:
     enabled: true
     mountPath: /media
   config:
-    # Only enable when not using frigateConfig
-    enabled: false
+    enabled: true
     mountPath: /config
     targetSelector:
       main:
         main: {}
         init-config: {}
-  modelcache:
-    # Only enable when using frigateConfig
-    enabled: false
-    mountPath: /config/model_cache
-  db:
-    # Only enable when using frigateConfig
-    enabled: false
-    mountPath: /db 
 
 portal:
   open:
