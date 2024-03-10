@@ -99,11 +99,7 @@ persistence:
   db:
     # Only enable when using frigateConfig
     enabled: false
-    mountPath: /db
-    targetSelector:
-      main:
-        main: {}
-        init-config: {}    
+    mountPath: /db 
 
 portal:
   open:
