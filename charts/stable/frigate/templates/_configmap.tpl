@@ -17,6 +17,9 @@ data:
             - path: rtsp://127.0.0.1:554/rtsp
               roles:
                 - detect
+    database:
+      # The path to store the SQLite DB
+      path: /db/frigate.db
   {{- end }}
 {{- end -}}
 
