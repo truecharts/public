@@ -2,11 +2,10 @@
 {{- define "frigate.configmap" -}}
 enabled: true
 data:
-  {{- if .Values.frigateConfig }}
   config.yml: |
+  {{- if .Values.frigateConfig }}
     {{- .Values.frigateConfig | toYaml | nindent 4 }}
   {{- else }}
-  config.yml.dummy: |
     mqtt:
       enabled: false
     cameras:
@@ -21,18 +20,24 @@ data:
 {{- end -}}
 
 {{- define "frigate.configVolume" -}}
+{{- $mountPath := "/dummy-config/config.yml" -}}
+{{- if .Values.frigateConfig }}
+  {{- $mountPath = "/config/config.yaml" -}}
+{{- end }}
 enabled: true
 type: configmap
 objectName: frigate-config
+items:
+  - key: config.yml
+    path: config.yml
 targetSelector:
   main:
-    main: 
+    main:
       subPath: config.yml
+      mountPath: {{ $mountPath }}
+      readOnly: true
     init-config:
       subPath: config.yml
-{{- if .Values.frigateConfig }}
-mountPath: /config/config.yaml
-{{- else  }}
-mountPath: /dummy-config/config.yml
-{{- end -}}
+      mountPath: {{ $mountPath }}
+      readOnly: true
 {{- end -}}
