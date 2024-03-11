@@ -227,6 +227,30 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
+        - variable: media
+          label: "App Media Storage"
+          description: "Stores the Application Media."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: commands
+          label: "App Command Storage"
+          description: "Stores the Commands directory."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: ffmpeg
+          label: "ffmpeg6 Storage"
+          description: "Stores the ffmpeg folder."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
