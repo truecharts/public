@@ -84,6 +84,9 @@ persistence:
   commands:
     enabled: true
     mountPath: "/agent/Commands"
+  ffmpeg:
+    enabled: true
+    mountPath: "/agent/ffmpeg6"
 portal:
   open:
     enabled: true

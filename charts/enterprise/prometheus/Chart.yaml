@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 2.50.1
 dependencies:
   - name: common
-    version: 19.0.0
+    version: 20.0.6
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -39,8 +39,8 @@ sources:
   - https://github.com/prometheus-community/helm-charts
   - https://github.com/prometheus-operator/kube-prometheus
   - https://github.com/truecharts/charts/tree/master/charts/enterprise/prometheus
+  - https://quay.io/thanos/thanos
   - https://hub.docker.com/r/bitnami/alertmanager
   - https://hub.docker.com/r/bitnami/prometheus
-  - https://quay.io/thanos/thanos
 type: application
-version: 17.8.2
+version: 17.9.0
