@@ -17,7 +17,7 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 11.2.1
+    version: 13.0.0
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -50,4 +50,4 @@ sources:
   - https://github.com/truecharts/containers/tree/master/apps/nextcloud-fpm
   - https://hub.docker.com/r/nginxinc/nginx-unprivileged
 type: application
-version: 29.4.5
+version: 29.5.0
