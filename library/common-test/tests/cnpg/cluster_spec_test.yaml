@@ -382,8 +382,8 @@ tests:
                 owner: app
                 dataChecksums: true
                 postInitApplicationSQL:
-                  - CREATE EXTENSION IF NOT EXISTS some-extension;
                   - CREATE EXTENSION IF NOT EXISTS timescaledb;
+                  - CREATE EXTENSION IF NOT EXISTS some-extension;
 
   - it: should pass with enabled monitoring
     set:

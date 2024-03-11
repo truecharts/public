@@ -11,12 +11,6 @@
     {{- $_ := set $objectData.cluster "initdb" dict -}}
   {{- end -}}
 
-  {{- if $objectData.cluster.initdb -}}
-    {{- $postInitApplicationSQL = $objectData.cluster.initdb.postInitApplicationSQL | default list -}}
-    {{- $postInitSQL = $objectData.cluster.initdb.postInitSQL | default list -}}
-    {{- $postInitTemplateSQL = $objectData.cluster.initdb.postInitTemplateSQL | default list -}}
-  {{- end -}}
-
   {{- if (kindIs "bool" $objectData.cluster.initdb.dataChecksums) -}}
     {{- $dataChecksums = $objectData.cluster.initdb.dataChecksums -}}
   {{- end -}}
@@ -36,7 +30,14 @@
 
   {{- if eq $objectData.type "vectors" -}}
     {{- $postInitApplicationSQL = concat $postInitApplicationSQL (list
-      "CREATE EXTENSION IF NOT EXISTS vectors;") -}}
+      "CREATE EXTENSION IF NOT EXISTS vectors;"
+      "GRANT SELECT ON TABLE pg_vector_index_stat TO PUBLIC;") -}}
+  {{- end -}}
+
+  {{- if $objectData.cluster.initdb -}}
+    {{- $postInitApplicationSQL = concat $postInitApplicationSQL ( $objectData.cluster.initdb.postInitApplicationSQL | default list ) -}}
+    {{- $postInitSQL = concat $postInitSQL ( $objectData.cluster.initdb.postInitSQL | default list ) -}}
+    {{- $postInitTemplateSQL = concat $postInitTemplateSQL ( $objectData.cluster.initdb.postInitTemplateSQL | default list ) -}}
   {{- end -}}
 
 initdb:
