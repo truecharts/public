@@ -114,6 +114,9 @@
   {{- if eq $objectData.type "timescaledb" -}}
     {{- $preloadLibraries = mustAppend $preloadLibraries "timescaledb" -}}
   {{- end -}}
+  {{- if eq $objectData.type "vectors" -}}
+    {{- $preloadLibraries = mustAppend $preloadLibraries "vectors" -}}
+  {{- end -}}
 
   {{/* Storage */}}
   {{- with $objectData.cluster.storage.size -}}
