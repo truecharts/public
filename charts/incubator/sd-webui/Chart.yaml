@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 2023.11.1
 dependencies:
   - name: common
-    version: 20.0.1
+    version: 20.0.6
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -33,4 +33,4 @@ name: sd-webui-docker
 sources:
   - https://github.com/ahmetoner/sd-webui-docker/
 type: application
-version: 0.0.1
+version: 0.0.2

@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 19.0.0
+    version: 20.0.6
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -43,4 +43,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/operators/cert-manager
   - https://github.com/truecharts/containers/tree/master/apps/scratch
 type: application
-version: 4.4.1
+version: 4.5.0
