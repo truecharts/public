@@ -17,7 +17,7 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 11.2.1
+    version: 13.0.0
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -44,10 +44,10 @@ sources:
   - https://github.com/nextcloud/helm
   - https://github.com/truecharts/charts/tree/master/charts/enterprise/nextcloud
   - https://hub.docker.com/r/collabora/code
-  - https://hub.docker.com/r/clamav/clamav
   - https://github.com/truecharts/containers/tree/master/apps/nextcloud-imaginary
-  - https://github.com/truecharts/containers/tree/master/apps/nextcloud-fpm
+  - https://hub.docker.com/r/clamav/clamav
   - https://github.com/truecharts/containers/tree/master/apps/nextcloud-push-notify
+  - https://github.com/truecharts/containers/tree/master/apps/nextcloud-fpm
   - https://hub.docker.com/r/nginxinc/nginx-unprivileged
 type: application
 version: 29.5.0
