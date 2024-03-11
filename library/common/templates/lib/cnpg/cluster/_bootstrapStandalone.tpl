@@ -34,6 +34,11 @@
       "CREATE EXTENSION IF NOT EXISTS postgis_tiger_geocoder;") -}}
   {{- end }}
 
+  {{- if eq $objectData.type "vectors" -}}
+    {{- $postInitApplicationSQL = concat $postInitApplicationSQL (list
+      "CREATE EXTENSION IF NOT EXISTS vectors;") -}}
+  {{- end -}}
+
 initdb:
   secret:
     name: {{ printf "%s-user" $objectData.clusterName }}
