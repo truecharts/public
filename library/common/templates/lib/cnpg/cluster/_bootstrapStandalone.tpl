@@ -35,7 +35,7 @@
   {{- end }}
   {{- if eq $objectData.type "vectors" -}}
     {{- $postInitApplicationSQL = concat $postInitApplicationSQL (list
-      "CREATE EXTENSION IF NOT EXISTS vectors;" -}}
+      "CREATE EXTENSION IF NOT EXISTS vectors;") -}}
   {{- end -}}
 initdb:
   secret:
