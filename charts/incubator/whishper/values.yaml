@@ -1,0 +1,79 @@
+image:
+  repository: pluja/whishper
+  tag: latest
+  pullPolicy: Always
+gpuImage:
+  repository: pluja/whishper
+  tag: latest-gpu
+  pullPolicy: Always
+translateImage:
+  repository: libretranslate/libretranslate
+  tag: latest
+  pullPolicy: Always
+  
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8082
+        targetPort: 80
+        
+#securityContext:
+#  runAsUser: 0
+#  runAsGroup: 0
+#  fsGroup: 0
+#  readOnlyRootFilesystem: false
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          imageSelector: image
+          env:
+            PUBLIC_INTERNAL_API_HOST: "http://127.0.0.1:80"
+            PUBLIC_TRANSLATION_API_HOST: ""
+            PUBLIC_API_HOST: ${WHISHPER_HOST:-}
+            PUBLIC_WHISHPER_PROFILE: cpu
+            WHISPER_MODELS_DIR: /app/models
+            UPLOAD_DIR: /app/uploads
+            CPU_THREADS: 4
+          probes:
+            liveness:
+              enabled: true
+              port: 5000
+            readiness:
+              enabled: true
+              port: 5000
+            startup:
+              enabled: true
+              port: 5000
+        translate:
+          imageSelector: translateImage
+          env:
+            LT_DISABLE_WEB_UI: True
+            LT_UPDATE_MODELS: True
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+
+persistence:
+  uploads:
+    enabled: true
+    mountPath: /app/uploads
+  libretranslate-date:
+    enabled: true
+    mountPath: /home/libretranslate/.local/share
+  libretranslate-cache:
+    enabled: true
+    mountPath: /home/libretranslate/.local/cache
+
+portal:
+  open:
+    enabled: true
