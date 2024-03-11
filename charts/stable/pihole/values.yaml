@@ -54,8 +54,9 @@ service:
         targetPort: 53
       dns-tcp:
         enabled: true
+        protocol: tcp
         port: "{{ .Values.service.dns.ports.dns.port }}"
-        targetPort: "{{ .Values.service.dns.ports.dns.targetPort }}"
+        targetPort: 53
 persistence:
   config:
     enabled: true
