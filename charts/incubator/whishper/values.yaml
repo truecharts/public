@@ -1,14 +1,18 @@
 image:
   repository: pluja/whishper
-  tag: latest
+  tag: v3.1.3@sha256:a54b82c63e79340e2ee0edd5d6d29ab97b26f4367f19757493897e28be5f1d2d
   pullPolicy: Always
 gpuImage:
   repository: pluja/whishper
-  tag: latest-gpu
+  tag: v3.1.3-gpu@2e4b017fab27a6309825973ee65ff5d89b33f9c33307bcd95335301ed63d7caf
   pullPolicy: Always
 translateImage:
   repository: libretranslate/libretranslate
-  tag: latest
+  tag: v1.5.6@sha256:92addfc283191facad5473230f0359a16ea9127bcc3f7cf2da1d9b945a83abe7
+  pullPolicy: Always
+translateGpuImage:
+  repository: libretranslate/libretranslate
+  tag: v1.5.6-cuda@sha256:a1676094f458932a878f98ffbb538cbd77179ad911ac140a1f1e997d6dc4b92a
   pullPolicy: Always
   
 service:
