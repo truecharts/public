@@ -140,8 +140,7 @@ cnpg:
           - CREATE SCHEMA IF NOT EXISTS vectors;
           - ALTER DATABASE immich SET search_path TO "immich", public, vectors;
           - SET search_path TO "immich", public, vectors;
-          ## TODO look at if, when and how to set this
-          # - GRANT SELECT ON TABLE pg_vector_index_stat TO PUBLIC;
+          - GRANT SELECT ON TABLE pg_vector_index_stat TO PUBLIC;
 
 redis:
   enabled: true
