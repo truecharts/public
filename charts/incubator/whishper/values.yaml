@@ -24,11 +24,11 @@ service:
         port: 8082
         targetPort: 80
         
-#securityContext:
-#  runAsUser: 0
-#  runAsGroup: 0
-#  fsGroup: 0
-#  readOnlyRootFilesystem: false
+securityContext:
+  runAsUser: 0
+  runAsGroup: 0
+  fsGroup: 0
+  readOnlyRootFilesystem: false
 
 workload:
   main:
