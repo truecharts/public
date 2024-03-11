@@ -3,9 +3,9 @@ image:
   pullPolicy: IfNotPresent
   tag: 0.1.29@sha256:8860aacb14e276a968f77350911f778e9f913ee888f6e50f6e35f30a24c4e164
 uiImage:
-  repository: ghcr.io/ollama-webui/ollama-webui
+  repository: ghcr.io/open-webui/open-webui
   pullPolicy: IfNotPresent
-  tag: main@sha256:d5a5c1126b5decbfbfcac4f2c3d0595e0bbf7957e3fcabc9ee802d3bc66db6d2
+  tag: latest@sha256:9c90b1505b9cea51cda075883aa336d29e28986af958c1d3646a39fbcd07adbf
 
 service:
   main:
@@ -67,6 +67,11 @@ workload:
           primary: true
           enabled: true
           imageSelector: uiImage
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+            runAsNonRoot: false
+            readOnlyRootFilesystem: false
           probes:
             liveness:
               enabled: true
