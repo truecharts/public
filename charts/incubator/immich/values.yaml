@@ -136,6 +136,7 @@ cnpg:
         postInitApplicationSQL:
           - CREATE EXTENSION IF NOT EXISTS cube;
           - CREATE EXTENSION IF NOT EXISTS earthdistance;
+          - CREATE EXTENSION IF NOT EXISTS pgvector
           - CREATE SCHEMA IF NOT EXISTS vectors;
           - ALTER DATABASE immich SET search_path TO "immich", public, vectors;
           - SET search_path TO "immich", public, vectors;
