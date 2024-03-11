@@ -15,6 +15,12 @@ service:
         enabled: true
         port: 9000
         targetPort: 9000
+        
+securityContext:
+  runAsUser: 0
+  runAsGroup: 0
+  fsGroup: 0
+  readOnlyRootFilesystem: false
 
 workload:
   main:
