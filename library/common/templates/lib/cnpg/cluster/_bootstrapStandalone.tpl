@@ -30,8 +30,7 @@
 
   {{- if eq $objectData.type "vectors" -}}
     {{- $postInitApplicationSQL = concat $postInitApplicationSQL (list
-      "CREATE EXTENSION IF NOT EXISTS vectors;"
-      "GRANT SELECT ON TABLE pg_vector_index_stat TO PUBLIC;") -}}
+      "CREATE EXTENSION IF NOT EXISTS vectors;") -}}
   {{- end -}}
 
   {{- if $objectData.cluster.initdb -}}
