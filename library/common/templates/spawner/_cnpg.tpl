@@ -24,7 +24,7 @@
     {{- if eq $enabled "true" -}}
 
       {{/* Handle version string */}}
-      {{- $pgVersion := $objectData.pgVersion | default $.Values.global.fallbackDefaults.pgVersion -}}
+      {{- $pgVersion := $objectData.pgVersion | default (toString $.Values.global.fallbackDefaults.pgVersion) -}}
       {{- $versionConfigMapName := printf "cnpg-%s-pgversion" $objectData.shortName -}}
 
       {{/* If there are previous configmap, fetch value */}}
