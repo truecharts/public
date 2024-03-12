@@ -26,13 +26,7 @@ service:
         targetSelector: main
 
 ingress:
-  main:
-    enabled: true
-    primary: true
-    targetSelector:
-      main: main
   api:
-    enabled: true
     targetSelector:
       api: api
 
