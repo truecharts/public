@@ -1,4 +1,11 @@
 service:
+  main:
+    targetSelector: ui
+    ports:
+      main:
+        protocol: http
+        port: 10686
+        targetSelector: ui
   api:
     enabled: true
     targetSelector: main
