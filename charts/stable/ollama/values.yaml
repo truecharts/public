@@ -29,6 +29,7 @@ service:
 
 ingress:
   api:
+    enabled: true
     targetSelector:
       api: api
 
