@@ -16,6 +16,13 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
+  - name: mongodb
+    version: 11.3.0
+    repository: oci://tccr.io/truecharts
+    condition: mongodb.enabled
+    alias: ""
+    tags: []
+    import-values: []
 deprecated: false
 description: Open-source, local-first audio transcription and subtitling suite with a complete web UI. 
 home: https://truecharts.org/charts/incubator/whishper

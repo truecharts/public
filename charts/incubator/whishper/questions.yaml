@@ -7,6 +7,7 @@ questions:
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+
                                 - variable: imageSelector
                                   label: Select Image
                                   schema:
@@ -18,50 +19,48 @@ questions:
                                       - value: gpuImage
                                         description: GPU Image
 
-                                - variable: env
-                                  label: Image Environment
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                      - variable: ASR_MODEL
-                                        label: ASR MODEL
-                                        schema:
-                                          type: string
-                                          required: true
-                                          default: base
-                                          enum:
-                                            - value: base
-                                              description: base
-                                            - value: tiny
-                                              description: tiny
-                                            - value: small
-                                              description: small
-                                            - value: medium
-                                              description: medium
-                                            - value: large 
-                                              description: large 
-                                            - value: large-v1
-                                              description: large-v1
-                                            - value: large-v2
-                                              description: large-v2
-                                            - value: large-v3
-                                              description: large-v3
-                                      - variable: ASR_ENGINE
-                                        label: ASR ENGINE
-                                        schema:
-                                          type: string
-                                          required: true
-                                          default: openai_whisper
-                                          enum:
-                                            - value: openai_whisper
-                                              description: openai_whisper
-                                            - value: faster_whisper
-                                              description: faster_whisper
-
-
 # Include{containerBasic}
 # Include{containerAdvanced}
+  - variable: whishper
+    group: App Configuration
+    label: Whishper
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: translate
+          label: Translate Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: image
+                label: Select Image
+                schema:
+                  type: string
+                  default: image
+                  enum:
+                    - value: translateImage
+                      description: Translate Image
+                    - value: translateGpuImage
+                      description: Translate GPU Image
+              - variable: language
+                label: Language Configuration
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: source
+                      label: Source
+                      schema:
+                        type: string
+                        default: "en"
+                    - variable: target
+                      label: Target
+                      schema:
+                        type: string
+                        default: "es"
+
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
