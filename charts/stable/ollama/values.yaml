@@ -13,7 +13,6 @@ service:
     ports:
       main:
         protocol: http
-        targetPort: 8080
         port: 10686
         targetSelector: ui
   api:
@@ -23,12 +22,12 @@ service:
       api:
         enabled: true
         protocol: http
-        targetPort: 11434
         port: 11434
         targetSelector: main
 
 ingress:
   api:
+    enabled: true
     targetSelector:
       api: api
 
@@ -58,6 +57,8 @@ workload:
               enabled: true
               type: tcp
               port: "{{ .Values.service.api.ports.api.port }}"
+          env:
+            OLLAMA_HOST: '{{ printf "http://0.0.0.0:%v" .Values.service.api.ports.api.port }}'
   ui:
     enabled: true
     type: Deployment
@@ -77,18 +78,19 @@ workload:
               enabled: true
               type: http
               path: /
-              port: "{{ .Values.service.main.ports.main.targetPort }}"
+              port: "{{ .Values.service.main.ports.main.port }}"
             readiness:
               enabled: true
               type: http
               path: /
-              port: "{{ .Values.service.main.ports.main.targetPort }}"
+              port: "{{ .Values.service.main.ports.main.port }}"
             startup:
               enabled: true
               type: tcp
-              port: "{{ .Values.service.main.ports.main.targetPort }}"
+              port: "{{ .Values.service.main.ports.main.port }}"
           env:
-            OLLAMA_BASE_URL: '{{ printf "http://%v-api:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.api.ports.api.targetPort }}'
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+            OLLAMA_BASE_URL: '{{ printf "http://%v-api:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.api.ports.api.port }}'
             WEBUI_SECRET_KEY:
               secretKeyRef:
                 name: ollama-secrets
