@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 1.10.0
 dependencies:
   - name: common
-    version: 18.1.8
+    version: 20.0.7
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/wyoming-openwakeword
   - https://hub.docker.com/r/rhasspy/wyoming-openwakeword
 type: application
-version: 0.0.7
+version: 0.1.0
