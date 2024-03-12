@@ -90,6 +90,7 @@ workload:
               port: "{{ .Values.service.main.ports.main.port }}"
           env:
             PORT: "{{ .Values.service.main.ports.main.port }}"
+            DATA_DIR: "{{ .Values.persistence.data.mountPath }}"
             OLLAMA_BASE_URL: '{{ printf "http://%v-api:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.api.ports.api.port }}'
             WEBUI_SECRET_KEY:
               secretKeyRef:
