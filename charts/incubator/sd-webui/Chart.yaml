@@ -5,9 +5,9 @@ annotations:
   truecharts.org/category: MachineLearning
   truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: stable
+  truecharts.org/train: incubator
 apiVersion: v2
-appVersion: 2023.11.1
+appVersion: latest
 dependencies:
   - name: common
     version: 20.0.6
@@ -18,8 +18,8 @@ dependencies:
     import-values: []
 deprecated: false
 description: sd-webui-docker Chart
-home: https://truecharts.org/charts/stable/minecraft-java
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/minecraft-java.png
+home: https://truecharts.org/charts/incubator/sd-webui-docker
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/sd-webui-docker.png
 keywords:
   - Whisper
   - AI
@@ -32,5 +32,7 @@ maintainers:
 name: sd-webui-docker
 sources:
   - https://github.com/ahmetoner/sd-webui-docker/
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/sd-webui-docker
+  - https://ghcr.io/neggles/sd-webui-docker
 type: application
 version: 0.0.2

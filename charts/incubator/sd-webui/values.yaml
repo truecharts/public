@@ -15,7 +15,7 @@ service:
         enabled: true
         port: 7860
         targetPort: 7860
-        
+
 # securityContext:
 #   runAsUser: 0
 #   runAsGroup: 0
@@ -29,7 +29,7 @@ workload:
         main:
           imageSelector: image
           args:
-            - "--skip-version-check" 
+            - "--skip-version-check"
           env:
             PYTHONUNBUFFERED: "1"
           probes:

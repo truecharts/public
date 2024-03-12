@@ -5,7 +5,7 @@ annotations:
   truecharts.org/category: operators
   truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: enterprise
+  truecharts.org/train: operators
 apiVersion: v2
 appVersion: 0.0.3
 dependencies:
@@ -25,7 +25,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: KubeApps is a Kubernetes-as-Apps solution
-home: https://truecharts.org/charts/enterprise/kubeapps
+home: https://truecharts.org/charts/operators/kubeapps
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/kubeapps.png
 keywords:
   - kubeapps
@@ -39,7 +39,7 @@ name: kubeapps
 sources:
   - https://cert-manager.io/
   - https://github.com/cert-manager
-  - https://github.com/truecharts/charts/tree/master/charts/enterprise/kubeapps
+  - https://github.com/truecharts/charts/tree/master/charts/operators/kubeapps
   - https://ghcr.io/xstar97/my-proxy-service
 type: application
 version: 2.7.0
