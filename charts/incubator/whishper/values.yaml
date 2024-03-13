@@ -94,8 +94,8 @@ workload:
           imageSelector: "{{ .Values.whishper.image }}"
           env:
             LT_PORT: "{{ .Values.service.translate.ports.translate.port }}"
-            LT_DISABLE_WEB_UI: True
-            LT_UPDATE_MODELS: True
+            LT_DISABLE_WEB_UI: true
+            LT_UPDATE_MODELS: true
             LT_FRONTEND_LANGUAGE_SOURCE: "{{ .Values.whishper.language.source }}"
             LT_FRONTEND_LANGUAGE_TARGET: "{{ .Values.whishper.language.target }}"
 
