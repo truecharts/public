@@ -1315,6 +1315,7 @@ cnpg:
 # @default -- See below
 redis:
   enabled: false
+  includeCommon: false
   # -- can be used to make an easy accessible note which URLS to use to access the DB.
   creds: {}
   secret:
@@ -1325,6 +1326,7 @@ redis:
 # @default -- See below
 mariadb:
   enabled: false
+  includeCommon: false
   existingSecret: "mariadbcreds"
   # -- can be used to make an easy accessable note which URLS to use to access the DB.
   creds: {}
@@ -1333,6 +1335,7 @@ mariadb:
 # @default -- See below
 mongodb:
   enabled: false
+  includeCommon: false
   existingSecret: "mongodbcreds"
   # -- can be used to make an easy accessable note which URLS to use to access the DB.
   creds: {}
@@ -1341,6 +1344,7 @@ mongodb:
 # @default -- See below
 clickhouse:
   enabled: false
+  includeCommon: false
   existingSecret: "clickhousecreds"
   # -- can be used to make an easy accessable note which URLS to use to access the DB.
   creds: {}
@@ -1349,6 +1353,7 @@ clickhouse:
 # @default -- See below
 solr:
   enabled: false
+  includeCommon: false
   solrCores: 1
   solrEnableAuthentication: "no"
   existingSecret: "solrcreds"
