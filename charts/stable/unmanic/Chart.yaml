@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.2.4
+appVersion: 0.2.6
 dependencies:
   - name: common
     version: 20.0.9
@@ -22,7 +22,7 @@ home: https://truecharts.org/charts/stable/unmanic
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/unmanic.png
 keywords:
   - media
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -33,4 +33,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/unmanic
   - https://hub.docker.com/r/josh5/unmanic
 type: application
-version: 10.5.2
+version: 10.5.3
