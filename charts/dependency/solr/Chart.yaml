@@ -12,7 +12,7 @@ dependencies:
   - name: common
     version: 20.0.9
     repository: oci://tccr.io/truecharts
-    condition: ""
+    condition: includeCommon
     alias: ""
     tags: []
     import-values: []
@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/dependency/solr
   - https://hub.docker.com/r/bitnami/solr
 type: application
-version: 10.5.2
+version: 10.5.3
