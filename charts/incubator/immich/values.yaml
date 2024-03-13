@@ -2,7 +2,7 @@ image:
   repository: altran1502/immich-server
   tag: v1.98.2@sha256:5d46c02f171b2c85c5c445ed9ae233d68568b241e14e293b0195d539b98de42a
   pullPolicy: IfNotPresent
-  
+
 mlImage:
   repository: altran1502/immich-machine-learning
   pullPolicy: IfNotPresent
@@ -17,7 +17,6 @@ mlOpenvinoImage:
   repository: altran1502/immich-machine-learning
   pullPolicy: IfNotPresent
   tag: v1.98.2-openvino@sha256:0f876e81ddfe38c46532cd8aadaba148a653d4543b49024c12c22af24a7d9e2c
-
 
 securityContext:
   container:
@@ -149,4 +148,3 @@ redis:
 portal:
   open:
     enabled: true
-
