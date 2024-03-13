@@ -46,3 +46,26 @@ workload:
               type: http
               httpHeaders:
                 Host: localhost
+          env:
+            DB_DATABASE: "{{ .Values.mariadb.mariadbDatabase }}"
+            DB_USERNAME: "{{ .Values.mariadb.mariadbUsername }}"
+            DB_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: plainhost
+            DB_PASSWORD:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
+                key: mariadb-password
+            REDIS_HOST:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: plainhost
+            REDIS_PASSWORD:
+              secretKeyRef:
+                expandObjectName: false
+                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
+                key: redis-password
