@@ -83,6 +83,10 @@ global:
   # does not include stand-alone pods
   stopAll: false
 
+# -- Hook to disable having a common-dependency enabled.
+# Primarily used to ensure we don't include common multiple times with nested dependencies
+includeCommon: true
+
 # -- Explicitly set a namespace for this chart only
 namespace: ""
 
