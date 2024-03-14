@@ -6,6 +6,7 @@ title: Setup Guide
 ## Requirements
 
 - Jellyseerr TrueCharts Chart
+- Jellyfin TrueCharts Chart
 - Installation of the TrueCharts Catalog, starting [here](https://truecharts.org/manual/SCALE/guides/getting-started#adding-truecharts)
 
 ## Install Jellyseerr inside TrueNAS SCALE
@@ -19,7 +20,7 @@ title: Setup Guide
 - Click the Install button, and you’ll be prompted to set up the **Jellyseer** software.
 - Most of the settings can be left at the default values, but ensure you select the correct
   timezone before scrolling down to the Networking and Services section.
-  Take note of the default port (10241) that **Jellyfin** is listening on.
+  Take note of the default port (10241) that **Jellyseerr** listens on.
 
 Scroll to the bottom of the window and click Save.
 
