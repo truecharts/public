@@ -10,7 +10,6 @@ https://www.cloudflare.com/service-specific-terms-application-services/#content-
 Content Delivery Network (Free, Pro, or Business) (Current on 2024-03-14)
 Cloudflare’s content delivery network (the “CDN”) Service can be used to cache and serve web pages and websites. Unless you are an Enterprise customer, Cloudflare offers specific Paid Services (e.g., the Developer Platform, Images, and Stream) that you must use in order to serve video and other large files via the CDN. Cloudflare reserves the right to disable or limit your access to or use of the CDN, or to limit your End Users’ access to certain of your resources through the CDN, if you use or are suspected of using the CDN without such Paid Services to serve video or a disproportionate percentage of pictures, audio files, or other large files. We will use reasonable efforts to provide you with notice of such action.
 
-Therefore the only app the TrueCharts team will help you support is Traefik and we will not help or enable other applications that go agaisnt these rules on any of our platforms (Website, Discord, Reddit, etc)
 
 :::
 
