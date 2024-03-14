@@ -2,6 +2,19 @@
 title: Installation Notes
 ---
 
+:::danger Cloudflared Tunnels for Plex, Jellyfin, Emby and other video heavy/streaming apps/sites
+
+Using Cloudflare Tunnels with video streaming or sharing sites goes against the Cloudflare ToS, see full terms on the [Cloudflare Website](
+https://www.cloudflare.com/service-specific-terms-application-services/#content-delivery-network-terms)
+
+Content Delivery Network (Free, Pro, or Business) (Current on 2024-03-14)
+Cloudflare’s content delivery network (the “CDN”) Service can be used to cache and serve web pages and websites. Unless you are an Enterprise customer, Cloudflare offers specific Paid Services (e.g., the Developer Platform, Images, and Stream) that you must use in order to serve video and other large files via the CDN. Cloudflare reserves the right to disable or limit your access to or use of the CDN, or to limit your End Users’ access to certain of your resources through the CDN, if you use or are suspected of using the CDN without such Paid Services to serve video or a disproportionate percentage of pictures, audio files, or other large files. We will use reasonable efforts to provide you with notice of such action.
+
+
+:::
+
+## Cloudflared Tunnel Creation
+
 - Go to [cloudflare team dash](https://dash.teams.cloudflare.com) and create a tunnel or migrate a current tunnel (this action is not reversible) by going to access and then tunnels tab.
 
 ![cf-tunnel-access-tunnel.png](./img/cf-tunnel-access.png)
