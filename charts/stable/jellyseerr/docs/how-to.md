@@ -32,7 +32,7 @@ from Deploying to Active - once it does, click the Open button to launch the **J
 - Select "Use your Jellyfin account" and fill in your Jellyfin URL, Email address
 - Define a user to be used for administrative purposes in **Jellyseerr** and click next.
 
-![JellyseerrSetupSignIn](./img/JellyseerrSetupSignIn)
+![JellyseerrSetupSignIn](./img/JellyseerrSetupSignIn.png)
 
 - Sync your libraries automatically and enable any libaries you want Jellyseer to be able to access.
 - Perform a manual scan and click next after it finishes.
@@ -45,5 +45,5 @@ from Deploying to Active - once it does, click the Open button to launch the **J
 
 - You can also reach us using [Discord](https://discord.gg/tVsPTHWTtr) for real-time feedback and support
 - If you found a bug in our chart, open a Github [issue](https://github.com/truecharts/apps/issues/new/choose)
-- For further information on **Jellyseerr** itself, start with their [Github](https://github.com/Fallenbagel/jellyseerr)).
+- For further information on **Jellyseerr** itself, start with their [Github](https://github.com/Fallenbagel/jellyseerr).
 - For further information on operating **Overseerr** itself, start with their [Documentation](https://docs.overseerr.dev/).
