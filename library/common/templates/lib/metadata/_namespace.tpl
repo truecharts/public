@@ -28,6 +28,9 @@
         {{- fail (printf "%s - Namespace [%v] expected to have [ix-] prefix when installed in TrueNAS SCALE" $caller $namespace) -}}
       {{- end -}}
     {{- end -}}
+  {{- else if and (hasPrefix "ix-" $namespace) ( not $rootCtx.Values.global.ixChartContext ) -}}
+      {{/* Users should not use SCALE-reserved Namespace prefixes to hack things into the SCALE GUI */}}
+        {{- fail (printf "%s - Namespace [%v] is not allowed to have [ix-] prefix when installed outside of SCALE-Apps" $caller $namespace) -}}
   {{- end -}}
 
   {{- $namespace -}}
