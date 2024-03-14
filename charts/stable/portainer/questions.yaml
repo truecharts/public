@@ -110,8 +110,8 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: config
-          label: App Config Storage
+        - variable: data
+          label: Portainer Data Storage
           description: Stores the Application Configuration.
           schema:
             additional_attrs: true
