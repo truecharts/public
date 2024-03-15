@@ -17,18 +17,10 @@ questions:
                                     type: dict
                                     attrs:
                                       - variable: JAVA_OPTS
-                                        label: "JAVA_OPTS"
-                                        description: "JAVA_OPTS"
+                                        label: "Java Opts"
                                         schema:
                                           type: string
                                           default: ""
-                                      - variable: CONTEXT_PATH
-                                        label: "CONTEXT_PATH"
-                                        description: "CONTEXT_PATH"
-                                        schema:
-                                          type: string
-                                          required: true
-                                          default: "/"
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
@@ -84,9 +76,9 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-        - variable: playlist
-          label: "App Playlist Storage"
-          description: "Stores the Application Playlist."
+        - variable: playlists
+          label: "App Playlists Storage"
+          description: "Stores the Application Playlists."
           schema:
             additional_attrs: true
             type: dict
