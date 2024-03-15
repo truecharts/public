@@ -1,0 +1,100 @@
+image:
+  repository: serverlein/tsn-ranksystem-webserver
+  pullPolicy: IfNotPresent
+  tag: latest@sha256:b97cee9b242bba0c792b0fa8c74d66917698725c93145327b1fa39a72ceb953c
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsUser: 568
+    runAsGroup: 568
+
+workload:
+  main:
+    podSpec:
+      initContainers:
+        download-ranksystem:
+          enabled: true
+          type: init
+          imageSelector: "image"
+          command:
+            - /bin/sh
+            - -c
+          args:
+            - |
+              web_location={{ .Values.persistence.web.mountPath }}
+              indexFile=${web_location}/index.php
+
+              cd ${web_location}
+
+              if [ ! -f "${indexFile}" ]; then
+                # download with curl as git & wget not available
+                # automatically fetch newest version
+                LOCATION=$(curl -s https://api.github.com/repos/Newcomer1989/TSN-Ranksystem/releases/latest \
+                | grep "tarball_url" \
+                | awk '{ print $2 }' \
+                | sed 's/,$//'       \
+                | sed 's/"//g' )     \
+                ; curl -sL -o ranksystem.tar.gz $LOCATION
+                # unzip file
+                tar -xzf ranksystem.tar.gz
+                # get topfolder
+                top_folder=$(find -type d -name "Newcomer*" -exec basename \{} .po \;)
+                # move to topfolder
+                mv ${top_folder}/* ${web_location}
+                # delete obsolete folders & files
+                rm -rf ranksystem.tar.gz ${top_folder}
+
+                webinterface_location=${web_location}/webinterface
+                  navFile=${webinterface_location}/_nav.php
+
+                # remove annoying SSL message (doesnt work with traefik/ingress)
+                sed -i "$(($(wc -l < ${navFile})-4)),$(($(wc -l < ${navFile})-1))d" ${navFile}
+
+              else
+                echo "Files Located. No need to download"
+              fi
+      containers:
+        main:
+          lifecycle:
+            postStart:
+              type: exec
+              command:
+                - /bin/sh
+                - -c
+                - |
+                  if [ -f "/config/POSTSETUP" ]; then
+                    curl -v -X POST -d "dbtype=mysql&dbhost={{ .Values.mariadb.creds.plainhost | trimAll "\"" }}&dbname={{ .Values.mariadb.mariadbDatabase }}&dbuser={{ .Values.mariadb.mariadbUsername }}&dbpass={{ .Values.mariadb.creds.mariadbPassword | trimAll "\"" }}&install=&installchecked=" http://localhost/ranksystem_latest/install.php
+                    sleep 1;
+                    curl -v -X POST -d "user=ranksystem&pass=ranksystem&confweb=" http://localhost/ranksystem_latest/install.php
+                  else
+                    echo "Install script doesnt exists, no further action is needed."
+                  fi
+          probes:
+            liveness:
+              enabled: true
+              type: http
+            readiness:
+              enabled: true
+              type: http
+            startup:
+              enabled: true
+              type: http
+service:
+  main:
+    ports:
+      main:
+        targetPort: 80
+        port: 9300
+persistence:
+  web:
+    enabled: true
+    mountPath: /var/www/html
+    size: 256Gi
+mariadb:
+  enabled: true
+  mariadbUsername: ranksystem
+  mariadbDatabase: ranksystem
+portal:
+  open:
+    enabled: true
