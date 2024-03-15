@@ -52,7 +52,7 @@ workload:
                 sed -i "$(($(wc -l < ${navFile})-4)),$(($(wc -l < ${navFile})-1))d" ${navFile}
 
               else
-                echo "Files Located. No need to download"
+                echo "Files Located. No action needed."
               fi
       containers:
         main:
