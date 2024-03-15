@@ -51,6 +51,7 @@ workload:
                 # remove annoying SSL message (doesnt work with traefik/ingress)
                 sed -i "$(($(wc -l < ${navFile})-4)),$(($(wc -l < ${navFile})))d" ${navFile}
 
+                echo "Files downloaded and installed."
               else
                 echo "Files Located. No action needed."
               fi
@@ -67,6 +68,7 @@ workload:
                     curl -v -X POST -d "dbtype=mysql&dbhost={{ .Values.mariadb.creds.plainhost | trimAll "\"" }}&dbname={{ .Values.mariadb.mariadbDatabase }}&dbuser={{ .Values.mariadb.mariadbUsername }}&dbpass={{ .Values.mariadb.creds.mariadbPassword | trimAll "\"" }}&install=&installchecked=" http://localhost/install.php
                     sleep 1;
                     curl -v -X POST -d "user=ranksystem&pass=ranksystem&confweb=" http://localhost/install.php
+                    echo "Install script executed."
                   else
                     echo "Install script doesnt exists, no further action is needed."
                   fi
