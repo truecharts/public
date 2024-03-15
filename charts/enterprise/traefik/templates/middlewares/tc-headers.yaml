@@ -52,7 +52,7 @@ spec:
     browserXssFilter: true
     sslForceHost: true
     referrerPolicy: same-origin
-    contentSecurityPolicy: frame-ancestors 'self'; form-action 'self'
+    contentSecurityPolicy: frame-ancestors 'self'; form-action 'self'; upgrade-insecure-requests​
     customRequestHeaders:
       X-Forwarded-Proto: "https"
     customResponseHeaders:
