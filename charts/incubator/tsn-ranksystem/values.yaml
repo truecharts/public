@@ -22,7 +22,7 @@ workload:
             - -c
           args:
             - |
-              web_location={{ .Values.persistence.web.mountPath }}
+              web_location={{ .Values.persistence.web.targetSelector.main.main.mountPath }}
               indexFile=${web_location}/index.php
 
               if [ ! -f "${indexFile}" ]; then
@@ -65,7 +65,8 @@ workload:
                 - /bin/sh
                 - -c
                 - |
-                  if [ -f "{{ .Values.persistence.web.mountPath }}/install.php" ]; then
+                  web_location={{ .Values.persistence.web.targetSelector.main.main.mountPath }}
+                  if [ -f "${web_location}/install.php" ]; then
                     curl -v -X POST -d "dbtype=mysql&dbhost={{ .Values.mariadb.creds.plainhost | trimAll "\"" }}&dbname={{ .Values.mariadb.mariadbDatabase }}&dbuser={{ .Values.mariadb.mariadbUsername }}&dbpass={{ .Values.mariadb.creds.mariadbPassword | trimAll "\"" }}&install=&installchecked=" http://localhost/install.php
                     sleep 1;
                     curl -v -X POST -d "user=ranksystem&pass=ranksystem&confweb=" http://localhost/install.php
@@ -92,8 +93,12 @@ service:
 persistence:
   web:
     enabled: true
-    mountPath: /var/www/html
-    size: 256Gi
+    targetSelector:
+      main:
+        main:
+          mountPath: /var/www/html
+        download-ranksystem:
+          mountPath: /var/www/html
 mariadb:
   enabled: true
   mariadbUsername: ranksystem
