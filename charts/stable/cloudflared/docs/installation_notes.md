@@ -44,14 +44,11 @@ Cloudflare’s content delivery network (the “CDN”) Service can be used to c
 
 If you've set up your apps with traefik, you need to set up two public hostnames
 
-1. Set `domain` to your domain
-2. Set `type` to `HTTPS`
-3. Set `URL` to your traefik URL, usually `traefik-tcp.ix-traefik.svc.cluster.local:443` (make sure the port is the same as the port you specified in traefik config)
-4. Under `Additional app settings` > `TLS`, set `Origin Server Name` to your domain.
-
-Setup should look like this:
-
-![cloudflare-setup](./img/cloudflare-setup1.png)
+- Set `subdomain` to a sub domain (can be left blank to use the root domain)
+- Set `domain` to your domain
+- Set `type` to `HTTPS`
+- Set `URL` to your traefik URL, usually `traefik-tcp.ix-traefik.svc.cluster.local:443` (make sure the port is the same as the port you specified in traefik config)
+- Under `Additional app settings` > `TLS`, set `Origin Server Name` to your domain (This needs to **match** what you have set for the sub and root domain; ex `someapp.somedomain.com`).
 
 Then you need to do the same to set up the subdomain for each app you want to expose, using the same subdomain you specified in the app's ingress settings as follows:
 
@@ -59,9 +56,10 @@ Then you need to do the same to set up the subdomain for each app you want to ex
 
 :::danger No TLS Verify
 
-Do NOT check the `No TLS Verify` this option will disable TLS verification and WILL allow any certificate from the origin to be accepted.
+Please refrain from enabling the "No TLS Verify" option, as doing so will disable TLS verification, thereby allowing any certificate from the origin to be accepted. This option removes certificate security validation, rendering the certificates meaningless for security.
+
 :::
 
 ### Without traefik
 
-If you've not set up traefik and ingress, and exposing the ports using the normal loadbalancer, you only need to set up each app individually, and set `URL` to `<TrueNAS Local IP>:<PORT of app>` for each app.
+If you've not set up traefik and ingress, and exposing the ports using the normal loadbalancer, you only need to set up each app individually, and set `URL` to `<TrueNAS Local IP>:<PORT of app>` or cluster app url for each app.
