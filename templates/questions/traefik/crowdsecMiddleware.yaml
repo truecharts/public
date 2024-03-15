@@ -1,0 +1,31 @@
+        - variable: bouncer
+          label: Crowdsec Bouncer
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: crowdsecEntry
+                label: ""
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: name
+                      label: Name
+                      schema:
+                        type: string
+                        required: true
+                    - variable: updateIntervalSeconds
+                      label: Update Interval in Seconds
+                      description: 
+                      schema:
+                        type: string
+                        valid_chars: '^[0-9]*$'
+                        default: "60"
+                    - variable: updateIntervalSeconds
+                      label: Update Interval in Seconds
+                      description: 
+                      schema:
+                        type: string
+                        valid_chars: '^[0-9]*$'
+                        default: "60"                        
