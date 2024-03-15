@@ -74,16 +74,6 @@ workload:
                   else
                     echo "Install script doesnt exists, no further action is needed."
                   fi
-          probes:
-            liveness:
-              enabled: true
-              type: http
-            readiness:
-              enabled: true
-              type: http
-            startup:
-              enabled: true
-              type: http
 service:
   main:
     ports:
