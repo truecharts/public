@@ -49,7 +49,7 @@ workload:
                   navFile=${webinterface_location}/_nav.php
 
                 # remove annoying SSL message (doesnt work with traefik/ingress)
-                sed -i "$(($(wc -l < ${navFile})-4)),$(($(wc -l < ${navFile})-1))d" ${navFile}
+                sed -i "$(($(wc -l < ${navFile})-4)),$(($(wc -l < ${navFile})))d" ${navFile}
 
               else
                 echo "Files Located. No action needed."
