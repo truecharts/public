@@ -63,10 +63,10 @@ workload:
                 - /bin/sh
                 - -c
                 - |
-                  if [ -f "/config/POSTSETUP" ]; then
-                    curl -v -X POST -d "dbtype=mysql&dbhost={{ .Values.mariadb.creds.plainhost | trimAll "\"" }}&dbname={{ .Values.mariadb.mariadbDatabase }}&dbuser={{ .Values.mariadb.mariadbUsername }}&dbpass={{ .Values.mariadb.creds.mariadbPassword | trimAll "\"" }}&install=&installchecked=" http://localhost/ranksystem_latest/install.php
+                  if [ -f "{{ .Values.persistence.web.mountPath }}/install.php" ]; then
+                    curl -v -X POST -d "dbtype=mysql&dbhost={{ .Values.mariadb.creds.plainhost | trimAll "\"" }}&dbname={{ .Values.mariadb.mariadbDatabase }}&dbuser={{ .Values.mariadb.mariadbUsername }}&dbpass={{ .Values.mariadb.creds.mariadbPassword | trimAll "\"" }}&install=&installchecked=" http://localhost/install.php
                     sleep 1;
-                    curl -v -X POST -d "user=ranksystem&pass=ranksystem&confweb=" http://localhost/ranksystem_latest/install.php
+                    curl -v -X POST -d "user=ranksystem&pass=ranksystem&confweb=" http://localhost/install.php
                   else
                     echo "Install script doesnt exists, no further action is needed."
                   fi
