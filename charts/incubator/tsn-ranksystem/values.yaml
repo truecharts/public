@@ -25,8 +25,6 @@ workload:
               web_location={{ .Values.persistence.web.mountPath }}
               indexFile=${web_location}/index.php
 
-              cd ${web_location}
-
               if [ ! -f "${indexFile}" ]; then
                 # download with curl as git & wget not available
                 # automatically fetch newest version
@@ -35,23 +33,25 @@ workload:
                 | awk '{ print $2 }' \
                 | sed 's/,$//'       \
                 | sed 's/"//g' )     \
-                ; curl -sL -o ranksystem.tar.gz $LOCATION
+                ; curl -sL -o ${web_location}/ranksystem.tar.gz $LOCATION
                 # unzip file
-                tar -xzf ranksystem.tar.gz
+                tar -xzf ${web_location}/ranksystem.tar.gz
                 # get topfolder
-                top_folder=$(find -type d -name "Newcomer*" -exec basename \{} .po \;)
+                top_folder=$(find ${web_location} -type d -name "Newcomer*" -exec basename \{} .po \;)
                 # move to topfolder
                 mv ${top_folder}/* ${web_location}
                 # delete obsolete folders & files
-                rm -rf ranksystem.tar.gz ${top_folder}
+                rm -rf ${web_location}/ranksystem.tar.gz ${top_folder}
 
                 webinterface_location=${web_location}/webinterface
-                  navFile=${webinterface_location}/_nav.php
+                navFile=${webinterface_location}/_nav.php
 
                 # remove annoying SSL message (doesnt work with traefik/ingress)
                 sed -i "$(($(wc -l < ${navFile})-4)),$(($(wc -l < ${navFile})))d" ${navFile}
 
                 echo "Files downloaded and installed."
+                echo "Folder :$PWD"
+                echo "Files:"
                 ls
               else
                 echo "Files Located. No action needed."
