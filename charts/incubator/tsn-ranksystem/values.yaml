@@ -52,6 +52,7 @@ workload:
                 sed -i "$(($(wc -l < ${navFile})-4)),$(($(wc -l < ${navFile})))d" ${navFile}
 
                 echo "Files downloaded and installed."
+                ls
               else
                 echo "Files Located. No action needed."
               fi
