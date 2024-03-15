@@ -1,7 +1,7 @@
 image:
   repository: ollama/ollama
   pullPolicy: IfNotPresent
-  tag: 0.1.29@sha256:b11401e34e4b770573548ead1d2de68f7bf58b609966ad2581f2f34495d5810f
+  tag: 0.1.29@sha256:75fb97cdd8f435756d26eb7783599122b814c4b97da2012dc21ebc0efbd90fef
 uiImage:
   repository: ghcr.io/open-webui/open-webui
   pullPolicy: IfNotPresent
@@ -58,7 +58,7 @@ workload:
               type: tcp
               port: "{{ .Values.service.api.ports.api.port }}"
           env:
-            OLLAMA_HOST: '{{ printf "http://0.0.0.0:%v" .Values.service.api.ports.api.port }}'
+            OLLAMA_HOST: '{{ printf "http://localhost:%v" .Values.service.api.ports.api.port }}'
   ui:
     enabled: true
     type: Deployment
