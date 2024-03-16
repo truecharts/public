@@ -10,14 +10,14 @@ apiVersion: v2
 appVersion: 1.0.9
 dependencies:
   - name: common
-    version: 20.2.0
+    version: 20.1.5
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mariadb
-    version: 13.5.4
+    version: 13.6.0
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -47,4 +47,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/anonaddy
   - https://hub.docker.com/r/anonaddy/anonaddy
 type: application
-version: 20.12.0
+version: 20.13.0
