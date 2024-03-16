@@ -113,9 +113,7 @@
       "automerge": false,
       "groupName": ["helm general major"],
       "matchPaths": ["charts/stable/**", "charts/premium/**", "charts/system/**"],
-      "schedule": [
-        "before 10pm on tuesday"
-      ],
+
       "autoApprove": false,
     },
     {
@@ -129,9 +127,7 @@
       "labels": ["update/helm/general/minor", "automerge"],
       "groupName": "helm general minor",
       "matchPaths": ["charts/stable/**", "charts/premium/**", "charts/system/**"],
-      "schedule": [
-        "before 10pm on tuesday"
-      ],
+
     },
     {
       "matchDatasources": ["helm"],
@@ -146,9 +142,6 @@
       "labels": ["update/helm/general/non-major", "automerge"],
       "groupName": "helm general non-major",
       "matchPaths": ["charts/stable/**", "charts/premium/**", "charts/system/**"],
-      "schedule": [
-        "before 10pm on tuesday"
-      ],
     },
     //
     // Tag updates for semantic tags
@@ -160,9 +153,7 @@
       "enabled": true,
       "labels": ["update/docker/general/major"],
       "matchPaths": ["charts/dependency/**", "charts/stable/**", "charts/incubator/**", "charts/premium/**", "charts/system/**"],
-      "schedule": [
-        "before 10pm on monday"
-      ],
+
       "autoApprove": false,
     },
     {
@@ -175,9 +166,7 @@
       "enabled": true,
       "labels": ["update/docker/general/non-major", "automerge"],
       "matchPaths": ["charts/dependency/**", "charts/stable/**", "charts/incubator/**", "charts/premium/**", "charts/system/**"],
-      "schedule": [
-        "before 10pm on monday"
-      ],
+
     },
     {
       "matchDatasources": ["docker"],
@@ -191,9 +180,7 @@
       "enabled": true,
       "labels": ["update/docker/general/non-major", "automerge"],
       "matchPaths": ["charts/dependency/**", "charts/stable/**", "charts/incubator/**", "charts/premium/**", "charts/system/**"],
-      "schedule": [
-        "before 10pm on monday"
-      ],
+
     },
     //
     // Tag tccr.io/truecharts based on semver
