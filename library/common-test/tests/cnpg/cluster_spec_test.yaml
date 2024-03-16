@@ -385,6 +385,104 @@ tests:
                   - CREATE EXTENSION IF NOT EXISTS timescaledb;
                   - CREATE EXTENSION IF NOT EXISTS some-extension;
 
+  - it: should pass with postgis
+    set:
+      postgresPostgis16Image:
+        repository: postgis/postgisdb
+        tag: "some-tag"
+      cnpg:
+        my-pg:
+          enabled: true
+          user: app
+          database: app
+          type: postgis
+          cluster:
+            initdb:
+              postInitApplicationSQL:
+                - CREATE EXTENSION IF NOT EXISTS some-extension;
+            postgresql:
+              key1: value1
+              key2: '{{ printf "test-tpl" }}'
+            preloadLibraries:
+              - pg_stat_statements
+              - pg_cron
+    asserts:
+      - documentIndex: *clusterDoc
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            postgresql:
+              parameters:
+                key1: value1
+                key2: test-tpl
+              shared_preload_libraries:
+                - pg_stat_statements
+                - pg_cron
+            bootstrap:
+              initdb:
+                secret:
+                  name: test-release-name-common-test-cnpg-my-pg-user
+                database: app
+                owner: app
+                dataChecksums: true
+                postInitApplicationSQL:
+                  - CREATE EXTENSION IF NOT EXISTS postgis;
+                  - CREATE EXTENSION IF NOT EXISTS postgis_topology;
+                  - CREATE EXTENSION IF NOT EXISTS fuzzystrmatch;
+                  - CREATE EXTENSION IF NOT EXISTS postgis_tiger_geocoder;
+                  - CREATE EXTENSION IF NOT EXISTS some-extension;
+
+  - it: should pass with vectors
+    set:
+      postgresVectors16Image:
+        repository: vectors/vectors
+        tag: "some-tag"
+      cnpg:
+        my-pg:
+          enabled: true
+          user: app
+          database: app
+          type: vectors
+          cluster:
+            initdb:
+              postInitApplicationSQL:
+                - CREATE EXTENSION IF NOT EXISTS some-extension;
+            postgresql:
+              key1: value1
+              key2: '{{ printf "test-tpl" }}'
+            preloadLibraries:
+              - pg_stat_statements
+              - pg_cron
+    asserts:
+      - documentIndex: *clusterDoc
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isSubset:
+          path: spec
+          content:
+            postgresql:
+              parameters:
+                key1: value1
+                key2: test-tpl
+              shared_preload_libraries:
+                - pg_stat_statements
+                - pg_cron
+                - vectors.so
+            bootstrap:
+              initdb:
+                secret:
+                  name: test-release-name-common-test-cnpg-my-pg-user
+                database: app
+                owner: app
+                dataChecksums: true
+                postInitApplicationSQL:
+                  - CREATE EXTENSION IF NOT EXISTS vectors;
+                  - CREATE EXTENSION IF NOT EXISTS some-extension;
+
   - it: should pass with enabled monitoring
     set:
       postgresTimescaledb16Image:
