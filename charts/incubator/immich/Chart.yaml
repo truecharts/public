@@ -10,14 +10,14 @@ apiVersion: v2
 appVersion: 1.98.2
 dependencies:
   - name: common
-    version: 20.0.9
+    version: 20.0.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 13.0.2
+    version: 13.0.5
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -41,4 +41,4 @@ sources:
   - https://hub.docker.com/r/altran1502/immich-machine-learning
   - https://hub.docker.com/r/altran1502/immich-server
 type: application
-version: 13.0.1
+version: 13.0.2
