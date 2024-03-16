@@ -4,8 +4,8 @@ annotations:
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: core
   truecharts.org/max_helm_version: "3.14"
-  truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: enterprise
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: premium
 apiVersion: v2
 appVersion: latest
 dependencies:
@@ -17,22 +17,21 @@ dependencies:
     tags: []
     import-values: []
 deprecated: false
-description: A network load-balancer implementation for Kubernetes using standard routing protocols
-home: https://truecharts.org/charts/enterprise/metallb-config
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/metallb-config.png
+description: Certificate management for Kubernetes
+home: https://truecharts.org/charts/premium/clusterissuer
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/clusterissuer.png
 keywords:
-  - metallb
-  - loadbalancer
-kubeVersion: ">=1.24.0-0"
+  - cert-manager
+  - certificates
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
     url: https://truecharts.org
-name: metallb-config
+name: clusterissuer
 sources:
-  - https://metallb.universe.tf
-  - https://github.com/metallb/metallb
-  - https://github.com/truecharts/charts/tree/master/charts/enterprise/metallb-config
+  - https://cert-manager.io/
+  - https://github.com/truecharts/charts/tree/master/charts/premium/clusterissuer
   - https://hub.docker.com/_/hello-world
 type: application
-version: 6.5.2
+version: 7.5.3

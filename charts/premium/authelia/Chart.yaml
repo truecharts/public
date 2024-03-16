@@ -4,8 +4,8 @@ annotations:
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: security
   truecharts.org/max_helm_version: "3.14"
-  truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: enterprise
+  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/train: premium
 apiVersion: v2
 appVersion: 4.37.5
 dependencies:
@@ -25,7 +25,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Authelia is a Single Sign-On Multi-Factor portal for web apps
-home: https://truecharts.org/charts/enterprise/authelia
+home: https://truecharts.org/charts/premium/authelia
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/authelia.png
 keywords:
   - authelia
@@ -39,7 +39,7 @@ keywords:
   - YubiKey
   - Push Notifications
   - LDAP
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -48,7 +48,7 @@ name: authelia
 sources:
   - https://github.com/authelia/chartrepo
   - https://github.com/authelia/authelia
-  - https://github.com/truecharts/charts/tree/master/charts/enterprise/authelia
+  - https://github.com/truecharts/charts/tree/master/charts/premium/authelia
   - https://ghcr.io/authelia/authelia
 type: application
-version: 23.5.4
+version: 23.5.5
