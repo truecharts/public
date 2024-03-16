@@ -32,7 +32,7 @@ workload:
             REDIS_SCHEME: tcp
             REDIS_PORT: 6379
             APP_URL: ""
-            TRUSTED_PROXIES: "172.16.0.0/16"
+            TRUSTED_PROXIES: {{ .Values.env.TRUSTED_PROXIES | default "172.16.0.0/16" | quote }}
             DB_HOST:
               secretKeyRef:
                 name: cnpg-main-urls
