@@ -112,7 +112,7 @@
       "labels": ["update/helm/general/major"],
       "automerge": false,
       "groupName": ["helm general major"],
-      "matchPaths": ["charts/stable/**", "charts/enterprise/**", "charts/operators/**"],
+      "matchPaths": ["charts/stable/**", "charts/premium/**", "charts/system/**"],
       "schedule": [
         "before 10pm on tuesday"
       ],
@@ -128,7 +128,7 @@
       "bumpVersion": "minor",
       "labels": ["update/helm/general/minor", "automerge"],
       "groupName": "helm general minor",
-      "matchPaths": ["charts/stable/**", "charts/enterprise/**", "charts/operators/**"],
+      "matchPaths": ["charts/stable/**", "charts/premium/**", "charts/system/**"],
       "schedule": [
         "before 10pm on tuesday"
       ],
@@ -145,7 +145,7 @@
       "bumpVersion": "patch",
       "labels": ["update/helm/general/non-major", "automerge"],
       "groupName": "helm general non-major",
-      "matchPaths": ["charts/stable/**", "charts/enterprise/**", "charts/operators/**"],
+      "matchPaths": ["charts/stable/**", "charts/premium/**", "charts/system/**"],
       "schedule": [
         "before 10pm on tuesday"
       ],
@@ -159,7 +159,7 @@
       "bumpVersion": "minor",
       "enabled": true,
       "labels": ["update/docker/general/major"],
-      "matchPaths": ["charts/dependency/**", "charts/stable/**", "charts/incubator/**", "charts/enterprise/**", "charts/operators/**"],
+      "matchPaths": ["charts/dependency/**", "charts/stable/**", "charts/incubator/**", "charts/premium/**", "charts/system/**"],
       "schedule": [
         "before 10pm on monday"
       ],
@@ -174,7 +174,7 @@
       "bumpVersion": "minor",
       "enabled": true,
       "labels": ["update/docker/general/non-major", "automerge"],
-      "matchPaths": ["charts/dependency/**", "charts/stable/**", "charts/incubator/**", "charts/enterprise/**", "charts/operators/**"],
+      "matchPaths": ["charts/dependency/**", "charts/stable/**", "charts/incubator/**", "charts/premium/**", "charts/system/**"],
       "schedule": [
         "before 10pm on monday"
       ],
@@ -190,7 +190,7 @@
       "bumpVersion": "patch",
       "enabled": true,
       "labels": ["update/docker/general/non-major", "automerge"],
-      "matchPaths": ["charts/dependency/**", "charts/stable/**", "charts/incubator/**", "charts/enterprise/**", "charts/operators/**"],
+      "matchPaths": ["charts/dependency/**", "charts/stable/**", "charts/incubator/**", "charts/premium/**", "charts/system/**"],
       "schedule": [
         "before 10pm on monday"
       ],
@@ -601,7 +601,7 @@
     {
       "matchDatasources": ["docker"],
       "versioning": "regex:^release-(?<major>\\d*)\\.(?<minor>\\d*)$",
-      "matchPackageNames": ["mattermost/mattermost-enterprise-edition"],
+      "matchPackageNames": ["mattermost/mattermost-premium-edition"],
       "automerge": true,
     },
     {

@@ -6,7 +6,7 @@ _Using Blocky in conjunction with PiHole enables seamless automated split DNS fu
 
 :::danger unrecommended configuration
 
-The below guide is not the recommended DNS solution for TrueCharts. We recommend running Blocky from the Enterprise train in a standalone configuration. Setting up your DNS as outlined below adds complexity and will reduce reliability.
+The below guide is not the recommended DNS solution for TrueCharts. We recommend running Blocky from the premium train in a standalone configuration. Setting up your DNS as outlined below adds complexity and will reduce reliability.
 
 :::
 
@@ -18,7 +18,7 @@ Blocky includes k8s Gateway which automates the split DNS process. We will be us
 
 :::
 
-1. Install Blocky from the Enterprise train with all defaults except for the following.
+1. Install Blocky from the premium train with all defaults except for the following.
 
 2. Override Default Upstreams
 

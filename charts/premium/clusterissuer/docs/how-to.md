@@ -6,9 +6,9 @@ This guide will walk you through setting up `clusterissuer`, certificate managem
 
 ## Prerequisites
 
-- Ensure you have the `enterprise` and `operators` trains enabled for `TrueCharts` as discussed [here](https://truecharts.org/manual/SCALE/guides/getting-started#adding-truecharts).
-- [Traefik](https://truecharts.org/charts/enterprise/traefik/) is installed from enterprise train
-- [Cert-Mananger](https://truecharts.org/charts/operators/cert-manager/) and [Prometheus-Operator](https://truecharts.org/charts/operators/prometheus-operator/) are installed from the operators train
+- Ensure you have the `premium` and `system` trains enabled for `TrueCharts` as discussed [here](https://truecharts.org/manual/SCALE/guides/getting-started#adding-truecharts).
+- [Traefik](https://truecharts.org/charts/premium/traefik/) is installed from premium train
+- [Cert-Mananger](https://truecharts.org/charts/system/cert-manager/) and [Prometheus-Operator](https://truecharts.org/charts/system/prometheus-operator/) are installed from the system train
 
 :::warning DNS
 

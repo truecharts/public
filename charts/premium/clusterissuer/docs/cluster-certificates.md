@@ -13,7 +13,7 @@ Since this is an advanced feature, it is not covered by Truecharts support.
 ## Prerequisites
 
 - Ensure you have completed the [clusterissuer Setup Guide](how-to)
-- Install the `kubernetes-reflector` app from the `enterprise` train
+- Install the `kubernetes-reflector` app from the `premium` train
 
 ## Creating a cluster certificate
 

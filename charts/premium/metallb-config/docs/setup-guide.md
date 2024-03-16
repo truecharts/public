@@ -12,7 +12,7 @@ With MetalLB installed, apps will not be reachable using the integrated LoadBala
 
 ## Prerequisites
 
-- Add the Operators & Enterprise trains to your TrueCharts Catalog.
+- Add the system & premium trains to your TrueCharts Catalog.
 
 ![metallb-addtrains](./img/metallb_guide_trains.png)
 
@@ -22,11 +22,11 @@ Our customized version of MetalLB is only intended for use with other TrueCharts
 
 :::
 
-## 1. Install MetalLB Operator from Operators Train
+## 1. Install MetalLB Operator from system Train
 
 ![metallb-apps](./img/metallb_guide_apps.png)
 
-Install `metallb` from `operators` train first. There is no config, so just hit save.
+Install `metallb` from `system` train first. There is no config, so just hit save.
 
 If you encounter an error upon install, run the following command as root from system settings -> shell and attempt the install again:
 `k3s kubectl delete --grace-period 30 --v=4 -k https://github.com/truecharts/manifests/delete`
@@ -35,7 +35,7 @@ If you previously had `metallb` installed and encounter an error, delete the old
 
 ## 2. Set Address Pool & L2 Advertisement in MetalLB-Config
 
-Install `metallb-config` from enterprise train and create a new entry under `Configure IP Address Pools Object`
+Install `metallb-config` from premium train and create a new entry under `Configure IP Address Pools Object`
 
 ![metallb-addpoolbasic](./img/metallb_guide_addresspool_basic.png)
 
