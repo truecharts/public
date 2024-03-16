@@ -202,6 +202,8 @@ tests:
         namespace: ix-namespace
         ixChartContext:
           storageClassName: ix-storage-class-releasename
+          ci:
+            storageClass: true
       some_storage_class: "SCALE-ZFS"
       persistence:
         my-volume1:

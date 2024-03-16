@@ -56,32 +56,14 @@ tests:
       - failedTemplate:
           errorMessage: Persistence - Expected [targetSelector] to be [dict], but got [string]
 
-  - it: should fail without storageClassName in ixChartContext
-    set:
-      global:
-        namespace: ix-namespace
-        ixChartContext:
-          storageClassName: ""
-      persistence:
-        volume1:
-          enabled: true
-          type: vct
-      workload:
-        main:
-          enabled: true
-          primary: true
-          type: StatefulSet
-          podSpec: {}
-    asserts:
-      - failedTemplate:
-          errorMessage: PVC - Expected non-empty [global.ixChartContext.storageClassName]
-
   - it: should fail without storageClassName in ixChartContext with SCALE-ZFS explicitly set
     set:
       global:
         namespace: ix-namespace
         ixChartContext:
           storageClassName: ""
+          ci:
+            storageClass: true
       persistence:
         volume1:
           enabled: true

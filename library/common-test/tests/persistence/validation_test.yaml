@@ -56,26 +56,14 @@ tests:
       - failedTemplate:
           errorMessage: PVC - Expected [accessModes] entry to be one of [ReadWriteOnce, ReadOnlyMany, ReadWriteMany, ReadWriteOncePod], but got [not-an-access-mode]
 
-  - it: should fail without storageClassName in ixChartContext
-    set:
-      global:
-        namespace: ix-namespace
-        ixChartContext:
-          storageClassName: ""
-      persistence:
-        volume1:
-          enabled: true
-          type: pvc
-    asserts:
-      - failedTemplate:
-          errorMessage: PVC - Expected non-empty [global.ixChartContext.storageClassName]
-
   - it: should fail without storageClassName in ixChartContext with SCALE-ZFS explicitly set
     set:
       global:
         namespace: ix-namespace
         ixChartContext:
           storageClassName: ""
+          ci:
+            storageClass: true
       persistence:
         volume1:
           enabled: true
