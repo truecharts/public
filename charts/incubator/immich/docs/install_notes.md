@@ -15,12 +15,12 @@ This chart now requires the following hcarts to be installed before you can inst
 - cloudnative-pg
 - prometheus-operator
 
-These are in the operators train.
+These are in the system train.
 
 To enable this in TrueNAS scale
 
 - Apps
 - Manage Catalogs.
 - Edit the TrueCharts Catalog (under the three dots).
-- Enable the operators train under 'Perferred Trains'.
+- Enable the system train under 'Perferred Trains'.
 - Install the required charts in Available Applications

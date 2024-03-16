@@ -8,7 +8,7 @@ title: Installation Notes
   - `['keya', 'keyb']`.
 - Set `Node Environment` to **Development** initially.
 - Optionally set `Public URL` to a FDQN with https, ex: `https://api.example.com`.
-- Optionally set `Strapi License` to activate the Enterprise Edition.
+- Optionally set `Strapi License` to activate the premium Edition.
 - Enable/Disable `Strapi Disable Update Notifications` for strapi update notifications.
 - Enable/Disable `Fast Refresh` for react near-instant feedback.
 - `Extra Args` can be left empty for the standard defaults or get args from [strapi-new](https://strapi.io/documentation/developer-docs/latest/developer-resources/cli/CLI.html#strapi-new).

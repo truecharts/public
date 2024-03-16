@@ -6,19 +6,19 @@ This quick guide should take you through the steps necessary to setup `Authelia`
 
 ## Prerequisites
 
-- Traefik installed (enable the `enterprise train`)
+- Traefik installed (enable the `premium train`)
 - Clusterissuer for certificates
-- CloudnativePG operator (enable the `operators train`)
+- CloudnativePG operator (enable the `system train`)
 
 ## Setup LLDAP
 
 :::warning
 
-LLDAP is a `Stable` train chart and therefore isn't supported at the same level as the charts in the `Enterprise` train (Authelia and Traefik).
+LLDAP is a `Stable` train chart and therefore isn't supported at the same level as the charts in the `premium` train (Authelia and Traefik).
 
 :::
 
-- Follow the steps included in the [Installation Notes](https://truecharts.org/charts/stable/lldap/installation-notes) for [LLDAP](https://truecharts.org/charts/stable/lldap/). Pretty straightforward. Change `dc=example,dc=com` to your domain, i.e. `dc=MYDOMAIN,dc=net` and then change your password. Also make sure you have the `Operators` train enabled and `CloudnativePG` operator installed, since you'll need it for `LLDAP` and `Authelia`
+- Follow the steps included in the [Installation Notes](https://truecharts.org/charts/stable/lldap/installation-notes) for [LLDAP](https://truecharts.org/charts/stable/lldap/). Pretty straightforward. Change `dc=example,dc=com` to your domain, i.e. `dc=MYDOMAIN,dc=net` and then change your password. Also make sure you have the `system` train enabled and `CloudnativePG` operator installed, since you'll need it for `LLDAP` and `Authelia`
 
 ![LLDAP Config](./img/LLDAPCatalogConfig.png)
 
@@ -87,7 +87,7 @@ Please see [Authelia Rules](./authelia-rules) for more advanced rules.
 
 ## Traefik ForwardAuth Setup
 
-- This part is straight forward as long as you have a working `Traefik` install, please see our [How-To](https://truecharts.org/charts/enterprise/traefik/how-to) if you need more info on getting that running.
+- This part is straight forward as long as you have a working `Traefik` install, please see our [How-To](https://truecharts.org/charts/premium/traefik/how-to) if you need more info on getting that running.
 
 - Scroll down to `forwardAuth` and click `Add`
 
@@ -104,7 +104,7 @@ Please see [Authelia Rules](./authelia-rules) for more advanced rules.
 
 ### Adding the forwardauth to your Apps
 
-The last step is adding the `forwardauth` along with the standard `ingress` settings for your app, for more info on setting ingress see the [ClusterIssuer Guide](https://truecharts.org/charts/enterprise/clusterissuer/how-to). What changes versus a standard setup is the `Traefik Middlewares` section, where you must add your `forwardauth` to the section.
+The last step is adding the `forwardauth` along with the standard `ingress` settings for your app, for more info on setting ingress see the [ClusterIssuer Guide](https://truecharts.org/charts/premium/clusterissuer/how-to). What changes versus a standard setup is the `Traefik Middlewares` section, where you must add your `forwardauth` to the section.
 
 - In this example we use the same name as above, or `auth`. Click `Add` to the `Traefik Middlewares` section, and enter your `forwardauth` name.
 
