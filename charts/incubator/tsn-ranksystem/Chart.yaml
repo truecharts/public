@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: incubator
 apiVersion: v2
-appVersion: 20240301.0.0
+appVersion: latest
 dependencies:
   - name: common
     version: 20.0.9
@@ -40,8 +40,8 @@ name: tsn-ranksystem
 sources:
   - https://github.com/JohannesBauer97/tsn-ranksystem-webserver
   - https://ts-ranksystem.com/
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/tsn-ranksystem
   - https://github.com/Newcomer1989/TSN-Ranksystem
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/tsn-ranksystem
   - https://hub.docker.com/r/serverlein/tsn-ranksystem-webserver
 type: application
 version: 0.0.1
