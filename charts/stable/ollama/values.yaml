@@ -75,6 +75,11 @@ workload:
               enabled: true
               type: tcp
               port: "{{ .Values.service.api.ports.api.targetPort }}"
+  ui:
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
         ui:
           primary: true
           enabled: true
@@ -121,7 +126,7 @@ persistence:
   data:
     enabled: true
     targetSelector:
-      main:
+      ui:
         ui:
           mountPath: "/app/backend/data"
 
