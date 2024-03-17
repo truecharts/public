@@ -4,8 +4,8 @@ annotations:
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: database
   truecharts.org/max_helm_version: "3.14"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: dependency
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: 7.0.6
 dependencies:
@@ -18,13 +18,13 @@ dependencies:
     import-values: []
 deprecated: false
 description: Fast, reliable, scalable, and easy to use open-source no-sql database system.
-home: https://truecharts.org/charts/dependency/mongodb
+home: https://truecharts.org/charts/stable/mongodb
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/mongodb.png
 keywords:
   - mongodb
   - database
   - nosql
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -33,7 +33,7 @@ name: mongodb
 sources:
   - https://www.mongodb.com
   - https://github.com/bitnami/bitnami-docker-mongodb
-  - https://github.com/truecharts/charts/tree/master/charts/dependency/mongodb
+  - https://github.com/truecharts/charts/tree/master/charts/stable/mongodb
   - https://hub.docker.com/r/bitnami/mongodb
 type: application
 version: 12.7.0

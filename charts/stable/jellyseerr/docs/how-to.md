@@ -3,6 +3,7 @@ title: Setup Guide
 ---
 
 **Jellyseerr** is a free and open source software application for managing requests for your media library. It is a fork of [Overseerr](https://github.com/sct/overseerr) built to bring support for [Jellyfin](https://github.com/jellyfin/jellyfin) & [Emby](https://github.com/MediaBrowser/Emby) media servers!
+
 ## Requirements
 
 - Jellyseerr TrueCharts Chart

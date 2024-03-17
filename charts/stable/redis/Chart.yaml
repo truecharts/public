@@ -4,8 +4,8 @@ annotations:
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: database
   truecharts.org/max_helm_version: "3.14"
-  truecharts.org/min_helm_version: "3.12"
-  truecharts.org/train: dependency
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: 7.2.4
 dependencies:
@@ -18,13 +18,13 @@ dependencies:
     import-values: []
 deprecated: false
 description: Open source, advanced key-value store.
-home: https://truecharts.org/charts/dependency/redis
+home: https://truecharts.org/charts/stable/redis
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/redis.png
 keywords:
   - redis
   - keyvalue
   - database
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -32,7 +32,7 @@ maintainers:
 name: redis
 sources:
   - https://github.com/bitnami/bitnami-docker-redis
-  - https://github.com/truecharts/charts/tree/master/charts/dependency/redis
+  - https://github.com/truecharts/charts/tree/master/charts/stable/redis
   - https://hub.docker.com/r/bitnami/redis
 type: application
 version: 13.2.0
