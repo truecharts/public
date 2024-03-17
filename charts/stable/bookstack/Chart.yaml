@@ -7,17 +7,17 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 24.02.20240228
+appVersion: 24.02.20240304
 dependencies:
   - name: common
-    version: 19.0.0
+    version: 20.2.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mariadb
-    version: 13.2.0
+    version: 13.7.0
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -45,4 +45,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/bookstack
   - https://ghcr.io/linuxserver/bookstack
 type: application
-version: 13.2.1
+version: 13.8.0

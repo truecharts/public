@@ -1,11 +1,11 @@
 image:
   repository: ollama/ollama
   pullPolicy: IfNotPresent
-  tag: 0.1.27@sha256:0f278f2532971eeaf52a27c69455df785443e04bb5349bfa0de833facd6dce1a
+  tag: 0.1.29@sha256:75fb97cdd8f435756d26eb7783599122b814c4b97da2012dc21ebc0efbd90fef
 uiImage:
-  repository: ghcr.io/ollama-webui/ollama-webui
+  repository: ghcr.io/open-webui/open-webui
   pullPolicy: IfNotPresent
-  tag: main@sha256:d5a5c1126b5decbfbfcac4f2c3d0595e0bbf7957e3fcabc9ee802d3bc66db6d2
+  tag: latest@sha256:74b95a7fcbb4dc50fab0aa0fd939514d93e7c4c660a279c9d0cf133913359ec1
 
 service:
   main:
@@ -13,7 +13,6 @@ service:
     ports:
       main:
         protocol: http
-        targetPort: 8080
         port: 10686
         targetSelector: ui
   api:
@@ -29,6 +28,7 @@ service:
 
 ingress:
   api:
+    enabled: false
     targetSelector:
       api: api
 
@@ -48,16 +48,16 @@ workload:
               enabled: true
               type: http
               path: /api/version
-              port: "{{ .Values.service.api.ports.api.port }}"
+              port: "{{ .Values.service.api.ports.api.targetPort }}"
             readiness:
               enabled: true
               type: http
               path: /api/version
-              port: "{{ .Values.service.api.ports.api.port }}"
+              port: "{{ .Values.service.api.ports.api.targetPort }}"
             startup:
               enabled: true
               type: tcp
-              port: "{{ .Values.service.api.ports.api.port }}"
+              port: "{{ .Values.service.api.ports.api.targetPort }}"
   ui:
     enabled: true
     type: Deployment
@@ -67,23 +67,30 @@ workload:
           primary: true
           enabled: true
           imageSelector: uiImage
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+            runAsNonRoot: false
+            readOnlyRootFilesystem: false
           probes:
             liveness:
               enabled: true
               type: http
               path: /
-              port: "{{ .Values.service.main.ports.main.targetPort }}"
+              port: "{{ .Values.service.main.ports.main.port }}"
             readiness:
               enabled: true
               type: http
               path: /
-              port: "{{ .Values.service.main.ports.main.targetPort }}"
+              port: "{{ .Values.service.main.ports.main.port }}"
             startup:
               enabled: true
               type: tcp
-              port: "{{ .Values.service.main.ports.main.targetPort }}"
+              port: "{{ .Values.service.main.ports.main.port }}"
           env:
-            OLLAMA_API_BASE_URL: '{{ printf "http://%v-api:%v/api" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.api.ports.api.targetPort }}'
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+            DATA_DIR: "{{ .Values.persistence.data.mountPath }}"
+            OLLAMA_BASE_URL: '{{ printf "http://%v-api:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.api.ports.api.targetPort }}'
             WEBUI_SECRET_KEY:
               secretKeyRef:
                 name: ollama-secrets

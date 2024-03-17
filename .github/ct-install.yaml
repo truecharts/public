@@ -7,8 +7,8 @@ chart-dirs:
   - charts/stable
   - charts/dependency
   - charts/dev
-  - charts/enterprise
-  - charts/operators
+  - charts/premium
+  - charts/system
 excluded-charts:
   - charts/dependency/subchart
   - charts/incubator/alienswarm
@@ -22,6 +22,7 @@ excluded-charts:
   - charts/incubator/cstrike1-6
   - charts/incubator/cstrikeconditionzero
   - charts/incubator/dayofdefeatsource
+  - charts/incubator/sd-webui
   - charts/incubator/fistfuloffrags
   - charts/incubator/garrysmod
   - charts/incubator/halflife2deathmatch
@@ -109,6 +110,7 @@ excluded-charts:
   - charts/stable/cstrike1-6
   - charts/stable/cstrikeconditionzero
   - charts/stable/dayofdefeatsource
+  - charts/stable/sd-webui
   - charts/stable/fistfuloffrags
   - charts/stable/garrysmod
   - charts/stable/halflife2deathmatch
