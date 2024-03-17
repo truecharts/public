@@ -54,11 +54,10 @@ ollama:
     # embedding model
     model: "all-MiniLM-L6-v2"
 
-# enable on common version 20.2.1
-# global:
-#  excludeContainersFromExtraResources:
 # remove gpu directly from web gui sidecar
-#    - ui
+global:
+  excludeContainersFromExtraResources:
+    - ui
 
 workload:
   main:
