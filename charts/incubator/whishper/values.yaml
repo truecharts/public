@@ -53,6 +53,7 @@ workload:
     podSpec:
       containers:
         main:
+          primary: true
           imageSelector: image
           args:
             - /app/whishper
