@@ -50,10 +50,12 @@ whishper:
 
 workload:
   main:
+    enabled: true
     podSpec:
       containers:
         main:
           primary: true
+          enabled: true
           imageSelector: image
           args:
             - /app/whishper
