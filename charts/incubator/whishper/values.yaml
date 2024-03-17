@@ -80,6 +80,11 @@ workload:
             # CPU_THREADS: 4
             WHISPER_MODELS_DIR: "{{.Values.persistence.models.mountPath }}"
             UPLOAD_DIR: "{{.Values.persistence.uploads.mountPath }}"
+  translate:
+    enabled: true
+    type: Deployment
+    podSpec:
+      containers:
         translate:
           enabled: true
           imageSelector: "{{ .Values.whishper.translate.image }}"
@@ -125,13 +130,13 @@ persistence:
   libretranslate-date:
     enabled: true
     targetSelector:
-      main:
+      translate:
         translate:
           mountPath: /home/libretranslate/.local/share
   libretranslate-cache:
     enabled: true
     targetSelector:
-      main:
+      translate:
         translate:
           mountPath: /home/libretranslate/.local/cache
 
