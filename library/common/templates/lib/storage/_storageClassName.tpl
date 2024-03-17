@@ -40,7 +40,7 @@ objectData: The object data of the pvc
   {{/* On Cobia -> Dragonfish update the ixChartContext should still be there, for existing apps so we can reference it */}}
   {{- else if and $rootCtx.Values.global.ixChartContext $rootCtx.Values.global.ixChartContext.storageClassName -}}
     {{- $scaleClassFound := false -}}
-    {{- with (lookup "v1" "StorageClass" "" $rootCtx.Values.global.ixChartContext.storageClassName) -}}
+    {{- with (lookup "storage.k8s.io/v1" "StorageClass" "" $rootCtx.Values.global.ixChartContext.storageClassName) -}}
       {{/* Check if there is an actually valid storageClass found */}}
       {{- if .provisioner -}}
         {{- $scaleClassFound = true -}}
