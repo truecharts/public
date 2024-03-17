@@ -80,16 +80,6 @@ workload:
             # CPU_THREADS: 4
             WHISPER_MODELS_DIR: "{{.Values.persistence.models.mountPath }}"
             UPLOAD_DIR: "{{.Values.persistence.uploads.mountPath }}"
-          probes:
-            liveness:
-              enabled: true
-              port: "{{ .Values.service.translate.ports.translate.port }}"
-            readiness:
-              enabled: true
-              port: "{{ .Values.service.translate.ports.translate.port }}"
-            startup:
-              enabled: true
-              port: "{{ .Values.service.translate.ports.translate.port }}"
   translate:
     enabled: true
     type: Deployment
@@ -99,7 +89,20 @@ workload:
       containers:
         translate:
           enabled: true
-          imageSelector: "{{ .Values.whishper.image }}"
+          imageSelector: "{{ .Values.whishper.translate.image }}"
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              port: "{{ .Values.service.translate.ports.translate.port }}"
+            readiness:
+              enabled: true
+              type: http
+              port: "{{ .Values.service.translate.ports.translate.port }}"
+            startup:
+              enabled: true
+              type: tcp
+              port: "{{ .Values.service.translate.ports.translate.port }}"
           env:
             LT_PORT: "{{ .Values.service.translate.ports.translate.port }}"
             LT_DISABLE_WEB_UI: true
