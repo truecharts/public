@@ -14,6 +14,11 @@
         enabled: true
         primary: true
         imageSelector: image
+        resources:
+          limits:
+            "nvidia.com/gpu": "0"
+            "amd.com/gpu": "0"
+            "gpu.intel.com/i915": "0"
         command:
           - /bin/bash
           - -c
