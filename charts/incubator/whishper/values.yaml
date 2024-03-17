@@ -90,6 +90,13 @@ workload:
             startup:
               enabled: true
               port: "{{ .Values.service.translate.ports.translate.port }}"
+  translate:
+    enabled: true
+    type: Deployment
+    strategy: RollingUpdate
+    replicas: 1
+    podSpec:
+      containers:
         translate:
           enabled: true
           imageSelector: "{{ .Values.whishper.image }}"
