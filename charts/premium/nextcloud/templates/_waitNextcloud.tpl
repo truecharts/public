@@ -5,6 +5,11 @@ enabled: true
 type: init
 imageSelector: image
 securityContext:
+resources:
+  limits:
+    "nvidia.com/gpu": "0"
+    "amd.com/gpu": "0"
+    "gpu.intel.com/i915": "0"
 command: /bin/sh
 args:
   - -c
