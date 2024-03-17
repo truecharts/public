@@ -22,6 +22,19 @@ collaboraImage:
   repository: collabora/code
   pullPolicy: IfNotPresent
   tag: 23.05.9.4.1@sha256:18768e665a817a06d17a608bcb0744dd0275e72d805644cad5ad1923f7d623b5
+
+global:
+  excludeContainersFromExtraResources:
+    - clamav
+    - collabora
+    - imaginary
+    - init-perms
+    - nextcloud-cron
+    - nginx
+    - notify
+    - preview-cron
+    - wait-nextcloud
+
 nextcloud:
   # Initial Credentials
   credentials:
@@ -167,11 +180,6 @@ workload:
           enabled: true
           primary: true
           imageSelector: nginxImage
-          resources:
-            limits:
-              "nvidia.com/gpu": "0"
-              "amd.com/gpu": "0"
-              "gpu.intel.com/i915": "0"
           probes:
             readiness:
               enabled: true
@@ -203,11 +211,6 @@ workload:
           envFrom:
             - configMapRef:
                 name: hpb-config
-          resources:
-            limits:
-              "nvidia.com/gpu": "0"
-              "amd.com/gpu": "0"
-              "gpu.intel.com/i915": "0"
           probes:
             readiness:
               enabled: true
@@ -236,11 +239,6 @@ workload:
           primary: true
           enabled: true
           imageSelector: imaginaryImage
-          resources:
-            limits:
-              "nvidia.com/gpu": "0"
-              "amd.com/gpu": "0"
-              "gpu.intel.com/i915": "0"
           command: imaginary
           args:
             - -p
@@ -275,11 +273,6 @@ workload:
           primary: true
           enabled: true
           imageSelector: clamavImage
-          resources:
-            limits:
-              "nvidia.com/gpu": "0"
-              "amd.com/gpu": "0"
-              "gpu.intel.com/i915": "0"
           # FIXME: https://github.com/Cisco-Talos/clamav/issues/478
           securityContext:
             runAsUser: 0
@@ -313,11 +306,6 @@ workload:
           primary: true
           enabled: true
           imageSelector: collaboraImage
-          resources:
-            limits:
-              "nvidia.com/gpu": "0"
-              "amd.com/gpu": "0"
-              "gpu.intel.com/i915": "0"
           securityContext:
             runAsUser: 100
             runAsGroup: 102

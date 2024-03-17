@@ -5,11 +5,6 @@
 enabled: true
 type: install
 imageSelector: alpineImage
-resources:
-  limits:
-    "nvidia.com/gpu": "0"
-    "amd.com/gpu": "0"
-    "gpu.intel.com/i915": "0"
 securityContext:
   runAsUser: 0
   runAsGroup: 0
