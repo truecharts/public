@@ -79,6 +79,7 @@ workload:
           primary: true
           enabled: true
           imageSelector: uiImage
+          probes:
             liveness:
               enabled: true
               type: http
