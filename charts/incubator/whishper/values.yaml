@@ -50,12 +50,9 @@ whishper:
 
 workload:
   main:
-    enabled: true
     podSpec:
       containers:
         main:
-          primary: true
-          enabled: true
           imageSelector: image
           args:
             - /app/whishper
@@ -86,9 +83,12 @@ workload:
   translate:
     enabled: true
     type: Deployment
+    strategy: RollingUpdate
+    replicas: 1
     podSpec:
       containers:
         translate:
+          primary: true
           enabled: true
           imageSelector: "{{ .Values.whishper.translate.image }}"
           probes:
