@@ -81,8 +81,8 @@ workload:
             # cpu | gpu | cuda
             PUBLIC_WHISHPER_PROFILE: cpu
             # CPU_THREADS: 4
-            WHISPER_MODELS_DIR: "{{.Values.persistence.models.mountPath }}"
-            UPLOAD_DIR: "{{.Values.persistence.uploads.mountPath }}"
+            WHISPER_MODELS_DIR: "{{.Values.persistence.models.targetSelector.main.main.mountPath }}"
+            UPLOAD_DIR: "{{.Values.persistence.uploads.targetSelector.main.main.mountPath }}"
   translate:
     enabled: true
     type: Deployment
