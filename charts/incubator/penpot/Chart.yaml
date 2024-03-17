@@ -10,13 +10,13 @@ apiVersion: v2
 appVersion: 1.19.3
 dependencies:
   - name: common
-    version: 17.5.0
+    version: 20.2.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
-  - name: redis
+  - name: 13.0.5
     version: 11.2.1
     repository: oci://tccr.io/truecharts
     condition: redis.enabled

@@ -92,6 +92,7 @@ backend:
     PENPOT_STORAGE_ASSETS_FS_DIRECTORY: {{ .Values.persistence.assets.mountPath }}
     PENPOT_ASSETS_STORAGE_BACKEND: assets-fs
     PENPOT_HTTP_SERVER_HOST: "0.0.0.0"
+    PENPOT_HTTP_SERVER_PORT: {{ .Values.service.backend.ports.backend.porth }}
 
 
 {{- end }}

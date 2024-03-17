@@ -21,9 +21,18 @@ service:
   main:
     ports:
       main:
-        port: 10592
         protocol: http
         targetPort: 80
+        port: 10592
+  backend:
+    enabled: true
+    type: ClusterIP
+    targetSelector: backend
+    ports:
+      backend:
+        enabled: true
+        port: 6060
+        targetSelector: backend
 
 hostAliases:
   - hostnames:
@@ -98,7 +107,7 @@ workload:
         main:
           envFrom:
             - secretRef:
-                name: shared
+                name: penpot-secrets
           env:
             PENPOT_PUBLIC_URI: "{{ .Values.penpot.public_uri | quote }}"
           probes:
@@ -115,9 +124,7 @@ workload:
           imageSelector: exporterImage
           envFrom:
             - secretRef:
-                name: shared
-            - secretRef:
-                name: backend
+                name: penpot-secrets
           env:
             PENPOT_PUBLIC_URI: "http://penpot-frontend:{{ .Values.service.main.ports.main.targetPort }}"
             PENPOT_REDIS_URI:
@@ -138,9 +145,7 @@ workload:
           imageSelector: backendImage
           envFrom:
             - secretRef:
-                name: shared
-            - secretRef:
-                name: backend
+                name: penpot-secrets
           env:
             PENPOT_DATABASE_URI:
               secretKeyRef:
@@ -152,13 +157,13 @@ workload:
                 key: url
           probes:
             liveness:
-              port: 6060
+              port: "{{ .Values.service.backend.ports.backend.port }}"
               type: tcp
             readiness:
-              port: 6060
+              port: "{{ .Values.service.backend.ports.backend.port }}"
               type: tcp
             startup:
-              port: 6060
+              port: "{{ .Values.service.backend.ports.backend.port }}"
               type: tcp
 
 persistence:
