@@ -91,6 +91,9 @@ theme: light
 ##
 ## Parameters used for TOTP generation
 totp:
+  ## Enabled yes/no
+  ## Defaults to true.
+  enabled: true
   ## The issuer name displayed in the Authenticator application of your choice
   ## See: https://github.com/google/google-authenticator/wiki/Key-Uri-Format for more info on issuer names
   ## Defaults to <domain>.
