@@ -76,14 +76,14 @@ workload:
                   else
                     echo "Install script doesnt exists, no further action is needed."
                   fi
-  ranksystem-cron:
+  ranksystemcron:
     enabled: true
     type: CronJob
     schedule: "{{ .Values.ranksystem.cron_schedule }}"
     podSpec:
       restartPolicy: OnFailure
       containers:
-        ranksystem-cron:
+        ranksystemcron:
           primary: true
           enabled: true
           imageSelector: "image"
