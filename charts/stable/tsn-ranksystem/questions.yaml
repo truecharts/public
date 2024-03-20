@@ -13,6 +13,26 @@ questions:
 # Include{containerAdvanced}
 # Include{containerConfig}
 # Include{podOptions}
+  - variable: ranksystem
+    group: App Configuration
+    label: TSN Ranksystem Config
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: cron_enabled
+          label: "Enable cronjob"
+          schema:
+            type: boolean
+            default: true
+            show_subquestions_if: true
+            subquestions:
+              - variable: cron_schedule
+                label: Schedule
+                description: How often to run the task.
+                schema:
+                  type: string
+                  default: "*/5 * * * *"
 # Include{serviceRoot}
 # Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
