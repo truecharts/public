@@ -7,6 +7,10 @@ securityContext:
   container:
     readOnlyRootFilesystem: false
 
+ranksystem:
+  cron_enabled: true
+  cron_schedule: "*/5 * * * *"
+
 workload:
   main:
     podSpec:
@@ -72,6 +76,30 @@ workload:
                   else
                     echo "Install script doesnt exists, no further action is needed."
                   fi
+  ranksystemcron:
+    enabled: true
+    type: CronJob
+    schedule: "{{ .Values.ranksystem.cron_schedule }}"
+    podSpec:
+      restartPolicy: OnFailure
+      containers:
+        ranksystemcron:
+          primary: true
+          enabled: true
+          imageSelector: "image"
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+          command:
+            - /bin/sh
+            - -c
+            - |
+              php /var/www/html/worker.php check
+
 service:
   main:
     ports:
@@ -86,6 +114,9 @@ persistence:
         main:
           mountPath: /var/www/html
         download-ranksystem:
+          mountPath: /var/www/html
+      ranksystem-cron:
+        ranksystem-cron:
           mountPath: /var/www/html
 mariadb:
   enabled: true
