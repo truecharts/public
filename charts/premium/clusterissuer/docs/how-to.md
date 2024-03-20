@@ -60,7 +60,7 @@ The recommended `API Token` permissions are below:
 
 ![clusterissuer edit dialog](./img/clusterissuer-appconfig.png)
 
-More detail can be found on the upstream [Cert-Manager](https://cert-manager.io/) documentaition for [Cloudflare](https://cert-manager.io/docs/configuration/acme/dns01/cloudflare/).
+More detail can be found on the upstream [Cert-Manager](https://cert-manager.io/) documentation for [Cloudflare](https://cert-manager.io/docs/configuration/acme/dns01/cloudflare/).
 
 ### Route 53 DNS Provider
 
