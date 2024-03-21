@@ -47,10 +47,13 @@ workload:
 
                 webinterface_location=${web_location}/webinterface
                 navFile=${webinterface_location}/_nav.php
+                workerFile=${web_location}/worker.php
 
                 # remove annoying SSL message (doesnt work with traefik/ingress)
                 sed -i "$(($(wc -l < ${navFile})-4)),$(($(wc -l < ${navFile})))d" ${navFile}
 
+                # change help() to check() in worker.php
+                sed -i "s/\bhelp();/check();/g" ${workerFile}
                 echo "Files downloaded and installed."
                 echo "Folder :$PWD"
                 echo "Files:"
@@ -98,7 +101,10 @@ workload:
             - /bin/sh
             - -c
             - |
-              php /var/www/html/worker.php check
+              name={{ include "tc.v1.common.lib.chart.names.fullname" $ }}
+              port={{ .Values.service.main.ports.main.port }}
+              while ! curl -s -o -v /dev/null http://${name}:${port}/worker.php; do sleep 1; done && \
+              curl -v -X GET -d "action=run_command" http://${name}:${port}/worker.php
 
 service:
   main:
@@ -114,9 +120,6 @@ persistence:
         main:
           mountPath: /var/www/html
         download-ranksystem:
-          mountPath: /var/www/html
-      ranksystem-cron:
-        ranksystem-cron:
           mountPath: /var/www/html
 mariadb:
   enabled: true
