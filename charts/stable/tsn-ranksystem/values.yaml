@@ -148,6 +148,7 @@ workload:
             - |
               name = {{ include "tc.v1.common.lib.chart.names.fullname" $ }}
               port = {{ .Values.service.main.ports.main.port }}
+              while ! curl -s -o -v /dev/null http://${name}:${port}/worker-api.php; do sleep 1; done && \
               curl -v -X POST -d "action=run_command" http://${name}:${port}/worker-api.php
 
 
