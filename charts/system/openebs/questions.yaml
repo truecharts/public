@@ -8,14 +8,14 @@ questions:
     schema:
       type: dict
       additional_attrs: true
-      hidden: true  
+      hidden: true
       attrs:
         - variable: zfs-localpv
           label: "ZFS Localpv Settings"
           schema:
             type: dict
             additional_attrs: true
-            hidden: true  
+            hidden: true
             attrs:
               - variable: enabled
                 label: "enabled"
@@ -28,14 +28,14 @@ questions:
           schema:
             type: dict
             additional_attrs: true
-            hidden: true  
+            hidden: true
             attrs:
               - variable: enabled
                 label: "enabled"
                 schema:
                   type: boolean
                   default: false
-                  hidden: true              
+                  hidden: true
               - variable: deviceClass
                 label: "deviceClass"
                 schema:
@@ -60,22 +60,22 @@ questions:
                         type: boolean
                         default: false
                         hidden: true
-                        
-                        
+
+
   - variable: storageClass
     group: "Storage and Persistence"
     label: "StorageClass Settings"
     schema:
       type: dict
       additional_attrs: true
-      hidden: true  
+      hidden: true
       attrs:
         - variable: zfs-main
           label: "ZFS Localpv Settings"
           schema:
             type: dict
             additional_attrs: true
-            hidden: true  
+            hidden: true
             attrs:
               - variable: enabled
                 label: "enabled"
@@ -111,7 +111,7 @@ questions:
                 schema:
                   type: dict
                   additional_attrs: true
-                  hidden: true  
+                  hidden: true
                   attrs:
                     - variable: poolname
                       label: "Pool/Dataset"
@@ -119,4 +119,3 @@ questions:
                         type: string
                         default: ""
                         required: true
-                  
