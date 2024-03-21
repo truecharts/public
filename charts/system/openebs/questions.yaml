@@ -68,14 +68,12 @@ questions:
     schema:
       type: dict
       additional_attrs: true
-      hidden: true
       attrs:
         - variable: zfs-main
           label: "ZFS Localpv Settings"
           schema:
             type: dict
             additional_attrs: true
-            hidden: true
             attrs:
               - variable: enabled
                 label: "enabled"
@@ -111,7 +109,6 @@ questions:
                 schema:
                   type: dict
                   additional_attrs: true
-                  hidden: true
                   attrs:
                     - variable: poolname
                       label: "Pool/Dataset"
