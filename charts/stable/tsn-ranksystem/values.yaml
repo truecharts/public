@@ -7,54 +7,6 @@ securityContext:
   container:
     readOnlyRootFilesystem: false
 
-
-configmap:
-  worker-api:
-    enabled: true
-    data:
-      worker-api.php: |
-        <?php
-
-        // Check if the request method is GET or POST and 'action' parameter is set
-        if ((isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['action'])) ||
-            (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']))) {
-
-            // Determine the request method and retrieve the 'action' parameter
-            $action = '';
-            if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-                $action = $_GET['action'];
-            } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $action = $_POST['action'];
-            }
-
-            // Validate action parameter
-            if ($action === 'run_command') {
-                // Execute the command
-                $command = 'php /var/www/html/worker.php check';
-                $output = [];
-                $return_var = 0;
-                exec($command, $output, $return_var);
-
-                // Check if the command executed successfully
-                if ($return_var === 0) {
-                    echo "Command executed successfully.\n";
-                    // Output any result if needed
-                    foreach ($output as $line) {
-                        echo $line . "\n";
-                    }
-                } else {
-                    echo "Error executing the command.\n";
-                }
-            } else {
-                echo "Invalid action.";
-            }
-        } else {
-            echo "Invalid request.";
-        }
-
-        ?>
-
-
 ranksystem:
   cron_enabled: true
   cron_schedule: "*/5 * * * *"
@@ -95,9 +47,14 @@ workload:
 
                 webinterface_location=${web_location}/webinterface
                 navFile=${webinterface_location}/_nav.php
+                workerFile=${web_location}/worker.php
 
                 # remove annoying SSL message (doesnt work with traefik/ingress)
                 sed -i "$(($(wc -l < ${navFile})-4)),$(($(wc -l < ${navFile})))d" ${navFile}
+
+                # change help() to check() in worker.php
+                sed -i 's/\bhelp();/check();/g' ${workerFile}
+
 
                 echo "Files downloaded and installed."
                 echo "Folder :$PWD"
@@ -146,11 +103,10 @@ workload:
             - /bin/sh
             - -c
             - |
-              name = {{ include "tc.v1.common.lib.chart.names.fullname" $ }}
-              port = {{ .Values.service.main.ports.main.port }}
-              while ! curl -s -o -v /dev/null http://${name}:${port}/worker-api.php; do sleep 1; done && \
-              curl -v -X POST -d "action=run_command" http://${name}:${port}/worker-api.php
-
+              name={{ include "tc.v1.common.lib.chart.names.fullname" $ }}
+              port={{ .Values.service.main.ports.main.port }}
+              while ! curl -s -o -v /dev/null http://${name}:${port}/worker.php; do sleep 1; done && \
+              curl -v -X GET -d "action=run_command" http://${name}:${port}/worker.php
 
 service:
   main:
@@ -158,14 +114,8 @@ service:
       main:
         targetPort: 80
         port: 9300
+
 persistence:
-  worker-api:
-    enabled: true
-    objectName: worker-api
-    type: configmap
-    defaultMode: "0755"
-    mountPath: /var/www/html/worker-api.php
-    subPath: worker-api.php
   web:
     enabled: true
     targetSelector:
@@ -184,3 +134,4 @@ mariadb:
 portal:
   open:
     enabled: true
+
