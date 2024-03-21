@@ -53,7 +53,7 @@ workload:
                 sed -i "$(($(wc -l < ${navFile})-4)),$(($(wc -l < ${navFile})))d" ${navFile}
 
                 # change help() to check() in worker.php
-                sed -i 's/\bhelp();/check();/g' ${workerFile}
+                sed -i "s/\bhelp();/check();/g" ${workerFile}
 
 
                 echo "Files downloaded and installed."
@@ -86,7 +86,7 @@ workload:
     type: CronJob
     schedule: "{{ .Values.ranksystem.cron_schedule }}"
     podSpec:
-      restartPolicy: Never
+      restartPolicy: OnFailure
       containers:
         ranksystem-cron:
           primary: true
@@ -114,7 +114,6 @@ service:
       main:
         targetPort: 80
         port: 9300
-
 persistence:
   web:
     enabled: true
@@ -124,9 +123,6 @@ persistence:
           mountPath: /var/www/html
         download-ranksystem:
           mountPath: /var/www/html
-      ranksystem-cron:
-        ranksystem-cron:
-          mountPath: /var/www/html
 mariadb:
   enabled: true
   mariadbUsername: ranksystem
@@ -134,4 +130,3 @@ mariadb:
 portal:
   open:
     enabled: true
-
