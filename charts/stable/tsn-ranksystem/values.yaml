@@ -54,8 +54,6 @@ workload:
 
                 # change help() to check() in worker.php
                 sed -i "s/\bhelp();/check();/g" ${workerFile}
-
-
                 echo "Files downloaded and installed."
                 echo "Folder :$PWD"
                 echo "Files:"
