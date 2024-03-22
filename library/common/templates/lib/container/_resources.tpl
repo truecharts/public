@@ -14,8 +14,21 @@ objectData: The object data to be used to render the container.
     {{- $resources = mustMergeOverwrite $resources $objectData.resources -}}
   {{- end -}}
 
-  {{- include "tc.v1.common.lib.container.resources.validation" (dict "resources" $resources) -}}
+  {{/* We use the objectData instead of $resources,
+    as we only allow this flag on the container level */}}
+  {{- if not (hasKey $objectData "resources") -}}
+    {{- $_ := set $objectData "resources" dict -}}
+  {{- end -}}
+  {{- if not (hasKey $objectData.resources "excludeExtra") -}}
+    {{- $_ := set $objectData.resources "excludeExtra" false -}}
+  {{- end -}}
 
+  {{- $excludeContainersFromExtraResources := (list
+      "cnpg-wait" "solr-wait" "clickhouse-wait"
+      "mongodb-wait" "redis-wait" "mariadb-wait"
+  ) -}}
+
+  {{- include "tc.v1.common.lib.container.resources.validation" (dict "resources" $resources) }}
 requests:
   cpu: {{ $resources.requests.cpu }}
   memory: {{ $resources.requests.memory }}
@@ -27,8 +40,10 @@ limits:
     {{- with $resources.limits.memory }} {{/* Passing 0, will not render it, meaning unlimited */}}
   memory: {{ . }}
     {{- end -}}
-    {{- range $k, $v := (omit $resources.limits "cpu" "memory") }} {{/* Omit cpu and memory, as they are handled above */}}
+    {{- if and (not $objectData.resources.excludeExtra) (not (mustHas $objectData.shortName $excludeContainersFromExtraResources)) -}}
+      {{- range $k, $v := (omit $resources.limits "cpu" "memory") }} {{/* Omit cpu and memory, as they are handled above */}}
   {{ $k }}: {{ $v }}
+      {{- end -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}

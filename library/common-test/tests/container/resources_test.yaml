@@ -396,6 +396,77 @@ tests:
                 cpu: 10m
                 memory: 1Gi
 
+  - it: should not add extra resources on "wait" containers and on excluded containers
+    set:
+      image: *image
+      redis:
+        enabled: true
+      resources:
+        limits:
+          "nvidia.com/gpu": "1"
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+              my-container:
+                enabled: true
+                imageSelector: image
+                probes: *probes
+                resources:
+                  excludeExtra: true
+    asserts:
+      - documentIndex: &deploymentDoc 1
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            name: test-release-name-common-test
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+                nvidia.com/gpu: 1
+              requests:
+                cpu: 10m
+                memory: 50Mi
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.containers[1]
+          content:
+            name: test-release-name-common-test-my-container
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+              requests:
+                cpu: 10m
+                memory: 50Mi
+      - documentIndex: *deploymentDoc
+        isSubset:
+          path: spec.template.spec.initContainers[0]
+          content:
+            name: test-release-name-common-test-system-redis-wait
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+              requests:
+                cpu: 10m
+                memory: 50Mi
+
   # Failures
   - it: should fail with empty requests
     set:

@@ -587,20 +587,20 @@ ingress:
     #   main: main
     ## Configure the hosts for the ingress
     hosts: []
-      # -  # -- Host address. Helm template can be passed.
-      #   host: chart-example.local
-      #   ## Configure the paths for the host
-      #   paths:
-      #     -  # -- Path.  Helm template can be passed.
-      #       path: /
-      #       # -- Ignored if not kubeVersion >= 1.14-0
-      #       pathType: Prefix
-      #       # -- Overrides the service reference for this path, by default the selector is honored
-      #       overrideService:
-      #         # -- Overrides the service name reference for this path
-      #         name:
-      #         # -- Overrides the service port reference for this path
-      #         port:
+    #   - # -- Host address. Helm template can be passed.
+    #     host: chart-example.local
+    #     ## Configure the paths for the host
+    #     paths:
+    #       - # -- Path.  Helm template can be passed.
+    #         path: /
+    #         # -- Ignored if not kubeVersion >= 1.14-0
+    #         pathType: Prefix
+    #         # -- Overrides the service reference for this path, by default the selector is honored
+    #         overrideService:
+    #           # -- Overrides the service name reference for this path
+    #           name:
+    #           # -- Overrides the service port reference for this path
+    #           port:
     # -- Configure TLS for the ingress. Both secretName and hosts can process a Helm template.
     # Gets ignored when clusterIssuer is filled
     tls: []
@@ -628,10 +628,10 @@ ingress:
         #     # "lookup" the namespace based on the name
         #     namespace: ""
         middlewares: []
-          # - name: my-middleware
-          #   # Optional, by default will try to
-          #   # "lookup" the namespace based on the name
-          #   namespace: ""
+        #   - name: my-middleware
+        #     # Optional, by default will try to
+        #     # "lookup" the namespace based on the name
+        #     namespace: ""
       homepage:
         enabled: false
         # Default: chart name
@@ -654,15 +654,15 @@ ingress:
             #   value: some value
 
 certificate: {}
-  # main:
-  #   enabled: false
-  #   certificateIssuer: someissuer
-  #   hosts:
-  #     - somehost
-  #   # Optional
-  #   certificateSecretTemplate:
-  #     labels: {}
-  #     annotations: {}
+#   main:
+#     enabled: false
+#     certificateIssuer: someissuer
+#     hosts:
+#       - somehost
+#     # Optional
+#     certificateSecretTemplate:
+#       labels: {}
+#       annotations: {}
 
 # -- BETA: Configure the gateway routes for the chart here.
 # Additional routes can be added by adding a dictionary key similar to the 'main' route.
@@ -683,7 +683,7 @@ route:
     labels: {}
     # -- Configure the resource the route attaches to.
     parentRefs:
-      -  # Group of the referent resource.
+      - # Group of the referent resource.
         group: gateway.networking.k8s.io
         # Kind of the referent resource.
         kind: Gateway
@@ -881,11 +881,11 @@ metrics:
     prometheusRule:
       enabled: false
       groups: {}
-        # somegroup:
-        #   # list of rules
-        #   rules: []
-        #   # list to support adding rules via the SCALE GUI without overwrithing the rules
-        #   additionalrules: []
+      #   somegroup:
+      #     # list of rules
+      #     rules: []
+      #     # list to support adding rules via the SCALE GUI without overwrithing the rules
+      #     additionalrules: []
       # List to support adding groups using the SCALE GUI
       additionalgroups:
         #-  name: "somegroup"
@@ -961,13 +961,13 @@ addons:
     # -- All variables specified here will be added to the vpn sidecar container
     # See the documentation of the VPN image for all config values
     env: {}
-      # TZ: UTC
+    #  TZ: UTC
 
     # -- All variables specified here will be added to the vpn sidecar container
     # See the documentation of the VPN image for all config values
     envList: []
-      # - name: someenv
-      #  value: somevalue
+    #  - name: someenv
+    #   value: somevalue
 
     # -- you can directly specify the config file here
     config: ""
@@ -1014,8 +1014,8 @@ addons:
     # -- All variables specified here will be added to the codeserver sidecar container
     # See the documentation of the codeserver image for all config values
     envList: []
-      # - name: someenv
-      #  value: somevalue
+    #   - name: someenv
+    #    value: somevalue
     # -- Set codeserver command line arguments.
     # Consider setting --user-data-dir to a persistent location to preserve code-server setting changes
     args:
@@ -1045,7 +1045,7 @@ addons:
       # -- Enable an ingress for the code-server add-on.
       enabled: false
       annotations: {}
-        # kubernetes.io/ingress.class: nginx
+      #   kubernetes.io/ingress.class: nginx
       labels: {}
       hosts:
         - host: code.chart-example.local
@@ -1158,26 +1158,26 @@ cnpg:
       # See: https://cloudnative-pg.io/documentation/current/bootstrap/
       # See: https://cloudnative-pg.io/documentation/current/api_reference/#bootstrapinitdb
       initdb: {}
-        # postInitSQL:
-        #   - CREATE EXTENSION IF NOT EXISTS vector;
-        # postInitApplicationSQL:
-        #   - CREATE EXTENSION IF NOT EXISTS someextension;
+      #   postInitSQL:
+      #     - CREATE EXTENSION IF NOT EXISTS vector;
+      #   postInitApplicationSQL:
+      #     - CREATE EXTENSION IF NOT EXISTS someextension;
     # -- set to enable prometheus metrics
     monitoring:
       enablePodMonitor: true
       disableDefaultQueries: false
       customQueries: []
-        # - name: "pg_cache_hit_ratio"
-        #   expandObjectName: true
-        #   key: "custom-key" (defaults to "custom-queries")
-        #   query: "SELECT current_database() as datname, sum(heap_blks_hit) / (sum(heap_blks_hit) + sum(heap_blks_read)) as ratio FROM pg_statio_user_tables;"
-        #   metrics:
-        #     - datname:
-        #         usage: "LABEL"
-        #         description: "Name of the database database"
-        #     - ratio:
-        #         usage: GAUGE
-        #         description: "Cache hit ratio"
+      #   - name: "pg_cache_hit_ratio"
+      #     expandObjectName: true
+      #     key: "custom-key" (defaults to "custom-queries")
+      #     query: "SELECT current_database() as datname, sum(heap_blks_hit) / (sum(heap_blks_hit) + sum(heap_blks_read)) as ratio FROM pg_statio_user_tables;"
+      #     metrics:
+      #       - datname:
+      #           usage: "LABEL"
+      #           description: "Name of the database database"
+      #       - ratio:
+      #           usage: GAUGE
+      #           description: "Cache hit ratio"
     # Recovery settings if the chosen mode is `recovery`.
     recovery:
       ##
@@ -1287,12 +1287,12 @@ cnpg:
 
       # - Manual list of backups
       manualBackups: []
-        # - name: today
-        #   labels: {}
-        #   annotations: {}
-        # - name: beforeUpgrade
-        #   labels: {}
-        #   annotations: {}
+      #   - name: today
+      #     labels: {}
+      #     annotations: {}
+      #   - name: beforeUpgrade
+      #     labels: {}
+      #     annotations: {}
 
     # Database cluster PgBouncer configuration
     pooler:
