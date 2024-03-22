@@ -221,6 +221,8 @@ blocking:
   blackLists:
     default:
       - https://big.oisd.nl/domainswild
+      - https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+      - https://mirror1.malwaredomains.com/files/justdomains
 {{- range $id, $value := .Values.blocking.blacklist }}
     {{ $value.name }}:
 {{- $value.lists | toYaml | nindent 10 }}
