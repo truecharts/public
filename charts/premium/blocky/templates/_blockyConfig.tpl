@@ -206,20 +206,24 @@ blocking:
   downloadCooldown: {{ .Values.blocking.downloadCooldown }}
   startStrategy: {{ .Values.blocking.startStrategy }}
   processingConcurrency: {{ .Values.blocking.processingConcurrency }}
-{{- if .Values.blocking.whitelist }}
+
   whiteLists:
+    default:
+      - https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/optional-list.txt
+      - https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/whitelist.txt
+      - https://raw.githubusercontent.com/rahilpathan/pihole-whitelist/main/1.LowWL.txt
 {{- range $id, $value := .Values.blocking.whitelist }}
     {{ $value.name }}:
 {{- $value.lists | toYaml | nindent 10 }}
 {{- end }}
-{{- end }}
 
-{{- if .Values.blocking.blacklist }}
+
   blackLists:
+    default:
+      - https://big.oisd.nl/domainswild
 {{- range $id, $value := .Values.blocking.blacklist }}
     {{ $value.name }}:
 {{- $value.lists | toYaml | nindent 10 }}
-{{- end }}
 {{- end }}
 
 {{- if .Values.blocking.clientGroupsBlock }}
