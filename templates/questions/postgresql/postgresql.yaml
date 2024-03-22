@@ -125,9 +125,10 @@
                         type: string
                         default: ""
                     - variable: revision
-                      label: "serverName"
+                      label: "revision"
                       schema:
-                        type: int
+                        type: string
+                        default: ""
                     - variable: endpointURL
                       label: "endpointURL"
                       schema:
