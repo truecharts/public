@@ -43,6 +43,8 @@ upstream:
 {{- $value.dnsservers | toYaml | nindent 8 }}
 {{- end }}
 
+upstreamTimeout: {{ .Values.upstreamTimeout | default "1s" }}
+
 ports:
   {{- if .Values.service.dns.enabled }}
   dns: {{ .Values.service.dns.ports.dns.targetPort }}
