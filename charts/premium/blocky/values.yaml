@@ -196,18 +196,22 @@ blocking:
   # -- Sets how many list-groups can be processed at the same time
   processingConcurrency: 8
   # --  Add blocky whitelists
-  whitelist:
-   - name: default
-     lists:
-      - https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/optional-list.txt
-      - https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/whitelist.txt
-      - https://raw.githubusercontent.com/rahilpathan/pihole-whitelist/main/1.LowWL.txt
+  # `default` name is reservered for TrueCharts included default whitelist
+  # example shows the structure, though name should be changed when used
+  whitelist: []
+   # - name: default
+   #  lists:
+   #   - https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/optional-list.txt
+   #   - https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/whitelist.txt
+   #   - https://raw.githubusercontent.com/rahilpathan/pihole-whitelist/main/1.LowWL.txt
 
   # -- Blocky blacklists
-  blacklist:
-   - name: default
-     lists:
-      - https://big.oisd.nl/domainswild
+  # `default` name is reservered for TrueCharts included default blacklist
+  # example shows the structure, though name should be changed when used
+  blacklist: []
+   # - name: default
+   #  lists:
+   #   - https://big.oisd.nl/domainswild
 
   # -- Blocky clientGroupsBlock
   clientGroupsBlock:
