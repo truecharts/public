@@ -25,6 +25,7 @@ service:
       vpn:
         enabled: true
         protocol: udp
+        targetPort: 51820
         port: 51820
 workload:
   main:
