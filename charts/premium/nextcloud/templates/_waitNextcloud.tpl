@@ -4,6 +4,8 @@
 enabled: true
 type: init
 imageSelector: image
+resources:
+  excludeExtra: true
 securityContext:
 command: /bin/sh
 args:
