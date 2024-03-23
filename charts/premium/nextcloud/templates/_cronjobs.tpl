@@ -14,6 +14,8 @@
         enabled: true
         primary: true
         imageSelector: image
+        resources:
+          excludeExtra: true
         command:
           - /bin/bash
           - -c

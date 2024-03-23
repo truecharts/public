@@ -22,6 +22,7 @@ collaboraImage:
   repository: collabora/code
   pullPolicy: IfNotPresent
   tag: 23.05.9.4.1@sha256:18768e665a817a06d17a608bcb0744dd0275e72d805644cad5ad1923f7d623b5
+
 nextcloud:
   # Initial Credentials
   credentials:
@@ -167,6 +168,8 @@ workload:
           enabled: true
           primary: true
           imageSelector: nginxImage
+          resources:
+            excludeExtra: true
           probes:
             readiness:
               enabled: true
@@ -195,6 +198,8 @@ workload:
           primary: true
           enabled: true
           imageSelector: hpbImage
+          resources:
+            excludeExtra: true
           envFrom:
             - configMapRef:
                 name: hpb-config
@@ -226,6 +231,8 @@ workload:
           primary: true
           enabled: true
           imageSelector: imaginaryImage
+          resources:
+            excludeExtra: true
           command: imaginary
           args:
             - -p
@@ -260,6 +267,8 @@ workload:
           primary: true
           enabled: true
           imageSelector: clamavImage
+          resources:
+            excludeExtra: true
           # FIXME: https://github.com/Cisco-Talos/clamav/issues/478
           securityContext:
             runAsUser: 0
@@ -293,6 +302,8 @@ workload:
           primary: true
           enabled: true
           imageSelector: collaboraImage
+          resources:
+            excludeExtra: true
           securityContext:
             runAsUser: 100
             runAsGroup: 102

@@ -2,6 +2,8 @@
 enabled: true
 primary: true
 imageSelector: image
+resources:
+  excludeExtra: true
 command: /bin/sh
 args:
   - -c

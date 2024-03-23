@@ -2,7 +2,7 @@
 title: Authelia + LLDAP + Traefik ForwardAuth Setup guide
 ---
 
-This quick guide should take you through the steps necessary to setup `Authelia` as your `forwardAuth` for `Traefik`. We'll be using `LLDAP` as the backend for `Authelia` since it's lightweight and simple enough for most users. A more complete video is available on our YouTube Channel
+This quick guide should take you through the steps necessary to setup `Authelia` as your `forwardAuth` for `Traefik`. We'll be using `LLDAP` as the backend for `Authelia` since it's lightweight and simple enough for most users. A more complete video is available on our YouTube Channel.
 
 ## Prerequisites
 
@@ -18,28 +18,28 @@ LLDAP is a `Stable` train chart and therefore isn't supported at the same level 
 
 :::
 
-- Follow the steps included in the [Installation Notes](https://truecharts.org/charts/stable/lldap/installation-notes) for [LLDAP](https://truecharts.org/charts/stable/lldap/). Pretty straightforward. Change `dc=example,dc=com` to your domain, i.e. `dc=MYDOMAIN,dc=net` and then change your password. Also make sure you have the `system` train enabled and `CloudnativePG` operator installed, since you'll need it for `LLDAP` and `Authelia`
+- Follow the easy steps included in the [Installation Notes](https://truecharts.org/charts/stable/lldap/installation-notes) for [LLDAP](https://truecharts.org/charts/stable/lldap/). Change `dc=example,dc=com` to your domain, i.e. `dc=MYDOMAIN,dc=net` and then change your password. Also, make sure you have the `system` train enabled and `CloudnativePG` operator installed, since you'll need it for `LLDAP` and `Authelia`.
 
 ![LLDAP Config](./img/LLDAPCatalogConfig.png)
 
-- I've set the services to `ClusterIP` since I'll be using ingress
+- Ensure you've set the services to `ClusterIP` since you'll be using ingress
 
-- Once in `LLDAP`, create a user inside the `lldap_password_manager` group and change your default `admin` password. That `lldap_password_manager` user will be used to bind to `Authelia`. I've created a user called `Steven`
+- Once in `LLDAP`, create a user inside the `lldap_password_manager` group and change your default `admin` password. That `lldap_password_manager` user will be used to bind to `Authelia`. Here I've created a user called `Steven`, but you can use anything
 
 - Create an `admin` group and add `Steven` to it. We will allow users of this group to access the site with Authelia later in the guide.
 
 ## Setup Authelia
 
-- The setup for Authelia is very specific, and the logs won't tell you where you've messed up, but there's precise steps used to integrate `LLDAP` into `Authelia`. The info comes from the [LLDAP Authelia Docs](https://truecharts.org/charts/stable/lldap/authelia) and the upstream repo.
+- The setup for Authelia is very specific and the logs won't tell you where you've messed up, but there's precise steps used to integrate `LLDAP` into `Authelia`. The info comes from the [LLDAP Authelia Docs](https://truecharts.org/charts/stable/lldap/authelia) and the upstream repo.
 
 ### App Configuration
 
 - Domain: `mydomain.com` - Your domain without https://
-- Default Redirection URL: `https://auth.mydomain.com` - Can be anything, but we'll stick to auth.mydomain.com. As well, this will be the ingress URL for `Authelia`
+- Default Redirection URL: `https://auth.mydomain.com` - Can be anything, but we'll stick to auth.mydomain.com. As well, this will be the ingress URL for `Authelia`.
 
 ### LDAP Backend Configuration
 
-`Click Enable` then ensure everything is as below or you won't be able to connect to the LLDAP backend
+Click `Enable` then ensure everything is as below or you won't be able to connect to the LLDAP backend:
 
 - Implementation: `Custom` (that's the default)
 - URL: `ldap://lldap-ldap.ix-lldap.svc.cluster.local:3890`
@@ -63,18 +63,18 @@ LLDAP is a `Stable` train chart and therefore isn't supported at the same level 
 
 #### SMTP Configuration
 
-Check your mail provider for this, generally Gmail gives you an app specific password for your email account and uses `smtp.gmail.com` and port `587`
+Check your mail provider for this, generally Gmail gives you an app specific password for your email account and uses `smtp.gmail.com` and port `587`.
 
 ### Access Control Configuration
 
-- This section is to set rules to connect to `Authelia` and which users can go where. This is a basic general rule where users of the `admin` group (Steven) can access all the site using a wildcard.
+This section is to set rules to connect to `Authelia` and defines which users can go where. This is a basic general rule where users of the `admin` group (Steven) can access all of the site using a wildcard.
 
 Set the default `deny`. Then click `Add` next to `Rules` to get the screen below.
 
 ![AutheliaAccessControl](./img/AutheliaAccessControl.png)
 
-- Add your `Domain` and a `Wildcard` for your subdomains.
-- Set policy to `one_factor` or `two_factor`, up to you.
+- Add your `Domain` and a `Wildcard` for your subdomains
+- Set policy to `one_factor` or `two_factor`, up to you
 - Click `Add Subject` and add a subject of `group:admin` since `Steven` is part of that group.
 
 Please see [Authelia Rules](./authelia-rules) for more advanced rules.
@@ -94,7 +94,7 @@ Please see [Authelia Rules](./authelia-rules) for more advanced rules.
 ![TraefikForwardAuth](./img/TraefikForwardAuth.png)
 
 - Name your `forwardauth` something you'll remember, since that's the middleware you'll add to your ingress going forward. Most people use `auth`
-- Address: `http://authelia.ix-authelia.svc.cluster.local:9091/api/verify?rd=https://auth.mydomain.com/` and replace the last part based on `mydomain.com`, and if you've changed ports/names you can get that from `Heavyscript`
+- Address: `http://authelia.ix-authelia.svc.cluster.local:9091/api/verify?rd=https://auth.mydomain.com/` and replace the last part based on `mydomain.com`, and if you've changed ports/names you can get that from [`HeavyScript`](https://truecharts.org/manual/SCALE/guides/getting-started/#heavyscript)
 - Check `trustForwardHeader`
 - Add the following `authResponseHeaders` (press `Add` 4 times)
   - `Remote-User`

@@ -18,13 +18,6 @@
   {{- $_ := set .Values.service.machinelearning "enabled" false -}}
 {{- end -}}
 
-{{/* Set targetselector for GPU to microservices */}}
-{{- range $gpuEntry := .Values.scaleGPU }}
-  {{- if $gpuEntry.gpu -}}
-    {{- $_ := set $gpuEntry "targetSelector" (dict "microservices" (list "microservices")) -}}
-  {{- end -}}
-{{- end -}}
-
 {{/* Render configuration for immich
     after services, as it has references
 */}}

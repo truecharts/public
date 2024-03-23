@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.15.0
+appVersion: 0.15.1
 dependencies:
   - name: common
     version: 20.2.2
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/truenas-exporter
   - https://hub.docker.com/r/prom/graphite-exporter
 type: application
-version: 1.6.1
+version: 1.6.2
