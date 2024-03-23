@@ -3,15 +3,15 @@ portals:
   open:
 # Include{portalLink}
 questions:
-# Include{global}
-# Include{workload}
-# Include{workloadDeployment}
+  # Include{global}
+  # Include{workload}
+  # Include{workloadDeployment}
 
-# Include{replicas1}
-# Include{podSpec}
-# Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
+  # Include{replicas1}
+  # Include{podSpec}
+  # Include{containerMain}
+  # Include{containerBasic}
+  # Include{containerAdvanced}
 
   - variable: immich
     group: App Configuration
@@ -20,12 +20,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: public_login_page_message
-          label: Public Login Page Message
-          description: Custom message on the login page, should be written in HTML form.
-          schema:
-            type: string
-            default: ""
         - variable: log_level
           label: Log Level
           schema:
@@ -56,9 +50,9 @@ questions:
             type: boolean
             default: true
 
-# Include{containerConfig}
-# Include{podOptions}
-# Include{serviceRoot}
+        # Include{containerConfig}
+        # Include{podOptions}
+        # Include{serviceRoot}
         - variable: main
           label: Main Service
           description: The Primary service on which the healthcheck runs, often the webUI
@@ -66,25 +60,25 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelectorLoadBalancer}
-# Include{serviceSelectorExtras}
-                    - variable: main
-                      label: Main Service Port Configuration
+              # Include{serviceSelectorLoadBalancer}
+              # Include{serviceSelectorExtras}
+              - variable: main
+                label: Main Service Port Configuration
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: port
+                      label: Port
+                      description: This port exposes the container port on the service
                       schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: Port
-                            description: This port exposes the container port on the service
-                            schema:
-                              type: int
-                              default: 10323
-                              required: true
-# Include{serviceExpertRoot}
-# Include{serviceExpert}
-# Include{serviceList}
-# Include{persistenceRoot}
+                        type: int
+                        default: 10323
+                        required: true
+        # Include{serviceExpertRoot}
+        # Include{serviceExpert}
+        # Include{serviceList}
+        # Include{persistenceRoot}
         - variable: library
           label: App Library Storage
           description: Stores the Application Uploads.
@@ -92,7 +86,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{persistenceBasic}
+        # Include{persistenceBasic}
         - variable: uploads
           label: App Uploads Storage
           description: Temporary location for WebUI and mobile app uploads for images/videos that still need to be processed and eventually imported into the library storage.
@@ -100,7 +94,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{persistenceBasic}
+        # Include{persistenceBasic}
         - variable: thumbs
           label: App Thumbnails Storage
           description: Stores the Application Thumbnails.
@@ -108,7 +102,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{persistenceBasic}
+        # Include{persistenceBasic}
         - variable: profile
           label: App Profiles Storage
           description: Stores the Application Profiles.
@@ -116,7 +110,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{persistenceBasic}
+        # Include{persistenceBasic}
         - variable: video
           label: App Encoded Video Storage
           description: Stores the Encoded Videos.
@@ -124,21 +118,21 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{persistenceBasic}
-# Include{persistenceList}
-# Include{ingressRoot}
+        # Include{persistenceBasic}
+        # Include{persistenceList}
+        # Include{ingressRoot}
         - variable: main
           label: Main Ingress
           schema:
             additional_attrs: true
             type: dict
             attrs:
-# Include{ingressDefault}
-# Include{ingressTLS}
-# Include{ingressTraefik}
-# Include{ingressAdvanced}
-# Include{ingressList}
-# Include{securityContextRoot}
+              # Include{ingressDefault}
+              # Include{ingressTLS}
+              # Include{ingressTraefik}
+              # Include{ingressAdvanced}
+              # Include{ingressList}
+              # Include{securityContextRoot}
               - variable: runAsUser
                 label: "runAsUser"
                 description: "The UserID of the user running the application"
@@ -151,16 +145,15 @@ questions:
                 schema:
                   type: int
                   default: 0
-# Include{securityContextContainer}
-# Include{securityContextAdvanced}
-# Include{securityContextPod}
+              # Include{securityContextContainer}
+              # Include{securityContextAdvanced}
+              # Include{securityContextPod}
               - variable: fsGroup
                 label: "fsGroup"
                 description: "The group that should own ALL storage."
                 schema:
                   type: int
                   default: 568
-
 # Include{resources}
 # Include{postgresql}
 # Include{advanced}
