@@ -21,11 +21,11 @@ workload:
         main:
           probes:
             liveness:
-              path: "/UI/Login"
+              path: "/health"
             readiness:
-              path: "/UI/Login"
+              path: "/health"
             startup:
-              path: "/UI/Login"
+              path: "/health"
 persistence:
   config:
     enabled: true
