@@ -198,20 +198,22 @@ blocking:
   # --  Add blocky whitelists
   # `default` name is reservered for TrueCharts included default whitelist
   # example shows the structure, though name should be changed when used
-  whitelist: []
-   # - name: default
-   #  lists:
-   #   - https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/optional-list.txt
-   #   - https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/whitelist.txt
-   #   - https://raw.githubusercontent.com/rahilpathan/pihole-whitelist/main/1.LowWL.txt
+  whitelist:
+    []
+    # - name: default
+    #  lists:
+    #   - https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/optional-list.txt
+    #   - https://raw.githubusercontent.com/anudeepND/whitelist/master/domains/whitelist.txt
+    #   - https://raw.githubusercontent.com/rahilpathan/pihole-whitelist/main/1.LowWL.txt
 
   # -- Blocky blacklists
   # `default` name is reservered for TrueCharts included default blacklist
   # example shows the structure, though name should be changed when used
-  blacklist: []
-   # - name: default
-   #  lists:
-   #   - https://big.oisd.nl/domainswild
+  blacklist:
+    []
+    # - name: default
+    #  lists:
+    #   - https://big.oisd.nl/domainswild
 
   # -- Blocky clientGroupsBlock
   clientGroupsBlock:
