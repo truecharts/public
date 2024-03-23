@@ -93,8 +93,8 @@ If you have an IP conflict with a previously assigned address it will show as `<
 
 :::caution
 
-Known Issue: On the SCALE Installed Applications page, the **Open** buttons on each app card will still open a URL to your app using your SCALE Host IP, rather than the MetalLB-Assigned IP. This may be resolved in the future.
+Known Issue: On the SCALE Installed Applications page, the **Open** buttons on each app card will still open a URL to your app using your SCALE Host IP, rather than the MetalLB-Assigned IP. You may need to refresh the page in your browser, bypassing your browser's cache by doing `CTRL + F5`. This may be resolved in the future.
 
 :::
 
-For details on other configuration options, please reference the [MetaLB documentation](https://metallb.universe.tf/configuration/)
+For details on other configuration options, please reference the [MetaLB documentation](https://metallb.universe.tf/configuration/).
