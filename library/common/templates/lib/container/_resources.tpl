@@ -23,11 +23,6 @@ objectData: The object data to be used to render the container.
     {{- $_ := set $objectData.resources "excludeExtra" false -}}
   {{- end -}}
 
-  {{- $excludeContainersFromExtraResources := (list
-      "cnpg-wait" "solr-wait" "clickhouse-wait"
-      "mongodb-wait" "redis-wait" "mariadb-wait"
-  ) -}}
-
   {{- include "tc.v1.common.lib.container.resources.validation" (dict "resources" $resources) }}
 requests:
   cpu: {{ $resources.requests.cpu }}
@@ -40,7 +35,7 @@ limits:
     {{- with $resources.limits.memory }} {{/* Passing 0, will not render it, meaning unlimited */}}
   memory: {{ . }}
     {{- end -}}
-    {{- if and (not $objectData.resources.excludeExtra) (not (mustHas $objectData.shortName $excludeContainersFromExtraResources)) -}}
+    {{- if not $objectData.resources.excludeExtra -}}
       {{- range $k, $v := (omit $resources.limits "cpu" "memory") }} {{/* Omit cpu and memory, as they are handled above */}}
   {{ $k }}: {{ $v }}
       {{- end -}}

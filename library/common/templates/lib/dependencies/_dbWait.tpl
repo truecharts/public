@@ -96,6 +96,14 @@ securityContext:
     add: []
     drop:
       - ALL
+resources:
+  excludeExtra: true
+  requests:
+    cpu: 10m
+    memory: 50Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
 env:
   REDIS_HOST:
     secretKeyRef:
@@ -156,12 +164,13 @@ securityContext:
     drop:
       - ALL
 resources:
+  excludeExtra: true
   requests:
     cpu: 10m
     memory: 50Mi
   limits:
-    cpu: 4000m
-    memory: 8Gi
+    cpu: 500m
+    memory: 512Mi
 env:
   MARIADB_HOST:
     secretKeyRef:
@@ -205,12 +214,13 @@ securityContext:
     drop:
       - ALL
 resources:
+  excludeExtra: true
   requests:
     cpu: 10m
     memory: 50Mi
   limits:
-    cpu: 4000m
-    memory: 8Gi
+    cpu: 500m
+    memory: 512Mi
 env:
   MONGODB_HOST:
     secretKeyRef:
@@ -249,12 +259,13 @@ securityContext:
     drop:
       - ALL
 resources:
+  excludeExtra: true
   requests:
     cpu: 10m
     memory: 50Mi
   limits:
-    cpu: 4000m
-    memory: 8Gi
+    cpu: 500m
+    memory: 512Mi
 env:
   CLICKHOUSE_PING:
     secretKeyRef:
@@ -292,12 +303,13 @@ securityContext:
     drop:
       - ALL
 resources:
+  excludeExtra: true
   requests:
     cpu: 10m
     memory: 50Mi
   limits:
-    cpu: 4000m
-    memory: 8Gi
+    cpu: 500m
+    memory: 512Mi
 env:
   SOLR_HOST:
     secretKeyRef:
@@ -350,12 +362,13 @@ securityContext:
     drop:
       - ALL
 resources:
+  excludeExtra: true
   requests:
     cpu: 10m
     memory: 50Mi
   limits:
-    cpu: 4000m
-    memory: 8Gi
+    cpu: 500m
+    memory: 512Mi
 command:
   - "/bin/sh"
   - "-c"
