@@ -25,6 +25,7 @@ service:
       vpn:
         enabled: true
         protocol: udp
+        targetPort: 51820
         port: 51820
 workload:
   main:
@@ -48,6 +49,8 @@ workload:
             WG_DEFAULT_DNS: "1.1.1.1"
             WG_ALLOWED_IPS: "0.0.0.0/0, ::/0"
             PASSWORD: "secretpass"
+            LANG: "en"
+            UI_TRAFFIC_STATS: "false"
 persistence:
   config:
     enabled: true

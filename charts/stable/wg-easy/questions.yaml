@@ -60,6 +60,18 @@ questions:
                                           private: true
                                           required: true
                                           default: ""
+                                      - variable: LANG
+                                        label: "Language"
+                                        description: "WebUI Language"
+                                        schema:
+                                          type: string
+                                          default: "en"
+                                      - variable: UI_TRAFFIC_STATS
+                                        label: "Detailed Traffic Stats"
+                                        description: "Enable detailed Traffic Stats in the WebUI"
+                                        schema:
+                                          type: boolean
+                                          default: false
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
