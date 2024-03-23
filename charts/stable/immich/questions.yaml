@@ -20,12 +20,6 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: public_login_page_message
-          label: Public Login Page Message
-          description: Custom message on the login page, should be written in HTML form.
-          schema:
-            type: string
-            default: ""
         - variable: log_level
           label: Log Level
           schema:

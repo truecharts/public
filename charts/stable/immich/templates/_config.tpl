@@ -6,9 +6,6 @@ configmap:
     enabled: true
     data:
       SERVER_PORT: {{ .Values.service.main.ports.main.port | quote }}
-      {{- with .Values.immich.public_login_page_message }}
-      PUBLIC_LOGIN_PAGE_MESSAGE: {{ . }}
-      {{- end }}
 
   micro-config:
     enabled: true

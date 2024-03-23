@@ -17,7 +17,7 @@ podSpec:
     machinelearning:
       enabled: true
       primary: true
-      imageSelector: "{{ $img }}"
+      imageSelector: {{ $img }}
       securityContext:
         capabilities:
           disableS6Caps: true

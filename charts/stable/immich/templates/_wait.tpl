@@ -3,6 +3,8 @@
 enabled: true
 type: init
 imageSelector: alpineImage
+resources:
+  excludeExtra: true
 command:
   - /bin/ash
   - -c
