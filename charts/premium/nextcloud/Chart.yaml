@@ -17,7 +17,7 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 13.0.5
+    version: 13.2.2
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -50,4 +50,4 @@ sources:
   - https://github.com/truecharts/containers/tree/master/apps/nextcloud-imaginary
   - https://github.com/truecharts/containers/tree/master/apps/nextcloud-push-notify
 type: application
-version: 29.7.4
+version: 29.8.0
