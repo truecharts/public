@@ -473,7 +473,7 @@ alpineImage:
 
 scratchImage:
   repository: tccr.io/tccr/scratch
-  tag: latest@sha256:22e9d346aa00a632f3ebbd64f3aaf1e3e3f6be100cba81c410fa9a2b86e6ec82
+  tag: latest@sha256:fff0ddfc8eeafd4e9f1b98d35419dfc2ef2854e3325a10bb34aec696ac36ca19
   pullPolicy: IfNotPresent
 
 kubectlImage:
@@ -489,7 +489,7 @@ wgetImage:
 yqImage:
   pullPolicy: IfNotPresent
   repository: mikefarah/yq
-  tag: 4.42.1@sha256:eed5d07d2f6a6bd882be5519e98ca2cd3dc3819005820d80b83ae6f3d774e639
+  tag: 4.43.1@sha256:4b103725002b0d3f3801bd7c596d61131bc2b0ab08e69d3e215194bb218bbd4f
 
 postgresClientImage:
   repository: tccr.io/tccr/db-wait-postgres
