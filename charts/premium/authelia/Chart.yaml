@@ -7,17 +7,17 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: premium
 apiVersion: v2
-appVersion: 4.38.2
+appVersion: 4.38.6
 dependencies:
   - name: common
-    version: 20.2.0
+    version: 20.2.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 13.0.5
+    version: 13.2.2
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -51,4 +51,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/premium/authelia
   - https://ghcr.io/authelia/authelia
 type: application
-version: 23.8.0
+version: 23.9.1

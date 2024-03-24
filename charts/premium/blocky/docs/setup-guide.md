@@ -8,22 +8,30 @@ This will guide you through the basic setup of Blocky which is the preferred DNS
 
 Blocky has the following DNS entries configured by default. They can be overridden to your personal preferences or left as default. Here are some common ones:
 
+Cloudflare
+
 - 1.1.1.1
 - 1.0.0.1
+
+Google
+
 - 8.8.8.8
 - 8.8.4.4
+
+Quad9
+
 - 9.9.9.9
 - 149.112.112.112
+
+OpenDNS
+
 - 208.67.222.222
 - 208.67.220.220
+
+ComodoSecure DNS
+
 - 8.26.56.26
 - 8.20.247.20
-- 185.228.168.9
-- 185.228.169.9
-- 76.76.19.19
-- 76.223.122.150
-- 76.76.2.0
-- 76.76.10.0
 
 Blocky supports 3 methods for upstream DNS. You can use any combination of the below.
 
@@ -62,11 +70,9 @@ In the below example I am using Google DNS.
 
 ![blocky-bootstrap-google](./img/blocky-bootstrap-google.png)
 
-## DNS Blacklists
+## DNS Blacklists and Whitelists
 
-DNS Blacklists are used to prevent DNS resolution of advertisement, malware, trackers
-and adult sites domains. This is completed with public maintained blocklists.
-A good source for these is [firebog.net](https://firebog.net).
+Blocky comes preconfigured with basic Blacklists and Whitelists. DNS Blacklists are used to prevent DNS resolution of advertisement, malware, trackers and adult sites domains. DNS Whitelists are used to always allow DNS resolution of domains regardless of existing blacklists. This is completed with public maintained blocklists. A good source for these is [firebog.net](https://firebog.net).
 
 :::warning Warning
 
@@ -76,12 +82,11 @@ certain blocklists if you find legitimate traffic being blocked.
 
 :::
 
-1. Pick a Group Name for your blocklists.
-2. Add List entries for each blocklist by URL.
+If you wish to customize the default Block Blacklists or Whitelists follow the steps below (replace whitelist as appropriate).
+
+1. Set Group Name for your blocklists as `default`.
+2. Add List entries for each blocklist by URL (or none if you wish to disable).
    ![blocky-blacklist](./img/blocky-blacklist.png)
-3. Add a Clients Group Block and set Client Group Name to `default`
-4. Under Groups Entry enter the Group name you used above.
-   ![blocky-blacklist-group](./img/blocky-blacklist-group.png)
 
 ## Networking
 
@@ -100,4 +105,4 @@ is to add your root domain in the Domain name block.
 
 ## Prometheus/Grafana
 
-TBD
+Prometheus and Grafana are configured by default.

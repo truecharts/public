@@ -198,6 +198,7 @@ questions:
 # Include{geoBlockMiddleware}
 # Include{addPrefixMiddleware}
 # Include{modsecurityMiddleware}
+# Include{crowdsecMiddleware}
   - variable: service
     group: "Networking and Services"
     label: "Configure Service Entrypoint"

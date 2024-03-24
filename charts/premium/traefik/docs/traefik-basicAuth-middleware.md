@@ -2,7 +2,7 @@
 title: Add Traefik Basic Auth to Apps
 ---
 
-Our `traefik` chart has the ability to add various `middlewares` to the chart can add extra functionality to your setup. You can see the full list of `middlewares` inside the `traefik` menu options. In this guide we'll go over setting up the `Basic Auth` traefik middleware.
+Our `traefik` chart has the ability to add various `middlewares` to the chart that can add extra functionality to your setup. You can see the full list of `middlewares` inside the `traefik` menu options. In this guide we'll go over setting up the `Basic Auth` traefik middleware.
 
 ## Prerequisites
 
@@ -14,7 +14,7 @@ Once `traefik` is installed, scroll down to the `Middlewares` section
 
 ![BasicAuth](./img/BasicAuth.png)
 
-When there, you can fill out the `Configure basicAuth` section with as follows
+When there, you can fill out the `Configure basicAuth` section with what follows:
 
 - Name the `basicAuth`, most people choose `basic`
 - Add as name users as necessary, choosing a specific `Username` and `Password` for each user.

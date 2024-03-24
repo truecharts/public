@@ -5,6 +5,8 @@
 enabled: true
 type: install
 imageSelector: alpineImage
+resources:
+  excludeExtra: true
 securityContext:
   runAsUser: 0
   runAsGroup: 0
