@@ -41,6 +41,11 @@
   {{- if not (hasKey $objectData.cluster "walStorage") -}}
     {{- $_ := set $objectData.cluster "walStorage" dict -}}
   {{- end -}}
+  {{- if not (hasKey $objectData.cluster "resources") -}}
+    {{- $_ := set $objectData.cluster "resources" dict -}}
+  {{- end -}}
+  {{/* Exclude extra resources */}}
+  {{- $_ := set $objectData.cluster.resources "excludeExtra" true -}}
 
   {{/* Metadata */}}
   {{- $objLabels := $objectData.labels | default dict -}}

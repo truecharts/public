@@ -436,6 +436,26 @@ tests:
                 resources:
                   excludeExtra: true
     asserts:
+      - documentIndex: &clusterDoc 0
+        isKind:
+          of: Cluster
+      - documentIndex: *clusterDoc
+        isAPIVersion:
+          of: postgresql.cnpg.io/v1
+      - documentIndex: *clusterDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-cnpg-my-pg
+      - documentIndex: *clusterDoc
+        equal:
+          path: spec.resources
+          value:
+            limits:
+              cpu: 4000m
+              memory: 8Gi
+            requests:
+              cpu: 10m
+              memory: 50Mi
       - documentIndex: &deploymentDoc 9
         isKind:
           of: Deployment
