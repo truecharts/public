@@ -54,11 +54,6 @@ ollama:
     # embedding model
     model: "all-MiniLM-L6-v2"
 
-# remove gpu directly from web gui sidecar
-global:
-  excludeContainersFromExtraResources:
-    - ui
-
 workload:
   main:
     podSpec:
@@ -89,6 +84,8 @@ workload:
           primary: true
           enabled: true
           imageSelector: uiImage
+          resources:
+            excludeExtra: true
           probes:
             liveness:
               enabled: true
