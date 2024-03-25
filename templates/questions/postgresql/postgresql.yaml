@@ -91,15 +91,22 @@
                   additional_attrs: true
                   type: dict
                   attrs:
+                    - variable: enabled
+                      label: Enabled
+                      schema:
+                        type: boolean
+                        default: false
                     - variable: instances
                       label: Instances
                       schema:
                         type: int
+                        show_if: [["enabled", "=", true]]
                         default: 1
                     - variable: createRO
                       label: "Create ReadOnly Instance"
                       schema:
                         type: boolean
+                        show_if: [["enabled", "=", true]]
                         default: false
               - variable: backups
                 label: "Backup Settings (Experimental)"
@@ -118,9 +125,10 @@
                         type: string
                         default: ""
                     - variable: revision
-                      label: "serverName"
+                      label: "revision"
                       schema:
-                        type: int
+                        type: string
+                        default: ""
                     - variable: endpointURL
                       label: "endpointURL"
                       schema:
@@ -276,9 +284,10 @@
                         type: string
                         default: ""
                     - variable: revision
-                      label: "serverName"
+                      label: "revision"
                       schema:
-                        type: int
+                        type: string
+                        default: ""
                     - variable: endpointURL
                       label: "endpointURL"
                       schema:

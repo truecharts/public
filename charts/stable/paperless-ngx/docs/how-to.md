@@ -9,7 +9,7 @@ online archive. Our app is a simple way to install it on your TrueNAS SCALE serv
 
 - Installation of the TrueCharts Catalog, starting [here](/manual/SCALE/guides/getting-started)
 - [`Cloudnative-PG`
-  operator](/manual/SCALE/guides/getting-started/#cnpgprometheus-operators-installation-and-migration-guide-for-older-users)
+  operator](/manual/SCALE/guides/getting-started/#cnpgprometheus-system-installation-and-migration-guide-for-older-users)
 - Paperless-ngx TrueCharts Chart
 
 ## Media Storage
@@ -33,7 +33,7 @@ online archive. Our app is a simple way to install it on your TrueNAS SCALE serv
     installation, you can change them later in the app.
   - Enter the URL your Paperless-ngx will be accessible under in `PAPERLESS_URL` if you plan on making your app
     accessible from the web.
-- If you have set up [Traefik](/charts/enterprise/traefik/how-to/) for ingress click `Enable Ingress` and enter your
+- If you have set up [Traefik](/charts/premium/traefik/how-to/) for ingress click `Enable Ingress` and enter your
   Paperless-ngx domain in the Hosts section.
 
 ![Configure paperless-ngx](./img/configure_paperless-ngx.png)
@@ -99,14 +99,14 @@ in the import share will not be imported anymore though.
 
 ### Configure ForwardAuth authentication
 
-Users that have set up [Traefik with ForwardAuth, for example with Authelia](/charts/enterprise/authelia/Setup-Guide/)
+Users that have set up [Traefik with ForwardAuth, for example with Authelia](/charts/premium/authelia/Setup-Guide/)
 can take advantage of authentication through Authelia for their Paperless-ngx installation. Paperless-ngx will honor
 logins passed from Authelia but not the e-mail address nor the groups of the logged-in user, those will be internal to
 Paperless-ngx and separate from those in Authelia. ForwardAuth can be added to an existing Paperless-ngx installation as
 long as the logins of Authelia users match the logins of Paperless-ngx users.
 
 This guide will only describe the Paperless-ngx specific options required to set up ForwardAuth. Please refer to the
-[Traefik + Authelia ForwardAuth setup guide](/charts/enterprise/authelia/Setup-Guide/) on how to prepare ForwardAuth.
+[Traefik + Authelia ForwardAuth setup guide](/charts/premium/authelia/Setup-Guide/) on how to prepare ForwardAuth.
 
 Once you have set up ForwardAuth in your Traefik installation, configure ForwardAuth in Paperless-ngx as follows:
 

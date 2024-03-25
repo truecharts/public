@@ -1,6 +1,6 @@
 image:
   repository: doitandbedone/ispyagentdvr
-  tag: 5.3.1.0@sha256:cfaccc30f57993ee1356bb493136fb18a2198d7b02271268f48fa4eb177bbddf
+  tag: 5.3.4.0@sha256:ab0fec3716b7e4ab0f48b8eb61ef808edbd60b8b2a8f19cf14c6bbb66778ed4e
   pullPolicy: IfNotPresent
 service:
   main:
@@ -84,6 +84,9 @@ persistence:
   commands:
     enabled: true
     mountPath: "/agent/Commands"
+  ffmpeg:
+    enabled: true
+    mountPath: "/agent/ffmpeg6"
 portal:
   open:
     enabled: true

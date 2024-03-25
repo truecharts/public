@@ -1,11 +1,15 @@
 image:
   repository: ghcr.io/onedr0p/qbittorrent
   pullPolicy: IfNotPresent
-  tag: 4.6.3@sha256:a4ad890e8c4a287c17d12ca22eb1d84a046aba2efbd882bf7d6eb12459f6a70c
+  tag: 4.6.3@sha256:f2895e632fe66299d8ccc68265cc11aea92a232b7d0844de9961864b3e504026
 qbitportforwardImage:
   repository: mjmeli/qbittorrent-port-forward-gluetun-server
   pullPolicy: IfNotPresent
   tag: latest@sha256:67d0d21ed792cf80716d4211e7162b6d375af5c12f3cf096c9032ad705dddaa8
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
 qbitportforward:
   enabled: false
   QBT_USERNAME: "admin"
@@ -15,7 +19,6 @@ service:
     ports:
       main:
         port: 10095
-        targetPort: 8080
   torrent:
     enabled: true
     ports:
@@ -37,6 +40,20 @@ service:
         targetPort: 8000
         protocol: http
 workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            # set the default port
+            QBITTORRENT__PORT: "{{ .Values.service.main.ports.main.port }}"
+            # stops users from bricking their chart from setting the ip to a random ip when its a container.
+            QBT_Preferences__WebUI__Address: "0.0.0.0"
+            # set port from gui.
+            QBT_BitTorrent__Session__Port: "{{ .Values.service.torrent.ports.torrent.port }}"
+            # legacy ini key
+            # key deprecated https://github.com/qbittorrent/qBittorrent/issues/8324
+            QBT_Preferences__Connection__PortRangeMin: "{{ .Values.service.torrent.ports.torrent.port }}"
   qbitportforward:
     enabled: true
     type: CronJob
@@ -68,6 +85,3 @@ persistence:
 portal:
   open:
     enabled: true
-securityContext:
-  container:
-    readOnlyRootFilesystem: false

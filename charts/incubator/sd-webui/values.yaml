@@ -1,0 +1,53 @@
+image:
+  repository: ghcr.io/neggles/sd-webui-docker
+  tag: latest
+  pullPolicy: Always
+vladImage:
+  repository: ghcr.io/neggles/sd-webui-docker
+  tag: vlad
+  pullPolicy: Always
+
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 7860
+        targetPort: 7860
+
+# securityContext:
+#   runAsUser: 0
+#   runAsGroup: 0
+#   fsGroup: 0
+#   readOnlyRootFilesystem: false
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          imageSelector: image
+          args:
+            - "--skip-version-check"
+          env:
+            PYTHONUNBUFFERED: "1"
+          probes:
+            liveness:
+              enabled: true
+            readiness:
+              enabled: true
+            startup:
+              enabled: true
+
+persistence:
+  data:
+    enabled: true
+    mountPath: /data
+  output:
+    enabled: true
+    mountPath: /output
+
+portal:
+  open:
+    enabled: true
