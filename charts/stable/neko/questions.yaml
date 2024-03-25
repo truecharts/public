@@ -4,133 +4,152 @@ portals:
 # Include{portalLink}
 questions:
 # Include{global}
-  - variable: imageSelector
-    group: "Container Image"
-    label: "Select Image"
-    schema:
-      type: string
-      default: "image"
-      enum:
-        - value: "image"
-          description: "Firefox"
-        - value: "braveImage"
-          description: "Brave"
-        - value: "chromeImage"
-          description: "Chrome"
-        - value: "chromiumImage"
-          description: "Chromium"
-        - value: "edgeImage"
-          description: "Edge"
-        - value: "remminaImage"
-          description: "Remmina"
-        - value: "torImage"
-          description: "Tor"
-        - value: "vivaldiImage"
-          description: "Vivaldi"
-        - value: "vlcImage"
-          description: "Vlc"
-        - value: "vncviewerImage"
-          description: "Vncviewer"
-        - value: "xfceImage"
-          description: "Xfce"
 # Include{workload}
 # Include{workloadDeployment}
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
-                                - variable: env
-                                  label: Image Environment
+
+                                - variable: imageSelector
+                                  label: Select Image
                                   schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                      - variable: NEKO_PASSWORD
-                                        label: "NEKO_PASSWORD"
-                                        schema:
-                                          type: string
-                                          default: ""
-                                          private: true
-                                      - variable: NEKO_PASSWORD_ADMIN
-                                        label: "NEKO_PASSWORD_ADMIN"
-                                        schema:
-                                          type: string
-                                          default: ""
-                                          private: true
-                                      - variable: NEKO_SCREEN
-                                        label: "NEKO_SCREEN"
-                                        description: "Resolution after startup. Only Admins can change this later."
-                                        schema:
-                                          type: string
-                                          default: "1920x1080@30"
-                                      - variable: NEKO_CONTROL_PROTECTION
-                                        label: "NEKO_CONTROL_PROTECTION"
-                                        description: "Control protection means, users can gain control only if at least one admin is in the room."
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                      - variable: NEKO_IMPLICIT_CONTROL
-                                        label: "NEKO_IMPLICIT_CONTROL"
-                                        description: "If enabled members can gain control implicitly, they don't need to request control."
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                      - variable: NEKO_PROXY
-                                        label: "NEKO_PROXY"
-                                        description: "Enable reverse proxy mode, so that neko trusts X-Forwarded-For headers."
-                                        schema:
-                                          type: boolean
-                                          default: false
-                                      - variable: NEKO_LOCKS
-                                        label: "NEKO_LOCKS"
-                                        description: "Resources, that will be locked when starting, separated by whitespace."
-                                        schema:
-                                          type: string
-                                          default: "192.168.1.x"
-                                      - variable: NEKO_NAT1TO1
-                                        label: "NEKO_NAT1TO1"
-                                        description: "Enter the IP of your TrueNAS-Server"
-                                        schema:
-                                          type: string
-                                          default: "192.168.1.x"
-                                      - variable: NEKO_IPFETCH
-                                        label: "NEKO_IPFETCH"
-                                        description: "Automatically fetch IP address from given URL when NEKO_NAT1TO1 is not specified."
-                                        schema:
-                                          type: string
-                                          default: "http://checkip.amazonaws.com"
-# Include{serviceRoot}
-        - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
+                                    type: string
+                                    default: image
+                                    enum:
+                                      - value: "image"
+                                        description: "Firefox"
+                                      - value: "braveImage"
+                                        description: "Brave"
+                                      - value: "chromeImage"
+                                        description: "Chrome"
+                                      - value: "chromiumImage"
+                                        description: "Chromium"
+                                      - value: "edgeImage"
+                                        description: "Edge"
+                                      - value: "remminaImage"
+                                        description: "Remmina"
+                                      - value: "torImage"
+                                        description: "Tor"
+                                      - value: "vivaldiImage"
+                                        description: "Vivaldi"
+                                      - value: "vlcImage"
+                                        description: "Vlc"
+                                      - value: "xfceImage"
+                                        description: "Xfce"
+
+# Include{containerBasic}
+# Include{containerAdvanced}
+  - variable: neko
+    group: App Configuration
+    label: Neko
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: auth
+          label: Auth Credentials
           schema:
             additional_attrs: true
             type: dict
             attrs:
+              - variable: user_pass
+                label: User Password
+                description: Password for the user login.
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+              - variable: admin_pass
+                label: Admin Password
+                description: Password for the admin login.
+                schema:
+                  type: string
+                  private: true
+                  default: ""
+        - variable: proxy
+          label: Enable Proxy Mode
+          description: Enable reverse proxy mode, so that neko trusts X-Forwarded-For headers.
+          schema:
+            type: boolean
+            default: false
+        - variable: screen
+          label: Screen
+          description: Resolution after startup. Only Admins can change this later.
+          schema:
+            type: string
+            default: "1920x1080@30"
+        - variable: control_protection
+          label: Control Protection
+          description: Control protection means, users can gain control only if at least one admin is in the room.
+          schema:
+            type: boolean
+            default: false
+        - variable: implicit_control
+          label: Implicit Protection
+          description: If enabled members can gain control implicitly, they don't need to request control.
+          schema:
+            type: boolean
+            default: false
+        - variable: locks
+          label: Locks
+          description: Resources, that will be locked when starting.
+          schema:
+            type: list
+            empty: true
+            default: []
+            required: true
+            items:
+              - variable: lock
+                label: Lock Resource
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+        - variable: cors
+          label: Cors
+          description: Cross origin request sharing list of allowed hosts.
+          schema:
+            type: list
+            empty: true
+            default:
+              - "*"
+            required: true
+            items:
+              - variable: cors
+                label: Cors Resource
+                schema:
+                  type: string
+                  required: true
+                  default: ""
+
+# Include{containerConfig}
+# Include{serviceRoot}
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: "Main Service Port Configuration"
+                      label: Main Service Port Configuration
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
+                            label: Port
+                            description: This port exposes the container port on the service
                             schema:
                               type: int
                               default: 10294
                               required: true
-        - variable: mux-udp
-          label: "mux-udp service"
+        - variable: mux
+          label: "Mux service"
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
-                    - variable: mux-udp
-                      label: "mux-udp Service Port Configuration"
+                    - variable: tcp
+                      label: "TCP Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -142,30 +161,19 @@ questions:
                               type: int
                               default: 52100
                               required: true
-        - variable: mux-tcp
-          label: "mux-tcp service"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{serviceSelectorLoadBalancer}
-# Include{serviceSelectorExtras}
-                    - variable: mux-tcp
-                      label: "mux-tcp Service Port Configuration"
-                      schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 52100
-                              required: true
+
 # Include{serviceExpertRoot}
 # Include{serviceExpert}
 # Include{serviceList}
+# Include{persistenceRoot}
+        - variable: downloads
+          label: App Downloads Storage
+          description: Stores the Application Downloads.
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
