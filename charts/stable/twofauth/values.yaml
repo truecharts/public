@@ -61,10 +61,7 @@ workload:
                 key: APP_KEY
             APP_NAME: "{{ .Values.twofauth.app.name }}"
             SITE_OWNER: "{{ .Values.twofauth.app.site_owner }}"
-            APP_URL:
-              secretKeyRef:
-                name: twofauth-secret
-                key: APP_URL
+            APP_URL: "{{ .Values.chartContext.appUrl }}"
             SESSION_LIFETIME: "{{ .Values.twofauth.app.session_lifetime }}"
             TRUSTED_PROXIES: '{{ join "," .Values.twofauth.app.trusted_proxies }}'
             # MAIL
