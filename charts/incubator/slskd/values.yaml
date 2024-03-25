@@ -1,0 +1,52 @@
+image:
+  repository: ghcr.io/slskd/slskd
+  pullPolicy: IfNotPresent
+  tag: 0.20.1@sha256:2a6af2f48657179b2bb66840fe179ce209f501a02386b679d9f3cdc26213fc2c
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+
+secretEnv:
+  SLSKD_SLSK_USERNAME: ""
+  SLSKD_SLSK_PASSWORD: ""
+
+# https://github.com/slskd/slskd/blob/master/docs/config.md
+env:
+  SLSKD_SHARED_DIR: "/share"
+  SLSKD_DOWNLOADS_DIR: "/downloads"
+
+service:
+  main:
+    ports:
+      main:
+        port: 5030
+        targetPort: 5030
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+                type: tcp
+            readiness:
+                type: tcp
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/app/"
+  share:
+    enabled: true
+    mountPath: "/share/"
+  downloads:
+    enabled: true
+    mountPath: "/downloads/"
+
+portal:
+  open:
+    enabled: true
