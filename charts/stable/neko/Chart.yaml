@@ -7,10 +7,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: firefox
+appVersion: 2.8.11
 dependencies:
   - name: common
-    version: 20.2.3
+    version: 20.2.4
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -32,5 +32,6 @@ name: neko
 sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/neko
   - https://hub.docker.com/r/m1k1o/neko
+  - https://github.com/m1k1o/neko
 type: application
-version: 5.7.12
+version: 6.0.0
