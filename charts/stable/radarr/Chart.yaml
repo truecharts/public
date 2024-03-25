@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 5.3.6.8612
 dependencies:
   - name: common
-    version: 20.2.2
+    version: 20.2.4
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -33,7 +33,7 @@ name: radarr
 sources:
   - https://github.com/Radarr/Radarr
   - https://github.com/truecharts/charts/tree/master/charts/stable/radarr
-  - https://ghcr.io/onedr0p/radarr
   - https://ghcr.io/onedr0p/exportarr
+  - https://ghcr.io/onedr0p/radarr
 type: application
-version: 21.5.1
+version: 21.5.3

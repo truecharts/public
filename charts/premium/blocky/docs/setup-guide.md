@@ -9,22 +9,27 @@ This will guide you through the basic setup of Blocky which is the preferred DNS
 Blocky has the following DNS entries configured by default. They can be overridden to your personal preferences or left as default. Here are some common ones:
 
 Cloudflare
+
 - 1.1.1.1
 - 1.0.0.1
 
 Google
+
 - 8.8.8.8
 - 8.8.4.4
 
 Quad9
+
 - 9.9.9.9
 - 149.112.112.112
 
 OpenDNS
+
 - 208.67.222.222
 - 208.67.220.220
 
 ComodoSecure DNS
+
 - 8.26.56.26
 - 8.20.247.20
 

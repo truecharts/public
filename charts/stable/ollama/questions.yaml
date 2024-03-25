@@ -15,6 +15,82 @@ questions:
 # Include{containerBasic}
 # Include{containerAdvanced}
 
+  - variable: ollama
+    group: App Configuration
+    label: Ollama
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: registration
+          label: Registration Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: enabled
+                label: Enable Registration
+                schema:
+                  type: boolean
+                  default: true
+              - variable: def_user_role
+                label: Default User Role
+                schema:
+                  type: string
+                  default: pending
+                  enum:
+                    - value: pending
+                      description: Pending
+                    - value: user
+                      description: User
+                    - value: admin
+                      description: Admin
+        - variable: stable_diffusion
+          label: Stable Diffusion Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: base_url
+                label: Base Url
+                schema:
+                  type: string
+                  default: ""
+        - variable: whisper
+          label: Whisper Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: model
+                label: Model
+                schema:
+                  type: string
+                  default: "base"
+        - variable: rag
+          label: Rag Configuration
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+              - variable: model_device_type
+                label: Model Device Type
+                schema:
+                  type: string
+                  default: "cpu"
+                  enum:
+                    - value: cpu
+                      description: CPU
+                    - value: gpu
+                      description: GPU (nvidia)
+                    - value: mps
+                      description: MPS (Apple)
+              - variable: model
+                label: Embedding Model
+                schema:
+                  type: string
+                  default: "all-MiniLM-L6-v2"
+
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}

@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 28.0.3
 dependencies:
   - name: common
-    version: 20.2.2
+    version: 20.2.4
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -44,10 +44,10 @@ sources:
   - https://github.com/nextcloud/helm
   - https://github.com/truecharts/charts/tree/master/charts/premium/nextcloud
   - https://hub.docker.com/r/clamav/clamav
-  - https://hub.docker.com/r/collabora/code
-  - https://github.com/truecharts/containers/tree/master/apps/nextcloud-fpm
-  - https://hub.docker.com/r/nginxinc/nginx-unprivileged
   - https://github.com/truecharts/containers/tree/master/apps/nextcloud-imaginary
   - https://github.com/truecharts/containers/tree/master/apps/nextcloud-push-notify
+  - https://github.com/truecharts/containers/tree/master/apps/nextcloud-fpm
+  - https://hub.docker.com/r/nginxinc/nginx-unprivileged
+  - https://hub.docker.com/r/collabora/code
 type: application
-version: 29.8.1
+version: 29.8.3
