@@ -3,10 +3,10 @@ image:
   repository: ghcr.io/sytone/obsidian-remote
   tag: 0.1.1@sha256:0494ea57446e77609a469caf08a6886f3825f893883bfab2f4736e06d01c19b2
 persistence:
-  storageconfig:
+  config:
     enabled: true
     mountPath: /config/.config/obsidian
-  storagevaults:
+  vaults:
     enabled: true
     mountPath: /vaults
 portal:
