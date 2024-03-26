@@ -4,7 +4,7 @@ title: Upload Existing World Notes
 
 Quick guide using on using Codeserver to upload your existing Valheim world files without having to start / stop the app or mount the apps PVC storage.
 
-:::notes
+:::note[CodeServer Addon Setup]
 
 - Setup Codeserver either during installation or after installation, by editing the app.
 
@@ -13,7 +13,12 @@ Quick guide using on using Codeserver to upload your existing Valheim world file
   - Set service Type to LoadBalancer
   - Set default port of 36107
   - Save the changes
-  - optionally, setup ingress for the codeserver addon.
+
+:::note
+
+  Optionally, setup ingress for the codeserver addon.
+
+:::
 
 :::
 
