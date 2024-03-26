@@ -18,6 +18,7 @@ objectData:
   {{- if not (kindIs "invalid" $objectData.allowVolumeExpansion) -}}
     {{- $allowVolExpand = $objectData.allowVolumeExpansion -}}
   {{- end }}
+
 ---
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
@@ -29,8 +30,9 @@ metadata:
     {{- . | nindent 4 }}
   {{- end -}}
   {{- $annotations := (mustMerge ($objectData.annotations | default dict) (include "tc.v1.common.lib.metadata.allAnnotations" $rootCtx | fromYaml)) -}}
-  {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "annotations" $annotations) | trim) }}
   annotations:
+    storageclass.kubernetes.io/is-default-class: {{ ( $objectData.isDefaultClass | toString ) | default "false" }}
+  {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "annotations" $annotations) | trim) }}
     {{- . | nindent 4 }}
   {{- end }}
 provisioner: {{ $objectData.provisioner }}
