@@ -1,6 +1,6 @@
-{{- if .Values.zfsLocalPv.enabled -}}
-{{- $crdName := "zfsrestores.zfs.openebs.io" -}}
-{{- if (include "crdIsAbsent" (list $crdName)) -}}
+
+
+
 ##############################################
 ###########                       ############
 ###########   ZFSRestore CRD      ############
@@ -11,7 +11,7 @@
 # Do the modification in the code and run the `make manifests` command
 # to generate the CRD definition
 
----
+
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
@@ -237,5 +237,4 @@ status:
     plural: ""
   conditions: []
   storedVersions: []
-{{- end -}}
-{{- end -}}
+
