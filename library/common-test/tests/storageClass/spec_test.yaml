@@ -34,6 +34,28 @@ tests:
         equal:
           path: volumeBindingMode
           value: Immediate
+      - documentIndex: *storageClassDoc
+        equal:
+          path: metadata.annotations
+          value:
+            storageclass.kubernetes.io/is-default-class: "false"
+
+  - it: should generate correct spec with isDefault set
+    set:
+      storageClass:
+        example1:
+          enabled: true
+          provisioner: some.provisioner.io
+          isDefault: true
+    asserts:
+      - documentIndex: *storageClassDoc
+        isKind:
+          of: StorageClass
+      - documentIndex: *storageClassDoc
+        equal:
+          path: metadata.annotations
+          value:
+            storageclass.kubernetes.io/is-default-class: "true"
 
   - it: should generate correct spec with non-default reclaim policy
     set:
@@ -153,7 +175,7 @@ tests:
             - option1
             - option2=value2
 
-# Failures
+  # Failures
   - it: should fail without provisioner
     set:
       storageClass:
@@ -185,3 +207,14 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: Storage Class - Expected [volumeBindingMode] to be one of [WaitForFirstConsumer, Immediate], but got [invalid]
+
+  - it: should fail with isDefault not a boolean
+    set:
+      storageClass:
+        example1:
+          enabled: true
+          provisioner: some.provisioner.io
+          isDefault: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: Storage Class - Expected [isDefault] to be [boolean], but got [string]

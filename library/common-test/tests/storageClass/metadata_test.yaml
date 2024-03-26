@@ -52,6 +52,7 @@ tests:
             g_annotation1: global_annotation1
             g_annotation2: global_annotation2
             some-annotation: some-value
+            storageclass.kubernetes.io/is-default-class: "false"
       - documentIndex: *storageClassDoc
         equal:
           path: metadata.labels

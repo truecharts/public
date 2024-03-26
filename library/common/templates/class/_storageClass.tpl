@@ -14,11 +14,15 @@ objectData:
   {{- $rootCtx := .rootCtx -}}
   {{- $objectData := .objectData -}}
 
+  {{- $isDefaultClass := false -}}
+  {{- if (hasKey $objectData "isDefault") -}}
+    {{- $isDefaultClass = $objectData.isDefault -}}
+  {{- end -}}
+
   {{- $allowVolExpand := true -}}
   {{- if not (kindIs "invalid" $objectData.allowVolumeExpansion) -}}
     {{- $allowVolExpand = $objectData.allowVolumeExpansion -}}
   {{- end }}
-
 ---
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
@@ -29,7 +33,8 @@ metadata:
   labels:
     {{- . | nindent 4 }}
   {{- end -}}
-  {{- $annotations := (mustMerge ($objectData.annotations | default dict) ( dict 'storageclass.kubernetes.io/is-default-class' ( $objectData.isDefaultClass | default "false" ) ) (include "tc.v1.common.lib.metadata.allAnnotations" $rootCtx | fromYaml)) -}}
+  {{- $annotations := (mustMerge ($objectData.annotations | default dict) (include "tc.v1.common.lib.metadata.allAnnotations" $rootCtx | fromYaml)) -}}
+  {{- $_ := set $annotations "storageclass.kubernetes.io/is-default-class" ($isDefaultClass | toString) -}}
   {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "annotations" $annotations) | trim) }}
   annotations:
     {{- . | nindent 4 }}

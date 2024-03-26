@@ -6,6 +6,12 @@
     {{- fail "Storage Class - Expected non-empty [provisioner]" -}}
   {{- end -}}
 
+ {{- if (hasKey $objectData "isDefault") -}}
+    {{- if not (kindIs "bool" $objectData.isDefault) -}}
+      {{- fail (printf "Storage Class - Expected [isDefault] to be [boolean], but got [%s]" (kindOf $objectData.isDefault)) -}}
+    {{- end -}}
+  {{- end -}}
+
   {{- $validPolicies := (list "Retain" "Delete") -}}
   {{- if $objectData.reclaimPolicy -}}
     {{- if not (mustHas $objectData.reclaimPolicy $validPolicies) -}}
