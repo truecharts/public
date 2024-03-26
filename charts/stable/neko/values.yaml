@@ -71,12 +71,13 @@ neko:
   screen: "1920x1080@30"
   control_protection: false
   implicit_control: false
-  locks: []
-   # - control
-   # - login
-   # - file_transfer
-  cors: 
-   - "*"
+  locks:
+    []
+    # - control
+    # - login
+    # - file_transfer
+  cors:
+    - "*"
 
 workload:
   main:
