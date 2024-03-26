@@ -144,8 +144,8 @@ localpv-provisioner:
 zfs-localpv:
   enabled: false
   crd:
-    enableInstall: true
-    volumeSnapshot: true
+    enableInstall: false
+    volumeSnapshot: false
   # Sample configuration if you want to configure zfs localpv with custom values.
   # This is a small part of the full configuration. Full configuration available
   # here - https://openebs.github.io/zfs-localpv
@@ -168,8 +168,8 @@ zfs-localpv:
 lvm-localpv:
   enabled: false
   crd:
-    enableInstall: true
-    volumeSnapshot: true
+    enableInstall: false
+    volumeSnapshot: false
   # Sample configuration if you want to configure lvm localpv with custom values.
   # This is a small part of the full configuration. Full configuration available
   # here - https://openebs.github.io/lvm-localpv
