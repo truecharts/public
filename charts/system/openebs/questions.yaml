@@ -2,33 +2,40 @@
 questions:
 # Include{global}
 
-  - variable: openebs
+
+  - variable: zfs-localpv
     group: "Storage and Persistence"
-    label: "OpenEBS Settings"
+    label: "ZFS Localpv Settings"
     schema:
       type: dict
       additional_attrs: true
       hidden: true
       attrs:
-        - variable: zfs-localpv
-          label: "ZFS Localpv Settings"
+        - variable: enabled
+          label: "enabled"
           schema:
-            type: dict
-            additional_attrs: true
+            type: boolean
+            default: true
             hidden: true
-            attrs:
-              - variable: enabled
-                label: "enabled"
-                schema:
-                  type: boolean
-                  default: true
-                  hidden: true
-        - variable: localprovisioner
-          label: "Localprovisioner Settings"
+  - variable: localpv-provisioner
+    group: "Storage and Persistence"
+    label: "localpv-provisioner Settings"
+    schema:
+      type: dict
+      additional_attrs: true
+      hidden: true
+      attrs:
+        - variable: enabled
+          label: "enabled"
           schema:
-            type: dict
-            additional_attrs: true
+            type: boolean
+            default: false
             hidden: true
+        - variable: hostpathClass
+          label: "hostpathClass"
+          schema:
+            additional_attrs: true
+            type: dict
             attrs:
               - variable: enabled
                 label: "enabled"
@@ -36,30 +43,6 @@ questions:
                   type: boolean
                   default: false
                   hidden: true
-              - variable: deviceClass
-                label: "deviceClass"
-                schema:
-                  additional_attrs: true
-                  type: dict
-                  attrs:
-                    - variable: enabled
-                      label: "enabled"
-                      schema:
-                        type: boolean
-                        default: false
-                        hidden: true
-              - variable: hostpathClass
-                label: "hostpathClass"
-                schema:
-                  additional_attrs: true
-                  type: dict
-                  attrs:
-                    - variable: enabled
-                      label: "enabled"
-                      schema:
-                        type: boolean
-                        default: false
-                        hidden: true
 
 
   - variable: storageClass

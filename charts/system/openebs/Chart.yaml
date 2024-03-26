@@ -16,15 +16,20 @@ dependencies:
     alias: ""
     tags: []
     import-values: []
-  - name: openebs
-    version: 3.10.0
-    repository: https://openebs.github.io/charts
-    condition: ""
-    alias: openebs
-    tags: []
-    import-values: []
+  - name: localpv-provisioner
+    condition: localpv-provisioner.enabled
+    version: "4.0.0"
+    repository: "https://openebs.github.io/dynamic-localpv-provisioner"
+  - name: zfs-localpv
+    version: "2.4.2"
+    repository: "https://openebs.github.io/zfs-localpv"
+    condition: zfs-localpv.enabled
+  - name: lvm-localpv
+    version: "1.4.0"
+    repository: "https://openebs.github.io/lvm-localpv"
+    condition: lvm-localpv.enabled
 deprecated: false
-description: OpenEBS is a umbrella container storage provisioner
+description: OpenEBS is a umbrella chart for multiple container storage provisioners
 home: https://truecharts.org/charts/system/openebs
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/openebs.png
 keywords:
@@ -42,4 +47,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/system/openebs
   - https://github.com/truecharts/containers/tree/master/apps/scratch
 type: application
-version: 3.7.5
+version: 4.0.0
