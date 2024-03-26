@@ -70,6 +70,7 @@ tests:
                     nvidia.com/gpu: 1
                     some-resource: 1
                     some-other-resource: 0
+                    some-string-resource: "0"
     asserts:
       - documentIndex: &deploymentDoc 0
         isKind:
@@ -87,7 +88,6 @@ tests:
                 memory: 4Gi
                 nvidia.com/gpu: 1
                 some-resource: 1
-                some-other-resource: 0
               requests:
                 cpu: 10m
                 memory: 50Mi
@@ -132,7 +132,6 @@ tests:
               limits:
                 cpu: 2000m
                 memory: 4Gi
-                some-resource: 0
                 some-other-resource: 2
               requests:
                 cpu: 10m
