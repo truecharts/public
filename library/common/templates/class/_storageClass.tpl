@@ -31,7 +31,7 @@ metadata:
   {{- end -}}
   {{- $annotations := (mustMerge ($objectData.annotations | default dict) (include "tc.v1.common.lib.metadata.allAnnotations" $rootCtx | fromYaml)) -}}
   annotations:
-    storageclass.kubernetes.io/is-default-class: {{ ( $objectData.isDefaultClass | toString ) | default "false" }}
+    'storageclass.kubernetes.io/is-default-class': {{ $objectData.isDefaultClass | default "false" }}
   {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "annotations" $annotations) | trim) }}
     {{- . | nindent 4 }}
   {{- end }}
