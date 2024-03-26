@@ -29,10 +29,9 @@ metadata:
   labels:
     {{- . | nindent 4 }}
   {{- end -}}
-  {{- $annotations := (mustMerge ($objectData.annotations | default dict) (include "tc.v1.common.lib.metadata.allAnnotations" $rootCtx | fromYaml)) -}}
-  annotations:
-    'storageclass.kubernetes.io/is-default-class': {{ $objectData.isDefaultClass | default "false" }}
+  {{- $annotations := (mustMerge ($objectData.annotations | default dict) ( dict 'storageclass.kubernetes.io/is-default-class' ( $objectData.isDefaultClass | default "false" ) ) (include "tc.v1.common.lib.metadata.allAnnotations" $rootCtx | fromYaml)) -}}
   {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "annotations" $annotations) | trim) }}
+  annotations:
     {{- . | nindent 4 }}
   {{- end }}
 provisioner: {{ $objectData.provisioner }}
