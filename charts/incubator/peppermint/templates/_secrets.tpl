@@ -1,6 +1,6 @@
 {{/* Define the secrets */}}
-{{- define "romm.secrets" -}}
-{{- $secretName := (printf "%s-romm-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
+{{- define "peppermint.secrets" -}}
+{{- $secretName := (printf "%s-peppermint-secrets" (include "tc.v1.common.lib.chart.names.fullname" $)) }}
 
 {{- $secretKey := randAlphaNum 64 -}}
 
