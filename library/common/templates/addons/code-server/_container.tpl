@@ -18,6 +18,8 @@ probes:
     path: "/"
 imageSelector: "codeserverImage"
 imagePullPolicy: {{ .Values.codeserverImage.pullPolicy }}
+resources:
+  excludeExtra: true
 securityContext:
   runAsUser: 0
   runAsGroup: 0

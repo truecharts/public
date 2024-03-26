@@ -18,6 +18,8 @@ probes:
     enabled: false
 command:
   - /usr/local/bin/containerboot
+resources:
+  excludeExtra: true
 securityContext:
   {{- if $.Values.addons.vpn.tailscale.userspace }}
   runAsUser: 1000

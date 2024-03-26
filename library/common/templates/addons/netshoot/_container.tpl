@@ -15,6 +15,8 @@ probes:
   startup:
     enabled: false
 imageSelector: "netshootImage"
+resources:
+  excludeExtra: true
 securityContext:
   runAsUser: 0
   runAsGroup: 0

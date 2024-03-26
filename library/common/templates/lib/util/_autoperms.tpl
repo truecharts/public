@@ -59,6 +59,7 @@ podSpec:
             - DAC_OVERRIDE
             - FOWNER
       resources:
+        excludeExtra: true
         limits:
           cpu: 2000m
           memory: 2Gi

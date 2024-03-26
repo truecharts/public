@@ -65,6 +65,9 @@ tests:
   - it: addon enabled should pass without other service
     set:
       workload: *workload
+      resources:
+        limits:
+          nvidia.com/gpu: 1
       service:
         main:
           enabled: false
@@ -91,9 +94,32 @@ tests:
           path: spec.template.spec.containers[0].name
           value: test-release-name-common-test-codeserver
       - documentIndex: *DeploymentDocument
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+              requests:
+                cpu: 10m
+                memory: 50Mi
+      - documentIndex: *DeploymentDocument
         equal:
           path: spec.template.spec.containers[1].name
           value: test-release-name-common-test
+      - documentIndex: *DeploymentDocument
+        isSubset:
+          path: spec.template.spec.containers[1]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+                nvidia.com/gpu: 1
+              requests:
+                cpu: 10m
+                memory: 50Mi
       - documentIndex: *AddonServiceDocument
         equal:
           path: metadata.name

@@ -7,6 +7,9 @@ release:
 tests:
   - it: addon vpn gluetun enabled with config and env should pass
     set:
+      resources:
+        limits:
+          nvidia.com/gpu: 1
       addons:
         vpn:
           type: gluetun
@@ -72,9 +75,32 @@ tests:
           path: spec.template.spec.containers[0].name
           value: test-release-name-common-test
       - documentIndex: *DeploymentDocument
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+                nvidia.com/gpu: 1
+              requests:
+                cpu: 10m
+                memory: 50Mi
+      - documentIndex: *DeploymentDocument
         equal:
           path: spec.template.spec.containers[1].name
           value: test-release-name-common-test-vpn
+      - documentIndex: *DeploymentDocument
+        isSubset:
+          path: spec.template.spec.containers[1]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+              requests:
+                cpu: 10m
+                memory: 50Mi
       - documentIndex: *ServiceDocument
         equal:
           path: metadata.name
@@ -520,6 +546,9 @@ tests:
 
   - it: tailscale addon enabled with authkey should pass
     set:
+      resources:
+        limits:
+          nvidia.com/gpu: 1
       addons:
         vpn:
           type: tailscale
@@ -545,9 +574,32 @@ tests:
           path: spec.template.spec.containers[0].name
           value: test-release-name-common-test
       - documentIndex: *DeploymentDocument
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+                nvidia.com/gpu: 1
+              requests:
+                cpu: 10m
+                memory: 50Mi
+      - documentIndex: *DeploymentDocument
         equal:
           path: spec.template.spec.containers[1].name
           value: test-release-name-common-test-tailscale
+      - documentIndex: *DeploymentDocument
+        isSubset:
+          path: spec.template.spec.containers[1]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+              requests:
+                cpu: 10m
+                memory: 50Mi
       - documentIndex: *DeploymentDocument
         contains:
           path: spec.template.spec.containers[1].env
@@ -671,6 +723,9 @@ tests:
 
   - it: addon vpn openvpn enabled with configFile
     set:
+      resources:
+        limits:
+          nvidia.com/gpu: 1
       addons:
         vpn:
           type: openvpn
@@ -738,6 +793,18 @@ tests:
           path: spec.template.spec.containers[0].name
           value: test-release-name-common-test
       - documentIndex: *DeploymentDocument
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+                nvidia.com/gpu: 1
+              requests:
+                cpu: 10m
+                memory: 50Mi
+      - documentIndex: *DeploymentDocument
         contains:
           path: spec.template.spec.containers[1].volumeMounts
           content:
@@ -756,6 +823,17 @@ tests:
           path: spec.template.spec.containers[1].name
           value: test-release-name-common-test-vpn
       - documentIndex: *DeploymentDocument
+        isSubset:
+          path: spec.template.spec.containers[1]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+              requests:
+                cpu: 10m
+                memory: 50Mi
+      - documentIndex: *DeploymentDocument
         contains:
           path: spec.template.spec.volumes
           content:
@@ -766,6 +844,9 @@ tests:
 
   - it: addon vpn wireguard enabled with configFile
     set:
+      resources:
+        limits:
+          nvidia.com/gpu: 1
       addons:
         vpn:
           type: wireguard
@@ -833,6 +914,18 @@ tests:
           path: spec.template.spec.containers[0].name
           value: test-release-name-common-test
       - documentIndex: *DeploymentDocument
+        isSubset:
+          path: spec.template.spec.containers[0]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+                nvidia.com/gpu: 1
+              requests:
+                cpu: 10m
+                memory: 50Mi
+      - documentIndex: *DeploymentDocument
         contains:
           path: spec.template.spec.containers[1].volumeMounts
           content:
@@ -850,6 +943,17 @@ tests:
         equal:
           path: spec.template.spec.containers[1].name
           value: test-release-name-common-test-vpn
+      - documentIndex: *DeploymentDocument
+        isSubset:
+          path: spec.template.spec.containers[1]
+          content:
+            resources:
+              limits:
+                cpu: 4000m
+                memory: 8Gi
+              requests:
+                cpu: 10m
+                memory: 50Mi
       - documentIndex: *DeploymentDocument
         contains:
           path: spec.template.spec.volumes

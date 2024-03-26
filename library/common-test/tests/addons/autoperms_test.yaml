@@ -635,6 +635,9 @@ tests:
 
   - it: should have different resources
     set:
+      resources:
+        limits:
+          nvidia.com/gpu: 1
       workload:
         workload-name:
           enabled: true
@@ -680,6 +683,7 @@ tests:
             limits:
               cpu: 4000m
               memory: 8Gi
+              nvidia.com/gpu: 1
       - documentIndex: *jobDoc
         equal:
           path: spec.template.spec.containers[0].resources

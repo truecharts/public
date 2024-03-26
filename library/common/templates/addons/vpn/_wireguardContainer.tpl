@@ -16,6 +16,8 @@ probes:
     enabled: false
   startup:
     enabled: false
+resources:
+  excludeExtra: true
 securityContext:
   runAsUser: 568
   runAsGroup: 568
