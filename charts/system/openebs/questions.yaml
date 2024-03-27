@@ -87,6 +87,11 @@ questions:
                       description: Retain (Keep Data on App Deletion)
                     - value: Delete
                       description: Delete (Delete data on App Deletion)
+              - variable: allowVolumeExpansion
+                label: "Allow VolumeExpansion"
+                schema:
+                  type: boolean
+                  default: true
               - variable: parameters
                 label: "parameters"
                 schema:
@@ -99,3 +104,17 @@ questions:
                         type: string
                         default: ""
                         required: true
+                    - variable: fstype
+                      label: "fstype"
+                      schema:
+                        type: string
+                        default: "zfs"
+                        hidden: true
+                        required: true
+                    - variable: shared
+                      label: "shared"
+                      schema:
+                        type: string
+                        default: "yes"
+                        hidden: true
+                        
