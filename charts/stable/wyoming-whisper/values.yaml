@@ -41,7 +41,7 @@ persistence:
     mountPath: /data
   cache:
     enabled: true
-    mountPath: ~/.cache/huggingface/hub
+    mountPath: /.cache/huggingface/hub
 portal:
   open:
     enabled: false
