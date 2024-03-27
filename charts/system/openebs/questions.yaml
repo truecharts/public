@@ -117,4 +117,27 @@ questions:
                         type: string
                         default: "yes"
                         hidden: true
-                        
+                    - variable: thinprovision
+                      label: "thinprovision"
+                      schema:
+                        type: string
+                        default: "yes"
+                        hidden: true
+                    - variable: compression
+                      label: "compression"
+                      schema:
+                        type: string
+                        default: "zstd-6"
+                        hidden: true
+                    - variable: recordsize
+                      label: "recordsize"
+                      schema:
+                        type: string
+                        default: "64k"
+                        hidden: true
+                    - variable: dedup
+                      label: "dedup"
+                      schema:
+                        type: string
+                        default: "off"
+                        hidden: true
