@@ -28,6 +28,8 @@ workload:
             - "{{ .Values.wyoming_whisper.model }}"
             - --beam-size
             - "{{ .Values.wyoming_whisper.beam_size }}"
+          env:
+            HF_HUB_CACHE: /tmp/huggingface/hub
 service:
   main:
     ports:
