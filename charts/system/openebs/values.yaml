@@ -16,7 +16,6 @@ workload:
   main:
     enabled: false
 
-
 # local pv configuration goes here
 # ref - https://openebs.github.io/dynamic-localpv-provisioner
 localpv-provisioner:
@@ -40,7 +39,8 @@ localpv-provisioner:
     # If set to false, containers created by the localpv provisioner will run without extra privileges.
     privileged: true
     annotations: {}
-    podAnnotations: {}
+    podAnnotations:
+      {}
       ## Labels to be added to localpv provisioner deployment pods
     podLabels:
       name: openebs-localpv-provisioner
@@ -69,7 +69,8 @@ localpv-provisioner:
   imagePullSecrets:
     # - name: img-pull-secret
 
-  podSecurityContext: {}
+  podSecurityContext:
+    {}
     # fsGroup: 2000
 
   nameOverride: ""
@@ -162,7 +163,6 @@ zfs-localpv:
 #      pullPolicy: IfNotPresent
 #      tag: 2.5.0
 
-
 # lvm local pv configuration goes here
 # ref - https://openebs.github.io/lvm-localpv
 lvm-localpv:
@@ -173,7 +173,6 @@ lvm-localpv:
   # Sample configuration if you want to configure lvm localpv with custom values.
   # This is a small part of the full configuration. Full configuration available
   # here - https://openebs.github.io/lvm-localpv
-
 #  imagePullSecrets: []
 #
 #  rbac:

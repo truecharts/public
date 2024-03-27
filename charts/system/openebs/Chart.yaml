@@ -17,17 +17,26 @@ dependencies:
     tags: []
     import-values: []
   - name: localpv-provisioner
+    version: 4.0.0
+    repository: https://openebs.github.io/dynamic-localpv-provisioner
     condition: localpv-provisioner.enabled
-    version: "4.0.0"
-    repository: "https://openebs.github.io/dynamic-localpv-provisioner"
+    alias: ""
+    tags: []
+    import-values: []
   - name: zfs-localpv
-    version: "2.4.2"
-    repository: "https://openebs.github.io/zfs-localpv"
+    version: 2.4.2
+    repository: https://openebs.github.io/zfs-localpv
     condition: zfs-localpv.enabled
+    alias: ""
+    tags: []
+    import-values: []
   - name: lvm-localpv
-    version: "1.4.0"
-    repository: "https://openebs.github.io/lvm-localpv"
+    version: 1.4.0
+    repository: https://openebs.github.io/lvm-localpv
     condition: lvm-localpv.enabled
+    alias: ""
+    tags: []
+    import-values: []
 deprecated: false
 description: OpenEBS is a umbrella chart for multiple container storage provisioners
 home: https://truecharts.org/charts/system/openebs
