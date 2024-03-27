@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: latest
+appVersion: 2.1.0
 dependencies:
   - name: common
     version: 20.2.9
@@ -33,4 +33,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/wyoming-whisper
   - https://hub.docker.com/r/rhasspy/wyoming-whisper
 type: application
-version: 4.7.4
+version: 5.0.0
