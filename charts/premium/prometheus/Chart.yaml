@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: premium
 apiVersion: v2
-appVersion: 2.51.1
+appVersion: 2.51.0
 dependencies:
   - name: common
     version: 20.2.9
@@ -17,7 +17,7 @@ dependencies:
     tags: []
     import-values: []
   - name: kube-prometheus-stack
-    version: 56.21.0
+    version: 56.21.4
     repository: oci://ghcr.io/prometheus-community/charts
     condition: ""
     alias: kps
@@ -43,4 +43,4 @@ sources:
   - https://quay.io/thanos/thanos
   - https://hub.docker.com/r/bitnami/alertmanager
 type: application
-version: 17.12.4
+version: 17.12.5
