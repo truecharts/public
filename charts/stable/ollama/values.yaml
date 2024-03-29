@@ -49,7 +49,7 @@ ollama:
   whisper:
     model: "base"
   rag:
-    # cpu | gpu | mps
+    # cpu | cuda | mps
     model_device_type: "cpu"
     # embedding model
     model: "all-MiniLM-L6-v2"
