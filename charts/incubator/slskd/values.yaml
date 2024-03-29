@@ -32,7 +32,10 @@ workload:
             SLSKD_INCOMPLETE_DIR: '{{ printf "%s/incomplete" .Values.persistence.downloads.mountPath }}'
             SLSKD_SLSK_USERNAME: "admin"
             SLSKD_SLSK_PASSWORD: "admin123"
-            # SLSKD_JWT_KEY: //TODO
+            SLSKD_JWT_KEY:
+              secretKeyRef:
+                name: slskd-secrets
+                key: SLSKD_JWT_KEY
             # SLSKD_INSTANCE_NAME: default
             # SLSKD_NO_AUTH:
             # true | false
