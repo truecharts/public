@@ -6,32 +6,34 @@ questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
-
 # Include{replicas1}
 # Include{podSpec}
 # Include{containerMain}
+                                - variable: env
+                                  label: Image Environment
+                                  schema:
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: SLSKD_SLSK_USERNAME
+                                        label: Soulseek Username
+                                        description: Soulseek network account username
+                                        schema:
+                                          type: string
+                                          required: true
+                                          default: ""
+                                      - variable: SLSKD_SLSK_PASSWORD
+                                        label: Soulseek Password
+                                        description: Soulseek network account password
+                                        schema:
+                                          type: string
+                                          required: true
+                                          private: true
+                                          default: ""
+
 # Include{containerBasic}
 # Include{containerAdvanced}
-  - variable: secretEnv
-    group: App Configuration
-    label: Image Secrets
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: SLSKD_SLSK_USERNAME
-          label: Soulseek network account username
-          schema:
-            type: string
-            required: true
-            default: ""
-        - variable: SLSKD_SLSK_PASSWORD
-          label: Soulseek network account password
-          schema:
-            type: string
-            private: true
-            required: true
-            default: ""
+
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
@@ -55,28 +57,29 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: data
-          label: "App data"
-          description: "Includes app configuration like slskd.yml"
+          label: "App Data Storage"
+          description: "Stores the Application Data."
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
         - variable: share
-          label: "Shared Media Storage"
-          description: "Folder whose contents will be shared with others on the Soulseek network"
+          label: "App Share Storage"
+          description: "Stores the Application Share."
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
         - variable: downloads
-          label: "Downloads Storage"
-          description: "Files downloaded from others on the Soulseek network. You can set this to the same folder as in the 'Shared Media Storage' section."
+          label: "App Downloads Storage"
+          description: "Stores the Application Downloads."
           schema:
             additional_attrs: true
             type: dict
             attrs:
+# Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

@@ -9,44 +9,60 @@ securityContext:
     runAsGroup: 0
     runAsUser: 0
 
-secretEnv:
-  SLSKD_SLSK_USERNAME: ""
-  SLSKD_SLSK_PASSWORD: ""
-
-# https://github.com/slskd/slskd/blob/master/docs/config.md
-env:
-  SLSKD_SHARED_DIR: "/share"
-  SLSKD_DOWNLOADS_DIR: "/downloads"
-
 service:
   main:
     ports:
       main:
         port: 5030
-        targetPort: 5030
 
 workload:
   main:
     podSpec:
       containers:
         main:
-          probes:
-            liveness:
-                type: tcp
-            readiness:
-                type: tcp
+          env:
+            # listens on any interface
+            SLSKD_SLSK_LISTEN_IP_ADDRESS: 0.0.0.0
+            # sets the port internally
+            SLSKD_SLSK_LISTEN_PORT: "{{ .Values.service.main.ports.main.port }}"
+            SLSKD_HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
+            APP_DIR: "{{.Values.persistence.data.mountPath }}"
+            SLSKD_SHARED_DIR: "{{.Values.persistence.share.mountPath }}"
+            SLSKD_DOWNLOADS_DIR: '{{ printf "%s/complete" .Values.persistence.downloads.mountPath }}'
+            SLSKD_INCOMPLETE_DIR: '{{ printf "%s/incomplete" .Values.persistence.downloads.mountPath }}'
+            SLSKD_SLSK_USERNAME: "admin"
+            SLSKD_SLSK_PASSWORD: "admin123"
+            # SLSKD_JWT_KEY: //TODO
+            # SLSKD_INSTANCE_NAME: default
+            # SLSKD_NO_AUTH:
+            # true | false
+            # SLSKD_REMOTE_FILE_MANAGEMENT: false
+            # memory | disk
+            # SLSKD_SHARE_CACHE_STORAGE_MODE: memory
+            # SLSKD_SHARE_CACHE_WORKERS: 4
+            # 1 week
+            # SLSKD_SHARE_CACHE_RETENTION: 10080
+            # true | false
+            # SLSKD_RELAY:
+            # controller | agent | debug
+            # SLSKD_RELAY_MODE:
+            # ROOMS
+            # SLSKD_SLSK_ADDRESS: vps.slsknet.org
+            # SLSKD_SLSK_PORT: 2271
+
+            # SLSKD_SLSK_CONNECTION_TIMEOUT: 10000
+            # SLSKD_SLSK_INACTIVITY_TIMEOUT: 15000
 
 persistence:
   data:
     enabled: true
-    mountPath: "/app/"
+    mountPath: "/app"
   share:
     enabled: true
-    mountPath: "/share/"
+    mountPath: "/share"
   downloads:
     enabled: true
-    mountPath: "/downloads/"
-
+    mountPath: "/downloads"
 portal:
   open:
     enabled: true
