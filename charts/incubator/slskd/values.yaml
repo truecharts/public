@@ -30,8 +30,8 @@ workload:
             SLSKD_SHARED_DIR: "{{.Values.persistence.share.mountPath }}"
             SLSKD_DOWNLOADS_DIR: "{{ .Values.persistence.complete.mountPath }}"
             SLSKD_INCOMPLETE_DIR: "{{ .Values.persistence.incomplete.mountPath }}"
-            SLSKD_SLSK_USERNAME: "admin"
-            SLSKD_SLSK_PASSWORD: "admin123"
+            SLSKD_USERNAME: "admin"
+            SLSKD_PASSWORD: "admin123"
             SLSKD_JWT_KEY:
               secretKeyRef:
                 name: slskd-secrets
