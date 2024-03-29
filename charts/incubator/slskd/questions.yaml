@@ -72,9 +72,17 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
-        - variable: downloads
-          label: "App Downloads Storage"
-          description: "Stores the Application Downloads."
+        - variable: incomplete
+          label: "App Incomplete Downloads Storage"
+          description: "Stores the Application Incomplete Downloads."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: complete
+          label: "App Complete Downloads Storage"
+          description: "Stores the Application Complete Downloads."
           schema:
             additional_attrs: true
             type: dict

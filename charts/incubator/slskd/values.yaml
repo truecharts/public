@@ -28,8 +28,8 @@ workload:
             SLSKD_HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
             APP_DIR: "{{.Values.persistence.data.mountPath }}"
             SLSKD_SHARED_DIR: "{{.Values.persistence.share.mountPath }}"
-            SLSKD_DOWNLOADS_DIR: '{{ printf "%s/complete" .Values.persistence.downloads.mountPath }}'
-            SLSKD_INCOMPLETE_DIR: '{{ printf "%s/incomplete" .Values.persistence.downloads.mountPath }}'
+            SLSKD_DOWNLOADS_DIR: "{{ .Values.persistence.complete.mountPath }}"
+            SLSKD_INCOMPLETE_DIR: "{{ .Values.persistence.incomplete.mountPath }}"
             SLSKD_SLSK_USERNAME: "admin"
             SLSKD_SLSK_PASSWORD: "admin123"
             SLSKD_JWT_KEY:
@@ -63,9 +63,12 @@ persistence:
   share:
     enabled: true
     mountPath: "/share"
-  downloads:
+  incomplete:
     enabled: true
-    mountPath: "/downloads"
+    mountPath: "/downloads/incomplete"
+  complete:
+    enabled: true
+    mountPath: "/downloads/complete"
 portal:
   open:
     enabled: true
