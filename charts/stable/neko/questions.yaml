@@ -46,6 +46,12 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+        - variable: ip
+          label: IP
+          description: IP of the server that will be sent to client, if not specified, public IP is automatically resolved.
+          schema:
+            type: string
+            default: "0.0.0.0"
         - variable: auth
           label: Auth Credentials
           schema:
