@@ -43,12 +43,6 @@ questions:
                                         schema:
                                           type: string
                                           default: "comchap"
-                                      - variable: NVIDIA_VISIBLE_DEVICES
-                                        label: "NVIDIA_VISIBLE_DEVICES"
-                                        description: "GPU UUID retrieved from Nvidia plugin settings"
-                                        schema:
-                                          type: string
-                                          default: ""
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}

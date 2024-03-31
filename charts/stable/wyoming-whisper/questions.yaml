@@ -16,7 +16,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
-        - variable: lanuage
+        - variable: language
           label: Language
           description: Default language for the app.
           schema:
@@ -278,6 +278,14 @@ questions:
         - variable: config
           label: "App Config Storage"
           description: "Stores the Application Configuration."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
+        - variable: cache
+          label: "App Cache Storage"
+          description: "Stores the models."
           schema:
             additional_attrs: true
             type: dict

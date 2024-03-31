@@ -1,11 +1,18 @@
 image:
   repository: ollama/ollama
   pullPolicy: IfNotPresent
-  tag: 0.1.25@sha256:21824867532d4aaaecac4b0234c7ac6c8bb0144d86407bdd5e4141686c9fd2e4
+  tag: 0.1.30@sha256:b47483d6dde1d3d673701740791e8027347cfa4a80e31f677c32c006f78e32a6
 uiImage:
-  repository: ghcr.io/ollama-webui/ollama-webui
+  repository: ghcr.io/open-webui/open-webui
   pullPolicy: IfNotPresent
-  tag: main@sha256:06e060b8bf3f9d13c036cec749bea4cf3e9cc3e61a6cb33132d1776d3d57403d
+  tag: latest@sha256:d822c999c4d09f36e01a88473ceccfb53b88bbadf7c839ac6d8f5ae6d57620f5
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
 
 service:
   main:
@@ -13,7 +20,6 @@ service:
     ports:
       main:
         protocol: http
-        targetPort: 8080
         port: 10686
         targetSelector: ui
   api:
@@ -29,8 +35,24 @@ service:
 
 ingress:
   api:
+    enabled: false
     targetSelector:
       api: api
+
+ollama:
+  registration:
+    enabled: true
+    # admin | user | pending
+    def_user_role: "pending"
+  stable_diffusion:
+    base_url: ""
+  whisper:
+    model: "base"
+  rag:
+    # cpu | cuda | mps
+    model_device_type: "cpu"
+    # embedding model
+    model: "all-MiniLM-L6-v2"
 
 workload:
   main:
@@ -38,26 +60,21 @@ workload:
       containers:
         main:
           imageSelector: image
-          securityContext:
-            runAsUser: 0
-            runAsGroup: 0
-            runAsNonRoot: false
-            readOnlyRootFilesystem: false
           probes:
             liveness:
               enabled: true
               type: http
               path: /api/version
-              port: "{{ .Values.service.api.ports.api.port }}"
+              port: "{{ .Values.service.api.ports.api.targetPort }}"
             readiness:
               enabled: true
               type: http
               path: /api/version
-              port: "{{ .Values.service.api.ports.api.port }}"
+              port: "{{ .Values.service.api.ports.api.targetPort }}"
             startup:
               enabled: true
               type: tcp
-              port: "{{ .Values.service.api.ports.api.port }}"
+              port: "{{ .Values.service.api.ports.api.targetPort }}"
   ui:
     enabled: true
     type: Deployment
@@ -67,23 +84,39 @@ workload:
           primary: true
           enabled: true
           imageSelector: uiImage
+          resources:
+            excludeExtra: true
           probes:
             liveness:
               enabled: true
               type: http
               path: /
-              port: "{{ .Values.service.main.ports.main.targetPort }}"
+              port: "{{ .Values.service.main.ports.main.port }}"
             readiness:
               enabled: true
               type: http
               path: /
-              port: "{{ .Values.service.main.ports.main.targetPort }}"
+              port: "{{ .Values.service.main.ports.main.port }}"
             startup:
               enabled: true
               type: tcp
-              port: "{{ .Values.service.main.ports.main.targetPort }}"
+              port: "{{ .Values.service.main.ports.main.port }}"
           env:
-            OLLAMA_API_BASE_URL: '{{ printf "http://%v-api:%v/api" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.api.ports.api.targetPort }}'
+            PORT: "{{ .Values.service.main.ports.main.port }}"
+            OLLAMA_BASE_URL: '{{ printf "http://%v-api:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.api.ports.api.targetPort }}'
+            WEBUI_SECRET_KEY:
+              secretKeyRef:
+                name: ollama-secrets
+                key: WEBUI_SECRET_KEY
+            AUTOMATIC1111_BASE_URL: "{{ .Values.ollama.stable_diffusion.base_url }}"
+            ENABLE_SIGNUP: "{{ .Values.ollama.registration.enabled }}"
+            DEFAULT_USER_ROLE: "{{ .Values.ollama.registration.def_user_role }}"
+            WHISPER_MODEL: "{{ .Values.ollama.whisper.model }}"
+            RAG_EMBEDDING_MODEL: "{{ .Values.ollama.rag.model }}"
+            RAG_EMBEDDING_MODEL_DEVICE_TYPE: "{{ .Values.ollama.rag.model_device_type }}"
+            # OPENAI_API_BASE_URL
+            # OPENAI_API_KEY
+            # DEFAULT_MODELS
 
 persistence:
   config:

@@ -1,0 +1,11 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.v1.common.loader.init" . -}}
+
+{{/* Render secrets for semaphore */}}
+{{- $secrets := include "semaphore.secrets" . | fromYaml -}}
+{{- if $secrets -}}
+  {{- $_ := set .Values.secret "semaphore-secrets" $secrets -}}
+{{- end -}}
+
+{{/* Render the templates */}}
+{{- include "tc.v1.common.loader.apply" . -}}

@@ -148,6 +148,11 @@ questions:
                                               schema:
                                                 type: string
                                                 default: ""
+                                            - variable: MAIL_FROM
+                                              label: "MAIL_FROM"
+                                              schema:
+                                                type: string
+                                                default: ""
                                       - variable: notificationsenabled
                                         label: "Notifications Settings"
                                         schema:

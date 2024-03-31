@@ -1,23 +1,23 @@
 annotations:
-  max_scale_version: 23.10.2
+  max_scale_version: 24.04.0
   min_scale_version: 23.10.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: finance
   truecharts.org/max_helm_version: "3.14"
-  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.54.0
+appVersion: 2.69.0
 dependencies:
   - name: common
-    version: 17.4.2
+    version: 20.2.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 11.2.1
+    version: 13.2.2
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -30,7 +30,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/ghostfolio.png
 keywords:
   - ghostfolio
   - finance
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -42,4 +42,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/ghostfolio
   - https://hub.docker.com/r/ghostfolio/ghostfolio
 type: application
-version: 3.13.0
+version: 4.18.0

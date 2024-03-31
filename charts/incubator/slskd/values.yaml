@@ -1,0 +1,74 @@
+image:
+  repository: ghcr.io/slskd/slskd
+  pullPolicy: IfNotPresent
+  tag: 0.20.1@sha256:2a6af2f48657179b2bb66840fe179ce209f501a02386b679d9f3cdc26213fc2c
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsGroup: 0
+    runAsUser: 0
+
+service:
+  main:
+    ports:
+      main:
+        port: 5030
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            # listens on any interface
+            SLSKD_SLSK_LISTEN_IP_ADDRESS: 0.0.0.0
+            # sets the port internally
+            SLSKD_SLSK_LISTEN_PORT: "{{ .Values.service.main.ports.main.port }}"
+            SLSKD_HTTP_PORT: "{{ .Values.service.main.ports.main.port }}"
+            APP_DIR: "{{.Values.persistence.data.mountPath }}"
+            SLSKD_SHARED_DIR: "{{.Values.persistence.share.mountPath }}"
+            SLSKD_DOWNLOADS_DIR: "{{ .Values.persistence.complete.mountPath }}"
+            SLSKD_INCOMPLETE_DIR: "{{ .Values.persistence.incomplete.mountPath }}"
+            SLSKD_USERNAME: "admin"
+            SLSKD_PASSWORD: "admin123"
+            SLSKD_JWT_KEY:
+              secretKeyRef:
+                name: slskd-secrets
+                key: SLSKD_JWT_KEY
+            # SLSKD_INSTANCE_NAME: default
+            # SLSKD_NO_AUTH:
+            # true | false
+            # SLSKD_REMOTE_FILE_MANAGEMENT: false
+            # memory | disk
+            # SLSKD_SHARE_CACHE_STORAGE_MODE: memory
+            # SLSKD_SHARE_CACHE_WORKERS: 4
+            # 1 week
+            # SLSKD_SHARE_CACHE_RETENTION: 10080
+            # true | false
+            # SLSKD_RELAY:
+            # controller | agent | debug
+            # SLSKD_RELAY_MODE:
+            # ROOMS
+            # SLSKD_SLSK_ADDRESS: vps.slsknet.org
+            # SLSKD_SLSK_PORT: 2271
+
+            # SLSKD_SLSK_CONNECTION_TIMEOUT: 10000
+            # SLSKD_SLSK_INACTIVITY_TIMEOUT: 15000
+
+persistence:
+  data:
+    enabled: true
+    mountPath: "/app"
+  share:
+    enabled: true
+    mountPath: "/share"
+  incomplete:
+    enabled: true
+    mountPath: "/downloads/incomplete"
+  complete:
+    enabled: true
+    mountPath: "/downloads/complete"
+portal:
+  open:
+    enabled: true

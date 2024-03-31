@@ -3,11 +3,11 @@ name: "SCALE: catalog-tests"
 on:
   pull_request:
     paths:
-      - '.github/workflows/catalog-template-test.yaml'
-      - '.github/workflows/catalog-test.yaml'
-      - 'templates/*'
-      - 'templates/**'
-      - 'templates/**/*'
+      - ".github/workflows/catalog-template-test.yaml"
+      - ".github/workflows/catalog-test.yaml"
+      - "templates/*"
+      - "templates/**"
+      - "templates/**/*"
 jobs:
   catalog-tests:
     name: Test SCALE Catalog Templates
@@ -21,14 +21,14 @@ jobs:
 
       - name: Setting repo parent dir as safe safe.directory
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
-        
+
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         name: Checkout-validate
         with:
           fetch-depth: 1
           repository: truecharts/catalog_validation
           path: .catalog_validation
-          
+
       - name: install catalog_validation
         shell: bash
         run: |
@@ -45,13 +45,13 @@ jobs:
         run: |
           CHANGED=$(echo '${{ steps.list-changed.outputs.CHANGED_CHARTS }}' | jq --raw-output '.[]')
           ./charttool deps ${PWD}/charts
-          
+
       - name: Checkout
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           repository: truecharts/catalog
           path: catalog
-          
+
       - name: Build Complete Catalog
         shell: bash
         if: steps.list-changed.outputs.detected == 'true'

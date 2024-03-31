@@ -13,8 +13,8 @@ questions:
 # Include{podOptions}
 # Include{serviceRoot}
         - variable: main
-          label: "Server Query Service"
-          description: "The server query service of teamspeak3"
+          label: "Server Query Service RAW"
+          description: "The server query (RAW) service of teamspeak3"
           schema:
             additional_attrs: true
             type: dict
@@ -22,7 +22,7 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: "Server Query Service Port Configuration"
+                      label: "Server Query (RAW) Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -34,6 +34,29 @@ questions:
                               type: int
                               default: 10011
                               required: true
+        - variable: query
+          label: "Server Query Service SSH"
+          description: "The server query (SSH) service of teamspeak3"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{serviceSelectorLoadBalancer}
+# Include{serviceSelectorExtras}
+                    - variable: query
+                      label: "Server Query (SSH) Service Port Configuration"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
+                            schema:
+                              type: int
+                              default: 10022
+                              required: true
+
         - variable: voice
           label: "Voice Service"
           description: "The voice service of teamspeak3"

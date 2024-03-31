@@ -121,11 +121,11 @@ jobs:
           ref: ${{ inputs.checkoutCommit }}
 
       - name: Install Helm
-        uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # v3
+        uses: azure/setup-helm@b7246b12e77f7134dc2d460a3d5bad15bbe29390 # v4
         with:
           version: v3.14.0
 
-      - uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5
+      - uses: actions/setup-python@82c7e631bb3cdc910f68e0081d67478d79c6982d # v5
         with:
           python-version: "3.11"
 
@@ -175,11 +175,11 @@ jobs:
           ref: ${{ inputs.checkoutCommit }}
 
       - name: Install Helm
-        uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # v3
+        uses: azure/setup-helm@b7246b12e77f7134dc2d460a3d5bad15bbe29390 # v4
         with:
           version: v3.14.0
 
-      - uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5
+      - uses: actions/setup-python@82c7e631bb3cdc910f68e0081d67478d79c6982d # v5
         with:
           python-version: "3.11"
 
@@ -229,11 +229,11 @@ jobs:
           ref: ${{ inputs.checkoutCommit }}
 
       - name: Install Helm
-        uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # v3
+        uses: azure/setup-helm@b7246b12e77f7134dc2d460a3d5bad15bbe29390 # v4
         with:
           version: v3.14.0
 
-      - uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5
+      - uses: actions/setup-python@82c7e631bb3cdc910f68e0081d67478d79c6982d # v5
         with:
           python-version: "3.11"
 
@@ -283,11 +283,11 @@ jobs:
           ref: ${{ inputs.checkoutCommit }}
 
       - name: Install Helm
-        uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # v3
+        uses: azure/setup-helm@b7246b12e77f7134dc2d460a3d5bad15bbe29390 # v4
         with:
           version: v3.14.0
 
-      - uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5
+      - uses: actions/setup-python@82c7e631bb3cdc910f68e0081d67478d79c6982d # v5
         with:
           python-version: "3.11"
 
@@ -337,11 +337,11 @@ jobs:
           ref: ${{ inputs.checkoutCommit }}
 
       - name: Install Helm
-        uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # v3
+        uses: azure/setup-helm@b7246b12e77f7134dc2d460a3d5bad15bbe29390 # v4
         with:
           version: v3.14.0
 
-      - uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5
+      - uses: actions/setup-python@82c7e631bb3cdc910f68e0081d67478d79c6982d # v5
         with:
           python-version: "3.11"
 
@@ -391,11 +391,11 @@ jobs:
           ref: ${{ inputs.checkoutCommit }}
 
       - name: Install Helm
-        uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # v3
+        uses: azure/setup-helm@b7246b12e77f7134dc2d460a3d5bad15bbe29390 # v4
         with:
           version: v3.14.0
 
-      - uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5
+      - uses: actions/setup-python@82c7e631bb3cdc910f68e0081d67478d79c6982d # v5
         with:
           python-version: "3.11"
 

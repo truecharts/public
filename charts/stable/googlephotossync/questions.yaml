@@ -13,17 +13,17 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: hostpath1
-          label: "hostpath1 Storage"
-          description: "Container Path storage"
+        - variable: config
+          label: "App Config Storage"
+          description: "Stores the Application Configuration."
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
-        - variable: config
-          label: "config Storage"
-          description: "Container Path config"
+        - variable: data
+          label: "App Data Storage"
+          description: "Stores the Application Data."
           schema:
             additional_attrs: true
             type: dict

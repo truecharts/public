@@ -75,17 +75,17 @@ questions:
 # Include{serviceExpert}
 # Include{serviceList}
 # Include{persistenceRoot}
-        - variable: vaults
-          label: "vaults Storage"
-          description: "This is the location for the users vaults."
+        - variable: config
+          label: "App Config Storage"
+          description: "Stores the Application Config."
           schema:
             additional_attrs: true
             type: dict
             attrs:
 # Include{persistenceBasic}
-        - variable: config
-          label: "config Storage"
-          description: "This is the location for the internal data."
+        - variable: vaults
+          label: "App Vaults Storage"
+          description: "Stores the Application Vaults."
           schema:
             additional_attrs: true
             type: dict

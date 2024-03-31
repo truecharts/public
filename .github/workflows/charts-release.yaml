@@ -27,7 +27,7 @@ jobs:
           repository: truecharts/helm-staging
           token: ${{ secrets.BOT_TOKEN }}
           path: helm
-          
+
       - name: Install pre-commit, yamale and yamllint
         run: |
           pip3 install --no-cache-dir pre-commit
@@ -39,6 +39,12 @@ jobs:
           pre-commit run --all ||:
           # Fix sh files to always be executable
           find . -name '*.sh' | xargs chmod +x
+
+      # Optional step if GPG signing is used
+      - name: Clean Questions
+        shell: bash
+        run: |
+          find ./helm -type f -name 'questions.yaml' -exec rm {} \;
 
       - name: Commit Helm Changes
         run: |
@@ -62,7 +68,7 @@ jobs:
       ref: ${{ steps.save-commit-hash.outputs.commit_hash }}
     steps:
       - name: Install Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@93f6df178ec13d1b814a7622073ba28727716ca2 # v0.10.0
+        uses: yokawasa/action-setup-kube-tools@dc0754a9a47b40f22f9bd52ffb082bbe6d142b22 # v0.11.0
         with:
           setup-tools: |
             helmv3
@@ -93,7 +99,7 @@ jobs:
         with:
           token: ${{ secrets.BOT_TOKEN }}
           fetch-depth: 0
-          
+
       - name: Prep Helm
         shell: bash
         run: |
@@ -111,6 +117,8 @@ jobs:
         if: |
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         run: |
+          export GOBIN=/usr/local/bin/
+          go install github.com/git-chglog/git-chglog/cmd/git-chglog@latest
           CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
           parthreads=$(($(nproc) * 2))
           parallel -j ${parthreads} .github/scripts/changelog.sh '2>&1' ::: ${CHARTS[@]}
@@ -290,102 +298,3 @@ jobs:
           git commit -sm "Commit new Chart releases for TrueCharts" || exit 0
           git push
           cd -
-          rm -rf catalog
-
-      - name: set git author
-        if: |
-          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
-        shell: bash
-        run: |
-          git config user.name "TrueCharts-Bot"
-          git config user.email "bot@truecharts.org"
-
-      - name: Install Helm
-        uses: azure/setup-helm@5119fcb9089d432beecbf79bb2c7915207344b78 # tag=v3
-        with:
-          version: v3.14.0
-
-        # Optional step if GPG signing is used
-      - name: Prepare GPG key
-        shell: bash
-        run: |
-          gpg_dir=.cr-gpg
-          mkdir -p "$gpg_dir"
-          keyring="$gpg_dir/secring.gpg"
-          base64 -d <<< "$GPG_KEYRING_BASE64" > "$keyring"
-          passphrase_file="$gpg_dir/passphrase"
-          echo "$GPG_PASSPHRASE" > "$passphrase_file"
-          echo "CR_PASSPHRASE_FILE=$passphrase_file" >> "$GITHUB_ENV"
-          echo "CR_KEYRING=$keyring" >> "$GITHUB_ENV"
-        env:
-          GPG_KEYRING_BASE64: "${{ secrets.GPG_KEYRING_BASE64 }}"
-          GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
-
-      - name: Clean Questions
-        shell: bash
-        run: |
-          find . -type f -name 'questions.yaml' -exec rm {} \;
-
-      - name: Run chart-releaser for dependency apps
-        uses: helm/chart-releaser-action@a917fd15b20e8b64b94d9158ad54cd6345335584 # v1.6.0
-        if: |
-          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
-        with:
-          charts_dir: charts/dependency
-          charts_repo_url: https://deps.truecharts.org
-          config: cr.yaml
-        env:
-          CR_TOKEN: "${{ secrets.BOT_TOKEN }}"
-          CR_SKIP_EXISTING: "true"
-
-      - name: Helm | Login
-        shell: bash
-        env:
-          HELM_EXPERIMENTAL_OCI: 1
-        run: echo ${{ secrets.QUAY_SECRET }} | helm registry login -u ${{ secrets.QUAY_USER }} --password-stdin quay.io
-
-      - name: Push Charts to Quay
-        shell: bash
-        env:
-          HELM_EXPERIMENTAL_OCI: 1
-        run: |
-          for pkg in .cr-release-packages/*.tgz; do
-            if [ -z "${pkg:-}" ]; then
-              break
-            fi
-            filename=$(basename "$pkg")
-            name="${filename%%-[0-9]*.[0-9]*.[0-9]*.tgz}"
-            echo "uploading $name"
-            helm push "${pkg}" oci://quay.io/truecharts || echo "failed to upload $pkg to OCI"
-            curl -X POST -H "Content-Type: application/json" -d '{"visibility": "public"}' -H "Authorization: Bearer ${{ secrets.QUAY_TOKEN }}" "https://quay.io/api/v1/repository/truecharts/$name/changevisibility"  || echo "failed to set $pkg to public on OCI"
-          done
-
-      - name: Helm | Logout
-        shell: bash
-        env:
-          HELM_EXPERIMENTAL_OCI: 1
-        run: helm registry logout quay.io
-
-      - name: Tag App Releases
-        if: |
-          steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
-        shell: bash
-        run: |
-          #!/bin/bash
-          CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
-          echo "Removing Chart Docs prior to regeneration..."
-          mkdir -p website/static/img/hotlink-ok/chart-icons || echo "chart-icons path already exists, continuing..."
-          for i in "${CHARTS[@]}"
-          do
-              IFS='/' read -r -a chart_parts <<< "$i"
-              if [ -f "charts/${chart_parts[0]}"/"${chart_parts[1]}/Chart.yaml" ]; then
-                train=${chart_parts[0]}
-                chart=${chart_parts[1]}
-                if [ "${train}" != "dependency" ]; then
-                  echo "creating tag for ${chart}"
-                  version=$(cat charts/${train}/${chart}/Chart.yaml | grep '^version: ' | awk -F" " '{ print $2 }' | head -1)
-                  git tag ${chart}-${version} || echo "tag failed for ${chart}-${version}"
-                fi
-              fi
-          done
-          git push --tags

@@ -112,10 +112,8 @@
       "labels": ["update/helm/general/major"],
       "automerge": false,
       "groupName": ["helm general major"],
-      "matchPaths": ["charts/stable/**", "charts/enterprise/**", "charts/operators/**"],
-      "schedule": [
-        "before 10pm on tuesday"
-      ],
+      "matchPaths": ["charts/stable/**", "charts/premium/**", "charts/system/**"],
+
       "autoApprove": false,
     },
     {
@@ -128,10 +126,8 @@
       "bumpVersion": "minor",
       "labels": ["update/helm/general/minor", "automerge"],
       "groupName": "helm general minor",
-      "matchPaths": ["charts/stable/**", "charts/enterprise/**", "charts/operators/**"],
-      "schedule": [
-        "before 10pm on tuesday"
-      ],
+      "matchPaths": ["charts/stable/**", "charts/premium/**", "charts/system/**"],
+
     },
     {
       "matchDatasources": ["helm"],
@@ -145,10 +141,7 @@
       "bumpVersion": "patch",
       "labels": ["update/helm/general/non-major", "automerge"],
       "groupName": "helm general non-major",
-      "matchPaths": ["charts/stable/**", "charts/enterprise/**", "charts/operators/**"],
-      "schedule": [
-        "before 10pm on tuesday"
-      ],
+      "matchPaths": ["charts/stable/**", "charts/premium/**", "charts/system/**"],
     },
     //
     // Tag updates for semantic tags
@@ -159,10 +152,8 @@
       "bumpVersion": "minor",
       "enabled": true,
       "labels": ["update/docker/general/major"],
-      "matchPaths": ["charts/dependency/**", "charts/stable/**", "charts/incubator/**", "charts/enterprise/**", "charts/operators/**"],
-      "schedule": [
-        "before 10pm on monday"
-      ],
+      "matchPaths": ["charts/dependency/**", "charts/stable/**", "charts/incubator/**", "charts/premium/**", "charts/system/**"],
+
       "autoApprove": false,
     },
     {
@@ -174,10 +165,8 @@
       "bumpVersion": "minor",
       "enabled": true,
       "labels": ["update/docker/general/non-major", "automerge"],
-      "matchPaths": ["charts/dependency/**", "charts/stable/**", "charts/incubator/**", "charts/enterprise/**", "charts/operators/**"],
-      "schedule": [
-        "before 10pm on monday"
-      ],
+      "matchPaths": ["charts/dependency/**", "charts/stable/**", "charts/incubator/**", "charts/premium/**", "charts/system/**"],
+
     },
     {
       "matchDatasources": ["docker"],
@@ -190,10 +179,8 @@
       "bumpVersion": "patch",
       "enabled": true,
       "labels": ["update/docker/general/non-major", "automerge"],
-      "matchPaths": ["charts/dependency/**", "charts/stable/**", "charts/incubator/**", "charts/enterprise/**", "charts/operators/**"],
-      "schedule": [
-        "before 10pm on monday"
-      ],
+      "matchPaths": ["charts/dependency/**", "charts/stable/**", "charts/incubator/**", "charts/premium/**", "charts/system/**"],
+
     },
     //
     // Tag tccr.io/truecharts based on semver
@@ -601,7 +588,7 @@
     {
       "matchDatasources": ["docker"],
       "versioning": "regex:^release-(?<major>\\d*)\\.(?<minor>\\d*)$",
-      "matchPackageNames": ["mattermost/mattermost-enterprise-edition"],
+      "matchPackageNames": ["mattermost/mattermost-premium-edition"],
       "automerge": true,
     },
     {

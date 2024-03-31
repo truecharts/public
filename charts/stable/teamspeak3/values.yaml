@@ -1,7 +1,7 @@
 image:
   pullPolicy: IfNotPresent
   repository: teamspeak
-  tag: 3.13.7@sha256:dfb97f8b535d70d22190eaa1b563306bf308bf2acac91928559e6a97e29add09
+  tag: 3.13.7@sha256:b5bdec55bc87b992c5658e739f3ce465644efa6d997633110b12be3dc3a10796
 persistence:
   data:
     enabled: true
@@ -28,6 +28,13 @@ service:
       main:
         port: 10011
         targetPort: 10011
+  query:
+    enabled: true
+    ports:
+      query:
+        enabled: true
+        port: 10022
+        targetPort: 10022
   voice:
     enabled: true
     ports:
