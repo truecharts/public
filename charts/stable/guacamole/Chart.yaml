@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 1.5.4
 dependencies:
   - name: common
-    version: 20.2.3
+    version: 20.2.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -32,7 +32,7 @@ name: guacamole
 sources:
   - https://github.com/apache/guacamole-client
   - https://github.com/truecharts/charts/tree/master/charts/stable/guacamole
-  - https://hub.docker.com/r/guacamole/guacamole
   - https://hub.docker.com/r/guacamole/guacd
+  - https://hub.docker.com/r/guacamole/guacamole
 type: application
-version: 13.7.2
+version: 13.7.5

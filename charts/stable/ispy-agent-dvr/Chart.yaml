@@ -7,10 +7,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 5.3.4.0
+appVersion: 5.3.5.0
 dependencies:
   - name: common
-    version: 20.2.3
+    version: 20.2.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/ispy-agent-dvr
   - https://hub.docker.com/r/doitandbedone/ispyagentdvr
 type: application
-version: 9.9.4
+version: 9.9.8

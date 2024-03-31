@@ -283,6 +283,14 @@ questions:
             type: dict
             attrs:
 # Include{persistenceBasic}
+        - variable: cache
+          label: "App Cache Storage"
+          description: "Stores the models."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+# Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main

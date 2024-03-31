@@ -1,8 +1,10 @@
 ---
-title: Nextcloud Migration Guide
+title: Nextcloud Backup, Restore and Migration Guide
 ---
 
-This guide will walk you through the migration process for Nextcloud. This guide utilize HostPath or NFS for UserData.
+This guide can will walk through the process of backing up and existing Nextcloud installation and how to restore or migrate that installation. This guide utilize HostPath or NFS for UserData.
+
+## Backup
 
 :::danger SMB EXTERNAL STORAGE
 
@@ -16,7 +18,7 @@ If you are using two factor authentication on your Nextcloud accounts disable it
 
 :::
 
-## Backup Nextcloud Database
+### Backup Database
 
 If you have not already done so install PGAdmin and the [tcdbinfo.sh script](https://truecharts.org/manual/SCALE/guides/sql-export#how-to-list-database-login-info-for-truecharts-apps)
 
@@ -34,17 +36,13 @@ If you have not already done so install PGAdmin and the [tcdbinfo.sh script](htt
 3. Backup Nextcloud database.
    ![pgadmin-backup](./img/pgadmin-backup.png)
 
-## Delete Nextcloud
+### Backup User Data
 
-:::danger Userdata Location
+If you are using HostPath of NFS for UserData then no further action is required. If you are using PVC for UserData then you will first need to mount your Nextcloud PVC and copy your UserData to a new dataset.
 
-Do not remove your Nextcloud installation until you have confirmed you use HostPath/NFS for user data or have copied UserData using utilizing [Heavyscript](https://github.com/Heavybullets8/heavy_script)
+## Restore
 
-:::
-
-If you are using HostPath of NFS for UserData then remove your current Nextcloud installation. If you are using PVC for UserData then you will first need to mount your Nextcloud PVC and copy your UserData to a new dataset.
-
-## Remove Old Nextcloud AppData
+### Remove Old AppData
 
 This step is not required but to have a clean installation remove all UserData folder and files that are not user folders.
 
@@ -56,8 +54,7 @@ ls -la
 
 :::warning
 
-Next steps are destructive without a way to undo.
-Make sure you have proper backups to avoid data loss.
+Next steps are destructive without a way to undo. Make sure you have proper backups to avoid data loss.
 
 You have been **warned**
 
@@ -73,21 +70,21 @@ rm .ocdata .htaccess index.html nextcloud.log
 
 :::
 
-## Change UserData Permissions
+### Verify User Data Permissions
 
-The new version of Nextcloud uses apps instead of www-data for file ownership. Apply permissions as shown below to your UserData dataset.
+Nextcloud uses apps for file ownership. Apply permissions as shown below to your User Data dataset.
 
 ![userdata-perms](./img/userdata-perms.png)
 
-## Install Nextcloud
+### Install Nextcloud
 
 Install with a temporary admin user that you do not currently use for Nextcloud (ie. temp)
 
-Setup Nextcloud UserData storage with your previous UserData dataset or the dataset you copied your UserData to.
+Setup Nextcloud User Data storage with your previous User Data dataset or the dataset you copied your User Data to.
 
 ![userdata-setting](./img/userdata-setting.png)
 
-## Restore Nextcloud Database
+### Restore Database
 
 :::caution Nextcloud Installation
 
@@ -110,11 +107,12 @@ Wait for Nextcloud to fully deploy before proceeding.
    ![pgadmin-restore3](./img/pgadmin-restore3.png)
 6. Configure Options as shown below and click restore.
    ![pgadmin-restore4](./img/pgadmin-restore4.png)
-   :::caution PGAdmin Error
 
-   PGAdmin may display an error during the restore process. This is known to occur and may be ignored.
+:::caution PGAdmin Error
 
-   :::
+PGAdmin may display an error during the restore process. This is known to occur and may be ignored.
+
+:::
 
 7. Start the main pod of Nextcloud.
 
@@ -122,7 +120,7 @@ Wait for Nextcloud to fully deploy before proceeding.
 k3s kubectl scale deploy nextcloud -n ix-nextcloud --replicas=1
 ```
 
-## Nextcloud OCC Commands
+### OCC Commands
 
 :::caution Nextcloud Deploy
 
@@ -158,6 +156,6 @@ occ db:add-missing-indices
 occ files:scan --all
 ```
 
-## Delete Temporary User Data Folder
+### Delete Temporary User Data Folder
 
 You may now remove the folder created during install for the temporary user that was configured.

@@ -1,11 +1,18 @@
 image:
   repository: ollama/ollama
   pullPolicy: IfNotPresent
-  tag: 0.1.29@sha256:75fb97cdd8f435756d26eb7783599122b814c4b97da2012dc21ebc0efbd90fef
+  tag: 0.1.30@sha256:b47483d6dde1d3d673701740791e8027347cfa4a80e31f677c32c006f78e32a6
 uiImage:
   repository: ghcr.io/open-webui/open-webui
   pullPolicy: IfNotPresent
-  tag: latest@sha256:63fed5ed0cd9ff1cc8d6ebab7983e2c39b4abed4b5fb00de5f95768a5fef6968
+  tag: latest@sha256:e18489c0b0cdc97cbeb05861ee84540e328cc24d0111d1472562fa2a853f2eba
+
+securityContext:
+  container:
+    runAsNonRoot: false
+    readOnlyRootFilesystem: false
+    runAsUser: 0
+    runAsGroup: 0
 
 service:
   main:
@@ -32,17 +39,27 @@ ingress:
     targetSelector:
       api: api
 
+ollama:
+  registration:
+    enabled: true
+    # admin | user | pending
+    def_user_role: "pending"
+  stable_diffusion:
+    base_url: ""
+  whisper:
+    model: "base"
+  rag:
+    # cpu | cuda | mps
+    model_device_type: "cpu"
+    # embedding model
+    model: "all-MiniLM-L6-v2"
+
 workload:
   main:
     podSpec:
       containers:
         main:
           imageSelector: image
-          securityContext:
-            runAsUser: 0
-            runAsGroup: 0
-            runAsNonRoot: false
-            readOnlyRootFilesystem: false
           probes:
             liveness:
               enabled: true
@@ -67,11 +84,8 @@ workload:
           primary: true
           enabled: true
           imageSelector: uiImage
-          securityContext:
-            runAsUser: 0
-            runAsGroup: 0
-            runAsNonRoot: false
-            readOnlyRootFilesystem: false
+          resources:
+            excludeExtra: true
           probes:
             liveness:
               enabled: true
@@ -89,12 +103,20 @@ workload:
               port: "{{ .Values.service.main.ports.main.port }}"
           env:
             PORT: "{{ .Values.service.main.ports.main.port }}"
-            DATA_DIR: "{{ .Values.persistence.data.mountPath }}"
             OLLAMA_BASE_URL: '{{ printf "http://%v-api:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.api.ports.api.targetPort }}'
             WEBUI_SECRET_KEY:
               secretKeyRef:
                 name: ollama-secrets
                 key: WEBUI_SECRET_KEY
+            AUTOMATIC1111_BASE_URL: "{{ .Values.ollama.stable_diffusion.base_url }}"
+            ENABLE_SIGNUP: "{{ .Values.ollama.registration.enabled }}"
+            DEFAULT_USER_ROLE: "{{ .Values.ollama.registration.def_user_role }}"
+            WHISPER_MODEL: "{{ .Values.ollama.whisper.model }}"
+            RAG_EMBEDDING_MODEL: "{{ .Values.ollama.rag.model }}"
+            RAG_EMBEDDING_MODEL_DEVICE_TYPE: "{{ .Values.ollama.rag.model_device_type }}"
+            # OPENAI_API_BASE_URL
+            # OPENAI_API_KEY
+            # DEFAULT_MODELS
 
 persistence:
   config:
