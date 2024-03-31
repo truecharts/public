@@ -186,30 +186,6 @@ questions:
                         type: string
                         private: true
                         default: ""
-              - variable: mistral
-                label: Azure
-                schema:
-                  additional_attrs: true
-                  type: dict
-                  attrs:
-                    - variable: api_key
-                      label: API Key
-                      schema:
-                        type: string
-                        private: true
-                        default: ""
-              - variable: mistral
-                label: Azure
-                schema:
-                  additional_attrs: true
-                  type: dict
-                  attrs:
-                    - variable: api_key
-                      label: API Key
-                      schema:
-                        type: string
-                        private: true
-                        default: ""
         - variable: features
           label: Features Configuration
           schema:
