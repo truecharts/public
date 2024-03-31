@@ -107,7 +107,7 @@ Wait for Nextcloud to fully deploy before proceeding.
    ![pgadmin-restore3](./img/pgadmin-restore3.png)
 6. Configure Options as shown below and click restore.
    ![pgadmin-restore4](./img/pgadmin-restore4.png)
-   
+
 :::caution PGAdmin Error
 
 PGAdmin may display an error during the restore process. This is known to occur and may be ignored.
