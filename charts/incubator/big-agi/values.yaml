@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/enricoros/big-agi
   pullPolicy: IfNotPresent
-  tag: v1.14.1@sha256:f4889c34663c4c0f7a6950eb3c1c714e28b9b5118e2660a787c73687417dbd68
+  tag: v1.14.99@sha256:ea7252dd0f9cbd73f7cc383ab02cebf707e0d2a60782aa0e163b21102d5f8490
 browserImage:
   repository: browserless/chrome
   pullPolicy: IfNotPresent
@@ -18,16 +18,17 @@ service:
     ports:
       main:
         protocol: http
+        targetPort: 3000
         port: 10691
   browser:
     enabled: true
     type: ClusterIP
-    targetSelector: exportarr
+    targetSelector: browser
     ports:
       browser:
         enabled: true
         port: 3000
-        targetSelector: exportarr
+        targetSelector: browser
 bigagi:
   llms:
     local_ai:
@@ -146,7 +147,6 @@ workload:
             # Database (MongoDB)
             # not using it; just documenting it here.
             # MDB_URI=
-
   browser:
     enabled: true
     type: Deployment
