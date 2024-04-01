@@ -43,6 +43,7 @@ env:
 {{- end }}
   FIREWALL: "on"
   FIREWALL_OUTBOUND_SUBNETS: {{ $excludednetworks | quote }}
+  FIREWALL_INPUT_PORTS: {{ $.Values.service.main.ports.main.port }}
 {{- else }}
   FIREWALL: "off"
 {{- end }}
