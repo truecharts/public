@@ -1,9 +1,9 @@
 # Talos Linux Setup
 
-## Enable NVIDIA kernel modules.
-Before installing device plugin, some initial steps need to be taken as per
-[Talos Documentation][1]. Please make sure you have installed correct system
-extensions through combination of patches + the correct [factory image][2] for your
+## Enable NVIDIA kernel modules
+Before installing the device plugin, some initial steps need to be taken per
+[Talos Documentation][1]. Please make sure you have installed the correct system
+extensions through a combination of patches + the correct [factory image][2] for your
 use case.
 
 example gpu-worker-patch.yaml
