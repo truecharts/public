@@ -21,7 +21,6 @@ workload:
           probes:
             liveness:
               type: tcp
-              path: "/docs"
             readiness:
               type: http
               path: "/docs"
