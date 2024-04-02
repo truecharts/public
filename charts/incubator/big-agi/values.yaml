@@ -176,7 +176,7 @@ workload:
               type: tcp
               port: "{{ .Values.service.browser.ports.browser.port }}"
           env:
-            MAX_CONCURRENT_SESSIONS: "{{ .Values.bigagi.llms.features.browser.max_concurrent_sessions }}"
+            MAX_CONCURRENT_SESSIONS: "{{ .Values.bigagi.features.browser.max_concurrent_sessions }}"
 
 # Enabled postgres
 cnpg:
