@@ -49,6 +49,18 @@ questions:
           schema:
             type: boolean
             default: true
+        - variable: mlImageType
+          label: Machine Learning Image Type
+          schema:
+            type: string
+            default: mlImage
+            enum:
+              - value: mlImage
+                description: CPU Image
+              - value: mlCudaImage
+                description: CUDA Image
+              - value: mlOpenvinoImage
+                description: OpenVino Image
 
 # Include{containerConfig}
 # Include{podOptions}
