@@ -1,5 +1,5 @@
 # SFTPGo Plugins
-Due to number of different possible combinations of plugins, final configuration
+Due to a number of different possible combinations of plugins, final configuration
 must be done through manually set environmental variables. Please refer to examples below.
 
 Note that all examples still require their env variables to be set in the proper chart
