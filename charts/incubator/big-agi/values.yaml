@@ -169,7 +169,7 @@ workload:
             readiness:
               enabled: true
               type: http
-              path: /
+              path: /healthz
               port: "{{ .Values.service.browser.ports.browser.port }}"
             startup:
               enabled: true
