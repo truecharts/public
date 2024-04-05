@@ -264,7 +264,7 @@ data:
     {{- range $client := .Values.identity_providers.oidc.clients }}
         - client_id: {{ $client.client_id }}
           client_name: {{ $client.client_name | default $client.client_id }}
-          {{- if !$client.public }}
+          {{- if not .Values.client.public }}
           client_secret: {{ $client.client_secret | default (randAlphaNum 128) }}
           {{- else }}
           client_secret: ''
