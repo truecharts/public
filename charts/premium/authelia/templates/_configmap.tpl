@@ -240,13 +240,34 @@ data:
         refresh_token_lifespan: {{ .Values.identity_providers.oidc.refresh_token_lifespan | default "90m" }}
         enable_client_debug_messages: {{ .Values.identity_providers.oidc.enable_client_debug_messages | default false }}
         minimum_parameter_entropy: {{ .Values.identity_providers.oidc.minimum_parameter_entropy | default 8 }}
+        {{- if .Values.identity_providers.oidc.enforce_pkce }}
+        enforce_pkce: {{ .Values.identity_providers.oidc.enforce_pkce }}
+        {{- end }}
+        {{- if .Values.identity_providers.oidc.cors.enabled }}
+        cors:
+          {{- if .Values.identity_providers.oidc.cors.endpoints }}
+          endpoints:
+            {{- range .Values.identity_providers.oidc.cors.endpoints }}
+            - {{ . }}
+            {{- end }}
+          {{- end }}
+          {{- if .Values.identity_providers.oidc.cors.allowed_origins }}
+          allowed_origins:
+            {{- range .Values.identity_providers.oidc.cors.allowed_origins }}
+            - {{ . }}
+            {{- end }}
+          {{- end }}
+          allowed_origins_from_client_redirect_uris: {{ .Values.identity_providers.oidc.cors.allowed_origins_from_client_redirect_uris | default true }}
+        {{- end }}
         {{- if .Values.identity_providers.oidc.clients  }}
         clients:
     {{- range $client := .Values.identity_providers.oidc.clients }}
-        - id: {{ $client.id }}
-          description: {{ $client.description | default $client.id }}
-          secret: {{ $client.secret | default (randAlphaNum 128) }}
-          {{- if $client.public }}
+        - client_id: {{ $client.client_id }}
+          client_name: {{ $client.client_name | default $client.client_id }}
+          {{- if !$client.public }}
+          client_secret: {{ $client.client_secret | default (randAlphaNum 128) }}
+          {{- else }}
+          client_secret: ''
           public: {{ $client.public }}
           {{- end }}
           authorization_policy: {{ $client.authorization_policy | default "two_factor" }}
@@ -279,7 +300,7 @@ data:
             - {{ . }}
           {{- end }}
           {{- end }}
-          userinfo_signing_algorithm: {{ $client.userinfo_signing_algorithm | default "none" }}
+          userinfo_signed_response_alg: {{ $client.userinfo_signed_response_alg | default "none" }}
     {{- end }}
     {{- end }}
     {{- end }}

@@ -988,6 +988,48 @@ questions:
                       schema:
                         type: boolean
                         default: false
+                    - variable: enforce_pkce
+                      label: "Enforce PKCE "
+                      description: "Changing this value to never is generally discouraged; always or public_clients_only or never."
+                      schema:
+                        type: string
+                        default: "public_clients_only"
+                        enum:
+                          - value: "always"
+                            description: "always"
+                          - value: "public_clients_only"
+                            description: "public_clients_only"
+                          - value: "never"
+                            description: "never"
+                    - variable: cors
+                      label: "OpenID CORS"
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: enabled
+                            label: "Enabled"
+                            schema:
+                              type: boolean
+                              default: false
+                              show_subquestions_if: true
+                              subquestions:
+                                - variable: allowed_origins
+                                  label: "Allowed CORS Origins"
+                                  schema:
+                                    type: list
+                                    default: []
+                                    items:
+                                      - variable: allowedOriginEntry
+                                        label: "Origin"
+                                        schema:
+                                          type: string
+                                          default: "https://oidc.example.com"
+                                - variable: allowed_origins_from_client_redirect_uris
+                                  label: "Automatically adds the origin portion of all redirect URI's on all clients to the list of allowed_origins"
+                                  schema:
+                                    type: boolean
+                                    default: true
                     - variable: clients
                       label: "Clients"
                       schema:
@@ -1000,23 +1042,24 @@ questions:
                               additional_attrs: true
                               type: dict
                               attrs:
-                                - variable: id
-                                  label: "ID/Name"
+                                - variable: client_id
+                                  label: "ID"
                                   description: "The ID is the OpenID Connect ClientID which is used to link an application to a configuration."
                                   schema:
                                     type: string
                                     default: "myapp"
                                     required: true
-                                - variable: description
-                                  label: "Description"
-                                  description: "The description to show to users when they end up on the consent screen. Defaults to the ID above."
+                                - variable: client_name
+                                  label: "Name"
+                                  description: "The name to show to users when they end up on the consent screen. Defaults to the ID above."
                                   schema:
                                     type: string
                                     default: "My Application"
                                     required: true
-                                - variable: secret
+                                - variable: client_secret
                                   label: "Secret"
                                   description: "The client secret is a shared secret between Authelia and the consumer of this client."
+                                  show_if: [["public", "=", false]]
                                   schema:
                                     type: string
                                     default: ""
@@ -1053,7 +1096,7 @@ questions:
                                         description: "explicit"
                                       - value: "implicit"
                                         description: "implicit"
-                                - variable: userinfo_signing_algorithm
+                                - variable: userinfo_signed_response_alg
                                   label: "Userinfo Signing Algorithm"
                                   description: "The algorithm used to sign userinfo endpoint responses for this client, either none or RS256."
                                   schema:

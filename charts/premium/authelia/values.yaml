@@ -518,16 +518,27 @@ identity_providers:
     ## SECURITY NOTICE: It's not recommended changing this option, and highly discouraged to have it below 8 for
     ## security reasons.
     minimum_parameter_entropy: 8
+    enforce_pkce: public_clients_only
+    cors:
+      enabled: false
+      endpoints:
+        - userinfo
+        - authorization
+        - token
+        - revocation
+        - introspection
+      allowed_origins: []
+      allowed_origins_from_client_redirect_uris: true
     clients: []
     # clients:
     # -
     ## The ID is the OpenID Connect ClientID which is used to link an application to a configuration.
-    # id: myapp
+    # client_id: myapp
 ## The description to show to users when they end up on the consent screen. Defaults to the ID above.
-# description: My Application
+# client_name: My Application
 
 ## The client secret is a shared secret between Authelia and the consumer of this client.
-# secret: apple123
+# client_secret: apple123
 
 ## Sets the client to public. This should typically not be set, please see the documentation for usage.
 # public: false
@@ -571,7 +582,7 @@ identity_providers:
 #   - fragment
 
 ## The algorithm used to sign userinfo endpoint responses for this client, either none or RS256.
-# userinfo_signing_algorithm: none
+# userinfo_signed_response_alg: none
 
 portal:
   open:
