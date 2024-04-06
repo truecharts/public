@@ -17,6 +17,11 @@
     {{- $dbPass = (index $dbpreviousold.data "clickhouse-password") | b64dec -}}
   {{- end -}}
 
+  {{/* Override with custom-set password */}}
+  {{- if .Values.clickhouse.password -}}
+    {{- $dbPass = .Values.clickhouse.password -}}
+  {{- end -}}
+
   {{/* Prepare data */}}
   {{- $dbHost := printf "%v-%v" .Release.Name "clickhouse" -}}
   {{- $portHost := printf "%v:8123" $dbHost -}}
