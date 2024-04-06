@@ -1330,6 +1330,7 @@ mariadb:
   enabled: false
   includeCommon: false
   password: "PLACEHOLDERPASSWORD"
+  rootPassword: "PLACEHOLDERROOTPASSWORD"
   existingSecret: "mariadbcreds"
   # -- can be used to make an easy accessable note which URLS to use to access the DB.
   creds: {}
@@ -1340,6 +1341,7 @@ mongodb:
   enabled: false
   includeCommon: false
   password: "PLACEHOLDERPASSWORD"
+  rootPassword: "PLACEHOLDERROOTPASSWORD"
   existingSecret: "mongodbcreds"
   # -- can be used to make an easy accessable note which URLS to use to access the DB.
   creds: {}
