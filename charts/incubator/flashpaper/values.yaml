@@ -6,6 +6,9 @@ persistence:
   data:
     enabled: true
     mountPath: /var/www/html/data
+  varrun:
+    enabled: false
+
 portal:
   open:
     enabled: true
