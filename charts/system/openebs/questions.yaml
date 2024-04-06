@@ -2,33 +2,40 @@
 questions:
 # Include{global}
 
-  - variable: openebs
+
+  - variable: zfs-localpv
     group: "Storage and Persistence"
-    label: "OpenEBS Settings"
+    label: "ZFS Localpv Settings"
     schema:
       type: dict
       additional_attrs: true
       hidden: true
       attrs:
-        - variable: zfs-localpv
-          label: "ZFS Localpv Settings"
+        - variable: enabled
+          label: "enabled"
           schema:
-            type: dict
-            additional_attrs: true
+            type: boolean
+            default: true
             hidden: true
-            attrs:
-              - variable: enabled
-                label: "enabled"
-                schema:
-                  type: boolean
-                  default: true
-                  hidden: true
-        - variable: localprovisioner
-          label: "Localprovisioner Settings"
+  - variable: localpv-provisioner
+    group: "Storage and Persistence"
+    label: "localpv-provisioner Settings"
+    schema:
+      type: dict
+      additional_attrs: true
+      hidden: true
+      attrs:
+        - variable: enabled
+          label: "enabled"
           schema:
-            type: dict
-            additional_attrs: true
+            type: boolean
+            default: false
             hidden: true
+        - variable: hostpathClass
+          label: "hostpathClass"
+          schema:
+            additional_attrs: true
+            type: dict
             attrs:
               - variable: enabled
                 label: "enabled"
@@ -36,30 +43,6 @@ questions:
                   type: boolean
                   default: false
                   hidden: true
-              - variable: deviceClass
-                label: "deviceClass"
-                schema:
-                  additional_attrs: true
-                  type: dict
-                  attrs:
-                    - variable: enabled
-                      label: "enabled"
-                      schema:
-                        type: boolean
-                        default: false
-                        hidden: true
-              - variable: hostpathClass
-                label: "hostpathClass"
-                schema:
-                  additional_attrs: true
-                  type: dict
-                  attrs:
-                    - variable: enabled
-                      label: "enabled"
-                      schema:
-                        type: boolean
-                        default: false
-                        hidden: true
 
 
   - variable: storageClass
@@ -88,7 +71,7 @@ questions:
                   default: "zfs.csi.openebs.io"
                   hidden: true
                   required: true
-              - variable: isDefaultClass
+              - variable: isDefault
                 label: "Default Class"
                 schema:
                   type: boolean
@@ -104,6 +87,11 @@ questions:
                       description: Retain (Keep Data on App Deletion)
                     - value: Delete
                       description: Delete (Delete data on App Deletion)
+              - variable: allowVolumeExpansion
+                label: "Allow VolumeExpansion"
+                schema:
+                  type: boolean
+                  default: true
               - variable: parameters
                 label: "parameters"
                 schema:
@@ -116,3 +104,40 @@ questions:
                         type: string
                         default: ""
                         required: true
+                    - variable: fstype
+                      label: "fstype"
+                      schema:
+                        type: string
+                        default: "zfs"
+                        hidden: true
+                        required: true
+                    - variable: shared
+                      label: "shared"
+                      schema:
+                        type: string
+                        default: "yes"
+                        hidden: true
+                    - variable: thinprovision
+                      label: "thinprovision"
+                      schema:
+                        type: string
+                        default: "yes"
+                        hidden: true
+                    - variable: compression
+                      label: "compression"
+                      schema:
+                        type: string
+                        default: "zstd-6"
+                        hidden: true
+                    - variable: recordsize
+                      label: "recordsize"
+                      schema:
+                        type: string
+                        default: "64k"
+                        hidden: true
+                    - variable: dedup
+                      label: "dedup"
+                      schema:
+                        type: string
+                        default: "off"
+                        hidden: true

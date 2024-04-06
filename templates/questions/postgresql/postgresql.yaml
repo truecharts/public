@@ -30,6 +30,20 @@
                       description: replica
                     - value: recovery
                       description: recovery
+              - variable: pgVersion
+                label: Postgres Version
+                description: "Set the Postgresql version used"
+                schema:
+                  type: int
+                  default: 16
+                  required: true
+              - variable: password
+                label: Password
+                description: "Set the password for the database-user"
+                schema:
+                  type: string
+                  default: "PLACEHOLDERPASSWORD"
+                  required: true
               - variable: cluster
                 label: "Cluster Settings"
                 schema:

@@ -7,10 +7,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 5.13.0
+appVersion: 5.14.1
 dependencies:
   - name: common
-    version: 20.2.4
+    version: 20.2.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/pocketmine-mp
   - https://ghcr.io/pmmp/pocketmine-mp
 type: application
-version: 3.8.3
+version: 3.9.0
