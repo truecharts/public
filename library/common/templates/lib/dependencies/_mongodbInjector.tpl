@@ -20,6 +20,16 @@ This template generates a random password and ensures it persists across updates
     {{- $rootPass = (index $dbpreviousold.data "mongodb-root-password") | b64dec -}}
   {{- end -}}
 
+  {{/* Override with custom-set password */}}
+  {{- if .Values.mongodb.password -}}
+    {{- $dbPass = .Values.mongodb.password -}}
+  {{- end -}}
+
+  {{/* Override with custom-set root-password */}}
+  {{- if .Values.mongodb.rootPassword -}}
+    {{- $rootPass = .Values.mongodb.rootPassword -}}
+  {{- end -}}
+
   {{/* Prepare data */}}
   {{- $dbhost := printf "%v-%v" .Release.Name "mongodb" -}}
   {{- $portHost := printf "%v:27017" $dbhost -}}
