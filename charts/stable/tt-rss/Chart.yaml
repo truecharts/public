@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 20.2.9
+    version: 20.2.10
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -32,7 +32,7 @@ name: tt-rss
 sources:
   - https://git.tt-rss.org/fox/tt-rss
   - https://github.com/truecharts/charts/tree/master/charts/stable/tt-rss
-  - https://hub.docker.com/r/cthulhoo/ttrss-fpm-pgsql-static
   - https://hub.docker.com/r/cthulhoo/ttrss-web-nginx
+  - https://hub.docker.com/r/cthulhoo/ttrss-fpm-pgsql-static
 type: application
-version: 16.7.10
+version: 16.7.11
