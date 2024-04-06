@@ -1,16 +1,22 @@
 ---
-title: Upload Existing World Notes
+title: Upload Existing Valheim World Guide for TrueNAS SCALE
 ---
 
-Quick guide using on using Codeserver to upload your existing Valheim world files without having to start / stop the app or mount the apps PVC storage.
+:::info This is a SCALE-specific guide
+
+Please note that this guide is written for SCALE specifically, and instructions may different for alternate platforms.
+
+:::
+
+This is a quick guide using on using CodeServer to upload your existing Valheim world files without having to start / stop the app or mount the apps PVC storage.
 
 :::note[CodeServer Addon Setup]
 
-- Setup Codeserver either during installation or after installation, by editing the app.
+- Setup Codeserver either during installation or after installation, by editing the app
 
   - Go to the Add-on section
   - Enable Coderserver
-  - Set service Type to LoadBalancer
+  - Set service type to LoadBalancer
   - Set default port of 36107
   - Save the changes
 
@@ -20,21 +26,19 @@ Quick guide using on using Codeserver to upload your existing Valheim world file
 
 :::
 
-:::
+- Open Valheim supervisor page. This can be accessed by using {Scale/App IP}:9011 e.g. `192.168.0.2:9011`
 
-- Open Valheim Supervisor page – this can be accessed by using {Scale/App IP}:9011 e.g. `192.168.0.2:9011`
+- Stop all services, but don’t refresh the page as this may restart all services again
 
-- Stop all services – but don’t refresh the page as this may restart all the services again.
+- Locate the world files on your computer, e.g. on Windows they can be found here: `C:\Users\{profileName}\AppData\LocalLow\IronGate\Valheim\worlds_local`
 
-- Locate the world files on your computer, in Windows this can be found here: `C:\Users\{profileName}\AppData\LocalLow\IronGate\Valheim\worlds_local`
+- Open CodeServer using the same Scale / App IP as used above this time with port 3610, {Scale/Apps IP}:36107 e.g. `192.168.0.2:36107`
 
-- Open Codeserver using the same Scale / App IP as used above this time with port 3610, {Scale/Apps IP}:36107 e.g. `192.168.0.2:36107`
+- Inside CodeServer, go to "config > worlds_local" in the explorer section and drag the files located above into this folder. The files here can be deleted and replaced or overwritten
+**NOTE: The names of the files uploaded must match the name of the world that was supplied installing the app**
 
-- Inside Codeserver, go to "config > worlds_local" in the explorer section and drag the files located above into this folder. The files here can be deleted and replaced or overwritten.
-NOTE: The names of the files uploaded must match the name of the world that was supplied installing the app.
+- Go back to Valheim's supervisor page and start all services again
 
-- Go back to Supervisor page and restart all services again.
+- Give the server a couple of minutes to restart all services, but once complete your world files should be picked up ready next time you load your server.
 
-- Give the server a couple of minutes to restart all services, but after your world files should be picked up, ready next time you load your server.
-
-With above, you can also upload more than world providing they have unique names and switch between them just by changing the name of the world when you edit the app and updating the value for `Server Name`, this saves having to repeat the above process everytime you want to change worlds.
+With the above instructions, you can also upload more than one world providing they have unique names and you can switch between them just by changing the name of the world when you edit the app. Simply update the value for `Server Name`, this saves having to repeat the above process every time you want to change worlds.
