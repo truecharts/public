@@ -15,6 +15,11 @@ This template generates a random password and ensures it persists across updates
     {{- $dbPass = (index $dbprevious.data "redis-password") | b64dec -}}
   {{- end -}}
 
+  {{/* Override with custom-set password */}}
+  {{- if .Values.redis.password -}}
+    {{- $dbPass = .Values.redis.password -}}
+  {{- end -}}
+
   {{- $redisUser := .Values.redis.redisUsername -}}
   {{- if not $redisUser -}}{{/* If you try to print a nil value it will print as [nil] */}}
     {{- $redisUser = "" -}}
