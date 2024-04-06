@@ -20,6 +20,16 @@ This template generates a random password and ensures it persists across updates
     {{- $rootPass = (index $dbpreviousold.data "mariadb-root-password") | b64dec -}}
   {{- end -}}
 
+  {{/* Override with custom-set password */}}
+  {{- if .Values.mariadb.password -}}
+    {{- $dbPass = .Values.mariadb.password -}}
+  {{- end -}}
+
+  {{/* Override with custom-set root-password */}}
+  {{- if .Values.mariadb.rootPassword -}}
+    {{- $rootPass = .Values.mariadb.rootPassword -}}
+  {{- end -}}
+
   {{/* Prepare data */}}
   {{- $dbhost := printf "%v-%v" .Release.Name "mariadb" -}}
   {{- $portHost := printf "%v:3306" $dbhost -}}
