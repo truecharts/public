@@ -1087,7 +1087,7 @@ cnpg:
     # Version of Postgresql to use, changes cluster naming scheme
     # * `15`
     # * `16`
-    pgVrsion: 16
+    pgVersion: 16
 
     # Cluster mode of operation. Available modes:
     # * `standalone` - default mode. Creates new or updates an existing CNPG cluster.
@@ -1098,7 +1098,7 @@ cnpg:
     # Database details
     database: "app"
     user: "app"
-    password: ""
+    password: "PLACEHOLDERPASSWORD"
 
     # Database cluster configuration
     cluster:
@@ -1317,6 +1317,7 @@ cnpg:
 redis:
   enabled: false
   includeCommon: false
+  password: "PLACEHOLDERPASSWORD"
   # -- can be used to make an easy accessible note which URLS to use to access the DB.
   creds: {}
   secret:
@@ -1328,6 +1329,7 @@ redis:
 mariadb:
   enabled: false
   includeCommon: false
+  password: "PLACEHOLDERPASSWORD"
   existingSecret: "mariadbcreds"
   # -- can be used to make an easy accessable note which URLS to use to access the DB.
   creds: {}
@@ -1337,6 +1339,7 @@ mariadb:
 mongodb:
   enabled: false
   includeCommon: false
+  password: "PLACEHOLDERPASSWORD"
   existingSecret: "mongodbcreds"
   # -- can be used to make an easy accessable note which URLS to use to access the DB.
   creds: {}
@@ -1346,6 +1349,7 @@ mongodb:
 clickhouse:
   enabled: false
   includeCommon: false
+  password: "PLACEHOLDERPASSWORD"
   existingSecret: "clickhousecreds"
   # -- can be used to make an easy accessable note which URLS to use to access the DB.
   creds: {}
@@ -1355,6 +1359,7 @@ clickhouse:
 solr:
   enabled: false
   includeCommon: false
+  password: "PLACEHOLDERPASSWORD"
   solrCores: 1
   solrEnableAuthentication: "no"
   existingSecret: "solrcreds"
