@@ -17,6 +17,11 @@ This template generates a random password and ensures it persists across updates
     {{- $solrPass = (index $solrpreviousold.data "solr-password") | b64dec -}}
   {{- end -}}
 
+  {{/* Override with custom-set password */}}
+  {{- if .Values.solr.password -}}
+    {{- $dbPass = .Values.solr.password -}}
+  {{- end -}}
+
   {{/* Prepare data */}}
   {{- $dbHost := printf "%v-%v" .Release.Name "solr" -}}
   {{- $portHost := printf "%v:8983" $dbHost -}}
