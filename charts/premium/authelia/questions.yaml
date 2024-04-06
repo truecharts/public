@@ -1142,6 +1142,25 @@ questions:
                                           type: string
                                           default: "form_post"
                                           required: true
+                                - variable: require_pkce
+                                  label: "Require PKCE"
+                                  description: "This configuration option enforces the use of PKCE for this registered client."
+                                  schema:
+                                    type: boolean
+                                    default: false
+                                    show_subquestions_if: true
+                                    subquestions:
+                                      - variable: pkce_challange_method
+                                        label: "PKCE Challange Method"
+                                        description: "This setting enforces the use of the specified PKCE challenge method for this individual client."
+                                        schema:
+                                          type: string
+                                          default: S256
+                                          enum:
+                                            - value: "plain"
+                                              description: "plain"
+                                            - value: "S256"
+                                              description: "S256"
 # Include{addons}
 # Include{codeserver}
 # Include{vpn}
