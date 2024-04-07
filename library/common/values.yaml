@@ -1003,6 +1003,9 @@ addons:
     excludedNetworks_IPv4: []
     excludedNetworks_IPv6: []
 
+    ## For Gluetun to enable kubernetes network communication
+    inputPorts: []
+
   # -- The common library supports adding a code-server add-on to access files. It can be configured under this key.
   # @default -- See values.yaml
   codeserver:

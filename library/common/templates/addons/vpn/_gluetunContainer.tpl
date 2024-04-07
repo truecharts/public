@@ -46,7 +46,9 @@ env:
 {{- end }}
   FIREWALL: "on"
   FIREWALL_OUTBOUND_SUBNETS: {{ $excludednetworks | quote }}
-  FIREWALL_INPUT_PORTS: {{ $.Values.service.main.ports.main.port }}
+{{- $inputPorts := (list $.Values.service.main.ports.main.port) -}}
+{{- $inputPorts = concat $inputPorts $.Values.addons.vpn.inputPorts | mustUniq }}
+  FIREWALL_INPUT_PORTS: {{ join "," $inputPorts }}
 {{- else }}
   FIREWALL: "off"
 {{- end }}
