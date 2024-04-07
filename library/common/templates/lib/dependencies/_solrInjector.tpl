@@ -19,7 +19,7 @@ This template generates a random password and ensures it persists across updates
 
   {{/* Override with custom-set password */}}
   {{- if .Values.solr.password -}}
-    {{- $dbPass = .Values.solr.password -}}
+    {{- $solrPass = .Values.solr.password -}}
   {{- end -}}
 
   {{/* Prepare data */}}
