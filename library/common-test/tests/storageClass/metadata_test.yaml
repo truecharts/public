@@ -70,3 +70,32 @@ tests:
             label1: label1
             label2: label2
             some-label: some-value
+  - it: should pass with storageClass default set to true
+    set:
+      storageClass:
+        example1:
+          enabled: true
+          provisioner: some.provisioner.io
+          isDefault: true
+    asserts:
+      - documentIndex: &storageClassDoc 0
+        isKind:
+          of: StorageClass
+      - documentIndex: *storageClassDoc
+        isAPIVersion:
+          of: storage.k8s.io/v1
+      - documentIndex: *storageClassDoc
+        equal:
+          path: metadata.annotations
+          value:
+            storageclass.kubernetes.io/is-default-class: "true"
+  - it: should fail with isDefault not a boolean
+    set:
+      storageClass:
+        example1:
+          enabled: true
+          provisioner: some.provisioner.io
+          isDefault: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: Storage Class - Expected [isDefault] to be [boolean], but got [string]
