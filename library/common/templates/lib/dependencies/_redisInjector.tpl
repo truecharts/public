@@ -4,6 +4,7 @@ This template generates a random password and ensures it persists across updates
 {{- define "tc.v1.common.dependencies.redis.secret" -}}
 
 {{- if .Values.redis.enabled -}}
+  {{- $dbIndex := .Values.redis.redisDatabase | default "0" -}}
   {{/* Use with custom-set password */}}
   {{- $dbPass = .Values.redis.password -}}
 
