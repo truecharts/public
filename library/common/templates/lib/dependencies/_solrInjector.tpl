@@ -5,7 +5,7 @@ This template generates a random password and ensures it persists across updates
 
 {{- if .Values.solr.enabled -}}
   {{/* Use with custom-set password */}}
-  {{- $solrPass = .Values.solr.password -}}
+  {{- $solrPass := .Values.solr.password -}}
 
   {{/* Prepare data */}}
   {{- $dbHost := printf "%v-%v" .Release.Name "solr" -}}

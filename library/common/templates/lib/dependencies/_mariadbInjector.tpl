@@ -5,10 +5,10 @@ This template generates a random password and ensures it persists across updates
 
 {{- if .Values.mariadb.enabled -}}
   {{/* Use custom-set password */}}
-  {{- $dbPass = .Values.mariadb.password -}}
+  {{- $dbPass := .Values.mariadb.password -}}
 
   {{/* Use custom-set root-password */}}
-  {{- $rootPass = .Values.mariadb.rootPassword -}}
+  {{- $rootPass := .Values.mariadb.rootPassword -}}
 
   {{/* Prepare data */}}
   {{- $dbhost := printf "%v-%v" .Release.Name "mariadb" -}}

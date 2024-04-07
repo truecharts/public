@@ -5,10 +5,10 @@ This template generates a random password and ensures it persists across updates
 
 {{- if .Values.mongodb.enabled -}}
   {{/* Use custom-set password */}}
-  {{- $dbPass = .Values.mongodb.password -}}
+  {{- $dbPass := .Values.mongodb.password -}}
 
   {{/* Use custom-set root-password */}}
-  {{- $rootPass = .Values.mongodb.rootPassword -}}
+  {{- $rootPass := .Values.mongodb.rootPassword -}}
 
   {{/* Prepare data */}}
   {{- $dbhost := printf "%v-%v" .Release.Name "mongodb" -}}

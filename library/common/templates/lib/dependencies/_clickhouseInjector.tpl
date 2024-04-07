@@ -5,7 +5,7 @@
 
 {{- if .Values.clickhouse.enabled -}}
   {{/* Use with custom-set password */}}
-  {{- $dbPass = .Values.clickhouse.password -}}
+  {{- $dbPass := .Values.clickhouse.password -}}
 
   {{/* Prepare data */}}
   {{- $dbHost := printf "%v-%v" .Release.Name "clickhouse" -}}

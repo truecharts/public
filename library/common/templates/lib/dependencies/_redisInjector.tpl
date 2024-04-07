@@ -6,7 +6,7 @@ This template generates a random password and ensures it persists across updates
 {{- if .Values.redis.enabled -}}
   {{- $dbIndex := .Values.redis.redisDatabase | default "0" -}}
   {{/* Use with custom-set password */}}
-  {{- $dbPass = .Values.redis.password -}}
+  {{- $dbPass := .Values.redis.password -}}
 
   {{- $redisUser := .Values.redis.redisUsername -}}
   {{- if not $redisUser -}}{{/* If you try to print a nil value it will print as [nil] */}}
