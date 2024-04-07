@@ -24,25 +24,15 @@
     {{- if eq $enabled "true" -}}
 
       {{/* Handle version string */}}
-      {{- $pgVersion := $objectData.pgVersion | default (toString $.Values.global.fallbackDefaults.pgVersion) -}}
-      {{- $versionConfigMapName := printf "cnpg-%s-pgversion" $objectData.shortName -}}
-
-      {{/* If there are previous configmap, fetch value */}}
-      {{- with (lookup "v1" "ConfigMap" $.Release.Namespace (printf "%s-%s" $fullname $versionConfigMapName)) -}}
-        {{/* If a different version is set and upgrade is enabled, upgrade */}}
-        {{- if and (ne $pgVersion .data.version) $objectData.upgradeMajor -}}
-          {{/* TODO: actually handle postgres version updates here */}}
-        {{- else -}}
-          {{- $pgVersion = .data.version -}}
-        {{- end -}}
-      {{- end -}}
+      {{- $pgVersion := (toString $objectData.pgVersion) | default (toString $.Values.global.fallbackDefaults.pgVersion) -}}
 
       {{/* Set the updated pgVersion version to objectData */}}
       {{- $_ := set $objectData "pgVersion" ($pgVersion | toString) -}}
 
-      {{/* Ensure configmap with pgVersion is updated */}}
-      {{- $verConfig := include "tc.v1.common.lib.cnpg.configmap.pgVersion" (dict "version" $pgVersion) | fromYaml -}}
-      {{- $_ := set $.Values.configmap $versionConfigMapName $verConfig -}}
+      {{/* allow for injecting major upgrade code */}}
+      {{- if $objectData.upgradeMajor -}}
+        {{/* TODO: actually handle postgres version updates here */}}
+      {{- end -}}
 
       {{- include "tc.v1.common.lib.util.metaListToDict" (dict "objectData" $objectData) -}}
 
