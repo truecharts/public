@@ -70,16 +70,6 @@ tests:
               maxSkew: 1
               nodeAffinityPolicy: Honor
               nodeTaintsPolicy: Honor
-              topologyKey: truecharts.org/rack
-              whenUnsatisfiable: ScheduleAnyway
-            - labelSelector:
-                matchLabels:
-                  app.kubernetes.io/instance: test-release-name
-                  app.kubernetes.io/name: common-test
-                  pod.name: workload-name1
-              maxSkew: 1
-              nodeAffinityPolicy: Honor
-              nodeTaintsPolicy: Honor
               topologyKey: kubernetes.io/hostname
               whenUnsatisfiable: ScheduleAnyway
 
@@ -112,16 +102,6 @@ tests:
         equal:
           path: spec.template.spec.topologySpreadConstraints
           value:
-            - labelSelector:
-                matchLabels:
-                  app.kubernetes.io/instance: test-release-name
-                  app.kubernetes.io/name: common-test
-                  pod.name: workload-name1
-              maxSkew: 1
-              nodeAffinityPolicy: Honor
-              nodeTaintsPolicy: Honor
-              topologyKey: truecharts.org/rack
-              whenUnsatisfiable: ScheduleAnyway
             - labelSelector:
                 matchLabels:
                   app.kubernetes.io/instance: test-release-name
@@ -184,16 +164,6 @@ tests:
         equal:
           path: spec.template.spec.topologySpreadConstraints
           value:
-            - labelSelector:
-                matchLabels:
-                  app.kubernetes.io/instance: test-release-name
-                  app.kubernetes.io/name: common-test
-                  pod.name: workload-name1
-              maxSkew: 1
-              nodeAffinityPolicy: Honor
-              nodeTaintsPolicy: Honor
-              topologyKey: truecharts.org/rack
-              whenUnsatisfiable: ScheduleAnyway
             - labelSelector:
                 matchLabels:
                   app.kubernetes.io/instance: test-release-name
