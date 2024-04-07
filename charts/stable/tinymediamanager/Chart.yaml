@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 5.0.3
+appVersion: 5.0.4
 dependencies:
   - name: common
     version: 20.2.10
@@ -24,7 +24,7 @@ keywords:
   - tiny
   - media
   - manager
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/tinymediamanager
   - https://hub.docker.com/r/tinymediamanager/tinymediamanager
 type: application
-version: 10.7.5
+version: 10.7.6
