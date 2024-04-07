@@ -24,10 +24,10 @@
     {{- if eq $enabled "true" -}}
 
       {{/* Handle version string */}}
-      {{- $pgVersion := $objectData.pgVersion | default (toString $.Values.global.fallbackDefaults.pgVersion) -}}
+      {{- $pgVersion := ($objectData.pgVersion | default $.Values.global.fallbackDefaults.pgVersion) | toString -}}
 
       {{/* Set the updated pgVersion version to objectData */}}
-      {{- $_ := set $objectData "pgVersion" ($pgVersion | toString) -}}
+      {{- $_ := set $objectData "pgVersion" $pgVersion -}}
 
       {{/* allow for injecting major upgrade code */}}
       {{- if $objectData.upgradeMajor -}}

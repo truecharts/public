@@ -22,7 +22,7 @@ tests:
           user: test-user
           database: test-db
     asserts:
-      - documentIndex: &deployDoc 4
+      - documentIndex: &deployDoc 3
         isKind:
           of: Deployment
       - documentIndex: *deployDoc
@@ -63,7 +63,7 @@ tests:
             enabled: true
             createRO: false
     asserts:
-      - documentIndex: &deployDoc 5
+      - documentIndex: &deployDoc 4
         isKind:
           of: Deployment
       - documentIndex: *deployDoc
@@ -111,7 +111,7 @@ tests:
             enabled: true
             createRO: true
     asserts:
-      - documentIndex: &deployDoc 6
+      - documentIndex: &deployDoc 5
         isKind:
           of: Deployment
       - documentIndex: *deployDoc

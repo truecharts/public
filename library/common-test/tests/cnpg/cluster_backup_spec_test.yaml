@@ -21,7 +21,7 @@ tests:
             azure:
               connectionString: some-connection-string
     asserts:
-      - documentIndex: &secretDoc 2
+      - documentIndex: &secretDoc 1
         isKind:
           of: Secret
       - documentIndex: *secretDoc
@@ -97,7 +97,7 @@ tests:
             google:
               applicationCredentials: some-credentials
     asserts:
-      - documentIndex: &secretDoc 2
+      - documentIndex: *secretDoc
         isKind:
           of: Secret
       - documentIndex: *secretDoc
@@ -164,7 +164,7 @@ tests:
               accessKey: some-access-key
               secretKey: some-secret-key
     asserts:
-      - documentIndex: &secretDoc 2
+      - documentIndex: *secretDoc
         isKind:
           of: Secret
       - documentIndex: *secretDoc
@@ -235,7 +235,7 @@ tests:
               accessKey: some-access-key
               secretKey: some-secret-key
     asserts:
-      - documentIndex: &secretDoc 2
+      - documentIndex: *secretDoc
         isKind:
           of: Secret
       - documentIndex: *secretDoc
@@ -306,7 +306,7 @@ tests:
               accessKey: some-access-key
               secretKey: some-secret-key
     asserts:
-      - documentIndex: &secretDoc 2
+      - documentIndex: *secretDoc
         isKind:
           of: Secret
       - documentIndex: *secretDoc
@@ -378,7 +378,7 @@ tests:
               accessKey: some-access-key
               secretKey: some-secret-key
     asserts:
-      - documentIndex: &secretDoc 2
+      - documentIndex: *secretDoc
         isKind:
           of: Secret
       - documentIndex: *secretDoc
@@ -456,5 +456,5 @@ tests:
           path: metadata.name
           value: test-release-name-common-test-cnpg-my-pg
       - documentIndex: *clusterDoc
-        isNull:
+        notExists:
           path: spec.backup.target

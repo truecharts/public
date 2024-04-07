@@ -88,7 +88,7 @@ tests:
             pitrTarget:
               time: "2021-01-01T00:00:00Z"
     asserts:
-      - documentIndex: &secretDoc 2
+      - documentIndex: &secretDoc 1
         isKind:
           of: Secret
       - documentIndex: *secretDoc

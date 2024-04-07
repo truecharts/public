@@ -72,7 +72,7 @@ tests:
         tag: "15.6"
       global:
         fallbackDefaults:
-          pgVersion: "15"
+          pgVersion: 15
           vctAccessModes:
             - ReadWriteMany
             - ReadWriteOnce
@@ -124,7 +124,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
-          pgVersion: "15"
+          pgVersion: 15
           type: vectors
     asserts:
       - documentIndex: *clusterDoc
@@ -152,7 +152,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
-          pgVersion: "15"
+          pgVersion: 15
     asserts:
       - documentIndex: *clusterDoc
         isKind:

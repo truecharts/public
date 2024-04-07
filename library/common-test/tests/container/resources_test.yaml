@@ -455,7 +455,7 @@ tests:
             requests:
               cpu: 10m
               memory: 50Mi
-      - documentIndex: &deploymentDoc 9
+      - documentIndex: &deploymentDoc 8
         isKind:
           of: Deployment
       - documentIndex: *deploymentDoc
