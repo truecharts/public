@@ -4,23 +4,8 @@ This template generates a random password and ensures it persists across updates
 {{- define "tc.v1.common.dependencies.solr.secret" -}}
 
 {{- if .Values.solr.enabled -}}
-  {{/* Initialize variables */}}
-  {{- $fetchname := printf "%s-solrcreds" .Release.Name -}}
-  {{- $solrprevious := lookup "v1" "Secret" .Release.Namespace $fetchname -}}
-  {{- $solrpreviousold := lookup "v1" "Secret" .Release.Namespace "solrcreds" -}}
-  {{- $solrPass := randAlphaNum 50 -}}
-
-  {{/* If there are previous secrets, fetch values and decrypt them */}}
-  {{- if $solrprevious -}}
-    {{- $solrPass = (index $solrprevious.data "solr-password") | b64dec -}}
-  {{- else if $solrpreviousold -}}
-    {{- $solrPass = (index $solrpreviousold.data "solr-password") | b64dec -}}
-  {{- end -}}
-
-  {{/* Override with custom-set password */}}
-  {{- if .Values.solr.password -}}
-    {{- $solrPass = .Values.solr.password -}}
-  {{- end -}}
+  {{/* Use with custom-set password */}}
+  {{- $solrPass = .Values.solr.password -}}
 
   {{/* Prepare data */}}
   {{- $dbHost := printf "%v-%v" .Release.Name "solr" -}}

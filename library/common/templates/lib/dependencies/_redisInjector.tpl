@@ -4,21 +4,8 @@ This template generates a random password and ensures it persists across updates
 {{- define "tc.v1.common.dependencies.redis.secret" -}}
 
 {{- if .Values.redis.enabled -}}
-  {{/* Initialize variables */}}
-  {{- $fetchname := printf "%s-rediscreds" .Release.Name -}}
-  {{- $dbprevious := lookup "v1" "Secret" .Release.Namespace $fetchname -}}
-  {{- $dbPass := randAlphaNum 50 -}}
-  {{- $dbIndex := .Values.redis.redisDatabase | default "0" -}}
-
-  {{/* If there are previous secrets, fetch values and decrypt them */}}
-  {{- if $dbprevious -}}
-    {{- $dbPass = (index $dbprevious.data "redis-password") | b64dec -}}
-  {{- end -}}
-
-  {{/* Override with custom-set password */}}
-  {{- if .Values.redis.password -}}
-    {{- $dbPass = .Values.redis.password -}}
-  {{- end -}}
+  {{/* Use with custom-set password */}}
+  {{- $dbPass = .Values.redis.password -}}
 
   {{- $redisUser := .Values.redis.redisUsername -}}
   {{- if not $redisUser -}}{{/* If you try to print a nil value it will print as [nil] */}}

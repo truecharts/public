@@ -4,31 +4,11 @@ This template generates a random password and ensures it persists across updates
 {{- define "tc.v1.common.dependencies.mariadb.secret" -}}
 
 {{- if .Values.mariadb.enabled -}}
-  {{/* Initialize variables */}}
-  {{- $fetchname := printf "%s-mariadbcreds" .Release.Name -}}
-  {{- $dbprevious := lookup "v1" "Secret" .Release.Namespace $fetchname -}}
-  {{- $dbpreviousold := lookup "v1" "Secret" .Release.Namespace "mariadbcreds" -}}
-  {{- $dbPass := randAlphaNum 50 -}}
-  {{- $rootPass := randAlphaNum 50 -}}
+  {{/* Use custom-set password */}}
+  {{- $dbPass = .Values.mariadb.password -}}
 
-  {{/* If there are previous secrets, fetch values and decrypt them */}}
-  {{- if $dbprevious -}}
-    {{- $dbPass = (index $dbprevious.data "mariadb-password") | b64dec -}}
-    {{- $rootPass = (index $dbprevious.data "mariadb-root-password") | b64dec -}}
-  {{- else if $dbpreviousold -}}
-    {{- $dbPass = (index $dbpreviousold.data "mariadb-password") | b64dec -}}
-    {{- $rootPass = (index $dbpreviousold.data "mariadb-root-password") | b64dec -}}
-  {{- end -}}
-
-  {{/* Override with custom-set password */}}
-  {{- if .Values.mariadb.password -}}
-    {{- $dbPass = .Values.mariadb.password -}}
-  {{- end -}}
-
-  {{/* Override with custom-set root-password */}}
-  {{- if .Values.mariadb.rootPassword -}}
-    {{- $rootPass = .Values.mariadb.rootPassword -}}
-  {{- end -}}
+  {{/* Use custom-set root-password */}}
+  {{- $rootPass = .Values.mariadb.rootPassword -}}
 
   {{/* Prepare data */}}
   {{- $dbhost := printf "%v-%v" .Release.Name "mariadb" -}}

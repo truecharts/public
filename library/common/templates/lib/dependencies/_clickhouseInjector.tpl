@@ -4,23 +4,8 @@
 {{- define "tc.v1.common.dependencies.clickhouse.secret" -}}
 
 {{- if .Values.clickhouse.enabled -}}
-  {{/* Initialize variables */}}
-  {{- $fetchname := printf "%s-clickhousecreds" .Release.Name -}}
-  {{- $dbprevious := lookup "v1" "Secret" .Release.Namespace $fetchname -}}
-  {{- $dbpreviousold := lookup "v1" "Secret" .Release.Namespace "clickhousecreds" -}}
-  {{- $dbPass := randAlphaNum 50 -}}
-
-  {{/* If there are previous secrets, fetch values and decrypt them */}}
-  {{- if $dbprevious -}}
-    {{- $dbPass = (index $dbprevious.data "clickhouse-password") | b64dec -}}
-  {{- else if $dbpreviousold -}}
-    {{- $dbPass = (index $dbpreviousold.data "clickhouse-password") | b64dec -}}
-  {{- end -}}
-
-  {{/* Override with custom-set password */}}
-  {{- if .Values.clickhouse.password -}}
-    {{- $dbPass = .Values.clickhouse.password -}}
-  {{- end -}}
+  {{/* Use with custom-set password */}}
+  {{- $dbPass = .Values.clickhouse.password -}}
 
   {{/* Prepare data */}}
   {{- $dbHost := printf "%v-%v" .Release.Name "clickhouse" -}}
