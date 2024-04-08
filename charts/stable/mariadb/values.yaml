@@ -10,16 +10,8 @@ workload:
       containers:
         main:
           env:
-            MARIADB_PASSWORD:
-              secretKeyRef:
-                expandObjectName: "{{ if .Values.mariadbPassword }}true{{ else }}false{{ end }}"
-                name: '{{ if .Values.mariadbPassword }}credentials{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "mariadbcreds" }}{{ end }}'
-                key: "mariadb-password"
-            MARIADB_ROOT_PASSWORD:
-              secretKeyRef:
-                expandObjectName: "{{ if .Values.mariadbPassword }}true{{ else }}false{{ end }}"
-                name: '{{ if .Values.mariadbPassword }}credentials{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "mariadbcreds" }}{{ end }}'
-                key: "mariadb-root-password"
+            MARIADB_PASSWORD: "{{ .Values.password }}"
+            MARIADB_ROOT_PASSWORD: "{{ .Values.rootPassword }}"
             MARIADB_USER: "{{ .Values.mariadbUsername }}"
             MARIADB_DATABASE: "{{ .Values.mariadbDatabase }}"
           probes:
@@ -58,18 +50,18 @@ secret:
   credentials:
     enabled: true
     data:
-      mariadb-password: '{{ ( .Values.mariadbPassword | default "empty" ) }}'
-      mariadb-root-password: '{{ ( .Values.mariadbRootPassword | default "empty" ) }}'
+      mariadb-password: '{{ ( .Values.password | default "empty" ) }}'
+      mariadb-root-password: '{{ ( .Values.rootPassword | default "empty" ) }}'
 persistence:
   data:
     enabled: true
     mountPath: "/bitnami/mariadb"
 mariadbUsername: "test"
 mariadbDatabase: "test"
-mariadbRootPassword: "testroot"
+rootPassword: "testroot"
 # -- Secret or password
 # One of these options is required, unless used as a dependency for another TrueCharts chart.
-mariadbPassword: ""
+password: "placeholderpass"
 existingSecret: ""
 portal:
   open:
