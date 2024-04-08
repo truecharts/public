@@ -1,7 +1,7 @@
 image:
-  repository: tccr.io/tccr/alpine
+  repository: tccr.io/tccr/scratch
   pullPolicy: IfNotPresent
-  tag: latest@sha256:ade0065e19edaa4f6903d464ee70605111a48394536deb94f31b661264704558
+  tag: latest
 
 # don't install this unless you've followed our docs or talos docs!
 # ref - https://www.talos.dev/v1.6/talos-guides/configuration/nvidia-gpu-proprietary/
