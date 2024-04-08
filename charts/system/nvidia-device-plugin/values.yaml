@@ -21,11 +21,11 @@ configmap:
             - name: nvidia.com/gpu
               replicas: 5
 
-# don't edit below here
 nvdp:
   runtimeClassName: nvidia
   gfd:
     enabled: true
+# don't edit below here
 service:
   main:
     enabled: false
