@@ -573,6 +573,12 @@ identity_providers:
 ## The algorithm used to sign userinfo endpoint responses for this client, either none or RS256.
 # userinfo_signing_algorithm: none
 
+## This configuration option enforces the use of PKCE for this registered client.
+# require_pkce: false
+
+## This setting enforces the use of the specified PKCE challenge method for this individual client.
+# pkce_challange_method: S256
+
 portal:
   open:
     enabled: true
