@@ -41,11 +41,13 @@ questions:
                                             - value: medium
                                               description: Medium
                                             - value: large
-                                              description: Large
+                                              description: Large (only OpenAI Whisper)
                                             - value: large-v1
                                               description: Large V1
                                             - value: large-v2
                                               description: Large V2
+                                            - value: large-v3
+                                              description: Large V3
                                       - variable: ASR_ENGINE
                                         label: ASR Engine
                                         schema:
@@ -101,14 +103,6 @@ questions:
         - variable: whisper
           label: "App Whisper Storage"
           description: "Stores the Application Whisper."
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-# Include{persistenceBasic}
-        - variable: faster-whisper
-          label: "App Faster Whisper Storage"
-          description: "Stores the Application Faster Whisper."
           schema:
             additional_attrs: true
             type: dict
