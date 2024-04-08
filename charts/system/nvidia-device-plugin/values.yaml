@@ -7,7 +7,8 @@ image:
 # ref - https://www.talos.dev/v1.6/talos-guides/configuration/nvidia-gpu-proprietary/
 
 # need to override naming
-configmap.nvidia-device-plugin-configs:
+configmap:
+  nvidia-device-plugin-configs:
     enabled: true
     data:
       # set "replicas" key to number of shares per original resource
