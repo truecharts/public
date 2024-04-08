@@ -4,7 +4,7 @@ annotations:
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Cloud
   truecharts.org/max_helm_version: "3.14"
-  truecharts.org/min_helm_version: "3.12"
+  truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: incubator
 apiVersion: v2
 appVersion: latest
@@ -35,7 +35,8 @@ maintainers:
 name: flashpaper
 sources:
   - https://github.com/AndrewPaglusch/FlashPaper
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/flashpaper
   - https://github.com/andrewpaglusch/FlashPaper/pkgs/container/flashpaper
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/flashpaper
+  - https://ghcr.io/andrewpaglusch/flashpaper
 type: application
 version: 1.0.1
