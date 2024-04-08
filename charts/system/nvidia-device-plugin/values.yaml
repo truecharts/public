@@ -10,6 +10,7 @@ image:
 configmap:
   nvidia-device-plugin-configs:
     enabled: true
+    expandObjectName: false
     data:
       # set "replicas" key to number of shares per original resource
       # example: 2 physical GPU * 5 replica = 10vGPU
