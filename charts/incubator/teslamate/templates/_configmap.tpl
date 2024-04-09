@@ -4,19 +4,18 @@
 {{- $dirs := dict -}}
 {{- range $path, $_ := .Files.Glob (printf "%s**/*.json" $rootDir) }}
   {{- $pathElements := splitList "/" $path -}}
-  {{- $dirName := index $pathElements 1 }} # Assuming the directory name is the second element
-  {{- $existingFiles := get $dirs $dirName -}}
-  {{- if not $existingFiles }}
-    {{- $existingFiles = list -}}
-  {{- end }}
+  {{- $dirName := index $pathElements 1 }}
+  {{- $existingFiles := get $dirs $dirName | default list -}}
   {{- $updatedFiles := append $existingFiles $path -}}
   {{- $_ := set $dirs $dirName $updatedFiles }}
 {{- end }}
 
 {{- range $dir, $files := $dirs }}
 {{- range $files }}
-{{- $fileName := base . }}
-{{ printf "%s-%s-%s" "dashboard" $dir $fileName | quote }}:
+{{- $fileName := lower (base .) }}
+{{- $fileNameWithoutExt := trimSuffix ".json" $fileName }}
+{{- $configMapKey := printf "%s-%s-%s" "dashboard" $dir $fileNameWithoutExt | quote }}
+  {{ $configMapKey }}:
   enabled: true
   annotations:
     k8s-sidecar-target-directory: "TeslaMate"
