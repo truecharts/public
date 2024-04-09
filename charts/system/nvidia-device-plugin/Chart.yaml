@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 0.0.1
 dependencies:
   - name: common
-    version: 20.2.10
+    version: 20.3.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -41,4 +41,4 @@ sources:
   - https://github.com/NVIDIA/k8s-device-plugin?tab=readme-ov-file#deployment-via-helm
   - https://github.com/truecharts/charts/tree/master/charts/system/nvidia-device-plugin
 type: application
-version: 0.14.5
+version: 0.15.0
