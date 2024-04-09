@@ -82,10 +82,10 @@ persistence:
     mountPath: "/bitnami/mongodb"
 mongodbUsername: "test"
 mongodbDatabase: "test"
-rootPassword: "testroot"
+rootPassword: "PLACEHOLDERROOTPASSWORD"
 # -- Secret or password
 # One of these options is required, unless used as a dependency for another TrueCharts chart.
-password: "placeholderpassword"
+password: "PLACEHOLDERPASSWORD"
 existingSecret: ""
 secret:
   credentials:
