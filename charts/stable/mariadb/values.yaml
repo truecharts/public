@@ -58,10 +58,10 @@ persistence:
     mountPath: "/bitnami/mariadb"
 mariadbUsername: "test"
 mariadbDatabase: "test"
-rootPassword: "testroot"
+rootPassword: "PLACEHOLDERROOTPASSWORD"
 # -- Secret or password
 # One of these options is required, unless used as a dependency for another TrueCharts chart.
-password: "placeholderpass"
+password: "PLACEHOLDERPASSWORD"
 existingSecret: ""
 portal:
   open:
