@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.0.0.355
+appVersion: 2.0.0.548
 dependencies:
   - name: common
     version: 20.3.2
@@ -24,7 +24,7 @@ keywords:
   - whisparr
   - Downloaders
   - MediaApp-Other
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/whisparr
   - https://ghcr.io/hotio/whisparr
 type: application
-version: 9.8.0
+version: 9.8.1
