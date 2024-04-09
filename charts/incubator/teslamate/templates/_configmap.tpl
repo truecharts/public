@@ -14,8 +14,8 @@
 {{- range $files }}
 {{- $fileName := lower (base .) }}
 {{- $fileNameWithoutExt := trimSuffix ".json" $fileName }}
-{{- $configMapKey := printf "%s-%s-%s" "dashboard" $dir $fileNameWithoutExt | quote }}
-  {{ $configMapKey }}:
+{{- $configMapKey := printf "%s-%s-%s" "dashboard" $dir $fileNameWithoutExt }}
+{{ $configMapKey | quote }}:
   enabled: true
   annotations:
     k8s-sidecar-target-directory: "TeslaMate"
