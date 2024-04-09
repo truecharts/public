@@ -16,7 +16,7 @@ workload:
             REDIS_REPLICATION_MODE: master
             ALLOW_EMPTY_PASSWORD: "yes"
             REDIS_PORT: "{{ .Values.service.main.ports.main.targetPort }}"
-            REDIS_PASSWORD: "{{ if .Values.password }}"
+            REDIS_PASSWORD: "{{ .Values.password }}"
           probes:
             liveness:
               enabled: true
