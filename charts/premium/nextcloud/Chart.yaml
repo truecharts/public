@@ -17,7 +17,7 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 13.3.0
+    version: 13.3.1
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -50,4 +50,4 @@ sources:
   - https://github.com/truecharts/containers/tree/master/apps/nextcloud-push-notify
   - https://hub.docker.com/r/clamav/clamav
 type: application
-version: 29.10.0
+version: 29.10.1
