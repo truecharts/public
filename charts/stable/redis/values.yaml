@@ -125,7 +125,7 @@ secret:
       redis-password: '{{ ( .Values.password | default "nothing" ) }}'
 # -- Secret or password
 # One of these options is required, unless used as a dependency for another TrueCharts chart.
-password: "placeholderpassword"
+password: "PLACEHOLDERPASSWORD"
 existingSecret: ""
 service:
   main:
