@@ -15,11 +15,7 @@ workload:
             SOLR_ENABLE_AUTHENTICATION: "{{ .Values.solrEnableAuthentication }}"
             SOLR_ADMIN_USERNAME: "{{ .Values.solrUsername }}"
             SOLR_OPTS: "{{ .Values.solrOpts }}"
-            SOLR_ADMIN_PASSWORD:
-              secretKeyRef:
-                expandObjectName: "{{ if .Values.solrPassword }}true{{ else }}false{{ end }}"
-                name: '{{ if .Values.solrPassword }}credentials{{ else if .Values.existingSecret }}{{ .Values.existingSecret }}{{ else }}{{ printf "%s-%s" .Release.Name "solrcreds" }}{{ end }}'
-                key: "solr-password"
+            SOLR_ADMIN_PASSWORD: "{{ if .Values.password }}"
           # -- Probe configuration
           # -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
           # @default -- See below
@@ -111,7 +107,7 @@ solrOpts: ""
 # -- Secret or password
 # One of these options is required, unless used as a dependency for another TrueCharts chart.
 existingSecret: ""
-solrPassword: ""
+password: "PLACEHOLDERPASSWORD"
 secret:
   credentials:
     enabled: true
