@@ -1334,7 +1334,6 @@ mariadb:
   includeCommon: false
   password: "PLACEHOLDERPASSWORD"
   rootPassword: "PLACEHOLDERROOTPASSWORD"
-  existingSecret: "mariadbcreds"
   # -- can be used to make an easy accessable note which URLS to use to access the DB.
   creds: {}
 
@@ -1345,7 +1344,6 @@ mongodb:
   includeCommon: false
   password: "PLACEHOLDERPASSWORD"
   rootPassword: "PLACEHOLDERROOTPASSWORD"
-  existingSecret: "mongodbcreds"
   # -- can be used to make an easy accessable note which URLS to use to access the DB.
   creds: {}
 
@@ -1355,7 +1353,6 @@ clickhouse:
   enabled: false
   includeCommon: false
   password: "PLACEHOLDERPASSWORD"
-  existingSecret: "clickhousecreds"
   # -- can be used to make an easy accessable note which URLS to use to access the DB.
   creds: {}
 
@@ -1367,7 +1364,6 @@ solr:
   password: "PLACEHOLDERPASSWORD"
   solrCores: 1
   solrEnableAuthentication: "no"
-  existingSecret: "solrcreds"
   # -- can be used to make an easy accessable note which URLS to use to access the DB.
   creds: {}
 
