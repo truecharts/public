@@ -193,13 +193,13 @@ persistence:
 
 mariadb:
   enabled: true
-  includeCommon: false
+  includeCommon: true
   mariadbUsername: humhub
   mariadbDatabase: humhub
 
 redis:
   enabled: true
-  includeCommon: false
+  includeCommon: true
 
 portal:
   open:

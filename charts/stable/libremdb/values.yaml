@@ -15,7 +15,7 @@ persistence:
     mountPath: /opt/app
 redis:
   enabled: true
-  includeCommon: false
+  includeCommon: true
   redisUsername: default
 portal:
   open:

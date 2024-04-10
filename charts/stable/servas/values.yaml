@@ -57,7 +57,7 @@ persistence:
     type: emptyDir
 mariadb:
   enabled: true
-  includeCommon: false
+  includeCommon: true
   mariadbUsername: servas
   mariadbDatabase: servas
 portal:

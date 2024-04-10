@@ -57,13 +57,13 @@ workload:
 
 mariadb:
   enabled: true
-  includeCommon: false
+  includeCommon: true
   mariadbUsername: ctfd
   mariadbDatabase: ctfd
 
 redis:
   enabled: true
-  includeCommon: false
+  includeCommon: true
   redisUsername: default
 
 persistence:

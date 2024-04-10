@@ -65,10 +65,10 @@ persistence:
     mountPath: /data
 redis:
   enabled: true
-  includeCommon: false
+  includeCommon: true
 mariadb:
   enabled: true
-  includeCommon: false
+  includeCommon: true
   mariadbUsername: friendica
   mariadbDatabase: friendica
 portal:

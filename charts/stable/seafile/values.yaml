@@ -38,7 +38,7 @@ persistence:
     mountPath: "/shared/seafile"
 mariadb:
   enabled: true
-  includeCommon: false
+  includeCommon: true
   mariadbUsername: seafile
   mariadbDatabase: seafile
 portal:

@@ -77,10 +77,10 @@ persistence:
     mountPath: /config
 redis:
   enabled: true
-  includeCommon: false
+  includeCommon: true
 mariadb:
   enabled: true
-  includeCommon: false
+  includeCommon: true
   mariadbUsername: anonaddy
   mariadbDatabase: anonaddy
 portal:

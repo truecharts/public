@@ -13,7 +13,7 @@ service:
 # Enabled redis
 redis:
   enabled: true
-  includeCommon: false
+  includeCommon: true
   redisUsername: default
 additionalContainers:
   browserless:

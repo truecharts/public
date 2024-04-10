@@ -64,7 +64,7 @@ persistence:
     mountPath: /bitnami/wordpress
 mariadb:
   enabled: true
-  includeCommon: false
+  includeCommon: true
   mariadbUsername: wordpress
   mariadbDatabase: wordpress
 portal:

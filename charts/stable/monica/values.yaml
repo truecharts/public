@@ -14,7 +14,7 @@ persistence:
     mountPath: "/var/www/html/storage"
 mariadb:
   enabled: true
-  includeCommon: false
+  includeCommon: true
   mariadbUsername: monica
   mariadbDatabase: monica
 portal:

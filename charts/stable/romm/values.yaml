@@ -81,13 +81,13 @@ persistence:
 
 mariadb:
   enabled: true
-  includeCommon: false
+  includeCommon: true
   mariadbUsername: romm
   mariadbDatabase: romm
 
 redis:
   enabled: true
-  includeCommon: false
+  includeCommon: true
 
 portal:
   open:
