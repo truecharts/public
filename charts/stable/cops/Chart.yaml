@@ -7,10 +7,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.5.3
+appVersion: 2.5.4
 dependencies:
   - name: common
-    version: 20.2.10
+    version: 20.3.5
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -38,4 +38,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/cops
   - https://fleet.linuxserver.io/image?name=linuxserver/cops
 type: application
-version: 8.9.9
+version: 8.10.4

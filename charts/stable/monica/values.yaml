@@ -14,6 +14,7 @@ persistence:
     mountPath: "/var/www/html/storage"
 mariadb:
   enabled: true
+  includeCommon: true
   mariadbUsername: monica
   mariadbDatabase: monica
 portal:
@@ -47,11 +48,7 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: plainhost
-            DB_PASSWORD:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
-                key: mariadb-password
+            DB_PASSWORD: "{{ .Values.mariadb.password }}"
             APP_KEY:
               secretKeyRef:
                 name: appkey

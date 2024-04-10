@@ -80,11 +80,7 @@ workload:
             # Database
             HUMHUB_DB_USER: "{{ .Values.mariadb.mariadbUsername }}"
             HUMHUB_DB_NAME: "{{ .Values.mariadb.mariadbDatabase }}"
-            HUMHUB_DB_PASSWORD:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
-                key: mariadb-password
+            HUMHUB_DB_PASSWORD: "{{ .Values.mariadb.password }}"
             HUMHUB_DB_HOST:
               secretKeyRef:
                 expandObjectName: false
@@ -100,11 +96,7 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: plainhost
-            HUMHUB_REDIS_PASSWORD:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
-                key: redis-password
+            HUMHUB_REDIS_PASSWORD: "{{ .Values.redis.password }}"
             # Mailer
             HUMHUB_MAILER_SYSTEM_EMAIL_ADDRESS: "{{ .Values.humhub.mailer.sys_address }}"
             HUMHUB_MAILER_SYSTEM_EMAIL_NAME: "{{ .Values.humhub.mailer.sys_name }}"
@@ -201,11 +193,13 @@ persistence:
 
 mariadb:
   enabled: true
+  includeCommon: true
   mariadbUsername: humhub
   mariadbDatabase: humhub
 
 redis:
   enabled: true
+  includeCommon: true
 
 portal:
   open:

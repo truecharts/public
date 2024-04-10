@@ -1,0 +1,38 @@
+image:
+  repository: tccr.io/tccr/scratch
+  pullPolicy: IfNotPresent
+  tag: latest
+
+# don't install this unless you've followed our docs or talos docs!
+# ref - https://www.talos.dev/v1.6/talos-guides/configuration/nvidia-gpu-proprietary/
+
+# need to override naming
+configmap:
+  nvidia-device-plugin-configs:
+    enabled: true
+    expandObjectName: false
+    data:
+      # set "replicas" key to number of shares per original resource
+      # example: 2 physical GPU * 5 replica = 10vGPU
+      config: |
+        version: v1
+        sharing:
+          timeSlicing:
+            resources:
+            - name: nvidia.com/gpu
+              replicas: 5
+
+nvdp:
+  runtimeClassName: nvidia
+  gfd:
+    enabled: true
+# don't edit below here
+service:
+  main:
+    enabled: false
+    ports:
+      main:
+        enabled: false
+workload:
+  main:
+    enabled: false

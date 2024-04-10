@@ -36,6 +36,7 @@ persistence:
     size: 256Gi
 mariadb:
   enabled: true
+  includeCommon: true
   mariadbUsername: npm
   mariadbDatabase: npm
 portal:
@@ -84,8 +85,4 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: plainhost
-            DB_MYSQL_PASSWORD:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
-                key: mariadb-password
+            DB_MYSQL_PASSWORD: "{{ .Values.mariadb.password }}"

@@ -24,5 +24,4 @@ configmap:
       memcached.json: >-
         {{ .Files.Get "dashboard.json" | indent 8 }}
 
-manifestManager:
-  enabled: false
+

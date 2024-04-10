@@ -1,0 +1,21 @@
+  - variable: mongodb
+    group: Dependencies
+    label: "MongoDB"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: password
+          label: Password
+          description: "Set the password for the database-user"
+          schema:
+            type: string
+            default: "PLACEHOLDERPASSWORD"
+            required: true
+        - variable: rootPassword
+          label: "Root Password"
+          description: "Set the root password for MongoDB"
+          schema:
+            type: string
+            default: "PLACEHOLDERROOTPASSWORD"
+            required: true
