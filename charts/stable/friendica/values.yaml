@@ -41,11 +41,7 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: plainhost
-            MYSQL_PASSWORD:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
-                key: mariadb-password
+            MYSQL_PASSWORD: "{{ .Values.mariadb.password }}"
             REDIS_HOST:
               secretKeyRef:
                 expandObjectName: false

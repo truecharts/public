@@ -35,11 +35,7 @@ workload:
                 key: plainhost
             dbuser: "{{ .Values.mariadb.mariadbUsername }}"
             dbname: "{{ .Values.mariadb.mariadbDatabase }}"
-            dbpass:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
-                key: mariadb-password
+            dbpass: "{{ .Values.mariadb.password }}"
             dbport: 3306
             igdbclientid: "{{ .Values.gaseous.igdb.id }}"
             igdbclientsecret: "{{ .Values.gaseous.igdb.secret }}"
