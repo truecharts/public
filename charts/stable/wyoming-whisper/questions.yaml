@@ -232,6 +232,8 @@ questions:
             required: true
             default: tiny-int8
             enum:
+              - value: custom
+                description: custom
               - value: tiny-int8
                 description: tiny-int8
               - value: tiny
@@ -270,6 +272,14 @@ questions:
                 description: large-v2
               - value: large-v3
                 description: large-v3
+        - variable: custom_model
+          label: Custom Model
+          description: 'Path to a converted model directory, or a CTranslate2-converted Whisper model ID from the HuggingFace Hub like "Systran/faster-distil-whisper-small.en".'
+          schema:
+            type: string
+            required: false
+            default: ""
+            show_if: [[model, "=", "custom"]]
         - variable: beam_size
           label: Beam Size
           description: Number of candidates to consider simultaneously during transcription.
