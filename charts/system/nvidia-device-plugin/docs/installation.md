@@ -1,12 +1,14 @@
 # Talos Linux Setup
 
 ## Enable NVIDIA kernel modules
+
 Before installing the device plugin, some initial steps need to be taken per
 [Talos Documentation][1]. Please make sure you have installed the correct system
 extensions through a combination of patches + the correct [factory image][2] for your
 use case.
 
 example gpu-worker-patch.yaml
+
 ```yaml
 machine:
   kernel:
@@ -20,8 +22,10 @@ machine:
 ```
 
 ### Quick Sanity Check
+
 If running these commands does not produce similar output, you haven't set up base
 system completely:
+
 ```
 ❯ talosctl read /proc/modules
 nvidia_uvm 1482752 - - Live 0xffffffffc3b4e000 (PO)
@@ -38,7 +42,9 @@ NODE            NAMESPACE   TYPE              ID            VERSION   NAME      
 ```
 
 ## Create NVIDIA runtime class:
+
 You will need to add this runtime class to pods you wish to add GPU resources to.
+
 ```
 ❯ cat <<EOF | kubectl apply -f -
 apiVersion: node.k8s.io/v1
@@ -50,18 +56,18 @@ EOF
 ```
 
 ### Adding runtimeClass to pods with common
+
 ```yaml
 workload:
   main:
     podSpec:
       runtimeClassName: "nvidia"
-      containers:
-        ...
+      containers: ...
 ```
 
 ## Create nvidia-device-plugin namespace & enable privileged podsecurity
 
-*Note: This is only required if you want multiple GPU resources per physical GPU. If you are happy with 1 to 1 GPU to POD mapping, you can just create namespace, it won't need privileges. You will need to turn off a setting below.*
+_Note: This is only required if you want multiple GPU resources per physical GPU. If you are happy with 1 to 1 GPU to POD mapping, you can just create namespace, it won't need privileges. You will need to turn off a setting below._
 
 ```
 ❯ kubectl create namespace nvidia-device-plugin
@@ -69,20 +75,24 @@ workload:
 ```
 
 ## Install nvidia-device-plugin from kubeapps
+
 There are notes in values.yaml, but the following defines how many resources are made per GPU:
+
 ```yaml
-  resources:
-    - name: nvidia.com/gpu
-      replicas: 5
+resources:
+  - name: nvidia.com/gpu
+    replicas: 5
 ```
 
-*Note: If you do not want multigpu mapping, set replicas to 1 and change the following line to false.*
+_Note: If you do not want multigpu mapping, set replicas to 1 and change the following line to false._
+
 ```yaml
-  gfd:
-    enabled: true
+gfd:
+  enabled: true
 ```
 
 ### Enable GPU in values.yaml
+
 ```yaml
 resources:
   limits:

@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: system
 apiVersion: v2
-appVersion: 0.0.1
+appVersion: latest
 dependencies:
   - name: common
     version: 20.3.3
@@ -25,8 +25,8 @@ dependencies:
     import-values: []
 deprecated: false
 description: NVIDIA device plugin for Kubernetes
-home: https://truecharts.org/charts/system/nvidia-device-plugin
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/nvidia-device-plugin.png
+home: https://truecharts.org/charts/system/kubeapps
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/kubeapps.png
 keywords:
   - nvidia
   - plugins
@@ -39,6 +39,7 @@ name: kubeapps
 sources:
   - https://cert-manager.io/
   - https://github.com/NVIDIA/k8s-device-plugin?tab=readme-ov-file#deployment-via-helm
-  - https://github.com/truecharts/charts/tree/master/charts/system/nvidia-device-plugin
+  - https://github.com/truecharts/charts/tree/master/charts/system/kubeapps
+  - https://github.com/truecharts/containers/tree/master/apps/scratch
 type: application
 version: 0.15.0
