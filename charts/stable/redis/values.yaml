@@ -118,15 +118,9 @@ configmap:
         "$script_dir/ping_liveness_local.sh" $1 || exit_status=$?
         "$script_dir/ping_liveness_master.sh" $1 || exit_status=$?
         exit $exit_status
-secret:
-  credentials:
-    enabled: true
-    data:
-      redis-password: '{{ ( .Values.password | default "nothing" ) }}'
-# -- Secret or password
-# One of these options is required, unless used as a dependency for another TrueCharts chart.
+
+## DEVNOTE: This password needs to match the one set in Common if ever changing defaults
 password: "PLACEHOLDERPASSWORD"
-existingSecret: ""
 service:
   main:
     ports:
@@ -162,5 +156,3 @@ persistence:
 portal:
   open:
     enabled: false
-manifestManager:
-  enabled: false
