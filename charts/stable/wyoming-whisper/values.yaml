@@ -6,6 +6,7 @@ wyoming_whisper:
   language: en
   model: tiny-int8
   beam_size: 1
+  initial_prompt: ""
 workload:
   main:
     podSpec:
@@ -28,6 +29,8 @@ workload:
             - "{{ .Values.wyoming_whisper.model }}"
             - --beam-size
             - "{{ .Values.wyoming_whisper.beam_size }}"
+            - --initial-prompt
+            - "{{ .Values.wyoming_whisper.initial_prompt }}"
 service:
   main:
     ports:

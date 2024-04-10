@@ -277,6 +277,13 @@ questions:
             type: int
             required: true
             default: 1
+        - variable: initial_prompt
+          label: Initial prompt
+          description: Description of audio that can help Whisper transcribe unusual words better.
+          schema:
+            type: string
+            required: false
+            default: ""
 # Include{containerConfig}
 # Include{serviceRoot}
 # Include{serviceMain}
