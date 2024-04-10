@@ -26,11 +26,7 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: plainhost
-            DB_ROOT_PASSWD:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
-                key: mariadb-root-password
+            DB_ROOT_PASSWD: "{{ .Values.mariadb.rootPassword }}"
             SEAFILE_SERVER_LETSENCRYPT: false
             SEAFILE_SERVER_HOSTNAME: ""
             SEAFILE_ADMIN_EMAIL: me@example.com
@@ -42,6 +38,7 @@ persistence:
     mountPath: "/shared/seafile"
 mariadb:
   enabled: true
+  includeCommon: false
   mariadbUsername: seafile
   mariadbDatabase: seafile
 portal:

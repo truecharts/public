@@ -123,6 +123,7 @@ persistence:
           mountPath: /var/www/html
 mariadb:
   enabled: true
+  includeCommon: false
   mariadbUsername: ranksystem
   mariadbDatabase: ranksystem
 portal:

@@ -62,11 +62,7 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: plainhost
-            REDIS_PASSWORD:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
-                key: redis-password
+            REDIS_PASSWORD: "{{ .Values.redis.password }}"
             APP_KEY:
               secretKeyRef:
                 name: anonaddy-secrets
@@ -81,8 +77,10 @@ persistence:
     mountPath: /config
 redis:
   enabled: true
+  includeCommon: false
 mariadb:
   enabled: true
+  includeCommon: false
   mariadbUsername: anonaddy
   mariadbDatabase: anonaddy
 portal:

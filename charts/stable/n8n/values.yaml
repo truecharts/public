@@ -96,6 +96,7 @@ persistence:
 # Enabled redis
 redis:
   enabled: true
+  includeCommon: false
 # Enabled postgres
 cnpg:
   main:
@@ -147,8 +148,4 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: plainhost
-            QUEUE_BULL_REDIS_PASSWORD:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
-                key: redis-password
+            QUEUE_BULL_REDIS_PASSWORD: "{{ .Values.redis.password }}"

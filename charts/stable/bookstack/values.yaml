@@ -40,6 +40,7 @@ persistence:
     mountPath: /config
 mariadb:
   enabled: true
+  includeCommon: false
   mariadbUsername: bookstack
   mariadbDatabase: bookstack
 portal:

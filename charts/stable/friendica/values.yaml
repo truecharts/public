@@ -47,11 +47,7 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: plainhost
-            REDIS_PW:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
-                key: redis-password
+            REDIS_PW: "{{ .Values.redis.password }}"
 service:
   main:
     ports:
@@ -69,8 +65,10 @@ persistence:
     mountPath: /data
 redis:
   enabled: true
+  includeCommon: false
 mariadb:
   enabled: true
+  includeCommon: false
   mariadbUsername: friendica
   mariadbDatabase: friendica
 portal:

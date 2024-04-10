@@ -2,8 +2,7 @@ image:
   repository: ghcr.io/authelia/authelia
   pullPolicy: IfNotPresent
   tag: 4.38.7@sha256:1bfa7206c144f8cd184743a7ed629f4a02d2dceb50e7260588373fe6de4cd959
-manifestManager:
-  enabled: true
+
 workload:
   main:
     replicas: 2
@@ -47,6 +46,7 @@ cnpg:
 # ... for more options see https://github.com/tccr.io/truecharts/charts/tree/master/tccr.io/truecharts/redis
 redis:
   enabled: true
+  includeCommon: false
 domain: example.com
 ##
 ## Server Configuration

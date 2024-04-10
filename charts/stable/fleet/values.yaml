@@ -48,6 +48,7 @@ persistence:
     enabled: true
 mariadb:
   enabled: true
+  includeCommon: false
   mariadbUsername: fleet
   mariadbDatabase: fleet
 portal:

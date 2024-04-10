@@ -85,6 +85,7 @@ persistence:
     mountPath: "/bitnami/matomo"
 mariadb:
   enabled: true
+  includeCommon: false
   mariadbUsername: matomo
   mariadbDatabase: matomo
 portal:

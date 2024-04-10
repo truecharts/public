@@ -36,6 +36,7 @@ persistence:
     size: 256Gi
 mariadb:
   enabled: true
+  includeCommon: false
   mariadbUsername: npm
   mariadbDatabase: npm
 portal:
