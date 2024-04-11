@@ -17,7 +17,7 @@ dependencies:
     tags: []
     import-values: []
   - name: mongodb
-    version: 12.8.4
+    version: 12.8.6
     repository: oci://tccr.io/truecharts
     condition: mongodb.enabled
     alias: ""
@@ -42,4 +42,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/wekan
   - https://hub.docker.com/r/wekanteam/wekan
 type: application
-version: 14.18.6
+version: 14.18.7
