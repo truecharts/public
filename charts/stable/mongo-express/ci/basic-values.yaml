@@ -19,8 +19,4 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "mongodbcreds" }}'
                 key: plainhost
-            ME_CONFIG_MONGODB_AUTH_PASSWORD:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "mongodbcreds" }}'
-                key: mongodb-password
+            ME_CONFIG_MONGODB_AUTH_PASSWORD: "{{ .Values.mongodb.password }}"

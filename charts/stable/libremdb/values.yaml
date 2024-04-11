@@ -1,7 +1,7 @@
 image:
   repository: quay.io/pussthecatorg/libremdb
   pullPolicy: IfNotPresent
-  tag: latest@sha256:3abae39f0a0b0e7ed10792ae8931bed2cabd15ef00a5856626966389a128d34d
+  tag: latest@sha256:5743d13ad1f888f775d3fa7f2ec782d7f866e309c4db2808b33840344d9b7167
 service:
   main:
     ports:
@@ -15,6 +15,7 @@ persistence:
     mountPath: /opt/app
 redis:
   enabled: true
+  includeCommon: true
   redisUsername: default
 portal:
   open:

@@ -1,7 +1,7 @@
 image:
   repository: tccr.io/tccr/nextcloud-fpm
   pullPolicy: IfNotPresent
-  tag: v28.0.4@sha256:98f9b1f2144f7490ea2ba25f21cca21d2a8a2e655ba9f1f0c570fab72c6fefd6
+  tag: v28.0.4@sha256:c5919dbb0d755483d76a415b19bd23fd7ddf6276e95fc556524996401fbc3dcf
 nginxImage:
   repository: nginxinc/nginx-unprivileged
   pullPolicy: IfNotPresent
@@ -516,6 +516,7 @@ cnpg:
     database: nextcloud
 redis:
   enabled: true
+  includeCommon: true
   username: default
 portal:
   open:

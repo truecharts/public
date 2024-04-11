@@ -51,21 +51,13 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
                 key: plainhost
-            DB_PASSWD:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "mariadbcreds" }}'
-                key: mariadb-password
+            DB_PASSWD: "{{ .Values.mariadb.password }}"
             REDIS_HOST:
               secretKeyRef:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: plainhost
-            REDIS_PASSWORD:
-              secretKeyRef:
-                expandObjectName: false
-                name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
-                key: redis-password
+            REDIS_PASSWORD: "{{ .Values.redis.password }}"
             REDIS_PORT: 6379
             ROMM_AUTH_SECRET_KEY:
               secretKeyRef:
@@ -89,11 +81,13 @@ persistence:
 
 mariadb:
   enabled: true
+  includeCommon: true
   mariadbUsername: romm
   mariadbDatabase: romm
 
 redis:
   enabled: true
+  includeCommon: true
 
 portal:
   open:

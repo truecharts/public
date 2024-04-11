@@ -7,10 +7,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 3.3.16
+appVersion: 3.3.17
 dependencies:
   - name: common
-    version: 20.3.3
+    version: 20.3.6
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/flaresolverr
   - https://ghcr.io/flaresolverr/flaresolverr
 type: application
-version: 13.8.1
+version: 13.8.5
