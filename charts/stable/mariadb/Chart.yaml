@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 11.3.2
 dependencies:
   - name: common
-    version: 20.3.5
+    version: 20.3.6
     repository: oci://tccr.io/truecharts
     condition: includeCommon
     alias: ""
@@ -38,4 +38,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/mariadb
   - https://hub.docker.com/r/bitnami/mariadb
 type: application
-version: 13.9.7
+version: 13.9.8
