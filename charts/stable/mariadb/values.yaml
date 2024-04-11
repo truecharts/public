@@ -72,7 +72,7 @@ configmap:
         ALTER USER root@'%' IDENTIFIED VIA mysql_native_password USING PASSWORD("{{ .Values.rootPassword }}");
         ALTER USER {{ .Values.mariadbUsername }}@'%' IDENTIFIED VIA mysql_native_password USING PASSWORD("{{ .Values.password }}");
         FLUSH PRIVILEGES;
-      
+
 mariadbUsername: "test"
 mariadbDatabase: "test"
 ## DEVNOTE: These password defaults always need to match common
