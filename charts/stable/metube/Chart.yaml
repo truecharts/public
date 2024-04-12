@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2024.4.10
+appVersion: 2024.4.12
 dependencies:
   - name: common
     version: 20.3.6
@@ -23,7 +23,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/metube.png
 keywords:
   - metube
   - media
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/metube
   - https://hub.docker.com/r/alexta69/metube
 type: application
-version: 12.10.3
+version: 12.10.4
