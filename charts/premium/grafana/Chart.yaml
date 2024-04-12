@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: premium
 apiVersion: v2
-appVersion: 10.4.1
+appVersion: 10.4.2
 dependencies:
   - name: common
     version: 20.3.6
@@ -35,7 +35,7 @@ sources:
   - https://grafana.com/
   - https://github.com/bitnami/bitnami-docker-grafana
   - https://github.com/truecharts/charts/tree/master/charts/premium/grafana
-  - https://hub.docker.com/r/grafana/grafana
   - https://quay.io/kiwigrid/k8s-sidecar
+  - https://hub.docker.com/r/grafana/grafana
 type: application
-version: 14.10.4
+version: 14.10.5

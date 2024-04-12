@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.0.72
+appVersion: 2.0.73
 dependencies:
   - name: common
     version: 20.3.6
@@ -32,7 +32,7 @@ name: rdtclient
 sources:
   - https://github.com/rogerfar/rdt-client
   - https://github.com/truecharts/charts/tree/master/charts/stable/rdtclient
-  - https://hub.docker.com/r/p3terx/aria2-pro
   - https://ghcr.io/rogerfar/rdtclient
+  - https://hub.docker.com/r/p3terx/aria2-pro
 type: application
-version: 4.8.7
+version: 4.8.8
