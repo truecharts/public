@@ -1,6 +1,4 @@
----
-title: Install Notes
----
+# Install Notes
 
 ## Warning
 
@@ -14,8 +12,8 @@ You're warned. have fun!
 
 This chart now requires the following hcarts to be installed before you can install:
 
-- cloudnative-pg
 - prometheus-operator
+- cloudnative-pg
 
 These are in the system train.
 
