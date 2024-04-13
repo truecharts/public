@@ -14,7 +14,7 @@ In order to get started, plug in your UPS via USB to the `server` node and befor
 
 Go to your system shell on your node and run the following command to get the basic info for your UPS.
 
-```terminal
+```shell
 nut-scanner -U
 ```
 
