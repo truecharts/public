@@ -96,7 +96,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-248-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-249-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -427,6 +427,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="http://blog.yuzhuohui.info"><img src="https://avatars.githubusercontent.com/u/413855?v=4?s=100" width="100px;" alt="Agassi"/><br /><sub><b>Agassi</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=agassiyzh" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/sethidden"><img src="https://avatars.githubusercontent.com/u/5359825?v=4?s=100" width="100px;" alt="Artur"/><br /><sub><b>Artur</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=sethidden" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/mxc42"><img src="https://avatars.githubusercontent.com/u/32530812?v=4?s=100" width="100px;" alt="Morgan Hunter"/><br /><sub><b>Morgan Hunter</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=mxc42" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/tannisroot"><img src="https://avatars.githubusercontent.com/u/10602045?v=4?s=100" width="100px;" alt="Aleksandr Oleinikov"/><br /><sub><b>Aleksandr Oleinikov</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=tannisroot" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
