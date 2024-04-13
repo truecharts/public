@@ -1,4 +1,6 @@
-# Installation Notes
+---
+title: Installation Notes
+---
 
 Notes about the proper setup of PeaNUT.
 

@@ -1,4 +1,6 @@
-# Install Notes
+---
+title: Install Notes
+---
 
 ## Warning
 
