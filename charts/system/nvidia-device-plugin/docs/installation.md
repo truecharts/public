@@ -1,3 +1,7 @@
+---
+title: Nvidia Device Plugin Setup
+---
+
 # Talos Linux Setup
 
 ## Enable NVIDIA kernel modules
