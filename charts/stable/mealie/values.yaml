@@ -55,6 +55,16 @@ mealie:
       id_attribute: uid
       name_attribute: name
       mail_attribute: mail
+    oidc:
+      auth_enabled: false
+      signup_enabled: true
+      configuration_url: ""
+      client_id: ""
+      user_group: ""
+      admin_group: ""
+      auto_redirect: false
+      provider_name: "OAuth"
+      remember_me: false
 workload:
   main:
     podSpec:
