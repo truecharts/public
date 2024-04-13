@@ -10,14 +10,14 @@ apiVersion: v2
 appVersion: 14.3.0
 dependencies:
   - name: common
-    version: 20.3.5
+    version: 20.3.6
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mariadb
-    version: 13.9.6
+    version: 13.9.8
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -43,4 +43,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/piwigo
   - https://ghcr.io/linuxserver/piwigo
 type: application
-version: 12.16.6
+version: 12.16.8

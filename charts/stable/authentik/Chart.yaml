@@ -10,14 +10,14 @@ apiVersion: v2
 appVersion: 2024.2.2
 dependencies:
   - name: common
-    version: 20.3.5
+    version: 20.3.6
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 13.3.5
+    version: 13.3.7
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -40,9 +40,9 @@ sources:
   - https://github.com/goauthentik/authentik
   - https://github.com/truecharts/charts/tree/master/charts/stable/authentik
   - https://ghcr.io/maxmind/geoipupdate
-  - https://ghcr.io/goauthentik/proxy
   - https://ghcr.io/goauthentik/ldap
   - https://ghcr.io/goauthentik/radius
   - https://ghcr.io/goauthentik/server
+  - https://ghcr.io/goauthentik/proxy
 type: application
-version: 24.10.7
+version: 24.10.9

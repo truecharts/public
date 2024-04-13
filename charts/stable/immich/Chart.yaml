@@ -10,14 +10,14 @@ apiVersion: v2
 appVersion: 1.101.0
 dependencies:
   - name: common
-    version: 20.3.5
+    version: 20.3.6
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 13.3.5
+    version: 13.3.7
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -38,7 +38,7 @@ name: immich
 sources:
   - https://github.com/immich-app/immich
   - https://github.com/truecharts/charts/tree/master/charts/stable/immich
-  - https://hub.docker.com/r/altran1502/immich-machine-learning
   - https://hub.docker.com/r/altran1502/immich-server
+  - https://hub.docker.com/r/altran1502/immich-machine-learning
 type: application
-version: 14.12.7
+version: 14.12.9

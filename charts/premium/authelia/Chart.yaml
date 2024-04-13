@@ -10,14 +10,14 @@ apiVersion: v2
 appVersion: 4.38.7
 dependencies:
   - name: common
-    version: 20.3.5
+    version: 20.3.6
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 13.3.5
+    version: 13.3.7
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -39,7 +39,7 @@ keywords:
   - YubiKey
   - Push Notifications
   - LDAP
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org

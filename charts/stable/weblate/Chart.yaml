@@ -10,14 +10,14 @@ apiVersion: v2
 appVersion: 4.16.4
 dependencies:
   - name: common
-    version: 20.3.5
+    version: 20.3.6
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 13.3.5
+    version: 13.3.7
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -43,4 +43,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/weblate
   - https://hub.docker.com/r/weblate/weblate
 type: application
-version: 13.10.7
+version: 13.10.9

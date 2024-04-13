@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 2.2.3.4098
 dependencies:
   - name: common
-    version: 20.3.5
+    version: 20.3.6
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -33,7 +33,7 @@ name: lidarr
 sources:
   - https://github.com/Lidarr/Lidarr
   - https://github.com/truecharts/charts/tree/master/charts/stable/lidarr
-  - https://ghcr.io/onedr0p/exportarr
   - https://ghcr.io/onedr0p/lidarr-develop
+  - https://ghcr.io/onedr0p/exportarr
 type: application
-version: 21.6.4
+version: 21.6.5

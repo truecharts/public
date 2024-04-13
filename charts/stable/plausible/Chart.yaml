@@ -10,14 +10,14 @@ apiVersion: v2
 appVersion: 2.0.0
 dependencies:
   - name: common
-    version: 20.3.5
+    version: 20.3.6
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: clickhouse
-    version: 12.10.3
+    version: 12.10.4
     repository: oci://tccr.io/truecharts
     condition: clickhouse.enabled
     alias: ""
@@ -44,4 +44,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/plausible
   - https://hub.docker.com/r/plausible/analytics
 type: application
-version: 10.17.6
+version: 10.17.8

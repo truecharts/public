@@ -10,14 +10,14 @@ apiVersion: v2
 appVersion: 2.11.1
 dependencies:
   - name: common
-    version: 20.3.5
+    version: 20.3.6
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mariadb
-    version: 13.9.6
+    version: 13.9.8
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -43,4 +43,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/nginx-proxy-manager
   - https://hub.docker.com/r/jc21/nginx-proxy-manager
 type: application
-version: 9.15.7
+version: 9.15.9

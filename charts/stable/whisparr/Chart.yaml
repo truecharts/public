@@ -7,10 +7,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.0.0.548
+appVersion: 3.0.0.545
 dependencies:
   - name: common
-    version: 20.3.5
+    version: 20.3.6
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/whisparr
   - https://ghcr.io/hotio/whisparr
 type: application
-version: 10.0.1
+version: 10.0.2

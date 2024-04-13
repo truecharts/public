@@ -7,10 +7,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 9.10.2
+appVersion: 9.10.3
 dependencies:
   - name: common
-    version: 20.3.5
+    version: 20.3.6
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -36,4 +36,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/zwavejs2mqtt
   - https://hub.docker.com/r/zwavejs/zwave-js-ui
 type: application
-version: 19.9.3
+version: 19.9.5

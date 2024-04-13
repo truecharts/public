@@ -10,14 +10,14 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 20.3.5
+    version: 20.3.6
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mongodb
-    version: 12.8.4
+    version: 12.8.6
     repository: oci://tccr.io/truecharts
     condition: mongodb.enabled
     alias: ""
@@ -42,4 +42,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/mongo-express
   - https://hub.docker.com/_/mongo-express
 type: application
-version: 6.10.6
+version: 6.10.8
