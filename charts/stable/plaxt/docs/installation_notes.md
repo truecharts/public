@@ -6,7 +6,7 @@ title: Installation Notes
 
 - Please create an [app](https://trakt.tv/oauth/applications/new) in trakt.tv.
 - Set the trakt app name to whatever you like for ex: `plaxt`.
-- Optionally set an icon, you can download this [icon](https://truecharts.org/img/hotlink-ok/chart-icons/plaxt.png).
+- Optionally set an icon, you can download this [icon](/img/hotlink-ok/chart-icons/plaxt.png).
 - Set the redirect uri to for ex (must end with `/authorize`):
 - `https://plaxt.mydomain.com/authorize`.
 - `https://my_public_ip:8000/authorize`.
