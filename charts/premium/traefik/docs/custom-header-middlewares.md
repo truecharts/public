@@ -1,5 +1,5 @@
 ---
-title: Adding or removing headers
+title: Adding or Removing Headers
 ---
 
 The `customRequestHeaders` and `customResponseHeaders` middlewares will allow you to add or remove headers from the request or response.

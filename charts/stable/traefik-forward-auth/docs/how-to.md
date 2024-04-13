@@ -1,6 +1,6 @@
 ---
 title: traefik-forward-auth
-description: A How To Guide for Traefik Forward Auth.
+description: A How To Guide for Traefik Forward Auth
 ---
 
 :::note
