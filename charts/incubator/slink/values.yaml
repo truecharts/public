@@ -19,7 +19,7 @@ workload:
       containers:
         main:
           env:
-            ORIGIN: "https://slink.domain.tld"
+            ORIGIN: "{{ .Values.chartContext.appUrl }}"
             USER_APPROVAL_REQUIRED: true
             IMAGE_MAX_SIZE: "15M"
 persistence:

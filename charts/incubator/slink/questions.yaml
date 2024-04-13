@@ -16,13 +16,6 @@ questions:
                                     additional_attrs: true
                                     type: dict
                                     attrs:
-                                      - variable: ORIGIN
-                                        label: "Origin Hostname"
-                                        description: "Slink origin hostname."
-                                        schema:
-                                          type: string
-                                          required: true
-                                          default: "https://slink.domain.tld"
                                       - variable: USER_APPROVAL_REQUIRED
                                         label: "User Approval Required"
                                         description: "Whether to require user approval before they can upload images."
