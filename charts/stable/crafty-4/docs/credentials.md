@@ -7,6 +7,6 @@ title: Default Credentials
 
 Shell into the app and run this command to print it to shell:
 
-```terminal
+```shell
 cat /crafty/app/config/default-creds.txt
 ```
