@@ -1,4 +1,6 @@
-# SFTPGo Plugins
+---
+title: SFTPGo Plugins
+---
 
 Due to a number of different possible combinations of plugins, final configuration
 must be done through manually set environmental variables. Please refer to examples below.
