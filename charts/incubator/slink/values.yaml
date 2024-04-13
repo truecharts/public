@@ -19,6 +19,7 @@ workload:
       containers:
         main:
           env:
+            ORIGIN: "https://slink.domain.tld"
             USER_APPROVAL_REQUIRED: true
             IMAGE_MAX_SIZE: "15M"
 persistence:
