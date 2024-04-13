@@ -24,7 +24,7 @@ keywords:
   - jellyfin
   - plex
   - emby
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -33,7 +33,7 @@ name: jellyfin
 sources:
   - https://github.com/jellyfin/jellyfin
   - https://github.com/truecharts/charts/tree/master/charts/stable/jellyfin
-  - https://hub.docker.com/r/jellyfin/jellyfin
   - https://hub.docker.com/r/alpine/socat
+  - https://hub.docker.com/r/jellyfin/jellyfin
 type: application
-version: 18.8.4
+version: 18.8.5
