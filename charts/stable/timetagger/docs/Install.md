@@ -1,4 +1,6 @@
-# Credential Generation Basic Auth
+---
+title: Credential Generation Basic Auth
+---
 
 To Setup Credentials for Basic Authg proceed to <https://timetagger.app/cred> and enter the user name and password you wish to use
 

@@ -4,10 +4,10 @@ title: Installation Notes
 
 ## Requirements
 
-1. The Cloudnative-PG operator is required from the `system` train. More information can be found on our [getting started guide](https://truecharts.org/manual/SCALE/guides/getting-started/#prometheus-and-cnpg-system-app-installations)
+1. The Cloudnative-PG operator is required from the `system` train. More information can be found on our [getting started guide](/manual/SCALE/guides/getting-started/#prometheus-and-cnpg-system-app-installations)
 
 2. Ingress is required to be configured. The preferred and supported method for ingress is Traefik. More information can be
-   found on our [getting started guide](https://truecharts.org/manual/SCALE/guides/getting-started/#traefik-installation-for-ingress--reverse-proxy-support-with-truecharts-apps).
+   found on our [getting started guide](/manual/SCALE/guides/getting-started/#traefik-installation-for-ingress--reverse-proxy-support-with-truecharts-apps).
 
 :::caution SNAPSHOT DIRECTORY VISIBILITY
 

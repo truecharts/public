@@ -10,14 +10,14 @@ apiVersion: v2
 appVersion: 0.22.1
 dependencies:
   - name: common
-    version: 20.3.5
+    version: 20.3.6
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 13.3.5
+    version: 13.3.7
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -39,7 +39,7 @@ sources:
   - https://vikunja.io/docs
   - https://github.com/truecharts/charts/tree/master/charts/stable/vikunja
   - https://hub.docker.com/r/vikunja/frontend
-  - https://hub.docker.com/r/vikunja/api
   - https://hub.docker.com/_/nginx
+  - https://hub.docker.com/r/vikunja/api
 type: application
-version: 13.10.8
+version: 13.10.13

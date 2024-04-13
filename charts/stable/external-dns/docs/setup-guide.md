@@ -13,7 +13,7 @@ Inspired by Kubernetes DNS, Kubernetes' cluster-internal DNS server, ExternalDNS
 - Traefik
 - Clusterissuer / Cert-manager installed (vital if exposed externally)
 
-Please follow the [Getting Started](https://truecharts.org/manual/SCALE/guides/getting-started) guide on the [Truecharts](https://truecharts.org) website.
+Please follow the [Getting Started](/manual/SCALE/guides/getting-started) guide on the [Truecharts](https://truecharts.org) website.
 
 ## Installation instructions
 
@@ -43,7 +43,8 @@ I recommend using `noop` for `Registry Type` and leaving the rest as default, ca
 
 Verify it works, check the logs for updates to DNS records
 
-```2023-11-07 09:36:07.165596-05:00time="2023-11-07T09:36:07-05:00" level=info msg="Instantiating new Kubernetes client"
+```shell
+2023-11-07 09:36:07.165596-05:00time="2023-11-07T09:36:07-05:00" level=info msg="Instantiating new Kubernetes client"
 2023-11-07 09:36:07.165633-05:00time="2023-11-07T09:36:07-05:00" level=info msg="Using inCluster-config based on serviceaccount-token"
 2023-11-07 09:36:07.165850-05:00time="2023-11-07T09:36:07-05:00" level=info msg="Created Kubernetes client https://172.17.0.1:443"
 2023-11-07 09:36:08.958946-05:00time="2023-11-07T09:36:08-05:00" level=info msg="Changing record." action=CREATE record=seafile.DOMAIN.com ttl=1 type=A zone=d959ce24eb85d78a7f527b6150446335
@@ -67,7 +68,8 @@ Change to `noop` for `Registry Type` and add `PiHole Server Address` (default is
 
 Verify logs from `External-DNS` to see if it connects and updates `PiHole`
 
-```d:false IBMCloudConfigFile:/etc/kubernetes/ibmcloud.json TencentCloudConfigFile:/etc/kubernetes/tencent-cloud.json TencentCloudZoneType: PiholeServer:http://pihole.ix-pihole.svc.cluster.local:9089 PiholePassword:****** PiholeTLSInsecureSkipVerify:false PluralCluster: PluralProvider:}"
+```shell
+d:false IBMCloudConfigFile:/etc/kubernetes/ibmcloud.json TencentCloudConfigFile:/etc/kubernetes/tencent-cloud.json TencentCloudZoneType: PiholeServer:http://pihole.ix-pihole.svc.cluster.local:9089 PiholePassword:****** PiholeTLSInsecureSkipVerify:false PluralCluster: PluralProvider:}"
 2023-11-07 10:29:07.801555-05:00time="2023-11-07T10:29:07-05:00" level=info msg="Instantiating new Kubernetes client"
 2023-11-07 10:29:07.801568-05:00time="2023-11-07T10:29:07-05:00" level=info msg="Using inCluster-config based on serviceaccount-token"
 2023-11-07 10:29:07.801861-05:00time="2023-11-07T10:29:07-05:00" level=info msg="Created Kubernetes client https://172.17.0.1:443"

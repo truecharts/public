@@ -96,7 +96,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-248-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-249-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -372,7 +372,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Shrinks99"><img src="https://avatars.githubusercontent.com/u/5672810?v=4?s=100" width="100px;" alt="Henry Wilkinson"/><br /><sub><b>Henry Wilkinson</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=Shrinks99" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/cedstrom"><img src="https://avatars.githubusercontent.com/u/6175957?v=4?s=100" width="100px;" alt="cedstrom"/><br /><sub><b>cedstrom</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=cedstrom" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/v3DJG6GL"><img src="https://avatars.githubusercontent.com/u/72495210?v=4?s=100" width="100px;" alt="v3DJG6GL"/><br /><sub><b>v3DJG6GL</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Av3DJG6GL" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/v3DJG6GL"><img src="https://avatars.githubusercontent.com/u/72495210?v=4?s=100" width="100px;" alt="v3DJG6GL"/><br /><sub><b>v3DJG6GL</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Av3DJG6GL" title="Bug reports">🐛</a> <a href="https://github.com/truecharts/charts/commits?author=v3DJG6GL" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/polarstack"><img src="https://avatars.githubusercontent.com/u/42521003?v=4?s=100" width="100px;" alt="polarstack"/><br /><sub><b>polarstack</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=polarstack" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/K1Hyve"><img src="https://avatars.githubusercontent.com/u/53298451?v=4?s=100" width="100px;" alt="Keyvan"/><br /><sub><b>Keyvan</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=K1Hyve" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/MickaelFontes"><img src="https://avatars.githubusercontent.com/u/81414455?v=4?s=100" width="100px;" alt="MickaelFontes"/><br /><sub><b>MickaelFontes</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=MickaelFontes" title="Code">💻</a></td>
@@ -427,6 +427,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="http://blog.yuzhuohui.info"><img src="https://avatars.githubusercontent.com/u/413855?v=4?s=100" width="100px;" alt="Agassi"/><br /><sub><b>Agassi</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=agassiyzh" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/sethidden"><img src="https://avatars.githubusercontent.com/u/5359825?v=4?s=100" width="100px;" alt="Artur"/><br /><sub><b>Artur</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=sethidden" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/mxc42"><img src="https://avatars.githubusercontent.com/u/32530812?v=4?s=100" width="100px;" alt="Morgan Hunter"/><br /><sub><b>Morgan Hunter</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=mxc42" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/tannisroot"><img src="https://avatars.githubusercontent.com/u/10602045?v=4?s=100" width="100px;" alt="Aleksandr Oleinikov"/><br /><sub><b>Aleksandr Oleinikov</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=tannisroot" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>

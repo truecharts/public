@@ -10,14 +10,14 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 20.3.5
+    version: 20.3.6
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 13.3.5
+    version: 13.3.7
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -40,7 +40,7 @@ sources:
   - https://docs.rsshub.app/en/install/
   - https://github.com/DIYgod/RSSHub
   - https://github.com/truecharts/charts/tree/master/charts/stable/rsshub
-  - https://hub.docker.com/r/browserless/chrome
   - https://hub.docker.com/r/diygod/rsshub
+  - https://hub.docker.com/r/browserless/chrome
 type: application
-version: 12.10.8
+version: 12.10.15

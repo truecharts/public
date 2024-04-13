@@ -10,14 +10,14 @@ apiVersion: v2
 appVersion: 4.0.0
 dependencies:
   - name: common
-    version: 20.3.5
+    version: 20.3.6
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mariadb
-    version: 13.9.6
+    version: 13.9.8
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -29,7 +29,7 @@ home: https://truecharts.org/charts/stable/monica
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/monica.png
 keywords:
   - crm
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -40,4 +40,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/monica
   - https://hub.docker.com/_/monica
 type: application
-version: 12.15.6
+version: 12.15.10

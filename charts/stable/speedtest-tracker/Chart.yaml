@@ -10,14 +10,14 @@ apiVersion: v2
 appVersion: 0.18.6
 dependencies:
   - name: common
-    version: 20.3.5
+    version: 20.3.6
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 13.3.5
+    version: 13.3.7
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -30,7 +30,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/speedtest-tracker.png
 keywords:
   - speedtest
   - speedtest-tracker
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -42,4 +42,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/speedtest-tracker
   - https://ghcr.io/linuxserver/speedtest-tracker
 type: application
-version: 1.10.8
+version: 1.10.10

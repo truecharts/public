@@ -1,4 +1,6 @@
-# Nextcloud Support Policy
+---
+title: NextCloud Support Policy
+---
 
 Our support is only covering pre-included Nextcloud apps. We cannot guarantee user-added apps will work or survive updates
 

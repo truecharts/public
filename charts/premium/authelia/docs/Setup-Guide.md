@@ -18,7 +18,7 @@ LLDAP is a `Stable` train chart and therefore isn't supported at the same level 
 
 :::
 
-- Follow the easy steps included in the [Installation Notes](https://truecharts.org/charts/stable/lldap/installation-notes) for [LLDAP](https://truecharts.org/charts/stable/lldap/). Change `dc=example,dc=com` to your domain, i.e. `dc=MYDOMAIN,dc=net` and then change your password. Also, make sure you have the `system` train enabled and `CloudnativePG` operator installed, since you'll need it for `LLDAP` and `Authelia`.
+- Follow the easy steps included in the [Installation Notes](/charts/stable/lldap/installation-notes) for [LLDAP](/charts/stable/lldap/). Change `dc=example,dc=com` to your domain, i.e. `dc=MYDOMAIN,dc=net` and then change your password. Also, make sure you have the `system` train enabled and `CloudnativePG` operator installed, since you'll need it for `LLDAP` and `Authelia`.
 
 ![LLDAP Config](./img/LLDAPCatalogConfig.png)
 
@@ -30,7 +30,7 @@ LLDAP is a `Stable` train chart and therefore isn't supported at the same level 
 
 ## Setup Authelia
 
-- The setup for Authelia is very specific and the logs won't tell you where you've messed up, but there's precise steps used to integrate `LLDAP` into `Authelia`. The info comes from the [LLDAP Authelia Docs](https://truecharts.org/charts/stable/lldap/authelia) and the upstream repo.
+- The setup for Authelia is very specific and the logs won't tell you where you've messed up, but there's precise steps used to integrate `LLDAP` into `Authelia`. The info comes from the [LLDAP Authelia Docs](/charts/stable/lldap/authelia) and the upstream repo.
 
 ### App Configuration
 
@@ -87,14 +87,14 @@ Please see [Authelia Rules](./authelia-rules) for more advanced rules.
 
 ## Traefik ForwardAuth Setup
 
-- This part is straight forward as long as you have a working `Traefik` install, please see our [How-To](https://truecharts.org/charts/premium/traefik/how-to) if you need more info on getting that running.
+- This part is straight forward as long as you have a working `Traefik` install, please see our [How-To](/charts/premium/traefik/how-to) if you need more info on getting that running.
 
 - Scroll down to `forwardAuth` and click `Add`
 
 ![TraefikForwardAuth](./img/TraefikForwardAuth.png)
 
 - Name your `forwardauth` something you'll remember, since that's the middleware you'll add to your ingress going forward. Most people use `auth`
-- Address: `http://authelia.ix-authelia.svc.cluster.local:9091/api/verify?rd=https://auth.mydomain.com/` and replace the last part based on `mydomain.com`, and if you've changed ports/names you can get that from [`HeavyScript`](https://truecharts.org/manual/SCALE/guides/getting-started/#heavyscript)
+- Address: `http://authelia.ix-authelia.svc.cluster.local:9091/api/verify?rd=https://auth.mydomain.com/` and replace the last part based on `mydomain.com`, and if you've changed ports/names you can get that from [`HeavyScript`](/manual/SCALE/guides/getting-started/#heavyscript)
 - Check `trustForwardHeader`
 - Add the following `authResponseHeaders` (press `Add` 4 times)
   - `Remote-User`
@@ -104,7 +104,7 @@ Please see [Authelia Rules](./authelia-rules) for more advanced rules.
 
 ### Adding the forwardauth to your Apps
 
-The last step is adding the `forwardauth` along with the standard `ingress` settings for your app, for more info on setting ingress see the [ClusterIssuer Guide](https://truecharts.org/charts/premium/clusterissuer/how-to). What changes versus a standard setup is the `Traefik Middlewares` section, where you must add your `forwardauth` to the section.
+The last step is adding the `forwardauth` along with the standard `ingress` settings for your app, for more info on setting ingress see the [ClusterIssuer Guide](/charts/premium/clusterissuer/how-to). What changes versus a standard setup is the `Traefik Middlewares` section, where you must add your `forwardauth` to the section.
 
 - In this example we use the same name as above, or `auth`. Click `Add` to the `Traefik Middlewares` section, and enter your `forwardauth` name.
 
