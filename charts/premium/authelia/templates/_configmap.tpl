@@ -284,7 +284,7 @@ data:
           require_pkce: {{ $client.require_pkce }}
           {{- end }}
           {{- if $client.pkce_challange_method }}
-          pkce_challenge_method: {{ $client.require_pkce.pkce_challange_method | default "S256" }}
+          pkce_challenge_method: {{ $client.pkce_challange_method | default "S256" }}
           {{- end }}
     {{- end }}
     {{- end }}
