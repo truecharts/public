@@ -34,7 +34,7 @@ None necessary, a domain name is recommended for usage but not required.
 
 ### Ingress
 
-Recommended for use with a domain name but not required as mentioned above. You can refer to our [Quick-Start Guides](/platforms/scale/guides/getting-started/) for an overview on using Ingress with your chart.
+Recommended for use with a domain name but not required as mentioned above. You can refer to our [Quick-Start Guides](/platforms/scale/options/ingress) for an overview on using Ingress with your chart.
 
 ## Support
 
