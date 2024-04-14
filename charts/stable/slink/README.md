@@ -7,7 +7,7 @@ title: README
 TrueCharts can be installed as both _normal_ Helm Charts or as Apps on TrueNAS SCALE.
 However only installations using the TrueNAS SCALE Apps system are supported.
 
-For more information about this App, please check the docs on the TrueCharts [website](https://truecharts.org/charts/incubator/slink)
+For more information about this App, please check the docs on the TrueCharts [website](https://truecharts.org/charts/stable/slink)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 

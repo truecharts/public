@@ -5,7 +5,7 @@ annotations:
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: 1.0.0
 dependencies:
@@ -18,7 +18,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: A self-hosted image sharing platform built with Symfony and SvelteKit️.
-home: https://truecharts.org/charts/incubator/slink
+home: https://truecharts.org/charts/stable/slink
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/slink.png
 keywords:
   - media
@@ -33,7 +33,7 @@ maintainers:
 name: slink
 sources:
   - https://github.com/andrii-kryvoviaz/slink
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/slink
+  - https://github.com/truecharts/charts/tree/master/charts/stab;e/slink
   - https://hub.docker.com/r/anirdev/slink
 type: application
-version: 0.0.3
+version: 1.0.0
