@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.28.0
+appVersion: 1.29.0
 dependencies:
   - name: common
     version: 20.3.6
@@ -23,7 +23,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/linkding.png
 keywords:
   - bookmarks
   - links
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/linkding
   - https://hub.docker.com/r/sissbruecker/linkding
 type: application
-version: 9.12.3
+version: 9.13.0
