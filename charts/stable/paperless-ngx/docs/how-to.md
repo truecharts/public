@@ -64,7 +64,7 @@ options](https://docs.paperless-ngx.com/configuration/#consume_config) for more 
 
 Due to the [Hast Path Validation Safety](/platforms/scale/guides/add-storage/#host-path-validation-safety) checks of TrueNAS
 SCALE, using storage for an application on your TrueNAS SCALE and with a network share at the same time requires a bit
-of work. See also the [FAQ](/general/FAQ/) regarding this
+of work. See also the [FAQ](/general/faq/) regarding this
 topic.
 
 This guide will only describe the Paperless-ngx specific options required to set up importing documents from a network
