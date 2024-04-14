@@ -1142,6 +1142,19 @@ questions:
                                           type: string
                                           default: "form_post"
                                           required: true
+                                - variable: token_endpoint_auth_method
+                                  description: "The supported client authentication methods this client supports."
+                                  label: "token_endpoint_auth_method"
+                                  schema:
+                                    type: list
+                                    default: []
+                                    items:
+                                      - variable: methodEntry
+                                        label: "Method"
+                                        schema:
+                                          type: string
+                                          default: "client_secret_basic"
+                                          required: true
                                 - variable: require_pkce
                                   label: "Require PKCE"
                                   description: "This configuration option enforces the use of PKCE for this registered client."
