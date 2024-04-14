@@ -5,9 +5,9 @@ annotations:
   truecharts.org/category: media
   truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: stable
+  truecharts.org/train: incubator
 apiVersion: v2
-appVersion: stable
+appVersion: de
 dependencies:
   - name: common
     version: 20.3.6
@@ -18,7 +18,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Lyrion Music Server is a platform for home/office audio streaming.
-home: https://truecharts.org/charts/stable/lyrion-music-server
+home: https://truecharts.org/charts/incubator/lyrion-music-server
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/lyrion-music-server.png
 keywords:
   - lyrion-music-server
@@ -34,7 +34,7 @@ maintainers:
 name: lyrion-music-server
 sources:
   - https://github.com/LMS-Community/slimserver
-  - https://github.com/truecharts/charts/tree/master/charts/stable/lyrion-music-server
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/lyrion-music-server
   - https://hub.docker.com/r/lmscommunity/lyrionmusicserver
 type: application
 version: 1.0.1
