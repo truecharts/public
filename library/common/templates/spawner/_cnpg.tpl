@@ -67,26 +67,9 @@
       {{- include "tc.v1.common.class.cnpg.cluster" (dict "rootCtx" $ "objectData" $objectData) -}}
 
       {{/* TODO: Create configmaps for cluster.monitoring.customQueries */}}
-    {{- end -}}
 
-    {{/* Fetch db pass from Secret */}}
-    {{- $dbPass := "" -}}
-    {{- with (lookup "v1" "Secret" $.Release.Namespace (printf "%s-user" $objectData.name)) -}}
-      {{- $dbPass = (index .data "password") | b64dec -}}
-    {{- end -}}
-
-    {{/* Either enebled or if there was a dbpass fetched. Required to keep the generated password around */}}
-    {{- if or (eq $enabled "true") $dbPass -}}
-      {{/* If enabled or dbPass fetched from secret, recreate the secret */}}
-      {{- if not $dbPass -}}
-        {{/* Use provided password or fallback to generating new password */}}
-        {{- $dbPass = $objectData.password | default (randAlphaNum 62) -}}
-      {{- end -}}
-      {{/* Set password back to password field */}}
-      {{- $_ := set $objectData "password" $dbPass -}}
-
-      {{/* Handle DB Credentials Secret, will also inject creds to cnpg.creds */}}
-      {{- include "tc.v1.common.lib.cnpg.db.credentials.secrets" (dict "rootCtx" $ "cnpg" $cnpg "objectData" $objectData) -}}
+    {{/* Handle DB Credentials Secret, will also inject creds to cnpg.creds */}}
+    {{- include "tc.v1.common.lib.cnpg.db.credentials.secrets" (dict "rootCtx" $ "cnpg" $cnpg "objectData" $objectData) -}}
     {{- end -}}
 
   {{- end -}}

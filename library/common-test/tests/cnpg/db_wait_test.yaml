@@ -21,6 +21,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
     asserts:
       - documentIndex: &deployDoc 3
         isKind:
@@ -59,6 +60,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           pooler:
             enabled: true
             createRO: false
@@ -107,6 +109,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           pooler:
             enabled: true
             createRO: true

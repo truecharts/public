@@ -1,7 +1,7 @@
 {{- define "tc.v1.common.lib.cnpg.cluster.validation" -}}
   {{- $objectData := .objectData -}}
 
-  {{- $requiredKeys := (list "database" "user") -}}
+  {{- $requiredKeys := (list "database" "user" "password") -}}
   {{- range $key := $requiredKeys -}}
     {{- if not (get $objectData $key) -}}
       {{- fail (printf "CNPG - Expected a non-empty [%s] key" $key) -}}

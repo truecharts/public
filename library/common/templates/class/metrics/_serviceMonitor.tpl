@@ -13,9 +13,7 @@
 
   {{- if and (hasKey $values "nameOverride") $values.nameOverride -}}
     {{- $servicemonitorName = printf "%v-%v" $servicemonitorName $values.nameOverride -}}
-  {{- end -}}
-
-  {{- include "tc.v1.common.lib.util.verifycrd" (dict "rootCtx" . "crd" "servicemonitors.monitoring.coreos.com" "missing" "Prometheus-Operator") }}
+  {{- end }}
 
 ---
 apiVersion: {{ include "tc.v1.common.capabilities.servicemonitor.apiVersion" $ }}

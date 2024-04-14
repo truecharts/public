@@ -27,6 +27,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           labels:
             label1: "{{ .Values.label1 }}"
             label2: label2
@@ -61,8 +62,8 @@ tests:
             some-annotation: some-value
       - documentIndex: *poolerDoc
         matchRegex:
-          path: metadata.annotations.rollme
-          pattern: "^[0-9a-zA-Z]{5}$"
+          path: metadata.annotations.checksum/secrets
+          pattern: ^[0-9a-f]{64}$
       - documentIndex: *poolerDoc
         equal:
           path: metadata.labels
@@ -94,6 +95,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           namespace: some-namespace
           pooler:
             enabled: true
@@ -111,6 +113,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           namespace: "{{ .Values.key }}"
           pooler:
             enabled: true
@@ -130,6 +133,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           pooler:
             enabled: true
     asserts:
@@ -149,6 +153,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           pooler:
             enabled: true
     asserts:
@@ -169,6 +174,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           pooler:
             enabled: true
     asserts:

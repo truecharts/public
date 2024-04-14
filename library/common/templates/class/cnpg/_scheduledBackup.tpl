@@ -29,9 +29,7 @@
   {{- $immediate := false -}}
   {{- if (hasKey $objectData.schedData "immediate") -}}
     {{- $immediate = $objectData.schedData.immediate -}}
-  {{- end -}}
-
-  {{- include "tc.v1.common.lib.util.verifycrd" (dict "rootCtx" $rootCtx "crd" "scheduledbackups.postgresql.cnpg.io" "missing" "CloudNative-PG") }}
+  {{- end }}
 
 ---
 apiVersion: postgresql.cnpg.io/v1

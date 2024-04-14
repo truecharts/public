@@ -27,6 +27,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           labels:
             label1: "{{ .Values.label1 }}"
             label2: label2
@@ -108,6 +109,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           namespace: some-namespace
           backups:
             enabled: true
@@ -133,6 +135,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           namespace: "{{ .Values.key }}"
           backups:
             enabled: true
@@ -160,6 +163,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           backups:
             enabled: true
             target: primary
@@ -187,6 +191,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           backups:
             enabled: true
             target: primary
@@ -215,6 +220,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           backups:
             enabled: true
             target: primary

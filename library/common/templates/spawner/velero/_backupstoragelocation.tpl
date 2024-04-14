@@ -28,11 +28,6 @@
         {{- $objectName = (printf "%s-%s" $fullname $name) -}}
       {{- end -}}
 
-      {{/* Set namespace to velero location or itself, just in case its used from within velero */}}
-      {{- $operator := index $.Values.operator "velero" -}}
-      {{- $namespace := $operator.namespace | default (include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $ "objectData" $objectData "caller" "Backup Storage Location")) -}}
-      {{- $_ := set $objectData "namespace" $namespace -}}
-
       {{- include "tc.v1.common.lib.util.metaListToDict" (dict "objectData" $objectData) -}}
 
       {{/* Perform validations */}} {{/* backupstoragelocations have a max name length of 253 */}}

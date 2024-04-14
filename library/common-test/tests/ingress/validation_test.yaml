@@ -5,38 +5,6 @@ release:
   name: test-release-name
   namespace: test-release-namespace
 tests:
-  - it: should fail without traefik installed
-    set:
-      crd:
-        verify:
-          enabled: true
-      service:
-        my-service:
-          enabled: true
-          primary: true
-          ports:
-            main:
-              enabled: true
-              primary: true
-              port: 80
-      ingress:
-        my-ingress:
-          enabled: true
-          primary: true
-          hosts:
-            - host: test-host
-              paths:
-                - path: /test-path
-          integrations: &integrations
-            traefik:
-              enabled: true
-              fixedMiddlewares:
-                - name: chain-basic
-                  namespace: test-release-namespace
-    asserts:
-      - failedTemplate:
-          errorMessage: Traefik has to be installed first
-
   - it: should fail if required is true but enabled is false
     set:
       service: &service
@@ -70,8 +38,8 @@ tests:
           integrations: &integrations
             traefik:
               enabled: false
-        my-ingress-super-long-name-that-is-longer-than-253-characters-my-ingress-super-long-name-that-is-longer-than-253-characters-my-ingress-super-long-name-that-is-longer-than-253-characters-my-ingress-super-long-long-long-long-long-long-long-long-name:
-          enabled: true
+        ? my-ingress-super-long-name-that-is-longer-than-253-characters-my-ingress-super-long-name-that-is-longer-than-253-characters-my-ingress-super-long-name-that-is-longer-than-253-characters-my-ingress-super-long-long-long-long-long-long-long-long-name
+        : enabled: true
     asserts:
       - failedTemplate:
           errorMessage: Name [test-release-name-common-test-my-ingress-super-long-name-that-is-longer-than-253-characters-my-ingress-super-long-name-that-is-longer-than-253-characters-my-ingress-super-long-name-that-is-longer-than-253-characters-my-ingress-super-long-long-long-long-long-long-long-long-name] is not valid. Must start and end with an alphanumeric lowercase character. It can contain '-'. And must be at most 253 characters.

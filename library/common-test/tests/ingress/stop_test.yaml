@@ -46,8 +46,10 @@ tests:
           path: spec.ingressClassName
           value: tc-stopped
       - documentIndex: *ingressDoc
-        isNull:
+        isNotSubset:
           path: metadata.annotations
+          content:
+            gethomepage.dev/enabled: "true"
 
   - it: should pass with ixChartContext - isStopped (true)
     set:
@@ -71,8 +73,10 @@ tests:
           path: spec.ingressClassName
           value: tc-stopped
       - documentIndex: *ingressDoc
-        isNull:
+        isNotSubset:
           path: metadata.annotations
+          content:
+            gethomepage.dev/enabled: "true"
 
   - it: should pass with ixChartContext - isStopped (false)
     set:

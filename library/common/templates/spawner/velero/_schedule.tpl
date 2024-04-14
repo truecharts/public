@@ -49,11 +49,6 @@
       {{- $_ := set $objectData "name" $objectName -}}
       {{- $_ := set $objectData "shortName" $name -}}
 
-      {{/* Set namespace to velero location or itself, just in case its used from within velero */}}
-      {{- $operator := index $.Values.operator "velero" -}}
-      {{- $namespace := $operator.namespace | default (include "tc.v1.common.lib.metadata.namespace" (dict "rootCtx" $ "objectData" $objectData "caller" "Schedule")) -}}
-      {{- $_ := set $objectData "namespace" $namespace -}}
-
       {{/* Call class to create the object */}}
       {{- include "tc.v1.common.class.velero.schedule" (dict "rootCtx" $ "objectData" $objectData) -}}
 

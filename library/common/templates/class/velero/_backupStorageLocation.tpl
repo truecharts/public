@@ -13,9 +13,7 @@ objectData:
 {{- define "tc.v1.common.class.velero.backupstoragelocation" -}}
 
   {{- $rootCtx := .rootCtx -}}
-  {{- $objectData := .objectData -}}
-
-  {{- include "tc.v1.common.lib.util.verifycrd" (dict "rootCtx" $rootCtx "crd" "backupstoragelocations.velero.io" "missing" "Velero") }}
+  {{- $objectData := .objectData }}
 
 ---
 apiVersion: velero.io/v1

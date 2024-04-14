@@ -93,9 +93,49 @@ tests:
             pod-label1: pod-label1
             pod-label2: global_label2
       - documentIndex: *jobDoc
+        isSubset:
+          path: spec.template.metadata.annotations
+          content:
+            g_annotation1: global_annotation1
+            g_annotation2: global_annotation2
+            pod-annotation1: pod-annotation1
+            pod-annotation2: global_annotation2
+      - documentIndex: *jobDoc
         matchRegex:
-          path: spec.template.metadata.annotations.rollme
-          pattern: '^[0-9a-zA-Z]{5}$'
+          path: spec.template.metadata.annotations.checksum/secrets
+          pattern: ^[0-9a-f]{64}$
+      - documentIndex: *jobDoc
+        matchRegex:
+          path: spec.template.metadata.annotations.checksum/cnpg
+          pattern: ^[0-9a-f]{64}$
+      - documentIndex: *jobDoc
+        matchRegex:
+          path: spec.template.metadata.annotations.checksum/configmaps
+          pattern: ^[0-9a-f]{64}$
+      - documentIndex: *jobDoc
+        matchRegex:
+          path: spec.template.metadata.annotations.checksum/mariadb
+          pattern: ^[0-9a-f]{64}$
+      - documentIndex: *jobDoc
+        matchRegex:
+          path: spec.template.metadata.annotations.checksum/mongodb
+          pattern: ^[0-9a-f]{64}$
+      - documentIndex: *jobDoc
+        matchRegex:
+          path: spec.template.metadata.annotations.checksum/persistence
+          pattern: ^[0-9a-f]{64}$
+      - documentIndex: *jobDoc
+        matchRegex:
+          path: spec.template.metadata.annotations.checksum/redis
+          pattern: ^[0-9a-f]{64}$
+      - documentIndex: *jobDoc
+        matchRegex:
+          path: spec.template.metadata.annotations.checksum/services
+          pattern: ^[0-9a-f]{64}$
+      - documentIndex: *jobDoc
+        matchRegex:
+          path: spec.template.metadata.annotations.checksum/solr
+          pattern: ^[0-9a-f]{64}$
       - documentIndex: *jobDoc
         equal:
           path: metadata.name

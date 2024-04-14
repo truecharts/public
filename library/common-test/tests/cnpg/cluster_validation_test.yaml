@@ -11,6 +11,7 @@ tests:
         my-pg:
           enabled: true
           database: test-db
+          password: test-password
     asserts:
       - failedTemplate:
           errorMessage: CNPG - Expected a non-empty [user] key
@@ -21,9 +22,21 @@ tests:
         my-pg:
           enabled: true
           user: test-user
+          password: test-password
     asserts:
       - failedTemplate:
           errorMessage: CNPG - Expected a non-empty [database] key
+
+  - it: should fail without password
+    set:
+      cnpg:
+        my-pg:
+          enabled: true
+          user: test-user
+          database: test-db
+    asserts:
+      - failedTemplate:
+          errorMessage: CNPG - Expected a non-empty [password] key
 
   - it: should fail with invalid pgVersion
     set:
@@ -32,6 +45,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           pgVersion: invalid
     asserts:
       - failedTemplate:
@@ -44,6 +58,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           hibernate: invalid
     asserts:
       - failedTemplate:
@@ -56,6 +71,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           mode: invalid
     asserts:
       - failedTemplate:
@@ -68,6 +84,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           type: invalid
     asserts:
       - failedTemplate:
@@ -80,6 +97,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           cluster:
             logLevel: invalid
     asserts:
@@ -93,6 +111,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           cluster:
             primaryUpdateStrategy: invalid
     asserts:
@@ -106,6 +125,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           cluster:
             primaryUpdateMethod: invalid
     asserts:
@@ -119,6 +139,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           cluster:
             initdb:
               walSegmentSize: invalid
@@ -133,6 +154,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           cluster:
             initdb:
               walSegmentSize: 1025
@@ -147,6 +169,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           mode: recovery
     asserts:
       - failedTemplate:
@@ -159,6 +182,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           mode: recovery
           recovery:
             method: backup
@@ -175,6 +199,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           mode: recovery
           recovery:
             method: invalid
@@ -189,6 +214,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           mode: recovery
           recovery:
             method: backup
@@ -203,6 +229,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           mode: recovery
           recovery:
             method: object_store
@@ -218,6 +245,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           mode: recovery
           recovery:
             method: object_store
@@ -233,6 +261,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           mode: recovery
           recovery:
             method: object_store
@@ -250,6 +279,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           mode: recovery
           recovery:
             method: object_store
@@ -268,6 +298,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           mode: recovery
           recovery:
             method: object_store
@@ -287,6 +318,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           mode: recovery
           recovery:
             method: object_store
@@ -304,6 +336,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           mode: recovery
           recovery:
             method: object_store
@@ -322,6 +355,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           mode: recovery
           recovery:
             method: object_store
@@ -341,6 +375,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           backups:
             enabled: true
             provider: azure
@@ -359,6 +394,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           backups:
             enabled: true
             provider: azure
@@ -376,6 +412,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           backups:
             enabled: true
             provider: azure
@@ -394,6 +431,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           backups:
             enabled: true
             provider: google
@@ -412,6 +450,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           backups:
             enabled: true
             provider: s3
@@ -431,6 +470,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           backups:
             enabled: true
             provider: s3
@@ -451,6 +491,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           backups:
             enabled: true
             provider: azure
@@ -469,6 +510,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           backups:
             enabled: true
             provider: azure
@@ -488,6 +530,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           backups:
             enabled: true
             provider: azure
@@ -509,6 +552,7 @@ tests:
           instances: 0
           user: test-user
           database: test-db
+          password: test-password
     asserts:
       - failedTemplate:
           errorMessage: CNPG - Expected [instances] to be greater than 0, but got [0]

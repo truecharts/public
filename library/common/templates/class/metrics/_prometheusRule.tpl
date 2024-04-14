@@ -13,9 +13,7 @@
 
   {{- if and (hasKey $values "nameOverride") $values.nameOverride -}}
     {{- $prometheusruleName = printf "%v-%v" $prometheusruleName $values.nameOverride -}}
-  {{- end -}}
-
-  {{- include "tc.v1.common.lib.util.verifycrd" (dict "rootCtx" .  "crd" "prometheusrules.monitoring.coreos.com" "missing" "Prometheus-Operator") }}
+  {{- end }}
 
 ---
 apiVersion: {{ include "tc.v1.common.capabilities.prometheusrule.apiVersion" $ }}

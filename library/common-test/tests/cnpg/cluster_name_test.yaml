@@ -12,10 +12,12 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
         my-pg2:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
     asserts:
       - documentIndex: &clusterDoc 0
         isKind:

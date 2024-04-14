@@ -41,11 +41,19 @@ tests:
           path: metadata.name
           value: test-release-name-common-test
       - documentIndex: *ingressDoc
-        equal:
+        isSubset:
           path: metadata.annotations
-          value:
+          content:
             cert-manager.io/cluster-issuer: some-issuer
             cert-manager.io/private-key-rotation-policy: Always
+      - documentIndex: *ingressDoc
+        matchRegex:
+          path: metadata.annotations.checksum/secrets
+          pattern: ^[0-9a-f]{64}$
+      - documentIndex: *ingressDoc
+        matchRegex:
+          path: metadata.annotations.checksum/services
+          pattern: ^[0-9a-f]{64}$
       - documentIndex: *ingressDoc
         equal:
           path: metadata.namespace
@@ -72,9 +80,11 @@ tests:
           path: metadata.name
           value: test-release-name-common-test
       - documentIndex: *ingressDoc
-        isNull:
+        isNotSubset:
           path: metadata.annotations
-
+          content:
+            cert-manager.io/cluster-issuer: some-issuer
+            cert-manager.io/private-key-rotation-policy: Always
   # Failures
   - it: should fail with missing certificateIssuer
     set:

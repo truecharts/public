@@ -115,9 +115,9 @@ tests:
         isKind:
           of: Ingress
       - documentIndex: *ingressDoc
-        equal:
+        isSubset:
           path: metadata.annotations
-          value:
+          content:
             gethomepage.dev/enabled: "true"
             gethomepage.dev/name: TestReleaseName
             gethomepage.dev/description: Helper chart to test different use cases of the common library
@@ -126,6 +126,14 @@ tests:
             gethomepage.dev/icon: https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png
             gethomepage.dev/widget.type: commontest
             gethomepage.dev/pod-selector: app.kubernetes.io/instance=test-release-name,pod.lifecycle in (permanent)
+      - documentIndex: *ingressDoc
+        matchRegex:
+          path: metadata.annotations.checksum/secrets
+          pattern: ^[0-9a-f]{64}$
+      - documentIndex: *ingressDoc
+        matchRegex:
+          path: metadata.annotations.checksum/services
+          pattern: ^[0-9a-f]{64}$
       - documentIndex: *ingressDoc
         equal:
           path: metadata.name
@@ -138,9 +146,9 @@ tests:
         isKind:
           of: Ingress
       - documentIndex: *otherIngressDoc
-        equal:
+        isSubset:
           path: metadata.annotations
-          value:
+          content:
             gethomepage.dev/enabled: "true"
             gethomepage.dev/name: some-name
             gethomepage.dev/description: some-desc
@@ -167,9 +175,9 @@ tests:
         isKind:
           of: Ingress
       - documentIndex: *thirdIngressDoc
-        equal:
+        isSubset:
           path: metadata.annotations
-          value:
+          content:
             gethomepage.dev/enabled: "true"
             gethomepage.dev/name: TestReleaseName
             gethomepage.dev/description: Helper chart to test different use cases of the common library
@@ -190,9 +198,9 @@ tests:
         isKind:
           of: Ingress
       - documentIndex: *fourthIngressDoc
-        equal:
+        isSubset:
           path: metadata.annotations
-          value:
+          content:
             gethomepage.dev/enabled: "true"
             gethomepage.dev/name: TestReleaseName
             gethomepage.dev/description: Helper chart to test different use cases of the common library

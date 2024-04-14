@@ -763,6 +763,8 @@ backupStorageLocationList: []
 backupStorageLocation: {}
 # backupStorageLocation:
 #   name:
+#     ## Namespace needs to be set to the velero namespace
+#     # namespace: somenamespace
 #     # provider is the name for the backup storage location provider.
 #     provider:
 #     objectStorage:
@@ -814,6 +816,8 @@ volumeSnapshotLocationList: []
 volumeSnapshotLocation: {}
 # volumeSnapshotLocation:
 #   name:
+#     ## Namespace needs to be set to the velero namespace
+#     # namespace: somenamespace
 #     enabled: false
 #     # provider is the name for the volume snapshot provider.
 #     provider:
@@ -894,32 +898,6 @@ metrics:
         #   rules: []
         #   # list to support adding rules via the SCALE GUI without overwrithing the rules
         #   additionalrules: []
-
-crd:
-  verify:
-    enabled: true
-
-# -- Contains specific settings for helm charts containing or using operators
-operator:
-  # -- Adds a configmap to the operator to register this chart as an operator
-  register: false
-  # -- Verified wether required operators for this chart are actually installed and registered
-  verify:
-    enabled: true
-    # -- Makes non-found operators hard-failing
-    failOnError: true
-    # -- a list of extra operators to check for
-    additionalOperators: []
-  ## -- used as a datastore when a metallb operator is found.
-  # metallb: {}
-  ## -- used as a datastore when a traefik operator is found.
-  # traefik: {}
-  ## -- used as a datastore when a prometheus operator is found.
-  # prometheus: {}
-  ## -- used as a datastore when a cloudnative-pg operator is found.
-  # cloudnative-pg: {}
-  ## -- used as a datastore when a cert-manager operator is found.
-  # cert-manager: {}
 
 # -- The common chart supports several add-ons. These can be configured under this key.
 # @default -- See below

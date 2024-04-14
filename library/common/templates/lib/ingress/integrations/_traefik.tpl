@@ -54,8 +54,6 @@
       {{- fail (printf "Ingress - Combined traefik entrypoints contain duplicates [%s]" (join ", " $entrypoints)) -}}
     {{- end -}}
 
-    {{- include "tc.v1.common.lib.util.verifycrd" (dict "rootCtx" $rootCtx "crd" "middlewares.traefik.io" "missing" "Traefik") -}}
-
     {{- $lookupMiddlewares := list -}}
     {{- $parsedMiddlewares := list -}}
     {{- if $middlewares -}}

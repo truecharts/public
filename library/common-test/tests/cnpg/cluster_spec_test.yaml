@@ -12,6 +12,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
     asserts:
       - documentIndex: &clusterDoc 0
         isKind:
@@ -81,6 +82,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
     asserts:
       - documentIndex: *clusterDoc
         isKind:
@@ -124,6 +126,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           pgVersion: 15
           type: vectors
     asserts:
@@ -152,6 +155,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           pgVersion: 15
     asserts:
       - documentIndex: *clusterDoc
@@ -178,6 +182,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
           cluster:
             enableSuperuserAccess: false
             imageName: some-image
@@ -291,6 +296,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
     asserts:
       - documentIndex: *clusterDoc
         isKind:
@@ -314,6 +320,7 @@ tests:
           enabled: true
           user: app
           database: app
+          password: test-password
           cluster:
             postgresql:
               key1: value1
@@ -347,6 +354,7 @@ tests:
           enabled: true
           user: app
           database: app
+          password: test-password
           type: timescaledb
           cluster:
             initdb:
@@ -395,6 +403,7 @@ tests:
           enabled: true
           user: app
           database: app
+          password: test-password
           type: postgis
           cluster:
             initdb:
@@ -445,6 +454,7 @@ tests:
           enabled: true
           user: app
           database: app
+          password: test-password
           type: vectors
           cluster:
             initdb:
@@ -493,6 +503,7 @@ tests:
           enabled: true
           user: app
           database: app
+          password: test-password
           type: timescaledb
           monitoring:
             enablePodMonitor: true
@@ -517,6 +528,7 @@ tests:
           enabled: true
           user: app
           database: app
+          password: test-password
           type: timescaledb
           monitoring:
             enablePodMonitor: true

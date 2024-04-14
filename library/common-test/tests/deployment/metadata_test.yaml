@@ -99,10 +99,6 @@ tests:
             g_label2: global_label2
             pod-label1: pod-label1
             pod-label2: global_label2
-      - documentIndex: *deploymentDoc
-        matchRegex:
-          path: spec.template.metadata.annotations.rollme
-          pattern: '^[0-9a-zA-Z]{5}$'
 
   - it: should pass with 2 deployment created with correct selector labels
     set:
@@ -144,6 +140,42 @@ tests:
             pod.lifecycle: permanent
             app.kubernetes.io/instance: test-release-name
             app.kubernetes.io/name: common-test
+      - documentIndex: *deploymentDoc
+        matchRegex:
+          path: spec.template.metadata.annotations.checksum/secrets
+          pattern: ^[0-9a-f]{64}$
+      - documentIndex: *deploymentDoc
+        matchRegex:
+          path: spec.template.metadata.annotations.checksum/cnpg
+          pattern: ^[0-9a-f]{64}$
+      - documentIndex: *deploymentDoc
+        matchRegex:
+          path: spec.template.metadata.annotations.checksum/configmaps
+          pattern: ^[0-9a-f]{64}$
+      - documentIndex: *deploymentDoc
+        matchRegex:
+          path: spec.template.metadata.annotations.checksum/mariadb
+          pattern: ^[0-9a-f]{64}$
+      - documentIndex: *deploymentDoc
+        matchRegex:
+          path: spec.template.metadata.annotations.checksum/mongodb
+          pattern: ^[0-9a-f]{64}$
+      - documentIndex: *deploymentDoc
+        matchRegex:
+          path: spec.template.metadata.annotations.checksum/persistence
+          pattern: ^[0-9a-f]{64}$
+      - documentIndex: *deploymentDoc
+        matchRegex:
+          path: spec.template.metadata.annotations.checksum/redis
+          pattern: ^[0-9a-f]{64}$
+      - documentIndex: *deploymentDoc
+        matchRegex:
+          path: spec.template.metadata.annotations.checksum/services
+          pattern: ^[0-9a-f]{64}$
+      - documentIndex: *deploymentDoc
+        matchRegex:
+          path: spec.template.metadata.annotations.checksum/solr
+          pattern: ^[0-9a-f]{64}$
       - documentIndex: &otherDeploymentDoc 1
         isKind:
           of: Deployment

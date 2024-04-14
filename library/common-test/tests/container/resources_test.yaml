@@ -413,6 +413,7 @@ tests:
           enabled: true
           user: test-user
           database: test-db
+          password: test-password
       resources:
         limits:
           "nvidia.com/gpu": "1"

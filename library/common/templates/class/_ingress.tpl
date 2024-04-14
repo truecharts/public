@@ -47,10 +47,12 @@ metadata:
   {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "labels" $labels) | trim) }}
   labels:
     {{- . | nindent 4 }}
-  {{- end -}}
+  {{- end }}
+  annotations:
+    checksum/secrets: {{ toJson $rootCtx.Values.secret | sha256sum }}
+    checksum/services: {{ toJson $rootCtx.Values.service | sha256sum }}
   {{- $annotations := (mustMerge ($objectData.annotations | default dict) (include "tc.v1.common.lib.metadata.allAnnotations" $rootCtx | fromYaml)) -}}
   {{- with (include "tc.v1.common.lib.metadata.render" (dict "rootCtx" $rootCtx "annotations" $annotations) | trim) }}
-  annotations:
     {{- . | nindent 4 }}
   {{- end }}
 spec:
