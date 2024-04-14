@@ -48,7 +48,7 @@ Ensure you are accessing your WebUI from the new ports before proceeding.
 
 :::note
 
-Traefik is part of the `premium` train, so make sure you have it enabled as specified in the [guide](/manual/SCALE/guides/getting-started#adding-truecharts).
+Traefik is part of the `premium` train, so make sure you have it enabled as specified in the [guide](/platforms/scale/guides/getting-started/).
 
 :::
 
