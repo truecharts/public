@@ -98,7 +98,7 @@ Wait for Nextcloud to fully deploy before proceeding.
    k3s kubectl scale deploy nextcloud -n ix-nextcloud --replicas=0
    ```
 
-2. Add Nextcloud to PGAdmin as guided in steps 1 and 2 here.
+2. Add Nextcloud to PGAdmin as guided in [steps 1 and 2 here](#backup-database).
 3. In PGAdmin right click on the database and select restore as shown below.
    <!-- ![pgadmin-restore1](./img/pgadmin-restore1.png) -->
 4. Select the database backup you created previously.
