@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 1.0.0
 dependencies:
   - name: common
-    version: 20.3.6
+    version: 20.3.7
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -36,4 +36,8 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/slink
   - https://hub.docker.com/r/anirdev/slink
 type: application
+<<<<<<< HEAD:charts/stable/slink/Chart.yaml
 version: 1.0.0
+=======
+version: 0.0.3
+>>>>>>> 1624122a49 (chore(deps): update ignored updates to v20.3.7@8cf9fc9 by renovate (#20777)):charts/incubator/slink/Chart.yaml
