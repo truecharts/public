@@ -3,13 +3,8 @@
 args:
   - --language
   - {{ $whisper.language | quote }}
-  {{- if eq $whisper.model "custom" }}
   - --model
-  - {{ $whisper.custom_model | quote }}
-  {{- else }}
-  - --model
-  - {{ $whisper.model | quote }}
-  {{- end }}
+  - {{ ternary $whisper.custom_model $whisper.model (eq $whisper.model "custom") | quote }}
   - --beam-size
   - {{ $whisper.beam_size | quote }}
   - --initial-prompt
