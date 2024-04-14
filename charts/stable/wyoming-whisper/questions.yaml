@@ -279,7 +279,6 @@ questions:
           description: 'Path to a converted model directory, or a CTranslate2-converted Whisper model ID from the HuggingFace Hub like "Systran/faster-distil-whisper-small.en".'
           schema:
             type: string
-            required: false
             default: ""
             show_if: [[model, "=", "custom"]]
         - variable: beam_size
