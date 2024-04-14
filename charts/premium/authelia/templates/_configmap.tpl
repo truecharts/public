@@ -278,6 +278,7 @@ data:
           {{- range $client.response_modes }}
             - {{ . }}
           {{- end }}
+          {{- end }}
           {{- if $client.token_endpoint_auth_method }}
           token_endpoint_auth_method:
           {{- range $client.token_endpoint_auth_method }}
