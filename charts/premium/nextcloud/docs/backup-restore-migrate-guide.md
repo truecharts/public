@@ -20,7 +20,7 @@ If you are using two factor authentication on your Nextcloud accounts disable it
 
 ### Backup Database
 
-If you have not already done so install PGAdmin and the [tcdbinfo.sh script](/manual/SCALE/guides/sql-export#how-to-list-database-login-info-for-truecharts-apps)
+If you have not already done so install PGAdmin and the [tcdbinfo.sh script](/platforms/scale/guides/sql-export/#how-to-list-database-login-info-for-truecharts-apps)
 
 1. Run the tcdbinfo.sh script and take note of the connection info
 
@@ -98,7 +98,7 @@ Wait for Nextcloud to fully deploy before proceeding.
    k3s kubectl scale deploy nextcloud -n ix-nextcloud --replicas=0
    ```
 
-2. Add Nextcloud to PGAdmin as guided in [steps 1 and 2 here](#backup-nextcloud-database).
+2. Add Nextcloud to PGAdmin as guided in [steps 1 and 2 here](#backup-database).
 3. In PGAdmin right click on the database and select restore as shown below.
    <!-- ![pgadmin-restore1](./img/pgadmin-restore1.png) -->
 4. Select the database backup you created previously.

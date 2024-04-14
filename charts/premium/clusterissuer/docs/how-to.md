@@ -6,7 +6,7 @@ This guide will walk you through setting up `clusterissuer`, certificate managem
 
 ## Prerequisites
 
-- Ensure you have the `premium` and `system` trains enabled for `TrueCharts` as discussed [here](/manual/SCALE/guides/getting-started#adding-truecharts).
+- Ensure you have the `premium` and `system` trains enabled for `TrueCharts` as discussed [here](/platforms/scale/guides/getting-started/#adding-truecharts).
 - [Traefik](/charts/premium/traefik/) is installed from premium train
 - [Cert-Mananger](/charts/system/cert-manager/) and [Prometheus-Operator](/charts/system/prometheus-operator/)
 
