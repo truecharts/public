@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.0.0
+appVersion: 1.0.1
 dependencies:
   - name: common
     version: 20.3.7
@@ -25,7 +25,7 @@ keywords:
   - photos
   - pictures
   - sharing
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -36,4 +36,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/slink
   - https://hub.docker.com/r/anirdev/slink
 type: application
-version: 1.0.0
+version: 1.0.1
