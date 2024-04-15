@@ -13,7 +13,9 @@ Currently users can only be approved using the app shell. Below are the commands
 ```bash
 slink user:activate --email=<user-email>
 ```
+
 or
+
 ```bash
 slink user:activate --uuid=<user-id>
 ```
