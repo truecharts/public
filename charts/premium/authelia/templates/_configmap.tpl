@@ -279,9 +279,7 @@ data:
             - {{ . }}
           {{- end }}
           {{- end }}
-          {{- with $client.token_endpoint_auth_method }}
-          token_endpoint_auth_method: {{ . }}
-          {{- end }}
+          token_endpoint_auth_method: {{ $client.token_endpoint_auth_method | default "client_secret_basic" }}
           userinfo_signing_algorithm: {{ $client.userinfo_signing_algorithm | default "none" }}
           {{- if $client.require_pkce }}
           require_pkce: {{ $client.require_pkce }}

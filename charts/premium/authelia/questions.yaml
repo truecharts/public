@@ -1147,7 +1147,7 @@ questions:
                                   label: "token_endpoint_auth_method"
                                   schema:
                                     type: string
-                                    default: ""
+                                    default: "client_secret_basic"
                                     enum:
                                       - value: "client_secret_basic"
                                         description: "client_secret_basic"
