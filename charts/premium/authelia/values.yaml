@@ -572,9 +572,7 @@ identity_providers:
 
 ## Client Authentication Method configures which client authentication methods this client supports.
 ## It's not recommended to configure this unless you know what you're doing.
-# token_endpoint_auth_method:
-#   - client_secret_basic
-#   - client_secret_post
+# token_endpoint_auth_method: client_secret_basic
 
 ## The algorithm used to sign userinfo endpoint responses for this client, either none or RS256.
 # userinfo_signing_algorithm: none

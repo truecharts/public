@@ -1146,15 +1146,19 @@ questions:
                                   description: "The supported client authentication methods this client supports."
                                   label: "token_endpoint_auth_method"
                                   schema:
-                                    type: list
-                                    default: []
-                                    items:
-                                      - variable: methodEntry
-                                        label: "Method"
-                                        schema:
-                                          type: string
-                                          default: "client_secret_basic"
-                                          required: true
+                                    type: string
+                                    default: ""
+                                    enum:
+                                      - value: "client_secret_basic"
+                                        description: "client_secret_basic"
+                                      - value: "client_secret_post"
+                                        description: "client_secret_post"
+                                      - value: "client_secret_jwt"
+                                        description: "client_secret_jwt"
+                                      - value: "private_key_jwt"
+                                        description: "private_key_jwt"
+                                      - value: "none"
+                                        description: "none"
                                 - variable: require_pkce
                                   label: "Require PKCE"
                                   description: "This configuration option enforces the use of PKCE for this registered client."
