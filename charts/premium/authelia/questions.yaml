@@ -3,16 +3,16 @@ portals:
   open:
 # Include{portalLink}
 questions:
-# Include{global}
-# Include{workload}
-# Include{workloadDeployment}
-# Include{replicas2}
-# Include{podSpec}
-# Include{containerMain}
-# Include{containerBasic}
-# Include{containerAdvanced}
-# Include{containerConfig}
-# Include{podOptions}
+  # Include{global}
+  # Include{workload}
+  # Include{workloadDeployment}
+  # Include{replicas2}
+  # Include{podSpec}
+  # Include{containerMain}
+  # Include{containerBasic}
+  # Include{containerAdvanced}
+  # Include{containerConfig}
+  # Include{podOptions}
   - variable: domain
     group: "App Configuration"
     label: "Domain"
@@ -868,7 +868,7 @@ questions:
                               type: string
                               default: ""
                               required: true
-# Include{serviceRoot}
+        # Include{serviceRoot}
         - variable: main
           label: "Main Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
@@ -876,25 +876,25 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{serviceSelectorLoadBalancer}
-# Include{serviceSelectorExtras}
-                    - variable: main
-                      label: "Main Service Port Configuration"
+              # Include{serviceSelectorLoadBalancer}
+              # Include{serviceSelectorExtras}
+              - variable: main
+                label: "Main Service Port Configuration"
+                schema:
+                  additional_attrs: true
+                  type: dict
+                  attrs:
+                    - variable: port
+                      label: "Port"
+                      description: "This port exposes the container port on the service"
                       schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: port
-                            label: "Port"
-                            description: "This port exposes the container port on the service"
-                            schema:
-                              type: int
-                              default: 9091
-                              required: true
-# Include{serviceExpertRoot}
-# Include{serviceExpert}
-# Include{serviceList}
-# Include{persistenceRoot}
+                        type: int
+                        default: 9091
+                        required: true
+        # Include{serviceExpertRoot}
+        # Include{serviceExpert}
+        # Include{serviceList}
+        # Include{persistenceRoot}
         - variable: config
           label: "App Config Storage"
           description: "Stores the Application Configuration."
@@ -902,19 +902,19 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
-# Include{persistenceBasic}
-# Include{persistenceList}
-# Include{ingressRoot}
+        # Include{persistenceBasic}
+        # Include{persistenceList}
+        # Include{ingressRoot}
         - variable: main
           label: "Main Ingress"
           schema:
             additional_attrs: true
             type: dict
             attrs:
-# Include{ingressDefault}
-# Include{ingressAdvanced}
-# Include{ingressList}
-# Include{securityContextRoot}
+              # Include{ingressDefault}
+              # Include{ingressAdvanced}
+              # Include{ingressList}
+              # Include{securityContextRoot}
               - variable: runAsUser
                 label: "runAsUser"
                 description: "The UserID of the user running the application"
@@ -927,18 +927,18 @@ questions:
                 schema:
                   type: int
                   default: 568
-# Include{securityContextContainer}
-# Include{securityContextAdvanced}
-# Include{securityContextPod}
+              # Include{securityContextContainer}
+              # Include{securityContextAdvanced}
+              # Include{securityContextPod}
               - variable: fsGroup
                 label: "fsGroup"
                 description: "The group that should own ALL storage."
                 schema:
                   type: int
                   default: 568
-# Include{resources}
-# Include{postgresql}
-# Include{advanced}
+  # Include{resources}
+  # Include{postgresql}
+  # Include{advanced}
   - variable: identity_providers
     group: "Advanced"
     label: "Authelia Identity Providers (BETA)"
@@ -1146,15 +1146,19 @@ questions:
                                   description: "The supported client authentication methods this client supports."
                                   label: "token_endpoint_auth_method"
                                   schema:
-                                    type: list
-                                    default: []
-                                    items:
-                                      - variable: methodEntry
-                                        label: "Method"
-                                        schema:
-                                          type: string
-                                          default: "client_secret_basic"
-                                          required: true
+                                    type: string
+                                    default: ""
+                                    enum:
+                                      - value: "client_secret_basic"
+                                        description: "client_secret_basic"
+                                      - value: "client_secret_post"
+                                        description: "client_secret_post"
+                                      - value: "client_secret_jwt"
+                                        description: "client_secret_jwt"
+                                      - value: "private_key_jwt"
+                                        description: "private_key_jwt"
+                                      - value: "none"
+                                        description: "none"
                                 - variable: require_pkce
                                   label: "Require PKCE"
                                   description: "This configuration option enforces the use of PKCE for this registered client."
