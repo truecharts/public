@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.18.6
+appVersion: 0.18.7
 dependencies:
   - name: common
     version: 20.3.6
@@ -30,7 +30,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/speedtest-tracker.png
 keywords:
   - speedtest
   - speedtest-tracker
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -42,4 +42,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/speedtest-tracker
   - https://ghcr.io/linuxserver/speedtest-tracker
 type: application
-version: 1.10.11
+version: 1.10.12
