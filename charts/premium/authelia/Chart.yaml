@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: premium
 apiVersion: v2
-appVersion: 4.38.7
+appVersion: 4.38.8
 dependencies:
   - name: common
     version: 20.3.6
@@ -39,7 +39,7 @@ keywords:
   - YubiKey
   - Push Notifications
   - LDAP
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -51,4 +51,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/premium/authelia
   - https://ghcr.io/authelia/authelia
 type: application
-version: 23.13.1
+version: 23.13.2
