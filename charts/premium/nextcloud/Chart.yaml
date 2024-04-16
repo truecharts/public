@@ -33,7 +33,7 @@ keywords:
   - http
   - web
   - php
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -43,11 +43,11 @@ sources:
   - https://github.com/nextcloud/docker
   - https://github.com/nextcloud/helm
   - https://github.com/truecharts/charts/tree/master/charts/premium/nextcloud
-  - https://github.com/truecharts/containers/tree/master/apps/nextcloud-imaginary
-  - https://hub.docker.com/r/nginxinc/nginx-unprivileged
-  - https://github.com/truecharts/containers/tree/master/apps/nextcloud-push-notify
-  - https://github.com/truecharts/containers/tree/master/apps/nextcloud-fpm
   - https://hub.docker.com/r/collabora/code
+  - https://github.com/truecharts/containers/tree/master/apps/nextcloud-imaginary
   - https://hub.docker.com/r/clamav/clamav
+  - https://hub.docker.com/r/nginxinc/nginx-unprivileged
+  - https://github.com/truecharts/containers/tree/master/apps/nextcloud-fpm
+  - https://github.com/truecharts/containers/tree/master/apps/nextcloud-push-notify
 type: application
 version: 29.10.15

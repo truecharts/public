@@ -24,14 +24,14 @@ dependencies:
     tags: []
     import-values: []
   - name: zfs-localpv
-    version: 2.4.2
+    version: 2.5.1
     repository: https://openebs.github.io/zfs-localpv
     condition: zfs-localpv.enabled
     alias: ""
     tags: []
     import-values: []
   - name: lvm-localpv
-    version: 1.4.0
+    version: 1.5.1
     repository: https://openebs.github.io/lvm-localpv
     condition: lvm-localpv.enabled
     alias: ""
@@ -44,7 +44,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/openebs.png
 keywords:
   - openebs
   - backup
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -56,4 +56,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/system/openebs
   - https://github.com/truecharts/containers/tree/master/apps/scratch
 type: application
-version: 4.1.5
+version: 4.2.2

@@ -139,7 +139,7 @@ jobs:
           steps.collect-changes.outputs.changesDetectedAfterTag == 'true'
         with:
           fetch-depth: 1
-          repository: truecharts/chart-docs
+          repository: truecharts/website
           token: ${{ secrets.BOT_TOKEN }}
           path: website
 
