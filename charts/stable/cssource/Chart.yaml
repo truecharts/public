@@ -17,13 +17,13 @@ dependencies:
     tags: []
     import-values: []
 deprecated: false
-description: "This Chart will download and install SteamCMD. It will also install Counter-Strike: Source and run it."
+description: 'This Chart will download and install SteamCMD. It will also install Counter-Strike: Source and run it.'
 home: https://truecharts.org/charts/stable/cssource
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/cssource.png
 keywords:
   - cssource
   - GameServers
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/cssource
   - https://hub.docker.com/r/ich777/steamcmd
 type: application
-version: 5.8.4
+version: 5.8.5
