@@ -19,13 +19,13 @@ dependencies:
 deprecated: false
 description: Index and stream music using apache-musicindex and m3u playlists
 home: https://truecharts.org/charts/stable/apache-musicindex
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/apache-musicindex.webp
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/apache-musicindex.png
 keywords:
   - apache-musicindex
   - streaming
   - m3u
   - playlist
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/apache-musicindex
   - https://ghcr.io/k8s-at-home/apache-musicindex
 type: application
-version: 11.8.4
+version: 11.8.5

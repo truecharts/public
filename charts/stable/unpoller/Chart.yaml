@@ -19,12 +19,12 @@ dependencies:
 deprecated: false
 description: Collect your UniFi controller data and report it to an InfluxDB instance, or export it for Prometheus collection.
 home: https://truecharts.org/charts/stable/unpoller
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/unpoller.webp
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/unpoller.png
 keywords:
   - unifi
   - unifi-poller
   - metrics
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/unpoller
   - https://ghcr.io/unpoller/unpoller
 type: application
-version: 10.11.4
+version: 10.11.5

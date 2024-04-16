@@ -19,11 +19,11 @@ dependencies:
 deprecated: false
 description: Tiny Tiny RSS is a free and open source web-based news feed (RSS/Atom) reader and aggregator.
 home: https://truecharts.org/charts/stable/tt-rss
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/tt-rss.webp
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/tt-rss.png
 keywords:
   - tt-rss
   - rss
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -32,7 +32,7 @@ name: tt-rss
 sources:
   - https://git.tt-rss.org/fox/tt-rss
   - https://github.com/truecharts/charts/tree/master/charts/stable/tt-rss
-  - https://hub.docker.com/r/cthulhoo/ttrss-fpm-pgsql-static
   - https://hub.docker.com/r/cthulhoo/ttrss-web-nginx
+  - https://hub.docker.com/r/cthulhoo/ttrss-fpm-pgsql-static
 type: application
-version: 16.8.7
+version: 16.8.8

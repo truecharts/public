@@ -19,12 +19,12 @@ dependencies:
 deprecated: false
 description: This is a Chartfile for Splunk designed for OpenShift and TrueNAS based on Alpine Linux - https://www.splunk.com
 home: https://truecharts.org/charts/stable/splunk
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/splunk.webp
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/splunk.png
 keywords:
   - splunk
   - Tools-Utilities
   - Network-Management
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/splunk
   - https://hub.docker.com/r/splunk/splunk
 type: application
-version: 7.8.4
+version: 7.8.5

@@ -19,7 +19,7 @@ dependencies:
 deprecated: false
 description: This is a Server based on Golang, which allows you to serve WebP images on the fly. It will convert jpg,jpeg,png files by default, this can be customized by editing the config.json.
 home: https://truecharts.org/charts/stable/webp-server
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/webp-server.webp
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/webp-server.png
 keywords:
   - webp-server
   - Cloud
@@ -28,7 +28,7 @@ keywords:
   - MediaServer-Photos
   - Network-Web
   - Network-FTP
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -39,4 +39,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/webp-server
   - https://hub.docker.com/r/webpsh/webps
 type: application
-version: 5.8.5
+version: 5.8.6

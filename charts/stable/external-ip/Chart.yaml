@@ -19,12 +19,12 @@ dependencies:
 deprecated: false
 description: Gets external IP via DIG command ( OpenDNS , Cloudflare, google ) on a scheduled basis that can be customized. Also includes the ability to alert you via pushover if the IP changes.
 home: https://truecharts.org/charts/stable/external-ip
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/external-ip.webp
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/external-ip.png
 keywords:
   - external-ip
   - Network-Management
   - Network-Other
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/external-ip
   - https://hub.docker.com/r/xavierh/external-ip
 type: application
-version: 5.8.4
+version: 5.8.5

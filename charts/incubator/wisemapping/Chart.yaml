@@ -19,12 +19,12 @@ dependencies:
 deprecated: false
 description: home-assistant App for TrueNAS SCALE
 home: https://truecharts.org/charts/incubator/wisemapping
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/wisemapping.webp
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/wisemapping.png
 keywords:
   - mapping
   - mind-mapping
   - collaboration
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -36,4 +36,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/wisemapping
   - https://hub.docker.com/r/wisemapping/wisemapping
 type: application
-version: 0.2.5
+version: 0.2.6

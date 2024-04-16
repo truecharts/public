@@ -19,11 +19,11 @@ dependencies:
 deprecated: false
 description: A monolithic lancache service capable of caching all CDNs in a single instance.
 home: https://truecharts.org/charts/stable/lancache-monolithic
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/lancache-monolithic.webp
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/lancache-monolithic.png
 keywords:
   - monolithic
   - lancache
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -32,7 +32,7 @@ name: lancache-monolithic
 sources:
   - https://github.com/lancachenet/monolithic
   - https://github.com/truecharts/charts/tree/master/charts/stable/lancache-monolithic
-  - https://hub.docker.com/r/ich777/lancache-prefill
   - https://hub.docker.com/r/lancachenet/monolithic
+  - https://hub.docker.com/r/ich777/lancache-prefill
 type: application
-version: 8.8.4
+version: 8.8.5

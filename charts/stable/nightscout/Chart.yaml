@@ -19,11 +19,11 @@ dependencies:
 deprecated: false
 description: Allows the installation of Nightscout, a remote CGM monitoring system. It allows the upload and display of blood glucous values and can be configuered to issue warnings etc. This is mainly useful to diabetics.
 home: https://truecharts.org/charts/stable/nightscout
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/nightscout.webp
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/nightscout.png
 keywords:
   - nightscout
   - Cloud
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/nightscout
   - https://hub.docker.com/r/nightscout/cgm-remote-monitor-travis
 type: application
-version: 5.8.4
+version: 5.8.5
