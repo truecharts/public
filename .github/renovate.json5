@@ -42,7 +42,10 @@
       "automerge": false,
       "autoApprove": true,
       "separateMinorPatch": true,
-      "ignorePaths": ["charts/unstable/**"],
+      "ignorePaths": [
+        "charts/unstable/**"
+        "charts/system/openebs/**"
+      ],
       "commitMessageTopic": "container image {{depName}}",
       "commitMessageExtra": "to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}@{{newDigestShort}}",
     },
@@ -61,7 +64,7 @@
       "automerge": false,
       "labels": ["update/ignored"],
       "groupName": ["ignored"],
-      "matchPaths": ["charts/unstable/**", "charts/dev/**", "charts/incubator/**", "templates/app/**"],
+      "matchPaths": ["charts/system/openebs/**", "charts/unstable/**", "charts/dev/**", "charts/incubator/**", "templates/app/**"],
       "commitMessageTopic": "Ignored Updates",
       "autoApprove": false,
     },
