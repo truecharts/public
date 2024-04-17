@@ -152,6 +152,7 @@ jobs:
           CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
           echo "Removing Chart Docs prior to regeneration..."
           mkdir -p website/public/img/hotlink-ok/chart-icons || echo "chart-icons path already exists, continuing..."
+          mkdir -p website/public/img/hotlink-ok/chart-icons-small || echo "chart-icons-small path already exists, continuing..."
           for i in "${CHARTS[@]}"
           do
               IFS='/' read -r -a chart_parts <<< "$i"
@@ -178,11 +179,8 @@ jobs:
                 rm -rf website/src/content/docs/charts/*/${chart} || :
                 mkdir -p website/src/content/docs/charts/${train}/${chart} || echo "chart path already exists, continuing..."
                 yes | cp -rf charts/${train}/${chart}/docs/* website/src/content/docs/charts/${train}/${chart}/ 2>/dev/null || :
-                yes | cp -rf charts/${train}/${chart}/icon.png website/public/img/hotlink-ok/chart-icons/${chart}.png 2>/dev/null || :
-                yes | cp -rf charts/${train}/${chart}/icon.jpg website/public/img/hotlink-ok/chart-icons/${chart}.jpg 2>/dev/null || :
-                yes | cp -rf charts/${train}/${chart}/icon.jpeg website/public/img/hotlink-ok/chart-icons/${chart}.jpeg 2>/dev/null || :
-                yes | cp -rf charts/${train}/${chart}/icon.svg website/public/img/hotlink-ok/chart-icons/${chart}.svg 2>/dev/null || :
                 yes | cp -rf charts/${train}/${chart}/icon.webp website/public/img/hotlink-ok/chart-icons/${chart}.webp 2>/dev/null || :
+                yes | cp -rf charts/${train}/${chart}/icon-small.webp website/public/img/hotlink-ok/chart-icons-small/${chart}.webp 2>/dev/null || :
                 yes | cp -rf charts/${train}/${chart}/screenshots/* website/public/img/hotlink-ok/chart-screenshots/${chart}/ 2>/dev/null || :
 
                 echo "Copying back kept docs..."
