@@ -1,6 +1,25 @@
 # Include{groups}
 questions:
 # Include{global}
+  - variable: operator
+    group: App Configuration
+    label: Operator Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: metallb
+          label: 'metallb'
+          schema:
+            type: dict
+            additional_attrs: true
+            attrs:
+              - variable: namespace
+                label: 'Namespace (change to ix-APPNAME of metallb)'
+                schema:
+                  type: string
+                  required: true
+                  default: "ix-metallb"
   - variable: ipAddressPools
     group: App Configuration
     label: IP Address Pools Object
