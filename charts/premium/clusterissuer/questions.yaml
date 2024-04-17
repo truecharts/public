@@ -1,6 +1,24 @@
 # Include{groups}
 questions:
 # Include{global}
+  - variable: operator
+    group: App Configuration
+    label: Operator Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: cert-manager
+          label: 'Cert-Manager'
+          schema:
+            type: dict
+            attrs:
+              - variable: namespace
+                label: 'Namespace (change to ix-APPNAME of cert-manager)'
+                schema:
+                  type: string
+                  required: true
+                  default: "ix-cert-manager"
   - variable: clusterIssuer
     group: App Configuration
     label: Cluster Certificate Issuer
