@@ -12,6 +12,7 @@ questions:
           label: 'Cert-Manager'
           schema:
             type: dict
+            additional_attrs: true
             attrs:
               - variable: namespace
                 label: 'Namespace (change to ix-APPNAME of cert-manager)'
