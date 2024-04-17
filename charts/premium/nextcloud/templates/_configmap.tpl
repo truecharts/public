@@ -33,7 +33,7 @@
 {{- $accessHostPort := regexReplaceAll ".*://(.*)" $accessUrl "${1}" -}}
 {{- $accessProtocol := regexReplaceAll "(.*)://.*" $accessUrl "${1}" -}}
 {{- $redisHost := .Values.redis.creds.plainhost | trimAll "\"" -}}
-{{- $redisPass := .Values.redis.creds.redisPassword | trimAll "\"" -}}
+{{- $redisPass := .Values.redis.password | trimAll "\"" -}}
 {{- $healthHost := "kube.internal.healthcheck" -}}
 
 php-tune:
