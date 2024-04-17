@@ -19,11 +19,11 @@ dependencies:
 deprecated: false
 description: Apache Guacamole is a clientless remote desktop gateway.
 home: https://truecharts.org/charts/stable/guacamole
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/guacamole.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/guacamole.webp
 keywords:
   - guacamole
   - remote
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -32,7 +32,7 @@ name: guacamole
 sources:
   - https://github.com/apache/guacamole-client
   - https://github.com/truecharts/charts/tree/master/charts/stable/guacamole
-  - https://hub.docker.com/r/guacamole/guacamole
   - https://hub.docker.com/r/guacamole/guacd
+  - https://hub.docker.com/r/guacamole/guacamole
 type: application
 version: 13.8.6

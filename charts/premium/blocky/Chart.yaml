@@ -26,11 +26,11 @@ dependencies:
 deprecated: false
 description: Blocky is a DNS proxy, DNS enhancer and ad-blocker for the local network written in Go
 home: https://truecharts.org/charts/premium/blocky
-icon: https://truecharts.org/img/hotlink-ok/chart-icons/blocky.png
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/blocky.webp
 keywords:
   - dns
   - blocky
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -41,7 +41,7 @@ sources:
   - https://0xerr0r.github.io/blocky/
   - https://github.com/0xERR0R/blocky
   - https://github.com/truecharts/charts/tree/master/charts/premium/blocky
-  - https://quay.io/oriedge/k8s_gateway
   - https://hub.docker.com/r/spx01/blocky
+  - https://quay.io/oriedge/k8s_gateway
 type: application
 version: 14.8.11
