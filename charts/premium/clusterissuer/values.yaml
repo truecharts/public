@@ -29,11 +29,9 @@ portal:
   open:
     enabled: false
 operator:
-  verify:
-    additionalOperators:
-      - cert-manager
-    enabled: true
-    failOnError: false
+  cert-manager:
+    namespace: cert-manager
+    
 clusterIssuer:
   selfSigned:
     enabled: true
