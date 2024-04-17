@@ -26,9 +26,8 @@ service:
         enabled: false
         port: 9999
 operator:
-  verify:
-    enabled: true
-    additionalOperators: ["metallb"]
+  metallb:
+    namespace: metallb
 portal:
   open:
     enabled: false
