@@ -42,10 +42,7 @@
       "automerge": false,
       "autoApprove": true,
       "separateMinorPatch": true,
-      "ignorePaths": [
-        "charts/unstable/**"
-        "charts/system/openebs/**"
-      ],
+      "ignorePaths": ["charts/unstable/**", "charts/system/openebs/**"],
       "commitMessageTopic": "container image {{depName}}",
       "commitMessageExtra": "to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}@{{newDigestShort}}",
     },
