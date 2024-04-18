@@ -49,17 +49,8 @@ This ensures freedom and flexibility for everyone involved and makes sure you, t
 
 ### Getting into creating Charts
 
-Creating charts takes some getting used to, as it's based on Helm charts. We highly suggest prior know-how on creation/modifying Helm Charts, before taking on the challenge of creating SCALE Apps.
-
-For more information on creating SCALE Apps and Helm charts, please check out our [development manual](https://truecharts.org/manual/development/chart-structure/)
-
-### Automation and you
-
-We provide a lot of tools to make it easier to develop charts, templates, automated testing, automated fixes, automated docs. Even automated update is included. We also actively try to collaborate with other k8s community projects on tooling, for the betterment of all!
-
-Those tools do, however, take time to develop and are certainly not bug free. If you find mistakes in our tooling, please feel free to repost issues or submit any fixes you feel appropriate!
-
-<br />
+For more information check the website:
+https://truecharts.org
 
 ## Contact and Support
 
