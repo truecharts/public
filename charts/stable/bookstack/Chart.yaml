@@ -17,7 +17,7 @@ dependencies:
     tags: []
     import-values: []
   - name: mariadb
-    version: 13.9.8
+    version: 13.9.11
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -45,4 +45,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/bookstack
   - https://ghcr.io/linuxserver/bookstack
 type: application
-version: 13.11.10
+version: 13.11.11
