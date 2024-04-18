@@ -54,8 +54,8 @@ questions:
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: data
-          label: "App Config Storage"
-          description: "Stores the Application Configuration."
+          label: "App Uploaded Attachments Storage"
+          description: "Stores all uploaded attachments unencrypted in the /storage/upload directory."
           schema:
             additional_attrs: true
             type: dict
