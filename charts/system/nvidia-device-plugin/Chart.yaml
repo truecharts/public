@@ -17,7 +17,7 @@ dependencies:
     tags: []
     import-values: []
   - name: nvidia-device-plugin
-    version: 0.14.5
+    version: 0.15.0
     repository: https://nvidia.github.io/k8s-device-plugin
     condition: ""
     alias: nvdp
@@ -42,4 +42,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/system/kubeapps
   - https://github.com/truecharts/containers/tree/master/apps/scratch
 type: application
-version: 0.15.5
+version: 0.16.0
