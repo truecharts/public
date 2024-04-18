@@ -144,6 +144,10 @@ localpv-provisioner:
 # ref - https://openebs.github.io/zfs-localpv
 zfs-localpv:
   enabled: false
+  crds:
+    enabled: false
+    enableInstall: false
+    volumeSnapshot: false
   crd:
     enabled: false
     enableInstall: false
