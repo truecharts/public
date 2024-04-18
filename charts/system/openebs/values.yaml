@@ -145,6 +145,7 @@ localpv-provisioner:
 zfs-localpv:
   enabled: false
   crd:
+    enabled: false
     enableInstall: false
     volumeSnapshot: false
   # Sample configuration if you want to configure zfs localpv with custom values.
