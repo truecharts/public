@@ -458,7 +458,7 @@ netshootImage:
 
 tailscaleImage:
   repository: tccr.io/tccr/tailscale
-  tag: v1.64.1@sha256:1649d27c54246683b9c6d46df775ffd45eba1d28948a0c5a25752752a36fb870
+  tag: v1.64.2@sha256:027a0aebed4ed793c380f9c13bf51fb6d334b313e190a9097145cda746c933ed
   pullPolicy: IfNotPresent
 
 codeserverImage:
@@ -473,12 +473,12 @@ alpineImage:
 
 scratchImage:
   repository: tccr.io/tccr/scratch
-  tag: latest@sha256:bd3502fe58aa2c97a530d63ad90ca39182c774fa56712791fc9c0a521577d71f
+  tag: latest@sha256:0163c7d5e5f44c7fc78c2c3c753aaf27fb99c3a5a2b085f8e87e79aef01ea7e9
   pullPolicy: IfNotPresent
 
 kubectlImage:
   repository: tccr.io/tccr/kubectl
-  tag: latest@sha256:c9c5153dadb20735ce8c46c89d6838cdd7babb683fc1dfff4eed8ca25659272b
+  tag: latest@sha256:4dfdd46861eec733c17688631708d36172964540d64c57ca738b423962f8ee7f
   pullPolicy: IfNotPresent
 
 wgetImage:
