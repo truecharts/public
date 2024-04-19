@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 4.6.0
+appVersion: 4.7.1
 dependencies:
   - name: common
     version: 20.3.7
@@ -22,7 +22,7 @@ home: https://truecharts.org/charts/stable/syslog-ng
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/syslog-ng.webp
 keywords:
   - syslog-ng
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -32,4 +32,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/syslog-ng
   - https://hub.docker.com/r/balabit/syslog-ng
 type: application
-version: 9.8.6
+version: 9.9.0
