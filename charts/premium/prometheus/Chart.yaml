@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 2.51.2
 dependencies:
   - name: common
-    version: 20.3.7
+    version: 20.3.11
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -43,4 +43,4 @@ sources:
   - https://quay.io/thanos/thanos
   - https://hub.docker.com/r/bitnami/alertmanager
 type: application
-version: 17.13.7
+version: 17.13.8
