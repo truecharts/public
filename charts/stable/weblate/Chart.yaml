@@ -17,7 +17,7 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 13.3.7
+    version: 13.3.11
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -43,4 +43,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/weblate
   - https://hub.docker.com/r/weblate/weblate
 type: application
-version: 13.10.12
+version: 13.10.13
