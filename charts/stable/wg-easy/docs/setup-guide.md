@@ -46,7 +46,7 @@ Set them to `1` and `Enabled`
 
 ### Security and Permissions
 
-:::warning
+:::caution
 
 Must change the `PUID` to 0 for this chart to work
 

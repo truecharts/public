@@ -24,7 +24,7 @@ Like TrueNAS Scale WebUI.
 
 How to use lancache-prefill sidecar
 
-:::info
+:::tip
 
 Shell into the main pod, not the _prefill_ pod.
 

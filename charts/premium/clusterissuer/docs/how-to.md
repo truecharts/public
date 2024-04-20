@@ -10,7 +10,7 @@ This guide will walk you through setting up `clusterissuer`, certificate managem
 - [Traefik](/charts/premium/traefik/) is installed from premium train
 - [Cert-Mananger](/charts/system/cert-manager/) and [Prometheus-Operator](/charts/system/prometheus-operator/)
 
-:::warning DNS
+:::caution[DNS]
 
 As part of the DNS verification process cert-manager will connect to authoritative nameservers to validate the DNS ACME entry. Any firewall or router rules blocking or modifying DNS traffic will cause this process to fail and prevent the issuance of certificates. Ensure no firewall or router rules are in place blocking or modifying DNS traffic to assigned authoritative nameservers. Below is an example of cloudflare assigned authoritative nameservers (these nameservers are unique to each user).
 

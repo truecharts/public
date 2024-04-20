@@ -30,14 +30,14 @@ after which you will be automatically redirected to your dashboard through one o
 If you are not prompted to restart the web server service, you may restart the machine and manually navigate
 to the WebUI address followed by one of the new ports eg. `truenas.local:81`.
 
-:::info
+:::tip
 
 These are the recommended ports for this procedure. Using different ports may require some
 changes to your configuration that are not covered in this tutorial.
 
 :::
 
-:::warning
+:::caution
 
 Do not skip this step. Neglecting to change the default ports active may cause your WebUI to become inaccessible after the following step.
 Ensure you are accessing your WebUI from the new ports before proceeding.

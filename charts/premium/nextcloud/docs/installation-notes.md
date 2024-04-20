@@ -9,7 +9,7 @@ title: Installation Notes
 2. Ingress is required to be configured. The preferred and supported method for ingress is Traefik. More information can be
    found on our [getting started guide](/scale/guides/getting-started/#traefik-installation-for-ingress--reverse-proxy-support-with-truecharts-apps).
 
-:::caution SNAPSHOT DIRECTORY VISIBILITY
+:::caution[SNAPSHOT DIRECTORY VISIBILITY]
 
 Nextcloud installation will fail if the application or user data datasets have Snapshot Directory set to Visible (invisible by default). Return this setting to default prior to installation.
 

@@ -39,7 +39,7 @@ This is ALSO the port Sonarr/Radarr and other services will use to connect to qB
 
 #### Listening Ports
 
-:::tip VPN "With VPN"
+:::tip[VPN "With VPN"]
 
 - No need to port forward on your router
 - If you want fast seeding, you will need a service that supports port forwarding and set the TCP Listening Port to the port Desired
@@ -47,7 +47,7 @@ This is ALSO the port Sonarr/Radarr and other services will use to connect to qB
 
 :::
 
-:::tip NOVPN "Without VPN"
+:::tip[NOVPN "Without VPN"]
 
 - You can leave the two ports default without a VPN
 - If you want fast seeding though, you will need to port forward this port on your router

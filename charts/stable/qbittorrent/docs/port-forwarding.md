@@ -2,9 +2,9 @@
 title: Automatic Gluetun Port Forwarding
 ---
 
-qBittorrent can be configured to automatically utilize the VPN forward port when used with Gluetun.
+qBittorrent can be configured to automatically utilize the VPN forward port when used with Gluetun for ProtonVPN and PIA, all other VPN providers should be configured manually as the port does not change.
 
-:::danger GLUETUN PORT FORWARDING REQUIRED
+:::danger[GLUETUN PORT FORWARDING REQUIRED]
 
 qBittorrent will fail to start if Gluetun is not configured for use with port forwarding enabled.
 
