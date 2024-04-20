@@ -17,7 +17,7 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 13.3.7
+    version: 13.3.11
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -50,4 +50,4 @@ sources:
   - https://hub.docker.com/r/nginxinc/nginx-unprivileged
   - https://github.com/truecharts/containers/tree/master/apps/nextcloud-imaginary
 type: application
-version: 29.10.23
+version: 29.10.24
