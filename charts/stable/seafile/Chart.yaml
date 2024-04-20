@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 11.0.7
+appVersion: 11.0.8
 dependencies:
   - name: common
     version: 20.3.7
@@ -32,7 +32,7 @@ keywords:
   - files
   - cloud
   - file-storage
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -43,4 +43,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/seafile
   - https://hub.docker.com/r/seafileltd/seafile-mc
 type: application
-version: 5.15.12
+version: 5.15.13
