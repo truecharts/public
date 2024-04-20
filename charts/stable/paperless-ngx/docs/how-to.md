@@ -7,14 +7,14 @@ online archive. Our app is a simple way to install it on your TrueNAS SCALE serv
 
 ## Requirements
 
-- Installation of the TrueCharts Catalog, starting [here](/platforms/scale/guides/getting-started/) and the required operators (Prometheus-Operator and Cloudnative-PG).
+- Installation of the TrueCharts Catalog, starting [here](/scale/guides/getting-started/) and the required operators (Prometheus-Operator and Cloudnative-PG).
 - Paperless-ngx TrueCharts Chart
 
 ## Media Storage
 
 - If you plan on importing documents into Paperless-ngx via a network share, for example from a computer or scanner, it
   is recommended to set up an `NFS Share` for the shared folder. See the [NFS Shares
-  guide](/platforms/scale/guides/nfs-share) for further information.
+  guide](/scale/guides/nfs-share) for further information.
 
 ## Install Paperless inside TrueNAS SCALE
 
@@ -62,13 +62,13 @@ to a shared folder on your TrueNAS SCALE from your computer or directly from you
 up the documents from there. See the explanation of the feature linked above and its [configuration
 options](https://docs.paperless-ngx.com/configuration/#consume_config) for more information.
 
-Due to the [Hast Path Validation Safety](/platforms/scale/guides/add-storage/#host-path-validation-safety) checks of TrueNAS
+Due to the [Hast Path Validation Safety](/scale/guides/add-storage/#host-path-validation-safety) checks of TrueNAS
 SCALE, using storage for an application on your TrueNAS SCALE and with a network share at the same time requires a bit
 of work. See also the [FAQ](/general/faq/) regarding this
 topic.
 
 This guide will only describe the Paperless-ngx specific options required to set up importing documents from a network
-share. Please refer to Part 1 of the [NFS shares with TrueChart apps guide](/platforms/scale/guides/nfs-share) to prepare
+share. Please refer to Part 1 of the [NFS shares with TrueChart apps guide](/scale/guides/nfs-share) to prepare
 the NFS share you want to use with Paperless-ngx and note its path. Refer to the [TrueNAS SCALE adding SMB shares
 guide](https://www.truenas.com/docs/scale/scaletutorials/shares/smb/addsmbshares/) to set up network sharing of that
 same folder for Windows computers or scanners offering this functionality.

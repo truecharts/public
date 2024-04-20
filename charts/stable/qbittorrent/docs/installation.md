@@ -76,7 +76,7 @@ I always mount to the root directory of the container
 
 ### VPN
 
-Use the [Gluetun VPN Add-on Setup Guide](/platforms/scale/guides/vpn-setup/)
+Use the [Gluetun VPN Add-on Setup Guide](/scale/guides/vpn-setup/)
 
 <br />
 

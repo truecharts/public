@@ -36,7 +36,7 @@ To use cloudreve with aria2, install the [TrueCharts aria2 app](/charts/stable/a
 
 Once aria2 is installed, open cloudreve's webpage and navigate to the Dashboard (Click on profile icon in top right corner -> Dashboard). In the dashboard, select `Nodes` and then click the edit icon beside `Master (Local Machine)`. In the edit dialog, click `Enable` and then fill out the settings:
 
-- RPC Server: find with `heavyscript dns`, and read about internal DNS [here](/platforms/scale/guides/linking-apps/).
+- RPC Server: find with `heavyscript dns`, and read about internal DNS [here](/scale/guides/linking-apps/).
 - RPC Secret: Set the shared secret here. Must also be set in the Aria2 app.
 - Absolute Path: Set this to a custom persistent mount that you've created for this cloudreve app, and have also mounted to Aria2.
 

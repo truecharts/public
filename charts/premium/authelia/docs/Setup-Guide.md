@@ -94,7 +94,7 @@ Please see [Authelia Rules](./authelia-rules) for more advanced rules.
 ![TraefikForwardAuth](./img/TraefikForwardAuth.png)
 
 - Name your `forwardauth` something you'll remember, since that's the middleware you'll add to your ingress going forward. Most people use `auth`
-- Address: `http://authelia.ix-authelia.svc.cluster.local:9091/api/verify?rd=https://auth.mydomain.com/` and replace the last part based on `mydomain.com`, and if you've changed ports/names you can get that from [`HeavyScript`](/platforms/scale/guides/getting-started/#heavyscript)
+- Address: `http://authelia.ix-authelia.svc.cluster.local:9091/api/verify?rd=https://auth.mydomain.com/` and replace the last part based on `mydomain.com`, and if you've changed ports/names you can get that from [`HeavyScript`](/scale/guides/getting-started/#heavyscript)
 - Check `trustForwardHeader`
 - Add the following `authResponseHeaders` (press `Add` 4 times)
   - `Remote-User`

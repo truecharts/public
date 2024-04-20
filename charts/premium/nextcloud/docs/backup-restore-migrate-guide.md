@@ -20,7 +20,7 @@ If you are using two factor authentication on your Nextcloud accounts disable it
 
 ### Backup Database
 
-If you have not already done so install PGAdmin and the [tcdbinfo.sh script](/platforms/scale/guides/sql-export/#how-to-list-database-login-info-for-truecharts-apps)
+If you have not already done so install PGAdmin and the [tcdbinfo.sh script](/scale/guides/sql-export/#how-to-list-database-login-info-for-truecharts-apps)
 
 1. Run the tcdbinfo.sh script and take note of the connection info
 
