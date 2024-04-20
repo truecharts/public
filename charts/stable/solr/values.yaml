@@ -104,15 +104,7 @@ solrEnableAuthentication: "yes"
 solrUsername: "test"
 # Used to pass a comma separated list of optional options like '-XX:G1HeapRegionSize=8m'
 solrOpts: ""
-# -- Secret or password
-# One of these options is required, unless used as a dependency for another TrueCharts chart.
-existingSecret: ""
 password: "PLACEHOLDERPASSWORD"
-secret:
-  credentials:
-    enabled: true
-    data:
-      solr-password: '{{ ( .Values.solrPassword | default "empty" ) }}'
 portal:
   open:
     enabled: true
