@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 24.03.0
+appVersion: 24.04.0
 dependencies:
   - name: common
     version: 20.3.7
@@ -22,7 +22,7 @@ home: https://truecharts.org/charts/stable/fileflows
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/fileflows.webp
 keywords:
   - fileflows
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -33,4 +33,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/fileflows
   - https://hub.docker.com/r/revenz/fileflows
 type: application
-version: 10.9.6
+version: 10.10.0
