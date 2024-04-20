@@ -2,7 +2,7 @@
 title: Installation instructions
 ---
 
-:::warning
+:::caution
 
 Ingress for this chart is **required**
 
@@ -28,7 +28,7 @@ We will **unset** every option (key) that has:
 
 The above will only be applied when installed in TrueNAS Scale as an App
 
-::: note
+:::note
 
 When you make a change in the UI, you need to manually stop and re-start the app
 for the change to take effect.
@@ -38,7 +38,7 @@ for the change to take effect.
 For SCALE users, you can add additional configuration options that are not exposed in the UI
 by using the `Additional MeshCentral Configuration` section.
 
-::: tip
+:::tip
 
 However, if you think an option would be used by a lot of users, it would be best to ask us to expose it.
 
@@ -77,7 +77,7 @@ Set like this:
 - Key: `domains."".newAccountsRights`
 - Value: `[ "item1", "item2" ]`
 
-::: warning
+:::caution
 
 Please use the exact casing as in the [MeshCentral's json schema](https://github.com/Ylianst/MeshCentral/blob/master/meshcentral-config-schema.json).
 

@@ -37,7 +37,7 @@ The `/data/permissions.json` should look something like this:
 ]
 ```
 
-:::info
+:::tip
 
 - You can also reach us using [Discord](https://discord.gg/tVsPTHWTtr) for real-time feedback and support
 - If you found a bug in our chart, open a Github [issue](https://github.com/truecharts/apps/issues/new/choose) but generally it's advised to contact us on Discord first in most cases.

@@ -6,13 +6,13 @@ This guide can will walk through the process of backing up and existing Nextclou
 
 ## Backup
 
-:::danger SMB EXTERNAL STORAGE
+:::danger[SMB EXTERNAL STORAGE]
 
 If you are using SMB authenticated external storage on your Nextcloud remove it before starting this guide. The migration process will fail if it is not removed.
 
 :::
 
-:::danger TWO FACTOR AUTHENTICATION
+:::danger[TWO FACTOR AUTHENTICATION]
 
 If you are using two factor authentication on your Nextcloud accounts disable it before starting this guide. While it can be done via the CLI later it is much easier to disable it before hand.
 
@@ -52,7 +52,7 @@ ls -la
 
 <!-- ![userdata-old](./img/userdata-old.png) -->
 
-:::warning
+:::caution
 
 Next steps are destructive without a way to undo. Make sure you have proper backups to avoid data loss.
 
@@ -80,13 +80,19 @@ Nextcloud uses apps for file ownership. Apply permissions as shown below to your
 
 Install with a temporary admin user that you do not currently use for Nextcloud (ie. temp)
 
+:::caution[UNIQUE USER]
+
+If you do not install with a unique user the install will fail because Nexctloud will be unable to create the user folder when one already exists
+
+:::
+
 Setup Nextcloud User Data storage with your previous User Data dataset or the dataset you copied your User Data to.
 
 <!-- ![userdata-setting](./img/userdata-setting.png) -->
 
 ### Restore Database
 
-:::caution Nextcloud Installation
+:::caution[Nextcloud Installation]
 
 Wait for Nextcloud to fully deploy before proceeding.
 
@@ -108,7 +114,7 @@ Wait for Nextcloud to fully deploy before proceeding.
 6. Configure Options as shown below and click restore.
    <!-- ![pgadmin-restore4](./img/pgadmin-restore4.png) -->
 
-:::caution PGAdmin Error
+:::caution[PGAdmin Error]
 
 PGAdmin may display an error during the restore process. This is known to occur and may be ignored.
 
@@ -122,7 +128,7 @@ k3s kubectl scale deploy nextcloud -n ix-nextcloud --replicas=1
 
 ### OCC Commands
 
-:::caution Nextcloud Deploy
+:::caution[Nextcloud Deploy]
 
 Wait for Nextcloud to fully deploy before proceeding.
 
