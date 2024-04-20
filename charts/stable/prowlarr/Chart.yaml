@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 1.16.1.4420
+appVersion: 1.16.2.4435
 dependencies:
   - name: common
     version: 20.3.7
@@ -24,7 +24,7 @@ keywords:
   - prowlarr
   - torrent
   - usenet
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -34,7 +34,7 @@ sources:
   - https://github.com/Prowlarr/Prowlarr
   - https://github.com/k8s-at-home/container-images
   - https://github.com/truecharts/charts/tree/master/charts/stable/prowlarr
-  - https://ghcr.io/onedr0p/prowlarr-develop
   - https://ghcr.io/onedr0p/exportarr
+  - https://ghcr.io/onedr0p/prowlarr-develop
 type: application
-version: 16.8.3
+version: 16.8.4
