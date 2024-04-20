@@ -34,21 +34,21 @@ global:
     # -- Default probe timeouts
     probeTimeouts:
       liveness:
-        initialDelaySeconds: 10
-        periodSeconds: 10
+        initialDelaySeconds: 12
+        periodSeconds: 15
         timeoutSeconds: 5
         failureThreshold: 5
         successThreshold: 1
       readiness:
         initialDelaySeconds: 10
-        periodSeconds: 10
+        periodSeconds: 12
         timeoutSeconds: 5
-        failureThreshold: 5
+        failureThreshold: 4
         successThreshold: 2
       startup:
         initialDelaySeconds: 10
         periodSeconds: 5
-        timeoutSeconds: 2
+        timeoutSeconds: 3
         failureThreshold: 60
         successThreshold: 1
     # -- Define a postgresql version for CNPG
@@ -200,7 +200,7 @@ workload:
               port: "{{ $.Values.service.main.ports.main.targetPort | default .Values.service.main.ports.main.port }}"
             startup:
               enabled: true
-              type: "tcp"
+              type: "{{ .Values.service.main.ports.main.protocol }}"
               port: "{{ $.Values.service.main.ports.main.targetPort | default .Values.service.main.ports.main.port }}"
 
 # -- Timezone used everywhere applicable
