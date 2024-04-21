@@ -244,7 +244,8 @@ jobs:
                     title=$(cat "${file}" | grep "title: " | sed 's/title: //' | head -n 1)
                     echo "The title is: ${title}"
                     # Create a markdown link using the file name and title
-                    filenameURL=${filename##*.}
+                    filename="${fullfile##*/}"
+                    filenameURL=${filename%.*}
                     filenameURL=${filenameURL,,}
                     link="[**${title}**](./${filenameURL})"
                     echo "The link is: ${link}"
