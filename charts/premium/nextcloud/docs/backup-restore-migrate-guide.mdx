@@ -22,19 +22,25 @@ If you are using two factor authentication on your Nextcloud accounts disable it
 
 If you have not already done so install PGAdmin and the [tcdbinfo.sh script](/scale/guides/sql-export/#how-to-list-database-login-info-for-truecharts-apps)
 
+import { Steps } from '@astrojs/starlight/components';
+
+<Steps>
+
 1. Run the tcdbinfo.sh script and take note of the connection info
 
-   ```bash
+   ```bash title="List Database Info"
    bash tcdbinfo.sh
    ```
 
-![tcdbinfo-output](./img/tcdbinfo-output.png)
+   ![tcdbinfo-output](./img/tcdbinfo-output.png)
 
 2. Add Nextcloud to PGAdmin using the connection info from previous step.
    ![pgadmin-connection1](./img/pgadmin-connection1.png)
    ![pgadmin-connection2](./img/pgadmin-connection2.png)
 3. Backup Nextcloud database.
    ![pgadmin-backup](./img/pgadmin-backup.png)
+
+</Steps>
 
 ### Backup User Data
 
@@ -46,7 +52,7 @@ If you are using HostPath of NFS for UserData then no further action is required
 
 This step is not required but to have a clean installation remove all UserData folder and files that are not user folders.
 
-```bash
+```bash title="List Files"
 ls -la
 ```
 
@@ -58,11 +64,11 @@ Next steps are destructive without a way to undo. Make sure you have proper back
 
 You have been **warned**
 
-```bash
+```bash title="Remmove Old Nextcloud Users/Folders"
 rm -rf <folder>
 ```
 
-```bash
+```bash title="Remove Old Nextcloud Files"
 rm .ocdata .htaccess index.html nextcloud.log
 ```
 
@@ -98,9 +104,11 @@ Wait for Nextcloud to fully deploy before proceeding.
 
 :::
 
+<Steps>
+
 1. Stop the main pod of Nextcloud.
 
-   ```bash
+   ```bash title="Stop Main Pod of Nextcloud"
    k3s kubectl scale deploy nextcloud -n ix-nextcloud --replicas=0
    ```
 
@@ -114,17 +122,19 @@ Wait for Nextcloud to fully deploy before proceeding.
 6. Configure Options as shown below and click restore.
    ![pgadmin-restore4](./img/pgadmin-restore4.png)
 
-:::caution[PGAdmin Error]
+   :::caution[PGAdmin Error]
 
-PGAdmin may display an error during the restore process. This is known to occur and may be ignored.
+   PGAdmin may display an error during the restore process. This is known to occur and may be ignored.
 
-:::
+   :::
 
 7. Start the main pod of Nextcloud.
 
-```bash
-k3s kubectl scale deploy nextcloud -n ix-nextcloud --replicas=1
-```
+   ```bash title="Start Main Pod of Nextcloud"
+   k3s kubectl scale deploy nextcloud -n ix-nextcloud --replicas=1
+   ```
+
+</Steps>
 
 ### OCC Commands
 
@@ -134,33 +144,37 @@ Wait for Nextcloud to fully deploy before proceeding.
 
 :::
 
+<Steps>
+
 1. Open a shell for the Nextcloud main pod as shown below. Ensure your are selecting the correct pod it should just say nextcloud for both Pods (followed by random characters only) and Containers as shown below.
    ![nextcloud-cli](./img/nextcloud-cli.png)
 2. Run the following commands in the Nextcloud shell.
 
-```bash
-occ upgrade
-```
+   ```bash title="Run Upgrade"
+   occ upgrade
+   ```
 
-```bash
-occ maintenance:mode --on
-```
+   ```bash title="Turn On Maintenance Mode"
+   occ maintenance:mode --on
+   ```
 
-```bash
-occ maintenance:repair
-```
+   ```bash title="Run Repair"
+   occ maintenance:repair
+   ```
 
-```bash
-occ maintenance:mode --off
-```
+   ```bash title="Turn Off Maintenance Mode"
+   occ maintenance:mode --off
+   ```
 
-```bash
-occ db:add-missing-indices
-```
+   ```bash title="title="Add Missing Database Indices"
+   occ db:add-missing-indices
+   ```
 
-```bash
-occ files:scan --all
-```
+   ```bash title="Scan All User Files"
+   occ files:scan --all
+   ```
+
+</Steps>
 
 ### Delete Temporary User Data Folder
 
