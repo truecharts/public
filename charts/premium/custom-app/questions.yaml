@@ -346,6 +346,12 @@ questions:
                   type: int
                   default: 568
 # Include{resources}
+# Include{postgresql}
+              - variable: enabled
+                label: "Enabled"
+                schema:
+                  type: boolean
+                  default: false
 # Include{advanced}
 # Include{addons}
 # Include{codeserver}
