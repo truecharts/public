@@ -257,7 +257,10 @@ jobs:
                 echo "" >> website/src/content/docs/charts/${train}/${chart}/index.md
                 echo "## Readme Content" >> website/src/content/docs/charts/${train}/${chart}/index.md
                 echo "" >> website/src/content/docs/charts/${train}/${chart}/index.md
-                tail -n +4  "charts/${train}/${chart}/README.md" >> website/src/content/docs/charts/${train}/${chart}/index.md
+                tail -n +4  "charts/${train}/${chart}/README.md" >> website/src/content/docs/charts/${train}/${chart}/readmetmp.md
+                sed -i 's/##/###/' "website/src/content/docs/charts/${train}/${chart}/readmetmp.md"
+                cat "website/src/content/docs/charts/${train}/${chart}/readmetmp.md" >> "website/src/content/docs/charts/${train}/${chart}/index.md"
+                rm "website/src/content/docs/charts/${train}/${chart}/readmetmp.md" || echo "couldnt delete readmetmp.md"
 
                 rm -rf temp || :
               fi
