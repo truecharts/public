@@ -1,5 +1,5 @@
 #  - variable: horizontalPodAutoscaler
-#    group: Advanced
+#    group: Experimental
 #    label: (Advanced) Horizontal Pod Autoscaler
 #    schema:
 #      type: list
@@ -51,7 +51,7 @@
 #                      type: int
 #                      default: 80
   - variable: networkPolicy
-    group: Advanced
+    group: Experimental
     label: (Advanced) Network Policy
     schema:
       type: list

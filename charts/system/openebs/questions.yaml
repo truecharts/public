@@ -4,7 +4,7 @@ questions:
 
 
   - variable: zfs-localpv
-    group: "Storage and Persistence"
+    group: "App Configuration"
     label: "ZFS Localpv Settings"
     schema:
       type: dict
@@ -18,7 +18,7 @@ questions:
             default: true
             hidden: true
   - variable: localpv-provisioner
-    group: "Storage and Persistence"
+    group: "App Configuration"
     label: "localpv-provisioner Settings"
     schema:
       type: dict
@@ -46,7 +46,7 @@ questions:
 
 
   - variable: storageClass
-    group: "Storage and Persistence"
+    group: StorageClass
     label: "StorageClass Settings"
     schema:
       type: dict

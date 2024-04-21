@@ -199,13 +199,7 @@ questions:
 # Include{addPrefixMiddleware}
 # Include{modsecurityMiddleware}
 # Include{crowdsecMiddleware}
-  - variable: service
-    group: "Networking and Services"
-    label: "Configure Service Entrypoint"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
+# Include{serviceRoot}
         - variable: main
           label: "Main Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"

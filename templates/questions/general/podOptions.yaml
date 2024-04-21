@@ -1,5 +1,5 @@
   - variable: podOptions
-    group: "General Settings"
+    group: "General"
     label: "Global Pod Options (Advanced)"
     schema:
       additional_attrs: true
@@ -68,7 +68,7 @@
                               required: true
 
   - variable: imagePullSecretList
-    group: "General Settings"
+    group: "General"
     label: "Image Pull Secrets"
     schema:
       type: list

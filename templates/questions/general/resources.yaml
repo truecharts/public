@@ -1,5 +1,5 @@
   - variable: resources
-    group: Resources and Devices
+    group: Resources
     label: "Resource Limits"
     schema:
       additional_attrs: true
@@ -65,7 +65,7 @@
                   valid_chars: '^(?!^0(e[0-9]|[EPTGMK]i?|)$)([0-9]+)(|[EPTGMK]i?|e[0-9]+)$'
   - variable: deviceList
     label: Mount USB Devices
-    group: Resources and Devices
+    group: Devices
     schema:
       type: list
       default: []
