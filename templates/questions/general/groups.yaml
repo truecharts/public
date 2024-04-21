@@ -40,16 +40,35 @@ groups:
       
       Options here include the service and port configurations for the application, and more may be enabled or changed under the Advanced Settings and Show Expert Config boxes.
       
+      Information the Kubernetes service options can be found here: https://truecharts.org/common/service/
     
   - name: Persistence
-    description: 'Store, Persist and Share Data that is Separate from the Container'
+    description: |
+      Many applications will have certain options for storage to be configurable by the user, the main two being PVC and hostpath but may include other types. 
+      This storage is called Persistence since it is not deleted upon restart or upgrade of an application.
+      
+      For more information on the many different storage options, checkout the docs here: https://truecharts.org/common/persistence/
+      
+      For more information on why TrueCharts advices the use of PVC storage, please see: https://truecharts.org/general/faq/#why-pvc-is-recommended-over-hostpath
+    
     
   - name: Ingress
-    description: Ingress Configuration
-    
+    description: |
+      Ingress (more commonly known as Reverse Proxy) settings can be configured here. This is how Kubernetes connects your Applications in containers to FQDNs (fully qualified domain names). 
+      If you choose to enable this you must have a "Ingress Provider" aka "Reverse Proxy" installed (We highly advice Traefik: https://truecharts.org/charts/premium/traefik/) 
+      It also requiresa DNS service to actually resolve the DNS name of the FQDN specified.
+      
+      More info on Ingress configuration options: https://truecharts.org/common/ingress/
+      
     
   - name: SecurityContext
-    description: Configure Security Context and Permissions
+    description: |
+      The security settings for each application and/or permissions that each application may have for the files/directories created. 
+      Each application will come with predefined permissions but users may want to change certain setting depending on their usage or capabilities. 
+      
+      Unless necessary users are advised to keep this section mostly to defaults.
+      
+      For more information on security settings see: https://truecharts.org/common/securitycontext/
     
     
   - name: Resources
