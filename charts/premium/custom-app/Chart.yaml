@@ -5,7 +5,7 @@ annotations:
   truecharts.org/category: custom
   truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: stable
+  truecharts.org/train: premium
 apiVersion: v2
 appVersion: 0.21.1155
 dependencies:
@@ -18,7 +18,7 @@ dependencies:
     import-values: []
 deprecated: false
 description: Advanced tool to create your own TrueCharts-based Charts
-home: https://truecharts.org/charts/stable/custom-app
+home: https://truecharts.org/charts/premium/custom-app
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/custom-app.webp
 keywords:
   - custom
@@ -29,7 +29,7 @@ maintainers:
     url: https://truecharts.org
 name: custom-app
 sources:
-  - https://github.com/truecharts/charts/tree/master/charts/stable/custom-app
+  - https://github.com/truecharts/charts/tree/master/charts/premium/custom-app
   - https://ghcr.io/linuxserver/jackett
 type: application
-version: 12.8.8
+version: 12.8.9
