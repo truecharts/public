@@ -15,7 +15,7 @@ workload:
             SOLR_ENABLE_AUTHENTICATION: "{{ .Values.solrEnableAuthentication }}"
             SOLR_ADMIN_USERNAME: "{{ .Values.solrUsername }}"
             SOLR_OPTS: "{{ .Values.solrOpts }}"
-            SOLR_ADMIN_PASSWORD: "{{ if .Values.password }}"
+            SOLR_ADMIN_PASSWORD: "{{ .Values.password }}"
           # -- Probe configuration
           # -- [[ref]](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
           # @default -- See below
