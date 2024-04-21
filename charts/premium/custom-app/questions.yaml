@@ -4,7 +4,7 @@ portals:
 # Include{portalLink}
 questions:
   - variable: image
-    group: "Container Image"
+    group: "Image"
     label: "Container"
     schema:
       additional_attrs: true
@@ -152,7 +152,7 @@ questions:
                                                       type: string
                                                       default: "/"
   - variable: portal
-    group: "General Settings"
+    group: "General"
     label: "Portal Configuration"
     schema:
       type: dict
