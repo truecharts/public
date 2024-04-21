@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.3.22.2499
+appVersion: 0.3.23.2506
 dependencies:
   - name: common
     version: 20.3.11
@@ -26,7 +26,7 @@ keywords:
   - usenet
   - AudioBooks
   - ebooks
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -39,4 +39,4 @@ sources:
   - https://ghcr.io/onedr0p/exportarr
   - https://ghcr.io/onedr0p/readarr-develop
 type: application
-version: 21.6.10
+version: 21.6.11
