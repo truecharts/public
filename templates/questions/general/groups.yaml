@@ -1,35 +1,90 @@
 groups:
-  - name: Container Image
-    description: Image to be used for container
-  - name: General Settings
-    description: General Deployment Settings
-  - name: Workload Settings
-    description: Workload Settings
+  - name: Image
+    description: |
+      Configured the images to be used for the Chart.
+      It's wise to use "digest pinned" tags and to avoid using "latest".
+      More information can be found here: https://truecharts.org/common/#images
+    
+    
+  - name: General
+    description: |
+      For TrueNAS SCALE We've grouped a number of settings here, that all effact how apps run in general.
+      More info can be found on their respective pages in manual:
+        - Global Settings https://truecharts.org/common/global/
+        - TimeZone https://truecharts.org/common/#tz
+        - Pod Options https://truecharts.org/common/podoptions/
+        - Image Pull Secrets
+    
+    
+  - name: Workload
+    description: |
+      These settings configure how the actual Pods and containers are running.
+      Generally, on SCALE, we only expose a limited subset of these settings for the primary workload and container.
+      
+      More info on workload options can be found here: https://truecharts.org/common/workload/
+      Whereas the container options can be found here: https://truecharts.org/common/container/
+    
+    
   - name: App Configuration
-    description: App Specific Config Options
-  - name: Networking and Services
-    description: Configure Network and Services for Container
-  - name: Storage and Persistence
-    description: Persist and Share Data that is Separate from the Container
+    description: |
+       Every application has different values that may be required to run or have multiple options that the user may choose to enable or disable to change the behavior of the application.
+       Most options should have a Tooltip (Circled Question Mark) to further describe said option.
+       
+       More information can be found by looking up the chart-specifc docs on the website: https://truecharts.org/charts/description-list/
+    
+    
+  - name: Services
+    description: |
+      Service and Networking options for any applications are contained here. 
+      Some applications may have complicated networking setups with multiple options or some may have no options here at all. 
+      
+      Options here include the service and port configurations for the application, and more may be enabled or changed under the Advanced Settings and Show Expert Config boxes.
+      
+    
+  - name: Persistence
+    description: 'Store, Persist and Share Data that is Separate from the Container'
+    
   - name: Ingress
     description: Ingress Configuration
-  - name: Security and Permissions
+    
+    
+  - name: SecurityContext
     description: Configure Security Context and Permissions
-  - name: Resources and Devices
+    
+    
+  - name: Resources
     description: "Specify Resources/Devices to be Allocated to Workload"
+    
+    
   - name: Middlewares
     description: Traefik Middlewares
+    
+    
   - name: Metrics
     description: Metrics
+    
+    
   - name: Addons
     description: Addon Configuration
+    
+    
   - name: Backup Configuration
     description: Configure Velero Backup Schedule
-  - name: Advanced
-    description: Advanced Configuration
+    
+    
+  - name: Experimental
+    description: Experimental Configuration Options
+    
+    
   - name: Postgresql
-    description: Postgresql
+    description: Postgresql by CloudNative-PG
+    
+    
   - name: Dependencies
     description: Dependencies
+    
+    
   - name: Documentation
-    description: Documentation
+    description: |
+      We added this section to make everyone aware that OpenSource isn't always easy.
+      It doesn't keep existing without signficant ongoing support, so please consider supporting TrueCharts and other OpenSource projects.
