@@ -5,7 +5,7 @@ groups:
       It's wise to use "digest pinned" tags and to avoid using "latest"<br>.
       <br>
       Checkout the following documentation for more information:<br>
-      - <a target="_blank" href="https://truecharts.org/common/#images">truecharts.org/common/#images</a><br>
+      - <a target="_blank" href="https://truecharts.org/common/#images">TrueCharts Docs - truecharts.org/common/#images</a><br>
     
     
   - name: General
@@ -13,9 +13,9 @@ groups:
       For TrueNAS SCALE We've grouped a number of settings here, that all effact how apps run in general.<br>
       <br>
       Checkout the following documentation for more information:<br>
-        - Global Settings <a target="_blank" href="https://truecharts.org/common/global/">truecharts.org/common/global/</a><br>
-        - TimeZone <a target="_blank" href="https://truecharts.org/common/#tz">truecharts.org/common/#tz</a><br>
-        - Pod Options <a target="_blank" href="https://truecharts.org/common/podoptions/">truecharts.org/common/podoptions/</a><br>
+        - <a target="_blank" href="https://truecharts.org/common/global/">TrueCharts Docs - Global Settings</a><br>
+        - <a target="_blank" href="https://truecharts.org/common/#tz">TrueCharts Docs - TimeZone</a><br>
+        - <a target="_blank" href="https://truecharts.org/common/podoptions/">TrueCharts Docs - Pod Options</a><br>
         - Image Pull Secrets <br>
     
     
@@ -25,8 +25,8 @@ groups:
       Generally, on SCALE, we only expose a limited subset of these settings for the primary workload and container.<br>
       <br>
       Checkout the following documentation for more information:<br>
-      - <a target="_blank" href="https://truecharts.org/common/workload/">truecharts.org/common/workload/</a><br>
-      - <a target="_blank" href="https://truecharts.org/common/container/">truecharts.org/common/container/</a><br>
+      - <a target="_blank" href="https://truecharts.org/common/workload/">TrueCharts Docs - Workload</a><br>
+      - <a target="_blank" href="https://truecharts.org/common/container/">TrueCharts Docs - Container</a><br>
     
     
   - name: App Configuration
@@ -34,8 +34,7 @@ groups:
        Every application has different values that may be required to run or have multiple options that the user may choose to enable or disable to change the behavior of the application.<br>
        Most options should have a Tooltip (Circled Question Mark) to further describe said option.<br>
        <br>
-       Checkout the following documentation for more information:<br>
-       -  <a target="_blank" href="https://truecharts.org/charts/description-list/">truecharts.org/charts/description-list/</a><br>
+       To find more information, lookup your chart-specific documentation in the <a target="_blank" href="https://truecharts.org/charts/description-list/">TrueCharts Docs - Charts List</a><br>
     
   - name: Services
     description: |
@@ -45,7 +44,7 @@ groups:
       Options here include the service and port configurations for the application, and more may be enabled or changed under the Advanced Settings and Show Expert Config boxes.<br>
       <br>
       Checkout the following documentation for more information:<br>
-      - <a target="_blank" href="https://truecharts.org/common/service/">truecharts.org/common/service/</a><br>
+      - <a target="_blank" href="https://truecharts.org/common/service/">TrueCharts Docs - Services</a><br>
       
   - name: Networking
     description: |
@@ -53,7 +52,7 @@ groups:
       Currently only contains scaleExternalInterfaces.<br>
       <br>
       Checkout the following documentation for more information:<br>
-      - <a target="_blank" href="https://truecharts.org/common/scaleexternalinterface/">truecharts.org/common/scaleexternalinterface/</a><br>
+      - <a target="_blank" href="https://truecharts.org/common/scaleexternalinterface/">TrueCharts Docs - External Interfaces</a><br>
     
   - name: Persistence
     description: |
@@ -61,18 +60,18 @@ groups:
       This storage is called Persistence since it is not deleted upon restart or upgrade of an application.<br>
       <br>
       Checkout the following documentation for more information:<br>
-      - <a target="_blank" href="https://truecharts.org/common/persistence/">truecharts.org/common/persistence/</a><br>
-      - <a target="_blank" href="https://truecharts.org/general/faq/#why-pvc-is-recommended-over-hostpath">truecharts.org/general/faq/</a><br>
+      - <a target="_blank" href="https://truecharts.org/common/persistence/">TrueCharts Docs - Persistence</a><br>
+      - <a target="_blank" href="https://truecharts.org/general/faq/#why-pvc-is-recommended-over-hostpath">TrueCharts Docs - FAQ</a><br>
     
     
   - name: Ingress
     description: |
       Ingress (more commonly known as Reverse Proxy) settings can be configured here. This is how Kubernetes connects your Applications in containers to FQDNs (fully qualified domain names). <br>
-      If you choose to enable this you must have a "Ingress Provider" aka "Reverse Proxy" installed (We highly advice Traefik: <a target="_blank" href="https://truecharts.org/charts/premium/traefik/) <br>
+      If you choose to enable this you must have a "Ingress Provider" aka "Reverse Proxy" installed (We highly advice Traefik: <a target="_blank" href="https://truecharts.org/charts/premium/traefik/)">TrueCharts Docs - Traefik</a> <br>
       It also requiresa DNS service to actually resolve the DNS name of the FQDN specified.<br>
       <br>
       Checkout the following documentation for more information:<br>
-      - <a target="_blank" href="https://truecharts.org/common/ingress/">truecharts.org/common/ingress/</a><br>
+      - <a target="_blank" href="https://truecharts.org/common/ingress/">TrueCharts Docs - Ingress</a><br>
       
     
   - name: SecurityContext
@@ -83,7 +82,7 @@ groups:
       Unless necessary users are advised to keep this section mostly to defaults.<br>
       <br>
       Checkout the following documentation for more information:<br>
-      - <a target="_blank" href="https://truecharts.org/common/securitycontext/">truecharts.org/common/securitycontext/</a><br>
+      - <a target="_blank" href="https://truecharts.org/common/securitycontext/">TrueCharts Docs - SecurityContext</a><br>
     
     
   - name: Resources
@@ -94,7 +93,7 @@ groups:
       This also contains the options to mount GPUs or, more precisely, "request" GPU's to be mounted.<br>
       <br>
       Checkout the following documentation for more information:<br>
-      - <a target="_blank" href="https://truecharts.org/common/resources/">truecharts.org/common/resources/</a><br>
+      - <a target="_blank" href="https://truecharts.org/common/resources/">TrueCharts Docs - Resources</a><br>
     
   - name: Devices
     description: |
@@ -102,7 +101,7 @@ groups:
       For clearity we've decided to seperate this from persistence on SCALE.<br>
       <br>
       Checkout the following documentation for more information:<br>
-      - <a target="_blank" href="https://truecharts.org/common/persistence/device/">truecharts.org/common/persistence/device/</a><br>
+      - <a target="_blank" href="https://truecharts.org/common/persistence/device/">TrueCharts Docs - Devices</a><br>
     
   - name: Middlewares
     description: Traefik Middlewares
@@ -118,7 +117,7 @@ groups:
       Contains options to configure Prometheus metrics for the application.<br>
       <br>
       Checkout the following documentation for more information:<br>
-      - <a target="_blank" href="https://truecharts.org/common/metrics/">truecharts.org/common/metrics/</a><br>
+      - <a target="_blank" href="https://truecharts.org/common/metrics/">TrueCharts Docs - Metrics</a><br>
       
     
   - name: Addons
@@ -129,7 +128,7 @@ groups:
       Generally not required for use but may be necessary or usefull at times for specific applications.<br>
       <br>
       Checkout the following documentation for more information:<br>
-      - <a target="_blank" href="https://truecharts.org/common/addons/">truecharts.org/common/addons/</a><br>
+      - <a target="_blank" href="https://truecharts.org/common/addons/">TrueCharts Docs - Addons</a><br>
     
   - name: Experimental
     description: |
@@ -141,7 +140,7 @@ groups:
       For Postgresql we use "CloudNative-PG" as a backend, which has to be installed first.<br>
       <br>
       Checkout the following documentation for more information:<br>
-      - <a target="_blank" href="https://truecharts.org/common/cnpg/">truecharts.org/common/cnpg/</a><br>
+      - <a target="_blank" href="https://truecharts.org/common/cnpg/">TrueCharts Docs - CNPG</a><br>
     
     
   - name: Dependencies
