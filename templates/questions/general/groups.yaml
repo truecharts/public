@@ -61,6 +61,7 @@ groups:
       <br>
       Checkout the following documentation for more information:<br>
       - <a target="_blank" href="https://truecharts.org/common/persistence/">TrueCharts Docs - Persistence</a><br>
+      - <a target="_blank" href="https://truecharts.org/scale/guides/nfs-share/">TrueCharts Docs - Apps NFS Share Guide</a><br>
       - <a target="_blank" href="https://truecharts.org/general/faq/#why-pvc-is-recommended-over-hostpath">TrueCharts Docs - FAQ</a><br>
     
     
@@ -102,6 +103,7 @@ groups:
       <br>
       Checkout the following documentation for more information:<br>
       - <a target="_blank" href="https://truecharts.org/common/persistence/device/">TrueCharts Docs - Devices</a><br>
+      - <a target="_blank" href="https://truecharts.org/scale/guides/pci-passthrough/">TrueCharts Docs - PCI Passthrough Guide</a><br>
     
   - name: Middlewares
     description: Traefik Middlewares
@@ -129,6 +131,8 @@ groups:
       <br>
       Checkout the following documentation for more information:<br>
       - <a target="_blank" href="https://truecharts.org/common/addons/">TrueCharts Docs - Addons</a><br>
+      - <a target="_blank" href="https://truecharts.org/scale/guides/vpn-setup/">TrueCharts Docs - VPN Setup Guide</a><br>
+      
     
   - name: Experimental
     description: |
@@ -141,8 +145,9 @@ groups:
       <br>
       Checkout the following documentation for more information:<br>
       - <a target="_blank" href="https://truecharts.org/common/cnpg/">TrueCharts Docs - CNPG</a><br>
-    
-    
+      - <a target="_blank" href="https://truecharts.org/scale/guides/sql-export/">TrueCharts Docs - Postgresql Database Export Guide</a><br>
+      - <a target="_blank" href="https://truecharts.org/scale/guides/recover-cnpg/">TrueCharts Docs - Recovering CNPG after reboot</a><br>
+      
   - name: Dependencies
     description: |
       contains dependency setting for which we, currently, do not have seperate catagories (yet)<br>
@@ -152,3 +157,7 @@ groups:
     description: |
       We added this section to make everyone aware that OpenSource isn't always easy.<br>
       It doesn't keep existing without signficant ongoing support, so please consider supporting TrueCharts and other OpenSource projects.<br>
+      <br>
+      Before installing, be sure you've followed the <a target="_blank" href="https://truecharts.org/scale/guides/getting-started/">Getting-Started Guide</a><br>
+      We would also advice going over our <a target="_blank" href="https://truecharts.org/scale/guides/scale-intro/">Introduction to TrueNAS SCALE</a><br>
+      and many of the other documentation pages... 
