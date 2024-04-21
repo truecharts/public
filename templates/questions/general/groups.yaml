@@ -72,35 +72,55 @@ groups:
     
     
   - name: Resources
-    description: "Specify Resources/Devices to be Allocated to Workload"
+    description: |
+      Resources limits that have been defined by each application are in this section. 
+      Most will have a specific default that some users may want to change based on their specific hardware or needs.
+      
+      This also contains the options to mount GPUs or, more precisely, "request" GPU's to be mounted.
+      
+      For more information checkout: https://truecharts.org/common/resources/
     
+  - name: Devices
+    description: |
+      These are special "mountpoints" that can be used to mount miscelanious USB and PCI devices using special hostPath mounts.
+      For clearity we've decided to seperate this from persistence on SCALE.
+      
+      For more inforation see: https://truecharts.org/common/persistence/device/
     
   - name: Middlewares
     description: Traefik Middlewares
     
     
   - name: Metrics
-    description: Metrics
-    
+    description: |
+      Contains options to configure Prometheus metrics for the application.
+      Checkout https://truecharts.org/common/metrics/ for more info
+      
     
   - name: Addons
-    description: Addon Configuration
-    
-    
-  - name: Backup Configuration
-    description: Configure Velero Backup Schedule
-    
+    description: |
+      Addons that are supplied by the TrueCharts team to add additional capabilities for users to use on top of the application’s defaults. 
+      Things included here are VPN addons, Codeserver for editing files inside the application’s container, Netshoot for network troubelshooting, etc. 
+      
+      Generally not required for use but may be necessary or usefull at times for specific applications.
+      
+      For more information see: https://truecharts.org/common/addons/
     
   - name: Experimental
-    description: Experimental Configuration Options
-    
+    description: |
+      Experimental Configuration Options
+      Often these are not fully flushed-out, could randomly break or might not work at-all.
     
   - name: Postgresql
-    description: Postgresql by CloudNative-PG
+    description: |
+      For Postgresql we use "CloudNative-PG" as a backend, which has to be installed first.
+      
+      For more information see: https://truecharts.org/common/cnpg/
     
     
   - name: Dependencies
-    description: Dependencies
+    description: |
+      contains dependency setting for which we, currently, do not have seperate catagories (yet)
     
     
   - name: Documentation
