@@ -29,7 +29,7 @@ home: https://truecharts.org/charts/premium/prometheus
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/prometheus.webp
 keywords:
   - metrics
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -39,8 +39,8 @@ sources:
   - https://github.com/prometheus-community/helm-charts
   - https://github.com/prometheus-operator/kube-prometheus
   - https://github.com/truecharts/charts/tree/master/charts/premium/prometheus
-  - https://hub.docker.com/r/bitnami/prometheus
   - https://quay.io/thanos/thanos
   - https://hub.docker.com/r/bitnami/alertmanager
+  - https://hub.docker.com/r/bitnami/prometheus
 type: application
-version: 17.13.14
+version: 17.13.15
