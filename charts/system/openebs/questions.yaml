@@ -100,6 +100,7 @@ questions:
                   attrs:
                     - variable: poolname
                       label: "Pool/Dataset"
+                      description: "Please use a correct Poolname/datasetname. Do NOT use /mnt/ thats a path not a pool/dataset name, use something like tank/apps"
                       schema:
                         type: string
                         default: ""
