@@ -8,7 +8,7 @@ and our app is a simple way to install it on your TrueNAS SCALE server.
 ## Requirements
 
 - Jellyfin TrueCharts Chart
-- Installation of the TrueCharts Catalog, starting [here](/scale/guides/getting-started/#adding-truecharts)
+- Installation of the TrueCharts Catalog, starting [here](/scale/#adding-truecharts)
 
 ## Media Storage
 

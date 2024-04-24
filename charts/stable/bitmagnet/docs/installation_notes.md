@@ -2,7 +2,7 @@
 title: Scale App Installation
 ---
 
-To effortlessly kickstart your journey with bitmagnet, integrate the [TrueCharts catalog](/scale/guides/getting-started/#adding-truecharts) and proceed with app installation on TrueNAS Scale.
+To effortlessly kickstart your journey with bitmagnet, integrate the [TrueCharts catalog](/scale/#adding-truecharts) and proceed with app installation on TrueNAS Scale.
 
 Optionally, you can configure the `TMDB API Key` by following the guidelines outlined [here](https://bitmagnet.io/setup/configuration.html#obtaining-a-tmdb-api-key).
 
