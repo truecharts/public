@@ -104,6 +104,7 @@ questions:
                       schema:
                         type: string
                         default: ""
+                        valid_chars: '^(?!.*\\)(?!.*ix-applications)[^\/]+(\/[^\/]+)+$'
                         required: true
                     - variable: fstype
                       label: "fstype"

@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2024.2.3
+appVersion: 2024.4.0
 dependencies:
   - name: common
     version: 20.3.11
@@ -29,7 +29,7 @@ home: https://truecharts.org/charts/stable/authentik
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/authentik.webp
 keywords:
   - authentik
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -40,9 +40,9 @@ sources:
   - https://github.com/goauthentik/authentik
   - https://github.com/truecharts/charts/tree/master/charts/stable/authentik
   - https://ghcr.io/goauthentik/proxy
-  - https://ghcr.io/goauthentik/server
-  - https://ghcr.io/goauthentik/ldap
   - https://ghcr.io/maxmind/geoipupdate
   - https://ghcr.io/goauthentik/radius
+  - https://ghcr.io/goauthentik/server
+  - https://ghcr.io/goauthentik/ldap
 type: application
-version: 25.0.14
+version: 25.4.0
