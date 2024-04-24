@@ -16,7 +16,7 @@ workload:
             REDIS_REPLICATION_MODE: master
             ALLOW_EMPTY_PASSWORD: "yes"
             REDIS_PORT: "{{ .Values.service.main.ports.main.targetPort }}"
-            REDIS_PASSWORD: "{{ .Values.password }}"
+            REDIS_PASSWORD: "{{ .Values.redisPassword }}"
           probes:
             liveness:
               enabled: true
@@ -120,7 +120,7 @@ configmap:
         exit $exit_status
 
 ## DEVNOTE: This password needs to match the one set in Common if ever changing defaults
-password: "PLACEHOLDERPASSWORD"
+redisPassword: "PLACEHOLDERPASSWORD"
 service:
   main:
     ports:
