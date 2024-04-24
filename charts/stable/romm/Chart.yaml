@@ -17,7 +17,7 @@ dependencies:
     tags: []
     import-values: []
   - name: mariadb
-    version: 13.9.18
+    version: 13.9.19
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -48,4 +48,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/romm
   - https://ghcr.io/zurdi15/romm
 type: application
-version: 8.8.22
+version: 8.8.23
