@@ -10,7 +10,9 @@ title: Installation Notes
    found on our [getting started guide](/scale/guides/getting-started/#traefik-installation-for-ingress--reverse-proxy-support-with-truecharts-apps).
 
 :::caution[SNAPSHOT DIRECTORY VISIBILITY]
+
 Nextcloud installation will fail if the application or user data datasets have Snapshot Directory set to Visible (invisible by default). Return this setting to default prior to installation.
+
 :::
 
 ## User Data Permissions
