@@ -12,7 +12,7 @@ Basic setup guide for enabling Organizr authentication on your apps using Traefi
 ## Prerequisites
 
 This guide assumes you're using Traefik as your Reverse Proxy / Ingress provider and have through the configuration listed in our
-[Quick-Start guides](/scale/guides/getting-started/) and/or the [Traefik documents](/charts/premium/traefik/how-to).
+[Quick-Start guides](/scale/) and/or the [Traefik documents](/charts/premium/traefik/how-to).
 Please ensure that you can access your domain properly with Ingress before attempting any further steps.
 
 ## Organizr App Setup
