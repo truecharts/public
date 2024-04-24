@@ -14,7 +14,7 @@ service:
       main:
         port: 10310
         protocol: http
-        targetPort: 80
+        targetPort: 8080
 dashy:
   # Enable config file mount from host path
   enabled: false
