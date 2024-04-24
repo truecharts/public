@@ -16,10 +16,10 @@ items:
 {{- define "dashy.confighostpath" -}}
 enabled: true
 type: hostPath
-readOnly: {{ .Values.dashy.configFileHostReadOnly }}
-hostPathType: File
-hostPath: {{ .Values.dashy.configFileHostPath }}
-mountPath: /app/public/conf.yml
+readOnly: {{ .Values.dashy.configDirectoryHostReadOnly }}
+hostPathType: Directory
+hostPath: {{ .Values.dashy.configDirectoryHostPath }}
+mountPath: /app/public/
 {{- end -}}
 
 {{- if .Values.dashyConfig -}}
