@@ -16,11 +16,11 @@ service:
         protocol: http
         targetPort: 8080
 dashy:
-  # Enable config file mount from host path
+  # Enable config directory mount from host path
   enabled: false
-  configFileHostPath: ""
-  configFileHostReadOnly: true
-# Leave empty if you plan to use config file from host path
+  configDirectoryHostPath: ""
+  configDirectoryHostReadOnly: true
+# Leave empty if you plan to use config directory from host path
 dashyConfig: {}
 # pageInfo:
 #   title: Home Lab
