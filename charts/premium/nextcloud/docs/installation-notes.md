@@ -29,7 +29,7 @@ The following configurations must be set during initial setup in order for Nextc
 
 1. An initial admin username needs to be set
 
-2. An initial admin password needs to be set. 
+2. An initial admin password needs to be set.
 
 3. Default phone region needs to be set (if you are unsure about your region, you can find your code for your region in this [wiki](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements))
 
