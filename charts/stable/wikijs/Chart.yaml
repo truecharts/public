@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.5.301
+appVersion: 2.5.302
 dependencies:
   - name: common
     version: 20.3.11
@@ -23,7 +23,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/wikijs.webp
 keywords:
   - wiki
   - wikijs
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/wikijs
   - https://hub.docker.com/r/requarks/wiki
 type: application
-version: 15.8.13
+version: 15.8.14
