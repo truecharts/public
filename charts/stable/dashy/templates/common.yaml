@@ -19,7 +19,7 @@ type: hostPath
 readOnly: {{ .Values.dashy.configDirectoryHostReadOnly }}
 hostPathType: Directory
 hostPath: {{ .Values.dashy.configDirectoryHostPath }}
-mountPath: /app/public/
+mountPath: /app/user-data/
 {{- end -}}
 
 {{- if .Values.dashyConfig -}}
