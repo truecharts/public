@@ -63,7 +63,6 @@ questions:
                 schema:
                   type: boolean
                   default: true
-                  hidden: true
               - variable: provisioner
                 label: "provisioner"
                 schema:
@@ -138,6 +137,12 @@ questions:
                         default: "64k"
                         hidden: true
                     - variable: dedup
+                      label: "dedup"
+                      schema:
+                        type: string
+                        default: "off"
+                        hidden: true
+                    - variable: encryption
                       label: "dedup"
                       schema:
                         type: string
