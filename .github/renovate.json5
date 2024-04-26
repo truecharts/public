@@ -68,6 +68,17 @@
     //
     // helm deps
     //
+	//
+	// Ensure System Apps aren't automerged after many upstream fuckups
+	//
+    {
+      "matchDatasources": ["helm"],
+      "automerge": false,
+      "labels": ["update/helm/system"],
+      "groupName": ["helm system"],
+      "matchPaths": ["charts/system/**"],
+      "autoApprove": false,
+    },
     {
       "matchDatasources": ["helm"],
       "updateTypes": ["major"],
