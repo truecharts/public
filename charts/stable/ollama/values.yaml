@@ -115,9 +115,11 @@ workload:
             AUTOMATIC1111_BASE_URL: "{{ .Values.ollama.stable_diffusion.base_url }}"
             ENABLE_SIGNUP: "{{ .Values.ollama.registration.enabled }}"
             DEFAULT_USER_ROLE: "{{ .Values.ollama.registration.def_user_role }}"
+            WEBUI_AUTH_TRUSTED_EMAIL_HEADER: "{{ .Values.ollama.registration.trusted_email_header }}"
             WHISPER_MODEL: "{{ .Values.ollama.whisper.model }}"
             RAG_EMBEDDING_MODEL: "{{ .Values.ollama.rag.model }}"
             RAG_EMBEDDING_MODEL_DEVICE_TYPE: "{{ .Values.ollama.rag.model_device_type }}"
+
             # OPENAI_API_BASE_URL
             # OPENAI_API_KEY
             # DEFAULT_MODELS
