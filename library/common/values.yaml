@@ -1146,7 +1146,7 @@ cnpg:
       #     - CREATE EXTENSION IF NOT EXISTS someextension;
     # -- set to enable prometheus metrics
     monitoring:
-      enablePodMonitor: true
+      enablePodMonitor: false
       disableDefaultQueries: false
       customQueries: []
       #   - name: "pg_cache_hit_ratio"
