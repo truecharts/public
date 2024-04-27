@@ -14,12 +14,6 @@ objectData: The object data to be used to render the RBAC.
   {{- end -}}
 
   {{- range $objectData.rules -}}
-    {{- if not .apiGroups -}}
-      {{- fail "RBAC - Expected non-empty [rbac.rules.apiGroups]" -}}
-    {{- end -}}
-    {{- if not .resources -}}
-      {{- fail "RBAC - Expected non-empty [rbac.rules.resources]" -}}
-    {{- end -}}
     {{- if not .verbs -}}
       {{- fail "RBAC - Expected non-empty [rbac.rules.verbs]" -}}
     {{- end -}}
