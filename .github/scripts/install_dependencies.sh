@@ -10,6 +10,16 @@ fi
 
 echo "Chart name: $curr_chart"
 
+if [[ "$curr_chart" != "charts/premium/volsync" ]]; then
+   echo "Installing volumesnapshots chart"
+   helm install volumesnapshots oci://tccr.io/truecharts/volumesnapshots --namespace volumesnapshots --create-namespace --wait 
+   if [[ "$?" != "0" ]]; then
+       echo "Failed to install volumesnapshots chart"
+       exit 1
+   fi
+   echo "Done installing volumesnapshots chart"
+fi
+
 if [[ "$curr_chart" == "charts/premium/metallb-config" ]]; then
     echo "Installing metallb chart"
     helm install metallb oci://tccr.io/truecharts/metallb --namespace metallb --create-namespace --wait
