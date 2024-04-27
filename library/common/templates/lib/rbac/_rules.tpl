@@ -14,6 +14,12 @@ objectData: The object data to be used to render the RBAC.
   {{- end -}}
 
   {{- range $objectData.rules -}}
+    {{- if not .apiGroups -}}
+      {{- fail "RBAC - Expected non-empty [rbac.rules.apiGroups]" -}}
+    {{- end -}}
+    {{- if not .resources -}}
+      {{- fail "RBAC - Expected non-empty [rbac.rules.resources]" -}}
+    {{- end -}}
     {{- if not .verbs -}}
       {{- fail "RBAC - Expected non-empty [rbac.rules.verbs]" -}}
     {{- end -}}
@@ -37,6 +43,16 @@ objectData: The object data to be used to render the RBAC.
     {{- range .resourceNames -}}
       {{- if not . -}}
         {{- fail "RBAC - Expected non-empty entry in [rbac.rules.resourceNames]" -}}
+      {{- end }}
+  - {{ tpl . $rootCtx | quote }}
+    {{- end -}}
+  {{- end -}}
+  {{- /* nonResourceURLs */}}
+  {{- if .nonResourceURLs }}
+  nonResourceURLs:
+    {{- range .nonResourceURLs }}
+      {{- if not . -}}
+        {{- fail "RBAC - Expected non-empty entry in [rbac.rules.nonResourceURLs]" -}}
       {{- end }}
   - {{ tpl . $rootCtx | quote }}
     {{- end -}}

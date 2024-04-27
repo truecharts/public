@@ -30,7 +30,7 @@ jobs:
     - name: Install Helm
       uses: azure/setup-helm@fe7b79cd5ee1e45176fcad797de68ecaf3ca4814 # v4
       with:
-        version: v3.14.1
+        version: v3.14.4
 
     # Optional step if GPG signing is used
     - name: Prepare GPG key

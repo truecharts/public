@@ -13,6 +13,7 @@ tests:
       some_kind: some-kind
       some_name: some-name
       some_api_group: rbac.authorization.k8s.io
+      some_non_resource_url: /health
       serviceAccount:
         my-sa:
           enabled: true
@@ -39,6 +40,8 @@ tests:
                 - "{{ .Values.some_name }}"
               verbs:
                 - "{{ .Values.some_verb }}"
+              nonResourceURLs:
+                - "{{ .Values.some_non_resource_url }}"
           subjects:
             - kind: a-kind
               name: a-name
@@ -46,7 +49,6 @@ tests:
             - kind: "{{ .Values.some_kind }}"
               name: "{{ .Values.some_name }}"
               apiGroup: "{{ .Values.some_api_group }}"
-
     asserts:
       - documentIndex: &roleDoc 2
         isKind:
@@ -73,6 +75,8 @@ tests:
                 - some-name
               verbs:
                 - list
+              nonResourceURLs:
+                - /health
       - documentIndex: &roleBinding 3
         isKind:
           of: RoleBinding

@@ -24,7 +24,7 @@ jobs:
         helm-version:
           - v3.11.3
           - v3.12.3
-          - v3.14.1
+          - v3.14.4
     steps:
       - name: Checkout
         uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
@@ -62,7 +62,7 @@ jobs:
       fail-fast: false
       matrix:
         helm-version:
-          - v3.14.1
+          - v3.14.4
     steps:
       - name: Checkout
         uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
@@ -112,7 +112,7 @@ jobs:
         helm-version:
           - v3.11.3
           - v3.12.3
-          - v3.14.1
+          - v3.14.4
         values:
           - basic-values.yaml
           - configmap-values.yaml
@@ -202,8 +202,6 @@ jobs:
           tar -xvzf kail_${KAIL_VERSION}_linux_amd64.tar.gz
           chmod +x kail
 
-
-
       - name: Add Dependencies
         run: |
           if [[ "${{ matrix.values }}" =~ (ingress|metrics|cnpg).*-values.yaml ]]; then
@@ -257,7 +255,7 @@ jobs:
 #        # We run tests on Helm version of latest SCALE release
 #        helm-version:
 #          - v3.12.3
-#          - v3.14.0
+#          - v3.14.4
 #        values:
 #          - basic-values.yaml
 #          - configmap-values.yaml
@@ -321,7 +319,7 @@ jobs:
 #        # We run tests on Helm version of latest SCALE release
 #        helm-version:
 #          - v3.12.3
-#          - v3.14.0
+#          - v3.14.4
 #        values:
 #          - ingress-values.yaml
 #          - metrics-values.yaml
@@ -377,7 +375,7 @@ jobs:
 #        # We run tests on Helm version of latest SCALE release
 #        helm-version:
 #          - v3.12.3
-#          - v3.14.0
+#          - v3.14.4
 #        values:
 #          - vpn-gluetun-values.yaml
 #          - vpn-tailscale-values.yaml

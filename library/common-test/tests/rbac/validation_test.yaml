@@ -141,6 +141,36 @@ tests:
       - failedTemplate:
           errorMessage: RBAC - Expected non-empty [rbac.rules.verbs]
 
+  - it: should fail without apiGroups in rules in rbac
+    set:
+      rbac:
+        my-rbac:
+          enabled: true
+          primary: true
+          rules:
+            - resources:
+                - pods
+            - verbs:
+                - get
+    asserts:
+      - failedTemplate:
+          errorMessage: RBAC - Expected non-empty [rbac.rules.apiGroups]
+
+  - it: should fail without apiGroups in rules in rbac
+    set:
+      rbac:
+        my-rbac:
+          enabled: true
+          primary: true
+          rules:
+            - resources:
+                - "pods"
+            - verbs:
+                - get
+    asserts:
+      - failedTemplate:
+          errorMessage: RBAC - Expected non-empty [rbac.rules.apiGroups]
+
   - it: should fail with empty entry in resources in rules in rbac
     set:
       rbac:
@@ -158,6 +188,25 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: RBAC - Expected non-empty entry in [rbac.rules.resources]
+
+  - it: should fail with empty entry in nonResourceURLs in rules in rbac
+    set:
+      rbac:
+        my-rbac:
+          enabled: true
+          primary: true
+          rules:
+            - apiGroups:
+                - ""
+              resources:
+                - pods
+              verbs:
+                - get
+              nonResourceURLs:
+                - ""
+    asserts:
+      - failedTemplate:
+          errorMessage: RBAC - Expected non-empty entry in [rbac.rules.nonResourceURLs]
 
   - it: should fail with empty entry in verbs in rules in rbac
     set:
