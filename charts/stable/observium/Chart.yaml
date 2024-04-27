@@ -10,14 +10,14 @@ apiVersion: v2
 appVersion: 20240305.0.0
 dependencies:
   - name: common
-    version: 20.3.11
+    version: 20.3.12
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mariadb
-    version: 13.9.12
+    version: 13.9.20
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -30,7 +30,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/observium.webp
 keywords:
   - observium
   - Network-Management
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -42,4 +42,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/observium
   - https://hub.docker.com/r/pvrmza/docker-observium
 type: application
-version: 7.8.15
+version: 7.8.24

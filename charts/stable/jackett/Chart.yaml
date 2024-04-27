@@ -7,10 +7,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.21.2415
+appVersion: 0.21.2485
 dependencies:
   - name: common
-    version: 20.3.11
+    version: 20.3.12
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -36,4 +36,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/jackett
   - https://ghcr.io/geek-cookbook/jackett
 type: application
-version: 20.1.19
+version: 20.1.27

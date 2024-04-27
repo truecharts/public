@@ -63,7 +63,6 @@ questions:
                 schema:
                   type: boolean
                   default: true
-                  hidden: true
               - variable: provisioner
                 label: "provisioner"
                 schema:
@@ -100,9 +99,11 @@ questions:
                   attrs:
                     - variable: poolname
                       label: "Pool/Dataset"
+                      description: "Please use a correct Poolname/datasetname. Do NOT use /mnt/ thats a path not a pool/dataset name, use something like tank/apps"
                       schema:
                         type: string
                         default: ""
+                        valid_chars: '^(?!.*\\)(?!.*ix-applications)[^\/]+(\/[^\/]+)+$'
                         required: true
                     - variable: fstype
                       label: "fstype"
@@ -141,3 +142,10 @@ questions:
                         type: string
                         default: "off"
                         hidden: true
+                    ## TODO: Add later
+                    #- variable: encryption
+                    #  label: "dedup"
+                    #  schema:
+                    #    type: string
+                    #    default: "off"
+                    #    hidden: true

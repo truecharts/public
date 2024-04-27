@@ -37,8 +37,8 @@ questions:
                 schema:
                   type: string
                   default: "0 */6 * * *"
-# Include{serviceExpertRoot}
-# Include{serviceExpert}
+# Include{externalInterfaces}
+
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: config

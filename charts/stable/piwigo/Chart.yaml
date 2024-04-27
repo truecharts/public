@@ -10,14 +10,14 @@ apiVersion: v2
 appVersion: 14.4.0
 dependencies:
   - name: common
-    version: 20.3.11
+    version: 20.3.12
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mariadb
-    version: 13.9.12
+    version: 13.9.20
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -32,7 +32,7 @@ keywords:
   - gallery
   - photo
   - image
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -43,4 +43,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/piwigo
   - https://ghcr.io/linuxserver/piwigo
 type: application
-version: 12.17.6
+version: 12.17.15

@@ -7,10 +7,10 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2024.2.3
+appVersion: 2024.4.1
 dependencies:
   - name: common
-    version: 20.3.11
+    version: 20.3.12
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -39,10 +39,10 @@ sources:
   - https://goauthentik.io/docs/
   - https://github.com/goauthentik/authentik
   - https://github.com/truecharts/charts/tree/master/charts/stable/authentik
-  - https://ghcr.io/goauthentik/proxy
-  - https://ghcr.io/maxmind/geoipupdate
-  - https://ghcr.io/goauthentik/ldap
   - https://ghcr.io/goauthentik/server
+  - https://ghcr.io/goauthentik/proxy
   - https://ghcr.io/goauthentik/radius
+  - https://ghcr.io/goauthentik/ldap
+  - https://ghcr.io/maxmind/geoipupdate
 type: application
-version: 25.0.10
+version: 25.4.5

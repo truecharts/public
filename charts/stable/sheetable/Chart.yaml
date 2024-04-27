@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 0.8.0
 dependencies:
   - name: common
-    version: 20.3.11
+    version: 20.3.12
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -22,7 +22,7 @@ home: https://truecharts.org/charts/stable/sheetable
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/sheetable.webp
 keywords:
   - sheetable
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/sheetable
   - https://hub.docker.com/r/vallezw/sheetable
 type: application
-version: 6.8.9
+version: 6.8.14

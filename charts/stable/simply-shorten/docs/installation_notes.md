@@ -7,8 +7,6 @@ title: Installation Notes
 
 - Enable ingress, without doing so `http://IP:PORT` will be used as the short url generator which obviously will be an issue.
 
-- Please follow this [guide](/scale/options/ingress) on adding ingress to a chart.
-
 ## Disable authentication
 
 - Due to **NOT** being a recommended option you will have to manually add this env yourself.

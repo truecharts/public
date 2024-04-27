@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 1.0.1
 dependencies:
   - name: common
-    version: 20.3.11
+    version: 20.3.12
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -22,7 +22,7 @@ home: https://truecharts.org/charts/stable/pwndrop
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pwndrop.webp
 keywords:
   - pwndrop
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -32,4 +32,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/pwndrop
   - https://ghcr.io/linuxserver/pwndrop
 type: application
-version: 9.8.11
+version: 9.8.17

@@ -10,14 +10,14 @@ apiVersion: v2
 appVersion: 1.15.4
 dependencies:
   - name: common
-    version: 20.3.11
+    version: 20.3.12
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: mariadb
-    version: 13.9.12
+    version: 13.9.20
     repository: oci://tccr.io/truecharts
     condition: mariadb.enabled
     alias: ""
@@ -37,7 +37,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/humhub.webp
 keywords:
   - humhub
   - Network-Web
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -48,4 +48,4 @@ sources:
   - https://ghcr.io/mriedmann/humhub-nginx
   - https://ghcr.io/mriedmann/humhub-phponly
 type: application
-version: 7.19.16
+version: 7.19.25

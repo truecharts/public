@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 1.20.2
 dependencies:
   - name: common
-    version: 20.3.11
+    version: 20.3.12
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -23,7 +23,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/mc-router.webp
 keywords:
   - mc-router
   - minecraft
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/mc-router
   - https://hub.docker.com/r/itzg/mc-router
 type: application
-version: 4.8.10
+version: 4.8.15

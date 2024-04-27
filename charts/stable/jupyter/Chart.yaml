@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 2023.10.20
 dependencies:
   - name: common
-    version: 20.3.11
+    version: 20.3.12
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -24,7 +24,7 @@ keywords:
   - Jupyter
   - Notebook
   - Lab
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -33,13 +33,13 @@ name: jupyter
 sources:
   - https://github.com/jupyter/docker-stacks
   - https://github.com/truecharts/charts/tree/master/charts/stable/jupyter
-  - https://hub.docker.com/r/jupyter/scipy-notebook
+  - https://hub.docker.com/r/jupyter/minimal-notebook
   - https://hub.docker.com/r/jupyter/base-notebook
   - https://hub.docker.com/r/jupyter/datascience-notebook
-  - https://hub.docker.com/r/jupyter/pyspark-notebook
   - https://hub.docker.com/r/jupyter/tensorflow-notebook
+  - https://hub.docker.com/r/jupyter/pyspark-notebook
   - https://hub.docker.com/r/jupyter/r-notebook
-  - https://hub.docker.com/r/jupyter/minimal-notebook
   - https://hub.docker.com/r/jupyter/all-spark-notebook
+  - https://hub.docker.com/r/jupyter/scipy-notebook
 type: application
-version: 8.8.9
+version: 8.8.14

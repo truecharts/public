@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 154c581
 dependencies:
   - name: common
-    version: 20.3.11
+    version: 20.3.12
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -26,7 +26,7 @@ keywords:
   - bookmarks
   - smart-bookmarks
   - golinks
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -38,4 +38,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/golinks
   - https://ghcr.io/nicholaswilde/golinks
 type: application
-version: 11.8.9
+version: 11.8.14

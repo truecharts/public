@@ -19,22 +19,22 @@ questions:
       type: dict
       attrs:
         - variable: enabled
-          label: Enable Config File Mount
-          description: Mounts a config file from the given host path
+          label: Enable Config Folder Mount
+          description: Mounts a config folder from the given host path
           schema:
             type: boolean
             default: false
             show_subquestions_if: true
             subquestions:
-              - variable: configFileHostPath
-                label: Config File Host Path
-                description: Absolute host path of the config file
+              - variable: configDirectoryHostPath
+                label: Config Directory Host Path
+                description: Absolute host path of the config directory
                 schema:
                   type: string
                   default: ""
-              - variable: configFileHostReadOnly
-                label: Config File Read Only
-                description: Mount config file as read Only
+              - variable: configDirectoryHostReadOnly
+                label: Config Directory Read Only
+                description: Mount config directory as read Only
                 schema:
                   type: boolean
                   default: true
@@ -63,8 +63,8 @@ questions:
                               type: int
                               default: 10310
                               required: true
-# Include{serviceExpertRoot}
-# Include{serviceExpert}
+# Include{externalInterfaces}
+
 # Include{serviceList}
 # Include{persistenceRoot}
         - variable: icons

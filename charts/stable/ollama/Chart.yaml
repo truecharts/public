@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 0.1.32
 dependencies:
   - name: common
-    version: 20.3.11
+    version: 20.3.12
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -23,7 +23,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/ollama.webp
 keywords:
   - ollama
   - language-models
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -36,4 +36,4 @@ sources:
   - https://hub.docker.com/r/ollama/ollama
   - https://ghcr.io/open-webui/open-webui
 type: application
-version: 5.4.16
+version: 5.4.26

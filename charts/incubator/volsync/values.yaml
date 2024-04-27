@@ -1,0 +1,457 @@
+image:
+  repository: quay.io/backube/volsync
+  pullPolicy: IfNotPresent
+  tag: 0.9.1
+proxyImage:
+  repository: quay.io/brancz/kube-rbac-proxy
+  pullPolicy: IfNotPresent
+  tag: v0.14.0
+
+manageCRDs: true
+manageVSCCRD: true
+
+workload:
+  main:
+    replicas: 1
+    strategy: RollingUpdate
+    podSpec:
+      containers:
+        main:
+          args:
+            - --health-probe-bind-address=:8081
+            - --metrics-bind-address=127.0.0.1:8080
+            - --leader-elect
+            - --rclone-container-image={{ printf "%s:%s" .Values.image.repository .Values.image.tag }}
+            - --restic-container-image={{ printf "%s:%s" .Values.image.repository .Values.image.tag }}
+            - --rsync-container-image={{ printf "%s:%s" .Values.image.repository .Values.image.tag }}
+            - --rsync-tls-container-image={{ printf "%s:%s" .Values.image.repository .Values.image.tag }}
+            - --syncthing-container-image={{ printf "%s:%s" .Values.image.repository .Values.image.tag }}
+            - --scc-name=volsync-privileged-mover
+          command:
+            - /manager
+          probes:
+            liveness:
+              path: "/healthz"
+            readiness:
+              path: "/readyz"
+            startup:
+              path: "/readyz"
+        kube-rbac-proxy:
+          enabled: true
+          imageSelector: proxyImage
+          args:
+            - --secure-listen-address=0.0.0.0:8443
+            - --upstream=http://127.0.0.1:8080/
+            - --logtostderr=true
+            - "--tls-min-version=VersionTLS12"
+            - --v=0
+          resources:
+            limits:
+              cpu: 500m
+              memory: 128Mi
+            requests:
+              cpu: 5m
+              memory: 64Mi
+          probes:
+            liveness:
+              type: tcp
+              port: 8443
+            readiness:
+              type: tcp
+              port: 8443
+            startup:
+              type: tcp
+              port: 8443
+              
+# -- Options for all pods
+# Can be overruled per pod
+podOptions:
+  automountServiceAccountToken: true
+
+metrics:
+  main:
+    enabled: true
+    type: servicemonitor
+    endpoints:
+      - port: metrics
+        path: /metrics
+    targetSelector: metrics
+
+# -- Options for the main traefik service, where the entrypoints traffic comes from
+# from.
+service:
+  main:
+    ports:
+      main:
+        port: 8081
+        targetPort: 8081
+        protocol: http
+  metrics:
+    enabled: true
+    type: ClusterIP
+    ports:
+      metrics:
+        enabled: true
+        port: 8443
+        targetPort: 8443
+        protocol: https
+
+      
+# -- The service account the pods will use to interact with the Kubernetes API
+serviceAccount:
+  main:
+    enabled: true
+    primary: true
+    
+portal:
+  open:
+    enabled: false
+
+# -- Whether Role Based Access Control objects like roles and rolebindings should be created
+rbac:
+  main:
+    enabled: true
+    primary: true
+    clusterWide: false
+    rules:
+      - apiGroups:
+        - ""
+        resources:
+        - configmaps
+        verbs:
+        - get
+        - list
+        - watch
+        - create
+        - update
+        - patch
+        - delete
+      - apiGroups:
+        - coordination.k8s.io
+        resources:
+        - leases
+        verbs:
+        - get
+        - list
+        - watch
+        - create
+        - update
+        - patch
+        - delete
+      - apiGroups:
+        - ""
+        resources:
+        - events
+        verbs:
+        - create
+        - patch
+
+  cluster:
+    enabled: true
+    primary: false
+    clusterWide: true
+    allServiceAccounts: true
+    rules:
+      - apiGroups:
+        - authentication.k8s.io
+        resources:
+        - tokenreviews
+        verbs:
+        - create
+      - apiGroups:
+        - authorization.k8s.io
+        resources:
+        - subjectaccessreviews
+        verbs:
+        - create
+      - apiGroups:
+        - apps
+        resources:
+        - deployments
+        verbs:
+        - create
+        - delete
+        - deletecollection
+        - get
+        - list
+        - patch
+        - update
+        - watch
+      - apiGroups:
+        - batch
+        resources:
+        - jobs
+        verbs:
+        - create
+        - delete
+        - deletecollection
+        - get
+        - list
+        - patch
+        - update
+        - watch
+      - apiGroups:
+        - ""
+        resources:
+        - configmaps
+        verbs:
+        - get
+        - list
+        - watch
+      - apiGroups:
+        - ""
+        resources:
+        - events
+        verbs:
+        - create
+        - patch
+        - update
+      - apiGroups:
+        - ""
+        resources:
+        - namespaces
+        verbs:
+        - get
+        - list
+        - watch
+      - apiGroups:
+        - ""
+        resources:
+        - nodes
+        verbs:
+        - get
+        - list
+        - watch
+      - apiGroups:
+        - ""
+        resources:
+        - persistentvolumeclaims
+        verbs:
+        - create
+        - delete
+        - deletecollection
+        - get
+        - list
+        - patch
+        - update
+        - watch
+      - apiGroups:
+        - ""
+        resources:
+        - persistentvolumeclaims/finalizers
+        verbs:
+        - create
+        - delete
+        - get
+        - list
+        - patch
+        - update
+        - watch
+      - apiGroups:
+        - ""
+        resources:
+        - persistentvolumes
+        verbs:
+        - get
+        - list
+        - patch
+        - watch
+      - apiGroups:
+        - ""
+        resources:
+        - pods
+        verbs:
+        - get
+        - list
+        - watch
+      - apiGroups:
+        - ""
+        resources:
+        - pods/log
+        verbs:
+        - get
+        - list
+        - watch
+      - apiGroups:
+        - ""
+        resources:
+        - secrets
+        verbs:
+        - create
+        - delete
+        - get
+        - list
+        - patch
+        - update
+        - watch
+      - apiGroups:
+        - ""
+        resources:
+        - serviceaccounts
+        verbs:
+        - create
+        - delete
+        - get
+        - list
+        - patch
+        - update
+        - watch
+      - apiGroups:
+        - ""
+        resources:
+        - services
+        verbs:
+        - create
+        - delete
+        - get
+        - list
+        - patch
+        - update
+        - watch
+      - apiGroups:
+        - events.k8s.io
+        resources:
+        - events
+        verbs:
+        - create
+        - patch
+        - update
+      - apiGroups:
+        - populator.storage.k8s.io
+        resources:
+        - volumepopulators
+        verbs:
+        - create
+        - get
+        - list
+        - patch
+        - update
+        - watch
+      - apiGroups:
+        - rbac.authorization.k8s.io
+        resources:
+        - rolebindings
+        verbs:
+        - create
+        - delete
+        - get
+        - list
+        - patch
+        - update
+        - watch
+      - apiGroups:
+        - rbac.authorization.k8s.io
+        resources:
+        - roles
+        verbs:
+        - create
+        - delete
+        - get
+        - list
+        - patch
+        - update
+        - watch
+      - apiGroups:
+        - security.openshift.io
+        resources:
+        - securitycontextconstraints
+        verbs:
+        - create
+        - get
+        - list
+        - patch
+        - update
+        - watch
+      - apiGroups:
+        - security.openshift.io
+        resourceNames:
+        - volsync-privileged-mover
+        resources:
+        - securitycontextconstraints
+        verbs:
+        - use
+      - apiGroups:
+        - snapshot.storage.k8s.io
+        resources:
+        - volumesnapshots
+        verbs:
+        - create
+        - delete
+        - deletecollection
+        - get
+        - list
+        - patch
+        - update
+        - watch
+      - apiGroups:
+        - storage.k8s.io
+        resources:
+        - storageclasses
+        verbs:
+        - get
+        - list
+        - watch
+      - apiGroups:
+        - volsync.backube
+        resources:
+        - replicationdestinations
+        verbs:
+        - create
+        - delete
+        - get
+        - list
+        - patch
+        - update
+        - watch
+      - apiGroups:
+        - volsync.backube
+        resources:
+        - replicationdestinations/finalizers
+        verbs:
+        - create
+        - delete
+        - get
+        - list
+        - patch
+        - update
+        - watch
+      - apiGroups:
+        - volsync.backube
+        resources:
+        - replicationdestinations/status
+        verbs:
+        - get
+        - patch
+        - update
+      - apiGroups:
+        - volsync.backube
+        resources:
+        - replicationsources
+        verbs:
+        - create
+        - delete
+        - get
+        - list
+        - patch
+        - update
+        - watch
+      - apiGroups:
+        - volsync.backube
+        resources:
+        - replicationsources/finalizers
+        verbs:
+        - create
+        - delete
+        - get
+        - list
+        - patch
+        - update
+        - watch
+      - apiGroups:
+        - volsync.backube
+        resources:
+        - replicationsources/status
+        verbs:
+        - get
+        - patch
+        - update

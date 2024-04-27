@@ -10,14 +10,14 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 20.3.11
+    version: 20.3.12
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: cert-manager
-    version: v1.14.4
+    version: v1.14.5
     repository: https://charts.jetstack.io
     condition: ""
     alias: certmanager
@@ -31,7 +31,7 @@ keywords:
   - cert-manager
   - certificates
   - security
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -43,4 +43,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/system/cert-manager
   - https://github.com/truecharts/containers/tree/master/apps/scratch
 type: application
-version: 4.8.12
+version: 4.8.18

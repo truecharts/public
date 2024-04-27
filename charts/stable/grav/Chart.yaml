@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 1.7.45
 dependencies:
   - name: common
-    version: 20.3.11
+    version: 20.3.12
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -25,7 +25,7 @@ keywords:
   - web
   - platform
   - file
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -37,4 +37,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/grav
   - https://ghcr.io/linuxserver/grav
 type: application
-version: 11.8.11
+version: 11.8.16

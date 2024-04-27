@@ -4,10 +4,10 @@ title: Installation Notes
 
 ## Requirements
 
-1. The Cloudnative-PG operator is required from the `system` train. More information can be found on our [getting started guide](/scale/guides/getting-started/#prometheus-and-cnpg-system-app-installations)
+1. The Cloudnative-PG operator is required from the `system` train. More information can be found on our [getting started guide](/scale/#prometheus-and-cnpg-system-app-installations)
 
 2. Ingress is required to be configured. The preferred and supported method for ingress is Traefik. More information can be
-   found on our [getting started guide](/scale/guides/getting-started/#traefik-installation-for-ingress--reverse-proxy-support-with-truecharts-apps).
+   found on our [getting started guide](/scale/#traefik-installation-for-ingress--reverse-proxy-support-with-truecharts-apps).
 
 :::caution[SNAPSHOT DIRECTORY VISIBILITY]
 
@@ -29,9 +29,15 @@ The following configurations must be set during initial setup in order for Nextc
 
 1. An initial admin username needs to be set
 
-2. An initial admin password needs to be set
+2. An initial admin password needs to be set.
 
 3. Default phone region needs to be set (if you are unsure about your region, you can find your code for your region in this [wiki](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements))
+
+:::caution[Password Requirements]
+
+Due to limitations when converting YAML to JSON, the passwords used with Nextcloud for admin and Postgres must **only** start with a letter or number. If you attempt to use a password that starts with a symbol, e.g. '%', Nextcloud will fail to install as it will be unable to convert the YAML to JSON.
+
+:::
 
 ### Optional Addons
 
