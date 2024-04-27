@@ -21,7 +21,13 @@ objectData: The object data to be used to render the container.
     {{- end -}}
   {{- end -}}
 
-  {{- range $probeName, $probe := $objectData.probes -}}
+  {{- $probes := $objectData.probes -}}
+  {{- $diagMode := eq (include "tc.v1.common.lib.util.diagnosticMode" (dict "rootCtx" $rootCtx)) "true" -}}
+  {{- if $diagMode -}}
+    {{- $probes = dict -}}
+  {{- end -}}
+
+  {{- range $probeName, $probe := $probes -}}
 
     {{- if not (mustHas $probeName $probeNames) -}}
       {{- fail (printf "Container - Expected probe to be one of [%s], but got [%s]" (join ", " $probeNames) $probeName) -}}

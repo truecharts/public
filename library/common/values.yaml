@@ -7,6 +7,8 @@ global:
   # -- Set a global namespace
   # TODO: Currently some objects do not support this
   namespace: ""
+  diagnosticMode:
+    enabled: false
   fallbackDefaults:
     # -- Define a storageClassName that will be used for all PVCs
     # Can be overruled per PVC
@@ -205,6 +207,10 @@ workload:
 
 # -- Timezone used everywhere applicable
 TZ: UTC
+
+# -- Diagnostic Mode
+diagnosticMode:
+  enabled: false
 
 # -- (docs/service/README.md)
 service:

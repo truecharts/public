@@ -165,6 +165,77 @@ tests:
               successThreshold: 1
               timeoutSeconds: 40
 
+  - it: should not create any probes with diagnostic mode
+    set:
+      image: *image
+      diagnosticMode:
+        enabled: true
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        notExists:
+          path: spec.template.spec.containers[0].livenessProbe
+      - documentIndex: *deploymentDoc
+        notExists:
+          path: spec.template.spec.containers[0].readinessProbe
+      - documentIndex: *deploymentDoc
+        notExists:
+          path: spec.template.spec.containers[0].startupProbe
+
+  - it: should not create any probes with diagnostic mode from global
+    set:
+      image: *image
+      diagnosticMode:
+        enabled: false
+      global:
+        diagnosticMode:
+          enabled: true
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+    asserts:
+      - documentIndex: &deploymentDoc 0
+        isKind:
+          of: Deployment
+      - documentIndex: *deploymentDoc
+        isAPIVersion:
+          of: apps/v1
+      - documentIndex: *deploymentDoc
+        notExists:
+          path: spec.template.spec.containers[0].livenessProbe
+      - documentIndex: *deploymentDoc
+        notExists:
+          path: spec.template.spec.containers[0].readinessProbe
+      - documentIndex: *deploymentDoc
+        notExists:
+          path: spec.template.spec.containers[0].startupProbe
+
   # Failures
   - it: should fail with invalid probe
     set:
@@ -674,3 +745,44 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: Container - Expected non-empty [value] on [httpHeaders]
+
+  - it: should fail with diagnosticMode not a map
+    set:
+      image: *image
+      diagnosticMode: not-a-map
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+    asserts:
+      - failedTemplate:
+          errorMessage: Diagnostic Mode - Expected [diagnosticMode] to be a map, but got [string]
+
+  - it: should fail with diagnosticMode.enabled not a boolean
+    set:
+      image: *image
+      diagnosticMode:
+        enabled: not-a-boolean
+      workload:
+        workload-name1:
+          enabled: true
+          primary: true
+          type: Deployment
+          podSpec:
+            containers:
+              container-name1:
+                enabled: true
+                primary: true
+                imageSelector: image
+                probes: *probes
+    asserts:
+      - failedTemplate:
+          errorMessage: Diagnostic Mode - Expected [diagnosticMode.enabled] to be a bool, but got [string]
