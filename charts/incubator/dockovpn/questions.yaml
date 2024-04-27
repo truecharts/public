@@ -16,19 +16,24 @@ questions:
                                     additional_attrs: true
                                     type: dict
                                     attrs:
-                                      - variable: USER_APPROVAL_REQUIRED
-                                        label: "User Approval Required"
-                                        description: "Whether to require user approval before they can upload images."
-                                        schema:
-                                          type: boolean
-                                          default: true
-                                      - variable: IMAGE_MAX_SIZE
-                                        label: "Maximum Image Size"
-                                        description: "Maximum image size allowed to be uploaded (no more than 50M)."
+                                      - variable: HOST_ADDR
+                                        label: "Host Address"
+                                        description: "Sets address OpenVPN server is located at."
                                         schema:
                                           type: string
                                           required: true
-                                          default: 15M
+                                          default: "vpn.example.com"
+                                      - variable: HOST_TUN_PROTOCOL
+                                        label: "Tunnel Protocol"
+                                        description: "Sets tunnel protocol."
+                                        schema:
+                                          type: string
+                                          default: udp
+                                          enum:
+                                            - value: "udp"
+                                              description: UDP
+                                            - value: "tcp"
+                                              description: TCP
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
@@ -38,7 +43,7 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: "Main Service Port Configuration"
+                      label: "Config Download port configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -79,7 +84,7 @@ questions:
 # Include{persistenceRoot}
         - variable: config
           label: "App Config Storage"
-          description: "Stores the Application Database."
+          description: "Stores the Application Configuration."
           schema:
             additional_attrs: true
             type: dict
@@ -105,7 +110,7 @@ questions:
                   default: 0
               - variable: runAsGroup
                 label: "runAsGroup"
-                description: "The groupID this App of the user running the application"
+                description: "The groupID of the group running the application"
                 schema:
                   type: int
                   default: 0
