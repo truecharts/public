@@ -2,7 +2,7 @@
 portals:
   open:
 # Include{portalLink}
-# Include{portalLink}
+questions:
 # Include{global}
 # Include{workload}
 # Include{workloadDeployment}
@@ -16,33 +16,29 @@ portals:
                                     additional_attrs: true
                                     type: dict
                                     attrs:
-                                      - variable: HOST_ADDR
-                                        label: "Host Address"
-                                        description: "Sets address OpenVPN server is located at."
+                                      - variable: USER_APPROVAL_REQUIRED
+                                        label: "User Approval Required"
+                                        description: "Whether to require user approval before they can upload images."
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: IMAGE_MAX_SIZE
+                                        label: "Maximum Image Size"
+                                        description: "Maximum image size allowed to be uploaded (no more than 50M)."
                                         schema:
                                           type: string
                                           required: true
-                                          default: "vpn.example.com"
-                                      - variable: HOST_TUN_PROTOCOL
-                                        label: "Tunnel Protocol"
-                                        description: "Sets tunnel protocol."
-                                        schema:
-                                          type: string
-                                          default: udp
-                                          enum:
-                                            - value: "udp"
-                                              description: UDP
-                                            - value: "tcp"
-                                              description: TCP
+                                          default: 15M
 # Include{containerBasic}
 # Include{containerAdvanced}
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
+# Include{serviceMain}
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: "Config Download port configuration"
+                      label: "Main Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
@@ -83,7 +79,7 @@ portals:
 # Include{persistenceRoot}
         - variable: config
           label: "App Config Storage"
-          description: "Stores the Application Configuration."
+          description: "Stores the Application Database."
           schema:
             additional_attrs: true
             type: dict
@@ -109,7 +105,7 @@ portals:
                   default: 0
               - variable: runAsGroup
                 label: "runAsGroup"
-                description: "The groupID of the user running the application"
+                description: "The groupID this App of the user running the application"
                 schema:
                   type: int
                   default: 0
