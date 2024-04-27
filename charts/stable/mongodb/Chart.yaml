@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 7.0.8
+appVersion: 7.0.9
 dependencies:
   - name: common
     version: 20.3.12
@@ -24,7 +24,7 @@ keywords:
   - mongodb
   - database
   - nosql
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -36,4 +36,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/mongodb
   - https://hub.docker.com/r/bitnami/mongodb
 type: application
-version: 12.8.17
+version: 12.8.18
