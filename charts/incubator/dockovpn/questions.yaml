@@ -39,13 +39,6 @@ portals:
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
-        - variable: main
-          label: "Main Service"
-          description: "The Primary service on which the healthcheck runs, often the webUI"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
