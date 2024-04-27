@@ -54,16 +54,13 @@ workload:
               memory: 64Mi
           probes:
             liveness:
-              type: https
-              path: /metrics
+              type: tcp
               port: 8443
             readiness:
-              type: https
-              path: /metrics
+              type: tcp
               port: 8443
             startup:
-              type: https
-              path: /metrics
+              type: tcp
               port: 8443
               
 # -- Options for all pods
