@@ -20,6 +20,7 @@ workload:
           env:
             HOST_ADDR: "vpn.example.com"
             HOST_CONF_PORT: "{{ .Values.service.main.ports.main.port }}"
+            # Being implemented currently only UDP supported.
             HOST_TUN_PROTOCOL: "udp"
             HOST_TUN_PORT: "{{ .Values.service.vpn.ports.vpn.port }}"
           probes:
