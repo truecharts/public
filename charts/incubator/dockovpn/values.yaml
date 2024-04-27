@@ -7,7 +7,6 @@ securityContext:
     readOnlyRootFilesystem: false
     runAsNonRoot: false
     allowPrivilegeEscalation: true
-    PUID: 0
     runAsUser: 0
     runAsGroup: 0
     capabilities:
@@ -50,7 +49,7 @@ service:
 persistence:
   config:
     enabled: true
-    mountPath: "/opt/Dockovpn"
+    mountPath: "/opt/Dockovpn_data"
 portal:
   open:
     enabled: true
