@@ -58,8 +58,10 @@ workload:
               port: 8443
             readiness:
               type: tcp
+              port: 8443
             startup:
               type: tcp
+              port: 8443
               
 # -- Options for all pods
 # Can be overruled per pod
