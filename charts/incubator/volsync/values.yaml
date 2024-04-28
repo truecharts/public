@@ -62,7 +62,7 @@ workload:
             startup:
               type: tcp
               port: 8443
-              
+
 # -- Options for all pods
 # Can be overruled per pod
 podOptions:
@@ -96,13 +96,12 @@ service:
         targetPort: 8443
         protocol: https
 
-      
 # -- The service account the pods will use to interact with the Kubernetes API
 serviceAccount:
   main:
     enabled: true
     primary: true
-    
+
 portal:
   open:
     enabled: false
@@ -115,36 +114,36 @@ rbac:
     clusterWide: false
     rules:
       - apiGroups:
-        - ""
+          - ""
         resources:
-        - configmaps
+          - configmaps
         verbs:
-        - get
-        - list
-        - watch
-        - create
-        - update
-        - patch
-        - delete
+          - get
+          - list
+          - watch
+          - create
+          - update
+          - patch
+          - delete
       - apiGroups:
-        - coordination.k8s.io
+          - coordination.k8s.io
         resources:
-        - leases
+          - leases
         verbs:
-        - get
-        - list
-        - watch
-        - create
-        - update
-        - patch
-        - delete
+          - get
+          - list
+          - watch
+          - create
+          - update
+          - patch
+          - delete
       - apiGroups:
-        - ""
+          - ""
         resources:
-        - events
+          - events
         verbs:
-        - create
-        - patch
+          - create
+          - patch
 
   cluster:
     enabled: true
@@ -153,305 +152,305 @@ rbac:
     allServiceAccounts: true
     rules:
       - apiGroups:
-        - authentication.k8s.io
+          - authentication.k8s.io
         resources:
-        - tokenreviews
+          - tokenreviews
         verbs:
-        - create
+          - create
       - apiGroups:
-        - authorization.k8s.io
+          - authorization.k8s.io
         resources:
-        - subjectaccessreviews
+          - subjectaccessreviews
         verbs:
-        - create
+          - create
       - apiGroups:
-        - apps
+          - apps
         resources:
-        - deployments
+          - deployments
         verbs:
-        - create
-        - delete
-        - deletecollection
-        - get
-        - list
-        - patch
-        - update
-        - watch
+          - create
+          - delete
+          - deletecollection
+          - get
+          - list
+          - patch
+          - update
+          - watch
       - apiGroups:
-        - batch
+          - batch
         resources:
-        - jobs
+          - jobs
         verbs:
-        - create
-        - delete
-        - deletecollection
-        - get
-        - list
-        - patch
-        - update
-        - watch
+          - create
+          - delete
+          - deletecollection
+          - get
+          - list
+          - patch
+          - update
+          - watch
       - apiGroups:
-        - ""
+          - ""
         resources:
-        - configmaps
+          - configmaps
         verbs:
-        - get
-        - list
-        - watch
+          - get
+          - list
+          - watch
       - apiGroups:
-        - ""
+          - ""
         resources:
-        - events
+          - events
         verbs:
-        - create
-        - patch
-        - update
+          - create
+          - patch
+          - update
       - apiGroups:
-        - ""
+          - ""
         resources:
-        - namespaces
+          - namespaces
         verbs:
-        - get
-        - list
-        - watch
+          - get
+          - list
+          - watch
       - apiGroups:
-        - ""
+          - ""
         resources:
-        - nodes
+          - nodes
         verbs:
-        - get
-        - list
-        - watch
+          - get
+          - list
+          - watch
       - apiGroups:
-        - ""
+          - ""
         resources:
-        - persistentvolumeclaims
+          - persistentvolumeclaims
         verbs:
-        - create
-        - delete
-        - deletecollection
-        - get
-        - list
-        - patch
-        - update
-        - watch
+          - create
+          - delete
+          - deletecollection
+          - get
+          - list
+          - patch
+          - update
+          - watch
       - apiGroups:
-        - ""
+          - ""
         resources:
-        - persistentvolumeclaims/finalizers
+          - persistentvolumeclaims/finalizers
         verbs:
-        - create
-        - delete
-        - get
-        - list
-        - patch
-        - update
-        - watch
+          - create
+          - delete
+          - get
+          - list
+          - patch
+          - update
+          - watch
       - apiGroups:
-        - ""
+          - ""
         resources:
-        - persistentvolumes
+          - persistentvolumes
         verbs:
-        - get
-        - list
-        - patch
-        - watch
+          - get
+          - list
+          - patch
+          - watch
       - apiGroups:
-        - ""
+          - ""
         resources:
-        - pods
+          - pods
         verbs:
-        - get
-        - list
-        - watch
+          - get
+          - list
+          - watch
       - apiGroups:
-        - ""
+          - ""
         resources:
-        - pods/log
+          - pods/log
         verbs:
-        - get
-        - list
-        - watch
+          - get
+          - list
+          - watch
       - apiGroups:
-        - ""
+          - ""
         resources:
-        - secrets
+          - secrets
         verbs:
-        - create
-        - delete
-        - get
-        - list
-        - patch
-        - update
-        - watch
+          - create
+          - delete
+          - get
+          - list
+          - patch
+          - update
+          - watch
       - apiGroups:
-        - ""
+          - ""
         resources:
-        - serviceaccounts
+          - serviceaccounts
         verbs:
-        - create
-        - delete
-        - get
-        - list
-        - patch
-        - update
-        - watch
+          - create
+          - delete
+          - get
+          - list
+          - patch
+          - update
+          - watch
       - apiGroups:
-        - ""
+          - ""
         resources:
-        - services
+          - services
         verbs:
-        - create
-        - delete
-        - get
-        - list
-        - patch
-        - update
-        - watch
+          - create
+          - delete
+          - get
+          - list
+          - patch
+          - update
+          - watch
       - apiGroups:
-        - events.k8s.io
+          - events.k8s.io
         resources:
-        - events
+          - events
         verbs:
-        - create
-        - patch
-        - update
+          - create
+          - patch
+          - update
       - apiGroups:
-        - populator.storage.k8s.io
+          - populator.storage.k8s.io
         resources:
-        - volumepopulators
+          - volumepopulators
         verbs:
-        - create
-        - get
-        - list
-        - patch
-        - update
-        - watch
+          - create
+          - get
+          - list
+          - patch
+          - update
+          - watch
       - apiGroups:
-        - rbac.authorization.k8s.io
+          - rbac.authorization.k8s.io
         resources:
-        - rolebindings
+          - rolebindings
         verbs:
-        - create
-        - delete
-        - get
-        - list
-        - patch
-        - update
-        - watch
+          - create
+          - delete
+          - get
+          - list
+          - patch
+          - update
+          - watch
       - apiGroups:
-        - rbac.authorization.k8s.io
+          - rbac.authorization.k8s.io
         resources:
-        - roles
+          - roles
         verbs:
-        - create
-        - delete
-        - get
-        - list
-        - patch
-        - update
-        - watch
+          - create
+          - delete
+          - get
+          - list
+          - patch
+          - update
+          - watch
       - apiGroups:
-        - security.openshift.io
+          - security.openshift.io
         resources:
-        - securitycontextconstraints
+          - securitycontextconstraints
         verbs:
-        - create
-        - get
-        - list
-        - patch
-        - update
-        - watch
+          - create
+          - get
+          - list
+          - patch
+          - update
+          - watch
       - apiGroups:
-        - security.openshift.io
+          - security.openshift.io
         resourceNames:
-        - volsync-privileged-mover
+          - volsync-privileged-mover
         resources:
-        - securitycontextconstraints
+          - securitycontextconstraints
         verbs:
-        - use
+          - use
       - apiGroups:
-        - snapshot.storage.k8s.io
+          - snapshot.storage.k8s.io
         resources:
-        - volumesnapshots
+          - volumesnapshots
         verbs:
-        - create
-        - delete
-        - deletecollection
-        - get
-        - list
-        - patch
-        - update
-        - watch
+          - create
+          - delete
+          - deletecollection
+          - get
+          - list
+          - patch
+          - update
+          - watch
       - apiGroups:
-        - storage.k8s.io
+          - storage.k8s.io
         resources:
-        - storageclasses
+          - storageclasses
         verbs:
-        - get
-        - list
-        - watch
+          - get
+          - list
+          - watch
       - apiGroups:
-        - volsync.backube
+          - volsync.backube
         resources:
-        - replicationdestinations
+          - replicationdestinations
         verbs:
-        - create
-        - delete
-        - get
-        - list
-        - patch
-        - update
-        - watch
+          - create
+          - delete
+          - get
+          - list
+          - patch
+          - update
+          - watch
       - apiGroups:
-        - volsync.backube
+          - volsync.backube
         resources:
-        - replicationdestinations/finalizers
+          - replicationdestinations/finalizers
         verbs:
-        - create
-        - delete
-        - get
-        - list
-        - patch
-        - update
-        - watch
+          - create
+          - delete
+          - get
+          - list
+          - patch
+          - update
+          - watch
       - apiGroups:
-        - volsync.backube
+          - volsync.backube
         resources:
-        - replicationdestinations/status
+          - replicationdestinations/status
         verbs:
-        - get
-        - patch
-        - update
+          - get
+          - patch
+          - update
       - apiGroups:
-        - volsync.backube
+          - volsync.backube
         resources:
-        - replicationsources
+          - replicationsources
         verbs:
-        - create
-        - delete
-        - get
-        - list
-        - patch
-        - update
-        - watch
+          - create
+          - delete
+          - get
+          - list
+          - patch
+          - update
+          - watch
       - apiGroups:
-        - volsync.backube
+          - volsync.backube
         resources:
-        - replicationsources/finalizers
+          - replicationsources/finalizers
         verbs:
-        - create
-        - delete
-        - get
-        - list
-        - patch
-        - update
-        - watch
+          - create
+          - delete
+          - get
+          - list
+          - patch
+          - update
+          - watch
       - apiGroups:
-        - volsync.backube
+          - volsync.backube
         resources:
-        - replicationsources/status
+          - replicationsources/status
         verbs:
-        - get
-        - patch
-        - update
+          - get
+          - patch
+          - update
