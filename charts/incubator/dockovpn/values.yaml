@@ -13,10 +13,7 @@ securityContext:
       add:
         - NET_ADMIN
         - NET_RAW
-        - SETFCAP
-        - SETPCAP
-        - KILL
-        - SYS_MODULE
+        - MKNOD
 workload:
   main:
     podSpec:
