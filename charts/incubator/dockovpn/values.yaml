@@ -40,12 +40,8 @@ service:
     ports:
       vpn:
         enabled: true
-        protocol: udp
+        protocol: "{{ .Values.workload.main.podSpec.containers.main.env.HOST_TUN_PROTOCOL }}"
         port: 1194
-      dns-tcp:
-        enabled: true
-        protocol: tcp
-        port: "{{ .Values.service.vpn.ports.vpn.port }}"
 persistence:
   config:
     enabled: true
