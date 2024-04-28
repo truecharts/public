@@ -16,6 +16,7 @@ securityContext:
         - SETFCAP
         - SETPCAP
         - KILL
+        - SYS_MODULE
 workload:
   main:
     podSpec:
