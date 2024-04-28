@@ -5,7 +5,7 @@ annotations:
   truecharts.org/category: networking
   truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: incubator
+  truecharts.org/train: stable
 apiVersion: v2
 appVersion: 1.14.0
 dependencies:
@@ -17,8 +17,8 @@ dependencies:
     tags: []
     import-values: []
 deprecated: false
-description: DNS and Ad-filtering for your network
-home: https://truecharts.org/charts/incubator/dockovpn
+description: Out of the box stateless VPN server docker image which starts in just a few seconds and doesn't require persistent storage.
+home: https://truecharts.org/charts/stable/dockovpn
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/dockovpn.webp
 keywords:
   - vpn
@@ -31,7 +31,7 @@ maintainers:
 name: dockovpn
 sources:
   - https://github.com/dockovpn/dockovpn
-  - https://github.com/truecharts/charts/tree/master/charts/incubator/dockovpn
+  - https://github.com/truecharts/charts/tree/master/charts/stable/dockovpn
   - https://hub.docker.com/r/alekslitvinenk/openvpn
 type: application
-version: 0.0.3
+version: 1.0.0
