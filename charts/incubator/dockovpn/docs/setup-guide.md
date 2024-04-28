@@ -1,4 +1,6 @@
-# Setup Guide
+---
+title: Setup Guide
+---
 
 DockOvpn is administered using the app shell.
 
