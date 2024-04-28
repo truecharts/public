@@ -1,0 +1,61 @@
+service:
+  main:
+    enabled: true
+    primary: true
+    ports:
+      main:
+        enabled: true
+        primary: true
+        port: 8080
+
+workload:
+  main:
+    enabled: true
+    primary: true
+    type: Deployment
+    podSpec:
+      containers:
+        main:
+          enabled: true
+          primary: true
+          args:
+            - --port
+            - "8080"
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              port: "{{ .Values.service.main.ports.main.port }}"
+            readiness:
+              enabled: true
+              type: http
+              port: "{{ .Values.service.main.ports.main.port }}"
+            startup:
+              enabled: true
+              type: http
+              port: "{{ .Values.service.main.ports.main.port }}"
+
+persistence:
+  srcbackup:
+    enabled: true
+    type: pvc
+    mountPath: /backedup
+    targetSelectAll: true
+    volsync:
+      - name: mybackup
+        type: restic
+        credentials: mys3
+        dest:
+          enabled: false
+        src:
+          enabled: true
+
+credentials:
+  mys3:
+    type: s3
+    url: ""
+    region: ""
+    bucket: ""
+    accessKey: ""
+    secretKey: ""
+    encrKey: ""

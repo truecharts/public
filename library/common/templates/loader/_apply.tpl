@@ -76,13 +76,4 @@
   {{/* Render/Set portal configmap, .Values.iXPortals and APPURL */}}
   {{- include "tc.v1.common.spawner.portal" . | nindent 0 -}}
 
-  {{/* Render Velero VolumeSnapshotLocation*/}}
-  {{- include "tc.v1.common.spawner.velero.volumesnapshotlocation" . | nindent 0 -}}
-
-  {{/* Render Velero BackupStorageLocation*/}}
-  {{- include "tc.v1.common.spawner.velero.backupstoragelocation" . | nindent 0 -}}
-
-  {{/* Render Velero Schedule*/}}
-  {{- include "tc.v1.common.spawner.velero.schedule" . | nindent 0 -}}
-
 {{- end -}}

@@ -225,6 +225,17 @@ service:
 
 serviceList: []
 
+credentials: {}
+  # mys3:
+  #   type: s3
+  #   url: ""
+  #   region: ""
+  #   bucket: ""
+  #   accessKey: ""
+  #   secretKey: ""
+  #   encrKey: ""
+
+
 # -- (docs/persistence/README.md)
 persistence:
   shared:
@@ -256,6 +267,20 @@ persistence:
     mountPath: /dev/shm
     medium: Memory
     targetSelectAll: true
+#  backupexample:
+#    enabled: true
+#    type: pvc
+#    mountPath: /backedup
+#    targetSelectAll: true
+#    volsync:
+#      - name: mybackup
+#        ## TODO: other options
+#        type: restic
+#        credentials: mys3
+#        dest:
+#          enabled: true
+#        src:
+#          enabled: true
 #  iscsi:
 #    enabled: true
 #    type: iscsi
@@ -759,121 +784,6 @@ storageClass: {}
 #     allowVolumeExpansion: true
 #     volumeBindingMode: Immediate
 #     mountOptions: []
-
-# # Parameters for the BackupStorageLocation(s). Configure multiple by adding other element(s) to the backupStorageLocation slice.
-# # See https://velero.io/docs/v1.6/api-types/backupstoragelocation/
-backupStorageLocationList: []
-# - name: name
-#     # name is the name of the backup storage location where backups should be stored. If a name is not provided,
-#     # a backup storage location will be created with the name "default". Optional.
-backupStorageLocation: {}
-# backupStorageLocation:
-#   name:
-#     ## Namespace needs to be set to the velero namespace
-#     # namespace: somenamespace
-#     # provider is the name for the backup storage location provider.
-#     provider:
-#     objectStorage:
-#       # bucket is the name of the bucket to store backups in. Required.
-#       bucket:
-#       # caCert defines a base64 encoded CA bundle to use when verifying TLS connections to the provider. Optional.
-#       caCert:
-#       # prefix is the directory under which all Velero data should be stored within the bucket. Optional.
-#       prefix:
-#     # validationFrequency defines how frequently Velero should validate the object storage. Optional.
-#     validationFrequency:
-#     # accessMode determines if velero can write to this backup storage location. Optional.
-#     # default to ReadWrite, ReadOnly is used during migrations and restores.
-#     accessMode: ReadWrite
-#     credential:
-#       # AWS/s3 credentials to be put into secret (mandatory if provider == aws/s3)
-#       aws:
-#         id: fdgsdfghsdfgh
-#         key: dfgdfhsdfgh
-#       # name of the secret used by this backupStorageLocation.
-#       name:
-#       # name of key that contains the secret data to be used.
-#       key:
-#     # Additional provider-specific configuration. See link above
-#     # for details of required/optional fields for your provider.
-#     config: {}
-#     #  region:
-#     #  s3ForcePathStyle:
-#     #  s3Url:
-#     #  kmsKeyId:
-#     #  resourceGroup:
-#     #  The ID of the subscription containing the storage account, if different from the cluster’s subscription. (Azure only)
-#     #  subscriptionId:
-#     #  storageAccount:
-#     #  publicUrl:
-#     #  Name of the GCP service account to use for this backup storage location. Specify the
-#     #  service account here if you want to use workload identity instead of providing the key file.(GCP only)
-#     #  serviceAccount:
-#     #  Option to skip certificate validation or not if insecureSkipTLSVerify is set to be true, the client side should set the
-#     #  flag. For Velero client Command like velero backup describe, velero backup logs needs to add the flag --insecure-skip-tls-verify
-#     #  insecureSkipTLSVerify:
-#
-# # Parameters for the VolumeSnapshotLocation(s). Configure multiple by adding other element(s) to the volumeSnapshotLocation slice.
-# # See https://velero.io/docs/v1.6/api-types/volumesnapshotlocation/
-volumeSnapshotLocationList: []
-#   # name is the |name of the volume snapshot location where snapshots are being taken. Required.
-#   - name: name
-#   ...
-volumeSnapshotLocation: {}
-# volumeSnapshotLocation:
-#   name:
-#     ## Namespace needs to be set to the velero namespace
-#     # namespace: somenamespace
-#     enabled: false
-#     # provider is the name for the volume snapshot provider.
-#     provider:
-#     credential:
-#       # AWS/s3 credentials to be put into secret (mandatory if provider == aws/s3)
-#       aws:
-#         id: fdgsdfghsdfgh
-#         key: dfgdfhsdfgh
-#       # name of the secret used by this volumeSnapshotLocation.  (Optional/Advanced)
-#       name:
-#       # name of key that contains the secret data to be used.  (Optional/Advanced)
-#       key:
-#     # Additional provider-specific configuration. See link above
-#     # for details of required/optional fields for your provider.
-#     config: {}
-#   #    region:
-#   #    apiTimeout:
-#   #    resourceGroup:
-#   #    The ID of the subscription where volume snapshots should be stored, if different from the cluster’s subscription. If specified, also requires `configuration.volumeSnapshotLocation.config.resourceGroup`to be set. (Azure only)
-#   #    subscriptionId:
-#   #    incremental:
-#   #    snapshotLocation:
-#   #    project:
-
-# Backup schedules to create.
-schedules: {}
-# Also available in list format:
-schedulesList: []
-# Eg:
-# schedules:
-#   mybackup:
-#     disabled: false
-#     labels:
-#       myenv: foo
-#     annotations:
-#       myenv: foo
-#     schedule: "0 0 * * *"
-#     useOwnerReferencesInBackup: false
-#     ## Included namespace, is set by default to the chart itself, unless explicitly specified
-#     template:
-#       ttl: "240h"
-#       storageLocation: default
-# # -- create volumeSnapshotClass on demand
-# volumeSnapshotClass:
-#   example:
-#     enabled: true
-#     driver: some.driver.io
-#     deletionPolicy: Retain
-#     isDefault: false
-#     parameters: {}
 
 metrics:
   main:

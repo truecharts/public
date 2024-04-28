@@ -1,4 +1,4 @@
-suite: velero volumeSnapshotLocation metadata test
+suite: volsync replication dest metadata test
 templates:
   - common.yaml
 chart:
@@ -7,7 +7,7 @@ release:
   name: test-release-name
   namespace: test-release-namespace
 tests:
-  - it: should pass with volumeSnapshotLocation created with labels and annotations
+  - it: should pass with replication dest created with labels and annotations
     set:
       label1: label1
       label2: global_label2
@@ -20,28 +20,33 @@ tests:
         annotations:
           g_annotation1: global_annotation1
           g_annotation2: "{{ .Values.annotation2 }}"
-      volumeSnapshotLocation:
-        my-snap:
+      persistence:
+        destbackup:
           enabled: true
-          labels:
-            label1: "{{ .Values.label1 }}"
-            label2: label2
-          annotations:
-            annotation1: "{{ .Values.annotation1 }}"
-            annotation2: annotation2
-          annotationsList:
-            - name: some-annotation
-              value: some-value
-          labelsList:
-            - name: some-label
-              value: some-value
-          provider: some-snapshot-plugin
-          config:
-            provider: aws
-          credential:
-            aws:
-              id: my-id
-              key: my-key
+          type: pvc
+          mountPath: /backedup
+          volsync:
+            - name: mybackup
+              type: restic
+              credentials: mys3
+              src:
+                enabled: false
+              dest:
+                enabled: true
+              labels:
+                label1: "{{ .Values.label1 }}"
+                label2: label2
+              annotations:
+                annotation1: "{{ .Values.annotation1 }}"
+                annotation2: annotation2
+      credentials:
+        mys3:
+          type: s3
+          url: some-url
+          bucket: some-bucket
+          encrKey: some-key
+          accessKey: some-access-key
+          secretKey: some-secret-key
     asserts:
       - documentIndex: &secretDoc 0
         isKind:
@@ -57,7 +62,6 @@ tests:
             annotation2: annotation2
             g_annotation1: global_annotation1
             g_annotation2: global_annotation2
-            some-annotation: some-value
       - documentIndex: *secretDoc
         equal:
           path: metadata.labels
@@ -74,15 +78,13 @@ tests:
             g_label2: global_label2
             label1: label1
             label2: label2
-            some-label: some-value
-
-      - documentIndex: &volSnapLocDoc 1
+      - documentIndex: &replicationDestDoc 1
         isKind:
-          of: VolumeSnapshotLocation
-      - documentIndex: *volSnapLocDoc
+          of: ReplicationDestination
+      - documentIndex: *replicationDestDoc
         isAPIVersion:
-          of: velero.io/v1
-      - documentIndex: *volSnapLocDoc
+          of: volsync.backube/v1alpha1
+      - documentIndex: *replicationDestDoc
         equal:
           path: metadata.annotations
           value:
@@ -90,8 +92,7 @@ tests:
             annotation2: annotation2
             g_annotation1: global_annotation1
             g_annotation2: global_annotation2
-            some-annotation: some-value
-      - documentIndex: *volSnapLocDoc
+      - documentIndex: *replicationDestDoc
         equal:
           path: metadata.labels
           value:
@@ -107,4 +108,3 @@ tests:
             g_label2: global_label2
             label1: label1
             label2: label2
-            some-label: some-value

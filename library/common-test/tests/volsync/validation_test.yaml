@@ -1,0 +1,197 @@
+suite: volsync validation test
+templates:
+  - common.yaml
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should fail with empty name
+    set:
+      persistence:
+        src-backup:
+          enabled: true
+          type: pvc
+          mountPath: /backed-up
+          volsync:
+            - name: ""
+              type: restic
+              credentials: my-secret
+              src:
+                enabled: true
+              dest:
+                enabled: false
+      credentials: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: VolSync - Expected non-empty [name]
+
+  - it: should fail with empty credentials
+    set:
+      persistence:
+        src-backup:
+          enabled: true
+          type: pvc
+          mountPath: /backedup
+          volsync:
+            - name: my-backup
+              type: restic
+              credentials: ""
+              src:
+                enabled: true
+              dest:
+                enabled: false
+    asserts:
+      - failedTemplate:
+          errorMessage: VolSync - Expected non-empty [credentials]
+
+  - it: should fail if referenced credentials does not exist
+    set:
+      persistence: &persistence
+        src-backup:
+          enabled: true
+          type: pvc
+          mountPath: /backedup
+          volsync:
+            - name: my-backup
+              type: restic
+              credentials: my-secret
+              src:
+                enabled: true
+              dest:
+                enabled: false
+      credentials: {}
+    asserts:
+      - failedTemplate:
+          errorMessage: VolSync - Expected credentials [my-secret] to be defined in [credentials.my-secret]
+
+  - it: should fail if credentials.url is empty
+    set:
+      persistence: *persistence
+      credentials:
+        my-secret:
+          type: s3
+          url: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: VolSync - Expected non-empty [url] in [credentials.my-secret]
+
+  - it: should fail if credentials.bucket is empty
+    set:
+      persistence: *persistence
+      credentials:
+        my-secret:
+          type: s3
+          url: some-url
+          bucket: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: VolSync - Expected non-empty [bucket] in [credentials.my-secret]
+
+  - it: should fail if credentials.encrKey is empty
+    set:
+      persistence: *persistence
+      credentials:
+        my-secret:
+          type: s3
+          url: some-url
+          bucket: some-bucket
+          encrKey: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: VolSync - Expected non-empty [encrKey] in [credentials.my-secret]
+
+  - it: should fail if credentials.accessKey is empty
+    set:
+      persistence: *persistence
+      credentials:
+        my-secret:
+          type: s3
+          url: some-url
+          bucket: some-bucket
+          encrKey: some-key
+          accessKey: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: VolSync - Expected non-empty [accessKey] in [credentials.my-secret]
+
+  - it: should fail if credentials.secretKey is empty
+    set:
+      persistence: *persistence
+      credentials:
+        my-secret:
+          type: s3
+          url: some-url
+          bucket: some-bucket
+          encrKey: some-key
+          accessKey: some-access-key
+          secretKey: ""
+    asserts:
+      - failedTemplate:
+          errorMessage: VolSync - Expected non-empty [secretKey] in [credentials.my-secret]
+
+  - it: should fail with invalid copy method
+    set:
+      persistence:
+        src-backup:
+          enabled: true
+          type: pvc
+          mountPath: /backedup
+          volsync:
+            - name: my-backup
+              type: restic
+              credentials: my-secret
+              copyMethod: invalid
+              src:
+                enabled: true
+              dest:
+                enabled: false
+      credentials: &credentials
+        my-secret:
+          type: s3
+          url: some-url
+          bucket: some-bucket
+          encrKey: some-key
+          accessKey: some-access-key
+          secretKey: some-secret-key
+    asserts:
+      - failedTemplate:
+          errorMessage: VolSync - Expected [copyMethod] to be one of [Clone, Direct, Snapshot], but got [invalid]
+
+  - it: should fail with empty type
+    set:
+      persistence:
+        src-backup:
+          enabled: true
+          type: pvc
+          mountPath: /backedup
+          volsync:
+            - name: my-backup
+              type: ""
+              credentials: my-secret
+              src:
+                enabled: true
+              dest:
+                enabled: false
+    asserts:
+      - failedTemplate:
+          errorMessage: VolSync - Expected non-empty [type]
+
+  - it: should fail with invalid type
+    set:
+      persistence:
+        src-backup:
+          enabled: true
+          type: pvc
+          mountPath: /backedup
+          volsync:
+            - name: my-backup
+              type: invalid
+              credentials: my-secret
+              src:
+                enabled: true
+              dest:
+                enabled: false
+      credentials: *credentials
+    asserts:
+      - failedTemplate:
+          errorMessage: VolSync - Expected [type] to be one of [restic], but got [invalid]

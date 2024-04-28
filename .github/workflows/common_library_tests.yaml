@@ -22,8 +22,7 @@ jobs:
       fail-fast: false
       matrix:
         helm-version:
-          - v3.11.3
-          - v3.12.3
+          - v3.12.1
           - v3.14.4
     steps:
       - name: Checkout
@@ -102,16 +101,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # We run tests on k3s version of latest SCALE release and SCALE nightly
+        # We test the latest k3s version and the lowest supported by either the oldest supported SCALE or FluxCD release
         k3s-version:
           - v1.26
-          - v1.27
-          - v1.28
           - v1.29
-        # We run tests on Helm version of latest SCALE, fluxcd and latest helm release
+        # We test the latest k3s version and the lowest supported by either the oldest supported SCALE SCALE or FluxCD release
         helm-version:
-          - v3.11.3
-          - v3.12.3
+          - v3.12.1
           - v3.14.4
         values:
           - basic-values.yaml
@@ -136,6 +132,9 @@ jobs:
           - register-operator-values.yaml
           - portal-svc-values.yaml
           - portal-ingress-values.yaml
+          ## TODO: reenable when we've some credentials ready to rock for testing
+          # - volsync-dest-values.yaml
+          # - volsync-src-values.yaml
 
     steps:
       - name: Checkout
@@ -204,7 +203,7 @@ jobs:
 
       - name: Add Dependencies
         run: |
-          if [[ "${{ matrix.values }}" =~ (ingress|metrics|cnpg).*-values.yaml ]]; then
+          if [[ "${{ matrix.values }}" =~ (ingress|metrics|cnpg|volsync).*-values.yaml ]]; then
             helm install prometheus-operator oci://tccr.io/truecharts/prometheus-operator --namespace prometheus-operator --create-namespace --wait
           fi
           if [[ "${{ matrix.values }}" =~ cnpg.*-values.yaml ]]; then
@@ -214,6 +213,10 @@ jobs:
             helm install cert-manager oci://tccr.io/truecharts/cert-manager --namespace cert-manager --create-namespace --wait
             helm install traefik oci://tccr.io/truecharts/traefik --namespace traefik --create-namespace --wait \
               --set service.main.type=ClusterIP --set service.tcp.type=ClusterIP
+          fi
+          if [[ "${{ matrix.values }}" =~ volsync.*-values.yaml ]]; then
+            helm install volumesnapshots oci://tccr.io/truecharts/volumesnapshots --namespace volumesnapshots --create-namespace --wait
+            helm install volsync oci://tccr.io/truecharts/volsync --namespace volsync --create-namespace --wait
           fi
 
       - name: Run chart-testing (install)

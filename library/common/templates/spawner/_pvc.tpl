@@ -79,6 +79,61 @@
 
         {{- end -}}
 
+        {{/* Create VolSync objects */}}
+        {{- range $volsync := $objectData.volsync -}}
+          {{- $srcEnabled := eq (include "tc.v1.common.lib.util.enabled" (dict
+                "rootCtx" $ "objectData" $volsync.src
+                "name" $volsync.name "caller" "VolSync Source"
+                "key" "volsync")) "true" -}}
+          {{- $destEnabled := eq (include "tc.v1.common.lib.util.enabled" (dict
+                "rootCtx" $ "objectData" $volsync.dest
+                "name" $volsync.name "caller" "VolSync Destination"
+                "key" "volsync")) "true" -}}
+
+          {{- if or $srcEnabled $destEnabled -}}
+            {{- $volsyncData := (mustDeepCopy $volsync) -}}
+
+            {{- include "tc.v1.common.lib.volsync.validation" (dict "objectData" $volsyncData "rootCtx" $) -}}
+            {{- include "tc.v1.common.lib.metadata.validation" (dict "objectData" $volsyncData "caller" "PVC - VolSync") -}}
+
+            {{/* Create Secret for VolSync */}}
+            {{- $volsyncSecretName := printf "%s-volsync-%s" $objectData.name $volsync.name -}}
+            {{- $_ := set $volsyncData "repository" $volsyncSecretName -}}
+
+            {{- $credentials := get $.Values.credentials $volsync.credentials -}}
+            {{- $resticrepository := printf "s3:%s/%s/%s/%s" $credentials.url $credentials.bucket $.Release.Name $volsyncSecretName -}}
+            {{- $resticpassword := $credentials.encrKey -}}
+            {{- $s3id := $credentials.accessKey -}}
+            {{- $s3key := $credentials.secretKey -}}
+
+            {{- $volsyncSecretData := (dict
+                "name" $volsyncSecretName
+                "labels" ($volsync.labels | default dict)
+                "annotations" ($volsync.annotations | default dict)
+                "data" (dict
+                    "RESTIC_REPOSITORY" $resticrepository
+                    "RESTIC_PASSWORD" $resticpassword
+                    "AWS_ACCESS_KEY_ID" $s3id
+                    "AWS_SECRET_ACCESS_KEY" $s3key
+                )
+            ) -}}
+            {{- include "tc.v1.common.class.secret" (dict "rootCtx" $ "objectData" $volsyncSecretData) -}}
+             {{/* Create VolSync resources*/}}
+            {{- if $srcEnabled -}}
+              {{- include "tc.v1.common.class.replicationsource" (dict "rootCtx" $ "objectData" $objectData "volsyncData" $volsyncData) -}}
+            {{- end -}}
+
+            {{- if $destEnabled -}}
+              {{- include "tc.v1.common.class.replicationdestination" (dict "rootCtx" $ "objectData" $objectData "volsyncData" $volsyncData) -}}
+
+               {{/* modify PVC if enabled */}}
+               {{- $destname := printf "%s-%s-dest" $objectData.name $volsyncData.name -}}
+               {{- $datasourceref := dict "kind" "ReplicationDestination" "apiGroup" "volsync.backube" "name" $destname -}}
+               {{- $_ := set $objectData "dataSourceRef" $datasourceref -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+
         {{/* Call class to create the object */}}
         {{- include "tc.v1.common.class.pvc" (dict "rootCtx" $ "objectData" $objectData) -}}
 

@@ -1,0 +1,80 @@
+suite: volsync replication dest name test
+templates:
+  - common.yaml
+chart:
+  appVersion: &appVer v9.9.9
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should generate correct name
+    set:
+      persistence:
+        srcbackup:
+          enabled: true
+          type: pvc
+          mountPath: /backedup
+          volsync:
+            - name: mybackup1
+              type: restic
+              credentials: mys3
+              src:
+                enabled: false
+              dest:
+                enabled: true
+            - name: mybackup2
+              type: restic
+              credentials: mys3
+              src:
+                enabled: false
+              dest:
+                enabled: true
+      credentials:
+        mys3:
+          type: s3
+          url: some-url
+          bucket: some-bucket
+          encrKey: some-key
+          accessKey: some-access-key
+          secretKey: some-secret-key
+    asserts:
+      - documentIndex: &secretDoc 0
+        isKind:
+          of: Secret
+      - documentIndex: *secretDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *secretDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-srcbackup-volsync-mybackup1
+      - documentIndex: &replicationDestDoc 1
+        isKind:
+          of: ReplicationDestination
+      - documentIndex: *replicationDestDoc
+        isAPIVersion:
+          of: volsync.backube/v1alpha1
+      - documentIndex: *replicationDestDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-srcbackup-mybackup1-dest
+      - documentIndex: &secretDoc 2
+        isKind:
+          of: Secret
+      - documentIndex: *secretDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *secretDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-srcbackup-volsync-mybackup2
+      - documentIndex: &replicationDestDoc 3
+        isKind:
+          of: ReplicationDestination
+      - documentIndex: *replicationDestDoc
+        isAPIVersion:
+          of: volsync.backube/v1alpha1
+      - documentIndex: *replicationDestDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test-srcbackup-mybackup2-dest

@@ -35,4 +35,11 @@ dataSource:
   kind: {{ .kind }}
   name: {{ $sourceName }}
   {{- end -}}
+
+{{- with $objectData.dataSourceRef }}
+dataSourceRef:
+  kind: {{ .kind }}
+  name: {{ .name }}
+  apiGroup: {{ .apiGroup }}
+{{- end -}}
 {{- end -}}
