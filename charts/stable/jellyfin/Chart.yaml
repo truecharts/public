@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 10.8.13
 dependencies:
   - name: common
-    version: 22.0.1
+    version: 22.0.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -33,7 +33,7 @@ name: jellyfin
 sources:
   - https://github.com/jellyfin/jellyfin
   - https://github.com/truecharts/charts/tree/master/charts/stable/jellyfin
-  - https://hub.docker.com/r/alpine/socat
   - https://hub.docker.com/r/jellyfin/jellyfin
+  - https://hub.docker.com/r/alpine/socat
 type: application
-version: 19.0.1
+version: 19.0.3
