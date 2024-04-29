@@ -78,6 +78,7 @@ tests:
           type: google
           applicationCredentials: some-credentials
           bucket: some-bucket
+          path: some-path
       cnpg:
         my-pg:
           enabled: true
@@ -85,7 +86,6 @@ tests:
           database: test-db
           password: test-password
           mode: recovery
-          path: some-path
           recovery:
             method: object_store
             credentials: test
@@ -138,7 +138,7 @@ tests:
               - name: test-release-name-common-test-cnpg-my-pg
                 barmanObjectStore:
                   serverName: test-release-name-common-test-cnpg-my-pg
-                  destinationPath: gs://some-bucket/some-path
+                  destinationPath: gs://some-bucket/some-path/test-release-name/cnpg
                   endpointURL: null
                   googleCredentials:
                     applicationCredentials:
@@ -229,6 +229,7 @@ tests:
           secretKey: some-secret-key
           bucket: some-bucket
           region: some-region
+          path: some-path
       cnpg:
         my-pg:
           enabled: true
@@ -236,7 +237,6 @@ tests:
           database: test-db
           password: test-password
           mode: recovery
-          path: some-path
           recovery:
             method: object_store
             credentials: test
@@ -287,7 +287,7 @@ tests:
               - name: test-release-name-common-test-cnpg-my-pg
                 barmanObjectStore:
                   serverName: test-release-name-common-test-cnpg-my-pg
-                  destinationPath: s3://some-bucket/some-path
+                  destinationPath: s3://some-bucket/some-path/test-release-name/cnpg
                   endpointURL: https://s3.some-region.amazonaws.com
                   s3Credentials:
                     accessKeyId:
@@ -382,6 +382,7 @@ tests:
           storageAccount: some-storage-account
           serviceName: some-service-name
           containerName: some-container-name
+          path: some-path
 
       cnpg:
         my-pg:
@@ -390,7 +391,6 @@ tests:
           database: test-db
           password: test-password
           mode: recovery
-          path: some-path
           recovery:
             method: object_store
             credentials: test
@@ -442,7 +442,7 @@ tests:
               - name: test-release-name-common-test-cnpg-my-pg
                 barmanObjectStore:
                   serverName: test-release-name-common-test-cnpg-my-pg
-                  destinationPath: https://some-storage-account.some-service-name.core.windows.net/some-container-name/some-path
+                  destinationPath: https://some-storage-account.some-service-name.core.windows.net/some-container-name/some-path/test-release-name/cnpg
                   endpointURL: null
                   azureCredentials:
                     connectionString:

@@ -229,14 +229,17 @@ credentials: {}
   # mys3:
   #   type: s3
   #   url: ""
+  #   path: ""
   #   region: ""
   #   bucket: ""
   #   accessKey: ""
   #   secretKey: ""
+  #   ## Is used in cases where things are encrypted by a backup utility
   #   encrKey: ""
 
 
   # azure:
+  #   path: ""
   #   connectionString: ""
   #   storageAccount: ""
   #   storageKey: ""
@@ -247,6 +250,7 @@ credentials: {}
 
   ## TODO: Add support for google:
   # google:
+  #   path: ""
   #   bucket: ""
   #   gkeEnvironment: false
   #   applicationCredentials: ""
@@ -284,6 +288,7 @@ persistence:
     medium: Memory
     targetSelectAll: true
 #  backupexample:
+#    ## the default backup path, is the credential path suffixed by the releasename, volsync and both the pvc and volsync names
 #    enabled: true
 #    type: pvc
 #    mountPath: /backedup
@@ -1123,7 +1128,6 @@ cnpg:
       # Azure: https://<storageAccount>.<serviceName>.core.windows.net/<clusterName><path>
       # Google: gs://<bucket><path>
       destinationPath: ""
-      path: "/"
 
     # Database cluster backup configuration
     backups:
@@ -1146,7 +1150,6 @@ cnpg:
 
       # name of credentials in .Values.Credentials
       credentials: ""
-      path: "/"
 
       scheduledBackups:
         - name: daily-backup # Daily at midnight
