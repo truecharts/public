@@ -7,6 +7,10 @@ release:
 tests:
   - it: should pass with hibernate
     set:
+      credentials:
+        test:
+          type: azure
+          connectionString: some-connection-string
       cnpg:
         my-pg:
           enabled: true
@@ -18,10 +22,8 @@ tests:
             enabled: true
             target: primary
             retentionPolicy: 10d
-            provider: azure
+            credentials: test
             destinationPath: some-path
-            azure:
-              connectionString: some-connection-string
             scheduledBackups:
               - name: daily
                 schedule: "0 0 * * *"
@@ -41,6 +43,10 @@ tests:
 
   - it: should set suspend on stopAll
     set:
+      credentials:
+        test:
+          type: azure
+          connectionString: some-connection-string
       global:
         stopAll: true
       cnpg:
@@ -54,10 +60,8 @@ tests:
             enabled: true
             target: primary
             retentionPolicy: 10d
-            provider: azure
+            credentials: test
             destinationPath: some-path
-            azure:
-              connectionString: some-connection-string
             scheduledBackups:
               - name: daily
                 schedule: "0 0 * * *"
@@ -77,6 +81,10 @@ tests:
 
   - it: should set suspend on ixChartContext - isStopped (true)
     set:
+      credentials:
+        test:
+          type: azure
+          connectionString: some-connection-string
       global:
         namespace: ix-something
         ixChartContext:
@@ -93,10 +101,8 @@ tests:
             enabled: true
             target: primary
             retentionPolicy: 10d
-            provider: azure
+            credentials: test
             destinationPath: some-path
-            azure:
-              connectionString: some-connection-string
             scheduledBackups:
               - name: daily
                 schedule: "0 0 * * *"
@@ -116,6 +122,10 @@ tests:
 
   - it: should not suspend on ixChartContext - isStopped (false)
     set:
+      credentials:
+        test:
+          type: azure
+          connectionString: some-connection-string
       global:
         namespace: ix-something
         ixChartContext:
@@ -132,10 +142,8 @@ tests:
             enabled: true
             target: primary
             retentionPolicy: 10d
-            provider: azure
+            credentials: test
             destinationPath: some-path
-            azure:
-              connectionString: some-connection-string
             scheduledBackups:
               - name: daily
                 schedule: "0 0 * * *"

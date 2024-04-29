@@ -222,40 +222,12 @@ tests:
       - failedTemplate:
           errorMessage: CNPG Recovery - Expected a non-empty [recovery.backupName] key
 
-  - it: should fail with invalid provider on recovery method object_store
-    set:
-      cnpg:
-        my-pg:
-          enabled: true
-          user: test-user
-          database: test-db
-          password: test-password
-          mode: recovery
-          recovery:
-            method: object_store
-            provider: invalid
-    asserts:
-      - failedTemplate:
-          errorMessage: CNPG Recovery - Expected [recovery.provider] to be one of [azure, s3, google], but got [invalid]
-
-  - it: should fail with missing "provider" key on recovery method object_store
-    set:
-      cnpg:
-        my-pg:
-          enabled: true
-          user: test-user
-          database: test-db
-          password: test-password
-          mode: recovery
-          recovery:
-            method: object_store
-            provider: google
-    asserts:
-      - failedTemplate:
-          errorMessage: CNPG Recovery - Expected [recovery.google] to be defined when [recovery.provider] is set to [google]
-
   - it: should fail with missing destinationPath and google bucket on recovery method object_store
     set:
+      credentials:
+        test:
+          type: google
+          applicationCredentials: some-credentials
       cnpg:
         my-pg:
           enabled: true
@@ -265,15 +237,18 @@ tests:
           mode: recovery
           recovery:
             method: object_store
-            provider: google
-            google:
-              applicationCredentials: some-credentials
+            credentials: test
     asserts:
       - failedTemplate:
           errorMessage: CNPG Recovery - You need to specify [recovery.google.bucket] or [recovery.destinationPath]
 
   - it: should fail with missing destinationPath and s3 bucket on recovery method object_store
     set:
+      credentials:
+        test:
+          type: s3
+          accessKey: some-access-key
+          secretKey: some-secret-key
       cnpg:
         my-pg:
           enabled: true
@@ -283,16 +258,19 @@ tests:
           mode: recovery
           recovery:
             method: object_store
-            provider: s3
-            s3:
-              accessKey: some-access-key
-              secretKey: some-secret-key
+            credentials: test
     asserts:
       - failedTemplate:
           errorMessage: CNPG Recovery - You need to specify [recovery.s3.bucket] or [recovery.destinationPath]
 
   - it: should fail with missing endpointURL and s3 region on recovery method object_store
     set:
+      credentials:
+        test:
+          type: s3
+          accessKey: some-access-key
+          secretKey: some-secret-key
+          bucket: some-bucket
       cnpg:
         my-pg:
           enabled: true
@@ -302,17 +280,17 @@ tests:
           mode: recovery
           recovery:
             method: object_store
-            provider: s3
-            s3:
-              accessKey: some-access-key
-              secretKey: some-secret-key
-              bucket: some-bucket
+            credentials: test
     asserts:
       - failedTemplate:
           errorMessage: CNPG Recovery - You need to specify [recovery.s3.region] or [recovery.endpointURL]
 
   - it: should fail with missing destinationPath and azure storageAccount on recovery method object_store
     set:
+      credentials:
+        test:
+          type: azure
+          connectionString: some-connection-string
       cnpg:
         my-pg:
           enabled: true
@@ -322,15 +300,18 @@ tests:
           mode: recovery
           recovery:
             method: object_store
-            provider: azure
-            azure:
-              connectionString: some-connection-string
+            credentials: test
     asserts:
       - failedTemplate:
           errorMessage: CNPG Recovery - You need to specify [recovery.azure.storageAccount] or [recovery.destinationPath]
 
   - it: should fail with missing destinationPath and azure serviceName on recovery method object_store
     set:
+      credentials:
+        test:
+          type: azure
+          connectionString: some-connection-string
+          storageAccount: some-storage-account
       cnpg:
         my-pg:
           enabled: true
@@ -340,16 +321,20 @@ tests:
           mode: recovery
           recovery:
             method: object_store
-            provider: azure
-            azure:
-              connectionString: some-connection-string
-              storageAccount: some-storage-account
+            credentials: test
+
     asserts:
       - failedTemplate:
           errorMessage: CNPG Recovery - You need to specify [recovery.azure.serviceName] or [recovery.destinationPath]
 
   - it: should fail with missing destinationPath and azure containerName on recovery method object_store
     set:
+      credentials:
+        test:
+          type: azure
+          connectionString: some-connection-string
+          storageAccount: some-storage-account
+          serviceName: some-service-name
       cnpg:
         my-pg:
           enabled: true
@@ -359,17 +344,18 @@ tests:
           mode: recovery
           recovery:
             method: object_store
-            provider: azure
-            azure:
-              connectionString: some-connection-string
-              storageAccount: some-storage-account
-              serviceName: some-service-name
+            credentials: test
+
     asserts:
       - failedTemplate:
           errorMessage: CNPG Recovery - You need to specify [recovery.azure.containerName] or [recovery.destinationPath]
 
   - it: should fail with revision in backups not a string
     set:
+      credentials:
+        test:
+          type: azure
+          connectionString: some-connection-string
       cnpg:
         my-pg:
           enabled: true
@@ -378,10 +364,8 @@ tests:
           password: test-password
           backups:
             enabled: true
-            provider: azure
+            credentials: test
             revision: 5
-            azure:
-              connectionString: some-connection-string
             target: primary
     asserts:
       - failedTemplate:
@@ -389,6 +373,10 @@ tests:
 
   - it: should fail with invalid target when backups are enabled
     set:
+      credentials:
+        test:
+          type: azure
+          connectionString: some-connection-string
       cnpg:
         my-pg:
           enabled: true
@@ -397,9 +385,7 @@ tests:
           password: test-password
           backups:
             enabled: true
-            provider: azure
-            azure:
-              connectionString: some-connection-string
+            credentials: test
             target: invalid
     asserts:
       - failedTemplate:
@@ -407,6 +393,11 @@ tests:
 
   - it: should fail with invalid retentionPolicy when backups are enabled
     set:
+      credentials:
+        test:
+          type: azure
+          connectionString: some-connection-string
+          applicationCredentials: some-credential
       cnpg:
         my-pg:
           enabled: true
@@ -415,9 +406,7 @@ tests:
           password: test-password
           backups:
             enabled: true
-            provider: azure
-            azure:
-              connectionString: some-connection-string
+            credentials: test
             target: primary
             retentionPolicy: invalid
     asserts:
@@ -426,6 +415,11 @@ tests:
 
   - it: should fail with missing destinationPath and google bucket on backups
     set:
+      credentials:
+        test:
+          type: google
+          connectionString: some-credentials
+          applicationCredentials: some-credential
       cnpg:
         my-pg:
           enabled: true
@@ -434,17 +428,20 @@ tests:
           password: test-password
           backups:
             enabled: true
-            provider: google
+            credentials: test
             target: primary
             retentionPolicy: 1d
-            google:
-              applicationCredentials: some-credentials
     asserts:
       - failedTemplate:
           errorMessage: CNPG Backup - You need to specify [backups.google.bucket] or [backups.destinationPath]
 
   - it: should fail with missing destinationPath and s3 bucket on backups
     set:
+      credentials:
+        test:
+          type: s3
+          accessKey: some-access-key
+          secretKey: some-secret-key
       cnpg:
         my-pg:
           enabled: true
@@ -453,18 +450,22 @@ tests:
           password: test-password
           backups:
             enabled: true
-            provider: s3
+            credentials: test
             target: primary
             retentionPolicy: 1d
-            s3:
-              accessKey: some-access-key
-              secretKey: some-secret-key
+
     asserts:
       - failedTemplate:
           errorMessage: CNPG Backup - You need to specify [backups.s3.bucket] or [backups.destinationPath]
 
   - it: should fail with missing endpointURL and s3 region on backups
     set:
+      credentials:
+        test:
+          type: s3
+          accessKey: some-access-key
+          secretKey: some-secret-key
+          bucket: some-bucket
       cnpg:
         my-pg:
           enabled: true
@@ -473,19 +474,19 @@ tests:
           password: test-password
           backups:
             enabled: true
-            provider: s3
+            credentials: test
             target: primary
             retentionPolicy: 1d
-            s3:
-              accessKey: some-access-key
-              secretKey: some-secret-key
-              bucket: some-bucket
     asserts:
       - failedTemplate:
           errorMessage: CNPG Backup - You need to specify [backups.s3.region] or [backups.endpointURL]
 
   - it: should fail with missing destinationPath and azure storageAccount on backups
     set:
+      credentials:
+        test:
+          type: azure
+          connectionString: some-connection-string
       cnpg:
         my-pg:
           enabled: true
@@ -494,17 +495,20 @@ tests:
           password: test-password
           backups:
             enabled: true
-            provider: azure
+            credentials: test
             target: primary
             retentionPolicy: 1d
-            azure:
-              connectionString: some-connection-string
     asserts:
       - failedTemplate:
           errorMessage: CNPG Backup - You need to specify [backups.azure.storageAccount] or [backups.destinationPath]
 
   - it: should fail with missing destinationPath and azure serviceName on backups
     set:
+      credentials:
+        test:
+          type: azure
+          connectionString: some-connection-string
+          storageAccount: some-storage-account
       cnpg:
         my-pg:
           enabled: true
@@ -513,18 +517,21 @@ tests:
           password: test-password
           backups:
             enabled: true
-            provider: azure
+            credentials: test
             target: primary
             retentionPolicy: 1d
-            azure:
-              connectionString: some-connection-string
-              storageAccount: some-storage-account
     asserts:
       - failedTemplate:
           errorMessage: CNPG Backup - You need to specify [backups.azure.serviceName] or [backups.destinationPath]
 
   - it: should fail with missing destinationPath and azure containerName on backups
     set:
+      credentials:
+        test:
+          type: azure
+          connectionString: some-connection-string
+          storageAccount: some-storage-account
+          serviceName: some-service-name
       cnpg:
         my-pg:
           enabled: true
@@ -533,13 +540,9 @@ tests:
           password: test-password
           backups:
             enabled: true
-            provider: azure
+            credentials: test
             target: primary
             retentionPolicy: 1d
-            azure:
-              connectionString: some-connection-string
-              storageAccount: some-storage-account
-              serviceName: some-service-name
     asserts:
       - failedTemplate:
           errorMessage: CNPG Backup - You need to specify [backups.azure.containerName] or [backups.destinationPath]

@@ -27,7 +27,7 @@
     {{- if not $data.bucket -}}
       {{- fail (printf "CNPG %s - You need to specify [%s.google.bucket] or [%s.destinationPath]" ($type | camelcase) $key $key) -}}
     {{- end -}}
-    {{- $destinationPath = (printf "gs://%s/%s" $data.bucket (($data.path | default "/") | trimSuffix "/")) -}}
+    {{- $destinationPath = (printf "gs://%s/%s" $data.bucket (($objectData.path | default "/") | trimSuffix "/")) -}}
   {{- end }}
 endpointURL: {{ $endpointURL }}
 destinationPath: {{ $destinationPath }}

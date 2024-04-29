@@ -5,44 +5,18 @@ release:
   name: test-release-name
   namespace: test-release-namespace
 tests:
-  - it: should fail with invalid provider
-    set:
-      cnpg:
-        my-pg:
-          enabled: true
-          backups:
-            enabled: true
-            provider: invalid
-            manualBackups:
-              - name: today
-    asserts:
-      - failedTemplate:
-          errorMessage: CNPG Backup - Expected [backups.provider] to be one of [azure, s3, google], but got [invalid]
-
-  - it: should fail with missing "provider" object
-    set:
-      cnpg:
-        my-pg:
-          enabled: true
-          backups:
-            enabled: true
-            provider: azure
-            manualBackups:
-              - name: today
-    asserts:
-      - failedTemplate:
-          errorMessage: CNPG Backup - Expected [backups.azure] to be defined when [backups.provider] is set to [azure]
-
   - it: should fail with missing storageAccount or connectionString with azure provider
     set:
+      credentials:
+        test:
+          type: azure
+          storageKey: test
       cnpg:
         my-pg:
           enabled: true
           backups:
             enabled: true
-            provider: azure
-            azure:
-              storageKey: test
+            credentials: test
             manualBackups:
               - name: today
     asserts:
@@ -51,14 +25,16 @@ tests:
 
   - it: should fail with missing storageKey or storageSasToken with azure provider
     set:
+      credentials:
+        test:
+          type: azure
+          storageAccount: test
       cnpg:
         my-pg:
           enabled: true
           backups:
             enabled: true
-            provider: azure
-            azure:
-              storageAccount: test
+            credentials: test
             manualBackups:
               - name: today
     asserts:
@@ -67,16 +43,18 @@ tests:
 
   - it: should fail with both storageKey and storageSasToken defined with azure provider
     set:
+      credentials:
+        test:
+          type: azure
+          storageAccount: test
+          storageKey: test
+          storageSasToken: test
       cnpg:
         my-pg:
           enabled: true
           backups:
             enabled: true
-            provider: azure
-            azure:
-              storageAccount: test
-              storageKey: test
-              storageSasToken: test
+            credentials: test
             manualBackups:
               - name: today
     asserts:
@@ -85,14 +63,16 @@ tests:
 
   - it: should fail with applicationCredentials missing with google provider
     set:
+      credentials:
+        test:
+          type: google
+          gkeEnvironment: false
       cnpg:
         my-pg:
           enabled: true
           backups:
             enabled: true
-            provider: google
-            google:
-              gkeEnvironment: false
+            credentials: test
             manualBackups:
               - name: today
     asserts:
@@ -101,14 +81,16 @@ tests:
 
   - it: should fail with accessKey missing with s3 provider
     set:
+      credentials:
+        test:
+          type: s3
+          secretKey: test
       cnpg:
         my-pg:
           enabled: true
           backups:
             enabled: true
-            provider: s3
-            s3:
-              secretKey: test
+            credentials: test
             manualBackups:
               - name: today
     asserts:
@@ -117,14 +99,16 @@ tests:
 
   - it: should fail with secretKey missing with s3 provider
     set:
+      credentials:
+        test:
+          type: s3
+          accessKey: test
       cnpg:
         my-pg:
           enabled: true
           backups:
             enabled: true
-            provider: s3
-            s3:
-              accessKey: test
+            credentials: test
             manualBackups:
               - name: today
     asserts:

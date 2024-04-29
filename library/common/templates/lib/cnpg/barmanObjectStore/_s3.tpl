@@ -22,7 +22,7 @@
     {{- if not $data.bucket -}}
       {{- fail (printf "CNPG %s - You need to specify [%s.s3.bucket] or [%s.destinationPath]" ($type | camelcase) $key $key) -}}
     {{- end -}}
-    {{- $destinationPath = (printf "s3://%s/%s" $data.bucket (($data.path | default "/") | trimSuffix "/")) -}}
+    {{- $destinationPath = (printf "s3://%s/%s" $data.bucket (($objectData.path | default "/") | trimSuffix "/")) -}}
   {{- end -}}
   {{- if not $endpointURL -}}
     {{- if not $data.region -}}

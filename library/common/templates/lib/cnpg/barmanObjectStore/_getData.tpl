@@ -7,9 +7,11 @@
   {{- $endpointURL := "" -}}
   {{- $destinationPath := "" -}}
   {{- $key := "" -}}
+  {{- $creds := dict -}}
 
   {{- if eq $type "recovery" -}}
-    {{- $endpointURL = $objectData.recovery.endpointURL -}}
+    {{- $creds = (get $rootCtx.Values.credentials $objectData.recovery.credentials) -}}
+    {{- $endpointURL = $creds.url -}}
     {{- $destinationPath = $objectData.recovery.destinationPath -}}
     {{- $key = "recovery" -}}
 
@@ -21,8 +23,8 @@
     {{- end -}}
 
   {{- else if eq $type "backup" -}}
-
-    {{- $endpointURL = $objectData.backups.endpointURL -}}
+    {{- $creds = (get $rootCtx.Values.credentials $objectData.backups.credentials) -}}
+    {{- $endpointURL = $creds.url -}}
     {{- $destinationPath = $objectData.backups.destinationPath -}}
     {{- $key = "backups" -}}
 

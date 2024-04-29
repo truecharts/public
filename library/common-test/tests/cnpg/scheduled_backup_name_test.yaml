@@ -7,6 +7,10 @@ release:
 tests:
   - it: should generate correct name
     set:
+      credentials:
+        test:
+          type: azure
+          connectionString: some-connection-string
       cnpg:
         my-pg:
           enabled: true
@@ -17,10 +21,8 @@ tests:
             enabled: true
             target: primary
             retentionPolicy: 10d
-            provider: azure
+            credentials: test
             destinationPath: some-path
-            azure:
-              connectionString: some-connection-string
             scheduledBackups:
               - name: daily
                 schedule: "0 0 * * *"
@@ -34,7 +36,7 @@ tests:
             enabled: true
             target: primary
             retentionPolicy: 10d
-            provider: azure
+            credentials: test
             destinationPath: some-path
             azure:
               connectionString: some-connection-string

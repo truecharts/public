@@ -236,6 +236,22 @@ credentials: {}
   #   encrKey: ""
 
 
+  # azure:
+  #   connectionString: ""
+  #   storageAccount: ""
+  #   storageKey: ""
+  #   storageSasToken: ""
+  #   containerName: ""
+  #   serviceName: blob
+  #   inheritFromAzureAD: false
+
+  ## TODO: Add support for google:
+  # google:
+  #   bucket: ""
+  #   gkeEnvironment: false
+  #   applicationCredentials: ""
+
+
 # -- (docs/persistence/README.md)
 persistence:
   shared:
@@ -1101,43 +1117,17 @@ cnpg:
 
       # Object Store Recovery Method
       clusterName: ""
-      # Overrides the provider specific default endpoint. Defaults to:
-      # S3: https://s3.<region>.amazonaws.com"
-      endpointURL: "" # Leave empty if using the default S3 endpoint
+
       # Overrides the provider specific default path. Defaults to:
       # S3: s3://<bucket><path>
       # Azure: https://<storageAccount>.<serviceName>.core.windows.net/<clusterName><path>
       # Google: gs://<bucket><path>
       destinationPath: ""
-      provider: s3 # One of s3, azure, google
-      s3:
-        region: ""
-        bucket: ""
-        path: "/"
-        accessKey: ""
-        secretKey: ""
-      azure:
-        path: "/"
-        connectionString: ""
-        storageAccount: ""
-        storageKey: ""
-        storageSasToken: ""
-        containerName: ""
-        serviceName: blob
-        inheritFromAzureAD: false
-      google:
-        path: "/"
-        bucket: ""
-        gkeEnvironment: false
-        applicationCredentials: ""
+      path: "/"
 
     # Database cluster backup configuration
     backups:
       enabled: false # You need to configure backups manually, so backups are disabled by default.
-
-      # Overrides the provider specific default endpoint. Defaults to:
-      # S3: https://s3.<region>.amazonaws.com"
-      endpointURL: "" # Leave empty if using the default S3 endpoint
 
       ## set a revision to append to the serverName to ensure restore and backup dont target the same thing
       # revision: 1
@@ -1150,29 +1140,13 @@ cnpg:
       # Azure: https://<storageAccount>.<serviceName>.core.windows.net/<clusterName><path>
       # Google: gs://<bucket><path>
       destinationPath: ""
+
       # default: primary, other option prefer-standby
       target: ""
-      provider: s3
-      s3:
-        region: ""
-        bucket: ""
-        path: "/"
-        accessKey: ""
-        secretKey: ""
-      azure:
-        path: "/"
-        connectionString: ""
-        storageAccount: ""
-        storageKey: ""
-        storageSasToken: ""
-        containerName: ""
-        serviceName: blob
-        inheritFromAzureAD: false
-      google:
-        path: "/"
-        bucket: ""
-        gkeEnvironment: false
-        applicationCredentials: ""
+
+      # name of credentials in .Values.Credentials
+      credentials: ""
+      path: "/"
 
       scheduledBackups:
         - name: daily-backup # Daily at midnight

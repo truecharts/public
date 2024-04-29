@@ -7,14 +7,16 @@ release:
 tests:
   - it: should fail without name in manualBackups backup
     set:
+      credentials:
+        test:
+          type: azure
+          connectionString: some-connection-string
       cnpg:
         my-pg:
           enabled: true
           backups:
             enabled: true
-            provider: azure
-            azure:
-              connectionString: some-connection-string
+            credentials: test
             manualBackups:
               - name:
     asserts:
@@ -23,14 +25,16 @@ tests:
 
   - it: should fail with invalid name in manualBackups backup
     set:
+      credentials:
+        test:
+          type: azure
+          connectionString: some-connection-string
       cnpg:
         my-pg:
           enabled: true
           backups:
             enabled: true
-            provider: azure
-            azure:
-              connectionString: some-connection-string
+            credentials: test
             manualBackups:
               - name: _invalid
     asserts:

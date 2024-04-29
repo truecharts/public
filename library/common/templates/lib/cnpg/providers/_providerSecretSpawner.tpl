@@ -10,15 +10,13 @@
   {{- $provider := "" -}}
   {{- $creds := dict -}}
   {{- if eq $type "backup" -}}
-    {{- include "tc.v1.common.lib.cnpg.provider.backupValidation" (dict "objectData" $objectData) -}}
-    {{- $provider = $objectData.backups.provider -}}
     {{/* Get the creds defined in backup.$provider */}}
-    {{- $creds = (get $objectData.backups $provider) -}}
+    {{- $creds = (get $rootCtx.Values.credentials $objectData.backups.credentials) -}}
+    {{- $provider = $creds.type -}}
   {{- else if eq $type "recovery" -}}
-    {{- include "tc.v1.common.lib.cnpg.provider.recoveryValidation" (dict "objectData" $objectData) -}}
-    {{- $provider = $objectData.recovery.provider -}}
     {{/* Get the creds defined in recovery.$provider */}}
-    {{- $creds = (get $objectData.recovery $provider) -}}
+    {{- $creds = (get $rootCtx.Values.credentials $objectData.recovery.credentials) -}}
+    {{- $provider = $creds.type -}}
   {{- end -}}
 
   {{- include (printf "tc.v1.common.lib.cnpg.provider.%s.validation" $provider) (dict "objectData" $objectData "creds" $creds) -}}

@@ -7,6 +7,10 @@ release:
 tests:
   - it: should generate correct spec with backups (azure)
     set:
+      credentials:
+        test:
+          type: azure
+          connectionString: some-connection-string
       cnpg:
         my-pg:
           enabled: true
@@ -17,10 +21,8 @@ tests:
             enabled: true
             target: primary
             retentionPolicy: 10d
-            provider: azure
+            credentials: test
             destinationPath: some-path
-            azure:
-              connectionString: some-connection-string
     asserts:
       - documentIndex: &secretDoc 1
         isKind:
@@ -84,6 +86,10 @@ tests:
 
   - it: should generate correct spec with backups (google)
     set:
+      credentials:
+        test:
+          type: google
+          applicationCredentials: some-credentials
       cnpg:
         my-pg:
           enabled: true
@@ -94,10 +100,9 @@ tests:
             enabled: true
             target: primary
             retentionPolicy: 10d
-            provider: google
+            credentials: test
             destinationPath: some-path
-            google:
-              applicationCredentials: some-credentials
+
     asserts:
       - documentIndex: *secretDoc
         isKind:
@@ -150,6 +155,12 @@ tests:
 
   - it: should generate correct spec with backups (s3)
     set:
+      credentials:
+        test:
+          type: s3
+          accessKey: some-access-key
+          secretKey: some-secret-key
+          url: some-url
       cnpg:
         my-pg:
           enabled: true
@@ -160,12 +171,8 @@ tests:
             enabled: true
             target: primary
             retentionPolicy: 10d
-            provider: s3
+            credentials: test
             destinationPath: some-path
-            endpointURL: some-url
-            s3:
-              accessKey: some-access-key
-              secretKey: some-secret-key
     asserts:
       - documentIndex: *secretDoc
         isKind:
@@ -221,6 +228,12 @@ tests:
 
   - it: should use the revision when set in server name
     set:
+      credentials:
+        test:
+          type: s3
+          accessKey: some-access-key
+          secretKey: some-secret-key
+          url: some-url
       cnpg:
         my-pg:
           enabled: true
@@ -231,13 +244,9 @@ tests:
             enabled: true
             target: primary
             retentionPolicy: 10d
-            provider: s3
+            credentials: test
             destinationPath: some-path
-            endpointURL: some-url
             revision: some-revision
-            s3:
-              accessKey: some-access-key
-              secretKey: some-secret-key
     asserts:
       - documentIndex: *secretDoc
         isKind:
@@ -293,6 +302,12 @@ tests:
 
   - it: should override serverName when set
     set:
+      credentials:
+        test:
+          type: s3
+          accessKey: some-access-key
+          secretKey: some-secret-key
+          url: some-url
       cnpg:
         my-pg:
           enabled: true
@@ -303,13 +318,9 @@ tests:
             enabled: true
             target: primary
             retentionPolicy: 10d
-            provider: s3
+            credentials: test
             destinationPath: some-path
-            endpointURL: some-url
             serverName: some-server-name
-            s3:
-              accessKey: some-access-key
-              secretKey: some-secret-key
     asserts:
       - documentIndex: *secretDoc
         isKind:
@@ -365,6 +376,12 @@ tests:
 
   - it: should override serverName when set (and also take account revision)
     set:
+      credentials:
+        test:
+          type: s3
+          accessKey: some-access-key
+          secretKey: some-secret-key
+          url: some-url
       cnpg:
         my-pg:
           enabled: true
@@ -375,14 +392,11 @@ tests:
             enabled: true
             target: primary
             retentionPolicy: 10d
-            provider: s3
+            credentials: test
             destinationPath: some-path
-            endpointURL: some-url
             serverName: some-server-name
             revision: "1"
-            s3:
-              accessKey: some-access-key
-              secretKey: some-secret-key
+
     asserts:
       - documentIndex: *secretDoc
         isKind:
@@ -438,6 +452,10 @@ tests:
 
   - it: should generate correct spec with empty target
     set:
+      credentials:
+        test:
+          type: azure
+          connectionString: some-connection-string
       cnpg:
         my-pg:
           enabled: true
@@ -447,10 +465,8 @@ tests:
           backups:
             enabled: true
             retentionPolicy: 10d
-            provider: azure
+            credentials: test
             destinationPath: some-path
-            azure:
-              connectionString: some-connection-string
     asserts:
       - documentIndex: &clusterDoc 0
         isKind:

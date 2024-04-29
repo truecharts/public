@@ -9,6 +9,10 @@ release:
 tests:
   - it: should pass with cnpg manualBackups backup created with labels and annotations
     set:
+      credentials:
+        test:
+          type: azure
+          connectionString: some-connection-string
       label1: label1
       label2: global_label2
       label3: label3
@@ -44,10 +48,8 @@ tests:
             enabled: true
             target: primary
             retentionPolicy: 10d
-            provider: azure
+            credentials: test
             destinationPath: some-path
-            azure:
-              connectionString: some-connection-string
             labels:
               label5: label5
             annotations:
@@ -104,6 +106,10 @@ tests:
 
   - it: should pass with cnpg manualBackups backup created with namespace
     set:
+      credentials:
+        test:
+          type: azure
+          connectionString: some-connection-string
       cnpg:
         my-pg:
           enabled: true
@@ -115,10 +121,8 @@ tests:
             enabled: true
             target: primary
             retentionPolicy: 10d
-            provider: azure
+            credentials: test
             destinationPath: some-path
-            azure:
-              connectionString: some-connection-string
             manualBackups:
               - name: today
     asserts:
@@ -129,6 +133,10 @@ tests:
 
   - it: should pass with cnpg manualBackups backup created with object namespace from tpl
     set:
+      credentials:
+        test:
+          type: azure
+          connectionString: some-connection-string
       key: some-namespace
       cnpg:
         my-pg:
@@ -141,10 +149,8 @@ tests:
             enabled: true
             target: primary
             retentionPolicy: 10d
-            provider: azure
+            credentials: test
             destinationPath: some-path
-            azure:
-              connectionString: some-connection-string
             manualBackups:
               - name: today
     asserts:
@@ -155,6 +161,10 @@ tests:
 
   - it: should pass with cnpg manualBackups backup created with namespace from global with tpl
     set:
+      credentials:
+        test:
+          type: azure
+          connectionString: some-connection-string
       key: global-namespace
       global:
         namespace: "{{ .Values.key }}"
@@ -168,10 +178,8 @@ tests:
             enabled: true
             target: primary
             retentionPolicy: 10d
-            provider: azure
+            credentials: test
             destinationPath: some-path
-            azure:
-              connectionString: some-connection-string
             manualBackups:
               - name: today
     asserts:
@@ -182,6 +190,10 @@ tests:
 
   - it: should pass with cnpg manualBackups backup created with namespace from root with tpl
     set:
+      credentials:
+        test:
+          type: azure
+          connectionString: some-connection-string
       key: local-namespace
       namespace: "{{ .Values.key }}"
       global:
@@ -196,10 +208,8 @@ tests:
             enabled: true
             target: primary
             retentionPolicy: 10d
-            provider: azure
+            credentials: test
             destinationPath: some-path
-            azure:
-              connectionString: some-connection-string
             manualBackups:
               - name: today
     asserts:
@@ -210,6 +220,10 @@ tests:
 
   - it: should pass with cnpg manualBackups backup created with namespace in TrueNAS SCALE
     set:
+      credentials:
+        test:
+          type: azure
+          connectionString: some-connection-string
       global:
         ixChartContext:
           iAmNotEmpty: true
@@ -225,10 +239,8 @@ tests:
             enabled: true
             target: primary
             retentionPolicy: 10d
-            provider: azure
+            credentials: test
             destinationPath: some-path
-            azure:
-              connectionString: some-connection-string
             manualBackups:
               - name: today
     asserts:

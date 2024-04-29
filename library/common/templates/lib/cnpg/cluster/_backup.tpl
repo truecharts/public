@@ -14,8 +14,9 @@ backup:
       compression: gzip
       encryption: AES256
       jobs: {{ $objectData.backups.jobs | default 2 }}
-  {{- $provider := $objectData.backups.provider -}}
   {{/* Fetch provider data */}}
-  {{- $data := (get $objectData.backups $provider) -}}
-  {{- include (printf "tc.v1.common.lib.cnpg.cluster.barmanObjectStoreConfig.%s" $provider) (dict "rootCtx" $rootCtx "objectData" $objectData "data" $data "type" "backup") | nindent 4 -}}
+  {{/* Get the creds defined in backup.$provider */}}
+  {{- $creds := (get $rootCtx.Values.credentials $objectData.backups.credentials) -}}
+  {{ $provider := $creds.type -}}
+  {{- include (printf "tc.v1.common.lib.cnpg.cluster.barmanObjectStoreConfig.%s" $provider) (dict "rootCtx" $rootCtx "objectData" $objectData "data" $creds "type" "backup") | nindent 4 -}}
 {{- end -}}

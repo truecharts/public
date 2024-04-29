@@ -73,6 +73,11 @@ tests:
 
   - it: should generate correct spec with recovery/objectStore (google)
     set:
+      credentials:
+        test:
+          type: google
+          applicationCredentials: some-credentials
+          bucket: some-bucket
       cnpg:
         my-pg:
           enabled: true
@@ -80,13 +85,10 @@ tests:
           database: test-db
           password: test-password
           mode: recovery
+          path: some-path
           recovery:
             method: object_store
-            provider: google
-            google:
-              applicationCredentials: some-credentials
-              bucket: some-bucket
-              path: some-path
+            credentials: test
             pitrTarget:
               time: "2021-01-01T00:00:00Z"
     asserts:
@@ -146,6 +148,10 @@ tests:
 
   - it: should generate correct spec with recovery/objectStore (google - destinationPath)
     set:
+      credentials:
+        test:
+          type: google
+          applicationCredentials: some-credentials
       cnpg:
         my-pg:
           enabled: true
@@ -155,10 +161,8 @@ tests:
           mode: recovery
           recovery:
             method: object_store
-            provider: google
+            credentials: test
             destinationPath: gs://some-bucket
-            google:
-              applicationCredentials: some-credentials
             pitrTarget:
               time: "2021-01-01T00:00:00Z"
     asserts:
@@ -218,6 +222,13 @@ tests:
 
   - it: should generate correct spec with recovery/objectStore (s3)
     set:
+      credentials:
+        test:
+          type: s3
+          accessKey: some-access-key
+          secretKey: some-secret-key
+          bucket: some-bucket
+          region: some-region
       cnpg:
         my-pg:
           enabled: true
@@ -225,15 +236,11 @@ tests:
           database: test-db
           password: test-password
           mode: recovery
+          path: some-path
           recovery:
             method: object_store
-            provider: s3
-            s3:
-              accessKey: some-access-key
-              secretKey: some-secret-key
-              bucket: some-bucket
-              path: some-path
-              region: some-region
+            credentials: test
+
     asserts:
       - documentIndex: *secretDoc
         isKind:
@@ -292,6 +299,12 @@ tests:
 
   - it: should generate correct spec with recovery/objectStore (s3 - destinationPath/endpointURL)
     set:
+      credentials:
+        test:
+          type: s3
+          accessKey: some-access-key
+          secretKey: some-secret-key
+          url: some-endpoint-url
       cnpg:
         my-pg:
           enabled: true
@@ -301,12 +314,9 @@ tests:
           mode: recovery
           recovery:
             method: object_store
-            provider: s3
+            credentials: test
             destinationPath: s3://some-bucket
-            endpointURL: some-endpoint-url
-            s3:
-              accessKey: some-access-key
-              secretKey: some-secret-key
+
     asserts:
       - documentIndex: *secretDoc
         isKind:
@@ -365,6 +375,14 @@ tests:
 
   - it: should generate correct spec with recovery/objectStore (azure)
     set:
+      credentials:
+        test:
+          type: azure
+          connectionString: some-connection-string
+          storageAccount: some-storage-account
+          serviceName: some-service-name
+          containerName: some-container-name
+
       cnpg:
         my-pg:
           enabled: true
@@ -372,15 +390,10 @@ tests:
           database: test-db
           password: test-password
           mode: recovery
+          path: some-path
           recovery:
             method: object_store
-            provider: azure
-            azure:
-              connectionString: some-connection-string
-              storageAccount: some-storage-account
-              serviceName: some-service-name
-              containerName: some-container-name
-              path: some-path
+            credentials: test
     asserts:
       - documentIndex: *secretDoc
         isKind:
@@ -447,6 +460,10 @@ tests:
 
   - it: should generate correct spec with recovery/objectStore (azure - destinationPath)
     set:
+      credentials:
+        test:
+          type: azure
+          connectionString: some-connection-string
       cnpg:
         my-pg:
           enabled: true
@@ -456,10 +473,8 @@ tests:
           mode: recovery
           recovery:
             method: object_store
-            provider: azure
+            credentials: test
             destinationPath: https://some-storage-account.some-service-name.core.windows.net/some-container-name
-            azure:
-              connectionString: some-connection-string
     asserts:
       - documentIndex: *secretDoc
         isKind:
@@ -526,6 +541,10 @@ tests:
 
   - it: should use revision in serverName when set
     set:
+      credentials:
+        test:
+          type: google
+          applicationCredentials: some-credentials
       cnpg:
         my-pg:
           enabled: true
@@ -535,11 +554,9 @@ tests:
           mode: recovery
           recovery:
             method: object_store
-            provider: google
+            credentials: test
             destinationPath: gs://some-bucket
             revision: some-revision
-            google:
-              applicationCredentials: some-credentials
             pitrTarget:
               time: "2021-01-01T00:00:00Z"
     asserts:
@@ -599,6 +616,10 @@ tests:
 
   - it: should override serverName when set
     set:
+      credentials:
+        test:
+          type: google
+          applicationCredentials: some-credentials
       cnpg:
         my-pg:
           enabled: true
@@ -608,11 +629,9 @@ tests:
           mode: recovery
           recovery:
             method: object_store
-            provider: google
+            credentials: test
             destinationPath: gs://some-bucket
             serverName: some-server-name
-            google:
-              applicationCredentials: some-credentials
             pitrTarget:
               time: "2021-01-01T00:00:00Z"
     asserts:
@@ -672,6 +691,10 @@ tests:
 
   - it: should override serverName when set along with revision
     set:
+      credentials:
+        test:
+          type: google
+          applicationCredentials: some-credentials
       cnpg:
         my-pg:
           enabled: true
@@ -681,12 +704,10 @@ tests:
           mode: recovery
           recovery:
             method: object_store
-            provider: google
+            credentials: test
             destinationPath: gs://some-bucket
             serverName: some-server-name
             revision: "20"
-            google:
-              applicationCredentials: some-credentials
             pitrTarget:
               time: "2021-01-01T00:00:00Z"
     asserts:
