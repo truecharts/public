@@ -97,14 +97,14 @@
             {{- include "tc.v1.common.lib.metadata.validation" (dict "objectData" $volsyncData "caller" "PVC - VolSync") -}}
 
             {{/* Create Secret for VolSync */}}
-            {{- $volsyncSecretName := printf "%s-volsync-%s" $objectData.name $volsync.name -}}
+            {{- $volsyncSecretName := printf "%s-volsync-%s" $objectData.name $volsyncData.name -}}
             {{- $_ := set $volsyncData "repository" $volsyncSecretName -}}
 
             {{- $credentials := get $.Values.credentials $volsync.credentials -}}
 
-            {{- $resticrepository := printf "s3:%s/%s/volsync/%s" $credentials.url $credentials.bucket $.Release.Name $volsyncSecretName -}}
+            {{- $resticrepository := printf "s3:%s/%s/%s/volsync/%s-volsync-%s" $credentials.url $credentials.bucket $.Release.Name $objectData.shortName $volsyncData.name  -}}
             {{- if $credentials.path -}}
-            {{- $resticrepository = printf "s3:%s/%s/%s/volsync/%s" $credentials.url $credentials.bucket ( $credentials.path | trimSuffix "/" ) $.Release.Name $volsyncSecretName -}}
+            {{- $resticrepository = printf "s3:%s/%s/%s/%s/volsync/%s-volsync-%s" $credentials.url $credentials.bucket ( $credentials.path | trimSuffix "/" ) $.Release.Name $objectData.shortName $volsyncData.name -}}
             {{- end -}}
 
             {{- $resticpassword := ( $credentials.encrKey | default $.Release.Name ) -}}
