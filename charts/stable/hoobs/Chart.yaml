@@ -1,6 +1,6 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: home-automation
   truecharts.org/max_helm_version: "3.14"
@@ -10,21 +10,21 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 20.3.12
+    version: 22.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
 deprecated: false
-description: "HOOBS is a Homebridge stack with a interface that simplifies configuration and installing plugins. This adds a process wrapper for Homebridge.  "
+description: 'HOOBS is a Homebridge stack with a interface that simplifies configuration and installing plugins. This adds a process wrapper for Homebridge.  '
 home: https://truecharts.org/charts/stable/hoobs
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/hoobs.webp
 keywords:
   - hoobs
   - home-automation
   - Tools-Utilities
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/hoobs
   - https://hub.docker.com/r/hoobs/hoobs
 type: application
-version: 5.8.14
+version: 6.0.0

@@ -1,6 +1,6 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: tools
   truecharts.org/max_helm_version: "3.14"
@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 3.1.9
 dependencies:
   - name: common
-    version: 20.3.12
+    version: 22.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -23,7 +23,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/node-red.webp
 keywords:
   - node-red
   - nodered
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/node-red
   - https://hub.docker.com/r/nodered/node-red
 type: application
-version: 18.8.15
+version: 19.0.0

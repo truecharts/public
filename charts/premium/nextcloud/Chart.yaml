@@ -1,6 +1,6 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: cloud
   truecharts.org/max_helm_version: "3.14"
@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 28.0.4
 dependencies:
   - name: common
-    version: 20.3.12
+    version: 22.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -33,7 +33,7 @@ keywords:
   - http
   - web
   - php
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -43,11 +43,11 @@ sources:
   - https://github.com/nextcloud/docker
   - https://github.com/nextcloud/helm
   - https://github.com/truecharts/charts/tree/master/charts/premium/nextcloud
-  - https://hub.docker.com/r/nginxinc/nginx-unprivileged
   - https://github.com/truecharts/containers/tree/master/apps/nextcloud-push-notify
-  - https://hub.docker.com/r/clamav/clamav
-  - https://github.com/truecharts/containers/tree/master/apps/nextcloud-fpm
-  - https://github.com/truecharts/containers/tree/master/apps/nextcloud-imaginary
   - https://hub.docker.com/r/collabora/code
+  - https://github.com/truecharts/containers/tree/master/apps/nextcloud-fpm
+  - https://hub.docker.com/r/clamav/clamav
+  - https://hub.docker.com/r/nginxinc/nginx-unprivileged
+  - https://github.com/truecharts/containers/tree/master/apps/nextcloud-imaginary
 type: application
-version: 29.11.0
+version: 30.0.0
