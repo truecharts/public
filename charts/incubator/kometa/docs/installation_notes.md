@@ -6,7 +6,7 @@ title: Installation Notes
 
 - Set `KOMETA_RUN` as **true** to run immediately, bypassing `KOMETA_TIMES`
 
-However disabling `KOMETA_RUN` will show the options to set a time for `KOMETA_TIME` with a comma-separated
+However disabling `KOMETA_RUN` will show the options to set a time for `KOMETA_TIMES` with a comma-separated
 list in HH:MM format(ex: **06:00,18:00**) and `KOMETA_NO_COUNTDOWN` set to **true** to run without displaying a
 countdown to the next scheduled run
 
