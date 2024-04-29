@@ -1,6 +1,6 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "false"
   truecharts.org/category: CSI
   truecharts.org/max_helm_version: "3.14"
@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 20.3.12
+    version: 22.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -30,7 +30,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/csi-driver-smb.webp
 keywords:
   - csi-driver-smb
   - backup
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -42,4 +42,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/system/csi-driver-smb
   - https://github.com/truecharts/containers/tree/master/apps/alpine
 type: application
-version: 3.8.15
+version: 4.0.0

@@ -1,6 +1,6 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: management
   truecharts.org/max_helm_version: "3.14"
@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 5.141.0
 dependencies:
   - name: common
-    version: 20.3.12
+    version: 22.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -22,7 +22,7 @@ home: https://truecharts.org/charts/stable/xen-orchestra
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/xen-orchestra.webp
 keywords:
   - xen-orchestra
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -32,4 +32,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/xen-orchestra
   - https://hub.docker.com/r/ronivay/xen-orchestra
 type: application
-version: 8.11.0
+version: 9.0.0
