@@ -203,8 +203,8 @@
                             label: Type VolSync/Backup
                             description: Sets the VolSync Type
                             schema:
-                              type: restic
-                              default: hostPath
+                              type: string
+                              default: "restic"
                               enum:
                                 - value: restic
                                   description: Restic
