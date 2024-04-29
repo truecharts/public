@@ -10,9 +10,18 @@
 storageClassName: {{ . }}
   {{- end -}}
 
-  {{- with $target.accessModes }}
 accessModes:
-    {{- range . }}
+  {{- if $target.accessModes }}
+
+    {{- range $target.accessModes }}
+  - {{ . }}
+    {{- end }}
+  {{- else if $objectData.accessModes }}
+    {{- range  $objectData.accessModes }}
+  - {{ . }}
+    {{- end }}
+  {{- else }}
+    {{- range  $rootCtx.Values.global.fallbackDefaults.accessModes }}
   - {{ . }}
     {{- end }}
   {{- end -}}

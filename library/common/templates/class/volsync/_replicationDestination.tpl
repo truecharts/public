@@ -38,8 +38,12 @@ spec:
   {{ $volsyncData.type }}:
     repository: {{ $volsyncData.repository }}
     copyMethod: {{ $volsyncData.copyMethod | default "Snapshot"}}
-    {{- with $volsyncData.dest.capacity }}
+    {{- if $volsyncData.dest.capacity }}
     capacity: {{ $volsyncData.dest.capacity }}
+    {{- else if $objectData.size }}
+    capacity: {{ $objectData.size }}
+    {{- else }}
+    capacity: {{ $rootCtx.Values.global.fallbackDefaults.pvcSize }}
     {{- end }}
 
   {{- include "tc.v1.common.lib.volsync.storage" (dict "rootCtx" $rootCtx "objectData" $objectData "volsyncData" $volsyncData "target" "dest") | trim | nindent 4 }}
