@@ -37,7 +37,7 @@ For the complete overview of all available options, please checkout the document
 
 All our charts have dedicated documentation pages.
 The documentation for this chart can be found here:
-https://truecharts.org/charts/incubator/dockovpn
+https://truecharts.org/charts/stable/dockovpn
 
 ## Support
 
