@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 1.4.2
 dependencies:
   - name: common
-    version: 22.0.2
+    version: 22.0.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -36,7 +36,7 @@ name: bazarr
 sources:
   - https://github.com/morpheus65535/bazarr
   - https://github.com/truecharts/charts/tree/master/charts/stable/bazarr
-  - https://ghcr.io/onedr0p/bazarr
   - https://ghcr.io/onedr0p/exportarr
+  - https://ghcr.io/onedr0p/bazarr
 type: application
-version: 20.0.2
+version: 20.0.4
