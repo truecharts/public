@@ -100,7 +100,6 @@ rbac:
     primary: true
     clusterWide: true
     rules:
-      - apiGroups:
       - apiGroups: [""]
         resources: ["persistentvolumes"]
         verbs: ["get", "list", "watch"]
