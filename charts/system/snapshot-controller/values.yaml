@@ -34,6 +34,13 @@ workload:
             - '--http-endpoint=:{{ .Values.service.main.ports.main.port }}'
             - '--leader-election=true'
             - '--leader-election-namespace={{ .Release.Namespace }}'
+          probes:
+            liveness:
+              path: /metrics
+            readiness:
+              path: /metrics
+            startup:
+              path: /metrics
   webhook:
     enabled: false
     podSpec:
