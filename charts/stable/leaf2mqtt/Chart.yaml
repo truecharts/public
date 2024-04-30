@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 0.6.0
 dependencies:
   - name: common
-    version: 22.0.1
+    version: 22.0.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -26,7 +26,7 @@ keywords:
   - nissan
   - kamereon
   - carwings
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -38,4 +38,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/leaf2mqtt
   - https://ghcr.io/k8s-at-home/leaf2mqtt
 type: application
-version: 12.0.1
+version: 12.0.4

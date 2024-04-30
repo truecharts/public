@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 2.5.302
 dependencies:
   - name: common
-    version: 22.0.1
+    version: 22.0.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -23,7 +23,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/wikijs.webp
 keywords:
   - wiki
   - wikijs
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/wikijs
   - https://hub.docker.com/r/requarks/wiki
 type: application
-version: 16.0.1
+version: 16.0.3

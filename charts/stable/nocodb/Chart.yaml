@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 0.205.1
 dependencies:
   - name: common
-    version: 22.0.1
+    version: 22.0.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -29,7 +29,7 @@ home: https://truecharts.org/charts/stable/nocodb
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/nocodb.webp
 keywords:
   - nocodb
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -40,4 +40,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/nocodb
   - https://hub.docker.com/r/nocodb/nocodb
 type: application
-version: 14.0.1
+version: 14.0.4

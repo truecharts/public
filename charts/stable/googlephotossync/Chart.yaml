@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 3.2.1
 dependencies:
   - name: common
-    version: 22.0.1
+    version: 22.0.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -23,7 +23,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/googlephotossync.webp
 keywords:
   - googlephotossync
   - Other
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -33,4 +33,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/googlephotossync
   - https://ghcr.io/gilesknap/gphotos-sync
 type: application
-version: 7.0.1
+version: 7.0.3

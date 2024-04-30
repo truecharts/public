@@ -1,0 +1,133 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: registry.k8s.io/sig-storage/snapshot-controller
+  tag: v7.0.1
+
+portal:
+  open:
+    enabled: false
+service:
+  main:
+    enabled: true
+    ports:
+      main:
+        enabled: true
+        port: 8080
+        protocol: http
+  webhook:
+    enabled: true
+    ports:
+      webhook:
+        enabled: true
+        port: 8443
+        protocol: https
+        
+podOptions:
+  automountServiceAccountToken: true
+        
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          args:
+            - '--http-endpoint=:{{ .Values.service.main.ports.main.port }}'
+            - '--leader-election=true'
+            - '--leader-election-namespace={{ .Release.Namespace }}'
+          probes:
+            liveness:
+              path: /metrics
+            readiness:
+              path: /metrics
+            startup:
+              path: /metrics
+  webhook:
+    enabled: false
+    podSpec:
+      containers:
+        webhook:
+          enabled: false
+          args:
+            - '--tlsPrivateKeyFile=/etc/snapshot-validation/tls.key'
+            - '--tlsCertFile=/etc/snapshot-validation/tls.crt'
+            - '--port={{ .Values.service.webhook.ports.webhook.port }}'
+          probes:
+            liveness:
+              enabled: true
+              type: https
+              path: /readyz
+              port: 8443
+            readiness:
+              enabled: true
+              type: https
+              path: /readyz
+              port: 8443
+            startup:
+              enabled: true
+              type: https
+              path: /readyz
+              port: 8443
+              
+metrics:
+  main:
+    enabled: true
+    type: servicemonitor
+    endpoints:
+      - port: main
+        path: /metrics
+    targetSelector: main
+
+serviceAccount:
+  main:
+    enabled: true
+    primary: true
+    targetSelectAll: true
+
+rbac:
+  main:
+    enabled: true
+    primary: true
+    clusterWide: true
+    rules:
+      - apiGroups: [""]
+        resources: ["persistentvolumes"]
+        verbs: ["get", "list", "watch"]
+      - apiGroups: [""]
+        resources: ["persistentvolumeclaims"]
+        verbs: ["get", "list", "watch", "update"]
+      - apiGroups: ["storage.k8s.io"]
+        resources: ["storageclasses"]
+        verbs: ["get", "list", "watch"]
+      - apiGroups: [""]
+        resources: ["events"]
+        verbs: ["list", "watch", "create", "update", "patch"]
+      - apiGroups: ["snapshot.storage.k8s.io"]
+        resources: ["volumesnapshotclasses"]
+        verbs: ["get", "list", "watch"]
+      - apiGroups: ["snapshot.storage.k8s.io"]
+        resources: ["volumesnapshotcontents"]
+        verbs: ["create", "get", "list", "watch", "update", "patch", "delete"]
+      - apiGroups: ["snapshot.storage.k8s.io"]
+        resources: ["volumesnapshotcontents/status"]
+        verbs: ["patch"]
+      - apiGroups: ["snapshot.storage.k8s.io"]
+        resources: ["volumesnapshots"]
+        verbs: ["get", "list", "watch", "update", "patch"]
+      - apiGroups: ["snapshot.storage.k8s.io"]
+        resources: ["volumesnapshots/status"]
+        verbs: ["update", "patch"]
+      - apiGroups: [""]
+        resources: ["nodes"]
+        verbs: ["get", "list", "watch"]
+      - apiGroups: ["snapshot.storage.k8s.io", "groupsnapshot.storage.k8s.io"]
+        resources: ["volumesnapshotclasses", "volumegroupsnapshotclasses"]
+        verbs: ["list", "watch"]
+  role:
+    enabled: true
+    primary: false
+    clusterWide: false
+    serviceAccounts: ["main"]
+    rules:
+      - apiGroups: ["coordination.k8s.io"]
+        resources: ["leases"]
+        verbs: ["get", "watch", "list", "delete", "update", "create"]

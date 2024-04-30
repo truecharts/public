@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 1.30.5
 dependencies:
   - name: common
-    version: 22.0.1
+    version: 22.0.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -27,7 +27,7 @@ keywords:
   - vaultwarden
   - password
   - rust
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -38,4 +38,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/premium/vaultwarden
   - https://hub.docker.com/r/vaultwarden/server
 type: application
-version: 27.0.1
+version: 27.0.4

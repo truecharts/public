@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 22.0.1
+    version: 22.0.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -25,7 +25,7 @@ keywords:
   - manager
   - tv
   - shows
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -36,4 +36,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/sickgear
   - https://hub.docker.com/r/sickgear/sickgear
 type: application
-version: 12.0.1
+version: 12.0.3

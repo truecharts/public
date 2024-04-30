@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 2.5.1
 dependencies:
   - name: common
-    version: 22.0.1
+    version: 22.0.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -23,7 +23,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/codeproject-ai-server.we
 keywords:
   - ai-server
   - sense-ai
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/codeproject-ai-server
   - https://hub.docker.com/r/codeproject/ai-server
 type: application
-version: 3.0.1
+version: 3.0.4
