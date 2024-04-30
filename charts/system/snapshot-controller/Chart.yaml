@@ -1,0 +1,44 @@
+annotations:
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
+  truecharts.org/SCALE-support: "true"
+  truecharts.org/category: network
+  truecharts.org/max_helm_version: "3.14"
+  truecharts.org/min_helm_version: "3.11"
+  truecharts.org/train: system
+apiVersion: v2
+appVersion: latest
+dependencies:
+  - name: common
+    version: 22.0.3
+    repository: oci://tccr.io/truecharts
+    condition: ""
+    alias: ""
+    tags: []
+    import-values: []
+deprecated: false
+description: |
+  Deploys a Snapshot Controller in a cluster. Snapshot Controllers are often bundled with the Kubernetes distribution,
+  this chart is meant for cases where it is not.
+  Also deploys the Snapshot Validation Webhook and configures your cluster to validate every `VolumeSnapshot` and
+  `VolumeSnapshotContent` resource by sending it to the webhook.
+home: https://truecharts.org/charts/system/snapshot-controller
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/snapshot-controller.webp
+keywords:
+  - storage
+  - snapshot
+  - validation
+kubeVersion: ">=1.24.0-0"
+maintainers:
+  - name: TrueCharts
+    email: info@truecharts.org
+    url: https://truecharts.org
+name: snapshot-controller
+sources:
+  - https://github.com/snapshot-controller/snapshot-controller
+  - https://github.com/snapshot-controller/snapshot-controller-helm-chart
+  - https://github.com/truecharts/charts/tree/master/charts/system/snapshot-controller
+  - https://github.com/truecharts/containers/tree/master/apps/scratch
+  - https://github.com/kubernetes-csi/external-snapshotter/
+type: application
+version: 2.0.3
