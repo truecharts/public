@@ -6,6 +6,20 @@ chart:
 release:
   name: test-release-name
   namespace: test-release-namespace
+kubernetesProvider:
+  scheme:
+    "traefik.io/v1alpha1/Middleware":
+      namespaced: true
+      gvr:
+        group: "traefik.io"
+        version: "v1alpha1"
+        resource: "middlewares"
+  objects:
+    - kind: Middleware
+      apiVersion: traefik.io/v1alpha1
+      metadata:
+        name: my-test-middleware
+        namespace: other-test-release-namespace
 tests:
   - it: should pass with ingress created with annotations from traefik
     set:
@@ -440,6 +454,41 @@ tests:
           content:
             traefik.ingress.kubernetes.io/router.entrypoints: web
             traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-chain-basic@kubernetescrd
+
+  - it: should pass when a middleware does not have a namespace but exists as an object (can be looked up)
+    set:
+      service: *service
+      global: *global
+      ingress:
+        my-ingress1:
+          enabled: true
+          primary: true
+          integrations:
+            traefik:
+              enabled: true
+              entrypoints:
+                - websecure
+              middlewares:
+                - name: my-test-middleware
+          hosts: *hosts
+    asserts:
+      - documentIndex: *ingressDoc
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        isKind:
+          of: Ingress
+      - documentIndex: *ingressDoc
+        equal:
+          path: metadata.name
+          value: test-release-name-common-test
+      - documentIndex: *ingressDoc
+        isSubset:
+          path: metadata.annotations
+          content:
+            traefik.ingress.kubernetes.io/router.tls: "true"
+            traefik.ingress.kubernetes.io/router.entrypoints: websecure
+            traefik.ingress.kubernetes.io/router.middlewares: test-release-namespace-chain-basic@kubernetescrd,other-test-release-namespace-my-test-middleware@kubernetescrd
 
   # Failures
   - it: should fail with entrypoint not a slice
