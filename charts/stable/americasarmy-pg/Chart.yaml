@@ -10,20 +10,20 @@ apiVersion: v2
 appVersion: aaproinggrounds
 dependencies:
   - name: common
-    version: 22.0.0
+    version: 22.0.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
 deprecated: false
-description: 'This Chart will download and install SteamCMD. It will also install America''s Army: Proving Grounds and run it.'
+description: "This Chart will download and install SteamCMD. It will also install America's Army: Proving Grounds and run it."
 home: https://truecharts.org/charts/stable/americasarmy-pg
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/americasarmy-pg.webp
 keywords:
   - americasarmy-pg
   - GameServers
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/americasarmy-pg
   - https://hub.docker.com/r/ich777/steamcmd
 type: application
-version: 6.0.0
+version: 6.0.4

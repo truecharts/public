@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 0.33.0
 dependencies:
   - name: common
-    version: 22.0.0
+    version: 22.0.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -24,7 +24,7 @@ keywords:
   - lama-cleaner
   - media
   - AI
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/lama-cleaner
   - https://hub.docker.com/r/cwq1913/lama-cleaner
 type: application
-version: 7.0.0
+version: 7.0.4

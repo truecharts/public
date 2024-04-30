@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 22.0.0
+    version: 22.0.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -23,7 +23,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/kerbalspaceprogram-lmp.w
 keywords:
   - kerbalspaceprogram-lmp
   - GameServers
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/kerbalspaceprogram-lmp
   - https://hub.docker.com/r/ich777/lunamultiplayer-ksp
 type: application
-version: 6.0.0
+version: 6.0.4

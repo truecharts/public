@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 0.3.23.2506
 dependencies:
   - name: common
-    version: 22.0.0
+    version: 22.0.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -26,7 +26,7 @@ keywords:
   - usenet
   - AudioBooks
   - ebooks
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -36,7 +36,7 @@ sources:
   - https://readarr.com
   - https://github.com/Readarr/Readarr
   - https://github.com/truecharts/charts/tree/master/charts/stable/readarr
-  - https://ghcr.io/onedr0p/exportarr
   - https://ghcr.io/onedr0p/readarr-develop
+  - https://ghcr.io/onedr0p/exportarr
 type: application
-version: 22.0.0
+version: 22.0.3

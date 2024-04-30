@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 4.3.2
 dependencies:
   - name: common
-    version: 22.0.0
+    version: 22.0.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -29,7 +29,7 @@ home: https://truecharts.org/charts/stable/youtubedl-material
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/youtubedl-material.webp
 keywords:
   - youtube
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -40,4 +40,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/youtubedl-material
   - https://ghcr.io/tzahi12345/youtubedl-material
 type: application
-version: 11.0.0
+version: 11.0.3

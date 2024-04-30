@@ -155,11 +155,6 @@
                         type: string
                         show_if: [["enabled", "=", true]]
                         default: "30d"
-                    - variable: path
-                      label: "path"
-                      schema:
-                        type: string
-                        default: "/"
                     - variable: credentials
                       label: "Credentials"
                       description: "Name of the credentials in the credentials section"
@@ -201,11 +196,6 @@
                         type: string
                         show_if: [["enabled", "=", true]]
                         default: ""
-                    - variable: path
-                      label: "path"
-                      schema:
-                        type: string
-                        default: "/"
                     - variable: credentials
                       label: "Credentials"
                       description: "Name of the credentials in the credentials section"

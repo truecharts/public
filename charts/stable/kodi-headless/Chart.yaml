@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 190.0.0
 dependencies:
   - name: common
-    version: 22.0.0
+    version: 22.0.3
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -22,7 +22,7 @@ home: https://truecharts.org/charts/stable/kodi-headless
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/kodi-headless.webp
 keywords:
   - kodi-headless
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -32,4 +32,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/kodi-headless
   - https://hub.docker.com/r/linuxserver/kodi-headless
 type: application
-version: 10.0.0
+version: 10.0.4
