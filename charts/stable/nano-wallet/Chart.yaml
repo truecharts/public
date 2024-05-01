@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 2021.12.16
 dependencies:
   - name: common
-    version: 22.0.3
+    version: 23.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -22,7 +22,7 @@ home: https://truecharts.org/charts/stable/nano-wallet
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/nano-wallet.webp
 keywords:
   - nano-wallet
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -32,4 +32,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/nano-wallet
   - https://ghcr.io/linuxserver/nano-wallet
 type: application
-version: 10.0.4
+version: 10.0.5
