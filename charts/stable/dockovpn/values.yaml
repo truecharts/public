@@ -1,0 +1,53 @@
+image:
+  repository: alekslitvinenk/openvpn
+  pullPolicy: IfNotPresent
+  tag: v1.14.0@sha256:8f3424e3de810169fcd5c770ad723112f5671fcbeb635215612379f7941fc0fe
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    allowPrivilegeEscalation: true
+    runAsUser: 0
+    runAsGroup: 0
+    capabilities:
+      add:
+        - NET_ADMIN
+        - NET_RAW
+        - MKNOD
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            HOST_ADDR: "vpn.example.com"
+            HOST_CONF_PORT: "{{ .Values.service.main.ports.main.port }}"
+            # Being implemented currently only UDP supported.
+            HOST_TUN_PROTOCOL: "udp"
+            HOST_TUN_PORT: "{{ .Values.service.vpn.ports.vpn.port }}"
+          probes:
+            liveness:
+              enabled: false
+            readiness:
+              enabled: false
+            startup:
+              enabled: false
+service:
+  main:
+    ports:
+      main:
+        port: 8080
+  vpn:
+    enabled: true
+    ports:
+      vpn:
+        enabled: true
+        protocol: "{{ .Values.workload.main.podSpec.containers.main.env.HOST_TUN_PROTOCOL }}"
+        port: 1194
+persistence:
+  config:
+    enabled: true
+    mountPath: "/opt/Dockovpn_data"
+portal:
+  open:
+    enabled: true
