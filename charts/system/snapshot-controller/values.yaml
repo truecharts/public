@@ -21,19 +21,19 @@ service:
         enabled: true
         port: 8443
         protocol: https
-        
+
 podOptions:
   automountServiceAccountToken: true
-        
+
 workload:
   main:
     podSpec:
       containers:
         main:
           args:
-            - '--http-endpoint=:{{ .Values.service.main.ports.main.port }}'
-            - '--leader-election=true'
-            - '--leader-election-namespace={{ .Release.Namespace }}'
+            - "--http-endpoint=:{{ .Values.service.main.ports.main.port }}"
+            - "--leader-election=true"
+            - "--leader-election-namespace={{ .Release.Namespace }}"
           probes:
             liveness:
               path: /metrics
@@ -48,9 +48,9 @@ workload:
         webhook:
           enabled: false
           args:
-            - '--tlsPrivateKeyFile=/etc/snapshot-validation/tls.key'
-            - '--tlsCertFile=/etc/snapshot-validation/tls.crt'
-            - '--port={{ .Values.service.webhook.ports.webhook.port }}'
+            - "--tlsPrivateKeyFile=/etc/snapshot-validation/tls.key"
+            - "--tlsCertFile=/etc/snapshot-validation/tls.crt"
+            - "--port={{ .Values.service.webhook.ports.webhook.port }}"
           probes:
             liveness:
               enabled: true
@@ -67,7 +67,7 @@ workload:
               type: https
               path: /readyz
               port: 8443
-              
+
 metrics:
   main:
     enabled: true

@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: system
 apiVersion: v2
-appVersion: latest
+appVersion: 7.0.1
 dependencies:
   - name: common
     version: 22.0.3
@@ -37,8 +37,7 @@ name: snapshot-controller
 sources:
   - https://github.com/snapshot-controller/snapshot-controller
   - https://github.com/snapshot-controller/snapshot-controller-helm-chart
-  - https://github.com/truecharts/charts/tree/master/charts/system/snapshot-controller
-  - https://github.com/truecharts/containers/tree/master/apps/scratch
   - https://github.com/kubernetes-csi/external-snapshotter/
+  - https://github.com/truecharts/charts/tree/master/charts/system/snapshot-controller
 type: application
 version: 1.0.0
