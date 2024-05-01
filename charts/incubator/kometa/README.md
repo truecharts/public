@@ -7,7 +7,7 @@ title: README
 TrueCharts can be installed as both _normal_ Helm Charts or as TrueNAS SCALE Apps.
 Both solutions are fully supported, but we heavily advice the use of normal Helm Charts where possible
 
-For more information about this Chart, please check the docs on the TrueCharts [website](https://truecharts.org/charts/stable/plex-meta-manager)
+For more information about this Chart, please check the docs on the TrueCharts [website](https://truecharts.org/charts/incubator/kometa)
 
 **This chart is not maintained by the upstream project and any issues with the chart should be raised [here](https://github.com/truecharts/charts/issues/new/choose)**
 
@@ -20,6 +20,7 @@ To install TrueCharts Helm charts using Helm, you can use our OCI Repository.
 `helm install mychart oci://tccr.io/truecharts/CHARTNAME`
 
 For more information on how to install TrueCharts Helm charts, checkout the instructions on the website: https://truecharts.org/helm/
+
 
 ### TrueNAS SCALE Apps
 
@@ -39,6 +40,7 @@ The documentation for this chart can be found here:
 https://truecharts.org/charts/incubator/kometa
 
 ## Support
+
 
 - See the [Website](https://truecharts.org)
 - Check our [Discord](https://discord.gg/tVsPTHWTtr)
