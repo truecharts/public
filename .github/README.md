@@ -24,7 +24,7 @@ All our charts are supposed to work together, be easy to setup using both Helm a
 
 Installing TrueCharts within TrueNAS SCALE, is possible using the TrueNAS SCALE Catalog list.
 
-Check TrueCharts [Quick-Start Guides](https://truecharts.org/manual/SCALE/guides/getting-started#adding-truecharts) for more information.
+Check TrueCharts [Quick-Start Guides](https://truecharts.org/scale/#adding-truecharts) for more information.
 
 For installing TrueCharts using helm:
 
