@@ -1,0 +1,40 @@
+image:
+  repository: docuseal/docuseal
+  tag: 1.5.4@sha256:95c5fa20a36655c36766aa82c6250843837eb491c339094be0d0b6b56c654f9a
+  pullPolicy: IfNotPresent
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+    runAsNonRoot: false
+    runAsUser: 0
+    runAsGroup: 0
+service:
+  main:
+    ports:
+      main:
+        port: 10310
+        protocol: http
+        targetPort: 3000
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              type: http
+              path: /
+            readiness:
+              type: http
+              path: /
+            startup:
+              type: http
+              path: /
+persistence:
+  data:
+    enabled: false
+    mountPath: /data
+portal:
+  open:
+    enabled: true
