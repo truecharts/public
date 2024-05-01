@@ -71,164 +71,16 @@ tests:
                 backup:
                   name: some-backup-name
 
-  - it: should generate correct spec with recovery/objectStore (google)
-    set:
-      credentials:
-        test:
-          type: google
-          applicationCredentials: some-credentials
-          bucket: some-bucket
-          path: some-path
-      cnpg:
-        my-pg:
-          enabled: true
-          user: test-user
-          database: test-db
-          password: test-password
-          mode: recovery
-          recovery:
-            method: object_store
-            credentials: test
-            pitrTarget:
-              time: "2021-01-01T00:00:00Z"
-    asserts:
-      - documentIndex: &secretDoc 1
-        isKind:
-          of: Secret
-      - documentIndex: *secretDoc
-        isAPIVersion:
-          of: v1
-      - documentIndex: *secretDoc
-        equal:
-          path: metadata.name
-          value: test-release-name-common-test-cnpg-my-pg-provider-recovery-google-creds
-      - documentIndex: *secretDoc
-        equal:
-          path: stringData
-          value:
-            APPLICATION_CREDENTIALS: some-credentials
-      - documentIndex: *clusterDoc
-        isKind:
-          of: Cluster
-      - documentIndex: *clusterDoc
-        isAPIVersion:
-          of: postgresql.cnpg.io/v1
-      - documentIndex: *clusterDoc
-        equal:
-          path: metadata.name
-          value: test-release-name-common-test-cnpg-my-pg
-      - documentIndex: *clusterDoc
-        isSubset:
-          path: spec
-          content:
-            bootstrap:
-              recovery:
-                secret:
-                  name: test-release-name-common-test-cnpg-my-pg-user
-                owner: test-user
-                database: test-db
-                source: test-release-name-common-test-cnpg-my-pg
-                recoveryTarget:
-                  targetTime: "2021-01-01T00:00:00Z"
-      - documentIndex: *clusterDoc
-        isSubset:
-          path: spec
-          content:
-            externalClusters:
-              - name: test-release-name-common-test-cnpg-my-pg
-                barmanObjectStore:
-                  serverName: test-release-name-common-test-cnpg-my-pg
-                  destinationPath: gs://some-bucket/some-path/test-release-name/cnpg
-                  endpointURL: null
-                  googleCredentials:
-                    applicationCredentials:
-                      key: APPLICATION_CREDENTIALS
-                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-google-creds
-                    gkeEnvironment: false
-
-  - it: should generate correct spec with recovery/objectStore (google - destinationPath)
-    set:
-      credentials:
-        test:
-          type: google
-          applicationCredentials: some-credentials
-      cnpg:
-        my-pg:
-          enabled: true
-          user: test-user
-          database: test-db
-          password: test-password
-          mode: recovery
-          recovery:
-            method: object_store
-            credentials: test
-            destinationPath: gs://some-bucket
-            pitrTarget:
-              time: "2021-01-01T00:00:00Z"
-    asserts:
-      - documentIndex: *secretDoc
-        isKind:
-          of: Secret
-      - documentIndex: *secretDoc
-        isAPIVersion:
-          of: v1
-      - documentIndex: *secretDoc
-        equal:
-          path: metadata.name
-          value: test-release-name-common-test-cnpg-my-pg-provider-recovery-google-creds
-      - documentIndex: *secretDoc
-        equal:
-          path: stringData
-          value:
-            APPLICATION_CREDENTIALS: some-credentials
-      - documentIndex: *clusterDoc
-        isKind:
-          of: Cluster
-      - documentIndex: *clusterDoc
-        isAPIVersion:
-          of: postgresql.cnpg.io/v1
-      - documentIndex: *clusterDoc
-        equal:
-          path: metadata.name
-          value: test-release-name-common-test-cnpg-my-pg
-      - documentIndex: *clusterDoc
-        isSubset:
-          path: spec
-          content:
-            bootstrap:
-              recovery:
-                secret:
-                  name: test-release-name-common-test-cnpg-my-pg-user
-                owner: test-user
-                database: test-db
-                source: test-release-name-common-test-cnpg-my-pg
-                recoveryTarget:
-                  targetTime: "2021-01-01T00:00:00Z"
-      - documentIndex: *clusterDoc
-        isSubset:
-          path: spec
-          content:
-            externalClusters:
-              - name: test-release-name-common-test-cnpg-my-pg
-                barmanObjectStore:
-                  serverName: test-release-name-common-test-cnpg-my-pg
-                  destinationPath: gs://some-bucket
-                  endpointURL: null
-                  googleCredentials:
-                    applicationCredentials:
-                      key: APPLICATION_CREDENTIALS
-                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-google-creds
-                    gkeEnvironment: false
-
   - it: should generate correct spec with recovery/objectStore (s3)
     set:
       credentials:
-        test:
+        test: &test
           type: s3
           accessKey: some-access-key
           secretKey: some-secret-key
           bucket: some-bucket
-          region: some-region
+          encrKey: some-encr-key
+          url: https://s3.some-region.amazonaws.com
           path: some-path
       cnpg:
         my-pg:
@@ -240,9 +92,8 @@ tests:
           recovery:
             method: object_store
             credentials: test
-
     asserts:
-      - documentIndex: *secretDoc
+      - documentIndex: &secretDoc 1
         isKind:
           of: Secret
       - documentIndex: *secretDoc
@@ -300,11 +151,7 @@ tests:
   - it: should generate correct spec with recovery/objectStore (s3 - destinationPath/endpointURL)
     set:
       credentials:
-        test:
-          type: s3
-          accessKey: some-access-key
-          secretKey: some-secret-key
-          url: some-endpoint-url
+        test: *test
       cnpg:
         my-pg:
           enabled: true
@@ -364,7 +211,7 @@ tests:
                 barmanObjectStore:
                   serverName: test-release-name-common-test-cnpg-my-pg
                   destinationPath: s3://some-bucket
-                  endpointURL: some-endpoint-url
+                  endpointURL: https://s3.some-region.amazonaws.com
                   s3Credentials:
                     accessKeyId:
                       key: ACCESS_KEY_ID
@@ -373,178 +220,10 @@ tests:
                       key: ACCESS_SECRET_KEY
                       name: test-release-name-common-test-cnpg-my-pg-provider-recovery-s3-creds
 
-  - it: should generate correct spec with recovery/objectStore (azure)
-    set:
-      credentials:
-        test:
-          type: azure
-          connectionString: some-connection-string
-          storageAccount: some-storage-account
-          serviceName: some-service-name
-          containerName: some-container-name
-          path: some-path
-
-      cnpg:
-        my-pg:
-          enabled: true
-          user: test-user
-          database: test-db
-          password: test-password
-          mode: recovery
-          recovery:
-            method: object_store
-            credentials: test
-    asserts:
-      - documentIndex: *secretDoc
-        isKind:
-          of: Secret
-      - documentIndex: *secretDoc
-        isAPIVersion:
-          of: v1
-      - documentIndex: *secretDoc
-        equal:
-          path: metadata.name
-          value: test-release-name-common-test-cnpg-my-pg-provider-recovery-azure-creds
-      - documentIndex: *secretDoc
-        equal:
-          path: stringData
-          value:
-            CONNECTION_STRING: some-connection-string
-            STORAGE_ACCOUNT: some-storage-account
-            STORAGE_KEY: ""
-            STORAGE_SAS_TOKEN: ""
-      - documentIndex: *clusterDoc
-        isKind:
-          of: Cluster
-      - documentIndex: *clusterDoc
-        isAPIVersion:
-          of: postgresql.cnpg.io/v1
-      - documentIndex: *clusterDoc
-        equal:
-          path: metadata.name
-          value: test-release-name-common-test-cnpg-my-pg
-      - documentIndex: *clusterDoc
-        isSubset:
-          path: spec
-          content:
-            bootstrap:
-              recovery:
-                secret:
-                  name: test-release-name-common-test-cnpg-my-pg-user
-                owner: test-user
-                database: test-db
-                source: test-release-name-common-test-cnpg-my-pg
-      - documentIndex: *clusterDoc
-        isSubset:
-          path: spec
-          content:
-            externalClusters:
-              - name: test-release-name-common-test-cnpg-my-pg
-                barmanObjectStore:
-                  serverName: test-release-name-common-test-cnpg-my-pg
-                  destinationPath: https://some-storage-account.some-service-name.core.windows.net/some-container-name/some-path/test-release-name/cnpg
-                  endpointURL: null
-                  azureCredentials:
-                    connectionString:
-                      key: CONNECTION_STRING
-                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-azure-creds
-                    storageAccount:
-                      key: STORAGE_ACCOUNT
-                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-azure-creds
-                    storageKey:
-                      key: STORAGE_KEY
-                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-azure-creds
-                    storageSasToken:
-                      key: STORAGE_SAS_TOKEN
-                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-azure-creds
-
-  - it: should generate correct spec with recovery/objectStore (azure - destinationPath)
-    set:
-      credentials:
-        test:
-          type: azure
-          connectionString: some-connection-string
-      cnpg:
-        my-pg:
-          enabled: true
-          user: test-user
-          database: test-db
-          password: test-password
-          mode: recovery
-          recovery:
-            method: object_store
-            credentials: test
-            destinationPath: https://some-storage-account.some-service-name.core.windows.net/some-container-name
-    asserts:
-      - documentIndex: *secretDoc
-        isKind:
-          of: Secret
-      - documentIndex: *secretDoc
-        isAPIVersion:
-          of: v1
-      - documentIndex: *secretDoc
-        equal:
-          path: metadata.name
-          value: test-release-name-common-test-cnpg-my-pg-provider-recovery-azure-creds
-      - documentIndex: *secretDoc
-        equal:
-          path: stringData
-          value:
-            CONNECTION_STRING: some-connection-string
-            STORAGE_ACCOUNT: ""
-            STORAGE_KEY: ""
-            STORAGE_SAS_TOKEN: ""
-      - documentIndex: *clusterDoc
-        isKind:
-          of: Cluster
-      - documentIndex: *clusterDoc
-        isAPIVersion:
-          of: postgresql.cnpg.io/v1
-      - documentIndex: *clusterDoc
-        equal:
-          path: metadata.name
-          value: test-release-name-common-test-cnpg-my-pg
-      - documentIndex: *clusterDoc
-        isSubset:
-          path: spec
-          content:
-            bootstrap:
-              recovery:
-                secret:
-                  name: test-release-name-common-test-cnpg-my-pg-user
-                owner: test-user
-                database: test-db
-                source: test-release-name-common-test-cnpg-my-pg
-      - documentIndex: *clusterDoc
-        isSubset:
-          path: spec
-          content:
-            externalClusters:
-              - name: test-release-name-common-test-cnpg-my-pg
-                barmanObjectStore:
-                  serverName: test-release-name-common-test-cnpg-my-pg
-                  destinationPath: https://some-storage-account.some-service-name.core.windows.net/some-container-name
-                  endpointURL: null
-                  azureCredentials:
-                    connectionString:
-                      key: CONNECTION_STRING
-                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-azure-creds
-                    storageAccount:
-                      key: STORAGE_ACCOUNT
-                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-azure-creds
-                    storageKey:
-                      key: STORAGE_KEY
-                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-azure-creds
-                    storageSasToken:
-                      key: STORAGE_SAS_TOKEN
-                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-azure-creds
-
   - it: should use revision in serverName when set
     set:
       credentials:
-        test:
-          type: google
-          applicationCredentials: some-credentials
+        test: *test
       cnpg:
         my-pg:
           enabled: true
@@ -555,7 +234,7 @@ tests:
           recovery:
             method: object_store
             credentials: test
-            destinationPath: gs://some-bucket
+            destinationPath: s3://some-bucket
             revision: some-revision
             pitrTarget:
               time: "2021-01-01T00:00:00Z"
@@ -569,12 +248,13 @@ tests:
       - documentIndex: *secretDoc
         equal:
           path: metadata.name
-          value: test-release-name-common-test-cnpg-my-pg-provider-recovery-google-creds
+          value: test-release-name-common-test-cnpg-my-pg-provider-recovery-s3-creds
       - documentIndex: *secretDoc
         equal:
           path: stringData
           value:
-            APPLICATION_CREDENTIALS: some-credentials
+            ACCESS_KEY_ID: some-access-key
+            ACCESS_SECRET_KEY: some-secret-key
       - documentIndex: *clusterDoc
         isKind:
           of: Cluster
@@ -606,20 +286,20 @@ tests:
               - name: test-release-name-common-test-cnpg-my-pg-rsome-revision
                 barmanObjectStore:
                   serverName: test-release-name-common-test-cnpg-my-pg-rsome-revision
-                  destinationPath: gs://some-bucket
-                  endpointURL: null
-                  googleCredentials:
-                    applicationCredentials:
-                      key: APPLICATION_CREDENTIALS
-                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-google-creds
-                    gkeEnvironment: false
+                  destinationPath: s3://some-bucket
+                  endpointURL: https://s3.some-region.amazonaws.com
+                  s3Credentials:
+                    accessKeyId:
+                      key: ACCESS_KEY_ID
+                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-s3-creds
+                    secretAccessKey:
+                      key: ACCESS_SECRET_KEY
+                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-s3-creds
 
   - it: should override serverName when set
     set:
       credentials:
-        test:
-          type: google
-          applicationCredentials: some-credentials
+        test: *test
       cnpg:
         my-pg:
           enabled: true
@@ -630,7 +310,7 @@ tests:
           recovery:
             method: object_store
             credentials: test
-            destinationPath: gs://some-bucket
+            destinationPath: s3://some-bucket
             serverName: some-server-name
             pitrTarget:
               time: "2021-01-01T00:00:00Z"
@@ -644,12 +324,13 @@ tests:
       - documentIndex: *secretDoc
         equal:
           path: metadata.name
-          value: test-release-name-common-test-cnpg-my-pg-provider-recovery-google-creds
+          value: test-release-name-common-test-cnpg-my-pg-provider-recovery-s3-creds
       - documentIndex: *secretDoc
         equal:
           path: stringData
           value:
-            APPLICATION_CREDENTIALS: some-credentials
+            ACCESS_KEY_ID: some-access-key
+            ACCESS_SECRET_KEY: some-secret-key
       - documentIndex: *clusterDoc
         isKind:
           of: Cluster
@@ -681,20 +362,20 @@ tests:
               - name: some-server-name
                 barmanObjectStore:
                   serverName: some-server-name
-                  destinationPath: gs://some-bucket
-                  endpointURL: null
-                  googleCredentials:
-                    applicationCredentials:
-                      key: APPLICATION_CREDENTIALS
-                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-google-creds
-                    gkeEnvironment: false
+                  destinationPath: s3://some-bucket
+                  endpointURL: https://s3.some-region.amazonaws.com
+                  s3Credentials:
+                    accessKeyId:
+                      key: ACCESS_KEY_ID
+                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-s3-creds
+                    secretAccessKey:
+                      key: ACCESS_SECRET_KEY
+                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-s3-creds
 
   - it: should override serverName when set along with revision
     set:
       credentials:
-        test:
-          type: google
-          applicationCredentials: some-credentials
+        test: *test
       cnpg:
         my-pg:
           enabled: true
@@ -705,7 +386,7 @@ tests:
           recovery:
             method: object_store
             credentials: test
-            destinationPath: gs://some-bucket
+            destinationPath: s3://some-bucket
             serverName: some-server-name
             revision: "20"
             pitrTarget:
@@ -720,12 +401,13 @@ tests:
       - documentIndex: *secretDoc
         equal:
           path: metadata.name
-          value: test-release-name-common-test-cnpg-my-pg-provider-recovery-google-creds
+          value: test-release-name-common-test-cnpg-my-pg-provider-recovery-s3-creds
       - documentIndex: *secretDoc
         equal:
           path: stringData
           value:
-            APPLICATION_CREDENTIALS: some-credentials
+            ACCESS_KEY_ID: some-access-key
+            ACCESS_SECRET_KEY: some-secret-key
       - documentIndex: *clusterDoc
         isKind:
           of: Cluster
@@ -757,10 +439,12 @@ tests:
               - name: some-server-name-r20
                 barmanObjectStore:
                   serverName: some-server-name-r20
-                  destinationPath: gs://some-bucket
-                  endpointURL: null
-                  googleCredentials:
-                    applicationCredentials:
-                      key: APPLICATION_CREDENTIALS
-                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-google-creds
-                    gkeEnvironment: false
+                  destinationPath: s3://some-bucket
+                  endpointURL: https://s3.some-region.amazonaws.com
+                  s3Credentials:
+                    accessKeyId:
+                      key: ACCESS_KEY_ID
+                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-s3-creds
+                    secretAccessKey:
+                      key: ACCESS_SECRET_KEY
+                      name: test-release-name-common-test-cnpg-my-pg-provider-recovery-s3-creds

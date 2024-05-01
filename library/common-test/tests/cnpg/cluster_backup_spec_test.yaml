@@ -5,161 +5,15 @@ release:
   name: test-release-name
   namespace: test-release-namespace
 tests:
-  - it: should generate correct spec with backups (azure)
-    set:
-      credentials:
-        test:
-          type: azure
-          connectionString: some-connection-string
-      cnpg:
-        my-pg:
-          enabled: true
-          user: test-user
-          database: test-db
-          password: test-password
-          backups:
-            enabled: true
-            target: primary
-            retentionPolicy: 10d
-            credentials: test
-            destinationPath: some-path
-    asserts:
-      - documentIndex: &secretDoc 1
-        isKind:
-          of: Secret
-      - documentIndex: *secretDoc
-        isAPIVersion:
-          of: v1
-      - documentIndex: *secretDoc
-        equal:
-          path: metadata.name
-          value: test-release-name-common-test-cnpg-my-pg-provider-backup-azure-creds
-      - documentIndex: *secretDoc
-        equal:
-          path: stringData
-          value:
-            CONNECTION_STRING: some-connection-string
-            STORAGE_ACCOUNT: ""
-            STORAGE_KEY: ""
-            STORAGE_SAS_TOKEN: ""
-      - documentIndex: &clusterDoc 0
-        isKind:
-          of: Cluster
-      - documentIndex: *clusterDoc
-        isAPIVersion:
-          of: postgresql.cnpg.io/v1
-      - documentIndex: *clusterDoc
-        equal:
-          path: metadata.name
-          value: test-release-name-common-test-cnpg-my-pg
-      - documentIndex: *clusterDoc
-        isSubset:
-          path: spec
-          content:
-            backup:
-              barmanObjectStore:
-                azureCredentials:
-                  connectionString:
-                    key: CONNECTION_STRING
-                    name: test-release-name-common-test-cnpg-my-pg-provider-backup-azure-creds
-                  storageAccount:
-                    key: STORAGE_ACCOUNT
-                    name: test-release-name-common-test-cnpg-my-pg-provider-backup-azure-creds
-                  storageKey:
-                    key: STORAGE_KEY
-                    name: test-release-name-common-test-cnpg-my-pg-provider-backup-azure-creds
-                  storageSasToken:
-                    key: STORAGE_SAS_TOKEN
-                    name: test-release-name-common-test-cnpg-my-pg-provider-backup-azure-creds
-                data:
-                  compression: gzip
-                  encryption: AES256
-                  jobs: 2
-                destinationPath: some-path
-                endpointURL: null
-                serverName: test-release-name-common-test-cnpg-my-pg
-                wal:
-                  compression: gzip
-                  encryption: AES256
-              retentionPolicy: 10d
-              target: primary
-
-  - it: should generate correct spec with backups (google)
-    set:
-      credentials:
-        test:
-          type: google
-          applicationCredentials: some-credentials
-      cnpg:
-        my-pg:
-          enabled: true
-          user: test-user
-          database: test-db
-          password: test-password
-          backups:
-            enabled: true
-            target: primary
-            retentionPolicy: 10d
-            credentials: test
-            destinationPath: some-path
-
-    asserts:
-      - documentIndex: *secretDoc
-        isKind:
-          of: Secret
-      - documentIndex: *secretDoc
-        isAPIVersion:
-          of: v1
-      - documentIndex: *secretDoc
-        equal:
-          path: metadata.name
-          value: test-release-name-common-test-cnpg-my-pg-provider-backup-google-creds
-      - documentIndex: *secretDoc
-        equal:
-          path: stringData
-          value:
-            APPLICATION_CREDENTIALS: some-credentials
-      - documentIndex: &clusterDoc 0
-        isKind:
-          of: Cluster
-      - documentIndex: *clusterDoc
-        isAPIVersion:
-          of: postgresql.cnpg.io/v1
-      - documentIndex: *clusterDoc
-        equal:
-          path: metadata.name
-          value: test-release-name-common-test-cnpg-my-pg
-      - documentIndex: *clusterDoc
-        isSubset:
-          path: spec
-          content:
-            backup:
-              barmanObjectStore:
-                data:
-                  compression: gzip
-                  encryption: AES256
-                  jobs: 2
-                destinationPath: some-path
-                endpointURL: null
-                googleCredentials:
-                  applicationCredentials:
-                    key: APPLICATION_CREDENTIALS
-                    name: test-release-name-common-test-cnpg-my-pg-provider-backup-google-creds
-                  gkeEnvironment: false
-                serverName: test-release-name-common-test-cnpg-my-pg
-                wal:
-                  compression: gzip
-                  encryption: AES256
-              retentionPolicy: 10d
-              target: primary
-
   - it: should generate correct spec with backups (s3)
     set:
       credentials:
-        test:
+        test: &test
           type: s3
           accessKey: some-access-key
           secretKey: some-secret-key
+          bucket: some-bucket
+          encrKey: some-encr-key
           url: some-url
       cnpg:
         my-pg:
@@ -174,7 +28,7 @@ tests:
             credentials: test
             destinationPath: some-path
     asserts:
-      - documentIndex: *secretDoc
+      - documentIndex: &secretDoc 1
         isKind:
           of: Secret
       - documentIndex: *secretDoc
@@ -229,11 +83,7 @@ tests:
   - it: should use the revision when set in server name
     set:
       credentials:
-        test:
-          type: s3
-          accessKey: some-access-key
-          secretKey: some-secret-key
-          url: some-url
+        test: *test
       cnpg:
         my-pg:
           enabled: true
@@ -303,11 +153,7 @@ tests:
   - it: should override serverName when set
     set:
       credentials:
-        test:
-          type: s3
-          accessKey: some-access-key
-          secretKey: some-secret-key
-          url: some-url
+        test: *test
       cnpg:
         my-pg:
           enabled: true
@@ -377,11 +223,7 @@ tests:
   - it: should override serverName when set (and also take account revision)
     set:
       credentials:
-        test:
-          type: s3
-          accessKey: some-access-key
-          secretKey: some-secret-key
-          url: some-url
+        test: *test
       cnpg:
         my-pg:
           enabled: true
@@ -396,7 +238,6 @@ tests:
             destinationPath: some-path
             serverName: some-server-name
             revision: "1"
-
     asserts:
       - documentIndex: *secretDoc
         isKind:
@@ -449,35 +290,3 @@ tests:
                   encryption: AES256
               retentionPolicy: 10d
               target: primary
-
-  - it: should generate correct spec with empty target
-    set:
-      credentials:
-        test:
-          type: azure
-          connectionString: some-connection-string
-      cnpg:
-        my-pg:
-          enabled: true
-          user: test-user
-          database: test-db
-          password: test-password
-          backups:
-            enabled: true
-            retentionPolicy: 10d
-            credentials: test
-            destinationPath: some-path
-    asserts:
-      - documentIndex: &clusterDoc 0
-        isKind:
-          of: Cluster
-      - documentIndex: *clusterDoc
-        isAPIVersion:
-          of: postgresql.cnpg.io/v1
-      - documentIndex: *clusterDoc
-        equal:
-          path: metadata.name
-          value: test-release-name-common-test-cnpg-my-pg
-      - documentIndex: *clusterDoc
-        notExists:
-          path: spec.backup.target

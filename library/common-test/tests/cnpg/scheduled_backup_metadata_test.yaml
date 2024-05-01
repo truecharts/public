@@ -10,9 +10,13 @@ tests:
   - it: should pass with cnpg scheduledBackup backup created with labels and annotations
     set:
       credentials:
-        test:
-          type: azure
-          connectionString: some-connection-string
+        test: &test
+          type: s3
+          url: some-url
+          bucket: some-bucket
+          encrKey: some-encr-key
+          accessKey: some-access-key
+          secretKey: some-secret-key
       label1: label1
       label2: global_label2
       label3: label3
@@ -109,9 +113,7 @@ tests:
   - it: should pass with cnpg scheduledBackup backup created with namespace
     set:
       credentials:
-        test:
-          type: azure
-          connectionString: some-connection-string
+        test: *test
       cnpg:
         my-pg:
           enabled: true
@@ -138,9 +140,7 @@ tests:
   - it: should pass with cnpg scheduledBackup backup created with object namespace from tpl
     set:
       credentials:
-        test:
-          type: azure
-          connectionString: some-connection-string
+        test: *test
       key: some-namespace
       cnpg:
         my-pg:
@@ -168,9 +168,7 @@ tests:
   - it: should pass with cnpg scheduledBackup backup created with namespace from global with tpl
     set:
       credentials:
-        test:
-          type: azure
-          connectionString: some-connection-string
+        test: *test
       key: global-namespace
       global:
         namespace: "{{ .Values.key }}"
@@ -199,9 +197,7 @@ tests:
   - it: should pass with cnpg scheduledBackup backup created with namespace from root with tpl
     set:
       credentials:
-        test:
-          type: azure
-          connectionString: some-connection-string
+        test: *test
       key: local-namespace
       namespace: "{{ .Values.key }}"
       global:
@@ -231,9 +227,7 @@ tests:
   - it: should pass with cnpg scheduledBackup backup created with namespace in TrueNAS SCALE
     set:
       credentials:
-        test:
-          type: azure
-          connectionString: some-connection-string
+        test: *test
       global:
         ixChartContext:
           iAmNotEmpty: true

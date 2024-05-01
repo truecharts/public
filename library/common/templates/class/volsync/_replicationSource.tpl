@@ -55,13 +55,11 @@ spec:
     repository: {{ $volsyncData.repository }}
     copyMethod: {{ $volsyncData.copyMethod | default "Snapshot" }}
     pruneIntervalDays: {{ $volsyncData.src.pruneIntervalDays | default 7 }}
-
-    {{- include "tc.v1.common.lib.volsync.storage" (dict "rootCtx" $rootCtx "objectData" $objectData "volsyncData" $volsyncData "target" "src") | trim | nindent 4 }}
-    {{- include "tc.v1.common.lib.volsync.cache" (dict "rootCtx" $rootCtx "objectData" $objectData "volsyncData" $volsyncData "target" "src") | trim | nindent 4 }}
-    {{- include "tc.v1.common.lib.volsync.moversecuritycontext" (dict "rootCtx" $rootCtx "objectData" $objectData "volsyncData" $volsyncData "target" "src") | trim | nindent 4 }}
-
     retain:
       hourly: {{ $retain.hourly }}
       daily: {{ $retain.daily }}
       weekly: {{ $retain.weekly }}
+    {{- include "tc.v1.common.lib.volsync.storage" (dict "rootCtx" $rootCtx "objectData" $objectData "volsyncData" $volsyncData "target" "src") | trim | nindent 4 }}
+    {{- include "tc.v1.common.lib.volsync.cache" (dict "rootCtx" $rootCtx "objectData" $objectData "volsyncData" $volsyncData "target" "src") | trim | nindent 4 }}
+    {{- include "tc.v1.common.lib.volsync.moversecuritycontext" (dict "rootCtx" $rootCtx "objectData" $objectData "volsyncData" $volsyncData "target" "src") | trim | nindent 4 }}
 {{- end }}

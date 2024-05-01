@@ -6,25 +6,22 @@
   {{- $volsyncData := .volsyncData -}}
   {{- $target := get $volsyncData .target -}}
 
+  {{- $accessModes := $rootCtx.Values.global.fallbackDefaults.accessModes -}}
+  {{- if $objectData.accessModes -}}
+    {{- $accessModes = $objectData.accessModes -}}
+  {{- end -}}
+  {{- if $target.accessModes -}}
+    {{- $accessModes = $target.accessModes -}}
+  {{- end -}}
+
   {{- with $target.storageClassName }}
 storageClassName: {{ . }}
   {{- end -}}
 
 accessModes:
-  {{- if $target.accessModes }}
-
-    {{- range $target.accessModes }}
+    {{- range $accessModes }}
   - {{ . }}
-    {{- end }}
-  {{- else if $objectData.accessModes }}
-    {{- range  $objectData.accessModes }}
-  - {{ . }}
-    {{- end }}
-  {{- else }}
-    {{- range  $rootCtx.Values.global.fallbackDefaults.accessModes }}
-  - {{ . }}
-    {{- end }}
-  {{- end -}}
+    {{- end -}}
 
   {{- with $target.volumeSnapshotClassName }}
 volumeSnapshotClassName: {{ . }}

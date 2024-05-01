@@ -102,14 +102,12 @@
 
             {{- $credentials := get $.Values.credentials $volsync.credentials -}}
 
-            {{- $resticrepository := printf "s3:%s/%s/%s/volsync/%s-volsync-%s" $credentials.url $credentials.bucket $.Release.Name $objectData.shortName $volsyncData.name  -}}
+            {{- $baseRepo := printf "s3:%s/%s" $credentials.url $credentials.bucket -}}
+            {{- $repoSuffix := printf "%s/volsync/%s-volsync-%s" $.Release.Name $objectData.shortName $volsyncData.name -}}
+            {{- $resticrepository := printf "%s/%s" $baseRepo $repoSuffix -}}
             {{- if $credentials.path -}}
-            {{- $resticrepository = printf "s3:%s/%s/%s/%s/volsync/%s-volsync-%s" $credentials.url $credentials.bucket ( $credentials.path | trimSuffix "/" ) $.Release.Name $objectData.shortName $volsyncData.name -}}
+              {{- $resticrepository = printf "%s/%s/%s" $baseRepo ($credentials.path | trimSuffix "/") $repoSuffix -}}
             {{- end -}}
-
-            {{- $resticpassword := ( $credentials.encrKey | default $.Release.Name ) -}}
-            {{- $s3id := $credentials.accessKey -}}
-            {{- $s3key := $credentials.secretKey -}}
 
             {{- $volsyncSecretData := (dict
                 "name" $volsyncSecretName
@@ -117,11 +115,12 @@
                 "annotations" ($volsync.annotations | default dict)
                 "data" (dict
                     "RESTIC_REPOSITORY" $resticrepository
-                    "RESTIC_PASSWORD" $resticpassword
-                    "AWS_ACCESS_KEY_ID" $s3id
-                    "AWS_SECRET_ACCESS_KEY" $s3key
+                    "RESTIC_PASSWORD" $credentials.encrKey
+                    "AWS_ACCESS_KEY_ID" $credentials.accessKey
+                    "AWS_SECRET_ACCESS_KEY" $credentials.secretKey
                 )
             ) -}}
+
             {{- include "tc.v1.common.class.secret" (dict "rootCtx" $ "objectData" $volsyncSecretData) -}}
              {{/* Create VolSync resources*/}}
             {{- if $srcEnabled -}}

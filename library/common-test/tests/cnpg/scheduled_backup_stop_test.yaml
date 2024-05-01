@@ -8,9 +8,13 @@ tests:
   - it: should pass with hibernate
     set:
       credentials:
-        test:
-          type: azure
-          connectionString: some-connection-string
+        test: &test
+          type: s3
+          encrKey: some-encr-key
+          accessKey: some-access-key
+          secretKey: some-secret-key
+          bucket: some-bucket
+          url: some-url
       cnpg:
         my-pg:
           enabled: true
@@ -44,9 +48,7 @@ tests:
   - it: should set suspend on stopAll
     set:
       credentials:
-        test:
-          type: azure
-          connectionString: some-connection-string
+        test: *test
       global:
         stopAll: true
       cnpg:
@@ -82,9 +84,7 @@ tests:
   - it: should set suspend on ixChartContext - isStopped (true)
     set:
       credentials:
-        test:
-          type: azure
-          connectionString: some-connection-string
+        test: *test
       global:
         namespace: ix-something
         ixChartContext:
@@ -123,9 +123,7 @@ tests:
   - it: should not suspend on ixChartContext - isStopped (false)
     set:
       credentials:
-        test:
-          type: azure
-          connectionString: some-connection-string
+        test: *test
       global:
         namespace: ix-something
         ixChartContext:

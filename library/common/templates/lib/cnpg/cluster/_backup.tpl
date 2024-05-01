@@ -17,6 +17,7 @@ backup:
   {{/* Fetch provider data */}}
   {{/* Get the creds defined in backup.$provider */}}
   {{- $creds := (get $rootCtx.Values.credentials $objectData.backups.credentials) -}}
-  {{ $provider := $creds.type -}}
-  {{- include (printf "tc.v1.common.lib.cnpg.cluster.barmanObjectStoreConfig.%s" $provider) (dict "rootCtx" $rootCtx "objectData" $objectData "data" $creds "type" "backup") | nindent 4 -}}
+  {{- include "tc.v1.common.lib.credentials.validation" (dict "rootCtx" $rootCtx "caller" "CNPG Backup" "credName" $objectData.backups.credentials) -}}
+
+  {{- include (printf "tc.v1.common.lib.cnpg.cluster.barmanObjectStoreConfig.%s" $creds.type) (dict "rootCtx" $rootCtx "objectData" $objectData "data" $creds "type" "backup") | nindent 4 -}}
 {{- end -}}

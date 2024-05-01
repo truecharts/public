@@ -1,0 +1,127 @@
+suite: volsync replication src spec test
+templates:
+  - common.yaml
+chart:
+  appVersion: &appVer v9.9.9
+release:
+  name: test-release-name
+  namespace: test-release-namespace
+tests:
+  - it: should generate correct spec
+    set:
+      persistence:
+        srcbackup:
+          enabled: true
+          type: pvc
+          mountPath: /backedup
+          volsync:
+            - name: mybackup1
+              type: restic
+              credentials: mys3
+              dest:
+                enabled: false
+              src:
+                enabled: true
+      credentials: &credentials
+        mys3:
+          type: s3
+          url: some-url
+          bucket: some-bucket
+          encrKey: some-key
+          accessKey: some-access-key
+          secretKey: some-secret-key
+    asserts:
+      - documentIndex: &secretDoc 0
+        isKind:
+          of: Secret
+      - documentIndex: *secretDoc
+        isAPIVersion:
+          of: v1
+      - documentIndex: *secretDoc
+        equal:
+          path: stringData
+          value:
+            AWS_ACCESS_KEY_ID: some-access-key
+            AWS_SECRET_ACCESS_KEY: some-secret-key
+            RESTIC_PASSWORD: some-key
+            RESTIC_REPOSITORY: s3:some-url/some-bucket/test-release-name/volsync/srcbackup-volsync-mybackup1
+      - documentIndex: &replicationDestDoc 1
+        isKind:
+          of: ReplicationSource
+      - documentIndex: *replicationDestDoc
+        isAPIVersion:
+          of: volsync.backube/v1alpha1
+      - documentIndex: *replicationDestDoc
+        equal:
+          path: spec
+          value:
+            sourcePVC: test-release-name-common-test-srcbackup
+            trigger:
+              schedule: "0 0 * * *"
+            restic:
+              repository: test-release-name-common-test-srcbackup-volsync-mybackup1
+              copyMethod: Snapshot
+              pruneIntervalDays: 7
+              retain:
+                hourly: 24
+                daily: 7
+                weekly: 5
+              accessModes:
+                - ReadWriteOnce
+              moverSecurityContext:
+                fsGroup: 568
+                runAsUser: 568
+                runAsGroup: 568
+
+  - it: should generate correct spec with changed defaults
+    set:
+      persistence:
+        srcbackup:
+          enabled: true
+          type: pvc
+          mountPath: /backedup
+          volsync:
+            - name: mybackup1
+              type: restic
+              credentials: mys3
+              copyMethod: Clone
+              dest:
+                enabled: false
+              src:
+                enabled: true
+                trigger:
+                  schedule: "1 0 * * *"
+                retain:
+                  hourly: 20
+                  daily: 5
+                  weekly: 3
+                pruneIntervalDays: 5
+      credentials: *credentials
+    asserts:
+      - documentIndex: *replicationDestDoc
+        isKind:
+          of: ReplicationSource
+      - documentIndex: *replicationDestDoc
+        isAPIVersion:
+          of: volsync.backube/v1alpha1
+      - documentIndex: *replicationDestDoc
+        equal:
+          path: spec
+          value:
+            sourcePVC: test-release-name-common-test-srcbackup
+            trigger:
+              schedule: "1 0 * * *"
+            restic:
+              repository: test-release-name-common-test-srcbackup-volsync-mybackup1
+              copyMethod: Clone
+              pruneIntervalDays: 5
+              retain:
+                hourly: 20
+                daily: 5
+                weekly: 3
+              accessModes:
+                - ReadWriteOnce
+              moverSecurityContext:
+                fsGroup: 568
+                runAsUser: 568
+                runAsGroup: 568

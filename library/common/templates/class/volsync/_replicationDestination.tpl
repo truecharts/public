@@ -15,7 +15,15 @@ objectData:
 
   {{- $rootCtx := .rootCtx -}}
   {{- $objectData := .objectData -}}
-  {{- $volsyncData := .volsyncData }}
+  {{- $volsyncData := .volsyncData -}}
+
+  {{- $capacity := $rootCtx.Values.global.fallbackDefaults.pvcSize -}}
+  {{- if $objectData.size -}}
+    {{- $capacity = $objectData.size -}}
+  {{- end -}}
+  {{- if $volsyncData.dest.capacity -}}
+    {{- $capacity = $volsyncData.dest.capacity -}}
+  {{- end }}
 ---
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationDestination
@@ -38,14 +46,7 @@ spec:
   {{ $volsyncData.type }}:
     repository: {{ $volsyncData.repository }}
     copyMethod: {{ $volsyncData.copyMethod | default "Snapshot"}}
-    {{- if $volsyncData.dest.capacity }}
-    capacity: {{ $volsyncData.dest.capacity }}
-    {{- else if $objectData.size }}
-    capacity: {{ $objectData.size }}
-    {{- else }}
-    capacity: {{ $rootCtx.Values.global.fallbackDefaults.pvcSize }}
-    {{- end }}
-
+    capacity: {{ $capacity }}
   {{- include "tc.v1.common.lib.volsync.storage" (dict "rootCtx" $rootCtx "objectData" $objectData "volsyncData" $volsyncData "target" "dest") | trim | nindent 4 }}
   {{- include "tc.v1.common.lib.volsync.cache" (dict "rootCtx" $rootCtx "objectData" $objectData "volsyncData" $volsyncData "target" "dest") | trim | nindent 4 }}
   {{- include "tc.v1.common.lib.volsync.moversecuritycontext" (dict "rootCtx" $rootCtx "objectData" $objectData "volsyncData" $volsyncData "target" "dest") | trim | nindent 4 }}

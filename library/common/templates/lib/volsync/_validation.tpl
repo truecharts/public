@@ -23,17 +23,7 @@
     {{- fail (printf "VolSync - Expected [credentials] to be a string, but got [%s]" (kindOf $objectData.credentials)) -}}
   {{- end -}}
 
-  {{- if not (get $rootCtx.Values.credentials $objectData.credentials) -}}
-    {{- fail (printf "VolSync - Expected credentials [%s] to be defined in [credentials.%s]" $objectData.credentials $objectData.credentials) -}}
-  {{- end -}}
-
-  {{- $credentials := get $rootCtx.Values.credentials $objectData.credentials -}}
-  {{- $reqFields := list "url" "bucket" "encrKey" "accessKey" "secretKey" -}}
-  {{- range $key := $reqFields -}}
-    {{- if not (get $credentials $key) -}}
-      {{- fail (printf "VolSync - Expected non-empty [%s] in [credentials.%s]" $key $objectData.credentials) -}}
-    {{- end -}}
-  {{- end -}}
+  {{- include "tc.v1.common.lib.credentials.validation" (dict "rootCtx" $rootCtx "caller" "VolSync" "credName" $objectData.credentials) -}}
 
   {{- $copyMethods := list "Clone" "Direct" "Snapshot" -}}
   {{- if $objectData.copyMethod -}}

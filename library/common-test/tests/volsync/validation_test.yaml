@@ -195,3 +195,25 @@ tests:
     asserts:
       - failedTemplate:
           errorMessage: VolSync - Expected [type] to be one of [restic], but got [invalid]
+
+  - it: should fail with invalid credentials type
+    set:
+      persistence:
+        src-backup:
+          enabled: true
+          type: pvc
+          mountPath: /backedup
+          volsync:
+            - name: my-backup
+              type: restic
+              credentials: my-creds
+              src:
+                enabled: true
+              dest:
+                enabled: false
+      credentials:
+        my-creds:
+          type: invalid
+    asserts:
+      - failedTemplate:
+          errorMessage: VolSync - Expected [type] in [credentials.my-creds] to be one of [s3], but got [invalid]

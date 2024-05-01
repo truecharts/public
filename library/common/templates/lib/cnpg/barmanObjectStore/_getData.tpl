@@ -3,15 +3,15 @@
   {{- $objectData := .objectData -}}
   {{- $type := .type -}}
 
-  {{- $serverName :=  $objectData.clusterName -}}
+  {{- $serverName := $objectData.clusterName -}}
   {{- $endpointURL := "" -}}
   {{- $destinationPath := "" -}}
-  {{- $key := "" -}}
   {{- $creds := dict -}}
+  {{- $key := "" -}}
 
   {{- if eq $type "recovery" -}}
     {{- $creds = (get $rootCtx.Values.credentials $objectData.recovery.credentials) -}}
-    {{- $endpointURL = $creds.url -}}
+    {{- include "tc.v1.common.lib.credentials.validation" (dict "rootCtx" $rootCtx "caller" "CNPG BarmanObjectStore" "credName" $objectData.recovery.credentials) -}}
     {{- $destinationPath = $objectData.recovery.destinationPath -}}
     {{- $key = "recovery" -}}
 
@@ -24,7 +24,7 @@
 
   {{- else if eq $type "backup" -}}
     {{- $creds = (get $rootCtx.Values.credentials $objectData.backups.credentials) -}}
-    {{- $endpointURL = $creds.url -}}
+    {{- include "tc.v1.common.lib.credentials.validation" (dict "rootCtx" $rootCtx "caller" "CNPG BarmanObjectStore" "credName" $objectData.backups.credentials) -}}
     {{- $destinationPath = $objectData.backups.destinationPath -}}
     {{- $key = "backups" -}}
 
@@ -40,6 +40,7 @@
     "serverName" $serverName
     "endpointURL" $endpointURL
     "destinationPath" $destinationPath
+    "creds" $creds
     "key" $key
   ) -}}
 

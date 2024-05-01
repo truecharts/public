@@ -9,8 +9,12 @@ tests:
     set:
       credentials:
         test:
-          type: azure
-          connectionString: some-connection-string
+          type: s3
+          encrKey: some-encr-key
+          accessKey: some-access-key
+          secretKey: some-secret-key
+          bucket: some-bucket
+          url: some-url
       cnpg:
         my-pg:
           enabled: true
