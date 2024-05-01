@@ -133,21 +133,10 @@
                       schema:
                         type: boolean
                         default: false
-                    - variable: serverName
-                      label: "serverName"
-                      schema:
-                        type: string
-                        default: ""
                     - variable: revision
                       label: "revision"
                       schema:
                         type: string
-                        default: ""
-                    - variable: destinationPath
-                      label: "destinationPath"
-                      schema:
-                        type: string
-                        show_if: [["enabled", "=", true]]
                         default: ""
                     - variable: retentionPolicy
                       label: "retentionPolicy"
