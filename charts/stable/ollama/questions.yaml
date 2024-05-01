@@ -4,6 +4,7 @@ portals:
 # Include{portalLink}
 questions:
 # Include{global}
+# Include{credentials}
 # Include{workload}
 # Include{workloadDeployment}
 
@@ -55,6 +56,11 @@ questions:
                       description: User
                     - value: admin
                       description: Admin
+              - variable: trusted_email_header
+                label: Trusted E-mail Header
+                schema: 
+                  type: string 
+                  default: ""
         - variable: stable_diffusion
           label: Stable Diffusion Configuration
           schema:

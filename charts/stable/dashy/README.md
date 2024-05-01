@@ -39,13 +39,6 @@ All our charts have dedicated documentation pages.
 The documentation for this chart can be found here:
 https://truecharts.org/charts/stable/dashy
 
-## Upgrade to version 3.0.0
-
-From version 3.0.0, Dashy introduced some breaking changes. Some of them will not impact users such as the change from port 80 to 8080.
-However, from now on, the application expects a folder to be mounted instead of a file.
-
-More information about breaking changes can be found [here](https://github.com/Lissy93/dashy/releases/tag/3.0.0).
-
 ## Support
 
 
