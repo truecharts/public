@@ -1,6 +1,6 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: Tools-Utilities
   truecharts.org/max_helm_version: "3.14"
@@ -10,20 +10,20 @@ apiVersion: v2
 appVersion: full
 dependencies:
   - name: common
-    version: 20.3.12
+    version: 23.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
 deprecated: false
-description: "The newest Red-Discordbot in a convenient multi-arch Chart "
+description: 'The newest Red-Discordbot in a convenient multi-arch Chart '
 home: https://truecharts.org/charts/stable/red-discordbot
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/red-discordbot.webp
 keywords:
   - red-discordbot
   - Tools-Utilities
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/red-discordbot
   - https://hub.docker.com/r/phasecorex/red-discordbot
 type: application
-version: 5.8.16
+version: 6.0.4
