@@ -19,14 +19,14 @@ questions:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
-                      label: Main Service Port Configuration
+                      label: "Main Service Port Configuration"
                       schema:
                         additional_attrs: true
                         type: dict
                         attrs:
                           - variable: port
-                            label: Port
-                            description: This port exposes the container port on the service
+                            label: "Port"
+                            description: "This port exposes the container port on the service"
                             schema:
                               type: int
                               default: 3000
@@ -35,7 +35,6 @@ questions:
 
 # Include{serviceList}
 # Include{persistenceRoot}
-# Include{persistenceBasic}
         - variable: data
           label: App Data Storage
           description: Stores the Application Data.
@@ -47,7 +46,7 @@ questions:
 # Include{persistenceList}
 # Include{ingressRoot}
         - variable: main
-          label: Main Ingress
+          label: "Main Ingress"
           schema:
             additional_attrs: true
             type: dict
@@ -57,14 +56,14 @@ questions:
 # Include{ingressList}
 # Include{securityContextRoot}
               - variable: runAsUser
-                label: runAsUser
-                description: The UserID of the user running the application
+                label: "runAsUser"
+                description: "The UserID of the user running the application"
                 schema:
                   type: int
                   default: 0
               - variable: runAsGroup
-                label: runAsGroup
-                description: The groupID of the user running the application
+                label: "runAsGroup"
+                description: "The groupID of the user running the application"
                 schema:
                   type: int
                   default: 0
@@ -72,8 +71,8 @@ questions:
 # Include{securityContextAdvanced}
 # Include{securityContextPod}
               - variable: fsGroup
-                label: fsGroup
-                description: The group that should own ALL storage.
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
                 schema:
                   type: int
                   default: 568
