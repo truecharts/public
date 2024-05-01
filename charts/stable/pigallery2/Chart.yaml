@@ -10,14 +10,14 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 22.0.3
+    version: 23.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
 deprecated: false
-description: "Homepage: http://bpatrik.github.io/pigallery2/"
+description: 'Homepage: http://bpatrik.github.io/pigallery2/'
 home: https://truecharts.org/charts/stable/pigallery2
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/pigallery2.webp
 keywords:
@@ -29,7 +29,7 @@ keywords:
   - MediaServer-Video
   - MediaServer-Music
   - MediaServer-Photos
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -40,4 +40,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/pigallery2
   - https://hub.docker.com/r/bpatrik/pigallery2
 type: application
-version: 6.0.4
+version: 6.0.5

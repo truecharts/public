@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 10.4.2
 dependencies:
   - name: common
-    version: 22.0.3
+    version: 23.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -25,7 +25,7 @@ keywords:
   - monitoring
   - metrics
   - logs
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,7 +35,7 @@ sources:
   - https://grafana.com/
   - https://github.com/bitnami/bitnami-docker-grafana
   - https://github.com/truecharts/charts/tree/master/charts/premium/grafana
-  - https://quay.io/kiwigrid/k8s-sidecar
   - https://hub.docker.com/r/grafana/grafana
+  - https://quay.io/kiwigrid/k8s-sidecar
 type: application
-version: 15.0.3
+version: 15.0.4

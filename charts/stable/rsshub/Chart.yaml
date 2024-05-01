@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: latest
 dependencies:
   - name: common
-    version: 22.0.3
+    version: 23.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -30,7 +30,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/rsshub.webp
 keywords:
   - rsshub
   - rss
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -40,7 +40,7 @@ sources:
   - https://docs.rsshub.app/en/install/
   - https://github.com/DIYgod/RSSHub
   - https://github.com/truecharts/charts/tree/master/charts/stable/rsshub
-  - https://hub.docker.com/r/browserless/chrome
   - https://hub.docker.com/r/diygod/rsshub
+  - https://hub.docker.com/r/browserless/chrome
 type: application
-version: 13.0.3
+version: 13.0.4

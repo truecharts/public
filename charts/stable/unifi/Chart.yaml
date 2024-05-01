@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 8.1.113
 dependencies:
   - name: common
-    version: 22.0.3
+    version: 23.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -23,7 +23,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/unifi.webp
 keywords:
   - ubiquiti
   - unifi
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/unifi
   - https://ghcr.io/goofball222/unifi
 type: application
-version: 21.0.3
+version: 21.0.4
