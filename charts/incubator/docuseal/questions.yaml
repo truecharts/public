@@ -12,23 +12,9 @@ questions:
 # Include{containerMain}
 # Include{containerBasic}
 # Include{containerAdvanced}
-  - variable: docuseal
-    group: App Configuration
-    label: Docuseal Configuration
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
 # Include{containerConfig}
 # Include{podOptions}
 # Include{serviceRoot}
-        - variable: main
-          label: Main Service
-          description: The Primary service on which the healthcheck runs, often the webUI
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
 # Include{serviceSelectorLoadBalancer}
 # Include{serviceSelectorExtras}
                     - variable: main
@@ -45,7 +31,6 @@ questions:
                               default: 3000
                               required: true
 # Include{externalInterfaces}
-
 # Include{serviceList}
 # Include{persistenceRoot}
 # Include{persistenceBasic}
