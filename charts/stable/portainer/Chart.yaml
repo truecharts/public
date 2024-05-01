@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 2.20.1
 dependencies:
   - name: common
-    version: 22.0.3
+    version: 23.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -22,7 +22,7 @@ home: https://truecharts.org/charts/stable/portainer
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/portainer.webp
 keywords:
   - portainer
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,4 +35,4 @@ sources:
   - https://hub.docker.com/r/portainer/portainer-ee
   - https://hub.docker.com/r/portainer/portainer-ce
 type: application
-version: 9.0.4
+version: 9.0.5

@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 7.8.0
 dependencies:
   - name: common
-    version: 22.0.3
+    version: 23.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -26,7 +26,7 @@ keywords:
   - management
   - image
   - gallery
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -38,4 +38,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/digikam
   - https://ghcr.io/linuxserver/digikam
 type: application
-version: 12.0.4
+version: 12.0.5
