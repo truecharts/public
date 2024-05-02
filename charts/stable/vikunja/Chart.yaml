@@ -29,7 +29,7 @@ home: https://truecharts.org/charts/stable/vikunja
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/vikunja.webp
 keywords:
   - vikunja
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -38,8 +38,8 @@ name: vikunja
 sources:
   - https://vikunja.io/docs
   - https://github.com/truecharts/charts/tree/master/charts/stable/vikunja
-  - https://hub.docker.com/_/nginx
-  - https://hub.docker.com/r/vikunja/api
   - https://hub.docker.com/r/vikunja/frontend
+  - https://hub.docker.com/r/vikunja/api
+  - https://hub.docker.com/_/nginx
 type: application
 version: 14.0.4
