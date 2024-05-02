@@ -38,6 +38,16 @@ wordpress:
   blog_name: Truecharts Blog
   enable_reverse_proxy_headers: true
   skip_wordpress_setup: false
+  specified_salts:
+      enabled: false
+      wordpressAuthKey: ""
+      wordpressSecureAuthKey: ""
+      wordpressLoggedInKey: ""
+      wordpressNonceKey: ""
+      wordpressAuthSalt: ""
+      wordpressSecureAuthSalt: ""
+      wordpressLoggedInSalt: ""
+      wordpressNonceSalt: ""
 smtp:
   enabled: false
   host: ""
@@ -68,6 +78,9 @@ mariadb:
   includeCommon: true
   mariadbUsername: wordpress
   mariadbDatabase: wordpress
+  mariadbHost: "mariadb.ix-mariadb.svc.cluster.local"
+  mariadbPort: "3306"
+  wordpressTablePrefix: "wp_"
 portal:
   open:
     enabled: true
