@@ -1,8 +1,6 @@
 # Include{groups}
 questions:
 # Include{global}
-# Include{credentials}
-
 
   - variable: zfs-localpv
     group: "App Configuration"
@@ -156,14 +154,12 @@ questions:
     schema:
       type: dict
       additional_attrs: true
-      hidden: true
       attrs:
         - variable: zfspv
           label: "ZFS-LocalPV volumeSnapshotClass"
           schema:
             type: dict
             additional_attrs: true
-            hidden: true
             attrs:
               - variable: enabled
                 label: "enabled"
