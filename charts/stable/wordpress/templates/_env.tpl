@@ -7,7 +7,12 @@ configmap:
       APACHE_HTTP_PORT_NUMBER: {{ .Values.service.main.ports.main.port | quote }}
 
       {{/* Database */}}
+      {{- if .Values.mariadb.enabled }}
       WORDPRESS_DATABASE_PORT_NUMBER: "3306"
+      {{- else }}
+      WORDPRESS_DATABASE_PORT_NUMBER: {{ .Values.mariadb.mariadbPort | quote }}
+      WORDPRESS_TABLE_PREFIX: {{ .Values.mariadb.wordpressTablePrefix | quote }}
+      {{- end }}
       WORDPRESS_DATABASE_USER: {{ .Values.mariadb.mariadbUsername | quote }}
       WORDPRESS_DATABASE_NAME: {{ .Values.mariadb.mariadbDatabase | quote }}
 
@@ -18,6 +23,7 @@ configmap:
       WORDPRESS_LAST_NAME: {{ .Values.wordpress.last_name | quote }}
       WORDPRESS_BLOG_NAME: {{ .Values.wordpress.blog_name | quote }}
       WORDPRESS_ENABLE_REVERSE_PROXY: {{ ternary "yes" "no" .Values.wordpress.enable_reverse_proxy_headers | quote }}
+      WORDPRESS_SKIP_BOOTSTRAP: {{ ternary "yes" "no" .Values.wordpress.skip_wordpress_setup | quote }}
       WORDPRESS_ENABLE_HTTPS: "true"
 
       {{- if .Values.smtp.enabled }}
@@ -57,9 +63,13 @@ secret:
   env-secret:
     enabled: true
     data:
+      {{- if .Values.mariadb.enabled }}
       WORDPRESS_DATABASE_HOST: {{ .Values.mariadb.creds.plainhost }}
       WORDPRESS_DATABASE_PASSWORD: {{ .Values.mariadb.creds.mariadbPassword | trimAll "\"" }}
-
+      {{- else }}
+      WORDPRESS_DATABASE_HOST: {{ .Values.mariadb.mariadbHost }}
+      WORDPRESS_DATABASE_PASSWORD: {{ .Values.mariadb.mariadbPassword | trimAll "\"" }}
+      {{- end }}
 
       WORDPRESS_PASSWORD: {{ .Values.wordpress.pass }}
 
@@ -69,6 +79,16 @@ secret:
       {{- end }}
 
       {{/* Salts */}}
+      {{- if .Values.wordpress.specified_salts.enabled }}
+      WORDPRESS_AUTH_KEY: {{ .Values.wordpress.specified_salts.wordpressAuthKey | quote }}
+      WORDPRESS_SECURE_AUTH_KEY: {{ .Values.wordpress.specified_salts.wordpressSecureAuthKey | quote }}
+      WORDPRESS_LOGGED_IN_KEY: {{ .Values.wordpress.specified_salts.wordpressLoggedInKey | quote }}
+      WORDPRESS_NONCE_KEY: {{ .Values.wordpress.specified_salts.wordpressNonceKey | quote }}
+      WORDPRESS_AUTH_SALT: {{ .Values.wordpress.specified_salts.wordpressAuthSalt | quote }}
+      WORDPRESS_SECURE_AUTH_SALT: {{ .Values.wordpress.specified_salts.wordpressSecureAuthSalt | quote }}
+      WORDPRESS_LOGGED_IN_SALT: {{ .Values.wordpress.specified_salts.wordpressLoggedInSalt | quote }}
+      WORDPRESS_NONCE_SALT: {{ .Values.wordpress.specified_salts.wordpressNonceSalt | quote }}
+      {{- else }}
       WORDPRESS_AUTH_KEY: {{ include "wordpress.fetch" (dict "ns" .Release.Namespace "var" "WORDPRESS_AUTH_KEY" "secret" $secretName) }}
       WORDPRESS_SECURE_AUTH_KEY: {{ include "wordpress.fetch" (dict "ns" .Release.Namespace "var" "WORDPRESS_SECURE_AUTH_KEY" "secret" $secretName) }}
       WORDPRESS_LOGGED_IN_KEY: {{ include "wordpress.fetch" (dict "ns" .Release.Namespace "var" "WORDPRESS_LOGGED_IN_KEY" "secret" $secretName) }}
@@ -77,6 +97,7 @@ secret:
       WORDPRESS_SECURE_AUTH_SALT: {{ include "wordpress.fetch" (dict "ns" .Release.Namespace "var" "WORDPRESS_SECURE_AUTH_SALT" "secret" $secretName) }}
       WORDPRESS_LOGGED_IN_SALT: {{ include "wordpress.fetch" (dict "ns" .Release.Namespace "var" "WORDPRESS_LOGGED_IN_SALT" "secret" $secretName) }}
       WORDPRESS_NONCE_SALT: {{ include "wordpress.fetch" (dict "ns" .Release.Namespace "var" "WORDPRESS_NONCE_SALT" "secret" $secretName) }}
+      {{- end }}
 {{- end }}
 
 {{- define "wordpress.fetch" -}}

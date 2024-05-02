@@ -70,6 +70,72 @@ questions:
           schema:
             type: boolean
             default: true
+        - variable: skip_wordpress_setup
+          label: Wordpress - Skip Setup?
+          description: Skip the wordpress setup, must be set if you're using an existing database. Must be unchecked if you're creating a new site.
+          schema:
+            type: boolean
+            default: false
+        - variable: specified_salts
+          label: Specify Wordpress Salts
+          schema:
+            type: dict
+            attrs:
+              - variable: enabled
+                label: Specify your own Salts to use?
+                schema:
+                  type: boolean
+                  default: false
+                  show_subquestions_if: true
+                  subquestions:
+                    - variable: wordpressAuthKey
+                      label: Wordpress Auth Key
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+                    - variable: wordpressSecureAuthKey
+                      label: Wordpress Secure Auth Key
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+                    - variable: wordpressLoggedInKey
+                      label: Wordpress Logged In Key
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+                    - variable: wordpressNonceKey
+                      label: Wordpress Nonce Key
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+                    - variable: wordpressAuthSalt
+                      label: Wordpress Auth Salt
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+                    - variable: wordpressSecureAuthSalt
+                      label: Wordpress Secure Auth Salt
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+                    - variable: wordpressLoggedInSalt
+                      label: Wordpress Logged In Salt
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
+                    - variable: wordpressNonceSalt
+                      label: Wordpress Nonce Salt
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
   - variable: smtp
     group: App Configuration
     label: SMTP Configuration
@@ -107,6 +173,55 @@ questions:
                   type: string
                   private: true
                   default: ""
+  - variable: mariadb
+    group: App Configuration
+    label: MariaDB Configuration
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: enabled
+          label: Use Internal MariaDB Container
+          schema:
+            type: boolean
+            default: true
+            show_subquestions_if: false
+            subquestions:
+              - variable: mariadbHost
+                label: MariaDB Host
+                schema:
+                  type: string
+                  default: "mariadb.ix-mariadb.svc.cluster.local"
+                  required: true
+              - variable: mariadbPort
+                label: MariaDB Port
+                schema:
+                  type: string
+                  default: "3306"
+                  required: true
+              - variable: mariadbDatabase
+                label: MariaDB Database
+                schema:
+                  type: string
+                  default: "wordpress"
+                  required: true
+              - variable: mariadbUsername
+                label: MariaDB Username
+                schema:
+                  type: string
+                  default: "wordpress"
+                  required: true
+              - variable: mariadbPassword
+                label: MariaDB Password
+                schema:
+                  type: string
+                  default: "wordpress"
+                  required: true
+              - variable: wordpressTablePrefix
+                label: MariaDB Table Prefix
+                schema:
+                  type: string
+                  default: "wp_"
   - variable: php-config
     group: App Configuration
     label: PHP Configuration
