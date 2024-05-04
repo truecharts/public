@@ -141,13 +141,12 @@ questions:
                         type: string
                         default: "off"
                         hidden: true
-                    ## TODO: Add later
-                    #- variable: encryption
-                    #  label: "dedup"
-                    #  schema:
-                    #    type: string
-                    #    default: "off"
-                    #    hidden: true
+                    - variable: encryption
+                      label: "dedup"
+                      schema:
+                        type: string
+                        default: "off"
+                        hidden: true
   - variable: volumeSnapshotClass
     group: "App Configuration"
     label: "volumeSnapshotClass"
