@@ -91,6 +91,13 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
+        - variable: static
+          label: "App Static Storage"
+          description: "Stores the Application static."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
 # Include{persistenceBasic}
 # Include{persistenceList}
 # Include{ingressRoot}
