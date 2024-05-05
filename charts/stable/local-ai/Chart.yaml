@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.13.0
+appVersion: 2.14.0
 dependencies:
   - name: common
     version: 23.0.0
@@ -23,7 +23,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/local-ai.webp
 keywords:
   - local-ai
   - ai
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/local-ai
   - https://hub.docker.com/r/localai/localai
 type: application
-version: 10.0.5
+version: 10.6.0
