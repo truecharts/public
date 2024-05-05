@@ -25,6 +25,7 @@ service:
         targetPort: 8081
 ingress:
   webserver:
+    enabled: false
     targetSelector:
       webserver: webserver
 workload:
