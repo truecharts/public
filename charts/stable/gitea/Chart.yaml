@@ -17,7 +17,7 @@ dependencies:
     tags: []
     import-values: []
   - name: memcached
-    version: 12.9.15
+    version: 13.0.6
     repository: oci://tccr.io/truecharts
     condition: memcached.enabled
     alias: ""
@@ -34,7 +34,7 @@ keywords:
   - wiki
   - gitea
   - gogs
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -46,4 +46,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/gitea
   - https://hub.docker.com/r/gitea/gitea
 type: application
-version: 19.0.4
+version: 19.1.0

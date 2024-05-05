@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 23.05.10.1.1
+appVersion: 24.04.1.4.1
 dependencies:
   - name: common
     version: 23.0.0
@@ -23,7 +23,7 @@ icon: https://truecharts.org/img/hotlink-ok/chart-icons/collabora.webp
 keywords:
   - office
   - document
-kubeVersion: '>=1.24.0-0'
+kubeVersion: ">=1.24.0-0"
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -34,4 +34,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/collabora
   - https://hub.docker.com/r/collabora/code
 type: application
-version: 6.0.5
+version: 6.0.6

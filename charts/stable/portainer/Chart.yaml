@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.20.1
+appVersion: 2.20.2
 dependencies:
   - name: common
     version: 23.0.0
@@ -32,7 +32,7 @@ sources:
   - https://docs.portainer.io/start/install-ce/server
   - https://docs.portainer.io/start/install/server
   - https://github.com/truecharts/charts/tree/master/charts/stable/portainer
-  - https://hub.docker.com/r/portainer/portainer-ee
   - https://hub.docker.com/r/portainer/portainer-ce
+  - https://hub.docker.com/r/portainer/portainer-ee
 type: application
-version: 9.0.5
+version: 9.0.7
