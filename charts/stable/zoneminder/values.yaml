@@ -3,6 +3,8 @@ image:
   repository: dlandon/zoneminder.unraid
   tag: latest@sha256:79c3c54cedc4ec4c3e7b19736469fd7205dd29c8080642e24decff6e8c95c938
 persistence:
+  varrun:
+    enabled: false
   config:
     enabled: true
     mountPath: /config
