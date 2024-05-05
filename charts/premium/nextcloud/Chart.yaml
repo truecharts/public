@@ -17,7 +17,7 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 13.3.11
+    version: 13.3.20
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -50,4 +50,4 @@ sources:
   - https://hub.docker.com/r/collabora/code
   - https://github.com/truecharts/containers/tree/master/apps/nextcloud-fpm
 type: application
-version: 30.0.11
+version: 30.0.12

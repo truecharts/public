@@ -17,7 +17,7 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 13.3.11
+    version: 13.3.20
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -45,4 +45,4 @@ sources:
   - https://ghcr.io/goauthentik/proxy
   - https://ghcr.io/maxmind/geoipupdate
 type: application
-version: 26.0.5
+version: 26.0.6
