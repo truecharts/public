@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.28.0
+appVersion: 2.30.0
 dependencies:
   - name: common
     version: 23.0.0
@@ -24,7 +24,7 @@ keywords:
   - web-server
   - apache
   - rust
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -36,4 +36,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/static-web-server
   - https://ghcr.io/static-web-server/static-web-server
 type: application
-version: 5.0.4
+version: 5.1.0
