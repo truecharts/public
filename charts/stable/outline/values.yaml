@@ -35,6 +35,7 @@ workload:
           imageSelector: image
           type: init
           env:
+            URL: "{{ tpl .Values.workload.main.podSpec.containers.main.env.URL $ }}"
             DATABASE_URL:
               secretKeyRef:
                 name: cnpg-main-urls
