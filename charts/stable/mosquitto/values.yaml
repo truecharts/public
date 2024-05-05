@@ -35,6 +35,7 @@ workload:
               port: 1883
 ingress:
   websockets:
+    enabled: false
     targetSelector:
       websockets: websockets
 auth:
