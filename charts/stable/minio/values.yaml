@@ -16,6 +16,7 @@ service:
         targetPort: 10106
         port: 10106
 ingress:
+  enabled: false
   api:
     targetSelector:
       api: api
