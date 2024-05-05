@@ -43,7 +43,7 @@
       automerge: false,
       autoApprove: true,
       separateMinorPatch: true,
-      ignorePaths: ["charts/unstable/**", "charts/system/openebs/**"],
+      ignorePaths: ["charts/unstable/**", "charts/system/**"],
       commitMessageTopic: "container image {{depName}}",
       commitMessageExtra: "to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}@{{newDigestShort}}",
     },
@@ -61,7 +61,7 @@
       labels: ["update/ignored"],
       groupName: "ignored",
       matchFileNames: [
-        "charts/system/openebs/**",
+        "charts/system/**",
         "charts/unstable/**",
         "charts/dev/**",
         "charts/incubator/**",
@@ -138,7 +138,7 @@
       matchFileNames: [
         "charts/stable/**",
         "charts/premium/**",
-        "charts/system/**",
+        // "charts/system/**",
       ],
     },
     {
@@ -152,7 +152,7 @@
       matchFileNames: [
         "charts/stable/**",
         "charts/premium/**",
-        "charts/system/**",
+        // "charts/system/**",
       ],
     },
     //
@@ -185,7 +185,7 @@
         "charts/stable/**",
         "charts/incubator/**",
         "charts/premium/**",
-        "charts/system/**",
+        // "charts/system/**",
       ],
     },
     {
@@ -200,7 +200,7 @@
         "charts/stable/**",
         "charts/incubator/**",
         "charts/premium/**",
-        "charts/system/**",
+        // "charts/system/**",
       ],
     },
     //
