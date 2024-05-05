@@ -1,6 +1,6 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: utilities
   truecharts.org/max_helm_version: "3.14"
@@ -10,7 +10,7 @@ apiVersion: v2
 appVersion: 1.5.5
 dependencies:
   - name: common
-    version: 20.3.12
+    version: 23.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
@@ -32,7 +32,7 @@ name: guacamole
 sources:
   - https://github.com/apache/guacamole-client
   - https://github.com/truecharts/charts/tree/master/charts/stable/guacamole
-  - https://hub.docker.com/r/guacamole/guacd
   - https://hub.docker.com/r/guacamole/guacamole
+  - https://hub.docker.com/r/guacamole/guacd
 type: application
-version: 13.8.14
+version: 14.0.4

@@ -1,11 +1,11 @@
 image:
   repository: tccr.io/tccr/nextcloud-fpm
   pullPolicy: IfNotPresent
-  tag: v28.0.4@sha256:09a4ab06204736f0acc55556a61ae71a544fb6f4728f95d4c74d5b1c30497dd0
+  tag: v29.0.0@sha256:56e45cfd9886b7c95322dbb647acbfe3d198cc6ca2e24285905dc90467b80b13
 nginxImage:
   repository: nginxinc/nginx-unprivileged
   pullPolicy: IfNotPresent
-  tag: 1.26.0@sha256:4099c02ef0e3a89fb51dad1392421aefcd1b302e751aae6ed39174d89bfadc4e
+  tag: 1.26.0@sha256:b1dab22cb3186e156b812aea2e37d216276e62effe6b7c5e7e4b93b6fe72bd22
 imaginaryImage:
   repository: tccr.io/tccr/nextcloud-imaginary
   pullPolicy: IfNotPresent
@@ -13,7 +13,7 @@ imaginaryImage:
 hpbImage:
   repository: tccr.io/tccr/nextcloud-push-notify
   pullPolicy: IfNotPresent
-  tag: v0.6.10@sha256:f175c4f28b2a9346401875f80e7007316cf3e38f74bb49de940961a98b63458b
+  tag: v0.6.11@sha256:64b2475726ab0dc064fc33dca59d93605e24c30875ecdea0a83f9db22fb7537f
 clamavImage:
   repository: clamav/clamav
   pullPolicy: IfNotPresent
@@ -21,7 +21,7 @@ clamavImage:
 collaboraImage:
   repository: collabora/code
   pullPolicy: IfNotPresent
-  tag: 23.05.10.1.1@sha256:1b9e3f43fecaa7d41e761a992d5a854de5b54404532498daea3c4bb17b557d90
+  tag: 24.04.1.4.1@sha256:524fc47045d80ccbf5eac8ed8d4d7f0e57f69af417d474a44e41053499b995e6
 
 nextcloud:
   # Initial Credentials

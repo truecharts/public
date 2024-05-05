@@ -1,6 +1,6 @@
 annotations:
-  max_scale_version: 24.04.0
-  min_scale_version: 23.10.0
+  max_scale_version: 24.04.1
+  min_scale_version: 24.04.0
   truecharts.org/SCALE-support: "true"
   truecharts.org/category: network
   truecharts.org/max_helm_version: "3.14"
@@ -10,14 +10,14 @@ apiVersion: v2
 appVersion: 0.23.0
 dependencies:
   - name: common
-    version: 20.3.12
+    version: 23.0.0
     repository: oci://tccr.io/truecharts
     condition: ""
     alias: ""
     tags: []
     import-values: []
   - name: redis
-    version: 13.3.11
+    version: 14.0.5
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -41,7 +41,7 @@ sources:
   - https://0xerr0r.github.io/blocky/
   - https://github.com/0xERR0R/blocky
   - https://github.com/truecharts/charts/tree/master/charts/premium/blocky
-  - https://quay.io/oriedge/k8s_gateway
   - https://hub.docker.com/r/spx01/blocky
+  - https://quay.io/oriedge/k8s_gateway
 type: application
-version: 14.8.21
+version: 15.1.0
