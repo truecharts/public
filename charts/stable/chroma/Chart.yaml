@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 0.4.24
+appVersion: 0.5.0
 dependencies:
   - name: common
     version: 23.0.0
@@ -24,7 +24,7 @@ keywords:
   - chroma
   - embedding
   - database
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,4 +35,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/chroma
   - https://ghcr.io/chroma-core/chroma
 type: application
-version: 3.0.5
+version: 3.1.0
