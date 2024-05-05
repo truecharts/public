@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.20.1
+appVersion: 2.20.2
 dependencies:
   - name: common
     version: 23.0.0
@@ -22,7 +22,7 @@ home: https://truecharts.org/charts/stable/portainer
 icon: https://truecharts.org/img/hotlink-ok/chart-icons/portainer.webp
 keywords:
   - portainer
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -35,4 +35,4 @@ sources:
   - https://hub.docker.com/r/portainer/portainer-ce
   - https://hub.docker.com/r/portainer/portainer-ee
 type: application
-version: 9.0.5
+version: 9.0.7
