@@ -24,7 +24,7 @@ workload:
               type: http
               path: /
           env:
-            LISTENING_PORT: "{{ .Values.service.main.ports.main.port }}"
+            LISTENING_ADDRESS: ":{{ .Values.service.main.ports.main.port }}"
             CONFIG: ""
             PERIOD: "5m"
             IPV6_PREFIX: "/128"
