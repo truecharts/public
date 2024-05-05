@@ -30,6 +30,7 @@ service:
         port: 10138
 ingress:
   front:
+    enabled: false
     targetSelector:
       front: front
 workload:
