@@ -35,7 +35,7 @@ workload:
             REDIS_PROTOCOL: "redis"
             BASEROW_CADDY_ADDRESSES: ":{{ .Values.service.main.ports.main.port }}"
             # User Defined
-
+            BASEROW_TRIGGER_SYNC_TEMPLATES_AFTER_MIGRATION: false
             BASEROW_PUBLIC_URL: "http://localhost:10228"
             FROM_EMAIL: ""
             EMAIL_SMTP: ""
