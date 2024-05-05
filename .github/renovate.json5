@@ -19,27 +19,25 @@
       "charts/.+/SCALE/.*_values\\.yaml$",
     ],
   },
-  helmv3: {
-    fileMatch: ["charts/.+/Chart\\.yaml$"],
-  },
+  helmv3: { fileMatch: ["charts/.+/Chart\\.yaml$"] },
   packageRules: [
-    // Bundle Github Actions
     {
+      // Bundle Github Actions
       matchManagers: ["github-actions"],
       groupName: "Github-Actions",
       automerge: true,
     },
-    // Setup datasources for dep updates
     {
-      datasources: ["helm"],
+      // Setup datasources for dep updates
+      matchDatasources: ["helm"],
       matchManagers: ["helmv3"],
       commitMessageTopic: "Helm chart {{depName}}",
       ignorePaths: ["charts/unstable/**"],
       autoApprove: true,
     },
-    // global docker datasource settings
     {
-      datasources: ["docker"],
+      // Global docker datasource settings
+      matchDatasources: ["docker"],
       enabled: true,
       pinDigests: true,
       automerge: false,
@@ -49,22 +47,20 @@
       commitMessageTopic: "container image {{depName}}",
       commitMessageExtra: "to {{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{{newValue}}}{{/if}}@{{newDigestShort}}",
     },
-    // Setup datasources for github actions
     {
+      // Setup datasources for github actions
       matchManagers: ["github-actions"],
       excludePackageNames: ["stefanzweifel/git-auto-commit-action"],
       labels: ["automerge"],
       automerge: true,
       autoApprove: true,
     },
-    //
-    // catch to prevent stable updates
-    //
     {
+      // Catch to prevent stable updates
       automerge: false,
       labels: ["update/ignored"],
-      groupName: ["ignored"],
-      matchPaths: [
+      groupName: "ignored",
+      matchFileNames: [
         "charts/system/openebs/**",
         "charts/unstable/**",
         "charts/dev/**",
@@ -75,37 +71,33 @@
       autoApprove: false,
     },
     //
-    // helm deps
-    //
-    //
+    // Helm Deps
     // Ensure System Apps aren't automerged after many upstream fuckups
-    //
     {
       matchDatasources: ["helm"],
       automerge: false,
       labels: ["update/helm/system"],
-      groupName: ["helm system"],
-      matchPaths: ["charts/system/**"],
+      groupName: "helm system",
+      matchFileNames: ["charts/system/**"],
       autoApprove: false,
     },
     {
       matchDatasources: ["helm"],
-      updateTypes: ["major"],
+      matchUpdateTypes: ["major"],
       automerge: false,
       bumpVersion: "major",
       labels: ["update/helm/dependency/major"],
-      groupName: ["helm dependency major"],
-      matchPaths: ["charts/dependency/**"],
+      groupName: "helm dependency major",
+      matchFileNames: ["charts/dependency/**"],
       autoApprove: false,
     },
-
     {
       matchDatasources: ["helm"],
       automerge: true,
       matchUpdateTypes: ["minor"],
       bumpVersion: "minor",
       labels: ["update/helm/dependency/minor", "automerge"],
-      matchPaths: ["charts/dependency/**"],
+      matchFileNames: ["charts/dependency/**"],
       groupName: "helm dependency minor",
     },
     {
@@ -114,22 +106,25 @@
       matchUpdateTypes: ["patch"],
       bumpVersion: "patch",
       labels: ["update/helm/dependency/patch", "automerge"],
-      matchPaths: ["charts/dependency/**"],
+      matchFileNames: ["charts/dependency/**"],
       groupName: "helm dependency patch",
     },
     //
-    // helm charts
+    // Helm Charts
     //
     {
       matchDatasources: ["helm"],
-      updateTypes: ["major"],
+      matchUpdateTypes: ["major"],
       bumpVersion: "major",
       enabled: true,
       labels: ["update/helm/general/major"],
       automerge: false,
-      groupName: ["helm general major"],
-      matchPaths: ["charts/stable/**", "charts/premium/**", "charts/system/**"],
-
+      groupName: "helm general major",
+      matchFileNames: [
+        "charts/stable/**",
+        "charts/premium/**",
+        "charts/system/**",
+      ],
       autoApprove: false,
     },
     {
@@ -140,7 +135,11 @@
       bumpVersion: "minor",
       labels: ["update/helm/general/minor", "automerge"],
       groupName: "helm general minor",
-      matchPaths: ["charts/stable/**", "charts/premium/**", "charts/system/**"],
+      matchFileNames: [
+        "charts/stable/**",
+        "charts/premium/**",
+        "charts/system/**",
+      ],
     },
     {
       matchDatasources: ["helm"],
@@ -150,25 +149,28 @@
       bumpVersion: "patch",
       labels: ["update/helm/general/non-major", "automerge"],
       groupName: "helm general non-major",
-      matchPaths: ["charts/stable/**", "charts/premium/**", "charts/system/**"],
+      matchFileNames: [
+        "charts/stable/**",
+        "charts/premium/**",
+        "charts/system/**",
+      ],
     },
     //
     // Tag updates for semantic tags
     //
     {
       matchDatasources: ["docker"],
-      updateTypes: ["major"],
+      matchUpdateTypes: ["major"],
       bumpVersion: "minor",
       enabled: true,
       labels: ["update/docker/general/major"],
-      matchPaths: [
+      matchFileNames: [
         "charts/dependency/**",
         "charts/stable/**",
         "charts/incubator/**",
         "charts/premium/**",
         "charts/system/**",
       ],
-
       autoApprove: false,
     },
     {
@@ -178,7 +180,7 @@
       bumpVersion: "minor",
       enabled: true,
       labels: ["update/docker/general/non-major", "automerge"],
-      matchPaths: [
+      matchFileNames: [
         "charts/dependency/**",
         "charts/stable/**",
         "charts/incubator/**",
@@ -193,7 +195,7 @@
       bumpVersion: "patch",
       enabled: true,
       labels: ["update/docker/general/non-major", "automerge"],
-      matchPaths: [
+      matchFileNames: [
         "charts/dependency/**",
         "charts/stable/**",
         "charts/incubator/**",
@@ -621,8 +623,8 @@
     //
     // Versioning for linuxserver two-three digit container versions
     {
-      packagePatterns: ["^linuxserver\\/", "^deepquestai\\/"],
-      versionScheme: "regex:^(?<compatibility>.*?(\\d+\\.)??)(?<major>\\d+)\\.(?<minor>\\d+)\\.?(?<patch>\\d+)?(-r?p?\\d)?$",
+      matchPackagePatterns: ["^linuxserver\\/", "^deepquestai\\/"],
+      versioning: "regex:^(?<compatibility>.*?(\\d+\\.)??)(?<major>\\d+)\\.(?<minor>\\d+)\\.?(?<patch>\\d+)?(-r?p?\\d)?$",
     },
     {
       matchDatasources: ["docker"],
