@@ -27,7 +27,9 @@ service:
         protocol: udp
 ingress:
   supervisor:
-    autoLink: true
+    enabled: false
+    targetSelector:
+      supervisor: supervisor
 persistence:
   config:
     enabled: true
