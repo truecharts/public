@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.2.5.4141
+appVersion: 2.3.2.4183
 dependencies:
   - name: common
     version: 23.0.0
@@ -24,7 +24,7 @@ keywords:
   - lidarr
   - torrent
   - usenet
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -33,7 +33,7 @@ name: lidarr
 sources:
   - https://github.com/Lidarr/Lidarr
   - https://github.com/truecharts/charts/tree/master/charts/stable/lidarr
-  - https://ghcr.io/onedr0p/exportarr
   - https://ghcr.io/onedr0p/lidarr-develop
+  - https://ghcr.io/onedr0p/exportarr
 type: application
-version: 22.0.5
+version: 22.1.0

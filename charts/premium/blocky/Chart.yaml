@@ -17,7 +17,7 @@ dependencies:
     tags: []
     import-values: []
   - name: redis
-    version: 13.3.11
+    version: 14.0.5
     repository: oci://tccr.io/truecharts
     condition: redis.enabled
     alias: ""
@@ -44,4 +44,4 @@ sources:
   - https://hub.docker.com/r/spx01/blocky
   - https://quay.io/oriedge/k8s_gateway
 type: application
-version: 15.0.4
+version: 15.1.0

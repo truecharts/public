@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 3.33.0
+appVersion: 3.34.0
 dependencies:
   - name: common
     version: 23.0.0
@@ -27,7 +27,7 @@ keywords:
   - google driver
   - aliyun driver
   - baiduyun
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -38,4 +38,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/alist
   - https://hub.docker.com/r/xhofe/alist-aria2
 type: application
-version: 10.0.5
+version: 10.1.0
