@@ -44,7 +44,9 @@ service:
         targetPort: 29810
 ingress:
   comm:
-    autoLink: true
+    enabled: false
+    targetSelector:
+      comm: comm
 persistence:
   data:
     enabled: true
