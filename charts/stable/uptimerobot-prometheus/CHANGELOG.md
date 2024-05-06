@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [uptimerobot-prometheus-5.0.0](https://github.com/truecharts/charts/compare/uptimerobot-prometheus-4.0.44...uptimerobot-prometheus-5.0.0) (2022-11-10)

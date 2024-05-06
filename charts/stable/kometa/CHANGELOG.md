@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [kometa-0.0.1](https://github.com/truecharts/charts/compare/kometa-0.0.1) (2024-04-29)

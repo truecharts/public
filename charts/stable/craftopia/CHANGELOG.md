@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [craftopia-1.0.0](https://github.com/truecharts/charts/compare/craftopia-0.0.35...craftopia-1.0.0) (2022-11-10)

@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [tubesync-1.0.0](https://github.com/truecharts/charts/compare/tubesync-0.0.39...tubesync-1.0.0) (2022-11-10)

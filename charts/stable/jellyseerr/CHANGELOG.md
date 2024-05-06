@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [jellyseerr-3.0.0](https://github.com/truecharts/charts/compare/jellyseerr-2.0.43...jellyseerr-3.0.0) (2022-11-10)

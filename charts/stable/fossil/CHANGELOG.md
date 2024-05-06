@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [fossil-5.0.0](https://github.com/truecharts/charts/compare/fossil-4.0.40...fossil-5.0.0) (2022-11-10)

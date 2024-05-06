@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [airsonic-advanced-5.0.0](https://github.com/truecharts/charts/compare/airsonic-advanced-4.0.48...airsonic-advanced-5.0.0) (2022-11-10)

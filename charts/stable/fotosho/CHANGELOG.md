@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [fotosho-1.0.0](https://github.com/truecharts/charts/compare/fotosho-0.0.34...fotosho-1.0.0) (2022-11-10)

@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [debian-apt-mirror-1.0.0](https://github.com/truecharts/charts/compare/debian-apt-mirror-0.0.35...debian-apt-mirror-1.0.0) (2022-11-10)

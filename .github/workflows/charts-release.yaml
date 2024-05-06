@@ -194,7 +194,7 @@ jobs:
                 # Prepend app-changelog to changelog
                 cat "charts/${train}/${chart}/app-changelog.md" | cat - "website/src/content/docs/charts/${train}/${chart}/CHANGELOG.md" > temp && mv temp "website/src/content/docs/charts/${train}/${chart}/CHANGELOG.md"
                 echo "Adding changelog header..."
-                sed -i '1s/^/---\ntitle: Changelog\n---\n\n/' "website/src/content/docs/charts/${train}/${chart}/CHANGELOG.md" || echo "failed to add changelog header..."
+                sed -i '1s/^/---\ntitle: Changelog\npagefind: false\n---\n\n/' "website/src/content/docs/charts/${train}/${chart}/CHANGELOG.md" || echo "failed to add changelog header..."
 
                 echo "Creating index.md..."
                 touch website/src/content/docs/charts/${train}/${chart}/index.md

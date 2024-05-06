@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [piaware-7.0.0](https://github.com/truecharts/charts/compare/piaware-6.0.46...piaware-7.0.0) (2022-11-10)

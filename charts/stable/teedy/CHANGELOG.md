@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [teedy-8.0.0](https://github.com/truecharts/charts/compare/teedy-docs-0.0.35...teedy-8.0.0) (2022-11-10)
