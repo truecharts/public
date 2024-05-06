@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [nosqlclient-1.0.0](https://github.com/truecharts/charts/compare/nosqlclient-0.0.34...nosqlclient-1.0.0) (2022-11-10)

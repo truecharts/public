@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [valetudo-mapper-1.0.0](https://github.com/truecharts/charts/compare/valetudo-mapper-0.0.35...valetudo-mapper-1.0.0) (2022-11-10)

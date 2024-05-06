@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [transmission-13.0.0](https://github.com/truecharts/charts/compare/transmission-12.0.45...transmission-13.0.0) (2022-11-10)

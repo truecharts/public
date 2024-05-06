@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [handbrake-14.0.0](https://github.com/truecharts/charts/compare/handbrake-13.0.43...handbrake-14.0.0) (2022-11-10)

@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [nocodb-4.0.0](https://github.com/truecharts/charts/compare/nocodb-3.0.60...nocodb-4.0.0) (2022-11-10)

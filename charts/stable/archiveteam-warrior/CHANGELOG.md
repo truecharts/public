@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [archiveteam-warrior-1.0.0](https://github.com/truecharts/charts/compare/archiveteam-warrior-0.0.35...archiveteam-warrior-1.0.0) (2022-11-10)

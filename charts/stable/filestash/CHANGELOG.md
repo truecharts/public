@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [filestash-1.0.0](https://github.com/truecharts/charts/compare/filestash-0.0.53...filestash-1.0.0) (2022-11-10)

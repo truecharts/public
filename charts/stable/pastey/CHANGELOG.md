@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [pastey-1.0.0](https://github.com/truecharts/charts/compare/pastey-0.0.36...pastey-1.0.0) (2022-11-10)

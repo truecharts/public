@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [redis-4.0.0](https://github.com/truecharts/charts/compare/redis-3.0.123...redis-4.0.0) (2022-11-10)

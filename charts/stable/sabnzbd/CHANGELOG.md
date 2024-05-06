@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [sabnzbd-12.0.0](https://github.com/truecharts/charts/compare/sabnzbd-11.0.46...sabnzbd-12.0.0) (2022-11-10)

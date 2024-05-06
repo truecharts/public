@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [rickroll-1.0.0](https://github.com/truecharts/charts/compare/rickroll-0.0.43...rickroll-1.0.0) (2022-11-10)

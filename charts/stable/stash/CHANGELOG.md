@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [stash-8.0.0](https://github.com/truecharts/charts/compare/stash-7.0.46...stash-8.0.0) (2022-11-10)

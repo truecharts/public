@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [tvhproxy-1.0.0](https://github.com/truecharts/charts/compare/tvhproxy-0.0.34...tvhproxy-1.0.0) (2022-11-10)

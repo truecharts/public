@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [dispatch-1.0.0](https://github.com/truecharts/charts/compare/dispatch-0.0.34...dispatch-1.0.0) (2022-11-10)

@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [memories-of-mars-1.0.0](https://github.com/truecharts/charts/compare/memories-of-mars-0.0.35...memories-of-mars-1.0.0) (2022-11-10)

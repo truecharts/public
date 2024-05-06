@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [plex-meta-manager-1.0.0](https://github.com/truecharts/charts/compare/plex-meta-manager-0.0.34...plex-meta-manager-1.0.0) (2022-11-10)

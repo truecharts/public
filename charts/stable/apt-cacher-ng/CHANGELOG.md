@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [apt-cacher-ng-2.0.0](https://github.com/truecharts/charts/compare/apt-cacher-ng-1.0.12...apt-cacher-ng-2.0.0) (2022-11-10)

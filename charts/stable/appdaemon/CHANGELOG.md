@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [appdaemon-10.0.0](https://github.com/truecharts/charts/compare/appdaemon-9.0.43...appdaemon-10.0.0) (2022-11-10)

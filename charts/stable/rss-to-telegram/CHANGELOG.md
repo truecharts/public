@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [rss-to-telegram-1.0.0](https://github.com/truecharts/charts/compare/rss-to-telegram-0.0.34...rss-to-telegram-1.0.0) (2022-11-10)

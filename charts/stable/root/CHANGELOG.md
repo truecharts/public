@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [root-1.0.0](https://github.com/truecharts/charts/compare/root-0.0.34...root-1.0.0) (2022-11-10)

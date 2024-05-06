@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [ciao-1.0.0](https://github.com/truecharts/charts/compare/ciao-0.0.34...ciao-1.0.0) (2022-11-10)

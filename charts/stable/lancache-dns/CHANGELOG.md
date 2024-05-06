@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [lancache-dns-2.0.0](https://github.com/truecharts/charts/compare/lancache-dns-1.0.7...lancache-dns-2.0.0) (2022-11-10)

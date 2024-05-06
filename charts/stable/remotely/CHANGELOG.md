@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [remotely-1.0.0](https://github.com/truecharts/charts/compare/remotely-0.0.36...remotely-1.0.0) (2022-11-10)

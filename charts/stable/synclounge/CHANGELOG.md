@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [synclounge-3.0.0](https://github.com/truecharts/charts/compare/synclounge-2.0.55...synclounge-3.0.0) (2022-11-10)

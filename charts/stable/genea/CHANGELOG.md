@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [genea-1.0.0](https://github.com/truecharts/charts/compare/genea-0.0.34...genea-1.0.0) (2022-11-10)

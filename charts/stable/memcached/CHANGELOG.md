@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [memcached-4.0.0](https://github.com/truecharts/charts/compare/memcached-3.0.122...memcached-4.0.0) (2022-11-10)

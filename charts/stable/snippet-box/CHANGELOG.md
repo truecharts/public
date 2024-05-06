@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [snippet-box-1.0.0](https://github.com/truecharts/charts/compare/snippet-box-0.0.34...snippet-box-1.0.0) (2022-11-10)

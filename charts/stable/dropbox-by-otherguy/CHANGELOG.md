@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [dropbox-by-otherguy-1.0.0](https://github.com/truecharts/charts/compare/dropbox-by-otherguy-0.0.34...dropbox-by-otherguy-1.0.0) (2022-11-10)

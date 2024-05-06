@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [ser2sock-7.0.0](https://github.com/truecharts/charts/compare/ser2sock-6.0.43...ser2sock-7.0.0) (2022-11-10)

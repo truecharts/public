@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [photo-stream-1.0.0](https://github.com/truecharts/charts/compare/photo-stream-0.0.34...photo-stream-1.0.0) (2022-11-10)

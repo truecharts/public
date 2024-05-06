@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [bwapp-1.0.0](https://github.com/truecharts/charts/compare/bwapp-0.0.34...bwapp-1.0.0) (2022-11-10)

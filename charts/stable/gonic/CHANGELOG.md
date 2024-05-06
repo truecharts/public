@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [gonic-7.0.0](https://github.com/truecharts/charts/compare/gonic-6.0.43...gonic-7.0.0) (2022-11-10)

@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [breitbandmessung-de-1.0.0](https://github.com/truecharts/charts/compare/breitbandmessung-de-0.0.36...breitbandmessung-de-1.0.0) (2022-11-10)

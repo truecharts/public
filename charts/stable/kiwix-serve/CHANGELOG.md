@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [kiwix-serve-2.0.0](https://github.com/truecharts/charts/compare/kiwix-serve-1.0.12...kiwix-serve-2.0.0) (2022-11-10)

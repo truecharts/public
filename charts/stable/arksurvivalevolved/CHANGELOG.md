@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [arksurvivalevolved-1.0.0](https://github.com/truecharts/charts/compare/arksurvivalevolved-0.0.37...arksurvivalevolved-1.0.0) (2022-11-10)

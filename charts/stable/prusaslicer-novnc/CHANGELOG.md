@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [prusaslicer-novnc-2.0.0](https://github.com/truecharts/charts/compare/prusaslicer-novnc-1.0.4...prusaslicer-novnc-2.0.0) (2022-11-10)

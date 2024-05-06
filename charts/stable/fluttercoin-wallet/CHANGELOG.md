@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [fluttercoin-wallet-1.0.0](https://github.com/truecharts/charts/compare/fluttercoin-wallet-0.0.35...fluttercoin-wallet-1.0.0) (2022-11-10)

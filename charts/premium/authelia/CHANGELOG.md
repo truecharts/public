@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [authelia-12.0.0](https://github.com/truecharts/charts/compare/authelia-11.0.64...authelia-12.0.0) (2022-11-10)

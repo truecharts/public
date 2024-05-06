@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [rflood-1.0.0](https://github.com/truecharts/charts/compare/rflood-0.0.42...rflood-1.0.0) (2022-11-10)

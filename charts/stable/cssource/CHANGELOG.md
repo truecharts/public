@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [cssource-1.0.0](https://github.com/truecharts/charts/compare/cssource-0.0.35...cssource-1.0.0) (2022-11-10)

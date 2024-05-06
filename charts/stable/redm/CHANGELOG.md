@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [redm-1.0.0](https://github.com/truecharts/charts/compare/redmine-3.0.65...redm-1.0.0) (2022-11-10)

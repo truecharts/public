@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [shlink-web-client-4.0.0](https://github.com/truecharts/charts/compare/shlink-web-client-3.0.43...shlink-web-client-4.0.0) (2022-11-10)

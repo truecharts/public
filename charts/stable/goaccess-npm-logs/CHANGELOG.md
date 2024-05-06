@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [goaccess-npm-logs-1.0.0](https://github.com/truecharts/charts/compare/goaccess-npm-logs-0.0.40...goaccess-npm-logs-1.0.0) (2022-11-10)

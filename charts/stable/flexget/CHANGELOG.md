@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [flexget-3.0.0](https://github.com/truecharts/charts/compare/flexget-2.0.63...flexget-3.0.0) (2022-11-10)

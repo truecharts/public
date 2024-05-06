@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [uptime-kuma-4.0.0](https://github.com/truecharts/charts/compare/uptime-kuma-3.0.47...uptime-kuma-4.0.0) (2022-11-10)

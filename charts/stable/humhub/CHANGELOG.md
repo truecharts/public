@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [humhub-1.0.0](https://github.com/truecharts/charts/compare/humhub-0.0.36...humhub-1.0.0) (2022-11-10)

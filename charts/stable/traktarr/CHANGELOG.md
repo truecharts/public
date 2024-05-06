@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [traktarr-1.0.0](https://github.com/truecharts/charts/compare/traktarr-0.0.43...traktarr-1.0.0) (2022-11-10)

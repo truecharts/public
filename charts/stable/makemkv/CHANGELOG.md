@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [makemkv-3.0.0](https://github.com/truecharts/charts/compare/makemkv-2.0.45...makemkv-3.0.0) (2022-11-10)

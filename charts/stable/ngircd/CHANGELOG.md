@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [ngircd-3.0.0](https://github.com/truecharts/charts/compare/ngircd-2.0.40...ngircd-3.0.0) (2022-11-10)

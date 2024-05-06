@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [davos-5.0.0](https://github.com/truecharts/charts/compare/davos-4.0.40...davos-5.0.0) (2022-11-10)

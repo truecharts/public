@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [pihole-7.0.0](https://github.com/truecharts/charts/compare/pihole-6.0.50...pihole-7.0.0) (2022-11-10)

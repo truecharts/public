@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [jdownloader2-9.0.0](https://github.com/truecharts/charts/compare/jdownloader2-8.0.44...jdownloader2-9.0.0) (2022-11-10)

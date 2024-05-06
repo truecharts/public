@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [anope-1.0.0](https://github.com/truecharts/charts/compare/anope-0.0.35...anope-1.0.0) (2022-11-10)

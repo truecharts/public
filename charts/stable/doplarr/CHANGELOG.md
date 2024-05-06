@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [doplarr-3.0.0](https://github.com/truecharts/charts/compare/doplarr-2.0.43...doplarr-3.0.0) (2022-11-10)

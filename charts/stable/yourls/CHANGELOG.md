@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [yourls-1.0.0](https://github.com/truecharts/charts/compare/yourls-0.0.45...yourls-1.0.0) (2022-11-10)

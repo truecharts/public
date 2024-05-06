@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [trilium-notes-6.0.0](https://github.com/truecharts/charts/compare/trilium-notes-5.0.47...trilium-notes-6.0.0) (2022-11-10)

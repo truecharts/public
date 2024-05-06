@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [zwavejs2mqtt-13.0.0](https://github.com/truecharts/charts/compare/zwavejs2mqtt-12.0.16...zwavejs2mqtt-13.0.0) (2022-11-10)

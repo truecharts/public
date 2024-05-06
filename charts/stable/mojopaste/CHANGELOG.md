@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [mojopaste-1.0.0](https://github.com/truecharts/charts/compare/mojopaste-0.0.34...mojopaste-1.0.0) (2022-11-10)

@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [scrutiny-4.0.0](https://github.com/truecharts/charts/compare/scrutiny-3.0.41...scrutiny-4.0.0) (2022-11-10)

@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [boinc-3.0.0](https://github.com/truecharts/charts/compare/boinc-2.0.63...boinc-3.0.0) (2022-11-10)

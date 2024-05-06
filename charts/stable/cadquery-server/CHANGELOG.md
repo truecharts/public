@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [cadquery-server-1.0.0](https://github.com/truecharts/charts/compare/cadquery-server-0.0.38...cadquery-server-1.0.0) (2022-11-10)

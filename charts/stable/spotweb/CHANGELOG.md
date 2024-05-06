@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [spotweb-5.0.0](https://github.com/truecharts/charts/compare/spotweb-4.0.50...spotweb-5.0.0) (2022-11-10)

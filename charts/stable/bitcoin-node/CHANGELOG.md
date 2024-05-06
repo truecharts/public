@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [bitcoin-node-0.0.37](https://github.com/truecharts/charts/compare/bitcoin-node-0.0.34...bitcoin-node-0.0.37) (2022-11-08)

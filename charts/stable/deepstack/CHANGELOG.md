@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [deepstack-5.0.0](https://github.com/truecharts/charts/compare/deepstack-4.0.41...deepstack-5.0.0) (2022-11-10)

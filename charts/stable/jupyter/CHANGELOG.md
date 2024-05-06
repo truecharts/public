@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [jupyter-1.0.0](https://github.com/truecharts/charts/compare/jupyter-0.0.22...jupyter-1.0.0) (2022-11-10)

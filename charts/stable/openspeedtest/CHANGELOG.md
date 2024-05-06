@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [openspeedtest-2.0.0](https://github.com/truecharts/charts/compare/openspeedtest-1.0.44...openspeedtest-2.0.0) (2022-11-10)

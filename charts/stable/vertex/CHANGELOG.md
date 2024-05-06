@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [vertex-1.0.0](https://github.com/truecharts/charts/compare/vertex-0.0.84...vertex-1.0.0) (2022-11-10)

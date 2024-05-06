@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [vaultwarden-16.0.55](https://github.com/truecharts/charts/compare/vaultwarden-16.0.52...vaultwarden-16.0.55) (2022-11-08)

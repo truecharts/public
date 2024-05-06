@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [flood-7.0.0](https://github.com/truecharts/charts/compare/qflood-0.0.46...flood-7.0.0) (2022-11-10)

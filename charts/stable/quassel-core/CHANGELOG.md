@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [quassel-core-4.0.0](https://github.com/truecharts/charts/compare/quassel-core-3.0.47...quassel-core-4.0.0) (2022-11-10)

@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [znc-3.0.0](https://github.com/truecharts/charts/compare/znc-2.0.41...znc-3.0.0) (2022-11-10)

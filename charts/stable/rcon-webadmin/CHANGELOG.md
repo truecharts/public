@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [rcon-webadmin-2.0.0](https://github.com/truecharts/charts/compare/rcon-webadmin-1.0.11...rcon-webadmin-2.0.0) (2022-11-10)

@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [pt-helper-1.0.0](https://github.com/truecharts/charts/compare/pt-helper-0.0.35...pt-helper-1.0.0) (2022-11-10)

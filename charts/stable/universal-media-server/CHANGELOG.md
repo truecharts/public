@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [universal-media-server-1.0.0](https://github.com/truecharts/charts/compare/universal-media-server-0.0.38...universal-media-server-1.0.0) (2022-11-10)

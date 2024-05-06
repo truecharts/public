@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [pyload-ng-1.0.0](https://github.com/truecharts/charts/compare/pyload-ng-0.0.43...pyload-ng-1.0.0) (2022-11-10)

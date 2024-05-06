@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [quassel-web-3.0.0](https://github.com/truecharts/charts/compare/quassel-web-2.0.40...quassel-web-3.0.0) (2022-11-10)

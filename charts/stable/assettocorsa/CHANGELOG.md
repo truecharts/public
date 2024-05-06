@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [assettocorsa-1.0.0](https://github.com/truecharts/charts/compare/assettocorsa-0.0.35...assettocorsa-1.0.0) (2022-11-10)

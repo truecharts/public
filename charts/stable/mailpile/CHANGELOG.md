@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [mailpile-1.0.0](https://github.com/truecharts/charts/compare/mailpile-0.0.34...mailpile-1.0.0) (2022-11-10)

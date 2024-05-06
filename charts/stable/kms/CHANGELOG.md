@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [kms-12.0.0](https://github.com/truecharts/charts/compare/kms-11.0.42...kms-12.0.0) (2022-11-10)

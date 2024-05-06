@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [htpcmanager-3.0.0](https://github.com/truecharts/charts/compare/htpcmanager-2.0.40...htpcmanager-3.0.0) (2022-11-10)

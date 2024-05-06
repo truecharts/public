@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [ubooquity-4.0.0](https://github.com/truecharts/charts/compare/ubooquity-3.0.41...ubooquity-4.0.0) (2022-11-10)

@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [zigbee2mqtt-5.0.0](https://github.com/truecharts/charts/compare/zigbee2mqtt-4.0.47...zigbee2mqtt-5.0.0) (2022-11-10)

@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [rss-bridge-3.0.0](https://github.com/truecharts/charts/compare/rss-bridge-2.0.41...rss-bridge-3.0.0) (2022-11-10)

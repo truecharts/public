@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [opengl-desktop-g3-1.0.0](https://github.com/truecharts/charts/compare/opengl-desktop-g3-0.0.37...opengl-desktop-g3-1.0.0) (2022-11-10)

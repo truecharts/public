@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [multi-scrobbler-1.0.0](https://github.com/truecharts/charts/compare/multi-scrobbler-0.0.34...multi-scrobbler-1.0.0) (2022-11-10)

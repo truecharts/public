@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [mylar-7.0.0](https://github.com/truecharts/charts/compare/mylar-6.0.52...mylar-7.0.0) (2022-11-10)

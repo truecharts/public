@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [speedtest-exporter-4.0.0](https://github.com/truecharts/charts/compare/speedtest-exporter-3.0.44...speedtest-exporter-4.0.0) (2022-11-10)

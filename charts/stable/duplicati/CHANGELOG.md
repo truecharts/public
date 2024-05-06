@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [duplicati-7.0.0](https://github.com/truecharts/charts/compare/duplicati-6.0.43...duplicati-7.0.0) (2022-11-10)

@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [thelounge-7.0.0](https://github.com/truecharts/charts/compare/thelounge-6.0.41...thelounge-7.0.0) (2022-11-10)

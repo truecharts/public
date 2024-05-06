@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [kanboard-9.0.0](https://github.com/truecharts/charts/compare/kanboard-8.0.51...kanboard-9.0.0) (2022-11-10)

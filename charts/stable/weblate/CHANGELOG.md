@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [weblate-5.0.0](https://github.com/truecharts/charts/compare/weblate-4.0.52...weblate-5.0.0) (2022-11-10)

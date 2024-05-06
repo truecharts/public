@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [nullserv-7.0.0](https://github.com/truecharts/charts/compare/nullserv-6.0.43...nullserv-7.0.0) (2022-11-10)

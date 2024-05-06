@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [fenrus-1.0.0](https://github.com/truecharts/charts/compare/fenrus-0.0.35...fenrus-1.0.0) (2022-11-10)

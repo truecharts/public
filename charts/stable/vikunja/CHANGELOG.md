@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [vikunja-4.0.0](https://github.com/truecharts/charts/compare/vikunja-3.0.70...vikunja-4.0.0) (2022-11-10)

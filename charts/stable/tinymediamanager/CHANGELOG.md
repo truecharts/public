@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [tinymediamanager-3.0.0](https://github.com/truecharts/charts/compare/tinymediamanager-2.0.44...tinymediamanager-3.0.0) (2022-11-10)

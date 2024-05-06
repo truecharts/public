@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [snapdrop-3.0.0](https://github.com/truecharts/charts/compare/snapdrop-2.0.62...snapdrop-3.0.0) (2022-11-10)

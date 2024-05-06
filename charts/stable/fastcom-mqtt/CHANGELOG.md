@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [fastcom-mqtt-1.0.0](https://github.com/truecharts/charts/compare/fastcom-mqtt-0.0.35...fastcom-mqtt-1.0.0) (2022-11-10)

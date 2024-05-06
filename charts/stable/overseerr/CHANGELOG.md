@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [overseerr-7.0.0](https://github.com/truecharts/charts/compare/overseerr-6.0.44...overseerr-7.0.0) (2022-11-10)

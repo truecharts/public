@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [dashmachine-1.0.0](https://github.com/truecharts/charts/compare/dashmachine-0.0.34...dashmachine-1.0.0) (2022-11-10)

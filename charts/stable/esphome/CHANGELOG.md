@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [esphome-12.0.0](https://github.com/truecharts/charts/compare/esphome-11.0.53...esphome-12.0.0) (2022-11-10)

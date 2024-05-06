@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [syslog-ng-3.0.0](https://github.com/truecharts/charts/compare/syslog-ng-2.0.43...syslog-ng-3.0.0) (2022-11-10)

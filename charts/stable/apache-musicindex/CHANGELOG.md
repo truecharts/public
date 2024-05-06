@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [apache-musicindex-5.0.0](https://github.com/truecharts/charts/compare/apache-musicindex-4.0.41...apache-musicindex-5.0.0) (2022-11-10)

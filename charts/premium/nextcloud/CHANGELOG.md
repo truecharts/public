@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [nextcloud-17.0.0](https://github.com/truecharts/charts/compare/nextcloud-16.0.2...nextcloud-17.0.0) (2022-11-10)

@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [sheetable-1.0.0](https://github.com/truecharts/charts/compare/sheetable-0.0.28...sheetable-1.0.0) (2022-11-10)

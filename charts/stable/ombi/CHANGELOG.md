@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [ombi-12.0.0](https://github.com/truecharts/charts/compare/ombi-11.0.58...ombi-12.0.0) (2022-11-10)

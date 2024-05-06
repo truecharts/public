@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [node-red-12.0.0](https://github.com/truecharts/charts/compare/node-red-11.0.45...node-red-12.0.0) (2022-11-10)

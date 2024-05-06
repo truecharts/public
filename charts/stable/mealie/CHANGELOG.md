@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [mealie-12.0.0](https://github.com/truecharts/charts/compare/mealie-11.0.3...mealie-12.0.0) (2022-11-10)

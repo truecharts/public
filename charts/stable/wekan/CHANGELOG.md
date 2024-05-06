@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [wekan-6.0.0](https://github.com/truecharts/charts/compare/wekan-5.0.22...wekan-6.0.0) (2022-11-10)

@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [qbittorrent-12.0.0](https://github.com/truecharts/charts/compare/qbittorrent-11.0.45...qbittorrent-12.0.0) (2022-11-10)

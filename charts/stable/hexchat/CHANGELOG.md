@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [hexchat-1.0.0](https://github.com/truecharts/charts/compare/hexchat-0.0.36...hexchat-1.0.0) (2022-11-10)

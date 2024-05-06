@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [pixapop-4.0.0](https://github.com/truecharts/charts/compare/pixapop-3.0.40...pixapop-4.0.0) (2022-11-10)

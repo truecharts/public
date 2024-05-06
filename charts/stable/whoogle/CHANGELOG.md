@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [whoogle-4.0.0](https://github.com/truecharts/charts/compare/whoogle-3.0.43...whoogle-4.0.0) (2022-11-10)

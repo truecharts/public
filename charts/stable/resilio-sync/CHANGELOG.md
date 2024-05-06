@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [resilio-sync-7.0.0](https://github.com/truecharts/charts/compare/resilio-sync-6.0.42...resilio-sync-7.0.0) (2022-11-10)

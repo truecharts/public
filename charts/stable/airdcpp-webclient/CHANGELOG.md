@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [airdcpp-webclient-4.0.0](https://github.com/truecharts/charts/compare/airdcpp-webclient-3.0.43...airdcpp-webclient-4.0.0) (2022-11-10)

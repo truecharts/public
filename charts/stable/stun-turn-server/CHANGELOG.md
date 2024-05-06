@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [stun-turn-server-1.0.0](https://github.com/truecharts/charts/compare/stun-turn-server-0.0.35...stun-turn-server-1.0.0) (2022-11-10)

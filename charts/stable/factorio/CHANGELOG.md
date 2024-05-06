@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [factorio-1.0.0](https://github.com/truecharts/charts/compare/factorioservermanager-0.0.34...factorio-1.0.0) (2022-11-10)

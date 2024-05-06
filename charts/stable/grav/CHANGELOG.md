@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [grav-5.0.0](https://github.com/truecharts/charts/compare/grav-4.0.40...grav-5.0.0) (2022-11-10)

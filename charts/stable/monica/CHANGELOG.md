@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [monica-4.0.0](https://github.com/truecharts/charts/compare/monica-3.0.67...monica-4.0.0) (2022-11-10)

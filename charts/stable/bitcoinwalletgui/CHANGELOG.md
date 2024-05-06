@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [bitcoinwalletgui-1.0.0](https://github.com/truecharts/charts/compare/bitcoinwalletgui-0.0.34...bitcoinwalletgui-1.0.0) (2022-11-10)

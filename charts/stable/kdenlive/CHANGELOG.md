@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [kdenlive-1.0.0](https://github.com/truecharts/charts/compare/kdenlive-0.0.47...kdenlive-1.0.0) (2022-11-10)

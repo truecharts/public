@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [bitcoinunlimited-1.0.0](https://github.com/truecharts/charts/compare/bitcoinunlimited-0.0.34...bitcoinunlimited-1.0.0) (2022-11-10)

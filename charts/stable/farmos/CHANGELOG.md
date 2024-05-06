@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [farmos-1.0.0](https://github.com/truecharts/charts/compare/farmos-0.0.36...farmos-1.0.0) (2022-11-10)

@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [quiz-game-1.0.0](https://github.com/truecharts/charts/compare/quiz-game-0.0.36...quiz-game-1.0.0) (2022-11-10)

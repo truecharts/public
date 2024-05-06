@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [sftpgo-1.0.0](https://github.com/truecharts/charts/compare/sftpgo-0.0.40...sftpgo-1.0.0) (2022-11-10)

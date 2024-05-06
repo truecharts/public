@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [dontstarvetogether-1.0.0](https://github.com/truecharts/charts/compare/dontstarvetogether-0.0.37...dontstarvetogether-1.0.0) (2022-11-10)

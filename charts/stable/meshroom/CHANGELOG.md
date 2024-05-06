@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [meshroom-3.0.0](https://github.com/truecharts/charts/compare/meshroom-2.0.41...meshroom-3.0.0) (2022-11-10)

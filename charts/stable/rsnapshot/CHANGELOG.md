@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [rsnapshot-3.0.0](https://github.com/truecharts/charts/compare/rsnapshot-2.0.32...rsnapshot-3.0.0) (2022-11-10)

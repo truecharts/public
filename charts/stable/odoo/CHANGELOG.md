@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [odoo-9.0.0](https://github.com/truecharts/charts/compare/odoo-8.0.60...odoo-9.0.0) (2022-11-10)

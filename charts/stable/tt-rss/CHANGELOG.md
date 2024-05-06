@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [tt-rss-8.0.0](https://github.com/truecharts/charts/compare/tt-rss-7.0.49...tt-rss-8.0.0) (2022-11-10)

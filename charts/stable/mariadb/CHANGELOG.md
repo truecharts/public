@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [mariadb-4.0.0](https://github.com/truecharts/charts/compare/mariadb-3.0.122...mariadb-4.0.0) (2022-11-10)

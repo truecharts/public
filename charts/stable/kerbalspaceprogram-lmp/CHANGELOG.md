@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [kerbalspaceprogram-lmp-1.0.0](https://github.com/truecharts/charts/compare/kerbalspaceprogram-lmp-0.0.35...kerbalspaceprogram-lmp-1.0.0) (2022-11-10)

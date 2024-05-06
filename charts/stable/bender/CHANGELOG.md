@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [bender-1.0.0](https://github.com/truecharts/charts/compare/bender-0.0.11...bender-1.0.0) (2022-11-10)

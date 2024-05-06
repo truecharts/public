@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [post-recording-1.0.0](https://github.com/truecharts/charts/compare/post-recording-0.0.34...post-recording-1.0.0) (2022-11-10)

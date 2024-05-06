@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [blender-desktop-g3-1.0.0](https://github.com/truecharts/charts/compare/blender-desktop-g3-0.0.37...blender-desktop-g3-1.0.0) (2022-11-10)

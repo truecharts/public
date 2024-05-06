@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [red-discordbot-1.0.0](https://github.com/truecharts/charts/compare/red-discordbot-0.0.33...red-discordbot-1.0.0) (2022-11-10)

@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [mysql-workbench-3.0.0](https://github.com/truecharts/charts/compare/mysql-workbench-2.0.42...mysql-workbench-3.0.0) (2022-11-10)

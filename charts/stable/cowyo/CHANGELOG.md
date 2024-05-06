@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [cowyo-1.0.0](https://github.com/truecharts/charts/compare/cowyo-0.0.34...cowyo-1.0.0) (2022-11-10)

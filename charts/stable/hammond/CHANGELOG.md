@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [hammond-3.0.0](https://github.com/truecharts/charts/compare/hammond-2.0.42...hammond-3.0.0) (2022-11-10)

@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [cryptofolio-5.0.0](https://github.com/truecharts/charts/compare/cryptofolio-4.0.43...cryptofolio-5.0.0) (2022-11-10)

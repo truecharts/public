@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [minecraft-bedrock-2.0.0](https://github.com/truecharts/charts/compare/minecraft-bedrock-1.0.45...minecraft-bedrock-2.0.0) (2022-11-10)

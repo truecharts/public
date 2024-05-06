@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [pydio-cells-5.0.0](https://github.com/truecharts/charts/compare/pydio-cells-4.0.48...pydio-cells-5.0.0) (2022-11-10)

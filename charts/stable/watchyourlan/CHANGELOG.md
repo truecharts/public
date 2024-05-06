@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [watchyourlan-1.0.0](https://github.com/truecharts/charts/compare/watchyourlan-0.0.10...watchyourlan-1.0.0) (2022-11-10)

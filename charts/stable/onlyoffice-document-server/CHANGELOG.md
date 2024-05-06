@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [onlyoffice-document-server-7.0.0](https://github.com/truecharts/charts/compare/onlyoffice-document-server-6.0.51...onlyoffice-document-server-7.0.0) (2022-11-10)

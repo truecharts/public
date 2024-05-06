@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [meshcentral-7.0.0](https://github.com/truecharts/charts/compare/meshcentral-6.0.7...meshcentral-7.0.0) (2022-11-10)

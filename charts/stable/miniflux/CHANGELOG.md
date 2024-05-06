@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [miniflux-8.0.0](https://github.com/truecharts/charts/compare/miniflux-7.0.52...miniflux-8.0.0) (2022-11-10)

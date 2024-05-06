@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [github-backup-1.0.0](https://github.com/truecharts/charts/compare/llalon-github-backup-0.0.34...github-backup-1.0.0) (2022-11-10)

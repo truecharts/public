@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [vintage-story-1.0.0](https://github.com/truecharts/charts/compare/vintage-story-0.0.35...vintage-story-1.0.0) (2022-11-10)

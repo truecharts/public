@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [crafty-4-1.0.0](https://github.com/truecharts/charts/compare/crafty-4-0.0.44...crafty-4-1.0.0) (2022-11-10)

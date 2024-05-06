@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [suistartpage-1.0.0](https://github.com/truecharts/charts/compare/suistartpage-0.0.34...suistartpage-1.0.0) (2022-11-10)

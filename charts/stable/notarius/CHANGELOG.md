@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [notarius-1.0.0](https://github.com/truecharts/charts/compare/notarius-0.0.34...notarius-1.0.0) (2022-11-10)

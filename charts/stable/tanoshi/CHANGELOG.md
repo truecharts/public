@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [tanoshi-1.0.0](https://github.com/truecharts/charts/compare/tanoshi-0.0.34...tanoshi-1.0.0) (2022-11-10)

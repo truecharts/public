@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [radarrsync-1.0.0](https://github.com/truecharts/charts/compare/radarrsync-0.0.34...radarrsync-1.0.0) (2022-11-10)

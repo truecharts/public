@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [left4dead-1.0.0](https://github.com/truecharts/charts/compare/left4dead-0.0.34...left4dead-1.0.0) (2022-11-10)

@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [ferdi-server-4.0.0](https://github.com/truecharts/charts/compare/ferdi-server-3.0.48...ferdi-server-4.0.0) (2022-11-10)

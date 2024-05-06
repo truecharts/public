@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [nexus-oss-1.0.0](https://github.com/truecharts/charts/compare/nexus-oss-0.0.22...nexus-oss-1.0.0) (2022-11-10)

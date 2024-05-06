@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [truecommand-11.0.45](https://github.com/truecharts/charts/compare/truecommand-11.0.42...truecommand-11.0.45) (2022-11-08)

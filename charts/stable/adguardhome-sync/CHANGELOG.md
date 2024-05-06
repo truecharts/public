@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [adguardhome-sync-1.0.0](https://github.com/truecharts/charts/compare/adguardhome-sync-0.0.42...adguardhome-sync-1.0.0) (2022-11-10)

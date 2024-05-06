@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [fmd2-wine-1.0.0](https://github.com/truecharts/charts/compare/fmd2-wine-0.0.34...fmd2-wine-1.0.0) (2022-11-10)

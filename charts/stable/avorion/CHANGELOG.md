@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [avorion-1.0.0](https://github.com/truecharts/charts/compare/avorion-0.0.35...avorion-1.0.0) (2022-11-10)

@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [fluidd-3.0.0](https://github.com/truecharts/charts/compare/fluidd-2.0.49...fluidd-3.0.0) (2022-11-10)

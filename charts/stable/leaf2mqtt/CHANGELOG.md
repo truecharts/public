@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [leaf2mqtt-5.0.0](https://github.com/truecharts/charts/compare/leaf2mqtt-4.0.42...leaf2mqtt-5.0.0) (2022-11-10)

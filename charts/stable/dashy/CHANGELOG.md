@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [dashy-1.0.0](https://github.com/truecharts/charts/compare/dashy-0.0.10...dashy-1.0.0) (2022-11-10)

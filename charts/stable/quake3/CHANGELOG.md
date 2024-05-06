@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [quake3-1.0.0](https://github.com/truecharts/charts/compare/quake3-0.0.35...quake3-1.0.0) (2022-11-10)

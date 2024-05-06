@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [kasm-2.0.0](https://github.com/truecharts/charts/compare/kasm-1.0.4...kasm-2.0.0) (2022-11-10)

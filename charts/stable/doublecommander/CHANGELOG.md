@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [doublecommander-5.0.0](https://github.com/truecharts/charts/compare/doublecommander-4.0.40...doublecommander-5.0.0) (2022-11-10)

@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [solr-1.0.0](https://github.com/truecharts/charts/compare/solr-0.0.92...solr-1.0.0) (2022-11-10)

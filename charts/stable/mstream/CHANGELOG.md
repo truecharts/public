@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [mstream-4.0.0](https://github.com/truecharts/charts/compare/mstream-3.0.40...mstream-4.0.0) (2022-11-10)

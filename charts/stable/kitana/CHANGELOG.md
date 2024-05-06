@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [kitana-1.0.0](https://github.com/truecharts/charts/compare/kitana-0.0.34...kitana-1.0.0) (2022-11-10)

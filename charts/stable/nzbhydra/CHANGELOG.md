@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [nzbhydra-12.0.0](https://github.com/truecharts/charts/compare/nzbhydra-11.0.49...nzbhydra-12.0.0) (2022-11-10)

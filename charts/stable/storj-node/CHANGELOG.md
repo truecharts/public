@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [storj-node-3.0.0](https://github.com/truecharts/charts/compare/storj-node-2.0.62...storj-node-3.0.0) (2022-11-10)

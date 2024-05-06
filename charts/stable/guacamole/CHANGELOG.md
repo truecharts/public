@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [guacamole-client-5.0.0](https://github.com/truecharts/charts/compare/guacamole-client-4.0.53...guacamole-client-5.0.0) (2022-11-10)

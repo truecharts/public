@@ -1,5 +1,6 @@
 ---
-title: Changelog
+title: CHANGELOG
+pagefind: false
 ---
 
 ## [lazylibrarian-12.0.0](https://github.com/truecharts/charts/compare/lazylibrarian-11.0.79...lazylibrarian-12.0.0) (2022-11-10)
