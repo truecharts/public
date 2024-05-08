@@ -93,3 +93,5 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: url
+            PUBLIC_DASHBOARD: true
+            APP_NAME: "Speedtest Tracker"
