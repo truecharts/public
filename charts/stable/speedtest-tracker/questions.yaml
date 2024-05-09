@@ -27,6 +27,16 @@ questions:
                                         schema:
                                           type: string
                                           default: ""
+                                      - variable: PUBLIC_DASHBOARD
+                                        label: "Enables the public dashboard for guest (unauthenticated) users"
+                                        schema:
+                                          type: boolean
+                                          default: false
+                                      - variable: APP_NAME
+                                        label: "Used to define the application's name in the dashboard and in notifications"
+                                        schema:
+                                          type: string
+                                          default: "Speedtest Tracker"
                                       - variable: mail
                                         label: Show Mail Server Settings
                                         schema:
