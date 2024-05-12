@@ -24,6 +24,7 @@ is_true() {
 
 # if file is empty
 if [ -z "$(cat "$file_path")" ]; then
+  echo "file is empty"
   echo -e "---\n" >"$file_path"
   echo -e "---\n" >>"$file_path"
 fi
@@ -31,8 +32,10 @@ fi
 echo "Checking front matter"
 if ! grep -q "^---$" "$file_path"; then
   echo "Front matter (start) not found, adding it"
+  content=$(cat "$file_path")
   echo -e "---\n" >"$file_path"
-  echo "$(cat "$file_path")" >>"$file_path"
+  echo -e "---\n" >>"$file_path"
+  echo "$content" >>"$file_path"
 fi
 
 # Get the title from the front matter
@@ -47,11 +50,4 @@ echo "Checking pagefind"
 pagefind=$($base_cmd '.pagefind' "$file_path")
 if is_empty "$pagefind" || is_true "$pagefind"; then
   $base_cmd -i '.pagefind=false' "$file_path"
-fi
-
-frontmatter=$($base_cmd '.' "$file_path")
-# Check if the front matter does end with ---
-if [ "${frontmatter: -3}" != "---" ]; then
-  echo "Front matter (end) not found, adding it"
-  echo -e "\n---\n" >>"$file_path"
 fi
