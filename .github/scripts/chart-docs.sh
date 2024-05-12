@@ -109,7 +109,7 @@ process_index() {
 
   echo "Adding front matter to index.md..."
   echo "---" >>${index_path}
-  yq -i --front-matter=process ".title = ${chart}" ${index_path}
+  yq -i --front-matter=process '.title="'${chart}'"' ${index_path}
   echo -e "---\n" >>${index_path}
 
   echo "Getting data from Chart.yaml..."
