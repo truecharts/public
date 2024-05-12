@@ -22,6 +22,13 @@ is_true() {
   return 1
 }
 
+# if file is empty
+content=$(cat "$file_path")
+if [ -z "$content" ]; then
+  echo -e "---\n" >"$file_path"
+  echo -e "---\n" >>"$file_path"
+fi
+
 echo "Checking front matter"
 if ! grep -q "^---$" "$file_path"; then
   echo "Front matter (start) not found, adding it"
