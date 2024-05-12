@@ -116,14 +116,14 @@ process_index() {
 
   echo "Adding front matter to index.md..."
   echo "---" >>${index_path}
-  yq -i --front-matter=process '.title="'${chart}'"' ${index_path}
+  go-yq -i --front-matter=process '.title="'${chart}'"' ${index_path}
   echo -e "---\n" >>${index_path}
 
   echo "Getting data from Chart.yaml..."
-  version=$(yq '.version' ${chart_yaml_path})
-  appversion=$(yq '.appVersion' ${chart_yaml_path})
-  description=$(yq -r '.description' ${chart_yaml_path})
-  sources=$(yq -r '.sources' ${chart_yaml_path})
+  version=$(go-yq '.version' ${chart_yaml_path})
+  appversion=$(go-yq '.appVersion' ${chart_yaml_path})
+  description=$(go-yq -r '.description' ${chart_yaml_path})
+  sources=$(go-yq -r '.sources' ${chart_yaml_path})
 
   echo "Adding the data to the index.md file..."
   echo '![Version: '"${version}"'](https://img.shields.io/badge/Version-'"${version}"'-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: '"${appversion}"'](https://img.shields.io/badge/AppVersion-'"${appversion}"'-informational?style=flat-square)' >>${index_path}
@@ -149,7 +149,7 @@ process_index() {
       continue
     fi
 
-    title=$(yq --front-matter=process '.title' ${file} | head -n 1)
+    title=$(go-yq --front-matter=process '.title' ${file} | head -n 1)
     echo "The title is: ${title}"
 
     echo "Generating markdown links"
