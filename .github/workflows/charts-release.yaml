@@ -156,7 +156,7 @@ jobs:
 
           for i in "${CHARTS[@]}"
           do
-            DEBUG=true ./.github/scripts/chart-docs.sh "$i"
+            DEBUG=true STRICT=true ./.github/scripts/chart-docs.sh "$i"
           done
 
       - name: Commit Website Changes

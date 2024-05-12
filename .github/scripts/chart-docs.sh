@@ -1,5 +1,6 @@
 #!/bin/bash
 [ "$DEBUG" == 'true' ] && set -x
+[ "$STRICT" == 'true' ] && set -e
 
 make_sure_structure_is_there() {
   local train="$1"
