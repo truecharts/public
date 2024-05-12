@@ -154,7 +154,7 @@ jobs:
           mkdir -p website/public/img/hotlink-ok/chart-icons || echo "chart-icons path already exists, continuing..."
           mkdir -p website/public/img/hotlink-ok/chart-icons-small || echo "chart-icons-small path already exists, continuing..."
 
-          export DEBUG=true
+          export DEBUG=false
           export STRICT=true
           go-yq --version
 
