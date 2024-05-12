@@ -23,7 +23,7 @@ is_true() {
 }
 
 echo "Checking front matter"
-if ! grep -q "^---$" "$file_path"; then
+if ! head -n 1 "$file_path" | grep -q "---"; then
   echo "Front matter (start) not found, adding it"
   # Dont trace content, as its usually too large
   [ "$DEBUG" == "true" ] && set +x
