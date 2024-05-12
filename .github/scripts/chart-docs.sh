@@ -178,6 +178,7 @@ main() {
 
   echo "copying docs to website for ${chart}"
 
+  make_sure_structure_is_there "$train" "$chart"
   keep_safe_docs "$train" "$chart"
   remove_old_docs "$train" "$chart"
   copy_new_docs "$train" "$chart"

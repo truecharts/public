@@ -20,14 +20,6 @@ is_true() {
   return 1
 }
 
-update_property() {
-  local property=$1
-  local value=$2
-  local file_path=$3
-
-  $base_cmd -i ".$property = $value" "$file_path"
-}
-
 echo "Checking front matter"
 if ! grep -q "^---$" "$file_path"; then
   echo "Front matter (start) not found, adding it"
@@ -41,13 +33,13 @@ echo "Checking title"
 title=$($base_cmd '.title' "$file_path")
 # Check if the title is empty
 if is_empty "$title"; then
-  update_property "title" "Changelog" "$file_path"
+  $base_cmd -i '.title="Changelog"' "$file_path"
 fi
 
 echo "Checking pagefind"
 pagefind=$($base_cmd '.pagefind' "$file_path")
 if is_empty "$pagefind" || is_true "$pagefind"; then
-  update_property "pagefind" "false" "$file_path"
+  $base_cmd -i '.pagefind=false' "$file_path"
 fi
 
 frontmatter=$($base_cmd '.' "$file_path")
