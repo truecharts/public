@@ -21,6 +21,11 @@ workload:
     podSpec:
       containers:
         main:
+          env:
+            DATABASE_URL:
+              secretKeyRef:
+                name: cnpg-main-urls
+                key: std
           probes:
             liveness:
               type: http
@@ -31,10 +36,18 @@ workload:
             startup:
               type: http
               path: /
+
 persistence:
   data:
     enabled: true
     mountPath: /data
+
 portal:
   open:
     enabled: true
+
+cnpg:
+  main:
+    enabled: true
+    user: docuseal
+    database: docuseal
