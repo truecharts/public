@@ -25,10 +25,13 @@ is_true() {
 echo "Checking front matter"
 if ! grep -q "^---$" "$file_path"; then
   echo "Front matter (start) not found, adding it"
+  # Dont trace content, as its usually too large
+  [ "$DEBUG" ] && set +x
   content=$(cat "$file_path")
   echo -e "---\n" >"$file_path"
   echo -e "---\n" >>"$file_path"
   echo "$content" >>"$file_path"
+  [ "$DEBUG" ] && set -x
 fi
 
 # Get the title from the front matter
