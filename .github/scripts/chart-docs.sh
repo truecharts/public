@@ -5,7 +5,15 @@
 make_sure_structure_is_there() {
   local train="$1"
   local chart="$2"
+
+  mkdir -p tmp/website/src/content/docs/charts/${train}/${chart} || echo "chart path already exists, continuing..."
+
   echo "Checking if website/src/content/docs/charts/${train}/${chart}/CHANGELOG.md exists"
+  if [ -f "website/src/content/docs/charts/${train}/${chart}/CHANGELOG.md" ]; then
+    echo "CHANGELOG.md already exists, continuing..."
+    return 0
+  fi
+
   mkdir -p "website/src/content/docs/charts/${train}/${chart}" || echo "chart path already exists, continuing..."
   touch "website/src/content/docs/charts/${train}/${chart}/CHANGELOG.md"
 }
