@@ -5,11 +5,9 @@
 make_sure_structure_is_there() {
   local train="$1"
   local chart="$2"
-
-  if [[ ! -f "website/src/content/docs/charts/${train}/${chart}/CHANGELOG.md" ]]; then
-    echo "changelog not found, starting with empty changelog..."
-    touch "website/src/content/docs/charts/${train}/${chart}/CHANGELOG.md"
-  fi
+  echo "Checking if website/src/content/docs/charts/${train}/${chart}/CHANGELOG.md exists"
+  mkdir -p "website/src/content/docs/charts/${train}/${chart}" || echo "chart path already exists, continuing..."
+  touch "website/src/content/docs/charts/${train}/${chart}/CHANGELOG.md"
 }
 
 keep_safe_docs() {
@@ -143,7 +141,7 @@ process_index() {
       continue
     fi
 
-    title=$(yq '.title' ${file} | head -n 1)
+    title=$(yq --front-matter=process '.title' ${file} | head -n 1)
     echo "The title is: ${title}"
 
     echo "Generating markdown links"
