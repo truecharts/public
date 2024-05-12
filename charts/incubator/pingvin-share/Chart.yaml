@@ -5,7 +5,7 @@ annotations:
   truecharts.org/category: files
   truecharts.org/max_helm_version: "3.14"
   truecharts.org/min_helm_version: "3.11"
-  truecharts.org/train: stable
+  truecharts.org/train: incubator
 apiVersion: v2
 appVersion: 0.24.1
 dependencies:
@@ -30,6 +30,7 @@ maintainers:
 name: pingvin-share
 sources:
   - https://github.com/stonith404/pingvin-share
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/pingvin-share
   - https://hub.docker.com/r/stonith404/pingvin-share
 type: application
 version: 0.0.1
