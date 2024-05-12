@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [mediaelch-1.0.0](https://github.com/truecharts/charts/compare/mediaelch-0.0.36...mediaelch-1.0.0) (2022-11-10)

@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [mymediaforalexa-2.0.0](https://github.com/truecharts/charts/compare/mymediaforalexa-1.0.20...mymediaforalexa-2.0.0) (2022-11-10)

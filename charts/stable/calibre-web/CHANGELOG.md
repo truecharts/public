@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [calibre-web-12.0.0](https://github.com/truecharts/charts/compare/calibre-web-11.0.57...calibre-web-12.0.0) (2022-11-10)

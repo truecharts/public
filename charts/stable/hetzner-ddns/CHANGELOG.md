@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [hetzner-ddns-1.0.0](https://github.com/truecharts/charts/compare/hetzner-ddns-0.0.34...hetzner-ddns-1.0.0) (2022-11-10)

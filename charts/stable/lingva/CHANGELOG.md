@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [lingva-1.0.0](https://github.com/truecharts/charts/compare/lingva-0.0.37...lingva-1.0.0) (2022-11-10)

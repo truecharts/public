@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [phoronix-test-suite-1.0.0](https://github.com/truecharts/charts/compare/phoronix-test-suite-0.0.34...phoronix-test-suite-1.0.0) (2022-11-10)

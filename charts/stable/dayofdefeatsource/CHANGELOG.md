@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [dayofdefeatsource-1.0.0](https://github.com/truecharts/charts/compare/dayofdefeatsource-0.0.35...dayofdefeatsource-1.0.0) (2022-11-10)

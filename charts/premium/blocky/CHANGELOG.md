@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [blocky-1.1.13](https://github.com/truecharts/charts/compare/blocky-1.1.10...blocky-1.1.13) (2022-11-08)

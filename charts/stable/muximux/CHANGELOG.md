@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [muximux-4.0.0](https://github.com/truecharts/charts/compare/muximux-3.0.40...muximux-4.0.0) (2022-11-10)

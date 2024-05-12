@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [medusa-4.0.0](https://github.com/truecharts/charts/compare/medusa-3.0.58...medusa-4.0.0) (2022-11-10)

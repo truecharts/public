@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [unturned-1.0.0](https://github.com/truecharts/charts/compare/unturned-0.0.35...unturned-1.0.0) (2022-11-10)

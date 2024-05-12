@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [lastoasis-1.0.0](https://github.com/truecharts/charts/compare/lastoasis-0.0.35...lastoasis-1.0.0) (2022-11-10)

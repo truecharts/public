@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [standardnotes-web-1.0.0](https://github.com/truecharts/charts/compare/standardnotes-web-0.0.36...standardnotes-web-1.0.0) (2022-11-10)

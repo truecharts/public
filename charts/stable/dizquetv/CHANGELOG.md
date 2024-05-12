@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [dizquetv-8.0.0](https://github.com/truecharts/charts/compare/dizquetv-7.0.43...dizquetv-8.0.0) (2022-11-10)

@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [shiori-8.0.0](https://github.com/truecharts/charts/compare/shiori-7.0.48...shiori-8.0.0) (2022-11-10)

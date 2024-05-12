@@ -48,7 +48,7 @@ workload:
             # set the default port
             QBITTORRENT__PORT: "{{ .Values.service.main.ports.main.port }}"
             # stops users from bricking their chart from setting the ip to a random ip when its a container.
-            QBT_Preferences__WebUI__Address: "0.0.0.0"
+            QBT_Preferences__WebUI__Address: "*"
             # set port from gui.
             QBT_BitTorrent__Session__Port: "{{ .Values.service.torrent.ports.torrent.port }}"
             # legacy ini key

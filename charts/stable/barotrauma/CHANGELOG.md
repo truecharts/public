@@ -1,5 +1,6 @@
 ---
 title: Changelog
+pagefind: false
 ---
 
 ## [batnoter-1.0.0](https://github.com/truecharts/charts/compare/batnoter-0.0.12...batnoter-1.0.0) (2022-11-10)
