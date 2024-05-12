@@ -23,13 +23,15 @@ is_true() {
 }
 
 echo "Checking front matter"
-if ! head -n 1 "$file_path" | grep -q "---"; then
+if ! head -n 1 "$file_path" | grep -q "^---$"; then
   echo "Front matter (start) not found, adding it"
   # Dont trace content, as its usually too large
   [ "$DEBUG" == "true" ] && set +x
   (echo -e "---\n---\n"; cat "$file_path") >"$file_path.tmp" && mv "$file_path.tmp" "$file_path"
   [ "$DEBUG" == "true" ] && set -x
 fi
+
+cat $file_path
 
 # Get the title from the front matter
 echo "Checking title"
