@@ -203,13 +203,13 @@ jobs:
                 yq -i --front-matter=process ".title = ${chart}" website/src/content/docs/charts/${train}/${chart}/index.md
                 echo -e "---\n" >> website/src/content/docs/charts/${train}/${chart}/index.md
 
-                # Gather data
+                echo "Gathering data..."
                 version=$(yq '.version' charts/${train}/${chart}/Chart.yaml)
                 appversion=$(yq '.appVersion' charts/${train}/${chart}/Chart.yaml)
                 description=$(yq -r '.description' charts/${train}/${chart}/Chart.yaml)
                 sources=$(yq -r '.sources' charts/${train}/${chart}/Chart.yaml)
 
-                # Add the data to the index.md file
+                echo "Adding the data to the index.md file..."
                 echo '![Version: '"${version}"'](https://img.shields.io/badge/Version-'"${version}"'-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: '"${appversion}"'](https://img.shields.io/badge/AppVersion-'"${appversion}"'-informational?style=flat-square)' >> website/src/content/docs/charts/${train}/${chart}/index.md
                 echo "" >> website/src/content/docs/charts/${train}/${chart}/index.md
                 echo -e "$description\n" >> website/src/content/docs/charts/${train}/${chart}/index.md
