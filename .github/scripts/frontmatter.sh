@@ -31,6 +31,7 @@ if ! head -n 1 "$file_path" | grep -q "^---$"; then
   [ "$DEBUG" == "true" ] && set -x
 fi
 
+wc -l $file_path
 cat $file_path
 
 # Get the title from the front matter
