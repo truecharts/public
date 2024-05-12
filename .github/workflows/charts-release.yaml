@@ -156,6 +156,7 @@ jobs:
 
           export DEBUG=true
           export STRICT=true
+          yq --version
 
           for i in "${CHARTS[@]}"
           do
