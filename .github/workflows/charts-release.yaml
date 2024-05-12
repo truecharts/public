@@ -154,9 +154,12 @@ jobs:
           mkdir -p website/public/img/hotlink-ok/chart-icons || echo "chart-icons path already exists, continuing..."
           mkdir -p website/public/img/hotlink-ok/chart-icons-small || echo "chart-icons-small path already exists, continuing..."
 
+          export DEBUG=true
+          export STRICT=true
+
           for i in "${CHARTS[@]}"
           do
-            DEBUG=true STRICT=true ./.github/scripts/chart-docs.sh "$i"
+            ./.github/scripts/chart-docs.sh "$i"
           done
 
       - name: Commit Website Changes

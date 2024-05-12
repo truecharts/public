@@ -1,4 +1,6 @@
 #!/bin/bash
+[ "$DEBUG" == 'true' ] && set -x
+[ "$STRICT" == 'true' ] && set -e
 
 file_path="$1"
 base_cmd="yq --front-matter=process"
