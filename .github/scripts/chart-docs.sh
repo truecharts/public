@@ -133,7 +133,7 @@ process_index() {
     filename=$(basename "${file}")
 
     # If title is not ok, skip
-    if ! check_and_fix_title "$train" "$chart"; then
+    if ! check_and_fix_title "${file}"; then
       continue
     fi
 
