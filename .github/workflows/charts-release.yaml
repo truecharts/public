@@ -150,119 +150,13 @@ jobs:
         run: |
           #!/bin/bash
           CHARTS=(${{ steps.collect-changes.outputs.modifiedChartsAfterTag }})
-          echo "Removing Chart Docs prior to regeneration..."
+          echo "Maing sure directories exist..."
           mkdir -p website/public/img/hotlink-ok/chart-icons || echo "chart-icons path already exists, continuing..."
           mkdir -p website/public/img/hotlink-ok/chart-icons-small || echo "chart-icons-small path already exists, continuing..."
+
           for i in "${CHARTS[@]}"
           do
-              IFS='/' read -r -a chart_parts <<< "$i"
-              if [ -f "charts/${chart_parts[0]}"/"${chart_parts[1]}/Chart.yaml" ]; then
-                train=${chart_parts[0]}
-                chart=${chart_parts[1]}
-                echo "copying docs to website for ${chart}"
-                mkdir -p website/src/content/docs/charts/${train}/${chart} || echo "chart path already exists, continuing..."
-                mkdir -p tmp/website/src/content/docs/charts/${train}/${chart}/ || echo "chart path already exists, continuing..."
-                if [[ -f "website/src/content/docs/charts/${train}/${chart}/CHANGELOG.md" ]]; then
-                   echo "changelog found..."
-                   true
-                else
-                   echo "changelog not found, starting with empty changelog..."
-                   touch "website/src/content/docs/charts/${train}/${chart}/CHANGELOG.md"
-                fi
-
-                echo "Keeping some docs safe..."
-                # keep some docs safe
-                mv -f website/src/content/docs/charts/${train}/${chart}/CHANGELOG.md tmp/website/src/content/docs/charts/${train}/${chart}/CHANGELOG.md || :
-
-                echo "Removing old docs and recreating based on charts repo..."
-                # remove old docs everywhere and recreate based on charts repo
-                rm -rf website/src/content/docs/charts/*/${chart} || :
-                mkdir -p website/src/content/docs/charts/${train}/${chart} || echo "chart path already exists, continuing..."
-                cp -rf charts/${train}/${chart}/docs/* website/src/content/docs/charts/${train}/${chart}/ 2>/dev/null || :
-                cp -rf charts/${train}/${chart}/icon.webp website/public/img/hotlink-ok/chart-icons/${chart}.webp 2>/dev/null || :
-                cp -rf charts/${train}/${chart}/icon-small.webp website/public/img/hotlink-ok/chart-icons-small/${chart}.webp 2>/dev/null || :
-                cp -rf charts/${train}/${chart}/screenshots/* website/public/img/hotlink-ok/chart-screenshots/${chart}/ 2>/dev/null || :
-
-                echo "Copying back kept docs..."
-                # Copy over kept documents
-                mv -f tmp/website/src/content/docs/charts/${train}/${chart}/CHANGELOG.md website/src/content/docs/charts/${train}/${chart}/CHANGELOG.md 2>/dev/null || :
-
-                echo "Appending SCALE changelog to actual changelog..."
-                # Add SCALE changelog to actual changelog
-                # Remove header from changelog
-                sed -i '/^---$/,/^---$/d' "website/src/content/docs/charts/${train}/${chart}/CHANGELOG.md"
-                # Prepend app-changelog to changelog
-                cat "charts/${train}/${chart}/app-changelog.md" | cat - "website/src/content/docs/charts/${train}/${chart}/CHANGELOG.md" > temp && mv temp "website/src/content/docs/charts/${train}/${chart}/CHANGELOG.md"
-                echo "Adding changelog header..."
-                ./.github/scripts/frontmatter.sh "website/src/content/docs/charts/${train}/${chart}/CHANGELOG.md"
-
-                echo "Creating index.md..."
-                touch website/src/content/docs/charts/${train}/${chart}/index.md
-                # Add front matter
-                echo "---" >> website/src/content/docs/charts/${train}/${chart}/index.md
-                yq -i --front-matter=process ".title = ${chart}" website/src/content/docs/charts/${train}/${chart}/index.md
-                echo -e "---\n" >> website/src/content/docs/charts/${train}/${chart}/index.md
-
-                echo "Gathering data..."
-                version=$(yq '.version' charts/${train}/${chart}/Chart.yaml)
-                appversion=$(yq '.appVersion' charts/${train}/${chart}/Chart.yaml)
-                description=$(yq -r '.description' charts/${train}/${chart}/Chart.yaml)
-                sources=$(yq -r '.sources' charts/${train}/${chart}/Chart.yaml)
-
-                echo "Adding the data to the index.md file..."
-                echo '![Version: '"${version}"'](https://img.shields.io/badge/Version-'"${version}"'-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: '"${appversion}"'](https://img.shields.io/badge/AppVersion-'"${appversion}"'-informational?style=flat-square)' >> website/src/content/docs/charts/${train}/${chart}/index.md
-                echo "" >> website/src/content/docs/charts/${train}/${chart}/index.md
-                echo -e "$description\n" >> website/src/content/docs/charts/${train}/${chart}/index.md
-                echo -e "## Chart Sources\n" >> website/src/content/docs/charts/${train}/${chart}/index.md
-                echo -e "$sources\n" >> website/src/content/docs/charts/${train}/${chart}/index.md
-                echo -e "## Available Documentation\n" >> website/src/content/docs/charts/${train}/${chart}/index.md
-
-                echo "Iterating over all files in the docs directory..."
-                # Iterate over all files in the docs directory
-                for file in website/src/content/docs/charts/${train}/${chart}/*.md*; do
-                  # Extract the file name and first line from each file
-                  filename=$(basename "${file}")
-                  echo "Found doc file: ${file}"
-
-                  ok_title="false"
-                  echo "Getting the first line"
-                  if ! grep -q "^---$" "${file}"; then
-                    ok_title="true"
-                  elif ! grep -q "^# " "${file}"; then
-                    ok_title="false"
-                  fi
-
-                  if [ ${ok_title} == "false" ]; then
-                    echo "Doc title should use front matter and not # for title, for example"
-                    echo "---"
-                    echo "title: some title"
-                    echo "---"
-                  else
-                    echo "Not bad title found, continuing..."
-                    title=$(yq '.title' ${file} | head -n 1)
-                    echo "The title is: ${title}"
-
-                    # Create a markdown link using the file name and title
-                    filename="${filename##*/}"
-                    filenameURL=${filename%.*}
-                    filenameURL=${filenameURL,,}
-                    link="[**${title}**](./${filenameURL})"
-                    echo "The link is: ${link}"
-                    if [ ${filename} != "index.md" ]; then
-                      # Append the link to the index.md file
-                      echo "- ${link}" >> website/src/content/docs/charts/${train}/${chart}/index.md
-                    fi
-                  fi
-                done
-                echo "" >> website/src/content/docs/charts/${train}/${chart}/index.md
-                echo -e "## Readme Content\n" >> website/src/content/docs/charts/${train}/${chart}/index.md
-                tail -n +4  "charts/${train}/${chart}/README.md" >> website/src/content/docs/charts/${train}/${chart}/readmetmp.md
-                sed -i 's/##/###/' "website/src/content/docs/charts/${train}/${chart}/readmetmp.md"
-                cat "website/src/content/docs/charts/${train}/${chart}/readmetmp.md" >> "website/src/content/docs/charts/${train}/${chart}/index.md"
-                rm "website/src/content/docs/charts/${train}/${chart}/readmetmp.md" || echo "couldnt delete readmetmp.md"
-
-                rm -rf temp || :
-              fi
+            DEBUG=true ./.github/scripts/chart-docs.sh "$i"
           done
 
       - name: Commit Website Changes
