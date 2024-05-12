@@ -23,8 +23,7 @@ is_true() {
 }
 
 # if file is empty
-content=$(cat "$file_path")
-if [ -z "$content" ]; then
+if [ -z "$(cat "$file_path")" ]; then
   echo -e "---\n" >"$file_path"
   echo -e "---\n" >>"$file_path"
 fi
@@ -32,9 +31,8 @@ fi
 echo "Checking front matter"
 if ! grep -q "^---$" "$file_path"; then
   echo "Front matter (start) not found, adding it"
-  content=$(cat "$file_path")
   echo -e "---\n" >"$file_path"
-  echo "$content" >>"$file_path"
+  echo "$(cat "$file_path")" >>"$file_path"
 fi
 
 # Get the title from the front matter
