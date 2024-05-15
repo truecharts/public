@@ -1,11 +1,11 @@
 image:
   repository: grafana/grafana
   pullPolicy: IfNotPresent
-  tag: 10.4.2@sha256:7d5faae481a4c6f436c99e98af11534f7fd5e8d3e35213552dd1dd02bc393d2e
+  tag: 10.4.3@sha256:b7fcb534f7b3512801bb3f4e658238846435804deb479d105b5cdc680847c272
 
 sidecarImage:
   repository: quay.io/kiwigrid/k8s-sidecar
-  tag: 1.26.2@sha256:e271016441af84807548eb3143bf4b076a95b392029a8f217b602f0bbe370a51
+  tag: 1.27.1@sha256:df71eab1466c67b84e46fa9cd2d84738372377971d44dbb8699ab4483278c839
 
 securityContext:
   container:
