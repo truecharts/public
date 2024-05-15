@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2.8.4
+appVersion: 2.8.5
 dependencies:
   - name: common
     version: 23.0.0
@@ -32,7 +32,7 @@ keywords:
   - paperless-ngx
   - documents
   - paper
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -44,4 +44,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/paperless-ngx
   - https://ghcr.io/paperless-ngx/paperless-ngx
 type: application
-version: 8.2.5
+version: 8.2.6
