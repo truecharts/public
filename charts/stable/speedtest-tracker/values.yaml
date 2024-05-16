@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/linuxserver/speedtest-tracker
   pullPolicy: IfNotPresent
-  tag: 0.19.0@sha256:775dacf25fdeba65482adc2443cc289104b7c52c70931425131c6955d8ae92f0
+  tag: 0.19.0@sha256:0eacf4b3d7fe55079a46320f9c8b9ca6b3b8f625adff4c67058d84fc0ea4286f
 service:
   main:
     ports:
@@ -93,3 +93,5 @@ workload:
                 expandObjectName: false
                 name: '{{ printf "%s-%s" .Release.Name "rediscreds" }}'
                 key: url
+            PUBLIC_DASHBOARD: true
+            APP_NAME: "Speedtest Tracker"
