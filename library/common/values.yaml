@@ -485,12 +485,12 @@ gluetunImage:
 
 netshootImage:
   repository: tccr.io/tccr/netshoot
-  tag: v0.12.0@sha256:5eaa1962bc601b104c8b66ecc5ab11f986f72110caa7faeacb4a47d10526bf21
+  tag: v0.13.0@sha256:d1e6942d828ce14180e5de6136caa9ba2d89fcd25bfe3d3aaf9851ec73366879
   pullPolicy: IfNotPresent
 
 tailscaleImage:
   repository: tccr.io/tccr/tailscale
-  tag: v1.64.2@sha256:027a0aebed4ed793c380f9c13bf51fb6d334b313e190a9097145cda746c933ed
+  tag: v1.66.3@sha256:61b280733c16b82f1fc8efd4d34b37d2b06d96d3dcf0390da5a01f1be0d410d7
   pullPolicy: IfNotPresent
 
 codeserverImage:
@@ -505,12 +505,12 @@ alpineImage:
 
 scratchImage:
   repository: tccr.io/tccr/scratch
-  tag: latest@sha256:ef27d569e535092ec48e3c86502b31e482f392508964d6068b5558a75d43287e
+  tag: latest@sha256:74240a76b50d7449fceb9bd3aca02a82fdd1167fa64bdb075e4618bfd4adf6d6
   pullPolicy: IfNotPresent
 
 kubectlImage:
   repository: tccr.io/tccr/kubectl
-  tag: latest@sha256:4dfdd46861eec733c17688631708d36172964540d64c57ca738b423962f8ee7f
+  tag: latest@sha256:2fbbf566c646dcdfa3bed96e9bf7f2668db48a9500d5237a8720b872327b003b
   pullPolicy: IfNotPresent
 
 wgetImage:
