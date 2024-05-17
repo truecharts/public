@@ -7,7 +7,7 @@ annotations:
   truecharts.org/min_helm_version: "3.11"
   truecharts.org/train: stable
 apiVersion: v2
-appVersion: 2024.5.3
+appVersion: 2024.5.4
 dependencies:
   - name: common
     version: 23.0.0
@@ -24,7 +24,7 @@ keywords:
   - home-assistant
   - home-automation
   - hass
-kubeVersion: ">=1.24.0-0"
+kubeVersion: '>=1.24.0-0'
 maintainers:
   - name: TrueCharts
     email: info@truecharts.org
@@ -36,4 +36,4 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/stable/home-assistant
   - https://hub.docker.com/r/homeassistant/home-assistant
 type: application
-version: 25.1.2
+version: 25.1.3
