@@ -153,6 +153,10 @@ jobs:
           echo "Maing sure directories exist..."
           mkdir -p website/public/img/hotlink-ok/chart-icons || echo "chart-icons path already exists, continuing..."
           mkdir -p website/public/img/hotlink-ok/chart-icons-small || echo "chart-icons-small path already exists, continuing..."
+          mkdir -p website/src/assets || echo "assets path already exists, continuing..."
+
+          ./charttool genchartlist ./charts
+          mv charts.json website/src/assets/charts.json
 
           export DEBUG=false
           export STRICT=true
