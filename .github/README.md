@@ -87,7 +87,7 @@ A lot of our work is based on the great effort of others. We would love to exten
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-251-orange.svg?style=for-the-badge)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-252-orange.svg?style=for-the-badge)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -421,6 +421,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/tannisroot"><img src="https://avatars.githubusercontent.com/u/10602045?v=4?s=100" width="100px;" alt="Aleksandr Oleinikov"/><br /><sub><b>Aleksandr Oleinikov</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=tannisroot" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/axelrtgs"><img src="https://avatars.githubusercontent.com/u/24723497?v=4?s=100" width="100px;" alt="Jamie"/><br /><sub><b>Jamie</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=axelrtgs" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://dgries.de"><img src="https://avatars.githubusercontent.com/u/105990982?v=4?s=100" width="100px;" alt="David Gries"/><br /><sub><b>David Gries</b></sub></a><br /><a href="https://github.com/truecharts/charts/issues?q=author%3Ajustsomescripts" title="Bug reports">🐛</a> <a href="https://github.com/truecharts/charts/commits?author=justsomescripts" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Phreeman33"><img src="https://avatars.githubusercontent.com/u/12772373?v=4?s=100" width="100px;" alt="Phreeman33"/><br /><sub><b>Phreeman33</b></sub></a><br /><a href="https://github.com/truecharts/charts/commits?author=Phreeman33" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
