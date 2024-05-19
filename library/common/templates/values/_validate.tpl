@@ -12,7 +12,14 @@
     {{/* Ideally we would want to extract the error only, but because it usually contains ":",
         It gets parsed as dict and it cant regex matched it afterwards */}}
 
-    {{- fail (printf "Chart - Values contain an error that may be a result of merging. Values containing the error: \n\n %v \n\n See error above values." $allValues) -}}
+    {{- fail (printf "%s \n %s \n\n %s \n %v \n %s \n\n %s"
+          "Chart - Values contain an error that may be a result of merging. Make sure you don't have any invalid YAML characters starting a value."
+          "Renderd Values containing the error:"
+          "============================================================================================="
+          $allValues
+          "============================================================================================="
+          "See error above values."
+    ) -}}
   {{- end -}}
 
 {{- end -}}
