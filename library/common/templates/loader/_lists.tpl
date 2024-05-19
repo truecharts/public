@@ -4,11 +4,11 @@
 
   {{- include "tc.v1.common.values.credentialsList" . -}}
 
-  {{- include "tc.v1.common.values.persistenceList" . -}}
-
   {{- include "tc.v1.common.values.volumeSnapshotList" . -}}
 
   {{- include "tc.v1.common.values.volumeSnapshotClassList" . -}}
+
+  {{- include "tc.v1.common.values.persistenceList" . -}}
 
   {{- include "tc.v1.common.values.deviceList" . -}}
 
