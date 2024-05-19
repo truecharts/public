@@ -8,6 +8,8 @@ securityContext:
     runAsNonRoot: false
     runAsUser: 0
     runAsGroup: 0
+    allowPrivilegeEscalation: true
+    privileged: true
 workload:
   main:
     podSpec:
