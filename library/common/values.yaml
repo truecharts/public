@@ -545,12 +545,12 @@ mongodbClientImage:
 
 postgres15Image:
   repository: ghcr.io/cloudnative-pg/postgresql
-  tag: "15.6"
+  tag: "15.7"
   pullPolicy: IfNotPresent
 
 postgres16Image:
   repository: ghcr.io/cloudnative-pg/postgresql
-  tag: "16.2"
+  tag: "16.3"
   pullPolicy: IfNotPresent
 
 postgresPostgis15Image:
@@ -565,12 +565,12 @@ postgresPostgis16Image:
 
 postgresVectors15Image:
   repository: ghcr.io/tensorchord/cloudnative-pgvecto.rs
-  tag: "15.6-v0.2.1"
+  tag: "15.7-v0.2.1"
   pullPolicy: IfNotPresent
 
 postgresVectors16Image:
   repository: ghcr.io/tensorchord/cloudnative-pgvecto.rs
-  tag: "16.2-v0.2.1"
+  tag: "16.3-v0.2.1"
   pullPolicy: IfNotPresent
 
 # -- OpenVPN specific configuration
